@@ -1,0 +1,276 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+plugins {
+    id 'org.springframework.boot' version '2.0.0.RELEASE'
+}
+
+subprojects {
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    //https://stackoverflow.com/questions/46420541/intellij-set-default-output-path-to-gradle-output
+    idea{
+        module{
+            inheritOutputDirs = true
+        }
+    }
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    repositories {
+        mavenCentral()
+    }
+    task wrapper(type: Wrapper) {
+        gradleVersion = '4.0'
+    }
+    dependencies {
+        //compile 'org.codehaus.groovy:groovy-all:2.4.6'
+        compile 'org.apache.logging.log4j:log4j-core:2.5'
+        testCompile 'junit:junit:4.12'
+    }
+    sourceSets {
+        build
+        main{
+            java {
+                srcDir 'src/main/java'
+            }
+            resources {
+                srcDir 'src/main/resources'
+            }
+        }
+        test {
+            java {
+                srcDir 'src/test/java'
+                srcDir 'src/build/java'
+            }
+            resources{
+                srcDir 'src/test/resource'
+                srcDir 'src/build/resources'
+            }
+
+        }
+    }
+
+}
+
+project(':test-resources') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/test-resource'
+    dependencies {
+        compile project (':elastic-objects')
+        compile 'junit:junit:4.12'
+    }
+}
+
+project(':elastic-objects') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/elastic-objects'
+    dependencies {
+        testCompile project(':test-resources')
+    }
+    jar {
+        baseName = 'elastic-objects'
+        version = '0.1.0'
+    }
+}
+
+project(':actions-csv') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/actions-csv'
+    dependencies {
+        compile project(':elastic-objects')
+        compile 'net.sf.opencsv:opencsv:2.0'
+        testCompile project(':test-resources')
+    }
+    jar {
+        baseName = 'actions-csv'
+        version = '0.1.1'
+    }
+}
+
+project(':actions-xlsx') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/actions-xlsx'
+    dependencies {
+        compile project(':elastic-objects')
+        compile 'org.apache.poi:poi:3.15'
+        compile 'org.apache.poi:poi-ooxml:3.15'
+        testCompile project(':test-resources')
+    }
+    jar {
+        baseName = 'actions-xlsx'
+        version = '0.1.0'
+    }
+}
+project(':actions-db') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/actions-db'
+    dependencies {
+        compile project(':elastic-objects')
+        compile 'org.apache.tomcat:tomcat-jdbc:8.5.0'
+
+        testCompile project(':test-resources')
+        testCompile 'org.hsqldb:hsqldb:2.3.2'
+        testCompile 'mysql:mysql-connector-java:5.1.31'
+        testCompile 'com.h2database:h2:1.4.191'
+        testCompile 'org.apache.derby:derby:10.12.1.1'
+    }
+    jar {
+        baseName = 'actions-db'
+        version = '0.1.0'
+    }
+}
+
+project(':actions-db-hibernate') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/actions-db-hibernate'
+    dependencies {
+        compile project(':actions-db')
+        compile 'org.hibernate:hibernate-core:5.1.0.Final'
+
+        testCompile project(':test-resources')
+        testCompile 'org.hsqldb:hsqldb:2.3.2'
+        testCompile 'mysql:mysql-connector-java:5.1.31'
+        testCompile 'com.h2database:h2:1.4.191'
+        testCompile 'org.apache.derby:derby:10.12.1.1'
+    }
+    jar {
+        baseName = 'actions-db-hibernate'
+        version = '0.1.0'
+    }
+}
+
+project(':builder') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/builder-eo'
+    dependencies {
+        compile 'com.lexicalscope.jewelcli:jewelcli:0.8.3'
+        compile project (':actions-xlsx')
+        testCompile project(':test-resources')
+    }
+    jar {
+        baseName = 'builder-eo'
+        version =  '0.1.0'
+    }
+}
+
+project(':builder-eo') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/builder-eo'
+    dependencies {
+        compile project (':builder')
+        compile project (':actions-csv')
+        compile project (':actions-db')
+        compile project (':actions-db-hibernate')
+        testCompile project(':test-resources')
+    }
+    jar {
+        baseName = 'builder-eo'
+        version =  '0.1.0'
+    }
+}
+
+
+project(':builder-projects') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/builder-projects'
+    dependencies {
+        compile project(':project-model')
+        compile project(':builder')
+        testCompile project(':test-resources')
+    }
+}
+
+project(':builder-sandboxes') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/build-sandboxes'
+    dependencies {
+        compile project(':actions-xlsx')
+        compile 'com.lexicalscope.jewelcli:jewelcli:0.8.3'
+        testCompile project(':test-resources')
+    }
+}
+
+project(':project-misc') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/project-misc'
+    dependencies {
+        compile 'org.jdice:jcalc:0.4b'
+        compile project(':elastic-objects')
+        testCompile project(':test-resources')
+    }
+}
+
+project(':project-model') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/project-model'
+    dependencies {
+        compile project(':actions-db')
+
+        testCompile project(':test-resources')
+        testCompile 'com.h2database:h2:1.4.191'
+    }
+}
+
+project(':project-web') {
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/project-web'
+    dependencies {
+        compile project(':actions-db')
+        compile project(':project-model')
+        compile 'javax.servlet:javax.servlet-api:3.1.0'
+        testCompile project(':test-resources')
+    }
+    jar {
+        baseName = 'web-service'
+        version = '0.1.0'
+    }
+}
+
+project(':project-elasticobjects') {
+    repositories {
+        mavenCentral()
+    }
+    //apply plugin: 'org.springframework.boot'
+    //apply plugin: 'spring-boot'
+    
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/project-elasticobject'
+    dependencies {
+        compile("org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE") {
+            //exclude module: "spring-boot-starter-tomcat"
+        }
+        //compile("org.springframework.boot:spring-boot-starter-jetty")
+        compile ('org.springframework.boot:spring-boot-starter-actuator:1.3.5.RELEASE')
+        compile project(':project-model')
+        testCompile project(':test-resources')
+
+    }
+    jar {
+        baseName = 'project-elasticobjects'
+        version = '0.1.0'
+    }
+}
+
+project(':project-springboot') {
+    repositories {
+        mavenCentral()
+    }
+    //apply plugin: 'org.springframework.boot'
+
+    buildDir = System.getProperty("user.home") + '/build/elasticobjects/project-springboot'
+    dependencies {
+        compile project(':project-model')
+        compile project(':elastic-objects')
+        compile("org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE") {
+            //exclude module: "spring-boot-starter-tomcat"
+        }
+        //compile("org.springframework.boot:spring-boot-starter-jetty")
+        compile ('org.springframework.boot:spring-boot-starter-actuator:1.3.5.RELEASE')
+        compile ('org.springframework.boot:spring-boot-starter-data-rest')
+        compile ('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile ('com.h2database:h2')
+
+        testCompile project(':test-resources')
+
+    }
+    jar {
+        baseName = 'project-springboot'
+        version = '0.1.0'
+    }
+}
+
+
+
+
+

@@ -1,0 +1,34 @@
+[
+	"test",
+	"(Integer)1",
+	"(Long)2",
+	"(Float)1.1",
+	"(Double)2.2",
+	"(Date)1465280215000",
+	"(Boolean)true",
+	
+	[
+		"test",
+		"(Integer)1"
+	],
+	
+	{
+		"testString":"test",
+		"testInt":"(Integer)1"
+	},
+	
+	{
+		"testInt":"(Integer)1",
+		"testString":"test",
+		"testLong":"(Long)2",
+		"testDate":"(Date)1465280215000",
+		"testBoolean":"(Boolean)true",
+		"testFloat":"(Float)1.1",
+		"testDouble":"(Double)2.2"
+	},
+	
+	{
+		"name":"testOther",
+		"testString":"test"
+	}
+]

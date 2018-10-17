@@ -1,0 +1,23 @@
+{
+"_data":
+	{
+		"(ArrayList)subTestList":
+		{
+			"(SubTest)0":
+			{
+				"name":"testOther",
+				"testString":"test"
+			},
+			"(SubTest)1":
+			{
+				"name":"testOther",
+				"testString":"test"
+			},
+			"(SubTest)2":
+			{
+				"name":"testOther",
+				"testString":"test"
+			}
+		}
+	}
+}

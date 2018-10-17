@@ -1,0 +1,377 @@
+package org.fluentcodes.projects.elasticobjects.config;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.eo.Models;
+import org.fluentcodes.projects.elasticobjects.executor.statics.ValuesMisc;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * Created by Werner on 09.10.2016.
+ */
+public class ModelConfigObject extends ModelConfig implements ModelInterface {
+    private static final Logger LOG = LogManager.getLogger(ModelConfigObject.class);
+    private final Map<String, Method> getterMap;
+    private final Map<String, Method> setterMap;
+
+    public ModelConfigObject(EOConfigsCache provider, Builder bean) {
+        super(provider, bean);
+        this.getterMap = new LinkedHashMap<>();
+        this.setterMap = new LinkedHashMap<>();
+    }
+
+    public ModelInterface getFieldModel(final String fieldName) throws Exception {
+        return getField(fieldName).getModelConfig();
+    }
+
+    public Models getFieldModels(final String fieldName) throws Exception {
+        return getField(fieldName).getModels();
+    }
+
+    public ModelInterface getFieldChild(final String fieldName) throws Exception {
+        return getField(fieldName).getChildModel();
+    }
+
+    @Override
+    public Class getFieldClass(final String fieldName) throws Exception {
+        return getField(fieldName).getModelClass();
+    }
+
+    @Override
+    public Set<String> keys(final Object object) throws Exception {
+        resolve();
+        return this.getFieldCacheMap().keySet();
+    }
+
+    @Override
+    public int size(final Object object) throws Exception {
+        resolve();
+        int counter = 0;
+        for (String key : this.getFieldKeys()) {
+            if (get(key, object) == null) {
+                continue;
+            }
+            counter++;
+        }
+        return counter;
+    }
+
+    public List<Object> keysAsIs(Object object) throws Exception {
+        resolve();
+        return (List) this.getFieldKeys();
+    }
+
+    public boolean hasSetter(final String fieldName) {
+        return setterMap.get(fieldName) != null;
+    }
+
+    @Override
+    public void set(final String fieldName, final Object object, final Object value) throws Exception {
+        resolve();
+        if (fieldName == null) {
+            throw new Exception("Setter: null key request for " + this.getModelKey() + "! ");
+        }
+        final Method setter = setterMap.get(fieldName);
+        if (setter == null) {
+            throw new Exception("No setter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+        }
+        Object usedValue = value;
+        if (getFieldModel(fieldName).isScalar()) {
+            try {
+                usedValue = ScalarConverter.transformScalar(getFieldModel(fieldName).getModelClass(), value);
+            } catch (Exception e) {
+                throw new Exception("Problem transforming field '" + fieldName + "' with value " + value.toString() + " " + value.getClass().getSimpleName() + ": " + e.getMessage());
+            }
+        }
+        try {
+            setter.invoke(object, usedValue);
+        } catch (Exception e) {
+            throw new Exception("Problem setting field '" + fieldName + "' with value " + value.toString() + " " + value.getClass().getSimpleName() + ": " + e.getMessage());
+        }
+    }
+
+    @Override
+    public Object getAsIs(final Object fieldNameAsObject, final Object object) throws Exception {
+        resolve();
+        String fieldName = ScalarConverter.toString(fieldNameAsObject);
+        final Method getter = getterMap.get(fieldName);
+        if (getter == null) {
+            throw new Exception("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+        }
+        return getter.invoke(object, null);
+    }
+
+    public boolean hasGetter(final String fieldName) {
+        return getterMap.get(fieldName) != null;
+    }
+
+    @Override
+    public Object get(final String fieldName, final Object object) throws Exception {
+        resolve();
+        if (fieldName == null) {
+            throw new Exception("Getter: null key request for " + this.getModelKey() + "! ");
+        }
+        final Method getter = getterMap.get(fieldName);
+        if (getter == null) {
+            throw new Exception("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+        }
+        try {
+            return getter.invoke(object, null);
+        } catch (Exception e) {
+            // NullPointerException thrown when null value is add in the Object. Will be ignored.
+            if (e.getCause() == null || !e.getCause().toString().equals("java.lang.NullPointerException")) {
+                LOG.warn("Could not find value for " + fieldName + ": " + e.getClass() + " - " + e.getCause());
+                throw e;
+            }
+            return null;
+        }
+
+    }
+
+    @Override
+    public boolean exists(final String fieldName, final Object object) throws Exception {
+        resolve();
+        if (fieldName == null) {
+            return false;
+        }
+        return getterMap.get(fieldName) != null;
+    }
+
+    @Override
+    public boolean hasKey(final String fieldName) {
+        try {
+            resolve();
+        } catch (Exception e) {
+            LOG.error("Problem resolving with fieldName '" + fieldName + "' in '" + getModelKey() + "'.", e);
+        }
+        if (fieldName == null) {
+            return false;
+        }
+        boolean hasKey = getterMap.get(fieldName) != null;
+        if (!hasKey) {
+            LOG.warn("  Problem with fieldName '" + fieldName + "' in '" + getModelKey() + "'.");
+        }
+        return hasKey;
+    }
+
+    @Override
+    public void remove(final String fieldName, final Object object) throws Exception {
+        resolve();
+        if (get(fieldName, object) == null) {
+            throw new Exception("Object value for " + fieldName + " is already null.");
+        }
+        set(fieldName, object, null);
+    }
+
+    @Override
+    public Object create() throws Exception {
+        resolve();
+        if (getShapeType() == ShapeTypes.CONFIG) {
+            return null;
+        }
+        if (getDefaultImplementation() == null || getDefaultImplementation().isEmpty()) {
+            try {
+                return getModelClass().getConstructor(EOConfigsCache.class).newInstance(getConfigsCache());
+            } catch (Exception e) {
+                //LOG.warn("Problem with creating " + getModelClass().getName() + e.getMessage());
+                return getModelClass().newInstance();
+            }
+        } else {
+            ModelInterface implementation = getConfigsCache().findModel(getDefaultImplementation());
+            try {
+                return implementation.getModelClass().getConstructor(EOConfigs.class).newInstance(getConfigsCache());
+            } catch (Exception e) {
+                return implementation.getModelClass().newInstance();
+            }
+        }
+    }
+
+    @Override
+    public void resolve() throws Exception {
+        if (isResolved()) {
+            return;
+        }
+        super.resolve();
+        if (getFieldKeys() == null) {
+            return;
+        }
+        for (String fieldKey : getFieldKeys()) {
+            ModelInterface type;
+            String fieldName;
+            try {
+                FieldConfig fieldCache = getConfigsCache().findField(fieldKey);
+                fieldName = fieldCache.getFieldKey();
+                if (fieldName == null) {
+                    //throw new Exception("Null fieldName?! " + fieldName);
+                    continue;
+                }
+                getFieldCacheMap().put(fieldName, fieldCache);
+                type = fieldCache.getModelConfig();
+                if (type == null) {
+                    //throw new Exception("Problem getting model of field " + fieldName);
+                    continue;
+                }
+                if ("java.lang".equals(type.getPackagePath())) {
+
+                } else if (this.getPackagePath().equals(type.getPackagePath())) {
+
+                } else {
+                    if (getImportClasses(type.getModelKey()) == null) {
+                        getImportClasses().put(type.getModelKey(), fieldCache.getModelConfig());
+                    }
+                }
+            } catch (Exception e) {
+                throw new Exception("Problem resolving field with name '" + fieldKey + "' defined within model '" + getModelKey() + "': Probably no field definition is provided.", e);
+            }
+
+            // If scope is for creating a bean from template, the class will be created by this.
+            if (getConfigsCache().getScope() == Scope.CREATE) {
+                continue;
+            }
+            if (ShapeTypes.INTERFACE == this.getShapeType()) {  // no getter/setter
+                continue;
+            }
+
+            Class typeClass = type.getModelClass();
+            String baseName = ValuesMisc.upperFirstChar(fieldName);
+            try {
+                Method setterField = findSetMethod(getModelClass(), ValuesMisc.setter(fieldName), typeClass);
+                setterMap.put(fieldName, setterField);
+            } catch (Exception e) {
+                try {
+                    Method setterField = findSetMethod(getModelClass(), ValuesMisc.setter(fieldName), Object.class);
+                    setterMap.put(fieldName, setterField);
+                } catch (Exception e1) {
+                    LOG.debug("Could not resolve getter for add " + baseName + ": " + e1.getMessage());
+                }
+            }
+
+            try {
+                Method getterField;
+                if (typeClass.equals(Boolean.class)) {
+                    getterField = findGetMethod(getModelClass(), "is" + baseName);
+                } else {
+                    getterField = findGetMethod(getModelClass(), ValuesMisc.getter(fieldName));
+                }
+                getterMap.put(fieldName, getterField);
+            } catch (Exception e) {
+                LOG.debug("Could not resolve getter for find" + baseName + ": " + e.getMessage());
+            }
+        }
+    }
+
+    protected static Method findSetter(Field field) {
+        Class fieldType = field.getType();
+        Class modelClass = field.getDeclaringClass();
+        try {
+            final String setterName = ValuesMisc.setter(field.getName());
+            return modelClass.getMethod(setterName, fieldType);
+        } catch (Exception e) {
+            try {
+                final String setterName = ValuesMisc.setter(field.getName());
+                return modelClass.getMethod(setterName, Object.class);
+            } catch (Exception e1) {
+                LOG.debug("Could not resolve getter for add " + field.getName() + ": " + e1.getMessage());
+            }
+        }
+        return null;
+    }
+
+    protected static Method findGetter(Field field) {
+        Class fieldType = field.getType();
+        Class modelClass = field.getDeclaringClass();
+        try {
+            final String methodName = ValuesMisc.getter(field.getName());
+            return modelClass.getMethod(methodName);
+        } catch (Exception e) {
+            LOG.debug("Could not resolve getter for add " + field.getName() + ": " + e.getMessage());
+        }
+        return null;
+    }
+
+    private Method findSetMethod(final Class myClass, final String methodString, final Class typeClass) throws Exception {
+        if (myClass == Object.class) {
+            if (typeClass != null) {
+                throw new Exception("Reached Object root class: Could not find " + methodString + " for " + typeClass.getSimpleName() + ".");
+            }
+            throw new Exception("Reached Object root class: Could not find " + methodString + ".");
+        }
+        try {
+            Method method = myClass.getMethod(methodString, typeClass);
+            return method;
+        } catch (Exception e) {
+            return findSetMethod(myClass.getSuperclass(), methodString, typeClass);
+        }
+    }
+
+    private Method findGetMethod(final Class myClass, final String methodString) throws Exception {
+        if (myClass == Object.class) {
+            throw new Exception("Reached Object root class: Could not find getter " + methodString + ".");
+        }
+        try {
+            Method method = myClass.getMethod(methodString);
+            return method;
+        } catch (Exception e) {
+            return findGetMethod(myClass.getSuperclass(), methodString);
+        }
+    }
+
+
+    public boolean equals(ModelConfigObject modelCache) {
+        if (getModelKey() == null) {
+            return false;
+        }
+        if (modelCache == null) {
+            return false;
+        }
+        return getModelKey().equals(modelCache.getModelKey());
+    }
+
+    public boolean hasModel() {
+        return true;
+    }
+
+    public boolean isScalar() {
+        return false;
+    }
+
+    public boolean isEnum() {
+        return false;
+    }
+
+    public boolean isMap() {
+        return false;
+    }
+
+    public boolean isSet() {
+        return false;
+    }
+
+    public boolean isList() {
+        return false;
+    }
+
+    public boolean isListType() {
+        return false;
+    }
+    public boolean isMapType() {
+        return true;
+    }
+
+    public boolean isObject() {
+        return true;
+    }
+
+    public boolean isNull() {
+        return false;
+    }
+
+
+}

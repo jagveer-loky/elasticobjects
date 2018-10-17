@@ -1,0 +1,5 @@
+Read config models:
+
+Insert with loopPath="Model/*" and embeded if="modelKey eq Map":
+
+Map - Map( MAP)

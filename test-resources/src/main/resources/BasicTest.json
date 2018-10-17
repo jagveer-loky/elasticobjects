@@ -1,0 +1,46 @@
+{
+	"key0":	{
+		"testInt":1.0,
+		"testLong":2.0,
+		"testDate":"2016-11-15T00:00:00",
+		"testString":"test",
+		"testBoolean":true,
+		"testFloat":1.1,
+		"testDouble":2.1
+	},
+	"keyObject":	{
+		"basicTest":		{
+			"testString":"subtest name"
+		},
+		"testString":""
+	},
+	"key1":	{
+		"testString":"test1",
+		"testInt":1,
+		"testLong":1,
+		"testFloat":1.1,
+		"testDouble":1.1
+	},
+	"key2":	{
+		"testString":"test2",
+		"testInt":2,
+		"testLong":2,
+		"testFloat":2.1,
+		"testDouble":2.1
+	}
+,
+	"key3":	{
+		"testString":"test3",
+		"testInt":3,
+		"testLong":3,
+		"testFloat":3.1,
+		"testDouble":3.1
+	},
+	"key4":	{
+		"testString":"test4",
+		"testInt":4,
+		"testLong":4,
+		"testFloat":4.1,
+		"testDouble":4.1
+	}
+}

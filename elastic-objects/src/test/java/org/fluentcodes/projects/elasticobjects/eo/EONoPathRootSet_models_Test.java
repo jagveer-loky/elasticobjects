@@ -1,0 +1,55 @@
+package org.fluentcodes.projects.elasticobjects.eo;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.LinkedHashMap;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+
+/**
+ * With no value set will be ignored when path is null...
+ * Log message when scalar model.
+ */
+public class EONoPathRootSet_models_Test extends TestHelper {
+    private static final Logger LOG = LogManager.getLogger(EONoPathRootSet_models_Test.class);
+
+    @Test
+    public void givenString_withInteger_fails() throws Exception {
+        TestHelper.printStartMethod();
+        final EO eoString = TestObjectProvider.createEO(String.class);
+        EOTest.setEO_fails(eoString, Integer.class);
+    }
+
+    @Test
+    public void givenMapString_WithInteger_fails() throws Exception {
+        final EO eoString = MapProviderEODev.createString();
+        EOTest.setEO_fails(eoString, Integer.class);
+  }
+
+    @Test
+    public void givenMapString_withHashMap_fails() throws Exception {
+        final EO eoString = MapProviderEODev.createString();
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get(F_TEST_STRING));
+        EOTest.setEO_fails(eoString, LinkedHashMap.class);
+     }
+
+    @Test
+    public void givenBTString_withMap_fails() throws Exception {
+        final EO eoBTString = BTProviderEO.createString();
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoBTString.getRoot().get(F_TEST_STRING));
+        EOTest.setEO_fails(eoBTString.getRoot(), LinkedHashMap.class);
+    }
+
+    @Test
+    public void givenBTString_withInteger_fails() throws Exception {
+        final EO eoString = BTProviderEO.createString();
+        EOTest.setEO_fails(eoString, Integer.class);
+        TestObjectProvider.checkLogNotEmpty(eoString);
+    }
+}
+

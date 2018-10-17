@@ -1,0 +1,27 @@
+[
+  {
+    "creationDate": 987654321,
+    "rolePermissions": {
+      "read": "read"
+    },
+    "description": "This test just sets all possible values with serialization and deserialization.",
+    "naturalId": "naturalId",
+    "origin": "origin",
+    "scope": [
+      "TEST"
+    ],
+    "expanded": true,
+    "id": 1,
+    "fileKey": "fileKey",
+    "fileName": "fileName",
+    "path": "path",
+    "mapPath": "mapPath",
+    "modelKey": "Map",
+    "hostKey": "hostKey",
+    "hostName": "hostName",
+    "password": "password",
+    "port": 11,
+    "protocol": "protocol",
+    "user": "user"
+  }
+]

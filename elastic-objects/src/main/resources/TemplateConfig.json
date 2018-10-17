@@ -1,0 +1,11 @@
+{
+	"content":
+	{
+		"module":"elastic-objects",
+		"subModule":"main",
+		"naturalId":"content",
+		"templateKey":"content",
+		"fileName":"content.tpl",
+		"filePath":"classpath/templates"
+	}
+}

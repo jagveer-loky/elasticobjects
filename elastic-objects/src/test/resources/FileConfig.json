@@ -1,0 +1,142 @@
+{
+	"classpath_source.txt":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"classpath_source.txt",
+		"fileKey":"classpath_source.txt",
+		"fileName":"source.txt",
+		"description":"Local 'source.txt' definition with classpath.",
+		"filePath":"classpath"
+	},
+	"localhost:source.txt":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"localhost:source.txt",
+		"fileKey":"localhost:source.txt",
+		"fileName":"source.txt",
+		"description":"Local 'source.txt' definition with classpath."
+	},
+	"source.json":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"source.json",
+		"fileKey":"source.json",
+		"fileName":"source.json",
+		"description":"A sample json file with 2*2 values and a head as a source.",
+		"filePath":"classpath"
+	},
+	"source.txt":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"source.txt",
+		"fileKey":"source.txt",
+		"fileName":"source.txt",
+		"description":"Local 'source.txt' definition.",
+		"cached":"false"
+	},
+	"sourceCached.txt":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"sourceCached.txt",
+		"fileKey":"sourceCached.txt",
+		"fileName":"source.txt",
+		"description":"Local 'source.txt' definition.",
+		"cached":"true"
+	},
+	"target.json":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"target.json",
+		"fileKey":"target.json",
+		"fileName":"target.json",
+		"description":"A sample target json file with tmp placeholder.",
+		"filePath":"$[TMP]/elastic-objects"
+	},
+	"target.txt":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"target.txt",
+		"fileKey":"target.txt",
+		"fileName":"target.txt",
+		"description":"Target file definition",
+		"filePath":"$[TMP]/elastic-objects"
+	},
+	"test_source.txt":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"test_source.txt",
+		"fileKey":"test_source.txt",
+		"fileName":"source.txt",
+		"description":"source.txt on a path",
+		"filePath":"classpath/test"
+	},
+	"test:test":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"test:test",
+		"fileKey":"test:test",
+		"fileName":"fileName",
+		"description":"description",
+		"filePath":"path",
+		"rolePermissions":
+		{
+			"read":"anonym",
+			"write":"guest",
+			"create":"testRoleCreate,adminRole",
+			"delete":"adminRole",
+			"execute":"superadminRole"
+		}
+	},
+	"result.string":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"result.string",
+		"fileKey":"result.string",
+		"fileName":"result.string",
+		"description":"Saving content",
+		"filePath":"src/test/resources/output/persistedobjects"
+	},
+
+	"resultWithMapPath.string":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"resultWithMapPath.string",
+		"fileKey":"resultWithMapPath.string",
+		"mapPath":"content",
+		"fileName":"resultWithMapPath.string",
+		"description":"Saving content this is true",
+		"filePath":"src/test/resources/output/persistedobjects"
+	},
+	"source.csv":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"source.csv",
+		"fileKey":"source.csv",
+		"fileName":"source.csv",
+		"description":"A sample csv file with 2*2 values and a head as a source.",
+		"filePath":"classpath"
+	},
+	"target.csv":
+	{
+		"module":"elastic-objects",
+		"subModule":"test",
+		"naturalId":"target.csv",
+		"fileKey":"target.csv",
+		"fileName":"target.csv",
+		"description":"A sample target csv file with tmp placeholder.",
+		"filePath":"$[TMP]/elastic-objects"
+	}
+
+}

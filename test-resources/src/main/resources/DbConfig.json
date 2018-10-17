@@ -1,0 +1,34 @@
+{
+	"h2:mem:basic":
+	{
+		"dbKey":"h2:mem:basic",
+		"schema":"mem:basic",
+		"driver":"org.h2.Driver",
+		"dbType":"H2",
+		"extension":"DATABASE_TO_UPPER=false;",
+		"hostKey":"h2",
+		"rolePermissions":
+		{
+		},
+		"module":"test-resources",
+		"subModule":"main",
+		"description":"Local H2 in memory for the test resources.",
+		"naturalId":"h2:mem:basic"
+	},
+	"h2:file:basic":
+	{
+		"dbKey":"h2:file:basic",
+		"schema":"file:basic",
+		"driver":"org.h2.Driver",
+		"dbType":"H2",
+		"extension":"DATABASE_TO_UPPER=false;",
+		"hostKey":"h2",
+		"rolePermissions":
+		{
+		},
+		"module":"test-resources",
+		"subModule":"main",
+		"description":"Local H2 in file persisted for the test resources.",
+		"naturalId":"h2:file:basic"
+	}
+}

@@ -1,0 +1,10 @@
+{
+"_data":
+	{
+		"(BasicTest)level0":
+		{
+			"testInt":1,
+			"testString":"test"
+		}
+	}
+}

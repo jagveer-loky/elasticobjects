@@ -1,0 +1,21 @@
+rootProject.name = "elasticobjects"
+include 'test-resources'
+include 'elastic-objects'
+
+include 'actions-csv'
+include 'actions-db'
+include 'actions-db-hibernate'
+include 'actions-xlsx'
+
+include 'builder'
+include 'builder-eo'
+include 'builder-sandboxes'
+include 'builder-projects'
+
+include 'project-misc'
+include 'project-model'
+include 'project-web'
+include 'project-elasticobjects'
+include 'project-springboot'
+include 'projects-misc'
+

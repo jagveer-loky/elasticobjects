@@ -1,0 +1,10 @@
+{
+"(List)_data":
+	{
+		"0":
+		{
+			"testString":"test",
+			"(Integer)testInt":1
+		}
+	}
+}

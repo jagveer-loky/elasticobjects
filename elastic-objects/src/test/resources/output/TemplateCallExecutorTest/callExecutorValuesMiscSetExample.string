@@ -1,0 +1,3 @@
+This sets a value in the adapter and insert the value in the template result.
+
+filterKey='value'

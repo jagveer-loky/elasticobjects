@@ -1,0 +1,9 @@
+{
+	"testString":"test",
+	"testInt":1,
+	"testLong":2,
+	"testFloat":1.1,
+	"testDouble":2.2,
+	"testDate":1465280215000,
+	"testBoolean":true
+}

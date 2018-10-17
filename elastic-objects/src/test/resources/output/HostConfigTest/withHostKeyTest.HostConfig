@@ -1,0 +1,27 @@
+{
+"(HostConfig)_data":
+	{
+		"hostKey":"hostKey",
+		"port":1,
+		"protocol":"protocol",
+		"hostName":"hostName",
+		"user":"user",
+		"password":"password",
+		"rolePermissions":
+		{
+			"read":"testRoleRead,guest",
+			"write":"testRoleWrite,adminRole",
+			"create":"testRoleCreate,adminRole",
+			"delete":"adminRole",
+			"execute":"superadminRole"
+		},
+		"module":"elastic-objects",
+		"subModule":"test",
+		"scope":
+		{
+		},
+		"key":"hostKey",
+		"description":"description",
+		"naturalId":"test"
+	}
+}

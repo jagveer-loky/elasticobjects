@@ -1,0 +1,10 @@
+{
+"_data":
+	{
+		"(SubTest)subTest":
+		{
+			"name":"testOther",
+			"testString":"test"
+		}
+	}
+}

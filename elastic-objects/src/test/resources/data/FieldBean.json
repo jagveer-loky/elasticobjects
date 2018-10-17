@@ -1,0 +1,27 @@
+[
+  {
+    "fieldKey": "fieldKey",
+    "fieldName": "fieldName",
+    "fieldAlias": "fieldAlias",
+    "modelKeys": "String",
+    "hibernate": "hibernate",
+    "table": "table",
+    "join": "join",
+    "joinInverse": "joinInverse",
+    "unique": true,
+    "notNull": true,
+    "length": 5,
+    "module": "module",
+    "subModule": "subModule",
+    "pathPatternString": "pathPatternString",
+    "scope": [
+      "TEST"
+    ],
+    "expanded": true,
+    "origin": "origin",
+    "id": 1,
+    "description": "description",
+    "naturalId": "naturalId",
+    "creationDate": 2
+  }
+]
