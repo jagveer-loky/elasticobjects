@@ -6,7 +6,13 @@ buildscript {
 }
 plugins {
     id 'org.springframework.boot' version '2.0.0.RELEASE'
+    id 'java-library'
+    id 'signing'
+    id 'maven-publish'
 }
+
+group = 'org.fluentcodes.projects.elasticobjects'
+version = '0.1.0'
 
 subprojects {
     apply plugin: 'io.spring.dependency-management'
@@ -51,10 +57,8 @@ subprojects {
                 srcDir 'src/test/resource'
                 srcDir 'src/build/resources'
             }
-
         }
     }
-
 }
 
 project(':test-resources') {
@@ -73,6 +77,35 @@ project(':elastic-objects') {
     jar {
         baseName = 'elastic-objects'
         version = '0.1.0'
+    }
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                pom {
+                    name = 'ElasticObjects'
+                    description = 'A object wrapper for storing, transforming and accessing complex objects'
+                    url = 'http://www.elasticobjects.com'
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'wdi'
+                            name = 'Werner Diwischek'
+                            email = 'fluentcodes@gmail.com'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git://github.com/fluentcodes/elasticobjects.git'
+                        developerConnection = 'scm:git:ssh://github.com/fluentcodes/elasticobjects.git'
+                        url = 'https://github.com/fluentcodes/elasticobjects/'
+                    }
+                }
+            }
+        }
     }
 }
 

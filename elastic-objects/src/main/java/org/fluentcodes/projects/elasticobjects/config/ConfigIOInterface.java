@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.util.List;
 
 /**

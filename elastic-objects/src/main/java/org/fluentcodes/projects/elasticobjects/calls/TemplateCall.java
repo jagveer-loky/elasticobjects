@@ -34,6 +34,10 @@ public class TemplateCall extends CallIO {
         super(provider, key);
     }
 
+    public TemplateCall(EOConfigsCache provider) throws Exception {
+        super(provider);
+    }
+
     /**
      * Remove list for attributes with a control character in the template context.
      *
@@ -164,7 +168,10 @@ public class TemplateCall extends CallIO {
         }
         StringBuilder result = new StringBuilder();
         List<String> pathList = ExecutorImpl.getPathList(loopPath, adapter, mergeAttributes(externalAttributes));
-        boolean isDynamic = getTemplateConfig().getTemplateKey().contains("$[");
+        boolean isDynamic = false;
+        if (getTemplateConfig()!=null) {
+            isDynamic = getTemplateConfig().getTemplateKey().contains("$[");
+        }
         if (keepKey != null && !hasContent()) {
             result.append(keepStart);
         }

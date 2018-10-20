@@ -18,11 +18,11 @@ public class TemplateCallContentTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(TemplateCallContentTest.class);
     private static final String H1 = "<h1>";
     private static final String H2 = "<h2>";
+
     @Test
     public void callContentExample() throws Exception {
-        TestHelper.printStartMethod();
-        TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE);
-        String result = action.execute(TestObjectProvider.createEO());
+        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE);
+        final String result = action.execute(TestObjectProvider.createEO());
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H2));
         AssertEO.compare(result);
     }
@@ -30,7 +30,6 @@ public class TemplateCallContentTest extends TestHelper {
 
     @Test
     public void callContentExampleWithStaticTemplate() throws Exception {
-        TestHelper.printStartMethod();
         final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE_WITH_STATIC_TEMPLATE);
         final EO adapter = TestObjectProvider.createEO();
         final String result = action.execute(adapter);
@@ -49,8 +48,7 @@ public class TemplateCallContentTest extends TestHelper {
 
     @Test
     public void callContentExampleWithDynamicTemplateKey() throws Exception {
-        TestHelper.printStartMethod();
-        TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE);
+        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE);
         final EO adapter = TestObjectProvider.createEO();
         final String result = action.execute(adapter);
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H1));
