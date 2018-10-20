@@ -65,6 +65,13 @@ public class Call {
         this.removeAttributes = new HashSet();
     }
 
+    public Call(EOConfigsCache configsCache) throws Exception {
+        this.config = null;
+        this.attributes = new HashMap();
+        this.globalAttributes = new HashMap();
+        this.removeAttributes = new HashSet();
+    }
+
     public Call() {
         config = null;
     }
@@ -91,6 +98,9 @@ public class Call {
     }
 
     protected void mergeConfig() {
+        if (config == null) {
+            return;
+        }
         setPath(config.getPath());
         setMapPath(config.getMapPath());
     }
@@ -330,10 +340,14 @@ public class Call {
 
     @Override
     public String toString() {
-        StringBuilder serialized = new StringBuilder();
         if (this == null) {
             return "null";
         }
+        if (getConfig()== null) {
+            return "direct";
+        }
+        StringBuilder serialized = new StringBuilder();
+
         try {
             serialized.append("{\n\"attributes\":");
             serialized.append(attributes.toString());

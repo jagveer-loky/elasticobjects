@@ -19,6 +19,11 @@ public class CallIO extends Call {
         }
     }
 
+    public CallIO(EOConfigsCache provider) throws Exception {
+        super(provider);
+        rolePermissions = new RolePermissions();
+    }
+
     public ConfigIO getAssetConfig() {
         return (ConfigIO) getConfig();
     }

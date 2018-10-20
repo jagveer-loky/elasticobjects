@@ -57,14 +57,6 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void modelsWithFilterSubModule() throws Exception {
-        final EO eoModels =  TestCallsProvider.createConfigCallEO( MODEL, F_FILTER_SUB_MODULE, TEST);
-        Assert.assertFalse(eoModels.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getChild(MODEL).size(), eoModels.getChild(MODEL).size()==1);
-        Assert.assertEquals(M_SIMPLE, eoModels.getChild(MODEL).get(toPath(M_SIMPLE,F_MODEL_KEY)));
-    }
-
-    @Test
     public void modelsWithFilterKeyMap() throws Exception {
         final EO eoModels =  TestCallsProvider.createConfigCallEO( MODEL, F_FILTER_KEY, ".*Map");
         Assert.assertFalse(eoModels.isEmpty());

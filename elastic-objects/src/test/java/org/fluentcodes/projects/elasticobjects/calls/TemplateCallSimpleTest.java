@@ -2,9 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
-import org.fluentcodes.projects.elasticobjects.test.MapProviderEO;
+import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.test.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,10 +12,28 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
- * Created by Werner on 22.03.2017.
+ * @author Werner Diwischek
+ * @since 22.03.2017.
  */
 public class TemplateCallSimpleTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(TemplateCallSimpleTest.class);
+
+    @Test
+    public void executeDirectContent() throws Exception {
+
+        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE);
+
+        final String template="key='$[key]'<call path=\"level0/level1\">level0/level1/key='$[key]'</call>";
+        action.setContent(template);
+
+        EO root = TestObjectProvider.createEO();
+        root.add("key").set("value");
+        root.add("level0/level1/key").set("value with path");
+        final String result = action.execute(root);
+
+        Assert.assertEquals(INFO_COMPARE_FAILS, "key='value'level0/level1/key='value with path'",result);
+        AssertEO.compare(result);
+    }
 
     @Test
     public void executeWithPath() throws Exception {
