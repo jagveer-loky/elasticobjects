@@ -8,6 +8,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.LoggingObjectsImpl;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
+import org.fluentcodes.projects.elasticobjects.test.MapProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
@@ -23,7 +24,7 @@ import java.util.Map;
  */
 public class ModelConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelConfigTest.class);
-    private static final Map<String, Object> MODEL_CONFIG_MAP = createModelConfigMap();
+    private static final Map<String, Object> MODEL_CONFIG_MAP = MapProvider.createModelConfigMap();
     private static final String F_BUILD = "build";
     private static final String M_BUILDER = "$Builder";
 

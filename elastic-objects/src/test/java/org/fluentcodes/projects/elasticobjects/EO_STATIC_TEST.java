@@ -31,21 +31,14 @@ public class EO_STATIC_TEST {
 //</call> 
     //<call templateKey="StaticValuesLoop.tpl" config:="File" prefix:="FILE_" keep="JAVA">
 
-    public static final String FILE_LOCALHOST_SOURCE_TXT = "localhost:source.txt";
     public static final String FILE_TEST_TEST = "test:test";
     public static final String FILE_RESULT_WITH_MAP_PATH_STRING = "resultWithMapPath.string";
-    public static final String FILE_SOURCE_JSON = "source.json";
-    public static final String FILE_CLASSPATH_SOURCE_TXT = "classpath_source.txt";
-    public static final String FILE_TARGET_JSON = "target.json";
-    public static final String FILE_SOURCE_TXT = "source.txt";
+
     public static final String FILE_RESULT_STRING = "result.string";
-    public static final String FILE_TARGET_TXT = "target.txt";
-    public static final String FILE_SOURCE_CACHED_TXT = "sourceCached.txt";
     public static final String FILE_TEST_SOURCE_TXT = "test_source.txt";
 //</call>
 
-    public static final String CS_SOURCE_CSV = "source.csv";
-    public static final String CS_TARGET_CSV = "target.csv";
+
     //<call templateKey="StaticValuesLoop.tpl" config:="Json" prefix:="J_" keep="JAVA">
 
     public static final String J_SIMPLE_INSERT_WITH_PATH = "SimpleInsertWithPath";

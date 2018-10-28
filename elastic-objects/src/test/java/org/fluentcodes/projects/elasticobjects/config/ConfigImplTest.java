@@ -18,8 +18,8 @@ public class ConfigImplTest extends TestHelper {
     public void assertModelCache() throws Exception {
         TestHelper.printStartMethod();
         ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_CONFIG_IMPL);
-        Assert.assertEquals(ShapeTypes.CONFIG, model.getShapeType());
-        Assert.assertTrue(model.hasModel());
+        model.resolve();
+        Assert.assertEquals(ShapeTypes.OBJECT, model.getShapeType());
         Assert.assertTrue(model.isObject());
         Assert.assertFalse(model.isScalar());
     }

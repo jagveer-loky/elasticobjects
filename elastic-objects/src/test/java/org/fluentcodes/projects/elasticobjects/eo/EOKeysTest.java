@@ -19,7 +19,7 @@ public class EOKeysTest extends TestHelper {
     @Test
     public void keyPath() throws Exception {
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_KEY0);
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(S_LEVEL3)
                 .set(S_STRING);
         adapter.add(path1)

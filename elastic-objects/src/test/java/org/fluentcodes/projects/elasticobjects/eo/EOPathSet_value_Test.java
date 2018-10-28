@@ -237,7 +237,7 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenListBTEmpty_withSTString_ok() throws Exception {
-        final EO eoBTEmpty = TestObjectProvider.createEO(List.class, BasicTest.class);
+        final EO eoBTEmpty = TestObjectProvider.createEOFromJson(List.class, BasicTest.class);
         final String path = toPath(S0, F_SUB_TEST,F_TEST_STRING);
         EOTest
                 .setEO_ok(eoBTEmpty, path, S_STRING);
@@ -246,7 +246,7 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenListBTEmpty_withSTStringAt1_ok() throws Exception {
-        final EO eoBTEmpty = TestObjectProvider.createEO(List.class, BasicTest.class);
+        final EO eoBTEmpty = TestObjectProvider.createEOFromJson(List.class, BasicTest.class);
         final String path = toPath(S1, F_SUB_TEST,F_TEST_STRING);
         EOTest
                 .setEO_ok(eoBTEmpty, path, S_STRING);
@@ -255,7 +255,7 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenListBTEmpty_withMap_ok() throws Exception {
-        final EO eoBTEmpty = TestObjectProvider.createEO(List.class, BasicTest.class);
+        final EO eoBTEmpty = TestObjectProvider.createEOFromJson(List.class, BasicTest.class);
         EOTest
                 .setEO_fails(eoBTEmpty, F_SUB_TEST_MAP, MapProvider.createSmall());
     }

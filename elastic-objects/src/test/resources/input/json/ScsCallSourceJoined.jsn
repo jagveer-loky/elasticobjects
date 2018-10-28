@@ -1,0 +1,6 @@
+{
+  "_actions": [
+    {"execute":"ScsCall.read(source.csv)"},
+    {"execute":"ScsCall.read(source.csv)", "path":"level0/level1"}
+  ]
+}

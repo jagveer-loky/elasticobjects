@@ -6,9 +6,7 @@ import org.fluentcodes.projects.elasticobjects.condition.Or;
 import org.fluentcodes.projects.elasticobjects.config.Scope;
 import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.ListProviderJSON;
 import org.fluentcodes.projects.elasticobjects.test.MapProvider;
-import org.fluentcodes.projects.elasticobjects.test.MapProviderJSON;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -17,6 +15,19 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 public class TEO_STATIC {
     public static final String S_EMPTY = "";
+
+    public static final String FILE_SOURCE_TXT = "source.txt";
+    public static final String FILE_SOURCE_NAME_TXT = "input/file/source.txt";
+    public static final String CS_SOURCE_CSV = "source.csv";
+    public static final String CS_SOURCE_CSV_NAME = "input/csv/source.csv";
+    public static final String CS_TARGET_CSV = "target.csv";
+    public static final String FILE_TARGET_TXT = "target.txt";
+    public static final String FILE_SOURCE_CACHED_TXT = "sourceCached.txt";
+    public static final String FILE_SOURCE_CACHED_TXT_NAME = "input/file/sourceCached.txt";
+    public static final String FILE_LOCALHOST_SOURCE_TXT = "localhost:source.txt";
+    public static final String FILE_SOURCE_JSON = "source.json";
+    public static final String FILE_CLASSPATH_SOURCE_TXT = "classpath_source.txt";
+    public static final String FILE_TARGET_JSON = "target.json";
 
     public static final String MODULE_NAME="test-resources";
     public static final String F_SUB_TEST = "subTest";
@@ -43,10 +54,7 @@ public class TEO_STATIC {
     public static final String S_VALUE12 = "value12";
     public static final String S_VALUE21 = "value21";
     public static final String S_VALUE22 = "value22";
-    public static final String createRow() {
-        return ListProviderJSON.toJSONList(MapProviderJSON.toJSONMap(S_KEY1,S_VALUE11,S_KEY2,S_VALUE12));
-    }
-    public static final String createJsonArray() {return ListProviderJSON.toJSONList(ListProviderJSON.toJSONList(S_KEY1,S_KEY2), ListProviderJSON.toJSONList(S_VALUE11,S_VALUE12));}
+
     public static final String S_ROW_DELIMITER = CON_NEWLINE;
     public static final String S_FIELD_DELIMITER = CON_SEMICOLON;
     public static final String CON_COMMA = ",";
@@ -62,7 +70,7 @@ public class TEO_STATIC {
     public static final String DB_H2_MEM_BASIC_TEST = "h2:mem:BasicTest";
     public static final String DB_H2_MEM_SUB_TEST = "h2:file:SubTest";
 
-    public static final String INFO_EXPECTED_EXCEPTION = "Expected Exception :";
+    public static final String INFO_EXPECTED_EXCEPTION = "Expected Exception: ";
     public static final String INFO_EXPECTED_EXCEPTION_FAILS = "Expected Exception was not thrown";
     public static final String INFO_EXPECTED_NO_EXCEPTION = "An Exception should be thrown! ";
 
@@ -70,7 +78,7 @@ public class TEO_STATIC {
     public static final String INFO_CONDITION_FALSE_FAILS = "Expected condition result is false but is true: ";
 
     public static final String INFO_EMPTY_FAILS = "Log not empty but expected empty! ";
-    public static final String INFO_NOT_EMPTY_FAILS = "Log empty but expected empty! ";
+    public static final String INFO_NOT_EMPTY_FAILS = "Log expected not empty but is empty! ";
 
     public static final String INFO_LOG_EMPTY_FAILS = "Log not empty but expected empty! ";
     public static final String INFO_LOG_NOT_EMPTY_FAILS = "Log empty but expected NOT empty! ";
@@ -183,61 +191,6 @@ public class TEO_STATIC {
             return "";
         }
         return String.join(delimiter, keyValues);
-    }
-
-    public static void createConfig(Map<String, Object> map)  {
-        try {
-            MapProvider.addMap(map, F_ID, 1L,
-                    F_CREATION_DATE, SAMPLE_DATE,
-                    F_DESCRIPTION, F_DESCRIPTION,
-                    F_NATURAL_ID, F_NATURAL_ID,
-                    F_EXPANDED, S1,
-                    F_SCOPE, "ALL",
-                    F_MODULE, F_MODULE,
-                    F_SUB_MODULE, F_SUB_MODULE);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static final Map<String, Object> createModelConfigMap() {
-        Map<String, Object> map = new HashMap<>();
-        map.put(F_MODEL_KEY, F_MODEL_KEY);
-        map.put(F_DB_PARAMS, createDbParams());
-        map.put(F_EO_PARAMS, createEoParams());
-        map.put(F_VIEW_PARAMS, null);
-        map.put(F_CUSTOM_PARAMS, null);
-        map.put(F_FIELD_KEYS, null);
-        map.put(F_PACKAGE_PATH, F_PACKAGE_PATH);
-        map.put(F_PACKAGE_GROUP, F_PACKAGE_GROUP);
-        map.put(F_AUTHOR, F_AUTHOR);
-        map.put(F_SUPER_KEY, F_SUPER_KEY);
-        map.put(F_INTERFACES, F_INTERFACES);
-        createConfig(map);
-        return map;
-    }
-
-    public static Map<String, Object> createDbParams() {
-        Map<String, Object> map = new HashMap();
-        map.put(F_TABLE, F_TABLE);
-        map.put(F_ID_KEY, F_ID_KEY);
-        map.put(F_NATURAL_KEYS, F_NATURAL_KEYS);
-        map.put(F_HIBERNATE_ANNOTATIONS, S1);
-        return map;
-    }
-
-    public static Map<String, Object> createEoParams() {
-        Map<String, Object> map = new HashMap();
-        map.put(F_CREATE, S1);
-        map.put(F_SHAPE_TYPE, ShapeTypes.MAP.name());
-        map.put(F_SCOPE, Scope.ALL.name());
-        map.put(F_METHODS, F_METHODS);
-        map.put(F_ATTRIBUTE_LIST, F_ATTRIBUTE_LIST);
-        map.put(F_MODEL_CONFIG_KEY, F_MODEL_CONFIG_KEY);
-        map.put(F_DEFAULT_IMPLEMENTATION, F_DEFAULT_IMPLEMENTATION);
-        map.put(F_PATH_PATTERN, F_PATH_PATTERN);
-        return map;
     }
 
     public static final String toPath(String... keyValues) {

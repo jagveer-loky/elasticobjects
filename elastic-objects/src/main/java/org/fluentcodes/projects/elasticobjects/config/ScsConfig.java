@@ -6,7 +6,9 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 import java.util.Map;
 
 /**
- * Created by Werner on 09.10.2016.
+ * A simple character separated file.
+ * @author Werner Diwischek
+ * @since 09.10.2017.
  */
 public class ScsConfig extends ListConfig {
     //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }

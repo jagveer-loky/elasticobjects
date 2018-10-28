@@ -43,7 +43,7 @@ public class OrTest {
 
     @Test
     public void filterAdapter() throws Exception {
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(S_TEST_STRING).set(S_STRING);
         Or condition = new Or(toLike(S_TEST_STRING, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),

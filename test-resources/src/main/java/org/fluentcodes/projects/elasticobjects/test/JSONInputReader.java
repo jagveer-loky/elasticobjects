@@ -2,6 +2,9 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.paths.Path;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 import java.io.File;
 
@@ -51,6 +54,26 @@ public class JSONInputReader {
     }
     public final static String readInputJSON(final TYPE type, final String key, JSONSerializationType ser) throws Exception {
         final String target = inputEOFile(type, key, ser);
+        return AssertBase.readPersisted(new File(target));
+    }
+
+    /**
+     * @param key
+     * @return file content for src/test/resources/input/json/[key].jsn
+     * @throws Exception on any file read execption
+     */
+    public final static String readTestInputJSN(final String key) throws Exception {
+        final String target = JSON_PATH_TEST + key + ".jsn";
+        return AssertBase.readPersisted(new File(target));
+    }
+
+    /**
+     * @param key
+     * @return file content for src/test/resources/input/json/[key].json
+     * @throws Exception on any file read execption
+     */
+    public final static String readTestInputJSON(final String key) throws Exception {
+        final String target = JSON_PATH_TEST + key + ".json";
         return AssertBase.readPersisted(new File(target));
     }
 

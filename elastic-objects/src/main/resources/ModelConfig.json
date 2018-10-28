@@ -6,7 +6,6 @@
 		"naturalId":"Call",
 		"eoParams":
 		{
-			"shapeType":"ACTION"
 		},
 		"description":"Basic bean as super object for other cached items. ",
 		"fieldKeys":
@@ -65,10 +64,6 @@
 		"module":"elastic-objects",
 		"subModule":"main",
 		"naturalId":"CallIO",
-		"eoParams":
-		{
-			"shapeType":"ACTION"
-		},
 		"description":"Not shure now.",
 		"superKey":"Call",
 		"fieldKeys":
@@ -85,12 +80,12 @@
 		"module":"elastic-objects",
 		"subModule":"main",
 		"naturalId":"ConfigIO",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
 		"description":"Defines the role access.",
 		"superKey":"ConfigImpl",
+      "eoParams":
+      {
+        "shapeType":"OBJECT"
+      },
 		"fieldKeys":
 		[
 			"rolePermissions"
@@ -168,11 +163,11 @@
 	{
 		"module":"elastic-objects",
 		"subModule":"main",
+      "eoParams":
+      {
+        "shapeType":"OBJECT"
+      },
 		"naturalId":"ConfigImpl",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
 		"description":"Basic cache as super object for other cached items. ",
 		"superKey":"ModelImpl",
 		"interfaces":"Config",
@@ -379,10 +374,6 @@
 		"module":"elastic-objects",
 		"subModule":"main",
 		"naturalId":"ExecutorImpl",
-		"eoParams":
-		{
-			"shapeType":"ACTION"
-		},
 		"description":"Constructor with or. Provides the filter method for adapter and check the or conditions",
 		"interfaces":"Executor",
 		"modelKey":"ExecutorImpl",
@@ -395,10 +386,6 @@
 		"module":"elastic-objects",
 		"subModule":"main",
 		"naturalId":"ExecutorList",
-		"eoParams":
-		{
-			"shapeType":"ACTION"
-		},
 		"description":"For a list of executors",
 		"modelKey":"ExecutorList",
 		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
@@ -410,10 +397,6 @@
 		"module":"elastic-objects",
 		"subModule":"main",
 		"naturalId":"ExecutorListTemplate",
-		"eoParams":
-		{
-			"shapeType":"ACTION"
-		},
 		"description":"Creates a Executor List from a Templatefile.",
 		"superKey":"ExecutorList",
 		"modelKey":"ExecutorListTemplate",
@@ -426,10 +409,6 @@
 		"module":"elastic-objects",
 		"subModule":"main",
 		"naturalId":"ExecutorValues",
-		"eoParams":
-		{
-			"shapeType":"ACTION"
-		},
 		"description":"Facade execution a static method with an array of object as parameters and a String return type. Some example methods are implementd in ValuesMath and ValuesMisc. ",
 		"superKey":"ExecutorImpl",
 		"interfaces":"Executor",
@@ -471,14 +450,9 @@
 		"naturalId":"ConfigCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
 			"modelConfigKey":"ConfigConfig",
 			"create":true,
-			"methods":
-			[
-				"set",
-				"map"
-			]
+			"methods":"set,map"
 		},
 		"description":"The action with configuration {@link ConfigConfig} will set/map configurations loaded to cache to a adapter or write a file from the mapPath.",
 		"superKey":"Call",
@@ -526,14 +500,10 @@
 		"naturalId":"FileCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
+			"shapeType":"CALL",
 			"modelConfigKey":"FileConfig",
 			"create":true,
-			"methods":
-			[
-				"read",
-				"write"
-			]
+			"methods":"read,write,delete"
 		},
 		"description":"Defines a file access. ",
 		"superKey":"HostCall",
@@ -550,6 +520,7 @@
 		"eoParams":
 		{
 			"shapeType":"CONFIG",
+			"modelConfigKey":"FileCall",
 			"create":true
 		},
 		"description":"Immutabel EO file configuration will be initalized by internal builder using map values.",
@@ -574,14 +545,10 @@
 		"naturalId":"ScsCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
+			"shapeType":"CALL",
 			"modelConfigKey":"ScsConfig",
 			"create":true,
-			"methods":
-			[
-				"read",
-				"write"
-			]
+            "methods":"read,write,delete"
 		},
 		"description":"Defines a file access. ",
 		"superKey":"ListCall",
@@ -598,9 +565,10 @@
 		"eoParams":
 		{
 			"shapeType":"CONFIG",
+			"modelConfigKey":"ScsCall",
 			"create":true
 		},
-		"description":"Immutabel EO file configuration will be initalized by internal builder using map values.",
+		"description":"Immutabel EO configuration for simple comma separated files will be initalized by internal builder using map values.",
 		"superKey":"ListConfig",
 		"fieldKeys":
 		[
@@ -641,19 +609,6 @@
 		"packagePath":"java.util",
 		"author":"java"
 	},
-	"HashMap":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"HashMap",
-		"eoParams":
-		{
-			"shapeType":"MAP"
-		},
-		"modelKey":"HashMap",
-		"packagePath":"java.util",
-		"author":"java"
-	},
 	"JSONSerializationType":
 	{
 		"module":"elastic-objects",
@@ -675,7 +630,6 @@
 		"naturalId":"HostCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
 			"modelConfigKey":"HostConfig",
 			"create":true
 		},
@@ -731,14 +685,10 @@
 		"naturalId":"JsonCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
+			"shapeType":"CALL",
 			"modelConfigKey":"JsonConfig",
 			"create":true,
-			"methods":
-			[
-				"read",
-				"write"
-			]
+            "methods":"read,write,delete"
 		},
 		"description":"The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
 		"superKey":"FileCall",
@@ -761,7 +711,9 @@
 		"eoParams":
 		{
 			"shapeType":"CONFIG",
-			"create":true
+			"modelConfigKey":"JsonCall",
+			"create":true,
+            "methods":"read,write,delete"
 		},
 		"description":"Configuration for {@link JsonAction}.",
 		"superKey":"FileConfig",
@@ -837,15 +789,8 @@
 		"naturalId":"ListCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
 			"modelConfigKey":"ListConfig",
-			"create":true,
-			"methods":
-			[
-				"read",
-				"write",
-				"delete"
-			]
+			"create":true
 		},
 		"description":"Defines the parameter like listMapper.",
 		"superKey":"CallIO",
@@ -1404,13 +1349,10 @@
 		"naturalId":"TemplateCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
+			"shapeType":"CALL",
 			"modelConfigKey":"TemplateConfig",
 			"create":true,
-			"methods":
-			[
-				"execute"
-			]
+			"methods":"execute"
 		},
 		"description":"Executes a template configuration. Facade for the parsing method within the cache.",
 		"superKey":"FileCall",
@@ -1431,7 +1373,7 @@
 		"eoParams":
 		{
 			"shapeType":"CONFIG",
-			"create":true
+			"modelConfigKey":"TemplateCall"
 		},
 		"description":"The cache {@link TemplateConfig} contains a prepared TemplateParser.",
 		"superKey":"ConfigIO",
@@ -1474,12 +1416,9 @@
 		"naturalId":"ValueCall",
 		"eoParams":
 		{
-			"shapeType":"ACTION",
+			"shapeType":"CALL",
 			"modelConfigKey":"ValueConfig",
-			"methods":
-			[
-				"execute"
-			],
+			"methods":"execute",
 			"create":true
 		},
 		"description":"Sets a value to path and mapPath",
@@ -1501,6 +1440,7 @@
 		"eoParams":
 		{
 			"shapeType":"CONFIG",
+			"modelConfigKey":"ValueCall",
 			"create":true
 		},
 		"description":"Defines a cache with a value",

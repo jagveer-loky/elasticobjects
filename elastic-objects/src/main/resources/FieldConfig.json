@@ -381,6 +381,19 @@
 		"fieldKey":"fields",
 		"description":"A list of field keys for the model configuration. "
 	},
+	"scsKey":
+	{
+		"module":"elastic-objects",
+		"subModule":"main",
+		"naturalId":"scsKey",
+		"dbFieldParams":
+		{
+			"length":80
+		},
+		"modelKeys":"String",
+		"fieldKey":"scsKey",
+		"description":"A key for configs for simple commaseparated files."
+	},
 	"fileKey":
 	{
 		"module":"elastic-objects",

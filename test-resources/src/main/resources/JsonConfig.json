@@ -1,0 +1,11 @@
+{
+	"source.json":
+	{
+		"module":"test-resources",
+		"subModule":"main",
+		"naturalId":"source.json",
+		"jsonKey":"source.jsone",
+		"fileName":"input/json/source.json",
+		"description":"Simple data for the content templates."
+	}
+}

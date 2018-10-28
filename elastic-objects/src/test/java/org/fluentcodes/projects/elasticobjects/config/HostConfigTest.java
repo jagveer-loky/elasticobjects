@@ -44,33 +44,32 @@ public class HostConfigTest extends TestHelper {
 
     @Test
     public void withHostKeyTest() throws Exception {
-        TestHelper.printStartMethod();
-        final HostConfig cache = (HostConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(HostConfig.class, H_TEST);
-        Assert.assertEquals(F_DESCRIPTION, cache.getDescription());
+        final HostConfig config = (HostConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(HostConfig.class, H_TEST);
+        Assert.assertEquals(F_DESCRIPTION, config.getDescription());
 
-        Assert.assertEquals(F_HOST_KEY, cache.getHostKey());
-        Assert.assertEquals(F_HOST_NAME, cache.getHostName());
+        Assert.assertEquals(F_HOST_KEY, config.getHostKey());
+        Assert.assertEquals(F_HOST_NAME, config.getHostName());
 
-        Assert.assertEquals(F_PASSWORD, cache.getPassword());
-        Assert.assertEquals(new Integer(1), cache.getPort());
-        Assert.assertEquals(F_PROTOCOL, cache.getProtocol());
-        Assert.assertEquals(F_USER, cache.getUser());
-        Assert.assertEquals(F_PROTOCOL + "://" + F_HOST_NAME + ":" + S_INTEGER, cache.getUrlPath());
+        Assert.assertEquals(F_PASSWORD, config.getPassword());
+        Assert.assertEquals(new Integer(1), config.getPort());
+        Assert.assertEquals(F_PROTOCOL, config.getProtocol());
+        Assert.assertEquals(F_USER, config.getUser());
+        Assert.assertEquals(F_PROTOCOL + "://" + F_HOST_NAME + ":" + S_INTEGER, config.getUrlPath());
 
-        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_READ,R_GUEST), cache.getRolePermissions().getRead());
-        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_WRITE,R_ADMIN), cache.getRolePermissions().getWrite());
-        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_CREATE,R_ADMIN), cache.getRolePermissions().getCreate());
-        Assert.assertEquals(R_ADMIN, cache.getRolePermissions().getDelete());
-        Assert.assertEquals(R_SUPER_ADMIN, cache.getRolePermissions().getExecute());
-        Assert.assertEquals(Permissions.READ, cache.getPermissions(R_TEST_ROLE_READ));
-        Assert.assertEquals(Permissions.WRITE, cache.getPermissions(R_TEST_ROLE_WRITE));
-        Assert.assertEquals(Permissions.CREATE, cache.getPermissions(R_TEST_ROLE_CREATE));
-        Assert.assertEquals(Permissions.DELETE, cache.getPermissions(R_ADMIN));
-        Assert.assertEquals(Permissions.EXECUTE, cache.getPermissions(R_SUPER_ADMIN));
-        Assert.assertEquals(Permissions.READ, cache.getPermissions(R_GUEST));
-        Assert.assertEquals(Permissions.NOTHING, cache.getPermissions(R_ANONYM));
+        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_READ,R_GUEST), config.getRolePermissions().getRead());
+        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_WRITE,R_ADMIN), config.getRolePermissions().getWrite());
+        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_CREATE,R_ADMIN), config.getRolePermissions().getCreate());
+        Assert.assertEquals(R_ADMIN, config.getRolePermissions().getDelete());
+        Assert.assertEquals(R_SUPER_ADMIN, config.getRolePermissions().getExecute());
+        Assert.assertEquals(Permissions.READ, config.getPermissions(R_TEST_ROLE_READ));
+        Assert.assertEquals(Permissions.WRITE, config.getPermissions(R_TEST_ROLE_WRITE));
+        Assert.assertEquals(Permissions.CREATE, config.getPermissions(R_TEST_ROLE_CREATE));
+        Assert.assertEquals(Permissions.DELETE, config.getPermissions(R_ADMIN));
+        Assert.assertEquals(Permissions.EXECUTE, config.getPermissions(R_SUPER_ADMIN));
+        Assert.assertEquals(Permissions.READ, config.getPermissions(R_GUEST));
+        Assert.assertEquals(Permissions.NOTHING, config.getPermissions(R_ANONYM));
 
-        AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, cache);
+        AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, config);
 
     }
 

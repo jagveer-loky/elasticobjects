@@ -141,7 +141,7 @@ public class EORoot extends EOContainer {
         return actions;
     }
 
-    public void setActions(ExecutorList actions) {
+    public void setCalls(ExecutorList actions) {
         this.actions = actions;
     }
 
@@ -167,12 +167,12 @@ public class EORoot extends EOContainer {
     }
 
     @Override
-    public boolean hasActions() {
+    public boolean hasCalls() {
         return actions != null && !actions.isEmpty();
     }
 
     @Override
-    public void executeActions() {
+    public void executeCalls() {
         actions.execute(this);
     }
 

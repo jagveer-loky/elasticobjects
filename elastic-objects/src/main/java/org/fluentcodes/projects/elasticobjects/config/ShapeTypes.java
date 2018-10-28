@@ -22,7 +22,8 @@ public enum ShapeTypes {
     ADAPTER(),
     INSTANCE(),
     ENUM(),
-    CONFIG();
+    CONFIG(),
+    CALL();
 
     ShapeTypes() {
     }

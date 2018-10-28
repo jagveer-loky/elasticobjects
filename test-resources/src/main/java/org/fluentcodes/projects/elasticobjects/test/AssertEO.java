@@ -29,7 +29,7 @@ public class AssertEO {
                         .setStartIndent(1)
                         .setSerializationType(JSONSerializationType.EO)
                         .toJSON(adapter);
-        String fileName = AssertBase.getFileName() + "jsn";
+        String fileName = AssertBase.getFileName() + ".jsn";
         AssertString.compare(fileName, serialized);
         return fileName;
     }
@@ -47,7 +47,7 @@ public class AssertEO {
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.STANDARD)
                 .toJSON(adapter);
-        String fileName = AssertBase.getFileName() + "json";
+        String fileName = AssertBase.getFileName() + ".json";
         AssertString.compare(fileName, serialized);
         return fileName;
     }
@@ -69,7 +69,7 @@ public class AssertEO {
     }
 
 
-    public static final String compare(String serializedObject) throws Exception {
+    public static final String compare(final String serializedObject) throws Exception {
         return AssertString.compare(serializedObject);
     }
 }

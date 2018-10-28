@@ -12,7 +12,7 @@ public class TestDataProvider extends TestHelper {
 
 
     public static EO createAdapterEmbedded() throws Exception {
-        final EO adapter = TestObjectProvider.createEO();
+        final EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_TEST_STRING)).set(S_STRING);
         adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_TEST_STRING)).set(S_STRING);
         adapter.add(toPath(S_LEVEL0, S_TEST_STRING)).set(S_STRING);

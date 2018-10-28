@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EORoot;
 import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.test.AssertEO;
 import org.fluentcodes.projects.elasticobjects.test.AssertString;
 import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
@@ -13,8 +12,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.Date;
 
 public class ExecutorListTest {
     @Test
@@ -36,8 +33,8 @@ public class ExecutorListTest {
     @Test
     public void EOtoJSON() throws Exception {
         ExecutorList executorList = createSampleExecutorList();
-        EO root = TestObjectProvider.createEO();
-        ((EORoot) root).setActions(executorList);
+        EO root = TestObjectProvider.createEOFromJson();
+        ((EORoot) root).setCalls(executorList);
         String jsn = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.EO)
@@ -45,7 +42,7 @@ public class ExecutorListTest {
         AssertString.compare(jsn);
         EO fromJsn = TestObjectProvider.createEOBuilder()
             .mapFile("src/test/resources/output/ExecutorListTest/EOtoJSON.string");
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS, fromJsn.hasActions());
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS, fromJsn.hasCalls());
     }
 
     public static ExecutorList createSampleExecutorList() throws Exception {

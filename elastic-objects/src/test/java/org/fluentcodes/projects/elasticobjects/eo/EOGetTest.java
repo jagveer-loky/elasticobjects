@@ -17,7 +17,7 @@ public class EOGetTest extends TestHelper {
 
     @Test
     public void callNotExistingPaths_hasEmptyLog() throws Exception {
-        final EO rootEmpty = TestObjectProvider.createEO();
+        final EO rootEmpty = TestObjectProvider.createEOFromJson();
         Assert.assertNull(rootEmpty.get(S_KEY_NOT_EXISTING));
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + rootEmpty.getLog(), rootEmpty.getLog().isEmpty());
     }

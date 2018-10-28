@@ -14,16 +14,12 @@ import java.util.Map;
 import java.util.regex.Matcher;
 
 /**
- * A JSONToEO takes a source getSerialized and extracts characters and tokens from
- * it. It is used by the JSONObject and JSONArray constructors to set
- * JSON source strings.
- *
- * @author JSON.org
- * @version 2012-02-16
+ * A JSONToEO  extracts characters and tokens from a JSON serialized String.
+ * Core source from JSON.org.
+ * @author Werner Diwischek
+ * @since 10.6.2016
  */
 public class JSONToEO {
-    public static final String ACTION = "_actions";
-    public static final String MODELS = "_models";
     public static final String ACTIONS = "_actions";
     public static final String DATA = "_data";
     public static final String LOGS = "_logs";
@@ -118,6 +114,9 @@ public class JSONToEO {
         return this.eof && !this.usePrevious;
     }
 
+    private boolean isEof() throws Exception {
+        return reader.read() < 0 ;
+    }
     /**
      * Get the next character in the source getSerialized.
      *
@@ -270,94 +269,73 @@ public class JSONToEO {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
         }
-        char c;
-        String key;
+        boolean startFlag = true;
         for (; ; ) {
             //Check for closing tag or a key
-            c = this.nextClean();
-            switch (c) {
-                case 0:
-                    throw new Exception("A JSONObject text must end with '}' but is '" + c + "'at " + index + ":" + debug);
-                    // closing tag
-                case '}':   // empty object
-                    return currentAdapter;
-                // key
-                default:
-                    this.back();
-                    key = this.nextKey();
+            char c = this.nextClean();
+            if (c == '}') {
+                return currentAdapter;
             }
-
-            // The key is followed by ':'.
-            c = this.nextClean();
-            if (c != ':') {
-                throw syntaxError("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
+            if (c == ',') {
+                final String key = this.nextKey();
+                if (this.nextClean() != ':') {
+                    throw syntaxError("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
+                }
+                createChild(currentAdapter, key);
             }
-            if (currentAdapter.isList() && !key.endsWith(DATA) && !key.startsWith("(")) {
-                key = new Integer(currentAdapter.size()).toString();
+            else if (startFlag) {
+                back();
+                final String key = this.nextKey();
+                if (this.nextClean() != ':') {
+                    throw syntaxError("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
+                }
+                createChild(currentAdapter, key);
+                startFlag = false;
             }
-            currentAdapter = createChild(currentAdapter, key);
-
-            c = this.nextClean();
-            switch (c) {
-                case ';':
-
-                case ',':
-                    // adding next value to current ObjectsBuilder
-                    if (this.nextClean() != '}') {
-                        this.back();
-                        break;
-                    } else {
-                        return ((EOContainer) currentAdapter).getParentAdapter(); //special for ',}'
-                    }
-                case '}':
-                    // closing current ObjectsBuilder
-                    return currentAdapter;
-                default:
-                    throw this.syntaxError("After key '" + key + "' in the map. Expected  ',' '}' but not '" + c + "': ");
+            else {
+                throw new Exception("Expected colon not found but '" + c + "'!");
             }
         }
     }
 
-    private EO mapList(final EO currentBuilder) throws Exception {
-        if (currentBuilder == null) {
+
+    private EO mapList(final EO currentEO) throws Exception {
+        if (currentEO == null) {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
         }
-
-        if (this.nextClean() != ']') {
-            this.back();
-            int counter = 0;
-            for (; ; ) {
-                // closing current builder
-                if (this.nextClean() == ',') {
-                    this.back();
-                    continue;
-                } else {
-                    this.back();
-                    this.createChild(currentBuilder, new Integer(counter).toString());
-                    counter++;
-                }
-                switch (this.nextClean()) {
-                    case ',':
-                        // adding next value to current builder
-                        if (this.nextClean() == ']') {
-                            return currentBuilder;
-                        }
-                        this.back();
-                        break;
-                    case ']':
-                        // closing current builder
-                        return currentBuilder;
-                    default:
-                        throw this.syntaxError("Expected  ',' or ']' within list value: ");
-                }
+        int counter = 0;
+        for (; ; ) {
+            final char next = this.nextClean();
+            if (next == ']') {
+                return currentEO;
             }
+            // closing current builder
+            if (next == ',') {
+                this.createChild(currentEO, new Integer(counter).toString());
+                counter++;
+            }
+            else if (counter == 0) {
+                back();
+                this.createChild(currentEO, new Integer(counter).toString());
+                counter++;
+            }
+            else {
+                throw new Exception("Expected colon is not set but '" + next + "'!");
+             }
         }
-        return currentBuilder;
     }
 
     public EO createChild(EO parentAdapter) throws Exception {
-        return createChild(parentAdapter, null);
+        EO eo = createChild(parentAdapter, null);
+        if (isEof()) {
+            return eo;
+        }
+        final char c = nextClean();
+        if (c == 0) {
+            return eo;
+        }
+        throw new Exception("Not at the end of the json file!");
     }
 
     /**
@@ -374,10 +352,12 @@ public class JSONToEO {
      * @return
      * @throws Exception
      */
-    public EO createChild(EO parentAdapter, final String rawFieldName) throws Exception {
+    private EO createChild(EO parentAdapter, final String rawFieldName) throws Exception {
         if (parentAdapter == null) {
             throw new Exception("parentAdapter is null ...!");
         }
+
+        // see if fieldName has a model information '(ModelKey)fieldName'
         String name = rawFieldName;
         Models models = null;
         if (rawFieldName!=null && !rawFieldName.isEmpty()) {
@@ -392,15 +372,14 @@ public class JSONToEO {
         switch (c) {
             case '"':
             case '\'':
-
                 if (rawFieldName == null) {
                     throw this.syntaxError(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
                     parentAdapter
-                            .add(rawFieldName)
+                            .add(name)
+                            .setModels(models)
                             .map(value);
-
                 return parentAdapter;
 
             case '{':
@@ -409,15 +388,14 @@ public class JSONToEO {
                     return parentAdapter;
                 }
                 switch (name) {
-
-                    case(DATA):  // Create a list of actions
+                    case(DATA):  // Map directly to the parentAdapter
                         if (parentAdapter.isEmpty() && models !=null) {
                             ((EOScalar) parentAdapter).setModels(models);
                         }
                         this.mapObject(parentAdapter);
                         return parentAdapter;
 
-                    case(LOGS):  // Create a list of actions
+                    case(LOGS):  // Create a log
                         EO logAdapter = new EOBuilder(((EOScalar) parentAdapter).getConfigsCache())
                                 .setModels(LoggingObjectsImpl.class.getSimpleName())
                                 .set(this);
@@ -439,7 +417,7 @@ public class JSONToEO {
                         }
                         if (name != null) {
                             EO adapter = parentAdapter
-                                    .add(rawFieldName)
+                                    .add(name)
                                     .setModels(models)
                                     .build();
                             this.mapObject(adapter);
@@ -453,9 +431,7 @@ public class JSONToEO {
             case '[':
                 if (ACTIONS.equals(rawFieldName)) {  // Create a list of actions
                     back();
-                    EO actionListAdapter = new EOBuilder(provider)
-                            .setModels("List,CallExecutor")
-                            .map(this);
+                    EO actionListAdapter = createChild(new EOBuilder(this.provider).build(), null);
                     ((EORoot) parentAdapter).setCallsByMap((List<Map>) actionListAdapter.get());
                 } else if (DATA.equals(rawFieldName)) {  // Create a list of actions
                     EO rootAdapter = ((EOScalar) parentAdapter).getRoot();
@@ -545,6 +521,11 @@ public class JSONToEO {
                 return this.nextString(c, " finding key");
         }
         return "";
+    }
+
+    private String nextKey2() throws Exception {
+        back();
+        return nextKey();
     }
 
     /**

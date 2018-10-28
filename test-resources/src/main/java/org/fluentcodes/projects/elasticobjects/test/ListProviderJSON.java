@@ -336,4 +336,10 @@ public class ListProviderJSON {
         }
         return builder.append("]").toString();
     }
+
+    public static final String createRow() {
+        return toJSONList(MapProviderJSON.toJSONMap(S_KEY1,S_VALUE11,S_KEY2,S_VALUE12));
+    }
+
+    public static final String createJsonArray() {return toJSONList(toJSONList(S_KEY1,S_KEY2), toJSONList(S_VALUE11,S_VALUE12));}
 }

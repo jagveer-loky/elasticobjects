@@ -72,8 +72,8 @@ public interface EO {
 
     void addCall(CallExecutor callExecutor) throws Exception;
     ExecutorList getCalls();
-    boolean hasActions();
-    void executeActions() throws Exception;
+    boolean hasCalls();
+    void executeCalls() throws Exception;
 
     void compare(final StringBuilder builder, final EO other);
 

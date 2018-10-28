@@ -12,10 +12,4 @@ include 'builder-eo'
 include 'builder-sandboxes'
 include 'builder-projects'
 
-include 'project-misc'
-include 'project-model'
-include 'project-web'
-include 'project-elasticobjects'
-include 'project-springboot'
-include 'projects-misc'
 

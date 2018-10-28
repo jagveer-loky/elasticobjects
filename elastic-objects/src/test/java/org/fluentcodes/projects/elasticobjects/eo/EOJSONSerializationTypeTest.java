@@ -19,7 +19,7 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setString() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_LEVEL0)
                 .set(TEO_STATIC.S_STRING);
         Assert.assertEquals(TEO_STATIC.S_STRING, adapter.get(TEO_STATIC.S_LEVEL0));
@@ -34,7 +34,7 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setDoubleValue() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_KEY_DOUBLE)
                 .set(1.1D);
 
@@ -52,7 +52,7 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setLong() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_KEY_LONG)
                 .set(1L);
 
@@ -70,7 +70,7 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setFloatValue() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_KEY_FLOAT)
                 .set(1.1F);
 
@@ -88,7 +88,7 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setInt() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_KEY_INTEGER)
                 .set(1);
 

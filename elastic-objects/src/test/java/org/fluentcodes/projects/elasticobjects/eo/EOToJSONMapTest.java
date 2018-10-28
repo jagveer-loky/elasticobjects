@@ -203,7 +203,7 @@ public class EOToJSONMapTest extends TestHelper {
         map.put(S_KEY0, S_STRING);
         map.put(S_KEY1, S_INTEGER);
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(S_LEVEL0)
                 .set(map);
         adapter.add(S_LEVEL1)
@@ -225,7 +225,7 @@ public class EOToJSONMapTest extends TestHelper {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add()
                 .set(map);
         adapter
