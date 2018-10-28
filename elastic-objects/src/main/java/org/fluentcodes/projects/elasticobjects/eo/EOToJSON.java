@@ -114,7 +114,7 @@ public class EOToJSON {
             jsn.append(lineBreak);
             jsn.append(indent);
             jsn.append("\"(List)");
-            jsn.append(JSONToEO.ACTIONS);
+            jsn.append(JSONToEO.CALLS);
             jsn.append("\":");
             jsn.append(lineBreak);
             toJSON(jsn, actionsAdapter, startIndent, this.pathPattern);
