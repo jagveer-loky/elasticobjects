@@ -20,7 +20,7 @@ import java.util.regex.Matcher;
  * @since 10.6.2016
  */
 public class JSONToEO {
-    public static final String ACTIONS = "_actions";
+    public static final String CALLS = "_calls";
     public static final String DATA = "_data";
     public static final String LOGS = "_logs";
     public static final String CONFIG = "_config";
@@ -402,7 +402,7 @@ public class JSONToEO {
                         ((EORoot) parentAdapter).setLog((LoggingObjectsImpl) logAdapter.get());
                         return parentAdapter;
 
-                    case (ACTIONS):  // Create a list of actions
+                    case (CALLS):  // Create a list of actions
                         back();
                         EO actionAdapter = new EOBuilder(this.provider)
                                 .setModels(List.class)
@@ -429,7 +429,7 @@ public class JSONToEO {
                 }
 
             case '[':
-                if (ACTIONS.equals(rawFieldName)) {  // Create a list of actions
+                if (CALLS.equals(rawFieldName)) {  // Create a list of actions
                     back();
                     EO actionListAdapter = createChild(new EOBuilder(this.provider).build(), null);
                     ((EORoot) parentAdapter).setCallsByMap((List<Map>) actionListAdapter.get());
@@ -521,11 +521,6 @@ public class JSONToEO {
                 return this.nextString(c, " finding key");
         }
         return "";
-    }
-
-    private String nextKey2() throws Exception {
-        back();
-        return nextKey();
     }
 
     /**

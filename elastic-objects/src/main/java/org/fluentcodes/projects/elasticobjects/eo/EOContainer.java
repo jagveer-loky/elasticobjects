@@ -130,7 +130,7 @@ public class EOContainer extends EOScalar implements EO {
         }
         this
                 .add()
-                .setPath(JSONToEO.ACTIONS)
+                .setPath(JSONToEO.CALLS)
                 .set(actions);
     }
 

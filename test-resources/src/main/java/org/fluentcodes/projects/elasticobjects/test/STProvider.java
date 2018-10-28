@@ -74,7 +74,6 @@ public class STProvider {
         return object;
     }
 
-    @Test
     public static void createSTRecursivePath3() {
         Assert.assertEquals(F_SUB_TEST + Path.DELIMITER + F_SUB_TEST + Path.DELIMITER + F_SUB_TEST, STProviderEO.createSTPath(3));
     }
