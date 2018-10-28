@@ -4,9 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+import org.fluentcodes.projects.elasticobjects.eo.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.Scope;
+import org.fluentcodes.projects.elasticobjects.test.JSONInputReader.TYPE;
 import org.junit.Assert;
 
 import java.util.ArrayList;
@@ -94,12 +96,31 @@ public class DevObjectProvider {
         return root;
     }
 
+    public static EO createEOFromJson(final String json) throws Exception {
+        JSONToEO tokener = new JSONToEO(json, EO_CONFIGS_CACHE);
+        return tokener.createChild(createEO());
+    }
 
 
-    public static final EO createEOListEmpty() throws Exception {
-        return createEOBuilder()
-                .setModels(List.class)
-                .set(new ArrayList<>());
+    public static EO createEOFromTestJsonFile(final String jsonFile) throws Exception {
+        final String json = JSONInputReader.readTestInputJSON(jsonFile);
+        return createEOFromJson(json);
+
+    }
+
+    public static EO createEOFromJsonKeyMap(final String jsonKey) throws Exception {
+        final String json = JSONInputReader.readInputJSON(jsonKey);
+        return createEOFromJson(json);
+    }
+
+    public static EO createEOFromJsonListKey(final String jsonKey) throws Exception {
+        final String json = JSONInputReader.readInputJSON(TYPE.LIST, jsonKey);
+        return createEOFromJson(json);
+    }
+
+    public static EO createEOFromJsonMapKey(final String jsonKey) throws Exception {
+        final String json = JSONInputReader.readInputJSON(jsonKey);
+        return createEOFromJson(json);
     }
 
 }

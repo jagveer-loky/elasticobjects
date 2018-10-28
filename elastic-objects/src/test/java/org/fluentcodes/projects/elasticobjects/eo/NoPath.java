@@ -20,7 +20,7 @@ public class NoPath extends TestHelper {
     public void empty() throws Exception {
         TestHelper.printStartMethod();
         EOConfigsCache configsCache = TestObjectProvider.EO_CONFIGS_CACHE;
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         Assert.assertEquals(Map.class, adapter.getModelClass());
         Assert.assertEquals(LinkedHashMap.class, adapter.get().getClass());
         Assert.assertTrue(adapter.keys().size() == 0);

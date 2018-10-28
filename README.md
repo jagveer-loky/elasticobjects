@@ -1,6 +1,14 @@
 # Elastic Objects
 
-Elastic Objects is a small applicaton java framework for handling complex objects and actions with json serialization.
+Elastic Objects is a small applicaton java framework
+for handling complex objects.
+Basically its a wrapper
+for to creating, accessing and modifing Java Object via keys/path.
+A type safe and ordered JSON serialization and deserialization is provided.
+
+With this generic functions it's possible to write generic classes
+e.g. for file or db access.
+
 
 ## Synopsis
 ElasticObject can be used directly in Java concatenating and accessing objects:
@@ -101,7 +109,7 @@ In an application environment one can just inject it as a singelton.
 The jar has actually no dependencies beside Log4j and is rather small with approximately 250 KB.
 The registration on [Maven Central](https://mvnrepository.com) is ongoing.
 Meanwhile there is the [maven.zip](maven.zip) file in this repository. If you expand
-thit in your local .m2/repository directory, you can just add this to your
+it in your local .m2/repository directory, you can just add this to your
 maven pom file.
 
 ```
@@ -113,7 +121,7 @@ maven pom file.
 ```
 
 ## Documentation
-A depth documentation will be created on this [github wiki](wiki)
+A depth documentation will be created on this [github wiki](https://github.com/fluentcodes/elasticobjects/wiki)
 and the site http://elasticobjects.com
 
 ## Links

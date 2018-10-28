@@ -1,8 +1,8 @@
 {
 	"test":
 	{
-		"module":"actions-csv",
-		"subModule":"test",
+		"module":"test-resources",
+		"subModule":"main",
 		"naturalId":"test",
 		"scsKey":"test",
 		"fileKey":"test:test",
@@ -21,35 +21,5 @@
 			"delete":"adminRole",
 			"execute":"superadminRole"
 		}
-	},
-	"source.csv":
-	{
-		"module":"actions-csv",
-		"subModule":"test",
-		"naturalId":"source.csv",
-		"scsKey":"source.csv",
-		"fileKey":"source.csv",
-		"fieldDelimiter":";",
-		"rowDelimiter":"\n",
-		"listParams":
-		{
-			"rowHead":0
-		},
-		"description":"A sample csv file with 2*2 values and a head as a source."
-	},
-	"target.csv":
-	{
-		"module":"actions-csv",
-		"subModule":"test",
-		"naturalId":"target.csv",
-		"scsKey":"target.csv",
-		"fileKey":"target.csv",
-		"fieldDelimiter":";",
-		"rowDelimiter":"\n",
-		"listParams":
-		{
-			"rowHead":0
-		},
-		"description":"A sample target csv file with tmp placeholder."
 	}
 }

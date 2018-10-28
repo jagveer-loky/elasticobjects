@@ -26,7 +26,7 @@ public class TemplateCallSimpleTest extends TestHelper {
         final String template="key='$[key]'<call path=\"level0/level1\">level0/level1/key='$[key]'</call>";
         action.setContent(template);
 
-        EO root = TestObjectProvider.createEO();
+        EO root = TestObjectProvider.createEOFromJson();
         root.add("key").set("value");
         root.add("level0/level1/key").set("value with path");
         final String result = action.execute(root);

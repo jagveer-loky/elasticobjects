@@ -14,9 +14,9 @@ import org.junit.Test;
 public class JsonCallTest {
     @Test
     public void readModuleConfigJson() throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
-        final JsonCall action = TestCallsProvider.createJsonCall( J_MODULE_CONFIG_JSON);
-        action.read(eoEmpty);
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
+        final JsonCall call = TestCallsProvider.createJsonCall( J_MODULE_CONFIG_JSON);
+        call.read(eoEmpty);
         Assert.assertEquals(MODULE_SHORT, eoEmpty.getChild(MODULE).get(F_SHORT));
         AssertEO.compare(eoEmpty);
     }

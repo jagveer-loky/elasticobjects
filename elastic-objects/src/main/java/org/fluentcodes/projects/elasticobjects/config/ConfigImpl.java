@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+
+import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -153,6 +155,29 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
 
         protected boolean isExpanded() {
             return expanded;
+        }
+    }
+
+    @Override
+    public String toString() {
+        if (this == null) {
+            return "{}";
+        }
+        try {
+            return new EOToJSON().toJSON(getConfigsCache(), this);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
+
+    public String serialize() {
+        if (this == null) {
+            return "{}";
+        }
+        try {
+            return new EOToJSON().setStartIndent(1).toJSON(getConfigsCache(), this);
+        } catch (Exception e) {
+            return e.getMessage();
         }
     }
 

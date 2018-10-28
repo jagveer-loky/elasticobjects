@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.calls.FileCall;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
@@ -19,7 +18,7 @@ public class EOWithFileCallTest extends TestHelper {
     private static final String METHOD_SOURCE_TXT = ".read(source.txt)";
     @Test
     public void addFileReadAction() throws Exception {
-        final EO root = TestObjectProvider.createEO();
+        final EO root = TestObjectProvider.createEOFromJson();
         root.add(toPath(S_LEVEL0, S_LEVEL1))
                 .set(S_STRING);
         final EO child = root.getChild(S_LEVEL0);
@@ -32,7 +31,7 @@ public class EOWithFileCallTest extends TestHelper {
         Assert.assertEquals(FileCall.class.getSimpleName() + METHOD_SOURCE_TXT, callExecutor.getAction());
         Assert.assertEquals(Path.DELIMITER + S_LEVEL0, callExecutor.getPath());
 
-        root.executeActions();
+        root.executeCalls();
         Assert.assertEquals(S_STRING, root.get(toPath(S_LEVEL0, SAMPLE_CONTENT)));
 
     }

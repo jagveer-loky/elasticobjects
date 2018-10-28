@@ -19,11 +19,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleEquals() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add("first")
                 .set(TEO_STATIC.S_STRING);
 
-        EO other = TestObjectProvider.createEO();
+        EO other = TestObjectProvider.createEOFromJson();
         other.add("first")
                 .set(TEO_STATIC.S_STRING);
 
@@ -35,11 +35,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleScalarNotEquals() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_TEST_STRING)
                 .set(TEO_STATIC.S_STRING);
 
-        EO other = TestObjectProvider.createEO();
+        EO other = TestObjectProvider.createEOFromJson();
         other.add(TEO_STATIC.S_TEST_STRING)
                 .set(TEO_STATIC.S_STRING_OTHER);
 
@@ -50,11 +50,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleContainerNotEquals() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_KEY0)
                 .set(TEO_STATIC.S_STRING);
 
-        EO other = TestObjectProvider.createEO();
+        EO other = TestObjectProvider.createEOFromJson();
         other.add(TEO_STATIC.S_KEY1)
                 .set(TEO_STATIC.S_STRING);
 

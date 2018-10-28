@@ -22,7 +22,7 @@ public class EOPathNewRootSet_value_Test {
 
     @Test
     public void listWithPath2() throws Exception {
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         List<String> list = ListProvider.toList(S_STRING);
         adapter.add(S_PATH2)
                 .set(list);

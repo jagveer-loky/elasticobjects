@@ -81,7 +81,7 @@ public class EOPath_value_Test extends TestHelper {
     @Test
     public void mapWithPathsOverlapping() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(toPath(S_LEVEL1,S_LEVEL2,S_LEVEL3, S_TEST_STRING))
                 .map(S_STRING);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL1,S_LEVEL2,S_LEVEL3, S_TEST_STRING)));
@@ -93,7 +93,7 @@ public class EOPath_value_Test extends TestHelper {
     @Test
     public void mapWithPathLong() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(toPath(S_LEVEL0,S_LEVEL1,S_LEVEL2))
                 .map(S_STRING);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL0,S_LEVEL1,S_LEVEL2)));
@@ -119,7 +119,7 @@ public class EOPath_value_Test extends TestHelper {
     @Test
     public void setWithPath3() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(toPath(S_LEVEL1,S_LEVEL2,S_LEVEL3))
                 .set(S_STRING);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL1,S_LEVEL2,S_LEVEL3)));
@@ -145,7 +145,7 @@ public class EOPath_value_Test extends TestHelper {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0,S_LEVEL1,S_LEVEL2,S_LEVEL3);
         final String path2 = toPath(S_LEVEL4,S_LEVEL5,S_LEVEL6,S_LEVEL7);
-        final EO adapter = TestObjectProvider.createEO();
+        final EO adapter = TestObjectProvider.createEOFromJson();
         final EO childAdapter = adapter
                 .add(path1)
                 .set(S_STRING);
@@ -166,7 +166,7 @@ public class EOPath_value_Test extends TestHelper {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final String path2 = toPath(S_LEVEL0, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         EO childAdapter =adapter
                 .add(path1)
                 .set(S_STRING);

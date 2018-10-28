@@ -299,12 +299,12 @@ public abstract class EOScalar implements EO {
     }
 
     @Override
-    public boolean hasActions() {
-        return getRoot().hasActions();
+    public boolean hasCalls() {
+        return this.hasCalls();
     }
 
-    public void executeActions() {
-        getRoot().executeActions();
+    public void executeCalls() {
+        getRoot().executeCalls();
     }
 
     public boolean isCheckObjectReplication() {

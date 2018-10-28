@@ -119,8 +119,8 @@ public class EOContainer extends EOScalar implements EO {
         if (isObject() && isChanged()) {
             getAdapterExtension().doAfterMap(this);
         }
-
     }
+
 
     protected void setCalls(List<CallExecutor> actions) throws Exception {
 

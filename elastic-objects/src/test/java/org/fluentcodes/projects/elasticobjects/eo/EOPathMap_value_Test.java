@@ -87,7 +87,7 @@ public class EOPathMap_value_Test extends TestHelper {
 
     @Test
     public void givenMapEmpty_withSTAndLongerPath() throws Exception {
-        final EO eoMapEmpty = TestObjectProvider.createEO();
+        final EO eoMapEmpty = TestObjectProvider.createEOFromJson();
         final String path = toPath(F_TEST_OBJECT,F_SUB_TEST);
         final EO child = eoMapEmpty
                 .add(path)
@@ -101,7 +101,7 @@ public class EOPathMap_value_Test extends TestHelper {
 
     @Test
     public void givenMapEmpty_withMapPathAlreadyUsedByScalarTypeValue() throws Exception {
-        final EO eoMap = TestObjectProvider.createEO();
+        final EO eoMap = TestObjectProvider.createEOFromJson();
         eoMap.add(S_LEVEL0)
                 .map(MapProvider.createSmall());
 
@@ -118,7 +118,7 @@ public class EOPathMap_value_Test extends TestHelper {
     @Test
     public void givenMapEmpty_withJsnSmallLevel0_ok() throws Exception {
         final String jsnSmall = MapProviderJSON.readSmall();
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final EO child = eoEmpty.add()
                 .setPath(S_LEVEL0)
                 .map(jsnSmall);
@@ -133,7 +133,7 @@ public class EOPathMap_value_Test extends TestHelper {
      */
     @Test
     public void givenMapEmpty_withJsonSmallLevel0_ok() throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final String jsonSmall = MapProviderJSON.readSmall();
 
         final EO child = eoEmpty.add()
@@ -150,7 +150,7 @@ public class EOPathMap_value_Test extends TestHelper {
      */
     @Test
     public void givenMapEmpty_withJsnSmallPath2_ok() throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final String jsnSmall = MapProviderJSN.readSmall();
 
         final EO child = eoEmpty.add()
@@ -167,7 +167,7 @@ public class EOPathMap_value_Test extends TestHelper {
      */
     @Test
     public void givenMapEmpty_withJsonSmallPath2_ok() throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final String jsonSmall = MapProviderJSON.readSmall();
 
         final EO child = eoEmpty.add()
@@ -187,7 +187,7 @@ public class EOPathMap_value_Test extends TestHelper {
      */
     @Test
     public void givenMapEmpty_withJsnAllPath2_ok() throws Exception {
-        final EO eoEmpty  = TestObjectProvider.createEO();
+        final EO eoEmpty  = TestObjectProvider.createEOFromJson();
         final String jsnAll = MapProviderJSN.readAll();
 
         final EO child = eoEmpty.add()
@@ -204,7 +204,7 @@ public class EOPathMap_value_Test extends TestHelper {
      */
     @Test
     public void givenMapEmpty_withJsonAllPath2_ok() throws Exception {
-        final EO eoEmpty  = TestObjectProvider.createEO();
+        final EO eoEmpty  = TestObjectProvider.createEOFromJson();
         final String jsonAll = MapProviderJSON.readAll();
 
         final EO child = eoEmpty.add()
@@ -271,7 +271,7 @@ public class EOPathMap_value_Test extends TestHelper {
 
     @Test
     public void givenBTEmpty_withUnknownFieldKey_fails() throws Exception {
-        final EO eoBTEmpty = TestObjectProvider.createEO(BasicTest.class);
+        final EO eoBTEmpty = TestObjectProvider.createEOFromJson(BasicTest.class);
         eoBTEmpty.add(SAMPLE_KEY_UNKNOW)
                 .set(S_INTEGER);
         TestObjectProvider.checkLogNotEmpty(eoBTEmpty);

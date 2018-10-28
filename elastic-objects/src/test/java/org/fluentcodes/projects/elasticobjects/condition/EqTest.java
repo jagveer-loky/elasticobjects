@@ -21,7 +21,7 @@ public class EqTest extends TestHelper {
 
     @Test
     public void filterAdapter() throws Exception {
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_TEST_STRING).set(TEO_STATIC.S_STRING);
         Eq eq = new Eq(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq.toString() + adapter.get(TEO_STATIC.S_TEST_STRING), eq.filter(adapter));

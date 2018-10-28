@@ -24,7 +24,7 @@ public class TestCallsProvider {
     }
 
     public static EO readFileCallEO(final String key, final String... attributeList) throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final Map attributes = MapProvider.toMap(attributeList);
         final FileCall call = new FileCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
         call.read(eoEmpty, attributes);
@@ -43,13 +43,13 @@ public class TestCallsProvider {
 
     public static EO executeExecutorFileRead(final String key, final String... attributeList) throws Exception {
         final CallExecutor callExecutor = createExecutorFileRead(key, attributeList);
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
 
     public static EO writeFileCallEO(final String key, final String... attributeList) throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final Map attributes = MapProvider.toMap(attributeList);
         final FileCall call = new FileCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
         call.write(eoEmpty, attributes);
@@ -68,7 +68,7 @@ public class TestCallsProvider {
 
     public static EO executeExecutorFileWrite(final String key, final String... attributeList) throws Exception {
         final CallExecutor callExecutor = createExecutorFileWrite(key, attributeList);
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
@@ -81,7 +81,7 @@ public class TestCallsProvider {
 
     public static EO executeExecutorValueCall(final String key, final Object... attributeList) throws Exception {
         final CallExecutor callExecutor = createExecutorValueCall(key, attributeList);
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
@@ -95,13 +95,13 @@ public class TestCallsProvider {
         call.set(eo);
     }
     public static EO createValueCallWithEOEmpty(final String key) throws Exception {
-        EO eoEmpty = TestObjectProvider.createEO();
+        EO eoEmpty = TestObjectProvider.createEOFromJson();
         createValueCallWithEO(key, eoEmpty);
         return eoEmpty;
     }
 
     public static EO createValueCallEO(final String key, final String... attributeList) throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final Map attributes = MapProvider.toMap(attributeList);
         final ValueCall call = new ValueCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
         call.set(eoEmpty, attributes);
@@ -113,7 +113,7 @@ public class TestCallsProvider {
     }
 
     public static EO createConfigCallEO(final String key) throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final ConfigCall call = new ConfigCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
         call.set(eoEmpty);
         return eoEmpty;
@@ -122,17 +122,19 @@ public class TestCallsProvider {
 
 
     public static EO createConfigCallEO(final String key, final String... attributeList) throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final Map attributes = MapProvider.toMap(attributeList);
         final ConfigCall call = new ConfigCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
         call.set(eoEmpty, attributes);
         return eoEmpty;
     }
 
-
-
     public static JsonCall createJsonCall(final String key) throws Exception {
         return new JsonCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
+    }
+
+    public static ScsCall createScsCall(final String key) throws Exception {
+        return new ScsCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
     }
 
     public static TemplateCall createTemplateCall(final String key) throws Exception {
@@ -147,12 +149,12 @@ public class TestCallsProvider {
 
     public static String executeTemplateCall(final String key) throws Exception {
         TemplateCall call = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
-        return call.execute(TestObjectProvider.createEO());
+        return call.execute(TestObjectProvider.createEOFromJson());
     }
 
     public static String executeTemplateAction(Map attributes, final String key) throws Exception {
         final TemplateCall executorAction = createTemplateCall(key);
-        final EO adapter = TestObjectProvider.createEO();
+        final EO adapter = TestObjectProvider.createEOFromJson();
         return executorAction.execute(adapter, attributes);
     }
 
@@ -163,7 +165,7 @@ public class TestCallsProvider {
 
     public static EO executeTemplateActionForAdapter(Map attributes, final String key) throws Exception {
         final TemplateCall templateAction = createTemplateCall(key);
-        final EO adapter = TestObjectProvider.createEO();
+        final EO adapter = TestObjectProvider.createEOFromJson();
         templateAction.execute(adapter, attributes);
         return adapter;
     }
@@ -171,7 +173,7 @@ public class TestCallsProvider {
     public final static void assertExecutorTemplate(final String templateFile) throws Exception {
         final String template = FileUtil.readFile(templateFile);
         final ExecutorList executorList = new ExecutorListTemplate(template);
-        final String result = executorList.execute(TestObjectProvider.createEO());
+        final String result = executorList.execute(TestObjectProvider.createEOFromJson());
         AssertEO.compare(result);
     }
 

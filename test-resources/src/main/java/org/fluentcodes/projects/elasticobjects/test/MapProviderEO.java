@@ -128,7 +128,7 @@ public class MapProviderEO {
 
 
     public static EO createBigEO(int length) throws Exception {
-        final EO adapter = TestObjectProvider.createEO();
+        final EO adapter = TestObjectProvider.createEOFromJson();
         for (int i = 0;i<length;i++) {
             adapter.add("key" + i).set(i);
         }
@@ -151,7 +151,7 @@ public class MapProviderEO {
 
     public static final EO createSimpleInsertWithPath() {
         try {
-            EO adapter = TestObjectProvider.createEO();
+            EO adapter = TestObjectProvider.createEOFromJson();
             adapter
                     .add(S_KEY0)
                     .set(S_STRING);

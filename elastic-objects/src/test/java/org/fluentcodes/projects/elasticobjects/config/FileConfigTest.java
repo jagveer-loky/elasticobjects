@@ -43,7 +43,7 @@ public class FileConfigTest extends TestHelper {
         Map map = TestConfig.readMapFromFile(CONFIG_FILE_TEST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(FILE_SOURCE_TXT));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(FILE_TEST_TEST));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class FileConfigTest extends TestHelper {
         TestHelper.printStartMethod();
         FileConfig cache = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_TEST_SOURCE_TXT);
         Assert.assertEquals(FILE_TEST_SOURCE_TXT, cache.getFileKey());
-        Assert.assertEquals(FILE_SOURCE_TXT, cache.getFileName());
+        Assert.assertEquals(FILE_SOURCE_NAME_TXT, cache.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH + Path.DELIMITER + S_STRING, cache.getFilePath());
         Assert.assertEquals(H_LOCALHOST, cache.getHostConfig().getHostName());
     }
@@ -91,7 +91,7 @@ public class FileConfigTest extends TestHelper {
         TestHelper.printStartMethod();
         FileConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findFile(FILE_SOURCE_TXT);
         Assert.assertEquals(FILE_SOURCE_TXT, config.getFileKey());
-        Assert.assertEquals(FILE_SOURCE_TXT, config.getFileName());
+        Assert.assertEquals(FILE_SOURCE_NAME_TXT, config.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH, config.getFilePath());
         Assert.assertEquals(H_LOCALHOST, config.getHostConfig().getHostName());
     }
@@ -101,7 +101,7 @@ public class FileConfigTest extends TestHelper {
         TestHelper.printStartMethod();
         FileConfig config = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_CLASSPATH_SOURCE_TXT);
         Assert.assertEquals(FILE_CLASSPATH_SOURCE_TXT, config.getFileKey());
-        Assert.assertEquals(FILE_SOURCE_TXT, config.getFileName());
+        Assert.assertEquals(FILE_SOURCE_NAME_TXT, config.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH, config.getFilePath());
         Assert.assertEquals(H_LOCALHOST, config.getHostConfig().getHostName());
     }
@@ -111,7 +111,7 @@ public class FileConfigTest extends TestHelper {
         TestHelper.printStartMethod();
         FileConfig config = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_LOCALHOST_SOURCE_TXT);
         Assert.assertEquals(FILE_LOCALHOST_SOURCE_TXT, config.getFileKey());
-        Assert.assertEquals(FILE_SOURCE_TXT, config.getFileName());
+        Assert.assertEquals(FILE_SOURCE_NAME_TXT, config.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH, config.getFilePath());
         Assert.assertEquals(H_LOCALHOST, config.getHostConfig().getHostName());
     }

@@ -38,7 +38,7 @@ public class EOConfigsCache {
         this.localSerialized = localSerialized;
         this.modelPattern = null;
         try {
-            EOConfigsModel models = new EOConfigsModel(this, scope);
+            ConfigsModel models = new ConfigsModel(this, scope);
             eoConfigsMap.put(ModelConfig.class, models);
 
             EOConfigsField fields = new EOConfigsField(this, scope);
@@ -46,6 +46,7 @@ public class EOConfigsCache {
             models.init();
             if (scope != Scope.DEV) {
                 models.addConfigs();
+                models.initCallMap();
                 fields.addConfigs();
             }
         }
@@ -93,13 +94,17 @@ public class EOConfigsCache {
     public EOConfigs getConfig(Class configClass) throws Exception {
 
         if (eoConfigsMap.get(configClass) == null) {
-            eoConfigsMap.put(configClass, new EOConfigsImmutable(this, configClass, scope));
+            eoConfigsMap.put(configClass, new ConfigsImmutable(this, configClass, scope));
         }
         EOConfigs configs = eoConfigsMap.get(configClass);
         if (configs == null) {
             throw new Exception("No provider defined for " + configClass.getSimpleName());
         }
         return configs;
+    }
+
+    public Set<String> getCallSet() throws Exception {
+        return ((ConfigsModel)getConfig(ModelConfig.class)).getCallSet();
     }
 
     public Set<String> getKeys(final Class<?> cacheClass) throws Exception {

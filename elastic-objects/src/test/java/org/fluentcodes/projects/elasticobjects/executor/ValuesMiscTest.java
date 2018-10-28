@@ -17,7 +17,7 @@ import org.junit.Test;
 public class ValuesMiscTest {
     @Test
     public void join() throws Exception {
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(S_KEY0).set(S_STRING);
         adapter.add(S_KEY1).set(S_STRING_OTHER);
         adapter.add(S_KEY2).set(S1);

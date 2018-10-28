@@ -60,6 +60,8 @@ public class EO_STATIC {
     public static final String CONFIG_PATH_TEST_SIMPLE = "src/test/resources";
     public static final String CONFIG_PATH_MAIN = CONFIG_PATH_MAIN_SIMPLE + Path.DELIMITER;
     public static final String CONFIG_PATH_TEST = CONFIG_PATH_TEST_SIMPLE + Path.DELIMITER;
+    public static final String JSON_PATH_MAIN = CONFIG_PATH_MAIN_SIMPLE + Path.DELIMITER + "input" + Path.DELIMITER + "json" + Path.DELIMITER;
+    public static final String JSON_PATH_TEST = CONFIG_PATH_TEST_SIMPLE + Path.DELIMITER + "input" + Path.DELIMITER + "json" + Path.DELIMITER;
 
     public static final String CONFIG_MODEL = MODEL + CONFIG;
     public static final String CONFIG_MODEL_FILE = CONFIG_MODEL + CONFIG_JSON_END;

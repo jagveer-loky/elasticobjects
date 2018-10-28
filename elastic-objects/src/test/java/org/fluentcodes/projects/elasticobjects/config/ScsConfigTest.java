@@ -7,6 +7,8 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
+import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.test.AssertString;
 import org.fluentcodes.projects.elasticobjects.test.ListProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
@@ -30,11 +32,14 @@ public class ScsConfigTest extends TestHelper {
     Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
     Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
     Assert.assertEquals(CS_SOURCE_CSV, config.getFileKey());
-    Assert.assertEquals(CS_SOURCE_CSV, config.getFileConfig().getFileName());
+    Assert.assertEquals(CS_SOURCE_CSV_NAME, config.getFileConfig().getFileName());
     Assert.assertEquals(H_LOCALHOST, config.getFileConfig().getHostConfig().getHostName());
     List list = config.createIO().read(new ListParams());
     Assert.assertEquals(2, list.size());
     Assert.assertEquals(2 , ((List)list.get(0)).size());
+    final String serialized = config.serialize();
+    Assert.assertNotNull(serialized);
+    AssertString.compare(serialized);
   }
 
   @Test

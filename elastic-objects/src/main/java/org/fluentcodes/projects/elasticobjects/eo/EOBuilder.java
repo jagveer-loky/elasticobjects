@@ -386,7 +386,7 @@ public class EOBuilder {
 
             // if path is empty one try to add the values directly
             if (value == null) {
-                eoParent.warn("Wont set/map existing adapter with a null value '");
+                eoParent.info("Wont set/map existing adapter with a null value '");
                 return eoParent;
             }
             try {

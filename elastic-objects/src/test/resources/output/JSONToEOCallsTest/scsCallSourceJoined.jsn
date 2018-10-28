@@ -1,0 +1,44 @@
+{
+"_data":
+	{
+		"0":
+		{
+			"key1":"value11",
+			"key2":"value12"
+		},
+		"1":
+		{
+			"key1":"value21",
+			"key2":"value22"
+		},
+		"level0":
+		{
+			"level1":
+			{
+				"0":
+				{
+					"key1":"value11",
+					"key2":"value12"
+				},
+				"1":
+				{
+					"key1":"value21",
+					"key2":"value22"
+				}
+			}
+		}
+	},
+"(List)_actions":
+{
+	"0":
+	{
+		"execute":"ScsCall.read(source.csv)",
+		"path":"/"
+	},
+	"1":
+	{
+		"execute":"ScsCall.read(source.csv)",
+		"path":"level0/level1"
+	}
+}
+}

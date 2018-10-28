@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.executor;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
-import org.fluentcodes.projects.elasticobjects.calls.ValueCall;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.executor.statics.ValuesMisc;
@@ -27,7 +26,7 @@ public class ExecutorItemTest {
         Assert.assertEquals(ValuesMisc.class, item.getExecutorClass());
         Assert.assertEquals(CON_SET, item.getMethodName());
         Assert.assertNotNull(item.getMethod());
-        EO eoEmpty = TestObjectProvider.createEO();
+        EO eoEmpty = TestObjectProvider.createEOFromJson();
         Object[] args = new Object[]{eoEmpty, F_TEST_STRING, S_STRING};
         item.getMethod().invoke(null, new Object[]{args});
         Assert.assertEquals(S_STRING, eoEmpty.get(F_TEST_STRING));
@@ -42,7 +41,7 @@ public class ExecutorItemTest {
         Assert.assertEquals(ValuesMisc.class, item.getExecutorClass());
         Assert.assertEquals(CON_SET, item.getMethodName());
         Assert.assertNotNull(item.getMethod());
-        EO eoEmpty = TestObjectProvider.createEO();
+        EO eoEmpty = TestObjectProvider.createEOFromJson();
         Object call = item
                 .getExecutorClass()
                 .getConstructor(EOConfigsCache.class, String.class)

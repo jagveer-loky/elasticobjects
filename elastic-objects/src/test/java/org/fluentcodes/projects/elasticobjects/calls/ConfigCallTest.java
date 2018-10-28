@@ -2,19 +2,14 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.config.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created 10.6.2018
@@ -22,7 +17,7 @@ import java.util.Map;
 public class ConfigCallTest {
     @Test
     public void fieldsDirect() throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEO();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final ConfigCall call = new ConfigCall();
         call.setFilterConfigName(M_FIELD_CONFIG);
         call.setFilterModule(EO_STATIC.MODULE_NAME);

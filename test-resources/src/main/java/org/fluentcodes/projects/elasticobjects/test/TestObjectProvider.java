@@ -39,7 +39,7 @@ public class TestObjectProvider {
                 .setLogLevel(LogLevel.WARN);
     }
 
-    public static final EO createEO(Class... classes) throws Exception {
+    public static final EO createEOFromJson(Class... classes) throws Exception {
         return new EOBuilder(EO_CONFIGS_CACHE)
                 .setModels(classes)
                 .setLogLevel(LogLevel.WARN)
@@ -53,7 +53,7 @@ public class TestObjectProvider {
         return new JSONToEO("[]",EO_CONFIGS_CACHE);
     }
 
-    public static final EO createEO() throws Exception {
+    public static final EO createEOFromJson() throws Exception {
         return createEOBuilder().build();
     }
 
@@ -126,4 +126,8 @@ public class TestObjectProvider {
                 .set(new ArrayList<>());
     }
 
+    public static EO createEOFromJson(final String json) throws Exception {
+        JSONToEO tokener = new JSONToEO(json, EO_CONFIGS_CACHE);
+        return tokener.createChild(createEOFromJson());
+    }
 }

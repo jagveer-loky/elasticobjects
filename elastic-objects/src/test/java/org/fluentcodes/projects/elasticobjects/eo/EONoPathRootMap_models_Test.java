@@ -32,7 +32,7 @@ public class EONoPathRootMap_models_Test {
         return child;
     }
 
-    public static EO mapEO_fails(final EO root, final Class... classes) throws Exception {
+    public static EO mapEO_changeNothing(final EO root, final Class... classes) throws Exception {
         final EO child = root.add()
                 .setModels(classes)
                 .map(null);
@@ -40,50 +40,50 @@ public class EONoPathRootMap_models_Test {
         return child;
     }
     @Test
-    public void givenString_withInteger_fails() throws Exception {
+    public void givenString_withInteger_changeNothing() throws Exception {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .set(S_STRING);
-        mapEO_fails(eoString, Integer.class);
+        mapEO_ok(eoString, Integer.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get());
     }
 
     @Test
-    public void givenString_WithList_fails() throws Exception {
+    public void givenString_WithList_changeNothing() throws Exception {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .set(S_STRING);
-        mapEO_fails(eoString, List.class);
+        mapEO_ok(eoString, List.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get());
     }
 
     @Test
-    public void givenMapString_withMap_fails() throws Exception {
+    public void givenMapString_withMap_changeNothing() throws Exception {
         final EO eoMap = MapProviderEO.createString();
-        mapEO_fails(eoMap, Map.class);
+        mapEO_ok(eoMap, Map.class);
     }
 
     @Test
-    public void givenMapWithString_withString_ok() throws Exception {
+    public void givenMapWithString_withString_changeNothing() throws Exception {
         final EO eoMap = MapProviderEO.createString();
         Assert.assertEquals(S_STRING, eoMap.get(F_TEST_STRING));
-        mapEO_fails(eoMap, String.class);
+        mapEO_ok(eoMap, String.class);
         Assert.assertEquals(S_STRING, eoMap.get(F_TEST_STRING));
     }
 
     @Test
-    public void givenBTWithString_withMap_fails() throws Exception {
+    public void givenBTWithString_withMap_changeNothing() throws Exception {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
 
-        mapEO_fails(eoBTString, Map.class);
+        mapEO_ok(eoBTString, Map.class);
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
     }
 
     @Test
-    public void givenBTString_withMap_fails() throws Exception {
+    public void givenBTString_withMap_changeNothing() throws Exception {
         final EO eoBTString = BTProviderEO.createString();
-        mapEO_fails(eoBTString, Map.class);
+        mapEO_ok(eoBTString, Map.class);
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
     }
 }

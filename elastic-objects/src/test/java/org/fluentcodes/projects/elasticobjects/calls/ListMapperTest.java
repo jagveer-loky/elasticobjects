@@ -38,7 +38,7 @@ public class ListMapperTest extends TestHelper {
     public void checkList() throws Exception {
       List row = ListProvider.toList(S_STRING, S_INTEGER, S_BOOLEAN);
       ListMapper rowMapper = new ListMapper();
-      EO adapter = TestObjectProvider.createEO();
+      EO adapter = TestObjectProvider.createEOFromJson();
       rowMapper.createRow(adapter,row);
       Assert.assertEquals(S_STRING, adapter.get(S0));
       Assert.assertEquals(S_INTEGER, adapter.get(S1));
@@ -50,7 +50,7 @@ public class ListMapperTest extends TestHelper {
         List row = ListProvider.toList(S_STRING, S_INTEGER, S_BOOLEAN);
         Map map = MapProvider.toMap(F_COL_KEYS, join(CON_COMMA,S0,S1,S2));
         ListMapper rowMapper = new ListMapper(map);
-        EO adapter = TestObjectProvider.createEO();
+        EO adapter = TestObjectProvider.createEOFromJson();
         rowMapper.createRow(adapter,row);
         Assert.assertEquals(S_STRING, adapter.get(S0));
         Assert.assertEquals(S_INTEGER, adapter.get(S1));

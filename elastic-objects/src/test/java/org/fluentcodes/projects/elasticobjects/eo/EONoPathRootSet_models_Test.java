@@ -19,37 +19,37 @@ public class EONoPathRootSet_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathRootSet_models_Test.class);
 
     @Test
-    public void givenString_withInteger_fails() throws Exception {
+    public void givenString_withInteger_changeNothing() throws Exception {
         TestHelper.printStartMethod();
-        final EO eoString = TestObjectProvider.createEO(String.class);
-        EOTest.setEO_fails(eoString, Integer.class);
+        final EO eoString = TestObjectProvider.createEOFromJson(String.class);
+        EOTest.setEO_ok(eoString, Integer.class);
     }
 
     @Test
-    public void givenMapString_WithInteger_fails() throws Exception {
+    public void givenMapString_WithInteger_changeNothing() throws Exception {
         final EO eoString = MapProviderEODev.createString();
-        EOTest.setEO_fails(eoString, Integer.class);
+        EOTest.setEO_ok(eoString, Integer.class);
   }
 
     @Test
-    public void givenMapString_withHashMap_fails() throws Exception {
+    public void givenMapString_withHashMap_changeNothing() throws Exception {
         final EO eoString = MapProviderEODev.createString();
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get(F_TEST_STRING));
-        EOTest.setEO_fails(eoString, LinkedHashMap.class);
+        EOTest.setEO_ok(eoString, LinkedHashMap.class);
      }
 
     @Test
-    public void givenBTString_withMap_fails() throws Exception {
+    public void givenBTString_withMap_changeNothing() throws Exception {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoBTString.getRoot().get(F_TEST_STRING));
-        EOTest.setEO_fails(eoBTString.getRoot(), LinkedHashMap.class);
+        EOTest.setEO_ok(eoBTString.getRoot(), LinkedHashMap.class);
     }
 
     @Test
-    public void givenBTString_withInteger_fails() throws Exception {
+    public void givenBTString_withInteger_changeNothing() throws Exception {
         final EO eoString = BTProviderEO.createString();
-        EOTest.setEO_fails(eoString, Integer.class);
-        TestObjectProvider.checkLogNotEmpty(eoString);
+        EOTest.setEO_ok(eoString, Integer.class);
+        TestObjectProvider.checkLogEmpty(eoString);
     }
 }
 
