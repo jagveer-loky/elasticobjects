@@ -1,0 +1,50 @@
+{
+  "CsvCall": {
+    "module": "actions-csv",
+    "subModule": "main",
+    "naturalId": "CsvCall",
+    "eoParams": {
+      "shapeType": "ACTION",
+      "modelConfigKey": "CsvConfig",
+      "create": true,
+      "methods": [
+        "read",
+        "write"
+      ],
+      "attributeList": [
+        "length",
+        "rowStart",
+        "rowEnd",
+        "ignoreHeader",
+        "colKeysAsString",
+        "pathPatternAsString"
+      ]
+    },
+    "description": "Defines read and write call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
+    "superKey": "ListCall",
+    "modelKey": "CsvCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "CsvConfig": {
+    "module": "actions-csv",
+    "subModule": "main",
+    "naturalId": "CsvConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "description": "Defines the configuration for a csv content stored in a final config object delivered by the config cache.",
+    "superKey": "ListConfig",
+    "fieldKeys": [
+      "csvKey",
+      "fileKey",
+      "fieldDelimiter",
+      "rowDelimiter"
+    ],
+    "modelKey": "CsvConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config"
+  }
+}

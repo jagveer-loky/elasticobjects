@@ -1,0 +1,13 @@
+{
+  "csvKey": {
+    "module": "actions-csv",
+    "subModule": "main",
+    "naturalId": "csvKey",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "csvKey",
+    "description": "A csv key for a csv configuration/action. "
+  }
+}

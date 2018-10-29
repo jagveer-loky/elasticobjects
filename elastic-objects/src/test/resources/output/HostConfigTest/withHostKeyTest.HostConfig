@@ -1,27 +1,24 @@
 {
-"(HostConfig)_data":
-	{
-		"hostKey":"hostKey",
-		"port":1,
-		"protocol":"protocol",
-		"hostName":"hostName",
-		"user":"user",
-		"password":"password",
-		"rolePermissions":
-		{
-			"read":"testRoleRead,guest",
-			"write":"testRoleWrite,admin",
-			"create":"testRoleCreate,admin",
-			"delete":"admin",
-			"execute":"superadmin"
-		},
-		"module":"elastic-objects",
-		"subModule":"test",
-		"scope":
-		{
-		},
-		"key":"hostKey",
-		"description":"description",
-		"naturalId":"test"
-	}
+  "(HostConfig)_data": {
+    "hostKey": "hostKey",
+    "port": 1,
+    "protocol": "protocol",
+    "hostName": "hostName",
+    "user": "user",
+    "password": "password",
+    "rolePermissions": {
+      "read": "testRoleRead,guest",
+      "write": "testRoleWrite,admin",
+      "create": "testRoleCreate,admin",
+      "delete": "admin",
+      "execute": "superadmin"
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "scope": {
+    },
+    "key": "hostKey",
+    "description": "description",
+    "naturalId": "test"
+  }
 }

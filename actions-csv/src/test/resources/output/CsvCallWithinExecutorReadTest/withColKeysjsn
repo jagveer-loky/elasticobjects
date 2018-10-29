@@ -1,0 +1,21 @@
+{
+"_data":
+	{
+		"level0":
+		{
+			"level1":
+			{
+				"value11":
+				{
+					"A":"value11",
+					"B":"value12"
+				},
+				"value21":
+				{
+					"A":"value21",
+					"B":"value22"
+				}
+			}
+		}
+	}
+}

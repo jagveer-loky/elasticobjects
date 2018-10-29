@@ -1,29 +1,23 @@
 {
-"_data":
-	{
-		"level0":
-		{
-			"level1":
-			{
-				"0":
-				{
-					"key1":"value11",
-					"key2":"value12"
-				},
-				"1":
-				{
-					"key1":"value21",
-					"key2":"value22"
-				}
-			}
-		}
-	},
+  "_data": {
+    "level0": {
+      "level1": {
+        "0": {
+          "key1": "value11",
+          "key2": "value12"
+        },
+        "1": {
+          "key1": "value21",
+          "key2": "value22"
+        }
+      }
+    }
+  },
 "(List)_calls":
 {
-	"0":
-	{
-		"execute":"ScsCall.read(source.csv)",
-		"path":"level0/level1"
-	}
+  "0": {
+    "execute": "ScsCall.read(source.csv)",
+    "path": "level0/level1"
+  }
 }
 }

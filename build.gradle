@@ -110,78 +110,8 @@ project(':actions-xlsx') {
         version = '0.1.0'
     }
 }
-project(':actions-db') {
-    buildDir = System.getProperty("user.home") + '/build/elasticobjects/actions-db'
-    dependencies {
-        compile project(':elastic-objects')
-        compile 'org.apache.tomcat:tomcat-jdbc:8.5.0'
 
-        testCompile project(':test-resources')
-        testCompile 'org.hsqldb:hsqldb:2.3.2'
-        testCompile 'mysql:mysql-connector-java:5.1.31'
-        testCompile 'com.h2database:h2:1.4.191'
-        testCompile 'org.apache.derby:derby:10.12.1.1'
-    }
-    jar {
-        baseName = 'actions-db'
-        version = '0.1.0'
-    }
-}
 
-project(':actions-db-hibernate') {
-    buildDir = System.getProperty("user.home") + '/build/elasticobjects/actions-db-hibernate'
-    dependencies {
-        compile project(':actions-db')
-        compile 'org.hibernate:hibernate-core:5.1.0.Final'
-
-        testCompile project(':test-resources')
-        testCompile 'org.hsqldb:hsqldb:2.3.2'
-        testCompile 'mysql:mysql-connector-java:5.1.31'
-        testCompile 'com.h2database:h2:1.4.191'
-        testCompile 'org.apache.derby:derby:10.12.1.1'
-    }
-    jar {
-        baseName = 'actions-db-hibernate'
-        version = '0.1.0'
-    }
-}
-
-project(':builder') {
-    buildDir = System.getProperty("user.home") + '/build/elasticobjects/builder-eo'
-    dependencies {
-        compile 'com.lexicalscope.jewelcli:jewelcli:0.8.3'
-        compile project(':actions-xlsx')
-        testCompile project(':test-resources')
-    }
-    jar {
-        baseName = 'builder-eo'
-        version = '0.1.0'
-    }
-}
-
-project(':builder-eo') {
-    buildDir = System.getProperty("user.home") + '/build/elasticobjects/builder-eo'
-    dependencies {
-        compile project(':builder')
-        compile project(':actions-csv')
-        compile project(':actions-db')
-        compile project(':actions-db-hibernate')
-        testCompile project(':test-resources')
-    }
-    jar {
-        baseName = 'builder-eo'
-        version = '0.1.0'
-    }
-}
-
-project(':builder-sandboxes') {
-    buildDir = System.getProperty("user.home") + '/build/elasticobjects/build-sandboxes'
-    dependencies {
-        compile project(':actions-xlsx')
-        compile 'com.lexicalscope.jewelcli:jewelcli:0.8.3'
-        testCompile project(':test-resources')
-    }
-}
 
 
 

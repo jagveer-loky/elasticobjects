@@ -1,34 +1,29 @@
 {
-	"scsKey":"source.csv",
-	"fileKey":"source.csv",
-	"fieldDelimiter":";",
-	"rowDelimiter":"\n",
-	"listParams":
-	{
-		"rowHead":0,
-		"rowStart":1,
-		"rowEnd":-1,
-		"length":-1
-	},
-	"listMapper":
-	{
-		"colKeys":
-		[
-			"key1",
-			"key2"
-		]
-	},
-	"rolePermissions":
-	{
-		"read":"guest",
-		"write":"admin"
-	},
-	"module":"test-resources",
-	"subModule":"main",
-	"scope":
-	[
-	],
-	"key":"source.csv",
-	"description":"A sample csv file with 2*2 values and a head as a source.",
-	"naturalId":"source.csv"
+  "scsKey": "source.csv",
+  "fileKey": "source.csv",
+  "fieldDelimiter": ";",
+  "rowDelimiter": "\n",
+  "listParams": {
+    "rowHead": 0,
+    "rowStart": 1,
+    "rowEnd": -1,
+    "length": -1
+  },
+  "listMapper": {
+    "colKeys": [
+      "key1",
+      "key2"
+    ]
+  },
+  "rolePermissions": {
+    "read": "guest",
+    "write": "admin"
+  },
+  "module": "test-resources",
+  "subModule": "main",
+  "scope": [
+  ],
+  "key": "source.csv",
+  "description": "A sample csv file with 2*2 values and a head as a source.",
+  "naturalId": "source.csv"
 }

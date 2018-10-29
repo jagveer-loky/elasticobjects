@@ -1,14 +1,12 @@
 {
-"_data":
-	{
-		"description":"This test is just to verify, that all permission properties are set by the deserializer.",
-		"rolePermissions":
-		{
-			"read":"read",
-			"write":"write",
-			"execute":"execute",
-			"delete":"delete",
-			"create":"create"
-		}
-	}
+  "_data": {
+    "description": "This test is just to verify, that all permission properties are set by the deserializer.",
+    "rolePermissions": {
+      "read": "read",
+      "write": "write",
+      "execute": "execute",
+      "delete": "delete",
+      "create": "create"
+    }
+  }
 }

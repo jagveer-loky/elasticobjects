@@ -1,23 +1,18 @@
 {
-"(BasicTest)_data":
-	{
-		"subTestMap":
-		{
-			"key0":
-			{
-				"name":"testOther",
-				"testString":"test"
-			},
-			"key1":
-			{
-				"name":"testOther",
-				"testString":"test"
-			},
-			"key2":
-			{
-				"name":"testOther",
-				"testString":"test"
-			}
-		}
-	}
+  "(BasicTest)_data": {
+    "subTestMap": {
+      "key0": {
+        "name": "testOther",
+        "testString": "test"
+      },
+      "key1": {
+        "name": "testOther",
+        "testString": "test"
+      },
+      "key2": {
+        "name": "testOther",
+        "testString": "test"
+      }
+    }
+  }
 }

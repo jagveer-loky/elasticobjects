@@ -1,0 +1,48 @@
+{
+  "test": {
+    "module": "actions-csv",
+    "subModule": "test",
+    "naturalId": "test",
+    "csvKey": "test",
+    "fileKey": "test:test",
+    "fieldDelimiter": "fieldDelimiter",
+    "rowDelimiter": "rowDelimiter",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "description",
+    "rolePermissions": {
+      "read": "anonymRole",
+      "write": "guestRole",
+      "create": "testRoleCreate,adminRole",
+      "delete": "adminRole",
+      "execute": "superadminRole"
+    }
+  },
+  "source.csv": {
+    "module": "actions-csv",
+    "subModule": "test",
+    "naturalId": "source.csv",
+    "csvKey": "source.csv",
+    "fileKey": "csv.source.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "A sample csv file with 2*2 values and a head as a source."
+  },
+  "target.csv": {
+    "module": "actions-csv",
+    "subModule": "test",
+    "naturalId": "target.csv",
+    "csvKey": "target.csv",
+    "fileKey": "csv.target.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "A sample target csv file with tmp placeholder."
+  }
+}

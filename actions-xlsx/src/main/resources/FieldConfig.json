@@ -1,0 +1,26 @@
+{
+  "sheetName": {
+    "module": "actions-xlsx",
+    "subModule": "main",
+    "naturalId": "sheetName",
+    "dbFieldParams": {
+      "fieldName": "sheetName",
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "sheetName",
+    "description": "A name for the sheet selected."
+  },
+  "xlsxKey": {
+    "module": "actions-xlsx",
+    "subModule": "main",
+    "naturalId": "xlsxKey",
+    "dbFieldParams": {
+      "fieldName": "xlsxKey",
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "xlsxKey",
+    "description": "A key for the sheet."
+  }
+}
