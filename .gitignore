@@ -6,12 +6,11 @@ build/
 *.log
 */build/
 */.idea/
+target/*
+out/*
 actions-db/
 actions-db-hibernate/
 builder/
 builder-eo/
 builder-sandboxes/
 builder-projects/
-project-misc/
-project-model/
-projects-misc/

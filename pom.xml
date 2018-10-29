@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.fluentcodes.projects.elasticobjects</groupId>
+    <artifactId>eo</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1.0</version>
+    <name>EO - Elastic objects</name>
+    <url>http://www.elasticobjects.com</url>
+
+    <licenses>
+      <license>
+        <name>Apache License Version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+
+    <developers>
+      <developer>
+        <id>wdi</id>
+        <name>Werner Diwischek</name>
+        <email>fluentcodes@gmail.com</email>
+      </developer>
+    </developers>
+
+    <scm>
+        <connection>:git:git://github.com/fluentcodes/elasticobjects.git</connection>
+        <developerConnection>scm:git:ssh://github.com/fluentcodes/elasticobjects.git</developerConnection>
+        <url>https://github.com/fluentcodes/elasticobjects/</url>
+    </scm>
+
+    <issueManagement>
+        <system></system>
+        <url></url>
+    </issueManagement>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>maven</id>
+            <url>https://mvnrepository.com/artifact/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>elastic-objects</module>
+        <module>test-resources</module>
+        <module>actions-csv</module>
+        <module>actions-xlsx</module>
+    </modules>
+    <profiles>
+    </profiles>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+</project>
