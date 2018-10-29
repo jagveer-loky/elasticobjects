@@ -9,7 +9,10 @@ import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
@@ -19,7 +22,8 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ModelsMapTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsMapTest.class);
     private static final Models MODELS = createModels();
-    private static final Models createModels () {
+
+    private static final Models createModels() {
         try {
             return new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class);
         } catch (Exception e) {
@@ -46,8 +50,7 @@ public class ModelsMapTest extends TestHelper {
         try {
             MODELS.createChildForSet(F_UNTYPED_MAP, TestObjectProvider.createJSONToEOMapEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }

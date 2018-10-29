@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -68,8 +67,8 @@ public class UserConfig extends ConfigImpl {
 //</call>
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
-            userKey = (String)configsCache.transform(EO_STATIC.F_USER_KEY, values);
-            userName = (String)configsCache.transform(EO_STATIC.F_USER_NAME, values);
+            userKey = (String) configsCache.transform(EO_STATIC.F_USER_KEY, values);
+            userName = (String) configsCache.transform(EO_STATIC.F_USER_NAME, values);
             super.prepare(configsCache, values);
         }
 

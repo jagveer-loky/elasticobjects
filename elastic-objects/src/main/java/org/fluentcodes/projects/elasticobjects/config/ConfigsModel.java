@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public class ConfigsModel extends EOConfigs {
     public static final Logger LOG = LogManager.getLogger(ConfigsModel.class);
 
-    private Map<String,String> classPathMap;
+    private Map<String, String> classPathMap;
     private Set<String> callSet = new TreeSet<>();
 
     public ConfigsModel(final EOConfigsCache eoConfigsCache, final Scope scope) throws Exception {
@@ -40,7 +40,7 @@ public class ConfigsModel extends EOConfigs {
     }
 
     protected void initCallMap() {
-        for (String key: getConfigMap().keySet()) {
+        for (String key : getConfigMap().keySet()) {
             ModelConfig config = (ModelConfig) getConfigMap().get(key);
             if (config.getEoParams().getShapeType() == ShapeTypes.CALL) {
                 callSet.add(key);
@@ -48,33 +48,31 @@ public class ConfigsModel extends EOConfigs {
         }
     }
 
-    public Set<String> getCallSet () {
+    public Set<String> getCallSet() {
         return callSet;
     }
 
     @Override
     public Config find(final String key) throws Exception {
-        final String simple = key.replaceAll(".*\\.","");
+        final String simple = key.replaceAll(".*\\.", "");
         try {
             return super.find(simple);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             try {
                 return ModelConfig.add(getConfigsCache(), key);
-            }
-            catch (Exception e1) {
+            } catch (Exception e1) {
                 if (classPathMap == null) {
                     initClassMapPath();
                 }
                 if (classPathMap.get(simple) == null) {
                     throw new Exception("Could not find the " + simple + " in the class path map");
                 }
-                String classPath =  classPathMap.get(simple).replaceAll("/",".").replaceAll("\\.class$","");
+                String classPath = classPathMap.get(simple).replaceAll("/", ".").replaceAll("\\.class$", "");
                 return ModelConfig.add(getConfigsCache(), classPath);
             }
         }
     }
-    
+
     protected void init() throws Exception {
         Map<String, Object> map = new HashMap<>();
         Map<String, Object> eoParamsMap = new HashMap<>();

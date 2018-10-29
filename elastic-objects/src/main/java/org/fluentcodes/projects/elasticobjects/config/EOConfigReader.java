@@ -46,7 +46,7 @@ public class EOConfigReader {
     }
 
     public void read(final URL url, final Map<String, Config> configMap) throws Exception {
-        read (url, configMap, Scope.ALL);
+        read(url, configMap, Scope.ALL);
     }
 
     public void read(final URL url, final Map<String, Config> configMap, final Scope scope) throws Exception {
@@ -57,6 +57,7 @@ public class EOConfigReader {
             throw new Exception(e.getMessage() + " url=" + url);
         }
     }
+
     public void add(final Map map, final Map<String, Config> configMap) throws Exception {
         add(map, configMap, Scope.ALL);
     }

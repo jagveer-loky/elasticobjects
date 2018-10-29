@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.test;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class MapProviderJSONTest {
@@ -29,6 +28,7 @@ public class MapProviderJSONTest {
     public void createInteger() throws Exception {
         MapProviderJSON.createInteger();
     }
+
     @Test
     public void compareInteger() throws Exception {
         MapProviderJSON.compareInteger();
@@ -98,6 +98,7 @@ public class MapProviderJSONTest {
     public void createList() throws Exception {
         MapProviderJSON.createList();
     }
+
     @Test
     public void compareList() throws Exception {
         MapProviderJSON.compareList();
@@ -117,10 +118,12 @@ public class MapProviderJSONTest {
     public void createST() throws Exception {
         MapProviderJSON.createST();
     }
+
     @Test
     public void compareST() throws Exception {
         MapProviderJSON.compareST();
     }
+
     @Test
     public void createEOMapST() throws Exception {
         MapProviderJSON.createMapST();

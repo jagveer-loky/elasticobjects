@@ -1,20 +1,30 @@
 {
-  "sourceDirs":{
-    "main":{
-      "srcDir":"src/main/java",
-      "static":"EO_STATIC_MAIN"
+  "sourceDirs": {
+    "main": {
+      "srcDir": "src/main/java",
+      "static": "EO_STATIC_MAIN"
     },
-    "test":{
-      "srcDir":"src/test/java",
-      "static":"EO_STATIC_TEST"
+    "test": {
+      "srcDir": "src/test/java",
+      "static": "EO_STATIC_TEST"
     },
-    "build":{
-      "srcDir":"src/build/java",
-      "static":"EO_STATIC_BUILD"
+    "build": {
+      "srcDir": "src/build/java",
+      "static": "EO_STATIC_BUILD"
     }
   },
-  "short":"EO",
-  "dir":"elastic-objects",
-  "package":"org.fluentcodes.projects.elasticobjects",
-  "configs":["Field","Model","Role","User","Config","Host","File","Json","Template"]
+  "short": "EO",
+  "dir": "elastic-objects",
+  "package": "org.fluentcodes.projects.elasticobjects",
+  "configs": [
+    "Field",
+    "Model",
+    "Role",
+    "User",
+    "Config",
+    "Host",
+    "File",
+    "Json",
+    "Template"
+  ]
 }

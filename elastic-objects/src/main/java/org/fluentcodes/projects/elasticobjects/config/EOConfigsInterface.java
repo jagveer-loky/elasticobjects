@@ -1,4 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -7,6 +8,8 @@ import java.util.Set;
  */
 public interface EOConfigsInterface<T extends Config> {
     Map<String, T> getConfigMap();
+
     T find(final String key) throws Exception;
-    Set<String> getKeys() ;
+
+    Set<String> getKeys();
 }

@@ -2,21 +2,23 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 /**
  * Provider for different SubTest objects with persistence directory input/json/ and ST* prefix
+ *
  * @since 07.09.2018
  */
 public class STProviderJSN {
     public static EOBuilder builder() {
         return TestObjectProvider.createEOBuilder();
     }
-    
-    public static String readEmpty () throws Exception {
+
+    public static String readEmpty() throws Exception {
         return readInputJSN(TYPE.ST, EMPTY);
     }
-    
+
     public static EO createEmpty() throws Exception {
         final EO eo = builder().map(readEmpty());
         STProviderEO.assertEmpty(eo);
@@ -29,10 +31,10 @@ public class STProviderJSN {
         return eo;
     }
 
-    public static String readString () throws Exception {
+    public static String readString() throws Exception {
         return readInputJSN(TYPE.ST, JSONInputReader.STRING);
     }
-    
+
     public static EO createString() throws Exception {
         final EO eo = builder().map(readString());
         STProviderEO.assertString(eo);
@@ -45,10 +47,10 @@ public class STProviderJSN {
         return eo;
     }
 
-    public static String readName () throws Exception {
+    public static String readName() throws Exception {
         return readInputJSN(TYPE.ST, JSONInputReader.NAME);
     }
-    
+
     public static EO createName() throws Exception {
         final EO eo = builder().map(readName());
         STProviderEO.assertName(eo);
@@ -60,8 +62,8 @@ public class STProviderJSN {
         STProviderEO.assertName(eo);
         return eo;
     }
-    
-    public static String readST () throws Exception {
+
+    public static String readST() throws Exception {
         return readInputJSN(TYPE.ST, SUB_TEST);
     }
 
@@ -77,10 +79,10 @@ public class STProviderJSN {
         return eo;
     }
 
-    public static String readSimple () throws Exception {
+    public static String readSimple() throws Exception {
         return readInputJSN(TYPE.ST, SIMPLE);
     }
-    
+
     public static EO createSimple() throws Exception {
         final EO eo = builder().map(readSimple());
         STProviderEO.assertSimple(eo);
@@ -93,7 +95,7 @@ public class STProviderJSN {
         return eo;
     }
 
-    public static String readAll () throws Exception {
+    public static String readAll() throws Exception {
         return readInputJSN(TYPE.ST, ALL);
     }
 

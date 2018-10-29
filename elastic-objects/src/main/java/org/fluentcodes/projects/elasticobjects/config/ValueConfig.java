@@ -10,6 +10,7 @@ import java.util.Map;
 public class ValueConfig extends ConfigImpl {
     private final Object value;
     private final String valueKey;
+
     public ValueConfig(EOConfigsCache eoConfigsCache, Builder builder) throws Exception {
         super(eoConfigsCache, builder);
         this.value = builder.value;

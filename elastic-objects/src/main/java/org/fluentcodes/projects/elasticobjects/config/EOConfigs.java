@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -14,7 +13,7 @@ import java.util.Set;
 /**
  * Created by Werner on 10.10.2016.
  */
-public class EOConfigs implements EOConfigsInterface<Config>{
+public class EOConfigs implements EOConfigsInterface<Config> {
     public static final Logger LOG = LogManager.getLogger(EOConfigs.class);
 
     private final Map<String, Config> configMap;
@@ -74,12 +73,12 @@ public class EOConfigs implements EOConfigsInterface<Config>{
         bean.setNaturalId(keyAsString);
         Config config = bean.build(provider);*/
 
-        protected void add(Config config) {
-            this.configMap.put(config.getNaturalId(), config);
-        }
+    protected void add(Config config) {
+        this.configMap.put(config.getNaturalId(), config);
+    }
 
-    protected void addAll(final Map<String,Config> configMap) {
-        for (String key: configMap.keySet()) {
+    protected void addAll(final Map<String, Config> configMap) {
+        for (String key : configMap.keySet()) {
             this.configMap.put(key, configMap.get(key));
         }
     }

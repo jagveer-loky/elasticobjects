@@ -1,1577 +1,1368 @@
 {
-	"Call":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Call",
-		"eoParams":
-		{
-		},
-		"description":"Basic bean as super object for other cached items. ",
-		"fieldKeys":
-		[
-			"path",
-			"mapPath"
-		],
-		"modelKey":"Call",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"And":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"And",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"A list of {@ Condition}.",
-		"modelKey":"And",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
-		"packageGroup":"condition",
-		"author":"Werner Diwischek"
-	},
-	"ArrayList":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ArrayList",
-		"eoParams":
-		{
-			"shapeType":"LIST"
-		},
-		"modelKey":"ArrayList",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"Arrays":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Arrays",
-		"eoParams":
-		{
-			"shapeType":"LIST"
-		},
-		"modelKey":"Arrays",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"CallIO":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"CallIO",
-		"description":"Not shure now.",
-		"superKey":"Call",
-		"fieldKeys":
-		[
-			"rolePermissions"
-		],
-		"modelKey":"CallIO",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"ConfigIO":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ConfigIO",
-		"description":"Defines the role access.",
-		"superKey":"ConfigImpl",
-      "eoParams":
-      {
-        "shapeType":"OBJECT"
-      },
-		"fieldKeys":
-		[
-			"rolePermissions"
-		],
-		"modelKey":"ConfigIO",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Boolean":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Boolean",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Boolean",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"Class":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Class",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Class",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"Condition":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Condition",
-		"eoParams":
-		{
-			"shapeType":"INTERFACE"
-		},
-		"description":"Interface for conditions, mainly a key value pair with some methods serving as filter expressions. ",
-		"modelKey":"Condition",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
-		"packageGroup":"condition",
-		"author":"Werner Diwischek"
-	},
-	"Config":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Config",
-		"eoParams":
-		{
-			"shapeType":"INTERFACE"
-		},
-		"description":"Basic config interface as super interface for other cached items. ",
-		"superKey":"Model",
-		"fieldKeys":
-		[
-			"module",
-			"subModule",
-			"scope",
-			"key"
-		],
-		"modelKey":"Config",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ConfigImpl":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-      "eoParams":
-      {
-        "shapeType":"OBJECT"
-      },
-		"naturalId":"ConfigImpl",
-		"description":"Basic cache as super object for other cached items. ",
-		"superKey":"ModelImpl",
-		"interfaces":"Config",
-		"modelKey":"ConfigImpl",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Date":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Date",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Date",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"DBFieldParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"DBFieldParams",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Params controlling the behaviour of persisting of an EO FieldConfig e.g. for a database.",
-		"fieldKeys":
-		[
-			"fieldName",
-			"hibernate",
-			"table",
-			"join",
-			"joinInverse",
-			"mapKey",
-			"unique",
-			"notNull",
-			"length"
-		],
-		"modelKey":"DBFieldParams",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"DBParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"DBParams",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Params controlling the behavior of persisting an EO ModelConfig e.g. for a database.",
-		"fieldKeys":
-		[
-			"table",
-			"idKey",
-			"naturalKeys",
-			"hibernateAnnotations"
-		],
-		"modelKey":"DBParams",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Double":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Double",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Double",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"EOBuilder":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"EOBuilder",
-		"eoParams":
-		{
-			"shapeType":"ADAPTER"
-		},
-		"description":"Parameters for modify EO adapter object.",
-		"modelKey":"EOBuilder",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.eo",
-		"packageGroup":"eo",
-		"author":"Werner Diwischek"
-	},
-	"EOFieldParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"EOFieldParams",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Params controlling the behavior of an EO FieldConfig like serialization/deserialization.",
-		"fieldKeys":
-		[
-			"pathPatternAsString"
-		],
-		"modelKey":"EOFieldParams",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"EOParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"EOParams",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Params controlling the behavior of an EO ModelConfig like serialization/deserialization.",
-		"fieldKeys":
-		[
-			"scope",
-			"shapeType",
-			"EOParams.create",
-			"methods",
-			"attributeList",
-			"modelConfigKey",
-			"defaultImplementation",
-			"pathPatternAsString"
-		],
-		"modelKey":"EOParams",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Eq":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Eq",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"Equality check for objects.",
-		"interfaces":"Condition",
-		"modelKey":"Eq",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
-		"packageGroup":"condition",
-		"author":"Werner Diwischek"
-	},
-	"Executor":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Executor",
-		"eoParams":
-		{
-			"shapeType":"INTERFACE",
-			"create":true
-		},
-		"description":"An interface for executor implementations.",
-		"modelKey":"Executor",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"CallExecutor":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"CallExecutor",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Facade initializing an EO Action via reflection and execute a method with the current adapter. ",
-		"superKey":"ExecutorImpl",
-		"interfaces":"Executor",
-		"fieldKeys":
-		[
-			"action"
-		],
-		"modelKey":"CallExecutor",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ExecutorImpl":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ExecutorImpl",
-		"description":"Constructor with or. Provides the filter method for adapter and check the or conditions",
-		"interfaces":"Executor",
-		"modelKey":"ExecutorImpl",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ExecutorList":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ExecutorList",
-		"description":"For a list of executors",
-		"modelKey":"ExecutorList",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ExecutorListTemplate":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ExecutorListTemplate",
-		"description":"Creates a Executor List from a Templatefile.",
-		"superKey":"ExecutorList",
-		"modelKey":"ExecutorListTemplate",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ExecutorValues":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ExecutorValues",
-		"description":"Facade execution a static method with an array of object as parameters and a String return type. Some example methods are implementd in ValuesMath and ValuesMisc. ",
-		"superKey":"ExecutorImpl",
-		"interfaces":"Executor",
-		"modelKey":"ExecutorValues",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"FieldConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"FieldConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"create":true
-		},
-		"description":"Immutabel EO field configuration will be initalized by internal builder using map values.",
-		"superKey":"ConfigImpl",
-		"fieldKeys":
-		[
-			"fieldKey",
-			"modelKeys",
-			"dbFieldParams",
-			"eoFieldParams",
-			"viewFieldParams",
-			"customFieldParams"
-		],
-		"modelKey":"FieldConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ConfigCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ConfigCall",
-		"eoParams":
-		{
-			"modelConfigKey":"ConfigConfig",
-			"create":true,
-			"methods":"set,map"
-		},
-		"description":"The action with configuration {@link ConfigConfig} will set/map configurations loaded to cache to a adapter or write a file from the mapPath.",
-		"superKey":"Call",
-		"fieldKeys":
-		[
-			"filterModule",
-			"filterSubModule",
-			"filterKey",
-			"filterConfigClass"
-		],
-		"modelKey":"ConfigCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"ConfigConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ConfigConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"create":true
-		},
-		"description":"Configuration for {@link ConfigAction}.",
-		"superKey":"ConfigImpl",
-		"fieldKeys":
-		[
-			"configKey",
-			"filterModule",
-			"filterSubModule",
-			"filterKey",
-			"filterConfigName"
-		],
-		"modelKey":"ConfigConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"FileCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"FileCall",
-		"eoParams":
-		{
-			"shapeType":"CALL",
-			"modelConfigKey":"FileConfig",
-			"create":true,
-			"methods":"read,write,delete"
-		},
-		"description":"Defines a file access. ",
-		"superKey":"HostCall",
-		"modelKey":"FileCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"FileConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"FileConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"modelConfigKey":"FileCall",
-			"create":true
-		},
-		"description":"Immutabel EO file configuration will be initalized by internal builder using map values.",
-		"superKey":"ConfigIO",
-		"fieldKeys":
-		[
-			"fileName",
-			"fileKey",
-			"filePath",
-			"hostKey",
-			"cached"
-		],
-		"modelKey":"FileConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ScsCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ScsCall",
-		"eoParams":
-		{
-			"shapeType":"CALL",
-			"modelConfigKey":"ScsConfig",
-			"create":true,
-            "methods":"read,write,delete"
-		},
-		"description":"Defines a file access. ",
-		"superKey":"ListCall",
-		"modelKey":"ScsCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"ScsConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ScsConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"modelConfigKey":"ScsCall",
-			"create":true
-		},
-		"description":"Immutabel EO configuration for simple comma separated files will be initalized by internal builder using map values.",
-		"superKey":"ListConfig",
-		"fieldKeys":
-		[
-			"scsKey",
-			"fileKey",
-			"fieldDelimiter",
-			"rowDelimiter"
-		],
-		"modelKey":"ScsConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-
-	"Float":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Float",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Float",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"HashMap":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"HashMap",
-		"eoParams":
-		{
-			"shapeType":"MAP"
-		},
-		"modelKey":"HashMap",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"JSONSerializationType":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"JSONSerializationType",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"JSONSerializationType",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.eo",
-		"packageGroup":"eo",
-		"author":"Werner Diwischek"
-	},
-	"HostCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"HostCall",
-		"eoParams":
-		{
-			"modelConfigKey":"HostConfig",
-			"create":true
-		},
-		"description":"Defines a host action. Actually no action defined. ",
-		"superKey":"CallIO",
-		"modelKey":"HostCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"HostConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"HostConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"create":true
-		},
-		"description":"Basic host definition for file or db cache. ",
-		"superKey":"ConfigIO",
-		"fieldKeys":
-		[
-			"hostKey",
-			"port",
-			"protocol",
-			"hostName",
-			"user",
-			"password"
-		],
-		"modelKey":"HostConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config"
-	},
-	"Integer":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Integer",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Integer",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"JsonCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"JsonCall",
-		"eoParams":
-		{
-			"shapeType":"CALL",
-			"modelConfigKey":"JsonConfig",
-			"create":true,
-            "methods":"read,write,delete"
-		},
-		"description":"The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
-		"superKey":"FileCall",
-		"fieldKeys":
-		[
-			"content",
-			"indent",
-			"serializationType"
-		],
-		"modelKey":"JsonCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"JsonConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"JsonConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"modelConfigKey":"JsonCall",
-			"create":true,
-            "methods":"read,write,delete"
-		},
-		"description":"Configuration for {@link JsonAction}.",
-		"superKey":"FileConfig",
-		"fieldKeys":
-		[
-			"jsonKey"
-		],
-		"modelKey":"JsonConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Like":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Like",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"Like check for strings.",
-		"interfaces":"Condition",
-		"modelKey":"Like",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
-		"packageGroup":"condition",
-		"author":"Werner Diwischek"
-	},
-	"LinkedHashMap":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"LinkedHashMap",
-		"eoParams":
-		{
-			"shapeType":"MAP"
-		},
-		"modelKey":"LinkedHashMap",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"LinkedHashSet":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"LinkedHashSet",
-		"eoParams":
-		{
-			"shapeType":"SET"
-		},
-		"modelKey":"LinkedHashSet",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"List":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"List",
-		"eoParams":
-		{
-			"shapeType":"LIST",
-			"defaultImplementation":"ArrayList"
-		},
-		"modelKey":"List",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"ListCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ListCall",
-		"eoParams":
-		{
-			"modelConfigKey":"ListConfig",
-			"create":true
-		},
-		"description":"Defines the parameter like listMapper.",
-		"superKey":"CallIO",
-		"fieldKeys":
-		[
-			"listParams",
-			"listMapper"
-		],
-		"modelKey":"ListCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"ListConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ListConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"create":true
-		},
-		"description":"Defines the parameter like listMapper.",
-		"superKey":"ConfigIO",
-		"fieldKeys":
-		[
-			"listParams",
-			"listMapper"
-		],
-		"modelKey":"ListConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ListParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ListParams",
-		"eoParams":
-		{
-			"shapeType":"INSTANCE"
-		},
-		"description":"Defines the parameter like rowStart, rowEnd and length.",
-		"fieldKeys":
-		[
-			"rowHead",
-			"rowStart",
-			"rowEnd",
-			"length",
-			"filter"
-		],
-		"modelKey":"ListParams",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"ListMapper":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ListMapper",
-		"eoParams":
-		{
-			"shapeType":"INSTANCE"
-		},
-		"description":"Defines the parameter names list for mapping.",
-		"fieldKeys":
-		[
-			"modelKeys",
-			"colKeys"
-		],
-		"modelKey":"ListMapper",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"LoggingObjectsImpl":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"LoggingObjectsImpl",
-		"eoParams":
-		{
-			"shapeType":"INSTANCE"
-		},
-		"description":"The embedded logging object for EO adapter.",
-		"fieldKeys":
-		[
-			"log"
-		],
-		"modelKey":"LoggingObjectsImpl",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.eo",
-		"packageGroup":"eo",
-		"author":"Werner Diwischek"
-	},
-	"Long":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Long",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Long",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"Map":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Map",
-		"eoParams":
-		{
-			"shapeType":"MAP",
-			"defaultImplementation":"LinkedHashMap"
-		},
-		"modelKey":"Map",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"Model":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Model",
-		"eoParams":
-		{
-			"shapeType":"INTERFACE",
-			"defaultImplementation":"ModelImpl"
-		},
-		"description":"Basic bean as super interface for other cached items. ",
-		"fieldKeys":
-		[
-			"id",
-			"description",
-			"naturalId",
-			"creationDate",
-			"author"
-		],
-		"modelKey":"Model",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.models",
-		"packageGroup":"models",
-		"author":"Werner Diwischek"
-	},
-	"ModelConfigList":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelConfigList",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
-		"description":"Class definitions for an list with getters and setters.",
-		"superKey":"ModelConfig",
-		"modelKey":"ModelConfigList",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelConfigMap":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelConfigMap",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
-		"description":"Class definitions for an map with getters and setters.",
-		"superKey":"ModelConfig",
-		"modelKey":"ModelConfigMap",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelConfigNone":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelConfigNone",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
-		"description":"Class definitions for a null.",
-		"superKey":"ModelConfig",
-		"modelKey":"ModelConfigNone",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelConfigObject":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelConfigObject",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
-		"description":"Class definitions for an object with getters and setters.",
-		"superKey":"ModelConfig",
-		"modelKey":"ModelConfigObject",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelConfigScalar":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelConfigScalar",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
-		"description":"Class definitions for a scalar.",
-		"superKey":"ModelConfig",
-		"modelKey":"ModelConfigScalar",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelConfigSet":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelConfigSet",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
-		"description":"Class definitions for a scalar.",
-		"superKey":"ModelConfig",
-		"modelKey":"ModelConfigSet",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"create":true
-		},
-		"description":"Table definitions with pojo.",
-		"superKey":"ConfigImpl",
-		"interfaces":"ModelInterface",
-		"modelKey":"ModelConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelImpl":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelImpl",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
-		"interfaces":"Model",
-		"modelKey":"ModelImpl",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.models",
-		"packageGroup":"models",
-		"author":"Werner Diwischek"
-	},
-	"ModelInterface":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelInterface",
-		"eoParams":
-		{
-			"shapeType":"INTERFACE",
-			"create":true
-		},
-		"description":"Table definitions with pojo.",
-		"superKey":"Config",
-		"fieldKeys":
-		[
-			"packagePath",
-			"modelKey",
-			"superKey",
-			"interfaces",
-			"fieldKeys",
-			"eoParams",
-			"dbParams",
-			"viewParams",
-			"customParams",
-			"packageGroup"
-		],
-		"modelKey":"ModelInterface",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ModelsList":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ModelsList",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"A list of models to specify field types.",
-		"fieldKeys":
-		[
-			"modelKeys"
-		],
-		"modelKey":"ModelsList",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.eo",
-		"packageGroup":"eo",
-		"author":"Werner Diwischek"
-	},
-	"Object":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Object",
-		"eoParams":
-		{
-			"shapeType":"NONE"
-		},
-		"modelKey":"Object",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"Or":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Or",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"A list of {@ And}.",
-		"modelKey":"Or",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
-		"packageGroup":"condition",
-		"author":"Werner Diwischek"
-	},
-	"Password":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Password",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"A password will be escaped when serialized",
-		"fieldKeys":
-		[
-			"password"
-		],
-		"modelKey":"Password",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.models",
-		"packageGroup":"models",
-		"author":"Werner Diwischek"
-	},
-	"Path":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Path",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"A path with useful methonds. ",
-		"fieldKeys":
-		[
-			"entries"
-		],
-		"modelKey":"Path",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.paths",
-		"packageGroup":"paths",
-		"author":"Werner Diwischek"
-	},
-	"PathPattern":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"PathPattern",
-		"eoParams":
-		{
-			"shapeType":"SCALAR_SERIALIZED"
-		},
-		"description":"A list of paths to filter object hierarchy.",
-		"fieldKeys":
-		[
-			"serialized"
-		],
-		"modelKey":"PathPattern",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.paths",
-		"packageGroup":"paths",
-		"author":"Werner Diwischek"
-	},
-	"RoleConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"RoleConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG"
-		},
-		"description":"Defines the roles",
-		"superKey":"ConfigImpl",
-		"fieldKeys":
-		[
-			"name"
-		],
-		"modelKey":"RoleConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config"
-	},
-	"RolePermissions":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"RolePermissions",
-		"eoParams":
-		{
-			"shapeType":"INSTANCE"
-		},
-		"description":"Defines the roles ",
-		"fieldKeys":
-		[
-			"read",
-			"write",
-			"Permissions.create",
-			"delete",
-			"execute"
-		],
-		"modelKey":"RolePermissions",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Scope":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Scope",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"description":"Enum with different Scopes to environment specific caches.",
-		"modelKey":"Scope",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Set":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Set",
-		"eoParams":
-		{
-			"shapeType":"SET",
-			"defaultImplementation":"LinkedHashSet"
-		},
-		"modelKey":"Set",
-		"packagePath":"java.util",
-		"author":"java"
-	},
-	"ShapeTypes":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ShapeTypes",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"description":"Enum with different shapetypes like SCALAR or BEAN. ",
-		"modelKey":"ShapeTypes",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"Short":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Short",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"Short",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"String":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"String",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"String",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"StringBuffer":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"StringBuffer",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"StringBuffer",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"StringBuilder":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"StringBuilder",
-		"eoParams":
-		{
-			"shapeType":"SCALAR"
-		},
-		"modelKey":"StringBuilder",
-		"packagePath":"java.lang",
-		"author":"java"
-	},
-	"TemplateCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"TemplateCall",
-		"eoParams":
-		{
-			"shapeType":"CALL",
-			"modelConfigKey":"TemplateConfig",
-			"create":true,
-			"methods":"execute"
-		},
-		"description":"Executes a template configuration. Facade for the parsing method within the cache.",
-		"superKey":"FileCall",
-		"fieldKeys":
-		[
-			"templateKey"
-		],
-		"modelKey":"TemplateCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"TemplateConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"TemplateConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"modelConfigKey":"TemplateCall"
-		},
-		"description":"The cache {@link TemplateConfig} contains a prepared TemplateParser.",
-		"superKey":"ConfigIO",
-		"fieldKeys":
-		[
-			"templateKey"
-		],
-		"modelKey":"TemplateConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"UserConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"UserConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"create":true
-		},
-		"description":"Config definitions with final instance vars.",
-		"superKey":"ConfigImpl",
-		"fieldKeys":
-		[
-			"userKey",
-			"userName",
-			"roles"
-		],
-		"modelKey":"UserConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ValueCall":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ValueCall",
-		"eoParams":
-		{
-			"shapeType":"CALL",
-			"modelConfigKey":"ValueConfig",
-			"methods":"execute",
-			"create":true
-		},
-		"description":"Sets a value to path and mapPath",
-		"superKey":"Call",
-		"fieldKeys":
-		[
-			"value"
-		],
-		"modelKey":"ValueCall",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.calls",
-		"packageGroup":"calls",
-		"author":"Werner Diwischek"
-	},
-	"ValueConfig":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ValueConfig",
-		"eoParams":
-		{
-			"shapeType":"CONFIG",
-			"modelConfigKey":"ValueCall",
-			"create":true
-		},
-		"description":"Defines a cache with a value",
-		"superKey":"ConfigIO",
-		"fieldKeys":
-		[
-			"value"
-		],
-		"modelKey":"ValueConfig",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config"
-	},
-	"ValueParamsHelper":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ValueParamsHelper",
-		"eoParams":
-		{
-			"shapeType":"NONE"
-		},
-		"description":"Some static helpers for value type static method classes.",
-		"modelKey":"ValueParamsHelper",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ValuesContent":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ValuesContent",
-		"eoParams":
-		{
-			"shapeType":"NONE"
-		},
-		"description":"Offers a map for protocol types. Used in different ValuesContent sub classes.",
-		"superKey":"ValueParamsHelper",
-		"modelKey":"ValuesContent",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ValuesContentHtml":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ValuesContentHtml",
-		"eoParams":
-		{
-			"shapeType":"NONE"
-		},
-		"description":"Offers some static methods for creationg html parts like link. ",
-		"superKey":"ValuesContent",
-		"modelKey":"ValuesContentHtml",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ValuesMath":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ValuesMath",
-		"eoParams":
-		{
-			"shapeType":"NONE"
-		},
-		"description":"Static methods calling Math methods. ",
-		"superKey":"ValueParamsHelper",
-		"modelKey":"ValuesMath",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ValuesMisc":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ValuesMisc",
-		"eoParams":
-		{
-			"shapeType":"NONE"
-		},
-		"description":"Different String methods",
-		"superKey":"ValueParamsHelper",
-		"modelKey":"ValuesMisc",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.executor",
-		"packageGroup":"executor",
-		"author":"Werner Diwischek"
-	},
-	"ViewFieldParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ViewFieldParams",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Params controlling the behavior the view of an elastic field including input.",
-		"fieldKeys":
-		[
-			"viewKey",
-			"inputKey"
-		],
-		"modelKey":"ViewFieldParams",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	},
-	"ViewParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ViewParams",
-		"eoParams":
-		{
-			"shapeType":"BEAN",
-			"create":true
-		},
-		"description":"Params controlling the behavior of the view of an elastic object.",
-		"fieldKeys":
-		[
-			"viewKey",
-			"inputKey"
-		],
-		"modelKey":"ViewParams",
-		"packagePath":"org.fluentcodes.projects.elasticobjects.config",
-		"packageGroup":"config",
-		"author":"Werner Diwischek"
-	}
+  "Call": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Call",
+    "eoParams": {
+    },
+    "description": "Basic bean as super object for other cached items. ",
+    "fieldKeys": [
+      "path",
+      "mapPath"
+    ],
+    "modelKey": "Call",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "And": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "And",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "A list of {@ Condition}.",
+    "modelKey": "And",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.condition",
+    "packageGroup": "condition",
+    "author": "Werner Diwischek"
+  },
+  "ArrayList": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ArrayList",
+    "eoParams": {
+      "shapeType": "LIST"
+    },
+    "modelKey": "ArrayList",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "Arrays": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Arrays",
+    "eoParams": {
+      "shapeType": "LIST"
+    },
+    "modelKey": "Arrays",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "CallIO": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "CallIO",
+    "description": "Not shure now.",
+    "superKey": "Call",
+    "fieldKeys": [
+      "rolePermissions"
+    ],
+    "modelKey": "CallIO",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "ConfigIO": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ConfigIO",
+    "description": "Defines the role access.",
+    "superKey": "ConfigImpl",
+    "eoParams": {
+      "shapeType": "OBJECT"
+    },
+    "fieldKeys": [
+      "rolePermissions"
+    ],
+    "modelKey": "ConfigIO",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Boolean": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Boolean",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Boolean",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "Class": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Class",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Class",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "Condition": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Condition",
+    "eoParams": {
+      "shapeType": "INTERFACE"
+    },
+    "description": "Interface for conditions, mainly a key value pair with some methods serving as filter expressions. ",
+    "modelKey": "Condition",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.condition",
+    "packageGroup": "condition",
+    "author": "Werner Diwischek"
+  },
+  "Config": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Config",
+    "eoParams": {
+      "shapeType": "INTERFACE"
+    },
+    "description": "Basic config interface as super interface for other cached items. ",
+    "superKey": "Model",
+    "fieldKeys": [
+      "module",
+      "subModule",
+      "scope",
+      "key"
+    ],
+    "modelKey": "Config",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ConfigImpl": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "eoParams": {
+      "shapeType": "OBJECT"
+    },
+    "naturalId": "ConfigImpl",
+    "description": "Basic cache as super object for other cached items. ",
+    "superKey": "ModelImpl",
+    "interfaces": "Config",
+    "modelKey": "ConfigImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Date": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Date",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Date",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "DBFieldParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "DBFieldParams",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Params controlling the behaviour of persisting of an EO FieldConfig e.g. for a database.",
+    "fieldKeys": [
+      "fieldName",
+      "hibernate",
+      "table",
+      "join",
+      "joinInverse",
+      "mapKey",
+      "unique",
+      "notNull",
+      "length"
+    ],
+    "modelKey": "DBFieldParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "DBParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "DBParams",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Params controlling the behavior of persisting an EO ModelConfig e.g. for a database.",
+    "fieldKeys": [
+      "table",
+      "idKey",
+      "naturalKeys",
+      "hibernateAnnotations"
+    ],
+    "modelKey": "DBParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Double": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Double",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Double",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "EOBuilder": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "EOBuilder",
+    "eoParams": {
+      "shapeType": "ADAPTER"
+    },
+    "description": "Parameters for modify EO adapter object.",
+    "modelKey": "EOBuilder",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.eo",
+    "packageGroup": "eo",
+    "author": "Werner Diwischek"
+  },
+  "EOFieldParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "EOFieldParams",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Params controlling the behavior of an EO FieldConfig like serialization/deserialization.",
+    "fieldKeys": [
+      "pathPatternAsString"
+    ],
+    "modelKey": "EOFieldParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "EOParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "EOParams",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Params controlling the behavior of an EO ModelConfig like serialization/deserialization.",
+    "fieldKeys": [
+      "scope",
+      "shapeType",
+      "EOParams.create",
+      "methods",
+      "attributeList",
+      "modelConfigKey",
+      "defaultImplementation",
+      "pathPatternAsString"
+    ],
+    "modelKey": "EOParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Eq": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Eq",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "Equality check for objects.",
+    "interfaces": "Condition",
+    "modelKey": "Eq",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.condition",
+    "packageGroup": "condition",
+    "author": "Werner Diwischek"
+  },
+  "Executor": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Executor",
+    "eoParams": {
+      "shapeType": "INTERFACE",
+      "create": true
+    },
+    "description": "An interface for executor implementations.",
+    "modelKey": "Executor",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "CallExecutor": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "CallExecutor",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Facade initializing an EO Action via reflection and execute a method with the current adapter. ",
+    "superKey": "ExecutorImpl",
+    "interfaces": "Executor",
+    "fieldKeys": [
+      "action"
+    ],
+    "modelKey": "CallExecutor",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ExecutorImpl": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ExecutorImpl",
+    "description": "Constructor with or. Provides the filter method for adapter and check the or conditions",
+    "interfaces": "Executor",
+    "modelKey": "ExecutorImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ExecutorList": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ExecutorList",
+    "description": "For a list of executors",
+    "modelKey": "ExecutorList",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ExecutorListTemplate": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ExecutorListTemplate",
+    "description": "Creates a Executor List from a Templatefile.",
+    "superKey": "ExecutorList",
+    "modelKey": "ExecutorListTemplate",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ExecutorValues": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ExecutorValues",
+    "description": "Facade execution a static method with an array of object as parameters and a String return type. Some example methods are implementd in ValuesMath and ValuesMisc. ",
+    "superKey": "ExecutorImpl",
+    "interfaces": "Executor",
+    "modelKey": "ExecutorValues",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "FieldConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "FieldConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
+    "superKey": "ConfigImpl",
+    "fieldKeys": [
+      "fieldKey",
+      "modelKeys",
+      "dbFieldParams",
+      "eoFieldParams",
+      "viewFieldParams",
+      "customFieldParams"
+    ],
+    "modelKey": "FieldConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ConfigCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ConfigCall",
+    "eoParams": {
+      "modelConfigKey": "ConfigConfig",
+      "create": true,
+      "methods": "set,map"
+    },
+    "description": "The action with configuration {@link ConfigConfig} will set/map configurations loaded to cache to a adapter or write a file from the mapPath.",
+    "superKey": "Call",
+    "fieldKeys": [
+      "filterModule",
+      "filterSubModule",
+      "filterKey",
+      "filterConfigClass"
+    ],
+    "modelKey": "ConfigCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "ConfigConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ConfigConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "description": "Configuration for {@link ConfigAction}.",
+    "superKey": "ConfigImpl",
+    "fieldKeys": [
+      "configKey",
+      "filterModule",
+      "filterSubModule",
+      "filterKey",
+      "filterConfigName"
+    ],
+    "modelKey": "ConfigConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "FileCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "FileCall",
+    "eoParams": {
+      "shapeType": "CALL",
+      "modelConfigKey": "FileConfig",
+      "create": true,
+      "methods": "read,write,delete"
+    },
+    "description": "Defines a file access. ",
+    "superKey": "HostCall",
+    "modelKey": "FileCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "FileConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "FileConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "modelConfigKey": "FileCall",
+      "create": true
+    },
+    "description": "Immutabel EO file configuration will be initalized by internal builder using map values.",
+    "superKey": "ConfigIO",
+    "fieldKeys": [
+      "fileName",
+      "fileKey",
+      "filePath",
+      "hostKey",
+      "cached"
+    ],
+    "modelKey": "FileConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ScsCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ScsCall",
+    "eoParams": {
+      "shapeType": "CALL",
+      "modelConfigKey": "ScsConfig",
+      "create": true,
+      "methods": "read,write,delete"
+    },
+    "description": "Defines a file access. ",
+    "superKey": "ListCall",
+    "modelKey": "ScsCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "ScsConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ScsConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "modelConfigKey": "ScsCall",
+      "create": true
+    },
+    "description": "Immutabel EO configuration for simple comma separated files will be initalized by internal builder using map values.",
+    "superKey": "ListConfig",
+    "fieldKeys": [
+      "scsKey",
+      "fileKey",
+      "fieldDelimiter",
+      "rowDelimiter"
+    ],
+    "modelKey": "ScsConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Float": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Float",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Float",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "HashMap": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "HashMap",
+    "eoParams": {
+      "shapeType": "MAP"
+    },
+    "modelKey": "HashMap",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "JSONSerializationType": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "JSONSerializationType",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "JSONSerializationType",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.eo",
+    "packageGroup": "eo",
+    "author": "Werner Diwischek"
+  },
+  "HostCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "HostCall",
+    "eoParams": {
+      "modelConfigKey": "HostConfig",
+      "create": true
+    },
+    "description": "Defines a host action. Actually no action defined. ",
+    "superKey": "CallIO",
+    "modelKey": "HostCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "HostConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "HostConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "description": "Basic host definition for file or db cache. ",
+    "superKey": "ConfigIO",
+    "fieldKeys": [
+      "hostKey",
+      "port",
+      "protocol",
+      "hostName",
+      "user",
+      "password"
+    ],
+    "modelKey": "HostConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config"
+  },
+  "Integer": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Integer",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Integer",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "JsonCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "JsonCall",
+    "eoParams": {
+      "shapeType": "CALL",
+      "modelConfigKey": "JsonConfig",
+      "create": true,
+      "methods": "read,write,delete"
+    },
+    "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
+    "superKey": "FileCall",
+    "fieldKeys": [
+      "content",
+      "indent",
+      "serializationType"
+    ],
+    "modelKey": "JsonCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "JsonConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "JsonConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "modelConfigKey": "JsonCall",
+      "create": true,
+      "methods": "read,write,delete"
+    },
+    "description": "Configuration for {@link JsonAction}.",
+    "superKey": "FileConfig",
+    "fieldKeys": [
+      "jsonKey"
+    ],
+    "modelKey": "JsonConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Like": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Like",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "Like check for strings.",
+    "interfaces": "Condition",
+    "modelKey": "Like",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.condition",
+    "packageGroup": "condition",
+    "author": "Werner Diwischek"
+  },
+  "LinkedHashMap": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "LinkedHashMap",
+    "eoParams": {
+      "shapeType": "MAP"
+    },
+    "modelKey": "LinkedHashMap",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "LinkedHashSet": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "LinkedHashSet",
+    "eoParams": {
+      "shapeType": "SET"
+    },
+    "modelKey": "LinkedHashSet",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "List": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "List",
+    "eoParams": {
+      "shapeType": "LIST",
+      "defaultImplementation": "ArrayList"
+    },
+    "modelKey": "List",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "ListCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ListCall",
+    "eoParams": {
+      "modelConfigKey": "ListConfig",
+      "create": true
+    },
+    "description": "Defines the parameter like listMapper.",
+    "superKey": "CallIO",
+    "fieldKeys": [
+      "listParams",
+      "listMapper"
+    ],
+    "modelKey": "ListCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "ListConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ListConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "description": "Defines the parameter like listMapper.",
+    "superKey": "ConfigIO",
+    "fieldKeys": [
+      "listParams",
+      "listMapper"
+    ],
+    "modelKey": "ListConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ListParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ListParams",
+    "eoParams": {
+      "shapeType": "INSTANCE"
+    },
+    "description": "Defines the parameter like rowStart, rowEnd and length.",
+    "fieldKeys": [
+      "rowHead",
+      "rowStart",
+      "rowEnd",
+      "length",
+      "filter"
+    ],
+    "modelKey": "ListParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "ListMapper": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ListMapper",
+    "eoParams": {
+      "shapeType": "INSTANCE"
+    },
+    "description": "Defines the parameter names list for mapping.",
+    "fieldKeys": [
+      "modelKeys",
+      "colKeys"
+    ],
+    "modelKey": "ListMapper",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "LoggingObjectsImpl": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "LoggingObjectsImpl",
+    "eoParams": {
+      "shapeType": "INSTANCE"
+    },
+    "description": "The embedded logging object for EO adapter.",
+    "fieldKeys": [
+      "log"
+    ],
+    "modelKey": "LoggingObjectsImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.eo",
+    "packageGroup": "eo",
+    "author": "Werner Diwischek"
+  },
+  "Long": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Long",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Long",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "Map": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Map",
+    "eoParams": {
+      "shapeType": "MAP",
+      "defaultImplementation": "LinkedHashMap"
+    },
+    "modelKey": "Map",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "Model": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Model",
+    "eoParams": {
+      "shapeType": "INTERFACE",
+      "defaultImplementation": "ModelImpl"
+    },
+    "description": "Basic bean as super interface for other cached items. ",
+    "fieldKeys": [
+      "id",
+      "description",
+      "naturalId",
+      "creationDate",
+      "author"
+    ],
+    "modelKey": "Model",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "packageGroup": "models",
+    "author": "Werner Diwischek"
+  },
+  "ModelConfigList": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelConfigList",
+    "eoParams": {
+      "shapeType": "CONFIG"
+    },
+    "description": "Class definitions for an list with getters and setters.",
+    "superKey": "ModelConfig",
+    "modelKey": "ModelConfigList",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelConfigMap": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelConfigMap",
+    "eoParams": {
+      "shapeType": "CONFIG"
+    },
+    "description": "Class definitions for an map with getters and setters.",
+    "superKey": "ModelConfig",
+    "modelKey": "ModelConfigMap",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelConfigNone": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelConfigNone",
+    "eoParams": {
+      "shapeType": "CONFIG"
+    },
+    "description": "Class definitions for a null.",
+    "superKey": "ModelConfig",
+    "modelKey": "ModelConfigNone",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelConfigObject": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelConfigObject",
+    "eoParams": {
+      "shapeType": "CONFIG"
+    },
+    "description": "Class definitions for an object with getters and setters.",
+    "superKey": "ModelConfig",
+    "modelKey": "ModelConfigObject",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelConfigScalar": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelConfigScalar",
+    "eoParams": {
+      "shapeType": "CONFIG"
+    },
+    "description": "Class definitions for a scalar.",
+    "superKey": "ModelConfig",
+    "modelKey": "ModelConfigScalar",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelConfigSet": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelConfigSet",
+    "eoParams": {
+      "shapeType": "CONFIG"
+    },
+    "description": "Class definitions for a scalar.",
+    "superKey": "ModelConfig",
+    "modelKey": "ModelConfigSet",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "description": "Table definitions with pojo.",
+    "superKey": "ConfigImpl",
+    "interfaces": "ModelInterface",
+    "modelKey": "ModelConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelImpl": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelImpl",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
+    "interfaces": "Model",
+    "modelKey": "ModelImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "packageGroup": "models",
+    "author": "Werner Diwischek"
+  },
+  "ModelInterface": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelInterface",
+    "eoParams": {
+      "shapeType": "INTERFACE",
+      "create": true
+    },
+    "description": "Table definitions with pojo.",
+    "superKey": "Config",
+    "fieldKeys": [
+      "packagePath",
+      "modelKey",
+      "superKey",
+      "interfaces",
+      "fieldKeys",
+      "eoParams",
+      "dbParams",
+      "viewParams",
+      "customParams",
+      "packageGroup"
+    ],
+    "modelKey": "ModelInterface",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ModelsList": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModelsList",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "A list of models to specify field types.",
+    "fieldKeys": [
+      "modelKeys"
+    ],
+    "modelKey": "ModelsList",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.eo",
+    "packageGroup": "eo",
+    "author": "Werner Diwischek"
+  },
+  "Object": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Object",
+    "eoParams": {
+      "shapeType": "NONE"
+    },
+    "modelKey": "Object",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "Or": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Or",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "A list of {@ And}.",
+    "modelKey": "Or",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.condition",
+    "packageGroup": "condition",
+    "author": "Werner Diwischek"
+  },
+  "Password": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Password",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "A password will be escaped when serialized",
+    "fieldKeys": [
+      "password"
+    ],
+    "modelKey": "Password",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "packageGroup": "models",
+    "author": "Werner Diwischek"
+  },
+  "Path": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Path",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "A path with useful methonds. ",
+    "fieldKeys": [
+      "entries"
+    ],
+    "modelKey": "Path",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.paths",
+    "packageGroup": "paths",
+    "author": "Werner Diwischek"
+  },
+  "PathPattern": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "PathPattern",
+    "eoParams": {
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "description": "A list of paths to filter object hierarchy.",
+    "fieldKeys": [
+      "serialized"
+    ],
+    "modelKey": "PathPattern",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.paths",
+    "packageGroup": "paths",
+    "author": "Werner Diwischek"
+  },
+  "RoleConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "RoleConfig",
+    "eoParams": {
+      "shapeType": "CONFIG"
+    },
+    "description": "Defines the roles",
+    "superKey": "ConfigImpl",
+    "fieldKeys": [
+      "name"
+    ],
+    "modelKey": "RoleConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config"
+  },
+  "RolePermissions": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "RolePermissions",
+    "eoParams": {
+      "shapeType": "INSTANCE"
+    },
+    "description": "Defines the roles ",
+    "fieldKeys": [
+      "read",
+      "write",
+      "Permissions.create",
+      "delete",
+      "execute"
+    ],
+    "modelKey": "RolePermissions",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Scope": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Scope",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "description": "Enum with different Scopes to environment specific caches.",
+    "modelKey": "Scope",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Set": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Set",
+    "eoParams": {
+      "shapeType": "SET",
+      "defaultImplementation": "LinkedHashSet"
+    },
+    "modelKey": "Set",
+    "packagePath": "java.util",
+    "author": "java"
+  },
+  "ShapeTypes": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ShapeTypes",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "description": "Enum with different shapetypes like SCALAR or BEAN. ",
+    "modelKey": "ShapeTypes",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "Short": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Short",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "Short",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "String": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "String",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "String",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "StringBuffer": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "StringBuffer",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "StringBuffer",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "StringBuilder": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "StringBuilder",
+    "eoParams": {
+      "shapeType": "SCALAR"
+    },
+    "modelKey": "StringBuilder",
+    "packagePath": "java.lang",
+    "author": "java"
+  },
+  "TemplateCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "TemplateCall",
+    "eoParams": {
+      "shapeType": "CALL",
+      "modelConfigKey": "TemplateConfig",
+      "create": true,
+      "methods": "execute"
+    },
+    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "superKey": "FileCall",
+    "fieldKeys": [
+      "templateKey"
+    ],
+    "modelKey": "TemplateCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "TemplateConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "TemplateConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "modelConfigKey": "TemplateCall"
+    },
+    "description": "The cache {@link TemplateConfig} contains a prepared TemplateParser.",
+    "superKey": "ConfigIO",
+    "fieldKeys": [
+      "templateKey"
+    ],
+    "modelKey": "TemplateConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "UserConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "UserConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "description": "Config definitions with final instance vars.",
+    "superKey": "ConfigImpl",
+    "fieldKeys": [
+      "userKey",
+      "userName",
+      "roles"
+    ],
+    "modelKey": "UserConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ValueCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ValueCall",
+    "eoParams": {
+      "shapeType": "CALL",
+      "modelConfigKey": "ValueConfig",
+      "methods": "execute",
+      "create": true
+    },
+    "description": "Sets a value to path and mapPath",
+    "superKey": "Call",
+    "fieldKeys": [
+      "value"
+    ],
+    "modelKey": "ValueCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
+  "ValueConfig": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ValueConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "modelConfigKey": "ValueCall",
+      "create": true
+    },
+    "description": "Defines a cache with a value",
+    "superKey": "ConfigIO",
+    "fieldKeys": [
+      "value"
+    ],
+    "modelKey": "ValueConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config"
+  },
+  "ValueParamsHelper": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ValueParamsHelper",
+    "eoParams": {
+      "shapeType": "NONE"
+    },
+    "description": "Some static helpers for value type static method classes.",
+    "modelKey": "ValueParamsHelper",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ValuesContent": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ValuesContent",
+    "eoParams": {
+      "shapeType": "NONE"
+    },
+    "description": "Offers a map for protocol types. Used in different ValuesContent sub classes.",
+    "superKey": "ValueParamsHelper",
+    "modelKey": "ValuesContent",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ValuesContentHtml": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ValuesContentHtml",
+    "eoParams": {
+      "shapeType": "NONE"
+    },
+    "description": "Offers some static methods for creationg html parts like link. ",
+    "superKey": "ValuesContent",
+    "modelKey": "ValuesContentHtml",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ValuesMath": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ValuesMath",
+    "eoParams": {
+      "shapeType": "NONE"
+    },
+    "description": "Static methods calling Math methods. ",
+    "superKey": "ValueParamsHelper",
+    "modelKey": "ValuesMath",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ValuesMisc": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ValuesMisc",
+    "eoParams": {
+      "shapeType": "NONE"
+    },
+    "description": "Different String methods",
+    "superKey": "ValueParamsHelper",
+    "modelKey": "ValuesMisc",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
+    "packageGroup": "executor",
+    "author": "Werner Diwischek"
+  },
+  "ViewFieldParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ViewFieldParams",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Params controlling the behavior the view of an elastic field including input.",
+    "fieldKeys": [
+      "viewKey",
+      "inputKey"
+    ],
+    "modelKey": "ViewFieldParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "ViewParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ViewParams",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "description": "Params controlling the behavior of the view of an elastic object.",
+    "fieldKeys": [
+      "viewKey",
+      "inputKey"
+    ],
+    "modelKey": "ViewParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  }
 }

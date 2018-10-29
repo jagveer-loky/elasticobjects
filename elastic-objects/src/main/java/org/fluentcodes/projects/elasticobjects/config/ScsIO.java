@@ -19,12 +19,12 @@ public class ScsIO extends ListIO implements ListIOInterface {
         //http://www.java2s.com/Code/Java/File-Input-Output/CreateBufferedReader
     }
 
-    public Object read() throws Exception{
+    public Object read() throws Exception {
         return super.read(new ListParams());
     }
 
     public void write(Object entry) throws Exception {
-        write((List)entry);
+        write((List) entry);
     }
 
 

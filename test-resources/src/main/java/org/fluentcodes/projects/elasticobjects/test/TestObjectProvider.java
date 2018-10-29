@@ -2,10 +2,13 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.eo.*;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.config.Scope;
+import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+import org.fluentcodes.projects.elasticobjects.eo.JSONToEO;
+import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
 import org.junit.Assert;
 
 import java.util.ArrayList;
@@ -14,20 +17,17 @@ import java.util.List;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_LONG;
 
 public class TestObjectProvider {
 
     public static final EOConfigsCache EO_CONFIGS_CACHE = new EOConfigsCache(Scope.TEST);
     private static final Logger LOG = LogManager.getLogger(TestObjectProvider.class);
 
-    public static final EOBuilder createEOBuilder()  {
+    public static final EOBuilder createEOBuilder() {
         try {
             return new EOBuilder(EO_CONFIGS_CACHE)
                     .setLogLevel(LogLevel.WARN);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -47,10 +47,11 @@ public class TestObjectProvider {
     }
 
     public static final JSONToEO createJSONToEOMapEmpty() throws Exception {
-        return new JSONToEO("{}",EO_CONFIGS_CACHE);
+        return new JSONToEO("{}", EO_CONFIGS_CACHE);
     }
+
     public static final JSONToEO createJSONToEOListEmpty() throws Exception {
-        return new JSONToEO("[]",EO_CONFIGS_CACHE);
+        return new JSONToEO("[]", EO_CONFIGS_CACHE);
     }
 
     public static final EO createEOFromJson() throws Exception {
@@ -67,7 +68,6 @@ public class TestObjectProvider {
             return null;
         }
     }
-
 
 
     public static final ModelInterface findModel(Class modelClass) {

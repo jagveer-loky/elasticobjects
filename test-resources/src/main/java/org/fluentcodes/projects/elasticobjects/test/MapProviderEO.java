@@ -8,8 +8,9 @@ import org.junit.Assert;
 
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_CONTENT;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+
 public class MapProviderEO {
     public static EOBuilder builder() {
         return TestObjectProvider.createEOBuilder();
@@ -22,7 +23,7 @@ public class MapProviderEO {
         BTProviderEO.assertEmpty(eo);
         return eo;
     }
-    
+
     public static EO createString() throws Exception {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createString());
         BTProviderEO.assertString(eo);
@@ -70,7 +71,7 @@ public class MapProviderEO {
         BTProviderEO.assertMap(eo);
         return eo;
     }
-    
+
     public static EO createList() throws Exception {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createList());
         BTProviderEO.assertList(eo);
@@ -82,6 +83,7 @@ public class MapProviderEO {
         BTProviderEO.assertBT(eo);
         return eo;
     }
+
     public static EO createST() throws Exception {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createST());
         BTProviderEO.assertST(eo);
@@ -129,7 +131,7 @@ public class MapProviderEO {
 
     public static EO createBigEO(int length) throws Exception {
         final EO adapter = TestObjectProvider.createEOFromJson();
-        for (int i = 0;i<length;i++) {
+        for (int i = 0; i < length; i++) {
             adapter.add("key" + i).set(i);
         }
         return adapter;
@@ -159,8 +161,7 @@ public class MapProviderEO {
                     .add(toPath(S_LEVEL0, S_KEY0))
                     .set(S_STRING);
             return adapter;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -172,8 +173,7 @@ public class MapProviderEO {
                     .setPath(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3, S_LEVEL4, S_TEST_STRING))
                     .set(S_STRING);
             return child.getRoot();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

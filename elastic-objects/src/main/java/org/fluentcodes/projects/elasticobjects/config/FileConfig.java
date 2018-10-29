@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 
 import java.io.BufferedWriter;
@@ -9,6 +8,8 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -23,6 +24,7 @@ public class FileConfig extends ConfigIO {
     private HostConfig hostCache;
     //</call>
     private String cachedContent;
+
     public FileConfig(final EOConfigsCache provider, Builder builder) {
         super(provider, builder);
         //<call keep="JAVA" templateKey="CacheSetter.tpl">
@@ -50,6 +52,7 @@ public class FileConfig extends ConfigIO {
     public boolean hasCachedContent() {
         return cachedContent != null && !cachedContent.isEmpty();
     }
+
     public String getCachedContent() {
         return cachedContent;
     }
@@ -172,12 +175,12 @@ public class FileConfig extends ConfigIO {
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
             super.prepare(configsCache, values);
-            fileKey = (String) configsCache.transform(F_FILE_KEY,values);
+            fileKey = (String) configsCache.transform(F_FILE_KEY, values);
             if (fileKey == null) {
                 throw new Exception("fileKey is not add!");
             }
             fileName = (String) configsCache.transform(F_FILE_NAME, values, fileKey);
-            filePath = (String) configsCache.transform(F_FILE_PATH,values, FileConfig.CLASSPATH);
+            filePath = (String) configsCache.transform(F_FILE_PATH, values, FileConfig.CLASSPATH);
             cached = (Boolean) configsCache.transform(F_CACHED, values, false);
             hostKey = (String) configsCache.transform(F_HOST_KEY, values, H_LOCALHOST);
         }

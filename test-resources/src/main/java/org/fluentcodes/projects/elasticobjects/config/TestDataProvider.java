@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
+
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**

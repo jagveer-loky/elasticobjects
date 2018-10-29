@@ -63,6 +63,7 @@ public class EOToJSONSTTest extends TestHelper {
     public void withString() throws Exception {
         STProviderEO.createString();
     }
+
     @Test
     public void withName() throws Exception {
         STProviderEO.createName();

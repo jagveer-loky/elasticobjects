@@ -5,10 +5,11 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 11.10.2016.

@@ -12,9 +12,16 @@
 	},
 	"listMapper":
 	{
+		"colKeys":
+		[
+			"key1",
+			"key2"
+		]
 	},
 	"rolePermissions":
 	{
+		"read":"guest",
+		"write":"admin"
 	},
 	"module":"test-resources",
 	"subModule":"main",

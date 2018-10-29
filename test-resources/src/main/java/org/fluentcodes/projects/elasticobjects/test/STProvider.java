@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.test;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -60,7 +59,7 @@ public class STProvider {
     }
 
     public static List<SubTest> createSubTestList() {
-        List<SubTest>  list = new ArrayList<>();
+        List<SubTest> list = new ArrayList<>();
         list.add(createSimple());
         list.add(createSimple());
         list.add(createSimple());

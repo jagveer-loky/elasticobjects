@@ -33,6 +33,7 @@ public class BTProviderEOTest {
     public void createDouble() throws Exception {
         BTProviderEO.createDouble();
     }
+
     @Test
     public void createDate() throws Exception {
         BTProviderEO.createDate();
@@ -52,7 +53,7 @@ public class BTProviderEOTest {
     public void createSimple() throws Exception {
         BTProviderEO.createSimple();
     }
-    
+
     @Test
     public void create() throws Exception {
         BTProviderEO.create();
@@ -77,14 +78,16 @@ public class BTProviderEOTest {
     public void createST() throws Exception {
         BTProviderEO.createST();
     }
+
     @Test
     public void createMapST() throws Exception {
         BTProviderEO.createMapST();
     }
+
     @Test
     public void createListST() throws Exception {
         BTProviderEO.createListST();
     }
-    
-    
+
+
 }

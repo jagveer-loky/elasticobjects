@@ -5,12 +5,13 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_NAME;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class EOElementaryTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOElementaryTest.class);
@@ -56,7 +57,7 @@ public class EOElementaryTest extends TestHelper {
     public void errorNonExistingPath() throws Exception {
         TestHelper.printStartMethod();
         EO adapter = TestObjectProvider.createEOFromJson(Map.class);
-        Object notExisting = adapter.get(toPath(S_LEVEL0,SAMPLE_KEY_UNKNOW));
+        Object notExisting = adapter.get(toPath(S_LEVEL0, SAMPLE_KEY_UNKNOW));
         Assert.assertNull(notExisting);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS, adapter.getLog().isEmpty());
     }
@@ -72,7 +73,7 @@ public class EOElementaryTest extends TestHelper {
         SubTest subTest = new SubTest();
         subTest.setTestString(S_STRING);
         subTest.setName(S_STRING);
-        final String path = toPath(F_SUB_TEST,F_NAME );
+        final String path = toPath(F_SUB_TEST, F_NAME);
         EO adapter = TestObjectProvider.createEOFromJson(Map.class);
         adapter
                 .add(F_SUB_TEST)

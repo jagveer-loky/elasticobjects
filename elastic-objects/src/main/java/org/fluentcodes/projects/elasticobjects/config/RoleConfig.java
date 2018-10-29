@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
 
@@ -29,8 +28,9 @@ public class RoleConfig extends ConfigImpl {
 
     public static class Builder extends ConfigImpl.Builder {
         private String name;
+
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
-            name = (String)configsCache.transform(EO_STATIC.F_NAME, values);
+            name = (String) configsCache.transform(EO_STATIC.F_NAME, values);
             super.prepare(configsCache, values);
         }
 

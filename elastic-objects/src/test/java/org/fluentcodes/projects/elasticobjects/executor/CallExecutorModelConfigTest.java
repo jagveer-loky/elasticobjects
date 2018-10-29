@@ -5,15 +5,18 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_EXPECTED_EXCEPTION;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_EXPECTED_EXCEPTION_FAILS;
 
 /**
  * Created by Werner on 9.7.2017.
  */
 public class CallExecutorModelConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(CallExecutorModelConfigTest.class);
+
     @Test
     public void createFromModelDoesNotWork() throws Exception {
         final ModelConfigObject executorActionModel = (ModelConfigObject) TestObjectProvider.EO_CONFIGS_CACHE.findModel(CallExecutor.class);
@@ -21,8 +24,7 @@ public class CallExecutorModelConfigTest extends TestHelper {
         try {
             executorActionModel.create();
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }

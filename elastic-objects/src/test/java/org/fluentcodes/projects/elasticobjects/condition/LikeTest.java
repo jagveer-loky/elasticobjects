@@ -6,15 +6,14 @@ import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_FALSE_FAILS;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_TRUE_FAILS;
-import static org.fluentcodes.projects.elasticobjects.test.ListProvider.toList;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_FALSE_FAILS;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_TRUE_FAILS;
+import static org.fluentcodes.projects.elasticobjects.test.ListProvider.toList;
 
 public class LikeTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(LikeTest.class);
@@ -24,7 +23,7 @@ public class LikeTest extends TestHelper {
         EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(TEO_STATIC.S_TEST_STRING).set(TEO_STATIC.S_STRING);
         Condition condition = new Like(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
-        Assert.assertTrue( INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(TEO_STATIC.S_TEST_STRING),
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(TEO_STATIC.S_TEST_STRING),
                 condition.filter(adapter));
         condition = new Like(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING_OTHER);
         Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + adapter.get(TEO_STATIC.S_TEST_STRING),

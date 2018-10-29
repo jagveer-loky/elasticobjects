@@ -1,9 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by werner.diwischek on 19.02.18.
@@ -19,6 +20,7 @@ public class DBFieldParams {
     private String joinInverse;
     private String mapKey;
     private String defaultValue;
+
     public DBFieldParams(Object object) {
         if (object == null || !(object instanceof Map)) {
             return;

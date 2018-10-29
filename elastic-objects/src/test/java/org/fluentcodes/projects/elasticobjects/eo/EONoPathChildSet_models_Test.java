@@ -2,7 +2,10 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.BTProvider;
+import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.MapProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -73,10 +76,6 @@ public class EONoPathChildSet_models_Test extends TestHelper {
         setEO_ok(eoBTString, MapProvider.createInteger());
         Assert.assertEquals(S_INTEGER, eoBTString.get(F_TEST_INTEGER));
     }
-
-
-
-
 
 
 }

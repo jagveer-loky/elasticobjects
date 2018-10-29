@@ -12,7 +12,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class MapProvider {
 
-    public static Map createList () {
+    public static Map createList() {
         Map map = new LinkedHashMap();
         map.put(F_UNTYPED_LIST, ListProvider.createSmall());
         return map;
@@ -134,7 +134,7 @@ public class MapProvider {
         return map;
     }
 
-    public static Map createMap () {
+    public static Map createMap() {
         Map map = new LinkedHashMap();
         map.put(F_UNTYPED_MAP, createSmall());
         return map;
@@ -160,7 +160,7 @@ public class MapProvider {
 
     public static Map createBig(int length) throws Exception {
         final Map bigMap = new HashMap();
-        for (int i = 0;i<length;i++) {
+        for (int i = 0; i < length; i++) {
             bigMap.put("key" + i, i);
         }
         return bigMap;
@@ -176,23 +176,23 @@ public class MapProvider {
         return map;
     }
 
-    public static final void addMap(Map map, Object... keyValues) throws Exception{
-        for (int i=0; i<keyValues.length; i++) {
-            if (i == keyValues.length-1) {
-                throw new Exception("Uneven key value pairs at " +i );
+    public static final void addMap(Map map, Object... keyValues) throws Exception {
+        for (int i = 0; i < keyValues.length; i++) {
+            if (i == keyValues.length - 1) {
+                throw new Exception("Uneven key value pairs at " + i);
             }
-            map.put(keyValues[i], keyValues[i+1]);
+            map.put(keyValues[i], keyValues[i + 1]);
             i++;
         }
     }
 
-    public static final Map toMap(Object... keyValues) throws Exception{
+    public static final Map toMap(Object... keyValues) throws Exception {
         Map map = new LinkedHashMap();
         addMap(map, keyValues);
         return map;
     }
 
-    public static void createConfig(Map<String, Object> map)  {
+    public static void createConfig(Map<String, Object> map) {
         try {
             addMap(map, F_ID, 1L,
                     F_CREATION_DATE, SAMPLE_DATE,
@@ -202,8 +202,7 @@ public class MapProvider {
                     F_SCOPE, "ALL",
                     F_MODULE, F_MODULE,
                     F_SUB_MODULE, F_SUB_MODULE);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

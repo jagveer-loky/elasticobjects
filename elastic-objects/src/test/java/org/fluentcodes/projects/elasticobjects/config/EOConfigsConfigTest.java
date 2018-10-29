@@ -2,9 +2,6 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
@@ -15,6 +12,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_STRING;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * Created by werner.diwischek on 09.12.17.

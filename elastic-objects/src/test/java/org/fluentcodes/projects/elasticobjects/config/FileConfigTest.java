@@ -2,20 +2,20 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.calls.FileCall;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.calls.FileCall;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 12.10.2016.
@@ -25,17 +25,17 @@ public class FileConfigTest extends TestHelper {
 
     @Test
     public void findConfigInCache() throws Exception {
-        FileConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findFile( FILE_SOURCE_JSON );
+        FileConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findFile(FILE_SOURCE_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
     public void readConfigClassPath() throws Exception {
-        Map<String, Config> map = TestConfig.readClassPathConfig( FileConfig.class);
+        Map<String, Config> map = TestConfig.readClassPathConfig(FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(FILE_SOURCE_JSON));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(FILE_SOURCE_TXT));
     }
 
     @Test
@@ -128,7 +128,7 @@ public class FileConfigTest extends TestHelper {
 
         Assert.assertEquals(R_ANONYM, config.getRolePermissions().getRead());
         Assert.assertEquals(R_GUEST, config.getRolePermissions().getWrite());
-        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_CREATE,R_ADMIN), config.getRolePermissions().getCreate());
+        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_CREATE, R_ADMIN), config.getRolePermissions().getCreate());
         Assert.assertEquals(R_ADMIN, config.getRolePermissions().getDelete());
         Assert.assertEquals(R_SUPER_ADMIN, config.getRolePermissions().getExecute());
 

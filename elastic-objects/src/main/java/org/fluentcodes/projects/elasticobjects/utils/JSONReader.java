@@ -91,8 +91,7 @@ public class JSONReader {
             return new EOBuilder(configs)
                     .setModels(Map.class, beanClass)
                     .mapFile(url);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw e;
         }
     }

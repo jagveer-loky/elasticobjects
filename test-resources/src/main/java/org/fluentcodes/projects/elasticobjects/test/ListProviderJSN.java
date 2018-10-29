@@ -2,14 +2,7 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.junit.Assert;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 public class ListProviderJSN {
@@ -24,7 +17,7 @@ public class ListProviderJSN {
     public static EO createEmpty() throws Exception {
         final EO eo = builder().map(readEmpty());
         ListProviderEO.assertEmpty(eo);
-        return  eo;
+        return eo;
     }
 
     public static EO compareEmpty() throws Exception {
@@ -73,7 +66,7 @@ public class ListProviderJSN {
     }
 
     public static EO createLong() throws Exception {
-        final EO eo= builder().map(readLong());
+        final EO eo = builder().map(readLong());
         ListProviderEO.assertLong(eo);
         return eo;
     }
@@ -152,7 +145,7 @@ public class ListProviderJSN {
         return eo;
     }
 
-    public static String readMap () throws Exception {
+    public static String readMap() throws Exception {
         return readInputJSN(TYPE.LIST, MAP);
     }
 
@@ -168,7 +161,7 @@ public class ListProviderJSN {
         return eo;
     }
 
-    public static String readList () throws Exception {
+    public static String readList() throws Exception {
         return readInputJSN(TYPE.LIST, LIST);
     }
 
@@ -184,7 +177,7 @@ public class ListProviderJSN {
         return eo;
     }
 
-    public static String readST () throws Exception {
+    public static String readST() throws Exception {
         return readInputJSN(TYPE.LIST, SUB_TEST);
     }
 
@@ -200,7 +193,7 @@ public class ListProviderJSN {
         return eo;
     }
 
-    public static String readBT () throws Exception {
+    public static String readBT() throws Exception {
         return readInputJSN(TYPE.LIST, BASIC_TEST);
     }
 
@@ -217,7 +210,7 @@ public class ListProviderJSN {
     }
 
 
-    public static String readSmall () throws Exception {
+    public static String readSmall() throws Exception {
         return readInputJSN(TYPE.LIST, SMALL);
     }
 
@@ -238,7 +231,7 @@ public class ListProviderJSN {
     }
 
 
-    public static String readSimple () throws Exception {
+    public static String readSimple() throws Exception {
         return readInputJSN(TYPE.LIST, SIMPLE);
     }
 
@@ -254,7 +247,7 @@ public class ListProviderJSN {
         return eo;
     }
 
-    public static String readAll () throws Exception {
+    public static String readAll() throws Exception {
         return readInputJSN(TYPE.LIST, ALL);
     }
 

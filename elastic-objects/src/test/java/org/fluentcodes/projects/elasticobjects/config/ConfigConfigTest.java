@@ -8,7 +8,8 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.CONFIG_CONFIG_MAIN;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MODEL;
 
 /**
  * Created by Werner on 1o.6.2018.

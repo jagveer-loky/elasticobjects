@@ -5,13 +5,12 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.List;
-
 /**
  * Created by Werner on 04.11.2016.
  */
-public class BasicTestTest  {
+public class BasicTestTest {
     private static final Logger LOG = LogManager.getLogger(BasicTestTest.class);
+
     @Test
     public void bean() {
         BasicTest test = new BasicTest();
@@ -20,13 +19,12 @@ public class BasicTestTest  {
     }
 
     @Test
-    public void readDataFile()  throws Exception {
+    public void readDataFile() throws Exception {
         /* TODOList list = JacksonHelperObsolete.readListFromDataClassPath(BasicTest.class);
         Assert.assertNotNull(list);
         Assert.assertTrue(list.size()>0);*/
         //AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, list);
     }
-
 
 
     @Test

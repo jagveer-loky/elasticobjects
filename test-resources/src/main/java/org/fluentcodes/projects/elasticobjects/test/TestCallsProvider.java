@@ -94,6 +94,7 @@ public class TestCallsProvider {
         ValueCall call = createValueCall(key);
         call.set(eo);
     }
+
     public static EO createValueCallWithEOEmpty(final String key) throws Exception {
         EO eoEmpty = TestObjectProvider.createEOFromJson();
         createValueCallWithEO(key, eoEmpty);
@@ -120,7 +121,6 @@ public class TestCallsProvider {
     }
 
 
-
     public static EO createConfigCallEO(final String key, final String... attributeList) throws Exception {
         final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final Map attributes = MapProvider.toMap(attributeList);
@@ -138,13 +138,13 @@ public class TestCallsProvider {
     }
 
     public static TemplateCall createTemplateCall(final String key) throws Exception {
-        return  new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
+        return new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, key);
     }
 
     public static CallExecutor createExecutorTemplate(final String key, Object[]... attributeList) throws Exception {
         final Map attributes = MapProvider.toMap(attributeList);
         attributes.put(ExecutorListTemplate.EXECUTE, TemplateCall.class.getSimpleName() + ".execute(" + key + ")");
-        return  new CallExecutor(attributes);
+        return new CallExecutor(attributes);
     }
 
     public static String executeTemplateCall(final String key) throws Exception {

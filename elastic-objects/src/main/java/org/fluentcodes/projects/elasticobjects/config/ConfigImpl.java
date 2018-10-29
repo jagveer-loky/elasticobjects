@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -11,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 10.10.2016.
@@ -92,10 +92,9 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         if (scope == Scope.ALL) {
             return true;
         }
-        if (this.scope==null) {
+        if (this.scope == null) {
             return true;
-        }
-        else if (this.scope.isEmpty()) {
+        } else if (this.scope.isEmpty()) {
             return true;
         }
         if (this.scope.contains(scope)) {
@@ -108,6 +107,29 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         return provider;
     }
 //</call>
+
+    @Override
+    public String toString() {
+        if (this == null) {
+            return "{}";
+        }
+        try {
+            return new EOToJSON().toJSON(getConfigsCache(), this);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
+
+    public String serialize() {
+        if (this == null) {
+            return "{}";
+        }
+        try {
+            return new EOToJSON().setStartIndent(1).toJSON(getConfigsCache(), this);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
 
     public static class Builder {
         //<call keep="JAVA" templateKey="BeanInstanceVars.tpl">
@@ -138,12 +160,12 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             this.creationDate = ScalarConverter.toDate(values.get(F_CREATION_DATE));
             this.id = ScalarConverter.toLong(values.get(F_ID));
             Object scopeAsObject = values.get(F_SCOPE);
-            this.scope = new ArrayList<Scope> ();
-            if (scopeAsObject !=null && scopeAsObject instanceof List) {
-                List scopeList  =(List)scopeAsObject;
-                for (Object scopeObject:scopeList) {
+            this.scope = new ArrayList<Scope>();
+            if (scopeAsObject != null && scopeAsObject instanceof List) {
+                List scopeList = (List) scopeAsObject;
+                for (Object scopeObject : scopeList) {
                     String scope = ScalarConverter.toString(scopeObject);
-                    if (scope==null || scope.isEmpty()) {
+                    if (scope == null || scope.isEmpty()) {
                         continue;
                     }
                     this.scope.add(Scope.valueOf(scope));
@@ -155,29 +177,6 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
 
         protected boolean isExpanded() {
             return expanded;
-        }
-    }
-
-    @Override
-    public String toString() {
-        if (this == null) {
-            return "{}";
-        }
-        try {
-            return new EOToJSON().toJSON(getConfigsCache(), this);
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-    }
-
-    public String serialize() {
-        if (this == null) {
-            return "{}";
-        }
-        try {
-            return new EOToJSON().setStartIndent(1).toJSON(getConfigsCache(), this);
-        } catch (Exception e) {
-            return e.getMessage();
         }
     }
 

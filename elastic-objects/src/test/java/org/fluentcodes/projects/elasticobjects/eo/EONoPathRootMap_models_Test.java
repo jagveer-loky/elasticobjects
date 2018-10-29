@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.BTProviderEO;
+import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderEO;
 import org.junit.Assert;
 import org.junit.Test;
@@ -39,6 +39,7 @@ public class EONoPathRootMap_models_Test {
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, root.getLog().isEmpty());
         return child;
     }
+
     @Test
     public void givenString_withInteger_changeNothing() throws Exception {
         final EO eoString = DevObjectProvider

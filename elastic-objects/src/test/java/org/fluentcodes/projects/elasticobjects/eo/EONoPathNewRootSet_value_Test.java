@@ -87,7 +87,7 @@ public class EONoPathNewRootSet_value_Test {
         EO adapter = EOTest.setValue_ok(map);
 
         map.put(S_KEY1, map);
-        Assert.assertEquals(S_STRING, ((Map)map.get(S_KEY1)).get(F_TEST_STRING));
+        Assert.assertEquals(S_STRING, ((Map) map.get(S_KEY1)).get(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, adapter.getChild(S_KEY1).get(F_TEST_STRING));
     }
 

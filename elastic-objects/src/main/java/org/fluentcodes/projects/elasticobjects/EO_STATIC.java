@@ -73,17 +73,17 @@ public class EO_STATIC {
 
     public static final String CONFIG_HOST = HOST + CONFIG;
     public static final String CONFIG_HOST_FILE = CONFIG_HOST + CONFIG_JSON_END;
-    public static final String CONFIG_HOST_MAIN = CONFIG_PATH_MAIN +  CONFIG_HOST_FILE;
+    public static final String CONFIG_HOST_MAIN = CONFIG_PATH_MAIN + CONFIG_HOST_FILE;
     public static final String CONFIG_HOST_TEST = CONFIG_PATH_TEST + CONFIG_HOST_FILE;
 
     public static final String CONFIG_JSON = JSON + CONFIG;
     public static final String CONFIG_JSON_FILE = CONFIG_JSON + CONFIG_JSON_END;
-    public static final String CONFIG_JSON_MAIN = CONFIG_PATH_MAIN +  CONFIG_JSON_FILE;
+    public static final String CONFIG_JSON_MAIN = CONFIG_PATH_MAIN + CONFIG_JSON_FILE;
     public static final String CONFIG_JSON_TEST = CONFIG_PATH_TEST + CONFIG_JSON_FILE;
 
     public static final String CONFIG_CONFIG = CONFIG + CONFIG;
     public static final String CONFIG_CONFIG_FILE = CONFIG_CONFIG + CONFIG_JSON_END;
-    public static final String CONFIG_CONFIG_MAIN = CONFIG_PATH_MAIN +  CONFIG_CONFIG_FILE;
+    public static final String CONFIG_CONFIG_MAIN = CONFIG_PATH_MAIN + CONFIG_CONFIG_FILE;
     public static final String CONFIG_CONFIG_TEST = CONFIG_PATH_TEST + CONFIG_CONFIG_FILE;
 
     public static final String CONFIG_FILE = FILE + CONFIG;
@@ -202,7 +202,7 @@ public class EO_STATIC {
     public static final String M_HOST_ACTION = "HostCall";
     public static final String M_FILE_ACTION = "FileCall";
     public static final String M_CONFIG_IMPL = "ConfigImpl";
-//</call>
+    //</call>
     public static final String F_DO_MAP = "doMap";
     public static final String F_UPPER_ID_KEY = "upper.ID";
     //<call templateKey="StaticValuesLoop.tpl" config:="Field" prefix:="F_" keep="JAVA">

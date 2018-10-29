@@ -6,8 +6,8 @@ import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
 
-import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+
 public class BTProviderEO {
     public static EOBuilder builder() {
         return TestObjectProvider.createEOBuilder();
@@ -18,6 +18,7 @@ public class BTProviderEO {
         assertEmpty(eo);
         return eo;
     }
+
     public static void assertEmpty(final EO eo) throws Exception {
     }
 
@@ -26,6 +27,7 @@ public class BTProviderEO {
         assertString(eo);
         return eo;
     }
+
     public static void assertString(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
     }
@@ -35,6 +37,7 @@ public class BTProviderEO {
         assertInteger(eo);
         return eo;
     }
+
     public static void assertInteger(final EO eo) throws Exception {
         Assert.assertEquals(S_INTEGER, eo.get(F_TEST_INTEGER));
     }
@@ -44,6 +47,7 @@ public class BTProviderEO {
         assertLong(eo);
         return eo;
     }
+
     public static void assertLong(final EO eo) throws Exception {
         Assert.assertEquals(SAMPLE_LONG, eo.get(F_TEST_LONG));
     }
@@ -53,6 +57,7 @@ public class BTProviderEO {
         assertFloat(eo);
         return eo;
     }
+
     public static void assertFloat(final EO eo) throws Exception {
         Assert.assertEquals(SAMPLE_FLOAT, eo.get(F_TEST_FLOAT));
     }
@@ -62,6 +67,7 @@ public class BTProviderEO {
         assertDouble(eo);
         return eo;
     }
+
     public static void assertDouble(final EO eo) throws Exception {
         Assert.assertEquals(SAMPLE_DOUBLE, eo.get(F_TEST_DOUBLE));
     }
@@ -71,6 +77,7 @@ public class BTProviderEO {
         assertDate(eo);
         return eo;
     }
+
     public static void assertDate(final EO eo) throws Exception {
         Assert.assertEquals(SAMPLE_DATE, eo.get(F_TEST_DATE));
     }
@@ -80,6 +87,7 @@ public class BTProviderEO {
         assertBoolean(eo);
         return eo;
     }
+
     public static void assertBoolean(final EO eo) throws Exception {
         Assert.assertEquals(S_BOOLEAN, eo.get(F_TEST_BOOLEAN));
     }
@@ -89,6 +97,7 @@ public class BTProviderEO {
         assertMap(eo);
         return eo;
     }
+
     public static void assertMap(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_UNTYPED_MAP + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(S_INTEGER, eo.get(F_UNTYPED_MAP + Path.DELIMITER + F_TEST_INTEGER));
@@ -99,6 +108,7 @@ public class BTProviderEO {
         assertList(eo);
         return eo;
     }
+
     public static void assertList(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_UNTYPED_LIST + Path.DELIMITER + S0));
         Assert.assertEquals(S_INTEGER, eo.get(F_UNTYPED_LIST + Path.DELIMITER + S1));
@@ -109,6 +119,7 @@ public class BTProviderEO {
         assertBT(eo);
         return eo;
     }
+
     public static void assertBT(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_BASIC_TEST + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(S_INTEGER, eo.get(F_BASIC_TEST + Path.DELIMITER + F_TEST_INTEGER));
@@ -119,6 +130,7 @@ public class BTProviderEO {
         assertST(eo);
         return eo;
     }
+
     public static void assertST(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_SUB_TEST + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(S_STRING_OTHER, eo.get(F_SUB_TEST + Path.DELIMITER + EO_STATIC.F_NAME));
@@ -129,6 +141,7 @@ public class BTProviderEO {
         assertMapST(eo);
         return eo;
     }
+
     public static void assertMapST(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_SUB_TEST_MAP + Path.DELIMITER + S_KEY0 + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(S_STRING_OTHER, eo.get(F_SUB_TEST_MAP + Path.DELIMITER + S_KEY0 + Path.DELIMITER + EO_STATIC.F_NAME));
@@ -151,6 +164,7 @@ public class BTProviderEO {
         assertSimple(eo);
         return eo;
     }
+
     public static void assertSimple(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
         Assert.assertEquals(S_INTEGER, eo.get(F_TEST_INTEGER));

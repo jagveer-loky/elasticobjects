@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+
 /**
  * @author Werner Diwischek
  * @since 1.10.2018
@@ -30,7 +31,7 @@ public class EONoPathRootMap_value_Test {
     public void givenString_withBoolean_ok() throws Exception {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
-            .mapEOValue_ok(eoString, S_BOOLEAN);
+                .mapEOValue_ok(eoString, S_BOOLEAN);
         Assert.assertEquals(S_BOOLEAN.toString(), eoString.get());
     }
 
@@ -131,8 +132,8 @@ public class EONoPathRootMap_value_Test {
                 .map(jsnString);
 
         Assert.assertEquals(S_STRING, eoEmpty.get(F_TEST_STRING));
-        Assert.assertEquals(Map.class,eoEmpty.getModelClass());
-        Assert.assertEquals(String.class,eoEmpty.getChild(F_TEST_STRING).getModelClass());
+        Assert.assertEquals(Map.class, eoEmpty.getModelClass());
+        Assert.assertEquals(String.class, eoEmpty.getChild(F_TEST_STRING).getModelClass());
     }
 
     /**
@@ -142,19 +143,19 @@ public class EONoPathRootMap_value_Test {
      */
     @Test
     public void givenMapEmpty_withJsonMapBoolean_ok() throws Exception {
-        final EO eoEmpty  = TestObjectProvider.createEOFromJson();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final String jsonBoolean = MapProviderJSON.readBoolean();
         eoEmpty
                 .add()
                 .map(jsonBoolean);
         Assert.assertEquals(S_BOOLEAN, eoEmpty.get(F_TEST_BOOLEAN));
-        Assert.assertEquals(Map.class,eoEmpty.getModelClass());
-        Assert.assertEquals(Boolean.class,eoEmpty.getChild(F_TEST_BOOLEAN).getModelClass());
+        Assert.assertEquals(Map.class, eoEmpty.getModelClass());
+        Assert.assertEquals(Boolean.class, eoEmpty.getChild(F_TEST_BOOLEAN).getModelClass());
     }
 
 
     @Test
-    public void  givenListEmpty_withBoolean_fails() throws Exception {
+    public void givenListEmpty_withBoolean_fails() throws Exception {
         final EO root = DevObjectProvider.createEO(List.class);
         root
                 .add()
@@ -206,8 +207,8 @@ public class EONoPathRootMap_value_Test {
                 .map(jsonString);
 
         Assert.assertEquals(S_STRING, eoEmpty.get(F_TEST_STRING));
-        Assert.assertEquals(Map.class,eoEmpty.getModelClass());
-        Assert.assertEquals(String.class,eoEmpty.getChild(F_TEST_STRING).getModelClass());
+        Assert.assertEquals(Map.class, eoEmpty.getModelClass());
+        Assert.assertEquals(String.class, eoEmpty.getChild(F_TEST_STRING).getModelClass());
     }
 
     /**
@@ -217,7 +218,7 @@ public class EONoPathRootMap_value_Test {
      */
     @Test
     public void givenMapEmpty_withJsonBoolean_ok() throws Exception {
-        final EO eoEmpty  = TestObjectProvider.createEOFromJson();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final String jsonBoolean = MapProviderJSON.readBoolean();
 
         eoEmpty
@@ -225,8 +226,8 @@ public class EONoPathRootMap_value_Test {
                 .map(jsonBoolean);
 
         Assert.assertEquals(S_BOOLEAN, eoEmpty.get(F_TEST_BOOLEAN));
-        Assert.assertEquals(Map.class,eoEmpty.getModelClass());
-        Assert.assertEquals(Boolean.class,eoEmpty.getChild(F_TEST_BOOLEAN).getModelClass());
+        Assert.assertEquals(Map.class, eoEmpty.getModelClass());
+        Assert.assertEquals(Boolean.class, eoEmpty.getChild(F_TEST_BOOLEAN).getModelClass());
     }
 
     /**
@@ -343,8 +344,8 @@ public class EONoPathRootMap_value_Test {
                 .map(jsnMapSmall);
         Assert.assertEquals(S_STRING, listEO.get(S0));
         Assert.assertEquals(S_INTEGER, listEO.get(S1));
-        Assert.assertEquals(List.class,listEO.getModelClass());
-        Assert.assertEquals(String.class,listEO.getChild(S0).getModelClass());
+        Assert.assertEquals(List.class, listEO.getModelClass());
+        Assert.assertEquals(String.class, listEO.getChild(S0).getModelClass());
     }
 
     @Test
@@ -433,7 +434,6 @@ public class EONoPathRootMap_value_Test {
     }
 
 
-
     // Given eo BasicTest with values
     // when adding jsn list small
     // no mapping defined for list and object like 'BasicTest'.
@@ -472,7 +472,7 @@ public class EONoPathRootMap_value_Test {
     @Test
     public void givenBTEmpty_withJsnMapSmall_ok() throws Exception {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
-        final String jsnMapSmall =  MapProviderJSON.readSmall();
+        final String jsnMapSmall = MapProviderJSON.readSmall();
 
         eoBTEmpty
                 .add()
@@ -501,8 +501,8 @@ public class EONoPathRootMap_value_Test {
 
         Assert.assertEquals(BasicTest.class, eoBTEmpty.getModelClass());
         Assert.assertEquals(BasicTest.class, eoBTEmpty.get().getClass());
-        Assert.assertNull(INFO_NULL_FAILS + S_KEY0 + eoBTEmpty.get(S_KEY0) , eoBTEmpty.get(S_KEY0));
-        Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS + eoBTEmpty.getLog() , eoBTEmpty.getLog().isEmpty());
+        Assert.assertNull(INFO_NULL_FAILS + S_KEY0 + eoBTEmpty.get(S_KEY0), eoBTEmpty.get(S_KEY0));
+        Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS + eoBTEmpty.getLog(), eoBTEmpty.getLog().isEmpty());
     }
 
 

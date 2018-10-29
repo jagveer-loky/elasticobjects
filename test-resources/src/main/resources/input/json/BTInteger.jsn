@@ -1,6 +1,5 @@
 {
-"(BasicTest)_data":
-	{
-		"testInt":1
-	}
+  "(BasicTest)_data": {
+    "testInt": 1
+  }
 }

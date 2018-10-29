@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 /**
  * Storage for configurations
+ *
  * @author Werner Diwischek
  * @since 13.10.2016.
  */
@@ -49,8 +50,7 @@ public class EOConfigsCache {
                 models.initCallMap();
                 fields.addConfigs();
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -104,7 +104,7 @@ public class EOConfigsCache {
     }
 
     public Set<String> getCallSet() throws Exception {
-        return ((ConfigsModel)getConfig(ModelConfig.class)).getCallSet();
+        return ((ConfigsModel) getConfig(ModelConfig.class)).getCallSet();
     }
 
     public Set<String> getKeys(final Class<?> cacheClass) throws Exception {
@@ -163,10 +163,9 @@ public class EOConfigsCache {
         if (attributes == null) {
             return null;
         }
-        if (attributes.get(fieldKey)!=null) {
+        if (attributes.get(fieldKey) != null) {
             return transform(fieldKey, attributes.get(fieldKey));
-        }
-        else {
+        } else {
             return transform(fieldKey, defaultValue);
         }
     }

@@ -1,7 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.AssertEO;
+import org.fluentcodes.projects.elasticobjects.test.MapProviderEO;
+import org.fluentcodes.projects.elasticobjects.test.MapProviderJSON;
+import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -162,7 +165,7 @@ public class EOToJSONMapTest extends TestHelper {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.create();
         long duration = System.currentTimeMillis();
-        for (int i = 0; i<100; i++) {
+        for (int i = 0; i < 100; i++) {
             String stringified = new EOToJSON()
                     .setSerializationType(JSONSerializationType.SCALAR)
                     .toJSON(adapter);
@@ -176,9 +179,9 @@ public class EOToJSONMapTest extends TestHelper {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.createBigEO(100);
         long duration = System.currentTimeMillis();
-            String stringified = new EOToJSON()
-                    .setSerializationType(JSONSerializationType.SCALAR)
-                    .toJSON(adapter);
+        String stringified = new EOToJSON()
+                .setSerializationType(JSONSerializationType.SCALAR)
+                .toJSON(adapter);
         duration = System.currentTimeMillis() - duration;
         System.out.println("Duration: " + duration + " ms.");
         AssertEO.compare(stringified);

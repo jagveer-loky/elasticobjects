@@ -2,11 +2,6 @@ package org.fluentcodes.projects.elasticobjects.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_FALSE_FAILS;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_TRUE_FAILS;
-import static org.fluentcodes.projects.elasticobjects.test.ListProvider.toList;
-
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
@@ -15,6 +10,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_FALSE_FAILS;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONDITION_TRUE_FAILS;
+import static org.fluentcodes.projects.elasticobjects.test.ListProvider.toList;
 
 public class EqTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EqTest.class);

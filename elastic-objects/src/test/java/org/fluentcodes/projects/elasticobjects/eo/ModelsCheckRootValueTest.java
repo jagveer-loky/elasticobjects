@@ -2,16 +2,14 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 23.05.2016.
@@ -39,8 +37,7 @@ public class ModelsCheckRootValueTest extends TestHelper {
         try {
             models.checkRootValue(S_INTEGER, true);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }

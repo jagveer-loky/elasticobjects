@@ -1,11 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.MapProvider;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 public class EoParamsTest {
 

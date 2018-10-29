@@ -13,6 +13,7 @@ import java.util.*;
 
 /**
  * Offers serialized setter and getter for java objects
+ *
  * @author Werner Diwischek
  * @since 10.10.2015
  */
@@ -60,7 +61,7 @@ public class EOContainer extends EOScalar implements EO {
             return;
         }
         if (source instanceof JSONToEO) {
-            if (get()==null) {
+            if (get() == null) {
                 set(getModel().create());
             }
             ((JSONToEO) source).createChild(this);
@@ -136,7 +137,7 @@ public class EOContainer extends EOScalar implements EO {
 
     protected void setCallsByMap(List<Map> callList) throws Exception {
         for (Map attributes : callList) {
-            if (attributes.get(EO_STATIC.F_PATH)==null) {
+            if (attributes.get(EO_STATIC.F_PATH) == null) {
                 attributes.put(EO_STATIC.F_PATH, this.getPath().directory());
             }
             getRoot().addCallExecutor(attributes);
@@ -162,7 +163,7 @@ public class EOContainer extends EOScalar implements EO {
     @Override
     public EOBuilder add(final String path) {
         try {
-            if (path==null || path.isEmpty()) {
+            if (path == null || path.isEmpty()) {
                 return new EOBuilder(this);
             }
             if (path.startsWith(Path.DELIMITER)) {
@@ -271,7 +272,7 @@ public class EOContainer extends EOScalar implements EO {
             String nextPath = path + Path.DELIMITER + key;
             nextPath = nextPath.replaceAll("^" + Path.DELIMITER, "");
             EO childAdapter = getChild(key);
-            if (childAdapter == null){// || childAdapter.isEmpty()) {
+            if (childAdapter == null) {// || childAdapter.isEmpty()) {
                 continue;
             }
             PathPattern childPathPattern = pathPattern.getPathList(key);
@@ -386,8 +387,7 @@ public class EOContainer extends EOScalar implements EO {
         if (pathString.endsWith(EO_STATIC._PARENT_KEY)) {
             path = pathString.replaceAll(EO_STATIC._PARENT_KEY + "$", "");
             special = EO_STATIC._PARENT_KEY;
-        }
-        else if (pathString.endsWith(EO_STATIC._VALUE)) {
+        } else if (pathString.endsWith(EO_STATIC._VALUE)) {
             path = pathString.replaceAll(EO_STATIC._VALUE + "$", "");
             //special = EO_STATIC._VALUE;
         }
@@ -407,9 +407,9 @@ public class EOContainer extends EOScalar implements EO {
         }
         switch (special) {
             case EO_STATIC._PARENT_KEY:
-            return child.getParentKey();
+                return child.getParentKey();
             default:
-            return (child.get());
+                return (child.get());
         }
     }
 
@@ -417,8 +417,7 @@ public class EOContainer extends EOScalar implements EO {
     protected void removeChildEO(Object value) throws Exception {
         if (this.isScalar()) {
             this.childMap = null;
-        }
-        else {
+        } else {
             this.childMap = new LinkedHashMap<>();
         }
         set(value);
@@ -502,8 +501,9 @@ public class EOContainer extends EOScalar implements EO {
 
     /**
      * Add the adapter with fieldName to childMap.
+     *
      * @param fieldName The fieldName
-     * @param child the child eo
+     * @param child     the child eo
      */
     protected void setChild(final String fieldName, final EO child) {
         if (fieldName == null) {

@@ -3,8 +3,6 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.condition.And;
 import org.fluentcodes.projects.elasticobjects.condition.Condition;
 import org.fluentcodes.projects.elasticobjects.condition.Or;
-import org.fluentcodes.projects.elasticobjects.config.Scope;
-import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.MapProvider;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -29,7 +27,7 @@ public class TEO_STATIC {
     public static final String FILE_CLASSPATH_SOURCE_TXT = "classpath_source.txt";
     public static final String FILE_TARGET_JSON = "target.json";
 
-    public static final String MODULE_NAME="test-resources";
+    public static final String MODULE_NAME = "test-resources";
     public static final String F_SUB_TEST = "subTest";
     public static final String F_BASIC_TEST = "basicTest";
     public static final String F_TEST_STRING = "testString";
@@ -149,11 +147,11 @@ public class TEO_STATIC {
     public static final String S_PATH5 = S_PATH4 + Path.DELIMITER + S_LEVEL5;
     public static final String S_PATH6 = S_PATH5 + Path.DELIMITER + S_LEVEL6;
     public static final String S_PATH7 = S_PATH6 + Path.DELIMITER + S_LEVEL7;
-    public static final String S_PATH00 = toPath(S0,S0);
-    public static final String S_PATH0_KEY1 = toPath(S0,S_KEY1);
-    public static final String S_PATH0_KEY2 = toPath(S0,S_KEY2);
-    public static final String S_PATH1_KEY1 = toPath(S1,S_KEY1);
-    public static final String S_PATH1_KEY2 = toPath(S1,S_KEY2);
+    public static final String S_PATH00 = toPath(S0, S0);
+    public static final String S_PATH0_KEY1 = toPath(S0, S_KEY1);
+    public static final String S_PATH0_KEY2 = toPath(S0, S_KEY2);
+    public static final String S_PATH1_KEY1 = toPath(S1, S_KEY1);
+    public static final String S_PATH1_KEY2 = toPath(S1, S_KEY2);
 
     public static final String PCK_CONFIG = "config";
     public static final String PACK_ROOT = "org.fluentcodes.projects.elasticobjects";
@@ -172,8 +170,8 @@ public class TEO_STATIC {
     public static final String S_KEY_LONG = "long";
     public static final String S_KEYLIST = "list";
 
-    public static final String R_ADMIN = "adminRole";
-    public static final String R_SUPER_ADMIN = "superadminRole";
+    public static final String R_ADMIN = "admin";
+    public static final String R_SUPER_ADMIN = "superadmin";
     public static final String R_GUEST = "guest";
     public static final String R_ANONYM = "anonym";
     public static final String R_NOTHING = "nothing";
@@ -196,9 +194,11 @@ public class TEO_STATIC {
     public static final String toPath(String... keyValues) {
         return join(Path.DELIMITER, keyValues);
     }
+
     public static final String toEq(String... keyValues) {
         return join(CON_SPACE + Condition.EQ + CON_SPACE, keyValues);
     }
+
     public static final String toLike(String... keyValues) {
         return join(CON_SPACE + Condition.LIKE + CON_SPACE, keyValues);
     }
@@ -210,29 +210,30 @@ public class TEO_STATIC {
     public static final String toAnd(String... keyValues) {
         return join(CON_SPACE + And.DELIMITER + CON_SPACE, keyValues);
     }
+
     public static final String toOr(String... keyValues) {
         return join(CON_SPACE + Or.DELIMITER + CON_SPACE, keyValues);
     }
 
     public static final Map<String, Object> createListMapperMap() {
-      Map<String, Object> map = new HashMap<>();
-      map.put(F_COL_KEYS, F_COL_KEYS);
-      map.put(F_DO_MAP, S_BOOLEAN);
-      map.put(F_IGNORE_HEADER, S_BOOLEAN);
-      map.put(F_MAP_PATH, F_MAP_PATH);
-      map.put(F_MODEL_KEYS, join(CON_COMMA,List.class.getSimpleName(),Map.class.getSimpleName()));
-      map.put(F_PATH_PATTERN, F_PATH_PATTERN);
-      return map;
+        Map<String, Object> map = new HashMap<>();
+        map.put(F_COL_KEYS, F_COL_KEYS);
+        map.put(F_DO_MAP, S_BOOLEAN);
+        map.put(F_IGNORE_HEADER, S_BOOLEAN);
+        map.put(F_MAP_PATH, F_MAP_PATH);
+        map.put(F_MODEL_KEYS, join(CON_COMMA, List.class.getSimpleName(), Map.class.getSimpleName()));
+        map.put(F_PATH_PATTERN, F_PATH_PATTERN);
+        return map;
     }
 
-    public static final Map<String, Object> createListParamsMap() throws Exception{
-      Map<String, Object> map = MapProvider.toMap(
-              F_LENGTH, 1,
-              F_ROW_HEAD, 2,
-              F_ROW_START, 3,
-              F_ROW_END, 4,
-              F_FILTER, toEq(S4, S_INTEGER.toString()));
-      return map;
+    public static final Map<String, Object> createListParamsMap() throws Exception {
+        Map<String, Object> map = MapProvider.toMap(
+                F_LENGTH, 1,
+                F_ROW_HEAD, 2,
+                F_ROW_START, 3,
+                F_ROW_END, 4,
+                F_FILTER, toEq(S4, S_INTEGER.toString()));
+        return map;
     }
 
 }

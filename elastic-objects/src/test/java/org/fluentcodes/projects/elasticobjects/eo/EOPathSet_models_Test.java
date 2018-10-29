@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.EOTest;
 import org.fluentcodes.projects.elasticobjects.test.BTProviderEO;
+import org.fluentcodes.projects.elasticobjects.test.EOTest;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderEODev;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Test;
@@ -11,7 +11,8 @@ import org.junit.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_STRING;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_UNTYPED_MAP;
 
 public class EOPathSet_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPathSet_models_Test.class);
@@ -29,7 +30,7 @@ public class EOPathSet_models_Test extends TestHelper {
         final EO eoString = MapProviderEODev.createString();
         EOTest
                 .setEO_fails(eoString, F_TEST_STRING, Map.class);
-     }
+    }
 
     @Test
     public void givenBTString_withMap_fails() throws Exception {
@@ -52,7 +53,6 @@ public class EOPathSet_models_Test extends TestHelper {
         EOTest
                 .setEO_fails(eoString, F_UNTYPED_MAP, LinkedHashMap.class);
     }
-
 
 
 }

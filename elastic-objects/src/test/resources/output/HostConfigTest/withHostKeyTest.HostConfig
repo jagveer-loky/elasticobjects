@@ -10,10 +10,10 @@
 		"rolePermissions":
 		{
 			"read":"testRoleRead,guest",
-			"write":"testRoleWrite,adminRole",
-			"create":"testRoleCreate,adminRole",
-			"delete":"adminRole",
-			"execute":"superadminRole"
+			"write":"testRoleWrite,admin",
+			"create":"testRoleCreate,admin",
+			"delete":"admin",
+			"execute":"superadmin"
 		},
 		"module":"elastic-objects",
 		"subModule":"test",

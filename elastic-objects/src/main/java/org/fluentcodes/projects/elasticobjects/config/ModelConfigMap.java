@@ -146,6 +146,7 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
     public boolean isListType() {
         return false;
     }
+
     public boolean isMapType() {
         return true;
     }

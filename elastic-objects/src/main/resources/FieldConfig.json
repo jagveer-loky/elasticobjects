@@ -1,1417 +1,1210 @@
 {
-	"action":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"action",
-		"dbFieldParams":
-		{
-			"fieldName":"action",
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"action",
-		"description":"A value extending the {@link Action} Class."
-	},
-	"actionMap":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"actionMap",
-		"dbFieldParams":
-		{
-			"fieldName":"actionMap"
-		},
-		"modelKeys":"Map",
-		"fieldKey":"actionMap",
-		"description":"An object map preparing value setting in the action implementation. (new)"
-	},
-	"and":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"and",
-		"modelKeys":"And",
-		"fieldKey":"and",
-		"description":"A list of {@link Condition} conditions"
-	},
-	"andAsString":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"andAsString",
-		"dbFieldParams":
-		{
-			"length":1024
-		},
-		"modelKeys":"String",
-		"fieldKey":"andAsString",
-		"description":"Stringified value of {@And}"
-	},
-	"attributeList":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"attributeList",
-		"modelKeys":"ArrayList,String",
-		"fieldKey":"attributeList",
-		"description":"Definition of available attributes for an Action."
-	},
-	"attributes":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"attributes",
-		"dbFieldParams":
-		{
-			"fieldName":"attributes"
-		},
-		"modelKeys":"Map",
-		"fieldKey":"attributes",
-		"description":"Setting as String object. (new)"
-	},
-	"author":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"author",
-		"dbFieldParams":
-		{
-			"fieldName":"author",
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"author",
-		"description":"The autor of something e,g. a class."
-	},
-	"cached":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"cached",
-		"modelKeys":"Boolean",
-		"fieldKey":"cached",
-		"description":"If true will cache the readed file within the cache object. "
-	},
-	"calc":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"calc",
-		"dbFieldParams":
-		{
-			"length":1024
-		},
-		"modelKeys":"String",
-		"fieldKey":"calc",
-		"description":"Defines a simple calc action using jCalc. Uses the attribute calcString."
-	},
-	"colKeys":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"colKeys",
-		"modelKeys":"ArrayList,String",
-		"fieldKey":"colKeys",
-		"description":"The key list for mapping values in a value list. "
-	},
-	"colKeysAsString":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"colKeysAsString",
-		"dbFieldParams":
-		{
-			"length":1024
-		},
-		"modelKeys":"String",
-		"fieldKey":"colKeysAsString",
-		"description":"Column keys with String interface"
-	},
-	"configKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"configKey",
-		"dbFieldParams":
-		{
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"configKey",
-		"description":"Key for configuration  {@link ConfigConfig}"
-	},
-	"content":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"content",
-		"dbFieldParams":
-		{
-			"length":10000
-		},
-		"modelKeys":"String",
-		"fieldKey":"content",
-		"description":"A content."
-	},
-	"create":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"create",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"Boolean",
-		"fieldKey":"create",
-		"description":"If true will create a Java class."
-	},
-	"creationDate":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"creationDate",
-		"dbFieldParams":
-		{
-			"fieldName":"creationDate"
-		},
-		"modelKeys":"Date",
-		"fieldKey":"creationDate",
-		"description":"Used to define the creation of an item."
-	},
-	"customFieldParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"customFieldParams",
-		"modelKeys":"HashMap",
-		"fieldKey":"customFieldParams",
-		"description":"Custom Parameters stored by fields elastic objects. "
-	},
-	"customParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"customParams",
-		"modelKeys":"HashMap",
-		"fieldKey":"customParams",
-		"description":"Custom Parameters stored by models elastic objects. "
-	},
-	"dbFieldParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"dbFieldParams",
-		"modelKeys":"DBFieldParams",
-		"fieldKey":"dbFieldParams",
-		"description":"Parameters for persisting perspective. "
-	},
-	"dbParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"dbParams",
-		"modelKeys":"DBParams",
-		"fieldKey":"dbParams",
-		"description":"Parameters for persisting perspective. "
-	},
-	"defaultImplementation":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"defaultImplementation",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"defaultImplementation"
-	},
-	"delete":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"delete",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"delete",
-		"description":"String representation of RolePermission delete permissions"
-	},
-	"description":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"description",
-		"dbFieldParams":
-		{
-			"fieldName":"description",
-			"length":512
-		},
-		"modelKeys":"String",
-		"fieldKey":"description",
-		"description":"A description of the model used by every model extending BaseClassImpl. "
-	},
-	"entries":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"entries",
-		"dbFieldParams":
-		{
-			"fieldName":"entries"
-		},
-		"modelKeys":"ArrayList",
-		"fieldKey":"entries"
-	},
-	"eoFieldParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"eoFieldParams",
-		"modelKeys":"EOFieldParams",
-		"fieldKey":"eoFieldParams",
-		"description":"Parameters used by elastic objects. "
-	},
-	"eoParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"eoParams",
-		"modelKeys":"EOParams",
-		"fieldKey":"eoParams",
-		"description":"Parameters used by elastic objects. "
-	},
-	"EOParams.create":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"EOParams.create",
-		"modelKeys":"Boolean",
-		"fieldKey":"create",
-		"description":"Set a flag to create a class."
-	},
-	"execute":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"execute",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"execute",
-		"description":"String representation of RolePermission execute permissions"
-	},
-	"expanded":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"expanded",
-		"modelKeys":"Boolean",
-		"fieldKey":"expanded",
-		"description":"For creating a cache using only bean fields."
-	},
-	"fieldDelimiter":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"fieldDelimiter",
-		"dbFieldParams":
-		{
-			"length":4
-		},
-		"modelKeys":"String",
-		"fieldKey":"fieldDelimiter",
-		"description":"A delimiter for fields used for csv files. "
-	},
-	"fieldKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"fieldKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"fieldKey"
-	},
-	"fieldKeys":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"fieldKeys",
-		"dbFieldParams":
-		{
-			"fieldName":"fieldKeys"
-		},
-		"modelKeys":"ArrayList,String",
-		"fieldKey":"fieldKeys",
-		"description":"A list of field keys for the model configuration. "
-	},
-	"fieldName":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"fieldName",
-		"dbFieldParams":
-		{
-			"fieldName":"fieldName",
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"fieldName",
-		"description":"A name for different purposes depending on the model."
-	},
-	"fields":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"fields",
-		"dbFieldParams":
-		{
-			"fieldName":"fields"
-		},
-		"modelKeys":"ArrayList,String",
-		"fieldKey":"fields",
-		"description":"A list of field keys for the model configuration. "
-	},
-	"scsKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"scsKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"scsKey",
-		"description":"A key for configs for simple commaseparated files."
-	},
-	"fileKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"fileKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"fileKey",
-		"description":"A key for file objects."
-	},
-	"fileName":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"fileName",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"fileName"
-	},
-	"filePath":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"filePath",
-		"dbFieldParams":
-		{
-			"length":512
-		},
-		"modelKeys":"String",
-		"fieldKey":"filePath"
-	},
-	"filter":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"filter",
-		"modelKeys":"Or",
-		"fieldKey":"filter",
-		"description":"A list of {@link And} condition list"
-	},
-	"filterConfigName":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"filterConfigName",
-		"dbFieldParams":
-		{
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"filterConfigName",
-		"description":"Name for configuration class in  {@link ConfigAction}"
-	},
-	"filterConfigClass":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"filterConfigClass",
-		"dbFieldParams":
-		{
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"filterConfigClass",
-		"description":"Filter for configuration class in  {@link ConfigAction}"
-	},
-	"filterKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"filterKey",
-		"dbFieldParams":
-		{
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"filterKey",
-		"description":"Filter for key in  {@link ConfigAction}"
-	},
-	"filterModule":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"filterModule",
-		"dbFieldParams":
-		{
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"filterModule",
-		"description":"Filter for modules in  {@link ConfigAction}"
-	},
-	"filterSubModule":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"filterSubModule",
-		"dbFieldParams":
-		{
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"filterSubModule",
-		"description":"Filter for subModules in  {@link ConfigAction}"
-	},
-	"hibernate":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"hibernate",
-		"dbFieldParams":
-		{
-			"fieldName":"hibernate",
-			"length":16
-		},
-		"modelKeys":"String",
-		"fieldKey":"hibernate"
-	},
-	"hibernateAnnotations":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"hibernateAnnotations",
-		"modelKeys":"Boolean",
-		"fieldKey":"hibernateAnnotations",
-		"description":"sets a Flag for using hibernate annotations when bean is created. "
-	},
-	"hostKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"hostKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"hostKey",
-		"description":"A key for host objects."
-	},
-	"hostName":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"hostName",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"hostName",
-		"description":"A name for host objects."
-	},
-	"id":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"id",
-		"dbFieldParams":
-		{
-			"fieldName":"id",
-			"unique":true,
-			"notNull":true
-		},
-		"modelKeys":"Long",
-		"fieldKey":"id",
-		"description":"The id with a autonumbering"
-	},
-	"idKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"idKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"idKey",
-		"description":"The id key defined in modelsList"
-	},
-	"ignoreHeader":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"ignoreHeader",
-		"modelKeys":"Boolean",
-		"fieldKey":"ignoreHeader",
-		"description":"Ignore the setting of a header."
-	},
-	"info":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"info",
-		"dbFieldParams":
-		{
-			"fieldName":"info",
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"info"
-	},
-	"inputKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"inputKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"inputKey",
-		"description":"A key for a input view."
-	},
-	"interfaces":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"interfaces",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"interfaces",
-		"description":"A comma separeted list of interface keys. "
-	},
-	"join":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"join",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"join",
-		"description":"A reference key to a id field for joining."
-	},
-	"joinInverse":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"joinInverse",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"joinInverse",
-		"description":"A self reference key to a id field on a glue n-m table."
-	},
-	"jsonKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"jsonKey",
-		"dbFieldParams":
-		{
-			"fieldName":"jsonKey",
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"jsonKey",
-		"description":"The key for the json config/action."
-	},
-	"serializationType":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"serializationType",
-		"dbFieldParams":
-		{
-		},
-		"modelKeys":"JSONSerializationType",
-		"fieldKey":"serializationType",
-		"description":"The types of Serialization. "
-	},
-	"key":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"key",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"key",
-		"description":"A generic key."
-	},
-	"indent":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"indent",
-		"dbFieldParams":
-		{
-		},
-		"modelKeys":"Integer",
-		"fieldKey":"indent",
-		"description":"The number of indent for serialization level."
-	},
-	"length":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"length",
-		"dbFieldParams":
-		{
-			"fieldName":"length"
-		},
-		"modelKeys":"Integer",
-		"fieldKey":"length",
-		"description":"Length of a field."
-	},
-	"listMapper":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"listMapper",
-		"modelKeys":"ListMapper",
-		"fieldKey":"listMapper",
-		"description":"Maps a list to the adapter for @{link ListAction}."
-	},
-	"listParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"listParams",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"ListParams",
-		"fieldKey":"listParams",
-		"description":"Filter for the readings within {@link ListAction}."
-	},
-	"log":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"log",
-		"dbFieldParams":
-		{
-			"fieldName":"log",
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"log",
-		"description":"Log entray as String."
-	},
-	"loopPath":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"loopPath",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"loopPath",
-		"description":"The loop expression for the execution within @{link ExecutorAction}"
-	},
-	"mapKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"mapKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"mapKey",
-		"description":"The field used as a key for joined maps. "
-	},
-	"mapPath":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"mapPath",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"mapPath",
-		"description":"A key for the super class of a class."
-	},
-	"methods":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"methods",
-		"modelKeys":"ArrayList,String",
-		"fieldKey":"methods",
-		"description":"Methods accessible in actions. "
-	},
-	"model":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"model",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"model",
-		"description":"The simple name of the class referenced as first value of the {@link ModelsList}"
-	},
-	"modelConfigKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"modelConfigKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"modelConfigKey",
-		"description":"The model name for the cache object {@link Config}."
-	},
-	"modelKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"modelKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"modelKey",
-		"description":"The model name for the bean/action object {@link Bean}."
-	},
-	"modelKeys":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"modelKeys",
-		"dbFieldParams":
-		{
-			"fieldName":"modelKeys",
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"modelKeys",
-		"description":"A string representation for a list of modelsConfig."
-	},
-	"models":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"models",
-		"dbFieldParams":
-		{
-			"length":512
-		},
-		"modelKeys":"String",
-		"fieldKey":"models",
-		"description":"A string representation for a list of model keys."
-	},
-	"modelsList":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"modelsList",
-		"modelKeys":"ModelsList",
-		"fieldKey":"modelsList",
-		"description":"A list of models to specify field types."
-	},
-	"module":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"module",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"module",
-		"description":"Defines a target module where generating occurs. "
-	},
-	"name":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"name",
-		"dbFieldParams":
-		{
-			"fieldName":"name",
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"name",
-		"description":"The name field of a class. "
-	},
-	"naturalId":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"naturalId",
-		"dbFieldParams":
-		{
-			"fieldName":"naturalId",
-			"length":80,
-			"unique":true,
-			"notNull":true
-		},
-		"modelKeys":"String",
-		"fieldKey":"naturalId",
-		"description":"The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}"
-	},
-	"naturalKeys":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"naturalKeys",
-		"dbFieldParams":
-		{
-			"fieldName":"naturalKeys"
-		},
-		"modelKeys":"ArrayList,String",
-		"fieldKey":"naturalKeys"
-	},
-	"notNull":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"notNull",
-		"dbFieldParams":
-		{
-			"fieldName":"notNull"
-		},
-		"modelKeys":"Boolean",
-		"fieldKey":"notNull"
-	},
-	"or":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"or",
-		"modelKeys":"Or",
-		"fieldKey":"or",
-		"description":"A list of {@link And} condition list"
-	},
-	"orAsString":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"orAsString",
-		"dbFieldParams":
-		{
-			"length":2048
-		},
-		"modelKeys":"String",
-		"fieldKey":"orAsString",
-		"description":"Stringified value of {@Or} "
-	},
-	"origin":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"origin",
-		"dbFieldParams":
-		{
-			"fieldName":"origin",
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"origin",
-		"description":"The key to resolve an cache entry "
-	},
-	"packageGroup":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"packageGroup",
-		"dbFieldParams":
-		{
-			"fieldName":"packageGroup",
-			"length":12
-		},
-		"modelKeys":"String",
-		"fieldKey":"packageGroup",
-		"description":"Defines to which group a model belong e.g. asset/cache/action"
-	},
-	"packagePath":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"packagePath",
-		"dbFieldParams":
-		{
-			"length":124
-		},
-		"modelKeys":"String",
-		"fieldKey":"packagePath"
-	},
-	"password":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"password",
-		"dbFieldParams":
-		{
-			"length":15
-		},
-		"modelKeys":"String",
-		"fieldKey":"password",
-		"description":"The password instance var."
-	},
-	"path":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"path",
-		"dbFieldParams":
-		{
-			"fieldName":"path",
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"path"
-	},
-	"pathPattern":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"pathPattern",
-		"dbFieldParams":
-		{
-			"fieldName":"pathPattern"
-		},
-		"modelKeys":"PathPattern",
-		"fieldKey":"pathPattern",
-		"description":"A path pattern for {@link FieldConfig}."
-	},
-	"pathPatternAsString":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"pathPatternAsString",
-		"dbFieldParams":
-		{
-			"fieldName":"pathPatternString",
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"pathPatternAsString",
-		"description":"A path pattern for {@link FieldBean}."
-	},
-	"Permissions.create":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"Permissions.create",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"create",
-		"description":"String representation of RolePermission create permissions"
-	},
-	"port":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"port",
-		"modelKeys":"Integer",
-		"fieldKey":"port"
-	},
-	"protocol":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"protocol",
-		"dbFieldParams":
-		{
-			"length":8
-		},
-		"modelKeys":"String",
-		"fieldKey":"protocol"
-	},
-	"read":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"read",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"read",
-		"description":"String representation of RolePermission read permissions"
-	},
-	"rolePermissions":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"rolePermissions",
-		"modelKeys":"RolePermissions",
-		"fieldKey":"rolePermissions"
-	},
-	"roles":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"roles",
-		"modelKeys":"ArrayList,String",
-		"fieldKey":"roles",
-		"description":"A list of role keys. "
-	},
-	"rowDelimiter":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"rowDelimiter",
-		"dbFieldParams":
-		{
-			"length":4
-		},
-		"modelKeys":"String",
-		"fieldKey":"rowDelimiter",
-		"description":"A delimiter for rows used for csv files."
-	},
-	"rowEnd":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"rowEnd",
-		"modelKeys":"Integer",
-		"fieldKey":"rowEnd"
-	},
-	"rowHead":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"rowHead",
-		"modelKeys":"Integer",
-		"fieldKey":"rowHead"
-	},
-	"rowStart":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"rowStart",
-		"modelKeys":"Integer",
-		"fieldKey":"rowStart"
-	},
-	"scope":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"scope",
-		"modelKeys":"ArrayList,Scope",
-		"fieldKey":"scope",
-		"description":"A scope for the cache value."
-	},
-	"serialized":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"serialized",
-		"dbFieldParams":
-		{
-			"fieldName":"serialized",
-			"length":2056
-		},
-		"modelKeys":"String",
-		"fieldKey":"serialized",
-		"description":"The serialized field for @{link pathPattern}."
-	},
-	"shapeType":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"shapeType",
-		"dbFieldParams":
-		{
-			"fieldName":"shapeType"
-		},
-		"modelKeys":"ShapeTypes",
-		"fieldKey":"shapeType"
-	},
-	"subModule":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"subModule",
-		"dbFieldParams":
-		{
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"subModule",
-		"description":"Defines the target  sub module like 'main' or 'test'. "
-	},
-	"superKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"superKey",
-		"dbFieldParams":
-		{
-			"fieldName":"superKey",
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"superKey",
-		"description":"A key for the super class of a class."
-	},
-	"table":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"table",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"table",
-		"description":"The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}."
-	},
-	"template":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"template",
-		"dbFieldParams":
-		{
-			"length":50
-		},
-		"modelKeys":"String",
-		"fieldKey":"template",
-		"description":"A template key used to generate a model."
-	},
-	"templateKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"templateKey",
-		"dbFieldParams":
-		{
-			"fieldName":"templateKey",
-			"length":64
-		},
-		"modelKeys":"String",
-		"fieldKey":"templateKey",
-		"description":"The key for the template"
-	},
-	"unique":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"unique",
-		"dbFieldParams":
-		{
-			"fieldName":"unique"
-		},
-		"modelKeys":"Boolean",
-		"fieldKey":"unique"
-	},
-	"upper.ID":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"upper.ID",
-		"dbFieldParams":
-		{
-			"fieldName":"ID",
-			"unique":true,
-			"notNull":true
-		},
-		"modelKeys":"Long",
-		"fieldKey":"ID",
-		"description":"Alias for id with uppercase."
-	},
-	"user":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"user",
-		"dbFieldParams":
-		{
-			"length":50
-		},
-		"modelKeys":"String",
-		"fieldKey":"user"
-	},
-	"userKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"userKey",
-		"dbFieldParams":
-		{
-			"length":50
-		},
-		"modelKeys":"String",
-		"fieldKey":"userKey"
-	},
-	"userName":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"userName",
-		"dbFieldParams":
-		{
-			"length":50
-		},
-		"modelKeys":"String",
-		"fieldKey":"userName"
-	},
-	"value":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"value",
-		"modelKeys":"Object",
-		"fieldKey":"value"
-	},
-	"valueAsString":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"valueAsString",
-		"dbFieldParams":
-		{
-			"length":1024
-		},
-		"modelKeys":"String",
-		"fieldKey":"valueAsString"
-	},
-	"valueKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"valueKey",
-		"dbFieldParams":
-		{
-			"length":50
-		},
-		"modelKeys":"String",
-		"fieldKey":"valueKey"
-	},
-	"viewFieldParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"viewFieldParams",
-		"modelKeys":"ViewFieldParams",
-		"fieldKey":"viewFieldParams",
-		"description":"Parameters used to define views. "
-	},
-	"viewKey":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"viewKey",
-		"dbFieldParams":
-		{
-			"length":80
-		},
-		"modelKeys":"String",
-		"fieldKey":"viewKey",
-		"description":"A key for a view."
-	},
-	"viewParams":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"viewParams",
-		"modelKeys":"ViewParams",
-		"fieldKey":"viewParams",
-		"description":"Parameters used to define views. "
-	},
-	"whereAsString":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"whereAsString",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"whereAsString",
-		"description":"Where to be set as a String"
-	},
-	"write":
-	{
-		"module":"elastic-objects",
-		"subModule":"main",
-		"naturalId":"write",
-		"dbFieldParams":
-		{
-			"length":256
-		},
-		"modelKeys":"String",
-		"fieldKey":"write",
-		"description":"String representation of RolePermission write permissions"
-	}
+  "action": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "action",
+    "dbFieldParams": {
+      "fieldName": "action",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "action",
+    "description": "A value extending the {@link Action} Class."
+  },
+  "actionMap": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "actionMap",
+    "dbFieldParams": {
+      "fieldName": "actionMap"
+    },
+    "modelKeys": "Map",
+    "fieldKey": "actionMap",
+    "description": "An object map preparing value setting in the action implementation. (new)"
+  },
+  "and": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "and",
+    "modelKeys": "And",
+    "fieldKey": "and",
+    "description": "A list of {@link Condition} conditions"
+  },
+  "andAsString": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "andAsString",
+    "dbFieldParams": {
+      "length": 1024
+    },
+    "modelKeys": "String",
+    "fieldKey": "andAsString",
+    "description": "Stringified value of {@And}"
+  },
+  "attributeList": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "attributeList",
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "attributeList",
+    "description": "Definition of available attributes for an Action."
+  },
+  "attributes": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "attributes",
+    "dbFieldParams": {
+      "fieldName": "attributes"
+    },
+    "modelKeys": "Map",
+    "fieldKey": "attributes",
+    "description": "Setting as String object. (new)"
+  },
+  "author": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "author",
+    "dbFieldParams": {
+      "fieldName": "author",
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "author",
+    "description": "The autor of something e,g. a class."
+  },
+  "cached": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "cached",
+    "modelKeys": "Boolean",
+    "fieldKey": "cached",
+    "description": "If true will cache the readed file within the cache object. "
+  },
+  "calc": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "calc",
+    "dbFieldParams": {
+      "length": 1024
+    },
+    "modelKeys": "String",
+    "fieldKey": "calc",
+    "description": "Defines a simple calc action using jCalc. Uses the attribute calcString."
+  },
+  "colKeys": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "colKeys",
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "colKeys",
+    "description": "The key list for mapping values in a value list. "
+  },
+  "colKeysAsString": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "colKeysAsString",
+    "dbFieldParams": {
+      "length": 1024
+    },
+    "modelKeys": "String",
+    "fieldKey": "colKeysAsString",
+    "description": "Column keys with String interface"
+  },
+  "configKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "configKey",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "configKey",
+    "description": "Key for configuration  {@link ConfigConfig}"
+  },
+  "content": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "content",
+    "dbFieldParams": {
+      "length": 10000
+    },
+    "modelKeys": "String",
+    "fieldKey": "content",
+    "description": "A content."
+  },
+  "create": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "create",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "Boolean",
+    "fieldKey": "create",
+    "description": "If true will create a Java class."
+  },
+  "creationDate": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "creationDate",
+    "dbFieldParams": {
+      "fieldName": "creationDate"
+    },
+    "modelKeys": "Date",
+    "fieldKey": "creationDate",
+    "description": "Used to define the creation of an item."
+  },
+  "customFieldParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "customFieldParams",
+    "modelKeys": "HashMap",
+    "fieldKey": "customFieldParams",
+    "description": "Custom Parameters stored by fields elastic objects. "
+  },
+  "customParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "customParams",
+    "modelKeys": "HashMap",
+    "fieldKey": "customParams",
+    "description": "Custom Parameters stored by models elastic objects. "
+  },
+  "dbFieldParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "dbFieldParams",
+    "modelKeys": "DBFieldParams",
+    "fieldKey": "dbFieldParams",
+    "description": "Parameters for persisting perspective. "
+  },
+  "dbParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "dbParams",
+    "modelKeys": "DBParams",
+    "fieldKey": "dbParams",
+    "description": "Parameters for persisting perspective. "
+  },
+  "defaultImplementation": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "defaultImplementation",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "defaultImplementation"
+  },
+  "delete": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "delete",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "delete",
+    "description": "String representation of RolePermission delete permissions"
+  },
+  "description": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "description",
+    "dbFieldParams": {
+      "fieldName": "description",
+      "length": 512
+    },
+    "modelKeys": "String",
+    "fieldKey": "description",
+    "description": "A description of the model used by every model extending BaseClassImpl. "
+  },
+  "entries": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "entries",
+    "dbFieldParams": {
+      "fieldName": "entries"
+    },
+    "modelKeys": "ArrayList",
+    "fieldKey": "entries"
+  },
+  "eoFieldParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "eoFieldParams",
+    "modelKeys": "EOFieldParams",
+    "fieldKey": "eoFieldParams",
+    "description": "Parameters used by elastic objects. "
+  },
+  "eoParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "eoParams",
+    "modelKeys": "EOParams",
+    "fieldKey": "eoParams",
+    "description": "Parameters used by elastic objects. "
+  },
+  "EOParams.create": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "EOParams.create",
+    "modelKeys": "Boolean",
+    "fieldKey": "create",
+    "description": "Set a flag to create a class."
+  },
+  "execute": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "execute",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "execute",
+    "description": "String representation of RolePermission execute permissions"
+  },
+  "expanded": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "expanded",
+    "modelKeys": "Boolean",
+    "fieldKey": "expanded",
+    "description": "For creating a cache using only bean fields."
+  },
+  "fieldDelimiter": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "fieldDelimiter",
+    "dbFieldParams": {
+      "length": 4
+    },
+    "modelKeys": "String",
+    "fieldKey": "fieldDelimiter",
+    "description": "A delimiter for fields used for csv files. "
+  },
+  "fieldKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "fieldKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "fieldKey"
+  },
+  "fieldKeys": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "fieldKeys",
+    "dbFieldParams": {
+      "fieldName": "fieldKeys"
+    },
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "fieldKeys",
+    "description": "A list of field keys for the model configuration. "
+  },
+  "fieldName": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "fieldName",
+    "dbFieldParams": {
+      "fieldName": "fieldName",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "fieldName",
+    "description": "A name for different purposes depending on the model."
+  },
+  "fields": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "fields",
+    "dbFieldParams": {
+      "fieldName": "fields"
+    },
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "fields",
+    "description": "A list of field keys for the model configuration. "
+  },
+  "scsKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "scsKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "scsKey",
+    "description": "A key for configs for simple commaseparated files."
+  },
+  "fileKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "fileKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "fileKey",
+    "description": "A key for file objects."
+  },
+  "fileName": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "fileName",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "fileName"
+  },
+  "filePath": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filePath",
+    "dbFieldParams": {
+      "length": 512
+    },
+    "modelKeys": "String",
+    "fieldKey": "filePath"
+  },
+  "filter": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filter",
+    "modelKeys": "Or",
+    "fieldKey": "filter",
+    "description": "A list of {@link And} condition list"
+  },
+  "filterConfigName": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filterConfigName",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "filterConfigName",
+    "description": "Name for configuration class in  {@link ConfigAction}"
+  },
+  "filterConfigClass": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filterConfigClass",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "filterConfigClass",
+    "description": "Filter for configuration class in  {@link ConfigAction}"
+  },
+  "filterKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filterKey",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "filterKey",
+    "description": "Filter for key in  {@link ConfigAction}"
+  },
+  "filterModule": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filterModule",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "filterModule",
+    "description": "Filter for modules in  {@link ConfigAction}"
+  },
+  "filterSubModule": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filterSubModule",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "filterSubModule",
+    "description": "Filter for subModules in  {@link ConfigAction}"
+  },
+  "hibernate": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "hibernate",
+    "dbFieldParams": {
+      "fieldName": "hibernate",
+      "length": 16
+    },
+    "modelKeys": "String",
+    "fieldKey": "hibernate"
+  },
+  "hibernateAnnotations": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "hibernateAnnotations",
+    "modelKeys": "Boolean",
+    "fieldKey": "hibernateAnnotations",
+    "description": "sets a Flag for using hibernate annotations when bean is created. "
+  },
+  "hostKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "hostKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "hostKey",
+    "description": "A key for host objects."
+  },
+  "hostName": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "hostName",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "hostName",
+    "description": "A name for host objects."
+  },
+  "id": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "id",
+    "dbFieldParams": {
+      "fieldName": "id",
+      "unique": true,
+      "notNull": true
+    },
+    "modelKeys": "Long",
+    "fieldKey": "id",
+    "description": "The id with a autonumbering"
+  },
+  "idKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "idKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "idKey",
+    "description": "The id key defined in modelsList"
+  },
+  "ignoreHeader": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ignoreHeader",
+    "modelKeys": "Boolean",
+    "fieldKey": "ignoreHeader",
+    "description": "Ignore the setting of a header."
+  },
+  "info": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "info",
+    "dbFieldParams": {
+      "fieldName": "info",
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "info"
+  },
+  "inputKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "inputKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "inputKey",
+    "description": "A key for a input view."
+  },
+  "interfaces": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "interfaces",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "interfaces",
+    "description": "A comma separeted list of interface keys. "
+  },
+  "join": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "join",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "join",
+    "description": "A reference key to a id field for joining."
+  },
+  "joinInverse": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "joinInverse",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "joinInverse",
+    "description": "A self reference key to a id field on a glue n-m table."
+  },
+  "jsonKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "jsonKey",
+    "dbFieldParams": {
+      "fieldName": "jsonKey",
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "jsonKey",
+    "description": "The key for the json config/action."
+  },
+  "serializationType": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "serializationType",
+    "dbFieldParams": {
+    },
+    "modelKeys": "JSONSerializationType",
+    "fieldKey": "serializationType",
+    "description": "The types of Serialization. "
+  },
+  "key": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "key",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "key",
+    "description": "A generic key."
+  },
+  "indent": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "indent",
+    "dbFieldParams": {
+    },
+    "modelKeys": "Integer",
+    "fieldKey": "indent",
+    "description": "The number of indent for serialization level."
+  },
+  "length": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "length",
+    "dbFieldParams": {
+      "fieldName": "length"
+    },
+    "modelKeys": "Integer",
+    "fieldKey": "length",
+    "description": "Length of a field."
+  },
+  "listMapper": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "listMapper",
+    "modelKeys": "ListMapper",
+    "fieldKey": "listMapper",
+    "description": "Maps a list to the adapter for @{link ListAction}."
+  },
+  "listParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "listParams",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "ListParams",
+    "fieldKey": "listParams",
+    "description": "Filter for the readings within {@link ListAction}."
+  },
+  "log": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "log",
+    "dbFieldParams": {
+      "fieldName": "log",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "log",
+    "description": "Log entray as String."
+  },
+  "loopPath": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "loopPath",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "loopPath",
+    "description": "The loop expression for the execution within @{link ExecutorAction}"
+  },
+  "mapKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "mapKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "mapKey",
+    "description": "The field used as a key for joined maps. "
+  },
+  "mapPath": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "mapPath",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "mapPath",
+    "description": "A key for the super class of a class."
+  },
+  "methods": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "methods",
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "methods",
+    "description": "Methods accessible in actions. "
+  },
+  "model": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "model",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "model",
+    "description": "The simple name of the class referenced as first value of the {@link ModelsList}"
+  },
+  "modelConfigKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "modelConfigKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "modelConfigKey",
+    "description": "The model name for the cache object {@link Config}."
+  },
+  "modelKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "modelKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "modelKey",
+    "description": "The model name for the bean/action object {@link Bean}."
+  },
+  "modelKeys": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "modelKeys",
+    "dbFieldParams": {
+      "fieldName": "modelKeys",
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "modelKeys",
+    "description": "A string representation for a list of modelsConfig."
+  },
+  "models": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "models",
+    "dbFieldParams": {
+      "length": 512
+    },
+    "modelKeys": "String",
+    "fieldKey": "models",
+    "description": "A string representation for a list of model keys."
+  },
+  "modelsList": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "modelsList",
+    "modelKeys": "ModelsList",
+    "fieldKey": "modelsList",
+    "description": "A list of models to specify field types."
+  },
+  "module": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "module",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "module",
+    "description": "Defines a target module where generating occurs. "
+  },
+  "name": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "name",
+    "dbFieldParams": {
+      "fieldName": "name",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "name",
+    "description": "The name field of a class. "
+  },
+  "naturalId": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "naturalId",
+    "dbFieldParams": {
+      "fieldName": "naturalId",
+      "length": 80,
+      "unique": true,
+      "notNull": true
+    },
+    "modelKeys": "String",
+    "fieldKey": "naturalId",
+    "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}"
+  },
+  "naturalKeys": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "naturalKeys",
+    "dbFieldParams": {
+      "fieldName": "naturalKeys"
+    },
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "naturalKeys"
+  },
+  "notNull": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "notNull",
+    "dbFieldParams": {
+      "fieldName": "notNull"
+    },
+    "modelKeys": "Boolean",
+    "fieldKey": "notNull"
+  },
+  "or": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "or",
+    "modelKeys": "Or",
+    "fieldKey": "or",
+    "description": "A list of {@link And} condition list"
+  },
+  "orAsString": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "orAsString",
+    "dbFieldParams": {
+      "length": 2048
+    },
+    "modelKeys": "String",
+    "fieldKey": "orAsString",
+    "description": "Stringified value of {@Or} "
+  },
+  "origin": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "origin",
+    "dbFieldParams": {
+      "fieldName": "origin",
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "origin",
+    "description": "The key to resolve an cache entry "
+  },
+  "packageGroup": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "packageGroup",
+    "dbFieldParams": {
+      "fieldName": "packageGroup",
+      "length": 12
+    },
+    "modelKeys": "String",
+    "fieldKey": "packageGroup",
+    "description": "Defines to which group a model belong e.g. asset/cache/action"
+  },
+  "packagePath": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "packagePath",
+    "dbFieldParams": {
+      "length": 124
+    },
+    "modelKeys": "String",
+    "fieldKey": "packagePath"
+  },
+  "password": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "password",
+    "dbFieldParams": {
+      "length": 15
+    },
+    "modelKeys": "String",
+    "fieldKey": "password",
+    "description": "The password instance var."
+  },
+  "path": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "path",
+    "dbFieldParams": {
+      "fieldName": "path",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "path"
+  },
+  "pathPattern": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "pathPattern",
+    "dbFieldParams": {
+      "fieldName": "pathPattern"
+    },
+    "modelKeys": "PathPattern",
+    "fieldKey": "pathPattern",
+    "description": "A path pattern for {@link FieldConfig}."
+  },
+  "pathPatternAsString": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "pathPatternAsString",
+    "dbFieldParams": {
+      "fieldName": "pathPatternString",
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "pathPatternAsString",
+    "description": "A path pattern for {@link FieldBean}."
+  },
+  "Permissions.create": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "Permissions.create",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "create",
+    "description": "String representation of RolePermission create permissions"
+  },
+  "port": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "port",
+    "modelKeys": "Integer",
+    "fieldKey": "port"
+  },
+  "protocol": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "protocol",
+    "dbFieldParams": {
+      "length": 8
+    },
+    "modelKeys": "String",
+    "fieldKey": "protocol"
+  },
+  "read": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "read",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "read",
+    "description": "String representation of RolePermission read permissions"
+  },
+  "rolePermissions": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "rolePermissions",
+    "modelKeys": "RolePermissions",
+    "fieldKey": "rolePermissions"
+  },
+  "roles": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "roles",
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "roles",
+    "description": "A list of role keys. "
+  },
+  "rowDelimiter": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "rowDelimiter",
+    "dbFieldParams": {
+      "length": 4
+    },
+    "modelKeys": "String",
+    "fieldKey": "rowDelimiter",
+    "description": "A delimiter for rows used for csv files."
+  },
+  "rowEnd": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "rowEnd",
+    "modelKeys": "Integer",
+    "fieldKey": "rowEnd"
+  },
+  "rowHead": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "rowHead",
+    "modelKeys": "Integer",
+    "fieldKey": "rowHead"
+  },
+  "rowStart": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "rowStart",
+    "modelKeys": "Integer",
+    "fieldKey": "rowStart"
+  },
+  "scope": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "scope",
+    "modelKeys": "ArrayList,Scope",
+    "fieldKey": "scope",
+    "description": "A scope for the cache value."
+  },
+  "serialized": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "serialized",
+    "dbFieldParams": {
+      "fieldName": "serialized",
+      "length": 2056
+    },
+    "modelKeys": "String",
+    "fieldKey": "serialized",
+    "description": "The serialized field for @{link pathPattern}."
+  },
+  "shapeType": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "shapeType",
+    "dbFieldParams": {
+      "fieldName": "shapeType"
+    },
+    "modelKeys": "ShapeTypes",
+    "fieldKey": "shapeType"
+  },
+  "subModule": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "subModule",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "subModule",
+    "description": "Defines the target  sub module like 'main' or 'test'. "
+  },
+  "superKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "superKey",
+    "dbFieldParams": {
+      "fieldName": "superKey",
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "superKey",
+    "description": "A key for the super class of a class."
+  },
+  "table": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "table",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "table",
+    "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}."
+  },
+  "template": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "template",
+    "dbFieldParams": {
+      "length": 50
+    },
+    "modelKeys": "String",
+    "fieldKey": "template",
+    "description": "A template key used to generate a model."
+  },
+  "templateKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "templateKey",
+    "dbFieldParams": {
+      "fieldName": "templateKey",
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "templateKey",
+    "description": "The key for the template"
+  },
+  "unique": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "unique",
+    "dbFieldParams": {
+      "fieldName": "unique"
+    },
+    "modelKeys": "Boolean",
+    "fieldKey": "unique"
+  },
+  "upper.ID": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "upper.ID",
+    "dbFieldParams": {
+      "fieldName": "ID",
+      "unique": true,
+      "notNull": true
+    },
+    "modelKeys": "Long",
+    "fieldKey": "ID",
+    "description": "Alias for id with uppercase."
+  },
+  "user": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "user",
+    "dbFieldParams": {
+      "length": 50
+    },
+    "modelKeys": "String",
+    "fieldKey": "user"
+  },
+  "userKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "userKey",
+    "dbFieldParams": {
+      "length": 50
+    },
+    "modelKeys": "String",
+    "fieldKey": "userKey"
+  },
+  "userName": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "userName",
+    "dbFieldParams": {
+      "length": 50
+    },
+    "modelKeys": "String",
+    "fieldKey": "userName"
+  },
+  "value": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "value",
+    "modelKeys": "Object",
+    "fieldKey": "value"
+  },
+  "valueAsString": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "valueAsString",
+    "dbFieldParams": {
+      "length": 1024
+    },
+    "modelKeys": "String",
+    "fieldKey": "valueAsString"
+  },
+  "valueKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "valueKey",
+    "dbFieldParams": {
+      "length": 50
+    },
+    "modelKeys": "String",
+    "fieldKey": "valueKey"
+  },
+  "viewFieldParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "viewFieldParams",
+    "modelKeys": "ViewFieldParams",
+    "fieldKey": "viewFieldParams",
+    "description": "Parameters used to define views. "
+  },
+  "viewKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "viewKey",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "viewKey",
+    "description": "A key for a view."
+  },
+  "viewParams": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "viewParams",
+    "modelKeys": "ViewParams",
+    "fieldKey": "viewParams",
+    "description": "Parameters used to define views. "
+  },
+  "whereAsString": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "whereAsString",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "whereAsString",
+    "description": "Where to be set as a String"
+  },
+  "write": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "write",
+    "dbFieldParams": {
+      "length": 256
+    },
+    "modelKeys": "String",
+    "fieldKey": "write",
+    "description": "String representation of RolePermission write permissions"
+  }
 }

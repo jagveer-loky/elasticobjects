@@ -1,23 +1,18 @@
 {
-"(BasicTest)_data":
-	{
-		"subTestList":
-		{
-			"0":
-			{
-				"name":"testOther",
-				"testString":"test"
-			},
-			"1":
-			{
-				"name":"testOther",
-				"testString":"test"
-			},
-			"2":
-			{
-				"name":"testOther",
-				"testString":"test"
-			}
-		}
-	}
+  "(BasicTest)_data": {
+    "subTestList": {
+      "0": {
+        "name": "testOther",
+        "testString": "test"
+      },
+      "1": {
+        "name": "testOther",
+        "testString": "test"
+      },
+      "2": {
+        "name": "testOther",
+        "testString": "test"
+      }
+    }
+  }
 }

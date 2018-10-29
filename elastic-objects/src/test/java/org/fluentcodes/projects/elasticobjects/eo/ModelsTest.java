@@ -4,10 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MODEL_INTERFACE;
 
 /**
  * Created by Werner on 23.05.2016.

@@ -43,7 +43,7 @@ public class ExecutorList {
             execute = (String) attributes.get(ExecutorListTemplate.EXECUTE);
         } else {
             return;
-           //throw new Exception("Map for executor call has no " + ExecutorListTemplate.EXECUTE + "! Skip adding call");
+            //throw new Exception("Map for executor call has no " + ExecutorListTemplate.EXECUTE + "! Skip adding call");
         }
         if (execute.contains("Call.")) {
             this.executorList.add(new CallExecutor(attributes));
@@ -68,11 +68,13 @@ public class ExecutorList {
 
 
     public boolean isEmpty() {
-        if (this.size() == 0) {return true;}
+        if (this.size() == 0) {
+            return true;
+        }
         return false;
     }
 
-    public int size () {
+    public int size() {
         return this.executorList.size();
     }
 
@@ -82,12 +84,11 @@ public class ExecutorList {
 
     public List<Map> getListMap() {
         List<Map> listOfAttributes = new ArrayList<>();
-        for (Executor executor: executorList) {
+        for (Executor executor : executorList) {
             listOfAttributes.add(executor.getAttributes());
         }
         return listOfAttributes;
     }
-
 
 
     public String execute(final EO adapter) {
@@ -110,8 +111,7 @@ public class ExecutorList {
             }
             try {
                 result.append(element.execute(adapter, externalAttributes));
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 adapter.error(e.getMessage());
             }
         }
@@ -122,10 +122,10 @@ public class ExecutorList {
     public String toString() {
         StringBuilder builder = new StringBuilder("[\n");
         int counter = 0;
-        for (Executor executor: executorList) {
+        for (Executor executor : executorList) {
             counter++;
             builder.append(executor.toString());
-            if (counter!=executorList.size()) {
+            if (counter != executorList.size()) {
                 builder.append(",");
             }
             builder.append("\n");

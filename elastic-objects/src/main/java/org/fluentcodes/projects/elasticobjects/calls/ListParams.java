@@ -29,6 +29,7 @@ public class ListParams {
     private Integer rowHead;
     private Or filter;
     private String filterRaw;
+
     public ListParams() {
 
     }

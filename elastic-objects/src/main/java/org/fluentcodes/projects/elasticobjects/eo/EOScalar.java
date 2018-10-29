@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -51,36 +52,19 @@ public abstract class EOScalar implements EO {
 
     protected void setModelClasses(Class... classes) throws Exception {
         if (classes == null || classes.length == 0) {
-            info("Empty classes!"  + getPathAsString());
+            info("Empty classes!" + getPathAsString());
             return;
         }
         setModels(new Models(getConfigsCache(), classes));
     }
 
-    protected void setModels(Models newModels) throws Exception {
-        if (newModels.isEmpty()) {
-            info("Empty classes!"  + getPathAsString());
-            return;
-        }
-        if (!this.isEmpty()) {
-            warn("Could not add the models value on a nonempty adapter!"  + getPathAsString());
-            return;
-        }
-        try {
-            models.setClasses(newModels);
-        }
-        catch (Exception e) {
-            warn("Could not set " + e.getMessage());
-        }
-    }
-
     public void set(final Object source) throws Exception {
-        if (this.object!=null && this.object == source) {
+        if (this.object != null && this.object == source) {
             return;  // the same object
         }
         if (object != null && source != null) {
             //throw new Exception("Not allowed to set a null source");
-            if ( this.object.hashCode() == source.hashCode()) {
+            if (this.object.hashCode() == source.hashCode()) {
                 return;
             }
             info("Existing Object is overwritten! " + getPath() + ".");
@@ -212,13 +196,11 @@ public abstract class EOScalar implements EO {
         return getRoot().getLog();
     }
 
-
     @Override
     public void debug(String message) {
         if (this.logLevel == null) {
             getRoot().debug(getPathAsString() + ": " + message);
-        }
-        else if (checkLevel(LogLevel.DEBUG)) {
+        } else if (checkLevel(LogLevel.DEBUG)) {
             getRoot().log(getPathAsString() + ": " + message, LogLevel.DEBUG);
             return;
         }
@@ -228,8 +210,7 @@ public abstract class EOScalar implements EO {
     public void info(String message) {
         if (this.logLevel == null) {
             getRoot().info(getPathAsString() + ": " + message);
-        }
-        else if (checkLevel(LogLevel.INFO)) {
+        } else if (checkLevel(LogLevel.INFO)) {
             getRoot().log(getPathAsString() + ": " + message, LogLevel.INFO);
         }
     }
@@ -238,8 +219,7 @@ public abstract class EOScalar implements EO {
     public void warn(String message) {
         if (this.logLevel == null) {
             getRoot().warn(getPathAsString() + ": " + message);
-        }
-        else if (checkLevel(LogLevel.WARN)) {
+        } else if (checkLevel(LogLevel.WARN)) {
             getRoot().log(getPathAsString() + ": " + message, LogLevel.WARN);
         }
     }
@@ -248,8 +228,7 @@ public abstract class EOScalar implements EO {
     public void error(String message) {
         if (this.logLevel == null) {
             getRoot().error(getPathAsString() + ": " + message);
-        }
-        else if (checkLevel(LogLevel.ERROR)) {
+        } else if (checkLevel(LogLevel.ERROR)) {
             getRoot().log(getPathAsString() + ": " + message, LogLevel.ERROR);
         }
     }
@@ -258,8 +237,7 @@ public abstract class EOScalar implements EO {
     public void warn(String message, Exception e) {
         if (this.logLevel == null) {
             getRoot().warn(getPathAsString() + ": " + message, e);
-        }
-        else if (checkLevel(LogLevel.WARN)) {
+        } else if (checkLevel(LogLevel.WARN)) {
             getRoot().log(getPathAsString() + ": " + message, LogLevel.WARN);
         }
     }
@@ -268,16 +246,30 @@ public abstract class EOScalar implements EO {
     public void error(String message, Exception e) {
         if (this.logLevel == null) {
             getRoot().error(getPathAsString() + ": " + message, e);
-        }
-        else if (checkLevel(LogLevel.ERROR)) {
+        } else if (checkLevel(LogLevel.ERROR)) {
             getRoot().log(getPathAsString() + ": " + message, LogLevel.ERROR);
         }
     }
 
+    @Override
+    public void setRoles(final String... roles) {
+        this.setRoles(Arrays.asList(roles));
+    }
+
+    @Override
     public List<String> getRoles() {
         return getRoot().getRoles();
     }
 
+    @Override
+    public void setRoles(final List<String> roles) {
+        getRoot().setRoles(roles);
+    }
+
+    @Override
+    public boolean hasRoles() {
+        return getRoot().hasRoles();
+    }
 
     protected boolean checkLevel(LogLevel messageLevel) {
         if (logLevel == null) {
@@ -328,6 +320,22 @@ public abstract class EOScalar implements EO {
         return models;
     }
 
+    protected void setModels(Models newModels) throws Exception {
+        if (newModels.isEmpty()) {
+            info("Empty classes!" + getPathAsString());
+            return;
+        }
+        if (!this.isEmpty()) {
+            warn("Could not add the models value on a nonempty adapter!" + getPathAsString());
+            return;
+        }
+        try {
+            models.setClasses(newModels);
+        } catch (Exception e) {
+            warn("Could not set " + e.getMessage());
+        }
+    }
+
     /**
      * Returns the object class stored in the adapter.
      *
@@ -373,7 +381,7 @@ public abstract class EOScalar implements EO {
     }
 
     public boolean isChildTyped() {
-        return isObject()||hasChildModel();
+        return isObject() || hasChildModel();
     }
 
     public boolean isNull() {
@@ -425,6 +433,7 @@ public abstract class EOScalar implements EO {
     public EOContainer getParentAdapter() {
         return parentAdapter;
     }
+
     public boolean hasParent() {
         return parentAdapter != null;
     }

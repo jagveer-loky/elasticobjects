@@ -33,6 +33,7 @@ public class MapProviderEOTest {
     public void createEODouble() throws Exception {
         MapProviderEO.createDouble();
     }
+
     @Test
     public void createEODate() throws Exception {
         MapProviderEO.createDate();
@@ -52,7 +53,7 @@ public class MapProviderEOTest {
     public void createEOSimple() throws Exception {
         MapProviderEO.createSimple();
     }
-    
+
     @Test
     public void createEO() throws Exception {
         MapProviderEO.create();
@@ -77,14 +78,16 @@ public class MapProviderEOTest {
     public void createEOST() throws Exception {
         MapProviderEO.createST();
     }
+
     @Test
     public void createEOMapST() throws Exception {
         MapProviderEO.createMapST();
     }
+
     @Test
     public void createListST() throws Exception {
         MapProviderEO.createListST();
     }
-    
-    
+
+
 }

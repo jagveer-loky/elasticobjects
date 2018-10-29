@@ -42,11 +42,11 @@ public interface LoggingObject {
 
     LogLevel getLogLevel();
 
+    void setLogLevel(LogLevel logLevel);
+
     void setLogLevel(String logLevel);
 
     void setLogLevel(Object logLevel);
-
-    void setLogLevel(LogLevel logLevel);
 
     boolean hasErrors();
 

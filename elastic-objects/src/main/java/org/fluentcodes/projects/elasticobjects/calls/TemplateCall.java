@@ -169,7 +169,7 @@ public class TemplateCall extends CallIO {
         StringBuilder result = new StringBuilder();
         List<String> pathList = ExecutorImpl.getPathList(loopPath, adapter, mergeAttributes(externalAttributes));
         boolean isDynamic = false;
-        if (getTemplateConfig()!=null) {
+        if (getTemplateConfig() != null) {
             isDynamic = getTemplateConfig().getTemplateKey().contains("$[");
         }
         if (keepKey != null && !hasContent()) {

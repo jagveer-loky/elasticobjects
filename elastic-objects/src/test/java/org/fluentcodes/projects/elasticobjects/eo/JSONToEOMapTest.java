@@ -10,7 +10,6 @@ import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.List;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;

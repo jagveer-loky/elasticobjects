@@ -11,7 +11,6 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.net.URL;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,11 +18,10 @@ import java.util.regex.Pattern;
  * Created by werner on 20.05.16.
  */
 public class EOBuilder {
-    private static final Logger LOG = LogManager.getLogger(EOBuilder.class);
     //http://stackoverflow.com/questions/3651725/match-multiline-text-using-regular-expression
     protected static final Pattern jsonPattern = Pattern.compile("^[\\s]*[\\{\\[]", Pattern.MULTILINE);
     protected static final Pattern modelPattern = Pattern.compile("^\\(([^\\)]*)\\)(.*)");
-
+    private static final Logger LOG = LogManager.getLogger(EOBuilder.class);
     private Models targetModels;
     private Object value;
 
@@ -37,7 +35,6 @@ public class EOBuilder {
 
     private EOConfigsCache configCache;
 
-    private List<String> roles;
     private LogLevel logLevel;
     private EOExtension eoExtension = new EOExtensionEmpty();
 
@@ -56,7 +53,6 @@ public class EOBuilder {
         this.configCache = builder.getConfigCache();
         this.logLevel = builder.getLogLevel();
         this.map = builder.isMap();
-        this.roles = builder.getRoles();
         this.serializationType = builder.getSerializationType();
         this.eoExtension = builder.getEoExtension();
         this.eoParent = builder.getEoParent();
@@ -83,14 +79,6 @@ public class EOBuilder {
 
     protected EOConfigsCache getConfigsCache() {
         return configCache;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
     }
 
     protected LogLevel getLogLevel() {
@@ -124,13 +112,14 @@ public class EOBuilder {
         return this;
     }
 
+    protected String getParentKey() {
+        return this.parentKey;
+    }
+
     protected void setParentKey(final String parentKey) {
         this.parentKey = parentKey;
     }
 
-    protected String getParentKey() {
-        return this.parentKey;
-    }
     protected void setChild(Path path) {
         this.parentKey = path.first();
         this.path = path.getChildPath();
@@ -144,13 +133,13 @@ public class EOBuilder {
         return path;
     }
 
+    public EOBuilder setPath(String path) {
+        return this.setPath(new Path(path));
+    }
+
     public EOBuilder setPath(final Path path) {
         this.path = path;
         return this;
-    }
-
-    public EOBuilder setPath(String path) {
-        return this.setPath(new Path(path));
     }
 
     public boolean isMap() {
@@ -164,6 +153,11 @@ public class EOBuilder {
 
     public String getModels() {
         return this.targetModels.toString();
+    }
+
+    public EOBuilder setModels(Models targetModels) {
+        this.targetModels = targetModels;
+        return this;
     }
 
     public boolean hasModels() {
@@ -205,11 +199,6 @@ public class EOBuilder {
 
     protected EOBuilder setModels(final String models) throws Exception {
         this.targetModels = new Models(this.configCache, models);
-        return this;
-    }
-
-    public EOBuilder setModels(Models targetModels) {
-        this.targetModels = targetModels;
         return this;
     }
 
@@ -263,8 +252,7 @@ public class EOBuilder {
                     throw e;
                 }
             }
-        }
-        else {
+        } else {
             if (value == null) {
                 this.value = this.targetModels.create();
             }
@@ -337,8 +325,7 @@ public class EOBuilder {
                 }
                 this.value = adapter;*/
                 this.value = new JSONToEO(stringValue, configCache);
-            }
-            else  {
+            } else {
                 final Matcher matcher = modelPattern.matcher(stringValue);
                 if (matcher.find()) {
                     String modelKey = matcher.group(1);
@@ -376,8 +363,7 @@ public class EOBuilder {
             if (!hasParent()) {
                 if (targetModels == null) {
                     targetModels = new Models(configCache, value, map);
-                }
-                else {
+                } else {
                     targetModels.checkRootValue(value, map);
                 }
                 prepareValue();
@@ -411,8 +397,7 @@ public class EOBuilder {
             } else {
                 return eoChild;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             eoParent.error(e.getMessage());
             return null;
         }
@@ -445,9 +430,9 @@ public class EOBuilder {
     protected EO createChild() throws Exception {
         parentKey = path.first();
         setModels();
-        path=path.getChildPath();
+        path = path.getChildPath();
         EO eoChild = eoParent.getChildAdapter(this.parentKey);
-        if (eoParent.getModels().isList() ) {
+        if (eoParent.getModels().isList()) {
             if (!parentKey.matches("\\d+")) {
                 this.parentKey = new Integer(eoParent.size()).toString();
             }
@@ -459,12 +444,10 @@ public class EOBuilder {
                         .createChild(parentKey, value, targetModels, map);
                 this.prepareValue();
                 return new EOContainer(this);
-            }
-            else {
+            } else {
                 return createGlueContainer();
             }
-        }
-        else {
+        } else {
             if (value == null) {
                 eoChild.warn("Null value with existing child ");
                 return eoChild;
@@ -486,6 +469,7 @@ public class EOBuilder {
 
     /**
      * Creates a container containing no value ...
+     *
      * @return
      * @throws Exception
      */
@@ -493,7 +477,7 @@ public class EOBuilder {
         Models targetModels = eoParent.getModels()
                 .createChildForSet(parentKey, null, null);
         if (targetModels.isScalar()) {
-            throw new Exception ("A glue container could not be a scalar type!");
+            throw new Exception("A glue container could not be a scalar type!");
         }
         EOBuilder pathBuilder = new EOBuilder(eoParent);
         pathBuilder.setEoParent(eoParent);

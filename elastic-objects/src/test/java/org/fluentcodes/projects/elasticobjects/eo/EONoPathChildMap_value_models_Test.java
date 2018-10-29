@@ -2,7 +2,8 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.EOTest;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +21,6 @@ public class EONoPathChildMap_value_models_Test extends TestHelper {
                 .mapEOValue_ok(child, S_INTEGER, Integer.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.toString(), child.get());
     }
-
 
 
 }

@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -10,6 +9,8 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -58,6 +59,54 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
     }
 
+    protected static final ModelConfig add(EOConfigsCache configsCache, String key) throws Exception {
+        LOG.info("Started find class " + key);
+        final Map modelInfo = new HashMap();
+        Class modelClass;
+        try {
+            modelClass = Class.forName(key);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+        final String modelKey = key.replaceAll(".*\\.", "");
+        modelInfo.put(F_MODEL_KEY, modelKey);
+        modelInfo.put(F_NATURAL_ID, modelKey);
+        final Package inPackage = modelClass.getPackage();
+        modelInfo.put(F_PACKAGE_PATH, inPackage.getName());
+
+        final Field[] fields = modelClass.getDeclaredFields();
+        final List<String> fieldKeys = new ArrayList();
+
+        final Method[] methods = modelClass.getMethods();
+        EOConfigsField fieldConfigs = (EOConfigsField) configsCache.getConfig(FieldConfig.class);
+        for (Field field : fields) {
+            LOG.info(field.getName());
+            final String fieldName = field.getName();
+            Method setMethod = ModelConfigObject.findSetter(field);
+            Method getMethod = ModelConfigObject.findGetter(field);
+            if (getMethod == null && setMethod == null) {
+                continue;
+            }
+            fieldKeys.add(modelKey + "." + fieldName);
+            try {
+                FieldConfig.add(configsCache, field);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        final Map<String, Object> eoParams = new HashMap<>();
+        modelInfo.put("eoParams", eoParams);
+        if (fieldKeys.isEmpty()) {
+            eoParams.put(F_SHAPE_TYPE, ShapeTypes.SCALAR);
+        } else {
+            eoParams.put(F_SHAPE_TYPE, ShapeTypes.BEAN);
+        }
+        modelInfo.put(F_FIELD_KEYS, fieldKeys);
+        ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelInfo);
+        configsCache.getConfig(ModelConfig.class).add(config);
+        return config;
+    }
+
     @Override
     public String getKey() {
         return modelKey;
@@ -69,12 +118,12 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     public String getModelKey() {
         return this.modelKey;
     }
+    //<call keep="JAVA" templateKey="CacheGetter.tpl" }
 
     @Override
     public EOParams getEoParams() {
         return eoParams;
     }
-    //<call keep="JAVA" templateKey="CacheGetter.tpl" }
 
     @Override
     public DBParams getDbParams() {
@@ -335,15 +384,15 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return getShapeType() == ShapeTypes.SCALAR_SERIALIZED;
     }
 
+
+//</call>
+
     /**
      * The model config key for the config object {@link Config}.
      */
     public boolean hasModelConfigKey() {
         return getModelConfigKey() != null;
     }
-
-
-//</call>
 
     public String getModelConfigKey() {
         if (eoParams == null) {
@@ -454,57 +503,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
     public boolean isContainer() {
         return isMap() || isObject() || isList();
-    }
-
-
-    protected static final ModelConfig add(EOConfigsCache configsCache, String key) throws Exception {
-        LOG.info("Started find class " + key);
-        final Map modelInfo = new HashMap();
-        Class modelClass;
-        try {
-            modelClass = Class.forName(key);
-        }
-        catch(Exception e) {
-            throw new Exception(e.getMessage());
-        }
-        final String modelKey = key.replaceAll(".*\\.", "");
-        modelInfo.put(F_MODEL_KEY, modelKey);
-        modelInfo.put(F_NATURAL_ID, modelKey);
-        final Package inPackage = modelClass.getPackage();
-        modelInfo.put(F_PACKAGE_PATH, inPackage.getName());
-
-        final Field[] fields = modelClass.getDeclaredFields();
-        final List<String> fieldKeys = new ArrayList();
-
-        final Method[] methods = modelClass.getMethods();
-        EOConfigsField fieldConfigs = (EOConfigsField) configsCache.getConfig(FieldConfig.class);
-        for (Field field: fields) {
-            LOG.info(field.getName());
-            final String fieldName = field.getName();
-            Method setMethod = ModelConfigObject.findSetter(field);
-            Method getMethod = ModelConfigObject.findGetter(field);
-            if (getMethod == null && setMethod == null) {
-                continue;
-            }
-            fieldKeys.add(modelKey + "." + fieldName);
-            try {
-                FieldConfig.add(configsCache, field);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        final Map <String,Object> eoParams = new HashMap<>();
-        modelInfo.put("eoParams", eoParams);
-        if (fieldKeys.isEmpty()) {
-            eoParams.put(F_SHAPE_TYPE, ShapeTypes.SCALAR);
-        }
-        else {
-            eoParams.put(F_SHAPE_TYPE, ShapeTypes.BEAN);
-        }
-        modelInfo.put(F_FIELD_KEYS, fieldKeys);
-        ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelInfo);
-        configsCache.getConfig(ModelConfig.class).add(config);
-        return config;
     }
 
     public static class Builder extends ConfigImpl.Builder {

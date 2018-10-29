@@ -54,14 +54,14 @@ public class BTProvider {
         return object;
     }
 
-    public static BasicTest createMap () {
+    public static BasicTest createMap() {
         BasicTest map = new BasicTest();
         map.setUntypedMap((HashMap) MapProvider.createSmall());
         return map;
     }
 
-    public static BasicTest createList () {
-        BasicTest basicTest= new BasicTest();
+    public static BasicTest createList() {
+        BasicTest basicTest = new BasicTest();
         basicTest.setUntypedList((ArrayList) ListProvider.createSmall());
         return basicTest;
     }
@@ -74,7 +74,7 @@ public class BTProvider {
 
     public static BasicTest createST() {
         BasicTest basicTest = new BasicTest();
-        basicTest.setSubTest( STProvider.createSimple());
+        basicTest.setSubTest(STProvider.createSimple());
         return basicTest;
     }
 

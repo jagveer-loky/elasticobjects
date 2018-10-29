@@ -47,6 +47,7 @@ public class EOCompareTest extends TestHelper {
         adapter.compare(builder, other);
         AssertEO.compare(builder.toString());
     }
+
     @Test
     public void simpleContainerNotEquals() throws Exception {
         TestHelper.printStartMethod();

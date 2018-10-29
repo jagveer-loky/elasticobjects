@@ -1,15 +1,12 @@
 {
-"(List)_data":
-	{
-		"0":
-		{
-			"key1":"value11",
-			"key2":"value12"
-		},
-		"1":
-		{
-			"key1":"value21",
-			"key2":"value22"
-		}
-	}
+  "(List)_data": {
+    "0": {
+      "key1": "value11",
+      "key2": "value12"
+    },
+    "1": {
+      "key1": "value21",
+      "key2": "value22"
+    }
+  }
 }

@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -8,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by werner.diwischek on 19.02.18.
@@ -138,7 +139,6 @@ public class EOParams {
     public String getPathPatternAsString() {
         return pathPattern.getSerialized();
     }
-
 
 
 }

@@ -1,39 +1,33 @@
 {
-	"h2:mem:basic":
-	{
-		"hibernateKey":"h2:mem:basic",
-		"models":"BasicTest,SubTest",
-		"configFile":"config.hbm.xml",
-		"auto":"create",
-		"showSql":true,
-		"properties":
-		{
-		},
-		"dbKey":"h2:mem:basic",
-		"rolePermissions":
-		{
-		},
-		"module":"test-resources",
-		"subModule":"main",
-		"description":"Basic H2 in memory database for the test resources. ",
-		"naturalId":"h2:mem:basic"
-	},
-	"h2:file:basic":
-	{
-		"hibernateKey":"h2:file:basic",
-		"models":"BasicTest,SubTest",
-		"configFile":"config.hbm.xml",
-		"auto":"create",
-		"properties":
-		{
-		},
-		"dbKey":"h2:file:basic",
-		"rolePermissions":
-		{
-		},
-		"module":"test-resources",
-		"subModule":"main",
-		"description":"Basic H2 Test ",
-		"naturalId":"h2:file:basic"
-	}
+  "h2:mem:basic": {
+    "hibernateKey": "h2:mem:basic",
+    "models": "BasicTest,SubTest",
+    "configFile": "config.hbm.xml",
+    "auto": "create",
+    "showSql": true,
+    "properties": {
+    },
+    "dbKey": "h2:mem:basic",
+    "rolePermissions": {
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "description": "Basic H2 in memory database for the test resources. ",
+    "naturalId": "h2:mem:basic"
+  },
+  "h2:file:basic": {
+    "hibernateKey": "h2:file:basic",
+    "models": "BasicTest,SubTest",
+    "configFile": "config.hbm.xml",
+    "auto": "create",
+    "properties": {
+    },
+    "dbKey": "h2:file:basic",
+    "rolePermissions": {
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "description": "Basic H2 Test ",
+    "naturalId": "h2:file:basic"
+  }
 }

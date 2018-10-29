@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.test;
 
-import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -10,8 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 public class ListProviderJSON {
     public static EOBuilder builder() {
@@ -25,7 +24,7 @@ public class ListProviderJSON {
     public static EO createEmpty() throws Exception {
         final EO eo = builder().map(readEmpty());
         ListProviderEO.assertEmpty(eo);
-        return  eo;
+        return eo;
     }
 
     public static EO compareEmpty() throws Exception {
@@ -74,7 +73,7 @@ public class ListProviderJSON {
     }
 
     public static EO createLong() throws Exception {
-        final EO eo= builder().map(readLong());
+        final EO eo = builder().map(readLong());
         ListProviderEO.assertLong(eo);
         return eo;
     }
@@ -153,7 +152,7 @@ public class ListProviderJSON {
         return eo;
     }
 
-    public static String readMap () throws Exception {
+    public static String readMap() throws Exception {
         return readInputJSON(TYPE.LIST, MAP);
     }
 
@@ -171,7 +170,7 @@ public class ListProviderJSON {
         return eo;
     }
 
-    public static String readList () throws Exception {
+    public static String readList() throws Exception {
         return readInputJSON(TYPE.LIST, LIST);
     }
 
@@ -189,7 +188,7 @@ public class ListProviderJSON {
         return eo;
     }
 
-    public static String readST () throws Exception {
+    public static String readST() throws Exception {
         return readInputJSON(TYPE.LIST, SUB_TEST);
     }
 
@@ -205,7 +204,7 @@ public class ListProviderJSON {
         return eo;
     }
 
-    public static String readBT () throws Exception {
+    public static String readBT() throws Exception {
         return readInputJSON(TYPE.LIST, BASIC_TEST);
     }
 
@@ -224,7 +223,7 @@ public class ListProviderJSON {
     }
 
 
-    public static String readSmall () throws Exception {
+    public static String readSmall() throws Exception {
         return readInputJSON(TYPE.LIST, SMALL);
     }
 
@@ -247,7 +246,7 @@ public class ListProviderJSON {
     }
 
 
-    public static String readSimple () throws Exception {
+    public static String readSimple() throws Exception {
         return readInputJSON(TYPE.LIST, SIMPLE);
     }
 
@@ -274,7 +273,7 @@ public class ListProviderJSON {
     }
 
 
-    public static String readAll () throws Exception {
+    public static String readAll() throws Exception {
         return readInputJSON(TYPE.LIST, ALL);
     }
 
@@ -305,32 +304,27 @@ public class ListProviderJSON {
         if (keyValues == null || keyValues.length == 0) {
             return builder.append("]").toString();
         }
-        for (int i=0; i<keyValues.length;i++) {
+        for (int i = 0; i < keyValues.length; i++) {
             Object object = keyValues[i];
             if (object instanceof String) {
-                String value = (String)keyValues[i];
-                if (value.startsWith("[")||value.startsWith("{")) {
+                String value = (String) keyValues[i];
+                if (value.startsWith("[") || value.startsWith("{")) {
                     builder.append(keyValues[i]);
-                }
-                else {
+                } else {
                     builder.append("\"");
                     builder.append(keyValues[i]);
                     builder.append("\"");
                 }
-            }
-            else if (object instanceof List) {
+            } else if (object instanceof List) {
                 builder.append("[]");
-            }
-            else if (object instanceof Map) {
+            } else if (object instanceof Map) {
                 builder.append("{}");
-            }
-            else if (object instanceof Date) {
-                builder.append(((Date)object).getTime());
-            }
-            else {
+            } else if (object instanceof Date) {
+                builder.append(((Date) object).getTime());
+            } else {
                 builder.append(keyValues[i]);
             }
-            if (i!=keyValues.length-1) {
+            if (i != keyValues.length - 1) {
                 builder.append(",");
             }
         }
@@ -338,8 +332,10 @@ public class ListProviderJSON {
     }
 
     public static final String createRow() {
-        return toJSONList(MapProviderJSON.toJSONMap(S_KEY1,S_VALUE11,S_KEY2,S_VALUE12));
+        return toJSONList(MapProviderJSON.toJSONMap(S_KEY1, S_VALUE11, S_KEY2, S_VALUE12));
     }
 
-    public static final String createJsonArray() {return toJSONList(toJSONList(S_KEY1,S_KEY2), toJSONList(S_VALUE11,S_VALUE12));}
+    public static final String createJsonArray() {
+        return toJSONList(toJSONList(S_KEY1, S_KEY2), toJSONList(S_VALUE11, S_VALUE12));
+    }
 }

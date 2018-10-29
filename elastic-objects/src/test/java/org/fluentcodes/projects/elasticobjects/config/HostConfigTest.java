@@ -7,14 +7,15 @@ import org.fluentcodes.projects.elasticobjects.test.AssertEO;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.JSONReader;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.H_TEST;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 11.10.2016.
@@ -23,6 +24,7 @@ public class HostConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(HostConfigTest.class);
     private static final String HOST_SCOPE = "data/hostScope.json";
     private static final String HOST_PERMISSION = "data/hostPermission.json";
+
     @Test
     public void byAdapterPermissions() throws Exception {
         EO adapter = JSONReader.readAdapterBean(TestObjectProvider.EO_CONFIGS_CACHE, HOST_PERMISSION, null);
@@ -56,9 +58,9 @@ public class HostConfigTest extends TestHelper {
         Assert.assertEquals(F_USER, config.getUser());
         Assert.assertEquals(F_PROTOCOL + "://" + F_HOST_NAME + ":" + S_INTEGER, config.getUrlPath());
 
-        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_READ,R_GUEST), config.getRolePermissions().getRead());
-        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_WRITE,R_ADMIN), config.getRolePermissions().getWrite());
-        Assert.assertEquals(join(CON_COMMA,R_TEST_ROLE_CREATE,R_ADMIN), config.getRolePermissions().getCreate());
+        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_READ, R_GUEST), config.getRolePermissions().getRead());
+        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_WRITE, R_ADMIN), config.getRolePermissions().getWrite());
+        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_CREATE, R_ADMIN), config.getRolePermissions().getCreate());
         Assert.assertEquals(R_ADMIN, config.getRolePermissions().getDelete());
         Assert.assertEquals(R_SUPER_ADMIN, config.getRolePermissions().getExecute());
         Assert.assertEquals(Permissions.READ, config.getPermissions(R_TEST_ROLE_READ));

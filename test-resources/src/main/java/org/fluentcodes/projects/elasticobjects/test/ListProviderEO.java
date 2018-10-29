@@ -1,12 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.test;
-import java.util.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
+
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
+
+import java.util.List;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class ListProviderEO {
     public static EOBuilder builder() {
@@ -34,7 +36,7 @@ public class ListProviderEO {
         return eoString;
     }
 
-    public static void assertString(final EO eoString) throws Exception{
+    public static void assertString(final EO eoString) throws Exception {
         Assert.assertEquals(S_STRING, eoString.get(S0));
     }
 
@@ -46,7 +48,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertInteger(final EO eoInteger) throws Exception{
+    public static void assertInteger(final EO eoInteger) throws Exception {
         Assert.assertEquals(S_INTEGER, eoInteger.get(S0));
     }
 
@@ -58,7 +60,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertLong(final EO eoLong) throws Exception{
+    public static void assertLong(final EO eoLong) throws Exception {
         Assert.assertEquals(SAMPLE_LONG, eoLong.get(S0));
     }
 
@@ -70,7 +72,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertFloat(final EO eoFloat) throws Exception{
+    public static void assertFloat(final EO eoFloat) throws Exception {
         Assert.assertEquals(SAMPLE_FLOAT, eoFloat.get(S0));
     }
 
@@ -86,7 +88,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertDouble(final EO eoDouble) throws Exception{
+    public static void assertDouble(final EO eoDouble) throws Exception {
         Assert.assertEquals(SAMPLE_DOUBLE, eoDouble.get(S0));
     }
 
@@ -98,7 +100,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertDate(final EO eoDate) throws Exception{
+    public static void assertDate(final EO eoDate) throws Exception {
         Assert.assertEquals(SAMPLE_DATE, eoDate.get(S0));
     }
 
@@ -110,7 +112,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertBoolean(final EO eoBoolean) throws Exception{
+    public static void assertBoolean(final EO eoBoolean) throws Exception {
         Assert.assertEquals(S_BOOLEAN, eoBoolean.get(S0));
     }
 
@@ -122,7 +124,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertMap(final EO eoMap) throws Exception{
+    public static void assertMap(final EO eoMap) throws Exception {
         Assert.assertEquals(S_STRING, eoMap.get(S0 + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(S_INTEGER, eoMap.get(S0 + Path.DELIMITER + F_TEST_INTEGER));
     }
@@ -135,7 +137,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertList(final EO fromJson) throws Exception{
+    public static void assertList(final EO fromJson) throws Exception {
         Assert.assertEquals(S_STRING, fromJson.get(S0 + Path.DELIMITER + S0));
         Assert.assertEquals(S_INTEGER, fromJson.get(S0 + Path.DELIMITER + S1));
     }
@@ -148,20 +150,20 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertBT(final EO fromJson)throws Exception {
+    public static void assertBT(final EO fromJson) throws Exception {
         Assert.assertEquals(S_STRING, fromJson.get(S0 + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(S_INTEGER, fromJson.get(S0 + Path.DELIMITER + F_TEST_INTEGER));
     }
 
     public static EO createST() throws Exception {
-        EO fromJson =builder()
+        EO fromJson = builder()
                 .setModels(List.class)
                 .map(ListProvider.createST());
         assertST(fromJson);
         return fromJson;
     }
 
-    public static void assertST(final EO fromJson) throws Exception{
+    public static void assertST(final EO fromJson) throws Exception {
         Assert.assertEquals(S_STRING, fromJson.get(S0 + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(S_STRING_OTHER, fromJson.get(S0 + Path.DELIMITER + EO_STATIC.F_NAME));
     }
@@ -187,7 +189,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void assertSimple(final EO fromJson) throws Exception{
+    public static void assertSimple(final EO fromJson) throws Exception {
         Assert.assertEquals(S_STRING, fromJson.get(S0));
         Assert.assertEquals(S_INTEGER, fromJson.get(S1));
         Assert.assertEquals(SAMPLE_LONG, fromJson.get(S2));
@@ -205,7 +207,7 @@ public class ListProviderEO {
         return fromJson;
     }
 
-    public static void asserts(final EO fromJson) throws Exception{
+    public static void asserts(final EO fromJson) throws Exception {
         Assert.assertEquals(S_STRING, fromJson.get(S0));
         Assert.assertEquals(S_INTEGER, fromJson.get(S1));
         Assert.assertEquals(SAMPLE_LONG, fromJson.get(S2));

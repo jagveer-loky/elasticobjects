@@ -8,7 +8,10 @@ import org.fluentcodes.projects.elasticobjects.test.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
@@ -19,10 +22,11 @@ public class EONoPathNewRootMap_value_models_Test {
     public void mapInteger_ok() throws Exception {
         EOTest.mapValue_ok(S_INTEGER, Integer.class);
     }
+
     @Test
     public void mapInteger_withString_ok() throws Exception {
         EO root = EOTest.mapValue_ok(S_INTEGER, String.class);
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.toString(), root.get() );
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.toString(), root.get());
     }
 
     @Test
@@ -61,8 +65,8 @@ public class EONoPathNewRootMap_value_models_Test {
                 .map(jsonMapSmall);
         Assert.assertEquals(S_STRING, listEO.get(S0));
         Assert.assertEquals(new Long(S_INTEGER), listEO.get(S1));
-        Assert.assertEquals(List.class,listEO.getModelClass());
-        Assert.assertEquals(String.class,listEO.getChild(S0).getModelClass());
+        Assert.assertEquals(List.class, listEO.getModelClass());
+        Assert.assertEquals(String.class, listEO.getChild(S0).getModelClass());
     }
 
 
@@ -133,7 +137,6 @@ public class EONoPathNewRootMap_value_models_Test {
     }
 
 
-
     @Test
     public void withST_ok() throws Exception {
         final EO root = EOTest
@@ -151,7 +154,7 @@ public class EONoPathNewRootMap_value_models_Test {
     @Test
     public void mapBTStringWithMap_ok() throws Exception {
         EO root = EOTest.mapValue_ok(BTProvider.createString(), Map.class);
-        Assert.assertNotNull(((EOContainer)root).getChildAdapter(F_TEST_STRING));
+        Assert.assertNotNull(((EOContainer) root).getChildAdapter(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
     }
 

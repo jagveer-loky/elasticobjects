@@ -1,6 +1,5 @@
 {
-"(BasicTest)_data":
-	{
-		"testFloat":1.1
-	}
+  "(BasicTest)_data": {
+    "testFloat": 1.1
+  }
 }

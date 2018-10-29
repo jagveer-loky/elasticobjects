@@ -6,10 +6,12 @@ package org.fluentcodes.projects.elasticobjects.test;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.eo.*;
+import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
 
 public class AssertObject {
     private static final Logger LOG = LogManager.getLogger(AssertObject.class);
+
     public static final void compare(EOConfigsCache provider, final Object object) throws Exception {
         String serialized = new EOToJSON()
                 .setStartIndent(1)

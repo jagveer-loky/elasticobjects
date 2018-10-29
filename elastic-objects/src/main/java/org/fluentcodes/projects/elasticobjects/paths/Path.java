@@ -1,9 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -176,6 +173,7 @@ public class Path {
     public String get(int i) {
         return this.entries.get(i);
     }
+
     @Override
     public String toString() {
         return directory();

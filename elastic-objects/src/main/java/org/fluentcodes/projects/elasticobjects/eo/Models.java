@@ -11,6 +11,7 @@ import java.util.*;
 
 /**
  * A list of models defining types
+ *
  * @author Werner Diwischek
  * @since 20.05.16.
  */
@@ -35,7 +36,7 @@ public class Models {
     /**
      * Creates a root adapter with an ItemsCache
      */
-    private Models(EOConfigsCache configsCache) throws Exception{
+    private Models(EOConfigsCache configsCache) throws Exception {
         this.configsCache = configsCache;
         this.models = new ArrayList();
         models.add(configsCache.findModel(Map.class));
@@ -134,8 +135,7 @@ public class Models {
             if (classEntry == Object.class) {
                 if (models.size() > 0) {
                     break;
-                }
-                else {
+                } else {
                     classEntry = Map.class;
                 }
             }
@@ -189,8 +189,7 @@ public class Models {
         if (eo != null) {
             if (isScalar()) {
                 ((EOContainer) eo).map(ScalarConverter.transform(getModelClass(), value));
-            }
-            else {
+            } else {
                 ((EOContainer) eo).map(value);
             }
         }
@@ -223,17 +222,14 @@ public class Models {
                 Models child = parentModel.createChild(eo.getParentKey());
                 if (child.hasModel()) {
                     setModelConcurrent(valueModels, child);
-                }
-                else {
+                } else {
                     setModelConcurrent(valueModels);
                 }
-            }
-            else {
+            } else {
                 setModelConcurrent(valueModels);
             }
-            ((EOContainer)eo).removeChildEO(value);
-        }
-        else {
+            ((EOContainer) eo).removeChildEO(value);
+        } else {
             setModelConcurrent(valueModels);
         }
     }
@@ -290,7 +286,6 @@ public class Models {
     }
 
 
-
     public Models getChildModelsList() throws Exception {
         if (models.size() < 2) {
             return new Models(configsCache);
@@ -334,7 +329,7 @@ public class Models {
         return getModel().isNull();
     }
 
-    public Class getModelClass()  {
+    public Class getModelClass() {
         if (models == null || models.size() == 0) {
             return Object.class;
         }
@@ -350,15 +345,13 @@ public class Models {
         if (models.isEmpty()) {
             return new Models(configsCache);
         }
-        if (isMap()||isList()) {
+        if (isMap() || isList()) {
             if (hasChildModel()) {
                 return new Models(getChildModel());
-            }
-            else {
+            } else {
                 return new Models(configsCache);
             }
-        }
-        else if (isObject()) {
+        } else if (isObject()) {
             return ((ModelConfigObject) getModel()).getFieldModels(name);
         }
         return null;
@@ -379,7 +372,7 @@ public class Models {
         if (valueModel == null) {
             throw new Exception("No model defined for  " + value.getClass().getSimpleName());
         }
-        if (childModels == null || childModels.isEmpty())  {
+        if (childModels == null || childModels.isEmpty()) {
             return new Models(valueModel);
         }
         return childModels;
@@ -423,7 +416,7 @@ public class Models {
         }
         Models childModels = createChildWithValue(name, value);
         if (value == null) {
-            if (!childModels.hasModel() && targetModels!=null && targetModels.hasModel()) {
+            if (!childModels.hasModel() && targetModels != null && targetModels.hasModel()) {
                 return createChildForSet(targetModels, value, name);
             }
         }
@@ -434,7 +427,7 @@ public class Models {
     protected Models createChildForMap(final String key, final Object value) throws Exception {
         Models childModels = createChildWithValue(key, value);
         return createChildForMap(childModels, value, key);
-     }
+    }
 
     protected Models createChildForMap(Models childModels, final Object value, final String key) throws Exception {
         if (value == null) {
@@ -460,8 +453,7 @@ public class Models {
             if (childModels.isMap()) {
                 return childModels;
             }
-        }
-        else {
+        } else {
             if (valueModel.isContainer() && childModels.isContainer()) {
                 return childModels;
             }
@@ -482,28 +474,22 @@ public class Models {
 
         if (classModels == null || !classModels.hasModel()) {
             return createChildForMap(childModels, value, key);
-        }
-        else if (childModels.hasModel()){
+        } else if (childModels.hasModel()) {
             if (!childModels.toString().equals(classModels.toString())) {
                 if (childModels.isScalar()) {
                     LOG.debug("Child has a model '" + childModels.toString() + "' and targetModels '" + classModels.toString() + "'is set! Using childModels");
-                }
-                else if (classModels.isMap()) {
+                } else if (classModels.isMap()) {
                     LOG.debug("Child has a model '" + childModels.toString() + "' and targetModels '" + classModels.toString() + "'is set! Using childModels");
-                }
-                else {
+                } else {
                     LOG.info("Child has a model '" + childModels.toString() + "' and targetModels '" + classModels.toString() + "'is set! Using childModels");
                 }
             }
             return createChildForMap(childModels, value, key);
-        }
-        else if (classModels.hasModel()) {
+        } else if (classModels.hasModel()) {
             return createChildForMap(classModels, value, key);
-        }
-        else if (value != null) {
+        } else if (value != null) {
             return new Models(configsCache, value.getClass());
-        }
-        else {
+        } else {
             return new Models(configsCache);
         }
     }
@@ -542,7 +528,7 @@ public class Models {
     }
 
     public boolean hasDefaultMap() {
-        return isMap() && !hasChildModel() && (getModelClass()==Map.class||getModelClass()== LinkedHashMap.class);
+        return isMap() && !hasChildModel() && (getModelClass() == Map.class || getModelClass() == LinkedHashMap.class);
     }
 
     public ModelInterface getChildModel() {
@@ -559,7 +545,6 @@ public class Models {
         }
         return models.get(1).getModelClass();
     }
-
 
 
     public int size() {
@@ -612,7 +597,7 @@ public class Models {
     }
 
     protected void setEO(EO eo) {
-        this.eo=eo;
+        this.eo = eo;
     }
 
 

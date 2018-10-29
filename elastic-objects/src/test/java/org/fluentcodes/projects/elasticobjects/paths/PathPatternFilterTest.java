@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.paths;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,6 +9,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class PathPatternFilterTest extends TestHelper {
     private static final String TEST3 = "test3";

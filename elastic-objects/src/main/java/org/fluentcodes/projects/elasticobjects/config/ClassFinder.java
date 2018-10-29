@@ -13,7 +13,7 @@ public class ClassFinder {
 
     private String SEARCH = ".*/HashMap.class";
 
-    private StringBuilder scanLog ;
+    private StringBuilder scanLog;
     private Map<String, String> mapKeyClass;
     private Map<String, String> mapKeyOrigin;
 
@@ -33,22 +33,21 @@ public class ClassFinder {
         int counter = 0;
         long start = System.currentTimeMillis();
         StringBuilder log = new StringBuilder();
-        for (URL url: getContextClassLoaderUrls ()) {
-            File f = new File (url.getPath());
+        for (URL url : getContextClassLoaderUrls()) {
+            File f = new File(url.getPath());
             if (f.isDirectory()) {
-                counter += visitFile (f, "-", log);
-            }
-            else {
-                counter += visitJar (url, log);
+                counter += visitFile(f, "-", log);
+            } else {
+                counter += visitJar(url, log);
             }
         }
         start = System.currentTimeMillis() - start;
         scanLog.append("Scanned " + counter + " classes within " + start + " ms.\n");
         scanLog.append(log);
-        for (String key: mapKeyClass.keySet()) {
+        for (String key : mapKeyClass.keySet()) {
             scanLog.append("\n");
-            scanLog.append("From " + mapKeyOrigin.get(key) + ":\n") ;
-            scanLog.append(key + " - " + mapKeyClass.get(key)  +"\n") ;
+            scanLog.append("From " + mapKeyOrigin.get(key) + ":\n");
+            scanLog.append(key + " - " + mapKeyClass.get(key) + "\n");
         }
     }
 
@@ -89,6 +88,7 @@ public class ClassFinder {
     public Map<String, String> getMapKeyClass() {
         return mapKeyClass;
     }
+
     public Map<String, String> getMapKeyOrigin() {
         return mapKeyOrigin;
     }
@@ -99,7 +99,7 @@ public class ClassFinder {
         while (cl != null) {
             if (cl instanceof URLClassLoader) {
                 URL[] urls = ((URLClassLoader) cl).getURLs();
-                result.addAll (Arrays.asList (urls));
+                result.addAll(Arrays.asList(urls));
             }
             cl = cl.getParent();
         }
@@ -114,8 +114,8 @@ public class ClassFinder {
         if (!this.pathExcludeFilter.isEmpty() && filter(className, this.pathExcludeFilter)) {
             return;
         }
-        String classKey = className.replaceAll("\\.class","");
-        classKey = classKey.replaceAll(".*/","");
+        String classKey = className.replaceAll("\\.class", "");
+        classKey = classKey.replaceAll(".*/", "");
         mapKeyClass.put(classKey, className);
         mapKeyOrigin.put(classKey, source);
     }
@@ -125,15 +125,15 @@ public class ClassFinder {
         if (filterEntries.isEmpty()) {
             return true;
         }
-        for (final String filter: filterEntries) {
-            if (name.matches(filter))  {
+        for (final String filter : filterEntries) {
+            if (name.matches(filter)) {
                 return true;
             }
         }
         return false;
     }
 
-    private int visitFile (final File file, final String path, final StringBuilder builder) throws IOException {
+    private int visitFile(final File file, final String path, final StringBuilder builder) throws IOException {
         if (!filter(file.getName(), fileFilter)) {
             return 0;
         }
@@ -149,11 +149,9 @@ public class ClassFinder {
                 for (File child : children) {
                     if ("-".equals(path)) {
                         counter += visitFile(child, "", builder);
-                    }
-                    else if ("".equals(path)) {
+                    } else if ("".equals(path)) {
                         counter += visitFile(child, file.getName(), builder);
-                    }
-                    else {
+                    } else {
                         counter += visitFile(child, path + "/" + file.getName(), builder);
                     }
                 }
@@ -173,7 +171,7 @@ public class ClassFinder {
         return counter;
     }
 
-    private int visitJar (URL url, StringBuilder builder) throws IOException {
+    private int visitJar(URL url, StringBuilder builder) throws IOException {
         int counter = 0;
         if (!filter(url.getFile(), jarFilter)) {
             builder.append("Skip " + url.getFile() + ".\n");
@@ -183,11 +181,11 @@ public class ClassFinder {
             builder.append("Skip due to exclusion " + url.getFile() + ".\n");
             return counter;
         }
-        try (InputStream urlIn = url.openStream ();
-             JarInputStream jarIn = new JarInputStream (urlIn)) {
-             JarEntry entry;
-             while ((entry = jarIn.getNextJarEntry ()) != null) {
-                if (entry.getName ().endsWith (".class")) {
+        try (InputStream urlIn = url.openStream();
+             JarInputStream jarIn = new JarInputStream(urlIn)) {
+            JarEntry entry;
+            while ((entry = jarIn.getNextJarEntry()) != null) {
+                if (entry.getName().endsWith(".class")) {
                     if (entry.getName().contains("$")) {
                         continue;
                     }

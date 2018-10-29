@@ -56,8 +56,7 @@ public class ModelsBTTest extends TestHelper {
         try {
             final Models child = models.createChild(SAMPLE_KEY_UNKNOW);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION, e);
         }
     }
@@ -69,8 +68,7 @@ public class ModelsBTTest extends TestHelper {
         try {
             final Models child = models.createChildForSet(F_TEST_STRING, new HashMap());
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION, e);
         }
     }
@@ -82,8 +80,7 @@ public class ModelsBTTest extends TestHelper {
         try {
             final Models child = models.createChildForSet(F_UNTYPED_MAP, "");
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION, e);
         }
     }

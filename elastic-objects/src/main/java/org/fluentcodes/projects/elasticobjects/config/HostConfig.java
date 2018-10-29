@@ -1,9 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
-
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -103,13 +102,13 @@ public class HostConfig extends ConfigIO {
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
             super.prepare(configsCache, values);
-            hostKey = (String) configsCache.transform(F_HOST_KEY,values);
-            protocol = (String) configsCache.transform(F_PROTOCOL,values);
-            hostName = (String) configsCache.transform(F_HOST_NAME,values);
-            user = (String) configsCache.transform(F_USER,values);
-            password = (String) configsCache.transform(F_PASSWORD,values);
-            port = (Integer) configsCache.transform(F_PORT,values);
-            String fileKey = (String) configsCache.transform(F_FILE_KEY,values);
+            hostKey = (String) configsCache.transform(F_HOST_KEY, values);
+            protocol = (String) configsCache.transform(F_PROTOCOL, values);
+            hostName = (String) configsCache.transform(F_HOST_NAME, values);
+            user = (String) configsCache.transform(F_USER, values);
+            password = (String) configsCache.transform(F_PASSWORD, values);
+            port = (Integer) configsCache.transform(F_PORT, values);
+            String fileKey = (String) configsCache.transform(F_FILE_KEY, values);
             if (hostKey == null) {
                 if (fileKey != null && fileKey.contains(":")) {
                     hostKey = fileKey.replaceAll(":[^:]+$", "");

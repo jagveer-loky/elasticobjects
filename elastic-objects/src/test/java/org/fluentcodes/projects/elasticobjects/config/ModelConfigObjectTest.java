@@ -7,14 +7,14 @@ import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_DESCRIPTION;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 9.7.2017.
@@ -33,8 +33,7 @@ public class ModelConfigObjectTest extends TestHelper {
         try {
             CallExecutor CallExecutor = (CallExecutor) model.create();
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }

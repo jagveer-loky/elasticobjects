@@ -1,6 +1,5 @@
 {
-"(BasicTest)_data":
-	{
-		"testLong":2
-	}
+  "(BasicTest)_data": {
+    "testLong": 2
+  }
 }

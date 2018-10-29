@@ -28,6 +28,7 @@ public interface ModelInterface extends Config {
     List<String> getFieldKeys();
 
     ShapeTypes getShapeType();
+
     boolean isToSerialize();
 
     String getPackageGroup();

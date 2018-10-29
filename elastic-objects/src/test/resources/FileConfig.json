@@ -1,41 +1,37 @@
 {
-	"test:test":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"test:test",
-		"fileKey":"test:test",
-		"fileName":"fileName",
-		"description":"description",
-		"filePath":"path",
-		"rolePermissions":
-		{
-			"read":"anonym",
-			"write":"guest",
-			"create":"testRoleCreate,adminRole",
-			"delete":"adminRole",
-			"execute":"superadminRole"
-		}
-	},
-	"result.string":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"result.string",
-		"fileKey":"result.string",
-		"fileName":"result.string",
-		"description":"Saving content",
-		"filePath":"src/test/resources/output/persistedobjects"
-	},
-	"resultWithMapPath.string":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"resultWithMapPath.string",
-		"fileKey":"resultWithMapPath.string",
-		"mapPath":"content",
-		"fileName":"resultWithMapPath.string",
-		"description":"Saving content this is true",
-		"filePath":"src/test/resources/output/persistedobjects"
-	}
+  "test:test": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "test:test",
+    "fileKey": "test:test",
+    "fileName": "fileName",
+    "description": "description",
+    "filePath": "path",
+    "rolePermissions": {
+      "read": "anonym",
+      "write": "guest",
+      "create": "testRoleCreate,admin",
+      "delete": "admin",
+      "execute": "superadmin"
+    }
+  },
+  "result.string": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "result.string",
+    "fileKey": "result.string",
+    "fileName": "result.string",
+    "description": "Saving content",
+    "filePath": "src/test/resources/output/persistedobjects"
+  },
+  "resultWithMapPath.string": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "resultWithMapPath.string",
+    "fileKey": "resultWithMapPath.string",
+    "mapPath": "content",
+    "fileName": "resultWithMapPath.string",
+    "description": "Saving content this is true",
+    "filePath": "src/test/resources/output/persistedobjects"
+  }
 }

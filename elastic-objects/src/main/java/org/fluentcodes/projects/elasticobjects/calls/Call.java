@@ -343,7 +343,7 @@ public class Call {
         if (this == null) {
             return "null";
         }
-        if (getConfig()== null) {
+        if (getConfig() == null) {
             return "direct";
         }
         StringBuilder serialized = new StringBuilder();
@@ -351,13 +351,13 @@ public class Call {
         try {
             serialized.append("{\n\"attributes\":");
             serialized.append(attributes.toString());
-             serialized.append("\n,\"config\":");
-             serialized.append(new EOToJSON()
+            serialized.append("\n,\"config\":");
+            serialized.append(new EOToJSON()
                     .setStartIndent(1)
                     .toJSON(getConfig().getConfigsCache(), this.getConfig())
-             );
-             serialized.append("\n}");
-             return serialized.toString();
+            );
+            serialized.append("\n}");
+            return serialized.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return e.getMessage();

@@ -12,11 +12,12 @@ public class MapProviderJSN {
     public static EOBuilder builder() {
         return TestObjectProvider.createEOBuilder();
     }
+
     public static String readEmpty() throws Exception {
         return JSONInputReader.readInputJSN(EMPTY);
     }
 
-    public static String getJSONEmpty () throws Exception {
+    public static String getJSONEmpty() throws Exception {
         String eo = JSONInputReader.readInputJSN(EMPTY);
         return eo;
     }
@@ -34,9 +35,9 @@ public class MapProviderJSN {
         Assert.assertEquals(Map.class, eo.getModelClass());
         return eo;
     }
-    
 
-    public static String readString () throws Exception {
+
+    public static String readString() throws Exception {
         return readInputJSN(STRING);
     }
 
@@ -54,7 +55,7 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static String readInteger () throws Exception {
+    public static String readInteger() throws Exception {
         return readInputJSN(INT);
     }
 
@@ -73,7 +74,7 @@ public class MapProviderJSN {
     }
 
 
-    public static String readLong () throws Exception {
+    public static String readLong() throws Exception {
         return readInputJSN(LONG);
     }
 
@@ -91,7 +92,7 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static String readFloat () throws Exception {
+    public static String readFloat() throws Exception {
         return readInputJSN(FLOAT);
     }
 
@@ -110,7 +111,7 @@ public class MapProviderJSN {
     }
 
 
-    public static String readDouble () throws Exception {
+    public static String readDouble() throws Exception {
         return readInputJSN(DOUBLE);
     }
 
@@ -129,7 +130,7 @@ public class MapProviderJSN {
     }
 
 
-    public static String readDate () throws Exception {
+    public static String readDate() throws Exception {
         return readInputJSN(DATE);
     }
 

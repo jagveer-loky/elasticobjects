@@ -3,7 +3,9 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.EOTest;
+import org.fluentcodes.projects.elasticobjects.test.MapProviderJSN;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,7 +13,6 @@ import org.junit.Test;
 import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S0;
 
 public class EONoPathNewRootMap_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathNewRootMap_models_Test.class);
@@ -63,8 +64,8 @@ public class EONoPathNewRootMap_models_Test extends TestHelper {
                 .map(jsnMapSmall);
         Assert.assertEquals(S_STRING, listEO.get(S0));
         Assert.assertEquals(S_INTEGER, listEO.get(S1));
-        Assert.assertEquals(List.class,listEO.getModelClass());
-        Assert.assertEquals(String.class,listEO.getChild(S0).getModelClass());
+        Assert.assertEquals(List.class, listEO.getModelClass());
+        Assert.assertEquals(String.class, listEO.getChild(S0).getModelClass());
     }
 
     @Test

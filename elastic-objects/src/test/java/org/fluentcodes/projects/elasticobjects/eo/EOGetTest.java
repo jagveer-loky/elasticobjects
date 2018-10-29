@@ -2,15 +2,15 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderEO;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC._PARENT_KEY;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class EOGetTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOGetTest.class);

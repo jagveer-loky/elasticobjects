@@ -16,6 +16,7 @@ import java.util.Map;
  */
 public class NoPath extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(NoPath.class);
+
     @Test
     public void empty() throws Exception {
         TestHelper.printStartMethod();

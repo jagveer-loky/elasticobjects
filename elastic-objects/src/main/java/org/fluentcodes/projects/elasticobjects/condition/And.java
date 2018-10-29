@@ -13,8 +13,8 @@ import java.util.regex.Matcher;
  * Created by werner.diwischek on 08.01.18.
  */
 public class And {
-    private static final Logger LOG = LogManager.getLogger(And.class);
     public static final String DELIMITER = "&&";
+    private static final Logger LOG = LogManager.getLogger(And.class);
     private static final String SPLITTER = "\\&\\&";
     List<Condition> conditions;
 

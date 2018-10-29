@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * A simple character separated file.
+ *
  * @author Werner Diwischek
  * @since 09.10.2017.
  */

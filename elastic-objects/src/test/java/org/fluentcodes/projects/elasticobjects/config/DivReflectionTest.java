@@ -1,11 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 14.04.2017.
@@ -13,6 +14,7 @@ import java.lang.reflect.Method;
 public class DivReflectionTest {
     private static final String METHOD_SET_TEST = "setTest";
     private static final String METHOD_SET_TEST_OBJECT = "setTestObject";
+
     @Test
     public void callObjectClass() {
         ObjectClass object = new ObjectClass();
@@ -54,9 +56,11 @@ public class DivReflectionTest {
 
     private class ObjectClass {
         private Object test;
+
         public Object getTest() {
             return test;
         }
+
         public void setTest(final Object test) {
             this.test = test;
         }

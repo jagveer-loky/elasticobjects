@@ -18,9 +18,10 @@ public class ModelsMapStringTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsMapStringTest.class);
 
     private static final Class SUB_CLASS = String.class;
-    private static final String NAME =F_TEST_STRING;
+    private static final String NAME = F_TEST_STRING;
     private static final Models MODELS = createModels();
-    private static final Models createModels () {
+
+    private static final Models createModels() {
         try {
             return new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class, SUB_CLASS);
         } catch (Exception e) {
@@ -47,8 +48,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, TestObjectProvider.createJSONToEOMapEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -58,34 +58,33 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForMap(NAME, TestObjectProvider.createJSONToEOMapEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
 
     @Test
     public void mapString_ok() throws Exception {
-        final Models child =  MODELS.createChildForMap(NAME, S_STRING);
+        final Models child = MODELS.createChildForMap(NAME, S_STRING);
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
     public void setString_ok() throws Exception {
-        final Models child =  MODELS.createChildForSet(NAME, S_STRING, null);
+        final Models child = MODELS.createChildForSet(NAME, S_STRING, null);
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
 
     @Test
     public void mapDate_ok() throws Exception {
-        final Models child =  MODELS.createChildForMap(NAME, SAMPLE_DATE);
+        final Models child = MODELS.createChildForMap(NAME, SAMPLE_DATE);
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
     public void setDate_ok() throws Exception {
-        final Models child =  MODELS.createChildForSet(NAME, SAMPLE_DATE, null);
+        final Models child = MODELS.createChildForSet(NAME, SAMPLE_DATE, null);
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
@@ -94,8 +93,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, MapProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -105,8 +103,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForMap(NAME, MapProvider.createEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -116,8 +113,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, ListProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -127,8 +123,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForMap(NAME, ListProvider.createEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -138,8 +133,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, BTProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -149,8 +143,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForMap(NAME, BTProvider.createEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -160,8 +153,7 @@ public class ModelsMapStringTest extends TestHelper {
         try {
             MODELS.createChildForMap(NAME, STProvider.createEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }

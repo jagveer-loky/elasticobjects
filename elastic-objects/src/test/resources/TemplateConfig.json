@@ -1,208 +1,184 @@
 {
-	"SimpleInsertWithPath":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"SimpleInsertWithPath",
-		"templateKey":"SimpleInsertWithPath",
-		"fileName":"SimpleInsertWithPath.tpl",
-		"filePath":"classpath/templates"
-	},
-	"SimpleInsertWithPathAndJson":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"SimpleInsertWithPathAndJson",
-		"templateKey":"SimpleInsertWithPathAndJson",
-		"fileName":"SimpleInsertWithPathAndJson.tpl",
-		"filePath":"classpath/templates"
-	},
-	"SimpleInsertWithPathAndJsonStore":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"SimpleInsertWithPathAndJsonStore",
-		"templateKey":"SimpleInsertWithPathAndJsonStore",
-		"fileName":"SimpleInsertWithPathAndJsonStore.tpl",
-		"filePath":"classpath/templates"
-	},
-	"SimpleInsertWithPathAndEmbeddedJson":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"SimpleInsertWithPathAndEmbeddedJson",
-		"templateKey":"SimpleInsertWithPathAndEmbeddedJson",
-		"fileName":"SimpleInsertWithPathAndEmbeddedJson.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ContentExample":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentExample",
-		"templateKey":"ContentExample",
-		"fileName":"ContentExample.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ContentExampleWithStaticTemplate":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentExampleWithStaticTemplate",
-		"templateKey":"ContentExampleWithStaticTemplate",
-		"fileName":"ContentExampleWithStaticTemplate.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ContentExampleWithKeep":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentExampleWithKeep",
-		"templateKey":"ContentExampleWithKeep",
-		"fileName":"ContentExampleWithKeep.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ContentExampleWithDynamicTemplate":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentExampleWithDynamicTemplate",
-		"templateKey":"ContentExampleWithDynamicTemplate",
-		"fileName":"ContentExampleWithDynamicTemplate.tpl",
-		"filePath":"classpath/templates"
-	},
-	"$[template]":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"$[template]",
-		"templateKey":"$[template]"
-	},
-	"ContentExampleElement1":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentExampleElement1",
-		"templateKey":"ContentExampleElement1",
-		"fileName":"ContentExampleElement1.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ContentOrExample":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentOrExample",
-		"templateKey":"ContentOrExample",
-		"fileName":"ContentOrExample.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ContentExampleElement2":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentExampleElement2",
-		"templateKey":"ContentExampleElement2",
-		"fileName":"ContentExampleElement2.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ValuesMathSinExample":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ValuesMathSinExample",
-		"templateKey":"ValuesMathSinExample",
-		"fileName":"ValuesMathSinExample.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ValuesMiscSetExample":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ValuesMiscSetExample",
-		"templateKey":"ValuesMiscSetExample",
-		"fileName":"ValuesMiscSetExample.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ValuesMiscReplaceExample":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ValuesMiscReplaceExample",
-		"templateKey":"ValuesMiscReplaceExample",
-		"fileName":"ValuesMiscReplaceExample.tpl",
-		"filePath":"classpath/templates"
-	},
-	"ValuesMiscRepeatExample":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ValuesMiscRepeatExample",
-		"templateKey":"ValuesMiscRepeatExample",
-		"fileName":"ValuesMiscRepeatExample.tpl",
-		"filePath":"classpath/templates"
-	},
-	"Embedded0":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"Embedded0",
-		"templateKey":"Embedded0",
-		"fileName":"Embedded0.tpl",
-		"filePath":"classpath/templates"
-	},
-	"Embedded0WithPlaceHolder":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"Embedded0WithPlaceHolder",
-		"templateKey":"Embedded0WithPlaceHolder",
-		"fileName":"Embedded0WithPlaceHolder.tpl",
-		"filePath":"classpath/templates"
-	},
-	"Embedded1":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"Embedded1",
-		"templateKey":"Embedded1",
-		"fileName":"Embedded1.tpl",
-		"filePath":"classpath/templates"
-	},
-	"Embedded1WithPlaceHolder":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"Embedded1WithPlaceHolder",
-		"templateKey":"Embedded1WithPlaceHolder",
-		"fileName":"Embedded1WithPlaceHolder.tpl",
-		"filePath":"classpath/templates"
-	},
-	"Embedded2":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"Embedded2",
-		"templateKey":"Embedded2",
-		"fileName":"Embedded2.tpl",
-		"filePath":"classpath/templates"
-	},
-	"Embedded2WithPlaceHolder":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"Embedded2WithPlaceHolder",
-		"templateKey":"Embedded2WithPlaceHolder",
-		"fileName":"Embedded2WithPlaceHolder.tpl",
-		"filePath":"classpath/templates"
-	},
-	"Embedded2WithValueAction":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"Embedded2WithValueAction",
-		"templateKey":"Embedded2WithValueAction",
-		"fileName":"Embedded2WithValueAction.tpl",
-		"filePath":"classpath/templates"
-	}
-
+  "SimpleInsertWithPath": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "SimpleInsertWithPath",
+    "templateKey": "SimpleInsertWithPath",
+    "fileName": "SimpleInsertWithPath.tpl",
+    "filePath": "classpath/templates"
+  },
+  "SimpleInsertWithPathAndJson": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "SimpleInsertWithPathAndJson",
+    "templateKey": "SimpleInsertWithPathAndJson",
+    "fileName": "SimpleInsertWithPathAndJson.tpl",
+    "filePath": "classpath/templates"
+  },
+  "SimpleInsertWithPathAndJsonStore": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "SimpleInsertWithPathAndJsonStore",
+    "templateKey": "SimpleInsertWithPathAndJsonStore",
+    "fileName": "SimpleInsertWithPathAndJsonStore.tpl",
+    "filePath": "classpath/templates"
+  },
+  "SimpleInsertWithPathAndEmbeddedJson": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "SimpleInsertWithPathAndEmbeddedJson",
+    "templateKey": "SimpleInsertWithPathAndEmbeddedJson",
+    "fileName": "SimpleInsertWithPathAndEmbeddedJson.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ContentExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExample",
+    "templateKey": "ContentExample",
+    "fileName": "ContentExample.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ContentExampleWithStaticTemplate": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleWithStaticTemplate",
+    "templateKey": "ContentExampleWithStaticTemplate",
+    "fileName": "ContentExampleWithStaticTemplate.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ContentExampleWithKeep": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleWithKeep",
+    "templateKey": "ContentExampleWithKeep",
+    "fileName": "ContentExampleWithKeep.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ContentExampleWithDynamicTemplate": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleWithDynamicTemplate",
+    "templateKey": "ContentExampleWithDynamicTemplate",
+    "fileName": "ContentExampleWithDynamicTemplate.tpl",
+    "filePath": "classpath/templates"
+  },
+  "$[template]": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "$[template]",
+    "templateKey": "$[template]"
+  },
+  "ContentExampleElement1": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleElement1",
+    "templateKey": "ContentExampleElement1",
+    "fileName": "ContentExampleElement1.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ContentOrExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentOrExample",
+    "templateKey": "ContentOrExample",
+    "fileName": "ContentOrExample.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ContentExampleElement2": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleElement2",
+    "templateKey": "ContentExampleElement2",
+    "fileName": "ContentExampleElement2.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ValuesMathSinExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ValuesMathSinExample",
+    "templateKey": "ValuesMathSinExample",
+    "fileName": "ValuesMathSinExample.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ValuesMiscSetExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ValuesMiscSetExample",
+    "templateKey": "ValuesMiscSetExample",
+    "fileName": "ValuesMiscSetExample.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ValuesMiscReplaceExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ValuesMiscReplaceExample",
+    "templateKey": "ValuesMiscReplaceExample",
+    "fileName": "ValuesMiscReplaceExample.tpl",
+    "filePath": "classpath/templates"
+  },
+  "ValuesMiscRepeatExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ValuesMiscRepeatExample",
+    "templateKey": "ValuesMiscRepeatExample",
+    "fileName": "ValuesMiscRepeatExample.tpl",
+    "filePath": "classpath/templates"
+  },
+  "Embedded0": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "Embedded0",
+    "templateKey": "Embedded0",
+    "fileName": "Embedded0.tpl",
+    "filePath": "classpath/templates"
+  },
+  "Embedded0WithPlaceHolder": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "Embedded0WithPlaceHolder",
+    "templateKey": "Embedded0WithPlaceHolder",
+    "fileName": "Embedded0WithPlaceHolder.tpl",
+    "filePath": "classpath/templates"
+  },
+  "Embedded1": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "Embedded1",
+    "templateKey": "Embedded1",
+    "fileName": "Embedded1.tpl",
+    "filePath": "classpath/templates"
+  },
+  "Embedded1WithPlaceHolder": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "Embedded1WithPlaceHolder",
+    "templateKey": "Embedded1WithPlaceHolder",
+    "fileName": "Embedded1WithPlaceHolder.tpl",
+    "filePath": "classpath/templates"
+  },
+  "Embedded2": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "Embedded2",
+    "templateKey": "Embedded2",
+    "fileName": "Embedded2.tpl",
+    "filePath": "classpath/templates"
+  },
+  "Embedded2WithPlaceHolder": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "Embedded2WithPlaceHolder",
+    "templateKey": "Embedded2WithPlaceHolder",
+    "fileName": "Embedded2WithPlaceHolder.tpl",
+    "filePath": "classpath/templates"
+  },
+  "Embedded2WithValueAction": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "Embedded2WithValueAction",
+    "templateKey": "Embedded2WithValueAction",
+    "fileName": "Embedded2WithValueAction.tpl",
+    "filePath": "classpath/templates"
+  }
 }

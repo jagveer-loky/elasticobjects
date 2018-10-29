@@ -4,7 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.BTProvider;
+import org.fluentcodes.projects.elasticobjects.test.ListProvider;
+import org.fluentcodes.projects.elasticobjects.test.MapProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,9 +25,10 @@ public class ModelsListMapTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsListMapTest.class);
 
     private static final Class SUB_CLASS = List.class;
-    private static final String NAME =F_UNTYPED_LIST;
+    private static final String NAME = F_UNTYPED_LIST;
     private static final Models MODELS = createModels();
-    private static final Models createModels () {
+
+    private static final Models createModels() {
         try {
             return new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class, SUB_CLASS);
         } catch (Exception e) {
@@ -51,8 +55,7 @@ public class ModelsListMapTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, TestObjectProvider.createJSONToEOMapEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -68,8 +71,7 @@ public class ModelsListMapTest extends TestHelper {
         try {
             MODELS.createChildForMap(NAME, S_STRING);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -79,8 +81,7 @@ public class ModelsListMapTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, S_STRING, null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -90,8 +91,7 @@ public class ModelsListMapTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, MapProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -119,8 +119,7 @@ public class ModelsListMapTest extends TestHelper {
         try {
             MODELS.createChildForSet(NAME, BTProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }

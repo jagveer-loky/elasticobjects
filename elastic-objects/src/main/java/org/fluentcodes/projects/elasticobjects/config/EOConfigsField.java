@@ -3,9 +3,6 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.lang.reflect.Field;
-import java.util.Map;
-
 /**
  * Created by Werner on 10.10.2016.
  */
