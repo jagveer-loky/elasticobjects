@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.condition.Or;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ListConfig;
 import org.fluentcodes.projects.elasticobjects.config.ListIOInterface;
+import org.fluentcodes.projects.elasticobjects.config.Permissions;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
@@ -17,6 +18,7 @@ import java.util.*;
 public class ListCall extends CallIO {
     private ListParams listParams;
     private ListMapper listMapper;
+
     public ListCall(EOConfigsCache configsCache, String key) throws Exception {
         super(configsCache, key);
         listParams = new ListParams();
@@ -120,12 +122,12 @@ public class ListCall extends CallIO {
         return listParams.getFilter();
     }
 
-    public void setFilter(String orAsString) {
-        this.listParams.setFilter(orAsString);
-    }
-
     public void setFilter(Or or) {
         this.listParams.setFilter(or);
+    }
+
+    public void setFilter(String orAsString) {
+        this.listParams.setFilter(orAsString);
     }
 
     public PathPattern getPathPattern() {
@@ -158,7 +160,18 @@ public class ListCall extends CallIO {
         if (eo == null) {
             throw new Exception("adapter should not be empty!");
         }
-        ListIOInterface io = (ListIOInterface)getListConfig().createIO();
+        if (eo.hasRoles()) {
+            try {
+                if (!this.getRolePermissions().hasPermissions(Permissions.READ, eo.getRoles())) {
+                    eo.warn("No permission!");
+                    return eo;
+                }
+            } catch (Exception e) {
+                eo.warn(e.getMessage());
+                return eo;
+            }
+        }
+        ListIOInterface io = (ListIOInterface) getListConfig().createIO();
         getListConfig().resolve();
         List result = io.read(getListParams());
         EO adapter = eo.add(getPath()).build();
@@ -174,14 +187,25 @@ public class ListCall extends CallIO {
         write(adapter, new HashMap());
     }
 
-    public void write(EO adapter, Map externalAttributes) {
-        if (adapter.isEmpty()) {
-            adapter.warn("Empty adapter -- nothing to write for " + adapter.getPath());
+    public void write(EO eo, Map externalAttributes) {
+        if (eo.isEmpty()) {
+            eo.warn("Empty adapter -- nothing to write for " + eo.getPath());
             return;
         }
-        List toWrite = toList(adapter, externalAttributes);
+        if (eo.hasRoles()) {
+            try {
+                if (!this.getRolePermissions().hasPermissions(Permissions.WRITE, eo.getRoles())) {
+                    eo.warn("No permission!");
+                    return;
+                }
+            } catch (Exception e) {
+                eo.warn(e.getMessage());
+                return;
+            }
+        }
+        List toWrite = toList(eo, externalAttributes);
         try {
-            ((ListIOInterface)getListConfig().createIO()).write(toWrite);
+            ((ListIOInterface) getListConfig().createIO()).write(toWrite);
         } catch (Exception e) {
             e.printStackTrace();
         }

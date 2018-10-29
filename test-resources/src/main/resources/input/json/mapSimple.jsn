@@ -1,12 +1,11 @@
 {
-"_data":
-	{
-		"testString":"test",
-		"(Integer)testInt":1,
-		"testLong":2,
-		"(Float)testFloat":1.1,
-		"(Double)testDouble":2.2,
-		"(Date)testDate":1465280215000,
-		"(Boolean)testBoolean":true
-	}
+  "_data": {
+    "testString": "test",
+    "(Integer)testInt": 1,
+    "testLong": 2,
+    "(Float)testFloat": 1.1,
+    "(Double)testDouble": 2.2,
+    "(Date)testDate": 1465280215000,
+    "(Boolean)testBoolean": true
+  }
 }

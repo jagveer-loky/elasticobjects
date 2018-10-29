@@ -2,11 +2,10 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 import java.io.File;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.JSON_PATH_TEST;
 
 public class JSONInputReader {
 
@@ -32,17 +31,13 @@ public class JSONInputReader {
     public static final String SMALL = "Small";
     public static final String EMPTY_VALUES = "EmptyValues";
     public static final String EMPTY = "Empty";
-
-    public enum TYPE {
-        MAP,BT,LIST,ST;
-    }
-
     public static final String INPUT_DIR = "../test-resources/src/main/resources/input/json/";
 
     public final static EO compareInput(final String key, final Object object) throws Exception {
         return compareInput(TYPE.MAP, key, object);
     }
-        public final static EO compareInput(final TYPE type, final String key, final Object object) throws Exception {
+
+    public final static EO compareInput(final TYPE type, final String key, final Object object) throws Exception {
         EO eoInput = TestObjectProvider
                 .createEOBuilder()
                 .set(object);
@@ -52,6 +47,7 @@ public class JSONInputReader {
                 .createEOBuilder()
                 .mapFile(target);
     }
+
     public final static String readInputJSON(final TYPE type, final String key, JSONSerializationType ser) throws Exception {
         final String target = inputEOFile(type, key, ser);
         return AssertBase.readPersisted(new File(target));
@@ -201,5 +197,9 @@ public class JSONInputReader {
     public final static String readInput(final String key) throws Exception {
         final String target = inputEOFile(key);
         return AssertBase.readPersisted(new File(target));
+    }
+
+    public enum TYPE {
+        MAP, BT, LIST, ST;
     }
 }

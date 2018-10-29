@@ -16,7 +16,7 @@ public class ResourcesJsonCallTest {
     @Test
     public void readFileSourceJson() throws Exception {
         final EO eoEmpty = TestObjectProvider.createEOFromJson();
-        final JsonCall call = TestCallsProvider.createJsonCall( FILE_SOURCE_JSON);
+        final JsonCall call = TestCallsProvider.createJsonCall(FILE_SOURCE_JSON);
         call.read(eoEmpty);
         Assert.assertEquals(S_VALUE11, eoEmpty.getChild(S0).get(S_KEY1));
         AssertEO.compare(eoEmpty);

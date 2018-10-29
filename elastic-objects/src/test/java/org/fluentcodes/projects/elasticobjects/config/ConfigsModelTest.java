@@ -6,10 +6,10 @@ import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Map;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
 
 public class ConfigsModelTest {
     @Test
@@ -29,8 +29,7 @@ public class ConfigsModelTest {
             modelBT.set(F_TEST_FLOAT, test, SAMPLE_FLOAT);
 
             Assert.assertEquals(SAMPLE_FLOAT, test.getTestFloat());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -51,8 +50,7 @@ public class ConfigsModelTest {
             Assert.assertNotNull(test);
             modelBT.set(F_TEST_FLOAT, test, SAMPLE_FLOAT);
             Assert.assertEquals(SAMPLE_FLOAT, test.getTestFloat());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -60,7 +58,7 @@ public class ConfigsModelTest {
     @Test
     public void checkModelCalls() throws Exception {
         final EOConfigsCache configsCache = TestObjectProvider.EO_CONFIGS_CACHE;
-        Set<String> mapCalls =configsCache.getCallSet();
+        Set<String> mapCalls = configsCache.getCallSet();
     }
 
 }

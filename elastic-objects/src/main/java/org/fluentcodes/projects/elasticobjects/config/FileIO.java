@@ -1,16 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.utils.FileUtil;
-import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.net.URL;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -18,6 +13,7 @@ import java.util.Map;
 public class FileIO implements IOInterface {
 
     private FileConfig fileConfig;
+
     public FileIO(final FileConfig fileConfig) {
         this.fileConfig = fileConfig;
     }
@@ -33,6 +29,7 @@ public class FileIO implements IOInterface {
         }
         return content;
     }
+
     /**
      * Write the file direct without the usage of
      *

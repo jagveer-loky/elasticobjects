@@ -6,9 +6,11 @@ import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_MODEL_KEY;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MODEL_INTERFACE;
 
 
 public class ModelConfigTest extends TestHelper {

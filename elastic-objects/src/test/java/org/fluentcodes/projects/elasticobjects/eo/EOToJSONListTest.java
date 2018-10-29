@@ -1,9 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
+import org.fluentcodes.projects.elasticobjects.test.ListProviderEO;
 import org.fluentcodes.projects.elasticobjects.test.ListProviderJSON;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
-import org.fluentcodes.projects.elasticobjects.test.ListProviderEO;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -107,6 +107,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withLong() throws Exception {
         ListProviderEO.createLong();
     }
+
     @Test
     public void withLongJSON() throws Exception {
         ListProviderJSON.createLong();
@@ -149,6 +150,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withDouble() throws Exception {
         ListProviderEO.createDouble();
     }
+
     @Test
     public void withDoubleJSON() throws Exception {
         ListProviderJSON.createDouble();
@@ -172,6 +174,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withDate() throws Exception {
         ListProviderEO.createDate();
     }
+
     @Test
     public void withDateJSON() throws Exception {
         ListProviderJSON.createDate();
@@ -194,6 +197,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withBoolean() throws Exception {
         ListProviderEO.createBoolean();
     }
+
     @Test
     public void withBooleanJSON() throws Exception {
         ListProviderJSON.createBoolean();
@@ -216,6 +220,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withMap() throws Exception {
         ListProviderEO.createMap();
     }
+
     @Test
     public void withMapJSON() throws Exception {
         ListProviderJSON.createMap();
@@ -225,6 +230,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withList() throws Exception {
         ListProviderEO.createList();
     }
+
     @Test
     public void withListJSON() throws Exception {
         ListProviderJSON.createList();
@@ -234,6 +240,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withBasicTest() throws Exception {
         ListProviderEO.createBT();
     }
+
     @Test
     public void withBasicTestJSON() throws Exception {
         ListProviderJSON.createBT();
@@ -243,6 +250,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withSubTest() throws Exception {
         ListProviderEO.createST();
     }
+
     @Test
     public void withSubTestJSON() throws Exception {
         ListProviderJSON.createST();
@@ -253,6 +261,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withSmall() throws Exception {
         ListProviderEO.createSmall();
     }
+
     @Test
     public void withSmallJSON() throws Exception {
         ListProviderJSON.createSmall();
@@ -262,11 +271,12 @@ public class EOToJSONListTest extends TestHelper {
     public void withSimple() throws Exception {
         ListProviderEO.createSimple();
     }
+
     @Test
     public void withSimpleJSON() throws Exception {
         ListProviderJSON.createSimple();
     }
-    
+
     @Test
     public void withIndentAndSerializationTypeSTANDARD() throws Exception {
         TestHelper.printStartMethod();
@@ -283,6 +293,7 @@ public class EOToJSONListTest extends TestHelper {
     public void withAll() throws Exception {
         ListProviderEO.create();
     }
+
     @Test
     public void withAllJSON() throws Exception {
         ListProviderJSON.create();

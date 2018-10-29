@@ -6,14 +6,14 @@ import org.fluentcodes.projects.elasticobjects.test.EOTest;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_INTEGER;
 
 public class EOPathNewRootSet_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPathNewRootSet_models_Test.class);
 
     @Test
     public void setIntegerNull_ok() throws Exception {
-        EOTest.setValue_ok( Integer.class);
+        EOTest.setValue_ok(Integer.class);
     }
 
     @Test

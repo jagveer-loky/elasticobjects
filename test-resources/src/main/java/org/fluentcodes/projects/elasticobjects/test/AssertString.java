@@ -6,14 +6,14 @@ import static org.fluentcodes.projects.elasticobjects.test.AssertBase.getFileNam
 import static org.fluentcodes.projects.elasticobjects.test.AssertBase.readOrWritePersisted;
 
 public class AssertString {
-    public static  final String compare(final String toCompare) throws Exception {
+    public static final String compare(final String toCompare) throws Exception {
         Assert.assertNotNull(toCompare);
         String fileName = getFileName() + ".string";
         compare(fileName, toCompare);
         return fileName;
     }
 
-    protected static  final void compare(final String fileName, final String toCompare) throws Exception {
+    protected static final void compare(final String fileName, final String toCompare) throws Exception {
         Assert.assertNotNull("Compare not started since fileName is null", fileName);
         Assert.assertFalse("Compare not started since fileName is empty. FileName is " + fileName, fileName.isEmpty());
         Assert.assertNotNull("Compare not started since input is null. FileName is " + fileName, toCompare);

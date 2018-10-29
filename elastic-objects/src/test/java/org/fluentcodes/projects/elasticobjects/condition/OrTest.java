@@ -3,15 +3,14 @@ package org.fluentcodes.projects.elasticobjects.condition;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.ListProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by werner.diwischek on 08.01.18.
@@ -22,17 +21,17 @@ public class OrTest {
     //static final Pattern ifPattern = Pattern.compile("(key).*");
     @Test
     public void oneCondition() {
-        Or or = new Or(toEq(S_TEST_STRING,S_STRING));
+        Or or = new Or(toEq(S_TEST_STRING, S_STRING));
         Assert.assertEquals(S_TEST_STRING, or.getAnd(0).getCondition(0).getKey());
         Assert.assertEquals(S_STRING, or.getAnd(0).getCondition(0).getValue());
         Assert.assertEquals(S_TEST_STRING + "=:" + S_TEST_STRING + "_0 ", or.getAnd(0).getCondition(0).createQuery(new HashMap<>()));
-        Assert.assertEquals("("+ S_TEST_STRING +"=:" + S_TEST_STRING + "_0 )", or.createQuery());
+        Assert.assertEquals("(" + S_TEST_STRING + "=:" + S_TEST_STRING + "_0 )", or.createQuery());
     }
 
     @Test
     public void twoConditions() {
         final String orAsString = toOr(
-                toEq(S_KEY0,S_STRING),
+                toEq(S_KEY0, S_STRING),
                 toEq(S_KEY1, S_STRING_OTHER));
         Or or = new Or(orAsString);
         Assert.assertEquals(S_KEY1, or.getAnd(1).getCondition(0).getKey());
@@ -55,11 +54,11 @@ public class OrTest {
 
     @Test
     public void filterRow() {
-        List list = ListProvider.toList(S_KEY0,S_KEY1,null,S_KEY2,S_INTEGER);
-        Or condition = new Or( toLike(S0, S_KEY));
+        List list = ListProvider.toList(S_KEY0, S_KEY1, null, S_KEY2, S_INTEGER);
+        Or condition = new Or(toLike(S0, S_KEY));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(0),
                 condition.filter(list));
-        condition = new Or(toLike( S2, S_KEY2));
+        condition = new Or(toLike(S2, S_KEY2));
         Assert.assertFalse(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(2),
                 condition.filter(list));
         condition = new Or(toLike(S4, S1));

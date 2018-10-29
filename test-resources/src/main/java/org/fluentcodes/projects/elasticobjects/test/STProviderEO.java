@@ -8,10 +8,10 @@ import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 /**
  * Provider for different SubTest objects with persistence directory input/json/ and ST* prefix
+ *
  * @since 07.09.2018
  */
 public class STProviderEO {
@@ -20,7 +20,7 @@ public class STProviderEO {
     }
 
     public static EO createEmpty() throws Exception {
-        final EO eo =  builder().map(STProvider.createEmpty());
+        final EO eo = builder().map(STProvider.createEmpty());
         assertEmpty(eo);
         return eo;
     }
@@ -30,7 +30,7 @@ public class STProviderEO {
     }
 
     public static EO createString() throws Exception {
-        final EO eo =  builder().map(STProvider.createString());
+        final EO eo = builder().map(STProvider.createString());
         assertString(eo);
         return eo;
     }
@@ -41,7 +41,7 @@ public class STProviderEO {
 
 
     public static EO createName() throws Exception {
-        final EO eo =  builder().map(STProvider.createName());
+        final EO eo = builder().map(STProvider.createName());
         assertName(eo);
         return eo;
     }
@@ -52,7 +52,7 @@ public class STProviderEO {
 
 
     public static EO createST() throws Exception {
-        final EO eo =  builder().map(STProvider.createST());
+        final EO eo = builder().map(STProvider.createST());
         assertST(eo);
         return eo;
     }
@@ -63,7 +63,7 @@ public class STProviderEO {
 
 
     public static EO createSimple() throws Exception {
-        final EO eo =  builder().map(STProvider.createSimple());
+        final EO eo = builder().map(STProvider.createSimple());
         assertSimple(eo);
         return eo;
     }
@@ -75,7 +75,7 @@ public class STProviderEO {
 
 
     public static EO create() throws Exception {
-        final EO eo =  builder().map(STProvider.create());
+        final EO eo = builder().map(STProvider.create());
         asserts(eo);
         return eo;
     }
@@ -88,6 +88,7 @@ public class STProviderEO {
 
     /**
      * creates a recursive path for 'subTest'
+     *
      * @param i number of loops...
      * @return the path
      */
@@ -95,8 +96,8 @@ public class STProviderEO {
         if (i == 1) {
             return F_SUB_TEST;
         }
-        if (i>1) {
-            return F_SUB_TEST + Path.DELIMITER + createSTPath(i-1);
+        if (i > 1) {
+            return F_SUB_TEST + Path.DELIMITER + createSTPath(i - 1);
         }
         return "";
     }

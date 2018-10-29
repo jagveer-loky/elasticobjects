@@ -12,9 +12,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_NAME;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+
 /**
  * @author Werner Diwischek
  * @since 1.10.2018
@@ -112,10 +112,9 @@ public class EONoPathRootSet_value_Test {
                 .map(jsonMapSmall);
         Assert.assertEquals(S_STRING, listEO.get(S0));
         Assert.assertEquals(new Long(S_INTEGER), listEO.get(S1));
-        Assert.assertEquals(List.class,listEO.getModelClass());
-        Assert.assertEquals(String.class,listEO.getChild(S0).getModelClass());
+        Assert.assertEquals(List.class, listEO.getModelClass());
+        Assert.assertEquals(String.class, listEO.getChild(S0).getModelClass());
     }
-
 
 
     @Test

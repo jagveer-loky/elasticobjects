@@ -1,6 +1,5 @@
 {
-"_data":
-	{
-		"(Double)testDouble":2.2
-	}
+  "_data": {
+    "(Double)testDouble": 2.2
+  }
 }

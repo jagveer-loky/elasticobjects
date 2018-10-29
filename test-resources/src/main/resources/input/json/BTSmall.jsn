@@ -1,7 +1,6 @@
 {
-"(BasicTest)_data":
-	{
-		"testInt":1,
-		"testString":"test"
-	}
+  "(BasicTest)_data": {
+    "testInt": 1,
+    "testString": "test"
+  }
 }

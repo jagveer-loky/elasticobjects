@@ -1,10 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.FileConfig;
 import org.fluentcodes.projects.elasticobjects.config.HostConfig;
+import org.fluentcodes.projects.elasticobjects.config.Permissions;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.utils.FileUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
@@ -16,6 +16,8 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_FILE_PATH;
 
 /**
  * Created by werner.diwischek on 03.12.16.
@@ -122,72 +124,95 @@ public class FileCall extends HostCall {
         return write(adapter, new HashMap());
     }
 
-    public String write(final EO adapter, final Map attributes) throws Exception {
-        if (adapter == null) {
+    public String write(final EO eo, final Map attributes) throws Exception {
+        if (eo == null) {
             throw new Exception("Write only works with a non null adapter!");
         }
         mapAttributes(attributes);
         mergeConfig();
         Object content = null;
         try {
-            content = adapter.get(getMapPath());
+            content = eo.get(getMapPath());
         } catch (Exception e) {
             e.printStackTrace();
-            adapter.warn("Could not find entry for " + getMapPath());
+            eo.warn("Could not find entry for " + getMapPath());
             return "";
         }
         if (content == null) {
-            adapter.warn("Null value in  " + getMapPath());
+            eo.warn("Null value in  " + getMapPath());
             return "";
         }
-        return write(adapter, attributes, content);
+        return write(eo, attributes, content);
     }
 
-    public String write(final EO adapter, final Map attributes, Object content) throws Exception {
-        if (adapter == null) {
+    public String write(final EO eo, final Map attributes, Object content) throws Exception {
+        if (eo == null) {
             throw new Exception("Write only works with a non null adapter!");
         }
         if (content == null) {
-            adapter.error("No content defined for " + getFileConfig().getFileKey());
+            eo.error("No content defined for " + getFileConfig().getFileKey());
             return "";
         }
         if (!getFileConfig().hasFileName()) {
-            adapter.error("No content defined for " + getFileConfig().getFileKey());
+            eo.error("No content defined for " + getFileConfig().getFileKey());
             return "";
         }
+        if (eo.hasRoles()) {
+            try {
+                if (!this.getRolePermissions().hasPermissions(Permissions.WRITE, eo.getRoles())) {
+                    eo.warn("No permission!");
+                    return "No permissions!";
+                }
+            } catch (Exception e) {
+                eo.warn(e.getMessage());
+                return e.getMessage();
+            }
+        }
         try {
-            URL url = getUrl(adapter, attributes);
+            URL url = getUrl(eo, attributes);
             String contentAsString = ScalarConverter.toString(content);
             getFileConfig().write(url, contentAsString);
         } catch (Exception e) {
-            adapter.error("Could not write to file" + e.getMessage());
+            eo.error("Could not write to file" + e.getMessage());
             return "";
         }
         return "";
     }
 
-    public String read(final EO adapter) throws Exception {
-        return read(adapter, new HashMap());
+    public String read(final EO eo) throws Exception {
+        return read(eo, new HashMap());
     }
 
-    public String read(final EO adapter, final Map attributes) throws Exception {
-        if (adapter == null) {
+    public String read(final EO eo, final Map attributes) throws Exception {
+        if (eo == null) {
             throw new Exception("Read only works with a non null adapter!");
+        }
+        if (eo.hasRoles()) {
+            try {
+                if (!this.getRolePermissions().hasPermissions(Permissions.READ, eo.getRoles())) {
+                    eo.warn("No permission!");
+                    return "No permissions!";
+                }
+            } catch (Exception e) {
+                eo.warn(e.getMessage());
+                return e.getMessage();
+            }
         }
         mapAttributes(attributes);
         mergeConfig();
+
         try {
-            URL url = getUrl(adapter, attributes);
+            URL url = getUrl(eo, attributes);
             String content = FileUtil.readFile(url);
             if (hasMapPath() && this.getClass() == FileCall.class) {
-                EO child = setToPath(adapter, new LinkedHashMap<>());
+                EO child = setToPath(eo, new LinkedHashMap<>());
                 child
                         .add(getMapPath())
                         .set(content);
             }
             return content;
         } catch (Exception e) {
-            adapter.error("Could not set from file" + e.getMessage());
+            eo.error("Could not set from file" + e.getMessage());
             return "";
         }
     }

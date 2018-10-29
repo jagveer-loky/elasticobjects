@@ -1,10 +1,8 @@
 {
-"_data":
-	{
-		"(SubTest)subTest":
-		{
-			"name":"testOther",
-			"testString":"test"
-		}
-	}
+  "_data": {
+    "(SubTest)subTest": {
+      "name": "testOther",
+      "testString": "test"
+    }
+  }
 }

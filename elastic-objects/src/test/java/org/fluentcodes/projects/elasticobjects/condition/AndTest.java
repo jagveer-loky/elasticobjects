@@ -3,9 +3,6 @@ package org.fluentcodes.projects.elasticobjects.condition;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.ListProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by werner.diwischek on 08.01.18.
@@ -54,7 +53,7 @@ public class AndTest {
 
     @Test
     public void simpleMultipleSpacesAfterOperator() {
-        pattern(S_TEST_STRING + " eq     " + S_STRING );
+        pattern(S_TEST_STRING + " eq     " + S_STRING);
     }
 
 
@@ -78,17 +77,17 @@ public class AndTest {
     public void filterAdapter() throws Exception {
         EO adapter = TestObjectProvider.createEOFromJson();
         adapter.add(S_TEST_STRING).set(S_STRING);
-        And condition = new And(toLike(S_TEST_STRING,S_STRING));
+        And condition = new And(toLike(S_TEST_STRING, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString(),
                 condition.filter(adapter));
-        condition = new And(toLike(S_KEY,S_STRING_OTHER));
+        condition = new And(toLike(S_KEY, S_STRING_OTHER));
         Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString(),
                 condition.filter(adapter));
     }
 
     @Test
     public void filterRow() throws Exception {
-        List list = ListProvider.toList(S_STRING,S_STRING_OTHER, null, S_KEY0, S_INTEGER);
+        List list = ListProvider.toList(S_STRING, S_STRING_OTHER, null, S_KEY0, S_INTEGER);
         And condition = new And(toLike(S0, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(0),
                 condition.filter(list));

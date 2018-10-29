@@ -1,22 +1,20 @@
 {
-	"ContentExample":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"ContentExample",
-		"jsonKey":"ContentExample",
-		"fileName":"ContentExample.json",
-		"filePath":"classpath/data",
-		"description":"Simple data for the content templates."
-	},
-	"SimpleInsertWithPath":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"SimpleInsertWithPath",
-		"jsonKey":"SimpleInsertWithPath",
-		"fileName":"SimpleInsertWithPath.json",
-		"filePath":"classpath/data",
-		"description":"Simple data for the SimpleInsert templates."
-	}
+  "ContentExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExample",
+    "jsonKey": "ContentExample",
+    "fileName": "ContentExample.json",
+    "filePath": "classpath/data",
+    "description": "Simple data for the content templates."
+  },
+  "SimpleInsertWithPath": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "SimpleInsertWithPath",
+    "jsonKey": "SimpleInsertWithPath",
+    "fileName": "SimpleInsertWithPath.json",
+    "filePath": "classpath/data",
+    "description": "Simple data for the SimpleInsert templates."
+  }
 }

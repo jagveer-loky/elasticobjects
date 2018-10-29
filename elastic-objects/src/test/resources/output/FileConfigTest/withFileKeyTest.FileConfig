@@ -10,9 +10,9 @@
 		{
 			"read":"anonym",
 			"write":"guest",
-			"create":"testRoleCreate,adminRole",
-			"delete":"adminRole",
-			"execute":"superadminRole"
+			"create":"testRoleCreate,admin",
+			"delete":"admin",
+			"execute":"superadmin"
 		},
 		"module":"elastic-objects",
 		"subModule":"test",

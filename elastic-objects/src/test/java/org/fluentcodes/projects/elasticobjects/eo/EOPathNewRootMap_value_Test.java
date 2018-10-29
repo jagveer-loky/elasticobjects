@@ -85,9 +85,8 @@ public class EOPathNewRootMap_value_Test {
         EO adapter = TestObjectProvider.createEOBuilder()
                 .setPath(S_PATH2)
                 .map(list);
-        Assert.assertEquals(S_STRING, adapter.getRoot().get(toPath(S_PATH2,S0)));
+        Assert.assertEquals(S_STRING, adapter.getRoot().get(toPath(S_PATH2, S0)));
     }
-
 
 
     @Test
@@ -98,7 +97,7 @@ public class EOPathNewRootMap_value_Test {
     @Test
     public void mapBTStringWithMap_ok() throws Exception {
         final EO child = EOTest.map_ok(F_UNTYPED_MAP, BTProvider.createString());
-        Assert.assertNotNull(((EOContainer)child).getChildAdapter(F_TEST_STRING));
+        Assert.assertNotNull(((EOContainer) child).getChildAdapter(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, child.get(F_TEST_STRING));
     }
 

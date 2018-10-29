@@ -37,6 +37,7 @@ public class EONoPathRootMap_value_models_Test {
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, root.getLog().isEmpty());
         return child;
     }
+
     @Test
     public void givenString_withIntegerAndInteger_ok() throws Exception {
         final EO eoString = DevObjectProvider

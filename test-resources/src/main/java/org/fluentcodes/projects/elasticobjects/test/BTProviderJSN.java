@@ -16,7 +16,7 @@ public class BTProviderJSN {
         return JSONInputReader.readInputJSN(TYPE.BT, EMPTY);
     }
 
-    public static String getJSONEmpty () throws Exception {
+    public static String getJSONEmpty() throws Exception {
         String eo = JSONInputReader.readInputJSN(TYPE.BT, EMPTY);
         return eo;
     }
@@ -35,7 +35,7 @@ public class BTProviderJSN {
     }
 
 
-    public static String readString () throws Exception {
+    public static String readString() throws Exception {
         return readInputJSN(TYPE.BT, STRING);
     }
 
@@ -52,7 +52,7 @@ public class BTProviderJSN {
         return eo;
     }
 
-    public static String readInteger () throws Exception {
+    public static String readInteger() throws Exception {
         return readInputJSN(TYPE.BT, INT);
     }
 
@@ -70,7 +70,7 @@ public class BTProviderJSN {
     }
 
 
-    public static String readLong () throws Exception {
+    public static String readLong() throws Exception {
         return readInputJSN(TYPE.BT, LONG);
     }
 
@@ -87,7 +87,7 @@ public class BTProviderJSN {
         return eo;
     }
 
-    public static String readFloat () throws Exception {
+    public static String readFloat() throws Exception {
         return readInputJSN(TYPE.BT, FLOAT);
     }
 
@@ -105,7 +105,7 @@ public class BTProviderJSN {
     }
 
 
-    public static String readDouble () throws Exception {
+    public static String readDouble() throws Exception {
         return readInputJSN(TYPE.BT, DOUBLE);
     }
 
@@ -123,7 +123,7 @@ public class BTProviderJSN {
     }
 
 
-    public static String readDate () throws Exception {
+    public static String readDate() throws Exception {
         return readInputJSN(TYPE.BT, DATE);
     }
 

@@ -8,7 +8,8 @@ import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
 
 /**
  * Created by werner.diwischek on 14.1.18.
@@ -136,6 +137,7 @@ public class EOToJSONBTTest extends TestHelper {
     public void withSubTestMap() throws Exception {
         BTProviderEO.createMapST();
     }
+
     @Test
     public void withSubTestList() throws Exception {
         BTProviderEO.createListST();
@@ -155,7 +157,6 @@ public class EOToJSONBTTest extends TestHelper {
     public void withAll() throws Exception {
         BTProviderEO.create();
     }
-
 
 
     @Test

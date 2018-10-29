@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.JsonConfig;
+import org.fluentcodes.projects.elasticobjects.config.Permissions;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
@@ -106,9 +107,20 @@ public class JsonCall extends FileCall {
         return read(adapter, new HashMap());
     }
 
-    public String read(EO adapter, Map attributes) throws Exception {
+    public String read(EO eo, Map attributes) throws Exception {
         if (!hasContent()) {
-            this.content = super.read(adapter, null);
+            this.content = super.read(eo, null);
+        }
+        if (eo.hasRoles()) {
+            try {
+                if (!this.getRolePermissions().hasPermissions(Permissions.READ, eo.getRoles())) {
+                    eo.warn("No permission!");
+                    return "No permissions!";
+                }
+            } catch (Exception e) {
+                eo.warn(e.getMessage());
+                return e.getMessage();
+            }
         }
         mapAttributes(attributes);
         mergeConfig();
@@ -116,9 +128,9 @@ public class JsonCall extends FileCall {
             if (isDynamicMapPath()) {
                 //TODO... has to be implemented where a value of the content defines the mapPath
             }
-            adapter.add(getMergePath()).map(content);
+            eo.add(getMergePath()).map(content);
         } else {
-            adapter.add(getPath()).map(content);
+            eo.add(getPath()).map(content);
         }
         return "";
     }
@@ -128,8 +140,8 @@ public class JsonCall extends FileCall {
     }
 
     @Override
-    public String write(EO adapter, Map attributes) throws Exception {
-        if (adapter == null) {
+    public String write(EO eo, Map attributes) throws Exception {
+        if (eo == null) {
             throw new Exception("Null adapter for write!");
         }
         setSerializationType(getJsonConfig().getSerializationType());
@@ -137,8 +149,8 @@ public class JsonCall extends FileCall {
         EOToJSON jsonBuilder = new EOToJSON();
         jsonBuilder.setStartIndent(this.indent);
         jsonBuilder.setSerializationType(this.serializationType);
-        String result = jsonBuilder.toJSON(adapter.getChild(super.getMapPath()));
-        super.write(adapter, attributes, result);
+        String result = jsonBuilder.toJSON(eo.getChild(super.getMapPath()));
+        super.write(eo, attributes, result);
         return "";
     }
 }

@@ -1,25 +1,22 @@
 {
-	"test":
-	{
-		"module":"test-resources",
-		"subModule":"main",
-		"naturalId":"test",
-		"scsKey":"test",
-		"fileKey":"test:test",
-		"fieldDelimiter":"fieldDelimiter",
-		"rowDelimiter":"rowDelimiter",
-		"listParams":
-		{
-			"rowHead":0
-		},
-		"description":"description",
-		"rolePermissions":
-		{
-			"read":"anonymRole",
-			"write":"guestRole",
-			"create":"testRoleCreate,adminRole",
-			"delete":"adminRole",
-			"execute":"superadminRole"
-		}
-	}
+  "test": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "test",
+    "scsKey": "test",
+    "fileKey": "test:test",
+    "fieldDelimiter": "fieldDelimiter",
+    "rowDelimiter": "rowDelimiter",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "description",
+    "rolePermissions": {
+      "read": "anonymRole",
+      "write": "guestRole",
+      "create": "testRoleCreate,adminRole",
+      "delete": "adminRole",
+      "execute": "superadminRole"
+    }
+  }
 }

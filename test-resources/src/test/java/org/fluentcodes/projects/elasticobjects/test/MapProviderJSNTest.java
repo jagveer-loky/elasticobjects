@@ -28,6 +28,7 @@ public class MapProviderJSNTest {
     public void createInteger() throws Exception {
         MapProviderJSN.createInteger();
     }
+
     @Test
     public void compareInteger() throws Exception {
         MapProviderJSN.compareInteger();
@@ -97,6 +98,7 @@ public class MapProviderJSNTest {
     public void createList() throws Exception {
         MapProviderJSN.createList();
     }
+
     @Test
     public void compareList() throws Exception {
         MapProviderJSN.compareList();
@@ -116,10 +118,12 @@ public class MapProviderJSNTest {
     public void createST() throws Exception {
         MapProviderJSN.createST();
     }
+
     @Test
     public void compareST() throws Exception {
         MapProviderJSN.compareST();
     }
+
     @Test
     public void createEOMapST() throws Exception {
         MapProviderJSN.createMapST();

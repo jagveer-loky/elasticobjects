@@ -13,7 +13,7 @@ public class STProviderJSNTest {
     public void compareEmpty() throws Exception {
         STProviderJSN.compareEmpty();
     }
-    
+
     @Test
     public void createString() throws Exception {
         STProviderJSN.createString();

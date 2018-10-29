@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.test;
 
-import com.sun.javafx.collections.MappingChange;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -21,7 +20,7 @@ public class MapProviderJSON {
         return JSONInputReader.readInputJSON(EMPTY);
     }
 
-    public static String getJSONEmpty () throws Exception {
+    public static String getJSONEmpty() throws Exception {
         String eo = JSONInputReader.readInputJSON(EMPTY);
         return eo;
     }
@@ -40,12 +39,12 @@ public class MapProviderJSON {
         return eo;
     }
 
-    public static String getJSONEmptyValues () throws Exception {
+    public static String getJSONEmptyValues() throws Exception {
         String eo = JSONInputReader.readInputJSON(EMPTY_VALUES);
         return eo;
     }
 
-    public static String readString () throws Exception {
+    public static String readString() throws Exception {
         return readInputJSON(STRING);
     }
 
@@ -63,7 +62,7 @@ public class MapProviderJSON {
         return eo;
     }
 
-    public static String readInteger () throws Exception {
+    public static String readInteger() throws Exception {
         return readInputJSON(INT);
     }
 
@@ -80,11 +79,12 @@ public class MapProviderJSON {
         assertInteger(eo);
         return eo;
     }
-    public static void assertInteger(final EO eo) throws Exception{
+
+    public static void assertInteger(final EO eo) throws Exception {
         Assert.assertEquals(new Long(S_INTEGER), eo.get(F_TEST_INTEGER));
     }
 
-    public static String readLong () throws Exception {
+    public static String readLong() throws Exception {
         return readInputJSON(LONG);
     }
 
@@ -102,7 +102,7 @@ public class MapProviderJSON {
         return eo;
     }
 
-    public static String readFloat () throws Exception {
+    public static String readFloat() throws Exception {
         return readInputJSON(FLOAT);
     }
 
@@ -119,12 +119,13 @@ public class MapProviderJSON {
         assertFloat(eo);
         return eo;
     }
+
     public static void assertFloat(final EO eo) throws Exception {
         Assert.assertEquals(new Double(SAMPLE_FLOAT.toString()), eo.get(F_TEST_FLOAT));
     }
 
 
-    public static String readDouble () throws Exception {
+    public static String readDouble() throws Exception {
         return readInputJSON(DOUBLE);
     }
 
@@ -143,7 +144,7 @@ public class MapProviderJSON {
     }
 
 
-    public static String readDate () throws Exception {
+    public static String readDate() throws Exception {
         return readInputJSON(DATE);
     }
 
@@ -160,7 +161,8 @@ public class MapProviderJSON {
         assertDate(eo);
         return eo;
     }
-    public static void assertDate(final EO eo) throws Exception{
+
+    public static void assertDate(final EO eo) throws Exception {
         Assert.assertEquals(SAMPLE_DATE.getTime(), eo.get(F_TEST_DATE));
     }
 
@@ -201,7 +203,8 @@ public class MapProviderJSON {
         assertMap(eo);
         return eo;
     }
-    public static void assertMap(final EO eo) throws Exception{
+
+    public static void assertMap(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_UNTYPED_MAP + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(F_UNTYPED_MAP + Path.DELIMITER + F_TEST_INTEGER));
     }
@@ -224,7 +227,8 @@ public class MapProviderJSON {
         assertList(eo);
         return eo;
     }
-    public static void assertList(final EO eo)throws Exception {
+
+    public static void assertList(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_UNTYPED_LIST + Path.DELIMITER + S0));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(F_UNTYPED_LIST + Path.DELIMITER + S1));
     }
@@ -246,7 +250,8 @@ public class MapProviderJSON {
         assertBT(eo);
         return eo;
     }
-    public static void assertBT(final EO eo) throws Exception{
+
+    public static void assertBT(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_BASIC_TEST + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(F_BASIC_TEST + Path.DELIMITER + F_TEST_INTEGER));
     }
@@ -324,7 +329,8 @@ public class MapProviderJSON {
         assertSmall(eo);
         return eo;
     }
-    public static void assertSmall(final EO eo) throws Exception{
+
+    public static void assertSmall(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(F_TEST_INTEGER));
     }
@@ -347,7 +353,8 @@ public class MapProviderJSON {
         assertSimple(eo);
         return eo;
     }
-    public static void assertSimple(final EO eo) throws Exception{
+
+    public static void assertSimple(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(F_TEST_INTEGER));
         Assert.assertEquals(SAMPLE_LONG, eo.get(F_TEST_LONG));
@@ -379,7 +386,8 @@ public class MapProviderJSON {
         asserts(eo);
         return eo;
     }
-    public static void asserts(final EO eo) throws Exception{
+
+    public static void asserts(final EO eo) throws Exception {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(F_TEST_INTEGER));
         Assert.assertEquals(SAMPLE_LONG, eo.get(F_TEST_LONG));
@@ -390,12 +398,12 @@ public class MapProviderJSON {
     }
 
 
-    public static String getJSONSmallWithKeys () throws Exception {
+    public static String getJSONSmallWithKeys() throws Exception {
         String eo = JSONInputReader.readInputJSON(SMALL_WITH_KEYS);
         return eo;
     }
 
-    public static String getJSONSmallWithKeysAndList () throws Exception {
+    public static String getJSONSmallWithKeysAndList() throws Exception {
         String eo = JSONInputReader.readInputJSON(SMALL_WITH_KEYS_AND_LIST);
         return eo;
     }
@@ -405,37 +413,33 @@ public class MapProviderJSON {
         if (keyValues == null || keyValues.length == 0) {
             return builder.append("}").toString();
         }
-        for (int i=0; i<keyValues.length;i++) {
+        for (int i = 0; i < keyValues.length; i++) {
             builder.append("\"");
             builder.append(keyValues[i]);
             builder.append("\":");
             i++;
-            if (i==keyValues.length) {
+            if (i == keyValues.length) {
                 builder.append("null");
                 continue;
             }
             Object object = keyValues[i];
             if (object instanceof String) {
-                String value = (String)keyValues[i];
-                if (value.startsWith("[")||value.startsWith("{")) {
+                String value = (String) keyValues[i];
+                if (value.startsWith("[") || value.startsWith("{")) {
                     builder.append(keyValues[i]);
-                }
-                else {
+                } else {
                     builder.append("\"");
                     builder.append(keyValues[i]);
                     builder.append("\"");
                 }
-            }
-            else if (object instanceof List) {
+            } else if (object instanceof List) {
                 builder.append("[]");
-            }
-            else if (object instanceof Map) {
+            } else if (object instanceof Map) {
                 builder.append("{}");
-            }
-            else {
+            } else {
                 builder.append(keyValues[i]);
             }
-            if (i!=keyValues.length-1) {
+            if (i != keyValues.length - 1) {
                 builder.append(",");
             }
         }

@@ -47,8 +47,7 @@ public class ModelsEmptyTest extends TestHelper {
         try {
             final Models childModels = models.createChildForSet(null, null);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION);
         }
     }

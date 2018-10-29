@@ -128,7 +128,6 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     }
 
 
-
     /**
      * Given eo builder
      * when adding json list empty
@@ -169,7 +168,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Test
     public void mapBTString_ok() throws Exception {
         EO root = EOTest.mapValue_ok(BTProvider.createString());
-        Assert.assertNotNull(((EOContainer)root).getChildAdapter(F_TEST_STRING));
+        Assert.assertNotNull(((EOContainer) root).getChildAdapter(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
     }
 
@@ -232,7 +231,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
         EO adapter = EOTest.mapValue_ok(map);
 
         map.put(S_KEY1, map);
-        Assert.assertEquals(S_STRING, ((Map)map.get(S_KEY1)).get(F_TEST_STRING));
+        Assert.assertEquals(S_STRING, ((Map) map.get(S_KEY1)).get(F_TEST_STRING));
         Assert.assertNull(INFO_NULL_FAILS, adapter.get(S_KEY1));
     }
 
@@ -245,7 +244,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
         EO adapter = EOTest.mapValue_ok(map);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, adapter.get(F_TEST_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, adapter.get(toPath(S_KEY1,F_TEST_STRING)));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, adapter.get(toPath(S_KEY1, F_TEST_STRING)));
     }
 
 

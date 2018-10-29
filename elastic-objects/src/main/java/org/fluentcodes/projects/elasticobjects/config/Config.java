@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.models.Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

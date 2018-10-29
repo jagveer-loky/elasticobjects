@@ -1,15 +1,13 @@
 {
-	"h2":
-	{
-		"hostKey":"h2",
-		"protocol":"jdbc:h2",
-		"user":"sa",
-		"rolePermissions":
-		{
-		},
-		"module":"test-resources",
-		"subModule":"main",
-		"description":"H2 Host Definition",
-		"naturalId":"h2"
-	}
+  "h2": {
+    "hostKey": "h2",
+    "protocol": "jdbc:h2",
+    "user": "sa",
+    "rolePermissions": {
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "description": "H2 Host Definition",
+    "naturalId": "h2"
+  }
 }

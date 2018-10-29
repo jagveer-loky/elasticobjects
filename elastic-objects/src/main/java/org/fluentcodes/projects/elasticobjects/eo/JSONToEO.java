@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 /**
  * A JSONToEO  extracts characters and tokens from a JSON serialized String.
  * Core source from JSON.org.
+ *
  * @author Werner Diwischek
  * @since 10.6.2016
  */
@@ -115,8 +116,9 @@ public class JSONToEO {
     }
 
     private boolean isEof() throws Exception {
-        return reader.read() < 0 ;
+        return reader.read() < 0;
     }
+
     /**
      * Get the next character in the source getSerialized.
      *
@@ -282,8 +284,7 @@ public class JSONToEO {
                     throw syntaxError("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
                 }
                 createChild(currentAdapter, key);
-            }
-            else if (startFlag) {
+            } else if (startFlag) {
                 back();
                 final String key = this.nextKey();
                 if (this.nextClean() != ':') {
@@ -291,8 +292,7 @@ public class JSONToEO {
                 }
                 createChild(currentAdapter, key);
                 startFlag = false;
-            }
-            else {
+            } else {
                 throw new Exception("Expected colon not found but '" + c + "'!");
             }
         }
@@ -314,15 +314,13 @@ public class JSONToEO {
             if (next == ',') {
                 this.createChild(currentEO, new Integer(counter).toString());
                 counter++;
-            }
-            else if (counter == 0) {
+            } else if (counter == 0) {
                 back();
                 this.createChild(currentEO, new Integer(counter).toString());
                 counter++;
-            }
-            else {
+            } else {
                 throw new Exception("Expected colon is not set but '" + next + "'!");
-             }
+            }
         }
     }
 
@@ -360,7 +358,7 @@ public class JSONToEO {
         // see if fieldName has a model information '(ModelKey)fieldName'
         String name = rawFieldName;
         Models models = null;
-        if (rawFieldName!=null && !rawFieldName.isEmpty()) {
+        if (rawFieldName != null && !rawFieldName.isEmpty()) {
             Matcher modelInName = EOBuilder.modelPattern.matcher(rawFieldName);
             if (modelInName.find()) {
                 String model = modelInName.group(1);
@@ -376,26 +374,26 @@ public class JSONToEO {
                     throw this.syntaxError(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                    parentAdapter
-                            .add(name)
-                            .setModels(models)
-                            .map(value);
+                parentAdapter
+                        .add(name)
+                        .setModels(models)
+                        .map(value);
                 return parentAdapter;
 
             case '{':
-                if (name==null) {
+                if (name == null) {
                     this.mapObject(parentAdapter);
                     return parentAdapter;
                 }
                 switch (name) {
-                    case(DATA):  // Map directly to the parentAdapter
-                        if (parentAdapter.isEmpty() && models !=null) {
+                    case (DATA):  // Map directly to the parentAdapter
+                        if (parentAdapter.isEmpty() && models != null) {
                             ((EOScalar) parentAdapter).setModels(models);
                         }
                         this.mapObject(parentAdapter);
                         return parentAdapter;
 
-                    case(LOGS):  // Create a log
+                    case (LOGS):  // Create a log
                         EO logAdapter = new EOBuilder(((EOScalar) parentAdapter).getConfigsCache())
                                 .setModels(LoggingObjectsImpl.class.getSimpleName())
                                 .set(this);
@@ -446,15 +444,13 @@ public class JSONToEO {
                             parentAdapter = new EOBuilder(this.provider)
                                     .setModels(List.class.getSimpleName())
                                     .build();
-                        }
-                        else {
+                        } else {
                             ModelInterface model = parentAdapter.getModel();
                             if (model.isMap()) {
                                 if (model.getModelClass() == Map.class) {
                                     ((EOScalar) parentAdapter).setModelClasses(List.class);
                                 }
-                            }
-                            else if (model.isObject()) {
+                            } else if (model.isObject()) {
                                 throw new Exception("Could not map an array to an object!");
                             }
                         }
@@ -499,10 +495,10 @@ public class JSONToEO {
         /*
         Now everything else beside String, List or Map: Integer, Boolean...
          */
-            parentAdapter
-                    .add(name)
-                    .setModels(models)
-                    .map(value);
+        parentAdapter
+                .add(name)
+                .setModels(models)
+                .map(value);
         return parentAdapter;
     }
 

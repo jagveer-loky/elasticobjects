@@ -3,13 +3,10 @@ package org.fluentcodes.projects.elasticobjects.test;
 import com.sun.javafx.collections.MappingChange;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
-import org.junit.Assert;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_CONTENT;
-
-public class MapProviderEODev  {
+public class MapProviderEODev {
     public static EOBuilder builder() {
         return DevObjectProvider.createEOBuilder();
     }
@@ -51,6 +48,7 @@ public class MapProviderEODev  {
         BTProviderEO.assertBoolean(eo);
         return eo;
     }
+
     public static EO createMap() throws Exception {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createMap());
         BTProviderEO.assertMap(eo);

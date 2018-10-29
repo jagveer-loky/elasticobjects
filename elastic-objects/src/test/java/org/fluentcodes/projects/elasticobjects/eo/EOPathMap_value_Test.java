@@ -61,13 +61,12 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
 
-
     @Test
     public void givenMapString_withLinkedHashMap_fails() throws Exception {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         EOTest
                 .mapEO_fails(eoMapString, F_TEST_STRING, new LinkedHashMap());
-     }
+    }
 
     @Test
     public void givenMapSTEmpty_withST_ok() throws Exception {
@@ -88,7 +87,7 @@ public class EOPathMap_value_Test extends TestHelper {
     @Test
     public void givenMapEmpty_withSTAndLongerPath() throws Exception {
         final EO eoMapEmpty = TestObjectProvider.createEOFromJson();
-        final String path = toPath(F_TEST_OBJECT,F_SUB_TEST);
+        final String path = toPath(F_TEST_OBJECT, F_SUB_TEST);
         final EO child = eoMapEmpty
                 .add(path)
                 .map(STProvider.createSimple());
@@ -105,7 +104,7 @@ public class EOPathMap_value_Test extends TestHelper {
         eoMap.add(S_LEVEL0)
                 .map(MapProvider.createSmall());
 
-        eoMap.add(toPath(S_LEVEL0,F_TEST_INTEGER))
+        eoMap.add(toPath(S_LEVEL0, F_TEST_INTEGER))
                 .map(MapProvider.createSmall());
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eoMap.getLog().isEmpty());
     }
@@ -179,7 +178,6 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
 
-
     /**
      * Given eo empty with no Model
      * when adding jsn map all to a longer path
@@ -187,7 +185,7 @@ public class EOPathMap_value_Test extends TestHelper {
      */
     @Test
     public void givenMapEmpty_withJsnAllPath2_ok() throws Exception {
-        final EO eoEmpty  = TestObjectProvider.createEOFromJson();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final String jsnAll = MapProviderJSN.readAll();
 
         final EO child = eoEmpty.add()
@@ -204,7 +202,7 @@ public class EOPathMap_value_Test extends TestHelper {
      */
     @Test
     public void givenMapEmpty_withJsonAllPath2_ok() throws Exception {
-        final EO eoEmpty  = TestObjectProvider.createEOFromJson();
+        final EO eoEmpty = TestObjectProvider.createEOFromJson();
         final String jsonAll = MapProviderJSON.readAll();
 
         final EO child = eoEmpty.add()
@@ -352,7 +350,6 @@ public class EOPathMap_value_Test extends TestHelper {
         EOTest
                 .mapEO_fails(eoBTEmpty, F_SUB_TEST_MAP, json);
     }
-
 
 
 }

@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.eo;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderJSON;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
@@ -10,6 +9,8 @@ import org.junit.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by werner.diwischek on 14.1.18.

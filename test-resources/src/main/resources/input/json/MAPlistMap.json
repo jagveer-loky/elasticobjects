@@ -1,7 +1,6 @@
 [
-	
-	{
-		"testString":"test",
-		"testInt":1
-	}
+  {
+    "testString": "test",
+    "testInt": 1
+  }
 ]

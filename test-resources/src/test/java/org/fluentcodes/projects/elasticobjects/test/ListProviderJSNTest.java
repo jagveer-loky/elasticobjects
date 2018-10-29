@@ -28,6 +28,7 @@ public class ListProviderJSNTest {
     public void createInteger() throws Exception {
         ListProviderJSN.createInteger();
     }
+
     @Test
     public void compareInteger() throws Exception {
         ListProviderJSN.compareInteger();
@@ -97,6 +98,7 @@ public class ListProviderJSNTest {
     public void createList() throws Exception {
         ListProviderJSN.createList();
     }
+
     @Test
     public void compareList() throws Exception {
         ListProviderJSN.compareList();
@@ -116,6 +118,7 @@ public class ListProviderJSNTest {
     public void createST() throws Exception {
         ListProviderJSN.createST();
     }
+
     @Test
     public void compareST() throws Exception {
         ListProviderJSN.compareST();

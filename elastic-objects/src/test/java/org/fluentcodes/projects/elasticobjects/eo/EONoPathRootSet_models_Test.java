@@ -2,7 +2,10 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.BTProviderEO;
+import org.fluentcodes.projects.elasticobjects.test.EOTest;
+import org.fluentcodes.projects.elasticobjects.test.MapProviderEODev;
+import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,14 +32,14 @@ public class EONoPathRootSet_models_Test extends TestHelper {
     public void givenMapString_WithInteger_changeNothing() throws Exception {
         final EO eoString = MapProviderEODev.createString();
         EOTest.setEO_ok(eoString, Integer.class);
-  }
+    }
 
     @Test
     public void givenMapString_withHashMap_changeNothing() throws Exception {
         final EO eoString = MapProviderEODev.createString();
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get(F_TEST_STRING));
         EOTest.setEO_ok(eoString, LinkedHashMap.class);
-     }
+    }
 
     @Test
     public void givenBTString_withMap_changeNothing() throws Exception {

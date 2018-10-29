@@ -20,7 +20,7 @@ public class EOPathNewRootMap_value_models_Test {
 
     @Test
     public void mapInteger_ok() throws Exception {
-        EOTest.map_ok(F_TEST_INTEGER,S_INTEGER,  Integer.class);
+        EOTest.map_ok(F_TEST_INTEGER, S_INTEGER, Integer.class);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class EOPathNewRootMap_value_models_Test {
     @Test
     public void mapBTStringWithMap_ok() throws Exception {
         final EO child = EOTest.map_ok(F_UNTYPED_MAP, BTProvider.createString(), Map.class);
-        Assert.assertNotNull(((EOContainer)child).getChildAdapter(F_TEST_STRING));
+        Assert.assertNotNull(((EOContainer) child).getChildAdapter(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, child.get(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, child.getModelClass());
     }

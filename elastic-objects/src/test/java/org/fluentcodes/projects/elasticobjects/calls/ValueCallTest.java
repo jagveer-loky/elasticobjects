@@ -2,16 +2,18 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_MAP_PATH;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_VALUE;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 13.4.2017.
@@ -60,7 +62,8 @@ public class ValueCallTest extends TestHelper {
 
     @Test
     public void content_default() throws Exception {
-        final EO eo = TestCallsProvider.createValueCallWithEOEmpty(VC_CONTENT);;
+        final EO eo = TestCallsProvider.createValueCallWithEOEmpty(VC_CONTENT);
+        ;
         Assert.assertEquals(S_STRING, eo.get(SAMPLE_CONTENT));
     }
 }

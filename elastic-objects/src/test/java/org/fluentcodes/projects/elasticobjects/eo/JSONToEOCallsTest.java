@@ -44,7 +44,7 @@ public class JSONToEOCallsTest extends TestHelper {
         Assert.assertTrue(eoScs.hasCalls());
         eoScs.executeCalls();
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, eoScs.getChild(S_PATH1 + Path.DELIMITER + S0));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_VALUE11, eoScs.getChild(S_PATH1 + Path.DELIMITER  + S0).get(S_KEY1));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_VALUE11, eoScs.getChild(S_PATH1 + Path.DELIMITER + S0).get(S_KEY1));
         AssertEO.compare(eoScs);
     }
 
@@ -58,7 +58,7 @@ public class JSONToEOCallsTest extends TestHelper {
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, eoScs.getChild(S0));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_VALUE11, eoScs.getChild(S0).get(S_KEY1));
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, eoScs.getChild(S_PATH1 + Path.DELIMITER + S0));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_VALUE11, eoScs.getChild(S_PATH1 + Path.DELIMITER  + S0).get(S_KEY1));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_VALUE11, eoScs.getChild(S_PATH1 + Path.DELIMITER + S0).get(S_KEY1));
         AssertEO.compare(eoScs);
     }
 

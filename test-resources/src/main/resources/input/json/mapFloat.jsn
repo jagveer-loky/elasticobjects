@@ -1,6 +1,5 @@
 {
-"_data":
-	{
-		"(Float)testFloat":1.1
-	}
+  "_data": {
+    "(Float)testFloat": 1.1
+  }
 }

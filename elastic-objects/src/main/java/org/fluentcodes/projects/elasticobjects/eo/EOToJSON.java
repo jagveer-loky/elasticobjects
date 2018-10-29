@@ -14,14 +14,13 @@ import java.util.List;
  * Created by werner.diwischek on 13.01.18.
  */
 public class EOToJSON {
+    public static final String REPEATED = ".repeated";
     private int startIndent = 0;
     private PathPattern pathPattern;
     private JSONSerializationType serializationType;
     private boolean checkObjectReplication = false;
     private List<EO> objectRegistry;
     private String spacer = "\t";
-    public static final String REPEATED = ".repeated";
-
 
 
     public EOToJSON() {
@@ -105,7 +104,7 @@ public class EOToJSON {
         jsn.append(JSONToEO.DATA);
         jsn.append("\":");
         jsn.append(lineBreak);
-        toJSON(jsn, adapter, startIndent + 1 , this.pathPattern);
+        toJSON(jsn, adapter, startIndent + 1, this.pathPattern);
 
         ExecutorList executorList = adapter.getCalls();
         if (executorList.size() > 0) {
@@ -156,7 +155,7 @@ public class EOToJSON {
             }
         }
 
-        this.addStart(json, adapter,indent);
+        this.addStart(json, adapter, indent);
 
         List<String> fieldNames;
         try {
@@ -194,16 +193,15 @@ public class EOToJSON {
             }
             json.append(lineBreak);
             // named serialization ....
-            if (adapter.getModel().isMapType() || serializationType==JSONSerializationType.EO) {
+            if (adapter.getModel().isMapType() || serializationType == JSONSerializationType.EO) {
                 json.append(nextIndent);
                 json.append("\"");
-                if (serializationType==JSONSerializationType.EO) {
+                if (serializationType == JSONSerializationType.EO) {
                     addEOModel(json, childAdapter, isTyped);
                 }
                 json.append(fieldName);
                 json.append("\":");
-            }
-            else {
+            } else {
                 json.append(nextIndent);
             }
             if (childAdapter.isScalar() || childAdapter.getModel().isToSerialize()) {
@@ -219,7 +217,7 @@ public class EOToJSON {
     }
 
     private final void addEOModel(final StringBuilder jsn, final EO adapter, boolean isParentTyped) {
-        if (isParentTyped && adapter.getModelClass()!=Object.class) {
+        if (isParentTyped && adapter.getModelClass() != Object.class) {
             return;
         }
         if (adapter.hasDefaultMap()) {
@@ -296,10 +294,9 @@ public class EOToJSON {
     private void addScalarSimple(final StringBuilder buffer, final Class modelClass, final String value) {
         if (modelClass == String.class || modelClass.isEnum()) {
             buffer.append("\"");
-            buffer.append(value.replaceAll("\"","\\\""));
+            buffer.append(value.replaceAll("\"", "\\\""));
             buffer.append("\"");
-        }
-        else {
+        } else {
             buffer.append(value);
         }
     }
@@ -319,8 +316,7 @@ public class EOToJSON {
         String value = stringify(adapter.get());
         if (serializationType != JSONSerializationType.SCALAR) {
             addScalarSimple(buffer, adapter.getModelClass(), value);
-        }
-        else {
+        } else {
             addScalarTyped(buffer, adapter.getModels(), value);
         }
     }

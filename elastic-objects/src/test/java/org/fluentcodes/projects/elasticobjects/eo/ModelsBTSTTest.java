@@ -40,8 +40,7 @@ public class ModelsBTSTTest extends TestHelper {
         try {
             final Models childModels = models.createChildForSet(F_SUB_TEST, empty, null);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info("Expected Exception getting child with set and JSONToEO");
         }
     }
@@ -58,10 +57,9 @@ public class ModelsBTSTTest extends TestHelper {
     public void mapString_fails() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
         try {
-            models.createChildForMap(F_SUB_TEST,S_STRING);
+            models.createChildForMap(F_SUB_TEST, S_STRING);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -70,10 +68,9 @@ public class ModelsBTSTTest extends TestHelper {
     public void setString_fails() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
         try {
-            models.createChildForSet(F_SUB_TEST,S_STRING);
+            models.createChildForSet(F_SUB_TEST, S_STRING);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -84,8 +81,7 @@ public class ModelsBTSTTest extends TestHelper {
         try {
             models.createChildForSet(F_SUB_TEST, MapProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -103,8 +99,7 @@ public class ModelsBTSTTest extends TestHelper {
         try {
             models.createChildForSet(F_SUB_TEST, ListProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -115,8 +110,7 @@ public class ModelsBTSTTest extends TestHelper {
         try {
             models.createChildForMap(F_SUB_TEST, ListProvider.createEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -124,7 +118,7 @@ public class ModelsBTSTTest extends TestHelper {
     @Test
     public void setSubTest_ok() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
-        Models child = models.createChildForSet(F_SUB_TEST,new SubTest(), null);
+        Models child = models.createChildForSet(F_SUB_TEST, new SubTest(), null);
         Assert.assertEquals(SubTest.class, child.getModelClass());
     }
 
@@ -132,10 +126,9 @@ public class ModelsBTSTTest extends TestHelper {
     public void setBasicTest_fails() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
         try {
-            models.createChildForSet(F_SUB_TEST,new BasicTest(), null);
+            models.createChildForSet(F_SUB_TEST, new BasicTest(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
@@ -144,7 +137,7 @@ public class ModelsBTSTTest extends TestHelper {
     public void mapBasicTest_ok() throws Exception {
         TestHelper.printStartMethod();
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
-        final Models child = models.createChildForMap(F_SUB_TEST,new BasicTest());
+        final Models child = models.createChildForMap(F_SUB_TEST, new BasicTest());
         Assert.assertEquals(SubTest.class, child.getModelClass());
     }
 }

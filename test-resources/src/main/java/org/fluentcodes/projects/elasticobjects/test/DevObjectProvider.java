@@ -2,18 +2,16 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.config.Scope;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.Scope;
 import org.fluentcodes.projects.elasticobjects.test.JSONInputReader.TYPE;
 import org.junit.Assert;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
@@ -22,12 +20,11 @@ public class DevObjectProvider {
     public static final EOConfigsCache EO_CONFIGS_CACHE = new EOConfigsCache(Scope.DEV);
     private static final Logger LOG = LogManager.getLogger(DevObjectProvider.class);
 
-    public static final EOBuilder createEOBuilder()  {
+    public static final EOBuilder createEOBuilder() {
         try {
             return new EOBuilder(EO_CONFIGS_CACHE)
                     .setLogLevel(LogLevel.WARN);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -77,11 +74,13 @@ public class DevObjectProvider {
     }
 
     public static final EO createEOMapStringLevel0() throws Exception {
-        return createEOMapStringPath(toPath(S_LEVEL0,F_TEST_STRING));
+        return createEOMapStringPath(toPath(S_LEVEL0, F_TEST_STRING));
     }
+
     public static final EO createEOMapStringLevel1() throws Exception {
-        return createEOMapStringPath(toPath(S_LEVEL0,S_LEVEL1,F_TEST_STRING));
+        return createEOMapStringPath(toPath(S_LEVEL0, S_LEVEL1, F_TEST_STRING));
     }
+
     public static final EO createEOMapStringLevel2() throws Exception {
         return createEOMapStringPath(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, F_TEST_STRING));
     }

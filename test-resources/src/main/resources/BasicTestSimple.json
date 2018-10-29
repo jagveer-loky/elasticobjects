@@ -1,24 +1,23 @@
 [
-	{
-		"testString":"testString1",
-		"testInt":1,
-		"testLong":1,
-		"testFloat":1.1,
-		"testDouble":1.1
-	},
-	{
-		"testString":"testString2",
-		"testInt":2,
-		"testLong":2,
-		"testFloat":2.1,
-		"testDouble":2.1
-	}
-,
-	{
-		"testString":"testString3",
-		"testInt":3,
-		"testLong":3,
-		"testFloat":3.1,
-		"testDouble":3.1
-	}
+  {
+    "testString": "testString1",
+    "testInt": 1,
+    "testLong": 1,
+    "testFloat": 1.1,
+    "testDouble": 1.1
+  },
+  {
+    "testString": "testString2",
+    "testInt": 2,
+    "testLong": 2,
+    "testFloat": 2.1,
+    "testDouble": 2.1
+  },
+  {
+    "testString": "testString3",
+    "testInt": 3,
+    "testLong": 3,
+    "testFloat": 3.1,
+    "testDouble": 3.1
+  }
 ]

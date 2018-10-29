@@ -44,16 +44,17 @@ public class PathPattern {
     }
 
     public boolean isEmpty() {
-        return paths == null || paths.isEmpty() || paths.get(0) == null ;
+        return paths == null || paths.isEmpty() || paths.get(0) == null;
     }
+
     public boolean isFilterNothing() {
-        return isEmpty() || paths.get(0).isFilterNothing() ;
+        return isEmpty() || paths.get(0).isFilterNothing();
     }
 
     public boolean isAll() {
-        for (Path path:paths) {
+        for (Path path : paths) {
             String actual = path.first();
-            if (actual.equals(Path.MATCHER_ALL)||actual.equals(Path.MATCHER)) {
+            if (actual.equals(Path.MATCHER_ALL) || actual.equals(Path.MATCHER)) {
                 return true;
             }
         }
@@ -207,6 +208,13 @@ public class PathPattern {
         return getSerialized(true);
     }
 
+    public void setSerialized(String pathsAsString) {
+        if (pathsAsString == null || pathsAsString.isEmpty()) {
+            return;
+        }
+        addPaths(pathsAsString.split(","));
+    }
+
     public String getSerialized(boolean absolute) {
         StringBuffer buffer = new StringBuffer("");
         int counter = 0;
@@ -218,13 +226,6 @@ public class PathPattern {
             counter++;
         }
         return buffer.toString();
-    }
-
-    public void setSerialized(String pathsAsString) {
-        if (pathsAsString == null || pathsAsString.isEmpty()) {
-            return;
-        }
-        addPaths(pathsAsString.split(","));
     }
 
 }

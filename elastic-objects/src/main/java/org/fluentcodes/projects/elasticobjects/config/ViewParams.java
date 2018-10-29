@@ -22,9 +22,11 @@ public class ViewParams {
         this.viewKey = ScalarConverter.toString(map.get(EO_STATIC.F_VIEW_KEY));
         this.inputKey = ScalarConverter.toString(map.get(EO_STATIC.F_INPUT_KEY));
     }
+
     public String getViewKey() {
         return viewKey;
     }
+
     public String getInputKey() {
         return inputKey;
     }

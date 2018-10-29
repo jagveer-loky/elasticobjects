@@ -1,70 +1,61 @@
 {
-	"content":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"content",
-		"valueKey":"content",
-		"value":"test",
-		"mapPath":"content",
-		"description":"With a mapPath value."
-	},
-	"empty":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"empty",
-		"valueKey":"empty",
-		"description":"Empty for general purpose setting the value by attributes. "
-	},
-	"intValue1":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"intValue1",
-		"valueKey":"intValue1",
-		"value":1,
-		"description":"Sets integer value '1'."
-	},
-	"testItem.TEST":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"testItem.TEST",
-		"valueKey":"testItem",
-		"value":"content",
-		"scope":
-		[
-			"TEST"
-		],
-		"description":"For scope tests."
-	},
-	"testItem.QS":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"testItem.QS",
-		"valueKey":"testItem",
-		"value":"testOther",
-		"scope":
-		[
-			"QS"
-		],
-		"description":"For scope tests."
-	},
-	"testItem":
-	{
-		"module":"elastic-objects",
-		"subModule":"test",
-		"naturalId":"testItem",
-		"valueKey":"testItem",
-		"value":"test",
-		"scope":
-		[
-			"PROD",
-			"INT",
-			"STAGE"
-		],
-		"description":"For scope tests."
-	}
+  "content": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "content",
+    "valueKey": "content",
+    "value": "test",
+    "mapPath": "content",
+    "description": "With a mapPath value."
+  },
+  "empty": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "empty",
+    "valueKey": "empty",
+    "description": "Empty for general purpose setting the value by attributes. "
+  },
+  "intValue1": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "intValue1",
+    "valueKey": "intValue1",
+    "value": 1,
+    "description": "Sets integer value '1'."
+  },
+  "testItem.TEST": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "testItem.TEST",
+    "valueKey": "testItem",
+    "value": "content",
+    "scope": [
+      "TEST"
+    ],
+    "description": "For scope tests."
+  },
+  "testItem.QS": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "testItem.QS",
+    "valueKey": "testItem",
+    "value": "testOther",
+    "scope": [
+      "QS"
+    ],
+    "description": "For scope tests."
+  },
+  "testItem": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "testItem",
+    "valueKey": "testItem",
+    "value": "test",
+    "scope": [
+      "PROD",
+      "INT",
+      "STAGE"
+    ],
+    "description": "For scope tests."
+  }
 }

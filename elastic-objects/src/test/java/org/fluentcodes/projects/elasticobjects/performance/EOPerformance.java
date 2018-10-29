@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.test.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
@@ -15,10 +14,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 @Ignore
 public class EOPerformance extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPerformance.class);
     private static final int maxRoot = 300000;
+
     private EOBuilder builder() throws Exception {
         return TestObjectProvider.createEOBuilder();
     }
@@ -47,26 +48,26 @@ public class EOPerformance extends TestHelper {
     }
 
     private String testMap(int counter) throws Exception {
-        Map <String, String> map= new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         StringBuilder builder = new StringBuilder();
-        for (int i=0;i<counter; i++) {
-            builder.append("Map " + i + "       : " + rootPerformance (map) + "\n");
+        for (int i = 0; i < counter; i++) {
+            builder.append("Map " + i + "       : " + rootPerformance(map) + "\n");
             map.put(new Integer(i).toString(), new Integer(i).toString());
         }
         return builder.toString();
     }
 
-    private String testList( int counter) throws Exception {
-        List<String> map= new ArrayList<>();
+    private String testList(int counter) throws Exception {
+        List<String> map = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
-        for (int i=0;i<counter; i++) {
-            builder.append("List " + i + "      : " + rootPerformance (map) + "\n");
+        for (int i = 0; i < counter; i++) {
+            builder.append("List " + i + "      : " + rootPerformance(map) + "\n");
             map.add(new Integer(i).toString());
         }
         return builder.toString();
     }
 
-    private long mapRootPerformance (Object object) throws Exception {
+    private long mapRootPerformance(Object object) throws Exception {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
             builder()

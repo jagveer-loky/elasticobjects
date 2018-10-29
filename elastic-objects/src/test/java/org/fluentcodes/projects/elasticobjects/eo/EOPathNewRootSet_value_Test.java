@@ -2,7 +2,10 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.EOTest;
+import org.fluentcodes.projects.elasticobjects.test.ListProvider;
+import org.fluentcodes.projects.elasticobjects.test.MapProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +29,7 @@ public class EOPathNewRootSet_value_Test {
         List<String> list = ListProvider.toList(S_STRING);
         adapter.add(S_PATH2)
                 .set(list);
-        Assert.assertEquals(S_STRING, adapter.get(toPath(S_PATH2,S0)));
+        Assert.assertEquals(S_STRING, adapter.get(toPath(S_PATH2, S0)));
     }
 }
 

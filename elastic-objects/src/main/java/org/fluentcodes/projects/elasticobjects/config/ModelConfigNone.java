@@ -119,6 +119,7 @@ public class ModelConfigNone extends ModelConfig implements ModelInterface {
     public boolean isListType() {
         return false;
     }
+
     public boolean isMapType() {
         return false;
     }

@@ -1,7 +1,6 @@
 {
-	"untypedMap":
-	{
-		"testString":"test",
-		"testInt":1
-	}
+  "untypedMap": {
+    "testString": "test",
+    "testInt": 1
+  }
 }

@@ -2,12 +2,13 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 
 public class EOPath_Test extends TestHelper {
@@ -36,7 +37,7 @@ public class EOPath_Test extends TestHelper {
 
     @Test
     public void withPath3() throws Exception {
-        final String path2= toPath(S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
+        final String path2 = toPath(S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
         final EO adapter = TestObjectProvider.createEOFromJson();
         final EO childAdapter = adapter
                 .add(S_PATH3)

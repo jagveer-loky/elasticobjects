@@ -28,6 +28,7 @@ public class BTProviderJSNTest {
     public void createInteger() throws Exception {
         BTProviderJSN.createInteger();
     }
+
     @Test
     public void compareInteger() throws Exception {
         BTProviderJSN.compareInteger();
@@ -97,6 +98,7 @@ public class BTProviderJSNTest {
     public void createList() throws Exception {
         BTProviderJSN.createList();
     }
+
     @Test
     public void compareList() throws Exception {
         BTProviderJSN.compareList();
@@ -116,10 +118,12 @@ public class BTProviderJSNTest {
     public void createST() throws Exception {
         BTProviderJSN.createST();
     }
+
     @Test
     public void compareST() throws Exception {
         BTProviderJSN.compareST();
     }
+
     @Test
     public void createEOMapST() throws Exception {
         BTProviderJSN.createMapST();

@@ -49,17 +49,17 @@ public class EOPathSet_value_Test extends TestHelper {
     public void givenMapEmpty_withStringPath2_ok() throws Exception {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         EOTest
-                .setEO_ok(eoMapString,S_PATH2, S_STRING);
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING,  eoMapString.get(S_PATH2));
+                .setEO_ok(eoMapString, S_PATH2, S_STRING);
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoMapString.get(S_PATH2));
     }
 
     @Test
     public void givenMapString_withHashMap_ok() throws Exception {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         EOTest
-                .setEO_ok(eoMapString,F_TEST_STRING, new  LinkedHashMap());
-        Assert.assertEquals(INFO_COMPARE_FAILS, 0,  eoMapString.getChild(F_TEST_STRING).size());
-     }
+                .setEO_ok(eoMapString, F_TEST_STRING, new LinkedHashMap());
+        Assert.assertEquals(INFO_COMPARE_FAILS, 0, eoMapString.getChild(F_TEST_STRING).size());
+    }
 
 
     @Test
@@ -81,12 +81,12 @@ public class EOPathSet_value_Test extends TestHelper {
     public void givenMapMapString_withString_ok() throws Exception {
         final EO eoMapEmpty = DevObjectProvider.createEO();
         EO child = EOTest
-                .setEO_ok(eoMapEmpty,F_UNTYPED_MAP, MapProvider.createString());
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING,  child.get(F_TEST_STRING));
+                .setEO_ok(eoMapEmpty, F_UNTYPED_MAP, MapProvider.createString());
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, child.get(F_TEST_STRING));
         EOTest
-                .setEO_ok(eoMapEmpty,F_UNTYPED_MAP, S_STRING);
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING,  eoMapEmpty.get(F_UNTYPED_MAP));
-        Assert.assertNull(INFO_NULL_FAILS,  child.get(F_TEST_STRING));
+                .setEO_ok(eoMapEmpty, F_UNTYPED_MAP, S_STRING);
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoMapEmpty.get(F_UNTYPED_MAP));
+        Assert.assertNull(INFO_NULL_FAILS, child.get(F_TEST_STRING));
     }
 
     @Test
@@ -173,7 +173,7 @@ public class EOPathSet_value_Test extends TestHelper {
         eoEmpty.add(F_TEST_FLOAT)
                 .setModels(Float.class)
                 .set(SAMPLE_FLOAT.toString());
-        Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT,  eoEmpty.get(F_TEST_FLOAT));
+        Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT, eoEmpty.get(F_TEST_FLOAT));
     }
 
     @Test
@@ -193,7 +193,6 @@ public class EOPathSet_value_Test extends TestHelper {
     }
 
 
-
     @Test
     public void givenBTUntypedMap_withLinkedHashMap_ok() throws Exception {
         final EO eoBTUntypedMap = BTProviderEO.createMap();
@@ -208,7 +207,7 @@ public class EOPathSet_value_Test extends TestHelper {
     @Test
     public void givenBTEmpty_withSTString_ok() throws Exception {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
-        final String path = toPath(F_SUB_TEST,F_TEST_STRING);
+        final String path = toPath(F_SUB_TEST, F_TEST_STRING);
         EOTest
                 .setEO_ok(eoBTEmpty, path, S_INTEGER, Integer.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.toString(), eoBTEmpty.get(path));
@@ -238,7 +237,7 @@ public class EOPathSet_value_Test extends TestHelper {
     @Test
     public void givenListBTEmpty_withSTString_ok() throws Exception {
         final EO eoBTEmpty = TestObjectProvider.createEOFromJson(List.class, BasicTest.class);
-        final String path = toPath(S0, F_SUB_TEST,F_TEST_STRING);
+        final String path = toPath(S0, F_SUB_TEST, F_TEST_STRING);
         EOTest
                 .setEO_ok(eoBTEmpty, path, S_STRING);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoBTEmpty.get(path));
@@ -247,7 +246,7 @@ public class EOPathSet_value_Test extends TestHelper {
     @Test
     public void givenListBTEmpty_withSTStringAt1_ok() throws Exception {
         final EO eoBTEmpty = TestObjectProvider.createEOFromJson(List.class, BasicTest.class);
-        final String path = toPath(S1, F_SUB_TEST,F_TEST_STRING);
+        final String path = toPath(S1, F_SUB_TEST, F_TEST_STRING);
         EOTest
                 .setEO_ok(eoBTEmpty, path, S_STRING);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoBTEmpty.get(path));

@@ -4,16 +4,13 @@ import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.CONFIG_FIELD_MAIN;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_MODEL_KEYS;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 27.8.2018.
@@ -30,7 +27,7 @@ public class FieldConfigTest extends TestHelper {
 
     @Test
     public void readConfigClassPath() throws Exception {
-        Map<String, Config> map = TestConfig.readClassPathConfig( FieldConfig.class);
+        Map<String, Config> map = TestConfig.readClassPathConfig(FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(F_MODEL_KEY));

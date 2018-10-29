@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface ConfigIOInterface {
 
-    IOInterface createIO () throws Exception;
+    IOInterface createIO() throws Exception;
 
     RolePermissions getRolePermissions();
 

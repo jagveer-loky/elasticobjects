@@ -1,6 +1,5 @@
 {
-"(BasicTest)_data":
-	{
-		"testBoolean":true
-	}
+  "(BasicTest)_data": {
+    "testBoolean": true
+  }
 }

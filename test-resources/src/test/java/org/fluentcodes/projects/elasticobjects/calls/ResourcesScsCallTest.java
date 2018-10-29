@@ -17,7 +17,7 @@ public class ResourcesScsCallTest {
     @Test
     public void readFileSourceJson() throws Exception {
         final EO eoEmpty = TestObjectProvider.createEOFromJson();
-        final ScsCall call = TestCallsProvider.createScsCall( CS_SOURCE_CSV);
+        final ScsCall call = TestCallsProvider.createScsCall(CS_SOURCE_CSV);
         call.read(eoEmpty);
         Assert.assertEquals(S_VALUE11, eoEmpty.getChild(S0).get(S_KEY1));
         AssertEO.compare(eoEmpty);

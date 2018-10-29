@@ -73,7 +73,7 @@ public abstract class ListConfig extends ConfigIO implements ListConfigInterface
         if (hasColKeys()) {
             return;
         }
-        List<String> header = ((ListIOInterface)createIO()).readHead(listParams.getRowHead());
+        List<String> header = ((ListIOInterface) createIO()).readHead(listParams.getRowHead());
         setColKeys(header);
     }
 

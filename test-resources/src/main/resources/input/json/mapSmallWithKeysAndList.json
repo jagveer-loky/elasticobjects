@@ -1,4 +1,7 @@
 {
-	"key0":"test",
-	"list":["test",1]
+  "key0": "test",
+  "list": [
+    "test",
+    1
+  ]
 }

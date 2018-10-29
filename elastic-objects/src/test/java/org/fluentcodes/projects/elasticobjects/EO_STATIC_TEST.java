@@ -1,4 +1,5 @@
 package org.fluentcodes.projects.elasticobjects;
+
 /**
  * Created 11.6.2018
  */

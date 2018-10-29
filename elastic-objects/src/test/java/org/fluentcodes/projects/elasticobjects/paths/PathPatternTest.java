@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.paths;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
@@ -11,6 +10,8 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 
 public class PathPatternTest extends TestHelper {
@@ -46,8 +47,8 @@ public class PathPatternTest extends TestHelper {
         final PathPattern pathPattern = createPathPatternExample();
         final PathPattern nextPath = pathPattern.getPathList(S_LEVEL0);
         Assert.assertEquals(new Integer(3), nextPath.size());
-        Assert.assertEquals( S_LEVEL1, nextPath.getPath(0).directory(false));
-        Assert.assertEquals( S_LEVEL2, nextPath.getPath(1).directory(false));
+        Assert.assertEquals(S_LEVEL1, nextPath.getPath(0).directory(false));
+        Assert.assertEquals(S_LEVEL2, nextPath.getPath(1).directory(false));
         Assert.assertEquals(Path.MATCHER_ALL, nextPath.getPath(2).directory(false));
     }
 
@@ -76,9 +77,9 @@ public class PathPatternTest extends TestHelper {
         final PathPattern pattern = new PathPattern(new String[]{S_LEVEL0});
         Assert.assertEquals(S_LEVEL0, pattern.getSerialized(false));
         pattern.addPath(S_LEVEL1);
-        Assert.assertEquals(join(CON_COMMA,S_LEVEL0,S_LEVEL1), pattern.getSerialized(false));
+        Assert.assertEquals(join(CON_COMMA, S_LEVEL0, S_LEVEL1), pattern.getSerialized(false));
         PathPattern patternFromString = new PathPattern(pattern.getSerialized());
-        Assert.assertEquals(join(CON_COMMA,S_LEVEL0,S_LEVEL1), patternFromString.getSerialized(false));
+        Assert.assertEquals(join(CON_COMMA, S_LEVEL0, S_LEVEL1), patternFromString.getSerialized(false));
     }
 
 

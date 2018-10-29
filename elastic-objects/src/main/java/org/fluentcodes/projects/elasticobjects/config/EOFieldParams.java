@@ -1,11 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_PATH_PATTERN;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_PROVIDE_IN_ACTION;
 
 /**
  * Created by werner.diwischek on 19.02.18.
@@ -15,6 +16,7 @@ public class EOFieldParams {
     private Map attributes;
     private PathPattern pathPattern;
     private boolean provideInAction;
+
     public EOFieldParams(EOConfigsCache configsCache, Object object) throws Exception {
 
         if (object == null || !(object instanceof Map) || ((Map) object).isEmpty()) {
@@ -34,7 +36,7 @@ public class EOFieldParams {
 
     public boolean hasPathPattern() throws Exception {
         resolve();
-        return pathPattern!=null && pathPattern.size()>0;
+        return pathPattern != null && pathPattern.size() > 0;
     }
 
     public boolean isFilterNothing() throws Exception {

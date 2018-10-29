@@ -1,12 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorListTemplate;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 02.07.2014.
@@ -16,6 +17,7 @@ public class TemplateConfig extends FileConfig {
     private final String templateKey;
     private final KeepKeys keepKey;
     private ExecutorList executorList;
+
     public TemplateConfig(EOConfigsCache configsCache, Builder builder) {
         super(configsCache, builder);
         this.templateKey = builder.templateKey;

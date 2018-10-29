@@ -7,13 +7,13 @@ import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderJSON;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * @author Werner Diwische
@@ -25,13 +25,13 @@ public class JSONToEOElementaryTest extends TestHelper {
 
     @Test
     public void test() throws Exception {
-        EO eoStringMap = TestObjectProvider.createEOFromJson(MapProviderJSON.toJSONMap(S1,S_STRING,S2,S_STRING_OTHER));
+        EO eoStringMap = TestObjectProvider.createEOFromJson(MapProviderJSON.toJSONMap(S1, S_STRING, S2, S_STRING_OTHER));
         Assert.assertEquals(S_STRING, eoStringMap.get(S1));
     }
 
     @Test
     public void testNewLineAsPartOfAStringValue() throws Exception {
-        EO eoWithNewLine = TestObjectProvider.createEOFromJson( "{\"1\":\"a\\n\"}");
+        EO eoWithNewLine = TestObjectProvider.createEOFromJson("{\"1\":\"a\\n\"}");
         Assert.assertEquals("a\n", eoWithNewLine.get(S1));
     }
 
@@ -55,7 +55,7 @@ public class JSONToEOElementaryTest extends TestHelper {
     @Test
     public void testNewLine2EscapedArray() {
         try {
-            TestObjectProvider.createEOFromJson( "[\"\\\n\"]");
+            TestObjectProvider.createEOFromJson("[\"\\\n\"]");
             Assert.fail("Illegal escape");
         } catch (Exception e) {
             Assert.assertTrue(e.getMessage().contains("Illegal escape"));
@@ -126,9 +126,9 @@ public class JSONToEOElementaryTest extends TestHelper {
 
     @Test
     public void stringNotQuoted_setValue() throws Exception {
-            EO adapter = TestObjectProvider.createEOFromJson("{\"string\":test}");
-            Assert.assertEquals(S_STRING, adapter.get(S_TEST_STRING));
-            Assert.assertEquals(S_STRING, ((Map) adapter.get()).get(S_TEST_STRING));
+        EO adapter = TestObjectProvider.createEOFromJson("{\"string\":test}");
+        Assert.assertEquals(S_STRING, adapter.get(S_TEST_STRING));
+        Assert.assertEquals(S_STRING, ((Map) adapter.get()).get(S_TEST_STRING));
     }
 
     @Test

@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.calls.FileCall;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -11,11 +9,15 @@ import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_MAP_PATH;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+
 /**
  * Created by Werner on 18.04.2017.
  */
 public class EOWithFileCallTest extends TestHelper {
     private static final String METHOD_SOURCE_TXT = ".read(source.txt)";
+
     @Test
     public void addFileReadAction() throws Exception {
         final EO root = TestObjectProvider.createEOFromJson();

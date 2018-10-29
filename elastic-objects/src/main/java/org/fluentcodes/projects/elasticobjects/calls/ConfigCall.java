@@ -182,8 +182,7 @@ public class ConfigCall extends Call {
                 if (!configEntry.getKey().matches(this.getFilterKey())) {
                     continue;
                 }
-            }
-            catch (Exception e ) {
+            } catch (Exception e) {
                 throw e;
             }
             childAdapter.add(key).set(configEntry);

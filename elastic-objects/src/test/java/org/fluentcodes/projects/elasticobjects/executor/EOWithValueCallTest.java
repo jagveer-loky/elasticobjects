@@ -1,14 +1,16 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_MAP_PATH;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.VC_INT_VALUE1;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.VC_TEST_ITEM;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 13.02.2017.
@@ -43,7 +45,7 @@ public class EOWithValueCallTest extends TestHelper {
         EO root = TestObjectProvider.createEOFromJson();
         EO child = root.add(toPath(S_LEVEL0, S_LEVEL1)).build();
 
-        final CallExecutor callExecutor1 = TestCallsProvider.createExecutorValueCall( VC_TEST_ITEM, F_MAP_PATH, F_TEST_STRING);
+        final CallExecutor callExecutor1 = TestCallsProvider.createExecutorValueCall(VC_TEST_ITEM, F_MAP_PATH, F_TEST_STRING);
         final CallExecutor callExecutor2 = TestCallsProvider.createExecutorValueCall(VC_INT_VALUE1, F_MAP_PATH, F_TEST_INTEGER);
 
         child.addCall(callExecutor1);

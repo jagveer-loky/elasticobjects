@@ -53,13 +53,13 @@ public class ListProvider {
         return list;
     }
 
-    public static List createMap () {
+    public static List createMap() {
         List list = new ArrayList();
         list.add(MapProvider.createSmall());
         return list;
     }
 
-    public static List createList () {
+    public static List createList() {
         List list = new ArrayList();
         list.add(createSmall());
         return list;
@@ -113,7 +113,7 @@ public class ListProvider {
     //</call>
     public static final List toList(Object... keyValues) {
         List list = new ArrayList();
-        for (int i=0; i<keyValues.length;i++) {
+        for (int i = 0; i < keyValues.length; i++) {
             list.add(keyValues[i]);
         }
         return list;

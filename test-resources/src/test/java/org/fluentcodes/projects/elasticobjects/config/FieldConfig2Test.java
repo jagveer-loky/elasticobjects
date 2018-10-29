@@ -7,7 +7,8 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.CONFIG_FIELD_MAIN;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
@@ -34,7 +35,7 @@ public class FieldConfig2Test extends TestHelper {
 
     @Test
     public void readConfigClassPath() throws Exception {
-        Map<String, Config> map = TestConfig.readClassPathConfig( FieldConfig.class);
+        Map<String, Config> map = TestConfig.readClassPathConfig(FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(F_MODEL_KEY));

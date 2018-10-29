@@ -2,7 +2,10 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.BTProviderEO;
+import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.EOTest;
+import org.fluentcodes.projects.elasticobjects.test.MapProviderEODev;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Test;
 
@@ -10,7 +13,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * With set with value and model only value will be used and model ignored.
@@ -37,7 +41,7 @@ public class EOPathSet_value_models_Test extends TestHelper {
         final EO eoString = MapProviderEODev.createString();
         EOTest
                 .setEOValue_ok(eoString, S_STRING, LinkedHashMap.class);
-     }
+    }
 
     @Test
     public void givenBTString_withStringAndMap_ok() throws Exception {
@@ -59,7 +63,6 @@ public class EOPathSet_value_models_Test extends TestHelper {
         EOTest
                 .setEOValue_ok(eoString, new HashMap(), LinkedHashMap.class);
     }
-
 
 
 }

@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
@@ -12,6 +11,8 @@ import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * A bean class for containing the following values:
@@ -32,6 +33,7 @@ public class ListMapper {
     private String mapPath;
     private PathPattern pathPattern;
     private Boolean doMap = true;
+
     public ListMapper() {
 
     }

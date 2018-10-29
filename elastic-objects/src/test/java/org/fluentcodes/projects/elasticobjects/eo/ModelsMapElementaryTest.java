@@ -8,7 +8,8 @@ import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
@@ -47,7 +48,7 @@ public class ModelsMapElementaryTest extends TestHelper {
 
     @Test
     public void withMapListMapList() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class,List.class, Map.class, List.class);
+        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class, List.class, Map.class, List.class);
         Assert.assertEquals(4, models.size());
         Assert.assertTrue(models.hasModel());
         Assert.assertTrue(models.hasChildModel());
@@ -65,7 +66,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     @Test
     public void childMapStringValueAndStringClass() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class);
-        final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[] {String.class});
+        final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[]{String.class});
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
         Assert.assertEquals(INFO_COMPARE_FAILS + childModels.getModelClass().getSimpleName(), String.class, childModels.getModelClass());
     }
@@ -73,7 +74,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     @Test
     public void childMapStringValueAndEmptyClass() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class);
-        final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[] {});
+        final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[]{});
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
         Assert.assertEquals(INFO_COMPARE_FAILS + childModels.getModelClass().getSimpleName(), String.class, childModels.getModelClass());
     }
@@ -90,7 +91,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     public void childMapStringValueAndMapClass() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class);
         try {
-            final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[] {Map.class});
+            final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[]{Map.class});
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
         } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
@@ -100,7 +101,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     @Test
     public void childMapBTValueAndMapClass() throws Exception {
         final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class);
-        final Models childModels = models.createChildForMap(F_UNTYPED_MAP, new BasicTest(), new Class[] {Map.class});
+        final Models childModels = models.createChildForMap(F_UNTYPED_MAP, new BasicTest(), new Class[]{Map.class});
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
         Assert.assertEquals(INFO_COMPARE_FAILS + childModels.getModelClass().getSimpleName(), Map.class, childModels.getModelClass());
     }
@@ -109,7 +110,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     public void childMapBTValueAndBTClass() throws Exception {
         final Models parentModels = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class);
         final Models childModels = parentModels
-                .createChildForMap(F_BASIC_TEST, new BasicTest(), new Class[] {BasicTest.class});
+                .createChildForMap(F_BASIC_TEST, new BasicTest(), new Class[]{BasicTest.class});
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
         Assert.assertEquals(INFO_COMPARE_FAILS + childModels.getModelClass().getSimpleName(), BasicTest.class, childModels.getModelClass());
     }

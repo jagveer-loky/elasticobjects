@@ -1,20 +1,16 @@
 {
-	"subTestList":
-	[
-		
-		{
-			"name":"testOther",
-			"testString":"test"
-		},
-		
-		{
-			"name":"testOther",
-			"testString":"test"
-		},
-		
-		{
-			"name":"testOther",
-			"testString":"test"
-		}
-	]
+  "subTestList": [
+    {
+      "name": "testOther",
+      "testString": "test"
+    },
+    {
+      "name": "testOther",
+      "testString": "test"
+    },
+    {
+      "name": "testOther",
+      "testString": "test"
+    }
+  ]
 }

@@ -1,6 +1,5 @@
 {
-"_data":
-	{
-		"(Boolean)testBoolean":true
-	}
+  "_data": {
+    "(Boolean)testBoolean": true
+  }
 }

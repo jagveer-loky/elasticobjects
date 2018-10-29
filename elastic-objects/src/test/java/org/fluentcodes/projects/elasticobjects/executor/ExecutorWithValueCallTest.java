@@ -2,18 +2,20 @@ package org.fluentcodes.projects.elasticobjects.executor;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.test.BTProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 13.02.2017.
@@ -21,6 +23,7 @@ import java.util.Map;
 public class ExecutorWithValueCallTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ExecutorWithValueCallTest.class);
     private static final String METHOD_SET_EMPTY = ".set(empty)";
+
     @Test
     public void intValue1_With_Path() throws Exception {
         final EO adapter = TestCallsProvider.executeExecutorValueCall(VC_INT_VALUE1, F_PATH, F_KEY);

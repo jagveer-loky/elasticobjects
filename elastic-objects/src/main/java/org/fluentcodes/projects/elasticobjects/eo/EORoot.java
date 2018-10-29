@@ -28,7 +28,6 @@ public class EORoot extends EOContainer {
 
     protected void initRoot(EOBuilder params) throws Exception {
         this.actions = new ExecutorList();
-        this.roles = params.getRoles();
         this.serializationType = params.getSerializationType();
         this.adapterExtension = params.getEoExtension();
         if (params.getConfigCache() == null) {
@@ -55,8 +54,20 @@ public class EORoot extends EOContainer {
         this.checkObjectReplication = checkObjectReplication;
     }
 
+    @Override
     public List<String> getRoles() {
         return roles;
+    }
+
+    @Override
+    public void setRoles(final List<String> roles) {
+        this.roles = roles;
+    }
+
+
+    @Override
+    public boolean hasRoles() {
+        return roles != null && !roles.isEmpty();
     }
 
     public JSONSerializationType getSerializationType() {
@@ -102,6 +113,7 @@ public class EORoot extends EOContainer {
             log(message, LogLevel.INFO);
         }
     }
+
     @Override
     public void warn(String message) {
         if (checkLevel(LogLevel.WARN)) {
@@ -127,7 +139,7 @@ public class EORoot extends EOContainer {
     @Override
     public void error(String message, Exception e) {
         if (checkLevel(LogLevel.ERROR)) {
-            log( message, LogLevel.ERROR);
+            log(message, LogLevel.ERROR);
         }
 
     }
@@ -154,14 +166,13 @@ public class EORoot extends EOContainer {
         this.actions.add(callExecutor);
     }
 
-    public void addCallExecutor(Map attributes)  {
-        if (attributes == null||attributes.isEmpty()) {
+    public void addCallExecutor(Map attributes) {
+        if (attributes == null || attributes.isEmpty()) {
             return;
         }// directly add the builder without json parsing.
         try {
             this.actions.add(attributes);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             this.warn(e.getMessage());
         }
     }

@@ -13,8 +13,8 @@ import java.util.Map;
  * Created by werner.diwischek on 08.01.18.
  */
 public class Or {
-    private static final Logger LOG = LogManager.getLogger(Or.class);
     public static final String DELIMITER = "||";
+    private static final Logger LOG = LogManager.getLogger(Or.class);
     private static final String SPLITTER = "\\|\\|";
     List<And> andList;
     Map<String, Object> keyValues;

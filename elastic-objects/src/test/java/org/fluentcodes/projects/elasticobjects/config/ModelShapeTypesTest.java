@@ -2,13 +2,16 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class ModelShapeTypesTest {
     private static final Logger LOG = LogManager.getLogger(ModelShapeTypesTest.class);

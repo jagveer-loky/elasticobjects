@@ -28,6 +28,7 @@ public class ListProviderJSONTest {
     public void createInteger() throws Exception {
         ListProviderJSON.createInteger();
     }
+
     @Test
     public void compareInteger() throws Exception {
         ListProviderJSON.compareInteger();
@@ -97,6 +98,7 @@ public class ListProviderJSONTest {
     public void createList() throws Exception {
         ListProviderJSON.createList();
     }
+
     @Test
     public void compareList() throws Exception {
         ListProviderJSON.compareList();
@@ -116,6 +118,7 @@ public class ListProviderJSONTest {
     public void createST() throws Exception {
         ListProviderJSON.createST();
     }
+
     @Test
     public void compareST() throws Exception {
         ListProviderJSON.compareST();

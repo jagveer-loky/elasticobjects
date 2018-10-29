@@ -2,28 +2,29 @@ package org.fluentcodes.projects.elasticobjects.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Date;
 
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+
 public class ScalarConverterTest {
     private static final Logger log = LogManager.getLogger(ScalarConverterTest.class);
     private static final Double DOUBLE = 1.1;
     private static final Float FLOAT = 1.1F;
+
     //TODO ScalarPaths actually not used...
     @Ignore
     @Test
     public void numbers() throws Exception {
         TestHelper.printStartMethod();
-        transformNumberTest(Integer.class,SAMPLE_LONG );
+        transformNumberTest(Integer.class, SAMPLE_LONG);
         transformNumberTest(Long.class, S_INTEGER);
         transformNumberTest(Double.class, SAMPLE_DOUBLE);
         transformFloatTest(Double.class, SAMPLE_FLOAT);
-        transformNumberTest(Float.class,SAMPLE_FLOAT);
+        transformNumberTest(Float.class, SAMPLE_FLOAT);
         transformFloatTest(Float.class, SAMPLE_FLOAT);
         transformNumberTest(Short.class, new Short(S1));
     }

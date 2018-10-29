@@ -202,6 +202,7 @@ public class ModelConfigList extends ModelConfig implements ModelInterface {
     public boolean isListType() {
         return true;
     }
+
     public boolean isMapType() {
         return false;
     }

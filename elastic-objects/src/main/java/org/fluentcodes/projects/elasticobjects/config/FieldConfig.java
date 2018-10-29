@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.eo.Models;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -10,6 +9,8 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -23,8 +24,8 @@ public class FieldConfig extends ConfigImpl {
     private final EOFieldParams eoFieldParams;
     private final ViewFieldParams viewFieldParams;
     private final Map customFieldParams;
-    private Models models;
     private final String modelKeys;
+    private Models models;
 
     public FieldConfig(EOConfigsCache provider, Builder builder) {
         super(provider, builder);
@@ -43,17 +44,39 @@ public class FieldConfig extends ConfigImpl {
 //</call>
     }
 
+    protected static final void add(EOConfigsCache configsCache, Field field) throws Exception {
+        Class modelClass = field.getDeclaringClass();
+        Class typeClass = field.getType();
+        Map map = new HashMap();
+
+        Map dbFieldParams = new HashMap();
+        map.put(F_DB_FIELD_PARAMS, dbFieldParams);
+        Map eoFieldParams = new HashMap();
+        map.put(F_EO_FIELD_PARAMS, eoFieldParams);
+        Map viewFieldParams = new HashMap();
+        map.put(F_VIEW_FIELD_PARAMS, viewFieldParams);
+        Map customFieldParams = new HashMap();
+        map.put(F_CUSTOM_FIELD_PARAMS, customFieldParams);
+
+        map.put(F_FIELD_KEY, field.getName());
+        map.put(F_NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
+        map.put(F_MODEL_KEYS, typeClass.getName());
+        FieldConfig config = (FieldConfig) new Builder().build(configsCache, map);
+        configsCache.getConfig(FieldConfig.class).add(config);
+    }
+
     @Override
     public void resolve() throws Exception {
         super.resolve();
         this.models = new Models(getConfigsCache(), modelKeys);
     }
 
-
     @Override
     public String getKey() {
         return fieldKey;
     }
+
+//</call>
 
     /**
      * Fielddefinitions depending on MetaModels
@@ -62,13 +85,11 @@ public class FieldConfig extends ConfigImpl {
         return this.fieldKey;
     }
 
-//</call>
+    //<call keep="JAVA" templateKey="CacheGetter.tpl" }
 
     public DBFieldParams getDbFieldParams() {
         return dbFieldParams;
     }
-
-    //<call keep="JAVA" templateKey="CacheGetter.tpl" }
 
     public EOFieldParams getEoFieldParams() {
         return eoFieldParams;
@@ -105,6 +126,7 @@ public class FieldConfig extends ConfigImpl {
     public boolean isFilterNothing() throws Exception {
         return eoFieldParams.isFilterNothing();
     }
+//</call>
 
     /**
      * Fielddefinitions depending on MetaModels
@@ -112,7 +134,6 @@ public class FieldConfig extends ConfigImpl {
     public Boolean isNotNull() {
         return dbFieldParams.isNotNull();
     }
-//</call>
 
     public Boolean getNotNull() {
         return dbFieldParams.isNotNull();
@@ -194,28 +215,6 @@ public class FieldConfig extends ConfigImpl {
     public ModelInterface getChildModel() throws Exception {
         return getModels().getChildModel();
     }
-
-    protected static final void add (EOConfigsCache configsCache, Field field) throws Exception {
-        Class modelClass = field.getDeclaringClass();
-        Class typeClass = field.getType();
-        Map map = new HashMap();
-
-        Map dbFieldParams = new HashMap();
-        map.put(F_DB_FIELD_PARAMS, dbFieldParams);
-        Map eoFieldParams = new HashMap();
-        map.put(F_EO_FIELD_PARAMS, eoFieldParams);
-        Map viewFieldParams = new HashMap();
-        map.put(F_VIEW_FIELD_PARAMS, viewFieldParams);
-        Map customFieldParams = new HashMap();
-        map.put(F_CUSTOM_FIELD_PARAMS, customFieldParams);
-
-        map.put(F_FIELD_KEY, field.getName());
-        map.put(F_NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
-        map.put(F_MODEL_KEYS, typeClass.getName());
-        FieldConfig config =  (FieldConfig) new Builder().build(configsCache, map);
-        configsCache.getConfig(FieldConfig.class).add(config);
-    }
-
 
     public static class Builder extends ConfigImpl.Builder {
         //<call keep="JAVA" templateKey="BeanInstanceVars.tpl" }

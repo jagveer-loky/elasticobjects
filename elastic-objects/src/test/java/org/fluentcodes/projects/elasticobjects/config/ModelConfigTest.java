@@ -2,12 +2,9 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
+import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.LoggingObjectsImpl;
-import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.test.MapProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
@@ -18,6 +15,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 04.11.2016.
@@ -71,7 +71,7 @@ public class ModelConfigTest extends TestHelper {
                 model.getSuperModel());
 
         Assert.assertNull(INFO_NULL_FAILS + model.getDefaultImplementation(),
-                 model.getDefaultImplementation());
+                model.getDefaultImplementation());
 
         Assert.assertNotNull(INFO_NOT_NULL_FAILS,
                 model.getShapeType());

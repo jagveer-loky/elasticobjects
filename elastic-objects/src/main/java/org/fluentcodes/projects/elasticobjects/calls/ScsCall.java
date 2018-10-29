@@ -9,12 +9,13 @@ import org.fluentcodes.projects.elasticobjects.config.ScsConfig;
  * Created by werner.diwischek on 03.12.16.
  */
 public class ScsCall extends ListCall {
-  private static final Logger LOG = LogManager.getLogger(ScsCall.class);
+    private static final Logger LOG = LogManager.getLogger(ScsCall.class);
 
-  public ScsCall(EOConfigsCache provider, String cacheKey) throws Exception {
-    super(provider, cacheKey);
-  }
-  public ScsConfig getScsConfig() {
-    return ((ScsConfig) getConfig());
-  }
+    public ScsCall(EOConfigsCache provider, String cacheKey) throws Exception {
+        super(provider, cacheKey);
+    }
+
+    public ScsConfig getScsConfig() {
+        return ((ScsConfig) getConfig());
+    }
 }

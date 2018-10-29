@@ -1,9 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created 12.6.2018
@@ -51,6 +52,7 @@ public class CallTest {
         Assert.assertFalse(call.isDynamicKey());
         Assert.assertFalse(call.isDynamicMapPath());
     }
+
     @Test
     public void withMapPathDynamic() throws Exception {
         Call call = new Call();
