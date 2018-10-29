@@ -1,0 +1,20 @@
+{
+  "csv.source.csv": {
+    "module": "actions-csv",
+    "subModule": "test",
+    "naturalId": "csv.source.csv",
+    "fileKey": "source.csv",
+    "fileName": "source.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "filePath": classpath
+  },
+  "csv.target.csv": {
+    "module": "actions-csv",
+    "subModule": "test",
+    "naturalId": "csv.target.csv",
+    "fileKey": "target.csv",
+    "fileName": "target.csv",
+    "description": "A sample target csv file with tmp placeholder.",
+    "filePath": "$[TMP]/elastic-objects"
+  }
+}

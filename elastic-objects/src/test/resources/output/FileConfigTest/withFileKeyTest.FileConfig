@@ -1,26 +1,23 @@
 {
-"(FileConfig)_data":
-	{
-		"fileName":"fileName",
-		"fileKey":"test:test",
-		"filePath":"path",
-		"hostKey":"localhost",
-		"cached":false,
-		"rolePermissions":
-		{
-			"read":"anonym",
-			"write":"guest",
-			"create":"testRoleCreate,admin",
-			"delete":"admin",
-			"execute":"superadmin"
-		},
-		"module":"elastic-objects",
-		"subModule":"test",
-		"scope":
-		{
-		},
-		"key":"test:test",
-		"description":"description",
-		"naturalId":"test:test"
-	}
+  "(FileConfig)_data": {
+    "fileName": "fileName",
+    "fileKey": "test:test",
+    "filePath": "path",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "anonym",
+      "write": "guest",
+      "create": "testRoleCreate,admin",
+      "delete": "admin",
+      "execute": "superadmin"
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "scope": {
+    },
+    "key": "test:test",
+    "description": "description",
+    "naturalId": "test:test"
+  }
 }

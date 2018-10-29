@@ -1,9 +1,7 @@
 {
-"_data":
-	{
-		"(List)scope":
-		{
-			"0":"TEST"
-		}
-	}
+  "_data": {
+    "(List)scope": {
+      "0": "TEST"
+    }
+  }
 }

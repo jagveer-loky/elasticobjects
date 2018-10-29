@@ -3,13 +3,6 @@ include 'test-resources'
 include 'elastic-objects'
 
 include 'actions-csv'
-include 'actions-db'
-include 'actions-db-hibernate'
 include 'actions-xlsx'
-
-include 'builder'
-include 'builder-eo'
-include 'builder-sandboxes'
-include 'builder-projects'
 
 

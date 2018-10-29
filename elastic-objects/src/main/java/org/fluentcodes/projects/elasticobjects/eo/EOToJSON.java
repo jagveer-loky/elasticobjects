@@ -20,7 +20,7 @@ public class EOToJSON {
     private JSONSerializationType serializationType;
     private boolean checkObjectReplication = false;
     private List<EO> objectRegistry;
-    private String spacer = "\t";
+    private String spacer = "  ";
 
 
     public EOToJSON() {
@@ -95,15 +95,16 @@ public class EOToJSON {
         this.setCheckObjectReplication(adapter.isCheckObjectReplication());
         StringBuilder jsn = new StringBuilder();
         final String indent = getIndent(startIndent);
+        final String nextIndent = getIndent(startIndent+1);
         final String lineBreak = getLineBreak(startIndent);
         jsn.append("{");
         jsn.append(lineBreak);
-        jsn.append(indent);
+        jsn.append(nextIndent);
         jsn.append("\"");
         addEOModel(jsn, adapter, false);
         jsn.append(JSONToEO.DATA);
-        jsn.append("\":");
-        jsn.append(lineBreak);
+        jsn.append("\": ");
+        //jsn.append(lineBreak);
         toJSON(jsn, adapter, startIndent + 1, this.pathPattern);
 
         ExecutorList executorList = adapter.getCalls();
@@ -200,7 +201,7 @@ public class EOToJSON {
                     addEOModel(json, childAdapter, isTyped);
                 }
                 json.append(fieldName);
-                json.append("\":");
+                json.append("\": ");
             } else {
                 json.append(nextIndent);
             }
@@ -208,7 +209,7 @@ public class EOToJSON {
                 addScalar(json, childAdapter, isTyped);
                 continue;
             }
-            json.append(lineBreak);
+            //json.append(lineBreak);
             PathPattern fieldPathPattern = getChildPathPattern(fieldName, model, pathPattern);
             toJSON(json, childAdapter, nextIndentLevel, fieldPathPattern);
         }
@@ -235,7 +236,7 @@ public class EOToJSON {
     }
 
     private final void addStart(final StringBuilder buffer, final EO adapter, final String indent) {
-        buffer.append(indent);
+        //buffer.append(indent);
         if (adapter.getModel().isMapType() || serializationType == JSONSerializationType.EO) {
             buffer.append("{");
         } else if (adapter.getModel().isListType()) {
@@ -257,7 +258,7 @@ public class EOToJSON {
         buffer.append(indent);
         buffer.append("{\"");
         buffer.append(REPEATED);
-        buffer.append("\":\"");
+        buffer.append("\": \"");
         buffer.append(repeated.getPath());
         buffer.append("\"}");
         buffer.append(lineBreak);

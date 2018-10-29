@@ -1,16 +1,12 @@
 {
-"_data":
-	{
-		"level0":
-		{
-			"level1":
-			{
-				"(BasicTest)level2":
-				{
-					"testInt":1,
-					"testString":"test"
-				}
-			}
-		}
-	}
+  "_data": {
+    "level0": {
+      "level1": {
+        "(BasicTest)level2": {
+          "testInt": 1,
+          "testString": "test"
+        }
+      }
+    }
+  }
 }

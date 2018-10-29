@@ -416,7 +416,7 @@ public class MapProviderJSON {
         for (int i = 0; i < keyValues.length; i++) {
             builder.append("\"");
             builder.append(keyValues[i]);
-            builder.append("\":");
+            builder.append("\": ");
             i++;
             if (i == keyValues.length) {
                 builder.append("null");
