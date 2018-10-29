@@ -6,7 +6,7 @@ Basically its a wrapper
 for to creating, accessing and modifing Java Object via keys/path.
 A type safe and ordered JSON serialization and deserialization is provided.
 
-With this generic functions it's possible to write generic classes
+With this object wrapper it's possible to write generic classes called calls
 e.g. for file or db access.
 
 
@@ -103,7 +103,64 @@ The core of elasticobject are the configurations which should be initialized onl
 One could do this in a static way as used it in the tests, since there
 should be at least depencencies as possible.
 
-In an application environment one can just inject it as a singelton.
+In an application environment one can just inject the configurations
+ as a singelton. I've
+started a demo application with an endpoint eo receiving serialized
+objects:
+
+```
+    @Value("${elasticobjects.scope:QS}")
+    private String scope;
+    @Autowired
+    private EOConfigsCache cache;
+
+    ....
+
+    @RequestMapping(value = "/eo", method = RequestMethod.POST)
+    public String adapterPost(
+            @RequestParam(value = "eo", required = false) String eoAsString,
+            @RequestParam(value = "logLevel", required = false) String logLevelAsString
+    ) {
+        if (eoAsString == null) {
+            return "No 'eo' is set!";
+        }
+        if (eoAsString.isEmpty()) {
+            return "'eo' is empty!";
+        }
+
+        String[] roles = getRoles();  // default value {"guest"}
+        LogLevel logLevel = getLevel(logLevelAsString);  // default WARN
+
+        try {
+            final EORoot eo = (EORoot) new EOBuilder(configsCache)
+                    .setLogLevel(logLevel)
+                    .map(eoAsString);
+
+            eo.setRoles(Arrays.asList(roles));  // roles are seet by application
+            eo.executeCalls();
+
+            final String result = new EOToJSON()
+                    .setStartIndent(1)
+                    .setSerializationType(JSONSerializationType.EO)
+                    .toJSON(eo);
+            return result;
+        } catch (Exception e) {
+            return "Exception occured! " + e.getMessage();
+        }
+    }
+
+```
+With this we have an generic endpoint, where requests like the following would be executed.
+```
+{
+  "_calls": [
+     {
+       "execute": "ScsCall.read(source.csv)"
+     }
+  ]
+}
+```
+
 
 ## JAR
 The jar has actually no dependencies beside Log4j and is rather small with approximately 250 KB.
