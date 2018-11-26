@@ -164,21 +164,18 @@ With this we have an generic endpoint, where requests like the following would b
 
 ## JAR
 The jar has actually no dependencies beside Log4j and is rather small with approximately 250 KB.
-The registration on [Maven Central](https://mvnrepository.com) is ongoing.
-Meanwhile there is the [maven.zip](maven.zip) file in this repository. If you expand
-it in your local .m2/repository directory, you can just add this to your
-maven pom file.
+The version 0.1.2 you find on [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
 
 ```
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>elastic-objects</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.2</version>
     </dependency>
 ```
 
 ## Documentation
-A depth documentation will be created on this [github wiki](https://github.com/fluentcodes/elasticobjects/wiki)
+A depth documentation is created on this [github wiki](https://github.com/fluentcodes/elasticobjects/wiki)
 and the site http://elasticobjects.com
 
 ## Links
