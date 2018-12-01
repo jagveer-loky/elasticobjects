@@ -1,8 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.InputStream;
@@ -18,6 +15,7 @@ public class XlsxConfig extends ListConfig {
     private final String fileKey;
     private final String sheetName;
     private FileConfig fileCache;
+
     protected XlsxConfig(final EOConfigsCache provider, Builder bean) {
         super(provider, bean);
 

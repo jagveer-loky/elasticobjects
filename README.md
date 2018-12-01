@@ -1,17 +1,20 @@
 # Elastic Objects
 
-Elastic Objects is a small applicaton java framework
+Elastic Objects is a small java application framework
 for handling complex objects.
 Basically its a wrapper
 for to creating, accessing and modifing Java Object via keys/path.
 A type safe and ordered JSON serialization and deserialization is provided.
 
-With this object wrapper it's possible to write generic classes called calls
+With this object wrapper it's possible to write generic classes called "calls"
 e.g. for file or db access.
+
+It offers a special json deserialization/serialization format with "_data" and "_calls" for implementing services.
 
 
 ## Synopsis
 ElasticObject can be used directly in Java concatenating and accessing objects:
+
 ```
 EO child = eo.add("level0/level1/level2/key")
    .set("value");
@@ -24,7 +27,7 @@ The serialization and deserialization is ordered so objects can be compared
 ```
 eo.add()
    .map(jsonString);
-String serialzed = EOToJSON(eo);
+String serialized = EOToJSON(eo);
 assertEquals(jsonString, serialized);
 ```
 
@@ -163,19 +166,8 @@ With this we have an generic endpoint, where requests like the following would b
 
 
 ## JAR
-The jar has actually no dependencies beside Log4j and is rather small with approximately 250 KB.
-The registration on [Maven Central](https://mvnrepository.com) is ongoing.
-Meanwhile there is the [maven.zip](maven.zip) file in this repository. If you expand
-it in your local .m2/repository directory, you can just add this to your
-maven pom file.
-
-```
-    <dependency>
-        <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-        <artifactId>elastic-objects</artifactId>
-        <version>0.1.0</version>
-    </dependency>
-```
+The jar has actually no dependencies beside Log4j and is rather small with a size approximately
+250 KB. Its accessible via https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects
 
 ## Documentation
 A depth documentation will be created on this [github wiki](https://github.com/fluentcodes/elasticobjects/wiki)

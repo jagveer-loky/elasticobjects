@@ -1,0 +1,338 @@
+@startuml
+
+title __TEST's Class Diagram__\n
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class BTProviderEOTest {
+          + createEmpty()
+          + createString()
+          + createInteger()
+          + createLong()
+          + createFloat()
+          + createDouble()
+          + createDate()
+          + createBoolean()
+          + createSmall()
+          + createSimple()
+          + create()
+          + createMap()
+          + createList()
+          + createBT()
+          + createST()
+          + createMapST()
+          + createListST()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class BTProviderJSNTest {
+          + createEmpty()
+          + compareEmpty()
+          + createString()
+          + compareString()
+          + createInteger()
+          + compareInteger()
+          + createLong()
+          + compareLong()
+          + createFloat()
+          + compareFloat()
+          + createDouble()
+          + compareDouble()
+          + createDate()
+          + compareDate()
+          + createBoolean()
+          + compareBoolean()
+          + createMap()
+          + compareMap()
+          + createList()
+          + compareList()
+          + createBT()
+          + compareBT()
+          + createST()
+          + compareST()
+          + createEOMapST()
+          + compareEOMapST()
+          + createListST()
+          + compareListST()
+          + createSmall()
+          + compareSmall()
+          + createEOSimple()
+          + compareEOSimple()
+          + create()
+          + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class ListProviderEOTest {
+          + createEmpty()
+          + createString()
+          + createInteger()
+          + createLong()
+          + createFloat()
+          + createDouble()
+          + createDate()
+          + createBoolean()
+          + createMap()
+          + createList()
+          + createBT()
+          + createST()
+          + createSmall()
+          + createEOSimple()
+          + create()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class ListProviderJSNTest {
+          + createEmpty()
+          + compareEmpty()
+          + createString()
+          + compareString()
+          + createInteger()
+          + compareInteger()
+          + createLong()
+          + compareLong()
+          + createFloat()
+          + compareFloat()
+          + createDouble()
+          + compareDouble()
+          + createDate()
+          + compareDate()
+          + createBoolean()
+          + compareBoolean()
+          + createMap()
+          + compareMap()
+          + createList()
+          + compareList()
+          + createBT()
+          + compareBT()
+          + createST()
+          + compareST()
+          + createSmall()
+          + compareSmall()
+          + createEOSimple()
+          + compareEOSimple()
+          + create()
+          + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class ListProviderJSONTest {
+          + createEmpty()
+          + compareEmpty()
+          + createString()
+          + compareString()
+          + createInteger()
+          + compareInteger()
+          + createLong()
+          + compareLong()
+          + createFloat()
+          + compareFloat()
+          + createDouble()
+          + compareDouble()
+          + createDate()
+          + compareDate()
+          + createBoolean()
+          + compareBoolean()
+          + createMap()
+          + compareMap()
+          + createList()
+          + compareList()
+          + createBT()
+          + compareBT()
+          + createST()
+          + compareST()
+          + createSmall()
+          + compareSmall()
+          + createEOSimple()
+          + compareEOSimple()
+          + create()
+          + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderEODevTest {
+          + createEOEmpty()
+          + createEOString()
+          + createEOInteger()
+          + createEOLong()
+          + createEODouble()
+          + createEOBoolean()
+          + createEOSmall()
+          + createEOMap()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderEOTest {
+          + createEOEmpty()
+          + createEOString()
+          + createEOInteger()
+          + createEOLong()
+          + createEOFloat()
+          + createEODouble()
+          + createEODate()
+          + createEOBoolean()
+          + createEOSmall()
+          + createEOSimple()
+          + createEO()
+          + createEOMap()
+          + createEOList()
+          + createEOBT()
+          + createEOST()
+          + createEOMapST()
+          + createListST()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderJSNTest {
+          + createEmpty()
+          + compareEmpty()
+          + createString()
+          + compareString()
+          + createInteger()
+          + compareInteger()
+          + createLong()
+          + compareLong()
+          + createFloat()
+          + compareFloat()
+          + createDouble()
+          + compareDouble()
+          + createDate()
+          + compareDate()
+          + createBoolean()
+          + compareBoolean()
+          + createMap()
+          + compareMap()
+          + createList()
+          + compareList()
+          + createBT()
+          + compareBT()
+          + createST()
+          + compareST()
+          + createEOMapST()
+          + compareEOMapST()
+          + createListST()
+          + compareListST()
+          + createSmall()
+          + compareSmall()
+          + createEOSimple()
+          + compareEOSimple()
+          + create()
+          + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderJSONTest {
+          + createEmpty()
+          + compareEmpty()
+          + createString()
+          + compareString()
+          + createInteger()
+          + compareInteger()
+          + createLong()
+          + compareLong()
+          + createFloat()
+          + compareFloat()
+          + createDouble()
+          + compareDouble()
+          + createDate()
+          + compareDate()
+          + createBoolean()
+          + compareBoolean()
+          + createMap()
+          + compareMap()
+          + createList()
+          + compareList()
+          + createBT()
+          + compareBT()
+          + createST()
+          + compareST()
+          + createEOMapST()
+          + compareEOMapST()
+          + createListST()
+          + compareListST()
+          + createSmall()
+          + compareSmall()
+          + createEOSimple()
+          + compareEOSimple()
+          + create()
+          + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class STProviderEOTest {
+          + createEmpty()
+          + createString()
+          + createST()
+          + createEOSimple()
+          + create()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class STProviderJSNTest {
+          + createEmpty()
+          + compareEmpty()
+          + createString()
+          + compareString()
+          + createName()
+          + compareName()
+          + createST()
+          + compareST()
+          + createSimple()
+          + compareSimple()
+          + create()
+          + compare()
+      }
+    }
+  }
+  
+
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

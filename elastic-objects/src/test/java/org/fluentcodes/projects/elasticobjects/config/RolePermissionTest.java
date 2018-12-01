@@ -41,7 +41,7 @@ public class RolePermissionTest extends TestHelper {
         Assert.assertEquals(Permissions.DELETE, permission);
         permission = rolePermissions.getPermissions(Arrays.asList(R_TEST_ROLE_EXECUTE));
         Assert.assertEquals(Permissions.EXECUTE, permission);
-        permission = rolePermissions.getPermissions(Arrays.asList(RoleConfig.SUPERADMIN));
+        permission = rolePermissions.getPermissions(Arrays.asList(RolePermissions.SUPERADMIN));
         Assert.assertEquals(Permissions.EXECUTE, permission);
     }
 
