@@ -12,9 +12,11 @@ import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import java.util.*;
 
 /**
- * Base for list type data structures.
- * Created by werner.diwischek on 18.12.17.
+ * Base for list type calls.
+ * @author Werner Diwischek
+ * @since 18.12.17.
  */
+
 public class ListCall extends CallIO {
     private ListParams listParams;
     private ListMapper listMapper;

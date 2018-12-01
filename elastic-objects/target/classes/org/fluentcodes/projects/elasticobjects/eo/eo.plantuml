@@ -1,0 +1,619 @@
+@startuml
+
+title __EO's Class Diagram__\n
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      interface EO {
+          {abstract} + getConfigsCache()
+          {abstract} + getParentKey()
+          {abstract} + hasParent()
+          {abstract} + getPath()
+          {abstract} + getPathAsString()
+          {abstract} + isContainer()
+          {abstract} + isList()
+          {abstract} + isObject()
+          {abstract} + isScalar()
+          {abstract} + isMap()
+          {abstract} + hasDefaultMap()
+          {abstract} + isChildTyped()
+          {abstract} + isNull()
+          {abstract} + isEmpty()
+          {abstract} + size()
+          {abstract} + size()
+          {abstract} + keys()
+          {abstract} + keys()
+          {abstract} + keys()
+          {abstract} + filterPaths()
+          {abstract} + getKeyValues()
+          {abstract} + get()
+          {abstract} + get()
+          {abstract} + getChild()
+          {abstract} + add()
+          {abstract} + add()
+          {abstract} + remove()
+          {abstract} + remove()
+          {abstract} + getRoot()
+          {abstract} + isRoot()
+          {abstract} + isCheckObjectReplication()
+          {abstract} + setCheckObjectReplication()
+          {abstract} + getModels()
+          {abstract} + getModel()
+          {abstract} + getModelClass()
+          {abstract} + setRoles()
+          {abstract} + getRoles()
+          {abstract} + setRoles()
+          {abstract} + hasRoles()
+          {abstract} + addCall()
+          {abstract} + getCalls()
+          {abstract} + hasCalls()
+          {abstract} + executeCalls()
+          {abstract} + compare()
+          {abstract} + getLog()
+          {abstract} + getLogLevel()
+          {abstract} + getErrorLevel()
+          {abstract} + debug()
+          {abstract} + info()
+          {abstract} + warn()
+          {abstract} + error()
+          {abstract} + warn()
+          {abstract} + error()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class EOBuilder {
+          {static} # jsonPattern : Pattern
+          {static} # modelPattern : Pattern
+          {static} - LOG : Logger
+          - value : Object
+          - map : boolean
+          - parentKey : String
+          + EOBuilder()
+          + EOBuilder()
+          + EOBuilder()
+          + EOBuilder()
+          # getConfigsCache()
+          # getLogLevel()
+          + setLogLevel()
+          + getConfigCache()
+          # hasParent()
+          # isRootSetting()
+          # getEoParent()
+          # setEoParent()
+          # getParentKey()
+          # setParentKey()
+          # setChild()
+          # hasPath()
+          + getPath()
+          + setPath()
+          + setPath()
+          + isMap()
+          # setMap()
+          + getModels()
+          + setModels()
+          + hasModels()
+          + getTargetModels()
+          # setModels()
+          + setModels()
+          + setModels()
+          # setModels()
+          + getSerializationType()
+          + setSerializationType()
+          + getPathPattern()
+          + setPathPattern()
+          + getValue()
+          # setValue()
+          - prepareValue()
+          + getEoExtension()
+          + setEoExtension()
+          + mapFile()
+          + mapFile()
+          + set()
+          + map()
+          + build()
+          # createChild()
+          # createChild()
+          - createGlueContainer()
+          + toString()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class EOContainer {
+          {static} - LOG : Logger
+          - childMap : Map<String, EO>
+          # EOContainer()
+          # map()
+          # map()
+          # setCalls()
+          # setCallsByMap()
+          + addCall()
+          + add()
+          + add()
+          + isEmpty()
+          + adaptersize()
+          + valuesize()
+          + size()
+          + size()
+          + keys()
+          + keys()
+          + getKeyValues()
+          + filterPaths()
+          + filterPaths()
+          + keys()
+          + childKeys()
+          + keysValue()
+          # setValue()
+          # getValue()
+          + remove()
+          + remove()
+          + get()
+          # removeChildEO()
+          + getChild()
+          # getChild()
+          # createBuilder()
+          + getChildAdapter()
+          # setChild()
+          + compare()
+          # initObjectRegistry()
+          # checkObjectRegistry()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      interface EOExtension {
+          {abstract} + doBeforeMap()
+          {abstract} + doAfterMap()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class EOExtensionEmpty {
+          + EOExtensionEmpty()
+          + doBeforeMap()
+          + doAfterMap()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class EORoot {
+          - roles : List<String>
+          - objectRegistry : List
+          - checkObjectReplication : boolean
+          # EORoot()
+          # initRoot()
+          + isRoot()
+          + getConfigsCache()
+          + isCheckObjectReplication()
+          + setCheckObjectReplication()
+          + getRoles()
+          + setRoles()
+          + hasRoles()
+          + getSerializationType()
+          + getErrorLevel()
+          + getLog()
+          + setLog()
+          # log()
+          # log()
+          + debug()
+          + info()
+          + warn()
+          + error()
+          + warn()
+          + error()
+          + getAdapterExtension()
+          + getCalls()
+          + setCalls()
+          + addCall()
+          + addCallExecutor()
+          + hasCalls()
+          + executeCalls()
+          # initObjectRegistry()
+          # checkObjectRegistry()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      abstract class EOScalar {
+          {static} + PARAMS : String
+          - parentFieldName : String
+          - object : Object
+          - changed : boolean
+          - insert : boolean
+          - empty : Boolean
+          # EOScalar()
+          + get()
+          # setModelClasses()
+          + set()
+          # setParent()
+          + compare()
+          + isChanged()
+          # setChanged()
+          + isInsert()
+          + setInsert()
+          # initChanged()
+          + getRoot()
+          + isRoot()
+          + getPath()
+          + getPath()
+          + getPathAsString()
+          # getPathAsString()
+          + getAdapterExtension()
+          + getLogLevel()
+          + getErrorLevel()
+          + getLog()
+          + debug()
+          + info()
+          + warn()
+          + error()
+          + warn()
+          + error()
+          + setRoles()
+          + getRoles()
+          + setRoles()
+          + hasRoles()
+          # checkLevel()
+          + getEmpty()
+          + getConfigsCache()
+          + getCalls()
+          + hasCalls()
+          + executeCalls()
+          + isCheckObjectReplication()
+          + setCheckObjectReplication()
+          + getSerializationType()
+          + getModels()
+          # setModels()
+          + getModel()
+          + getModelClass()
+          # hasChildModel()
+          + isList()
+          + isObject()
+          + isScalar()
+          + isMap()
+          + hasDefaultMap()
+          + isChildTyped()
+          + isNull()
+          + isContainer()
+          + isEmpty()
+          + setEmpty()
+          + getParentKey()
+          + getParentAdapter()
+          + hasParent()
+          + toString()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class EOToJSON {
+          {static} + REPEATED : String
+          - startIndent : int
+          - checkObjectReplication : boolean
+          - objectRegistry : List<EO>
+          - spacer : String
+          + EOToJSON()
+          + isCheckObjectReplication()
+          + setCheckObjectReplication()
+          + getStartIndent()
+          + setStartIndent()
+          + getPathPattern()
+          + setPathPattern()
+          + getSerializationType()
+          + setSerializationType()
+          + toJSON()
+          + toJSON()
+          - toJSONRoot()
+          - toJSON()
+          - addEOModel()
+          - addStart()
+          - addEnd()
+          - addRepeated()
+          - getChildPathPattern()
+          - stringify()
+          - addScalarSimple()
+          - addScalarTyped()
+          - addScalar()
+          - getLineBreak()
+          - getNextIndentLevel()
+          - getIndent()
+          - getNextIndent()
+          - checkObjectReplication()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class JSONIndent {
+          {static} + SPACER : String
+          - indent : String
+          - nextIndent : String
+          - newLine : String
+          - increase : int
+          + JSONIndent()
+          + JSONIndent()
+          + getIncrease()
+          + getIndent()
+          + getNewLine()
+          + getNextIndent()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      enum JSONSerializationType {
+        STANDARD
+        EO
+        SCALAR
+        fileExtension
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class JSONToEO {
+          {static} + CALLS : String
+          {static} + DATA : String
+          {static} + LOGS : String
+          {static} + CONFIG : String
+          {static} - LOG : Logger
+          - character : long
+          - index : long
+          - eof : boolean
+          - line : long
+          - previous : char
+          - reader : Reader
+          - usePrevious : boolean
+          - debug : String
+          - JSONToEO()
+          + JSONToEO()
+          {static} - stringToValue()
+          - back()
+          - end()
+          - isEof()
+          - next()
+          - next()
+          - nextClean()
+          - nextString()
+          - debug()
+          - mapObject()
+          - mapList()
+          + createChild()
+          - createChild()
+          - nextKey()
+          - syntaxError()
+          + toString()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      enum LogLevel {
+        DEBUG
+        INFO_TEST
+        INFO_QSU
+        INFO_PROD
+        INFO
+        WARN
+        ERROR
+        level
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      interface LoggingObject {
+          {abstract} + start()
+          {abstract} + startDiff()
+          {abstract} + debug()
+          {abstract} + info()
+          {abstract} + infoTest()
+          {abstract} + infoQsu()
+          {abstract} + infoProd()
+          {abstract} + warn()
+          {abstract} + error()
+          {abstract} + debug()
+          {abstract} + info()
+          {abstract} + infoTest()
+          {abstract} + infoQsu()
+          {abstract} + infoProd()
+          {abstract} + warn()
+          {abstract} + error()
+          {abstract} + getLogLevel()
+          {abstract} + setLogLevel()
+          {abstract} + setLogLevel()
+          {abstract} + setLogLevel()
+          {abstract} + hasErrors()
+          {abstract} + getErrorLevel()
+          {abstract} + getLog()
+          {abstract} + addLog()
+          {abstract} + logMessage()
+          {abstract} + logException()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class LoggingObjectsImpl {
+          {static} - LOG : Logger
+          ~ start : Long
+          - log : StringBuffer
+          + LoggingObjectsImpl()
+          + LoggingObjectsImpl()
+          + LoggingObjectsImpl()
+          + start()
+          + startDiff()
+          + addLog()
+          + debug()
+          + debug()
+          + infoTest()
+          + infoTest()
+          + infoQsu()
+          + infoQsu()
+          + infoProd()
+          + infoProd()
+          + info()
+          + info()
+          + warn()
+          + warn()
+          + error()
+          + error()
+          - log()
+          - log()
+          + logMessage()
+          + logException()
+          + getLog()
+          + setLog()
+          + setLogLevel()
+          + setLogLevel()
+          + getLogLevel()
+          + setLogLevel()
+          + hasErrors()
+          - errorLevel()
+          + getErrorLevel()
+          + setErrorLevel()
+          + toString()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.eo {
+      class Models {
+          {static} - LOG : Logger
+          - models : List<ModelInterface>
+          - hasModel : boolean
+          # Models()
+          - Models()
+          + Models()
+          + Models()
+          + Models()
+          + Models()
+          - getByClasses()
+          - getByClasses()
+          # setByClasses()
+          # getByClasses()
+          + isEmpty()
+          + isEmpty()
+          # mapClasses()
+          # setClasses()
+          # setClasses()
+          # setClasses()
+          - isModelConcurrent()
+          - isModelConcurrent()
+          - setModelConcurrent()
+          - setModelConcurrent()
+          - setModelConcurrent()
+          - setModelConcurrent()
+          # checkRootValue()
+          + getChildModelsList()
+          + getModels()
+          # hasModel()
+          + isList()
+          + isObject()
+          + isEnum()
+          + isMap()
+          + isNull()
+          + getModelClass()
+          + createChild()
+          # createChildWithValue()
+          # createChildForSet()
+          # createChildForSet()
+          # createChildForSet()
+          # createChildForMap()
+          # createChildForMap()
+          # createChildForMap()
+          # createChildForMap()
+          # createChild()
+          + getModel()
+          + setModel()
+          + hasChildModel()
+          + hasDefaultMap()
+          + getChildModel()
+          # getChildModelClass()
+          + size()
+          + get()
+          + toString()
+          + isScalar()
+          + isContainer()
+          + transform()
+          # setEO()
+          + create()
+      }
+    }
+  }
+  
+
+  EOBuilder o-- Models : targetModels
+  EOBuilder o-- PathPattern : pathPattern
+  EOBuilder o-- Path : path
+  EOBuilder o-- EOContainer : eoParent
+  EOBuilder o-- EOConfigsCache : configCache
+  EOBuilder o-- LogLevel : logLevel
+  EOBuilder o-- EOExtension : eoExtension
+  EOBuilder o-- JSONSerializationType : serializationType
+  EOContainer -up-|> EO
+  EOContainer -up-|> EOScalar
+  EOExtensionEmpty -up-|> EOExtension
+  EORoot -up-|> EOContainer
+  EORoot o-- ExecutorList : actions
+  EORoot o-- JSONSerializationType : serializationType
+  EORoot o-- LoggingObject : log
+  EORoot o-- EOConfigsCache : provider
+  EORoot o-- EOExtension : adapterExtension
+  EOScalar -up-|> EO
+  EOScalar o-- EORoot : rootAdapter
+  EOScalar o-- EOContainer : parentAdapter
+  EOScalar o-- Models : models
+  EOScalar o-- LogLevel : logLevel
+  EOToJSON o-- PathPattern : pathPattern
+  EOToJSON o-- JSONSerializationType : serializationType
+  JSONToEO o-- EOConfigsCache : provider
+  LoggingObjectsImpl -up-|> LoggingObject
+  LoggingObjectsImpl o-- LogLevel : logLevel
+  LoggingObjectsImpl o-- LogLevel : errorLevel
+  Models o-- EOConfigsCache : configsCache
+  Models o-- EO : eo
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

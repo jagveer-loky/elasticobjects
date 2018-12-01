@@ -1046,22 +1046,6 @@
     "packageGroup": "paths",
     "author": "Werner Diwischek"
   },
-  "RoleConfig": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "RoleConfig",
-    "eoParams": {
-      "shapeType": "CONFIG"
-    },
-    "description": "Defines the roles",
-    "superKey": "ConfigImpl",
-    "fieldKeys": [
-      "name"
-    ],
-    "modelKey": "RoleConfig",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
-    "packageGroup": "config"
-  },
   "RolePermissions": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -1198,26 +1182,6 @@
       "templateKey"
     ],
     "modelKey": "TemplateConfig",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
-    "packageGroup": "config",
-    "author": "Werner Diwischek"
-  },
-  "UserConfig": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "UserConfig",
-    "eoParams": {
-      "shapeType": "CONFIG",
-      "create": true
-    },
-    "description": "Config definitions with final instance vars.",
-    "superKey": "ConfigImpl",
-    "fieldKeys": [
-      "userKey",
-      "userName",
-      "roles"
-    ],
-    "modelKey": "UserConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.config",
     "packageGroup": "config",
     "author": "Werner Diwischek"

@@ -1,0 +1,195 @@
+@startuml
+
+title __CALLS's Class Diagram__\n
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class CallTest {
+          + emptyAction()
+          + withPath()
+          + withMapPath()
+          + withMapPathAbsolute()
+          + withMapPathDynamic()
+          + withPathAbsolute()
+          + withPathAndMapPath()
+          + withPathAbsoluteAndMapPath()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ConfigCallTest {
+          + fieldsDirect()
+          + fields()
+          + models()
+          + modelsWithModuleTestObjects()
+          + modelsWithFilterKeyMap()
+          + fieldsWithPath()
+          + dynamic_withConfigAttributeFields()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class FileCallTest {
+          {static} - LOG : Logger
+          + readSourceCachedTxt()
+          + readSourceTxt()
+          + readSourceCsvGuest_ok()
+          + readSourceCsvAnonym_hasLog()
+          + writeStringTargetTxt()
+          + writeResultWithMapPathString()
+          + writeResultWithMapPathStringWithSetMapPath()
+          + writeResultWithMapPathStringWithMapPath()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class JsonCallTest {
+          + readModuleConfigJson()
+          + readTargetJsonGuest_hasLog()
+          + readTargetJson_ok()
+          + readTargetJsonSuperAdmin_()
+          + readSourceJsonGuest_ok()
+          + readSourceJsonAnonym_hasLog()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ListMapperTest {
+          {static} - LOG : Logger
+          {static} - LIST_ROW_MAPPER : Map<String, Object>
+          + init()
+          + checkList()
+          + checkListWithColKeys()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ListParamsTest {
+          {static} - LOG : Logger
+          + callCheckRowStart()
+          + checkObjectSetRowStart()
+          + checkObjectSetLength()
+          + checkObjectSetHeadAndLength()
+          + callMapAttributes()
+          + assertModel()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ScsCallTest {
+          {static} - LOG : Logger
+          + readSourceCsvGuest_ok()
+          + readSourceCsvAnonym_hasLog()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class TemplateCallContentTest {
+          {static} - LOG : Logger
+          {static} - H1 : String
+          {static} - H2 : String
+          + callContentExample()
+          + callContentExampleWithStaticTemplate()
+          + contentExampleWithKeepTpl()
+          + callContentExampleWithDynamicTemplateKey()
+          + callContentOrExample()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class TemplateCallEmbeddedTest {
+          {static} - LOG : Logger
+          + callEmbedded0()
+          + callEmbedded0WithPlaceHolder()
+          + callEmbedded2()
+          + callEmbedded2WithPlaceHolder()
+          + callEmbedded2WithValueAction()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class TemplateCallExecutorTest {
+          + callExecutorValuesMathSinExample()
+          + callExecutorValuesMiscSetExample()
+          + callExecutorValuesMiscReplaceExample()
+          + callExecutorValuesMiscRepeatExample()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class TemplateCallSimpleTest {
+          {static} - LOG : Logger
+          + executeDirectContent()
+          + executeWithPath()
+          + executeWithPathAndEmbeddedJson()
+          + executeWithPathAndJson()
+          + executeWithPathAndJsonAndStore()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ValueCallTest {
+          {static} - LOG : Logger
+          + modelConfig()
+          + withValueAndMapPath_valueWillNotSet()
+          + setNullEO()
+          + intValue1_default()
+          + emptyWithMapPathAndValue()
+          + content_default()
+      }
+    }
+  }
+  
+
+  FileCallTest -up-|> TestHelper
+  ListMapperTest -up-|> TestHelper
+  ListParamsTest -up-|> TestHelper
+  ScsCallTest -up-|> TestHelper
+  TemplateCallContentTest -up-|> TestHelper
+  TemplateCallEmbeddedTest -up-|> TestHelper
+  TemplateCallExecutorTest -up-|> TestHelper
+  TemplateCallSimpleTest -up-|> TestHelper
+  ValueCallTest -up-|> TestHelper
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

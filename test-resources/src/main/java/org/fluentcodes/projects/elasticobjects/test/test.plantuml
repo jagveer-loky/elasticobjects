@@ -1,0 +1,891 @@
+@startuml
+
+title __TEST's Class Diagram__\n
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class AssertBase {
+          {static} - LOG : Logger
+          {static} - PERSISTENCE_DIRECTORY : String
+          {static} # getEnding()
+          {static} - createPersistenceDirectory()
+          {static} # getFileName()
+          {static} # readOrWritePersisted()
+          {static} # writePersisted()
+          {static} # readPersisted()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class AssertEO {
+          {static} - LOG : Logger
+          {static} + assertLogEmpty()
+          {static} + assertLogNotEmpty()
+          {static} + compare()
+          {static} + compare()
+          {static} + compare()
+          {static} + compareJSON()
+          {static} + compareJSON()
+          {static} + compareJSN()
+          {static} + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class AssertObject {
+          {static} - LOG : Logger
+          {static} + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class AssertString {
+          {static} + compare()
+          {static} # compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class BTProvider {
+          {static} + createEmpty()
+          {static} + createString()
+          {static} + createInteger()
+          {static} + createLong()
+          {static} + createFloat()
+          {static} + createDouble()
+          {static} + createDate()
+          {static} + createBoolean()
+          {static} + createMap()
+          {static} + createList()
+          {static} + createBT()
+          {static} + createST()
+          {static} + createMapST()
+          {static} + createListST()
+          {static} ~ addUntyped()
+          {static} ~ addModels()
+          {static} + create()
+          {static} + createSmall()
+          {static} ~ addSimple()
+          {static} + createSimple()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class BTProviderEO {
+          {static} + builder()
+          {static} + createEmpty()
+          {static} + assertEmpty()
+          {static} + createString()
+          {static} + assertString()
+          {static} + createInteger()
+          {static} + assertInteger()
+          {static} + createLong()
+          {static} + assertLong()
+          {static} + createFloat()
+          {static} + assertFloat()
+          {static} + createDouble()
+          {static} + assertDouble()
+          {static} + createDate()
+          {static} + assertDate()
+          {static} + createBoolean()
+          {static} + assertBoolean()
+          {static} + createMap()
+          {static} + assertMap()
+          {static} + createList()
+          {static} + assertList()
+          {static} + createBT()
+          {static} + assertBT()
+          {static} + createST()
+          {static} + assertST()
+          {static} + createMapST()
+          {static} + assertMapST()
+          {static} + createListST()
+          {static} + assertListST()
+          {static} + createSimple()
+          {static} + assertSimple()
+          {static} + createSmall()
+          {static} + assertSmall()
+          {static} + create()
+          {static} + asserts()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class BTProviderJSN {
+          {static} + builder()
+          {static} + readEmpty()
+          {static} + getJSONEmpty()
+          {static} + createEmpty()
+          {static} + compareEmpty()
+          {static} + readString()
+          {static} + createString()
+          {static} + compareString()
+          {static} + readInteger()
+          {static} + createInteger()
+          {static} + compareInteger()
+          {static} + readLong()
+          {static} + createLong()
+          {static} + compareLong()
+          {static} + readFloat()
+          {static} + createFloat()
+          {static} + compareFloat()
+          {static} + readDouble()
+          {static} + createDouble()
+          {static} + compareDouble()
+          {static} + readDate()
+          {static} + createDate()
+          {static} + compareDate()
+          {static} + readBoolean()
+          {static} + createBoolean()
+          {static} + compareBoolean()
+          {static} + readMap()
+          {static} + createMap()
+          {static} + compareMap()
+          {static} + readList()
+          {static} + createList()
+          {static} + compareList()
+          {static} + readBT()
+          {static} + createBT()
+          {static} + compareBT()
+          {static} + readST()
+          {static} + createST()
+          {static} + compareST()
+          {static} + readMapST()
+          {static} + createMapST()
+          {static} + compareMapST()
+          {static} + readListST()
+          {static} + createListST()
+          {static} + compareListST()
+          {static} + readSmall()
+          {static} + createSmall()
+          {static} + compareSmall()
+          {static} + readSimple()
+          {static} + createSimple()
+          {static} + compareSimple()
+          {static} + readAll()
+          {static} + read()
+          {static} + create()
+          {static} + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class DevObjectProvider {
+          {static} + EO_CONFIGS_CACHE : EOConfigsCache
+          {static} - LOG : Logger
+          {static} + createEOBuilder()
+          {static} + createEOBuilder()
+          {static} + createEO()
+          {static} + createEO()
+          {static} + createEOString()
+          {static} + createEOBoolean()
+          {static} + createEOLong()
+          {static} + createEODouble()
+          {static} + createEOMapEmpty()
+          {static} + createEOMapString()
+          {static} + createEOMapStringLevel0()
+          {static} + createEOMapStringLevel1()
+          {static} + createEOMapStringLevel2()
+          {static} + createEOMapStringPath()
+          {static} + createEOFromJson()
+          {static} + createEOFromTestJsonFile()
+          {static} + createEOFromJsonKeyMap()
+          {static} + createEOFromJsonListKey()
+          {static} + createEOFromJsonMapKey()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class EOTest {
+          {static} + setValue_fails()
+          {static} + set_fails()
+          {static} + set_fails()
+          {static} + setValueWins_ok()
+          {static} + setValue_ok()
+          {static} + set_ok()
+          {static} + set_ok()
+          {static} + map_fails()
+          {static} + map_fails()
+          {static} + map_ok()
+          {static} + mapValue_ok()
+          {static} + map_ok()
+          {static} + setEO_fails()
+          {static} + setEO_fails()
+          {static} + setEO_fails()
+          {static} + setEO_fails()
+          {static} + setEO_ok()
+          {static} + setEOValue_ok()
+          {static} + setEO_ok()
+          {static} + setEO_ok()
+          {static} + mapEO_fails()
+          {static} + mapEOValue_fails()
+          {static} + mapEO_fails()
+          {static} + mapEO_fails()
+          {static} + mapEO_noValueCompare()
+          {static} + mapEO_ok()
+          {static} + mapEO_ok()
+          {static} + mapEOValue_ok()
+          {static} + mapEO_ok()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class JSONInputReader {
+          {static} + BOOLEAN : String
+          {static} + DATE : String
+          {static} + FLOAT : String
+          {static} + DOUBLE : String
+          {static} + LONG : String
+          {static} + INT : String
+          {static} + STRING : String
+          {static} + NAME : String
+          {static} + CONTENT : String
+          {static} + ALL : String
+          {static} + SUB_TEST_LIST : String
+          {static} + SUB_TEST_MAP : String
+          {static} + SUB_TEST : String
+          {static} + BASIC_TEST : String
+          {static} + MAP : String
+          {static} + LIST : String
+          {static} + SIMPLE : String
+          {static} + SMALL_WITH_KEYS_AND_LIST : String
+          {static} + SMALL_WITH_KEYS : String
+          {static} + SMALL : String
+          {static} + EMPTY_VALUES : String
+          {static} + EMPTY : String
+          {static} + INPUT_DIR : String
+          {static} + compareInput()
+          {static} + compareInput()
+          {static} + readInputJSON()
+          {static} + readTestInputJSN()
+          {static} + readTestInputJSON()
+          {static} + readInputJSON()
+          {static} + readInputJSON()
+          {static} + readInputJSN()
+          {static} + readInputJSN()
+          {static} + compareInputJSON()
+          {static} + compareInputJSON()
+          {static} + compareInputJSON()
+          {static} + compareInputJSON()
+          {static} + compareInputJSON()
+          {static} + compareInputJSN()
+          {static} + compareInputJSN()
+          {static} + compareInputJSN()
+          {static} + inputEOFile()
+          {static} + inputEOFile()
+          {static} + inputEOFile()
+          {static} + compareInput()
+          {static} + compareInput()
+          {static} + createFromInputTest()
+          {static} + createFromInputDev()
+          {static} + readInput()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      enum TYPE {
+        MAP
+        BT
+        LIST
+        ST
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class ListProvider {
+          {static} + createEmpty()
+          {static} + createString()
+          {static} + createInteger()
+          {static} + createLong()
+          {static} + createFloat()
+          {static} + createDouble()
+          {static} + createDate()
+          {static} + createBoolean()
+          {static} + createMap()
+          {static} + createList()
+          {static} + createBT()
+          {static} + createST()
+          {static} + createSmall()
+          {static} + addSimple()
+          {static} + createSimple()
+          {static} + create()
+          {static} + toList()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class ListProviderEO {
+          {static} + builder()
+          {static} + createEmpty()
+          {static} + assertEmpty()
+          {static} + createString()
+          {static} + assertString()
+          {static} + createInteger()
+          {static} + assertInteger()
+          {static} + createLong()
+          {static} + assertLong()
+          {static} + compareFloat()
+          {static} + assertFloat()
+          {static} + createFloat()
+          {static} + createDouble()
+          {static} + assertDouble()
+          {static} + createDate()
+          {static} + assertDate()
+          {static} + createBoolean()
+          {static} + assertBoolean()
+          {static} + createMap()
+          {static} + assertMap()
+          {static} + createList()
+          {static} + assertList()
+          {static} + createBT()
+          {static} + assertBT()
+          {static} + createST()
+          {static} + assertST()
+          {static} + createSmall()
+          {static} + assertSmall()
+          {static} + createSimple()
+          {static} + assertSimple()
+          {static} + create()
+          {static} + asserts()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class ListProviderJSN {
+          {static} + builder()
+          {static} + readEmpty()
+          {static} + createEmpty()
+          {static} + compareEmpty()
+          {static} + readString()
+          {static} + createString()
+          {static} + compareString()
+          {static} + readInteger()
+          {static} + createInteger()
+          {static} + compareInteger()
+          {static} + readLong()
+          {static} + createLong()
+          {static} + compareLong()
+          {static} + readFloat()
+          {static} + createFloat()
+          {static} + compareFloat()
+          {static} + readDouble()
+          {static} + createDouble()
+          {static} + compareDouble()
+          {static} + readDate()
+          {static} + createDate()
+          {static} + compareDate()
+          {static} + readBoolean()
+          {static} + createBoolean()
+          {static} + compareBoolean()
+          {static} + readMap()
+          {static} + createMap()
+          {static} + compareMap()
+          {static} + readList()
+          {static} + createList()
+          {static} + compareList()
+          {static} + readST()
+          {static} + createST()
+          {static} + compareST()
+          {static} + readBT()
+          {static} + createBT()
+          {static} + compareBT()
+          {static} + readSmall()
+          {static} + getSmall()
+          {static} + createSmall()
+          {static} + compareSmall()
+          {static} + readSimple()
+          {static} + createSimple()
+          {static} + compareSimple()
+          {static} + readAll()
+          {static} + create()
+          {static} + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class ListProviderJSON {
+          {static} + builder()
+          {static} + readEmpty()
+          {static} + createEmpty()
+          {static} + compareEmpty()
+          {static} + readString()
+          {static} + createString()
+          {static} + compareString()
+          {static} + readInteger()
+          {static} + createInteger()
+          {static} + compareInteger()
+          {static} + readLong()
+          {static} + createLong()
+          {static} + compareLong()
+          {static} + readFloat()
+          {static} + createFloat()
+          {static} + compareFloat()
+          {static} + readDouble()
+          {static} + createDouble()
+          {static} + compareDouble()
+          {static} + readDate()
+          {static} + createDate()
+          {static} + compareDate()
+          {static} + readBoolean()
+          {static} + createBoolean()
+          {static} + compareBoolean()
+          {static} + readMap()
+          {static} + createMap()
+          {static} + compareMap()
+          {static} + readList()
+          {static} + createList()
+          {static} + compareList()
+          {static} + readST()
+          {static} + createST()
+          {static} + compareST()
+          {static} + readBT()
+          {static} + createBT()
+          {static} + compareBT()
+          {static} + readSmall()
+          {static} + getSmall()
+          {static} + createSmall()
+          {static} + compareSmall()
+          {static} + readSimple()
+          {static} + createSimple()
+          {static} + compareSimple()
+          {static} + assertSimple()
+          {static} + readAll()
+          {static} + create()
+          {static} + compare()
+          {static} + asserts()
+          {static} + toJSONList()
+          {static} + createRow()
+          {static} + createJsonArray()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProvider {
+          {static} + createList()
+          {static} + createBT()
+          {static} + createST()
+          {static} + createMapST()
+          {static} + createListST()
+          {static} + addSimple()
+          {static} + createSimple()
+          {static} + createString()
+          {static} ~ addMapWithString()
+          {static} + createContent()
+          {static} ~ addMapWithInteger()
+          {static} + createInteger()
+          {static} ~ addMapWithLong()
+          {static} + createLong()
+          {static} ~ addMapWithFloat()
+          {static} + createFloat()
+          {static} ~ addMapWithDouble()
+          {static} + createDouble()
+          {static} ~ addMapWithDate()
+          {static} + createDate()
+          {static} ~ addMapWithBoolean()
+          {static} + createBoolean()
+          {static} + createMap()
+          {static} + createSmall()
+          {static} + create()
+          {static} + createBig()
+          {static} + createEmpty()
+          {static} + createStringOther()
+          {static} + addMap()
+          {static} + toMap()
+          {static} + createConfig()
+          {static} + createModelConfigMap()
+          {static} + createEoParams()
+          {static} + createDbParams()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderEO {
+          {static} + builder()
+          {static} + createEmpty()
+          {static} + createString()
+          {static} + createInteger()
+          {static} + createLong()
+          {static} + createFloat()
+          {static} + createDouble()
+          {static} + createDate()
+          {static} + createBoolean()
+          {static} + createMap()
+          {static} + createList()
+          {static} + createBT()
+          {static} + createST()
+          {static} + createMapST()
+          {static} + createListST()
+          {static} + createSimple()
+          {static} + createSmall()
+          {static} + create()
+          {static} + createContent()
+          {static} + createBigEO()
+          {static} + createBigAEOUnexpanded()
+          {static} + createWithLongPathAndValueString()
+          {static} + createSimpleInsertWithPath()
+          {static} + createDeepPathValueAdapter()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderEODev {
+          {static} + builder()
+          {static} + createEmpty()
+          {static} + createString()
+          {static} + createInteger()
+          {static} + createLong()
+          {static} + createDouble()
+          {static} + createBoolean()
+          {static} + createMap()
+          {static} + createSmall()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderJSN {
+          {static} + builder()
+          {static} + readEmpty()
+          {static} + getJSONEmpty()
+          {static} + createEmpty()
+          {static} + compareEmpty()
+          {static} + readString()
+          {static} + createString()
+          {static} + compareString()
+          {static} + readInteger()
+          {static} + createInteger()
+          {static} + compareInteger()
+          {static} + readLong()
+          {static} + createLong()
+          {static} + compareLong()
+          {static} + readFloat()
+          {static} + createFloat()
+          {static} + compareFloat()
+          {static} + readDouble()
+          {static} + createDouble()
+          {static} + compareDouble()
+          {static} + readDate()
+          {static} + createDate()
+          {static} + compareDate()
+          {static} + readBoolean()
+          {static} + createBoolean()
+          {static} + compareBoolean()
+          {static} + readMap()
+          {static} + createMap()
+          {static} + compareMap()
+          {static} + readList()
+          {static} + createList()
+          {static} + compareList()
+          {static} + readBT()
+          {static} + createBT()
+          {static} + compareBT()
+          {static} + readST()
+          {static} + createST()
+          {static} + compareST()
+          {static} + readMapST()
+          {static} + createMapST()
+          {static} + compareMapST()
+          {static} + readListST()
+          {static} + createListST()
+          {static} + compareListST()
+          {static} + readSmall()
+          {static} + createSmall()
+          {static} + compareSmall()
+          {static} + readSimple()
+          {static} + createSimple()
+          {static} + compareSimple()
+          {static} + readAll()
+          {static} + read()
+          {static} + create()
+          {static} + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class MapProviderJSON {
+          {static} + builder()
+          {static} + readEmpty()
+          {static} + getJSONEmpty()
+          {static} + createEmpty()
+          {static} + compareEmpty()
+          {static} + getJSONEmptyValues()
+          {static} + readString()
+          {static} + createString()
+          {static} + compareString()
+          {static} + readInteger()
+          {static} + createInteger()
+          {static} + compareInteger()
+          {static} + assertInteger()
+          {static} + readLong()
+          {static} + createLong()
+          {static} + compareLong()
+          {static} + readFloat()
+          {static} + createFloat()
+          {static} + compareFloat()
+          {static} + assertFloat()
+          {static} + readDouble()
+          {static} + createDouble()
+          {static} + compareDouble()
+          {static} + readDate()
+          {static} + createDate()
+          {static} + compareDate()
+          {static} + assertDate()
+          {static} + readBoolean()
+          {static} + createBoolean()
+          {static} + compareBoolean()
+          {static} + readMap()
+          {static} + createMap()
+          {static} + compareMap()
+          {static} + assertMap()
+          {static} + readList()
+          {static} + createList()
+          {static} + compareList()
+          {static} + assertList()
+          {static} + readBT()
+          {static} + createBT()
+          {static} + compareBT()
+          {static} + assertBT()
+          {static} + readST()
+          {static} + createST()
+          {static} + compareST()
+          {static} + readMapST()
+          {static} + createMapST()
+          {static} + compareMapST()
+          {static} + readListST()
+          {static} + createListST()
+          {static} + compareListST()
+          {static} + readSmall()
+          {static} + createSmall()
+          {static} + compareSmall()
+          {static} + assertSmall()
+          {static} + readSimple()
+          {static} + createSimple()
+          {static} + compareSimple()
+          {static} + assertSimple()
+          {static} + readAll()
+          {static} + read()
+          {static} + create()
+          {static} + compare()
+          {static} + asserts()
+          {static} + getJSONSmallWithKeys()
+          {static} + getJSONSmallWithKeysAndList()
+          {static} + toJSONMap()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class STProvider {
+          {static} + createEmpty()
+          {static} + createString()
+          {static} + createName()
+          {static} - addSubTest()
+          {static} + createST()
+          {static} ~ addSimple()
+          {static} + createSimple()
+          {static} + createSubTestMap()
+          {static} + createSubTestList()
+          {static} + create()
+          {static} + createSTRecursivePath3()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class STProviderEO {
+          {static} + builder()
+          {static} + createEmpty()
+          {static} + assertEmpty()
+          {static} + createString()
+          {static} + assertString()
+          {static} + createName()
+          {static} + assertName()
+          {static} + createST()
+          {static} + assertST()
+          {static} + createSimple()
+          {static} + assertSimple()
+          {static} + create()
+          {static} + asserts()
+          {static} + createSTPath()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class STProviderJSN {
+          {static} + builder()
+          {static} + readEmpty()
+          {static} + createEmpty()
+          {static} + compareEmpty()
+          {static} + readString()
+          {static} + createString()
+          {static} + compareString()
+          {static} + readName()
+          {static} + createName()
+          {static} + compareName()
+          {static} + readST()
+          {static} + createST()
+          {static} + compareST()
+          {static} + readSimple()
+          {static} + createSimple()
+          {static} + compareSimple()
+          {static} + readAll()
+          {static} + create()
+          {static} + compare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class TestCallsProvider {
+          {static} + createFileCall()
+          {static} + readFileCallEO()
+          {static} + createExecutorFileRead()
+          {static} + createExecutorFileRead()
+          {static} + executeExecutorFileRead()
+          {static} + writeFileCallEO()
+          {static} + createExecutorFileWrite()
+          {static} + createExecutorFileWrite()
+          {static} + executeExecutorFileWrite()
+          {static} + createExecutorValueCall()
+          {static} + executeExecutorValueCall()
+          {static} + createValueCall()
+          {static} + createValueCallWithEO()
+          {static} + createValueCallWithEOEmpty()
+          {static} + createValueCallEO()
+          {static} + createConfigCall()
+          {static} + createConfigCallEO()
+          {static} + createConfigCallEO()
+          {static} + createJsonCall()
+          {static} + createScsCall()
+          {static} + createTemplateCall()
+          {static} + createExecutorTemplate()
+          {static} + executeTemplateCall()
+          {static} + executeTemplateAction()
+          {static} + executeTemplateAction()
+          {static} + executeTemplateActionForAdapter()
+          {static} + assertExecutorTemplate()
+          {static} + assertExecutorTemplate()
+          {static} + setMapPath()
+          {static} + setMapPath()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class TestObjectProvider {
+          {static} + EO_CONFIGS_CACHE : EOConfigsCache
+          {static} - LOG : Logger
+          {static} + createEOBuilder()
+          {static} + createEOBuilder()
+          {static} + createEOFromJson()
+          {static} + createJSONToEOMapEmpty()
+          {static} + createJSONToEOListEmpty()
+          {static} + createEOFromJson()
+          {static} + create()
+          {static} + findModel()
+          {static} + findModel()
+          {static} + checkLogNotEmpty()
+          {static} + checkLogEmpty()
+          {static} + createEOString()
+          {static} + createEOBoolean()
+          {static} + createEOLong()
+          {static} + createEODouble()
+          {static} + createEOMapEmpty()
+          {static} + createEOListEmpty()
+          {static} + createEOFromJson()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.test {
+      class TestSTTest {
+          {static} - LOG : Logger
+          + createSTRecursivePath0()
+          + createSTRecursivePath1()
+          + createSTRecursivePath2()
+      }
+    }
+  }
+  
+
+  JSONInputReader +-down- TYPE
+  TestSTTest -up-|> TestHelper
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

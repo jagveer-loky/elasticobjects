@@ -12,6 +12,9 @@ import java.util.Map;
  */
 public class RolePermissions {
 
+    public static final String GUEST = "guest";
+    public static final String ANONYM = "anonym";
+    public static final String SUPERADMIN = "superadmin";
     private String execute;
     private String create;
     private String write;
@@ -110,7 +113,7 @@ public class RolePermissions {
         if (roles == null) {
             return Permissions.EXECUTE;
         }
-        if (roles.contains(RoleConfig.SUPERADMIN)) {
+        if (roles.contains(SUPERADMIN)) {
             return Permissions.EXECUTE;
         }
         if (roles.size() == 0) {

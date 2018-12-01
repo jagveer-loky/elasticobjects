@@ -1,0 +1,396 @@
+@startuml
+
+title __CALLS's Class Diagram__\n
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class Call {
+          {static} - LOG : Logger
+          - attributes : Map
+          - globalAttributes : Map
+          - removeAttributes : Set
+          - path : String
+          - pathDynamic : boolean
+          - mapPath : String
+          - absolutePath : boolean
+          - dynamicMapPath : boolean
+          - dynamicKey : boolean
+          - pathIf : String
+          - loopIf : String
+          + Call()
+          + Call()
+          + Call()
+          + mapAttributes()
+          # mergeConfig()
+          + isDynamicKey()
+          + getProvider()
+          + getConfig()
+          + hasConfig()
+          + getAttributes()
+          + getGlobalAttributes()
+          # mergeAttributes()
+          # mergeAllAttributes()
+          + hasPathIf()
+          - getPathIf()
+          + setPathIf()
+          # executePathIf()
+          - executeIf()
+          + hasLoopIf()
+          - getLoopIf()
+          + setLoopIf()
+          # executeLoopIf()
+          + getPath()
+          + setPath()
+          + getMergePath()
+          + resolvePath()
+          # hasPath()
+          # setToPath()
+          # mapToPath()
+          # moveToPath()
+          + getMapPath()
+          + setMapPath()
+          # isDynamicMapPath()
+          # isAbsolutePath()
+          # hasMapPath()
+          # filterPath()
+          # createAdapter()
+          # createAdapter()
+          + toString()
+          + toString2()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class CallIO {
+          + CallIO()
+          + CallIO()
+          + getAssetConfig()
+          + getRolePermissions()
+          + setRolePermissions()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ConfigCall {
+          - filterConfigName : String
+          - filterConfigNameDynamic : boolean
+          - filterModule : String
+          - filterSubModule : String
+          - filterKey : String
+          + ConfigCall()
+          + ConfigCall()
+          # getConfigConfig()
+          + mapAttributes()
+          - createFilterConfigClass()
+          + hasFilterConfigName()
+          + getFilterConfigName()
+          + setFilterConfigName()
+          + hasModule()
+          + getFilterModule()
+          + setFilterModule()
+          + hasSubModule()
+          + getFilterSubModule()
+          + setFilterSubModule()
+          + hasKey()
+          + getFilterKey()
+          + setFilterKey()
+          + set()
+          # mergeConfig()
+          + set()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class FileCall {
+          - filePath : String
+          + FileCall()
+          + getFileConfig()
+          + getHostConfig()
+          + mapAttributes()
+          + mergeConfig()
+          + getFilePath()
+          + setFilePath()
+          + hasFilePath()
+          + findUrl()
+          + getUrl()
+          + getUrlPath()
+          + getUrl()
+          + getFile()
+          + exists()
+          + write()
+          + write()
+          + write()
+          + read()
+          + read()
+          + read()
+          + write()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class HostCall {
+          + HostCall()
+          + getHostConfig()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class JsonCall {
+          - indent : Integer
+          - content : String
+          + JsonCall()
+          + mapAttributes()
+          + mergeConfig()
+          + hasContent()
+          + getContent()
+          + setContent()
+          + getSerializationType()
+          + setSerializationType()
+          + setIndent()
+          + getJsonConfig()
+          + read()
+          + read()
+          + write()
+          + write()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ListCall {
+          + ListCall()
+          # getListConfig()
+          + mapAttributes()
+          + getListMapper()
+          + getListParams()
+          + getModelKeys()
+          + setModelKeys()
+          + isDoMap()
+          + setDoMap()
+          + getMapPath()
+          + setMapPath()
+          # hasMapPath()
+          + isIgnoreHeader()
+          + setIgnoreHeader()
+          + getRowStart()
+          + setRowStart()
+          + getRowEnd()
+          + setRowEnd()
+          + getLength()
+          + setLength()
+          + addAnd()
+          + getFilter()
+          + setFilter()
+          + setFilter()
+          + getPathPattern()
+          + getPathPatternAsString()
+          + setPathPatternAsString()
+          + getColKeysAsString()
+          + setColKeysAsString()
+          + read()
+          + read()
+          + write()
+          + write()
+          + toList()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ListMapper {
+          - colKeys : List<String>
+          - colKeysMap : Map<String, Integer>
+          - modelKeys : String
+          - ignoreHeader : Boolean
+          - mapPath : String
+          - doMap : Boolean
+          + ListMapper()
+          + ListMapper()
+          + mapAttributes()
+          + hasPathPattern()
+          + addPathPattern()
+          + getPathPattern()
+          + setPathPattern()
+          + hasIgnoreHeader()
+          + isIgnoreHeader()
+          + setIgnoreHeader()
+          + hasMapPath()
+          + getMapPath()
+          + setMapPath()
+          + hasDoMap()
+          + isDoMap()
+          + setDoMap()
+          + hasModelKeys()
+          + getModelKeys()
+          + setModelKeys()
+          + getProvider()
+          + setProvider()
+          + hasColKeys()
+          + getColKeys()
+          + setColKeys()
+          # getColKeysMap()
+          + hasHeader()
+          - resolve()
+          - mergeConfigRowMapper()
+          - resolve()
+          + addList()
+          + addList()
+          - createRowAdapter()
+          - createRowAdapter()
+          + addRow()
+          + createRow()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ListParams {
+          - rowStart : Integer
+          - rowEnd : Integer
+          - length : Integer
+          - rowHead : Integer
+          - filterRaw : String
+          + ListParams()
+          + ListParams()
+          + mapAttributes()
+          + merge()
+          + prepare()
+          + isEmpty()
+          + getFilter()
+          + setFilter()
+          + filterRow()
+          + addAnd()
+          + addAnd()
+          + addAnd()
+          - hasFilterRaw()
+          + setFilterRaw()
+          # checkRowStart()
+          + getRowHead()
+          # setRowHead()
+          + hasRowHead()
+          + hasRowStart()
+          + getRowStart()
+          + setRowStart()
+          + getRowEnd()
+          + setRowEnd()
+          + prepareStartEnd()
+          + getLength()
+          + setLength()
+          + hasLength()
+          + prepare()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ScsCall {
+          {static} - LOG : Logger
+          + ScsCall()
+          + getScsConfig()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class TemplateCall {
+          {static} - LOG : Logger
+          {static} - controlKeys : Set
+          - content : String
+          - contentWithCall : boolean
+          - loopPath : String
+          - keepStart : String
+          - keepEnd : String
+          + TemplateCall()
+          + TemplateCall()
+          {static} - createControlKeys()
+          + mapAttributes()
+          - filterAttributes()
+          + mergeConfig()
+          + hasContent()
+          + getContent()
+          + setContent()
+          + hasLoopPath()
+          + getLoopPath()
+          + setLoopPath()
+          + getTemplateConfig()
+          + execute()
+          + execute()
+      }
+    }
+  }
+  
+
+  package org.fluentcodes.projects.elasticobjects {
+    package org.fluentcodes.projects.elasticobjects.calls {
+      class ValueCall {
+          - value : Object
+          + ValueCall()
+          + mapAttributes()
+          + mergeConfig()
+          - getValueConfig()
+          + set()
+          + set()
+          + map()
+          + map()
+          + getValue()
+          + setValue()
+      }
+    }
+  }
+  
+
+  Call o-- Config : config
+  CallIO -up-|> Call
+  CallIO o-- RolePermissions : rolePermissions
+  ConfigCall -up-|> Call
+  FileCall -up-|> HostCall
+  HostCall -up-|> CallIO
+  JsonCall -up-|> FileCall
+  JsonCall o-- JSONSerializationType : serializationType
+  ListCall -up-|> CallIO
+  ListCall o-- ListParams : listParams
+  ListCall o-- ListMapper : listMapper
+  ListMapper o-- EOConfigsCache : provider
+  ListMapper o-- Models : models
+  ListMapper o-- PathPattern : pathPattern
+  ListParams o-- Or : filter
+  ScsCall -up-|> ListCall
+  TemplateCall -up-|> CallIO
+  TemplateCall o-- ExecutorList : bufferedExecutor
+  TemplateCall o-- KeepKeys : keepKey
+  ValueCall -up-|> Call
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
