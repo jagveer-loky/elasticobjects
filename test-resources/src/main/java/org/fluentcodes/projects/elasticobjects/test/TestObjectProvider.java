@@ -58,6 +58,19 @@ public class TestObjectProvider {
         return createEOBuilder().build();
     }
 
+    public static final EO create(Class... classes) throws Exception {
+        try {
+            return new EOBuilder(EO_CONFIGS_CACHE)
+                    .setModels(classes)
+                    .setLogLevel(LogLevel.WARN)
+                    .build();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public final static EO create() {
         try {
             return TestObjectProvider.createEOBuilder()

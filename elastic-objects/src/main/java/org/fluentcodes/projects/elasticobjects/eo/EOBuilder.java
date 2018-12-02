@@ -197,7 +197,7 @@ public class EOBuilder {
         return this;
     }
 
-    protected EOBuilder setModels(final String models) throws Exception {
+    public EOBuilder setModels(final String models) throws Exception {
         this.targetModels = new Models(this.configCache, models);
         return this;
     }
