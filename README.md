@@ -24,8 +24,8 @@ assertEquals("value", eo.get("level0/level1/level2/key"));
 
 
 ### Packages
-We have actually four packages here.
-They jars you find on
+Actually you find here four modules.
+Their jars are deployed on
 [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
 
 #### elastic-objects
