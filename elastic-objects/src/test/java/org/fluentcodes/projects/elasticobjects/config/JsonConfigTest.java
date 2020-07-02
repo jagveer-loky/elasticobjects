@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class JsonConfigTest extends TestHelper {
 
     @Test
     public void findConfigInCache() throws Exception {
-        JsonConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findJson(J_SIMPLE_INSERT_WITH_PATH);
+        JsonConfig config = TestEOProvider.EO_CONFIGS.findJson(J_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }

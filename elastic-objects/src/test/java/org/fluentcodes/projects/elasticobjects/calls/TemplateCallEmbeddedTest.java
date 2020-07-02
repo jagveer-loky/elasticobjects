@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.config.TestDataProvider;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     @Test
     public void callEmbedded0() throws Exception {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_EMBEDDED_0);
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_0);
         final String result = action.execute(adapter);
         Assert.assertNotNull(result);
         AssertEO.compare(result);
@@ -31,7 +31,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     @Test
     public void callEmbedded0WithPlaceHolder() throws Exception {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_EMBEDDED_0_WITH_PLACE_HOLDER);
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_0_WITH_PLACE_HOLDER);
         final String result = action.execute(adapter);
         Assert.assertNotNull(result);
         AssertEO.compare(result);
@@ -41,7 +41,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     @Test
     public void callEmbedded2() throws Exception {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_EMBEDDED_2);
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_2);
         final String result = action.execute(adapter);
         Assert.assertNotNull(result);
         AssertEO.compare(result);
@@ -51,7 +51,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     @Test
     public void callEmbedded2WithPlaceHolder() throws Exception {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_EMBEDDED_2_WITH_PLACE_HOLDER);
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_2_WITH_PLACE_HOLDER);
         final String result = action.execute(adapter);
         Assert.assertNotNull(result);
         AssertEO.compare(result);
@@ -60,7 +60,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     @Test
     public void callEmbedded2WithValueAction() throws Exception {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_EMBEDDED_2_WITH_PLACE_HOLDER);
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_2_WITH_PLACE_HOLDER);
         final String result = action.execute(adapter);
         Assert.assertNotNull(result);
         Assert.assertEquals(TEO_STATIC.S_STRING, adapter.get(TEO_STATIC.toPath(TEO_STATIC.S_LEVEL0, TEO_STATIC.S_LEVEL1, TEO_STATIC.S_LEVEL2, TEO_STATIC.S_TEST_STRING)));

@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class ModelConfigTest extends TestHelper {
 
     @Test
     public void findConfigInCache() throws Exception {
-        ModelConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_XLSX_CALL);
+        ModelConfig config = TestEOProvider.EO_CONFIGS.findModel(M_XLSX_CALL);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
@@ -59,33 +59,33 @@ public class ModelConfigTest extends TestHelper {
     public void checkDependentModels() throws Exception {
         TestHelper.printStartMethod();
         // Check if basic Models are available
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE
+        ModelInterface model = TestEOProvider.EO_CONFIGS
                 .findModel(ModelInterface.class.getSimpleName());
         //Assert.assertEquals(ModelInterface.class.getSimpleName(),model.getModelKey());
-        model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(FieldConfig.class.getSimpleName());
+        model = TestEOProvider.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
         Assert.assertEquals(M_FIELD_CONFIG, model.getModelKey());
 
-        model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(BasicTest.class);
+        model = TestEOProvider.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertEquals(BasicTest.class.getSimpleName(), model.getModelKey());
-        model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(SubTest.class);
+        model = TestEOProvider.EO_CONFIGS.findModel(SubTest.class);
         Assert.assertEquals(SubTest.class.getSimpleName(), model.getModelKey());
 
-        model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(HostConfig.class);
-        model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(FileConfig.class);
-        model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(UserConfig.class);
+        model = TestEOProvider.EO_CONFIGS.findModel(HostConfig.class);
+        model = TestEOProvider.EO_CONFIGS.findModel(FileConfig.class);
+        model = TestEOProvider.EO_CONFIGS.findModel(UserConfig.class);
     }
 
     @Test
     public void checkModelXlsxConfig() throws Exception {
         TestHelper.printStartMethod();
-        ModelConfig model = TestObjectProvider.EO_CONFIGS_CACHE
+        ModelConfig model = TestEOProvider.EO_CONFIGS
                 .findModel(XlsxConfig.class);
         Assert.assertEquals(M_XLSX_CONFIG, model.getModelKey());
     }
 
     @Test
     public void checkModelXlsxAction() throws Exception {
-        final ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE
+        final ModelInterface model = TestEOProvider.EO_CONFIGS
                 .findModel(M_XLSX_CALL);
         Assert.assertEquals(M_XLSX_CALL, model.getModelKey());
         model.resolve();

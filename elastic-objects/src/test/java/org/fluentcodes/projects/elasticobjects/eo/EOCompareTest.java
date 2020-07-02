@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,11 +19,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleEquals() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add("first")
                 .set(TEO_STATIC.S_STRING);
 
-        EO other = TestObjectProvider.createEOFromJson();
+        EO other = TestEOProvider.createEmptyMap();
         other.add("first")
                 .set(TEO_STATIC.S_STRING);
 
@@ -35,11 +35,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleScalarNotEquals() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_TEST_STRING)
                 .set(TEO_STATIC.S_STRING);
 
-        EO other = TestObjectProvider.createEOFromJson();
+        EO other = TestEOProvider.createEmptyMap();
         other.add(TEO_STATIC.S_TEST_STRING)
                 .set(TEO_STATIC.S_STRING_OTHER);
 
@@ -51,11 +51,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleContainerNotEquals() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_KEY0)
                 .set(TEO_STATIC.S_STRING);
 
-        EO other = TestObjectProvider.createEOFromJson();
+        EO other = TestEOProvider.createEmptyMap();
         other.add(TEO_STATIC.S_KEY1)
                 .set(TEO_STATIC.S_STRING);
 

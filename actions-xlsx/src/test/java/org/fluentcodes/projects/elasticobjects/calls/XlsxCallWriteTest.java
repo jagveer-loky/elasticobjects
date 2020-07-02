@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
 import org.fluentcodes.projects.elasticobjects.test.ListProviderJSON;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -30,7 +30,7 @@ public class XlsxCallWriteTest extends TestHelper {
     @Test
     public void withTarget() throws Exception {
         TestHelper.printStartMethod();
-        final EO adapter = TestObjectProvider.createEOBuilder()
+        final EO adapter = TestEOProvider.createEOBuilder()
                 .setLogLevel(LogLevel.WARN)
                 .map(ListProviderJSON.createJsonArray());
 

@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.JSONReader;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
@@ -27,7 +27,7 @@ public class HostConfigTest extends TestHelper {
 
     @Test
     public void byAdapterPermissions() throws Exception {
-        EO adapter = JSONReader.readAdapterBean(TestObjectProvider.EO_CONFIGS_CACHE, HOST_PERMISSION, null);
+        EO adapter = JSONReader.readAdapterBean(TestEOProvider.EO_CONFIGS, HOST_PERMISSION, null);
         AssertEO.compare(adapter);
     }
 
@@ -39,14 +39,14 @@ public class HostConfigTest extends TestHelper {
 
     @Test
     public void byAdapterScope() throws Exception {
-        EO adapter = JSONReader.readAdapterBean(TestObjectProvider.EO_CONFIGS_CACHE, HOST_SCOPE, null);
+        EO adapter = JSONReader.readAdapterBean(TestEOProvider.EO_CONFIGS, HOST_SCOPE, null);
         AssertEO.compare(adapter);
     }
 
 
     @Test
     public void withHostKeyTest() throws Exception {
-        final HostConfig config = (HostConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(HostConfig.class, H_TEST);
+        final HostConfig config = (HostConfig) TestEOProvider.EO_CONFIGS.find(HostConfig.class, H_TEST);
         Assert.assertEquals(F_DESCRIPTION, config.getDescription());
 
         Assert.assertEquals(F_HOST_KEY, config.getHostKey());
@@ -71,7 +71,7 @@ public class HostConfigTest extends TestHelper {
         Assert.assertEquals(Permissions.READ, config.getPermissions(R_GUEST));
         Assert.assertEquals(Permissions.NOTHING, config.getPermissions(R_ANONYM));
 
-        AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, config);
+        AssertEO.compare(TestEOProvider.EO_CONFIGS, config);
 
     }
 
@@ -85,14 +85,14 @@ public class HostConfigTest extends TestHelper {
         map.put(F_PORT, S_INTEGER);
         map.put(F_USER, F_USER);
         map.put(F_PASSWORD, F_PASSWORD);
-        HostConfig cache = (HostConfig) new HostConfig.Builder().build(TestObjectProvider.EO_CONFIGS_CACHE, map);
+        HostConfig cache = (HostConfig) new HostConfig.Builder().build(TestEOProvider.EO_CONFIGS, map);
         Assert.assertEquals(H_LOCALHOST, cache.getHostName());
         Assert.assertEquals(F_HOST_KEY, cache.getHostKey());
     }
 
     @Test
     public void getLocalHost() throws Exception {
-        HostConfig cache = (HostConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(HostConfig.class, H_LOCALHOST);
+        HostConfig cache = (HostConfig) TestEOProvider.EO_CONFIGS.find(HostConfig.class, H_LOCALHOST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, cache.getDescription());
     }
 

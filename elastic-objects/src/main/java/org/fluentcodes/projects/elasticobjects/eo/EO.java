@@ -126,4 +126,6 @@ public interface EO {
     void warn(String message, Exception e);
 
     void error(String message, Exception e);
+
+    boolean hasErrors();
 }

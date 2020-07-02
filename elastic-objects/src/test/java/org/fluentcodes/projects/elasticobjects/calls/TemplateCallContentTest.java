@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,8 +22,8 @@ public class TemplateCallContentTest extends TestHelper {
 
     @Test
     public void callContentExample() throws Exception {
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE);
-        final String result = action.execute(TestObjectProvider.createEOFromJson());
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE);
+        final String result = action.execute(TestEOProvider.createEmptyMap());
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H2));
         AssertEO.compare(result);
     }
@@ -31,8 +31,8 @@ public class TemplateCallContentTest extends TestHelper {
 
     @Test
     public void callContentExampleWithStaticTemplate() throws Exception {
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE_WITH_STATIC_TEMPLATE);
-        final EO adapter = TestObjectProvider.createEOFromJson();
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE_WITH_STATIC_TEMPLATE);
+        final EO adapter = TestEOProvider.createEmptyMap();
         final String result = action.execute(adapter);
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H1));
         AssertEO.compare(result);
@@ -40,8 +40,8 @@ public class TemplateCallContentTest extends TestHelper {
 
     @Test
     public void contentExampleWithKeepTpl() throws Exception {
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE_WITH_KEEP);
-        final EO adapter = TestObjectProvider.createEOFromJson();
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE_WITH_KEEP);
+        final EO adapter = TestEOProvider.createEmptyMap();
         final String result = action.execute(adapter);
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H1));
         AssertEO.compare(result);
@@ -49,8 +49,8 @@ public class TemplateCallContentTest extends TestHelper {
 
     @Test
     public void callContentExampleWithDynamicTemplateKey() throws Exception {
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE);
-        final EO adapter = TestObjectProvider.createEOFromJson();
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE);
+        final EO adapter = TestEOProvider.createEmptyMap();
         final String result = action.execute(adapter);
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H1));
         AssertEO.compare(result);
@@ -59,8 +59,8 @@ public class TemplateCallContentTest extends TestHelper {
     @Test
     public void callContentOrExample() throws Exception {
         TestHelper.printStartMethod();
-        final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, T_CONTENT_OR_EXAMPLE);
-        final String result = action.execute(TestObjectProvider.createEOFromJson());
+        final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_OR_EXAMPLE);
+        final String result = action.execute(TestEOProvider.createEmptyMap());
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains("<h1>header2</h1>"));
         AssertEO.compare(result);
     }

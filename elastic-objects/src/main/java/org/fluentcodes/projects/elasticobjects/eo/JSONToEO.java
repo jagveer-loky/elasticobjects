@@ -34,6 +34,7 @@ public class JSONToEO {
     private char previous;
     private Reader reader;
     private boolean usePrevious;
+    private boolean parseCalls = false;
     /**
      * Construct a JSONToEO from a getSerialized.
      *
@@ -329,6 +330,9 @@ public class JSONToEO {
         if (isEof()) {
             return eo;
         }
+        if (parseCalls && eo instanceof EORoot) {
+            return eo;
+        }
         final char c = nextClean();
         if (c == 0) {
             return eo;
@@ -402,6 +406,7 @@ public class JSONToEO {
 
                     case (CALLS):  // Create a list of actions
                         back();
+                        parseCalls = true;
                         EO actionAdapter = new EOBuilder(this.provider)
                                 .setModels(List.class)
                                 .map(this);

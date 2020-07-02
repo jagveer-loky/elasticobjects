@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class LikeTest extends TestHelper {
 
     @Test
     public void filterAdapter() throws Exception {
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_TEST_STRING).set(TEO_STATIC.S_STRING);
         Condition condition = new Like(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(TEO_STATIC.S_TEST_STRING),

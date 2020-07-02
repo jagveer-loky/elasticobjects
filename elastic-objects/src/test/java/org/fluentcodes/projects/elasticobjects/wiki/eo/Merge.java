@@ -2,19 +2,15 @@ package org.fluentcodes.projects.elasticobjects.wiki.eo;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class Merge {
     @Test
     public void test() throws Exception {
-        final EO eo = TestObjectProvider.create();
+        final EO eo = TestEOProvider.create();
 
         final BasicTest BT1 = new BasicTest();
         BT1.setTestString( "value");

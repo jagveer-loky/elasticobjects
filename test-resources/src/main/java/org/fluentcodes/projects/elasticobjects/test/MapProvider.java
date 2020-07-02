@@ -176,22 +176,6 @@ public class MapProvider {
         return map;
     }
 
-    public static final void addMap(Map map, Object... keyValues) throws Exception {
-        for (int i = 0; i < keyValues.length; i++) {
-            if (i == keyValues.length - 1) {
-                throw new Exception("Uneven key value pairs at " + i);
-            }
-            map.put(keyValues[i], keyValues[i + 1]);
-            i++;
-        }
-    }
-
-    public static final Map toMap(Object... keyValues) throws Exception {
-        Map map = new LinkedHashMap();
-        addMap(map, keyValues);
-        return map;
-    }
-
     public static void createConfig(Map<String, Object> map) {
         try {
             addMap(map, F_ID, 1L,

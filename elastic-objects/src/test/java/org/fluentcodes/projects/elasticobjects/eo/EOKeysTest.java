@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class EOKeysTest extends TestHelper {
     @Test
     public void keyPath() throws Exception {
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_KEY0);
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(S_LEVEL3)
                 .set(S_STRING);
         adapter.add(path1)

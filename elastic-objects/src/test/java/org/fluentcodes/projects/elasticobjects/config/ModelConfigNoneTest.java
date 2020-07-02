@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class ModelConfigNoneTest extends TestHelper {
     @Test
     public void assertObject() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(Object.class.getSimpleName());
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(Object.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.NONE, model.getShapeType());
         Assert.assertFalse(model.hasModel());
         Assert.assertFalse(model.isMap());

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class ModelConfigMapTest extends TestHelper {
     public void readMainJackson() throws Exception {
         TestHelper.printStartMethod();
 
-        final ModelConfigMap mapModel = (ModelConfigMap) TestObjectProvider.EO_CONFIGS_CACHE.findModel(Map.class);
+        final ModelConfigMap mapModel = (ModelConfigMap) TestEOProvider.EO_CONFIGS.findModel(Map.class);
         Assert.assertEquals(Map.class, mapModel.getModelClass());
         final Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());
@@ -28,7 +28,7 @@ public class ModelConfigMapTest extends TestHelper {
     @Test
     public void assertMap() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_MAP);
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_MAP);
         Assert.assertEquals(ShapeTypes.MAP, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isMap());

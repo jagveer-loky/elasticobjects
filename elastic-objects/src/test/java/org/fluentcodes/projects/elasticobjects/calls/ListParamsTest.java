@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -113,7 +113,7 @@ public class ListParamsTest extends TestHelper {
     @Test
     public void assertModel() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface paramsModel = TestObjectProvider.EO_CONFIGS_CACHE.findModel(ListParams.class.getSimpleName());
+        ModelInterface paramsModel = TestEOProvider.EO_CONFIGS.findModel(ListParams.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.INSTANCE, paramsModel.getShapeType());
         Assert.assertTrue(paramsModel.hasModel());
         Assert.assertTrue(paramsModel.isObject());

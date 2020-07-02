@@ -109,15 +109,17 @@ public class EOToJSON {
 
         ExecutorList executorList = adapter.getCalls();
         if (executorList.size() > 0) {
+            JSONSerializationType buffer = serializationType;
+            serializationType = JSONSerializationType.STANDARD;
             EO actionsAdapter = new EOBuilder(adapter.getConfigsCache()).set(executorList.getListMap());
             jsn.append(",");
             jsn.append(lineBreak);
-            jsn.append(indent);
-            jsn.append("\"(List)");
+            jsn.append(nextIndent);
+            jsn.append("\"");
             jsn.append(JSONToEO.CALLS);
-            jsn.append("\":");
-            jsn.append(lineBreak);
-            toJSON(jsn, actionsAdapter, startIndent, this.pathPattern);
+            jsn.append("\": ");
+            toJSON(jsn, actionsAdapter, startIndent + 1, this.pathPattern);
+            serializationType = buffer;
         }
 
         if (!adapter.getLog().isEmpty()) {
@@ -236,7 +238,6 @@ public class EOToJSON {
     }
 
     private final void addStart(final StringBuilder buffer, final EO adapter, final String indent) {
-        //buffer.append(indent);
         if (adapter.getModel().isMapType() || serializationType == JSONSerializationType.EO) {
             buffer.append("{");
         } else if (adapter.getModel().isListType()) {

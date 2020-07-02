@@ -25,10 +25,10 @@ public class ValueParamsHelper {
         }
     }
 
-    protected static void checkValuesAdapter(int position, Object... values) throws Exception {
+    protected static void checkValuesEO(int position, Object... values) throws Exception {
         checkValues(position, values);
         if (!(values[position] instanceof EO)) {
-            throw new Exception("Value at " + position + " is not instance of MODULE_NAME but " + values[0].getClass().getSimpleName() + ".");
+            throw new Exception("Value at " + position + " is not instance of EO but " + values[0].getClass().getSimpleName() + ".");
         }
     }
 
@@ -68,8 +68,8 @@ public class ValueParamsHelper {
         return ScalarConverter.toBoolean(values[position]);
     }
 
-    protected static EO getAdapter(int position, Object... values) throws Exception {
-        checkValuesAdapter(position, values);
+    protected static EO getEO(int position, Object... values) throws Exception {
+        checkValuesEO(position, values);
         return (EO) values[position];
     }
 }

@@ -252,6 +252,12 @@ public abstract class EOScalar implements EO {
     }
 
     @Override
+    public boolean hasErrors() {
+        return
+            getRoot().hasErrors();
+    }
+
+    @Override
     public void setRoles(final String... roles) {
         this.setRoles(Arrays.asList(roles));
     }

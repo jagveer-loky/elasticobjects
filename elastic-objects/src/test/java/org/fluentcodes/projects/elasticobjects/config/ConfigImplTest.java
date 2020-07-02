@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class ConfigImplTest extends TestHelper {
     @Test
     public void assertModelCache() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_CONFIG_IMPL);
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_CONFIG_IMPL);
         model.resolve();
         Assert.assertEquals(ShapeTypes.OBJECT, model.getShapeType());
         Assert.assertTrue(model.isObject());

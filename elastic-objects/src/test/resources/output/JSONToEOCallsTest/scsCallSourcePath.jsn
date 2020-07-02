@@ -13,11 +13,10 @@
       }
     }
   },
-"(List)_calls":
-{
-  "0": {
-    "execute": "ScsCall.read(source.csv)",
-    "path": "level0/level1"
-  }
-}
+  "_calls": [
+    {
+      "execute": "ScsCall.read(source.csv)",
+      "path": "level0/level1"
+    }
+  ]
 }

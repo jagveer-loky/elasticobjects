@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ConfigCallTest {
     @Test
     public void fieldsDirect() throws Exception {
-        final EO eoEmpty = TestObjectProvider.createEOFromJson();
+        final EO eoEmpty = TestEOProvider.createEmptyMap();
         final ConfigCall call = new ConfigCall();
         call.setFilterConfigName(M_FIELD_CONFIG);
         call.setFilterModule(EO_STATIC.MODULE_NAME);

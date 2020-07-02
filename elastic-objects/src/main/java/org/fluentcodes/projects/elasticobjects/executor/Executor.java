@@ -11,6 +11,8 @@ import java.util.Map;
  * @version 0.01
  */
 public interface Executor {
+    String EXECUTE = "execute";
+
     /**
      * Execute something. Exception will be documented in the adapter log.
      */

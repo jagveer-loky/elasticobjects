@@ -46,8 +46,6 @@
     "description": "For scope tests."
   },
   "testItem": {
-    "module": "elastic-objects",
-    "subModule": "test",
     "naturalId": "testItem",
     "valueKey": "testItem",
     "value": "test",

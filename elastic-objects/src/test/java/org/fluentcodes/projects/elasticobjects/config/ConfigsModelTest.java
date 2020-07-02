@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
 public class ConfigsModelTest {
     @Test
     public void devFindClassBTQualified() throws Exception {
-        final EOConfigsCache configsCache = DevObjectProvider.EO_CONFIGS_CACHE;
+        final EOConfigsCache configsCache = DevObjectProvider.EO_CONFIGS;
         final ModelConfig modelBT = configsCache.findModel("org.fluentcodes.projects.elasticobjects.assets.BasicTest");
         Assert.assertNotNull(modelBT);
         final FieldConfig fieldFloat = configsCache.findField("BasicTest.testFloat");
@@ -36,7 +36,7 @@ public class ConfigsModelTest {
 
     @Test
     public void devFindClassBT() throws Exception {
-        final EOConfigsCache configsCache = DevObjectProvider.EO_CONFIGS_CACHE;
+        final EOConfigsCache configsCache = DevObjectProvider.EO_CONFIGS;
         final ModelConfig modelBT = configsCache.findModel("BasicTest");
         Assert.assertNotNull(modelBT);
         final FieldConfig fieldFloat = configsCache.findField("BasicTest.testFloat");
@@ -57,7 +57,7 @@ public class ConfigsModelTest {
 
     @Test
     public void checkModelCalls() throws Exception {
-        final EOConfigsCache configsCache = TestObjectProvider.EO_CONFIGS_CACHE;
+        final EOConfigsCache configsCache = TestEOProvider.EO_CONFIGS;
         Set<String> mapCalls = configsCache.getCallSet();
     }
 

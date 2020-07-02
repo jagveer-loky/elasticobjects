@@ -2,6 +2,9 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * Created 9.6.2018
  */
@@ -38,12 +41,6 @@ public class EO_STATIC {
     public static final String TEMPLATE = "Template";
     public static final String VALUE = "Value";
     public static final String JSON = "Json";
-    public static final String A_VALUES_SET = "set";
-    public static final String A_VALUES_MAP = "map";
-    public static final String A_VALUES = "values";
-    public static final String A_VALUES_MAP_EXE = "ValueCall.map(empty)";
-    public static final String A_VALUES_SET_EXE = "ValueCall.set(empty)";
-    public static final String A_VALUES_TEMPLATE_EXE = "TemplateCall.execute(content)";
     public static final String A_TEMPLATE_KEY = "templateKey";
     public static final String HOST = "Host";
 
@@ -349,7 +346,23 @@ public class EO_STATIC {
     public static final String CON_SEMICOLON = ";";
     public static final String CON_SPACE = " ";
 
-//</call>
+    public static final void addMap(Map map, Object... keyValues) throws Exception {
+        for (int i = 0; i < keyValues.length; i++) {
+            if (i == keyValues.length - 1) {
+                throw new Exception("Uneven key value pairs at " + i);
+            }
+            map.put(keyValues[i], keyValues[i + 1]);
+            i++;
+        }
+    }
+
+    public static final Map toMap(Object... keyValues) throws Exception {
+        Map map = new LinkedHashMap();
+        addMap(map, keyValues);
+        return map;
+    }
+
+    //</call>
 
 
 }

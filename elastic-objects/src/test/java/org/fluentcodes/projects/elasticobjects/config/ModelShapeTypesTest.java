@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -49,13 +49,13 @@ public class ModelShapeTypesTest {
     }
 
     private void testTypeClass(Class clazz, ShapeTypes shapeType) throws Exception {
-        ShapeTypes shapeTypeStored = TestObjectProvider.EO_CONFIGS_CACHE.findModel(clazz).getShapeType();
+        ShapeTypes shapeTypeStored = TestEOProvider.EO_CONFIGS.findModel(clazz).getShapeType();
         Assert.assertEquals(shapeType, shapeTypeStored);
     }
 
     private void testTypeObject(Object object, ShapeTypes shapeType) {
         try {
-            ShapeTypes shapeTypeStored = TestObjectProvider.EO_CONFIGS_CACHE.findModel(object).getShapeType();
+            ShapeTypes shapeTypeStored = TestEOProvider.EO_CONFIGS.findModel(object).getShapeType();
             Assert.assertEquals(shapeType, shapeTypeStored);
         } catch (Exception e) {
             e.printStackTrace();

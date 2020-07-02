@@ -1,23 +1,22 @@
 {
   "_data": {
   },
-"(List)_calls":
-{
-  "0": {
-    "path": "testString",
-    "execute": "ValueCall.set(content)"
-  },
-  "1": {
-    "path": "testDate",
-    "(Date)content": 1465280215000,
-    "execute": "ValueCall.set(empty)"
-  },
-  "2": {
-    "path": "testInt",
-    "execute": "ValueCall.set(intValue1)"
-  },
-  "3": {
-    "execute": "TemplateCall.execute(ContentExample)"
-  }
-}
+  "_calls": [
+    {
+      "path": "testString",
+      "execute": "ValueCall.set(content)"
+    },
+    {
+      "path": "testDate",
+      "content": 1465280215000,
+      "execute": "ValueCall.set(empty)"
+    },
+    {
+      "path": "testInt",
+      "execute": "ValueCall.set(intValue1)"
+    },
+    {
+      "execute": "TemplateCall.execute(ContentExample)"
+    }
+  ]
 }

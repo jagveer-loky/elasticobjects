@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class ModelsScalarTest extends TestHelper {
 
     @Test
     public void withString() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, String.class);
+        final Models models = new Models(TestEOProvider.EO_CONFIGS, String.class);
         Assert.assertEquals(String.class, models.getModelClass());
         Assert.assertEquals(Object.class, models.getChildModelClass());
         final Models child = models.createChild(F_TEST_STRING);
@@ -31,13 +31,13 @@ public class ModelsScalarTest extends TestHelper {
 
     @Test
     public void withBTString() throws Exception {
-        Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class, String.class);
+        Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class, String.class);
         Assert.assertEquals(Object.class, models.getChildModelClass());
     }
 
     @Test
     public void withMapBT() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class, BasicTest.class);
+        final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class, BasicTest.class);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertEquals(BasicTest.class, models.getChildModelClass());
         Assert.assertEquals(String.class, models.createChild(F_BASIC_TEST).createChild(F_TEST_STRING).getModelClass());
@@ -45,7 +45,7 @@ public class ModelsScalarTest extends TestHelper {
 
     @Test
     public void withBT_childTestString() throws Exception {
-        Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
+        Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         Assert.assertEquals(String.class, models.createChild(F_TEST_STRING).getModelClass());
     }

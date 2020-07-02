@@ -137,7 +137,7 @@ public class EOContainer extends EOScalar implements EO {
 
     protected void setCallsByMap(List<Map> callList) throws Exception {
         for (Map attributes : callList) {
-            if (attributes.get(EO_STATIC.F_PATH) == null) {
+            if (attributes.get(EO_STATIC.F_PATH) == null && !this.getPath().isEmpty()) {
                 attributes.put(EO_STATIC.F_PATH, this.getPath().directory());
             }
             getRoot().addCallExecutor(attributes);

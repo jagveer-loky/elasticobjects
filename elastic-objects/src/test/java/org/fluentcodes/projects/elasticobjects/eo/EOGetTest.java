@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +17,7 @@ public class EOGetTest extends TestHelper {
 
     @Test
     public void callNotExistingPaths_hasEmptyLog() throws Exception {
-        final EO rootEmpty = TestObjectProvider.createEOFromJson();
+        final EO rootEmpty = TestEOProvider.createEmptyMap();
         Assert.assertNull(rootEmpty.get(S_KEY_NOT_EXISTING));
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + rootEmpty.getLog(), rootEmpty.getLog().isEmpty());
     }

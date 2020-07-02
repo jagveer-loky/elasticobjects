@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,20 +22,20 @@ public class ModelsBTTest extends TestHelper {
 
     @Test
     public void withBT() throws Exception {
-        Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
+        Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         Assert.assertEquals(Object.class, models.getChildModelClass());
     }
 
     @Test
     public void withBTString() throws Exception {
-        Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class, String.class);
+        Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class, String.class);
         Assert.assertEquals(Object.class, models.getChildModelClass());
     }
 
     @Test
     public void withMapBT() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class, BasicTest.class);
+        final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class, BasicTest.class);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertEquals(BasicTest.class, models.getChildModelClass());
         Assert.assertEquals(String.class, models.createChild(F_BASIC_TEST).createChild(F_TEST_STRING).getModelClass());
@@ -43,7 +43,7 @@ public class ModelsBTTest extends TestHelper {
 
     @Test
     public void withBT_createChildTestString() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
+        final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         final Models child = models.createChild(F_TEST_STRING);
         Assert.assertEquals(String.class, child.getModelClass());
@@ -51,7 +51,7 @@ public class ModelsBTTest extends TestHelper {
 
     @Test
     public void withBT_createChildNotExisting_ThrowException() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
+        final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         try {
             final Models child = models.createChild(SAMPLE_KEY_UNKNOW);
@@ -63,7 +63,7 @@ public class ModelsBTTest extends TestHelper {
 
     @Test
     public void withBT_createChildForScalarAndValueNonScalar_ThrowException() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
+        final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         try {
             final Models child = models.createChildForSet(F_TEST_STRING, new HashMap());
@@ -75,7 +75,7 @@ public class ModelsBTTest extends TestHelper {
 
     @Test
     public void withBT_createChildForNonScalarAndValueScalar_ThrowException() throws Exception {
-        final Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, BasicTest.class);
+        final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         try {
             final Models child = models.createChildForSet(F_UNTYPED_MAP, "");

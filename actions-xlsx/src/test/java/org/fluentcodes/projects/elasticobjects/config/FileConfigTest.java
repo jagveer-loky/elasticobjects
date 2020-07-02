@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class FileConfigTest extends TestHelper {
 
     @Test
     public void findConfigInCache() throws Exception {
-        FileConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findFile(FILE_SOURCE_XLSX);
+        FileConfig config = TestEOProvider.EO_CONFIGS.findFile(FILE_SOURCE_XLSX);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }

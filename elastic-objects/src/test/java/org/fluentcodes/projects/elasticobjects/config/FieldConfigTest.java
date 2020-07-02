@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class FieldConfigTest extends TestHelper {
     @Test
     public void findFieldConfigInModelCache() throws Exception {
         TestHelper.printStartMethod();
-        final ModelInterface fieldModel = TestObjectProvider.EO_CONFIGS_CACHE.findModel(FieldConfig.class.getSimpleName());
+        final ModelInterface fieldModel = TestEOProvider.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
         Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
         Assert.assertEquals(FieldConfig.class, fieldModel.getModelClass());
     }
@@ -53,7 +53,7 @@ public class FieldConfigTest extends TestHelper {
     @Test
     public void getId() throws Exception {
         TestHelper.printStartMethod();
-        final FieldConfig idConfig = TestObjectProvider.EO_CONFIGS_CACHE.findField(F_ID);
+        final FieldConfig idConfig = TestEOProvider.EO_CONFIGS.findField(F_ID);
         Assert.assertEquals(Long.class, idConfig.getModelConfig().getModelClass());
         Assert.assertNotNull(idConfig.getEoFieldParams());
         Assert.assertFalse(idConfig.getEoFieldParams().isDeliverAction());
@@ -63,7 +63,7 @@ public class FieldConfigTest extends TestHelper {
     @Test
     public void testBasicTestWithTestString() throws Exception {
         TestHelper.printStartMethod();
-        FieldConfig fieldCacheDefinitions = TestObjectProvider.EO_CONFIGS_CACHE
+        FieldConfig fieldCacheDefinitions = TestEOProvider.EO_CONFIGS
                 .findModel(BasicTest.class)
                 .getField(F_TEST_STRING);
         Assert.assertNotNull(fieldCacheDefinitions);
@@ -77,7 +77,7 @@ public class FieldConfigTest extends TestHelper {
     @Test
     public void assertId() throws Exception {
         TestHelper.printStartMethod();
-        FieldConfig field = TestObjectProvider.EO_CONFIGS_CACHE.findField(F_ID);
+        FieldConfig field = TestEOProvider.EO_CONFIGS.findField(F_ID);
         Assert.assertEquals(F_ID, field.getFieldKey());
         Assert.assertEquals(F_ID, field.getFieldName());
         Assert.assertEquals(S_BOOLEAN, field.isUnique());
@@ -94,7 +94,7 @@ public class FieldConfigTest extends TestHelper {
     @Test
     public void assertID() throws Exception {
         TestHelper.printStartMethod();
-        FieldConfig field = TestObjectProvider.EO_CONFIGS_CACHE.findField(F_UPPER_ID_KEY);
+        FieldConfig field = TestEOProvider.EO_CONFIGS.findField(F_UPPER_ID_KEY);
         Assert.assertEquals(F_UPPER_ID, field.getFieldKey());
         Assert.assertEquals(F_UPPER_ID, field.getFieldName());
         Assert.assertEquals(S_BOOLEAN, field.isUnique());
@@ -111,7 +111,7 @@ public class FieldConfigTest extends TestHelper {
     @Test
     public void assertTestObject() throws Exception {
         TestHelper.printStartMethod();
-        FieldConfig field = TestObjectProvider.EO_CONFIGS_CACHE.findField(F_TEST_OBJECT);
+        FieldConfig field = TestEOProvider.EO_CONFIGS.findField(F_TEST_OBJECT);
         Assert.assertEquals(F_TEST_OBJECT, field.getFieldKey());
         Assert.assertEquals(F_TEST_OBJECT, field.getFieldName());
         Assert.assertEquals(false, field.isUnique());

@@ -23,7 +23,7 @@ public class ModelsMapStringTest extends TestHelper {
 
     private static final Models createModels() {
         try {
-            return new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class, SUB_CLASS);
+            return new Models(TestEOProvider.EO_CONFIGS, Map.class, SUB_CLASS);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -46,7 +46,7 @@ public class ModelsMapStringTest extends TestHelper {
     @Test
     public void setJson_fails() throws Exception {
         try {
-            MODELS.createChildForSet(NAME, TestObjectProvider.createJSONToEOMapEmpty(), null);
+            MODELS.createChildForSet(NAME, TestEOProvider.createJSONToEOMapEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
         } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
@@ -56,7 +56,7 @@ public class ModelsMapStringTest extends TestHelper {
     @Test
     public void mapJson_fails() throws Exception {
         try {
-            MODELS.createChildForMap(NAME, TestObjectProvider.createJSONToEOMapEmpty());
+            MODELS.createChildForMap(NAME, TestEOProvider.createJSONToEOMapEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
         } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());

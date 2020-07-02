@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,16 +24,16 @@ public class EOConfigsConfigTest extends TestHelper {
 
     @Test
     public void checkConfigsCache() throws Exception {
-        ModelInterface cache = TestObjectProvider.EO_CONFIGS_CACHE.findModel(ModelConfigObject.class);
+        ModelInterface cache = TestEOProvider.EO_CONFIGS.findModel(ModelConfigObject.class);
         cache.resolve();
-        AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, cache);
+        AssertEO.compare(TestEOProvider.EO_CONFIGS, cache);
     }
 
     @Test
     public void checkConfigsCacheWithST() throws Exception {
-        ModelInterface cache = TestObjectProvider.EO_CONFIGS_CACHE.findModel(SubTest.class);
+        ModelInterface cache = TestEOProvider.EO_CONFIGS.findModel(SubTest.class);
         cache.resolve();
-        AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, cache);
+        AssertEO.compare(TestEOProvider.EO_CONFIGS, cache);
     }
 
     // Just a first check for the dev scope working.

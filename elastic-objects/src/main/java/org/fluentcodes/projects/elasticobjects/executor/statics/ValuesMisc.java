@@ -15,6 +15,8 @@ import java.util.regex.Pattern;
  * Created by werner.diwischek on 06.02.18.
  */
 public class ValuesMisc extends ValueParamsHelper {
+    public static final String DEFAULT_SET = "ValuesMisc.set(eo,path,value)";
+
     protected static final Pattern linkPattern = Pattern.compile("(.*)://(.*)");
     protected static final Map<String, String> PROTOCOLS = initProtocols();
 
@@ -28,7 +30,7 @@ public class ValuesMisc extends ValueParamsHelper {
     }
 
     public static String replace(Object... values) throws Exception {
-        EO adapter = getAdapter(0, values);
+        EO adapter = getEO(0, values);
         String replace = getString(1, values);
         return ReplaceUtil.replace(replace, adapter);
     }
@@ -74,7 +76,7 @@ public class ValuesMisc extends ValueParamsHelper {
     }
 
     public static String join(Object[] values) throws Exception {
-        EO adapter = getAdapter(0, values);
+        EO adapter = getEO(0, values);
         String valueKey = getString(1, values);
         String delimiter = getString(2, values);
         List keyValues = new ArrayList();
@@ -91,11 +93,10 @@ public class ValuesMisc extends ValueParamsHelper {
     }
 
     public static Object set(Object[] values) throws Exception {
-        EO adapter = getAdapter(0, values);
+        EO adapter = getEO(0, values);
         String path = getString(1, values);
         String value = getString(2, values);
         adapter.add(path).set(value);
         return "";
     }
-
 }

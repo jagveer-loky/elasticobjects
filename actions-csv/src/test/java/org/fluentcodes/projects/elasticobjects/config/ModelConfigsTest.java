@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class ModelConfigsTest {
 
     @Test
     public void findConfigInCache() throws Exception {
-        ModelConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_CSV_CALL);
+        ModelConfig config = TestEOProvider.EO_CONFIGS.findModel(M_CSV_CALL);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }

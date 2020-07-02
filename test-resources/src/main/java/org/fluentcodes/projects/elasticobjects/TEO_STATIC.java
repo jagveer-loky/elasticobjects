@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.condition.And;
 import org.fluentcodes.projects.elasticobjects.condition.Condition;
 import org.fluentcodes.projects.elasticobjects.condition.Or;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.MapProvider;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -227,7 +226,7 @@ public class TEO_STATIC {
     }
 
     public static final Map<String, Object> createListParamsMap() throws Exception {
-        Map<String, Object> map = MapProvider.toMap(
+        Map<String, Object> map = toMap(
                 F_LENGTH, 1,
                 F_ROW_HEAD, 2,
                 F_ROW_START, 3,

@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
 import org.fluentcodes.projects.elasticobjects.test.ListProviderJSON;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class CsvCallTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(CsvCallTest.class);
 
     private CsvCall createActionWithSourceCsv() throws Exception {
-        CsvCall action = new CsvCall(TestObjectProvider.EO_CONFIGS_CACHE, CSV_SOURCE_CSV);
+        CsvCall action = new CsvCall(TestEOProvider.EO_CONFIGS, CSV_SOURCE_CSV);
         return action;
     }
 
@@ -31,7 +31,7 @@ public class CsvCallTest extends TestHelper {
         TestHelper.printStartMethod();
         CsvCall action = createActionWithSourceCsv();
         Assert.assertEquals(CSV_SOURCE_CSV, action.getCsvConfig().getFileConfig().getFileName());
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         action.read(adapter);
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH0_KEY1));
         Assert.assertEquals(S_VALUE12, adapter.get(S_PATH0_KEY2));
@@ -44,7 +44,7 @@ public class CsvCallTest extends TestHelper {
     public void withSourceCsv_IgnoreHeader() throws Exception {
         CsvCall action = createActionWithSourceCsv();
         action.setIgnoreHeader(true);
-        EO adapter = action.read(TestObjectProvider.createEOFromJson());
+        EO adapter = action.read(TestEOProvider.createEmptyMap());
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH00));
         AssertEO.compare(adapter);
     }
@@ -54,7 +54,7 @@ public class CsvCallTest extends TestHelper {
         CsvCall action = createActionWithSourceCsv();
         action.setIgnoreHeader(true);
         action.setRowStart(2);
-        EO adapter = action.read(TestObjectProvider.createEOFromJson());
+        EO adapter = action.read(TestEOProvider.createEmptyMap());
         Assert.assertEquals(S_VALUE21, adapter.get(S_PATH00));
         AssertEO.compare(adapter);
     }
@@ -65,7 +65,7 @@ public class CsvCallTest extends TestHelper {
         action.setIgnoreHeader(true);
         action.setRowStart(1);
         action.setRowEnd(2);
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter = action.read(adapter);
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH00));
         AssertEO.compare(adapter);
@@ -74,9 +74,9 @@ public class CsvCallTest extends TestHelper {
     @Test
     public void withTargetCsv() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEOBuilder()
+        EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createRow());
-        CsvCall action = new CsvCall(TestObjectProvider.EO_CONFIGS_CACHE, CSV_TARGET_CSV);
+        CsvCall action = new CsvCall(TestEOProvider.EO_CONFIGS, CSV_TARGET_CSV);
         action.write(adapter);
         Assert.assertEquals(CSV_TARGET_CSV, action.getCsvConfig().getFileConfig().getFileName());
 

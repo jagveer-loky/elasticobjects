@@ -6,10 +6,9 @@ import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Storage for configurations
@@ -67,8 +66,33 @@ public class EOConfigsCache {
         return eoConfigsMap;
     }
 
-    public Map getProviderMap(final Class cacheClass) throws Exception {
-        return getConfig(cacheClass).getConfigMap();
+    public Set<Class> getEoConfigKeys() {
+        return eoConfigsMap.keySet();
+    }
+
+    public List<String> getConfigClassesAsStringList() {
+        return eoConfigsMap.keySet().stream().map(x -> x.getSimpleName()).collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public Map getConfigMap(final Class configClass) throws Exception {
+        return getConfig(configClass).getConfigMap();
+    }
+
+    public Set<String> getConfigNames(final String configName) throws Exception {
+        return getConfigMap(configName).keySet();
+    }
+
+    public Map getConfigMap(final String configName) throws Exception {
+        if (configName == null) {
+            throw new Exception("Null search name for configMap entry");
+        }
+        for (Class configClass: getEoConfigKeys()) {
+            if (configName.equals(configClass.getSimpleName())) {
+                return getConfigMap(configClass);
+            }
+        }
+
+        throw new Exception("Could not find search name '" + configName + "'for configMap entry");
     }
 
     public Object find(final Class cacheClass, final String assetKey) throws Exception {
@@ -92,7 +116,6 @@ public class EOConfigsCache {
     }
 
     public EOConfigs getConfig(Class configClass) throws Exception {
-
         if (eoConfigsMap.get(configClass) == null) {
             eoConfigsMap.put(configClass, new ConfigsImmutable(this, configClass, scope));
         }

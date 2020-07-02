@@ -2,10 +2,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.BTProviderEO;
-import org.fluentcodes.projects.elasticobjects.test.EOTest;
-import org.fluentcodes.projects.elasticobjects.test.MapProviderEODev;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +21,7 @@ public class EONoPathRootSet_models_Test extends TestHelper {
     @Test
     public void givenString_withInteger_changeNothing() throws Exception {
         TestHelper.printStartMethod();
-        final EO eoString = TestObjectProvider.createEOFromJson(String.class);
+        final EO eoString = TestEOProvider.createEOFromJson(String.class);
         EOTest.setEO_ok(eoString, Integer.class);
     }
 

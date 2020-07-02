@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +17,7 @@ public class ModelsTest extends TestHelper {
 
     @Test
     public void withModelInterface() throws Exception {
-        Models models = new Models(TestObjectProvider.EO_CONFIGS_CACHE, M_MODEL_INTERFACE);
+        Models models = new Models(TestEOProvider.EO_CONFIGS, M_MODEL_INTERFACE);
         Assert.assertTrue(models.hasModel());
         Assert.assertFalse(models.hasChildModel());
         Assert.assertFalse(models.isEmpty());

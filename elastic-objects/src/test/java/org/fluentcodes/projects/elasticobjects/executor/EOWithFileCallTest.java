@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.calls.FileCall;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class EOWithFileCallTest extends TestHelper {
 
     @Test
     public void addFileReadAction() throws Exception {
-        final EO root = TestObjectProvider.createEOFromJson();
+        final EO root = TestEOProvider.createEmptyMap();
         root.add(toPath(S_LEVEL0, S_LEVEL1))
                 .set(S_STRING);
         final EO child = root.getChild(S_LEVEL0);

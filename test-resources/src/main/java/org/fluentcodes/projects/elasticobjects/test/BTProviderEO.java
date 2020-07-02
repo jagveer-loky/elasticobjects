@@ -10,7 +10,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class BTProviderEO {
     public static EOBuilder builder() {
-        return TestObjectProvider.createEOBuilder();
+        return TestEOProvider.createEOBuilder();
     }
 
     public static EO createEmpty() throws Exception {

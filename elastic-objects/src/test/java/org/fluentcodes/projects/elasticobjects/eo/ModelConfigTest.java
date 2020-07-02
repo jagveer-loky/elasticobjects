@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +17,7 @@ public class ModelConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelInterface.class);
 
     private EOBuilder createBuilder() throws Exception {
-        return TestObjectProvider.createEOBuilder()
+        return TestEOProvider.createEOBuilder()
                 .setLogLevel(LogLevel.WARN);
     }
 
@@ -25,7 +25,7 @@ public class ModelConfigTest extends TestHelper {
     @Test
     public void withModelBasicTestMapNotEmpty() throws Exception {
         TestHelper.printStartMethod();
-        ModelConfigObject model = (ModelConfigObject) TestObjectProvider.EO_CONFIGS_CACHE.findModel(ModelInterface.class);
+        ModelConfigObject model = (ModelConfigObject) TestEOProvider.EO_CONFIGS.findModel(ModelInterface.class);
         model.getModelClass();
         EO adapter = createBuilder()
                 .setModels(ModelInterface.class)

@@ -9,11 +9,9 @@
       "key2": "value22"
     }
   },
-"(List)_calls":
-{
-  "0": {
-    "execute": "ScsCall.read(source.csv)",
-    "path": "/"
-  }
-}
+  "_calls": [
+    {
+      "execute": "ScsCall.read(source.csv)"
+    }
+  ]
 }

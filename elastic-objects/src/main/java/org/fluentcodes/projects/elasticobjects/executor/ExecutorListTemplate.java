@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.executor;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.calls.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.calls.ValueCall;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 
 import java.util.HashMap;
@@ -15,8 +17,12 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 02.07.2014.
  * Refactored 1.5.2018: Refactored parsing as executor
  */
+
 public class ExecutorListTemplate extends ExecutorList {
-    public static final String EXECUTE = "execute";
+    public static final String VALUES = "values";
+    public static final String MAP = "map";
+    public static final String SET = "set";
+
     private static final Logger LOG = LogManager.getLogger(ExecutorListTemplate.class);
     private static final Pattern actionPattern = Pattern.compile("(?s)<([/]*)(call)([^>]*)([/]*>)");
     private static final Pattern attributePattern = Pattern.compile("(?s)\\s*([^ ]*?)(=)\"([^\"]*?)\"");
@@ -46,37 +52,36 @@ public class ExecutorListTemplate extends ExecutorList {
             }
             Map<String, String> tagAttributes = getAttributes(actionMatcher.group(3));
             tagAttributes.put(F_INSERT, actionMatcher.group(0));
-            if (!actionMatcher.group(3).endsWith(Path.DELIMITER)) {
+            if (!actionMatcher.group(3).endsWith(Path.DELIMITER)) {  // have some contents <call>content</call>
                 String content = findEndTag(template, actionMatcher);
                 start = actionMatcher.end();
                 //contentToParse = parts[1];
                 if (tagAttributes.get(A_KEEP) == null) {
                     //actionMatcher = actionPattern.matcher(contentToParse);
-                    if (tagAttributes.get(A_VALUES) != null && tagAttributes.get(A_VALUES).equals(A_VALUES_MAP)) {
+                    if (tagAttributes.get(VALUES) != null && tagAttributes.get(VALUES).equals(MAP)) {
                         tagAttributes.put(F_VALUE, content);
-                        tagAttributes.put(EXECUTE, A_VALUES_MAP_EXE);
+                        tagAttributes.put(Executor.EXECUTE, ValueCall.MAP("empty"));
                         super.add(tagAttributes);
-                    } else if (tagAttributes.get(A_VALUES) != null && tagAttributes.get(A_VALUES).equals(A_VALUES_SET)) {
+                    } else if (tagAttributes.get(VALUES) != null && tagAttributes.get(VALUES).equals(SET)) {
                         tagAttributes.put(F_VALUE, content);
-                        tagAttributes.put(EXECUTE, A_VALUES_SET_EXE);
+                        tagAttributes.put(Executor.EXECUTE, ValueCall.SET("empty"));
                         super.add(tagAttributes);
                     } else {
                         tagAttributes.put(F_CONTENT, content);
-                        tagAttributes.put(EXECUTE, A_VALUES_TEMPLATE_EXE);
-                        super.add(parentAttributes);
+                        tagAttributes.put(Executor.EXECUTE, TemplateCall.EXECUTE_TEMPLATE);
+                        //super.add(merge(parentAttributes, tagAttributes));
                         super.add(tagAttributes);
-
                     }
                     continue;
                 }
             }
             //actionMatcher = actionPattern.matcher(contentToParse);
-            if (tagAttributes.get(EXECUTE) != null) {
+            if (tagAttributes.get(Executor.EXECUTE) != null) {
                 super.add(tagAttributes);
             } else if (tagAttributes.get(A_TEMPLATE_KEY) != null) {
                 String templateKey = tagAttributes.get(A_TEMPLATE_KEY);
                 if (!templateKey.isEmpty()) {
-                    tagAttributes.put(EXECUTE, "TemplateCall.execute(" + templateKey + ")");
+                    tagAttributes.put(Executor.EXECUTE, "TemplateCall.execute(" + templateKey + ")");
                     super.add(tagAttributes);
                 }
             } else {
@@ -109,6 +114,18 @@ public class ExecutorListTemplate extends ExecutorList {
         return result;
     }
 
+    private Map merge(Map parentAttributes, Map tagAttributes) {
+        if (parentAttributes == null || parentAttributes.isEmpty()) {
+            return tagAttributes;
+        }
+        for (Object key: parentAttributes.keySet()) {
+            if (tagAttributes.containsKey(key)) {
+                continue;
+            }
+            tagAttributes.put(key, parentAttributes.get(key));
+        }
+        return tagAttributes;
+    }
 
     private String findEndTag(String template, Matcher matcherFind) throws Exception {
         StringBuilder content = new StringBuilder();

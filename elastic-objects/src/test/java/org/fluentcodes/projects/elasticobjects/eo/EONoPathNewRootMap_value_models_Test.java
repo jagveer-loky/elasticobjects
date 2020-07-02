@@ -59,7 +59,7 @@ public class EONoPathNewRootMap_value_models_Test {
     @Test
     public void jsonMapEmptyList_ok() throws Exception {
         final String jsonMapSmall = MapProviderJSON.readSmall();
-        final EO listEO = TestObjectProvider
+        final EO listEO = TestEOProvider
                 .createEOBuilder()
                 .setModels(List.class)
                 .map(jsonMapSmall);
@@ -79,7 +79,7 @@ public class EONoPathNewRootMap_value_models_Test {
     @Test
     public void jsonMapEmptyBT_ok() throws Exception {
         final String jsonEmpty = MapProviderJSON.getJSONEmpty();
-        final EO eoBTJson = TestObjectProvider
+        final EO eoBTJson = TestEOProvider
                 .createEOBuilder()
                 .setModels(BasicTest.class)
                 .map(jsonEmpty);
@@ -96,7 +96,7 @@ public class EONoPathNewRootMap_value_models_Test {
     public void jsonMapSmallBT_ok() throws Exception {
         final String jsonSmall = MapProviderJSON.readSmall();
 
-        final EO eoBTJsonSmall = TestObjectProvider
+        final EO eoBTJsonSmall = TestEOProvider
                 .createEOBuilder()
                 .setModels(BasicTest.class)
                 .map(jsonSmall);
@@ -116,7 +116,7 @@ public class EONoPathNewRootMap_value_models_Test {
     public void jsonListSmallBT_fails() throws Exception {
         final String jsonListSmall = ListProviderJSON.getSmall();
 
-        final EO eoBTJsonListSmall = TestObjectProvider
+        final EO eoBTJsonListSmall = TestEOProvider
                 .createEOBuilder()
                 .setModels(BasicTest.class)
                 .map(jsonListSmall);
@@ -169,7 +169,7 @@ public class EONoPathNewRootMap_value_models_Test {
     public void jsnMapEmptyST_ok() throws Exception {
         final String jsnEmpty = MapProviderJSON.getJSONEmpty();
 
-        final EO eoBTJson = TestObjectProvider
+        final EO eoBTJson = TestEOProvider
                 .createEOBuilder()
                 .setModels(SubTest.class)
                 .map(jsnEmpty);

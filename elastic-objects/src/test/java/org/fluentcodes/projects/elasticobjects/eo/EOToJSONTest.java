@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderJSON;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class EOToJSONTest extends TestHelper {
         map.put(S_KEY0, S_STRING);
         map.put(S_KEY1, S_INTEGER);
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(S_LEVEL0)
                 .set(map);
         adapter.add(S_LEVEL1)
@@ -45,7 +45,7 @@ public class EOToJSONTest extends TestHelper {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add()
                 .set(map);
         adapter
@@ -59,5 +59,4 @@ public class EOToJSONTest extends TestHelper {
                 MapProviderJSON.toJSONMap(EOToJSON.REPEATED, Path.DELIMITER));
         Assert.assertEquals(toCompare, serialized);
     }
-
 }

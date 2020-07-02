@@ -8,11 +8,6 @@ public class EO_STATIC_TEST {
 
     public static final String PATH_TEMPLATE_CONTENT = "templatesContent";
 
-    public static final String VC_INT_VALUE1 = "intValue1";
-    public static final String VC_EMPTY = "empty";
-    public static final String VC_CONTENT = "content";
-    public static final String VC_TEST_ITEM = "testItem";
-
     public static final String SC_TEST = "test";
 
 

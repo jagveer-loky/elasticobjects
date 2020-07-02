@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class FieldConfig2Test extends TestHelper {
     @Test
     public void findFieldConfigInModelCache() throws Exception {
         TestHelper.printStartMethod();
-        final ModelInterface fieldModel = TestObjectProvider.EO_CONFIGS_CACHE.findModel(FieldConfig.class);
+        final ModelInterface fieldModel = TestEOProvider.EO_CONFIGS.findModel(FieldConfig.class);
         Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
         Assert.assertEquals(FieldConfig.class, fieldModel.getModelClass());
     }
@@ -27,7 +27,7 @@ public class FieldConfig2Test extends TestHelper {
     @Test
     public void findFieldConfigInCache() throws Exception {
         TestHelper.printStartMethod();
-        final FieldConfig fieldConfig = TestObjectProvider.EO_CONFIGS_CACHE.findField(F_SUB_TEST_MAP);
+        final FieldConfig fieldConfig = TestEOProvider.EO_CONFIGS.findField(F_SUB_TEST_MAP);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, fieldConfig);
         Assert.assertNull(INFO_NULL_FAILS, fieldConfig.getPathPattern());
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS, fieldConfig.isFilterNothing());
