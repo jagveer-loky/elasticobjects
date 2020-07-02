@@ -61,7 +61,7 @@
 
     <modules>
         <module>elastic-objects</module>
-        <module>test-resources</module>
+        <module>eo-test-resources</module>
         <module>actions-csv</module>
         <module>actions-xlsx</module>
     </modules>
