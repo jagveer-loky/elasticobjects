@@ -19,6 +19,14 @@ public class ExecutorItem {
     private String className;
     private String[] args;
 
+    public ExecutorItem(final Class executorClass, final String methodName, final String... args) throws Exception {
+        this.args = args;
+        this.executorClass = executorClass;
+        this.method = executorClass.getMethod(methodName, TYPES.value.argClass);
+        this.methodName = methodName;
+        this.className = executorClass.getSimpleName();
+    }
+
     public ExecutorItem(String toParse, TYPES type) throws Exception {
         if (toParse == null || toParse.isEmpty()) {
             throw new Exception("No call attribute to initialize Executor item parser is defined");
@@ -36,8 +44,8 @@ public class ExecutorItem {
         if (executeParts.length < 2) {
             throw new Exception("No method defined: " + keyArgs[0]);
         }
-        className = executeParts[0];
-        methodName = executeParts[1];
+        this.className = executeParts[0];
+        this.methodName = executeParts[1];
 
         String argsAsString = keyArgs[1];
         argsAsString = argsAsString.replaceAll("\\s", "");
@@ -75,19 +83,43 @@ public class ExecutorItem {
         }
     }
 
-    protected Method getMethod() {
+    public Method getMethod() {
         return this.method;
     }
 
-    protected String getMethodName() {
+    /** static invocation of the method
+     *
+     * @param input Array of objects
+     * @return
+     * @throws Exception
+     */
+
+    public Object invoke(final Object[] input) throws Exception {
+        return this.method.invoke(null, new Object[]{input});
+    }
+
+    public Object invoke(final EO eo, Map attributes) throws Exception {
+        List<Object> inputList = new ArrayList<>();
+        for (String arg: args) {
+            if (arg.equals("eo")|| arg.equals("adapter")) {
+                inputList.add(eo);
+            }
+            else {
+                inputList.add(attributes.get(arg));
+            }
+        }
+        return this.invoke(inputList.toArray());
+    }
+
+    public String getMethodName() {
         return this.methodName;
     }
 
-    protected Class getExecutorClass() {
+    public Class getExecutorClass() {
         return this.executorClass;
     }
 
-    protected String getClassName() {
+    public String getClassName() {
         return this.className;
     }
 
@@ -106,7 +138,7 @@ public class ExecutorItem {
         return null;
     }
 
-    protected enum TYPES {
+    public enum TYPES {
         value(EO_STATIC.CP_STATICS, Object[].class),
         call(EO_STATIC.CP_CALLS, EO.class, Map.class);
         private String classPath;

@@ -4,10 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-import org.fluentcodes.projects.elasticobjects.test.BTProvider;
-import org.fluentcodes.projects.elasticobjects.test.ListProvider;
-import org.fluentcodes.projects.elasticobjects.test.MapProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,7 +26,7 @@ public class ModelsMapSTTest extends TestHelper {
 
     private static final Models createModels() {
         try {
-            return new Models(TestObjectProvider.EO_CONFIGS_CACHE, Map.class, SUB_CLASS);
+            return new Models(TestEOProvider.EO_CONFIGS, Map.class, SUB_CLASS);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -52,7 +49,7 @@ public class ModelsMapSTTest extends TestHelper {
     @Test
     public void setJson_fails() throws Exception {
         try {
-            MODELS.createChildForSet(NAME, TestObjectProvider.createJSONToEOMapEmpty());
+            MODELS.createChildForSet(NAME, TestEOProvider.createJSONToEOMapEmpty());
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
         } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
@@ -61,7 +58,7 @@ public class ModelsMapSTTest extends TestHelper {
 
     @Test
     public void mapJson_ok() throws Exception {
-        final Models child = MODELS.createChildForMap(NAME, TestObjectProvider.createJSONToEOMapEmpty());
+        final Models child = MODELS.createChildForMap(NAME, TestEOProvider.createJSONToEOMapEmpty());
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 

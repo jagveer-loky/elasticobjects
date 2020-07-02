@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.TestCsvProvider;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,12 +24,12 @@ public class EOAddCallTest extends TestHelper {
     public void addFileCsvReadAction() throws Exception {
         TestHelper.printStartMethod();
 
-        final EO adapter = TestObjectProvider.createEOFromJson();
+        final EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(S_PATH1)
                 .set(S_STRING);
         final EO child = adapter.getChild(S_LEVEL0);
 
-        CallExecutor callExecutor = TestCsvProvider.createExecutorCsvActionRead(CSV_SOURCE_CSV);
+        CallExecutor callExecutor = TestCsvProvider.createCallExecutorRead(CSV_SOURCE_CSV);
         child.addCall(callExecutor);
 
         Assert.assertEquals(1, adapter.getCalls().getExecutorList().size());

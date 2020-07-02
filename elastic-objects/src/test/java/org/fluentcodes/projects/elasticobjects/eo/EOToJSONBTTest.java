@@ -1,9 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.eo;
 
-import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.BTProvider;
-import org.fluentcodes.projects.elasticobjects.test.BTProviderEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -94,7 +91,7 @@ public class EOToJSONBTTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.STANDARD)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestObjectProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
         Assert.assertEquals(new Double(SAMPLE_FLOAT.toString()), fromJson.get(F_TEST_FLOAT));
     }
 
@@ -161,7 +158,7 @@ public class EOToJSONBTTest extends TestHelper {
 
     @Test
     public void withSubTestMapAndSerializationTypePARAMS() throws Exception {
-        EO adapter = TestObjectProvider
+        EO adapter = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createMapST());
         String stringified = new EOToJSON()

@@ -1,0 +1,10 @@
+{
+  "_data": {
+  },
+  "_calls": [
+    {
+      "mapPath": "result",
+      "execute": "ValueCall.set(ValuesEO.getConfigurationList)"
+    }
+  ]
+}

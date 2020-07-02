@@ -2,8 +2,7 @@ package org.fluentcodes.projects.elasticobjects.wiki.eo;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 public class Convert {
     @Test
     public void test() throws Exception {
-        final EO eo = TestObjectProvider.create();
+        final EO eo = TestEOProvider.create();
 
         final Map map = new HashMap();
         map.put("testString", "value");

@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.TestXlsxProvider;
 import org.fluentcodes.projects.elasticobjects.calls.XlsxCall;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class XlsxCallWithinEOTest extends TestHelper {
 
     @Test
     public void addFileXlsxReadAction() throws Exception {
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter
                 .add(S_PATH1)
                 .set(S_STRING);

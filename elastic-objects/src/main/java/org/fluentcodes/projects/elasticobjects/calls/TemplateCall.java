@@ -20,6 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by werner.diwischek on 20.03.17.
  */
 public class TemplateCall extends CallIO {
+    public static final String EXECUTE_TEMPLATE = "TemplateCall.execute(content)";
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
     private static final Set controlKeys = createControlKeys();
     private String content;
@@ -29,6 +30,44 @@ public class TemplateCall extends CallIO {
     private TemplateConfig.KeepKeys keepKey;
     private String keepStart;
     private String keepEnd;
+
+    public static final String createTemplateKeyValue(final String key, final String value) {
+        return key + "=\"" + value + "\" ";
+    }
+
+    public static final String createCallNoContent(final String... keyValues) throws Exception {
+        return createCall(null, keyValues);
+    }
+
+    public static final String createCall(final String content, final String... keyValues) throws Exception {
+        if (keyValues == null) {
+            throw new Exception("Null values for createCall");
+        }
+        if (keyValues.length == 0) {
+            throw new Exception("Empty values for createCall");
+        }
+        if (keyValues.length % 2 != 0) {
+            throw new Exception("Values have odd lenght: " + keyValues.length);
+        }
+        StringBuffer call = new StringBuffer("<call ");
+        for (int i=0; i<keyValues.length; i = i + 2) {
+            if (keyValues[i+1] == null) {
+                continue;
+            }
+            call.append(createKeyValue(keyValues[i],keyValues[i+1]));
+        }
+
+        if (content == null) {
+            call.append("/>");
+        }
+        else {
+            call.append(">");
+            call.append(content);
+            call.append("</call>");
+        }
+        return call.toString();
+
+    }
 
     public TemplateCall(EOConfigsCache provider, String key) throws Exception {
         super(provider, key);

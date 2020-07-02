@@ -28,7 +28,7 @@ public class CsvCallWithinExecutorReadTest extends TestHelper {
 
     @Test
     public void direct() throws Exception {
-        EO adapter = TestCsvProvider.executeCsvActionRead(new HashMap(), CSV_SOURCE_CSV);
+        EO adapter = TestCsvProvider.executeRead(new HashMap(), CSV_SOURCE_CSV);
 
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH0_KEY1));
         Assert.assertEquals(S_VALUE12, adapter.get(S_PATH0_KEY2));
@@ -41,7 +41,7 @@ public class CsvCallWithinExecutorReadTest extends TestHelper {
         attributes.put(F_PATH, S_PATH1);
         attributes.put(F_MAP_PATH, SAMPLE_MAP_PATH);
 
-        final EO adapter = TestCsvProvider.executeCsvActionRead(attributes, CSV_SOURCE_CSV);
+        final EO adapter = TestCsvProvider.executeRead(attributes, CSV_SOURCE_CSV);
 
         Assert.assertEquals(S_VALUE11, adapter.get(toPath(S_PATH1, S_VALUE11, S_KEY1)));
         Assert.assertEquals(S_VALUE12, adapter.get(toPath(S_PATH1, S_VALUE11, S_KEY2)));
@@ -57,7 +57,7 @@ public class CsvCallWithinExecutorReadTest extends TestHelper {
         attributes.put(F_MAP_PATH, SAMPLE_MAP_PATH_A);
         attributes.put(F_COL_KEYS, join(CON_COMMA, A, B));
 
-        final EO adapter = TestCsvProvider.executeCsvActionRead(attributes, CSV_SOURCE_CSV);
+        final EO adapter = TestCsvProvider.executeRead(attributes, CSV_SOURCE_CSV);
 
         Assert.assertEquals(S_VALUE11, adapter.get(toPath(S_PATH1, S_VALUE11, A)));
         Assert.assertEquals(S_VALUE12, adapter.get(toPath(S_PATH1, S_VALUE11, B)));

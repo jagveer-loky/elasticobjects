@@ -38,12 +38,12 @@ public class JSONInputReader {
     }
 
     public final static EO compareInput(final TYPE type, final String key, final Object object) throws Exception {
-        EO eoInput = TestObjectProvider
+        EO eoInput = TestEOProvider
                 .createEOBuilder()
                 .set(object);
         final String target = inputEOFile(type, key);
         AssertEO.compare(target, eoInput);
-        return TestObjectProvider
+        return TestEOProvider
                 .createEOBuilder()
                 .mapFile(target);
     }
@@ -90,64 +90,64 @@ public class JSONInputReader {
     }
 
     public final static EO compareInputJSON(final String key, final Object object, final Class... classes) throws Exception {
-        EO input = TestObjectProvider
+        EO input = TestEOProvider
                 .createEOBuilder()
                 .setModels(classes)
                 .set(object);
         final String target = inputEOFile(TYPE.MAP, key, JSONSerializationType.STANDARD);
         AssertEO.compareJSON(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInputJSON(final String key, final EO input) throws Exception {
         final String target = inputEOFile(TYPE.MAP, key, JSONSerializationType.STANDARD);
         AssertEO.compareJSON(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInputJSON(final String key, final Object object) throws Exception {
-        EO input = TestObjectProvider
+        EO input = TestEOProvider
                 .createEOBuilder()
                 .set(object);
         final String target = inputEOFile(TYPE.MAP, key, JSONSerializationType.STANDARD);
         AssertEO.compareJSON(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInputJSON(final TYPE type, final String key, final Object object) throws Exception {
-        EO input = TestObjectProvider
+        EO input = TestEOProvider
                 .createEOBuilder()
                 .set(object);
         final String target = inputEOFile(type, key, JSONSerializationType.STANDARD);
         AssertEO.compareJSON(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInputJSON(final TYPE type, final String key, final EO input) throws Exception {
         final String target = inputEOFile(type, key, JSONSerializationType.STANDARD);
         AssertEO.compareJSON(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInputJSN(final String key, final EO input) throws Exception {
         final String target = inputEOFile(TYPE.MAP, key, JSONSerializationType.EO);
         AssertEO.compareJSN(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInputJSN(final TYPE type, final String key, final EO input) throws Exception {
         final String target = inputEOFile(type, key, JSONSerializationType.EO);
         AssertEO.compareJSN(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInputJSN(final String key, final Object object) throws Exception {
-        EO input = TestObjectProvider
+        EO input = TestEOProvider
                 .createEOBuilder()
                 .set(object);
         final String target = inputEOFile(TYPE.MAP, key, JSONSerializationType.EO);
         AssertEO.compareJSN(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public static final String inputEOFile(final TYPE type, final String key, final JSONSerializationType ser) {
@@ -165,24 +165,24 @@ public class JSONInputReader {
     public final static EO compareInput(final String key, final EO input) throws Exception {
         final String target = inputEOFile(key);
         AssertEO.compare(target, input);
-        return TestObjectProvider.createEOBuilder().mapFile(target);
+        return TestEOProvider.createEOBuilder().mapFile(target);
     }
 
     public final static EO compareInput(final String key, final Object object, final Class... classes) throws Exception {
-        EO eoInput = TestObjectProvider
+        EO eoInput = TestEOProvider
                 .createEOBuilder()
                 .setModels(classes)
                 .set(object);
         final String target = inputEOFile(key);
         AssertEO.compare(target, eoInput);
-        return TestObjectProvider
+        return TestEOProvider
                 .createEOBuilder()
                 .mapFile(target);
     }
 
     public final static EO createFromInputTest(final String key) throws Exception {
         final String target = inputEOFile(key);
-        return TestObjectProvider
+        return TestEOProvider
                 .createEOBuilder()
                 .mapFile(target);
     }

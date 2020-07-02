@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +32,17 @@ public abstract class ExecutorImpl {
 
     public ExecutorImpl(Map attributes, ExecutorItem.TYPES type) throws Exception {
         this.type = type;
-        mapAttributes(attributes);
+        if (attributes.get(Executor.EXECUTE) == null) {
+            throw new Exception("No executor defined " + this.toString());
+        }
+        this.attributes = attributes;
+        this.executorItem = new ExecutorItem((String) attributes.get(Executor.EXECUTE), this.type);
+    }
+
+    public ExecutorImpl(final Class executorClass, final String method, final String... args) throws Exception {
+        this.type = ExecutorItem.TYPES.value;
+        this.executorItem = new ExecutorItem(executorClass, method, args);
+        this.attributes = new HashMap();
     }
 
     public static final List<String> getPathList(String path, EO adapter, Map attributes) {
@@ -87,15 +98,7 @@ public abstract class ExecutorImpl {
     }
 
     protected void mapAttributes(Map attributes) throws Exception {
-        if (attributes == null) {
-            this.attributes = new HashMap();
-            return;
-        }
-        if (attributes.get(ExecutorListTemplate.EXECUTE) == null) {
-            throw new Exception("No executor defined " + this.toString());
-        }
         this.attributes = attributes;
-        setExecutorItem((String) attributes.get(ExecutorListTemplate.EXECUTE));
     }
 
     public Map getAttributes() {
@@ -113,19 +116,20 @@ public abstract class ExecutorImpl {
     }
 
     protected boolean hasExecute(Map attributes) {
-        if (attributes.get(ExecutorListTemplate.EXECUTE) == null) {
+        if (attributes.get(Executor.EXECUTE) == null) {
             return false;
         }
-        return !((String) attributes.get(ExecutorListTemplate.EXECUTE)).isEmpty();
+        return !((String) attributes.get(Executor.EXECUTE)).isEmpty();
     }
 
     protected ExecutorItem getExecutorItem() {
         return executorItem;
     }
 
-    protected void setExecutorItem(String executorString) throws Exception {
-        this.executorItem = new ExecutorItem(executorString, this.type);
+    protected void setExecutorItem(ExecutorItem executorItem) {
+        this.executorItem = executorItem;
     }
+
 
     protected boolean hasLoopPath() {
         return getLoopPath() != null && !getLoopPath().isEmpty();

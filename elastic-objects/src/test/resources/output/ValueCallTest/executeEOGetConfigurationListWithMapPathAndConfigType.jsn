@@ -1,0 +1,11 @@
+{
+  "_data": {
+  },
+  "_calls": [
+    {
+      "configType": "FieldConfig",
+      "mapPath": "result",
+      "execute": "ValueCall.set(ValuesEO.getConfigurationList)"
+    }
+  ]
+}

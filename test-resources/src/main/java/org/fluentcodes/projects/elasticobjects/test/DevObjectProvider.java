@@ -17,12 +17,12 @@ import java.util.Map;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class DevObjectProvider {
-    public static final EOConfigsCache EO_CONFIGS_CACHE = new EOConfigsCache(Scope.DEV);
+    public static final EOConfigsCache EO_CONFIGS = new EOConfigsCache(Scope.DEV);
     private static final Logger LOG = LogManager.getLogger(DevObjectProvider.class);
 
     public static final EOBuilder createEOBuilder() {
         try {
-            return new EOBuilder(EO_CONFIGS_CACHE)
+            return new EOBuilder(EO_CONFIGS)
                     .setLogLevel(LogLevel.WARN);
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,13 +31,13 @@ public class DevObjectProvider {
     }
 
     public static final EOBuilder createEOBuilder(Class... classes) throws Exception {
-        return new EOBuilder(EO_CONFIGS_CACHE)
+        return new EOBuilder(EO_CONFIGS)
                 .setModels(classes)
                 .setLogLevel(LogLevel.WARN);
     }
 
     public static final EO createEO(Class... classes) throws Exception {
-        return new EOBuilder(EO_CONFIGS_CACHE)
+        return new EOBuilder(EO_CONFIGS)
                 .setModels(classes)
                 .setLogLevel(LogLevel.WARN)
                 .build();
@@ -96,7 +96,7 @@ public class DevObjectProvider {
     }
 
     public static EO createEOFromJson(final String json) throws Exception {
-        JSONToEO tokener = new JSONToEO(json, EO_CONFIGS_CACHE);
+        JSONToEO tokener = new JSONToEO(json, EO_CONFIGS);
         return tokener.createChild(createEO());
     }
 

@@ -14,7 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 public class ListProviderJSON {
     public static EOBuilder builder() {
-        return TestObjectProvider.createEOBuilder();
+        return TestEOProvider.createEOBuilder();
     }
 
     public static String readEmpty() throws Exception {

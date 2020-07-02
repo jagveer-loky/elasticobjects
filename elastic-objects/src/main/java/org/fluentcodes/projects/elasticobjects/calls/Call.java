@@ -41,6 +41,13 @@ public class Call {
     private String pathIf;
     private String loopIf;
 
+    public static final String EXECUTE_TEMPLATE(final String call) {
+        return " " + F_EXECUTE + "=\"" + call + "\" ";
+    }
+    public static final String EXECUTE_JSON(final String call) {
+        return "\"" + F_EXECUTE + "\":\"" + call + "\"";
+    }
+
     /**
      * Just an empty constructor since basic
      */
@@ -74,6 +81,10 @@ public class Call {
 
     public Call() {
         config = null;
+    }
+
+    public static final String createKeyValue(final String key, final String value) {
+        return "\"" + key + "\":\"" + value + "\"";
     }
 
     public void mapAttributes(final Map attributes) {

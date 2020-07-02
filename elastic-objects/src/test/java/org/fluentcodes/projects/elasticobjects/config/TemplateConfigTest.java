@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
 
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class TemplateConfigTest {
 
     @Test
     public void findCache() throws Exception {
-        final TemplateConfig config = TestObjectProvider.EO_CONFIGS_CACHE
+        final TemplateConfig config = TestEOProvider.EO_CONFIGS
                 .findTemplate(T_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertEquals(INFO_COMPARE_FAILS, T_SIMPLE_INSERT_WITH_PATH, config.getTemplateKey());

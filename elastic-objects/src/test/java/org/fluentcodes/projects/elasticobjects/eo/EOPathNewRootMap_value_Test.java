@@ -82,7 +82,7 @@ public class EOPathNewRootMap_value_Test {
     public void withListStringPath2() throws Exception {
         TestHelper.printStartMethod();
         List<String> list = ListProvider.toList(S_STRING);
-        EO adapter = TestObjectProvider.createEOBuilder()
+        EO adapter = TestEOProvider.createEOBuilder()
                 .setPath(S_PATH2)
                 .map(list);
         Assert.assertEquals(S_STRING, adapter.getRoot().get(toPath(S_PATH2, S0)));

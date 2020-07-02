@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.ListParams;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class CsvConfigTest extends TestHelper {
     @Test
     public void fromSourceCsv() throws Exception {
         TestHelper.printStartMethod();
-        CsvConfig config = (CsvConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(CsvConfig.class, CSV_SOURCE_CSV);
+        CsvConfig config = (CsvConfig) TestEOProvider.EO_CONFIGS.find(CsvConfig.class, CSV_SOURCE_CSV);
         Assert.assertEquals(CSV_SOURCE_CSV, config.getCsvKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -42,7 +42,7 @@ public class CsvConfigTest extends TestHelper {
     @Test
     public void fromTargetCsv() throws Exception {
         TestHelper.printStartMethod();
-        final CsvConfig config = (CsvConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(CsvConfig.class, CSV_TARGET_CSV);
+        final CsvConfig config = (CsvConfig) TestEOProvider.EO_CONFIGS.find(CsvConfig.class, CSV_TARGET_CSV);
         Assert.assertEquals(CSV_TARGET_CSV, config.getCsvKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -60,7 +60,7 @@ public class CsvConfigTest extends TestHelper {
     @Test
     public void fromCache() throws Exception {
         TestHelper.printStartMethod();
-        final CsvConfig config = (CsvConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(CsvConfig.class, S_STRING);
+        final CsvConfig config = (CsvConfig) TestEOProvider.EO_CONFIGS.find(CsvConfig.class, S_STRING);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
         Assert.assertEquals(S_STRING, config.getCsvKey());
     }

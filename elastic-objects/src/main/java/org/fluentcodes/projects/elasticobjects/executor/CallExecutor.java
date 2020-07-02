@@ -91,6 +91,7 @@ public class CallExecutor extends ExecutorImpl implements Executor {
         }
         Long startTime = System.currentTimeMillis();
         try {
+            externalAttributes.putAll(getAttributes());
             Object resultObject = getExecutorItem().getMethod().invoke(call, eo, externalAttributes);
             if (resultObject instanceof String) {
                 result.append(resultObject);

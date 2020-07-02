@@ -9,7 +9,7 @@ import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 public class BTProviderJSN {
     public static EOBuilder builder() {
-        return TestObjectProvider.createEOBuilder();
+        return TestEOProvider.createEOBuilder();
     }
 
     public static String readEmpty() throws Exception {

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.TestCallsProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
@@ -21,7 +22,7 @@ public class ScsCallTest extends TestHelper {
     @Test
     public void readSourceCsvGuest_ok() throws Exception {
         final ScsCall call = TestCallsProvider.createScsCall(CS_SOURCE_CSV);
-        EO eo = TestObjectProvider.create();
+        EO eo = TestEOProvider.create();
         eo.setRoles(R_GUEST);
         call.read(eo);
         TestObjectProvider.checkLogEmpty(eo);
@@ -32,7 +33,7 @@ public class ScsCallTest extends TestHelper {
     @Test
     public void readSourceCsvAnonym_hasLog() throws Exception {
         final ScsCall call = TestCallsProvider.createScsCall(CS_SOURCE_CSV);
-        EO eo = TestObjectProvider.create();
+        EO eo = TestEOProvider.create();
         eo.setRoles(R_ANONYM);
         call.read(eo);
         TestObjectProvider.checkLogNotEmpty(eo);

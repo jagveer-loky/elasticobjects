@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.ListParams;
 import org.fluentcodes.projects.elasticobjects.test.AssertString;
 import org.fluentcodes.projects.elasticobjects.test.ListProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class ScsConfigTest extends TestHelper {
     @Test
     public void fromSourceCsv() throws Exception {
         TestHelper.printStartMethod();
-        final ScsConfig config = (ScsConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(ScsConfig.class, CS_SOURCE_CSV);
+        final ScsConfig config = (ScsConfig) TestEOProvider.EO_CONFIGS.find(ScsConfig.class, CS_SOURCE_CSV);
         Assert.assertEquals(CS_SOURCE_CSV, config.getScsKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -44,7 +44,7 @@ public class ScsConfigTest extends TestHelper {
     @Test
     public void fromTargetCsv() throws Exception {
         TestHelper.printStartMethod();
-        final ScsConfig config = (ScsConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(ScsConfig.class, CS_TARGET_CSV);
+        final ScsConfig config = (ScsConfig) TestEOProvider.EO_CONFIGS.find(ScsConfig.class, CS_TARGET_CSV);
         Assert.assertEquals(CS_TARGET_CSV, config.getScsKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -60,7 +60,7 @@ public class ScsConfigTest extends TestHelper {
     @Test
     public void fromTest() throws Exception {
         TestHelper.printStartMethod();
-        final ScsConfig cache = (ScsConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(ScsConfig.class, SC_TEST);
+        final ScsConfig cache = (ScsConfig) TestEOProvider.EO_CONFIGS.find(ScsConfig.class, SC_TEST);
         Assert.assertEquals(F_DESCRIPTION, cache.getDescription());
 
         Assert.assertEquals(F_FILE_NAME, cache.getFileConfig().getFileName());

@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.LoggingObjectsImpl;
 import org.fluentcodes.projects.elasticobjects.test.MapProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,7 +37,7 @@ public class ModelConfigTest extends TestHelper {
     @Test
     public void findCachedUnknown_fails() throws Exception {
         try {
-            TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_SUB_TEST + SAMPLE_KEY_UNKNOW);
+            TestEOProvider.EO_CONFIGS.findModel(M_SUB_TEST + SAMPLE_KEY_UNKNOW);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
         } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
@@ -46,20 +46,20 @@ public class ModelConfigTest extends TestHelper {
 
     @Test
     public void findCachedString() throws Exception {
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_STRING);
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_STRING);
         Assert.assertEquals(String.class, model.getModelClass());
     }
 
     @Test
     public void findCachedST() throws Exception {
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(SubTest.class.getSimpleName());
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(SubTest.class.getSimpleName());
         Assert.assertEquals(SubTest.class, model.getModelClass());
     }
 
     @Test
     public void modelTest() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(ModelInterface.class);
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(ModelInterface.class);
         Assert.assertEquals(ModelInterface.class.getSimpleName(), model.getModelKey());
         Assert.assertEquals(INFO_COMPARE_FAILS + model.getModelClass().getSimpleName(),
                 ModelInterface.class, model.getModelClass());
@@ -124,7 +124,7 @@ public class ModelConfigTest extends TestHelper {
     @Test
     public void assertLoggingObjectImpl() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(LoggingObjectsImpl.class);
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(LoggingObjectsImpl.class);
         Assert.assertEquals(ShapeTypes.INSTANCE, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertFalse(model.isMap());
@@ -142,7 +142,7 @@ public class ModelConfigTest extends TestHelper {
 
     @Test
     public void assertAdapterBuilder() throws Exception {
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(EOBuilder.class);
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(EOBuilder.class);
         Assert.assertEquals(ShapeTypes.ADAPTER, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isObject());
@@ -152,9 +152,9 @@ public class ModelConfigTest extends TestHelper {
     @Test
     public void checkDependentModels() throws Exception {
         // Check if basic Models are available
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_BASIC_TEST);
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_BASIC_TEST);
         Assert.assertEquals(M_BASIC_TEST, model.getModelKey());
-        model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(M_SUB_TEST);
+        model = TestEOProvider.EO_CONFIGS.findModel(M_SUB_TEST);
         Assert.assertEquals(M_SUB_TEST, model.getModelKey());
     }
 
@@ -167,7 +167,7 @@ public class ModelConfigTest extends TestHelper {
         Method build = childClass.getMethod(F_BUILD, new Class[]{EOConfigsCache.class, Map.class});
         Constructor constructor = childClass.getConstructor(null);
         Object childObject = constructor.newInstance();
-        ModelInterface config = (ModelInterface) build.invoke(childObject, TestObjectProvider.EO_CONFIGS_CACHE, MODEL_CONFIG_MAP);
+        ModelInterface config = (ModelInterface) build.invoke(childObject, TestEOProvider.EO_CONFIGS, MODEL_CONFIG_MAP);
         Assert.assertEquals(F_MODEL_KEY, config.getModelKey());
         Assert.assertEquals(F_AUTHOR, config.getAuthor());
         Assert.assertEquals(F_PACKAGE_GROUP, config.getPackageGroup());

@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.fluentcodes.projects.elasticobjects.config.HostConfig;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Test;
 
@@ -14,8 +14,8 @@ public class EOToJSONConfigTest extends TestHelper {
 
     @Test
     public void configImpl() throws Exception {
-        final HostConfig config = (HostConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(HostConfig.class, H_TEST);
-        EO eoHost = TestObjectProvider.createEOBuilder().set(config);
+        final HostConfig config = (HostConfig) TestEOProvider.EO_CONFIGS.find(HostConfig.class, H_TEST);
+        EO eoHost = TestEOProvider.createEOBuilder().set(config);
         String serHost = new EOToJSON().toJSON(eoHost);
 
     }

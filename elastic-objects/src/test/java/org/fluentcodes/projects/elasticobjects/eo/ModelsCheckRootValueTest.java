@@ -19,21 +19,21 @@ public class ModelsCheckRootValueTest extends TestHelper {
 
     @Test
     public void withString_withNullAndMap_keepString() throws Exception {
-        final Models models = new Models(DevObjectProvider.EO_CONFIGS_CACHE, String.class);
+        final Models models = new Models(DevObjectProvider.EO_CONFIGS, String.class);
         models.checkRootValue(null, true);
         Assert.assertEquals(String.class, models.getModelClass());
     }
 
     @Test
     public void withString_withIntegerAndMap_keepString() throws Exception {
-        final Models models = new Models(DevObjectProvider.EO_CONFIGS_CACHE, String.class);
+        final Models models = new Models(DevObjectProvider.EO_CONFIGS, String.class);
         models.checkRootValue(S_INTEGER, true);
         Assert.assertEquals(String.class, models.getModelClass());
     }
 
     @Test
     public void withMap_withIntegerAndMap_fails() throws Exception {
-        final Models models = new Models(DevObjectProvider.EO_CONFIGS_CACHE, Map.class);
+        final Models models = new Models(DevObjectProvider.EO_CONFIGS, Map.class);
         try {
             models.checkRootValue(S_INTEGER, true);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
@@ -44,7 +44,7 @@ public class ModelsCheckRootValueTest extends TestHelper {
 
     @Test
     public void withMap_withIntegerAndSet_fails() throws Exception {
-        final Models models = new Models(DevObjectProvider.EO_CONFIGS_CACHE, Map.class);
+        final Models models = new Models(DevObjectProvider.EO_CONFIGS, Map.class);
         models.checkRootValue(S_INTEGER, false);
         Assert.assertEquals(Integer.class, models.getModelClass());
     }

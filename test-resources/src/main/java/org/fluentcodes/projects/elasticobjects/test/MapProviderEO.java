@@ -13,7 +13,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class MapProviderEO {
     public static EOBuilder builder() {
-        return TestObjectProvider.createEOBuilder();
+        return TestEOProvider.createEOBuilder();
     }
 
     public static EO createEmpty() throws Exception {
@@ -130,7 +130,7 @@ public class MapProviderEO {
 
 
     public static EO createBigEO(int length) throws Exception {
-        final EO adapter = TestObjectProvider.createEOFromJson();
+        final EO adapter = TestEOProvider.createEmptyMap();
         for (int i = 0; i < length; i++) {
             adapter.add("key" + i).set(i);
         }
@@ -138,13 +138,13 @@ public class MapProviderEO {
     }
 
     public static EO createBigAEOUnexpanded(int length) throws Exception {
-        return TestObjectProvider.createEOBuilder()
+        return TestEOProvider.createEOBuilder()
                 .set(MapProvider.createBig(length));
     }
 
 
     public static EO createWithLongPathAndValueString() throws Exception {
-        return TestObjectProvider.createEOBuilder()
+        return TestEOProvider.createEOBuilder()
                 .setPath(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_KEY0))
                 .setLogLevel(LogLevel.INFO)
                 .set(S_STRING);
@@ -153,7 +153,7 @@ public class MapProviderEO {
 
     public static final EO createSimpleInsertWithPath() {
         try {
-            EO adapter = TestObjectProvider.createEOFromJson();
+            EO adapter = TestEOProvider.createEmptyMap();
             adapter
                     .add(S_KEY0)
                     .set(S_STRING);
@@ -169,7 +169,7 @@ public class MapProviderEO {
 
     public static final EO createDeepPathValueAdapter() {
         try {
-            EO child = TestObjectProvider.createEOBuilder()
+            EO child = TestEOProvider.createEOBuilder()
                     .setPath(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3, S_LEVEL4, S_TEST_STRING))
                     .set(S_STRING);
             return child.getRoot();

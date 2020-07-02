@@ -33,17 +33,16 @@ public class ExecutorList {
      * <li>parseType: the type of the comment tag</li>
      */
 
-    public void add(Executor executor) {
+    public void add(final Executor executor) {
         this.executorList.add(executor);
     }
 
-    public void add(Map attributes) throws Exception {
+    public void add(final Map attributes) throws Exception {
         String execute = null;
-        if (attributes.get(ExecutorListTemplate.EXECUTE) != null) {
-            execute = (String) attributes.get(ExecutorListTemplate.EXECUTE);
+        if (attributes.get(Executor.EXECUTE) != null) {
+            execute = (String) attributes.get(Executor.EXECUTE);
         } else {
-            return;
-            //throw new Exception("Map for executor call has no " + ExecutorListTemplate.EXECUTE + "! Skip adding call");
+            throw new Exception("Map for executor call has no " + Executor.EXECUTE + "! Skip adding call");
         }
         if (execute.contains("Call.")) {
             this.executorList.add(new CallExecutor(attributes));
@@ -61,7 +60,7 @@ public class ExecutorList {
         }
         Map attributes = new HashMap();
         attributes.putAll(parentAttributes);
-        attributes.put(ExecutorListTemplate.EXECUTE, "TemplateCall.execute(content)");
+        attributes.put(Executor.EXECUTE, "TemplateCall.execute(content)");
         attributes.put("content", content);
         add(attributes);
     }

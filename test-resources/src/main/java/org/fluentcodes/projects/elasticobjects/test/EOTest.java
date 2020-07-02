@@ -27,7 +27,7 @@ public class EOTest {
     }
 
     public static final EO set_fails(final String path, Object value, Class... targetClasses) throws Exception {
-        final EOBuilder builder = TestObjectProvider.createEOBuilder()
+        final EOBuilder builder = TestEOProvider.createEOBuilder()
                 .setPath(path)
                 .setModels(targetClasses);
         final EO child = builder
@@ -37,7 +37,7 @@ public class EOTest {
     }
 
     public static final EO setValueWins_ok(final Object value, final Class... targetClasses) throws Exception {
-        final EO root = TestObjectProvider.createEOBuilder()
+        final EO root = TestEOProvider.createEOBuilder()
                 .setModels(targetClasses)
                 .set(value);
         Class modelClass = value.getClass();
@@ -65,7 +65,7 @@ public class EOTest {
                 targetClasses = new Class[]{Map.class};
             }
         }
-        final EOBuilder builder = TestObjectProvider.createEOBuilder()
+        final EOBuilder builder = TestEOProvider.createEOBuilder()
                 .setPath(path)
                 .setModels(targetClasses);
 
@@ -97,7 +97,7 @@ public class EOTest {
     }
 
     public static final EO map_fails(final String path, Object value, Class... targetClasses) throws Exception {
-        final EO child = TestObjectProvider.createEOBuilder()
+        final EO child = TestEOProvider.createEOBuilder()
                 .setPath(path)
                 .setModels(targetClasses)
                 .map(value);
@@ -122,7 +122,7 @@ public class EOTest {
 
         }
 
-        final EOBuilder builder = TestObjectProvider.createEOBuilder()
+        final EOBuilder builder = TestEOProvider.createEOBuilder()
                 .setPath(path)
                 .setModels(classes);
 

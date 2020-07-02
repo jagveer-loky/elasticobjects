@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.wiki.eo;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ import static junit.framework.TestCase.assertEquals;
 public class Clone {
     @Test
     public void test() throws Exception {
-        final EO eo = TestObjectProvider.create(BasicTest.class);
+        final EO eo = TestEOProvider.create(BasicTest.class);
 
         final BasicTest BT1 = new BasicTest();
         BT1.setTestString( "value");
@@ -25,7 +25,7 @@ public class Clone {
         Assert.assertTrue(BT1 == BT1);
         Assert.assertTrue(eo.get() == eo.get());
 
-        final EO eo2 = TestObjectProvider.create(BasicTest.class);
+        final EO eo2 = TestEOProvider.create(BasicTest.class);
         eo2.add()
                 .set(BT1);
         Assert.assertEquals(BT1, eo2.get());

@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class EORemoveTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EORemoveTest.class);
 
     private EOBuilder createBuilder() throws Exception {
-        return TestObjectProvider.createEOBuilder()
+        return TestEOProvider.createEOBuilder()
                 .setLogLevel(LogLevel.WARN);
     }
 
@@ -31,7 +31,7 @@ public class EORemoveTest extends TestHelper {
      */
     @Test
     public void object() throws Exception {
-        EOContainer child = (EOContainer) TestObjectProvider.createEOBuilder()
+        EOContainer child = (EOContainer) TestEOProvider.createEOBuilder()
                 .setModels(BasicTest.class)
                 .setPath(F_TEST_STRING)
                 .set("Test");

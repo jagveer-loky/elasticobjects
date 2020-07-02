@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class EOLogTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
     private EO createWarnAdapter() throws Exception {
-        return TestObjectProvider.createEOBuilder()
+        return TestEOProvider.createEOBuilder()
                 .setLogLevel(LogLevel.WARN)
                 .setPath(S_TEST_STRING)
                 .set(S_STRING)

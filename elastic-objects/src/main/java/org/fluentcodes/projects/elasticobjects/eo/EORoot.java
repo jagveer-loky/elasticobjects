@@ -21,6 +21,7 @@ public class EORoot extends EOContainer {
     private EOExtension adapterExtension;
     private List objectRegistry;
     private boolean checkObjectReplication = false;
+    private boolean hasError = false;
 
     protected EORoot(final EOBuilder params) throws Exception {
         super(params);
@@ -138,10 +139,15 @@ public class EORoot extends EOContainer {
 
     @Override
     public void error(String message, Exception e) {
+        hasError = true;
         if (checkLevel(LogLevel.ERROR)) {
             log(message, LogLevel.ERROR);
         }
+    }
 
+    @Override
+    public boolean hasErrors() {
+        return hasError;
     }
 
     public EOExtension getAdapterExtension() {

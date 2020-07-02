@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import org.junit.Test;
 public class ModelsTest {
     @Test
     public void checkModel() throws Exception {
-        ModelInterface modelConfig = TestObjectProvider.EO_CONFIGS_CACHE.findModel(Model.class);
+        ModelInterface modelConfig = TestEOProvider.EO_CONFIGS.findModel(Model.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(Model.class, modelConfig.getModelClass());
         Assert.assertEquals(5, modelConfig.getFieldCacheMap().size());

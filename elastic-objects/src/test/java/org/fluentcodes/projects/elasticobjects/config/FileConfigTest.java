@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.FileCall;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class FileConfigTest extends TestHelper {
 
     @Test
     public void findConfigInCache() throws Exception {
-        FileConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findFile(FILE_SOURCE_TXT);
+        FileConfig config = TestEOProvider.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
@@ -58,7 +58,7 @@ public class FileConfigTest extends TestHelper {
     @Test
     public void fromEoConfigsCache() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface cache = TestObjectProvider.EO_CONFIGS_CACHE.findModel(BasicTest.class);
+        ModelInterface cache = TestEOProvider.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertNotNull(cache.getField(F_TEST_STRING));
         Assert.assertEquals(F_TEST_STRING, cache.getField(F_TEST_STRING).getFieldKey());
         ModelInterface subTest = cache.getFieldModel(F_SUB_TEST);
@@ -69,7 +69,7 @@ public class FileConfigTest extends TestHelper {
     @Test
     public void createWithTargetTxt() throws Exception {
         TestHelper.printStartMethod();
-        FileConfig cache = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_TARGET_TXT);
+        FileConfig cache = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_TARGET_TXT);
         Assert.assertEquals(FILE_TARGET_TXT, cache.getFileKey());
         Assert.assertEquals(FILE_TARGET_TXT, cache.getFileName());
         Assert.assertEquals("$[TMP]/elastic-objects", cache.getFilePath());
@@ -79,7 +79,7 @@ public class FileConfigTest extends TestHelper {
     @Test
     public void createWithTestSourceTxt() throws Exception {
         TestHelper.printStartMethod();
-        FileConfig cache = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_TEST_SOURCE_TXT);
+        FileConfig cache = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_TEST_SOURCE_TXT);
         Assert.assertEquals(FILE_TEST_SOURCE_TXT, cache.getFileKey());
         Assert.assertEquals(FILE_SOURCE_NAME_TXT, cache.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH + Path.DELIMITER + S_STRING, cache.getFilePath());
@@ -89,7 +89,7 @@ public class FileConfigTest extends TestHelper {
     @Test
     public void createWithSourceTxt() throws Exception {
         TestHelper.printStartMethod();
-        FileConfig config = TestObjectProvider.EO_CONFIGS_CACHE.findFile(FILE_SOURCE_TXT);
+        FileConfig config = TestEOProvider.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
         Assert.assertEquals(FILE_SOURCE_TXT, config.getFileKey());
         Assert.assertEquals(FILE_SOURCE_NAME_TXT, config.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH, config.getFilePath());
@@ -99,7 +99,7 @@ public class FileConfigTest extends TestHelper {
     @Test
     public void createWithClasspathSourceTxt() throws Exception {
         TestHelper.printStartMethod();
-        FileConfig config = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_CLASSPATH_SOURCE_TXT);
+        FileConfig config = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_CLASSPATH_SOURCE_TXT);
         Assert.assertEquals(FILE_CLASSPATH_SOURCE_TXT, config.getFileKey());
         Assert.assertEquals(FILE_SOURCE_NAME_TXT, config.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH, config.getFilePath());
@@ -109,7 +109,7 @@ public class FileConfigTest extends TestHelper {
     @Test
     public void createWithLocalhostSourceTxt() throws Exception {
         TestHelper.printStartMethod();
-        FileConfig config = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_LOCALHOST_SOURCE_TXT);
+        FileConfig config = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_LOCALHOST_SOURCE_TXT);
         Assert.assertEquals(FILE_LOCALHOST_SOURCE_TXT, config.getFileKey());
         Assert.assertEquals(FILE_SOURCE_NAME_TXT, config.getFileName());
         Assert.assertEquals(FileConfig.CLASSPATH, config.getFilePath());
@@ -120,7 +120,7 @@ public class FileConfigTest extends TestHelper {
     @Test
     public void withFileKeyTest() throws Exception {
         TestHelper.printStartMethod();
-        final FileConfig config = (FileConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(FileConfig.class, FILE_TEST_TEST);
+        final FileConfig config = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_TEST_TEST);
         Assert.assertEquals(FILE_TEST_TEST, config.getFileKey());
         Assert.assertEquals(F_FILE_NAME, config.getFileName());
         Assert.assertEquals(H_LOCALHOST, config.getHostConfig().getHostName());
@@ -139,14 +139,14 @@ public class FileConfigTest extends TestHelper {
         Assert.assertEquals(Permissions.WRITE, config.getPermissions(R_GUEST));
         Assert.assertEquals(Permissions.READ, config.getPermissions(R_ANONYM));
 
-        AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, config);
+        AssertEO.compare(TestEOProvider.EO_CONFIGS, config);
 
     }
 
     @Test
     public void assertListFileCache() throws Exception {
         TestHelper.printStartMethod();
-        ModelInterface model = TestObjectProvider.EO_CONFIGS_CACHE.findModel(FileConfig.class.getSimpleName());
+        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(FileConfig.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.CONFIG, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isObject());
@@ -156,7 +156,7 @@ public class FileConfigTest extends TestHelper {
 
     @Test
     public void createActionWithSourceTxt() throws Exception {
-        FileCall action = new FileCall(TestObjectProvider.EO_CONFIGS_CACHE, FILE_SOURCE_TXT);
+        FileCall action = new FileCall(TestEOProvider.EO_CONFIGS, FILE_SOURCE_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, action.getFileConfig().getDescription());
     }
 }

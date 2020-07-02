@@ -30,7 +30,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
 
     @Test
     public void givenMapString_withMap_ok() throws Exception {
-        final EO root = TestObjectProvider
+        final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(MapProvider.createString());
 
@@ -43,7 +43,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
 
     @Test
     public void givenBTMap_withMapString_ok() throws Exception {
-        final EO root = TestObjectProvider
+        final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createMap());
         final EO child = root.getChild(F_UNTYPED_MAP);
@@ -55,7 +55,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
 
     @Test
     public void givenBTString_withInteger_fails() throws Exception {
-        final EO root = TestObjectProvider
+        final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createString());
         final EO child = root.getChild(F_TEST_STRING);
@@ -67,7 +67,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
 
     @Test
     public void givenBTString_withBTInteger_fails() throws Exception {
-        final EO root = TestObjectProvider
+        final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createString());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
@@ -80,7 +80,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
 
     @Test
     public void givenBTString_withMapInteger_fails() throws Exception {
-        final EO root = TestObjectProvider
+        final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createString());
 

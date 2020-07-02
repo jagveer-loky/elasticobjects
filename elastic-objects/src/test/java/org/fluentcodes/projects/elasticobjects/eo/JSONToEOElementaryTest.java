@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderJSON;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
@@ -38,8 +39,8 @@ public class JSONToEOElementaryTest extends TestHelper {
     @Test
     public void testArray() throws Exception {
         String test = "[\"a\"]";
-        JSONToEO tokener = new JSONToEO(test, TestObjectProvider.EO_CONFIGS_CACHE);
-        EO adapter = tokener.createChild(TestObjectProvider.createEOFromJson());
+        JSONToEO tokener = new JSONToEO(test, TestEOProvider.EO_CONFIGS);
+        EO adapter = tokener.createChild(TestEOProvider.createEmptyMap());
         Assert.assertEquals("a", adapter.get(S0));
     }
 
@@ -47,8 +48,8 @@ public class JSONToEOElementaryTest extends TestHelper {
     @Test
     public void testNewLineEscapedArray() throws Exception {
         String test = "[\"\\n\"]";
-        JSONToEO tokener = new JSONToEO(test, TestObjectProvider.EO_CONFIGS_CACHE);
-        EO adapter = tokener.createChild(TestObjectProvider.createEOFromJson());
+        JSONToEO tokener = new JSONToEO(test, TestEOProvider.EO_CONFIGS);
+        EO adapter = tokener.createChild(TestEOProvider.createEmptyMap());
         Assert.assertEquals("\n", adapter.get(S0));
     }
 
@@ -94,7 +95,7 @@ public class JSONToEOElementaryTest extends TestHelper {
     public void exceptionMap_NoColon() {
         try {
             TestObjectProvider.createEOFromJson("{\"k:\"v\"}");
-            TestObjectProvider.createEOBuilder().map("{\"k\",\"v\"}");
+            TestEOProvider.createEOBuilder().map("{\"k\",\"v\"}");
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon after map k!");
         } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
@@ -188,7 +189,8 @@ public class JSONToEOElementaryTest extends TestHelper {
     @Test
     public void ListWithFurtherValue_fails() {
         try {
-            DevObjectProvider.createEOFromJson("[\"v\"],\"k\"");
+            DevObjectProvider
+                    .createEOFromJson("[\"v\"],\"k\"");
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with further values after closing list!");
         } catch (Exception e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.condition;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.ListProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -75,7 +75,7 @@ public class AndTest {
 
     @Test
     public void filterAdapter() throws Exception {
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(S_TEST_STRING).set(S_STRING);
         And condition = new And(toLike(S_TEST_STRING, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString(),

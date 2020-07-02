@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.paths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -38,7 +38,7 @@ public class PathPatternTest extends TestHelper {
         final PathPattern pattern = new PathPattern();
         pattern.addPath(toPath(S_LEVEL0, S_LEVEL1));
         pattern.addPath(toPath(S_LEVEL0, S_LEVEL1));
-        AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, pattern);
+        AssertEO.compare(TestEOProvider.EO_CONFIGS, pattern);
     }
 
     @Test

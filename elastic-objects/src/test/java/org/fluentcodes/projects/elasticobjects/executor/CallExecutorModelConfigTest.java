@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.executor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class CallExecutorModelConfigTest extends TestHelper {
 
     @Test
     public void createFromModelDoesNotWork() throws Exception {
-        final ModelConfigObject executorActionModel = (ModelConfigObject) TestObjectProvider.EO_CONFIGS_CACHE.findModel(CallExecutor.class);
+        final ModelConfigObject executorActionModel = (ModelConfigObject) TestEOProvider.EO_CONFIGS.findModel(CallExecutor.class);
         Assert.assertEquals(CallExecutor.class, executorActionModel.getModelClass());
         try {
             executorActionModel.create();

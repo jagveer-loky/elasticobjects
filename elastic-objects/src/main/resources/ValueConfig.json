@@ -1,0 +1,14 @@
+{
+  "ValuesEO.getConfigurationList": {
+    "execute": "ValuesEO.getConfigurationList(eo,configType,configFilter)",
+    "description": "store a list EO config objects. Without parameter the available config classes names will be set. Without configFilter all available keys will be returned, otherwise only the filtered result."
+  },
+  "ValuesEO.getConfigurationKeys": {
+    "execute": "ValuesEO.getConfigurationKeys(eo,configType,configFilter)",
+    "description": "store the names of a EO config list. Without configType parameter the available config classes names will be set. Without configFilter all available keys will be returned, otherwise only the filtered result."
+  },
+  "ValuesEO.getConfiguration": {
+    "execute": "ValuesEO.getConfiguration(eo,configType, configKey, configFilter)",
+    "description": "store the values of a EO configuration. All parameters have to be set."
+  }
+}

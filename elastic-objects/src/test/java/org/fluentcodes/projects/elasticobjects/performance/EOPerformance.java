@@ -21,7 +21,7 @@ public class EOPerformance extends TestHelper {
     private static final int maxRoot = 300000;
 
     private EOBuilder builder() throws Exception {
-        return TestObjectProvider.createEOBuilder();
+        return TestEOProvider.createEOBuilder();
     }
 
     @Test

@@ -3,10 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.test.EOTest;
-import org.fluentcodes.projects.elasticobjects.test.ListProviderJSON;
-import org.fluentcodes.projects.elasticobjects.test.MapProviderJSON;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -63,7 +60,7 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
     public void mapJsnEmptyBT_ok() throws Exception {
         final String jsnEmpty = MapProviderJSON.readEmpty();
 
-        final EO eoBTJson = TestObjectProvider
+        final EO eoBTJson = TestEOProvider
                 .createEOBuilder()
                 .setModels(BasicTest.class)
                 .map(jsnEmpty);
@@ -81,7 +78,7 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
     public void mapJsnSmallBT_ok() throws Exception {
         final String jsnSmall = MapProviderJSON.readSmall();
 
-        final EO eoBTJsonSmall = TestObjectProvider
+        final EO eoBTJsonSmall = TestEOProvider
                 .createEOBuilder()
                 .setModels(BasicTest.class)
                 .map(jsnSmall);
@@ -102,7 +99,7 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
     public void mapJsnListSmallBT_fails() throws Exception {
         final String jsnListSmall = ListProviderJSON.readSmall();
 
-        final EO eoBTJsonListSmall = TestObjectProvider
+        final EO eoBTJsonListSmall = TestEOProvider
                 .createEOBuilder()
                 .setModels(BasicTest.class)
                 .map(jsnListSmall);

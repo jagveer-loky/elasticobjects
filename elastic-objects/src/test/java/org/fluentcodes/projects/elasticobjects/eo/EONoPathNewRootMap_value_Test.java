@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.test.*;
@@ -46,7 +47,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Test
     public void jsnMapEmpty_ok() throws Exception {
         String jsnEmpty = JSONInputReader.readInput(JSONInputReader.EMPTY);
-        EO adapter = TestObjectProvider
+        EO adapter = TestEOProvider
                 .createEOBuilder()
                 .map(jsnEmpty);
         Assert.assertEquals(Map.class, adapter.getModelClass());
@@ -59,7 +60,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Test
     public void jsonMapEmpty2_ok() throws Exception {
         final String jsonEmpty = MapProviderJSON.getJSONEmpty();
-        final EO eoJsnBTEmpty = TestObjectProvider
+        final EO eoJsnBTEmpty = TestEOProvider
                 .createEOBuilder()
                 .map(jsonEmpty);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + eoJsnBTEmpty.getLog(), eoJsnBTEmpty.getLog().isEmpty());
@@ -75,7 +76,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      */
     @Test
     public void jsonMapEmptyValues_ok() throws Exception {
-        EO adapter = TestObjectProvider
+        EO adapter = TestEOProvider
                 .createEOBuilder()
                 .map(MapProviderJSON.getJSONEmptyValues());
         Assert.assertEquals(Map.class, adapter.getChild(F_UNTYPED_MAP).getModelClass());
@@ -91,7 +92,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      */
     @Test
     public void jsonMapSmall_ok() throws Exception {
-        final EO eoJsonSmall = TestObjectProvider
+        final EO eoJsonSmall = TestEOProvider
                 .createEOBuilder()
                 .map(MapProviderJSON.readSmall());
         Assert.assertEquals(new Long(S_INTEGER), eoJsonSmall.get(F_TEST_INTEGER));
@@ -106,7 +107,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Test
     public void jsnMapSmall_ok() throws Exception {
         final String jsnSmall = JSONInputReader.readInput(JSONInputReader.SMALL);
-        final EO eoJsnSmall = TestObjectProvider
+        final EO eoJsnSmall = TestEOProvider
                 .createEOBuilder()
                 .map(jsnSmall);
         Assert.assertEquals(S_INTEGER, eoJsnSmall.get(F_TEST_INTEGER));
@@ -120,7 +121,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      */
     @Test
     public void jsonMapEmpty_ok() throws Exception {
-        EO eoRoot = TestObjectProvider
+        EO eoRoot = TestEOProvider
                 .createEOBuilder()
                 .map(MapProviderJSON.getJSONEmpty());
         Assert.assertEquals(Map.class, eoRoot.getModelClass());
@@ -151,7 +152,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Test
     public void jsonListEmpty_ok() throws Exception {
         final String jsonListEmpty = ListProviderJSON.readEmpty();
-        final EO eoJsonListEmpty = TestObjectProvider
+        final EO eoJsonListEmpty = TestEOProvider
                 .createEOBuilder()
                 .map(jsonListEmpty);
         Assert.assertEquals(List.class, eoJsonListEmpty.getModelClass());
@@ -179,7 +180,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     public void jsnBTEmpty_ok() throws Exception {
         final String jsnBTEmpty = BTProviderJSN.readEmpty();
 
-        final EO eoJsnBTEmpty = TestObjectProvider
+        final EO eoJsnBTEmpty = TestEOProvider
                 .createEOBuilder()
                 .map(jsnBTEmpty);
 
@@ -197,7 +198,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     public void jsnBTSmall_ok() throws Exception {
         final String jsnBTSmall = BTProviderJSN.readSmall();
 
-        final EO eoJsnBTSmall = TestObjectProvider
+        final EO eoJsnBTSmall = TestEOProvider
                 .createEOBuilder()
                 .map(jsnBTSmall);
 
@@ -213,7 +214,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Test
     public void jsonBTSmall_ok() throws Exception {
         final String jsonBTSmall = MapProviderJSON.readSmall();
-        final EO eoJsnBTSmall = TestObjectProvider
+        final EO eoJsnBTSmall = TestEOProvider
                 .createEOBuilder()
                 .map(jsonBTSmall);
 
@@ -263,8 +264,8 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
 
     @Test
     public void setMapIntegerKey() throws Exception {
-        Map map = MapProvider.toMap(3, 1);
-        EO builder = TestObjectProvider.createEOBuilder()
+        Map map = EO_STATIC.toMap(3, 1);
+        EO builder = TestEOProvider.createEOBuilder()
                 .map(map);
         Assert.assertEquals(new Integer(1), builder.get(S3));
     }
@@ -272,7 +273,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
 
     @Test
     public void withList() throws Exception {
-        EO builder = TestObjectProvider.createEOBuilder()
+        EO builder = TestEOProvider.createEOBuilder()
                 .map(Arrays.asList(S_EMPTY, S_EMPTY, S_STRING));
         Assert.assertEquals(S_STRING, builder.get(S2));
     }
@@ -289,7 +290,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Test
     public void withJsnSTSimple() throws Exception {
         String JSON = STProviderJSN.readSimple();
-        EO adapter = TestObjectProvider.createEOBuilder()
+        EO adapter = TestEOProvider.createEOBuilder()
                 .map(JSON);
         Assert.assertEquals(S_STRING_OTHER, adapter.get(F_NAME));
         Assert.assertEquals(S_STRING, adapter.get(F_TEST_STRING));

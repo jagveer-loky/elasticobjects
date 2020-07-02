@@ -2,11 +2,11 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.ListProvider;
-import org.fluentcodes.projects.elasticobjects.test.MapProvider;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class ListMapperTest extends TestHelper {
     public void checkList() throws Exception {
         List row = ListProvider.toList(S_STRING, S_INTEGER, S_BOOLEAN);
         ListMapper rowMapper = new ListMapper();
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         rowMapper.createRow(adapter, row);
         Assert.assertEquals(S_STRING, adapter.get(S0));
         Assert.assertEquals(S_INTEGER, adapter.get(S1));
@@ -49,9 +49,9 @@ public class ListMapperTest extends TestHelper {
     @Test
     public void checkListWithColKeys() throws Exception {
         List row = ListProvider.toList(S_STRING, S_INTEGER, S_BOOLEAN);
-        Map map = MapProvider.toMap(F_COL_KEYS, join(CON_COMMA, S0, S1, S2));
+        Map map = EO_STATIC.toMap(F_COL_KEYS, join(CON_COMMA, S0, S1, S2));
         ListMapper rowMapper = new ListMapper(map);
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         rowMapper.createRow(adapter, row);
         Assert.assertEquals(S_STRING, adapter.get(S0));
         Assert.assertEquals(S_INTEGER, adapter.get(S1));

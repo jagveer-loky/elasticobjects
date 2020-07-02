@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.test.ListProviderJSON;
-import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -23,7 +23,7 @@ public class XlsxCallTest extends TestHelper {
     @Test
     public void readSourceDirect() throws Exception {
         TestHelper.printStartMethod();
-        XlsxCall action = new XlsxCall(TestObjectProvider.EO_CONFIGS_CACHE, X_SOURCE_XLSX_TEST);
+        XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, X_SOURCE_XLSX_TEST);
 
         Assert.assertEquals(X_SOURCE_XLSX_TEST, action.getXlsxConfig().getXlsxKey());
         Assert.assertEquals(FILE_SOURCE_XLSX, action.getFileCache().getFileKey());
@@ -39,7 +39,7 @@ public class XlsxCallTest extends TestHelper {
 
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, action.getXlsxConfig().getDescription());
 
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         action.read(adapter);
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH0_KEY1));
         //TODO colKey dont serialize?!
@@ -49,10 +49,10 @@ public class XlsxCallTest extends TestHelper {
     @Test
     public void readSourceOr() throws Exception {
         TestHelper.printStartMethod();
-        XlsxCall action = new XlsxCall(TestObjectProvider.EO_CONFIGS_CACHE, X_SOURCE_XLSX_TEST);
+        XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, X_SOURCE_XLSX_TEST);
         action.setFilter(toEq(S0, S_VALUE21));
 
-        EO adapter = TestObjectProvider.createEOFromJson();
+        EO adapter = TestEOProvider.createEmptyMap();
         action.read(adapter);
         Assert.assertEquals(S_VALUE21, adapter.get(S_PATH0_KEY1));
         //TODO colKey dont serialize?!
@@ -64,9 +64,9 @@ public class XlsxCallTest extends TestHelper {
     @Test
     public void writeDirect() throws Exception {
         TestHelper.printStartMethod();
-        EO adapter = TestObjectProvider.createEOBuilder()
+        EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createJsonArray());
-        XlsxCall action = new XlsxCall(TestObjectProvider.EO_CONFIGS_CACHE, FILE_TARGET_XLSX);
+        XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, FILE_TARGET_XLSX);
         action.write(adapter);
     }
 }
