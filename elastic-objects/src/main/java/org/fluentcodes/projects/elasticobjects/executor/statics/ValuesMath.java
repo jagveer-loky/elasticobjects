@@ -10,17 +10,17 @@ import org.fluentcodes.projects.elasticobjects.executor.ValueParamsHelper;
  */
 public class ValuesMath extends ValueParamsHelper {
 
-    public static Double sin(Object[] args) throws Exception {
+    public static Double sin(Object[] args)  {
         Double myDouble = getDouble(0, args);
         return Math.sin(myDouble);
     }
 
-    public static Double cos(Object[] args) throws Exception {
+    public static Double cos(Object[] args)  {
         Double myDouble = getDouble(0, args);
         return Math.cos(myDouble);
     }
 
-    public static Double log(Object[] args) throws Exception {
+    public static Double log(Object[] args)  {
         Double myDouble = getDouble(0, args);
         return Math.log(myDouble);
     }

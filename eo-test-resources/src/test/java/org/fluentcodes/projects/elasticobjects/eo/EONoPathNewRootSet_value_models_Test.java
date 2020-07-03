@@ -21,59 +21,59 @@ public class EONoPathNewRootSet_value_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathNewRootSet_value_models_Test.class);
 
     @Test
-    public void withMapAndInteger_ok() throws Exception {
+    public void withMapAndInteger_ok()  {
         EOTest.setValueWins_ok(S_INTEGER, Map.class);
     }
 
     @Test
-    public void withBTAndInteger_ok() throws Exception {
+    public void withBTAndInteger_ok()  {
         EOTest.setValueWins_ok(S_INTEGER, BasicTest.class);
     }
 
     @Test
-    public void withIntegerAndInteger_ok() throws Exception {
+    public void withIntegerAndInteger_ok()  {
         EOTest.setValueWins_ok(S_INTEGER, Integer.class);
     }
 
     @Test
-    public void withIntegerAndHashMap_ok() throws Exception {
+    public void withIntegerAndHashMap_ok()  {
         EOTest.setValueWins_ok(new HashMap(), Integer.class);
     }
 
     @Test
-    public void withListAndArrayList_ok() throws Exception {
+    public void withListAndArrayList_ok()  {
         EOTest.setValue_ok(new ArrayList(), List.class);
     }
 
     @Test
-    public void withMapAndArrayList_ok() throws Exception {
+    public void withMapAndArrayList_ok()  {
         EOTest.setValueWins_ok(new ArrayList(), Map.class);
     }
 
     @Test
-    public void withMapAndHashMap_ok() throws Exception {
+    public void withMapAndHashMap_ok()  {
         EOTest.setValue_ok(new HashMap(), Map.class);
     }
 
     @Test
-    public void withBTAndBT_ok() throws Exception {
+    public void withBTAndBT_ok()  {
         EOTest.setValue_ok(new BasicTest(), BasicTest.class);
     }
 
     @Test
-    public void withBTAndMap_ok() throws Exception {
+    public void withBTAndMap_ok()  {
         EOTest.setValueWins_ok(new BasicTest(), Map.class);
     }
 
     @Test
-    public void withST_ok() throws Exception {
+    public void withST_ok()  {
         final EO root = EOTest
                 .setValue_ok(STProvider.createString(), SubTest.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
     }
 
     @Test
-    public void withSTAndMap_ok() throws Exception {
+    public void withSTAndMap_ok()  {
         final EO root = EOTest
                 .setValueWins_ok(STProvider.createString(), Map.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));

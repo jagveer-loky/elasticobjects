@@ -52,7 +52,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         this.resolved = true;
     }
 
-    public void resolve() throws Exception {
+    public void resolve()  {
         this.resolved = true;
     }
 
@@ -150,7 +150,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
 
 //{/insert
 
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
             this.module = ScalarConverter.toString(values.get(F_MODULE));
             this.subModule = ScalarConverter.toString(values.get(F_SUB_MODULE));
             this.path = ScalarConverter.toString(values.get(F_PATH));

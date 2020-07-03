@@ -23,14 +23,14 @@ public class EOConfigsConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOConfigsConfigTest.class);
 
     @Test
-    public void checkConfigsCache() throws Exception {
+    public void checkConfigsCache()  {
         ModelInterface cache = TestEOProvider.EO_CONFIGS.findModel(ModelConfigObject.class);
         cache.resolve();
         AssertEO.compare(TestEOProvider.EO_CONFIGS, cache);
     }
 
     @Test
-    public void checkConfigsCacheWithST() throws Exception {
+    public void checkConfigsCacheWithST()  {
         ModelInterface cache = TestEOProvider.EO_CONFIGS.findModel(SubTest.class);
         cache.resolve();
         AssertEO.compare(TestEOProvider.EO_CONFIGS, cache);
@@ -38,7 +38,7 @@ public class EOConfigsConfigTest extends TestHelper {
 
     // Just a first check for the dev scope working.
     @Test
-    public void checkConfigsCacheDev() throws Exception {
+    public void checkConfigsCacheDev()  {
         EOConfigsCache configsCache = new EOConfigsCache(Scope.DEV);
         ModelInterface model = configsCache.findModel(Map.class);
         model.resolve();

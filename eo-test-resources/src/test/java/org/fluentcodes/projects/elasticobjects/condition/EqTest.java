@@ -19,7 +19,7 @@ public class EqTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EqTest.class);
 
     @Test
-    public void filterAdapter() throws Exception {
+    public void filterAdapter()  {
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_TEST_STRING).set(TEO_STATIC.S_STRING);
         Eq eq = new Eq(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
@@ -29,7 +29,7 @@ public class EqTest extends TestHelper {
     }
 
     @Test
-    public void filterRow() throws Exception {
+    public void filterRow()  {
         List list = toList(TEO_STATIC.S_STRING, TEO_STATIC.S_STRING_OTHER, null, TEO_STATIC.S_KEY0, TEO_STATIC.S_INTEGER);
         Eq eq = new Eq(TEO_STATIC.S0, TEO_STATIC.S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq.toString() + list.get(0), eq.filter(list));

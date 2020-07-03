@@ -26,26 +26,26 @@ public class HostConfigTest extends TestHelper {
     private static final String HOST_PERMISSION = "data/hostPermission.json";
 
     @Test
-    public void byAdapterPermissions() throws Exception {
+    public void byAdapterPermissions()  {
         EO adapter = JSONReader.readAdapterBean(TestEOProvider.EO_CONFIGS, HOST_PERMISSION, null);
         AssertEO.compare(adapter);
     }
 
     @Test
-    public void readHostConfigMain() throws Exception {
+    public void readHostConfigMain()  {
         TestHelper.printStartMethod();
         Map<String, Config> configMap = TestConfig.readConfigMapFromFile(CONFIG_HOST_TEST, HostConfig.class);
     }
 
     @Test
-    public void byAdapterScope() throws Exception {
+    public void byAdapterScope()  {
         EO adapter = JSONReader.readAdapterBean(TestEOProvider.EO_CONFIGS, HOST_SCOPE, null);
         AssertEO.compare(adapter);
     }
 
 
     @Test
-    public void withHostKeyTest() throws Exception {
+    public void withHostKeyTest()  {
         final HostConfig config = (HostConfig) TestEOProvider.EO_CONFIGS.find(HostConfig.class, H_TEST);
         Assert.assertEquals(F_DESCRIPTION, config.getDescription());
 
@@ -76,7 +76,7 @@ public class HostConfigTest extends TestHelper {
     }
 
     @Test
-    public void createWithBean() throws Exception {
+    public void createWithBean()  {
         TestHelper.printStartMethod();
         Map<String, Object> map = new HashMap<>();
         map.put(F_HOST_NAME, H_LOCALHOST);
@@ -91,7 +91,7 @@ public class HostConfigTest extends TestHelper {
     }
 
     @Test
-    public void getLocalHost() throws Exception {
+    public void getLocalHost()  {
         HostConfig cache = (HostConfig) TestEOProvider.EO_CONFIGS.find(HostConfig.class, H_LOCALHOST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, cache.getDescription());
     }

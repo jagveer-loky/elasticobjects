@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.config.RolePermissions;
 public class CallIO extends Call {
     private RolePermissions rolePermissions;
 
-    public CallIO(EOConfigsCache provider, String cacheKey) throws Exception {
+    public CallIO(EOConfigsCache provider, String cacheKey)  {
         super(provider, cacheKey);
         if (getAssetConfig().getRolePermissions() != null) {
             rolePermissions = getAssetConfig().getRolePermissions();
@@ -19,7 +19,7 @@ public class CallIO extends Call {
         }
     }
 
-    public CallIO(EOConfigsCache provider) throws Exception {
+    public CallIO(EOConfigsCache provider)  {
         super(provider);
         rolePermissions = new RolePermissions();
     }

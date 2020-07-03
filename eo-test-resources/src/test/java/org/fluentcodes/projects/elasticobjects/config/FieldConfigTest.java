@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class FieldConfigTest extends TestHelper {
 
     @Test
-    public void findFieldConfigInModelCache() throws Exception {
+    public void findFieldConfigInModelCache()  {
         TestHelper.printStartMethod();
         final ModelInterface fieldModel = TestEOProvider.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
         Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
@@ -26,7 +26,7 @@ public class FieldConfigTest extends TestHelper {
     }
 
     @Test
-    public void readConfigClassPath() throws Exception {
+    public void readConfigClassPath()  {
         Map<String, Config> map = TestConfig.readClassPathConfig(FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -34,7 +34,7 @@ public class FieldConfigTest extends TestHelper {
     }
 
     @Test
-    public void readConfigMain() throws Exception {
+    public void readConfigMain()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_FIELD_MAIN, FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -42,7 +42,7 @@ public class FieldConfigTest extends TestHelper {
     }
 
     @Test
-    public void readMapMain() throws Exception {
+    public void readMapMain()  {
         Map map = TestConfig.readMapFromFile(CONFIG_FIELD_MAIN);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -51,7 +51,7 @@ public class FieldConfigTest extends TestHelper {
 
 
     @Test
-    public void getId() throws Exception {
+    public void getId()  {
         TestHelper.printStartMethod();
         final FieldConfig idConfig = TestEOProvider.EO_CONFIGS.findField(F_ID);
         Assert.assertEquals(Long.class, idConfig.getModelConfig().getModelClass());
@@ -61,7 +61,7 @@ public class FieldConfigTest extends TestHelper {
     }
 
     @Test
-    public void testBasicTestWithTestString() throws Exception {
+    public void testBasicTestWithTestString()  {
         TestHelper.printStartMethod();
         FieldConfig fieldCacheDefinitions = TestEOProvider.EO_CONFIGS
                 .findModel(BasicTest.class)
@@ -75,7 +75,7 @@ public class FieldConfigTest extends TestHelper {
     }
 
     @Test
-    public void assertId() throws Exception {
+    public void assertId()  {
         TestHelper.printStartMethod();
         FieldConfig field = TestEOProvider.EO_CONFIGS.findField(F_ID);
         Assert.assertEquals(F_ID, field.getFieldKey());
@@ -89,10 +89,10 @@ public class FieldConfigTest extends TestHelper {
     /**
      * Will test the alias thing to id.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void assertID() throws Exception {
+    public void assertID()  {
         TestHelper.printStartMethod();
         FieldConfig field = TestEOProvider.EO_CONFIGS.findField(F_UPPER_ID_KEY);
         Assert.assertEquals(F_UPPER_ID, field.getFieldKey());
@@ -106,10 +106,10 @@ public class FieldConfigTest extends TestHelper {
     /**
      * Will test the alias thing to id.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void assertTestObject() throws Exception {
+    public void assertTestObject()  {
         TestHelper.printStartMethod();
         FieldConfig field = TestEOProvider.EO_CONFIGS.findField(F_TEST_OBJECT);
         Assert.assertEquals(F_TEST_OBJECT, field.getFieldKey());

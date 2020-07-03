@@ -11,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.config.ScsConfig;
 public class ScsCall extends ListCall {
     private static final Logger LOG = LogManager.getLogger(ScsCall.class);
 
-    public ScsCall(EOConfigsCache provider, String cacheKey) throws Exception {
+    public ScsCall(EOConfigsCache provider, String cacheKey)  {
         super(provider, cacheKey);
     }
 

@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.condition.Or;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ListConfig;
@@ -21,7 +22,7 @@ public class ListCall extends CallIO {
     private ListParams listParams;
     private ListMapper listMapper;
 
-    public ListCall(EOConfigsCache configsCache, String key) throws Exception {
+    public ListCall(EOConfigsCache configsCache, String key)  {
         super(configsCache, key);
         listParams = new ListParams();
         listMapper = new ListMapper();
@@ -153,14 +154,14 @@ public class ListCall extends CallIO {
     }
 
     //</call>
-    public EO read(EO adapter) throws Exception {
+    public EO read(EO adapter)  {
 
         return read(adapter, new HashMap());
     }
 
-    public EO read(EO eo, Map externalAttributes) throws Exception {
+    public EO read(EO eo, Map externalAttributes)  {
         if (eo == null) {
-            throw new Exception("adapter should not be empty!");
+            throw new EoException("adapter should not be empty!");
         }
         if (eo.hasRoles()) {
             try {

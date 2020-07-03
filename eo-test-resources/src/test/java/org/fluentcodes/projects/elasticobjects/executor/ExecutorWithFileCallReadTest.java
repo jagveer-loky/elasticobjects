@@ -18,19 +18,19 @@ public class ExecutorWithFileCallReadTest extends TestHelper {
 
 
     @Test
-    public void withMapPath() throws Exception {
+    public void withMapPath()  {
         final EO eoContent = TestCallsProvider.executeExecutorFileRead(FILE_SOURCE_TXT, F_MAP_PATH, SAMPLE_CONTENT);
         Assert.assertEquals(S_STRING, eoContent.get(SAMPLE_CONTENT));
     }
 
     @Test
-    public void withLongPathAndMapPath() throws Exception {
+    public void withLongPathAndMapPath()  {
         EO eoContentWithPath = TestCallsProvider.executeExecutorFileRead(FILE_SOURCE_TXT, F_PATH, S_PATH2, F_MAP_PATH, SAMPLE_CONTENT);
         Assert.assertEquals(S_STRING, eoContentWithPath.get(toPath(S_PATH2, SAMPLE_CONTENT)));
     }
 
     @Test
-    public void withPathAndMapPath() throws Exception {
+    public void withPathAndMapPath()  {
         final EO adapter = TestCallsProvider.executeExecutorFileRead(FILE_SOURCE_TXT, F_PATH, S_LEVEL0, F_MAP_PATH, SAMPLE_CONTENT);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL0, SAMPLE_CONTENT)));
     }

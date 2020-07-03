@@ -28,7 +28,7 @@ public class XlsxCallWriteTest extends TestHelper {
     @Ignore
     //TODO Some errors occured if tmp file does not exist (Workbook create but sheet is null)
     @Test
-    public void withTarget() throws Exception {
+    public void withTarget()  {
         TestHelper.printStartMethod();
         final EO adapter = TestEOProvider.createEOBuilder()
                 .setLogLevel(LogLevel.WARN)

@@ -1,9 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.ListParams;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -14,16 +16,16 @@ import java.util.Scanner;
 public class ScsIO extends ListIO implements ListIOInterface {
     private Scanner scanner;
 
-    public ScsIO(ScsConfig scsConfig) throws Exception {
+    public ScsIO(ScsConfig scsConfig)  {
         super(scsConfig);
         //http://www.java2s.com/Code/Java/File-Input-Output/CreateBufferedReader
     }
 
-    public Object read() throws Exception {
+    public Object read()  {
         return super.read(new ListParams());
     }
 
-    public void write(Object entry) throws Exception {
+    public void write(Object entry)  {
         write((List) entry);
     }
 
@@ -32,14 +34,18 @@ public class ScsIO extends ListIO implements ListIOInterface {
         return (ScsConfig) getListConfig();
     }
 
-    public void reset() throws Exception {
+    public void reset()  {
         close();
         URL url = getScsConfig().getFileConfig().getUrl();
-        scanner = new Scanner(new InputStreamReader(url.openStream()));
-        scanner.useDelimiter(getScsConfig().getRowDelimiter());
+        try {
+            scanner = new Scanner(new InputStreamReader(url.openStream()));
+            scanner.useDelimiter(getScsConfig().getRowDelimiter());
+        } catch (IOException e) {
+            throw new EoException(e);
+        }
     }
 
-    public void close() throws Exception {
+    public void close()  {
         if (scanner != null) {
             scanner.close();
             scanner = null;
@@ -53,11 +59,11 @@ public class ScsIO extends ListIO implements ListIOInterface {
         return null;
     }
 
-    public List readHead(int rownum) throws Exception {
+    public List readHead(int rownum)  {
         return readRow(rownum);
     }
 
-    public List readRow(int rownum) throws Exception {
+    public List readRow(int rownum)  {
         if (rownum < 0) {
             return null;
         }
@@ -75,9 +81,9 @@ public class ScsIO extends ListIO implements ListIOInterface {
         return null;
     }
 
-    public void write(List rows) throws Exception {
+    public void write(List rows)  {
         if (rows == null || rows.isEmpty()) {
-            throw new Exception("Strange - no list values - nothing to write! Will return without doing anything.");
+            throw new EoException("Strange - no list values - nothing to write! Will return without doing anything.");
         }
         StringBuilder buffer = new StringBuilder();
         for (Object row : rows) {
@@ -115,17 +121,26 @@ public class ScsIO extends ListIO implements ListIOInterface {
             file = new File(url.getPath());
         }
         if (!file.exists()) {
-            file.createNewFile();
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new EoException(e);
+            }
         }
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = new FileOutputStream(file);
             fileOutputStream.write(buffer.toString().getBytes());
         } catch (Exception e) {
-            throw e;
+            throw new EoException(e);
         } finally {
-            fileOutputStream.flush();
-            fileOutputStream.close();
+            try {
+                fileOutputStream.flush();
+                fileOutputStream.close();
+            }
+            catch (Exception e) {
+                throw new EoException(e);
+            }
         }
     }
 

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -66,7 +67,7 @@ public class JSONToEO {
         this.provider = provider;
     }
 
-    private static Models stringToValue(final EOConfigsCache configsCache, final String string) throws Exception {
+    private static Models stringToValue(final EOConfigsCache configsCache, final String string)  {
         if (string.equals("")) {
             return new Models(configsCache, String.class);
         }
@@ -102,9 +103,9 @@ public class JSONToEO {
      * so that you can test for a digit or letter before attempting to set
      * the next number or identifier.
      */
-    private void back() throws Exception {
+    private void back()  {
         if (this.usePrevious || this.index <= 0) {
-            throw new Exception("Stepping back two steps is not supported");
+            throw new EoException("Stepping back two steps is not supported");
         }
         this.index -= 1;
         this.character -= 1;
@@ -116,8 +117,12 @@ public class JSONToEO {
         return this.eof && !this.usePrevious;
     }
 
-    private boolean isEof() throws Exception {
-        return reader.read() < 0;
+    private boolean isEof()  {
+        try {
+            return reader.read() < 0;
+        } catch (IOException e) {
+            throw new EoException(e);
+        }
     }
 
     /**
@@ -125,7 +130,7 @@ public class JSONToEO {
      *
      * @return The next character, or 0 if past the end of the source getSerialized.
      */
-    private char next() throws Exception {
+    private char next()  {
         int c;
         if (this.usePrevious) {
             this.usePrevious = false;
@@ -134,7 +139,7 @@ public class JSONToEO {
             try {
                 c = this.reader.read();
             } catch (IOException exception) {
-                throw new Exception(exception);
+                throw new EoException(exception);
             }
 
             if (c <= 0) { // End of stream
@@ -161,10 +166,10 @@ public class JSONToEO {
      *
      * @param n The number of characters to take.
      * @return A getSerialized of n characters.
-     * @throws Exception Substring bounds error if there are not
+     * @ Substring bounds error if there are not
      *                   n characters remaining in the source getSerialized.
      */
-    private String next(int n) throws Exception {
+    private String next(int n)  {
         if (n == 0) {
             return "";
         }
@@ -175,7 +180,7 @@ public class JSONToEO {
         while (pos < n) {
             chars[pos] = this.next();
             if (this.end()) {
-                throw this.syntaxError("Substring bounds error");
+                throw new EoException("Substring bounds error");
             }
             pos += 1;
         }
@@ -186,9 +191,9 @@ public class JSONToEO {
      * Get the next char in the getSerialized, skipping whitespace.
      *
      * @return A character, or 0 if there are no more characters.
-     * @throws Exception
+     * @
      */
-    private char nextClean() throws Exception {
+    private char nextClean()  {
         for (; ; ) {
             char c = this.next();
             if (c == 0 || c > ' ') {
@@ -207,9 +212,9 @@ public class JSONToEO {
      *              <code>"</code>&nbsp;<small>(double quote)</small> or
      *              <code>'</code>&nbsp;<small>(standard quote)</small>.
      * @return A String.
-     * @throws Exception Unterminated getSerialized.
+     * @ Unterminated getSerialized.
      */
-    private final String nextString(final char quote, final String specifier) throws Exception {
+    private final String nextString(final char quote, final String specifier)  {
         char c;
         final StringBuffer sb = new StringBuffer();
         for (; ; ) {
@@ -222,7 +227,7 @@ public class JSONToEO {
                 case '\r':
                     //sb.append('\r');
                     //break;
-                    throw this.syntaxError("Unterminated string cause of an escaped carriage return in a character: '" + specifier + "'.");
+                    throw new EoException("Unterminated string cause of an escaped carriage return in a character: '" + specifier + "'.");
                 case '\\':
                     c = this.next();
                     switch (c) {
@@ -251,7 +256,7 @@ public class JSONToEO {
                             sb.append(c);
                             break;
                         default:
-                            throw this.syntaxError("Illegal escape.'" + c + "':" + sb.toString() + "(" + specifier + ")");
+                            throw new EoException("Illegal escape.'" + c + "':" + sb.toString() + "(" + specifier + ")");
                     }
                     break;
                 default:
@@ -267,7 +272,7 @@ public class JSONToEO {
         return (Thread.currentThread().getStackTrace()[2].getMethodName() + ": " + index + ": " + debug.substring(0, new Long(index).intValue()) + "==" + debug.substring(new Long(index).intValue()));
     }
 
-    private EO mapObject(EO currentAdapter) throws Exception {
+    private EO mapObject(EO currentAdapter)  {
         if (currentAdapter == null) {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
@@ -282,25 +287,25 @@ public class JSONToEO {
             if (c == ',') {
                 final String key = this.nextKey();
                 if (this.nextClean() != ':') {
-                    throw syntaxError("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
+                    new EoException("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
                 }
                 createChild(currentAdapter, key);
             } else if (startFlag) {
                 back();
                 final String key = this.nextKey();
                 if (this.nextClean() != ':') {
-                    throw syntaxError("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
+                    new EoException("Expected ':' in the map after the key '" + key + "' but see '" + c + "': ");
                 }
                 createChild(currentAdapter, key);
                 startFlag = false;
             } else {
-                throw new Exception("Expected colon not found but '" + c + "'!");
+                throw new EoException("Expected colon not found but '" + c + "'!");
             }
         }
     }
 
 
-    private EO mapList(final EO currentEO) throws Exception {
+    private EO mapList(final EO currentEO)  {
         if (currentEO == null) {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
@@ -320,12 +325,12 @@ public class JSONToEO {
                 this.createChild(currentEO, new Integer(counter).toString());
                 counter++;
             } else {
-                throw new Exception("Expected colon is not set but '" + next + "'!");
+                throw new EoException("Expected colon is not set but '" + next + "'!");
             }
         }
     }
 
-    public EO createChild(EO parentAdapter) throws Exception {
+    public EO createChild(EO parentAdapter)  {
         EO eo = createChild(parentAdapter, null);
         if (isEof()) {
             return eo;
@@ -337,7 +342,7 @@ public class JSONToEO {
         if (c == 0) {
             return eo;
         }
-        throw new Exception("Not at the end of the json file!");
+        throw new EoException("Not at the end of the json file!");
     }
 
     /**
@@ -352,11 +357,11 @@ public class JSONToEO {
      * @param parentAdapter the parent builder where the child will be added
      * @param rawFieldName  The fieldname of the child.
      * @return
-     * @throws Exception
+     * @
      */
-    private EO createChild(EO parentAdapter, final String rawFieldName) throws Exception {
+    private EO createChild(EO parentAdapter, final String rawFieldName)  {
         if (parentAdapter == null) {
-            throw new Exception("parentAdapter is null ...!");
+            throw new EoException("parentAdapter is null ...!");
         }
 
         // see if fieldName has a model information '(ModelKey)fieldName'
@@ -375,7 +380,7 @@ public class JSONToEO {
             case '"':
             case '\'':
                 if (rawFieldName == null) {
-                    throw this.syntaxError(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
+                    throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
                 parentAdapter
@@ -456,7 +461,7 @@ public class JSONToEO {
                                     ((EOScalar) parentAdapter).setModelClasses(List.class);
                                 }
                             } else if (model.isObject()) {
-                                throw new Exception("Could not map an array to an object!");
+                                throw new EoException("Could not map an array to an object!");
                             }
                         }
                         childAdapter = parentAdapter;
@@ -512,9 +517,9 @@ public class JSONToEO {
      * JSONArray, JSONObject, Long, or String, or the JSONObject.NULL standard.
      *
      * @return An standard.
-     * @throws Exception If syntax error.
+     * @ If syntax error.
      */
-    private String nextKey() throws Exception {
+    private String nextKey()  {
         char c = this.nextClean();
         switch (c) {
             case '"':
@@ -531,7 +536,7 @@ public class JSONToEO {
      * @return A Exception standard, suitable for throwing
      */
     private Exception syntaxError(String message) {
-        return new Exception(message + this.toString());
+        return new EoException(message + this.toString());
     }
 
     /**

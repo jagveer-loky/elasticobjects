@@ -10,254 +10,254 @@ public class ListProviderJSN {
         return TestEOProvider.createEOBuilder();
     }
 
-    public static String readEmpty() throws Exception {
+    public static String readEmpty()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, EMPTY);
     }
 
-    public static EO createEmpty() throws Exception {
+    public static EO createEmpty()  {
         final EO eo = builder().map(readEmpty());
         ListProviderEO.assertEmpty(eo);
         return eo;
     }
 
-    public static EO compareEmpty() throws Exception {
+    public static EO compareEmpty()  {
         EO eoEmpty = JSONInputReader.compareInputJSN(TYPE.LIST, EMPTY, ListProviderEO.createEmpty());
         ListProviderEO.assertEmpty(eoEmpty);
         return eoEmpty;
     }
 
 
-    public static String readString() throws Exception {
+    public static String readString()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, STRING);
     }
 
-    public static EO createString() throws Exception {
+    public static EO createString()  {
         final EO eo = builder().map(readString());
         ListProviderEO.assertString(eo);
         return eo;
     }
 
-    public static EO compareString() throws Exception {
+    public static EO compareString()  {
         final EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, STRING, ListProviderEO.createString());
         ListProviderEO.assertString(eo);
         return eo;
     }
 
 
-    public static String readInteger() throws Exception {
+    public static String readInteger()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, INT);
     }
 
-    public static EO createInteger() throws Exception {
+    public static EO createInteger()  {
         final EO eo = builder().map(readInteger());
         ListProviderEO.assertInteger(eo);
         return eo;
     }
 
-    public static EO compareInteger() throws Exception {
+    public static EO compareInteger()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, INT, ListProviderEO.createInteger());
         ListProviderEO.assertInteger(eo);
         return eo;
     }
 
 
-    public static String readLong() throws Exception {
+    public static String readLong()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, LONG);
     }
 
-    public static EO createLong() throws Exception {
+    public static EO createLong()  {
         final EO eo = builder().map(readLong());
         ListProviderEO.assertLong(eo);
         return eo;
     }
 
-    public static EO compareLong() throws Exception {
+    public static EO compareLong()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, LONG, ListProviderEO.createLong());
         ListProviderEO.assertLong(eo);
         return eo;
     }
 
 
-    public static String readFloat() throws Exception {
+    public static String readFloat()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, FLOAT);
     }
 
-    public static EO createFloat() throws Exception {
+    public static EO createFloat()  {
         final EO eo = builder().map(readFloat());
         ListProviderEO.assertFloat(eo);
         return eo;
     }
 
-    public static EO compareFloat() throws Exception {
+    public static EO compareFloat()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, FLOAT, ListProviderEO.createFloat());
         ListProviderEO.assertFloat(eo);
         return eo;
     }
 
 
-    public static String readDouble() throws Exception {
+    public static String readDouble()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, DOUBLE);
     }
 
-    public static EO createDouble() throws Exception {
+    public static EO createDouble()  {
         final EO eo = builder().map(readDouble());
         ListProviderEO.assertDouble(eo);
         return eo;
     }
 
-    public static EO compareDouble() throws Exception {
+    public static EO compareDouble()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, DOUBLE, ListProviderEO.createDouble());
         ListProviderEO.assertDouble(eo);
         return eo;
     }
 
 
-    public static String readDate() throws Exception {
+    public static String readDate()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, DATE);
     }
 
-    public static EO createDate() throws Exception {
+    public static EO createDate()  {
         final EO eo = builder().map(readDate());
         ListProviderEO.assertDate(eo);
         return eo;
     }
 
-    public static EO compareDate() throws Exception {
+    public static EO compareDate()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, DATE, ListProviderEO.createDate());
         ListProviderEO.assertDate(eo);
         return eo;
     }
 
 
-    public static String readBoolean() throws Exception {
+    public static String readBoolean()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, BOOLEAN);
     }
 
-    public static EO createBoolean() throws Exception {
+    public static EO createBoolean()  {
         final EO eo = builder().map(readBoolean());
         ListProviderEO.assertBoolean(eo);
         return eo;
     }
 
-    public static EO compareBoolean() throws Exception {
+    public static EO compareBoolean()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, BOOLEAN, ListProviderEO.createBoolean());
         ListProviderEO.assertBoolean(eo);
         return eo;
     }
 
-    public static String readMap() throws Exception {
+    public static String readMap()  {
         return readInputJSN(TYPE.LIST, MAP);
     }
 
-    public static EO createMap() throws Exception {
+    public static EO createMap()  {
         final EO eo = builder().map(readMap());
         ListProviderEO.assertMap(eo);
         return eo;
     }
 
-    public static EO compareMap() throws Exception {
+    public static EO compareMap()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, MAP, ListProviderEO.createMap());
         ListProviderEO.assertMap(eo);
         return eo;
     }
 
-    public static String readList() throws Exception {
+    public static String readList()  {
         return readInputJSN(TYPE.LIST, LIST);
     }
 
-    public static EO createList() throws Exception {
+    public static EO createList()  {
         final EO eo = builder().map(readList());
         ListProviderEO.assertList(eo);
         return eo;
     }
 
-    public static EO compareList() throws Exception {
+    public static EO compareList()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, LIST, ListProviderEO.createList());
         ListProviderEO.assertList(eo);
         return eo;
     }
 
-    public static String readST() throws Exception {
+    public static String readST()  {
         return readInputJSN(TYPE.LIST, SUB_TEST);
     }
 
-    public static EO createST() throws Exception {
+    public static EO createST()  {
         final EO eo = builder().map(readST());
         ListProviderEO.assertST(eo);
         return eo;
     }
 
-    public static EO compareST() throws Exception {
+    public static EO compareST()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, SUB_TEST, ListProviderEO.createST());
         ListProviderEO.assertST(eo);
         return eo;
     }
 
-    public static String readBT() throws Exception {
+    public static String readBT()  {
         return readInputJSN(TYPE.LIST, BASIC_TEST);
     }
 
-    public static EO createBT() throws Exception {
+    public static EO createBT()  {
         final EO eo = builder().map(readBT());
         ListProviderEO.assertBT(eo);
         return eo;
     }
 
-    public static EO compareBT() throws Exception {
+    public static EO compareBT()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, BASIC_TEST, ListProviderEO.createBT());
         ListProviderEO.assertBT(eo);
         return eo;
     }
 
 
-    public static String readSmall() throws Exception {
+    public static String readSmall()  {
         return readInputJSN(TYPE.LIST, SMALL);
     }
 
-    public static String getSmall() throws Exception {
+    public static String getSmall()  {
         return JSONInputReader.readInputJSN(TYPE.LIST, SMALL);
     }
 
-    public static EO createSmall() throws Exception {
+    public static EO createSmall()  {
         final EO eo = builder().map(readSmall());
         ListProviderEO.assertSmall(eo);
         return eo;
     }
 
-    public static EO compareSmall() throws Exception {
+    public static EO compareSmall()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, SMALL, ListProviderEO.createSmall());
         ListProviderEO.assertSmall(eo);
         return eo;
     }
 
 
-    public static String readSimple() throws Exception {
+    public static String readSimple()  {
         return readInputJSN(TYPE.LIST, SIMPLE);
     }
 
-    public static EO createSimple() throws Exception {
+    public static EO createSimple()  {
         final EO eo = builder().map(readSimple());
         ListProviderEO.assertSimple(eo);
         return eo;
     }
 
-    public static EO compareSimple() throws Exception {
+    public static EO compareSimple()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, SIMPLE, ListProviderEO.createSimple());
         ListProviderEO.assertSimple(eo);
         return eo;
     }
 
-    public static String readAll() throws Exception {
+    public static String readAll()  {
         return readInputJSN(TYPE.LIST, ALL);
     }
 
-    public static EO create() throws Exception {
+    public static EO create()  {
         final EO eo = builder().map(readAll());
         ListProviderEO.asserts(eo);
         return eo;
     }
 
-    public static EO compare() throws Exception {
+    public static EO compare()  {
         EO eo = JSONInputReader.compareInputJSN(TYPE.LIST, ALL, ListProviderEO.create());
         ListProviderEO.asserts(eo);
         return eo;

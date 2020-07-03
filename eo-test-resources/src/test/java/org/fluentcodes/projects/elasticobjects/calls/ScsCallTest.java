@@ -20,7 +20,7 @@ public class ScsCallTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ScsCallTest.class);
 
     @Test
-    public void readSourceCsvGuest_ok() throws Exception {
+    public void readSourceCsvGuest_ok()  {
         final ScsCall call = TestCallsProvider.createScsCall(CS_SOURCE_CSV);
         EO eo = TestEOProvider.create();
         eo.setRoles(R_GUEST);
@@ -31,7 +31,7 @@ public class ScsCallTest extends TestHelper {
     }
 
     @Test
-    public void readSourceCsvAnonym_hasLog() throws Exception {
+    public void readSourceCsvAnonym_hasLog()  {
         final ScsCall call = TestCallsProvider.createScsCall(CS_SOURCE_CSV);
         EO eo = TestEOProvider.create();
         eo.setRoles(R_ANONYM);

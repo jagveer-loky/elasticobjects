@@ -30,62 +30,62 @@ public class DevObjectProvider {
         }
     }
 
-    public static final EOBuilder createEOBuilder(Class... classes) throws Exception {
+    public static final EOBuilder createEOBuilder(Class... classes)  {
         return new EOBuilder(EO_CONFIGS)
                 .setModels(classes)
                 .setLogLevel(LogLevel.WARN);
     }
 
-    public static final EO createEO(Class... classes) throws Exception {
+    public static final EO createEO(Class... classes)  {
         return new EOBuilder(EO_CONFIGS)
                 .setModels(classes)
                 .setLogLevel(LogLevel.WARN)
                 .build();
     }
 
-    public static final EO createEO() throws Exception {
+    public static final EO createEO()  {
         return createEOBuilder().build();
     }
 
-    public static final EO createEOString() throws Exception {
+    public static final EO createEOString()  {
         return createEOBuilder().set(S_STRING);
     }
 
-    public static final EO createEOBoolean() throws Exception {
+    public static final EO createEOBoolean()  {
         return createEOBuilder().set(S_BOOLEAN);
     }
 
-    public static final EO createEOLong() throws Exception {
+    public static final EO createEOLong()  {
         return createEOBuilder().set(SAMPLE_LONG);
     }
 
-    public static final EO createEODouble() throws Exception {
+    public static final EO createEODouble()  {
         return createEOBuilder().set(SAMPLE_DOUBLE);
     }
 
-    public static final EO createEOMapEmpty() throws Exception {
+    public static final EO createEOMapEmpty()  {
         return createEOBuilder()
                 .setModels(Map.class)
                 .set(new LinkedHashMap<>());
     }
 
-    public static final EO createEOMapString() throws Exception {
+    public static final EO createEOMapString()  {
         return createEOMapStringPath(F_TEST_STRING);
     }
 
-    public static final EO createEOMapStringLevel0() throws Exception {
+    public static final EO createEOMapStringLevel0()  {
         return createEOMapStringPath(toPath(S_LEVEL0, F_TEST_STRING));
     }
 
-    public static final EO createEOMapStringLevel1() throws Exception {
+    public static final EO createEOMapStringLevel1()  {
         return createEOMapStringPath(toPath(S_LEVEL0, S_LEVEL1, F_TEST_STRING));
     }
 
-    public static final EO createEOMapStringLevel2() throws Exception {
+    public static final EO createEOMapStringLevel2()  {
         return createEOMapStringPath(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, F_TEST_STRING));
     }
 
-    public static final EO createEOMapStringPath(final String path) throws Exception {
+    public static final EO createEOMapStringPath(final String path)  {
         final EO child = createEOBuilder()
                 .setPath(path)
                 .set(S_STRING);
@@ -95,29 +95,29 @@ public class DevObjectProvider {
         return root;
     }
 
-    public static EO createEOFromJson(final String json) throws Exception {
+    public static EO createEOFromJson(final String json)  {
         JSONToEO tokener = new JSONToEO(json, EO_CONFIGS);
         return tokener.createChild(createEO());
     }
 
 
-    public static EO createEOFromTestJsonFile(final String jsonFile) throws Exception {
+    public static EO createEOFromTestJsonFile(final String jsonFile)  {
         final String json = JSONInputReader.readTestInputJSON(jsonFile);
         return createEOFromJson(json);
 
     }
 
-    public static EO createEOFromJsonKeyMap(final String jsonKey) throws Exception {
+    public static EO createEOFromJsonKeyMap(final String jsonKey)  {
         final String json = JSONInputReader.readInputJSON(jsonKey);
         return createEOFromJson(json);
     }
 
-    public static EO createEOFromJsonListKey(final String jsonKey) throws Exception {
+    public static EO createEOFromJsonListKey(final String jsonKey)  {
         final String json = JSONInputReader.readInputJSON(TYPE.LIST, jsonKey);
         return createEOFromJson(json);
     }
 
-    public static EO createEOFromJsonMapKey(final String jsonKey) throws Exception {
+    public static EO createEOFromJsonMapKey(final String jsonKey)  {
         final String json = JSONInputReader.readInputJSON(jsonKey);
         return createEOFromJson(json);
     }

@@ -24,14 +24,14 @@ public class FileConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(FileConfigTest.class);
 
     @Test
-    public void findConfigInCache() throws Exception {
+    public void findConfigInCache()  {
         FileConfig config = TestEOProvider.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
-    public void readConfigClassPath() throws Exception {
+    public void readConfigClassPath()  {
         Map<String, Config> map = TestConfig.readClassPathConfig(FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -39,7 +39,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void readMapTest() throws Exception {
+    public void readMapTest()  {
         Map map = TestConfig.readMapFromFile(CONFIG_FILE_TEST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -47,7 +47,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void readConfigTest() throws Exception {
+    public void readConfigTest()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_FILE_TEST, FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -56,7 +56,7 @@ public class FileConfigTest extends TestHelper {
 
 
     @Test
-    public void fromEoConfigsCache() throws Exception {
+    public void fromEoConfigsCache()  {
         TestHelper.printStartMethod();
         ModelInterface cache = TestEOProvider.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertNotNull(cache.getField(F_TEST_STRING));
@@ -67,7 +67,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void createWithTargetTxt() throws Exception {
+    public void createWithTargetTxt()  {
         TestHelper.printStartMethod();
         FileConfig cache = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_TARGET_TXT);
         Assert.assertEquals(FILE_TARGET_TXT, cache.getFileKey());
@@ -77,7 +77,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void createWithTestSourceTxt() throws Exception {
+    public void createWithTestSourceTxt()  {
         TestHelper.printStartMethod();
         FileConfig cache = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_TEST_SOURCE_TXT);
         Assert.assertEquals(FILE_TEST_SOURCE_TXT, cache.getFileKey());
@@ -87,7 +87,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void createWithSourceTxt() throws Exception {
+    public void createWithSourceTxt()  {
         TestHelper.printStartMethod();
         FileConfig config = TestEOProvider.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
         Assert.assertEquals(FILE_SOURCE_TXT, config.getFileKey());
@@ -97,7 +97,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void createWithClasspathSourceTxt() throws Exception {
+    public void createWithClasspathSourceTxt()  {
         TestHelper.printStartMethod();
         FileConfig config = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_CLASSPATH_SOURCE_TXT);
         Assert.assertEquals(FILE_CLASSPATH_SOURCE_TXT, config.getFileKey());
@@ -107,7 +107,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void createWithLocalhostSourceTxt() throws Exception {
+    public void createWithLocalhostSourceTxt()  {
         TestHelper.printStartMethod();
         FileConfig config = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_LOCALHOST_SOURCE_TXT);
         Assert.assertEquals(FILE_LOCALHOST_SOURCE_TXT, config.getFileKey());
@@ -118,7 +118,7 @@ public class FileConfigTest extends TestHelper {
 
 
     @Test
-    public void withFileKeyTest() throws Exception {
+    public void withFileKeyTest()  {
         TestHelper.printStartMethod();
         final FileConfig config = (FileConfig) TestEOProvider.EO_CONFIGS.find(FileConfig.class, FILE_TEST_TEST);
         Assert.assertEquals(FILE_TEST_TEST, config.getFileKey());
@@ -144,7 +144,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void assertListFileCache() throws Exception {
+    public void assertListFileCache()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(FileConfig.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.CONFIG, model.getShapeType());
@@ -155,7 +155,7 @@ public class FileConfigTest extends TestHelper {
 
 
     @Test
-    public void createActionWithSourceTxt() throws Exception {
+    public void createActionWithSourceTxt()  {
         FileCall action = new FileCall(TestEOProvider.EO_CONFIGS, FILE_SOURCE_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, action.getFileConfig().getDescription());
     }

@@ -27,7 +27,7 @@ public class FileCallTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(FileCallTest.class);
 
     @Test
-    public void readSourceCachedTxt() throws Exception {
+    public void readSourceCachedTxt()  {
         final FileCall call = TestCallsProvider.createFileCall(FILE_SOURCE_CACHED_TXT);
         final String content = call.read();
         Assert.assertEquals(S_STRING, content);
@@ -37,14 +37,14 @@ public class FileCallTest extends TestHelper {
     /**
      * Gets the local:tmp:source.txt entry from the AssetProviders
      */
-    public void readSourceTxt() throws Exception {
+    public void readSourceTxt()  {
         final FileCall call = TestCallsProvider.createFileCall(FILE_SOURCE_TXT);
         final String content = call.read();
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
-    public void readSourceCsvGuest_ok() throws Exception {
+    public void readSourceCsvGuest_ok()  {
         final FileCall call = TestCallsProvider.createFileCall(FILE_SOURCE_TXT);
         EO eo = TestEOProvider.create();
         eo.setRoles(R_GUEST);
@@ -54,7 +54,7 @@ public class FileCallTest extends TestHelper {
     }
 
     @Test
-    public void readSourceCsvAnonym_hasLog() throws Exception {
+    public void readSourceCsvAnonym_hasLog()  {
         final FileCall call = TestCallsProvider.createFileCall(FILE_SOURCE_TXT);
         EO eo = TestEOProvider.create();
         eo.setRoles(R_ANONYM);
@@ -64,7 +64,7 @@ public class FileCallTest extends TestHelper {
     }
 
     @Test
-    public void writeStringTargetTxt() throws Exception {
+    public void writeStringTargetTxt()  {
         final FileCall call = TestCallsProvider.createFileCall(FILE_TARGET_TXT);
 
         call.write(S_STRING_OTHER);
@@ -77,7 +77,7 @@ public class FileCallTest extends TestHelper {
 
 
     @Test
-    public void writeResultWithMapPathString() throws Exception {
+    public void writeResultWithMapPathString()  {
         final FileCall call = TestCallsProvider.createFileCall(FILE_RESULT_WITH_MAP_PATH_STRING);
 
         final EO eoWithContent = MapProviderEO.createContent(S_STRING);
@@ -91,7 +91,7 @@ public class FileCallTest extends TestHelper {
 
 
     @Test
-    public void writeResultWithMapPathStringWithSetMapPath() throws Exception {
+    public void writeResultWithMapPathStringWithSetMapPath()  {
         FileCall call = TestCallsProvider.createFileCall(FILE_RESULT_STRING);
         call.setMapPath(F_TEST_STRING);
 
@@ -105,7 +105,7 @@ public class FileCallTest extends TestHelper {
     }
 
     @Test
-    public void writeResultWithMapPathStringWithMapPath() throws Exception {
+    public void writeResultWithMapPathStringWithMapPath()  {
         final FileCall call = TestCallsProvider.createFileCall(FILE_RESULT_WITH_MAP_PATH_STRING);
 
         final EO eoString = MapProviderEO.createString();

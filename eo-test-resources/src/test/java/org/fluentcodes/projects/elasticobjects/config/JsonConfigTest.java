@@ -24,14 +24,14 @@ public class JsonConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(JsonConfigTest.class);
 
     @Test
-    public void findConfigInCache() throws Exception {
+    public void findConfigInCache()  {
         JsonConfig config = TestEOProvider.EO_CONFIGS.findJson(J_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
-    public void readConfigClassPath() throws Exception {
+    public void readConfigClassPath()  {
         Map<String, Config> map = TestConfig.readClassPathConfig(JsonConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -39,7 +39,7 @@ public class JsonConfigTest extends TestHelper {
     }
 
     @Test
-    public void readMapTest() throws Exception {
+    public void readMapTest()  {
         Map map = TestConfig.readMapFromFile(CONFIG_JSON_TEST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -47,7 +47,7 @@ public class JsonConfigTest extends TestHelper {
     }
 
     @Test
-    public void readConfigTest() throws Exception {
+    public void readConfigTest()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_JSON_TEST, JsonConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());

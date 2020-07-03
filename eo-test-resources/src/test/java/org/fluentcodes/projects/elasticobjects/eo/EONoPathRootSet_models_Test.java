@@ -19,34 +19,34 @@ public class EONoPathRootSet_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathRootSet_models_Test.class);
 
     @Test
-    public void givenString_withInteger_changeNothing() throws Exception {
+    public void givenString_withInteger_changeNothing()  {
         TestHelper.printStartMethod();
         final EO eoString = TestEOProvider.createEOFromJson(String.class);
         EOTest.setEO_ok(eoString, Integer.class);
     }
 
     @Test
-    public void givenMapString_WithInteger_changeNothing() throws Exception {
+    public void givenMapString_WithInteger_changeNothing()  {
         final EO eoString = MapProviderEODev.createString();
         EOTest.setEO_ok(eoString, Integer.class);
     }
 
     @Test
-    public void givenMapString_withHashMap_changeNothing() throws Exception {
+    public void givenMapString_withHashMap_changeNothing()  {
         final EO eoString = MapProviderEODev.createString();
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get(F_TEST_STRING));
         EOTest.setEO_ok(eoString, LinkedHashMap.class);
     }
 
     @Test
-    public void givenBTString_withMap_changeNothing() throws Exception {
+    public void givenBTString_withMap_changeNothing()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoBTString.getRoot().get(F_TEST_STRING));
         EOTest.setEO_ok(eoBTString.getRoot(), LinkedHashMap.class);
     }
 
     @Test
-    public void givenBTString_withInteger_changeNothing() throws Exception {
+    public void givenBTString_withInteger_changeNothing()  {
         final EO eoString = BTProviderEO.createString();
         EOTest.setEO_ok(eoString, Integer.class);
         TestObjectProvider.checkLogEmpty(eoString);

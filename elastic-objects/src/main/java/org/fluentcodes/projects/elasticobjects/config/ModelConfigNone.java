@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.util.List;
 import java.util.Set;
@@ -22,58 +23,58 @@ public class ModelConfigNone extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public ModelInterface getFieldModel(final String fieldName) throws Exception {
-        throw new Exception("No field defined for scalar models: " + fieldName);
+    public ModelInterface getFieldModel(final String fieldName)  {
+        throw new EoException("No field defined for scalar models: " + fieldName);
     }
 
     @Override
-    public FieldConfig getField(final String fieldName) throws Exception {
-        throw new Exception("No field defined for scalar models: " + fieldName);
-    }
-
-
-    @Override
-    public Class getFieldClass(String fieldName) throws Exception {
-        throw new Exception("No field defined for scalar models: " + fieldName);
-    }
-
-    public Set<String> keys(Object object) throws Exception {
-        throw new Exception("No field defined for scalar models!" + object.getClass().getSimpleName());
-    }
-
-    public List keys(final Object object, final String filter) throws Exception {
-        throw new Exception("No field defined for scalar models!" + object.getClass().getSimpleName());
-    }
-
-    @Override
-    public int size(final Object object) throws Exception {
-        throw new Exception("No field defined for scalar models!" + object.getClass().getSimpleName());
+    public FieldConfig getField(final String fieldName)  {
+        throw new EoException("No field defined for scalar models: " + fieldName);
     }
 
 
     @Override
-    public boolean isEmpty(final Object object) throws Exception {
-        throw new Exception("No field defined for scalar models!" + object.getClass().getSimpleName());
+    public Class getFieldClass(String fieldName)  {
+        throw new EoException("No field defined for scalar models: " + fieldName);
+    }
+
+    public Set<String> keys(Object object)  {
+        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
+    }
+
+    public List keys(final Object object, final String filter)  {
+        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
     }
 
     @Override
-    public void set(final String fieldName, final Object object, final Object value) throws Exception {
-        throw new Exception("No field defined for scalar models: " + fieldName);
+    public int size(final Object object)  {
+        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
+    }
+
+
+    @Override
+    public boolean isEmpty(final Object object)  {
+        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
     }
 
     @Override
-    public Object getAsIs(final Object fieldNameAsObject, final Object object) throws Exception {
-        throw new Exception("No field defined for scalar models!" + object.getClass().getSimpleName());
+    public void set(final String fieldName, final Object object, final Object value)  {
+        throw new EoException("No field defined for scalar models: " + fieldName);
     }
 
     @Override
-    public Object get(final String fieldName, final Object object) throws Exception {
-        throw new Exception("No field defined for scalar models: " + fieldName);
+    public Object getAsIs(final Object fieldNameAsObject, final Object object)  {
+        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
     }
 
     @Override
-    public boolean exists(final String fieldName, final Object object) throws Exception {
-        throw new Exception("No field defined for scalar models: " + fieldName);
+    public Object get(final String fieldName, final Object object)  {
+        throw new EoException("No field defined for scalar models: " + fieldName);
+    }
+
+    @Override
+    public boolean exists(final String fieldName, final Object object)  {
+        throw new EoException("No field defined for scalar models: " + fieldName);
     }
 
     @Override
@@ -82,14 +83,14 @@ public class ModelConfigNone extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public void remove(final String fieldName, final Object object) throws Exception {
-        throw new Exception("No field defined for scalar models: " + fieldName);
+    public void remove(final String fieldName, final Object object)  {
+        throw new EoException("No field defined for scalar models: " + fieldName);
     }
 
     @Override
     public Object create() {
         return null;
-        //throw new Exception("No field defined for scalar models: ");
+        //throw new EoException("No field defined for scalar models: ");
     }
 
     public boolean hasModel() {

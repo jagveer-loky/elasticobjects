@@ -18,7 +18,7 @@ public class ConfigConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ConfigConfigTest.class);
 
     @Test
-    public void readConfigConfigMain() throws Exception {
+    public void readConfigConfigMain()  {
         Map configMap = TestConfig.readConfigMapFromFile(CONFIG_CONFIG_MAIN, ConfigConfig.class);
         Assert.assertTrue(configMap.containsKey(MODEL));
     }

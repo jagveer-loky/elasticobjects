@@ -23,7 +23,7 @@ public class DivReflectionTest {
     }
 
     @Test
-    public void callObjectSetter() throws Exception {
+    public void callObjectSetter()  throws Exception{
         ObjectClass object = new ObjectClass();
         Method setter = ObjectClass.class.getMethod(METHOD_SET_TEST, Object.class);
         setter.invoke(object, S_STRING);

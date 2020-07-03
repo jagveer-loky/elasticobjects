@@ -20,57 +20,57 @@ public class EONoPathNewRootSet_value_Test {
     private static final Logger LOG = LogManager.getLogger(EONoPathNewRootSet_value_Test.class);
 
     @Test
-    public void withNull_ok() throws Exception {
+    public void withNull_ok()  {
         EOTest.setValue_ok(null);
     }
 
     @Test
-    public void withString_ok() throws Exception {
+    public void withString_ok()  {
         EOTest.setValue_ok(S_STRING);
     }
 
     @Test
-    public void withInteger_ok() throws Exception {
+    public void withInteger_ok()  {
         EOTest.setValue_ok(S_INTEGER);
     }
 
     @Test
-    public void withHashMap_ok() throws Exception {
+    public void withHashMap_ok()  {
         EOTest.setValue_ok(new HashMap());
     }
 
     @Test
-    public void withMapInteger_ok() throws Exception {
+    public void withMapInteger_ok()  {
         EO eoMapInteger = EOTest.setValue_ok(MapProvider.createInteger());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eoMapInteger.get(F_TEST_INTEGER));
     }
 
     @Test
-    public void withArrayList_ok() throws Exception {
+    public void withArrayList_ok()  {
         EOTest.setValue_ok(new ArrayList());
     }
 
     @Test
-    public void withBT_ok() throws Exception {
+    public void withBT_ok()  {
         EOTest.setValue_ok(new BasicTest());
     }
 
     @Test
-    public void withBTTestString_ok() throws Exception {
+    public void withBTTestString_ok()  {
         EO eoBTWithString = EOTest.setValue_ok(BTProvider.createString());
         Assert.assertEquals(S_STRING, eoBTWithString.get(F_TEST_STRING));
         Assert.assertEquals(String.class, eoBTWithString.getChild(F_TEST_STRING).getModelClass());
     }
 
     @Test
-    public void withST_ok() throws Exception {
+    public void withST_ok()  {
         final EO root = EOTest
                 .setValue_ok(STProvider.createString(), SubTest.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
     }
 
     @Test
-    public void mapWithIntegerKey() throws Exception {
+    public void mapWithIntegerKey()  {
         TestHelper.printStartMethod();
         Map map = new HashMap();
         map.put(3, 1);
@@ -80,7 +80,7 @@ public class EONoPathNewRootSet_value_Test {
     }
 
     @Test
-    public void mapMap_ChangesInOriginalMap_changeInEO() throws Exception {
+    public void mapMap_ChangesInOriginalMap_changeInEO()  {
         TestHelper.printStartMethod();
         Map map = MapProvider.createString();
 
@@ -92,7 +92,7 @@ public class EONoPathNewRootSet_value_Test {
     }
 
     @Test
-    public void withList() throws Exception {
+    public void withList()  {
         EO adapter = TestEOProvider.createEOBuilder()
                 .set(Arrays.asList(S_STRING, S_INTEGER));
         Assert.assertEquals(S_STRING, adapter.get(S0));

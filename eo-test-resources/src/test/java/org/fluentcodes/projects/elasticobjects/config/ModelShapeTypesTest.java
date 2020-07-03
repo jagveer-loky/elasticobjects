@@ -17,7 +17,7 @@ public class ModelShapeTypesTest {
     private static final Logger LOG = LogManager.getLogger(ModelShapeTypesTest.class);
 
     @Test
-    public void testTypeClasses() throws Exception {
+    public void testTypeClasses()  {
         TestHelper.printStartMethod();
         //testTypeClass(Object.class, ShapeTypes.NONE);
         testTypeClass(Boolean.class, ShapeTypes.SCALAR);
@@ -34,7 +34,7 @@ public class ModelShapeTypesTest {
     }
 
     @Test
-    public void testTypeObjects() throws Exception {
+    public void testTypeObjects()  {
         TestHelper.printStartMethod();
         //testTypeObject(new Object(), ShapeTypes.NONE);
         testTypeObject(S_BOOLEAN, ShapeTypes.SCALAR);
@@ -48,7 +48,7 @@ public class ModelShapeTypesTest {
         testTypeObject(SAMPLE_MAP_EMPTY, ShapeTypes.MAP);
     }
 
-    private void testTypeClass(Class clazz, ShapeTypes shapeType) throws Exception {
+    private void testTypeClass(Class clazz, ShapeTypes shapeType)  {
         ShapeTypes shapeTypeStored = TestEOProvider.EO_CONFIGS.findModel(clazz).getShapeType();
         Assert.assertEquals(shapeType, shapeTypeStored);
     }

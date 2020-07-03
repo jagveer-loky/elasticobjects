@@ -16,7 +16,7 @@ public class ConfigImplTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ConfigImplTest.class);
 
     @Test
-    public void assertModelCache() throws Exception {
+    public void assertModelCache()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_CONFIG_IMPL);
         model.resolve();

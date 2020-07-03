@@ -15,13 +15,13 @@ public class EOPathNewRootSet_value_Test {
     private static final Logger LOG = LogManager.getLogger(EOPathNewRootSet_value_Test.class);
 
     @Test
-    public void mapInteger_ok() throws Exception {
+    public void mapInteger_ok()  {
         EO eoMapInteger = EOTest.set_ok(F_UNTYPED_MAP, MapProvider.createInteger(), LinkedHashMap.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eoMapInteger.get(F_TEST_INTEGER));
     }
 
     @Test
-    public void listWithPath2() throws Exception {
+    public void listWithPath2()  {
         EO adapter = TestEOProvider.createEmptyMap();
         List<String> list = ListProvider.toList(S_STRING);
         adapter.add(S_PATH2)

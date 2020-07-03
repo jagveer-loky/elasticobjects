@@ -20,22 +20,22 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathNewRootMap_value_Test.class);
 
     @Test
-    public void mapNull_ok() throws Exception {
+    public void mapNull_ok()  {
         EOTest.mapValue_ok(null);
     }
 
     @Test
-    public void mapInteger_ok() throws Exception {
+    public void mapInteger_ok()  {
         EOTest.mapValue_ok(S_INTEGER);
     }
 
     @Test
-    public void mapArrayList_ok() throws Exception {
+    public void mapArrayList_ok()  {
         EOTest.mapValue_ok(new ArrayList());
     }
 
     @Test
-    public void mapHashMap_ok() throws Exception {
+    public void mapHashMap_ok()  {
         EOTest.mapValue_ok(new HashMap());
     }
 
@@ -45,7 +45,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      * Model keeps default and eo is empty.
      */
     @Test
-    public void jsnMapEmpty_ok() throws Exception {
+    public void jsnMapEmpty_ok()  {
         String jsnEmpty = JSONInputReader.readInput(JSONInputReader.EMPTY);
         EO adapter = TestEOProvider
                 .createEOBuilder()
@@ -58,7 +58,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     // when adding json BasicTest empty
     // the model is Map
     @Test
-    public void jsonMapEmpty2_ok() throws Exception {
+    public void jsonMapEmpty2_ok()  {
         final String jsonEmpty = MapProviderJSON.getJSONEmpty();
         final EO eoJsnBTEmpty = TestEOProvider
                 .createEOBuilder()
@@ -75,7 +75,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      * values will be added with default types.
      */
     @Test
-    public void jsonMapEmptyValues_ok() throws Exception {
+    public void jsonMapEmptyValues_ok()  {
         EO adapter = TestEOProvider
                 .createEOBuilder()
                 .map(MapProviderJSON.getJSONEmptyValues());
@@ -91,7 +91,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      * values will be added with default types.
      */
     @Test
-    public void jsonMapSmall_ok() throws Exception {
+    public void jsonMapSmall_ok()  {
         final EO eoJsonSmall = TestEOProvider
                 .createEOBuilder()
                 .map(MapProviderJSON.readSmall());
@@ -105,7 +105,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      * values will be added with the correct type.
      */
     @Test
-    public void jsnMapSmall_ok() throws Exception {
+    public void jsnMapSmall_ok()  {
         final String jsnSmall = JSONInputReader.readInput(JSONInputReader.SMALL);
         final EO eoJsnSmall = TestEOProvider
                 .createEOBuilder()
@@ -120,7 +120,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      * Model keeps default and eo is empty.
      */
     @Test
-    public void jsonMapEmpty_ok() throws Exception {
+    public void jsonMapEmpty_ok()  {
         EO eoRoot = TestEOProvider
                 .createEOBuilder()
                 .map(MapProviderJSON.getJSONEmpty());
@@ -135,7 +135,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      * List will be set
      */
     @Test
-    public void jsnListEmpty_ok() throws Exception {
+    public void jsnListEmpty_ok()  {
         final String jsnListEmpty = ListProviderJSON.readEmpty();
         final EO eoJsnListEmpty = DevObjectProvider
                 .createEOBuilder()
@@ -150,7 +150,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
      * List will be set
      */
     @Test
-    public void jsonListEmpty_ok() throws Exception {
+    public void jsonListEmpty_ok()  {
         final String jsonListEmpty = ListProviderJSON.readEmpty();
         final EO eoJsonListEmpty = TestEOProvider
                 .createEOBuilder()
@@ -162,12 +162,12 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
 
 
     @Test
-    public void mapBT_ok() throws Exception {
+    public void mapBT_ok()  {
         EOTest.mapValue_ok(new BasicTest());
     }
 
     @Test
-    public void mapBTString_ok() throws Exception {
+    public void mapBTString_ok()  {
         EO root = EOTest.mapValue_ok(BTProvider.createString());
         Assert.assertNotNull(((EOContainer) root).getChildAdapter(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
@@ -177,7 +177,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     // when adding jsn BasicTest empty
     // the model is BasicTest
     @Test
-    public void jsnBTEmpty_ok() throws Exception {
+    public void jsnBTEmpty_ok()  {
         final String jsnBTEmpty = BTProviderJSN.readEmpty();
 
         final EO eoJsnBTEmpty = TestEOProvider
@@ -195,7 +195,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     // the value will be set to the path and the model is BasicTest
 
     @Test
-    public void jsnBTSmall_ok() throws Exception {
+    public void jsnBTSmall_ok()  {
         final String jsnBTSmall = BTProviderJSN.readSmall();
 
         final EO eoJsnBTSmall = TestEOProvider
@@ -212,7 +212,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     // when adding json map small (json contains no information about the model)
     // the value will be set and the model is Map
     @Test
-    public void jsonBTSmall_ok() throws Exception {
+    public void jsonBTSmall_ok()  {
         final String jsonBTSmall = MapProviderJSON.readSmall();
         final EO eoJsnBTSmall = TestEOProvider
                 .createEOBuilder()
@@ -225,7 +225,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void mapMap_ChangesInOriginalMap_HasNoChangeInEO() throws Exception {
+    public void mapMap_ChangesInOriginalMap_HasNoChangeInEO()  {
         TestHelper.printStartMethod();
         Map map = MapProvider.createString();
 
@@ -237,7 +237,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void mapMapWithSubMap_ok() throws Exception {
+    public void mapMapWithSubMap_ok()  {
         Map map = MapProvider.createString();
         Map map2 = MapProvider.createString();
         map.put(S_KEY1, map2);
@@ -252,7 +252,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     @Ignore
     // TODO avoid recursive mapping!
     @Test
-    public void mapMapWithSubMap_fails() throws Exception {
+    public void mapMapWithSubMap_fails()  {
         Map map = MapProvider.createString();
         map.put(S_KEY1, map);
 
@@ -263,7 +263,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void setMapIntegerKey() throws Exception {
+    public void setMapIntegerKey()  {
         Map map = EO_STATIC.toMap(3, 1);
         EO builder = TestEOProvider.createEOBuilder()
                 .map(map);
@@ -272,7 +272,7 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
 
 
     @Test
-    public void withList() throws Exception {
+    public void withList()  {
         EO builder = TestEOProvider.createEOBuilder()
                 .map(Arrays.asList(S_EMPTY, S_EMPTY, S_STRING));
         Assert.assertEquals(S_STRING, builder.get(S2));
@@ -281,14 +281,14 @@ public class EONoPathNewRootMap_value_Test extends TestHelper {
 
     // TODO check ...
     @Test
-    public void withBT_mapMapEmpty() throws Exception {
+    public void withBT_mapMapEmpty()  {
         final EO eoBTEmpty = BTProviderJSN.createEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eoBTEmpty.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eoBTEmpty.get().getClass());
     }
 
     @Test
-    public void withJsnSTSimple() throws Exception {
+    public void withJsnSTSimple()  {
         String JSON = STProviderJSN.readSimple();
         EO adapter = TestEOProvider.createEOBuilder()
                 .map(JSON);

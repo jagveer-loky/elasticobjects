@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -22,7 +23,7 @@ public class Models {
     private boolean hasModel = true;
     private EO eo;
 
-    protected Models(EOConfigsCache configsCache, Object value, boolean map) throws Exception {
+    protected Models(EOConfigsCache configsCache, Object value, boolean map)  {
         this.configsCache = configsCache;
         this.models = new ArrayList();
         if (value == null || (value instanceof JSONToEO)) {
@@ -36,7 +37,7 @@ public class Models {
     /**
      * Creates a root adapter with an ItemsCache
      */
-    private Models(EOConfigsCache configsCache) throws Exception {
+    private Models(EOConfigsCache configsCache)  {
         this.configsCache = configsCache;
         this.models = new ArrayList();
         models.add(configsCache.findModel(Map.class));
@@ -66,16 +67,16 @@ public class Models {
     }
 
 
-    public Models(final EOConfigsCache configsCache, final String classesString) throws Exception {
+    public Models(final EOConfigsCache configsCache, final String classesString)  {
         this.configsCache = configsCache;
         if (classesString == null) {
-            throw new Exception("Null value");
+            throw new EoException("Null value");
         }
         this.models = getByClasses(classesString);
     }
 
     //https://stackoverflow.com/questions/997482/does-java-support-default-parameter-values
-    public Models(final EOConfigsCache configsCache, final Class... classes) throws Exception {
+    public Models(final EOConfigsCache configsCache, final Class... classes)  {
         this.configsCache = configsCache;
         if (classes.length == 0) {
             this.models = new ArrayList();
@@ -90,16 +91,16 @@ public class Models {
         this.models = getByClasses(configsCache, classes);
     }
 
-    private List<ModelInterface> getByClasses(final String classesString) throws Exception {
+    private List<ModelInterface> getByClasses(final String classesString)  {
         if (classesString == null) {
-            throw new Exception("Null value");
+            throw new EoException("Null value");
         }
         return getByClasses(configsCache, classesString.split(","));
     }
 
-    private List<ModelInterface> getByClasses(final EOConfigsCache provider, final String[] classes) throws Exception {
+    private List<ModelInterface> getByClasses(final EOConfigsCache provider, final String[] classes)  {
         if (classes == null) {
-            throw new Exception("Null value");
+            throw new EoException("Null value");
         }
         List<ModelInterface> models = new ArrayList<>();
         if (classes.length == 0) {
@@ -121,11 +122,11 @@ public class Models {
         return models;
     }
 
-    protected void setByClasses(final EOConfigsCache provider, final Class... classes) throws Exception {
+    protected void setByClasses(final EOConfigsCache provider, final Class... classes)  {
         this.models = getByClasses(provider, classes);
     }
 
-    protected List<ModelInterface> getByClasses(final EOConfigsCache provider, final Class... classes) throws Exception {
+    protected List<ModelInterface> getByClasses(final EOConfigsCache provider, final Class... classes)  {
         List<ModelInterface> models = new ArrayList<>();
         ModelInterface modelConfig;
         for (Class classEntry : classes) {
@@ -166,13 +167,13 @@ public class Models {
         }
     }
 
-    protected void mapClasses(Object value) throws Exception {
+    protected void mapClasses(Object value)  {
         if (value == null) {
-            throw new Exception("Could not map null value! ");
+            throw new EoException("Could not map null value! ");
         }
         if (value instanceof JSONToEO) {
             if (isScalar()) {
-                throw new Exception("Could not map container to scalar: " + value.getClass().getSimpleName());
+                throw new EoException("Could not map container to scalar: " + value.getClass().getSimpleName());
             }
             if (eo != null) {
                 ((JSONToEO) value).createChild(eo);
@@ -181,10 +182,10 @@ public class Models {
         }
         ModelInterface valueModel = configsCache.findModel(value);
         if (isContainer() && valueModel.isScalar()) {
-            throw new Exception("Could not map scalar for to container: " + value.getClass().getSimpleName());
+            throw new EoException("Could not map scalar for to container: " + value.getClass().getSimpleName());
         }
         if (isScalar() && valueModel.isContainer()) {
-            throw new Exception("Could not map container to scalar: " + value.getClass().getSimpleName());
+            throw new EoException("Could not map container to scalar: " + value.getClass().getSimpleName());
         }
         if (eo != null) {
             if (isScalar()) {
@@ -195,24 +196,24 @@ public class Models {
         }
     }
 
-    protected void setClasses(Object value) throws Exception {
+    protected void setClasses(Object value)  {
         if (value == null) {
             return;
         }
         if (value instanceof JSONToEO) {
             if (isScalar()) {
-                throw new Exception("Could not map container to scalar: " + value.getClass().getSimpleName());
+                throw new EoException("Could not map container to scalar: " + value.getClass().getSimpleName());
             }
             return;
         }
         setClasses(new Models(configsCache, value.getClass()), value);
     }
 
-    protected void setClasses(Models valueModels) throws Exception {
+    protected void setClasses(Models valueModels)  {
         setClasses(valueModels, valueModels.create());
     }
 
-    protected void setClasses(Models valueModels, Object value) throws Exception {
+    protected void setClasses(Models valueModels, Object value)  {
         if (valueModels.isEmpty()) {
             return;
         }
@@ -235,19 +236,19 @@ public class Models {
     }
 
 
-    private final boolean isModelConcurrent(Models newModels, Models models) throws Exception {
+    private final boolean isModelConcurrent(Models newModels, Models models)  {
         return newModels.getModelClass() == models.getModelClass()
                 || (newModels.isMap() && models.isMap())
                 || (newModels.isList() && models.isList());
     }
 
-    private final boolean isModelConcurrent(ModelInterface valueModel, Models models) throws Exception {
+    private final boolean isModelConcurrent(ModelInterface valueModel, Models models)  {
         return valueModel.getModelClass() == models.getModelClass()
                 || (valueModel.isMap() && models.isMap())
                 || (valueModel.isList() && models.isList());
     }
 
-    private final void setModelConcurrent(final ModelInterface valueModel) throws Exception {
+    private final void setModelConcurrent(final ModelInterface valueModel)  {
         if (isModelConcurrent(valueModel, this)) {
             return;
         }
@@ -255,26 +256,26 @@ public class Models {
         this.models.add(valueModel);
     }
 
-    private final void setModelConcurrent(final Models newModels) throws Exception {
+    private final void setModelConcurrent(final Models newModels)  {
         if (isModelConcurrent(newModels.getModel(), this)) {
             return;
         }
         this.models = newModels.models;
     }
 
-    private final void setModelConcurrent(final ModelInterface valueModel, final Models child) throws Exception {
+    private final void setModelConcurrent(final ModelInterface valueModel, final Models child)  {
         if (!isModelConcurrent(valueModel, child)) {
-            throw new Exception("Child is typed with '" + child.getModelClass() + "' but value has '" + valueModel.getModelClass().getSimpleName() + "'.");
+            throw new EoException("Child is typed with '" + child.getModelClass() + "' but value has '" + valueModel.getModelClass().getSimpleName() + "'.");
         }
     }
 
-    private final void setModelConcurrent(final Models newModels, final Models child) throws Exception {
+    private final void setModelConcurrent(final Models newModels, final Models child)  {
         if (!isModelConcurrent(newModels, child)) {
-            throw new Exception("Child is typed with '" + child.getModelClass() + "' but value has '" + newModels.getModelClass().getSimpleName() + "'.");
+            throw new EoException("Child is typed with '" + child.getModelClass() + "' but value has '" + newModels.getModelClass().getSimpleName() + "'.");
         }
     }
 
-    protected void checkRootValue(Object value, boolean map) throws Exception {
+    protected void checkRootValue(Object value, boolean map)  {
         if (value == null) {
             return;
         }
@@ -286,7 +287,7 @@ public class Models {
     }
 
 
-    public Models getChildModelsList() throws Exception {
+    public Models getChildModelsList()  {
         if (models.size() < 2) {
             return new Models(configsCache);
         }
@@ -341,7 +342,7 @@ public class Models {
         }
     }
 
-    public Models createChild(final String name) throws Exception {
+    public Models createChild(final String name)  {
         if (models.isEmpty()) {
             return new Models(configsCache);
         }
@@ -357,9 +358,9 @@ public class Models {
         return null;
     }
 
-    protected Models createChildWithValue(String name, Object value) throws Exception {
+    protected Models createChildWithValue(String name, Object value)  {
         if (name == null) {
-            throw new Exception("Null name throw an Exception");
+            throw new EoException("Null name throw an Exception");
         }
         Models childModels = createChild(name);
         if (value == null) {
@@ -370,7 +371,7 @@ public class Models {
         }
         ModelInterface valueModel = configsCache.findModel(value.getClass());
         if (valueModel == null) {
-            throw new Exception("No model defined for  " + value.getClass().getSimpleName());
+            throw new EoException("No model defined for  " + value.getClass().getSimpleName());
         }
         if (childModels == null || childModels.isEmpty()) {
             return new Models(valueModel);
@@ -378,7 +379,7 @@ public class Models {
         return childModels;
     }
 
-    protected Models createChildForSet(final Models childModels, final Object value, final String name) throws Exception {
+    protected Models createChildForSet(final Models childModels, final Object value, final String name)  {
         if (value == null) {
             return childModels;
         }
@@ -399,20 +400,20 @@ public class Models {
         if (childModels.isList() && valueModel.isList()) {
             return childModels;
         }
-        throw new Exception("Typed Child " + name + " is " + childModels.getModelClass().getSimpleName() + " and non scalar value " + value.getClass().getSimpleName());
+        throw new EoException("Typed Child " + name + " is " + childModels.getModelClass().getSimpleName() + " and non scalar value " + value.getClass().getSimpleName());
     }
 
-    protected Models createChildForSet(final String name, final Object value) throws Exception {
+    protected Models createChildForSet(final String name, final Object value)  {
         if (value instanceof JSONToEO) {
-            throw new Exception("Json to EO should be mapped, not set!");
+            throw new EoException("Json to EO should be mapped, not set!");
         }
         Models childModels = createChildWithValue(name, value);
         return createChildForSet(childModels, value, name);
     }
 
-    protected Models createChildForSet(final String name, final Object value, final Models targetModels) throws Exception {
+    protected Models createChildForSet(final String name, final Object value, final Models targetModels)  {
         if (value instanceof JSONToEO) {
-            throw new Exception("Json to EO should be mapped, not set!");
+            throw new EoException("Json to EO should be mapped, not set!");
         }
         Models childModels = createChildWithValue(name, value);
         if (value == null) {
@@ -424,18 +425,18 @@ public class Models {
     }
 
 
-    protected Models createChildForMap(final String key, final Object value) throws Exception {
+    protected Models createChildForMap(final String key, final Object value)  {
         Models childModels = createChildWithValue(key, value);
         return createChildForMap(childModels, value, key);
     }
 
-    protected Models createChildForMap(Models childModels, final Object value, final String key) throws Exception {
+    protected Models createChildForMap(Models childModels, final Object value, final String key)  {
         if (value == null) {
             return childModels;
         }
         if (value instanceof JSONToEO) {
             if (childModels.isScalar()) {
-                throw new Exception("child model is scalar and could not be mapped to scalar!");
+                throw new EoException("child model is scalar and could not be mapped to scalar!");
             }
             return childModels;
         }
@@ -458,18 +459,18 @@ public class Models {
                 return childModels;
             }
         }
-        throw new Exception("Could not find a map type for name='" + key + "' with type='" + childModels.getModelClass().getSimpleName() + "' and value class='" + valueModel.getModelClass().getSimpleName() + "'");
+        throw new EoException("Could not find a map type for name='" + key + "' with type='" + childModels.getModelClass().getSimpleName() + "' and value class='" + valueModel.getModelClass().getSimpleName() + "'");
 
     }
 
-    protected Models createChildForMap(final String key, final Object value, final Class... classes) throws Exception {
+    protected Models createChildForMap(final String key, final Object value, final Class... classes)  {
         if (classes == null || classes.length == 0) {
             return createChildForMap(key, value);
         }
         return createChildForMap(key, value, new Models(configsCache, classes));
     }
 
-    protected Models createChildForMap(final String key, final Object value, final Models classModels) throws Exception {
+    protected Models createChildForMap(final String key, final Object value, final Models classModels)  {
         Models childModels = createChild(key);
 
         if (classModels == null || !classModels.hasModel()) {
@@ -494,7 +495,7 @@ public class Models {
         }
     }
 
-    protected Models createChild(final String key, final Object value, final Models classModels, final boolean map) throws Exception {
+    protected Models createChild(final String key, final Object value, final Models classModels, final boolean map)  {
         if (map) {
             return createChildForMap(key, value, classModels);
         }
@@ -539,7 +540,7 @@ public class Models {
     }
 
 
-    protected Class getChildModelClass() throws Exception {
+    protected Class getChildModelClass()  {
         if (models.size() < 2) {
             return Object.class;
         }
@@ -586,7 +587,7 @@ public class Models {
     }
 
 
-    public Object transform(Object source) throws Exception {
+    public Object transform(Object source)  {
         if (source == null) {
             return null;
         }
@@ -601,7 +602,7 @@ public class Models {
     }
 
 
-    public Object create() throws Exception {
+    public Object create()  {
         return getModel().create();
     }
 }

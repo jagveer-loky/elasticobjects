@@ -47,35 +47,35 @@ public class TestObjectProvider {
         Assert.assertTrue(INFO_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
     }
 
-    public static final EO createEOString() throws Exception {
+    public static final EO createEOString()  {
         return TestEOProvider.createEOBuilder().set(S_STRING);
     }
 
-    public static final EO createEOBoolean() throws Exception {
+    public static final EO createEOBoolean()  {
         return TestEOProvider.createEOBuilder().set(S_BOOLEAN);
     }
 
-    public static final EO createEOLong() throws Exception {
+    public static final EO createEOLong()  {
         return TestEOProvider.createEOBuilder().set(SAMPLE_LONG);
     }
 
-    public static final EO createEODouble() throws Exception {
+    public static final EO createEODouble()  {
         return TestEOProvider.createEOBuilder().set(SAMPLE_DOUBLE);
     }
 
-    public static final EO createEOMapEmpty() throws Exception {
+    public static final EO createEOMapEmpty()  {
         return TestEOProvider.createEOBuilder()
                 .setModels(Map.class)
                 .set(new LinkedHashMap<>());
     }
 
-    public static final EO createEOListEmpty() throws Exception {
+    public static final EO createEOListEmpty()  {
         return TestEOProvider.createEOBuilder()
                 .setModels(List.class)
                 .set(new ArrayList<>());
     }
 
-    public static EO createEOFromJson(final String json) throws Exception {
+    public static EO createEOFromJson(final String json)  {
         JSONToEO tokener = new JSONToEO(json, TestEOProvider.EO_CONFIGS);
         return tokener.createChild(TestEOProvider.createEmptyMap());
     }

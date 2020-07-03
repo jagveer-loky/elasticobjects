@@ -18,15 +18,15 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EOTest {
 
 
-    public static final EO setValue_fails(final Object value, Class... targetClasses) throws Exception {
+    public static final EO setValue_fails(final Object value, Class... targetClasses)  {
         return set_fails(null, value);
     }
 
-    public static final EO set_fails(final String path, Class... targetClasses) throws Exception {
+    public static final EO set_fails(final String path, Class... targetClasses)  {
         return set_fails(path, null, targetClasses);
     }
 
-    public static final EO set_fails(final String path, Object value, Class... targetClasses) throws Exception {
+    public static final EO set_fails(final String path, Object value, Class... targetClasses)  {
         final EOBuilder builder = TestEOProvider.createEOBuilder()
                 .setPath(path)
                 .setModels(targetClasses);
@@ -36,7 +36,7 @@ public class EOTest {
         return child;
     }
 
-    public static final EO setValueWins_ok(final Object value, final Class... targetClasses) throws Exception {
+    public static final EO setValueWins_ok(final Object value, final Class... targetClasses)  {
         final EO root = TestEOProvider.createEOBuilder()
                 .setModels(targetClasses)
                 .set(value);
@@ -49,15 +49,15 @@ public class EOTest {
         return root;
     }
 
-    public static EO setValue_ok(final Object value, final Class... targetClasses) throws Exception {
+    public static EO setValue_ok(final Object value, final Class... targetClasses)  {
         return set_ok(null, value, targetClasses);
     }
 
-    public static EO set_ok(final String path, final Class... targetClasses) throws Exception {
+    public static EO set_ok(final String path, final Class... targetClasses)  {
         return set_ok(path, null, targetClasses);
     }
 
-    public static final EO set_ok(final String path, Object value, Class... targetClasses) throws Exception {
+    public static final EO set_ok(final String path, Object value, Class... targetClasses)  {
         if (targetClasses.length == 0) {
             if (value != null) {
                 targetClasses = new Class[]{value.getClass()};
@@ -92,11 +92,11 @@ public class EOTest {
     }
 
 
-    public static final EO map_fails(Object value, Class... classes) throws Exception {
+    public static final EO map_fails(Object value, Class... classes)  {
         return map_fails(null, value, classes);
     }
 
-    public static final EO map_fails(final String path, Object value, Class... targetClasses) throws Exception {
+    public static final EO map_fails(final String path, Object value, Class... targetClasses)  {
         final EO child = TestEOProvider.createEOBuilder()
                 .setPath(path)
                 .setModels(targetClasses)
@@ -105,15 +105,15 @@ public class EOTest {
         return child;
     }
 
-    public static final EO map_ok(Class... classes) throws Exception {
+    public static final EO map_ok(Class... classes)  {
         return map_ok(null, null, classes);
     }
 
-    public static final EO mapValue_ok(Object value, Class... classes) throws Exception {
+    public static final EO mapValue_ok(Object value, Class... classes)  {
         return map_ok(null, value, classes);
     }
 
-    public static final EO map_ok(String path, Object value, Class... classes) throws Exception {
+    public static final EO map_ok(String path, Object value, Class... classes)  {
         if (classes != null) {
             if (classes.length == 0 && value != null) {
                 classes = new Class[]{value.getClass()};
@@ -150,20 +150,20 @@ public class EOTest {
         return child;
     }
 
-    public static EO setEO_fails(final EO root, final Class... classes) throws Exception {
+    public static EO setEO_fails(final EO root, final Class... classes)  {
         return setEO_fails(root, null, null, classes);
     }
 
-    public static EO setEO_fails(final EO root, final Object value, final Class... classes) throws Exception {
+    public static EO setEO_fails(final EO root, final Object value, final Class... classes)  {
         return setEO_fails(root, null, value, classes);
     }
 
-    public static EO setEO_fails(final EO root, final String path, final Class... classes) throws Exception {
+    public static EO setEO_fails(final EO root, final String path, final Class... classes)  {
         return setEO_fails(root, path, null, classes);
     }
 
 
-    public static EO setEO_fails(final EO root, final String path, final Object value, final Class... classes) throws Exception {
+    public static EO setEO_fails(final EO root, final String path, final Object value, final Class... classes)  {
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, root);
         final EO child = root
                 .add(path)
@@ -173,19 +173,19 @@ public class EOTest {
         return child;
     }
 
-    public static EO setEO_ok(final EO root, final Class... classes) throws Exception {
+    public static EO setEO_ok(final EO root, final Class... classes)  {
         return setEO_ok(root, null, null, classes);
     }
 
-    public static EO setEOValue_ok(final EO root, final Object value, final Class... classes) throws Exception {
+    public static EO setEOValue_ok(final EO root, final Object value, final Class... classes)  {
         return setEO_ok(root, null, value, classes);
     }
 
-    public static EO setEO_ok(final EO root, final String path, final Class... classes) throws Exception {
+    public static EO setEO_ok(final EO root, final String path, final Class... classes)  {
         return setEO_ok(root, path, null, classes);
     }
 
-    public static EO setEO_ok(final EO root, final String path, final Object value, final Class... classes) throws Exception {
+    public static EO setEO_ok(final EO root, final String path, final Object value, final Class... classes)  {
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, root);
         Class valueClass = null;
         if (classes.length > 0) {
@@ -208,19 +208,19 @@ public class EOTest {
     }
 
 
-    public static final EO mapEO_fails(final EO root, final String path, Class... classes) throws Exception {
+    public static final EO mapEO_fails(final EO root, final String path, Class... classes)  {
         return mapEO_fails(root, path, null, classes);
     }
 
-    public static final EO mapEOValue_fails(final EO root, final Object value, Class... classes) throws Exception {
+    public static final EO mapEOValue_fails(final EO root, final Object value, Class... classes)  {
         return mapEO_fails(root, null, value, classes);
     }
 
-    public static final EO mapEO_fails(final EO root, Class... classes) throws Exception {
+    public static final EO mapEO_fails(final EO root, Class... classes)  {
         return mapEO_fails(root, null, null, classes);
     }
 
-    public static final EO mapEO_fails(final EO root, final String path, Object value, Class... classes) throws Exception {
+    public static final EO mapEO_fails(final EO root, final String path, Object value, Class... classes)  {
         final EO child = root
                 .add(path)
                 .setModels(classes)
@@ -230,7 +230,7 @@ public class EOTest {
     }
 
 
-    public static final void mapEO_noValueCompare(final EO root, final Object value) throws Exception {
+    public static final void mapEO_noValueCompare(final EO root, final Object value)  {
         final Class valueClass = root.getModelClass();
         root.add()
                 .map(value);
@@ -238,19 +238,19 @@ public class EOTest {
         Assert.assertTrue(INFO_EMPTY_FAILS, root.getLog().isEmpty());
     }
 
-    public static final EO mapEO_ok(final EO root, Class... classes) throws Exception {
+    public static final EO mapEO_ok(final EO root, Class... classes)  {
         return mapEO_ok(root, null, null, classes);
     }
 
-    public static final EO mapEO_ok(final EO root, final String path, Class... classes) throws Exception {
+    public static final EO mapEO_ok(final EO root, final String path, Class... classes)  {
         return mapEO_ok(root, path, null, classes);
     }
 
-    public static final EO mapEOValue_ok(final EO root, final Object value, Class... classes) throws Exception {
+    public static final EO mapEOValue_ok(final EO root, final Object value, Class... classes)  {
         return mapEO_ok(root, null, value, classes);
     }
 
-    public static final EO mapEO_ok(final EO root, final String path, final Object value, Class... classes) throws Exception {
+    public static final EO mapEO_ok(final EO root, final String path, final Object value, Class... classes)  {
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, root);
         Class valueClass = null;
         if (classes.length > 0) {

@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -59,14 +60,14 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
     }
 
-    protected static final ModelConfig add(EOConfigsCache configsCache, String key) throws Exception {
+    protected static final ModelConfig add(EOConfigsCache configsCache, String key) {
         LOG.info("Started find class " + key);
         final Map modelInfo = new HashMap();
         Class modelClass;
         try {
             modelClass = Class.forName(key);
         } catch (Exception e) {
-            throw new Exception(e.getMessage());
+            throw new EoException(e.getMessage());
         }
         final String modelKey = key.replaceAll(".*\\.", "");
         modelInfo.put(F_MODEL_KEY, modelKey);
@@ -150,7 +151,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return this.fieldKeys;
     }
 
-    private final void setFieldKeys(List<String> fieldsNames) throws Exception {
+    private final void setFieldKeys(List<String> fieldsNames) {
         if (isScalar()) {
             return;
         }
@@ -198,7 +199,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return this.interfaces;
     }
 
-    public Class getModelClass() throws Exception {
+    public Class getModelClass() {
         resolve();
         if (modelClass == null) {
             return Object.class;
@@ -206,17 +207,17 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return modelClass;
     }
 
-    public Map<String, ModelInterface> getImportClasses() throws Exception {
+    public Map<String, ModelInterface> getImportClasses() {
         resolve();
         return importClasses;
     }
 
-    public ModelInterface getImportClasses(final String fieldName) throws Exception {
+    public ModelInterface getImportClasses(final String fieldName) {
         resolve();
         return this.importClasses.get(fieldName);
     }
 
-    public Map<String, FieldConfig> getFieldCacheMap() throws Exception {
+    public Map<String, FieldConfig> getFieldCacheMap() {
         resolve();
         return fieldCacheMap;
     }
@@ -225,18 +226,18 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return this.fieldCacheMap.get(fieldName) != null;
     }
 
-    public FieldConfig getField(final String fieldName) throws Exception {
+    public FieldConfig getField(final String fieldName) {
         resolve();
         FieldConfig fieldCache = this.fieldCacheMap.get(fieldName);
         if (fieldCache == null) {
-            throw new Exception("No fieldName defined " + fieldName + "(" + this.getModelKey() + ").");
+            throw new EoException("No fieldName defined " + fieldName + "(" + this.getModelKey() + ").");
         }
         return fieldCache;
     }
 
-    public void setModelClass() throws Exception {
+    public void setModelClass()  {
         if (getModelKey() == null) {
-            throw new Exception("No modelkey defined. No model class could be derived!");
+            throw new EoException("No modelkey defined. No model class could be derived!");
         }
         try {
             if (getConfigsCache().getScope() != Scope.CREATE) {
@@ -244,16 +245,16 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new Exception("Could not resolve class with packagePath" + packagePath + " and modelKey " + modelKey, e);
+            throw new EoException("Could not resolve class with packagePath" + packagePath + " and modelKey " + modelKey, e);
         }
     }
 
-    public ModelInterface getSuperModel() throws Exception {
+    public ModelInterface getSuperModel()  {
         resolve();
         return superModel;
     }
 
-    private final void setSuperModel() throws Exception {
+    private final void setSuperModel() {
         if (superKey == null || superKey.isEmpty()) {
             return;
         }
@@ -261,7 +262,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         this.superModel = model;
     }
 
-    private final void setInterfacesMap() throws Exception {
+    private final void setInterfacesMap() {
         if (interfaces == null || interfaces.isEmpty()) {
             return;
         }
@@ -271,13 +272,13 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         }
     }
 
-    public Map<String, Object> getNaturalValues(Object object) throws Exception {
+    public Map<String, Object> getNaturalValues(Object object) {
         Map<String, Object> where = new HashMap<String, Object>();
         if (object == null) {
-            throw new Exception("Null entry object. No map could be created!");
+            throw new EoException("Null entry object. No map could be created!");
         }
         if (getNaturalKeys() == null) {
-            throw new Exception("Null natural keys defined. No map could be created!");
+            throw new EoException("Null natural keys defined. No map could be created!");
         }
         for (String key : getNaturalKeys()) {
             Object value = get(key, object);
@@ -286,14 +287,14 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return where;
     }
 
-    public Class getFieldClass(String fieldName) throws Exception {
+    public Class getFieldClass(String fieldName) {
         if (!this.isObject()) {
             return Object.class;
         }
         return getField(fieldName).getModelClass();
     }
 
-    private void setFieldKeys() throws Exception {
+    private void setFieldKeys() {
         if (getConfigsCache().getScope() == Scope.CREATE && getShapeType() == ShapeTypes.INTERFACE) {
             return;
         }
@@ -310,7 +311,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     }
 
     @Override
-    public boolean isEmpty(final Object object) throws Exception {
+    public boolean isEmpty(final Object object) {
         resolve();
         if (object == null) {
             return true;
@@ -321,7 +322,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     }
 
     @Override
-    public Map getKeyValues(final Object object, final PathPattern pathPattern) throws Exception {
+    public Map getKeyValues(final Object object, final PathPattern pathPattern) {
         resolve();
         Set<String> keySet = keys(object);
         Map keyValues = new LinkedHashMap();
@@ -345,7 +346,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return keyValues;
     }
 
-    public void resolve() throws Exception {
+    public void resolve()  {
         if (isResolved()) {
             return;
         }
@@ -360,7 +361,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         setFieldKeys();
     }
 
-    private void setModelCacheClass() throws Exception {
+    private void setModelCacheClass() {
         if (!hasModelConfigKey()) {
             return;
         }
@@ -448,7 +449,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return dbParams.getTable();
     }
 
-    public Object getId(Object object) throws Exception {
+    public Object getId(Object object) {
         return this.get(getIdKey(), object);
     }
 
@@ -525,7 +526,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         }
 //</call>
 
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) {
             modelKey = ScalarConverter.toString(values.get(F_MODEL_KEY));
             packageGroup = ScalarConverter.toString(values.get(F_PACKAGE_GROUP));
             packagePath = ScalarConverter.toString(values.get(F_PACKAGE_PATH));
@@ -559,7 +560,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         }
 
 
-        public Config build(EOConfigsCache configsCache, Map values) throws Exception {
+        public Config build(EOConfigsCache configsCache, Map values) {
             prepare(configsCache, values);
             ShapeTypes shapeType = eoParams.getShapeType();
             if (shapeType == ShapeTypes.MAP) {

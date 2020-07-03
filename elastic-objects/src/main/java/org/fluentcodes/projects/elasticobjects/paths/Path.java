@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,16 +145,16 @@ public class Path {
         return !isEmpty();
     }
 
-    public void removeFirstEntry() throws Exception {
+    public void removeFirstEntry()  {
         if (this.entries.size() == 0) {
-            throw new Exception("Problem: Path has no entry any more.");
+            throw new EoException("Problem: Path has no entry any more.");
         }
         this.entries.remove(0);
     }
 
-    public Path removeFirst() throws Exception {
+    public Path removeFirst()  {
         if (this.entries.size() == 0) {
-            throw new Exception("Problem: Path has no entry any more.");
+            throw new EoException("Problem: Path has no entry any more.");
         }
         Path path = new Path(this);
         path.removeFirstEntry();

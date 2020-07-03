@@ -28,7 +28,7 @@ public class ListParamsTest extends TestHelper {
     }
 
     @Test
-    public void checkObjectSetRowStart() throws Exception {
+    public void checkObjectSetRowStart()  {
         ListParams params = new ListParams();
         params.setRowStart(5);
         Assert.assertEquals(new Integer(5), params.getRowStart());
@@ -45,7 +45,7 @@ public class ListParamsTest extends TestHelper {
     }
 
     @Test
-    public void checkObjectSetLength() throws Exception {
+    public void checkObjectSetLength()  {
         ListParams params = new ListParams();
         params.setLength(5);
         Assert.assertEquals(new Integer(5), params.getLength());
@@ -65,7 +65,7 @@ public class ListParamsTest extends TestHelper {
     }
 
     @Test
-    public void checkObjectSetHeadAndLength() throws Exception {
+    public void checkObjectSetHeadAndLength()  {
         ListParams params = new ListParams();
         params.setRowHead(2);
         params.setLength(5);
@@ -111,7 +111,7 @@ public class ListParamsTest extends TestHelper {
     }
 
     @Test
-    public void assertModel() throws Exception {
+    public void assertModel()  {
         TestHelper.printStartMethod();
         ModelInterface paramsModel = TestEOProvider.EO_CONFIGS.findModel(ListParams.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.INSTANCE, paramsModel.getShapeType());

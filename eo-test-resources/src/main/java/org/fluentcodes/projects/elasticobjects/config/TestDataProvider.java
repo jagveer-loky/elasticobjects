@@ -12,7 +12,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class TestDataProvider extends TestHelper {
 
 
-    public static EO createAdapterEmbedded() throws Exception {
+    public static EO createAdapterEmbedded()  {
         final EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_TEST_STRING)).set(S_STRING);
         adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_TEST_STRING)).set(S_STRING);

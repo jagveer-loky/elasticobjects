@@ -11,7 +11,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class CallTest {
     @Test
-    public void emptyAction() throws Exception {
+    public void emptyAction()  {
         Call call = new Call();
         Assert.assertNull(call.getPath());
         Assert.assertNull(call.getMapPath());
@@ -21,7 +21,7 @@ public class CallTest {
     }
 
     @Test
-    public void withPath() throws Exception {
+    public void withPath()  {
         Call call = new Call();
         call.setPath(S_LEVEL0);
         Assert.assertEquals(S_LEVEL0, call.getPath());
@@ -32,7 +32,7 @@ public class CallTest {
     }
 
     @Test
-    public void withMapPath() throws Exception {
+    public void withMapPath()  {
         Call call = new Call();
         call.setMapPath(S_LEVEL0);
         Assert.assertEquals(S_LEVEL0, call.getMapPath());
@@ -43,7 +43,7 @@ public class CallTest {
     }
 
     @Test
-    public void withMapPathAbsolute() throws Exception {
+    public void withMapPathAbsolute()  {
         Call call = new Call();
         call.setMapPath(S_LEVEL0);
         Assert.assertEquals(S_LEVEL0, call.getMapPath());
@@ -54,7 +54,7 @@ public class CallTest {
     }
 
     @Test
-    public void withMapPathDynamic() throws Exception {
+    public void withMapPathDynamic()  {
         Call call = new Call();
         call.setMapPath(S_PATH_DYNAMIC);
         Assert.assertEquals(S_PATH_DYNAMIC, call.getMapPath());
@@ -65,7 +65,7 @@ public class CallTest {
     }
 
     @Test
-    public void withPathAbsolute() throws Exception {
+    public void withPathAbsolute()  {
         Call call = new Call();
         call.setPath(Path.DELIMITER + S_KEY0);
         Assert.assertEquals(Path.DELIMITER + S_KEY0, call.getPath());
@@ -76,7 +76,7 @@ public class CallTest {
     }
 
     @Test
-    public void withPathAndMapPath() throws Exception {
+    public void withPathAndMapPath()  {
         Call call = new Call();
         call.setPath(S_LEVEL0);
         call.setMapPath(S_LEVELMAP);
@@ -89,7 +89,7 @@ public class CallTest {
     }
 
     @Test
-    public void withPathAbsoluteAndMapPath() throws Exception {
+    public void withPathAbsoluteAndMapPath()  {
         Call call = new Call();
         call.setPath(Path.DELIMITER + S_LEVEL0);
         call.setMapPath(S_KEY_MAP);

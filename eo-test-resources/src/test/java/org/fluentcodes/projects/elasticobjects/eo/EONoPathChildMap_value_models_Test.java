@@ -14,7 +14,7 @@ public class EONoPathChildMap_value_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathChildMap_value_models_Test.class);
 
     @Test
-    public void givenMapString_withInteger_ok() throws Exception {
+    public void givenMapString_withInteger_ok()  {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         final EO child = eoMapString.getChild(F_TEST_STRING);
         EOTest

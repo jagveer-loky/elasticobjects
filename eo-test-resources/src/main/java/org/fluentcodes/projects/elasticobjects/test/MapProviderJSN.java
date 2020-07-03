@@ -13,16 +13,16 @@ public class MapProviderJSN {
         return TestEOProvider.createEOBuilder();
     }
 
-    public static String readEmpty() throws Exception {
+    public static String readEmpty()  {
         return JSONInputReader.readInputJSN(EMPTY);
     }
 
-    public static String getJSONEmpty() throws Exception {
+    public static String getJSONEmpty()  {
         String eo = JSONInputReader.readInputJSN(EMPTY);
         return eo;
     }
 
-    public static EO createEmpty() throws Exception {
+    public static EO createEmpty()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readEmpty());
@@ -30,18 +30,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareEmpty() throws Exception {
+    public static EO compareEmpty()  {
         EO eo = JSONInputReader.compareInputJSN(EMPTY, MapProviderEO.createEmpty());
         Assert.assertEquals(Map.class, eo.getModelClass());
         return eo;
     }
 
 
-    public static String readString() throws Exception {
+    public static String readString()  {
         return readInputJSN(STRING);
     }
 
-    public static EO createString() throws Exception {
+    public static EO createString()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readString());
@@ -49,17 +49,17 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareString() throws Exception {
+    public static EO compareString()  {
         EO eo = JSONInputReader.compareInputJSN(STRING, MapProviderEO.createString());
         BTProviderEO.assertString(eo);
         return eo;
     }
 
-    public static String readInteger() throws Exception {
+    public static String readInteger()  {
         return readInputJSN(INT);
     }
 
-    public static EO createInteger() throws Exception {
+    public static EO createInteger()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readInteger());
@@ -67,18 +67,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareInteger() throws Exception {
+    public static EO compareInteger()  {
         EO eo = JSONInputReader.compareInputJSN(INT, MapProviderEO.createInteger());
         BTProviderEO.assertInteger(eo);
         return eo;
     }
 
 
-    public static String readLong() throws Exception {
+    public static String readLong()  {
         return readInputJSN(LONG);
     }
 
-    public static EO createLong() throws Exception {
+    public static EO createLong()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readLong());
@@ -86,17 +86,17 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareLong() throws Exception {
+    public static EO compareLong()  {
         EO eo = JSONInputReader.compareInputJSN(LONG, MapProviderEO.createLong());
         BTProviderEO.assertLong(eo);
         return eo;
     }
 
-    public static String readFloat() throws Exception {
+    public static String readFloat()  {
         return readInputJSN(FLOAT);
     }
 
-    public static EO createFloat() throws Exception {
+    public static EO createFloat()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readFloat());
@@ -104,18 +104,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareFloat() throws Exception {
+    public static EO compareFloat()  {
         EO eo = JSONInputReader.compareInputJSN(FLOAT, MapProviderEO.createFloat());
         BTProviderEO.assertFloat(eo);
         return eo;
     }
 
 
-    public static String readDouble() throws Exception {
+    public static String readDouble()  {
         return readInputJSN(DOUBLE);
     }
 
-    public static EO createDouble() throws Exception {
+    public static EO createDouble()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readDouble());
@@ -123,18 +123,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareDouble() throws Exception {
+    public static EO compareDouble()  {
         EO eo = JSONInputReader.compareInputJSN(DOUBLE, MapProviderEO.createDouble());
         BTProviderEO.assertDouble(eo);
         return eo;
     }
 
 
-    public static String readDate() throws Exception {
+    public static String readDate()  {
         return readInputJSN(DATE);
     }
 
-    public static EO createDate() throws Exception {
+    public static EO createDate()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readDate());
@@ -142,18 +142,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareDate() throws Exception {
+    public static EO compareDate()  {
         EO eo = JSONInputReader.compareInputJSN(DATE, MapProviderEO.createDate());
         BTProviderEO.assertDate(eo);
         return eo;
     }
 
 
-    public static String readBoolean() throws Exception {
+    public static String readBoolean()  {
         return readInputJSN(BOOLEAN);
     }
 
-    public static EO createBoolean() throws Exception {
+    public static EO createBoolean()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readBoolean());
@@ -161,18 +161,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareBoolean() throws Exception {
+    public static EO compareBoolean()  {
         EO eo = JSONInputReader.compareInputJSN(BOOLEAN, MapProviderEO.createBoolean());
         BTProviderEO.assertBoolean(eo);
         return eo;
     }
 
 
-    public static String readMap() throws Exception {
+    public static String readMap()  {
         return readInputJSN(MAP);
     }
 
-    public static EO createMap() throws Exception {
+    public static EO createMap()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readMap());
@@ -180,18 +180,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareMap() throws Exception {
+    public static EO compareMap()  {
         EO eo = JSONInputReader.compareInputJSN(MAP, MapProviderEO.createMap());
         BTProviderEO.assertMap(eo);
         return eo;
     }
 
 
-    public static String readList() throws Exception {
+    public static String readList()  {
         return readInputJSN(LIST);
     }
 
-    public static EO createList() throws Exception {
+    public static EO createList()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readList());
@@ -199,18 +199,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareList() throws Exception {
+    public static EO compareList()  {
         EO eo = JSONInputReader.compareInputJSN(LIST, MapProviderEO.createList());
         BTProviderEO.assertList(eo);
         return eo;
     }
 
 
-    public static String readBT() throws Exception {
+    public static String readBT()  {
         return readInputJSN(BASIC_TEST);
     }
 
-    public static EO createBT() throws Exception {
+    public static EO createBT()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readBT());
@@ -218,18 +218,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareBT() throws Exception {
+    public static EO compareBT()  {
         EO eo = JSONInputReader.compareInputJSN(BASIC_TEST, MapProviderEO.createBT());
         BTProviderEO.assertBT(eo);
         return eo;
     }
 
 
-    public static String readST() throws Exception {
+    public static String readST()  {
         return readInputJSN(SUB_TEST);
     }
 
-    public static EO createST() throws Exception {
+    public static EO createST()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readST());
@@ -237,18 +237,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareST() throws Exception {
+    public static EO compareST()  {
         EO eo = JSONInputReader.compareInputJSN(SUB_TEST, MapProviderEO.createST());
         BTProviderEO.assertST(eo);
         return eo;
     }
 
 
-    public static String readMapST() throws Exception {
+    public static String readMapST()  {
         return readInputJSN(SUB_TEST_MAP);
     }
 
-    public static EO createMapST() throws Exception {
+    public static EO createMapST()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readMapST());
@@ -256,18 +256,18 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareMapST() throws Exception {
+    public static EO compareMapST()  {
         EO eo = JSONInputReader.compareInputJSN(SUB_TEST_MAP, MapProviderEO.createMapST());
         BTProviderEO.assertMapST(eo);
         return eo;
     }
 
 
-    public static String readListST() throws Exception {
+    public static String readListST()  {
         return readInputJSN(SUB_TEST_LIST);
     }
 
-    public static EO createListST() throws Exception {
+    public static EO createListST()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readListST());
@@ -275,17 +275,17 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareListST() throws Exception {
+    public static EO compareListST()  {
         EO eo = JSONInputReader.compareInputJSN(SUB_TEST_LIST, MapProviderEO.createListST());
         BTProviderEO.assertListST(eo);
         return eo;
     }
 
-    public static String readSmall() throws Exception {
+    public static String readSmall()  {
         return JSONInputReader.readInputJSN(SMALL);
     }
 
-    public static EO createSmall() throws Exception {
+    public static EO createSmall()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readSmall());
@@ -293,17 +293,17 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareSmall() throws Exception {
+    public static EO compareSmall()  {
         EO eo = JSONInputReader.compareInputJSN(SMALL, MapProviderEO.createSmall());
         BTProviderEO.assertSmall(eo);
         return eo;
     }
 
-    public static String readSimple() throws Exception {
+    public static String readSimple()  {
         return JSONInputReader.readInputJSN(SIMPLE);
     }
 
-    public static EO createSimple() throws Exception {
+    public static EO createSimple()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(readSimple());
@@ -311,21 +311,21 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compareSimple() throws Exception {
+    public static EO compareSimple()  {
         EO eo = JSONInputReader.compareInputJSN(SIMPLE, MapProviderEO.createSimple());
         BTProviderEO.assertSimple(eo);
         return eo;
     }
 
-    public static String readAll() throws Exception {
+    public static String readAll()  {
         return read();
     }
 
-    public static String read() throws Exception {
+    public static String read()  {
         return JSONInputReader.readInputJSN(ALL);
     }
 
-    public static EO create() throws Exception {
+    public static EO create()  {
         final EO eo = builder()
                 .setModels(Map.class)
                 .map(read());
@@ -333,7 +333,7 @@ public class MapProviderJSN {
         return eo;
     }
 
-    public static EO compare() throws Exception {
+    public static EO compare()  {
         final EO eo = JSONInputReader.compareInputJSN(ALL, MapProviderEO.create());
         BTProviderEO.asserts(eo);
         return eo;

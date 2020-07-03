@@ -16,7 +16,7 @@ public class MapProviderEO {
         return TestEOProvider.createEOBuilder();
     }
 
-    public static EO createEmpty() throws Exception {
+    public static EO createEmpty()  {
         final EO eo = builder()
                 .setModels(MappingChange.Map.class)
                 .map(MapProvider.createEmpty());
@@ -24,104 +24,104 @@ public class MapProviderEO {
         return eo;
     }
 
-    public static EO createString() throws Exception {
+    public static EO createString()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createString());
         BTProviderEO.assertString(eo);
         return eo;
     }
 
-    public static EO createInteger() throws Exception {
+    public static EO createInteger()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createInteger());
         BTProviderEO.assertInteger(eo);
         return eo;
     }
 
-    public static EO createLong() throws Exception {
+    public static EO createLong()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createLong());
         BTProviderEO.assertLong(eo);
         return eo;
     }
 
-    public static EO createFloat() throws Exception {
+    public static EO createFloat()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createFloat());
         BTProviderEO.assertFloat(eo);
         return eo;
     }
 
-    public static EO createDouble() throws Exception {
+    public static EO createDouble()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createDouble());
         BTProviderEO.assertDouble(eo);
         return eo;
     }
 
-    public static EO createDate() throws Exception {
+    public static EO createDate()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createDate());
         BTProviderEO.assertDate(eo);
         return eo;
     }
 
-    public static EO createBoolean() throws Exception {
+    public static EO createBoolean()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createBoolean());
         BTProviderEO.assertBoolean(eo);
         return eo;
     }
 
-    public static EO createMap() throws Exception {
+    public static EO createMap()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createMap());
         BTProviderEO.assertMap(eo);
         return eo;
     }
 
-    public static EO createList() throws Exception {
+    public static EO createList()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createList());
         BTProviderEO.assertList(eo);
         return eo;
     }
 
-    public static EO createBT() throws Exception {
+    public static EO createBT()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createBT());
         BTProviderEO.assertBT(eo);
         return eo;
     }
 
-    public static EO createST() throws Exception {
+    public static EO createST()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createST());
         BTProviderEO.assertST(eo);
         return eo;
     }
 
-    public static EO createMapST() throws Exception {
+    public static EO createMapST()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createMapST());
         BTProviderEO.assertMapST(eo);
         return eo;
     }
 
-    public static EO createListST() throws Exception {
+    public static EO createListST()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createListST());
         BTProviderEO.assertListST(eo);
         return eo;
     }
 
-    public static EO createSimple() throws Exception {
+    public static EO createSimple()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createSimple());
         BTProviderEO.assertSimple(eo);
         return eo;
     }
 
-    public static EO createSmall() throws Exception {
+    public static EO createSmall()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createSmall());
         BTProviderEO.assertSmall(eo);
         return eo;
     }
 
-    public static EO create() throws Exception {
+    public static EO create()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.create());
         BTProviderEO.asserts(eo);
         return eo;
     }
 
 
-    public static EO createContent(String content) throws Exception {
+    public static EO createContent(String content)  {
         final EO eo = createEmpty();
         eo.add(F_CONTENT).set(content);
         Assert.assertEquals(INFO_COMPARE_FAILS, content, eo.get(F_CONTENT));
@@ -129,7 +129,7 @@ public class MapProviderEO {
     }
 
 
-    public static EO createBigEO(int length) throws Exception {
+    public static EO createBigEO(int length)  {
         final EO adapter = TestEOProvider.createEmptyMap();
         for (int i = 0; i < length; i++) {
             adapter.add("key" + i).set(i);
@@ -137,13 +137,13 @@ public class MapProviderEO {
         return adapter;
     }
 
-    public static EO createBigAEOUnexpanded(int length) throws Exception {
+    public static EO createBigAEOUnexpanded(int length)  {
         return TestEOProvider.createEOBuilder()
                 .set(MapProvider.createBig(length));
     }
 
 
-    public static EO createWithLongPathAndValueString() throws Exception {
+    public static EO createWithLongPathAndValueString()  {
         return TestEOProvider.createEOBuilder()
                 .setPath(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_KEY0))
                 .setLogLevel(LogLevel.INFO)

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,11 +22,11 @@ public class ConfigsModel extends EOConfigs {
     private Map<String, String> classPathMap;
     private Set<String> callSet = new TreeSet<>();
 
-    public ConfigsModel(final EOConfigsCache eoConfigsCache, final Scope scope) throws Exception {
+    public ConfigsModel(final EOConfigsCache eoConfigsCache, final Scope scope)  {
         super(eoConfigsCache, ModelConfig.class, scope);
     }
 
-    private void initClassMapPath() throws IOException {
+    private void initClassMapPath()  {
         final ClassFinder classFinder = new ClassFinder();
         classFinder
                 .addPathFilter("java/util/[^/]*")
@@ -53,7 +54,7 @@ public class ConfigsModel extends EOConfigs {
     }
 
     @Override
-    public Config find(final String key) throws Exception {
+    public Config find(final String key)  {
         final String simple = key.replaceAll(".*\\.", "");
         try {
             return super.find(simple);
@@ -65,7 +66,7 @@ public class ConfigsModel extends EOConfigs {
                     initClassMapPath();
                 }
                 if (classPathMap.get(simple) == null) {
-                    throw new Exception("Could not find the " + simple + " in the class path map");
+                    throw new EoException("Could not find the " + simple + " in the class path map");
                 }
                 String classPath = classPathMap.get(simple).replaceAll("/", ".").replaceAll("\\.class$", "");
                 return ModelConfig.add(getConfigsCache(), classPath);
@@ -73,7 +74,7 @@ public class ConfigsModel extends EOConfigs {
         }
     }
 
-    protected void init() throws Exception {
+    protected void init()  {
         Map<String, Object> map = new HashMap<>();
         Map<String, Object> eoParamsMap = new HashMap<>();
         map.put(F_NATURAL_ID, "Map");

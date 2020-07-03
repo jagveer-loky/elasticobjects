@@ -7,15 +7,15 @@ import java.util.List;
  */
 public interface ConfigIOInterface {
 
-    IOInterface createIO() throws Exception;
+    IOInterface createIO() ;
 
     RolePermissions getRolePermissions();
 
-    Permissions getPermissions(String... roleKeys) throws Exception;
+    Permissions getPermissions(String... roleKeys) ;
 
-    Permissions getPermissions(List<String> roleKeys) throws Exception;
+    Permissions getPermissions(List<String> roleKeys) ;
 
-    boolean hasPermissions(Permissions permission, List<String> roleKeys) throws Exception;
+    boolean hasPermissions(Permissions permission, List<String> roleKeys) ;
 
     boolean hasMapPath();
 

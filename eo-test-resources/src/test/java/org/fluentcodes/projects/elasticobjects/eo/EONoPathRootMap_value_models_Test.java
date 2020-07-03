@@ -20,7 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EONoPathRootMap_value_models_Test {
     private static final Logger LOG = LogManager.getLogger(EONoPathRootMap_value_models_Test.class);
 
-    public static EO mapEO_ok(final EO root, final Object value, final Class... classes) throws Exception {
+    public static EO mapEO_ok(final EO root, final Object value, final Class... classes)  {
         final Class modelClass = root.getModelClass();
         final EO child = root.add()
                 .setModels(classes)
@@ -30,7 +30,7 @@ public class EONoPathRootMap_value_models_Test {
         return child;
     }
 
-    public static EO mapEO_fails(final EO root, final Object value, final Class... classes) throws Exception {
+    public static EO mapEO_fails(final EO root, final Object value, final Class... classes)  {
         final EO child = root.add()
                 .setModels(classes)
                 .map(value);
@@ -39,7 +39,7 @@ public class EONoPathRootMap_value_models_Test {
     }
 
     @Test
-    public void givenString_withIntegerAndInteger_ok() throws Exception {
+    public void givenString_withIntegerAndInteger_ok()  {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .set(S_STRING);
@@ -48,7 +48,7 @@ public class EONoPathRootMap_value_models_Test {
     }
 
     @Test
-    public void givenString_withBooleanAndInteger_ok() throws Exception {
+    public void givenString_withBooleanAndInteger_ok()  {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .set(S_STRING);
@@ -58,7 +58,7 @@ public class EONoPathRootMap_value_models_Test {
 
 
     @Test
-    public void givenString_WithMapAndList_fails() throws Exception {
+    public void givenString_WithMapAndList_fails()  {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .set(S_STRING);
@@ -67,13 +67,13 @@ public class EONoPathRootMap_value_models_Test {
     }
 
     @Test
-    public void givenMapString_withStringAndMap_fails() throws Exception {
+    public void givenMapString_withStringAndMap_fails()  {
         final EO eoMap = MapProviderEO.createString();
         mapEO_fails(eoMap, S_STRING_OTHER, Map.class);
     }
 
     @Test
-    public void givenMapWithString_withEmptyMapAndString_ok() throws Exception {
+    public void givenMapWithString_withEmptyMapAndString_ok()  {
         final EO eoMap = MapProviderEO.createString();
         Assert.assertEquals(S_STRING, eoMap.get(F_TEST_STRING));
         mapEO_ok(eoMap, new HashMap(), String.class);
@@ -81,7 +81,7 @@ public class EONoPathRootMap_value_models_Test {
     }
 
     @Test
-    public void givenBTWithString_withBTWithInteger_ok() throws Exception {
+    public void givenBTWithString_withBTWithInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
 
@@ -91,7 +91,7 @@ public class EONoPathRootMap_value_models_Test {
     }
 
     @Test
-    public void givenBTWithString_withMapWithIntegerAndInteger_ok() throws Exception {
+    public void givenBTWithString_withMapWithIntegerAndInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
 
@@ -101,14 +101,14 @@ public class EONoPathRootMap_value_models_Test {
     }
 
     @Test
-    public void givenBTWithString_withString_fails() throws Exception {
+    public void givenBTWithString_withString_fails()  {
         final EO eoBTString = BTProviderEO.createString();
         mapEO_fails(eoBTString, S_STRING_OTHER);
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
     }
 
     @Test
-    public void givenBTString_withMap_ok() throws Exception {
+    public void givenBTString_withMap_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         mapEO_ok(eoBTString, new HashMap());
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));

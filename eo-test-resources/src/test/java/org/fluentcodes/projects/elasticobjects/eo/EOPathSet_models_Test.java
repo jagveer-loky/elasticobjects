@@ -19,28 +19,28 @@ public class EOPathSet_models_Test extends TestHelper {
 
 
     @Test
-    public void givenMapString_withInteger_fails() throws Exception {
+    public void givenMapString_withInteger_fails()  {
         final EO eoString = MapProviderEODev.createString();
         EOTest
                 .setEO_fails(eoString, F_TEST_STRING, Integer.class);
     }
 
     @Test
-    public void givenMapString_withMap_fails() throws Exception {
+    public void givenMapString_withMap_fails()  {
         final EO eoString = MapProviderEODev.createString();
         EOTest
                 .setEO_fails(eoString, F_TEST_STRING, Map.class);
     }
 
     @Test
-    public void givenBTString_withMap_fails() throws Exception {
+    public void givenBTString_withMap_fails()  {
         final EO eoString = BTProviderEO.createString();
         EOTest
                 .setEO_fails(eoString, F_TEST_STRING, Map.class);
     }
 
     @Test
-    public void givenBTString_withInteger_fails() throws Exception {
+    public void givenBTString_withInteger_fails()  {
         final EO eoString = BTProviderEO.createString();
         EOTest
                 .setEO_fails(eoString, F_TEST_STRING, Integer.class);
@@ -48,7 +48,7 @@ public class EOPathSet_models_Test extends TestHelper {
 
     //TODO
     @Test
-    public void givenBTUntypedMap_withHashMap_fails() throws Exception {
+    public void givenBTUntypedMap_withHashMap_fails()  {
         final EO eoString = BTProviderEO.createMap();
         EOTest
                 .setEO_fails(eoString, F_UNTYPED_MAP, LinkedHashMap.class);

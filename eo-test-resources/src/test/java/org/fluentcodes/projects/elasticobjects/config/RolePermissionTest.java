@@ -18,7 +18,7 @@ public class RolePermissionTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(RolePermissionTest.class);
 
     @Test
-    public void testRoles() throws Exception {
+    public void testRoles()  {
         TestHelper.printStartMethod();
         RolePermissions rolePermissions = new RolePermissions();
         rolePermissions.setRead(R_TEST_ROLE_READ);

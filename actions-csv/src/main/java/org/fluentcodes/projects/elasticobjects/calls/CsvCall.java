@@ -11,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 public class CsvCall extends ListCall {
     private static final Logger LOG = LogManager.getLogger(CsvCall.class);
 
-    public CsvCall(EOConfigsCache provider, String cacheKey) throws Exception {
+    public CsvCall(EOConfigsCache provider, String cacheKey)  {
         super(provider, cacheKey);
     }
 

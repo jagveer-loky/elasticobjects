@@ -65,7 +65,7 @@ public abstract class ListConfig extends ConfigIO implements ListConfigInterface
         this.listMapper.setColKeys(object);
     }
 
-    public void resolve() throws Exception {
+    public void resolve()  {
         if (isResolved()) {
             return;
         }
@@ -81,7 +81,7 @@ public abstract class ListConfig extends ConfigIO implements ListConfigInterface
         private ListParams listParams;
         private ListMapper listMapper;
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             super.prepare(configsCache, values);
             this.listParams = new ListParams((Map) values.get("listParams"));
             this.listMapper = new ListMapper((Map) values.get("listMapper"));

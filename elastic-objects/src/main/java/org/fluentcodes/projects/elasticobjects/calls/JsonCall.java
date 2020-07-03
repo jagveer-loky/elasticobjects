@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.JsonConfig;
 import org.fluentcodes.projects.elasticobjects.config.Permissions;
@@ -22,7 +23,7 @@ public class JsonCall extends FileCall {
     private Integer indent;
     private String content;
 
-    public JsonCall(EOConfigsCache provider, String key) throws Exception {
+    public JsonCall(EOConfigsCache provider, String key)  {
         super(provider, key);
     }
 
@@ -103,11 +104,11 @@ public class JsonCall extends FileCall {
     }
 
 
-    public String read(EO adapter) throws Exception {
+    public String read(EO adapter)  {
         return read(adapter, new HashMap());
     }
 
-    public String read(EO eo, Map attributes) throws Exception {
+    public String read(EO eo, Map attributes)  {
         if (!hasContent()) {
             this.content = super.read(eo, null);
         }
@@ -135,14 +136,14 @@ public class JsonCall extends FileCall {
         return "";
     }
 
-    public String write(EO adapter) throws Exception {
+    public String write(EO adapter)  {
         return write(adapter, new HashMap<>());
     }
 
     @Override
-    public String write(EO eo, Map attributes) throws Exception {
+    public String write(EO eo, Map attributes)  {
         if (eo == null) {
-            throw new Exception("Null adapter for write!");
+            throw new EoException("Null adapter for write!");
         }
         setSerializationType(getJsonConfig().getSerializationType());
         setIndent(getJsonConfig().getIndent());

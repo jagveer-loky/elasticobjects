@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
@@ -30,16 +31,16 @@ public abstract class ExecutorImpl {
     private ExecutorItem.TYPES type;
 
 
-    public ExecutorImpl(Map attributes, ExecutorItem.TYPES type) throws Exception {
+    public ExecutorImpl(Map attributes, ExecutorItem.TYPES type)  {
         this.type = type;
         if (attributes.get(Executor.EXECUTE) == null) {
-            throw new Exception("No executor defined " + this.toString());
+            throw new EoException("No executor defined " + this.toString());
         }
         this.attributes = attributes;
         this.executorItem = new ExecutorItem((String) attributes.get(Executor.EXECUTE), this.type);
     }
 
-    public ExecutorImpl(final Class executorClass, final String method, final String... args) throws Exception {
+    public ExecutorImpl(final Class executorClass, final String method, final String... args)  {
         this.type = ExecutorItem.TYPES.value;
         this.executorItem = new ExecutorItem(executorClass, method, args);
         this.attributes = new HashMap();
@@ -97,7 +98,7 @@ public abstract class ExecutorImpl {
         return pathList;
     }
 
-    protected void mapAttributes(Map attributes) throws Exception {
+    protected void mapAttributes(Map attributes)  {
         this.attributes = attributes;
     }
 

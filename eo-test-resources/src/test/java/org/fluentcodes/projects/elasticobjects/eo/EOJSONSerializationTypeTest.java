@@ -14,10 +14,10 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     /**
      * Setting scalar values with a simple fieldName.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void setString() throws Exception {
+    public void setString()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_LEVEL0)
@@ -29,10 +29,10 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     /**
      * Sets double value with a simple fieldName.
      *
-     * @throws Exception on error
+     * @ on error
      */
     @Test
-    public void setDoubleValue() throws Exception {
+    public void setDoubleValue()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_KEY_DOUBLE)
@@ -47,10 +47,10 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     /**
      * Sets long value with a simple fieldName.
      *
-     * @throws Exception on error
+     * @ on error
      */
     @Test
-    public void setLong() throws Exception {
+    public void setLong()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_KEY_LONG)
@@ -65,10 +65,10 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     /**
      * Sets float value with a simple fieldName.
      *
-     * @throws Exception on error
+     * @ on error
      */
     @Test
-    public void setFloatValue() throws Exception {
+    public void setFloatValue()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_KEY_FLOAT)
@@ -83,10 +83,10 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     /**
      * Sets int value with a simple fieldName.
      *
-     * @throws Exception on error
+     * @ on error
      */
     @Test
-    public void setInt() throws Exception {
+    public void setInt()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_KEY_INTEGER)

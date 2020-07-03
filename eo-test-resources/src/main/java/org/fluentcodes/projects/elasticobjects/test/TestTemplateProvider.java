@@ -13,48 +13,48 @@ import java.util.Map;
 
 public class TestTemplateProvider {
 
-    public static EO executeTemplateActionForAdapter(Map attributes, final String key) throws Exception {
+    public static EO executeTemplateActionForAdapter(Map attributes, final String key)  {
         final TemplateCall templateAction = createTemplateCall(key);
         final EO adapter = TestEOProvider.createEmptyMap();
         templateAction.execute(adapter, attributes);
         return adapter;
     }
 
-    public final static void assertExecutorTemplate(final String templateFile) throws Exception {
+    public final static void assertExecutorTemplate(final String templateFile)  {
         final String template = FileUtil.readFile(templateFile);
         final ExecutorList executorList = new ExecutorListTemplate(template);
         final String result = executorList.execute(TestEOProvider.createEmptyMap());
         AssertEO.compare(result);
     }
 
-    public final static void assertExecutorTemplate(final String templateFile, final EO adapter) throws Exception {
+    public final static void assertExecutorTemplate(final String templateFile, final EO adapter)  {
         final String template = FileUtil.readFile(templateFile);
         final ExecutorList executorList = new ExecutorListTemplate(template);
         final String result = executorList.execute(adapter);
         AssertEO.compare(result);
     }
 
-    public static String executeTemplateAction(final String key, EO adapter) throws Exception {
+    public static String executeTemplateAction(final String key, EO adapter)  {
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, key);
         return action.execute(adapter);
     }
 
-    public static TemplateCall createTemplateCall(final String key) throws Exception {
+    public static TemplateCall createTemplateCall(final String key)  {
         return new TemplateCall(TestEOProvider.EO_CONFIGS, key);
     }
 
-    public static CallExecutor createExecutorTemplate(final String key, Object[]... attributeList) throws Exception {
+    public static CallExecutor createExecutorTemplate(final String key, Object[]... attributeList)  {
         final Map attributes = EO_STATIC.toMap(attributeList);
         attributes.put(Executor.EXECUTE, TemplateCall.class.getSimpleName() + ".execute(" + key + ")");
         return new CallExecutor(attributes);
     }
 
-    public static String executeTemplateCall(final String key) throws Exception {
+    public static String executeTemplateCall(final String key)  {
         TemplateCall call = new TemplateCall(TestEOProvider.EO_CONFIGS, key);
         return call.execute(TestEOProvider.createEmptyMap());
     }
 
-    public static String executeTemplateAction(Map attributes, final String key) throws Exception {
+    public static String executeTemplateAction(Map attributes, final String key)  {
         final TemplateCall executorAction = createTemplateCall(key);
         final EO adapter = TestEOProvider.createEmptyMap();
         return executorAction.execute(adapter, attributes);

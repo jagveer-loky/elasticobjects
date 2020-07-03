@@ -16,28 +16,28 @@ public class EOGetTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOGetTest.class);
 
     @Test
-    public void callNotExistingPaths_hasEmptyLog() throws Exception {
+    public void callNotExistingPaths_hasEmptyLog()  {
         final EO rootEmpty = TestEOProvider.createEmptyMap();
         Assert.assertNull(rootEmpty.get(S_KEY_NOT_EXISTING));
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + rootEmpty.getLog(), rootEmpty.getLog().isEmpty());
     }
 
     @Test
-    public void callNotExistingPathsAtTheEnd() throws Exception {
+    public void callNotExistingPathsAtTheEnd()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.createWithLongPathAndValueString();
         Assert.assertNull(adapter.get(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_KEY1)));
     }
 
     @Test
-    public void callNotExistingPathsWithin() throws Exception {
+    public void callNotExistingPathsWithin()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.createWithLongPathAndValueString();
         Assert.assertNull(adapter.get(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL4, S_KEY0)));
     }
 
     @Test
-    public void checkParentKey() throws Exception {
+    public void checkParentKey()  {
         TestHelper.printStartMethod();
         EO child = MapProviderEO.createWithLongPathAndValueString();
         Assert.assertEquals(S_KEY0, child.get(_PARENT_KEY));

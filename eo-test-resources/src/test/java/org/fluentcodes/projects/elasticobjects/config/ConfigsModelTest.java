@@ -13,7 +13,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
 
 public class ConfigsModelTest {
     @Test
-    public void devFindClassBTQualified() throws Exception {
+    public void devFindClassBTQualified()  {
         final EOConfigsCache configsCache = DevObjectProvider.EO_CONFIGS;
         final ModelConfig modelBT = configsCache.findModel("org.fluentcodes.projects.elasticobjects.assets.BasicTest");
         Assert.assertNotNull(modelBT);
@@ -35,7 +35,7 @@ public class ConfigsModelTest {
     }
 
     @Test
-    public void devFindClassBT() throws Exception {
+    public void devFindClassBT()  {
         final EOConfigsCache configsCache = DevObjectProvider.EO_CONFIGS;
         final ModelConfig modelBT = configsCache.findModel("BasicTest");
         Assert.assertNotNull(modelBT);
@@ -56,7 +56,7 @@ public class ConfigsModelTest {
     }
 
     @Test
-    public void checkModelCalls() throws Exception {
+    public void checkModelCalls()  {
         final EOConfigsCache configsCache = TestEOProvider.EO_CONFIGS;
         Set<String> mapCalls = configsCache.getCallSet();
     }

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.util.*;
 
@@ -21,7 +22,7 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public ModelInterface getFieldModel(final String fieldName) throws Exception {
+    public ModelInterface getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }
 
@@ -32,12 +33,12 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public Set<String> keys(Object object) throws Exception {
+    public Set<String> keys(Object object)  {
         resolve();
         return ((Map) object).keySet();
     }
 
-    public int size(Object object) throws Exception {
+    public int size(Object object)  {
         resolve();
         int counter = 0;
         for (Object key : ((Map) object).keySet()) {
@@ -49,12 +50,12 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
         return counter;
     }
 
-    public List<Object> keysAsIs(Object object) throws Exception {
+    public List<Object> keysAsIs(Object object)  {
         resolve();
         return new ArrayList(((Map) object).keySet());
     }
 
-    public void set(String fieldName, Object object, Object value) throws Exception {
+    public void set(String fieldName, Object object, Object value)  {
         resolve();
         ((Map) object).put(fieldName, value);
     }
@@ -65,12 +66,12 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
      * @param fieldNameAsObject
      * @param object
      * @return
-     * @throws Exception
+     * @
      */
-    public Object getAsIs(Object fieldNameAsObject, Object object) throws Exception {
+    public Object getAsIs(Object fieldNameAsObject, Object object)  {
         resolve();
         if (fieldNameAsObject == null) {
-            throw new Exception("Getter: null key request for " + this.getModelKey() + "! ");
+            throw new EoException("Getter: null key request for " + this.getModelKey() + "! ");
         }
         return ((Map) object).get(fieldNameAsObject);
     }
@@ -81,9 +82,9 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
      * @param fieldName
      * @param object
      * @return
-     * @throws Exception
+     * @
      */
-    public Object get(String fieldName, Object object) throws Exception {
+    public Object get(String fieldName, Object object)  {
         resolve();
         if (((Map) object).containsKey(fieldName)) {
             return ((Map) object).get(fieldName);
@@ -93,11 +94,11 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
                 return ((Map) object).get(i);
             }
         }
-        throw new Exception("No value add for fieldName=" + fieldName);
+        throw new EoException("No value add for fieldName=" + fieldName);
 
     }
 
-    public boolean exists(final String fieldName, final Object object) throws Exception {
+    public boolean exists(final String fieldName, final Object object)  {
         resolve();
         return ((Map) object).containsKey(fieldName);
 
@@ -108,13 +109,13 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
         return true;
     }
 
-    public void remove(final String fieldName, final Object object) throws Exception {
+    public void remove(final String fieldName, final Object object)  {
         resolve();
         get(fieldName, object);
         ((Map) object).remove(fieldName);
     }
 
-    public Object create() throws Exception {
+    public Object create() {
         resolve();
         return new LinkedHashMap<>();
     }

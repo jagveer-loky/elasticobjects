@@ -17,24 +17,24 @@ public class ExecutorListTemplateModelsTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ExecutorListTemplateModelsTest.class);
 
     @Test
-    public void callModelWithLoopPathAll() throws Exception {
+    public void callModelWithLoopPathAll()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_MODEL_WITH_LOOP_PATH));
     }
 
     @Test
-    public void callModelWithPathAndLoopPathAll() throws Exception {
+    public void callModelWithPathAndLoopPathAll()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_MODEL_WITH_PATH_AND_LOOP_PATH));
     }
 
     @Test
-    public void callModelWithLoopPathAndEmbeddedIf() throws Exception {
+    public void callModelWithLoopPathAndEmbeddedIf()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_MODEL_WITH_LOOP_PATH_AND_EMBEDDED_IF));
     }
 
     @Ignore
     // TODO seems to be a build test...
     @Test
-    public void modelWithLoopPathAndEmbeddedIfKeep() throws Exception {
+    public void modelWithLoopPathAndEmbeddedIfKeep()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_MODEL_WITH_LOOP_PATH_AND_EMBEDDED_IF_KEEP));
     }
 }

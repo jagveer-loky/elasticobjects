@@ -26,7 +26,7 @@ public class ListMapperTest extends TestHelper {
     private static final Map<String, Object> LIST_ROW_MAPPER = createListMapperMap();
 
     @Test
-    public void init() throws Exception {
+    public void init()  {
         ListMapper rowMapper = new ListMapper(LIST_ROW_MAPPER);
         Assert.assertEquals(F_COL_KEYS, rowMapper.getColKeys().get(0));
         Assert.assertEquals(S_BOOLEAN, rowMapper.isDoMap());
@@ -36,7 +36,7 @@ public class ListMapperTest extends TestHelper {
     }
 
     @Test
-    public void checkList() throws Exception {
+    public void checkList()  {
         List row = ListProvider.toList(S_STRING, S_INTEGER, S_BOOLEAN);
         ListMapper rowMapper = new ListMapper();
         EO adapter = TestEOProvider.createEmptyMap();
@@ -47,7 +47,7 @@ public class ListMapperTest extends TestHelper {
     }
 
     @Test
-    public void checkListWithColKeys() throws Exception {
+    public void checkListWithColKeys()  {
         List row = ListProvider.toList(S_STRING, S_INTEGER, S_BOOLEAN);
         Map map = EO_STATIC.toMap(F_COL_KEYS, join(CON_COMMA, S0, S1, S2));
         ListMapper rowMapper = new ListMapper(map);

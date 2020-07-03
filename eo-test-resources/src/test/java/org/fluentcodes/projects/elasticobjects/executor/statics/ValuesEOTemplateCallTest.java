@@ -24,7 +24,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
 
 
     @Test
-    public void configurationListModelConfig_listsAllModelConfigs() throws Exception {
+    public void configurationListModelConfig_listsAllModelConfigs()  {
         final TemplateCall action = DIRECT_CALL_CONFIGURATION_LIST(null);
 
         EO root = TestEOProvider.createEmptyMap();
@@ -34,7 +34,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
         Assert.assertEquals(M_LINKED_HASH_SET, root.get("result/0"));
     }
 
-    private static final TemplateCall DIRECT_CALL_CONFIGURAION(final String configType, final String selectConfig) throws Exception {
+    private static final TemplateCall DIRECT_CALL_CONFIGURAION(final String configType, final String selectConfig)  {
             final TemplateCall call = new TemplateCall(TestEOProvider.EO_CONFIGS);
             final String template = "Load configurationList: " + TemplateCall.createCallNoContent (
                     Executor.EXECUTE, ValuesEO.EXECUTE_GET_CONFIGURATION_KEYS,
@@ -46,7 +46,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
             return call;
     }
 
-    private static final TemplateCall DIRECT_CALL_CONFIGURATION_LIST(final String configType) throws Exception {
+    private static final TemplateCall DIRECT_CALL_CONFIGURATION_LIST(final String configType)  {
         final TemplateCall call = new TemplateCall(TestEOProvider.EO_CONFIGS);
         final String template = "Load configurationList: " + TemplateCall.createCallNoContent (
                 Executor.EXECUTE, ValuesEO.EXECUTE_GET_CONFIGURATION,
@@ -57,7 +57,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
         return call;
     }
 
-    private static final TemplateCall VALUE_CALL_CONFIGURATION_LIST(final String configType) throws Exception {
+    private static final TemplateCall VALUE_CALL_CONFIGURATION_LIST(final String configType)  {
         final TemplateCall call = new TemplateCall(TestEOProvider.EO_CONFIGS);
         final String template = "Load configurationList: " + TemplateCall.createCallNoContent (
                 Executor.EXECUTE, ValuesEO.EXECUTE_VALUE_CALL_GET_CONFIGURATION_LIST,
@@ -68,7 +68,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
         return call;
     }
 
-    private static final TemplateCall VALUE_CALL_CONFIGURATION(final String configType, final String selectConfig) throws Exception {
+    private static final TemplateCall VALUE_CALL_CONFIGURATION(final String configType, final String selectConfig)  {
         final TemplateCall call = new TemplateCall(TestEOProvider.EO_CONFIGS);
         final String template = "Load configurationList: " + TemplateCall.createCallNoContent (
                 Executor.EXECUTE, ValuesEO.EXECUTE_VALUE_CALL_GET_CONFIGURATION,
@@ -81,7 +81,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     }
 
     @Test
-    public void configurationList_withFieldConfig_listsAllFieldConfigs() throws Exception {
+    public void configurationList_withFieldConfig_listsAllFieldConfigs()  {
         TemplateCall call = DIRECT_CALL_CONFIGURATION_LIST(M_FIELD_CONFIG);
 
         EO root = TestEOProvider.createEmptyMap();
@@ -92,7 +92,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     }
 
     @Test
-    public void configurationFieldConfig_hasAllFieldConfigs() throws Exception {
+    public void configurationFieldConfig_hasAllFieldConfigs()  {
         final TemplateCall action = DIRECT_CALL_CONFIGURAION(M_FIELD_CONFIG, F_PATH_PATTERN_AS_STRING);
 
         EO root = TestEOProvider.createEmptyMap();
@@ -103,7 +103,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     }
 
     @Test
-    public void callConfiguration_WithFieldConfig_WithPathPatternAsString_hasConfig() throws Exception {
+    public void callConfiguration_WithFieldConfig_WithPathPatternAsString_hasConfig()  {
         final TemplateCall action = VALUE_CALL_CONFIGURATION(M_FIELD_CONFIG, F_PATH_PATTERN_AS_STRING);
 
         EO root = TestEOProvider.createEmptyMap();
@@ -114,7 +114,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     }
 
     @Test
-    public void callConfigurationListWithFieldConfig_hasAllFieldConfigs() throws Exception {
+    public void callConfigurationListWithFieldConfig_hasAllFieldConfigs()  {
         final TemplateCall action = VALUE_CALL_CONFIGURATION_LIST(M_FIELD_CONFIG);
 
         EO root = TestEOProvider.createEmptyMap();
@@ -128,7 +128,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
      * One can use a different attribute name - here typeKey instead of configType.
      */
     @Test
-    public void configurationList_withFieldConfig_withTypeKeyAsName_hasAllFieldConfigs() throws Exception {
+    public void configurationList_withFieldConfig_withTypeKeyAsName_hasAllFieldConfigs()  {
         final TemplateCall call = new TemplateCall(TestEOProvider.EO_CONFIGS);
         final String template = "Load configurationList: <call execute=\"ValuesEO.getConfigurationKeys(eo,typeKey)\" typeKey=\"FieldConfig\" mapPath=\"target\" />";
         call.setContent(template);

@@ -24,15 +24,15 @@ public abstract class ConfigIO extends ConfigImpl {
         return rolePermissions;
     }
 
-    public Permissions getPermissions(String... roleKeys) throws Exception {
+    public Permissions getPermissions(String... roleKeys)  {
         return rolePermissions.getPermissions(Arrays.asList(roleKeys));
     }
 
-    public Permissions getPermissions(List<String> roleKeys) throws Exception {
+    public Permissions getPermissions(List<String> roleKeys)  {
         return rolePermissions.getPermissions(roleKeys);
     }
 
-    public boolean hasPermissions(Permissions permission, List<String> roleKeys) throws Exception {
+    public boolean hasPermissions(Permissions permission, List<String> roleKeys)  {
         return permission.value() <= rolePermissions.getPermissions(roleKeys).value();
     }
 
@@ -51,7 +51,7 @@ public abstract class ConfigIO extends ConfigImpl {
         private String mapPath;
 
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             this.mapPath = ScalarConverter.toString(values.get(EO_STATIC.F_MAP_PATH));
             this.rolePermissions = new RolePermissions((Map) values.get(EO_STATIC.F_ROLE_PERMISSIONS));
             super.prepare(configsCache, values);

@@ -5,87 +5,87 @@ import org.junit.Test;
 public class MapProviderEOTest {
 
     @Test
-    public void createEOEmpty() throws Exception {
+    public void createEOEmpty()  {
         MapProviderEO.createEmpty();
     }
 
     @Test
-    public void createEOString() throws Exception {
+    public void createEOString()  {
         MapProviderEO.createString();
     }
 
     @Test
-    public void createEOInteger() throws Exception {
+    public void createEOInteger()  {
         MapProviderEO.createInteger();
     }
 
     @Test
-    public void createEOLong() throws Exception {
+    public void createEOLong()  {
         MapProviderEO.createLong();
     }
 
     @Test
-    public void createEOFloat() throws Exception {
+    public void createEOFloat()  {
         MapProviderEO.createDouble();
     }
 
     @Test
-    public void createEODouble() throws Exception {
+    public void createEODouble()  {
         MapProviderEO.createDouble();
     }
 
     @Test
-    public void createEODate() throws Exception {
+    public void createEODate()  {
         MapProviderEO.createDate();
     }
 
     @Test
-    public void createEOBoolean() throws Exception {
+    public void createEOBoolean()  {
         MapProviderEO.createBoolean();
     }
 
     @Test
-    public void createEOSmall() throws Exception {
+    public void createEOSmall()  {
         MapProviderEO.createSmall();
     }
 
     @Test
-    public void createEOSimple() throws Exception {
+    public void createEOSimple()  {
         MapProviderEO.createSimple();
     }
 
     @Test
-    public void createEO() throws Exception {
+    public void createEO()  {
         MapProviderEO.create();
     }
 
     @Test
-    public void createEOMap() throws Exception {
+    public void createEOMap()  {
         MapProviderEO.createMap();
     }
 
     @Test
-    public void createEOList() throws Exception {
+    public void createEOList()  {
         MapProviderEO.createList();
     }
 
     @Test
-    public void createEOBT() throws Exception {
+    public void createEOBT()  {
         MapProviderEO.createBT();
     }
 
     @Test
-    public void createEOST() throws Exception {
+    public void createEOST()  {
         MapProviderEO.createST();
     }
 
     @Test
-    public void createEOMapST() throws Exception {
+    public void createEOMapST()  {
         MapProviderEO.createMapST();
     }
 
     @Test
-    public void createListST() throws Exception {
+    public void createListST()  {
         MapProviderEO.createListST();
     }
 

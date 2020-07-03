@@ -19,33 +19,33 @@ public class EONoPathNewRootMap_value_models_Test {
     private static final Logger LOG = LogManager.getLogger(EONoPathNewRootMap_value_models_Test.class);
 
     @Test
-    public void mapInteger_ok() throws Exception {
+    public void mapInteger_ok()  {
         EOTest.mapValue_ok(S_INTEGER, Integer.class);
     }
 
     @Test
-    public void mapInteger_withString_ok() throws Exception {
+    public void mapInteger_withString_ok()  {
         EO root = EOTest.mapValue_ok(S_INTEGER, String.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.toString(), root.get());
     }
 
     @Test
-    public void mapArrayList_ok() throws Exception {
+    public void mapArrayList_ok()  {
         EOTest.mapValue_ok(new ArrayList(), ArrayList.class);
     }
 
     @Test
-    public void mapList_ok() throws Exception {
+    public void mapList_ok()  {
         EOTest.mapValue_ok(new ArrayList(), List.class);
     }
 
     @Test
-    public void mapMap_ok() throws Exception {
+    public void mapMap_ok()  {
         EOTest.mapValue_ok(new HashMap(), Map.class);
     }
 
     @Test
-    public void mapHashMap_ok() throws Exception {
+    public void mapHashMap_ok()  {
         EOTest.mapValue_ok(new HashMap(), HashMap.class);
     }
 
@@ -57,7 +57,7 @@ public class EONoPathNewRootMap_value_models_Test {
 
     //TODO Is this the correct behaviour expected?!
     @Test
-    public void jsonMapEmptyList_ok() throws Exception {
+    public void jsonMapEmptyList_ok()  {
         final String jsonMapSmall = MapProviderJSON.readSmall();
         final EO listEO = TestEOProvider
                 .createEOBuilder()
@@ -77,7 +77,7 @@ public class EONoPathNewRootMap_value_models_Test {
      */
 
     @Test
-    public void jsonMapEmptyBT_ok() throws Exception {
+    public void jsonMapEmptyBT_ok()  {
         final String jsonEmpty = MapProviderJSON.getJSONEmpty();
         final EO eoBTJson = TestEOProvider
                 .createEOBuilder()
@@ -93,7 +93,7 @@ public class EONoPathNewRootMap_value_models_Test {
     // when adding json small
     // the model is BasicTest
     @Test
-    public void jsonMapSmallBT_ok() throws Exception {
+    public void jsonMapSmallBT_ok()  {
         final String jsonSmall = MapProviderJSON.readSmall();
 
         final EO eoBTJsonSmall = TestEOProvider
@@ -113,7 +113,7 @@ public class EONoPathNewRootMap_value_models_Test {
      * no value will be added since no mapping is available and instead of an execption a log message is written.
      */
     @Test
-    public void jsonListSmallBT_fails() throws Exception {
+    public void jsonListSmallBT_fails()  {
         final String jsonListSmall = ListProviderJSON.getSmall();
 
         final EO eoBTJsonListSmall = TestEOProvider
@@ -127,32 +127,32 @@ public class EONoPathNewRootMap_value_models_Test {
     }
 
     @Test
-    public void mapHashMapWithBT_ok() throws Exception {
+    public void mapHashMapWithBT_ok()  {
         EOTest.mapValue_ok(new HashMap(), BasicTest.class);
     }
 
     @Test
-    public void mapBT_ok() throws Exception {
+    public void mapBT_ok()  {
         EOTest.mapValue_ok(new BasicTest(), BasicTest.class);
     }
 
 
     @Test
-    public void withST_ok() throws Exception {
+    public void withST_ok()  {
         final EO root = EOTest
                 .mapValue_ok(STProvider.createString(), SubTest.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
     }
 
     @Test
-    public void withSTAndMap_ok() throws Exception {
+    public void withSTAndMap_ok()  {
         final EO root = EOTest
                 .mapValue_ok(STProvider.createString(), Map.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
     }
 
     @Test
-    public void mapBTStringWithMap_ok() throws Exception {
+    public void mapBTStringWithMap_ok()  {
         EO root = EOTest.mapValue_ok(BTProvider.createString(), Map.class);
         Assert.assertNotNull(((EOContainer) root).getChildAdapter(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, root.get(F_TEST_STRING));
@@ -166,7 +166,7 @@ public class EONoPathNewRootMap_value_models_Test {
      */
 
     @Test
-    public void jsnMapEmptyST_ok() throws Exception {
+    public void jsnMapEmptyST_ok()  {
         final String jsnEmpty = MapProviderJSON.getJSONEmpty();
 
         final EO eoBTJson = TestEOProvider

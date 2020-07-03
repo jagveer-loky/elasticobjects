@@ -5,81 +5,81 @@ import org.junit.Test;
 public class ListProviderEOTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         ListProviderEO.createEmpty();
     }
 
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         ListProviderEO.createString();
     }
 
     @Test
-    public void createInteger() throws Exception {
+    public void createInteger()  {
         ListProviderEO.createInteger();
     }
 
     @Test
-    public void createLong() throws Exception {
+    public void createLong()  {
         ListProviderEO.createLong();
     }
 
 
     @Test
-    public void createFloat() throws Exception {
+    public void createFloat()  {
         ListProviderEO.createFloat();
     }
 
 
     @Test
-    public void createDouble() throws Exception {
+    public void createDouble()  {
         ListProviderEO.createDouble();
     }
 
     @Test
-    public void createDate() throws Exception {
+    public void createDate()  {
         ListProviderEO.createDate();
     }
 
 
     @Test
-    public void createBoolean() throws Exception {
+    public void createBoolean()  {
         ListProviderEO.createBoolean();
     }
 
     @Test
-    public void createMap() throws Exception {
+    public void createMap()  {
         ListProviderEO.createMap();
     }
 
     @Test
-    public void createList() throws Exception {
+    public void createList()  {
         ListProviderEO.createList();
     }
 
     @Test
-    public void createBT() throws Exception {
+    public void createBT()  {
         ListProviderEO.createBT();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         ListProviderEO.createST();
     }
 
     @Test
-    public void createSmall() throws Exception {
+    public void createSmall()  {
         ListProviderEO.createSmall();
     }
 
     @Test
-    public void createEOSimple() throws Exception {
+    public void createEOSimple()  {
         ListProviderEO.createSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         ListProviderEO.create();
     }
 

@@ -21,7 +21,7 @@ public class TemplateCallContentTest extends TestHelper {
     private static final String H2 = "<h2>";
 
     @Test
-    public void callContentExample() throws Exception {
+    public void callContentExample()  {
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE);
         final String result = action.execute(TestEOProvider.createEmptyMap());
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H2));
@@ -30,7 +30,7 @@ public class TemplateCallContentTest extends TestHelper {
 
 
     @Test
-    public void callContentExampleWithStaticTemplate() throws Exception {
+    public void callContentExampleWithStaticTemplate()  {
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE_WITH_STATIC_TEMPLATE);
         final EO adapter = TestEOProvider.createEmptyMap();
         final String result = action.execute(adapter);
@@ -39,7 +39,7 @@ public class TemplateCallContentTest extends TestHelper {
     }
 
     @Test
-    public void contentExampleWithKeepTpl() throws Exception {
+    public void contentExampleWithKeepTpl()  {
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE_WITH_KEEP);
         final EO adapter = TestEOProvider.createEmptyMap();
         final String result = action.execute(adapter);
@@ -48,7 +48,7 @@ public class TemplateCallContentTest extends TestHelper {
     }
 
     @Test
-    public void callContentExampleWithDynamicTemplateKey() throws Exception {
+    public void callContentExampleWithDynamicTemplateKey()  {
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE);
         final EO adapter = TestEOProvider.createEmptyMap();
         final String result = action.execute(adapter);
@@ -57,7 +57,7 @@ public class TemplateCallContentTest extends TestHelper {
     }
 
     @Test
-    public void callContentOrExample() throws Exception {
+    public void callContentOrExample()  {
         TestHelper.printStartMethod();
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_CONTENT_OR_EXAMPLE);
         final String result = action.execute(TestEOProvider.createEmptyMap());

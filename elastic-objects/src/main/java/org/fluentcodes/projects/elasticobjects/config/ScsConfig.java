@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
@@ -21,7 +22,7 @@ public class ScsConfig extends ListConfig {
     //</call>
     private FileConfig fileConfig;
 
-    public ScsConfig(final EOConfigsCache provider, Builder builder) throws Exception {
+    public ScsConfig(final EOConfigsCache provider, Builder builder)  {
         super(provider, builder);
 
         //<call keep="JAVA" templateKey="CacheSetter.tpl" }
@@ -55,10 +56,10 @@ public class ScsConfig extends ListConfig {
     /**
      * The field for fileConfig e.g. defined in {@link FileConfig}
      */
-    public FileConfig getFileConfig() throws Exception {
+    public FileConfig getFileConfig()  {
         if (this.fileConfig == null) {
             if (this.getConfigsCache() == null) {
-                throw new Exception("Config could not be initialized with a null provider for 'fileCache' - 'fileKey''!");
+                throw new EoException("Config could not be initialized with a null provider for 'fileCache' - 'fileKey''!");
             }
             this.fileConfig = (FileConfig) getConfigsCache().find(FileConfig.class, fileKey);
         }
@@ -66,7 +67,7 @@ public class ScsConfig extends ListConfig {
     }
 
     @Override
-    public ListIOInterface createIO() throws Exception {
+    public ListIOInterface createIO()  {
         return new ScsIO(this);
     }
 
@@ -96,10 +97,10 @@ public class ScsConfig extends ListConfig {
         private String rowDelimiter;
 //</call>
 
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
             scsKey = ScalarConverter.toString(values.get(EO_STATIC.F_SCS_KEY));
             if (scsKey == null) {
-                throw new Exception("No list key defined - No build process possible");
+                throw new EoException("No list key defined - No build process possible");
             }
             fileKey = ScalarConverter.toString(values.get(EO_STATIC.F_FILE_KEY));
             rowDelimiter = ScalarConverter.toString(values.get(EO_STATIC.F_ROW_DELIMITER));
@@ -116,7 +117,7 @@ public class ScsConfig extends ListConfig {
             super.prepare(configsCache, values);
         }
 
-        public Config build(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        public Config build(EOConfigsCache configsCache, Map<String, Object> values)  {
             prepare(configsCache, values);
             return new ScsConfig(configsCache, this);
         }

@@ -20,7 +20,7 @@ public class ScalarComparatorTest {
     private static final Long LONG1 = 1L;
 
     @Test
-    public void compareScalar() throws Exception {
+    public void compareScalar()  {
         TestHelper.printStartMethod();
         doubleTest();
         objectCompare(DOUBLE, FLOAT, true);

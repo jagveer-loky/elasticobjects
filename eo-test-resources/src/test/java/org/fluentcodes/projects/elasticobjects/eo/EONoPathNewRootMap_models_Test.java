@@ -18,34 +18,34 @@ public class EONoPathNewRootMap_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathNewRootMap_models_Test.class);
 
     @Test
-    public void mapString_ok() throws Exception {
+    public void mapString_ok()  {
         EOTest.map_ok(String.class);
     }
 
     @Test
-    public void mapInteger_ok() throws Exception {
+    public void mapInteger_ok()  {
         EOTest.map_ok(Integer.class);
     }
 
     @Test
-    public void mapList_ok() throws Exception {
+    public void mapList_ok()  {
         EOTest.map_ok(List.class);
     }
 
     @Test
-    public void mapArrayList_ok() throws Exception {
+    public void mapArrayList_ok()  {
         EOTest.map_ok(ArrayList.class);
     }
 
     @Test
-    public void mapListString_ok() throws Exception {
+    public void mapListString_ok()  {
         EO eoEmpty = EOTest.map_ok(List.class, String.class);
         Assert.assertEquals(String.class, eoEmpty.getModels().getChildModelClass());
         Assert.assertEquals(ArrayList.class, eoEmpty.get().getClass());
     }
 
     @Test
-    public void mapListBT_ok() throws Exception {
+    public void mapListBT_ok()  {
         EO eoEmpty = EOTest.map_ok(List.class, BasicTest.class);
         Assert.assertEquals(BasicTest.class, eoEmpty.getModels().getChildModelClass());
         Assert.assertEquals(ArrayList.class, eoEmpty.get().getClass());
@@ -57,7 +57,7 @@ public class EONoPathNewRootMap_models_Test extends TestHelper {
      * List will be set
      */
     @Test
-    public void withJsnMapSmallList_ok() throws Exception {
+    public void withJsnMapSmallList_ok()  {
         final String jsnMapSmall = MapProviderJSN.readSmall();
         final EO listEO = DevObjectProvider.createEOBuilder()
                 .setModels(List.class)
@@ -69,38 +69,38 @@ public class EONoPathNewRootMap_models_Test extends TestHelper {
     }
 
     @Test
-    public void mapMap_ok() throws Exception {
+    public void mapMap_ok()  {
         EOTest.map_ok(Map.class);
     }
 
     @Test
-    public void mapMapString_ok() throws Exception {
+    public void mapMapString_ok()  {
         EO eoEmpty = EOTest.map_ok(Map.class, String.class);
         Assert.assertEquals(String.class, eoEmpty.getModels().getChildModelClass());
         Assert.assertEquals(LinkedHashMap.class, eoEmpty.get().getClass());
     }
 
     @Test
-    public void mapMapList_ok() throws Exception {
+    public void mapMapList_ok()  {
         EO eoEmpty = EOTest.map_ok(Map.class, List.class);
         Assert.assertEquals(List.class, eoEmpty.getModels().getChildModelClass());
         Assert.assertEquals(LinkedHashMap.class, eoEmpty.get().getClass());
     }
 
     @Test
-    public void mapMapBT_ok() throws Exception {
+    public void mapMapBT_ok()  {
         EO eoEmpty = EOTest.map_ok(Map.class, BasicTest.class);
         Assert.assertEquals(BasicTest.class, eoEmpty.getModels().getChildModelClass());
         Assert.assertEquals(LinkedHashMap.class, eoEmpty.get().getClass());
     }
 
     @Test
-    public void mapHashMap_ok() throws Exception {
+    public void mapHashMap_ok()  {
         EOTest.map_ok(HashMap.class);
     }
 
     @Test
-    public void mapBT_ok() throws Exception {
+    public void mapBT_ok()  {
         EOTest.map_ok(BasicTest.class);
     }
 }

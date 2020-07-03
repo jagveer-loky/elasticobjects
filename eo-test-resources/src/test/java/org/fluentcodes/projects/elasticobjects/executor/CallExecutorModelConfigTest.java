@@ -18,7 +18,7 @@ public class CallExecutorModelConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(CallExecutorModelConfigTest.class);
 
     @Test
-    public void createFromModelDoesNotWork() throws Exception {
+    public void createFromModelDoesNotWork()  {
         final ModelConfigObject executorActionModel = (ModelConfigObject) TestEOProvider.EO_CONFIGS.findModel(CallExecutor.class);
         Assert.assertEquals(CallExecutor.class, executorActionModel.getModelClass());
         try {

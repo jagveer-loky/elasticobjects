@@ -18,7 +18,7 @@ public class FileUtilTest {
     private static final String TARGET = "/tmp/target.txt";
 
     @Test
-    public void readFileTest() throws Exception {
+    public void readFileTest()  {
         TestHelper.printStartMethod();
         if (!new File(TARGET).exists()) {
             FileUtil.writeFile(TARGET, TEO_STATIC.S_STRING_OTHER);
@@ -30,10 +30,10 @@ public class FileUtilTest {
     /**
      * Creates a file with sub direoctoris using {@File#mkdir} in temporary system directory.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void callFileMkdir() throws Exception {
+    public void callFileMkdir()  throws Exception {
         TestHelper.printStartMethod();
         String tmp = ReplaceUtil.getSystemValue("TMP");
         Assert.assertNotNull(tmp);

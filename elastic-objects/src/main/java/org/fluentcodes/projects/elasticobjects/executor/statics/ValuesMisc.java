@@ -29,43 +29,43 @@ public class ValuesMisc extends ValueParamsHelper {
         return result;
     }
 
-    public static String replace(Object... values) throws Exception {
+    public static String replace(Object... values)  {
         EO adapter = getEO(0, values);
         String replace = getString(1, values);
         return ReplaceUtil.replace(replace, adapter);
     }
 
-    public static String upperFirstChar(Object... values) throws Exception {
+    public static String upperFirstChar(Object... values)  {
         final String in = getString(0, values);
         return Util.upperFirstCharacter(in);
     }
 
-    public static String setter(Object... values) throws Exception {
+    public static String setter(Object... values)  {
         final String in = getString(0, values);
         return "set" + Util.upperFirstCharacter(in);
     }
 
-    public static String getter(Object... values) throws Exception {
+    public static String getter(Object... values)  {
         final String in = getString(0, values);
         return "get" + Util.upperFirstCharacter(in);
     }
 
-    public static String getterIs(Object... values) throws Exception {
+    public static String getterIs(Object... values)  {
         final String in = getString(0, values);
         return "is" + Util.upperFirstCharacter(in);
     }
 
-    public static String upper(Object... values) throws Exception {
+    public static String upper(Object... values)  {
         String in = getString(0, values);
         return Util.upper(in);
     }
 
-    public static String lower(Object... values) throws Exception {
+    public static String lower(Object... values)  {
         String in = getString(0, values);
         return Util.lower(in);
     }
 
-    public static String repeat(Object... values) throws Exception {
+    public static String repeat(Object... values)  {
         String repeat = getString(0, values);
         Integer timesValue = getInt(1, values);
         StringBuilder builder = new StringBuilder();
@@ -75,7 +75,7 @@ public class ValuesMisc extends ValueParamsHelper {
         return builder.toString();
     }
 
-    public static String join(Object[] values) throws Exception {
+    public static String join(Object[] values)  {
         EO adapter = getEO(0, values);
         String valueKey = getString(1, values);
         String delimiter = getString(2, values);
@@ -92,7 +92,7 @@ public class ValuesMisc extends ValueParamsHelper {
         return String.join(delimiter, keyValues);
     }
 
-    public static Object set(Object[] values) throws Exception {
+    public static Object set(Object[] values)  {
         EO adapter = getEO(0, values);
         String path = getString(1, values);
         String value = getString(2, values);

@@ -13,14 +13,14 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_STRING;
 public class ModelConfigScalarTest extends TestHelper {
 
     @Test
-    public void readMainJacksonString() throws Exception {
+    public void readMainJacksonString()  {
         TestHelper.printStartMethod();
         ModelConfigScalar stringModel = (ModelConfigScalar) TestEOProvider.EO_CONFIGS.findModel(String.class);
         Assert.assertEquals(String.class, stringModel.getModelClass());
     }
 
     @Test
-    public void assertString() throws Exception {
+    public void assertString()  {
         TestHelper.printStartMethod();
         ModelInterface config = TestEOProvider.EO_CONFIGS.findModel(M_STRING);
         Assert.assertEquals(ShapeTypes.SCALAR, config.getShapeType());

@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class JsonCallTest {
     @Test
-    public void readModuleConfigJson() throws Exception {
+    public void readModuleConfigJson()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final JsonCall call = TestCallsProvider.createJsonCall(J_MODULE_CONFIG_JSON);
         call.read(eoEmpty);
@@ -26,7 +26,7 @@ public class JsonCallTest {
     }
 
     @Test
-    public void readTargetJsonGuest_hasLog() throws Exception {
+    public void readTargetJsonGuest_hasLog()  {
         final JsonCall call = TestCallsProvider.createJsonCall(FILE_TARGET_JSON);
         EO eo = TestEOProvider.create();
         eo.setRoles(R_GUEST);
@@ -35,7 +35,7 @@ public class JsonCallTest {
     }
 
     @Test
-    public void readTargetJson_ok() throws Exception {
+    public void readTargetJson_ok()  {
         final JsonCall call = TestCallsProvider.createJsonCall(FILE_TARGET_JSON);
         EO eo = TestEOProvider.create();
         call.read(eo);
@@ -43,7 +43,7 @@ public class JsonCallTest {
     }
 
     @Test
-    public void readTargetJsonSuperAdmin_() throws Exception {
+    public void readTargetJsonSuperAdmin_()  {
         final JsonCall call = TestCallsProvider.createJsonCall(FILE_TARGET_JSON);
         EO eoWrite = TestEOProvider.create();
         eoWrite.add(S0 + Path.DELIMITER + S_KEY1).set(S_VALUE11);
@@ -62,7 +62,7 @@ public class JsonCallTest {
 
 
     @Test
-    public void readSourceJsonGuest_ok() throws Exception {
+    public void readSourceJsonGuest_ok()  {
         final JsonCall call = TestCallsProvider.createJsonCall(FILE_SOURCE_JSON);
         EO eo = TestEOProvider.create();
         eo.setRoles(R_GUEST);
@@ -73,7 +73,7 @@ public class JsonCallTest {
     }
 
     @Test
-    public void readSourceJsonAnonym_hasLog() throws Exception {
+    public void readSourceJsonAnonym_hasLog()  {
         final JsonCall call = TestCallsProvider.createJsonCall(FILE_SOURCE_JSON);
         EO eo = TestEOProvider.create();
         eo.setRoles(R_ANONYM);

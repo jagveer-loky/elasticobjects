@@ -14,7 +14,7 @@ public class ValueConfig extends ConfigImpl {
     private final String valueKey;
     private final ExecutorItem execute;
 
-    public ValueConfig(EOConfigsCache eoConfigsCache, Builder builder) throws Exception {
+    public ValueConfig(EOConfigsCache eoConfigsCache, Builder builder)  {
         super(eoConfigsCache, builder);
         this.value = builder.value;
         this.valueKey = builder.valueKey;
@@ -51,14 +51,14 @@ public class ValueConfig extends ConfigImpl {
         private String execute;
 //</call>
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             this.value = values.get(F_VALUE);
             this.execute = (String) values.get("execute");
             this.valueKey = (String) configsCache.transform(F_VALUE_KEY, values);
             super.prepare(configsCache, values);
         }
 
-        public ValueConfig build(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        public ValueConfig build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             prepare(configsCache, values);
             return new ValueConfig(configsCache, this);
         }

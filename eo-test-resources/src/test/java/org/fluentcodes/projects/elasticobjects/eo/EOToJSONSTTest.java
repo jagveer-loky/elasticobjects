@@ -11,7 +11,7 @@ import org.junit.Test;
 public class EOToJSONSTTest extends TestHelper {
 
     @Test
-    public void mapDefault() throws Exception {
+    public void mapDefault()  {
         TestHelper.printStartMethod();
         EO adapter = STProviderEO.create();
         String serialized = new EOToJSON().toJSON(adapter);
@@ -19,7 +19,7 @@ public class EOToJSONSTTest extends TestHelper {
     }
 
     @Test
-    public void withIndent0() throws Exception {
+    public void withIndent0()  {
         TestHelper.printStartMethod();
         EO adapter = STProviderEO.create();
         String stringified = new EOToJSON()
@@ -29,7 +29,7 @@ public class EOToJSONSTTest extends TestHelper {
     }
 
     @Test
-    public void withIndent1() throws Exception {
+    public void withIndent1()  {
         TestHelper.printStartMethod();
         EO adapter = STProviderEO.create();
         String stringified = new EOToJSON()
@@ -39,7 +39,7 @@ public class EOToJSONSTTest extends TestHelper {
     }
 
     @Test
-    public void withIndent2() throws Exception {
+    public void withIndent2()  {
         TestHelper.printStartMethod();
         EO adapter = STProviderEO.create();
         String stringified = new EOToJSON()
@@ -49,7 +49,7 @@ public class EOToJSONSTTest extends TestHelper {
     }
 
     @Test
-    public void withSTANDARD() throws Exception {
+    public void withSTANDARD()  {
         TestHelper.printStartMethod();
         EO adapter = STProviderEO.create();
         String stringified = new EOToJSON()
@@ -60,32 +60,32 @@ public class EOToJSONSTTest extends TestHelper {
     }
 
     @Test
-    public void withString() throws Exception {
+    public void withString()  {
         STProviderEO.createString();
     }
 
     @Test
-    public void withName() throws Exception {
+    public void withName()  {
         STProviderEO.createName();
     }
 
     @Test
-    public void withSubTest() throws Exception {
+    public void withSubTest()  {
         STProviderEO.createST();
     }
 
     @Test
-    public void withSimple() throws Exception {
+    public void withSimple()  {
         STProviderEO.createSimple();
     }
 
     @Test
-    public void withAll() throws Exception {
+    public void withAll()  {
         STProviderEO.create();
     }
 
     @Test
-    public void withIndentScalar() throws Exception {
+    public void withIndentScalar()  {
         TestHelper.printStartMethod();
         EO adapter = STProviderEO.create();
         String stringified = new EOToJSON()

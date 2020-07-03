@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class TestConfig {
 
-    public static Map readMapFromFile(final String configFile) throws Exception {
+    public static Map readMapFromFile(final String configFile)  {
         Map map = JSONReader.readMapBean(TestEOProvider.EO_CONFIGS, configFile, null);
         Assert.assertNotNull(map);
         for (Object key : map.keySet()) {
@@ -22,7 +22,7 @@ public class TestConfig {
         return map;
     }
 
-    public static Map<String, Config> readConfigMapFromFile(final String configFile, final Class<? extends Config> configClass) throws Exception {
+    public static Map<String, Config> readConfigMapFromFile(final String configFile, final Class<? extends Config> configClass)  {
         Map<String, Config> configMap = new EOConfigReader(TestEOProvider.EO_CONFIGS, configClass)
                 .read(configFile);
         Assert.assertNotNull(configMap);
@@ -30,7 +30,7 @@ public class TestConfig {
     }
 
 
-    public static Map<String, Config> readClassPathConfig(final Class<? extends Config> configClass) throws Exception {
+    public static Map<String, Config> readClassPathConfig(final Class<? extends Config> configClass)  {
         Map<String, Config> configMap = new EOConfigReader(TestEOProvider.EO_CONFIGS, configClass)
                 .read();
         Assert.assertNotNull(configMap);

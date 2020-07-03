@@ -5,7 +5,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
  */
 public class EOExtensionEmpty implements EOExtension {
 
-    public Object doBeforeMap(EO adapter, Object objectToMap) throws Exception {
+    public Object doBeforeMap(EO adapter, Object objectToMap)  {
         return adapter.getModel().create();
     }
 

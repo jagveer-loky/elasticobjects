@@ -18,7 +18,7 @@ public class CsvCallWithExecutorWriteTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(CsvCallWithExecutorWriteTest.class);
 
     @Test
-    public void direct() throws Exception {
+    public void direct()  {
         TestHelper.printStartMethod();
         final EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createJsonArray());

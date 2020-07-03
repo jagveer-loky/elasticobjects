@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.executor;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 
 import java.util.ArrayList;
@@ -37,24 +38,24 @@ public class ExecutorList {
         this.executorList.add(executor);
     }
 
-    public void add(final Map attributes) throws Exception {
+    public void add(final Map attributes)  {
         String execute = null;
         if (attributes.get(Executor.EXECUTE) != null) {
             execute = (String) attributes.get(Executor.EXECUTE);
         } else {
-            throw new Exception("Map for executor call has no " + Executor.EXECUTE + "! Skip adding call");
+            throw new EoException("Map for executor call has no " + Executor.EXECUTE + "! Skip adding call");
         }
         if (execute.contains("Call.")) {
             this.executorList.add(new CallExecutor(attributes));
         } else if (execute.startsWith("Value")) {
             this.executorList.add(new ExecutorValues(attributes));
         } else {
-            throw new Exception("Naming convention for calling is ^Value|Call. Executor value is " + execute);
+            throw new EoException("Naming convention for calling is ^Value|Call. Executor value is " + execute);
         }
     }
 
 
-    public void addContentTemplateAction(final String content, Map parentAttributes) throws Exception {
+    public void addContentTemplateAction(final String content, Map parentAttributes)  {
         if (content == null || content.isEmpty()) {
             return;
         }

@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EOWithValueCallTest extends TestHelper {
 
     @Test
-    public void testItem() throws Exception {
+    public void testItem()  {
         TestHelper.printStartMethod();
         final EO root = TestEOProvider.createEmptyMap();
         final CallExecutor executor = ValueCall.createSetExecutor(VC_TEST_ITEM, F_MAP_PATH, F_TEST_STRING);
@@ -29,7 +29,7 @@ public class EOWithValueCallTest extends TestHelper {
     }
 
     @Test
-    public void testItemAddedToChild() throws Exception {
+    public void testItemAddedToChild()  {
         final EO root = TestEOProvider.createEmptyMap();
         final EO child = root
                 .add(toPath(S_LEVEL0, S_LEVEL1))
@@ -41,7 +41,7 @@ public class EOWithValueCallTest extends TestHelper {
     }
 
     @Test
-    public void add2ActionsToAdapter() throws Exception {
+    public void add2ActionsToAdapter()  {
         EO root = TestEOProvider.createEmptyMap();
         EO child = root.add(toPath(S_LEVEL0, S_LEVEL1)).build();
 

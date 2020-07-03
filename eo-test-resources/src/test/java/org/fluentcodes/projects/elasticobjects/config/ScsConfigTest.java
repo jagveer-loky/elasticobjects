@@ -24,7 +24,7 @@ public class ScsConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ScsConfigTest.class);
 
     @Test
-    public void fromSourceCsv() throws Exception {
+    public void fromSourceCsv()  {
         TestHelper.printStartMethod();
         final ScsConfig config = (ScsConfig) TestEOProvider.EO_CONFIGS.find(ScsConfig.class, CS_SOURCE_CSV);
         Assert.assertEquals(CS_SOURCE_CSV, config.getScsKey());
@@ -42,7 +42,7 @@ public class ScsConfigTest extends TestHelper {
     }
 
     @Test
-    public void fromTargetCsv() throws Exception {
+    public void fromTargetCsv()  {
         TestHelper.printStartMethod();
         final ScsConfig config = (ScsConfig) TestEOProvider.EO_CONFIGS.find(ScsConfig.class, CS_TARGET_CSV);
         Assert.assertEquals(CS_TARGET_CSV, config.getScsKey());
@@ -58,7 +58,7 @@ public class ScsConfigTest extends TestHelper {
 
 
     @Test
-    public void fromTest() throws Exception {
+    public void fromTest()  {
         TestHelper.printStartMethod();
         final ScsConfig cache = (ScsConfig) TestEOProvider.EO_CONFIGS.find(ScsConfig.class, SC_TEST);
         Assert.assertEquals(F_DESCRIPTION, cache.getDescription());

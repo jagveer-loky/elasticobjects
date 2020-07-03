@@ -16,7 +16,7 @@ public class ModelsTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsTest.class);
 
     @Test
-    public void withModelInterface() throws Exception {
+    public void withModelInterface()  {
         Models models = new Models(TestEOProvider.EO_CONFIGS, M_MODEL_INTERFACE);
         Assert.assertTrue(models.hasModel());
         Assert.assertFalse(models.hasChildModel());

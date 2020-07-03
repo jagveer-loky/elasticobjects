@@ -53,42 +53,42 @@ public interface ModelInterface extends Config {
 
     List<String> getNaturalKeys();
 
-    Map<String, FieldConfig> getFieldCacheMap() throws Exception;
+    Map<String, FieldConfig> getFieldCacheMap() ;
 
-    Map<String, ModelInterface> getImportClasses() throws Exception;
+    Map<String, ModelInterface> getImportClasses() ;
 
-    Class getModelClass() throws Exception;
+    Class getModelClass() ;
 
     String getPackagePath();
 
-    ModelInterface getSuperModel() throws Exception;
+    ModelInterface getSuperModel() ;
 
-    Map<String, Object> getNaturalValues(Object object) throws Exception;
+    Map<String, Object> getNaturalValues(Object object) ;
 
-    Object getId(Object object) throws Exception;
+    Object getId(Object object) ;
 
     /**
      * Gets the Field with fieldName.
      *
      * @param fieldName
      * @return
-     * @throws Exception
+     * @
      */
-    FieldConfig getField(final String fieldName) throws Exception;
+    FieldConfig getField(final String fieldName) ;
 
-    ModelInterface getFieldModel(final String fieldName) throws Exception;
+    ModelInterface getFieldModel(final String fieldName) ;
 
-    Class getFieldClass(final String fieldName) throws Exception;
+    Class getFieldClass(final String fieldName) ;
 
-    Set<String> keys(Object object) throws Exception;
+    Set<String> keys(Object object) ;
 
-    Map getKeyValues(Object object, PathPattern pathPattern) throws Exception;
+    Map getKeyValues(Object object, PathPattern pathPattern) ;
 
-    int size(Object object) throws Exception;
+    int size(Object object) ;
 
-    boolean isEmpty(Object object) throws Exception;
+    boolean isEmpty(Object object) ;
 
-    void set(String fieldName, Object object, Object value) throws Exception;
+    void set(String fieldName, Object object, Object value) ;
 
     /**
      * Gets the value for fieldName of the object.
@@ -96,9 +96,9 @@ public interface ModelInterface extends Config {
      * @param fieldNameAsObject
      * @param object
      * @return
-     * @throws Exception
+     * @
      */
-    Object getAsIs(Object fieldNameAsObject, Object object) throws Exception;
+    Object getAsIs(Object fieldNameAsObject, Object object) ;
 
     /**
      * Gets the value for fieldName of the object.
@@ -106,18 +106,18 @@ public interface ModelInterface extends Config {
      * @param fieldName
      * @param object
      * @return
-     * @throws Exception
+     * @
      */
-    Object get(String fieldName, Object object) throws Exception;
+    Object get(String fieldName, Object object) ;
 
-    boolean exists(final String fieldName, final Object object) throws Exception;
+    boolean exists(final String fieldName, final Object object) ;
 
-    boolean hasKey(final String fieldName) throws Exception;
+    boolean hasKey(final String fieldName) ;
 
     /**
      * Removes a value depending on the type.
      * <ul>
-     * <li>scalar: throws Exception</li>
+     * <li>scalar: </li>
      * <li>object: add value to null</li>
      * <li>map: removes value</li>
      * <li>list: removes value</li>
@@ -125,11 +125,11 @@ public interface ModelInterface extends Config {
      *
      * @param fieldName The fieldName
      * @param object    The object
-     * @throws Exception on scalar model without field structure.
+     * @ on scalar model without field structure.
      */
-    void remove(final String fieldName, final Object object) throws Exception;
+    void remove(final String fieldName, final Object object) ;
 
-    Object create() throws Exception;
+    Object create();
 
     boolean equals(ModelInterface modelCache);
 
@@ -155,6 +155,6 @@ public interface ModelInterface extends Config {
 
     boolean isContainer();
 
-    String toJSON(final JSONSerializationType serializationType, final Object object) throws Exception;
+    String toJSON(final JSONSerializationType serializationType, final Object object) ;
 
 }

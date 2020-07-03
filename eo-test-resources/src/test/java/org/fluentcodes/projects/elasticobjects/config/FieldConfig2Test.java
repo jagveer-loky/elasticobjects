@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class FieldConfig2Test extends TestHelper {
 
     @Test
-    public void findFieldConfigInModelCache() throws Exception {
+    public void findFieldConfigInModelCache()  {
         TestHelper.printStartMethod();
         final ModelInterface fieldModel = TestEOProvider.EO_CONFIGS.findModel(FieldConfig.class);
         Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
@@ -25,7 +25,7 @@ public class FieldConfig2Test extends TestHelper {
     }
 
     @Test
-    public void findFieldConfigInCache() throws Exception {
+    public void findFieldConfigInCache()  {
         TestHelper.printStartMethod();
         final FieldConfig fieldConfig = TestEOProvider.EO_CONFIGS.findField(F_SUB_TEST_MAP);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, fieldConfig);
@@ -34,7 +34,7 @@ public class FieldConfig2Test extends TestHelper {
     }
 
     @Test
-    public void readConfigClassPath() throws Exception {
+    public void readConfigClassPath()  {
         Map<String, Config> map = TestConfig.readClassPathConfig(FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -42,7 +42,7 @@ public class FieldConfig2Test extends TestHelper {
     }
 
     @Test
-    public void readConfigMain() throws Exception {
+    public void readConfigMain()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_FIELD_MAIN, FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -50,7 +50,7 @@ public class FieldConfig2Test extends TestHelper {
     }
 
     @Test
-    public void readMapMain() throws Exception {
+    public void readMapMain()  {
         Map map = TestConfig.readMapFromFile(CONFIG_FIELD_MAIN);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());

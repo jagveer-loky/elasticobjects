@@ -13,7 +13,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class Compare {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final Map map = new HashMap();
         map.put("testString", "value");
         final EO eo = TestEOProvider.create();

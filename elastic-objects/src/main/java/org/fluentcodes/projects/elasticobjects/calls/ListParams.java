@@ -100,7 +100,7 @@ public class ListParams {
         return filter.filter(rowList);
     }
 
-    public ListParams addAnd(EO adapter) throws Exception {
+    public ListParams addAnd(EO adapter)  {
         if (adapter == null) {
             return this;
         }
@@ -245,7 +245,7 @@ public class ListParams {
         return this;
     }
 
-    public void prepareStartEnd(int rowMax) throws Exception {
+    public void prepareStartEnd(int rowMax)  {
         prepare();
         if (rowMax < rowEnd || rowEnd.equals(-1)) {
             rowEnd = rowMax;

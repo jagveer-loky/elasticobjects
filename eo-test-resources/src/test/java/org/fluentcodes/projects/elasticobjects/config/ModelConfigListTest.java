@@ -13,7 +13,7 @@ import java.util.List;
 public class ModelConfigListTest extends TestHelper {
 
     @Test
-    public void readMainJackson() throws Exception {
+    public void readMainJackson()  {
         ModelConfigList listModel = (ModelConfigList) TestEOProvider.EO_CONFIGS.findModel(List.class);
         Assert.assertEquals(List.class, listModel.getModelClass());
         List list = (List) listModel.create();

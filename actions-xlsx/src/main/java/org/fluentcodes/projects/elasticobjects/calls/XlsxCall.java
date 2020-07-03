@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class XlsxCall extends ListCall {
 
-    public XlsxCall(EOConfigsCache provider, String key) throws Exception {
+    public XlsxCall(EOConfigsCache provider, String key)  {
         super(provider, key);
     }
 
@@ -22,11 +22,11 @@ public class XlsxCall extends ListCall {
         return ((XlsxConfig) getConfig());
     }
 
-    public FileConfig getFileCache() throws Exception {
+    public FileConfig getFileCache()  {
         return getXlsxConfig().getFileConfig();
     }
 
-    public HostConfig getHostCache() throws Exception {
+    public HostConfig getHostCache()  {
         return getXlsxConfig().getFileConfig().getHostConfig();
     }
 

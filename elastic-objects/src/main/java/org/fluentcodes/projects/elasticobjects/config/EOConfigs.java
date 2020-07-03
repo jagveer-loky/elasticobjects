@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
@@ -22,7 +23,7 @@ public class EOConfigs implements EOConfigsInterface<Config> {
     private final Scope scope;
 
 
-    public EOConfigs(final EOConfigsCache eoConfigsCache, final Class<? extends Config> configClass, Scope scope) throws Exception {
+    public EOConfigs(final EOConfigsCache eoConfigsCache, final Class<? extends Config> configClass, Scope scope)  {
         this.configClass = configClass;
         this.configsCache = eoConfigsCache;
         this.configMap = new HashMap<>();
@@ -40,7 +41,7 @@ public class EOConfigs implements EOConfigsInterface<Config> {
         return configsCache;
     }
 
-    protected void addConfigs() throws Exception {
+    protected void addConfigs()  {
         addAll(new EOConfigReader(configsCache, configClass).read(scope));
     }
 
@@ -48,10 +49,10 @@ public class EOConfigs implements EOConfigsInterface<Config> {
         return configMap;
     }
 
-    public Config find(String key) throws Exception {
+    public Config find(String key)  {
         Config item = configMap.get(key);
         if (item == null) {
-            throw new Exception("Could not find config entry for '" + key + "' in config class '" + configClass.getSimpleName() + "'");
+            throw new EoException("Could not find config entry for '" + key + "' in config class '" + configClass.getSimpleName() + "'");
         }
         return item;
     }

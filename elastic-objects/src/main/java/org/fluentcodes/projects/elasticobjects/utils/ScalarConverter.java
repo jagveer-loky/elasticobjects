@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -91,7 +92,7 @@ public class ScalarConverter {
      * @param source
      * @return
      */
-    public static Object transformScalar(Class<?> mapClass, Object source) throws Exception {
+    public static Object transformScalar(Class<?> mapClass, Object source)  {
         if (mapClass == null || mapClass == Object.class) {
             return source;
         }
@@ -171,7 +172,7 @@ public class ScalarConverter {
      * @throws IllegalAccessException
      * @throws java.lang.reflect.InvocationTargetException
      */
-    public static Object transform(Class<?> mapClass, Object source) throws Exception {
+    public static Object transform(Class<?> mapClass, Object source)  {
         // Setter call would not work with a null vlue
         if (mapClass == null || mapClass == Object.class) {
             return source;
@@ -433,7 +434,7 @@ public class ScalarConverter {
         return toParse;
     }
 
-    public static Integer toInt(Object value) throws Exception {
+    public static Integer toInt(Object value)  {
         if (value == null) {
             return null;
         }
@@ -451,7 +452,7 @@ public class ScalarConverter {
             return null;
         }
         if (!(value instanceof Number)) {
-            throw new Exception("Could not transform to integer since value is neither String nor parsable String nor Number with value='" + value.toString() + "': " + value.getClass());
+            throw new EoException("Could not transform to integer since value is neither String nor parsable String nor Number with value='" + value.toString() + "': " + value.getClass());
         }
         if (value instanceof Integer) {
             return (Integer) value;

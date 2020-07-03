@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
 import org.fluentcodes.projects.elasticobjects.eo.Models;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -74,17 +75,17 @@ public class EOConfigsCache {
         return eoConfigsMap.keySet().stream().map(x -> x.getSimpleName()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public Map getConfigMap(final Class configClass) throws Exception {
+    public Map getConfigMap(final Class configClass)  {
         return getConfig(configClass).getConfigMap();
     }
 
-    public Set<String> getConfigNames(final String configName) throws Exception {
+    public Set<String> getConfigNames(final String configName)  {
         return getConfigMap(configName).keySet();
     }
 
-    public Map getConfigMap(final String configName) throws Exception {
+    public Map getConfigMap(final String configName)  {
         if (configName == null) {
-            throw new Exception("Null search name for configMap entry");
+            throw new EoException("Null search name for configMap entry");
         }
         for (Class configClass: getEoConfigKeys()) {
             if (configName.equals(configClass.getSimpleName())) {
@@ -92,84 +93,89 @@ public class EOConfigsCache {
             }
         }
 
-        throw new Exception("Could not find search name '" + configName + "'for configMap entry");
+        throw new EoException("Could not find search name '" + configName + "'for configMap entry");
     }
 
-    public Object find(final Class cacheClass, final String assetKey) throws Exception {
+    public Object find(final Class cacheClass, final String assetKey)  {
         if (cacheClass == null) {
-            throw new Exception("Cacheclass is null for finder!");
+            throw new EoException("Cacheclass is null for finder!");
         }
         if (assetKey == null || assetKey.isEmpty()) {
-            throw new Exception("assetKey is empty for finder '" + cacheClass.getSimpleName() + "'!");
+            throw new EoException("assetKey is empty for finder '" + cacheClass.getSimpleName() + "'!");
         }
         Object asset = getConfig(cacheClass).find(assetKey);
         if (asset == null) {
-            throw new Exception("Could not resolve asset " + cacheClass + " for  key=" + assetKey + ".");
+            throw new EoException("Could not resolve asset " + cacheClass + " for  key=" + assetKey + ".");
         }
         return asset;
     }
 
 
-    public Object find(final String packagePath, final String cacheClassName, final String assetKey) throws Exception {
-        Class cacheClass = Class.forName(packagePath + "." + cacheClassName);
+    public Object find(final String packagePath, final String cacheClassName, final String assetKey)  {
+        Class cacheClass = null;
+        try {
+            cacheClass = Class.forName(packagePath + "." + cacheClassName);
+        } catch (ClassNotFoundException e) {
+            throw new EoException(e);
+        }
         return find(cacheClass, assetKey);
     }
 
-    public EOConfigs getConfig(Class configClass) throws Exception {
+    public EOConfigs getConfig(Class configClass) {
         if (eoConfigsMap.get(configClass) == null) {
             eoConfigsMap.put(configClass, new ConfigsImmutable(this, configClass, scope));
         }
         EOConfigs configs = eoConfigsMap.get(configClass);
         if (configs == null) {
-            throw new Exception("No provider defined for " + configClass.getSimpleName());
+            throw new EoException("No provider defined for " + configClass.getSimpleName());
         }
         return configs;
     }
 
-    public Set<String> getCallSet() throws Exception {
+    public Set<String> getCallSet()  {
         return ((ConfigsModel) getConfig(ModelConfig.class)).getCallSet();
     }
 
-    public Set<String> getKeys(final Class<?> cacheClass) throws Exception {
+    public Set<String> getKeys(final Class<?> cacheClass)  {
         return getConfig(cacheClass).getKeys();
     }
 
-    public FieldConfig findField(final String fieldKey) throws Exception {
+    public FieldConfig findField(final String fieldKey)  {
         return (FieldConfig) find(FieldConfig.class, fieldKey);
     }
 
-    public ModelConfig findModel(final String modelKey) throws Exception {
+    public ModelConfig findModel(final String modelKey)  {
         return (ModelConfig) find(ModelConfig.class, modelKey);
     }
 
-    public ModelConfig findModel(final Class modelClass) throws Exception {
+    public ModelConfig findModel(final Class modelClass)  {
         return findModel(modelClass.getSimpleName());
     }
 
-    public TemplateConfig findTemplate(final String key) throws Exception {
+    public TemplateConfig findTemplate(final String key)  {
         return (TemplateConfig) find(TemplateConfig.class, key);
     }
 
-    public FileConfig findFile(final String key) throws Exception {
+    public FileConfig findFile(final String key)  {
         return (FileConfig) find(FileConfig.class, key);
     }
 
-    public JsonConfig findJson(final String key) throws Exception {
+    public JsonConfig findJson(final String key)  {
         return (JsonConfig) find(JsonConfig.class, key);
     }
 
-    public ValueConfig findValue(final String key) throws Exception {
+    public ValueConfig findValue(final String key)  {
         return (ValueConfig) find(ValueConfig.class, key);
     }
 
-    public ModelInterface findModel(final Object modelValue) throws Exception {
+    public ModelInterface findModel(final Object modelValue)  {
         if (modelValue == null) {
-            throw new Exception("null model value");
+            throw new EoException("null model value");
         }
         return findModel(modelValue.getClass());
     }
 
-    public final Object transform(final String fieldKey, Map attributes) throws Exception {
+    public final Object transform(final String fieldKey, Map attributes)  {
         if (fieldKey == null) {
             return null;
         }
@@ -179,7 +185,7 @@ public class EOConfigsCache {
         return transform(fieldKey, attributes.get(fieldKey));
     }
 
-    public final Object transform(final String fieldKey, Map attributes, Object defaultValue) throws Exception {
+    public final Object transform(final String fieldKey, Map attributes, Object defaultValue)  {
         if (fieldKey == null) {
             return null;
         }
@@ -193,14 +199,14 @@ public class EOConfigsCache {
         }
     }
 
-    public final Object transform(final String fieldKey, final Object source) throws Exception {
+    public final Object transform(final String fieldKey, final Object source)  {
         return transform(fieldKey, source, null);
     }
 
-    public final Object transform(final String fieldKey, Object source, Object defaultValue) throws Exception {
+    public final Object transform(final String fieldKey, Object source, Object defaultValue)  {
         FieldConfig fieldConfig = findField(fieldKey);
         if (fieldConfig == null || fieldKey.isEmpty()) {
-            throw new Exception("No fieldKey provided for " + fieldKey + " and source=" + source);
+            throw new EoException("No fieldKey provided for " + fieldKey + " and source=" + source);
         }
         DBFieldParams dbFieldParams = fieldConfig.getDbFieldParams();
         if (dbFieldParams != null) {

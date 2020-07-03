@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
+
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
@@ -76,9 +78,9 @@ public class HostConfig extends ConfigIO {
         return this.password;
     }//</call>
 
-    public String getUrlPath() throws Exception {
+    public String getUrlPath()  {
         if (hostName == null) {
-            throw new Exception("Incomplete host exception: host name not add!");
+            throw new EoException("Incomplete host exception: host name not add!");
         }
         if ("".equals(hostName)) {
             return protocol;
@@ -100,7 +102,7 @@ public class HostConfig extends ConfigIO {
 
 //</call>
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             super.prepare(configsCache, values);
             hostKey = (String) configsCache.transform(F_HOST_KEY, values);
             protocol = (String) configsCache.transform(F_PROTOCOL, values);
@@ -125,7 +127,7 @@ public class HostConfig extends ConfigIO {
             return this.hostKey;
         }
 
-        public Config build(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        public Config build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             prepare(configsCache, values);
             return new HostConfig(configsCache, this);
         }

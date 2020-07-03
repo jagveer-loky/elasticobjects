@@ -8,7 +8,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class SimpleInsertWithPath {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final String result = TestTemplateProvider
                 .executeTemplateCall("SimpleInsertWithPathAndJson");
         Assert.assertEquals("\n" +

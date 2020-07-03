@@ -16,7 +16,7 @@ public class ScalarPathsPutScalarTest {
     private static final Logger log = LogManager.getLogger(ScalarPathsPutScalarTest.class);
 
     @Test
-    public void dirScalarTest() throws Exception {
+    public void dirScalarTest()  {
 
         ScalarPaths scalarPath = new ScalarPaths();
         storeScalarTest(scalarPath, "/test/string", "Test", "/test/string");
@@ -36,7 +36,7 @@ public class ScalarPathsPutScalarTest {
     }
 
 
-    public void storeScalarTest(ScalarPaths scalarPath, String path, Object value, String absolutePath) throws Exception {
+    public void storeScalarTest(ScalarPaths scalarPath, String path, Object value, String absolutePath)  {
         if (scalarPath == null) {
             scalarPath = new ScalarPaths();
         }

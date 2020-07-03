@@ -18,7 +18,7 @@ public class ScalarConverterTest {
     //TODO ScalarPaths actually not used...
     @Ignore
     @Test
-    public void numbers() throws Exception {
+    public void numbers()  {
         TestHelper.printStartMethod();
         transformNumberTest(Integer.class, SAMPLE_LONG);
         transformNumberTest(Long.class, S_INTEGER);
@@ -30,7 +30,7 @@ public class ScalarConverterTest {
     }
 
     @Test
-    public void transformProblemsTest() throws Exception {
+    public void transformProblemsTest()  {
         TestHelper.printStartMethod();
         transform(Integer.class, Integer.MAX_VALUE, Integer.MAX_VALUE);
         transform(Integer.class, Integer.MIN_VALUE, Integer.MIN_VALUE);
@@ -39,7 +39,7 @@ public class ScalarConverterTest {
         transform(Integer.class, Integer.MIN_VALUE - 1, Integer.MIN_VALUE - 1);
     }
 
-    public void transformNumberTest(Class<?> transformClass, Object compare) throws Exception {
+    public void transformNumberTest(Class<?> transformClass, Object compare)  {
         transform(transformClass, SAMPLE_DOUBLE, compare);
         transform(transformClass, compare, compare);
         transform(transformClass, SAMPLE_FLOAT, compare);
@@ -51,7 +51,7 @@ public class ScalarConverterTest {
         transform(transformClass, SAMPLE_DOUBLE.toString(), compare);
     }
 
-    private void transformFloatTest(Class<?> transformClass, Object compare) throws Exception {
+    private void transformFloatTest(Class<?> transformClass, Object compare)  {
         transform(transformClass, SAMPLE_DOUBLE, compare);
         transform(transformClass, compare, compare);
         transform(transformClass, new Float(1.1), compare);
@@ -62,7 +62,7 @@ public class ScalarConverterTest {
     }
 
 
-    public void transform(Class<?> clazz, Object right, Object expected) throws Exception {
+    public void transform(Class<?> clazz, Object right, Object expected)  {
         log.info("Compare " + clazz.getSimpleName() + " == " + right + ": " + expected);
         Object rightObject = ScalarConverter.transformScalar(clazz, right);
         if (clazz == Date.class) {

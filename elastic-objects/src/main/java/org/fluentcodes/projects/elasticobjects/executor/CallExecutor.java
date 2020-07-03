@@ -29,7 +29,7 @@ public class CallExecutor extends ExecutorImpl implements Executor {
     private static final Set<String> ignoreSerializeKeys = createIgnoreSerializeKeys();
     private static final Logger LOG = LogManager.getLogger(CallExecutor.class);
 
-    public CallExecutor(Map attributes) throws Exception {
+    public CallExecutor(Map attributes)  {
         super(attributes, ExecutorItem.TYPES.call);
     }
 
@@ -46,7 +46,7 @@ public class CallExecutor extends ExecutorImpl implements Executor {
     }
 
     @Override
-    public void mapAttributes(final Map attributes) throws Exception {
+    public void mapAttributes(final Map attributes)  {
         super.mapAttributes(attributes);
     }
 
@@ -62,7 +62,7 @@ public class CallExecutor extends ExecutorImpl implements Executor {
     /**
      * Creates an actions depending on the values add.
      *
-     * @throws Exception on Exception
+     * @ on Exception
      */
     public Object execute(EO adapter) {
         return execute(adapter, new HashMap<>());

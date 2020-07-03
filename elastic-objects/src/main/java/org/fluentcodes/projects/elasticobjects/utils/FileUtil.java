@@ -12,6 +12,7 @@ package org.fluentcodes.projects.elasticobjects.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.io.*;
 import java.net.URL;
@@ -42,7 +43,7 @@ public class FileUtil {
      * @return
      * @throws IOException
      */
-    private static String readFileBuffered(Reader bReader) throws IOException {
+    private static String readFileBuffered(Reader bReader) {
         String result = "";
         Writer stringWriter = null;
         try {
@@ -50,13 +51,26 @@ public class FileUtil {
             //http://stackoverflow.com/questions/1684040/java-why-charset-colKeys-are-not-constants
             int n;
             char[] buff = new char[1024];
-            while ((n = bReader.read(buff)) != -1) {
-                stringWriter.write(buff, 0, n);
+            try {
+                while ((n = bReader.read(buff)) != -1) {
+                    try {
+                        stringWriter.write(buff, 0, n);
+                    } catch (IOException e) {
+                        throw new EoException(e);
+                    }
+                }
+            }
+            catch (Exception e) {
+                throw new EoException(e);
             }
             result = stringWriter.toString();
         } finally {
             if (stringWriter != null) {
-                stringWriter.close();
+                try {
+                    stringWriter.close();
+                } catch (IOException e) {
+                    throw new EoException(e);
+                }
             }
         }
         return result;
@@ -93,13 +107,22 @@ public class FileUtil {
      * @throws IOException
      */
 
-    public static String readFile(URL url) throws IOException {
+    public static String readFile(URL url) {
         LOG.debug("Start reading " + url.getPath());
-        BufferedReader bReader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
-        //http://stackoverflow.com/questions/1684040/java-why-charset-colKeys-are-not-constants
-        String result = readFileBuffered(bReader);
-        bReader.close();
-        return result;
+        try {
+            BufferedReader bReader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
+            //http://stackoverflow.com/questions/1684040/java-why-charset-colKeys-are-not-constants
+            String result = readFileBuffered(bReader);
+            try {
+                bReader.close();
+            } catch (IOException e) {
+                throw new EoException(e);
+            }
+            return result;
+        }
+        catch (Exception e) {
+            throw new EoException(e);
+        }
     }
 
     /**
@@ -110,29 +133,44 @@ public class FileUtil {
      * @throws IOException
      */
 
-    public static String readFile(final String fileName) throws IOException {
+    public static String readFile(final String fileName) {
         LOG.debug("Start reading " + fileName);
         File file = new File(fileName);
         if (file.exists()) {
             return readFile(file);
         }
-        Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(fileName);
-        LOG.debug("Try to find url for " + file.getName());
-        List<URL> urlList = Collections.list(urls);
-        if (urlList == null || urlList.isEmpty()) {
-            throw new IOException("Could not load url from " + file.getName() + " - " + file.getAbsolutePath());
+        try {
+            Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(fileName);
+            LOG.debug("Try to find url for " + file.getName());
+            List<URL> urlList = Collections.list(urls);
+            if (urlList == null || urlList.isEmpty()) {
+                throw new EoException("Could not load url from " + file.getName() + " - " + file.getAbsolutePath());
+            }
+            return readFile(urlList.get(0));
         }
-        return readFile(urlList.get(0));
+        catch (Exception e) {
+            throw new EoException(e);
+        }
     }
 
-    public static String readFile(final File file) throws IOException {
-        return readFileBuffered(new FileReader(file));
+    public static String readFile(final File file) {
+        try {
+            return readFileBuffered(new FileReader(file));
+        }
+        catch (Exception e) {
+            throw new EoException(e);
+        }
     }
 
-    public static void writeFile(URL url, String content) throws Exception {
-        BufferedWriter out = new BufferedWriter(new FileWriter(url.getFile()));
-        out.write(content);
-        out.close();
+    public static void writeFile(URL url, String content)  {
+
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter(url.getFile()));
+            out.write(content);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -142,11 +180,11 @@ public class FileUtil {
      * @param content
      * @return
      */
-    public static String writeFile(String fileName, String content) throws Exception {
+    public static String writeFile(String fileName, String content)  {
         return writeFile(new File(fileName), content);
     }
 
-    public static String writeFile(File file, String content) throws Exception {
+    public static String writeFile(File file, String content)  {
         if (!file.exists()) {
             LOG.info("New file for writing " + file.getAbsolutePath());
         } else {
@@ -157,7 +195,7 @@ public class FileUtil {
             writer.write(content);
             writer.close();
         } catch (Exception e) {
-            throw new Exception("Could not write to " + file.getAbsolutePath(), e);
+            throw new EoException("Could not write to " + file.getAbsolutePath(), e);
         }
         return "";
     }

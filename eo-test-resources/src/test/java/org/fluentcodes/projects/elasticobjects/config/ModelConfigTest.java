@@ -29,13 +29,13 @@ public class ModelConfigTest extends TestHelper {
     private static final String M_BUILDER = "$Builder";
 
     @Test
-    public void readModelConfigMain() throws Exception {
+    public void readModelConfigMain()  {
         Map<String, Config> configMap = TestConfig.readConfigMapFromFile(CONFIG_MODEL_MAIN, ModelConfig.class);
         Assert.assertTrue(configMap.containsKey(CONFIG_MODEL));
     }
 
     @Test
-    public void findCachedUnknown_fails() throws Exception {
+    public void findCachedUnknown_fails()  {
         try {
             TestEOProvider.EO_CONFIGS.findModel(M_SUB_TEST + SAMPLE_KEY_UNKNOW);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
@@ -45,19 +45,19 @@ public class ModelConfigTest extends TestHelper {
     }
 
     @Test
-    public void findCachedString() throws Exception {
+    public void findCachedString()  {
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_STRING);
         Assert.assertEquals(String.class, model.getModelClass());
     }
 
     @Test
-    public void findCachedST() throws Exception {
+    public void findCachedST()  {
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(SubTest.class.getSimpleName());
         Assert.assertEquals(SubTest.class, model.getModelClass());
     }
 
     @Test
-    public void modelTest() throws Exception {
+    public void modelTest()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(ModelInterface.class);
         Assert.assertEquals(ModelInterface.class.getSimpleName(), model.getModelKey());
@@ -122,7 +122,7 @@ public class ModelConfigTest extends TestHelper {
     }
 
     @Test
-    public void assertLoggingObjectImpl() throws Exception {
+    public void assertLoggingObjectImpl()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(LoggingObjectsImpl.class);
         Assert.assertEquals(ShapeTypes.INSTANCE, model.getShapeType());
@@ -141,7 +141,7 @@ public class ModelConfigTest extends TestHelper {
 
 
     @Test
-    public void assertAdapterBuilder() throws Exception {
+    public void assertAdapterBuilder()  {
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(EOBuilder.class);
         Assert.assertEquals(ShapeTypes.ADAPTER, model.getShapeType());
         Assert.assertTrue(model.hasModel());
@@ -150,7 +150,7 @@ public class ModelConfigTest extends TestHelper {
     }
 
     @Test
-    public void checkDependentModels() throws Exception {
+    public void checkDependentModels()  {
         // Check if basic Models are available
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_BASIC_TEST);
         Assert.assertEquals(M_BASIC_TEST, model.getModelKey());

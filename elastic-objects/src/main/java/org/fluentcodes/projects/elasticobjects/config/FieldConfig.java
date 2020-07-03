@@ -44,7 +44,7 @@ public class FieldConfig extends ConfigImpl {
 //</call>
     }
 
-    protected static final void add(EOConfigsCache configsCache, Field field) throws Exception {
+    protected static final void add(EOConfigsCache configsCache, Field field)  {
         Class modelClass = field.getDeclaringClass();
         Class typeClass = field.getType();
         Map map = new HashMap();
@@ -66,7 +66,7 @@ public class FieldConfig extends ConfigImpl {
     }
 
     @Override
-    public void resolve() throws Exception {
+    public void resolve()  {
         super.resolve();
         this.models = new Models(getConfigsCache(), modelKeys);
     }
@@ -103,7 +103,7 @@ public class FieldConfig extends ConfigImpl {
         return customFieldParams;
     }
 
-    public Models getModels() throws Exception {
+    public Models getModels() {
         resolve();
         return models;
     }
@@ -115,15 +115,15 @@ public class FieldConfig extends ConfigImpl {
     /**
      * A path pattern for {@link FieldConfig}.
      */
-    public PathPattern getPathPattern() throws Exception {
+    public PathPattern getPathPattern()  {
         return eoFieldParams.getPathPattern();
     }
 
-    public boolean hasPathPattern() throws Exception {
+    public boolean hasPathPattern()  {
         return eoFieldParams.hasPathPattern();
     }
 
-    public boolean isFilterNothing() throws Exception {
+    public boolean isFilterNothing()  {
         return eoFieldParams.isFilterNothing();
     }
 //</call>
@@ -196,23 +196,23 @@ public class FieldConfig extends ConfigImpl {
         return dbFieldParams.getLength();
     }
 
-    public Class getModelClass() throws Exception {
+    public Class getModelClass()  {
         return getModelConfig().getModelClass();
     }
 
-    public Class getChildClass() throws Exception {
+    public Class getChildClass()  {
         return getChildModel().getModelClass();
     }
 
-    public String getModel() throws Exception {
+    public String getModel()  {
         return getModels().getModel().getModelKey();
     }
 
-    public ModelInterface getModelConfig() throws Exception {
+    public ModelInterface getModelConfig()  {
         return getModels().getModel();
     }
 
-    public ModelInterface getChildModel() throws Exception {
+    public ModelInterface getChildModel()  {
         return getModels().getChildModel();
     }
 
@@ -237,7 +237,7 @@ public class FieldConfig extends ConfigImpl {
             super();
         }
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             toSerialize = ScalarConverter.toBoolean(values.get(F_TO_SERIALIZE));
             fieldKey = ScalarConverter.toString(values.get(F_FIELD_KEY));
             dbFieldParams = new DBFieldParams(values.get(F_DB_FIELD_PARAMS));
@@ -249,7 +249,7 @@ public class FieldConfig extends ConfigImpl {
             super.prepare(configsCache, values);
         }
 
-        public Config build(final EOConfigsCache provider, final Map<String, Object> values) throws Exception {
+        public Config build(final EOConfigsCache provider, final Map<String, Object> values)  {
             prepare(provider, values);
             return new FieldConfig(provider, this);
         }

@@ -5,17 +5,17 @@ import org.fluentcodes.projects.elasticobjects.calls.ListParams;
 import java.util.List;
 
 public interface ListIOInterface extends IOInterface {
-    List read(ListParams listParams) throws Exception;
+    List read(ListParams listParams) ;
 
-    Object readRow() throws Exception;
+    Object readRow() ;
 
-    Object readRow(int i) throws Exception;
+    Object readRow(int i) ;
 
-    List readHead(int i) throws Exception;
+    List readHead(int i) ;
 
-    void write(List rows) throws Exception;
+    void write(List rows) ;
 
-    void reset() throws Exception;
+    void reset() ;
 
-    void close() throws Exception;
+    void close() ;
 }

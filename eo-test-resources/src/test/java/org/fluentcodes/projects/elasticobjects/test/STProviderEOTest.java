@@ -5,27 +5,27 @@ import org.junit.Test;
 public class STProviderEOTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         STProviderEO.createEmpty();
     }
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         STProviderEO.createString();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         STProviderEO.createST();
     }
 
     @Test
-    public void createEOSimple() throws Exception {
+    public void createEOSimple()  {
         STProviderEO.createSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         STProviderEO.create();
     }
 

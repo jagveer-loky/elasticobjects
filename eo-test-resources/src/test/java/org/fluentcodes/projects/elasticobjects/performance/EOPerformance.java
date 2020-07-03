@@ -20,12 +20,12 @@ public class EOPerformance extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPerformance.class);
     private static final int maxRoot = 300000;
 
-    private EOBuilder builder() throws Exception {
+    private EOBuilder builder()  {
         return TestEOProvider.createEOBuilder();
     }
 
     @Test
-    public void root() throws Exception {
+    public void root()  {
         builder().build();
         BasicTest basicTest = new BasicTest();
         basicTest.setTestString(TEO_STATIC.S_STRING);
@@ -43,11 +43,11 @@ public class EOPerformance extends TestHelper {
         System.out.println("List JSN     : " + rootPerformance(ListProviderJSN.readAll()));
     }
 
-    private String rootPerformance(Object object) throws Exception {
+    private String rootPerformance(Object object)  {
         return setRootPerformance(object) + " - " + mapRootPerformance(object);
     }
 
-    private String testMap(int counter) throws Exception {
+    private String testMap(int counter)  {
         Map<String, String> map = new HashMap<>();
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < counter; i++) {
@@ -57,7 +57,7 @@ public class EOPerformance extends TestHelper {
         return builder.toString();
     }
 
-    private String testList(int counter) throws Exception {
+    private String testList(int counter)  {
         List<String> map = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < counter; i++) {
@@ -67,7 +67,7 @@ public class EOPerformance extends TestHelper {
         return builder.toString();
     }
 
-    private long mapRootPerformance(Object object) throws Exception {
+    private long mapRootPerformance(Object object)  {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
             builder()
@@ -76,7 +76,7 @@ public class EOPerformance extends TestHelper {
         return System.currentTimeMillis() - start;
     }
 
-    private long setRootPerformance(Object object) throws Exception {
+    private long setRootPerformance(Object object)  {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
             builder()

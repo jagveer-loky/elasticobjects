@@ -19,33 +19,33 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPathNewRootMap_models_Test.class);
 
     @Test
-    public void mapInteger_ok() throws Exception {
+    public void mapInteger_ok()  {
         EOTest.map_ok(F_TEST_INTEGER, Integer.class);
     }
 
     @Test
-    public void mapMap_ok() throws Exception {
+    public void mapMap_ok()  {
         EOTest.map_ok(F_UNTYPED_MAP, Map.class);
     }
 
     @Test
-    public void mapHasMap_ok() throws Exception {
+    public void mapHasMap_ok()  {
         EOTest.map_ok(F_UNTYPED_MAP, HashMap.class);
     }
 
 
     @Test
-    public void mapList_ok() throws Exception {
+    public void mapList_ok()  {
         EOTest.map_ok(F_UNTYPED_LIST, List.class);
     }
 
     @Test
-    public void mapArrayList_ok() throws Exception {
+    public void mapArrayList_ok()  {
         EOTest.map_ok(F_UNTYPED_LIST, ArrayList.class);
     }
 
     @Test
-    public void mapBT_ok() throws Exception {
+    public void mapBT_ok()  {
         EOTest.map_ok(F_BASIC_TEST, BasicTest.class);
     }
 
@@ -57,7 +57,7 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
      */
 
     @Test
-    public void mapJsnEmptyBT_ok() throws Exception {
+    public void mapJsnEmptyBT_ok()  {
         final String jsnEmpty = MapProviderJSON.readEmpty();
 
         final EO eoBTJson = TestEOProvider
@@ -75,7 +75,7 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
     // when adding jsn small
     // the model is BasicTest
     @Test
-    public void mapJsnSmallBT_ok() throws Exception {
+    public void mapJsnSmallBT_ok()  {
         final String jsnSmall = MapProviderJSON.readSmall();
 
         final EO eoBTJsonSmall = TestEOProvider
@@ -96,7 +96,7 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
      */
 
     @Test
-    public void mapJsnListSmallBT_fails() throws Exception {
+    public void mapJsnListSmallBT_fails()  {
         final String jsnListSmall = ListProviderJSON.readSmall();
 
         final EO eoBTJsonListSmall = TestEOProvider

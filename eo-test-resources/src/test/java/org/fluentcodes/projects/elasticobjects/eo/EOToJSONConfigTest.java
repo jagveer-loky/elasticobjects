@@ -13,7 +13,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.H_TEST;
 public class EOToJSONConfigTest extends TestHelper {
 
     @Test
-    public void configImpl() throws Exception {
+    public void configImpl()  {
         final HostConfig config = (HostConfig) TestEOProvider.EO_CONFIGS.find(HostConfig.class, H_TEST);
         EO eoHost = TestEOProvider.createEOBuilder().set(config);
         String serHost = new EOToJSON().toJSON(eoHost);

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.executor;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.calls.ValueCall;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -28,11 +29,11 @@ public class ExecutorListTemplate extends ExecutorList {
     private static final Pattern attributePattern = Pattern.compile("(?s)\\s*([^ ]*?)(=)\"([^\"]*?)\"");
     private final Map parentAttributes;
 
-    public ExecutorListTemplate(String template) throws Exception {
+    public ExecutorListTemplate(String template)  {
         this(template, new HashMap());
     }
 
-    public ExecutorListTemplate(String template, Map parentAttributes) throws Exception {
+    public ExecutorListTemplate(String template, Map parentAttributes)  {
         super();
         this.parentAttributes = parentAttributes;
         createTemplateList(template);
@@ -41,7 +42,7 @@ public class ExecutorListTemplate extends ExecutorList {
     /**
      * This will create the executor list from a template string.
      */
-    private void createTemplateList(final String template) throws Exception {
+    private void createTemplateList(final String template)  {
         Matcher actionMatcher = actionPattern.matcher(template);
         int start = 0;
         while (actionMatcher.find()) {
@@ -85,7 +86,7 @@ public class ExecutorListTemplate extends ExecutorList {
                     super.add(tagAttributes);
                 }
             } else {
-                throw new Exception("Insert without execute! " + tagAttributes.toString());
+                throw new EoException("Insert without execute! " + tagAttributes.toString());
             }
         }
         super.addContentTemplateAction(template.substring(start, template.length()), parentAttributes);
@@ -127,7 +128,7 @@ public class ExecutorListTemplate extends ExecutorList {
         return tagAttributes;
     }
 
-    private String findEndTag(String template, Matcher matcherFind) throws Exception {
+    private String findEndTag(String template, Matcher matcherFind)  {
         StringBuilder content = new StringBuilder();
         int hierarchy = 1;
         int start = matcherFind.end();
@@ -147,7 +148,7 @@ public class ExecutorListTemplate extends ExecutorList {
                 content.append(matcherFind.group());
             }
         }
-        throw new Exception("Could not find closing tag for parseString");
+        throw new EoException("Could not find closing tag for parseString");
 
     }
 

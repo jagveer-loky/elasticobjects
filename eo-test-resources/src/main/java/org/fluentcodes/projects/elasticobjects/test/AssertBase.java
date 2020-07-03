@@ -2,18 +2,20 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class AssertBase {
     private static final Logger LOG = LogManager.getLogger(AssertBase.class);
     private static final String PERSISTENCE_DIRECTORY = "src/test/resources/output";
 
-    protected static final String getEnding(Object object) throws Exception {
+    protected static final String getEnding(Object object)  {
         if (object == null) {
-            throw new Exception("Compare object is null!");
+            throw new EoException("Compare object is null!");
         }
         String classString = object.getClass().getSimpleName();
         switch (classString) {
@@ -32,7 +34,7 @@ public class AssertBase {
         }
     }
 
-    protected static final String getFileName() throws Exception {
+    protected static final String getFileName()  {
         final StringBuilder fileNameBuilder = new StringBuilder();
         for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
             if (element.getClassName().matches(".*Test$")) {
@@ -43,7 +45,7 @@ public class AssertBase {
             }
         }
         if (fileNameBuilder.length() == 0) {
-            throw new Exception("Not found pattern '.*Test$' for className in Stacktrace");
+            throw new EoException("Not found pattern '.*Test$' for className in Stacktrace");
         }
         createPersistenceDirectory();
         final String fileName = PERSISTENCE_DIRECTORY + "/" + fileNameBuilder.toString();
@@ -54,7 +56,7 @@ public class AssertBase {
         return fileName;
     }
 
-    protected static final String readOrWritePersisted(String fileName, String serialized) throws Exception {
+    protected static final String readOrWritePersisted(String fileName, String serialized)  {
         final File file = new File(fileName);
         try {
             return readPersisted(file);
@@ -63,7 +65,7 @@ public class AssertBase {
         }
     }
 
-    protected static final String writePersisted(File file, String serialized) throws Exception {
+    protected static final String writePersisted(File file, String serialized)  {
         LOG.info("Write new persistence file: " + file.getAbsolutePath());
         FileWriter writer = null;
         try {
@@ -71,19 +73,23 @@ public class AssertBase {
             writer.write(serialized);
             return serialized;
         } catch (Exception e) {
-            throw new Exception("Problem writing " + file.getAbsolutePath(), e);
+            throw new EoException("Problem writing " + file.getAbsolutePath(), e);
         } finally {
             if (writer != null) {
-                writer.close();
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    throw new EoException(e);
+                }
             }
         }
     }
 
 
-    protected static final String readPersisted(File file) throws Exception {
+    protected static final String readPersisted(File file)  {
         FileInputStream fis = null;
         if (!file.exists()) {
-            throw new Exception("Problem reading " + file.getAbsolutePath());
+            throw new EoException("Problem reading " + file.getAbsolutePath());
         }
         try {
             fis = new FileInputStream(file);
@@ -91,10 +97,14 @@ public class AssertBase {
             fis.read(data);
             return new String(data);
         } catch (Exception e) {
-            throw new Exception("Problem reading " + file.getAbsolutePath());
+            throw new EoException("Problem reading " + file.getAbsolutePath());
         } finally {
             if (fis != null) {
-                fis.close();
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    throw new EoException(e);
+                }
             }
         }
     }

@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class ValuesMiscTest {
     @Test
-    public void join() throws Exception {
+    public void join()  {
         EO eo = TestEOProvider.createEmptyMap();
         eo.add(S_KEY0).set(S_STRING);
         eo.add(S_KEY1).set(S_STRING_OTHER);

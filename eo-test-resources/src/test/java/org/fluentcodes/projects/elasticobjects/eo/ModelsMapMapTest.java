@@ -35,19 +35,19 @@ public class ModelsMapMapTest extends TestHelper {
 
 
     @Test
-    public void setNull_ok() throws Exception {
+    public void setNull_ok()  {
         final Models child = MODELS.createChildForSet(NAME, null, null);
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
-    public void mapNull_ok() throws Exception {
+    public void mapNull_ok()  {
         final Models child = MODELS.createChildForMap(NAME, null);
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
-    public void setJson_fails() throws Exception {
+    public void setJson_fails()  {
         try {
             MODELS.createChildForSet(NAME, TestEOProvider.createJSONToEOMapEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
@@ -57,13 +57,13 @@ public class ModelsMapMapTest extends TestHelper {
     }
 
     @Test
-    public void mapJson_ok() throws Exception {
+    public void mapJson_ok()  {
         final Models child = MODELS.createChildForMap(NAME, TestEOProvider.createJSONToEOMapEmpty());
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
-    public void mapString_fails() throws Exception {
+    public void mapString_fails()  {
         try {
             MODELS.createChildForMap(NAME, S_STRING);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
@@ -73,7 +73,7 @@ public class ModelsMapMapTest extends TestHelper {
     }
 
     @Test
-    public void setString_fails() throws Exception {
+    public void setString_fails()  {
         try {
             MODELS.createChildForSet(NAME, S_STRING, null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
@@ -83,19 +83,19 @@ public class ModelsMapMapTest extends TestHelper {
     }
 
     @Test
-    public void setMap_fails() throws Exception {
+    public void setMap_fails()  {
         final Models child = MODELS.createChildForSet(NAME, MapProvider.createEmpty(), null);
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
-    public void mapMap_ok() throws Exception {
+    public void mapMap_ok()  {
         final Models child = MODELS.createChildForMap(NAME, MapProvider.create());
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
-    public void setList_fails() throws Exception {
+    public void setList_fails()  {
         try {
             MODELS.createChildForSet(NAME, ListProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
@@ -105,13 +105,13 @@ public class ModelsMapMapTest extends TestHelper {
     }
 
     @Test
-    public void mapList_ok() throws Exception {
+    public void mapList_ok()  {
         final Models child = MODELS.createChildForMap(NAME, ListProvider.createEmpty());
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
-    public void setBT_fails() throws Exception {
+    public void setBT_fails()  {
         try {
             MODELS.createChildForSet(NAME, BTProvider.createEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
@@ -121,13 +121,13 @@ public class ModelsMapMapTest extends TestHelper {
     }
 
     @Test
-    public void mapBT_ok() throws Exception {
+    public void mapBT_ok()  {
         final Models child = MODELS.createChildForMap(F_KEY, new BasicTest());
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }
 
     @Test
-    public void mapST_ok() throws Exception {
+    public void mapST_ok()  {
         final Models child = MODELS.createChildForMap(F_KEY, new SubTest());
         Assert.assertEquals(SUB_CLASS, child.getModelClass());
     }

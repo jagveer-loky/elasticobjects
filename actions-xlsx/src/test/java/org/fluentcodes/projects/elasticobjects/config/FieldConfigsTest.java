@@ -22,14 +22,14 @@ public class FieldConfigsTest {
     private static final Logger LOG = LogManager.getLogger(FieldConfigsTest.class);
 
     @Test
-    public void findConfigInCache() throws Exception {
+    public void findConfigInCache()  {
         FieldConfig config = TestEOProvider.EO_CONFIGS.findField(F_XLSX_KEY);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
-    public void readConfigClassPath() throws Exception {
+    public void readConfigClassPath()  {
         Map<String, Config> map = TestConfig.readClassPathConfig(FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -37,7 +37,7 @@ public class FieldConfigsTest {
     }
 
     @Test
-    public void readMapMain() throws Exception {
+    public void readMapMain()  {
         Map map = TestConfig.readMapFromFile(CONFIG_FIELD_MAIN);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -45,7 +45,7 @@ public class FieldConfigsTest {
     }
 
     @Test
-    public void readConfigMain() throws Exception {
+    public void readConfigMain()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_FIELD_MAIN, FieldConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());

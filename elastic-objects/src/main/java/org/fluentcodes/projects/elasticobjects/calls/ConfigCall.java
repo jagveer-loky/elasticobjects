@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.Config;
 import org.fluentcodes.projects.elasticobjects.config.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigs;
@@ -23,7 +24,7 @@ public class ConfigCall extends Call {
     private String filterSubModule;
     private String filterKey;
 
-    public ConfigCall(EOConfigsCache provider, String filterKey) throws Exception {
+    public ConfigCall(EOConfigsCache provider, String filterKey)  {
         super(provider, filterKey);
     }
 
@@ -47,18 +48,22 @@ public class ConfigCall extends Call {
         setFilterConfigName(attributes.get(EO_STATIC.F_FILTER_CONFIG_NAME));
     }
 
-    private Class<? extends Config> createFilterConfigClass(EO adapter, Map attributes) throws Exception {
+    private Class<? extends Config> createFilterConfigClass(EO adapter, Map attributes)  {
         if (!hasFilterConfigName()) {
-            throw new Exception("Null config name!");
+            throw new EoException("Null config name!");
         }
         String configName = this.filterConfigName;
         if (filterConfigNameDynamic) {
             configName = ReplaceUtil.replace(configName, adapter, attributes);
         }
         if (configName.contains(EO_STATIC.DYNAMIC_PATTERN)) {
-            throw new Exception("Configname not completely resolved! " + this.filterConfigName + " -> " + configName);
+            throw new EoException("Configname not completely resolved! " + this.filterConfigName + " -> " + configName);
         }
-        return (Class<? extends Config>) Class.forName(EO_STATIC.CP_CONFIG + "." + configName);
+        try {
+            return (Class<? extends Config>) Class.forName(EO_STATIC.CP_CONFIG + "." + configName);
+        } catch (ClassNotFoundException e) {
+            throw new EoException(e);
+        }
     }
 
     public boolean hasFilterConfigName() {
@@ -138,7 +143,7 @@ public class ConfigCall extends Call {
         return this;
     }
 
-    public String set(EO adapter) throws Exception {
+    public String set(EO adapter)  {
         return set(adapter, new HashMap());
     }
 
@@ -154,17 +159,17 @@ public class ConfigCall extends Call {
         super.mergeConfig();
     }
 
-    public String set(final EO adapter, final Map attributes) throws Exception {
+    public String set(final EO adapter, final Map attributes)  {
         mapAttributes(attributes);
         mergeConfig();
         Class<? extends Config> filterConfigClass = createFilterConfigClass(adapter, attributes);
         EOConfigsCache configsCache = adapter.getConfigsCache();
         if (configsCache == null) {
-            throw new Exception("No config cache in adapter?!");
+            throw new EoException("No config cache in adapter?!");
         }
         EOConfigs config = configsCache.getConfig(filterConfigClass);
         if (config == null) {
-            throw new Exception("No config found for " + filterConfigClass.getSimpleName() + "in adapter?!");
+            throw new EoException("No config found for " + filterConfigClass.getSimpleName() + "in adapter?!");
         }
         EO childAdapter = adapter;
         if (hasPath()) {

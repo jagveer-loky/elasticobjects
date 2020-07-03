@@ -20,7 +20,7 @@ public class EOPathMap_value_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPathMap_value_Test.class);
 
     @Test
-    public void givenString_withString_fails() throws Exception {
+    public void givenString_withString_fails()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .mapEO_fails(eoString, F_TEST_STRING, S_STRING_OTHER);
@@ -28,7 +28,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenMapString_withString_ok() throws Exception {
+    public void givenMapString_withString_ok()  {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         EOTest
                 .mapEO_ok(eoMapString, F_TEST_STRING, S_STRING_OTHER);
@@ -37,7 +37,7 @@ public class EOPathMap_value_Test extends TestHelper {
 
 
     @Test
-    public void givenMapEmpty_withString_ok() throws Exception {
+    public void givenMapEmpty_withString_ok()  {
         final EO eoMapString = DevObjectProvider.createEOMapEmpty();
         EOTest
                 .mapEO_ok(eoMapString, F_TEST_STRING, S_STRING_OTHER);
@@ -45,7 +45,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenMapString_withInteger_ok() throws Exception {
+    public void givenMapString_withInteger_ok()  {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         EOTest
                 .mapEO_ok(eoMapString, F_TEST_STRING, S_INTEGER);
@@ -53,7 +53,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenMapMapEmpty_withMapString_ok() throws Exception {
+    public void givenMapMapEmpty_withMapString_ok()  {
         final EO eoMapString = MapProviderEO.createEmpty();
         final EO child = EOTest
                 .mapEO_ok(eoMapString, F_UNTYPED_MAP, MapProvider.createString(), LinkedHashMap.class);
@@ -62,14 +62,14 @@ public class EOPathMap_value_Test extends TestHelper {
 
 
     @Test
-    public void givenMapString_withLinkedHashMap_fails() throws Exception {
+    public void givenMapString_withLinkedHashMap_fails()  {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         EOTest
                 .mapEO_fails(eoMapString, F_TEST_STRING, new LinkedHashMap());
     }
 
     @Test
-    public void givenMapSTEmpty_withST_ok() throws Exception {
+    public void givenMapSTEmpty_withST_ok()  {
         final EO eoMapEmpty = MapProviderEO.createEmpty();
         final EO child = EOTest
                 .mapEO_ok(eoMapEmpty, F_SUB_TEST, STProvider.createString());
@@ -78,14 +78,14 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenMapEmpty_withJsonMap_ok() throws Exception {
+    public void givenMapEmpty_withJsonMap_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         EOTest
                 .mapEO_fails(eoBTEmpty, F_SUB_TEST_MAP, BTProvider.createString(), BasicTest.class);
     }
 
     @Test
-    public void givenMapEmpty_withSTAndLongerPath() throws Exception {
+    public void givenMapEmpty_withSTAndLongerPath()  {
         final EO eoMapEmpty = TestEOProvider.createEmptyMap();
         final String path = toPath(F_TEST_OBJECT, F_SUB_TEST);
         final EO child = eoMapEmpty
@@ -99,7 +99,7 @@ public class EOPathMap_value_Test extends TestHelper {
 
 
     @Test
-    public void givenMapEmpty_withMapPathAlreadyUsedByScalarTypeValue() throws Exception {
+    public void givenMapEmpty_withMapPathAlreadyUsedByScalarTypeValue()  {
         final EO eoMap = TestEOProvider.createEmptyMap();
         eoMap.add(S_LEVEL0)
                 .map(MapProvider.createSmall());
@@ -115,7 +115,7 @@ public class EOPathMap_value_Test extends TestHelper {
      * values will be added with the correct type to the path.
      */
     @Test
-    public void givenMapEmpty_withJsnSmallLevel0_ok() throws Exception {
+    public void givenMapEmpty_withJsnSmallLevel0_ok()  {
         final String jsnSmall = MapProviderJSON.readSmall();
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final EO child = eoEmpty.add()
@@ -131,7 +131,7 @@ public class EOPathMap_value_Test extends TestHelper {
      * values will be added with the correct type to the path.
      */
     @Test
-    public void givenMapEmpty_withJsonSmallLevel0_ok() throws Exception {
+    public void givenMapEmpty_withJsonSmallLevel0_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsonSmall = MapProviderJSON.readSmall();
 
@@ -148,7 +148,7 @@ public class EOPathMap_value_Test extends TestHelper {
      * values will be added with the correct type to the path.
      */
     @Test
-    public void givenMapEmpty_withJsnSmallPath2_ok() throws Exception {
+    public void givenMapEmpty_withJsnSmallPath2_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsnSmall = MapProviderJSN.readSmall();
 
@@ -165,7 +165,7 @@ public class EOPathMap_value_Test extends TestHelper {
      * values will be added with the correct type to the path.
      */
     @Test
-    public void givenMapEmpty_withJsonSmallPath2_ok() throws Exception {
+    public void givenMapEmpty_withJsonSmallPath2_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsonSmall = MapProviderJSON.readSmall();
 
@@ -184,7 +184,7 @@ public class EOPathMap_value_Test extends TestHelper {
      * values will be added with the correct type to the path.
      */
     @Test
-    public void givenMapEmpty_withJsnAllPath2_ok() throws Exception {
+    public void givenMapEmpty_withJsnAllPath2_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsnAll = MapProviderJSN.readAll();
 
@@ -201,7 +201,7 @@ public class EOPathMap_value_Test extends TestHelper {
      * values will be added with the correct type to the path.
      */
     @Test
-    public void givenMapEmpty_withJsonAllPath2_ok() throws Exception {
+    public void givenMapEmpty_withJsonAllPath2_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsonAll = MapProviderJSON.readAll();
 
@@ -214,7 +214,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenListEmpty_withBoolean_ok() throws Exception {
+    public void givenListEmpty_withBoolean_ok()  {
         final EO root = DevObjectProvider.createEO(List.class);
         root
                 .add("test")
@@ -226,7 +226,7 @@ public class EOPathMap_value_Test extends TestHelper {
 
 
     @Test
-    public void givenBTString_WithString_ok() throws Exception {
+    public void givenBTString_WithString_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoBTString.get(F_TEST_STRING));
         EOTest
@@ -235,7 +235,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTString_WithIntegerAtStringField_ok() throws Exception {
+    public void givenBTString_WithIntegerAtStringField_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoBTString.get(F_TEST_STRING));
         EOTest
@@ -244,7 +244,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTEmpty_WithIntegerAtStringField_ok() throws Exception {
+    public void givenBTEmpty_WithIntegerAtStringField_ok()  {
         final EO eoBTString = BTProviderEO.createEmpty();
         Assert.assertNull(INFO_NULL_FAILS, eoBTString.get(F_TEST_STRING));
         EOTest
@@ -253,7 +253,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTEmpty_WithInteger_ok() throws Exception {
+    public void givenBTEmpty_WithInteger_ok()  {
         final EO eoBTString = BTProviderEO.createEmpty();
         EOTest
                 .mapEO_ok(eoBTString, F_TEST_INTEGER, S_INTEGER);
@@ -261,14 +261,14 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTString_WithMap_fails() throws Exception {
+    public void givenBTString_WithMap_fails()  {
         final EO eoString = BTProviderEO.createString();
         EOTest
                 .mapEO_fails(eoString, F_TEST_STRING, new LinkedHashMap());
     }
 
     @Test
-    public void givenBTEmpty_withUnknownFieldKey_fails() throws Exception {
+    public void givenBTEmpty_withUnknownFieldKey_fails()  {
         final EO eoBTEmpty = TestEOProvider.createEOFromJson(BasicTest.class);
         eoBTEmpty.add(SAMPLE_KEY_UNKNOW)
                 .set(S_INTEGER);
@@ -277,7 +277,7 @@ public class EOPathMap_value_Test extends TestHelper {
 
 
     @Test
-    public void givenBTDateEmpty_WithDate_ok() throws Exception {
+    public void givenBTDateEmpty_WithDate_ok()  {
         final EO eoBTString = BTProviderEO.createEmpty();
         EOTest
                 .mapEO_ok(eoBTString, F_TEST_DATE, SAMPLE_DATE);
@@ -285,14 +285,14 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTUntypedMap_WithHashMap_ok() throws Exception {
+    public void givenBTUntypedMap_WithHashMap_ok()  {
         final EO eoString = BTProviderEO.createMap();
         EOTest
                 .mapEO_ok(eoString, F_UNTYPED_MAP, new LinkedHashMap());
     }
 
     @Test
-    public void givenBTST_withSTString_ok() throws Exception {
+    public void givenBTST_withSTString_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final EO child = EOTest
                 .mapEO_ok(eoBTEmpty, F_SUB_TEST, STProvider.createString(), SubTest.class);
@@ -301,7 +301,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTST_withMapString_ok() throws Exception {
+    public void givenBTST_withMapString_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final EO child = EOTest
                 .mapEO_ok(eoBTEmpty, F_SUB_TEST, MapProvider.createString(), SubTest.class);
@@ -310,7 +310,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTST_withBTString_ok() throws Exception {
+    public void givenBTST_withBTString_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final EO child = EOTest
                 .mapEO_ok(eoBTEmpty, F_SUB_TEST, BTProvider.createString(), SubTest.class);
@@ -319,7 +319,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTST_withJSONString_ok() throws Exception {
+    public void givenBTST_withJSONString_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final String json = MapProviderJSON.toJSONMap(F_TEST_STRING, S_STRING);
         final EO child = EOTest
@@ -329,7 +329,7 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTST_withJSONUnknown_fails() throws Exception {
+    public void givenBTST_withJSONUnknown_fails()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final String jsonUnknown = MapProviderJSON.toJSONMap(SAMPLE_KEY_UNKNOW, S_STRING);
         EOTest
@@ -337,14 +337,14 @@ public class EOPathMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTMapST_withBTString_fails() throws Exception {
+    public void givenBTMapST_withBTString_fails()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         EOTest
                 .mapEO_fails(eoBTEmpty, F_SUB_TEST_MAP, BTProvider.createString(), BasicTest.class);
     }
 
     @Test
-    public void givenBTMapST_withJSONMap_fails() throws Exception {
+    public void givenBTMapST_withJSONMap_fails()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final String json = MapProviderJSON.toJSONMap(S_TEST_STRING, S_STRING);
         EOTest

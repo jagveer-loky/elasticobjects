@@ -14,14 +14,14 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
 public class EOToJSONBTTest extends TestHelper {
 
     @Test
-    public void mapDefault() throws Exception {
+    public void mapDefault()  {
         EO adapter = BTProviderEO.create();
         String serialized = new EOToJSON().toJSON(adapter);
         AssertEO.compare(serialized);
     }
 
     @Test
-    public void withIndent0() throws Exception {
+    public void withIndent0()  {
         EO adapter = BTProviderEO.create();
         String stringified = new EOToJSON()
                 .setStartIndent(0)
@@ -30,7 +30,7 @@ public class EOToJSONBTTest extends TestHelper {
     }
 
     @Test
-    public void withIndent1() throws Exception {
+    public void withIndent1()  {
         EO adapter = BTProviderEO.create();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
@@ -39,7 +39,7 @@ public class EOToJSONBTTest extends TestHelper {
     }
 
     @Test
-    public void withIndent2() throws Exception {
+    public void withIndent2()  {
         EO adapter = BTProviderEO.create();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
@@ -48,7 +48,7 @@ public class EOToJSONBTTest extends TestHelper {
     }
 
     @Test
-    public void withSTANDARD() throws Exception {
+    public void withSTANDARD()  {
         EO adapter = BTProviderEO.create();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
@@ -59,32 +59,32 @@ public class EOToJSONBTTest extends TestHelper {
 
 
     @Test
-    public void withEO() throws Exception {
+    public void withEO()  {
         BTProviderEO.create();
     }
 
     @Test
-    public void withString() throws Exception {
+    public void withString()  {
         BTProviderEO.createString();
     }
 
     @Test
-    public void withInteger() throws Exception {
+    public void withInteger()  {
         BTProviderEO.createInteger();
     }
 
     @Test
-    public void withLong() throws Exception {
+    public void withLong()  {
         BTProviderEO.createLong();
     }
 
     @Test
-    public void withFloat() throws Exception {
+    public void withFloat()  {
         BTProviderEO.createFloat();
     }
 
     @Test
-    public void withFloatStandard() throws Exception {
+    public void withFloatStandard()  {
         EO adapter = BTProviderEO.createFloat();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
@@ -96,68 +96,68 @@ public class EOToJSONBTTest extends TestHelper {
     }
 
     @Test
-    public void withDouble() throws Exception {
+    public void withDouble()  {
         BTProviderEO.createDouble();
     }
 
     @Test
-    public void withDate() throws Exception {
+    public void withDate()  {
         BTProviderEO.createDate();
     }
 
     @Test
-    public void withBoolean() throws Exception {
+    public void withBoolean()  {
         BTProviderEO.createBoolean();
     }
 
     @Test
-    public void withMap() throws Exception {
+    public void withMap()  {
         BTProviderEO.createMap();
     }
 
     @Test
-    public void withList() throws Exception {
+    public void withList()  {
         BTProviderEO.createList();
     }
 
     @Test
-    public void withBasicTest() throws Exception {
+    public void withBasicTest()  {
         BTProviderEO.createBT();
     }
 
     @Test
-    public void withSubTest() throws Exception {
+    public void withSubTest()  {
         BTProviderEO.createST();
     }
 
     @Test
-    public void withSubTestMap() throws Exception {
+    public void withSubTestMap()  {
         BTProviderEO.createMapST();
     }
 
     @Test
-    public void withSubTestList() throws Exception {
+    public void withSubTestList()  {
         BTProviderEO.createListST();
     }
 
     @Test
-    public void withSmall() throws Exception {
+    public void withSmall()  {
         BTProviderEO.createSmall();
     }
 
     @Test
-    public void withSimple() throws Exception {
+    public void withSimple()  {
         BTProviderEO.createSimple();
     }
 
     @Test
-    public void withAll() throws Exception {
+    public void withAll()  {
         BTProviderEO.create();
     }
 
 
     @Test
-    public void withSubTestMapAndSerializationTypePARAMS() throws Exception {
+    public void withSubTestMapAndSerializationTypePARAMS()  {
         EO adapter = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createMapST());
@@ -169,7 +169,7 @@ public class EOToJSONBTTest extends TestHelper {
     }
 
     @Test
-    public void withIndentAndSerializationTypeSCALAR_TYPES() throws Exception {
+    public void withIndentAndSerializationTypeSCALAR_TYPES()  {
         EO adapter = BTProviderEO.create();
         String stringified = new EOToJSON()
                 .setStartIndent(2)

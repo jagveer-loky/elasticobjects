@@ -19,14 +19,14 @@ public class ModelsEmptyTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsEmptyTest.class);
 
     @Test
-    public void basic() throws Exception {
+    public void basic()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertFalse(INFO_CONDITION_FALSE_FAILS, models.hasModel());
     }
 
     @Test
-    public void childString() throws Exception {
+    public void childString()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS);
         final Models childModels = models.createChildForSet(SAMPLE_KEY_UNKNOW, S_STRING);
         Assert.assertEquals(String.class, childModels.getModelClass());
@@ -34,7 +34,7 @@ public class ModelsEmptyTest extends TestHelper {
     }
 
     @Test
-    public void childNull() throws Exception {
+    public void childNull()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS);
         final Models childModels = models.createChildForSet(SAMPLE_KEY_UNKNOW, null);
         Assert.assertEquals(Map.class, childModels.getModelClass());
@@ -42,7 +42,7 @@ public class ModelsEmptyTest extends TestHelper {
     }
 
     @Test
-    public void childNullWithNameNull() throws Exception {
+    public void childNullWithNameNull()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS);
         try {
             final Models childModels = models.createChildForSet(null, null);
@@ -53,7 +53,7 @@ public class ModelsEmptyTest extends TestHelper {
     }
 
     @Test
-    public void childArrayList() throws Exception {
+    public void childArrayList()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS);
         final Models childModels = models.createChildForSet(SAMPLE_KEY_UNKNOW, new ArrayList());
         Assert.assertEquals(ArrayList.class, childModels.getModelClass());

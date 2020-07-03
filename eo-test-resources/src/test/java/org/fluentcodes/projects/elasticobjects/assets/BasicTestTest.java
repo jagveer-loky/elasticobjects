@@ -19,7 +19,7 @@ public class BasicTestTest {
     }
 
     @Test
-    public void readDataFile() throws Exception {
+    public void readDataFile()  {
         /* TODOList list = JacksonHelperObsolete.readListFromDataClassPath(BasicTest.class);
         Assert.assertNotNull(list);
         Assert.assertTrue(list.size()>0);*/
@@ -28,7 +28,7 @@ public class BasicTestTest {
 
 
     @Test
-    public void readBasicTestSimple() throws Exception {
+    public void readBasicTestSimple()  {
         /* TODOList<Object> map = JacksonHelperObsolete.readListFromUrl("BasicTestSimple.json", BasicTest.class);
         Assert.assertNotNull(map);
         Assert.assertTrue(map.size()==3);

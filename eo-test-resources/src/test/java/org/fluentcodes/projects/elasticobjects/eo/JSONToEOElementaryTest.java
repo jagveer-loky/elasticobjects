@@ -25,19 +25,19 @@ public class JSONToEOElementaryTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(JSONToEOElementaryTest.class);
 
     @Test
-    public void test() throws Exception {
+    public void test()  {
         EO eoStringMap = TestObjectProvider.createEOFromJson(MapProviderJSON.toJSONMap(S1, S_STRING, S2, S_STRING_OTHER));
         Assert.assertEquals(S_STRING, eoStringMap.get(S1));
     }
 
     @Test
-    public void testNewLineAsPartOfAStringValue() throws Exception {
+    public void testNewLineAsPartOfAStringValue()  {
         EO eoWithNewLine = TestObjectProvider.createEOFromJson("{\"1\":\"a\\n\"}");
         Assert.assertEquals("a\n", eoWithNewLine.get(S1));
     }
 
     @Test
-    public void testArray() throws Exception {
+    public void testArray()  {
         String test = "[\"a\"]";
         JSONToEO tokener = new JSONToEO(test, TestEOProvider.EO_CONFIGS);
         EO adapter = tokener.createChild(TestEOProvider.createEmptyMap());
@@ -46,7 +46,7 @@ public class JSONToEOElementaryTest extends TestHelper {
 
 
     @Test
-    public void testNewLineEscapedArray() throws Exception {
+    public void testNewLineEscapedArray()  {
         String test = "[\"\\n\"]";
         JSONToEO tokener = new JSONToEO(test, TestEOProvider.EO_CONFIGS);
         EO adapter = tokener.createChild(TestEOProvider.createEmptyMap());
@@ -64,7 +64,7 @@ public class JSONToEOElementaryTest extends TestHelper {
     }
 
     @Test
-    public void testCombinationsOfEscapes() throws Exception {
+    public void testCombinationsOfEscapes()  {
         EO adapter = TestObjectProvider.createEOFromJson("[\"\\t\\r\"]");
         Assert.assertEquals("\t\r", adapter.get(S0));
     }
@@ -126,7 +126,7 @@ public class JSONToEOElementaryTest extends TestHelper {
     }
 
     @Test
-    public void stringNotQuoted_setValue() throws Exception {
+    public void stringNotQuoted_setValue()  {
         EO adapter = TestObjectProvider.createEOFromJson("{\"string\":test}");
         Assert.assertEquals(S_STRING, adapter.get(S_TEST_STRING));
         Assert.assertEquals(S_STRING, ((Map) adapter.get()).get(S_TEST_STRING));

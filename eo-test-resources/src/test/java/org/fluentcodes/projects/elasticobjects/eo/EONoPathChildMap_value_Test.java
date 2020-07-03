@@ -17,7 +17,7 @@ public class EONoPathChildMap_value_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathChildMap_value_Test.class);
 
     @Test
-    public void givenMapString_withInteger_ok() throws Exception {
+    public void givenMapString_withInteger_ok()  {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         final EO child = eoMapString.getChild(F_TEST_STRING);
         EOTest
@@ -26,7 +26,7 @@ public class EONoPathChildMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenMapString_withMap_fails() throws Exception {
+    public void givenMapString_withMap_fails()  {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         final EO child = eoMapString.getChild(F_TEST_STRING);
         EOTest
@@ -34,7 +34,7 @@ public class EONoPathChildMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTString_withMap_fails() throws Exception {
+    public void givenBTString_withMap_fails()  {
         final EO eoBTString = BTProviderEO.createString();
         final EO child = eoBTString.getChild(F_TEST_STRING);
         EOTest
@@ -43,7 +43,7 @@ public class EONoPathChildMap_value_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTString_withInteger_ok() throws Exception {
+    public void givenBTString_withInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         final EO child = eoBTString.getChild(F_TEST_STRING);
         EOTest

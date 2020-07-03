@@ -5,173 +5,173 @@ import org.junit.Test;
 public class BTProviderJSNTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         BTProviderJSN.createEmpty();
     }
 
     @Test
-    public void compareEmpty() throws Exception {
+    public void compareEmpty()  {
         BTProviderJSN.compareEmpty();
     }
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         BTProviderJSN.createString();
     }
 
     @Test
-    public void compareString() throws Exception {
+    public void compareString()  {
         BTProviderJSN.compareString();
     }
 
     @Test
-    public void createInteger() throws Exception {
+    public void createInteger()  {
         BTProviderJSN.createInteger();
     }
 
     @Test
-    public void compareInteger() throws Exception {
+    public void compareInteger()  {
         BTProviderJSN.compareInteger();
     }
 
     @Test
-    public void createLong() throws Exception {
+    public void createLong()  {
         BTProviderJSN.createLong();
     }
 
     @Test
-    public void compareLong() throws Exception {
+    public void compareLong()  {
         BTProviderJSN.compareLong();
     }
 
     @Test
-    public void createFloat() throws Exception {
+    public void createFloat()  {
         BTProviderJSN.createFloat();
     }
 
     @Test
-    public void compareFloat() throws Exception {
+    public void compareFloat()  {
         BTProviderJSN.compareFloat();
     }
 
     @Test
-    public void createDouble() throws Exception {
+    public void createDouble()  {
         BTProviderJSN.createDouble();
     }
 
     @Test
-    public void compareDouble() throws Exception {
+    public void compareDouble()  {
         BTProviderJSN.compareDouble();
     }
 
     @Test
-    public void createDate() throws Exception {
+    public void createDate()  {
         BTProviderJSN.createDate();
     }
 
     @Test
-    public void compareDate() throws Exception {
+    public void compareDate()  {
         BTProviderJSN.compareDate();
     }
 
     @Test
-    public void createBoolean() throws Exception {
+    public void createBoolean()  {
         BTProviderJSN.createBoolean();
     }
 
     @Test
-    public void compareBoolean() throws Exception {
+    public void compareBoolean()  {
         BTProviderJSN.compareBoolean();
     }
 
     @Test
-    public void createMap() throws Exception {
+    public void createMap()  {
         BTProviderJSN.createMap();
     }
 
     @Test
-    public void compareMap() throws Exception {
+    public void compareMap()  {
         BTProviderJSN.compareMap();
     }
 
     @Test
-    public void createList() throws Exception {
+    public void createList()  {
         BTProviderJSN.createList();
     }
 
     @Test
-    public void compareList() throws Exception {
+    public void compareList()  {
         BTProviderJSN.compareList();
     }
 
     @Test
-    public void createBT() throws Exception {
+    public void createBT()  {
         BTProviderJSN.createBT();
     }
 
     @Test
-    public void compareBT() throws Exception {
+    public void compareBT()  {
         BTProviderJSN.compareBT();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         BTProviderJSN.createST();
     }
 
     @Test
-    public void compareST() throws Exception {
+    public void compareST()  {
         BTProviderJSN.compareST();
     }
 
     @Test
-    public void createEOMapST() throws Exception {
+    public void createEOMapST()  {
         BTProviderJSN.createMapST();
     }
 
     @Test
-    public void compareEOMapST() throws Exception {
+    public void compareEOMapST()  {
         BTProviderJSN.compareMapST();
     }
 
     @Test
-    public void createListST() throws Exception {
+    public void createListST()  {
         BTProviderJSN.createListST();
     }
 
     @Test
-    public void compareListST() throws Exception {
+    public void compareListST()  {
         BTProviderJSN.compareListST();
     }
 
     @Test
-    public void createSmall() throws Exception {
+    public void createSmall()  {
         BTProviderJSN.createSmall();
     }
 
     @Test
-    public void compareSmall() throws Exception {
+    public void compareSmall()  {
         BTProviderJSN.compareSmall();
     }
 
     @Test
-    public void createEOSimple() throws Exception {
+    public void createEOSimple()  {
         BTProviderJSN.createSimple();
     }
 
     @Test
-    public void compareEOSimple() throws Exception {
+    public void compareEOSimple()  {
         BTProviderJSN.compareSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         BTProviderJSN.create();
     }
 
 
     @Test
-    public void compare() throws Exception {
+    public void compare()  {
         BTProviderJSN.compare();
     }
 }

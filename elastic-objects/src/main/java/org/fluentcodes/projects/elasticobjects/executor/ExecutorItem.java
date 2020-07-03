@@ -1,8 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,30 +21,34 @@ public class ExecutorItem {
     private String className;
     private String[] args;
 
-    public ExecutorItem(final Class executorClass, final String methodName, final String... args) throws Exception {
+    public ExecutorItem(final Class executorClass, final String methodName, final String... args)  {
         this.args = args;
         this.executorClass = executorClass;
-        this.method = executorClass.getMethod(methodName, TYPES.value.argClass);
+        try {
+            this.method = executorClass.getMethod(methodName, TYPES.value.argClass);
+        } catch (NoSuchMethodException e) {
+            throw new EoException(e);
+        }
         this.methodName = methodName;
         this.className = executorClass.getSimpleName();
     }
 
-    public ExecutorItem(String toParse, TYPES type) throws Exception {
+    public ExecutorItem(String toParse, TYPES type)  {
         if (toParse == null || toParse.isEmpty()) {
-            throw new Exception("No call attribute to initialize Executor item parser is defined");
+            throw new EoException("No call attribute to initialize Executor item parser is defined");
         }
         if (type == null) {
-            throw new Exception("No type defined for " + toParse);
+            throw new EoException("No type defined for " + toParse);
         }
         String[] keyArgs = toParse.split("\\(");
         if (keyArgs.length < 2) {
-            throw new Exception("No args defined: " + keyArgs[0]);
+            throw new EoException("No args defined: " + keyArgs[0]);
         }
 
         String[] executeParts = keyArgs[0].split("\\.");
 
         if (executeParts.length < 2) {
-            throw new Exception("No method defined: " + keyArgs[0]);
+            throw new EoException("No method defined: " + keyArgs[0]);
         }
         this.className = executeParts[0];
         this.methodName = executeParts[1];
@@ -56,7 +62,7 @@ public class ExecutorItem {
             String arg = args[i];
             if (arg.equals("'") || (arg.startsWith("'") && !arg.endsWith("'"))) {
                 if (i == args.length - 1) {
-                    throw new Exception("Argument not closed! " + arg);
+                    throw new EoException("Argument not closed! " + arg);
                 }
                 StringBuilder item = new StringBuilder(arg);
                 for (int k = i + 1; k < args.length; k++) {
@@ -79,7 +85,7 @@ public class ExecutorItem {
             executorClass = type.getClass(className);
             method = executorClass.getMethod(methodName, type.getArgClass());
         } catch (Exception e) {
-            throw new Exception("Problem setting reflection for " + toParse + ": " + e.getMessage());
+            throw new EoException("Problem setting reflection for " + toParse + ": " + e.getMessage());
         }
     }
 
@@ -91,14 +97,18 @@ public class ExecutorItem {
      *
      * @param input Array of objects
      * @return
-     * @throws Exception
+     * @
      */
 
-    public Object invoke(final Object[] input) throws Exception {
-        return this.method.invoke(null, new Object[]{input});
+    public Object invoke(final Object[] input)  {
+        try {
+            return this.method.invoke(null, new Object[]{input});
+        } catch (Exception e) {
+            throw new EoException(e);
+        }
     }
 
-    public Object invoke(final EO eo, Map attributes) throws Exception {
+    public Object invoke(final EO eo, Map attributes)  {
         List<Object> inputList = new ArrayList<>();
         for (String arg: args) {
             if (arg.equals("eo")|| arg.equals("adapter")) {
@@ -157,8 +167,12 @@ public class ExecutorItem {
             return argClass;
         }
 
-        protected Class getClass(String className) throws Exception {
-            return Class.forName(classPath + "." + className);
+        protected Class getClass(String className)  {
+            try {
+                return Class.forName(classPath + "." + className);
+            } catch (ClassNotFoundException e) {
+                throw new EoException(e);
+            }
         }
 
     }

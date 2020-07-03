@@ -31,20 +31,20 @@ public class ExecutorValues extends ExecutorImpl implements Executor {
      * Creates an actions depending on the values add.
      * https://stackoverflow.com/questions/2467544/invoking-a-static-method-using-reflection
      *
-     * @throws Exception on Exception
+     * @ on Exception
      */
     private List values;
     private String mapPath;
 
-    public ExecutorValues(Map attributes) throws Exception {
+    public ExecutorValues(Map attributes)  {
         super(attributes, ExecutorItem.TYPES.value);
     }
 
-    public ExecutorValues(final Object... values) throws Exception {
+    public ExecutorValues(final Object... values)  {
         super(EO_STATIC.toMap(values), ExecutorItem.TYPES.value);
     }
 
-    public ExecutorValues(final Class valueClass, final String method, final String... args) throws Exception {
+    public ExecutorValues(final Class valueClass, final String method, final String... args)  {
         super(valueClass, method, args);
         values = new ArrayList();
         for (int i=0; i<args.length;i++) {
@@ -52,7 +52,7 @@ public class ExecutorValues extends ExecutorImpl implements Executor {
         }
     }
 
-    public void mapAttributes(Map attributes) throws Exception {
+    public void mapAttributes(Map attributes)  {
         super.mapAttributes(attributes);
         setMapPath(attributes.get(EO_STATIC.F_MAP_PATH));
         this.initValues(attributes);

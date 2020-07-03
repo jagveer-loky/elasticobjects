@@ -20,7 +20,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsMapElementaryTest.class);
 
     @Test
-    public void withMap() throws Exception {
+    public void withMap()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertTrue(models.hasModel());
@@ -29,14 +29,14 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void withMapList() throws Exception {
+    public void withMapList()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class, List.class);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertEquals(List.class, models.getChildModelClass());
     }
 
     @Test
-    public void withMapObject() throws Exception {
+    public void withMapObject()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class, Object.class);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertEquals(Object.class, models.getChildModelClass());
@@ -47,7 +47,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void withMapListMapList() throws Exception {
+    public void withMapListMapList()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class, List.class, Map.class, List.class);
         Assert.assertEquals(4, models.size());
         Assert.assertTrue(models.hasModel());
@@ -56,7 +56,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void withMapStringValue() throws Exception {
+    public void withMapStringValue()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         final Models childModels = models.createChildForSet(F_TEST_STRING, S_STRING);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
@@ -64,7 +64,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void childMapStringValueAndStringClass() throws Exception {
+    public void childMapStringValueAndStringClass()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[]{String.class});
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
@@ -72,7 +72,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void childMapStringValueAndEmptyClass() throws Exception {
+    public void childMapStringValueAndEmptyClass()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[]{});
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
@@ -80,7 +80,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void childMapStringValueAndNullClass() throws Exception {
+    public void childMapStringValueAndNullClass()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
@@ -88,7 +88,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void childMapStringValueAndMapClass() throws Exception {
+    public void childMapStringValueAndMapClass()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         try {
             final Models childModels = models.createChildForMap(F_TEST_STRING, S_STRING, new Class[]{Map.class});
@@ -99,7 +99,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void childMapBTValueAndMapClass() throws Exception {
+    public void childMapBTValueAndMapClass()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         final Models childModels = models.createChildForMap(F_UNTYPED_MAP, new BasicTest(), new Class[]{Map.class});
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, childModels);
@@ -107,7 +107,7 @@ public class ModelsMapElementaryTest extends TestHelper {
     }
 
     @Test
-    public void childMapBTValueAndBTClass() throws Exception {
+    public void childMapBTValueAndBTClass()  {
         final Models parentModels = new Models(TestEOProvider.EO_CONFIGS, Map.class);
         final Models childModels = parentModels
                 .createChildForMap(F_BASIC_TEST, new BasicTest(), new Class[]{BasicTest.class});

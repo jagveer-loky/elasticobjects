@@ -158,7 +158,7 @@ public class MapProvider {
         return map;
     }
 
-    public static Map createBig(int length) throws Exception {
+    public static Map createBig(int length)  {
         final Map bigMap = new HashMap();
         for (int i = 0; i < length; i++) {
             bigMap.put("key" + i, i);

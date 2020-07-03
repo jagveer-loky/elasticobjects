@@ -59,7 +59,7 @@ public class ConfigConfig extends ConfigImpl {
         private String filterKey;
         private String filterConfigName;
 
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
             this.configKey = (String) configsCache.transform(F_CONFIG_KEY, values);
             this.filterModule = (String) configsCache.transform(F_FILTER_MODULE, values);
             this.filterSubModule = (String) configsCache.transform(F_FILTER_SUB_MODULE, values);
@@ -68,7 +68,7 @@ public class ConfigConfig extends ConfigImpl {
             super.prepare(configsCache, values);
         }
 
-        public ConfigConfig build(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        public ConfigConfig build(EOConfigsCache configsCache, Map<String, Object> values)  {
             prepare(configsCache, values);
             return new ConfigConfig(configsCache, this);
         }
