@@ -19,7 +19,7 @@ public class EOKeysTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
     @Test
-    public void keyPath() throws Exception {
+    public void keyPath()  {
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_KEY0);
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(S_LEVEL3)

@@ -17,7 +17,7 @@ public class ValuesEOExecutorTest extends TestHelper {
 
 
     @Test
-    public void getConfigurationKeys_withoutParameters() throws Exception {
+    public void getConfigurationKeys_withoutParameters()  {
         EO root = ExecutorProvider.execute(
                 ValuesEO.createGetConfigurationKeys()
         );
@@ -25,7 +25,7 @@ public class ValuesEOExecutorTest extends TestHelper {
     }
 
     @Test
-    public void getConfigurationKeys_withModelConfig() throws Exception {
+    public void getConfigurationKeys_withModelConfig()  {
         EO root = ExecutorProvider.execute(
                 ValuesEO.createGetConfigurationKeys(M_MODEL_CONFIG)
         );
@@ -33,7 +33,7 @@ public class ValuesEOExecutorTest extends TestHelper {
     }
 
     @Test
-    public void getConfigurationKeys_withModelConfig_andMap() throws Exception {
+    public void getConfigurationKeys_withModelConfig_andMap()  {
         EO root = ExecutorProvider.execute(
                 ValuesEO.createGetConfigurationKeys(M_MODEL_CONFIG, ".*Map")
         );
@@ -41,7 +41,7 @@ public class ValuesEOExecutorTest extends TestHelper {
     }
 
     @Test
-    public void getConfigurationList_withModelConfig_andMap() throws Exception {
+    public void getConfigurationList_withModelConfig_andMap()  {
         final EO root = ExecutorProvider.execute(
                 ValuesEO.createGetConfigurationList(M_MODEL_CONFIG, ".*Map")
         );
@@ -49,7 +49,7 @@ public class ValuesEOExecutorTest extends TestHelper {
     }
 
     @Test
-    public void getConfiguration_withModelConfig_andMap() throws Exception {
+    public void getConfiguration_withModelConfig_andMap()  {
         final EO eo = ExecutorProvider.execute(
                 ValuesEO.createCallGetConfiguration(M_MODEL_CONFIG, M_MAP)
         );
@@ -57,7 +57,7 @@ public class ValuesEOExecutorTest extends TestHelper {
     }
 
     @Test
-    public void getConfigurationKeys_withMapPath() throws Exception {
+    public void getConfigurationKeys_withMapPath()  {
         final EO eo = ExecutorProvider.execute(
                 ValuesEO.createGetConfigurationKeys(),
                 F_MAP_PATH, RESULT
@@ -66,7 +66,7 @@ public class ValuesEOExecutorTest extends TestHelper {
     }
 
     @Test
-    public void getConfigurationKeys_withMapPath_andFieldConfig() throws Exception {
+    public void getConfigurationKeys_withMapPath_andFieldConfig()  {
         final EO eo = ExecutorProvider.execute(
                 ValuesEO.createGetConfigurationKeys(M_FIELD_CONFIG),
                 F_MAP_PATH, RESULT
@@ -75,7 +75,7 @@ public class ValuesEOExecutorTest extends TestHelper {
     }
 
     @Test
-    public void getConfigurationKeysBy() throws Exception {
+    public void getConfigurationKeysBy()  {
         final EO eo = ExecutorProvider.execute(
                 ValuesEO.createGetConfigurationKeys(M_FIELD_CONFIG),
                 F_MAP_PATH, RESULT

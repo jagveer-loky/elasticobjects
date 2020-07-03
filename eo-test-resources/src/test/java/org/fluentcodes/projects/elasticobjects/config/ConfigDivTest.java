@@ -22,7 +22,7 @@ public class ConfigDivTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ConfigDivTest.class);
 
     @Test
-    public void testMap() throws Exception {
+    public void testMap()  {
         TestHelper.printStartMethod();
         ModelInterface mapModel = TestEOProvider.EO_CONFIGS.findModel(M_MAP);
         Assert.assertEquals(M_MAP, mapModel.getModelKey());
@@ -36,7 +36,7 @@ public class ConfigDivTest extends TestHelper {
     }
 
     @Test
-    public void testString() throws Exception {
+    public void testString()  {
         TestHelper.printStartMethod();
         ModelInterface scalarModel = TestEOProvider.EO_CONFIGS.findModel(M_STRING);
         Assert.assertEquals(M_STRING, scalarModel.getModelKey());

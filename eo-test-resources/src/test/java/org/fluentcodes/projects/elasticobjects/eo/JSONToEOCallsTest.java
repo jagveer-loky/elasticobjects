@@ -25,7 +25,7 @@ public class JSONToEOCallsTest extends TestHelper {
     private static final String SCS_CALL_SOURCE_JOINED = "ScsCallSourceJoined";
 
     @Test
-    public void scsCallSource() throws Exception {
+    public void scsCallSource()  {
         TestObjectProvider.createEOBoolean(); // just to load initial values
         final String scsCallSource = JSONInputReader.readTestInputJSN(SCS_CALL_SOURCE);
         EO eoScs = TestObjectProvider.createEOFromJson(scsCallSource);
@@ -37,7 +37,7 @@ public class JSONToEOCallsTest extends TestHelper {
     }
 
     @Test
-    public void scsCallSourcePath() throws Exception {
+    public void scsCallSourcePath()  {
         TestObjectProvider.createEOBoolean(); // just to load initial values
         final String scsCallSource = JSONInputReader.readTestInputJSN(SCS_CALL_SOURCE_PATH);
         EO eoScs = TestObjectProvider.createEOFromJson(scsCallSource);
@@ -49,7 +49,7 @@ public class JSONToEOCallsTest extends TestHelper {
     }
 
     @Test
-    public void scsCallSourceJoined() throws Exception {
+    public void scsCallSourceJoined()  {
         TestObjectProvider.createEOBoolean(); // just to load initial values
         final String scsCallSource = JSONInputReader.readTestInputJSN(SCS_CALL_SOURCE_JOINED);
         EO eoScs = TestObjectProvider.createEOFromJson(scsCallSource);

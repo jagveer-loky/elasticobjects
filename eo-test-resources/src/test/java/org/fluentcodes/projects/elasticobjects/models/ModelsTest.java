@@ -11,7 +11,7 @@ import org.junit.Test;
  */
 public class ModelsTest {
     @Test
-    public void checkModel() throws Exception {
+    public void checkModel()  {
         ModelInterface modelConfig = TestEOProvider.EO_CONFIGS.findModel(Model.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(Model.class, modelConfig.getModelClass());

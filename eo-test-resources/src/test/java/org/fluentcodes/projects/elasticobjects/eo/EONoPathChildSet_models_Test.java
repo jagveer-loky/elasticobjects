@@ -14,7 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EONoPathChildSet_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathChildSet_models_Test.class);
 
-    private void setEO_ok(final EO root, final Object value) throws Exception {
+    private void setEO_ok(final EO root, final Object value)  {
         final Class valueClass = value.getClass();
         root.add()
                 .set(value);
@@ -23,7 +23,7 @@ public class EONoPathChildSet_models_Test extends TestHelper {
         Assert.assertTrue(INFO_EMPTY_FAILS, root.getLog().isEmpty());
     }
 
-    private void setEO_fails(final EO root, final Object value) throws Exception {
+    private void setEO_fails(final EO root, final Object value)  {
         final Class valueClass = value.getClass();
         root.add()
                 .set(value);
@@ -31,7 +31,7 @@ public class EONoPathChildSet_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenStringWithInteger() throws Exception {
+    public void givenStringWithInteger()  {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .setPath(F_TEST_STRING)
@@ -41,7 +41,7 @@ public class EONoPathChildSet_models_Test extends TestHelper {
 
 
     @Test
-    public void givenStringWithMap() throws Exception {
+    public void givenStringWithMap()  {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .setPath(F_TEST_STRING)
@@ -50,7 +50,7 @@ public class EONoPathChildSet_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTWithBT() throws Exception {
+    public void givenBTWithBT()  {
         final EO eoBTString = TestEOProvider.createEOBuilder()
                 .setPath(F_BASIC_TEST)
                 .set(BTProvider.createString());
@@ -64,7 +64,7 @@ public class EONoPathChildSet_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTWithMap() throws Exception {
+    public void givenBTWithMap()  {
         final EO eoBTString = TestEOProvider.createEOBuilder()
                 .setPath(F_BASIC_TEST)
                 .set(BTProvider.createString());

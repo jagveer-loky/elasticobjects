@@ -9,7 +9,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class Jsn {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final EO eo = TestEOProvider.create();
 
         final String jsnString = "{\"(BasicTest)_data\":{\"testFloat\":1.1}";

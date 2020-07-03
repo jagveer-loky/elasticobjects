@@ -20,11 +20,11 @@ public class AssertEO {
         Assert.assertFalse("Log should not be empty! ", adapter.getLog().isEmpty());
     }
 
-    public static final void compare(EOConfigsCache configsCache, final Object object) throws Exception {
+    public static final void compare(EOConfigsCache configsCache, final Object object)  {
         AssertObject.compare(configsCache, object);
     }
 
-    public static final String compare(final EO adapter) throws Exception {
+    public static final String compare(final EO adapter)  {
         String serialized = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.EO)
@@ -34,7 +34,7 @@ public class AssertEO {
         return fileName;
     }
 
-    public static final void compare(final String fileName, final EO adapter) throws Exception {
+    public static final void compare(final String fileName, final EO adapter)  {
         String serialized = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.EO)
@@ -42,7 +42,7 @@ public class AssertEO {
         AssertString.compare(fileName, serialized);
     }
 
-    public static final String compareJSON(final EO adapter) throws Exception {
+    public static final String compareJSON(final EO adapter)  {
         String serialized = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.STANDARD)
@@ -52,7 +52,7 @@ public class AssertEO {
         return fileName;
     }
 
-    public static final void compareJSON(final String fileName, final EO adapter) throws Exception {
+    public static final void compareJSON(final String fileName, final EO adapter)  {
         String serialized = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.STANDARD)
@@ -60,7 +60,7 @@ public class AssertEO {
         AssertString.compare(fileName, serialized);
     }
 
-    public static final void compareJSN(final String fileName, final EO adapter) throws Exception {
+    public static final void compareJSN(final String fileName, final EO adapter)  {
         String serialized = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.EO)
@@ -69,7 +69,7 @@ public class AssertEO {
     }
 
 
-    public static final String compare(final String serializedObject) throws Exception {
+    public static final String compare(final String serializedObject)  {
         return AssertString.compare(serializedObject);
     }
 }

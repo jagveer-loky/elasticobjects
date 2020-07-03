@@ -346,17 +346,17 @@ public class EO_STATIC {
     public static final String CON_SEMICOLON = ";";
     public static final String CON_SPACE = " ";
 
-    public static final void addMap(Map map, Object... keyValues) throws Exception {
+    public static final void addMap(Map map, Object... keyValues)  {
         for (int i = 0; i < keyValues.length; i++) {
             if (i == keyValues.length - 1) {
-                throw new Exception("Uneven key value pairs at " + i);
+                throw new EoException("Uneven key value pairs at " + i);
             }
             map.put(keyValues[i], keyValues[i + 1]);
             i++;
         }
     }
 
-    public static final Map toMap(Object... keyValues) throws Exception {
+    public static final Map toMap(Object... keyValues)  {
         Map map = new LinkedHashMap();
         addMap(map, keyValues);
         return map;

@@ -19,7 +19,7 @@ public class XlsxCallWithinEOTest extends TestHelper {
 
 
     @Test
-    public void addFileXlsxReadAction() throws Exception {
+    public void addFileXlsxReadAction()  {
         EO adapter = TestEOProvider.createEmptyMap();
         adapter
                 .add(S_PATH1)

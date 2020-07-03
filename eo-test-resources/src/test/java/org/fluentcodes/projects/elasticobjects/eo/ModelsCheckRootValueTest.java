@@ -18,21 +18,21 @@ public class ModelsCheckRootValueTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsCheckRootValueTest.class);
 
     @Test
-    public void withString_withNullAndMap_keepString() throws Exception {
+    public void withString_withNullAndMap_keepString()  {
         final Models models = new Models(DevObjectProvider.EO_CONFIGS, String.class);
         models.checkRootValue(null, true);
         Assert.assertEquals(String.class, models.getModelClass());
     }
 
     @Test
-    public void withString_withIntegerAndMap_keepString() throws Exception {
+    public void withString_withIntegerAndMap_keepString()  {
         final Models models = new Models(DevObjectProvider.EO_CONFIGS, String.class);
         models.checkRootValue(S_INTEGER, true);
         Assert.assertEquals(String.class, models.getModelClass());
     }
 
     @Test
-    public void withMap_withIntegerAndMap_fails() throws Exception {
+    public void withMap_withIntegerAndMap_fails()  {
         final Models models = new Models(DevObjectProvider.EO_CONFIGS, Map.class);
         try {
             models.checkRootValue(S_INTEGER, true);
@@ -43,7 +43,7 @@ public class ModelsCheckRootValueTest extends TestHelper {
     }
 
     @Test
-    public void withMap_withIntegerAndSet_fails() throws Exception {
+    public void withMap_withIntegerAndSet_fails()  {
         final Models models = new Models(DevObjectProvider.EO_CONFIGS, Map.class);
         models.checkRootValue(S_INTEGER, false);
         Assert.assertEquals(Integer.class, models.getModelClass());

@@ -5,173 +5,173 @@ import org.junit.Test;
 public class MapProviderJSNTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         MapProviderJSN.createEmpty();
     }
 
     @Test
-    public void compareEmpty() throws Exception {
+    public void compareEmpty()  {
         MapProviderJSN.compareEmpty();
     }
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         MapProviderJSN.createString();
     }
 
     @Test
-    public void compareString() throws Exception {
+    public void compareString()  {
         MapProviderJSN.compareString();
     }
 
     @Test
-    public void createInteger() throws Exception {
+    public void createInteger()  {
         MapProviderJSN.createInteger();
     }
 
     @Test
-    public void compareInteger() throws Exception {
+    public void compareInteger()  {
         MapProviderJSN.compareInteger();
     }
 
     @Test
-    public void createLong() throws Exception {
+    public void createLong()  {
         MapProviderJSN.createLong();
     }
 
     @Test
-    public void compareLong() throws Exception {
+    public void compareLong()  {
         MapProviderJSN.compareLong();
     }
 
     @Test
-    public void createFloat() throws Exception {
+    public void createFloat()  {
         MapProviderJSN.createFloat();
     }
 
     @Test
-    public void compareFloat() throws Exception {
+    public void compareFloat()  {
         MapProviderJSN.compareFloat();
     }
 
     @Test
-    public void createDouble() throws Exception {
+    public void createDouble()  {
         MapProviderJSN.createDouble();
     }
 
     @Test
-    public void compareDouble() throws Exception {
+    public void compareDouble()  {
         MapProviderJSN.compareDouble();
     }
 
     @Test
-    public void createDate() throws Exception {
+    public void createDate()  {
         MapProviderJSN.createDate();
     }
 
     @Test
-    public void compareDate() throws Exception {
+    public void compareDate()  {
         MapProviderJSN.compareDate();
     }
 
     @Test
-    public void createBoolean() throws Exception {
+    public void createBoolean()  {
         MapProviderJSN.createBoolean();
     }
 
     @Test
-    public void compareBoolean() throws Exception {
+    public void compareBoolean()  {
         MapProviderJSN.compareBoolean();
     }
 
     @Test
-    public void createMap() throws Exception {
+    public void createMap()  {
         MapProviderJSN.createMap();
     }
 
     @Test
-    public void compareMap() throws Exception {
+    public void compareMap()  {
         MapProviderJSN.compareMap();
     }
 
     @Test
-    public void createList() throws Exception {
+    public void createList()  {
         MapProviderJSN.createList();
     }
 
     @Test
-    public void compareList() throws Exception {
+    public void compareList()  {
         MapProviderJSN.compareList();
     }
 
     @Test
-    public void createBT() throws Exception {
+    public void createBT()  {
         MapProviderJSN.createBT();
     }
 
     @Test
-    public void compareBT() throws Exception {
+    public void compareBT()  {
         MapProviderJSN.compareBT();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         MapProviderJSN.createST();
     }
 
     @Test
-    public void compareST() throws Exception {
+    public void compareST()  {
         MapProviderJSN.compareST();
     }
 
     @Test
-    public void createEOMapST() throws Exception {
+    public void createEOMapST()  {
         MapProviderJSN.createMapST();
     }
 
     @Test
-    public void compareEOMapST() throws Exception {
+    public void compareEOMapST()  {
         MapProviderJSN.compareMapST();
     }
 
     @Test
-    public void createListST() throws Exception {
+    public void createListST()  {
         MapProviderJSN.createListST();
     }
 
     @Test
-    public void compareListST() throws Exception {
+    public void compareListST()  {
         MapProviderJSN.compareListST();
     }
 
     @Test
-    public void createSmall() throws Exception {
+    public void createSmall()  {
         MapProviderJSN.createSmall();
     }
 
     @Test
-    public void compareSmall() throws Exception {
+    public void compareSmall()  {
         MapProviderJSN.compareSmall();
     }
 
     @Test
-    public void createEOSimple() throws Exception {
+    public void createEOSimple()  {
         MapProviderJSN.createSimple();
     }
 
     @Test
-    public void compareEOSimple() throws Exception {
+    public void compareEOSimple()  {
         MapProviderJSN.compareSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         MapProviderJSN.create();
     }
 
 
     @Test
-    public void compare() throws Exception {
+    public void compare()  {
         MapProviderJSN.compare();
     }
 }

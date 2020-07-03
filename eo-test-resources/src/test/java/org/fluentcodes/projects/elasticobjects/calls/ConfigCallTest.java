@@ -16,7 +16,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ConfigCallTest {
     @Test
-    public void fieldsDirect() throws Exception {
+    public void fieldsDirect()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final ConfigCall call = new ConfigCall();
         call.setFilterConfigName(M_FIELD_CONFIG);
@@ -28,7 +28,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void fields() throws Exception {
+    public void fields()  {
         final EO eoFields = TestCallsProvider.createConfigCallEO(FIELD);
         Assert.assertFalse(eoFields.isEmpty());
         Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getChild(FIELD).size(), eoFields.getChild(FIELD).size() > 100);
@@ -36,7 +36,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void models() throws Exception {
+    public void models()  {
         final EO eoModels = TestCallsProvider.createConfigCallEO(MODEL);
         Assert.assertFalse(eoModels.isEmpty());
         Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getChild(MODEL).size(), eoModels.getChild(MODEL).size() > 80);
@@ -44,7 +44,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void modelsWithModuleTestObjects() throws Exception {
+    public void modelsWithModuleTestObjects()  {
         final EO eoModels = TestCallsProvider.createConfigCallEO(MODEL, F_FILTER_MODULE, TEO_STATIC.MODULE_NAME);
         Assert.assertFalse(eoModels.isEmpty());
         Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getChild(MODEL).size(), eoModels.getChild(MODEL).size() == 2);
@@ -52,7 +52,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void modelsWithFilterKeyMap() throws Exception {
+    public void modelsWithFilterKeyMap()  {
         final EO eoModels = TestCallsProvider.createConfigCallEO(MODEL, F_FILTER_KEY, ".*Map");
         Assert.assertFalse(eoModels.isEmpty());
         Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getChild(MODEL).size(), eoModels.getChild(MODEL).size() == 4);
@@ -61,7 +61,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void fieldsWithPath() throws Exception {
+    public void fieldsWithPath()  {
         final EO eoFields = TestCallsProvider.createConfigCallEO(FIELD, F_PATH, F_PATH);
         Assert.assertFalse(eoFields.isEmpty());
         Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getChild(F_PATH).size(), eoFields.getChild(F_PATH).size() > 100);
@@ -69,7 +69,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void dynamic_withConfigAttributeFields() throws Exception {
+    public void dynamic_withConfigAttributeFields()  {
         final EO eoFields = TestCallsProvider.createConfigCallEO(GENERIC_CONFIG, A_CONFIG, FIELD);
         Assert.assertFalse(eoFields.isEmpty());
         Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getChild(FIELD).size(), eoFields.getChild(FIELD).size() > 100);

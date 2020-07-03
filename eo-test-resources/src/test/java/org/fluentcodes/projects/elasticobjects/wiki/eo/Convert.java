@@ -13,7 +13,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class Convert {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final EO eo = TestEOProvider.create();
 
         final Map map = new HashMap();

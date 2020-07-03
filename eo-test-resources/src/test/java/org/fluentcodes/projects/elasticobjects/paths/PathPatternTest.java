@@ -18,7 +18,7 @@ public class PathPatternTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(PathPatternTest.class);
 
 
-    public PathPattern createPathPatternExample() throws Exception {
+    public PathPattern createPathPatternExample()  {
         TestHelper.printStartMethod();
         PathPattern pattern = new PathPattern();
         String path1 = toPath(S_LEVEL0, S_LEVEL1);
@@ -33,7 +33,7 @@ public class PathPatternTest extends TestHelper {
     }
 
     @Test
-    public void compareSerialized() throws Exception {
+    public void compareSerialized()  {
         TestHelper.printStartMethod();
         final PathPattern pattern = new PathPattern();
         pattern.addPath(toPath(S_LEVEL0, S_LEVEL1));
@@ -42,7 +42,7 @@ public class PathPatternTest extends TestHelper {
     }
 
     @Test
-    public void getPathListTest() throws Exception {
+    public void getPathListTest()  {
         TestHelper.printStartMethod();
         final PathPattern pathPattern = createPathPatternExample();
         final PathPattern nextPath = pathPattern.getPathList(S_LEVEL0);
@@ -53,7 +53,7 @@ public class PathPatternTest extends TestHelper {
     }
 
     @Test
-    public void getFirstPathTest() throws Exception {
+    public void getFirstPathTest()  {
         TestHelper.printStartMethod();
         final PathPattern pattern = createPathPatternExample();
         final List<String> nextPath = pattern.getFirstPath();
@@ -63,7 +63,7 @@ public class PathPatternTest extends TestHelper {
     }
 
     @Test
-    public void getFirstPathFilteredTest() throws Exception {
+    public void getFirstPathFilteredTest()  {
         TestHelper.printStartMethod();
         final PathPattern pattern = createPathPatternExample();
         List<String> nextPath = pattern.filter(Arrays.asList(S_LEVEL0, S_PATH1, S_PATH2));

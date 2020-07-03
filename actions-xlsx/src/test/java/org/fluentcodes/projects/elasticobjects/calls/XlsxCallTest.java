@@ -21,7 +21,7 @@ public class XlsxCallTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(XlsxCallTest.class);
 
     @Test
-    public void readSourceDirect() throws Exception {
+    public void readSourceDirect()  {
         TestHelper.printStartMethod();
         XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, X_SOURCE_XLSX_TEST);
 
@@ -47,7 +47,7 @@ public class XlsxCallTest extends TestHelper {
     }
 
     @Test
-    public void readSourceOr() throws Exception {
+    public void readSourceOr()  {
         TestHelper.printStartMethod();
         XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, X_SOURCE_XLSX_TEST);
         action.setFilter(toEq(S0, S_VALUE21));
@@ -62,7 +62,7 @@ public class XlsxCallTest extends TestHelper {
     @Ignore
     //TODO Some errors occured if tmp file does not exist (Workbook create but sheet is null)
     @Test
-    public void writeDirect() throws Exception {
+    public void writeDirect()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createJsonArray());

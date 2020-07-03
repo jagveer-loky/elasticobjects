@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.FileConfig;
 import org.fluentcodes.projects.elasticobjects.config.HostConfig;
@@ -25,16 +26,16 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_FILE_PATH;
 public class FileCall extends HostCall {
     private String filePath;
 
-    public FileCall(EOConfigsCache eoConfigsCache, String fileKey) throws Exception {
+    public FileCall(EOConfigsCache eoConfigsCache, String fileKey)  {
         super(eoConfigsCache, fileKey);
     }
 
-    public FileConfig getFileConfig() throws Exception {
+    public FileConfig getFileConfig()  {
         return ((FileConfig) getConfig());
     }
 
     @Override
-    public HostConfig getHostConfig() throws Exception {
+    public HostConfig getHostConfig()  {
         return getFileConfig().getHostConfig();
     }
 
@@ -78,12 +79,17 @@ public class FileCall extends HostCall {
         return this.filePath != null && !filePath.isEmpty();
     }
 
-    public URL findUrl(String fileName) throws Exception {
-        Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(fileName.replaceAll("^/+", ""));
-        while (urls.hasMoreElements()) {
-            return urls.nextElement();
+    public URL findUrl(String fileName)  {
+        try {
+            Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(fileName.replaceAll("^/+", ""));
+            while (urls.hasMoreElements()) {
+                return urls.nextElement();
+            }
         }
-        throw new Exception("Could not find " + fileName.replaceAll("^/+", ""));
+        catch (Exception e) {
+            throw new EoException(e);
+        }
+        throw new EoException("Could not find " + fileName.replaceAll("^/+", ""));
     }
 
     public URL getUrl(EO adapter, Map attributes) {
@@ -104,29 +110,29 @@ public class FileCall extends HostCall {
 
     }
 
-    public String getUrlPath() throws Exception {
+    public String getUrlPath()  {
         return getFileConfig().getUrlPath();
     }
 
-    public URL getUrl() throws Exception {
+    public URL getUrl()  {
         return getFileConfig().getUrl();
     }
 
-    public File getFile() throws Exception {
+    public File getFile()  {
         return new File(getUrl().getFile());
     }
 
-    public boolean exists() throws Exception {
+    public boolean exists()  {
         return getFile().exists();
     }
 
-    public String write(final EO adapter) throws Exception {
+    public String write(final EO adapter)  {
         return write(adapter, new HashMap());
     }
 
-    public String write(final EO eo, final Map attributes) throws Exception {
+    public String write(final EO eo, final Map attributes)  {
         if (eo == null) {
-            throw new Exception("Write only works with a non null adapter!");
+            throw new EoException("Write only works with a non null adapter!");
         }
         mapAttributes(attributes);
         mergeConfig();
@@ -145,9 +151,9 @@ public class FileCall extends HostCall {
         return write(eo, attributes, content);
     }
 
-    public String write(final EO eo, final Map attributes, Object content) throws Exception {
+    public String write(final EO eo, final Map attributes, Object content)  {
         if (eo == null) {
-            throw new Exception("Write only works with a non null adapter!");
+            throw new EoException("Write only works with a non null adapter!");
         }
         if (content == null) {
             eo.error("No content defined for " + getFileConfig().getFileKey());
@@ -179,13 +185,13 @@ public class FileCall extends HostCall {
         return "";
     }
 
-    public String read(final EO eo) throws Exception {
+    public String read(final EO eo)  {
         return read(eo, new HashMap());
     }
 
-    public String read(final EO eo, final Map attributes) throws Exception {
+    public String read(final EO eo, final Map attributes)  {
         if (eo == null) {
-            throw new Exception("Read only works with a non null adapter!");
+            throw new EoException("Read only works with a non null adapter!");
         }
         if (eo.hasRoles()) {
             try {
@@ -217,7 +223,7 @@ public class FileCall extends HostCall {
         }
     }
 
-    public String read() throws Exception {
+    public String read()  {
         return getFileConfig().createIO().read();
     }
 
@@ -225,9 +231,9 @@ public class FileCall extends HostCall {
      * Write the file direct without the usage of
      *
      * @param content
-     * @throws Exception
+     * @
      */
-    public void write(final String content) throws Exception {
+    public void write(final String content)  {
         getFileConfig().createIO().write(content);
     }
 

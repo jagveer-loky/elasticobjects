@@ -23,7 +23,7 @@ public class JSONToEOMapTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(JSONToEOMapTest.class);
 
     @Test
-    public void test() throws Exception {
+    public void test()  {
         EO eoMap = DevObjectProvider
                 .createEOBuilder()
                 .map("{}");
@@ -31,20 +31,20 @@ public class JSONToEOMapTest extends TestHelper {
     }
 
     @Test
-    public void testFromFile() throws Exception {
+    public void testFromFile()  {
         EO eoMap = DevObjectProvider.createEOFromJsonMapKey(JSONInputReader.EMPTY);
         Assert.assertEquals(Map.class, eoMap.getModelClass());
     }
 
     @Test
-    public void testDouble() throws Exception {
+    public void testDouble()  {
         EO eoMap = DevObjectProvider.createEOFromJsonMapKey(JSONInputReader.DOUBLE);
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eoMap.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_DOUBLE, eoMap.get(F_TEST_DOUBLE));
     }
 
     @Test
-    public void testSmall() throws Exception {
+    public void testSmall()  {
         EO eoMap = DevObjectProvider.createEOFromJsonMapKey(JSONInputReader.SMALL);
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eoMap.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoMap.get(F_TEST_STRING));
@@ -52,7 +52,7 @@ public class JSONToEOMapTest extends TestHelper {
     }
 
     @Test
-    public void testAll() throws Exception {
+    public void testAll()  {
         EO eoMap = DevObjectProvider.createEOFromJsonMapKey(JSONInputReader.ALL);
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eoMap.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoMap.get(F_TEST_STRING));

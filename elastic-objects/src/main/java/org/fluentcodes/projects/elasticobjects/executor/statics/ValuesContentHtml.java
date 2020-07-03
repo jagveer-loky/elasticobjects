@@ -5,7 +5,7 @@ package org.fluentcodes.projects.elasticobjects.executor.statics;
  */
 public class ValuesContentHtml extends ValuesContent {
 
-    public static Object link(Object... values) throws Exception {
+    public static Object link(Object... values)  {
         String link = getString(0, values);
         String text = getStringWithDefault(1, link, values);
         return "<a href=\"" + link + "\">" + text + "</a> ";

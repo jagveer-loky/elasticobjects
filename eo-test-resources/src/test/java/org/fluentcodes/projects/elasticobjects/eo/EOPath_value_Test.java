@@ -18,41 +18,41 @@ public class EOPath_value_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPath_value_Test.class);
 
     @Test
-    public void givenMapStringLevel0_setMapStringLevel1_ok() throws Exception {
+    public void givenMapStringLevel0_setMapStringLevel1_ok()  {
         final EO eoMap = DevObjectProvider.createEOMapStringLevel0();
         final String path = toPath(S_LEVEL0, S_LEVEL1, F_TEST_STRING);
         EOTest.setEO_ok(eoMap, path, S_STRING_OTHER);
     }
 
     @Test
-    public void givenMapStringLevel1_setMapStringLevel0_ok() throws Exception {
+    public void givenMapStringLevel1_setMapStringLevel0_ok()  {
         final EO eoMap = DevObjectProvider.createEOMapStringLevel1();
         final String path = toPath(S_LEVEL0, F_TEST_STRING);
         EOTest.setEO_ok(eoMap, path, S_STRING_OTHER);
     }
 
     @Test
-    public void givenMapStringLevel1_setMapStringLevel0WithOverWrite_ok() throws Exception {
+    public void givenMapStringLevel1_setMapStringLevel0WithOverWrite_ok()  {
         final EO eoMap = DevObjectProvider.createEOMapStringLevel1();
         EOTest.setEO_ok(eoMap, S_LEVEL0, S_STRING_OTHER);
     }
 
     @Test
-    public void givenMapStringLevel0_mapMapStringLevel1_ok() throws Exception {
+    public void givenMapStringLevel0_mapMapStringLevel1_ok()  {
         final EO eoMap = DevObjectProvider.createEOMapStringLevel0();
         final String path = toPath(S_LEVEL0, S_LEVEL1, F_TEST_STRING);
         EOTest.mapEO_ok(eoMap, path, S_STRING_OTHER);
     }
 
     @Test
-    public void givenMapStringLevel1_mapMapStringLevel0_ok() throws Exception {
+    public void givenMapStringLevel1_mapMapStringLevel0_ok()  {
         final EO eoMap = DevObjectProvider.createEOMapStringLevel1();
         final String path = toPath(S_LEVEL0, F_TEST_STRING);
         EOTest.mapEO_ok(eoMap, path, S_STRING_OTHER);
     }
 
     @Test
-    public void givenMapStringLevel1_mapMapStringLevel0WithOverwrite_fails() throws Exception {
+    public void givenMapStringLevel1_mapMapStringLevel0WithOverwrite_fails()  {
         final EO eoMap = DevObjectProvider.createEOMapStringLevel1();
         EOTest.mapEO_fails(eoMap, S_LEVEL0, S_STRING_OTHER);
     }
@@ -62,7 +62,7 @@ public class EOPath_value_Test extends TestHelper {
     /**
      * Map will overwrite scalar values on the path.
      */
-    public void mapWithPathOverwrite_willWriteIntoTheLog() throws Exception {
+    public void mapWithPathOverwrite_willWriteIntoTheLog()  {
         final EO eoMap = MapProviderEO.create();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1);
         final String path2 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2);
@@ -77,10 +77,10 @@ public class EOPath_value_Test extends TestHelper {
     /**
      * Tests a scalar setting with some path specification including using existing childAdapters.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void mapWithPathsOverlapping() throws Exception {
+    public void mapWithPathsOverlapping()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3, S_TEST_STRING))
@@ -92,7 +92,7 @@ public class EOPath_value_Test extends TestHelper {
     }
 
     @Test
-    public void mapWithPathLong() throws Exception {
+    public void mapWithPathLong()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2))
@@ -103,10 +103,10 @@ public class EOPath_value_Test extends TestHelper {
     /**
      * Tests a scalar setting with some path with two entries.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void setWithPath2() throws Exception {
+    public void setWithPath2()  {
         TestHelper.printStartMethod();
         final String path = toPath(S_LEVEL0, S_LEVEL1);
         final EO childAdapter = TestEOProvider.createEOBuilder()
@@ -118,7 +118,7 @@ public class EOPath_value_Test extends TestHelper {
     }
 
     @Test
-    public void setWithPath3() throws Exception {
+    public void setWithPath3()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3))
@@ -128,7 +128,7 @@ public class EOPath_value_Test extends TestHelper {
 
 
     @Test
-    public void setWithPath4() throws Exception {
+    public void setWithPath4()  {
         TestHelper.printStartMethod();
         final String path = toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final EO childAdapter = TestEOProvider.createEOBuilder()
@@ -142,7 +142,7 @@ public class EOPath_value_Test extends TestHelper {
     }
 
     @Test
-    public void setWithTwoPathsDistinct() throws Exception {
+    public void setWithTwoPathsDistinct()  {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final String path2 = toPath(S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
@@ -163,7 +163,7 @@ public class EOPath_value_Test extends TestHelper {
     }
 
     @Test
-    public void setWithPathWithCommonPart() throws Exception {
+    public void setWithPathWithCommonPart()  {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final String path2 = toPath(S_LEVEL0, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
@@ -183,7 +183,7 @@ public class EOPath_value_Test extends TestHelper {
     }
 
     @Test
-    public void setWithPathWithCommon2Parts() throws Exception {
+    public void setWithPathWithCommon2Parts()  {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final String path2 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);

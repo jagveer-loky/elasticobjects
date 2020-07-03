@@ -18,64 +18,64 @@ public class ExecutorListTemplateSimpleTest extends TestHelper {
 
 
     @Test
-    public void emptyNoCallTpl() throws Exception {
+    public void emptyNoCallTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_EMPTY_NO_CALL));
     }
 
     @Test
-    public void emptyWithCallAtStartStopTpl() throws Exception {
+    public void emptyWithCallAtStartStopTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_EMPTY_WITH_CALL_AT_START_STOP));
     }
 
 
     @Test
-    public void emptyWithCallTpl() throws Exception {
+    public void emptyWithCallTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_EMPTY_WITH_CALL));
     }
 
     @Test
-    public void emptyWithEmbeddedCallTpl() throws Exception {
+    public void emptyWithEmbeddedCallTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_EMPTY_WITH_EMBEDDED_CALL));
     }
 
     @Test
-    public void attributeWithCallTpl() throws Exception {
+    public void attributeWithCallTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_ATTRIBUTE_WITH_CALL));
     }
 
     @Test
-    public void attributeWithEmbeddedCallTpl() throws Exception {
+    public void attributeWithEmbeddedCallTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_ATTRIBUTE_WITH_EMBEDDED_CALL));
     }
 
     @Test
-    public void attributeGlobalTpl() throws Exception {
+    public void attributeGlobalTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_ATTRIBUTE_GLOBAL));
     }
 
     @Test
-    public void attributeGlobalParallelTpl() throws Exception {
+    public void attributeGlobalParallelTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_ATTRIBUTE_GLOBAL_PARALLEL));
     }
 
     @Test
-    public void valuesWithCallAndPathTpl() throws Exception {
+    public void valuesWithCallAndPathTpl()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_VALUES_WITH_CALL_AND_PATH), MapProviderEO.createSimpleInsertWithPath());
     }
 
     @Test
-    public void valuesNoCallNotExistingValue() throws Exception {
+    public void valuesNoCallNotExistingValue()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_VALUES_NO_CALL_NOT_EXISTING_VALUE), MapProviderEO.createSimpleInsertWithPath());
     }
 
     @Test
-    public void valuesNoCall() throws Exception {
+    public void valuesNoCall()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_VALUES_NO_CALL), MapProviderEO.createSimpleInsertWithPath());
     }
 
 
     @Test
-    public void valuesWithCallDeeperPath() throws Exception {
+    public void valuesWithCallDeeperPath()  {
         TestTemplateProvider.assertExecutorTemplate(toPath(PATH_TEMPLATE_CONTENT, T_VALUES_WITH_CALL_DEEPER_PATH), MapProviderEO.createDeepPathValueAdapter());
     }
 

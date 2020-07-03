@@ -17,7 +17,7 @@ public class EOFieldParams {
     private PathPattern pathPattern;
     private boolean provideInAction;
 
-    public EOFieldParams(EOConfigsCache configsCache, Object object) throws Exception {
+    public EOFieldParams(EOConfigsCache configsCache, Object object)  {
 
         if (object == null || !(object instanceof Map) || ((Map) object).isEmpty()) {
             //this.pathPattern = new PathPattern("/*");
@@ -29,22 +29,22 @@ public class EOFieldParams {
         this.attributes = (Map) object;
     }
 
-    public PathPattern getPathPattern() throws Exception {
+    public PathPattern getPathPattern()  {
         resolve();
         return pathPattern;
     }
 
-    public boolean hasPathPattern() throws Exception {
+    public boolean hasPathPattern()  {
         resolve();
         return pathPattern != null && pathPattern.size() > 0;
     }
 
-    public boolean isFilterNothing() throws Exception {
+    public boolean isFilterNothing()  {
         resolve();
         return !hasPathPattern() || pathPattern.isFilterNothing();
     }
 
-    public String getPathPatternAsString() throws Exception {
+    public String getPathPatternAsString()  {
         resolve();
         if (pathPattern == null) {
             return Path.DELIMITER + Path.MATCHER;
@@ -52,12 +52,12 @@ public class EOFieldParams {
         return pathPattern.getSerialized();
     }
 
-    public Boolean isDeliverAction() throws Exception {
+    public Boolean isDeliverAction()  {
         resolve();
         return provideInAction;
     }
 
-    private void resolve() throws Exception {
+    private void resolve()  {
         if (attributes == null) {
             return;
         }

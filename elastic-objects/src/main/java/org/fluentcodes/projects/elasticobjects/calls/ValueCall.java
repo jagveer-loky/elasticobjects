@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ValueConfig;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
@@ -41,18 +42,18 @@ public class ValueCall extends Call {
     private Object value;
     private ExecutorItem execute;
 
-    public ValueCall(EOConfigsCache provider, String configKey) throws Exception {
+    public ValueCall(EOConfigsCache provider, String configKey)  {
         super(provider, configKey);
         this.value = getValueConfig().getValue();
         this.execute = getValueConfig().getExecute();
     }
 
-    public static CallExecutor createSetExecutor(final String key, final Map attributes) throws Exception{
+    public static CallExecutor createSetExecutor(final String key, final Map attributes) {
         attributes.put(Executor.EXECUTE, SET(key));
         return new CallExecutor(attributes);
     }
 
-    public static CallExecutor createSetExecutor(final String callKey, final Object... values) throws Exception {
+    public static CallExecutor createSetExecutor(final String callKey, final Object... values)  {
         return createSetExecutor(callKey, EO_STATIC.toMap(values));
     }
 
@@ -77,13 +78,13 @@ public class ValueCall extends Call {
 
 
 
-    public EO set(final EO adapter) throws Exception {
+    public EO set(final EO adapter)  {
         return set(adapter, new HashMap());
     }
 
-    public EO set(final EO eo, Map attributes) throws Exception {
+    public EO set(final EO eo, Map attributes)  {
         if (eo == null) {
-            throw new Exception("Actions don't create new Adapters");
+            throw new EoException("Actions don't create new Adapters");
         }
         mapAttributes(attributes);
         mergeConfig();
@@ -95,11 +96,11 @@ public class ValueCall extends Call {
         return eo;
     }
 
-    public EO map(final EO adapter) throws Exception {
+    public EO map(final EO adapter)  {
         return map(adapter, new HashMap());
     }
 
-    public EO map(final EO adapter, Map attributes) throws Exception {
+    public EO map(final EO adapter, Map attributes)  {
         mergeConfig();
         if (value == null) {
             adapter.error("Could not resolve valueString ");

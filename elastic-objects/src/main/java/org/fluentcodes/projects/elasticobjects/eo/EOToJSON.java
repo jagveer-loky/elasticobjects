@@ -66,7 +66,7 @@ public class EOToJSON {
         return this;
     }
 
-    public String toJSON(final EOConfigsCache finder, final Object object) throws Exception {
+    public String toJSON(final EOConfigsCache finder, final Object object)  {
         return this.toJSON(
                 new EOBuilder(finder)
                         .setLogLevel(LogLevel.WARN)
@@ -74,7 +74,7 @@ public class EOToJSON {
         );
     }
 
-    public String toJSON(final EO adapter) throws Exception {
+    public String toJSON(final EO adapter)  {
         this.setCheckObjectReplication(adapter.isCheckObjectReplication());
         if (this.pathPattern == null) {
             this.pathPattern = new PathPattern("+");
@@ -91,7 +91,7 @@ public class EOToJSON {
         }
     }
 
-    private String toJSONRoot(final EO adapter) throws Exception {
+    private String toJSONRoot(final EO adapter)  {
         this.setCheckObjectReplication(adapter.isCheckObjectReplication());
         StringBuilder jsn = new StringBuilder();
         final String indent = getIndent(startIndent);
@@ -137,7 +137,7 @@ public class EOToJSON {
     }
 
 
-    private String toJSON(final StringBuilder json, final EO adapter, final int indentLevel, PathPattern pathPattern) throws Exception {
+    private String toJSON(final StringBuilder json, final EO adapter, final int indentLevel, PathPattern pathPattern)  {
         if (adapter.get() == null) {
             return "";
         }
@@ -265,7 +265,7 @@ public class EOToJSON {
         buffer.append(lineBreak);
     }
 
-    private PathPattern getChildPathPattern(String key, ModelInterface model, PathPattern pathPattern) throws Exception {
+    private PathPattern getChildPathPattern(String key, ModelInterface model, PathPattern pathPattern)  {
         PathPattern fieldPathPattern;
         if (pathPattern != null && pathPattern.filterSomething()) {
             fieldPathPattern = pathPattern.getPathList(key);
@@ -314,7 +314,7 @@ public class EOToJSON {
         buffer.append("\"");
     }
 
-    private void addScalar(final StringBuilder buffer, final EO adapter, final boolean isTyped) throws Exception {
+    private void addScalar(final StringBuilder buffer, final EO adapter, final boolean isTyped)  {
         String value = stringify(adapter.get());
         if (serializationType != JSONSerializationType.SCALAR) {
             addScalarSimple(buffer, adapter.getModelClass(), value);

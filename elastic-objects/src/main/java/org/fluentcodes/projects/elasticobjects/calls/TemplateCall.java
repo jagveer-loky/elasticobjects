@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.TemplateConfig;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
@@ -35,19 +36,19 @@ public class TemplateCall extends CallIO {
         return key + "=\"" + value + "\" ";
     }
 
-    public static final String createCallNoContent(final String... keyValues) throws Exception {
+    public static final String createCallNoContent(final String... keyValues)  {
         return createCall(null, keyValues);
     }
 
-    public static final String createCall(final String content, final String... keyValues) throws Exception {
+    public static final String createCall(final String content, final String... keyValues)  {
         if (keyValues == null) {
-            throw new Exception("Null values for createCall");
+            throw new EoException("Null values for createCall");
         }
         if (keyValues.length == 0) {
-            throw new Exception("Empty values for createCall");
+            throw new EoException("Empty values for createCall");
         }
         if (keyValues.length % 2 != 0) {
-            throw new Exception("Values have odd lenght: " + keyValues.length);
+            throw new EoException("Values have odd lenght: " + keyValues.length);
         }
         StringBuffer call = new StringBuffer("<call ");
         for (int i=0; i<keyValues.length; i = i + 2) {
@@ -69,11 +70,11 @@ public class TemplateCall extends CallIO {
 
     }
 
-    public TemplateCall(EOConfigsCache provider, String key) throws Exception {
+    public TemplateCall(EOConfigsCache provider, String key)  {
         super(provider, key);
     }
 
-    public TemplateCall(EOConfigsCache provider) throws Exception {
+    public TemplateCall(EOConfigsCache provider)  {
         super(provider);
     }
 
@@ -174,9 +175,9 @@ public class TemplateCall extends CallIO {
      *
      * @param adapter adapter the adapter data object to be rendered
      * @return
-     * @throws Exception
+     * @
      */
-    public String execute(EO adapter) throws Exception {
+    public String execute(EO adapter)  {
         return execute(adapter, new HashMap());
     }
 
@@ -186,9 +187,9 @@ public class TemplateCall extends CallIO {
      * @param eo                 the adapter data object to be rendered
      * @param externalAttributes will be set to control the behaviour of the execution of the {@link ExecutorList}
      * @return
-     * @throws Exception
+     * @
      */
-    public String execute(EO eo, Map<String, String> externalAttributes) throws Exception {
+    public String execute(EO eo, Map<String, String> externalAttributes)  {
         mapAttributes(externalAttributes);
         mergeConfig();
         resolvePath(eo, externalAttributes);

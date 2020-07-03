@@ -26,7 +26,7 @@ public class ValueCallTest extends TestHelper {
 
 
     @Test
-    public void modelConfig() throws Exception {
+    public void modelConfig()  {
         final ModelInterface modelConfig = TestEOProvider.EO_CONFIGS.findModel(ValueCall.class);
         Assert.assertEquals(1, modelConfig.getFieldKeys().size());
         modelConfig.resolve();
@@ -34,7 +34,7 @@ public class ValueCallTest extends TestHelper {
     }
 
     @Test
-    public void intValue1_withoutParameter() throws Exception {
+    public void intValue1_withoutParameter()  {
         final EO eo = ExecutorProvider.execute(
                 ValueCall.createSetExecutor(VC_INT_VALUE1)
         );
@@ -42,7 +42,7 @@ public class ValueCallTest extends TestHelper {
     }
 
     @Test
-    public void intValues1_withValue_andMapPath() throws Exception {
+    public void intValues1_withValue_andMapPath()  {
         final EO eo = ExecutorProvider.execute(
             ValueCall.createSetExecutor(VC_INT_VALUE1),
                 F_VALUE, S_STRING,
@@ -52,7 +52,7 @@ public class ValueCallTest extends TestHelper {
     }
 
     @Test
-    public void intValues1_withValue2_andMapPath() throws Exception {
+    public void intValues1_withValue2_andMapPath()  {
         final EO eo = ExecutorProvider.execute(
                 ValueCall.createSetExecutor(VC_INT_VALUE1,F_VALUE, S_STRING),
                 F_MAP_PATH, F_TEST_STRING
@@ -61,7 +61,7 @@ public class ValueCallTest extends TestHelper {
     }
 
     @Test
-    public void setNullEO() throws Exception {
+    public void setNullEO()  {
         final ValueCall call = new ValueCall(TestEOProvider.EO_CONFIGS, VC_INT_VALUE1);
         try {
             call.set(null);
@@ -72,7 +72,7 @@ public class ValueCallTest extends TestHelper {
     }
 
     @Test
-    public void empty_withMapPathAndValue() throws Exception {
+    public void empty_withMapPathAndValue()  {
         final EO eo = ExecutorProvider.execute(
                 ValueCall.createSetExecutor(VC_EMPTY,F_VALUE, S_STRING),
                 F_MAP_PATH, F_TEST_STRING
@@ -81,7 +81,7 @@ public class ValueCallTest extends TestHelper {
     }
 
     @Test
-    public void content_default() throws Exception {
+    public void content_default()  {
         final EO eo = ExecutorProvider.execute(
                 ValueCall.createSetExecutor(VC_CONTENT)
         );

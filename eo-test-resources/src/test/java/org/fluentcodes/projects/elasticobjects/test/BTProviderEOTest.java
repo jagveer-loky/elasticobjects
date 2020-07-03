@@ -5,87 +5,87 @@ import org.junit.Test;
 public class BTProviderEOTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         BTProviderEO.createEmpty();
     }
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         BTProviderEO.createString();
     }
 
     @Test
-    public void createInteger() throws Exception {
+    public void createInteger()  {
         BTProviderEO.createInteger();
     }
 
     @Test
-    public void createLong() throws Exception {
+    public void createLong()  {
         BTProviderEO.createLong();
     }
 
     @Test
-    public void createFloat() throws Exception {
+    public void createFloat()  {
         BTProviderEO.createDouble();
     }
 
     @Test
-    public void createDouble() throws Exception {
+    public void createDouble()  {
         BTProviderEO.createDouble();
     }
 
     @Test
-    public void createDate() throws Exception {
+    public void createDate()  {
         BTProviderEO.createDate();
     }
 
     @Test
-    public void createBoolean() throws Exception {
+    public void createBoolean()  {
         BTProviderEO.createBoolean();
     }
 
     @Test
-    public void createSmall() throws Exception {
+    public void createSmall()  {
         BTProviderEO.createSmall();
     }
 
     @Test
-    public void createSimple() throws Exception {
+    public void createSimple()  {
         BTProviderEO.createSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         BTProviderEO.create();
     }
 
     @Test
-    public void createMap() throws Exception {
+    public void createMap()  {
         BTProviderEO.createMap();
     }
 
     @Test
-    public void createList() throws Exception {
+    public void createList()  {
         BTProviderEO.createList();
     }
 
     @Test
-    public void createBT() throws Exception {
+    public void createBT()  {
         BTProviderEO.createBT();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         BTProviderEO.createST();
     }
 
     @Test
-    public void createMapST() throws Exception {
+    public void createMapST()  {
         BTProviderEO.createMapST();
     }
 
     @Test
-    public void createListST() throws Exception {
+    public void createListST()  {
         BTProviderEO.createListST();
     }
 

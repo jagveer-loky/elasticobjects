@@ -21,7 +21,7 @@ public class ModelsScalarTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsScalarTest.class);
 
     @Test
-    public void withString() throws Exception {
+    public void withString()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, String.class);
         Assert.assertEquals(String.class, models.getModelClass());
         Assert.assertEquals(Object.class, models.getChildModelClass());
@@ -30,13 +30,13 @@ public class ModelsScalarTest extends TestHelper {
     }
 
     @Test
-    public void withBTString() throws Exception {
+    public void withBTString()  {
         Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class, String.class);
         Assert.assertEquals(Object.class, models.getChildModelClass());
     }
 
     @Test
-    public void withMapBT() throws Exception {
+    public void withMapBT()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class, BasicTest.class);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertEquals(BasicTest.class, models.getChildModelClass());
@@ -44,7 +44,7 @@ public class ModelsScalarTest extends TestHelper {
     }
 
     @Test
-    public void withBT_childTestString() throws Exception {
+    public void withBT_childTestString()  {
         Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         Assert.assertEquals(String.class, models.createChild(F_TEST_STRING).getModelClass());

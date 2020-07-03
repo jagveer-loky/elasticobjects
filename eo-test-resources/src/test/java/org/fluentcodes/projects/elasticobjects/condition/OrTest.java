@@ -41,7 +41,7 @@ public class OrTest {
     }
 
     @Test
-    public void filterAdapter() throws Exception {
+    public void filterAdapter()  {
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(S_TEST_STRING).set(S_STRING);
         Or condition = new Or(toLike(S_TEST_STRING, S_STRING));

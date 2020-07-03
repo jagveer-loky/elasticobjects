@@ -19,7 +19,7 @@ public interface EO {
     /**
      * Creates a new object an map it to the object
      *
-     * @throws Exception
+     * @
      */
     EOConfigsCache getConfigsCache();
 
@@ -49,35 +49,35 @@ public interface EO {
 
     boolean isEmpty();
 
-    int size() throws Exception;
+    int size() ;
 
-    int size(String path) throws Exception;
+    int size(String path) ;
 
-    Set<String> keys() throws Exception;
+    Set<String> keys() ;
 
-    List<String> keys(String path) throws Exception;
+    List<String> keys(String path) ;
 
-    List<String> keys(PathPattern pathPattern) throws Exception;
+    List<String> keys(PathPattern pathPattern) ;
 
-    List<String> filterPaths(String filter) throws Exception;
+    List<String> filterPaths(String filter) ;
 
-    Map getKeyValues() throws Exception;
+    Map getKeyValues() ;
 
     Object get();
 
-    Object get(String paths) throws Exception;
+    Object get(String paths) ;
 
-    EO getChild(String paths) throws Exception;
+    EO getChild(String paths) ;
 
     EOBuilder add();
 
     EOBuilder add(String path);
 
-    EO remove() throws Exception;
+    EO remove() ;
 
-    boolean remove(String path) throws Exception;
+    boolean remove(String path) ;
 
-    EO getRoot() throws Exception;
+    EO getRoot() ;
 
     boolean isRoot();
 
@@ -99,13 +99,13 @@ public interface EO {
 
     boolean hasRoles();
 
-    void addCall(CallExecutor callExecutor) throws Exception;
+    void addCall(CallExecutor callExecutor) ;
 
     ExecutorList getCalls();
 
     boolean hasCalls();
 
-    void executeCalls() throws Exception;
+    void executeCalls() ;
 
     void compare(final StringBuilder builder, final EO other);
 

@@ -25,7 +25,7 @@ public class JSONToEOArrayTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(JSONToEOArrayTest.class);
 
     @Test
-    public void test() throws Exception {
+    public void test()  {
         EO eoList = DevObjectProvider
                 .createEOBuilder()
                 .map("[]");
@@ -33,20 +33,20 @@ public class JSONToEOArrayTest extends TestHelper {
     }
 
     @Test
-    public void testFromFile() throws Exception {
+    public void testFromFile()  {
         EO eoList = DevObjectProvider.createEOFromJsonListKey(JSONInputReader.EMPTY);
         Assert.assertEquals(List.class, eoList.getModelClass());
     }
 
     @Test
-    public void testDouble() throws Exception {
+    public void testDouble()  {
         EO eoList = DevObjectProvider.createEOFromJsonListKey(JSONInputReader.DOUBLE);
         Assert.assertEquals(INFO_COMPARE_FAILS, List.class, eoList.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_DOUBLE, eoList.get(S0));
     }
 
     @Test
-    public void testSmall() throws Exception {
+    public void testSmall()  {
         EO eoList = DevObjectProvider.createEOFromJsonListKey(JSONInputReader.SMALL);
         Assert.assertEquals(INFO_COMPARE_FAILS, List.class, eoList.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoList.get(S0));
@@ -54,7 +54,7 @@ public class JSONToEOArrayTest extends TestHelper {
     }
 
     @Test
-    public void testAll() throws Exception {
+    public void testAll()  {
         EO eoList = DevObjectProvider.createEOFromJsonListKey(JSONInputReader.ALL);
         Assert.assertEquals(INFO_COMPARE_FAILS, List.class, eoList.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoList.get(S0));
@@ -63,7 +63,7 @@ public class JSONToEOArrayTest extends TestHelper {
     }
 
     @Test
-    public void checkListModel_Calls() throws Exception {
+    public void checkListModel_Calls()  {
         final String toParse = "{\n" +
                 "\"(List)_calls\":\n" +
                 "  {\n" +
@@ -77,7 +77,7 @@ public class JSONToEOArrayTest extends TestHelper {
     }
 
     @Test
-    public void checkListModelNoCalls() throws Exception {
+    public void checkListModelNoCalls()  {
         final String toParse = "{\n" +
                 "\"(List)noCalls\":\n" +
                 "  {\n" +

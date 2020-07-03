@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
@@ -38,11 +39,11 @@ public class ListMapper {
 
     }
 
-    public ListMapper(Map attributes) throws Exception {
+    public ListMapper(Map attributes)  {
         mapAttributes(attributes);
     }
 
-    public void mapAttributes(Map attributes) throws Exception {
+    public void mapAttributes(Map attributes)  {
         if (attributes == null) {
             return;
         }
@@ -236,7 +237,7 @@ public class ListMapper {
         return colKeys != null && !colKeys.isEmpty();
     }
 
-    private void resolve(EO adapter, ListMapper configMapper) throws Exception {
+    private void resolve(EO adapter, ListMapper configMapper)  {
         if (configMapper != null) {
             mergeConfigRowMapper(configMapper);
         }
@@ -253,7 +254,7 @@ public class ListMapper {
                 if (adapter.isMap()) {
                     return;
                 }
-                throw new Exception("Not empty adapter and not list!");
+                throw new EoException("Not empty adapter and not list!");
             }
         } else {
             if (adapter.isMap() || adapter.isObject()) {
@@ -267,7 +268,7 @@ public class ListMapper {
                 if (adapter.isList()) {
                     return;
                 }
-                throw new Exception("Not empty adapter and not object or map!");
+                throw new EoException("Not empty adapter and not object or map!");
             }
         }
     }
@@ -313,11 +314,11 @@ public class ListMapper {
 
     }
 
-    public void addList(EO adapter, List list) throws Exception {
+    public void addList(EO adapter, List list)  {
         addList(adapter, list, null);
     }
 
-    public void addList(EO adapter, List list, ListMapper configMapper) throws Exception {
+    public void addList(EO adapter, List list, ListMapper configMapper)  {
         resolve(adapter, configMapper);
         int counter = -1;
         Map<String, String> attributes = new LinkedHashMap<>();
@@ -373,25 +374,25 @@ public class ListMapper {
         }
     }
 
-    private EO createRowAdapter(EOConfigsCache cache) throws Exception {
+    private EO createRowAdapter(EOConfigsCache cache)  {
         return new EOBuilder(cache)
                 .setModels(models.getChildModel())
                 .build();
     }
 
-    private EO createRowAdapter(EO adapter, String position) throws Exception {
+    private EO createRowAdapter(EO adapter, String position)  {
         adapter.add(position)
                 .setModels(models.getChildModel())
                 .build();
         return adapter.getChild(position);
     }
 
-    public EO addRow(EO adapter, String position, List row) throws Exception {
+    public EO addRow(EO adapter, String position, List row)  {
         EO targetAdapter = createRowAdapter(adapter, position);
         return createRow(targetAdapter, row);
     }
 
-    public EO createRow(EO adapter, List row) throws Exception {
+    public EO createRow(EO adapter, List row)  {
         resolve(adapter.getConfigsCache());
         //String rowKey = new Integer(adapter.size()).getSerialized();
         ModelConfig model = (ModelConfig) models.getChildModel();

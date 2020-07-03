@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public ModelInterface getFieldModel(final String fieldName) throws Exception {
+    public ModelInterface getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }
 
@@ -41,7 +42,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
 
-    public Set<String> keys(Object object) throws Exception {
+    public Set<String> keys(Object object)  {
         resolve();
         int size = -1;
         if (object instanceof List) {
@@ -55,7 +56,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public int size(final Object object) throws Exception {
+    public int size(final Object object)  {
         resolve();
         int counter = 0;
         int size = -1;
@@ -71,7 +72,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
         return counter;
     }
 
-    public List<Object> keysAsIs(final Object object) throws Exception {
+    public List<Object> keysAsIs(final Object object)  {
         resolve();
         int size = -1;
         if (object instanceof List) {
@@ -85,7 +86,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public boolean isEmpty(final Object object) throws Exception {
+    public boolean isEmpty(final Object object)  {
         resolve();
         if (object == null) {
             return true;
@@ -103,7 +104,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public void set(final String fieldName, final Object object, final Object value) throws Exception {
+    public void set(final String fieldName, final Object object, final Object value)  {
         resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
@@ -120,10 +121,10 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public Object getAsIs(final Object fieldNameAsObject, final Object object) throws Exception {
+    public Object getAsIs(final Object fieldNameAsObject, final Object object)  {
         resolve();
         if (fieldNameAsObject == null) {
-            throw new Exception("Getter: null key request for " + this.getModelKey() + "! ");
+            throw new EoException("Getter: null key request for " + this.getModelKey() + "! ");
         }
         //TODO
         String fieldName = ScalarConverter.toString(fieldNameAsObject);
@@ -135,7 +136,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public Object get(final String fieldName, final Object object) throws Exception {
+    public Object get(final String fieldName, final Object object)  {
         resolve();
         //TODO
         Integer i = ((Set) object).size();
@@ -151,7 +152,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public boolean exists(final String fieldName, final Object object) throws Exception {
+    public boolean exists(final String fieldName, final Object object)  {
         resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
@@ -167,13 +168,13 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public void remove(final String fieldName, final Object object) throws Exception {
+    public void remove(final String fieldName, final Object object)  {
         resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
         Set list = ((Set) object);
         if (((Set) object).size() <= i) {
-            throw new Exception("List size " + list.size() + " greater than " + i);
+            throw new EoException("List size " + list.size() + " greater than " + i);
         } else if (i + 1 == list.size()) {
             ((Set) object).remove(i.intValue());
             return;
@@ -183,7 +184,7 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public Object create() throws Exception {
+    public Object create()  {
         resolve();
         return new ArrayList();
     }

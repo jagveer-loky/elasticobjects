@@ -14,7 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ResourcesJsonCallTest {
     @Test
-    public void readFileSourceJson() throws Exception {
+    public void readFileSourceJson()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final JsonCall call = TestCallsProvider.createJsonCall(FILE_SOURCE_JSON);
         call.read(eoEmpty);

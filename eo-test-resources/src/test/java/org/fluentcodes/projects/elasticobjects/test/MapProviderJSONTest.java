@@ -5,173 +5,173 @@ import org.junit.Test;
 public class MapProviderJSONTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         MapProviderJSON.createEmpty();
     }
 
     @Test
-    public void compareEmpty() throws Exception {
+    public void compareEmpty()  {
         MapProviderJSON.compareEmpty();
     }
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         MapProviderJSON.createString();
     }
 
     @Test
-    public void compareString() throws Exception {
+    public void compareString()  {
         MapProviderJSON.compareString();
     }
 
     @Test
-    public void createInteger() throws Exception {
+    public void createInteger()  {
         MapProviderJSON.createInteger();
     }
 
     @Test
-    public void compareInteger() throws Exception {
+    public void compareInteger()  {
         MapProviderJSON.compareInteger();
     }
 
     @Test
-    public void createLong() throws Exception {
+    public void createLong()  {
         MapProviderJSON.createLong();
     }
 
     @Test
-    public void compareLong() throws Exception {
+    public void compareLong()  {
         MapProviderJSON.compareLong();
     }
 
     @Test
-    public void createFloat() throws Exception {
+    public void createFloat()  {
         MapProviderJSON.createFloat();
     }
 
     @Test
-    public void compareFloat() throws Exception {
+    public void compareFloat()  {
         MapProviderJSON.compareFloat();
     }
 
     @Test
-    public void createDouble() throws Exception {
+    public void createDouble()  {
         MapProviderJSON.createDouble();
     }
 
     @Test
-    public void compareDouble() throws Exception {
+    public void compareDouble()  {
         MapProviderJSON.compareDouble();
     }
 
     @Test
-    public void createDate() throws Exception {
+    public void createDate()  {
         MapProviderJSON.createDate();
     }
 
     @Test
-    public void compareDate() throws Exception {
+    public void compareDate()  {
         MapProviderJSON.compareDate();
     }
 
     @Test
-    public void createBoolean() throws Exception {
+    public void createBoolean()  {
         MapProviderJSON.createBoolean();
     }
 
     @Test
-    public void compareBoolean() throws Exception {
+    public void compareBoolean()  {
         MapProviderJSON.compareBoolean();
     }
 
     @Test
-    public void createMap() throws Exception {
+    public void createMap()  {
         MapProviderJSON.createMap();
     }
 
     @Test
-    public void compareMap() throws Exception {
+    public void compareMap()  {
         MapProviderJSON.compareMap();
     }
 
     @Test
-    public void createList() throws Exception {
+    public void createList()  {
         MapProviderJSON.createList();
     }
 
     @Test
-    public void compareList() throws Exception {
+    public void compareList()  {
         MapProviderJSON.compareList();
     }
 
     @Test
-    public void createBT() throws Exception {
+    public void createBT()  {
         MapProviderJSON.createBT();
     }
 
     @Test
-    public void compareBT() throws Exception {
+    public void compareBT()  {
         MapProviderJSON.compareBT();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         MapProviderJSON.createST();
     }
 
     @Test
-    public void compareST() throws Exception {
+    public void compareST()  {
         MapProviderJSON.compareST();
     }
 
     @Test
-    public void createEOMapST() throws Exception {
+    public void createEOMapST()  {
         MapProviderJSON.createMapST();
     }
 
     @Test
-    public void compareEOMapST() throws Exception {
+    public void compareEOMapST()  {
         MapProviderJSON.compareMapST();
     }
 
     @Test
-    public void createListST() throws Exception {
+    public void createListST()  {
         MapProviderJSON.createListST();
     }
 
     @Test
-    public void compareListST() throws Exception {
+    public void compareListST()  {
         MapProviderJSON.compareListST();
     }
 
     @Test
-    public void createSmall() throws Exception {
+    public void createSmall()  {
         MapProviderJSON.createSmall();
     }
 
     @Test
-    public void compareSmall() throws Exception {
+    public void compareSmall()  {
         MapProviderJSON.compareSmall();
     }
 
     @Test
-    public void createEOSimple() throws Exception {
+    public void createEOSimple()  {
         MapProviderJSON.createSimple();
     }
 
     @Test
-    public void compareEOSimple() throws Exception {
+    public void compareEOSimple()  {
         MapProviderJSON.compareSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         MapProviderJSON.create();
     }
 
 
     @Test
-    public void compare() throws Exception {
+    public void compare()  {
         MapProviderJSON.compare();
     }
 }

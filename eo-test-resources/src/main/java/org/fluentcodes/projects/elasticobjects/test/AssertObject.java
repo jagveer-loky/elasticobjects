@@ -12,7 +12,7 @@ import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
 public class AssertObject {
     private static final Logger LOG = LogManager.getLogger(AssertObject.class);
 
-    public static final void compare(EOConfigsCache provider, final Object object) throws Exception {
+    public static final void compare(EOConfigsCache provider, final Object object)  {
         String serialized = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.EO)

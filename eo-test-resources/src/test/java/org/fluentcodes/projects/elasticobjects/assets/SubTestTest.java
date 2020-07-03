@@ -19,7 +19,7 @@ public class SubTestTest {
     }
 
     @Test
-    public void readDataFile() throws Exception {
+    public void readDataFile()  {
         /*List<Object> list = JacksonHelperObsolete.readListFromDataClassPath(SubTest.class);
         Assert.assertNotNull(list);
         Assert.assertTrue(list.size()>0);*/

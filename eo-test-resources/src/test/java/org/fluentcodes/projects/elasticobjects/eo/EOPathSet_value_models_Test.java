@@ -23,42 +23,42 @@ public class EOPathSet_value_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPathSet_value_models_Test.class);
 
     @Test
-    public void givenString_withStringAndString_ok() throws Exception {
+    public void givenString_withStringAndString_ok()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .setEOValue_ok(eoString, S_STRING, String.class);
     }
 
     @Test
-    public void givenMapString_withString_ok() throws Exception {
+    public void givenMapString_withString_ok()  {
         final EO eoString = MapProviderEODev.createString();
         EOTest
                 .setEOValue_ok(eoString, S_STRING, String.class);
     }
 
     @Test
-    public void givenMapString_withStringAndHashMap_ok() throws Exception {
+    public void givenMapString_withStringAndHashMap_ok()  {
         final EO eoString = MapProviderEODev.createString();
         EOTest
                 .setEOValue_ok(eoString, S_STRING, LinkedHashMap.class);
     }
 
     @Test
-    public void givenBTString_withStringAndMap_ok() throws Exception {
+    public void givenBTString_withStringAndMap_ok()  {
         final EO eoString = BTProviderEO.createString();
         EOTest
                 .setEOValue_ok(eoString, S_STRING, Map.class);
     }
 
     @Test
-    public void givenBTString_withIntegerAndInteger_ok() throws Exception {
+    public void givenBTString_withIntegerAndInteger_ok()  {
         final EO eoString = BTProviderEO.createString();
         EOTest
                 .setEOValue_ok(eoString, S_INTEGER, Integer.class);
     }
 
     @Test
-    public void givenBTUntypedMap_WithHashMapMap_ok() throws Exception {
+    public void givenBTUntypedMap_WithHashMapMap_ok()  {
         final EO eoString = BTProviderEO.createMap();
         EOTest
                 .setEOValue_ok(eoString, new HashMap(), LinkedHashMap.class);

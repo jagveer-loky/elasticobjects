@@ -20,7 +20,7 @@ public class EONoPathRootMap_value_Test {
     private static final Logger LOG = LogManager.getLogger(EONoPathRootMap_value_Test.class);
 
     @Test
-    public void givenString_withInteger_ok() throws Exception {
+    public void givenString_withInteger_ok()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .mapEOValue_ok(eoString, S_INTEGER);
@@ -28,7 +28,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenString_withBoolean_ok() throws Exception {
+    public void givenString_withBoolean_ok()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .mapEOValue_ok(eoString, S_BOOLEAN);
@@ -36,7 +36,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenString_withString_ok() throws Exception {
+    public void givenString_withString_ok()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .mapEOValue_ok(eoString, S_STRING_OTHER);
@@ -44,7 +44,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenString_withMap_fails() throws Exception {
+    public void givenString_withMap_fails()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .mapEOValue_fails(eoString, new LinkedHashMap());
@@ -52,7 +52,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenString_withBT_fails() throws Exception {
+    public void givenString_withBT_fails()  {
         final EO eoString = TestObjectProvider.createEOString();
         EOTest
                 .mapEOValue_fails(eoString, new BasicTest());
@@ -60,14 +60,14 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenMapEmpty_withString_fails() throws Exception {
+    public void givenMapEmpty_withString_fails()  {
         final EO eoMap = DevObjectProvider.createEOMapEmpty();
         EOTest
                 .mapEOValue_fails(eoMap, S_STRING_OTHER);
     }
 
     @Test
-    public void givenMapString_withEmptyMap_ok_changesNothing() throws Exception {
+    public void givenMapString_withEmptyMap_ok_changesNothing()  {
         final EO eoMapString = MapProviderEO.createString();
         Assert.assertEquals(S_STRING, eoMapString.get(F_TEST_STRING));
         EOTest
@@ -76,14 +76,14 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenMapString_withLinkedHashMapEmpty_ok() throws Exception {
+    public void givenMapString_withLinkedHashMapEmpty_ok()  {
         final EO eoMapString = DevObjectProvider.createEOMapString();
         EOTest
                 .mapEOValue_ok(eoMapString, new LinkedHashMap());
     }
 
     @Test
-    public void givenMapString_withMapInteger_ok() throws Exception {
+    public void givenMapString_withMapInteger_ok()  {
         final EO eoMapString = MapProviderEO.createString();
         EOTest
                 .mapEOValue_ok(eoMapString, MapProvider.createInteger());
@@ -92,7 +92,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenMapEmpty_withST_ok() throws Exception {
+    public void givenMapEmpty_withST_ok()  {
         final EO eoMapEmpty = MapProviderEO.createEmpty();
         EOTest
                 .mapEOValue_ok(eoMapEmpty, STProvider.createString());
@@ -101,7 +101,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenMapEmpty_withJsonMap_ok() throws Exception {
+    public void givenMapEmpty_withJsonMap_ok()  {
         final EO eoEmpty = MapProviderEO.createEmpty();
         final String json = MapProviderJSON.toJSONMap(F_TEST_STRING, S_STRING);
         EOTest
@@ -110,7 +110,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenMapString_withJsonMap_ok() throws Exception {
+    public void givenMapString_withJsonMap_ok()  {
         final EO eoMapString = MapProviderEO.createString();
         final String json = MapProviderJSON.toJSONMap(F_TEST_STRING, S_STRING_OTHER);
         EOTest
@@ -124,7 +124,7 @@ public class EONoPathRootMap_value_Test {
      * value will be added with the correct type.
      */
     @Test
-    public void givenMapString_withJsonMapString_ok() throws Exception {
+    public void givenMapString_withJsonMapString_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsnString = MapProviderJSON.readString();
         eoEmpty
@@ -142,7 +142,7 @@ public class EONoPathRootMap_value_Test {
      * value will be added with the correct type.
      */
     @Test
-    public void givenMapEmpty_withJsonMapBoolean_ok() throws Exception {
+    public void givenMapEmpty_withJsonMapBoolean_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsonBoolean = MapProviderJSON.readBoolean();
         eoEmpty
@@ -155,7 +155,7 @@ public class EONoPathRootMap_value_Test {
 
 
     @Test
-    public void givenListEmpty_withBoolean_fails() throws Exception {
+    public void givenListEmpty_withBoolean_fails()  {
         final EO root = DevObjectProvider.createEO(List.class);
         root
                 .add()
@@ -165,7 +165,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenListEmpty_withBTBoolean_ok() throws Exception {
+    public void givenListEmpty_withBTBoolean_ok()  {
         final EO root = TestEOProvider.createEOFromJson(List.class);
         root.add().map(BTProvider.createBoolean());
         Assert.assertEquals(1, root.keys().size());
@@ -174,7 +174,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenListStringEmpty_withBTBoolean_ok() throws Exception {
+    public void givenListStringEmpty_withBTBoolean_ok()  {
         EO root = TestEOProvider.createEOFromJson(List.class, String.class);
         root
                 .add()
@@ -185,7 +185,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenListStringEmpty_withSTString_ok() throws Exception {
+    public void givenListStringEmpty_withSTString_ok()  {
         final EO eoLListString = TestEOProvider.createEOFromJson(List.class, String.class);
         EOTest
                 .mapEOValue_ok(eoLListString, STProvider.createString());
@@ -198,7 +198,7 @@ public class EONoPathRootMap_value_Test {
      * value will be added with the correct type.
      */
     @Test
-    public void givenMapEmpty_withJsonString_ok() throws Exception {
+    public void givenMapEmpty_withJsonString_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsonString = MapProviderJSON.readString();
 
@@ -217,7 +217,7 @@ public class EONoPathRootMap_value_Test {
      * value will be added with the correct type.
      */
     @Test
-    public void givenMapEmpty_withJsonBoolean_ok() throws Exception {
+    public void givenMapEmpty_withJsonBoolean_ok()  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final String jsonBoolean = MapProviderJSON.readBoolean();
 
@@ -237,7 +237,7 @@ public class EONoPathRootMap_value_Test {
      */
 
     @Test
-    public void givenMapEmpty_withListJsonSmall_ok() throws Exception {
+    public void givenMapEmpty_withListJsonSmall_ok()  {
         final EO eoEmpty = MapProviderEO.createEmpty();
         final String jsonListSmall = ListProviderJSON.readSmall();
         eoEmpty
@@ -256,7 +256,7 @@ public class EONoPathRootMap_value_Test {
      * the eo map will be transformed to a list but type will be used.
      */
     @Test
-    public void givenMapEmpty_withJsnListSmall_ok() throws Exception {
+    public void givenMapEmpty_withJsnListSmall_ok()  {
         final EO eoEmpty = MapProviderEO.createEmpty();
         final String jsnListSmall = ListProviderJSN.readSmall();
         eoEmpty
@@ -274,7 +274,7 @@ public class EONoPathRootMap_value_Test {
      * the eo map should be used and its position used as key.
      */
     @Test
-    public void givenMapSmall_withJsonListSmall_ok() throws Exception {
+    public void givenMapSmall_withJsonListSmall_ok()  {
         final EO eoSmall = MapProviderEO.createSmall();
         final String jsonListSmall = ListProviderJSON.readSmall();
 
@@ -297,7 +297,7 @@ public class EONoPathRootMap_value_Test {
      */
 
     @Test
-    public void givenMapSmall_withJsnListSmall2_fails() throws Exception {
+    public void givenMapSmall_withJsnListSmall2_fails()  {
         final EO eoSmall = MapProviderEO.createSmall();
         final String jsnListSmall = ListProviderJSON.readSmall();
         eoSmall
@@ -318,7 +318,7 @@ public class EONoPathRootMap_value_Test {
      * original model ListModel is kept.
      */
     @Test
-    public void givenListEmpty_withJsnEmpty_ok() throws Exception {
+    public void givenListEmpty_withJsnEmpty_ok()  {
         final EO listEO = ListProviderEO.createEmpty();
         final String jsnListEmpty = ListProviderJSON.readEmpty();
         listEO
@@ -336,7 +336,7 @@ public class EONoPathRootMap_value_Test {
      */
 
     @Test
-    public void givenListEmpty_withJsnMapSmall_ok() throws Exception {
+    public void givenListEmpty_withJsnMapSmall_ok()  {
         final EO listEO = ListProviderEO.createEmpty();
         final String jsnMapSmall = ListProviderJSN.readSmall();
         listEO
@@ -349,7 +349,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTString_withMapInteger_ok() throws Exception {
+    public void givenBTString_withMapInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         EOTest
                 .mapEOValue_ok(eoBTString, MapProvider.createInteger());
@@ -358,7 +358,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTWithString_withBTWithInteger_ok() throws Exception {
+    public void givenBTWithString_withBTWithInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
 
         EOTest
@@ -368,7 +368,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTWithString_withMapWithInteger_ok() throws Exception {
+    public void givenBTWithString_withMapWithInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
 
@@ -379,7 +379,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTWithString_withString_fails() throws Exception {
+    public void givenBTWithString_withString_fails()  {
         final EO eoBTString = BTProviderEO.createString();
         EOTest
                 .mapEO_fails(eoBTString, S_STRING_OTHER);
@@ -387,7 +387,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTString_withMap_ok() throws Exception {
+    public void givenBTString_withMap_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         EOTest
                 .mapEOValue_ok(eoBTString, new HashMap());
@@ -395,7 +395,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTString_WithBTInteger_ok() throws Exception {
+    public void givenBTString_WithBTInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         EOTest
                 .mapEOValue_ok(eoBTString, BTProvider.createInteger());
@@ -405,7 +405,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTEmpty_withJSONMap_ok() throws Exception {
+    public void givenBTEmpty_withJSONMap_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final String json = MapProviderJSON.toJSONMap(F_TEST_STRING, S_STRING);
         EOTest
@@ -415,7 +415,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenBTString_withJSONMap_ok() throws Exception {
+    public void givenBTString_withJSONMap_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         final String json = MapProviderJSON.toJSONMap(F_TEST_STRING, S_STRING_OTHER);
         EOTest
@@ -425,7 +425,7 @@ public class EONoPathRootMap_value_Test {
     }
 
     @Test
-    public void givenListString_WithBTString_ok() throws Exception {
+    public void givenListString_WithBTString_ok()  {
         final EO eoBTString = TestEOProvider.createEOFromJson(List.class, String.class);
         EOTest
                 .mapEOValue_ok(eoBTString, BTProvider.createString());
@@ -439,7 +439,7 @@ public class EONoPathRootMap_value_Test {
     // no mapping defined for list and object like 'BasicTest'.
 
     @Test
-    public void givenBTSmall_withJsonListSmall_fails() throws Exception {
+    public void givenBTSmall_withJsonListSmall_fails()  {
         final EO eoBTSmall = BTProviderEO.createSmall();
         eoBTSmall
                 .add()
@@ -454,7 +454,7 @@ public class EONoPathRootMap_value_Test {
      * original model BasicTest is kept.
      */
     @Test
-    public void givenBTEmpty_withJsnMapEmpty_ok() throws Exception {
+    public void givenBTEmpty_withJsnMapEmpty_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final String jsnMapEmpty = MapProviderJSON.getJSONEmpty();
 
@@ -470,7 +470,7 @@ public class EONoPathRootMap_value_Test {
     // when adding jsn map small
     // values will be set and original model is kept.
     @Test
-    public void givenBTEmpty_withJsnMapSmall_ok() throws Exception {
+    public void givenBTEmpty_withJsnMapSmall_ok()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final String jsnMapSmall = MapProviderJSON.readSmall();
 
@@ -491,7 +491,7 @@ public class EONoPathRootMap_value_Test {
      * log will be written and no value set
      */
     @Test
-    public void givenBTEmpty_withJsonMapWrongName_fails() throws Exception {
+    public void givenBTEmpty_withJsonMapWrongName_fails()  {
         final EO eoBTEmpty = BTProviderEO.createEmpty();
         final String jsonMapWrongName = MapProviderJSON.toJSONMap(S_KEY0, S_STRING);
 

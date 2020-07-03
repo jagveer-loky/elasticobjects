@@ -97,7 +97,7 @@ public class RolePermissions {
         }
     }
 
-    public boolean hasPermissions(Permissions requiredPermission, List<String> roles) throws Exception {
+    public boolean hasPermissions(Permissions requiredPermission, List<String> roles)  {
         if (roles == null) {
             return true;
         }

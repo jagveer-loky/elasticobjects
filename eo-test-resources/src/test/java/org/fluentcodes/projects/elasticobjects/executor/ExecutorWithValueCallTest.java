@@ -25,45 +25,45 @@ public class ExecutorWithValueCallTest extends TestHelper {
     private static final String METHOD_SET_EMPTY = ".set(empty)";
 
     @Test
-    public void intValue1_With_Path() throws Exception {
+    public void intValue1_With_Path()  {
         final EO adapter = TestCallsProvider.executeExecutorValueCall(ValueCallTest.VC_INT_VALUE1, F_PATH, F_KEY);
         Assert.assertEquals(new Long(S_INTEGER), adapter.get(Path.DELIMITER + F_KEY));
     }
 
     @Test
-    public void intValue1WithPathMapPathAndValue() throws Exception {
+    public void intValue1WithPathMapPathAndValue()  {
         final EO adapter = TestCallsProvider.executeExecutorValueCall(ValueCallTest.VC_INT_VALUE1, F_PATH, S_LEVEL0, F_MAP_PATH, S_LEVEL1, F_VALUE, S_STRING);
         Assert.assertEquals(new Long(S_INTEGER), adapter.get(toPath(S_LEVEL0, S_LEVEL1)));
     }
 
     @Test
-    public void keyNotExists_createLogEntry() throws Exception {
+    public void keyNotExists_createLogEntry()  {
         EO eoUnknown = TestCallsProvider.executeExecutorValueCall(SAMPLE_KEY_UNKNOW);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, eoUnknown.getLog().isEmpty());
     }
 
     @Test
-    public void intValue1WithMapPathAndValue() throws Exception {
+    public void intValue1WithMapPathAndValue()  {
         final EO eoInt1 = TestCallsProvider.executeExecutorValueCall(ValueCallTest.VC_INT_VALUE1, F_MAP_PATH, S_LEVEL0, F_VALUE, S_STRING);
         Assert.assertEquals(new Long(S_INTEGER), eoInt1.get(S_LEVEL0));
     }
 
     @Test
-    public void testItemWithPathPathAndValue_ignoresValue() throws Exception {
+    public void testItemWithPathPathAndValue_ignoresValue()  {
         final EO adapter = TestCallsProvider.executeExecutorValueCall(ValueCallTest.VC_TEST_ITEM, F_PATH, F_TEST_STRING, F_VALUE, S_STRING_OTHER);
         Assert.assertEquals(S_STRING, adapter.get(F_TEST_STRING));
         Assert.assertEquals(Map.class, adapter.getModelClass());
     }
 
     @Test
-    public void testItemWithPathPath() throws Exception {
+    public void testItemWithPathPath()  {
         final EO adapter = TestCallsProvider.executeExecutorValueCall(ValueCallTest.VC_TEST_ITEM, F_PATH, F_TEST_STRING);
         Assert.assertEquals(S_STRING, adapter.get(F_TEST_STRING));
     }
 
 
     @Test
-    public void emptyWithBT() throws Exception {
+    public void emptyWithBT()  {
         EO eoBT = TestCallsProvider
                 .executeExecutorValueCall(ValueCallTest.VC_EMPTY, F_MAP_PATH, F_BASIC_TEST, F_VALUE, BTProvider.createString());
         Assert.assertEquals(Map.class, eoBT.getModelClass());

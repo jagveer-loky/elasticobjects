@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorListTemplate;
@@ -29,14 +30,14 @@ public class TemplateConfig extends FileConfig {
         return templateKey;
     }
 
-    public ExecutorList getExecutorList() throws Exception {
+    public ExecutorList getExecutorList()  {
         if (executorList == null) {
             executorList = new ExecutorListTemplate(createIO().read());
         }
         return executorList;
     }
 
-    public String execute(EO adapter, Map attributes) throws Exception {
+    public String execute(EO adapter, Map attributes)  {
         if (getExecutorList().isEmpty()) {
             adapter.warn("Empty execution list for template " + templateKey);
             return "!!! Empty execution list for template " + templateKey + "!!!";
@@ -72,10 +73,10 @@ public class TemplateConfig extends FileConfig {
         private KeepKeys keep;
 
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             this.templateKey = (String) configsCache.transform(F_TEMPLATE_KEY, values);
             if (templateKey == null || templateKey.isEmpty()) {
-                throw new Exception("templateKey is not defined in the map!?");
+                throw new EoException("templateKey is not defined in the map!?");
             }
             String keep = ScalarConverter.toString(values.get(A_KEEP));
             if (keep != null && !keep.isEmpty()) {
@@ -86,7 +87,7 @@ public class TemplateConfig extends FileConfig {
         }
 
         @Override
-        public TemplateConfig build(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        public TemplateConfig build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             prepare(configsCache, values);
             return new TemplateConfig(configsCache, this);
         }

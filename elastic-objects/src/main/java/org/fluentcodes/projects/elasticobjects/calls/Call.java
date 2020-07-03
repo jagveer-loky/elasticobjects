@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.condition.Or;
 import org.fluentcodes.projects.elasticobjects.config.Config;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
@@ -51,20 +52,20 @@ public class Call {
     /**
      * Just an empty constructor since basic
      */
-    public Call(EOConfigsCache configsCache, String cacheKey) throws Exception {
+    public Call(EOConfigsCache configsCache, String cacheKey)  {
         ModelInterface actionConfig = configsCache.findModel(this.getClass());
         if (actionConfig == null) {
-            throw new Exception("Could not find model for '" + this.getClass().getSimpleName() + "'!");
+            throw new EoException("Could not find model for '" + this.getClass().getSimpleName() + "'!");
         }
         String modelConfigKey = actionConfig.getModelConfigKey();
         if (modelConfigKey == null) {
-            throw new Exception("Could not find model config key  '" + actionConfig.getModelKey() + "'!");
+            throw new EoException("Could not find model config key  '" + actionConfig.getModelKey() + "'!");
         }
         ModelInterface config = configsCache.findModel(modelConfigKey);
         try {
             this.config = (Config) configsCache.find(config.getPackagePath(), config.getModelKey(), cacheKey);
         } catch (Exception e) {
-            throw new Exception("Could not find config entry " + cacheKey + " in actions for config " + config.getModelKey() + ": " + e.getMessage());
+            throw new EoException("Could not find config entry " + cacheKey + " in actions for config " + config.getModelKey() + ": " + e.getMessage());
         }
         this.dynamicKey = cacheKey.contains("$[");
         this.attributes = new HashMap();
@@ -72,7 +73,7 @@ public class Call {
         this.removeAttributes = new HashSet();
     }
 
-    public Call(EOConfigsCache configsCache) throws Exception {
+    public Call(EOConfigsCache configsCache)  {
         this.config = null;
         this.attributes = new HashMap();
         this.globalAttributes = new HashMap();
@@ -270,9 +271,9 @@ public class Call {
         return !(path == null) && !path.isEmpty();
     }
 
-    protected EO setToPath(final EO adapter, Object object) throws Exception {
+    protected EO setToPath(final EO adapter, Object object)  {
         if (adapter == null) {
-            throw new Exception("Null adapter");
+            throw new EoException("Null adapter");
         }
         if (!hasPath()) {
             return adapter;
@@ -281,9 +282,9 @@ public class Call {
         return moveToPath(adapter);
     }
 
-    protected EO mapToPath(final EO adapter, Object object) throws Exception {
+    protected EO mapToPath(final EO adapter, Object object)  {
         if (adapter == null) {
-            throw new Exception("Null adapter");
+            throw new EoException("Null adapter");
         }
         if (!hasPath()) {
             return adapter;
@@ -292,9 +293,9 @@ public class Call {
         return moveToPath(adapter);
     }
 
-    protected EO moveToPath(final EO adapter) throws Exception {
+    protected EO moveToPath(final EO adapter)  {
         if (adapter == null) {
-            throw new Exception("Null adapter");
+            throw new EoException("Null adapter");
         }
         if (!hasPath()) {
             return adapter;
@@ -340,11 +341,11 @@ public class Call {
         }
     }
 
-    protected EO createAdapter(EO adapter) throws Exception {
+    protected EO createAdapter(EO adapter)  {
         return createAdapter(adapter, new HashMap());
     }
 
-    protected EO createAdapter(EO adapter, Map attributes) throws Exception {
+    protected EO createAdapter(EO adapter, Map attributes)  {
         resolvePath(adapter, attributes);
         return adapter.add(this.path).build();
     }

@@ -11,7 +11,7 @@ public class MapProviderEODev {
         return DevObjectProvider.createEOBuilder();
     }
 
-    public static EO createEmpty() throws Exception {
+    public static EO createEmpty()  {
         final EO eo = builder()
                 .setModels(MappingChange.Map.class)
                 .map(MapProvider.createEmpty());
@@ -19,43 +19,43 @@ public class MapProviderEODev {
         return eo;
     }
 
-    public static EO createString() throws Exception {
+    public static EO createString()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createString());
         BTProviderEO.assertString(eo);
         return eo;
     }
 
-    public static EO createInteger() throws Exception {
+    public static EO createInteger()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createInteger());
         BTProviderEO.assertInteger(eo);
         return eo;
     }
 
-    public static EO createLong() throws Exception {
+    public static EO createLong()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createLong());
         BTProviderEO.assertLong(eo);
         return eo;
     }
 
-    public static EO createDouble() throws Exception {
+    public static EO createDouble()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createDouble());
         BTProviderEO.assertDouble(eo);
         return eo;
     }
 
-    public static EO createBoolean() throws Exception {
+    public static EO createBoolean()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createBoolean());
         BTProviderEO.assertBoolean(eo);
         return eo;
     }
 
-    public static EO createMap() throws Exception {
+    public static EO createMap()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createMap());
         BTProviderEO.assertMap(eo);
         return eo;
     }
 
-    public static EO createSmall() throws Exception {
+    public static EO createSmall()  {
         final EO eo = builder().setModels(Map.class).map(MapProvider.createSmall());
         BTProviderEO.assertSmall(eo);
         return eo;

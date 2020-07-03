@@ -11,7 +11,7 @@ import org.junit.Assert;
 public class TestEOProvider {
     public static final EOConfigsCache EO_CONFIGS = new EOConfigsCache(Scope.TEST);
 
-    public static final EO createEmptyMap() throws Exception {
+    public static final EO createEmptyMap()  {
         return createEOBuilder().build();
     }
 
@@ -36,15 +36,15 @@ public class TestEOProvider {
         }
     }
 
-    public static final JSONToEO createJSONToEOMapEmpty() throws Exception {
+    public static final JSONToEO createJSONToEOMapEmpty()  {
         return new JSONToEO("{}", EO_CONFIGS);
     }
 
-    public static final JSONToEO createJSONToEOListEmpty() throws Exception {
+    public static final JSONToEO createJSONToEOListEmpty()  {
         return new JSONToEO("[]", EO_CONFIGS);
     }
 
-    public static final EO createEOFromJson(Class... classes) throws Exception {
+    public static final EO createEOFromJson(Class... classes)  {
         return createEOBuilder(classes)
                 .build();
     }
@@ -59,13 +59,13 @@ public class TestEOProvider {
         }
     }
 
-    public static final EOBuilder createEOBuilder(Class... classes) throws Exception {
+    public static final EOBuilder createEOBuilder(Class... classes)  {
         return new EOBuilder(EO_CONFIGS)
                 .setModels(classes)
                 .setLogLevel(LogLevel.WARN);
     }
 
-    public static final EO assertEOSerialized(EO eo) throws Exception {
+    public static final EO assertEOSerialized(EO eo)  {
         String fileName = AssertEO.compare(eo);
         Assert.assertTrue(eo.getLog().isEmpty());
         eo.executeCalls();

@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EOToJSONMapTest extends TestHelper {
 
     @Test
-    public void withDefault() throws Exception {
+    public void withDefault()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.create();
         String serialized = new EOToJSON().toJSON(adapter);
@@ -26,7 +26,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withIndent0() throws Exception {
+    public void withIndent0()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.create();
         String stringified = new EOToJSON()
@@ -36,7 +36,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withIndent1() throws Exception {
+    public void withIndent1()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.create();
         String stringified = new EOToJSON()
@@ -46,7 +46,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withIndent2() throws Exception {
+    public void withIndent2()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.create();
         String stringified = new EOToJSON()
@@ -56,7 +56,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withStringScalar() throws Exception {
+    public void withStringScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = MapProviderEO.createString();
         String stringified = new EOToJSON()
@@ -69,7 +69,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withIntegerScalar() throws Exception {
+    public void withIntegerScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = MapProviderEO.createInteger();
         String stringified = new EOToJSON()
@@ -82,7 +82,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withLongScalar() throws Exception {
+    public void withLongScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = MapProviderEO.createLong();
         String stringified = new EOToJSON()
@@ -95,7 +95,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withFloatScalar() throws Exception {
+    public void withFloatScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = MapProviderEO.createFloat();
         String stringified = new EOToJSON()
@@ -108,7 +108,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withDoubleScalar() throws Exception {
+    public void withDoubleScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = MapProviderEO.createDouble();
         String stringified = new EOToJSON()
@@ -121,7 +121,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withDateScalar() throws Exception {
+    public void withDateScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = MapProviderEO.createDate();
         String stringified = new EOToJSON()
@@ -134,7 +134,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withBooleanScalar() throws Exception {
+    public void withBooleanScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = MapProviderEO.createBoolean();
         String stringified = new EOToJSON()
@@ -147,7 +147,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void withIndentScalar() throws Exception {
+    public void withIndentScalar()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.create();
         String stringified = new EOToJSON()
@@ -158,7 +158,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void loopScalar() throws Exception {
+    public void loopScalar()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.create();
         long duration = System.currentTimeMillis();
@@ -172,7 +172,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void mapBigAdapter10000() throws Exception {
+    public void mapBigAdapter10000()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.createBigEO(100);
         long duration = System.currentTimeMillis();
@@ -185,7 +185,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void mapBigAdapterUnexpanded10000() throws Exception {
+    public void mapBigAdapterUnexpanded10000()  {
         TestHelper.printStartMethod();
         EO adapter = MapProviderEO.createBigAEOUnexpanded(100);
         long duration = System.currentTimeMillis();
@@ -198,7 +198,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void setSameMaps() throws Exception {
+    public void setSameMaps()  {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         map.put(S_KEY1, S_INTEGER);
@@ -221,7 +221,7 @@ public class EOToJSONMapTest extends TestHelper {
     }
 
     @Test
-    public void setSameMapsWithCheck() throws Exception {
+    public void setSameMapsWithCheck()  {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         TestHelper.printStartMethod();

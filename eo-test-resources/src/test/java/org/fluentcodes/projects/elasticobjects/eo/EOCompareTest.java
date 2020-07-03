@@ -17,7 +17,7 @@ public class EOCompareTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOCompareTest.class);
 
     @Test
-    public void simpleEquals() throws Exception {
+    public void simpleEquals()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add("first")
@@ -33,7 +33,7 @@ public class EOCompareTest extends TestHelper {
     }
 
     @Test
-    public void simpleScalarNotEquals() throws Exception {
+    public void simpleScalarNotEquals()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_TEST_STRING)
@@ -49,7 +49,7 @@ public class EOCompareTest extends TestHelper {
     }
 
     @Test
-    public void simpleContainerNotEquals() throws Exception {
+    public void simpleContainerNotEquals()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_KEY0)

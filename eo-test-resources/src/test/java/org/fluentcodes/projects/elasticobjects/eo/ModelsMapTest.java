@@ -34,19 +34,19 @@ public class ModelsMapTest extends TestHelper {
 
 
     @Test
-    public void setNull_ok() throws Exception {
+    public void setNull_ok()  {
         final Models child = MODELS.createChildForSet(F_TEST_OBJECT, null, null);
         Assert.assertEquals(Map.class, child.getModelClass());
     }
 
     @Test
-    public void mapNull_ok() throws Exception {
+    public void mapNull_ok()  {
         final Models child = MODELS.createChildForMap(F_TEST_OBJECT, null);
         Assert.assertEquals(Map.class, child.getModelClass());
     }
 
     @Test
-    public void setJson_fails() throws Exception {
+    public void setJson_fails()  {
         try {
             MODELS.createChildForSet(F_UNTYPED_MAP, TestEOProvider.createJSONToEOMapEmpty(), null);
             Assert.fail(INFO_EXPECTED_NO_EXCEPTION);
@@ -56,67 +56,67 @@ public class ModelsMapTest extends TestHelper {
     }
 
     @Test
-    public void mapJson_ok() throws Exception {
+    public void mapJson_ok()  {
         final Models child = MODELS.createChildForMap(F_UNTYPED_MAP, TestEOProvider.createJSONToEOMapEmpty());
         Assert.assertEquals(Map.class, child.getModelClass());
     }
 
     @Test
-    public void mapString_ok() throws Exception {
+    public void mapString_ok()  {
         final Models child = MODELS.createChildForMap(F_TEST_STRING, S_STRING);
         Assert.assertEquals(String.class, child.getModelClass());
     }
 
     @Test
-    public void setString_ok() throws Exception {
+    public void setString_ok()  {
         final Models child = MODELS.createChildForSet(F_TEST_STRING, S_STRING, null);
         Assert.assertEquals(String.class, child.getModelClass());
     }
 
     @Test
-    public void mapStringWithDateClass_ok() throws Exception {
+    public void mapStringWithDateClass_ok()  {
         final Models child = MODELS.createChildForMap(F_TEST_STRING, S_STRING, Date.class);
         Assert.assertEquals(Date.class, child.getModelClass());
     }
 
     @Test
-    public void setMap_ok() throws Exception {
+    public void setMap_ok()  {
         final Models child = MODELS.createChildForSet(F_UNTYPED_MAP, MapProvider.createEmpty(), null);
         Assert.assertEquals(LinkedHashMap.class, child.getModelClass());
     }
 
     @Test
-    public void mapMap_ok() throws Exception {
+    public void mapMap_ok()  {
         final Models child = MODELS.createChildForMap(F_UNTYPED_MAP, MapProvider.create());
         Assert.assertEquals(LinkedHashMap.class, child.getModelClass());
     }
 
     @Test
-    public void setList_ok() throws Exception {
+    public void setList_ok()  {
         final Models child = MODELS.createChildForSet(F_UNTYPED_LIST, ListProvider.create(), null);
         Assert.assertEquals(ArrayList.class, child.getModelClass());
     }
 
     @Test
-    public void mapList_ok() throws Exception {
+    public void mapList_ok()  {
         final Models child = MODELS.createChildForMap(F_UNTYPED_LIST, ListProvider.create());
         Assert.assertEquals(ArrayList.class, child.getModelClass());
     }
 
     @Test
-    public void setBT_ok() throws Exception {
+    public void setBT_ok()  {
         final Models child = MODELS.createChildForSet(F_BASIC_TEST, BTProvider.create(), null);
         Assert.assertEquals(BasicTest.class, child.getModelClass());
     }
 
     @Test
-    public void mapBT_ok() throws Exception {
+    public void mapBT_ok()  {
         final Models child = MODELS.createChildForMap(F_BASIC_TEST, BTProvider.create());
         Assert.assertEquals(BasicTest.class, child.getModelClass());
     }
 
     @Test
-    public void mapST_ok() throws Exception {
+    public void mapST_ok()  {
         final Models child = MODELS.createChildForMap(F_SUB_TEST, STProvider.create());
         Assert.assertEquals(SubTest.class, child.getModelClass());
 

@@ -5,43 +5,43 @@ import org.junit.Test;
 public class MapProviderEODevTest {
 
     @Test
-    public void createEOEmpty() throws Exception {
+    public void createEOEmpty()  {
         MapProviderEODev.createEmpty();
     }
 
     @Test
-    public void createEOString() throws Exception {
+    public void createEOString()  {
         MapProviderEODev.createString();
     }
 
     @Test
-    public void createEOInteger() throws Exception {
+    public void createEOInteger()  {
         MapProviderEODev.createInteger();
     }
 
 
     @Test
-    public void createEOLong() throws Exception {
+    public void createEOLong()  {
         MapProviderEODev.createLong();
     }
 
     @Test
-    public void createEODouble() throws Exception {
+    public void createEODouble()  {
         MapProviderEODev.createDouble();
     }
 
     @Test
-    public void createEOBoolean() throws Exception {
+    public void createEOBoolean()  {
         MapProviderEODev.createBoolean();
     }
 
     @Test
-    public void createEOSmall() throws Exception {
+    public void createEOSmall()  {
         MapProviderEODev.createSmall();
     }
 
     @Test
-    public void createEOMap() throws Exception {
+    public void createEOMap()  {
         MapProviderEODev.createMap();
     }
 }

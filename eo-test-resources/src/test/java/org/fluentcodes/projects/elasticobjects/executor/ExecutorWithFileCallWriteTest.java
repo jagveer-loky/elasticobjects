@@ -16,7 +16,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ExecutorWithFileCallWriteTest extends TestHelper {
 
     @Test
-    public void execute() throws Exception {
+    public void execute()  {
         final CallExecutor executor = TestCallsProvider.createExecutorFileWrite(FILE_TARGET_TXT, F_MAP_PATH, F_TEST_STRING);
         executor.execute(MapProviderEO.createString());
 

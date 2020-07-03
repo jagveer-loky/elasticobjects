@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ModelConfigNoneTest extends TestHelper {
 
     @Test
-    public void assertObject() throws Exception {
+    public void assertObject()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(Object.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.NONE, model.getShapeType());

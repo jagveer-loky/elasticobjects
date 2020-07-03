@@ -225,7 +225,7 @@ public class TEO_STATIC {
         return map;
     }
 
-    public static final Map<String, Object> createListParamsMap() throws Exception {
+    public static final Map<String, Object> createListParamsMap()  {
         Map<String, Object> map = toMap(
                 F_LENGTH, 1,
                 F_ROW_HEAD, 2,

@@ -9,7 +9,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class Merge {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final EO eo = TestEOProvider.create();
 
         final BasicTest BT1 = new BasicTest();

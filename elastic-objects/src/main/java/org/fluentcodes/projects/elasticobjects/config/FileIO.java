@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.FileUtil;
 
 import java.io.BufferedWriter;
@@ -18,7 +19,7 @@ public class FileIO implements IOInterface {
         this.fileConfig = fileConfig;
     }
 
-    public String read() throws Exception {
+    public String read()  {
         if (fileConfig.hasCachedContent()) {
             return fileConfig.getCachedContent();
         }
@@ -34,11 +35,11 @@ public class FileIO implements IOInterface {
      * Write the file direct without the usage of
      *
      * @param content
-     * @throws Exception
+     * @
      */
-    public void write(String content) throws Exception {
+    public void write(String content)  {
         if (fileConfig.isCached()) {
-            throw new Exception("A fileCached file could not persisted!");
+            throw new EoException("A fileCached file could not persisted!");
         }
         URL url = fileConfig.getUrl();
         File filePath = new File(url.getPath());
@@ -48,9 +49,9 @@ public class FileIO implements IOInterface {
         write(url, content);
     }
 
-    public void write(Object content) throws Exception {
+    public void write(Object content)  {
         if (fileConfig.isCached()) {
-            throw new Exception("A fileCached file could not persisted!");
+            throw new EoException("A fileCached file could not persisted!");
         }
         if (content instanceof String) {
             write((String) content);
@@ -58,14 +59,23 @@ public class FileIO implements IOInterface {
         //
     }
 
-    private void write(URL url, String content) throws Exception {
+    private void write(URL url, String content)  {
         BufferedWriter out = null;
         try {
             out = new BufferedWriter(new FileWriter(url.getFile()));
             out.write(content);
-        } finally {
+        }
+        catch (Exception e) {
+            throw new EoException(e);
+        }
+        finally {
             if (out != null) {
+                try {
                 out.close();
+                }
+                catch (Exception e) {
+                    throw new EoException(e);
+                }
             }
         }
     }

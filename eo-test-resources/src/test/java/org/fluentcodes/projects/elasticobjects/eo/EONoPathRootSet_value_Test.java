@@ -24,42 +24,51 @@ public class EONoPathRootSet_value_Test {
     private static final Logger LOG = LogManager.getLogger(EONoPathRootSet_value_Test.class);
 
     @Test
-    public void givenString_withInteger_ok() throws Exception {
+    public void givenString_withInteger_ok()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .setEOValue_ok(eoString, S_INTEGER);
     }
 
     @Test
-    public void givenString_withBoolean_ok() throws Exception {
+    public void createWithInteger_ok()  {
+        final EORoot root = new EORoot(DevObjectProvider.EO_CONFIGS);
+        Assert.assertNotNull(root);
+        root.setValue("test", "test2");
+        String value = (String)root.get("test");
+    }
+
+
+    @Test
+    public void givenString_withBoolean_ok()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .setEOValue_ok(eoString, S_BOOLEAN);
     }
 
     @Test
-    public void givenString_withMap_ok() throws Exception {
+    public void givenString_withMap_ok()  {
         final EO eoString = DevObjectProvider.createEOString();
         EOTest
                 .setEOValue_ok(eoString, new LinkedHashMap());
     }
 
     @Test
-    public void givenMapEmpy_withNull_ok() throws Exception {
+    public void givenMapEmpy_withNull_ok()  {
         final EO adapter = DevObjectProvider.createEO();
         adapter.add().set(null);
         Assert.assertEquals(Map.class, adapter.getModelClass());
     }
 
     @Test
-    public void givenMapEmpty_withString_ok() throws Exception {
+    public void givenMapEmpty_withString_ok()  {
         EO eoMapEmpty = DevObjectProvider.createEO();
         eoMapEmpty.add()
                 .set(S_STRING);
     }
 
     @Test
-    public void givenMapString_withString_ok() throws Exception {
+    public void givenMapString_withString_ok()  {
         final EO eoMapString = MapProviderEO.createString();
         EOTest
                 .setEOValue_ok(eoMapString, S_STRING_OTHER);
@@ -67,7 +76,7 @@ public class EONoPathRootSet_value_Test {
     }
 
     @Test
-    public void givenMapString_withMapEmpty_ok() throws Exception {
+    public void givenMapString_withMapEmpty_ok()  {
         final EO eoMapString = MapProviderEO.createString();
         eoMapString.add().set(new HashMap<>());
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eoMapString.getModelClass());
@@ -75,7 +84,7 @@ public class EONoPathRootSet_value_Test {
     }
 
     @Test
-    public void givenMapEmpty_withMapString_ok() throws Exception {
+    public void givenMapEmpty_withMapString_ok()  {
         final EO eoMapEmpty = MapProviderEO.create();
         eoMapEmpty.add().set(MapProvider.createString());
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eoMapEmpty.getModelClass());
@@ -83,14 +92,14 @@ public class EONoPathRootSet_value_Test {
     }
 
     @Test
-    public void givenMapEmpty_withBT_ok() throws Exception {
+    public void givenMapEmpty_withBT_ok()  {
         final EO eoMapString = MapProviderEO.createEmpty();
         EOTest
                 .setEOValue_ok(eoMapString, new BasicTest());
     }
 
     @Test
-    public void givenMapEmpty_withSTString_ok() throws Exception {
+    public void givenMapEmpty_withSTString_ok()  {
         final EO eoMapString = MapProviderEO.createEmpty();
         EOTest
                 .setEOValue_ok(eoMapString, STProvider.createString());
@@ -104,7 +113,7 @@ public class EONoPathRootSet_value_Test {
      */
     //TODO Behaviour as decided?!
     @Test
-    public void givenListEmpty_withMapJsonSmall_ok() throws Exception {
+    public void givenListEmpty_withMapJsonSmall_ok()  {
         final EO listEO = ListProviderEO.createEmpty();
         final String jsonMapSmall = MapProviderJSON.readSmall();
         listEO
@@ -118,7 +127,7 @@ public class EONoPathRootSet_value_Test {
 
 
     @Test
-    public void givenBTString_withBTInteger_ok() throws Exception {
+    public void givenBTString_withBTInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
 
@@ -129,7 +138,7 @@ public class EONoPathRootSet_value_Test {
     }
 
     @Test
-    public void givenBTString_withMapInteger_ok() throws Exception {
+    public void givenBTString_withMapInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
 
@@ -140,7 +149,7 @@ public class EONoPathRootSet_value_Test {
     }
 
     @Test
-    public void givenBTString_withString_ok() throws Exception {
+    public void givenBTString_withString_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         EOTest
                 .setEOValue_ok(eoBTString, S_STRING);
@@ -148,7 +157,7 @@ public class EONoPathRootSet_value_Test {
     }
 
     @Test
-    public void givenBTString_WithBTInteger_ok() throws Exception {
+    public void givenBTString_WithBTInteger_ok()  {
         final EO eoBTString = BTProviderEO.createString();
         EOTest
                 .setEOValue_ok(eoBTString, BTProvider.createInteger());
@@ -159,7 +168,7 @@ public class EONoPathRootSet_value_Test {
 
 
     @Test
-    public void givenSTSimple_withSTString_ok() throws Exception {
+    public void givenSTSimple_withSTString_ok()  {
         final EO eoMapString = STProviderEO.createSimple();
         EOTest
                 .setEOValue_ok(eoMapString, STProvider.createString());

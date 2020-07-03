@@ -11,7 +11,7 @@ import java.util.Collections;
 public class ConfigsImmutable extends EOConfigs {
     public static final Logger LOG = LogManager.getLogger(ConfigsImmutable.class);
 
-    public ConfigsImmutable(final EOConfigsCache eoConfigsCache, final Class<? extends Config> configClass, final Scope scope) throws Exception {
+    public ConfigsImmutable(final EOConfigsCache eoConfigsCache, final Class<? extends Config> configClass, final Scope scope)  {
         super(
                 eoConfigsCache,
                 configClass,

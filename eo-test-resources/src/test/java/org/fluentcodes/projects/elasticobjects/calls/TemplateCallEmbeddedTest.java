@@ -20,7 +20,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(TemplateCallEmbeddedTest.class);
 
     @Test
-    public void callEmbedded0() throws Exception {
+    public void callEmbedded0()  {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_0);
         final String result = action.execute(adapter);
@@ -29,7 +29,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     }
 
     @Test
-    public void callEmbedded0WithPlaceHolder() throws Exception {
+    public void callEmbedded0WithPlaceHolder()  {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_0_WITH_PLACE_HOLDER);
         final String result = action.execute(adapter);
@@ -39,7 +39,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
 
 
     @Test
-    public void callEmbedded2() throws Exception {
+    public void callEmbedded2()  {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_2);
         final String result = action.execute(adapter);
@@ -49,7 +49,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
 
 
     @Test
-    public void callEmbedded2WithPlaceHolder() throws Exception {
+    public void callEmbedded2WithPlaceHolder()  {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_2_WITH_PLACE_HOLDER);
         final String result = action.execute(adapter);
@@ -58,7 +58,7 @@ public class TemplateCallEmbeddedTest extends TestHelper {
     }
 
     @Test
-    public void callEmbedded2WithValueAction() throws Exception {
+    public void callEmbedded2WithValueAction()  {
         final EO adapter = TestDataProvider.createAdapterEmbedded();
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS, T_EMBEDDED_2_WITH_PLACE_HOLDER);
         final String result = action.execute(adapter);

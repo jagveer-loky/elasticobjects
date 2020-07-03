@@ -183,7 +183,7 @@ public class LoggingObjectsTest extends TestHelper {
     /**
      * Tests debug() with different logLevels
      *
-     * @throws Exception
+     * @
      */
     @Test
     public void testDebug() {

@@ -2,11 +2,13 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.Models;
 import org.fluentcodes.projects.elasticobjects.executor.statics.ValuesMisc;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -56,31 +58,31 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         return null;
     }
 
-    public ModelInterface getFieldModel(final String fieldName) throws Exception {
+    public ModelInterface getFieldModel(final String fieldName)  {
         return getField(fieldName).getModelConfig();
     }
 
-    public Models getFieldModels(final String fieldName) throws Exception {
+    public Models getFieldModels(final String fieldName)  {
         return getField(fieldName).getModels();
     }
 
-    public ModelInterface getFieldChild(final String fieldName) throws Exception {
+    public ModelInterface getFieldChild(final String fieldName)  {
         return getField(fieldName).getChildModel();
     }
 
     @Override
-    public Class getFieldClass(final String fieldName) throws Exception {
+    public Class getFieldClass(final String fieldName)  {
         return getField(fieldName).getModelClass();
     }
 
     @Override
-    public Set<String> keys(final Object object) throws Exception {
+    public Set<String> keys(final Object object)  {
         resolve();
         return this.getFieldCacheMap().keySet();
     }
 
     @Override
-    public int size(final Object object) throws Exception {
+    public int size(final Object object)  {
         resolve();
         int counter = 0;
         for (String key : this.getFieldKeys()) {
@@ -92,7 +94,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         return counter;
     }
 
-    public List<Object> keysAsIs(Object object) throws Exception {
+    public List<Object> keysAsIs(Object object)  {
         resolve();
         return (List) this.getFieldKeys();
     }
@@ -102,39 +104,43 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public void set(final String fieldName, final Object object, final Object value) throws Exception {
+    public void set(final String fieldName, final Object object, final Object value)  {
         resolve();
         if (fieldName == null) {
-            throw new Exception("Setter: null key request for " + this.getModelKey() + "! ");
+            throw new EoException("Setter: null key request for " + this.getModelKey() + "! ");
         }
         final Method setter = setterMap.get(fieldName);
         if (setter == null) {
-            throw new Exception("No setter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+            throw new EoException("No setter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
         }
         Object usedValue = value;
         if (getFieldModel(fieldName).isScalar()) {
             try {
                 usedValue = ScalarConverter.transformScalar(getFieldModel(fieldName).getModelClass(), value);
             } catch (Exception e) {
-                throw new Exception("Problem transforming field '" + fieldName + "' with value " + value.toString() + " " + value.getClass().getSimpleName() + ": " + e.getMessage());
+                throw new EoException("Problem transforming field '" + fieldName + "' with value " + value.toString() + " " + value.getClass().getSimpleName() + ": " + e.getMessage());
             }
         }
         try {
             setter.invoke(object, usedValue);
         } catch (Exception e) {
-            throw new Exception("Problem setting field '" + fieldName + "' with value " + value.toString() + " " + value.getClass().getSimpleName() + ": " + e.getMessage());
+            throw new EoException("Problem setting field '" + fieldName + "' with value " + value.toString() + " " + value.getClass().getSimpleName() + ": " + e.getMessage());
         }
     }
 
     @Override
-    public Object getAsIs(final Object fieldNameAsObject, final Object object) throws Exception {
+    public Object getAsIs(final Object fieldNameAsObject, final Object object)  {
         resolve();
         String fieldName = ScalarConverter.toString(fieldNameAsObject);
         final Method getter = getterMap.get(fieldName);
         if (getter == null) {
-            throw new Exception("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+            throw new EoException("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
         }
-        return getter.invoke(object, null);
+        try {
+            return getter.invoke(object, null);
+        } catch (Exception e) {
+            throw new EoException(e);
+        }
     }
 
     public boolean hasGetter(final String fieldName) {
@@ -142,14 +148,14 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public Object get(final String fieldName, final Object object) throws Exception {
+    public Object get(final String fieldName, final Object object)  {
         resolve();
         if (fieldName == null) {
-            throw new Exception("Getter: null key request for " + this.getModelKey() + "! ");
+            throw new EoException("Getter: null key request for " + this.getModelKey() + "! ");
         }
         final Method getter = getterMap.get(fieldName);
         if (getter == null) {
-            throw new Exception("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+            throw new EoException("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
         }
         try {
             return getter.invoke(object, null);
@@ -157,7 +163,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
             // NullPointerException thrown when null value is add in the Object. Will be ignored.
             if (e.getCause() == null || !e.getCause().toString().equals("java.lang.NullPointerException")) {
                 LOG.warn("Could not find value for " + fieldName + ": " + e.getClass() + " - " + e.getCause());
-                throw e;
+                throw new EoException(e);
             }
             return null;
         }
@@ -165,7 +171,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public boolean exists(final String fieldName, final Object object) throws Exception {
+    public boolean exists(final String fieldName, final Object object)  {
         resolve();
         if (fieldName == null) {
             return false;
@@ -191,16 +197,16 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public void remove(final String fieldName, final Object object) throws Exception {
+    public void remove(final String fieldName, final Object object)  {
         resolve();
         if (get(fieldName, object) == null) {
-            throw new Exception("Object value for " + fieldName + " is already null.");
+            throw new EoException("Object value for " + fieldName + " is already null.");
         }
         set(fieldName, object, null);
     }
 
     @Override
-    public Object create() throws Exception {
+    public Object create()  {
         resolve();
         if (getShapeType() == ShapeTypes.CONFIG) {
             return null;
@@ -210,20 +216,28 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
                 return getModelClass().getConstructor(EOConfigsCache.class).newInstance(getConfigsCache());
             } catch (Exception e) {
                 //LOG.warn("Problem with creating " + getModelClass().getName() + e.getMessage());
-                return getModelClass().newInstance();
+                try {
+                    return getModelClass().newInstance();
+                } catch (Exception instantiationException) {
+                    throw new EoException(e);
+                }
             }
         } else {
             ModelInterface implementation = getConfigsCache().findModel(getDefaultImplementation());
             try {
                 return implementation.getModelClass().getConstructor(EOConfigs.class).newInstance(getConfigsCache());
             } catch (Exception e) {
-                return implementation.getModelClass().newInstance();
+                try {
+                    return implementation.getModelClass().newInstance();
+                } catch (Exception instantiationException) {
+                    throw new EoException(e);
+                }
             }
         }
     }
 
     @Override
-    public void resolve() throws Exception {
+    public void resolve()  {
         if (isResolved()) {
             return;
         }
@@ -238,13 +252,13 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
                 FieldConfig fieldCache = getConfigsCache().findField(fieldKey);
                 fieldName = fieldCache.getFieldKey();
                 if (fieldName == null) {
-                    //throw new Exception("Null fieldName?! " + fieldName);
+                    //throw new EoException("Null fieldName?! " + fieldName);
                     continue;
                 }
                 getFieldCacheMap().put(fieldName, fieldCache);
                 type = fieldCache.getModelConfig();
                 if (type == null) {
-                    //throw new Exception("Problem getting model of field " + fieldName);
+                    //throw new EoException("Problem getting model of field " + fieldName);
                     continue;
                 }
                 if ("java.lang".equals(type.getPackagePath())) {
@@ -257,7 +271,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
                     }
                 }
             } catch (Exception e) {
-                throw new Exception("Problem resolving field with name '" + fieldKey + "' defined within model '" + getModelKey() + "': Probably no field definition is provided.", e);
+                throw new EoException("Problem resolving field with name '" + fieldKey + "' defined within model '" + getModelKey() + "': Probably no field definition is provided.", e);
             }
 
             // If scope is for creating a bean from template, the class will be created by this.
@@ -296,12 +310,12 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         }
     }
 
-    private Method findSetMethod(final Class myClass, final String methodString, final Class typeClass) throws Exception {
+    private Method findSetMethod(final Class myClass, final String methodString, final Class typeClass)  {
         if (myClass == Object.class) {
             if (typeClass != null) {
-                throw new Exception("Reached Object root class: Could not find " + methodString + " for " + typeClass.getSimpleName() + ".");
+                throw new EoException("Reached Object root class: Could not find " + methodString + " for " + typeClass.getSimpleName() + ".");
             }
-            throw new Exception("Reached Object root class: Could not find " + methodString + ".");
+            throw new EoException("Reached Object root class: Could not find " + methodString + ".");
         }
         try {
             Method method = myClass.getMethod(methodString, typeClass);
@@ -311,9 +325,9 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         }
     }
 
-    private Method findGetMethod(final Class myClass, final String methodString) throws Exception {
+    private Method findGetMethod(final Class myClass, final String methodString)  {
         if (myClass == Object.class) {
-            throw new Exception("Reached Object root class: Could not find getter " + methodString + ".");
+            throw new EoException("Reached Object root class: Could not find getter " + methodString + ".");
         }
         try {
             Method method = myClass.getMethod(methodString);

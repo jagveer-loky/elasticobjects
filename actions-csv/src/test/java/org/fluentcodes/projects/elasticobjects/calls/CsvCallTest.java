@@ -21,13 +21,13 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class CsvCallTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(CsvCallTest.class);
 
-    private CsvCall createActionWithSourceCsv() throws Exception {
+    private CsvCall createActionWithSourceCsv()  {
         CsvCall action = new CsvCall(TestEOProvider.EO_CONFIGS, CSV_SOURCE_CSV);
         return action;
     }
 
     @Test
-    public void withSourceCsv() throws Exception {
+    public void withSourceCsv()  {
         TestHelper.printStartMethod();
         CsvCall action = createActionWithSourceCsv();
         Assert.assertEquals(CSV_SOURCE_CSV, action.getCsvConfig().getFileConfig().getFileName());
@@ -41,7 +41,7 @@ public class CsvCallTest extends TestHelper {
     }
 
     @Test
-    public void withSourceCsv_IgnoreHeader() throws Exception {
+    public void withSourceCsv_IgnoreHeader()  {
         CsvCall action = createActionWithSourceCsv();
         action.setIgnoreHeader(true);
         EO adapter = action.read(TestEOProvider.createEmptyMap());
@@ -50,7 +50,7 @@ public class CsvCallTest extends TestHelper {
     }
 
     @Test
-    public void withSourceCsv_IgnoreHeaderSetRowStartTo2() throws Exception {
+    public void withSourceCsv_IgnoreHeaderSetRowStartTo2()  {
         CsvCall action = createActionWithSourceCsv();
         action.setIgnoreHeader(true);
         action.setRowStart(2);
@@ -60,7 +60,7 @@ public class CsvCallTest extends TestHelper {
     }
 
     @Test
-    public void withSourceCsv_RemoveRowHeadSetRowEndTo2() throws Exception {
+    public void withSourceCsv_RemoveRowHeadSetRowEndTo2()  {
         CsvCall action = createActionWithSourceCsv();
         action.setIgnoreHeader(true);
         action.setRowStart(1);
@@ -72,7 +72,7 @@ public class CsvCallTest extends TestHelper {
     }
 
     @Test
-    public void withTargetCsv() throws Exception {
+    public void withTargetCsv()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createRow());

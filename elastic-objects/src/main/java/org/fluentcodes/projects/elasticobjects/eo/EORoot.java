@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.eo;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
@@ -23,16 +24,23 @@ public class EORoot extends EOContainer {
     private boolean checkObjectReplication = false;
     private boolean hasError = false;
 
-    protected EORoot(final EOBuilder params) throws Exception {
+    public EORoot(final EOConfigsCache cache)  {
+        super(new Models(cache),LogLevel.DEBUG);
+        this.provider = cache;
+    }
+
+    protected EORoot(final EOBuilder params)  {
         super(params);
     }
 
-    protected void initRoot(EOBuilder params) throws Exception {
+
+
+    protected void initRoot(EOBuilder params)  {
         this.actions = new ExecutorList();
         this.serializationType = params.getSerializationType();
         this.adapterExtension = params.getEoExtension();
         if (params.getConfigCache() == null) {
-            throw new Exception("MODULE_NAME only works with an embedded provider!");
+            throw new EoException("MODULE_NAME only works with an embedded provider!");
         } else {
             this.provider = params.getConfigCache();
         }

@@ -23,7 +23,7 @@ public class XlsxCallReadTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(XlsxCallReadTest.class);
 
     @Test
-    public void serialize() throws Exception {
+    public void serialize()  {
         TestHelper.printStartMethod();
         Map attributes = new HashMap();
         attributes.put(F_PATH, F_PATH);
@@ -31,7 +31,7 @@ public class XlsxCallReadTest extends TestHelper {
     }
 
     @Test
-    public void withNoPath() throws Exception {
+    public void withNoPath()  {
         EO adapter = TestXlsxProvider.executeXlsxActionRead(new HashMap(), X_SOURCE_XLSX_TEST);
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH0_KEY1));
     }

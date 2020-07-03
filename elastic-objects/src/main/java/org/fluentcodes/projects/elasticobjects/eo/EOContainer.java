@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -21,8 +22,12 @@ import java.util.*;
 public class EOContainer extends EOScalar implements EO {
     private static final Logger LOG = LogManager.getLogger(EOContainer.class);
     private Map<String, EO> childMap;
+    protected EOContainer(Models models, LogLevel logLevel)  {
+        super(models, logLevel);
+        childMap = new LinkedHashMap<>();
+    }
 
-    protected EOContainer(final EOBuilder params) throws Exception {
+    protected EOContainer(final EOBuilder params)  {
         super(params);
         if (isScalar()) {
             childMap = null;
@@ -43,7 +48,7 @@ public class EOContainer extends EOScalar implements EO {
         }
     }
 
-    protected void map(final EOBuilder params) throws Exception {
+    protected void map(final EOBuilder params)  {
         Object source = params.getValue();
         if (this.isEmpty()) {
             set(getAdapterExtension().doBeforeMap(this, source));
@@ -56,7 +61,7 @@ public class EOContainer extends EOScalar implements EO {
         //}
     }
 
-    protected void map(final Object source) throws Exception {
+    protected void map(final Object source)  {
         if (source == null) {
             return;
         }
@@ -123,7 +128,7 @@ public class EOContainer extends EOScalar implements EO {
     }
 
 
-    protected void setCalls(List<CallExecutor> actions) throws Exception {
+    protected void setCalls(List<CallExecutor> actions)  {
 
         for (CallExecutor action : actions) {
             action.setPath(this.getPath().directory());
@@ -135,7 +140,7 @@ public class EOContainer extends EOScalar implements EO {
                 .set(actions);
     }
 
-    protected void setCallsByMap(List<Map> callList) throws Exception {
+    protected void setCallsByMap(List<Map> callList)  {
         for (Map attributes : callList) {
             if (attributes.get(EO_STATIC.F_PATH) == null && !this.getPath().isEmpty()) {
                 attributes.put(EO_STATIC.F_PATH, this.getPath().directory());
@@ -144,7 +149,7 @@ public class EOContainer extends EOScalar implements EO {
         }
     }
 
-    public void addCall(CallExecutor callExecutor) throws Exception {
+    public void addCall(CallExecutor callExecutor)  {
         Path path = this.getPath();
         callExecutor.setPath(path.directory());
         getRoot().addCall(callExecutor);
@@ -217,7 +222,7 @@ public class EOContainer extends EOScalar implements EO {
     }
 
     @Override
-    public int size() throws Exception {
+    public int size()  {
         if (!isContainer()) {
             return 0;
         }
@@ -225,11 +230,11 @@ public class EOContainer extends EOScalar implements EO {
     }
 
     @Override
-    public int size(final String path) throws Exception {
+    public int size(final String path)  {
         return (this.childKeys(path).size());
     }
 
-    public List<String> keys(String pathString) throws Exception {
+    public List<String> keys(String pathString)  {
         if (pathString == null || pathString.isEmpty() || ".".equals(pathString)) {
             List<String> keys = new ArrayList<>();
             keys.add(".");
@@ -238,22 +243,22 @@ public class EOContainer extends EOScalar implements EO {
         return keys(new PathPattern(pathString));
     }
 
-    public List<String> keys(PathPattern pathPattern) throws Exception {
+    public List<String> keys(PathPattern pathPattern)  {
         return pathPattern.filter(keys());
     }
 
-    public final Map getKeyValues() throws Exception {
+    public final Map getKeyValues()  {
         if (getModel() == null) {
-            throw new Exception("Null model!");
+            throw new EoException("Null model!");
         }
         if (!isContainer()) {
-            throw new Exception("Not a container model " + getModel().getModelKey() + "'!");
+            throw new EoException("Not a container model " + getModel().getModelKey() + "'!");
         }
         return getModel().getKeyValues(get(), new PathPattern("*"));
     }
 
     @Override
-    public List<String> filterPaths(String pathString) throws Exception {
+    public List<String> filterPaths(String pathString)  {
         if (pathString == null || pathString.isEmpty() || ".".equals(pathString)) {
             List<String> keys = new ArrayList<>();
             keys.add(".");
@@ -262,7 +267,7 @@ public class EOContainer extends EOScalar implements EO {
         return filterPaths(new PathPattern(pathString), "");
     }
 
-    public List<String> filterPaths(PathPattern pathPattern, String path) throws Exception {
+    public List<String> filterPaths(PathPattern pathPattern, String path)  {
         List<String> result = new ArrayList<>();
         List<String> filter = pathPattern.filter(keys());
         for (String key : filter) {
@@ -287,7 +292,7 @@ public class EOContainer extends EOScalar implements EO {
     }
 
     @Override
-    public Set<String> keys() throws Exception {
+    public Set<String> keys()  {
         if (!isContainer()) {
             return new HashSet<>();
         }
@@ -300,7 +305,7 @@ public class EOContainer extends EOScalar implements EO {
         return this.getModel().keys(get());
     }
 
-    public Set<String> childKeys(final String path) throws Exception {
+    public Set<String> childKeys(final String path)  {
         return getChild(path).keys();
     }
 
@@ -309,9 +314,9 @@ public class EOContainer extends EOScalar implements EO {
      * Mainly used for List or Maps
      *
      * @return
-     * @throws Exception
+     * @
      */
-    public Set<String> keysValue() throws Exception {
+    public Set<String> keysValue()  {
         return this.getModel().keys(this.get());
 
     }
@@ -321,7 +326,7 @@ public class EOContainer extends EOScalar implements EO {
      *
      * @param fieldName
      * @param source
-     * @throws Exception
+     * @
      */
     protected void setValue(final String fieldName, Object source) {
         if (fieldName == null) {
@@ -364,12 +369,12 @@ public class EOContainer extends EOScalar implements EO {
     /**
      * Directly removes the object of the operator
      *
-     * @throws Exception On null source
+     * @ On null source
      */
     @Override
-    public EO remove() throws Exception {
+    public EO remove()  {
         if (getParentAdapter() == null) {
-            throw new Exception("Could not remove when no paren is add! Problem removing rootAdapter adapter");
+            throw new EoException("Could not remove when no paren is add! Problem removing rootAdapter adapter");
         }
         EOContainer returnAdapter = getParentAdapter();
         getParentAdapter().remove(getParentKey());
@@ -378,7 +383,7 @@ public class EOContainer extends EOScalar implements EO {
 
     @Override
     public Object get(final String pathString) {
-        //throw new Exception("Basic find method should be overwritten");
+        //throw new eoException("Basic find method should be overwritten");
         if (pathString == null || pathString.isEmpty()) {
             return get();
         }
@@ -414,7 +419,7 @@ public class EOContainer extends EOScalar implements EO {
     }
 
 
-    protected void removeChildEO(Object value) throws Exception {
+    protected void removeChildEO(Object value)  {
         if (this.isScalar()) {
             this.childMap = null;
         } else {
@@ -424,7 +429,7 @@ public class EOContainer extends EOScalar implements EO {
     }
 
     @Override
-    public EO getChild(String pathString) throws Exception {
+    public EO getChild(String pathString)  {
         if (pathString == null || pathString.equals("") || pathString.equals("./") || pathString.equals(".")) {
             return this;
         }
@@ -438,7 +443,7 @@ public class EOContainer extends EOScalar implements EO {
     }
 
 
-    protected EO getChild(Path path, boolean create) throws Exception {
+    protected EO getChild(Path path, boolean create)  {
         if (path == null || path.isEmpty()) {
             return this;
         }
@@ -485,9 +490,9 @@ public class EOContainer extends EOScalar implements EO {
      *
      * @param pathString the path to look for
      * @return a bilder with  with a path and this adapter
-     * @throws Exception on builder expception
+     * @ on builder expception
      */
-    protected EOBuilder createBuilder(String pathString) throws Exception {
+    protected EOBuilder createBuilder(String pathString)  {
         return new EOBuilder(this)
                 .setPath(pathString);
     }

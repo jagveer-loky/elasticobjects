@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
@@ -74,9 +75,9 @@ public class PathPattern {
         return false;
     }
 
-    public Path getPath(Integer i) throws Exception {
+    public Path getPath(Integer i)  {
         if (i > this.paths.size() - 1) {
-            throw new Exception("Size " + this.paths.size() + " is smaller than " + i);
+            throw new EoException("Size " + this.paths.size() + " is smaller than " + i);
         }
         return this.paths.get(i);
     }

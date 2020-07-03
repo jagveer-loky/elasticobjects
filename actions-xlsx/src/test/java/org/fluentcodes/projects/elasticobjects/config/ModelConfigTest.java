@@ -24,14 +24,14 @@ public class ModelConfigTest extends TestHelper {
 
 
     @Test
-    public void findConfigInCache() throws Exception {
+    public void findConfigInCache()  {
         ModelConfig config = TestEOProvider.EO_CONFIGS.findModel(M_XLSX_CALL);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
-    public void readConfigClassPath() throws Exception {
+    public void readConfigClassPath()  {
         Map<String, Config> map = TestConfig.readClassPathConfig(ModelConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -39,7 +39,7 @@ public class ModelConfigTest extends TestHelper {
     }
 
     @Test
-    public void readMapMain() throws Exception {
+    public void readMapMain()  {
         Map map = TestConfig.readMapFromFile(CONFIG_MODEL_MAIN);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -47,7 +47,7 @@ public class ModelConfigTest extends TestHelper {
     }
 
     @Test
-    public void readConfigMain() throws Exception {
+    public void readConfigMain()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_MODEL_MAIN, ModelConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -56,7 +56,7 @@ public class ModelConfigTest extends TestHelper {
 
 
     @Test
-    public void checkDependentModels() throws Exception {
+    public void checkDependentModels()  {
         TestHelper.printStartMethod();
         // Check if basic Models are available
         ModelInterface model = TestEOProvider.EO_CONFIGS
@@ -76,7 +76,7 @@ public class ModelConfigTest extends TestHelper {
     }
 
     @Test
-    public void checkModelXlsxConfig() throws Exception {
+    public void checkModelXlsxConfig()  {
         TestHelper.printStartMethod();
         ModelConfig model = TestEOProvider.EO_CONFIGS
                 .findModel(XlsxConfig.class);
@@ -84,7 +84,7 @@ public class ModelConfigTest extends TestHelper {
     }
 
     @Test
-    public void checkModelXlsxAction() throws Exception {
+    public void checkModelXlsxAction()  {
         final ModelInterface model = TestEOProvider.EO_CONFIGS
                 .findModel(M_XLSX_CALL);
         Assert.assertEquals(M_XLSX_CALL, model.getModelKey());

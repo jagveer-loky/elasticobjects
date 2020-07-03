@@ -17,37 +17,37 @@ public class EOPathNewRootMap_value_Test {
     private static final Logger LOG = LogManager.getLogger(EOPathNewRootMap_value_Test.class);
 
     @Test
-    public void mapInteger_ok() throws Exception {
+    public void mapInteger_ok()  {
         EOTest.map_ok(F_TEST_INTEGER, S_INTEGER);
     }
 
     @Test
-    public void mapArrayList_ok() throws Exception {
+    public void mapArrayList_ok()  {
         EOTest.map_ok(F_UNTYPED_LIST, new ArrayList());
     }
 
     @Test
-    public void mapList_ok() throws Exception {
+    public void mapList_ok()  {
         EOTest.map_ok(F_UNTYPED_LIST, new ArrayList());
     }
 
     @Test
-    public void mapMap_ok() throws Exception {
+    public void mapMap_ok()  {
         EOTest.map_ok(F_UNTYPED_MAP, new HashMap());
     }
 
     @Test
-    public void mapHashMap_ok() throws Exception {
+    public void mapHashMap_ok()  {
         EOTest.map_ok(F_UNTYPED_MAP, new HashMap());
     }
 
     @Test
-    public void withHashMapWithBT_ok() throws Exception {
+    public void withHashMapWithBT_ok()  {
         EOTest.map_ok(F_BASIC_TEST, new HashMap());
     }
 
     @Test
-    public void withJsonSmallLevel0() throws Exception {
+    public void withJsonSmallLevel0()  {
         EOBuilder builder = DevObjectProvider.createEOBuilder();
         String json = MapProviderJSON.getJSONSmallWithKeys();
         EO child = builder
@@ -63,7 +63,7 @@ public class EOPathNewRootMap_value_Test {
     }
 
     @Test
-    public void withJsonmallWithKeysAndList() throws Exception {
+    public void withJsonmallWithKeysAndList()  {
         EOBuilder builder = DevObjectProvider.createEOBuilder();
         String json = MapProviderJSON.getJSONSmallWithKeysAndList();
         EO adapter = builder
@@ -79,7 +79,7 @@ public class EOPathNewRootMap_value_Test {
     }
 
     @Test
-    public void withListStringPath2() throws Exception {
+    public void withListStringPath2()  {
         TestHelper.printStartMethod();
         List<String> list = ListProvider.toList(S_STRING);
         EO adapter = TestEOProvider.createEOBuilder()
@@ -90,12 +90,12 @@ public class EOPathNewRootMap_value_Test {
 
 
     @Test
-    public void mapBT_ok() throws Exception {
+    public void mapBT_ok()  {
         EOTest.map_ok(F_BASIC_TEST, new BasicTest());
     }
 
     @Test
-    public void mapBTStringWithMap_ok() throws Exception {
+    public void mapBTStringWithMap_ok()  {
         final EO child = EOTest.map_ok(F_UNTYPED_MAP, BTProvider.createString());
         Assert.assertNotNull(((EOContainer) child).getChildAdapter(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, child.get(F_TEST_STRING));
@@ -108,7 +108,7 @@ public class EOPathNewRootMap_value_Test {
      */
 
     @Test
-    public void jsnBTSmallLevel0_ok() throws Exception {
+    public void jsnBTSmallLevel0_ok()  {
         final String jsnSmall = BTProviderJSN.readSmall();
         final EO eoMapEmpty = MapProviderEO.createEmpty();
 
@@ -130,7 +130,7 @@ public class EOPathNewRootMap_value_Test {
      */
 
     @Test
-    public void jsnBTSmallPath2_ok() throws Exception {
+    public void jsnBTSmallPath2_ok()  {
         final EO eoMapEmpty = MapProviderEO.createEmpty();
         final String jsnSmall = BTProviderJSN.readSmall();
 
@@ -151,7 +151,7 @@ public class EOPathNewRootMap_value_Test {
      */
 
     @Test
-    public void jsnBTAllPath2_ok() throws Exception {
+    public void jsnBTAllPath2_ok()  {
         final String jsnAll = BTProviderJSN.readAll();
         final EO eoMapEmpty = MapProviderEO.createEmpty();
 

@@ -19,7 +19,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EORemoveTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EORemoveTest.class);
 
-    private EOBuilder createBuilder() throws Exception {
+    private EOBuilder createBuilder()  {
         return TestEOProvider.createEOBuilder()
                 .setLogLevel(LogLevel.WARN);
     }
@@ -27,10 +27,10 @@ public class EORemoveTest extends TestHelper {
     /**
      * Test for the remove method, which is depending on the object
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void object() throws Exception {
+    public void object()  {
         EOContainer child = (EOContainer) TestEOProvider.createEOBuilder()
                 .setModels(BasicTest.class)
                 .setPath(F_TEST_STRING)
@@ -50,10 +50,10 @@ public class EORemoveTest extends TestHelper {
     /**
      * Test for the remove method, which is depending on the object
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void map() throws Exception {
+    public void map()  {
         TestHelper.printStartMethod();
         EO child = createBuilder()
                 .setModels(Map.class)
@@ -76,10 +76,10 @@ public class EORemoveTest extends TestHelper {
     /**
      * Test for the remove method, which is depending on the object
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void list() throws Exception {
+    public void list()  {
         TestHelper.printStartMethod();
         EO child = createBuilder()
                 .setModels(List.class)

@@ -18,11 +18,11 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_MAP_PATH;
 
 public class TestCallsProvider {
 
-    public static FileCall createFileCall(final String key) throws Exception {
+    public static FileCall createFileCall(final String key)  {
         return new FileCall(TestEOProvider.EO_CONFIGS, key);
     }
 
-    public static EO readFileCallEO(final String key, final String... attributeList) throws Exception {
+    public static EO readFileCallEO(final String key, final String... attributeList)  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final Map attributes = EO_STATIC.toMap(attributeList);
         final FileCall call = new FileCall(TestEOProvider.EO_CONFIGS, key);
@@ -30,24 +30,24 @@ public class TestCallsProvider {
         return eoEmpty;
     }
 
-    public static CallExecutor createExecutorFileRead(final String key) throws Exception {
+    public static CallExecutor createExecutorFileRead(final String key)  {
         return createExecutorFileRead(key, null);
     }
 
-    public static CallExecutor createExecutorFileRead(final String key, final String... attributeList) throws Exception {
+    public static CallExecutor createExecutorFileRead(final String key, final String... attributeList)  {
         final Map attributes = EO_STATIC.toMap(attributeList);
         attributes.put(Executor.EXECUTE, FileCall.class.getSimpleName() + ".read(" + key + ")");
         return new CallExecutor(attributes);
     }
 
-    public static EO executeExecutorFileRead(final String key, final String... attributeList) throws Exception {
+    public static EO executeExecutorFileRead(final String key, final String... attributeList)  {
         final CallExecutor callExecutor = createExecutorFileRead(key, attributeList);
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
 
-    public static EO writeFileCallEO(final String key, final String... attributeList) throws Exception {
+    public static EO writeFileCallEO(final String key, final String... attributeList)  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final Map attributes = EO_STATIC.toMap(attributeList);
         final FileCall call = new FileCall(TestEOProvider.EO_CONFIGS, key);
@@ -55,35 +55,35 @@ public class TestCallsProvider {
         return eoEmpty;
     }
 
-    public static CallExecutor createExecutorFileWrite(final String key) throws Exception {
+    public static CallExecutor createExecutorFileWrite(final String key)  {
         return createExecutorFileWrite(key, null);
     }
 
-    public static CallExecutor createExecutorFileWrite(final String key, final String... attributeList) throws Exception {
+    public static CallExecutor createExecutorFileWrite(final String key, final String... attributeList)  {
         final Map attributes = EO_STATIC.toMap(attributeList);
         attributes.put(Executor.EXECUTE, FileCall.class.getSimpleName() + ".write(" + key + ")");
         return new CallExecutor(attributes);
     }
 
-    public static EO executeExecutorFileWrite(final String key, final String... attributeList) throws Exception {
+    public static EO executeExecutorFileWrite(final String key, final String... attributeList)  {
         final CallExecutor callExecutor = createExecutorFileWrite(key, attributeList);
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
 
-    public static EO executeExecutorValueCall(final String key, final Object... attributeList) throws Exception {
+    public static EO executeExecutorValueCall(final String key, final Object... attributeList)  {
         final CallExecutor callExecutor = ValueCall.createSetExecutor(key, attributeList);
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
 
-    public static ConfigCall createConfigCall(final String key) throws Exception {
+    public static ConfigCall createConfigCall(final String key)  {
         return new ConfigCall(TestEOProvider.EO_CONFIGS, key);
     }
 
-    public static EO createConfigCallEO(final String key) throws Exception {
+    public static EO createConfigCallEO(final String key)  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final ConfigCall call = new ConfigCall(TestEOProvider.EO_CONFIGS, key);
         call.set(eoEmpty);
@@ -91,7 +91,7 @@ public class TestCallsProvider {
     }
 
 
-    public static EO createConfigCallEO(final String key, final String... attributeList) throws Exception {
+    public static EO createConfigCallEO(final String key, final String... attributeList)  {
         final EO eoEmpty = TestEOProvider.createEmptyMap();
         final Map attributes = EO_STATIC.toMap(attributeList);
         final ConfigCall call = new ConfigCall(TestEOProvider.EO_CONFIGS, key);
@@ -99,11 +99,11 @@ public class TestCallsProvider {
         return eoEmpty;
     }
 
-    public static JsonCall createJsonCall(final String key) throws Exception {
+    public static JsonCall createJsonCall(final String key)  {
         return new JsonCall(TestEOProvider.EO_CONFIGS, key);
     }
 
-    public static ScsCall createScsCall(final String key) throws Exception {
+    public static ScsCall createScsCall(final String key)  {
         return new ScsCall(TestEOProvider.EO_CONFIGS, key);
     }
 

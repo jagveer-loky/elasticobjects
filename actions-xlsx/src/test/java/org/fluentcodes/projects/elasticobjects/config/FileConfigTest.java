@@ -22,14 +22,14 @@ public class FileConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(FileConfigTest.class);
 
     @Test
-    public void findConfigInCache() throws Exception {
+    public void findConfigInCache()  {
         FileConfig config = TestEOProvider.EO_CONFIGS.findFile(FILE_SOURCE_XLSX);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
-    public void readConfigClassPath() throws Exception {
+    public void readConfigClassPath()  {
         Map<String, Config> map = TestConfig.readClassPathConfig(FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -37,7 +37,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void readMapTest() throws Exception {
+    public void readMapTest()  {
         Map map = TestConfig.readMapFromFile(CONFIG_FILE_TEST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
@@ -45,7 +45,7 @@ public class FileConfigTest extends TestHelper {
     }
 
     @Test
-    public void readConfigTest() throws Exception {
+    public void readConfigTest()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_FILE_TEST, FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());

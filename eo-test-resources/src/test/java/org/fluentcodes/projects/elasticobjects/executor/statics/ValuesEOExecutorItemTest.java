@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public class ValuesEOExecutorItemTest {
 
     @Test
-    public void getConfigurationKeys_withoutParameters() throws Exception {
+    public void getConfigurationKeys_withoutParameters()  {
         ExecutorItem item = new ExecutorItem(ValuesEO.EXECUTE_GET_CONFIGURATION_KEYS, ExecutorItem.TYPES.value);
         EO eo = TestEOProvider.createEmptyMap();
         Object[] args = new Object[]{eo};
@@ -27,28 +27,28 @@ public class ValuesEOExecutorItemTest {
     }
 
     @Test
-    public void getConfigurationKeys_withModelConfig() throws Exception {
+    public void getConfigurationKeys_withModelConfig()  {
         ExecutorItem item = new ExecutorItem(ValuesEO.EXECUTE_GET_CONFIGURATION_KEYS, ExecutorItem.TYPES.value);
         List result = (List) item.invoke(new Object[]{TestEOProvider.createEmptyMap(), M_MODEL_CONFIG});
         Assert.assertEquals(M_LINKED_HASH_SET, result.get(0));
     }
 
     @Test
-    public void getConfigurationKeysExecutor_withoutParameter() throws Exception {
+    public void getConfigurationKeysExecutor_withoutParameter()  {
         ExecutorValues executor = ValuesEO.createsExecutorGetConfigurationKeys(F_MAP_PATH,".");
         final EO result = ExecutorProvider.execute(executor);
         Assert.assertEquals(M_MODEL_CONFIG, result.get("0"));
     }
 
     @Test
-    public void getConfigurationKeysExecutor_withModelConfig() throws Exception {
+    public void getConfigurationKeysExecutor_withModelConfig()  {
         ExecutorValues executor = ValuesEO.createsExecutorGetConfigurationKeys(F_MAP_PATH,".",ValuesEO.CONFIG_TYPE, M_MODEL_CONFIG);
         final EO result = ExecutorProvider.execute(executor);
         Assert.assertEquals(M_LINKED_HASH_SET, result.get("0"));
     }
 
     @Test
-    public void getConfigurationKeysExecutor_withFieldConfig() throws Exception {
+    public void getConfigurationKeysExecutor_withFieldConfig()  {
         ExecutorValues executor = ValuesEO.createsExecutorGetConfigurationKeys(F_MAP_PATH,".",ValuesEO.CONFIG_TYPE, M_FIELD_CONFIG);
         final EO result = ExecutorProvider.execute(executor);
         Assert.assertEquals(F_PATH_PATTERN_AS_STRING, result.get("0"));

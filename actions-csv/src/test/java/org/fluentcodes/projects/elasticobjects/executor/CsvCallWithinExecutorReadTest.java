@@ -27,7 +27,7 @@ public class CsvCallWithinExecutorReadTest extends TestHelper {
     private static final String SAMPLE_MAP_PATH_A = "$[A]";
 
     @Test
-    public void direct() throws Exception {
+    public void direct()  {
         EO adapter = TestCsvProvider.executeRead(new HashMap(), CSV_SOURCE_CSV);
 
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH0_KEY1));
@@ -36,7 +36,7 @@ public class CsvCallWithinExecutorReadTest extends TestHelper {
 
 
     @Test
-    public void withMapPath() throws Exception {
+    public void withMapPath()  {
         final Map attributes = new HashMap();
         attributes.put(F_PATH, S_PATH1);
         attributes.put(F_MAP_PATH, SAMPLE_MAP_PATH);
@@ -51,7 +51,7 @@ public class CsvCallWithinExecutorReadTest extends TestHelper {
     }
 
     @Test
-    public void withColKeys() throws Exception {
+    public void withColKeys()  {
         final Map attributes = new HashMap();
         attributes.put(F_PATH, S_PATH1);
         attributes.put(F_MAP_PATH, SAMPLE_MAP_PATH_A);

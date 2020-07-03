@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class ExecutorListTest {
-    public static ExecutorList createSampleExecutorList() throws Exception {
+    public static ExecutorList createSampleExecutorList()  {
         ExecutorList executorList = new ExecutorList();
         executorList.add(ValueCall.createSetExecutor(ValueCallTest.VC_CONTENT, F_PATH, F_TEST_STRING));
         executorList.add(ValueCall.createSetExecutor(ValueCallTest.VC_EMPTY, F_PATH, F_TEST_DATE, F_CONTENT, SAMPLE_DATE));
@@ -28,13 +28,13 @@ public class ExecutorListTest {
     }
 
     @Test
-    public void callToString() throws Exception {
+    public void callToString()  {
         ExecutorList executorList = createSampleExecutorList();
         String stringified = executorList.toString();
     }
 
     @Test
-    public void toJSON() throws Exception {
+    public void toJSON()  {
         ExecutorList executorList = createSampleExecutorList();
         String json = new EOToJSON()
                 .setStartIndent(1)
@@ -44,7 +44,7 @@ public class ExecutorListTest {
     }
 
     @Test
-    public void EOtoJSON() throws Exception {
+    public void EOtoJSON()  {
         ExecutorList executorList = createSampleExecutorList();
         EO root = TestEOProvider.createEmptyMap();
         ((EORoot) root).setCalls(executorList);

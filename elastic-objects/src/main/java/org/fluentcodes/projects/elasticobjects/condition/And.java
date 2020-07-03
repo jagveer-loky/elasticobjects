@@ -22,7 +22,7 @@ public class And {
         conditions = new ArrayList<>();
     }
 
-    public And(EO adapter) throws Exception {
+    public And(EO adapter)  {
         this();
         Map keyValues = adapter.getKeyValues();
         for (Object key : keyValues.keySet()) {

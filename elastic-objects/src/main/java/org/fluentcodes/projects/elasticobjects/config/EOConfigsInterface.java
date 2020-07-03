@@ -9,7 +9,7 @@ import java.util.Set;
 public interface EOConfigsInterface<T extends Config> {
     Map<String, T> getConfigMap();
 
-    T find(final String key) throws Exception;
+    T find(final String key) ;
 
     Set<String> getKeys();
 }

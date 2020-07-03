@@ -21,20 +21,20 @@ public class ModelsBTTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsBTTest.class);
 
     @Test
-    public void withBT() throws Exception {
+    public void withBT()  {
         Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         Assert.assertEquals(Object.class, models.getChildModelClass());
     }
 
     @Test
-    public void withBTString() throws Exception {
+    public void withBTString()  {
         Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class, String.class);
         Assert.assertEquals(Object.class, models.getChildModelClass());
     }
 
     @Test
-    public void withMapBT() throws Exception {
+    public void withMapBT()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, Map.class, BasicTest.class);
         Assert.assertEquals(Map.class, models.getModelClass());
         Assert.assertEquals(BasicTest.class, models.getChildModelClass());
@@ -42,7 +42,7 @@ public class ModelsBTTest extends TestHelper {
     }
 
     @Test
-    public void withBT_createChildTestString() throws Exception {
+    public void withBT_createChildTestString()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         final Models child = models.createChild(F_TEST_STRING);
@@ -50,7 +50,7 @@ public class ModelsBTTest extends TestHelper {
     }
 
     @Test
-    public void withBT_createChildNotExisting_ThrowException() throws Exception {
+    public void withBT_createChildNotExisting_ThrowException()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         try {
@@ -62,7 +62,7 @@ public class ModelsBTTest extends TestHelper {
     }
 
     @Test
-    public void withBT_createChildForScalarAndValueNonScalar_ThrowException() throws Exception {
+    public void withBT_createChildForScalarAndValueNonScalar_ThrowException()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         try {
@@ -74,7 +74,7 @@ public class ModelsBTTest extends TestHelper {
     }
 
     @Test
-    public void withBT_createChildForNonScalarAndValueScalar_ThrowException() throws Exception {
+    public void withBT_createChildForNonScalarAndValueScalar_ThrowException()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Assert.assertEquals(BasicTest.class, models.getModelClass());
         try {

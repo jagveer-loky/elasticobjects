@@ -5,153 +5,153 @@ import org.junit.Test;
 public class ListProviderJSONTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         ListProviderJSON.createEmpty();
     }
 
     @Test
-    public void compareEmpty() throws Exception {
+    public void compareEmpty()  {
         ListProviderJSON.compareEmpty();
     }
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         ListProviderJSON.createString();
     }
 
     @Test
-    public void compareString() throws Exception {
+    public void compareString()  {
         ListProviderJSON.compareString();
     }
 
     @Test
-    public void createInteger() throws Exception {
+    public void createInteger()  {
         ListProviderJSON.createInteger();
     }
 
     @Test
-    public void compareInteger() throws Exception {
+    public void compareInteger()  {
         ListProviderJSON.compareInteger();
     }
 
     @Test
-    public void createLong() throws Exception {
+    public void createLong()  {
         ListProviderJSON.createLong();
     }
 
     @Test
-    public void compareLong() throws Exception {
+    public void compareLong()  {
         ListProviderJSON.compareLong();
     }
 
     @Test
-    public void createFloat() throws Exception {
+    public void createFloat()  {
         ListProviderJSON.createFloat();
     }
 
     @Test
-    public void compareFloat() throws Exception {
+    public void compareFloat()  {
         ListProviderJSON.compareFloat();
     }
 
     @Test
-    public void createDouble() throws Exception {
+    public void createDouble()  {
         ListProviderJSON.createDouble();
     }
 
     @Test
-    public void compareDouble() throws Exception {
+    public void compareDouble()  {
         ListProviderJSON.compareDouble();
     }
 
     @Test
-    public void createDate() throws Exception {
+    public void createDate()  {
         ListProviderJSON.createDate();
     }
 
     @Test
-    public void compareDate() throws Exception {
+    public void compareDate()  {
         ListProviderJSON.compareDate();
     }
 
     @Test
-    public void createBoolean() throws Exception {
+    public void createBoolean()  {
         ListProviderJSON.createBoolean();
     }
 
     @Test
-    public void compareBoolean() throws Exception {
+    public void compareBoolean()  {
         ListProviderJSON.compareBoolean();
     }
 
     @Test
-    public void createMap() throws Exception {
+    public void createMap()  {
         ListProviderJSON.createMap();
     }
 
     @Test
-    public void compareMap() throws Exception {
+    public void compareMap()  {
         ListProviderJSON.compareMap();
     }
 
     @Test
-    public void createList() throws Exception {
+    public void createList()  {
         ListProviderJSON.createList();
     }
 
     @Test
-    public void compareList() throws Exception {
+    public void compareList()  {
         ListProviderJSON.compareList();
     }
 
     @Test
-    public void createBT() throws Exception {
+    public void createBT()  {
         ListProviderJSON.createBT();
     }
 
     @Test
-    public void compareBT() throws Exception {
+    public void compareBT()  {
         ListProviderJSON.compareBT();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         ListProviderJSON.createST();
     }
 
     @Test
-    public void compareST() throws Exception {
+    public void compareST()  {
         ListProviderJSON.compareST();
     }
 
     @Test
-    public void createSmall() throws Exception {
+    public void createSmall()  {
         ListProviderJSON.createSmall();
     }
 
     @Test
-    public void compareSmall() throws Exception {
+    public void compareSmall()  {
         ListProviderJSON.compareSmall();
     }
 
     @Test
-    public void createEOSimple() throws Exception {
+    public void createEOSimple()  {
         ListProviderJSON.createSimple();
     }
 
     @Test
-    public void compareEOSimple() throws Exception {
+    public void compareEOSimple()  {
         ListProviderJSON.compareSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         ListProviderJSON.create();
     }
 
 
     @Test
-    public void compare() throws Exception {
+    public void compare()  {
         ListProviderJSON.compare();
     }
 }

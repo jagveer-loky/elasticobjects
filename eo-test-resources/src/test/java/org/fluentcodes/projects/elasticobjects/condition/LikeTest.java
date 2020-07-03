@@ -19,7 +19,7 @@ public class LikeTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(LikeTest.class);
 
     @Test
-    public void filterAdapter() throws Exception {
+    public void filterAdapter()  {
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(TEO_STATIC.S_TEST_STRING).set(TEO_STATIC.S_STRING);
         Condition condition = new Like(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
@@ -31,7 +31,7 @@ public class LikeTest extends TestHelper {
     }
 
     @Test
-    public void filterRow() throws Exception {
+    public void filterRow()  {
         List list = toList(TEO_STATIC.S_STRING, null, TEO_STATIC.S_STRING, TEO_STATIC.S_INTEGER);
         Condition condition = new Like(TEO_STATIC.S0, TEO_STATIC.S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(0),

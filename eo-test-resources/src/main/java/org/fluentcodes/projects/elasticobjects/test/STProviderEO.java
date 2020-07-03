@@ -19,68 +19,68 @@ public class STProviderEO {
         return TestEOProvider.createEOBuilder();
     }
 
-    public static EO createEmpty() throws Exception {
+    public static EO createEmpty()  {
         final EO eo = builder().map(STProvider.createEmpty());
         assertEmpty(eo);
         return eo;
     }
 
-    public static void assertEmpty(final EO eo) throws Exception {
+    public static void assertEmpty(final EO eo)  {
         Assert.assertEquals(SubTest.class, eo.getModelClass());
     }
 
-    public static EO createString() throws Exception {
+    public static EO createString()  {
         final EO eo = builder().map(STProvider.createString());
         assertString(eo);
         return eo;
     }
 
-    public static void assertString(final EO eo) throws Exception {
+    public static void assertString(final EO eo)  {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
     }
 
 
-    public static EO createName() throws Exception {
+    public static EO createName()  {
         final EO eo = builder().map(STProvider.createName());
         assertName(eo);
         return eo;
     }
 
-    public static void assertName(final EO eo) throws Exception {
+    public static void assertName(final EO eo)  {
         Assert.assertEquals(S_STRING_OTHER, eo.get(EO_STATIC.F_NAME));
     }
 
 
-    public static EO createST() throws Exception {
+    public static EO createST()  {
         final EO eo = builder().map(STProvider.createST());
         assertST(eo);
         return eo;
     }
 
-    public static void assertST(final EO eo) throws Exception {
+    public static void assertST(final EO eo)  {
         Assert.assertEquals(S_STRING_OTHER, eo.get(F_SUB_TEST + Path.DELIMITER + EO_STATIC.F_NAME));
     }
 
 
-    public static EO createSimple() throws Exception {
+    public static EO createSimple()  {
         final EO eo = builder().map(STProvider.createSimple());
         assertSimple(eo);
         return eo;
     }
 
-    public static void assertSimple(final EO eo) throws Exception {
+    public static void assertSimple(final EO eo)  {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
         Assert.assertEquals(S_STRING_OTHER, eo.get(EO_STATIC.F_NAME));
     }
 
 
-    public static EO create() throws Exception {
+    public static EO create()  {
         final EO eo = builder().map(STProvider.create());
         asserts(eo);
         return eo;
     }
 
-    public static void asserts(final EO eo) throws Exception {
+    public static void asserts(final EO eo)  {
         Assert.assertEquals(S_STRING, eo.get(F_TEST_STRING));
         Assert.assertEquals(S_STRING_OTHER, eo.get(EO_STATIC.F_NAME));
     }

@@ -5,63 +5,63 @@ import org.junit.Test;
 public class STProviderJSNTest {
 
     @Test
-    public void createEmpty() throws Exception {
+    public void createEmpty()  {
         STProviderJSN.createEmpty();
     }
 
     @Test
-    public void compareEmpty() throws Exception {
+    public void compareEmpty()  {
         STProviderJSN.compareEmpty();
     }
 
     @Test
-    public void createString() throws Exception {
+    public void createString()  {
         STProviderJSN.createString();
     }
 
     @Test
-    public void compareString() throws Exception {
+    public void compareString()  {
         STProviderJSN.compareString();
     }
 
     @Test
-    public void createName() throws Exception {
+    public void createName()  {
         STProviderJSN.createName();
     }
 
     @Test
-    public void compareName() throws Exception {
+    public void compareName()  {
         STProviderJSN.compareName();
     }
 
     @Test
-    public void createST() throws Exception {
+    public void createST()  {
         STProviderJSN.createST();
     }
 
     @Test
-    public void compareST() throws Exception {
+    public void compareST()  {
         STProviderJSN.compareST();
     }
 
 
     @Test
-    public void createSimple() throws Exception {
+    public void createSimple()  {
         STProviderJSN.createSimple();
     }
 
     @Test
-    public void compareSimple() throws Exception {
+    public void compareSimple()  {
         STProviderJSN.compareSimple();
     }
 
     @Test
-    public void create() throws Exception {
+    public void create()  {
         STProviderJSN.create();
     }
 
     @Test
-    public void compare() throws Exception {
+    public void compare()  {
         STProviderJSN.compare();
     }
 

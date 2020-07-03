@@ -12,7 +12,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class EOToJSONListTest extends TestHelper {
     @Test
-    public void withDefault() throws Exception {
+    public void withDefault()  {
         TestHelper.printStartMethod();
         EO adapter = ListProviderEO.create();
         String json = new EOToJSON().toJSON(adapter);
@@ -20,7 +20,7 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withIndent0() throws Exception {
+    public void withIndent0()  {
         TestHelper.printStartMethod();
         EO adapter = ListProviderEO.create();
         String json = new EOToJSON()
@@ -30,7 +30,7 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withIndent1() throws Exception {
+    public void withIndent1()  {
         TestHelper.printStartMethod();
         EO adapter = ListProviderEO.create();
         String json = new EOToJSON()
@@ -40,7 +40,7 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withIndent2() throws Exception {
+    public void withIndent2()  {
         TestHelper.printStartMethod();
         EO adapter = ListProviderEO.create();
         String json = new EOToJSON()
@@ -50,22 +50,22 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withEmpty() throws Exception {
+    public void withEmpty()  {
         ListProviderEO.createEmpty();
     }
 
     @Test
-    public void withString() throws Exception {
+    public void withString()  {
         ListProviderEO.createString();
     }
 
     @Test
-    public void withStringJSON() throws Exception {
+    public void withStringJSON()  {
         ListProviderJSON.createString();
     }
 
     @Test
-    public void withStringScalarTypes() throws Exception {
+    public void withStringScalarTypes()  {
         TestHelper.printStartMethod();
         final EO adapter = ListProviderEO.createString();
         String stringified = new EOToJSON()
@@ -78,17 +78,17 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withInteger() throws Exception {
+    public void withInteger()  {
         ListProviderEO.createInteger();
     }
 
     @Test
-    public void withIntegerJSON() throws Exception {
+    public void withIntegerJSON()  {
         ListProviderJSON.createInteger();
     }
 
     @Test
-    public void withIntegerScalarTypes() throws Exception {
+    public void withIntegerScalarTypes()  {
         TestHelper.printStartMethod();
         final EO adapter = ListProviderEO.createInteger();
         String stringified = new EOToJSON()
@@ -101,17 +101,17 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withLong() throws Exception {
+    public void withLong()  {
         ListProviderEO.createLong();
     }
 
     @Test
-    public void withLongJSON() throws Exception {
+    public void withLongJSON()  {
         ListProviderJSON.createLong();
     }
 
     @Test
-    public void withLongScalar() throws Exception {
+    public void withLongScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = ListProviderEO.createLong();
         String stringified = new EOToJSON()
@@ -124,12 +124,12 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void compareEOFloat() throws Exception {
+    public void compareEOFloat()  {
         ListProviderEO.compareFloat();
     }
 
     @Test
-    public void withFloatScalar() throws Exception {
+    public void withFloatScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = ListProviderEO.createFloat();
         final String stringified = new EOToJSON()
@@ -144,17 +144,17 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withDouble() throws Exception {
+    public void withDouble()  {
         ListProviderEO.createDouble();
     }
 
     @Test
-    public void withDoubleJSON() throws Exception {
+    public void withDoubleJSON()  {
         ListProviderJSON.createDouble();
     }
 
     @Test
-    public void withDoubleScalar() throws Exception {
+    public void withDoubleScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = ListProviderEO.createDouble();
         String stringified = new EOToJSON()
@@ -168,17 +168,17 @@ public class EOToJSONListTest extends TestHelper {
 
 
     @Test
-    public void withDate() throws Exception {
+    public void withDate()  {
         ListProviderEO.createDate();
     }
 
     @Test
-    public void withDateJSON() throws Exception {
+    public void withDateJSON()  {
         ListProviderJSON.createDate();
     }
 
     @Test
-    public void withDateScalar() throws Exception {
+    public void withDateScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = ListProviderEO.createDate();
         String stringified = new EOToJSON()
@@ -191,17 +191,17 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withBoolean() throws Exception {
+    public void withBoolean()  {
         ListProviderEO.createBoolean();
     }
 
     @Test
-    public void withBooleanJSON() throws Exception {
+    public void withBooleanJSON()  {
         ListProviderJSON.createBoolean();
     }
 
     @Test
-    public void withBooleanScalar() throws Exception {
+    public void withBooleanScalar()  {
         TestHelper.printStartMethod();
         final EO adapter = ListProviderEO.createBoolean();
         String stringified = new EOToJSON()
@@ -214,68 +214,68 @@ public class EOToJSONListTest extends TestHelper {
     }
 
     @Test
-    public void withMap() throws Exception {
+    public void withMap()  {
         ListProviderEO.createMap();
     }
 
     @Test
-    public void withMapJSON() throws Exception {
+    public void withMapJSON()  {
         ListProviderJSON.createMap();
     }
 
     @Test
-    public void withList() throws Exception {
+    public void withList()  {
         ListProviderEO.createList();
     }
 
     @Test
-    public void withListJSON() throws Exception {
+    public void withListJSON()  {
         ListProviderJSON.createList();
     }
 
     @Test
-    public void withBasicTest() throws Exception {
+    public void withBasicTest()  {
         ListProviderEO.createBT();
     }
 
     @Test
-    public void withBasicTestJSON() throws Exception {
+    public void withBasicTestJSON()  {
         ListProviderJSON.createBT();
     }
 
     @Test
-    public void withSubTest() throws Exception {
+    public void withSubTest()  {
         ListProviderEO.createST();
     }
 
     @Test
-    public void withSubTestJSON() throws Exception {
+    public void withSubTestJSON()  {
         ListProviderJSON.createST();
     }
 
 
     @Test
-    public void withSmall() throws Exception {
+    public void withSmall()  {
         ListProviderEO.createSmall();
     }
 
     @Test
-    public void withSmallJSON() throws Exception {
+    public void withSmallJSON()  {
         ListProviderJSON.createSmall();
     }
 
     @Test
-    public void withSimple() throws Exception {
+    public void withSimple()  {
         ListProviderEO.createSimple();
     }
 
     @Test
-    public void withSimpleJSON() throws Exception {
+    public void withSimpleJSON()  {
         ListProviderJSON.createSimple();
     }
 
     @Test
-    public void withIndentAndSerializationTypeSTANDARD() throws Exception {
+    public void withIndentAndSerializationTypeSTANDARD()  {
         TestHelper.printStartMethod();
         EO adapter = ListProviderEO.create();
         String json = new EOToJSON()
@@ -287,17 +287,17 @@ public class EOToJSONListTest extends TestHelper {
 
 
     @Test
-    public void withAll() throws Exception {
+    public void withAll()  {
         ListProviderEO.create();
     }
 
     @Test
-    public void withAllJSON() throws Exception {
+    public void withAllJSON()  {
         ListProviderJSON.create();
     }
 
     @Test
-    public void withIndentAndSerializationTypeSCALAR() throws Exception {
+    public void withIndentAndSerializationTypeSCALAR()  {
         TestHelper.printStartMethod();
         EO adapter = ListProviderEO.create();
         String json = new EOToJSON()

@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Werner on 10.10.2016.
  */
 public interface Config extends Model {
-    void resolve() throws Exception;
+    void resolve() ;
 
     String getKey();
 

@@ -21,28 +21,28 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC_TEST.*;
 public class XlsxConfigTest extends TestHelper {
 
     @Test
-    public void findConfigInCache() throws Exception {
+    public void findConfigInCache()  {
         final XlsxConfig config = (XlsxConfig) TestEOProvider.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
         Assert.assertNotNull(config.getDescription());
         Assert.assertEquals(FILE_SOURCE_XLSX, config.getFileConfig().getFileName());
     }
 
     @Test
-    public void readMapTest() throws Exception {
+    public void readMapTest()  {
         Map map = TestConfig.readMapFromFile(CONFIG_XLSX_TEST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
     }
 
     @Test
-    public void readConfigTest() throws Exception {
+    public void readConfigTest()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_XLSX_TEST, XlsxConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
     }
 
     @Test
-    public void readSourceXlsx() throws Exception {
+    public void readSourceXlsx()  {
         final XlsxConfig config = (XlsxConfig) TestEOProvider.EO_CONFIGS.find(XlsxConfig.class, FILE_SOURCE_XLSX);
         Assert.assertEquals(FILE_SOURCE_XLSX, config.getXlsxKey());
         Assert.assertEquals(X_SHEET_TEST, config.getSheetName());
@@ -56,7 +56,7 @@ public class XlsxConfigTest extends TestHelper {
 
 
     @Test
-    public void checkTarget() throws Exception {
+    public void checkTarget()  {
         TestHelper.printStartMethod();
         final XlsxConfig config = (XlsxConfig) TestEOProvider.EO_CONFIGS
                 .find(XlsxConfig.class, FILE_TARGET_XLSX);

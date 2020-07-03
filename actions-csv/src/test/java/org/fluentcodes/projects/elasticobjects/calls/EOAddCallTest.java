@@ -21,7 +21,7 @@ public class EOAddCallTest extends TestHelper {
     private static String METHOD_READ_SOUCE = ".read(source.csv)";
 
     @Test
-    public void addFileCsvReadAction() throws Exception {
+    public void addFileCsvReadAction()  {
         TestHelper.printStartMethod();
 
         final EO adapter = TestEOProvider.createEmptyMap();

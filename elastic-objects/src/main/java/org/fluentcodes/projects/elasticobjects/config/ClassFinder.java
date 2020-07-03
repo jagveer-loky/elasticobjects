@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +28,7 @@ public class ClassFinder {
 
     // https://jaxenter.de/classpath-scan-im-eigenbau-aus-der-java-trickkiste-12963
 
-    public void find() throws IOException {
+    public void find()  {
         scanLog = new StringBuilder();
         mapKeyClass = new TreeMap<>();
         mapKeyOrigin = new TreeMap<>();
@@ -133,7 +135,7 @@ public class ClassFinder {
         return false;
     }
 
-    private int visitFile(final File file, final String path, final StringBuilder builder) throws IOException {
+    private int visitFile(final File file, final String path, final StringBuilder builder) {
         if (!filter(file.getName(), fileFilter)) {
             return 0;
         }
@@ -171,7 +173,7 @@ public class ClassFinder {
         return counter;
     }
 
-    private int visitJar(URL url, StringBuilder builder) throws IOException {
+    private int visitJar(URL url, StringBuilder builder)  {
         int counter = 0;
         if (!filter(url.getFile(), jarFilter)) {
             builder.append("Skip " + url.getFile() + ".\n");
@@ -193,6 +195,9 @@ public class ClassFinder {
                     counter++;
                 }
             }
+        }
+        catch (Exception e) {
+            throw new EoException(e);
         }
         builder.append("Found " + counter + " classes in " + url.getFile() + ".\n");
         return counter;

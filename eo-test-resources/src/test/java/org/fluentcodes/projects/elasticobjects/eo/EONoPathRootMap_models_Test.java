@@ -22,7 +22,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EONoPathRootMap_models_Test {
     private static final Logger LOG = LogManager.getLogger(EONoPathRootMap_models_Test.class);
 
-    public static EO mapEO_ok(final EO root, final Class... classes) throws Exception {
+    public static EO mapEO_ok(final EO root, final Class... classes)  {
         final Class modelClass = root.getModelClass();
         final EO child = root.add()
                 .setModels(classes)
@@ -32,7 +32,7 @@ public class EONoPathRootMap_models_Test {
         return child;
     }
 
-    public static EO mapEO_changeNothing(final EO root, final Class... classes) throws Exception {
+    public static EO mapEO_changeNothing(final EO root, final Class... classes)  {
         final EO child = root.add()
                 .setModels(classes)
                 .map(null);
@@ -41,7 +41,7 @@ public class EONoPathRootMap_models_Test {
     }
 
     @Test
-    public void givenString_withInteger_changeNothing() throws Exception {
+    public void givenString_withInteger_changeNothing()  {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .set(S_STRING);
@@ -50,7 +50,7 @@ public class EONoPathRootMap_models_Test {
     }
 
     @Test
-    public void givenString_WithList_changeNothing() throws Exception {
+    public void givenString_WithList_changeNothing()  {
         final EO eoString = DevObjectProvider
                 .createEOBuilder()
                 .set(S_STRING);
@@ -59,13 +59,13 @@ public class EONoPathRootMap_models_Test {
     }
 
     @Test
-    public void givenMapString_withMap_changeNothing() throws Exception {
+    public void givenMapString_withMap_changeNothing()  {
         final EO eoMap = MapProviderEO.createString();
         mapEO_ok(eoMap, Map.class);
     }
 
     @Test
-    public void givenMapWithString_withString_changeNothing() throws Exception {
+    public void givenMapWithString_withString_changeNothing()  {
         final EO eoMap = MapProviderEO.createString();
         Assert.assertEquals(S_STRING, eoMap.get(F_TEST_STRING));
         mapEO_ok(eoMap, String.class);
@@ -73,7 +73,7 @@ public class EONoPathRootMap_models_Test {
     }
 
     @Test
-    public void givenBTWithString_withMap_changeNothing() throws Exception {
+    public void givenBTWithString_withMap_changeNothing()  {
         final EO eoBTString = BTProviderEO.createString();
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));
 
@@ -82,7 +82,7 @@ public class EONoPathRootMap_models_Test {
     }
 
     @Test
-    public void givenBTString_withMap_changeNothing() throws Exception {
+    public void givenBTString_withMap_changeNothing()  {
         final EO eoBTString = BTProviderEO.createString();
         mapEO_ok(eoBTString, Map.class);
         Assert.assertEquals(S_STRING, eoBTString.get(F_TEST_STRING));

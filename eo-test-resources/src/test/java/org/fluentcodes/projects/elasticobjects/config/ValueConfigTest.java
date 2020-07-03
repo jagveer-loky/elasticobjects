@@ -20,20 +20,20 @@ public class ValueConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ValueConfigTest.class);
 
     @Test
-    public void testItemTestFromProvider() throws Exception {
+    public void testItemTestFromProvider()  {
         ValueConfig cache = (ValueConfig) TestEOProvider.EO_CONFIGS.find(ValueConfig.class, ValueCallTest.VC_TEST_ITEM);
     }
 
 
     @Test
-    public void findIntValue1() throws Exception {
+    public void findIntValue1()  {
         final ValueConfig config = TestEOProvider.EO_CONFIGS.findValue(ValueCallTest.VC_INT_VALUE1);
         Assert.assertNotNull(config);
         Assert.assertEquals(new Long(S_INTEGER), config.getValue());
     }
 
     @Test
-    public void findContent() throws Exception {
+    public void findContent()  {
         TestHelper.printStartMethod();
         final ValueConfig config = TestEOProvider.EO_CONFIGS.findValue(ValueCallTest.VC_CONTENT);
         Assert.assertNotNull(config);
@@ -42,7 +42,7 @@ public class ValueConfigTest extends TestHelper {
     }
 
     @Test
-    public void readValueConfigTest() throws Exception {
+    public void readValueConfigTest()  {
         TestHelper.printStartMethod();
         final Map<String, Config> configMap = TestConfig.readConfigMapFromFile(CONFIG_VALUE_TEST, ValueConfig.class);
         ValueConfig config = (ValueConfig) configMap.get(ValueCallTest.VC_INT_VALUE1);

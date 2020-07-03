@@ -49,7 +49,7 @@ public class XlsxConfig extends ListConfig {
     /**
      * The field for fileConfig e.g. defined in {@link FileConfig}
      */
-    public FileConfig getFileConfig() throws Exception {
+    public FileConfig getFileConfig()  {
         if (this.fileCache == null) {
             if (this.getConfigsCache() == null) {
                 throw new Exception("Config could not be initialized with a null provider for 'fileCache' - 'fileKey''!");
@@ -66,7 +66,7 @@ public class XlsxConfig extends ListConfig {
         return this.sheetName;
     }
 
-    public Workbook readWorkbook() throws Exception {
+    public Workbook readWorkbook()  {
         URL url = getFileConfig().getUrl();
         if (url == null) {
             throw new Exception("Could not load url from " + getFileConfig().getFileKey());
@@ -80,7 +80,7 @@ public class XlsxConfig extends ListConfig {
 
 //</call>
 
-    public Sheet getSheet() throws Exception {
+    public Sheet getSheet()  {
         return getSheet(readWorkbook());
     }
 
@@ -96,7 +96,7 @@ public class XlsxConfig extends ListConfig {
         }
     }
 
-    public XlsxIO createIO() throws Exception {
+    public XlsxIO createIO()  {
         return new XlsxIO(this);
     }
 
@@ -112,7 +112,7 @@ public class XlsxConfig extends ListConfig {
         private String sheetName;
 //</call>
 
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
             xlsxKey = ScalarConverter.toString(values.get(KEYS.xlsxKey.name()));
             if (xlsxKey == null) {
                 throw new Exception("No xlsx key defined - No build process possible");
@@ -134,7 +134,7 @@ public class XlsxConfig extends ListConfig {
             super.prepare(configsCache, values);
         }
 
-        public XlsxConfig build(EOConfigsCache configsCache, Map<String, Object> values) throws Exception {
+        public XlsxConfig build(EOConfigsCache configsCache, Map<String, Object> values)  {
             prepare(configsCache, values);
             return new XlsxConfig(configsCache, this);
         }

@@ -16,15 +16,15 @@ import java.util.List;
 public class CsvIO extends ListIO implements ListIOInterface {
     private CSVReader csvReader;
 
-    public CsvIO(CsvConfig csvConfig) throws Exception {
+    public CsvIO(CsvConfig csvConfig)  {
         super(csvConfig);
     }
 
-    public Object read() throws Exception {
+    public Object read()  {
         return super.read(new ListParams());
     }
 
-    public void write(Object object) throws Exception {
+    public void write(Object object)  {
         this.write((List) object);
     }
 
@@ -32,20 +32,20 @@ public class CsvIO extends ListIO implements ListIOInterface {
         return (CsvConfig) getListConfig();
     }
 
-    public void reset() throws Exception {
+    public void reset()  {
         close();
         URL url = getCsvConfig().getFileConfig().getUrl();
         csvReader = new CSVReader(new InputStreamReader(url.openStream()), getCsvConfig().getFieldDelimiter().charAt(0));
     }
 
-    public void close() throws Exception {
+    public void close()  {
         if (csvReader != null) {
             csvReader.close();
             csvReader = null;
         }
     }
 
-    public List readRow() throws Exception {
+    public List readRow()  {
         String[] row = csvReader.readNext();
         if (row == null) {
             return null;
@@ -53,11 +53,11 @@ public class CsvIO extends ListIO implements ListIOInterface {
         return Arrays.asList(row);
     }
 
-    public List readHead(int rownum) throws Exception {
+    public List readHead(int rownum)  {
         return readRow(rownum);
     }
 
-    public List readRow(int rownum) throws Exception {
+    public List readRow(int rownum)  {
         if (rownum < 0) {
             return null;
         }
@@ -74,7 +74,7 @@ public class CsvIO extends ListIO implements ListIOInterface {
         return null;
     }
 
-    public void write(List rows) throws Exception {
+    public void write(List rows)  {
         if (rows == null || rows.isEmpty()) {
             throw new Exception("Strange - no list values - nothing to write! Will return without doing anything.");
         }

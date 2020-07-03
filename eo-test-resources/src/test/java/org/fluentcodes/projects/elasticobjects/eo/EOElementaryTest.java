@@ -17,7 +17,7 @@ public class EOElementaryTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOElementaryTest.class);
 
     @Test
-    public void isContainer() throws Exception {
+    public void isContainer()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEOFromJson(Map.class);
         adapter.add(S_LEVEL0)
@@ -30,10 +30,10 @@ public class EOElementaryTest extends TestHelper {
     /**
      * Test different createChildForMap value
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void getChild() throws Exception {
+    public void getChild()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEOFromJson(Map.class);
         Assert.assertEquals(Map.class, adapter.getChild(null).getModelClass());
@@ -51,10 +51,10 @@ public class EOElementaryTest extends TestHelper {
     /**
      * Error handling getting non existent path.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void errorNonExistingPath() throws Exception {
+    public void errorNonExistingPath()  {
         TestHelper.printStartMethod();
         EO adapter = TestEOProvider.createEOFromJson(Map.class);
         Object notExisting = adapter.get(toPath(S_LEVEL0, SAMPLE_KEY_UNKNOW));
@@ -65,10 +65,10 @@ public class EOElementaryTest extends TestHelper {
     /**
      * Error handling getting non existent path.
      *
-     * @throws Exception
+     * @
      */
     @Test
-    public void errorGettingNotExistingObjectPath() throws Exception {
+    public void errorGettingNotExistingObjectPath()  {
         TestHelper.printStartMethod();
         SubTest subTest = new SubTest();
         subTest.setTestString(S_STRING);

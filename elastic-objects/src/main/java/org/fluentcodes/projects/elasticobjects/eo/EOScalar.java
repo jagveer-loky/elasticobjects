@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.eo;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
@@ -27,9 +28,18 @@ public abstract class EOScalar implements EO {
     private boolean insert = false;
     private Boolean empty = true;
 
-    protected EOScalar(final EOBuilder params) throws Exception {
+    protected EOScalar(Models models, LogLevel logLevel)  {
+        rootAdapter = (EORoot) this;
+        parentAdapter = null;
+        parentFieldName = null;
+        this.logLevel = logLevel;
+        this.models = models;
+        this.object = this.models.create();
+    }
+
+    protected EOScalar(final EOBuilder params)  {
         if (params.getTargetModels() == null || params.getTargetModels().size() == 0) {
-            throw new Exception("No model defined for " + params.toString());
+            throw new EoException("No model defined for " + params.toString());
         }
         this.models = params.getTargetModels();
         this.models.setEO(this);
@@ -50,7 +60,7 @@ public abstract class EOScalar implements EO {
         return this.object;
     }
 
-    protected void setModelClasses(Class... classes) throws Exception {
+    protected void setModelClasses(Class... classes)  {
         if (classes == null || classes.length == 0) {
             info("Empty classes!" + getPathAsString());
             return;
@@ -58,12 +68,12 @@ public abstract class EOScalar implements EO {
         setModels(new Models(getConfigsCache(), classes));
     }
 
-    public void set(final Object source) throws Exception {
+    public void set(final Object source)  {
         if (this.object != null && this.object == source) {
             return;  // the same object
         }
         if (object != null && source != null) {
-            //throw new Exception("Not allowed to set a null source");
+            //throw new eoException("Not allowed to set a null source");
             if (this.object.hashCode() == source.hashCode()) {
                 return;
             }
@@ -326,7 +336,7 @@ public abstract class EOScalar implements EO {
         return models;
     }
 
-    protected void setModels(Models newModels) throws Exception {
+    protected void setModels(Models newModels)  {
         if (newModels.isEmpty()) {
             info("Empty classes!" + getPathAsString());
             return;

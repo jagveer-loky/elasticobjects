@@ -23,7 +23,7 @@ public class ModelConfigObjectTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelConfigObjectTest.class);
 
     @Test
-    public void createExecutorAction() throws Exception {
+    public void createExecutorAction()  {
         TestHelper.printStartMethod();
         final ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(CallExecutor.class);
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
@@ -39,7 +39,7 @@ public class ModelConfigObjectTest extends TestHelper {
     }
 
     @Test
-    public void assertBTTypeTest() throws Exception {
+    public void assertBTTypeTest()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
@@ -52,7 +52,7 @@ public class ModelConfigObjectTest extends TestHelper {
     }
 
     @Test
-    public void assertBT() throws Exception {
+    public void assertBT()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(BasicTest.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
@@ -81,7 +81,7 @@ public class ModelConfigObjectTest extends TestHelper {
     }
 
     @Test
-    public void getModel() throws Exception {
+    public void getModel()  {
         TestHelper.printStartMethod();
         ModelInterface cache = TestEOProvider.EO_CONFIGS.findModel(M_BASIC_TEST);
         Assert.assertEquals(M_BASIC_TEST, cache.getModelKey());
@@ -103,7 +103,7 @@ public class ModelConfigObjectTest extends TestHelper {
     }
 
     @Test
-    public void assertST() throws Exception {
+    public void assertST()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(SubTest.class);
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
@@ -116,7 +116,7 @@ public class ModelConfigObjectTest extends TestHelper {
     }
 
     @Test
-    public void getST() throws Exception {
+    public void getST()  {
         final ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_SUB_TEST);
         Assert.assertEquals(M_SUB_TEST, model.getModelKey());
         SubTest subTest = (SubTest) model.create();
@@ -125,7 +125,7 @@ public class ModelConfigObjectTest extends TestHelper {
     }
 
     @Test
-    public void assertBTFieldTest() throws Exception {
+    public void assertBTFieldTest()  {
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(BasicTest.class);
 
         FieldConfig field = model.getField(F_TEST_STRING);
@@ -137,7 +137,7 @@ public class ModelConfigObjectTest extends TestHelper {
     }
 
     @Test
-    public void assertScsConfigTest() throws Exception {
+    public void assertScsConfigTest()  {
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(ScsConfig.class);
 
         FieldConfig field = model.getField(F_DESCRIPTION);

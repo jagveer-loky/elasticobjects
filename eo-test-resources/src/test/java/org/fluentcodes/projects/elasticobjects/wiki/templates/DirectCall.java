@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class DirectCall {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final TemplateCall action = new TemplateCall(TestEOProvider.EO_CONFIGS);
         action.setContent("key='$[key]'<call path=\"level0/level1\">level0/level1/key='$[key]'</call>");
 

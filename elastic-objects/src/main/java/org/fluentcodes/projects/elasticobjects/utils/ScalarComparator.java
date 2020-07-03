@@ -141,7 +141,7 @@ public class ScalarComparator {
         return sLeft.equals(sRight);
     }
 
-    public static boolean compareInteger(Object left, Object right) throws Exception {
+    public static boolean compareInteger(Object left, Object right)  {
         if (right == null && left == null) {
             return true;
         }

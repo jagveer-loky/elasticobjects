@@ -9,11 +9,11 @@ import org.apache.logging.log4j.Logger;
 public class EOConfigsField extends EOConfigs {
     public static final Logger LOG = LogManager.getLogger(EOConfigsField.class);
 
-    public EOConfigsField(final EOConfigsCache eoConfigsCache, final Scope scope) throws Exception {
+    public EOConfigsField(final EOConfigsCache eoConfigsCache, final Scope scope)  {
         super(eoConfigsCache, FieldConfig.class, scope);
     }
 
-    public Config find(String key) throws Exception {
+    public Config find(String key)  {
         Config cached = super.find(key);
         return cached;
     }

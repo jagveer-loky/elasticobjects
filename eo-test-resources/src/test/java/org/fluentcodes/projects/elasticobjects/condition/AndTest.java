@@ -74,7 +74,7 @@ public class AndTest {
     }
 
     @Test
-    public void filterAdapter() throws Exception {
+    public void filterAdapter()  {
         EO adapter = TestEOProvider.createEmptyMap();
         adapter.add(S_TEST_STRING).set(S_STRING);
         And condition = new And(toLike(S_TEST_STRING, S_STRING));
@@ -86,7 +86,7 @@ public class AndTest {
     }
 
     @Test
-    public void filterRow() throws Exception {
+    public void filterRow()  {
         List list = ListProvider.toList(S_STRING, S_STRING_OTHER, null, S_KEY0, S_INTEGER);
         And condition = new And(toLike(S0, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(0),

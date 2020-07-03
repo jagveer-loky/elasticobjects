@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class Clone {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final EO eo = TestEOProvider.create(BasicTest.class);
 
         final BasicTest BT1 = new BasicTest();

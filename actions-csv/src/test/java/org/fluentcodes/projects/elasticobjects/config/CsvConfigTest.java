@@ -25,7 +25,7 @@ public class CsvConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(CsvConfigTest.class);
 
     @Test
-    public void fromSourceCsv() throws Exception {
+    public void fromSourceCsv()  {
         TestHelper.printStartMethod();
         CsvConfig config = (CsvConfig) TestEOProvider.EO_CONFIGS.find(CsvConfig.class, CSV_SOURCE_CSV);
         Assert.assertEquals(CSV_SOURCE_CSV, config.getCsvKey());
@@ -40,7 +40,7 @@ public class CsvConfigTest extends TestHelper {
     }
 
     @Test
-    public void fromTargetCsv() throws Exception {
+    public void fromTargetCsv()  {
         TestHelper.printStartMethod();
         final CsvConfig config = (CsvConfig) TestEOProvider.EO_CONFIGS.find(CsvConfig.class, CSV_TARGET_CSV);
         Assert.assertEquals(CSV_TARGET_CSV, config.getCsvKey());
@@ -58,7 +58,7 @@ public class CsvConfigTest extends TestHelper {
 
 
     @Test
-    public void fromCache() throws Exception {
+    public void fromCache()  {
         TestHelper.printStartMethod();
         final CsvConfig config = (CsvConfig) TestEOProvider.EO_CONFIGS.find(CsvConfig.class, S_STRING);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
@@ -66,14 +66,14 @@ public class CsvConfigTest extends TestHelper {
     }
 
     @Test
-    public void readMapTest() throws Exception {
+    public void readMapTest()  {
         Map map = TestConfig.readMapFromFile(CONFIG_CSV_TEST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
     }
 
     @Test
-    public void readConfigTest() throws Exception {
+    public void readConfigTest()  {
         Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_CSV_TEST, CsvConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());

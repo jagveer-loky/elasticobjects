@@ -17,7 +17,7 @@ public class EOPathMap_value_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPathMap_value_models_Test.class);
 
     @Test
-    public void givenMapSTEmpty_withST_ok() throws Exception {
+    public void givenMapSTEmpty_withST_ok()  {
         final EO eoMapEmpty = MapProviderEO.createEmpty();
         final EO child = EOTest
                 .mapEO_ok(eoMapEmpty, F_SUB_TEST, STProvider.createString(), Map.class);

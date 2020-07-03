@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.FileUtil;
@@ -43,13 +44,13 @@ public class EOBuilder {
     /**
      * Creates a root adapter with an ItemsCache
      */
-    public EOBuilder(EOConfigsCache provider) throws Exception {
+    public EOBuilder(EOConfigsCache provider) {
         this.eoParent = null;
         this.configCache = provider;
         path = new Path(Path.DELIMITER);
     }
 
-    public EOBuilder(EOBuilder builder) throws Exception {
+    public EOBuilder(EOBuilder builder)  {
         this.configCache = builder.getConfigCache();
         this.logLevel = builder.getLogLevel();
         this.map = builder.isMap();
@@ -59,17 +60,17 @@ public class EOBuilder {
         this.pathPattern = builder.getPathPattern();
     }
 
-    public EOBuilder(EOContainer eoParent) throws Exception {
+    public EOBuilder(EOContainer eoParent)  {
         if (eoParent == null) {
-            throw new Exception("Null eoParent");
+            throw new EoException("Null eoParent");
         }
         this.configCache = eoParent.getConfigsCache();
         this.eoParent = eoParent;
     }
 
-    public EOBuilder(EOBuilder parentBuilder, JSONToEO json) throws Exception {
+    public EOBuilder(EOBuilder parentBuilder, JSONToEO json)  {
         if (parentBuilder == null) {
-            throw new Exception("Null eoParent");
+            throw new EoException("Null eoParent");
         }
         this.configCache = parentBuilder.getConfigsCache();
         this.targetModels = parentBuilder.getTargetModels();
@@ -183,7 +184,7 @@ public class EOBuilder {
         }
     }
 
-    public EOBuilder setModels(Class... classes) throws Exception {
+    public EOBuilder setModels(Class... classes)  {
 
         if (classes == null || classes.length == 0) {
             return this;
@@ -197,7 +198,7 @@ public class EOBuilder {
         return this;
     }
 
-    public EOBuilder setModels(final String models) throws Exception {
+    public EOBuilder setModels(final String models)  {
         this.targetModels = new Models(this.configCache, models);
         return this;
     }
@@ -229,7 +230,7 @@ public class EOBuilder {
         this.value = value;
     }
 
-    private void prepareValue() throws Exception {
+    private void prepareValue()  {
         if (logLevel == null) {
             if (eoParent != null) {
                 this.logLevel = eoParent.getLogLevel();
@@ -275,14 +276,14 @@ public class EOBuilder {
      *
      * @param fileName The name of the file
      * @return the created adapter
-     * @throws Exception on every exception occurs
+     * @ on every exception occurs
      */
-    public EO mapFile(final String fileName) throws Exception {
+    public EO mapFile(final String fileName)  {
         String value = FileUtil.readFile(fileName);
         return map(value);
     }
 
-    public EO mapFile(final URL url) throws Exception {
+    public EO mapFile(final URL url)  {
         String value = FileUtil.readFile(url);
         return map(value);
     }
@@ -292,9 +293,9 @@ public class EOBuilder {
      *
      * @param object The object to be set without expanding structure to adapter.
      * @return the created adapter
-     * @throws Exception on every exception occurs
+     * @ on every exception occurs
      */
-    public EO set(Object object) throws Exception {
+    public EO set(Object object)  {
         this.value = object;
         this.map = false;
         return build();
@@ -307,10 +308,10 @@ public class EOBuilder {
      *
      * @param source The source object will expanding structure to adapters.
      * @return the created adapter
-     * @throws Exception on every exception occurs
+     * @ on every exception occurs
      */
 
-    public EO map(Object source) throws Exception {
+    public EO map(Object source)  {
         this.map = true;
         if (source == null) {
             return build();
@@ -354,9 +355,9 @@ public class EOBuilder {
      * Creates an adapter depending on the values stored here.
      *
      * @return
-     * @throws Exception on model error creating a root adapter.
+     * @ on model error creating a root adapter.
      */
-    public EO build() throws Exception {
+    public EO build()  {
         boolean valueCreated = false;
         if (!hasPath()) {
             // Creates a rootAdapter
@@ -408,9 +409,9 @@ public class EOBuilder {
      *
      * @param parent the parent adapter
      * @return
-     * @throws Exception
+     * @
      */
-    protected EO createChild(EOContainer parent) throws Exception {
+    protected EO createChild(EOContainer parent)  {
         EOBuilder childBuilder = new EOBuilder(parent);
         childBuilder.setPath(this.path);
         childBuilder.setValue(this.value);
@@ -425,9 +426,9 @@ public class EOBuilder {
      * Create a child adapter depending on the current values
      *
      * @return
-     * @throws Exception
+     * @
      */
-    protected EO createChild() throws Exception {
+    protected EO createChild()  {
         parentKey = path.first();
         setModels();
         path = path.getChildPath();
@@ -471,13 +472,13 @@ public class EOBuilder {
      * Creates a container containing no value ...
      *
      * @return
-     * @throws Exception
+     * @
      */
-    private EO createGlueContainer() throws Exception {
+    private EO createGlueContainer()  {
         Models targetModels = eoParent.getModels()
                 .createChildForSet(parentKey, null, null);
         if (targetModels.isScalar()) {
-            throw new Exception("A glue container could not be a scalar type!");
+            throw new EoException("A glue container could not be a scalar type!");
         }
         EOBuilder pathBuilder = new EOBuilder(eoParent);
         pathBuilder.setEoParent(eoParent);

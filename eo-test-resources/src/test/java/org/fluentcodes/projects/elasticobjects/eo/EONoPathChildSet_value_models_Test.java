@@ -15,7 +15,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EONoPathChildSet_value_models_Test.class);
 
     @Test
-    public void givenMapString_withInteger_ok() throws Exception {
+    public void givenMapString_withInteger_ok()  {
         final EO root = MapProviderEO.createString();
 
         final EO child = root.getChild(F_TEST_STRING);
@@ -29,7 +29,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenMapString_withMap_ok() throws Exception {
+    public void givenMapString_withMap_ok()  {
         final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(MapProvider.createString());
@@ -42,7 +42,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTMap_withMapString_ok() throws Exception {
+    public void givenBTMap_withMapString_ok()  {
         final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createMap());
@@ -54,7 +54,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTString_withInteger_fails() throws Exception {
+    public void givenBTString_withInteger_fails()  {
         final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createString());
@@ -66,7 +66,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTString_withBTInteger_fails() throws Exception {
+    public void givenBTString_withBTInteger_fails()  {
         final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createString());
@@ -79,7 +79,7 @@ public class EONoPathChildSet_value_models_Test extends TestHelper {
     }
 
     @Test
-    public void givenBTString_withMapInteger_fails() throws Exception {
+    public void givenBTString_withMapInteger_fails()  {
         final EO root = TestEOProvider
                 .createEOBuilder()
                 .set(BTProvider.createString());

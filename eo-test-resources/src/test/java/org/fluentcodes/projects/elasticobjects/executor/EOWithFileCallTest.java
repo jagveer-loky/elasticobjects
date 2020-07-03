@@ -19,7 +19,7 @@ public class EOWithFileCallTest extends TestHelper {
     private static final String METHOD_SOURCE_TXT = ".read(source.txt)";
 
     @Test
-    public void addFileReadAction() throws Exception {
+    public void addFileReadAction()  {
         final EO root = TestEOProvider.createEmptyMap();
         root.add(toPath(S_LEVEL0, S_LEVEL1))
                 .set(S_STRING);

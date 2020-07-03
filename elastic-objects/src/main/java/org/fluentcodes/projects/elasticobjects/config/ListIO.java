@@ -21,10 +21,10 @@ public abstract class ListIO implements ListIOInterface {
      *
      * @param listParams
      * @return
-     * @throws Exception
+     * @
      */
 
-    public List read(ListParams listParams) throws Exception {
+    public List read(ListParams listParams)  {
         listParams.merge(listConfig.getListParams());
         listParams.prepare();
         int lineCounter = -1;

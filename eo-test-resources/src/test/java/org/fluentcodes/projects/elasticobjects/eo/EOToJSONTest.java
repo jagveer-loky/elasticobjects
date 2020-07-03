@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EOToJSONTest extends TestHelper {
 
     @Test
-    public void setSameMaps() throws Exception {
+    public void setSameMaps()  {
         Map map = new LinkedHashMap();
         map.put(S_KEY0, S_STRING);
         map.put(S_KEY1, S_INTEGER);
@@ -41,7 +41,7 @@ public class EOToJSONTest extends TestHelper {
     }
 
     @Test
-    public void setSameMapsWithCheck() throws Exception {
+    public void setSameMapsWithCheck()  {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         TestHelper.printStartMethod();

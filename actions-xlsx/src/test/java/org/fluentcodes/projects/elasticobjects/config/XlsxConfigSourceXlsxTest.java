@@ -21,7 +21,7 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC_TEST.X_SOURCE_X
 public class XlsxConfigSourceXlsxTest extends TestHelper {
 
     @Test
-    public void checkSource() throws Exception {
+    public void checkSource()  {
         TestHelper.printStartMethod();
         XlsxConfig config = (XlsxConfig) TestEOProvider.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
         Assert.assertEquals(X_SOURCE_XLSX_TEST, config.getXlsxKey());
@@ -38,7 +38,7 @@ public class XlsxConfigSourceXlsxTest extends TestHelper {
     }
 
     @Test
-    public void read() throws Exception {
+    public void read()  {
         XlsxConfig config = (XlsxConfig) TestEOProvider.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
         List<List> result = config.createIO().read(new ListParams());
         AssertEO.compare(TestEOProvider.EO_CONFIGS, result);

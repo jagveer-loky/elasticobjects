@@ -17,21 +17,21 @@ public class ValuesEOTest {
     public static final Logger LOG = LogManager.getLogger(ValuesEOTest.class);
 
     @Test
-    public void getConfigurationKeys_withNoName_returnConfigTypes() throws Exception {
+    public void getConfigurationKeys_withNoName_returnConfigTypes()  {
         List<String> names = ValuesEO.getConfigurationKeys(new Object[]{TestEOProvider.create()});
         Assert.assertNotNull(names);
         Assert.assertFalse(names.isEmpty());
     }
 
     @Test
-    public void getConfigurationKeys_withModelConfig_returnModelConfigNames() throws Exception {
+    public void getConfigurationKeys_withModelConfig_returnModelConfigNames()  {
         List<String> names = ValuesEO.getConfigurationKeys(new Object[]{TestEOProvider.create(), M_MODEL_CONFIG});
         Assert.assertNotNull(names);
         Assert.assertFalse(names.isEmpty());
     }
 
     @Test
-    public void getConfigurationKeys_withModelConfig_andConfigFilterMap_returnMapTypes() throws Exception {
+    public void getConfigurationKeys_withModelConfig_andConfigFilterMap_returnMapTypes()  {
         List<String> names = ValuesEO.getConfigurationKeys(new Object[]{TestEOProvider.create(), M_MODEL_CONFIG, ".*Map"});
         Assert.assertNotNull(names);
         Assert.assertFalse(names.isEmpty());
@@ -39,7 +39,7 @@ public class ValuesEOTest {
     }
 
     @Test
-    public void getConfigurationKeys_withFieldConfig_returnFieldConfigNames() throws Exception {
+    public void getConfigurationKeys_withFieldConfig_returnFieldConfigNames()  {
         List<String> names = ValuesEO.getConfigurationKeys(new Object[]{TestEOProvider.create(), M_FIELD_CONFIG});
         Assert.assertNotNull(names);
         Assert.assertFalse(names.isEmpty());
@@ -90,14 +90,14 @@ public class ValuesEOTest {
     }
 
     @Test
-    public void getConfiguration_withConfigKeyHashMap() throws Exception {
+    public void getConfiguration_withConfigKeyHashMap()  {
         Object modelConfig = ValuesEO.getConfiguration(new Object[]{TestEOProvider.create(), M_MODEL_CONFIG, M_HASH_MAP});
         Assert.assertEquals(ModelConfigMap.class, modelConfig.getClass());
         Assert.assertEquals(M_HASH_MAP, ((ModelConfigMap)modelConfig).getModelKey());
     }
 
     @Test
-    public void getConfigurationList_withConfigFilterMap() throws Exception {
+    public void getConfigurationList_withConfigFilterMap()  {
         List modelConfig = ValuesEO.getConfigurationList(new Object[]{TestEOProvider.create(), M_MODEL_CONFIG, ".*Map"});
         Assert.assertEquals(ArrayList.class, modelConfig.getClass());
         Assert.assertEquals(M_HASH_MAP, ((ModelConfigMap)modelConfig.get(0)).getModelKey());

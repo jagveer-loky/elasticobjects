@@ -11,7 +11,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class SetValue {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final EO eo = DevObjectProvider.createEO();
         final EO child = eo.add("level0/level1/level2/key")
                 .set("value");

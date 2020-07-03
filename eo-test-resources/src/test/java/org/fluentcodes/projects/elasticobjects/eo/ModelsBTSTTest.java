@@ -20,21 +20,21 @@ public class ModelsBTSTTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelsBTSTTest.class);
 
     @Test
-    public void setEmpty_ok() throws Exception {
+    public void setEmpty_ok()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         final Models child = models.createChildForSet(F_SUB_TEST, null, null);
         Assert.assertEquals(SubTest.class, child.getModelClass());
     }
 
     @Test
-    public void mapEmpty_ok() throws Exception {
+    public void mapEmpty_ok()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         final Models child = models.createChildForMap(F_SUB_TEST, null);
         Assert.assertEquals(SubTest.class, child.getModelClass());
     }
 
     @Test
-    public void setJsonToEO_fails() throws Exception {
+    public void setJsonToEO_fails()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         final JSONToEO empty = new JSONToEO(SAMPLE_STRING_JSON_MAP_EMPTY, TestEOProvider.EO_CONFIGS);
         try {
@@ -46,7 +46,7 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void mapJsonToEO_okWithModelST_IsTypeOfTheField() throws Exception {
+    public void mapJsonToEO_okWithModelST_IsTypeOfTheField()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         final JSONToEO empty = new JSONToEO(SAMPLE_STRING_JSON_MAP_EMPTY, TestEOProvider.EO_CONFIGS);
         final Models child = models.createChildForMap(F_SUB_TEST, empty);
@@ -54,7 +54,7 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void mapString_fails() throws Exception {
+    public void mapString_fails()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         try {
             models.createChildForMap(F_SUB_TEST, S_STRING);
@@ -65,7 +65,7 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void setString_fails() throws Exception {
+    public void setString_fails()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         try {
             models.createChildForSet(F_SUB_TEST, S_STRING);
@@ -76,7 +76,7 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void setMap_fails() throws Exception {
+    public void setMap_fails()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         try {
             models.createChildForSet(F_SUB_TEST, MapProvider.createEmpty(), null);
@@ -87,14 +87,14 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void mapMap_ok() throws Exception {
+    public void mapMap_ok()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         final Models child = models.createChildForMap(F_SUB_TEST, MapProvider.createEmpty());
         Assert.assertEquals(SubTest.class, child.getModelClass());
     }
 
     @Test
-    public void setList_fails() throws Exception {
+    public void setList_fails()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         try {
             models.createChildForSet(F_SUB_TEST, ListProvider.createEmpty(), null);
@@ -105,7 +105,7 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void mapList_fails() throws Exception {
+    public void mapList_fails()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         try {
             models.createChildForMap(F_SUB_TEST, ListProvider.createEmpty());
@@ -116,14 +116,14 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void setSubTest_ok() throws Exception {
+    public void setSubTest_ok()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         Models child = models.createChildForSet(F_SUB_TEST, new SubTest(), null);
         Assert.assertEquals(SubTest.class, child.getModelClass());
     }
 
     @Test
-    public void setBasicTest_fails() throws Exception {
+    public void setBasicTest_fails()  {
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         try {
             models.createChildForSet(F_SUB_TEST, new BasicTest(), null);
@@ -134,7 +134,7 @@ public class ModelsBTSTTest extends TestHelper {
     }
 
     @Test
-    public void mapBasicTest_ok() throws Exception {
+    public void mapBasicTest_ok()  {
         TestHelper.printStartMethod();
         final Models models = new Models(TestEOProvider.EO_CONFIGS, BasicTest.class);
         final Models child = models.createChildForMap(F_SUB_TEST, new BasicTest());

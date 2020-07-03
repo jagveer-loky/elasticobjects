@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
 
 import java.util.Map;
@@ -46,10 +47,10 @@ public class JsonConfig extends FileConfig {
         private Integer indent;
         private JSONSerializationType serializationType;
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             this.jsonKey = (String) configsCache.transform(EO_STATIC.F_JSON_KEY, values);
             if (jsonKey == null || jsonKey.isEmpty()) {
-                throw new Exception("jsonKey is not in the map defined!?");
+                throw new EoException("jsonKey is not in the map defined!?");
             }
             this.serializationType = (JSONSerializationType) configsCache.transform(EO_STATIC.F_SERIALIZATION_TYPE, values, JSONSerializationType.STANDARD);
             indent = (Integer) configsCache.transform(EO_STATIC.F_INDENT, values, 1);
@@ -58,7 +59,7 @@ public class JsonConfig extends FileConfig {
         }
 
         @Override
-        public JsonConfig build(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        public JsonConfig build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             prepare(configsCache, values);
             return new JsonConfig(configsCache, this);
         }

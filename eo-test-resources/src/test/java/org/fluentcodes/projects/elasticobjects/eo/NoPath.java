@@ -18,7 +18,7 @@ public class NoPath extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(NoPath.class);
 
     @Test
-    public void empty() throws Exception {
+    public void empty()  {
         TestHelper.printStartMethod();
         EOConfigsCache configsCache = TestEOProvider.EO_CONFIGS;
         EO adapter = TestEOProvider.createEmptyMap();

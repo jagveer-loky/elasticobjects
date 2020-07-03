@@ -15,7 +15,7 @@ public class EOPath_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPath_Test.class);
 
     @Test
-    public void withPath2() throws Exception {
+    public void withPath2()  {
         final EO adapter = TestEOProvider.createEmptyMap();
         final EO childAdapter = adapter
                 .add(toPath(S_PATH1))
@@ -24,7 +24,7 @@ public class EOPath_Test extends TestHelper {
     }
 
     @Test
-    public void withPath4() throws Exception {
+    public void withPath4()  {
         final EO adapter = TestEOProvider.createEmptyMap();
         final EO child = adapter
                 .add(S_PATH4)
@@ -36,7 +36,7 @@ public class EOPath_Test extends TestHelper {
     }
 
     @Test
-    public void withPath3() throws Exception {
+    public void withPath3()  {
         final String path2 = toPath(S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
         final EO adapter = TestEOProvider.createEmptyMap();
         final EO childAdapter = adapter
@@ -51,7 +51,7 @@ public class EOPath_Test extends TestHelper {
     }
 
     @Test
-    public void withPath3AndWithCommonPart() throws Exception {
+    public void withPath3AndWithCommonPart()  {
         final String path2 = toPath(S_LEVEL0, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
         final EO adapter = TestEOProvider.createEmptyMap();
         final EO childAdapter = adapter
@@ -67,7 +67,7 @@ public class EOPath_Test extends TestHelper {
     }
 
     @Test
-    public void withPath3WithCommon2Parts() throws Exception {
+    public void withPath3WithCommon2Parts()  {
         final String path2 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
         final EO adapter = TestEOProvider.createEmptyMap();
         final EO childAdapter = adapter

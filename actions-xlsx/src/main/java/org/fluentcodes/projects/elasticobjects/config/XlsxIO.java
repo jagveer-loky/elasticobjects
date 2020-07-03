@@ -20,7 +20,7 @@ public class XlsxIO extends ListIO implements ListIOInterface {
     private int actualRow = 0;
     private int emptyCounter = 0;
 
-    public XlsxIO(XlsxConfig xlsxConfig) throws Exception {
+    public XlsxIO(XlsxConfig xlsxConfig)  {
         super(xlsxConfig);
         sheet = getSheet();
     }
@@ -29,22 +29,22 @@ public class XlsxIO extends ListIO implements ListIOInterface {
         return (XlsxConfig) getListConfig();
     }
 
-    public Object read() throws Exception {
+    public Object read()  {
         return super.read(new ListParams());
     }
 
-    public void write(Object object) throws Exception {
+    public void write(Object object)  {
         this.write((List) object);
     }
 
-    public void reset() throws Exception {
+    public void reset()  {
         actualRow = 0;
         if (sheet == null) {
             this.sheet = getSheet();
         }
     }
 
-    public void close() throws Exception {
+    public void close()  {
         if (sheet != null) {
             sheet.getWorkbook().close();
             sheet = null;
@@ -52,7 +52,7 @@ public class XlsxIO extends ListIO implements ListIOInterface {
     }
 
 
-    private final Sheet getSheet() throws Exception {
+    private final Sheet getSheet()  {
         Workbook wb = readWorkbook();
         if (getXlsxConfig().hasNoSheetName()) {
             return wb.getSheetAt(0);
@@ -61,7 +61,7 @@ public class XlsxIO extends ListIO implements ListIOInterface {
         }
     }
 
-    private final Workbook readWorkbook() throws Exception {
+    private final Workbook readWorkbook()  {
         URL url = getXlsxConfig().getFileConfig().getUrl();
         if (url == null) {
             throw new Exception("Could not load url from " + getXlsxConfig().getFileConfig().getFileKey());
@@ -75,7 +75,7 @@ public class XlsxIO extends ListIO implements ListIOInterface {
         return wb;
     }
 
-    public List readRow() throws Exception {
+    public List readRow()  {
         List nextRow = readRow(actualRow + 1);
         if (nextRow == null) {
             emptyCounter++;
@@ -85,11 +85,11 @@ public class XlsxIO extends ListIO implements ListIOInterface {
         return nextRow;
     }
 
-    public List readHead(int rownum) throws Exception {
+    public List readHead(int rownum)  {
         return readRow(rownum);
     }
 
-    public List readRow(int rowNum) throws Exception {
+    public List readRow(int rowNum)  {
         if (rowNum < 0) {
             return null;
         }
@@ -213,7 +213,7 @@ public class XlsxIO extends ListIO implements ListIOInterface {
         }
     }
 
-    public void writeWorkbook(Workbook wb) throws Exception {
+    public void writeWorkbook(Workbook wb)  {
         URL url = getXlsxConfig().getFileConfig().getUrl();
         //URLConnection connection = url.openConnection();
 

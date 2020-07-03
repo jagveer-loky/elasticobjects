@@ -20,7 +20,7 @@ public class TemplateConfigTest {
     private static final Logger LOG = LogManager.getLogger(TemplateConfigTest.class);
 
     @Test
-    public void findCache() throws Exception {
+    public void findCache()  {
         final TemplateConfig config = TestEOProvider.EO_CONFIGS
                 .findTemplate(T_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
@@ -28,7 +28,7 @@ public class TemplateConfigTest {
     }
 
     @Test
-    public void readCacheTest() throws Exception {
+    public void readCacheTest()  {
         Map<String, Config> configMap = TestConfig.readConfigMapFromFile(CONFIG_TEMPLATE_TEST, TemplateConfig.class);
         TemplateConfig config = (TemplateConfig) configMap.get(T_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
@@ -36,14 +36,14 @@ public class TemplateConfigTest {
     }
 
     @Test
-    public void readMapTest() throws Exception {
+    public void readMapTest()  {
         Map configMap = TestConfig.readMapFromFile(CONFIG_TEMPLATE_TEST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, configMap);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS, configMap.size()>0);
     }
 
     @Test
-    public void readMapMain() throws Exception {
+    public void readMapMain()  {
         Map configMap = TestConfig.readMapFromFile(CONFIG_TEMPLATE_MAIN);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, configMap);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS, configMap.size()>0);

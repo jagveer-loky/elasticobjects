@@ -15,7 +15,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EOLogTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
-    private EO createWarnAdapter() throws Exception {
+    private EO createWarnAdapter()  {
         return TestEOProvider.createEOBuilder()
                 .setLogLevel(LogLevel.WARN)
                 .setPath(S_TEST_STRING)
@@ -24,21 +24,21 @@ public class EOLogTest extends TestHelper {
     }
 
     @Test
-    public void errorWithException_WarnAdapter() throws Exception {
+    public void errorWithException_WarnAdapter()  {
         EO adapter = createWarnAdapter();
         adapter.error(S_MESSAGE, new Exception(S_STRING));
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, adapter.getLog().isEmpty());
     }
 
     @Test
-    public void error_WarnAdapter() throws Exception {
+    public void error_WarnAdapter()  {
         EO adapter = createWarnAdapter();
         adapter.error(S_MESSAGE);
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, adapter.getLog().isEmpty());
     }
 
     @Test
-    public void warnWithException_WarnAdapter() throws Exception {
+    public void warnWithException_WarnAdapter()  {
         EO adapter = createWarnAdapter();
         adapter.warn(S_MESSAGE, new Exception(S_STRING));
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, adapter.getLog().isEmpty());
@@ -46,28 +46,28 @@ public class EOLogTest extends TestHelper {
 
 
     @Test
-    public void warn_WarnAdapter() throws Exception {
+    public void warn_WarnAdapter()  {
         EO adapter = createWarnAdapter();
         adapter.warn(S_MESSAGE);
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, adapter.getLog().isEmpty());
     }
 
     @Test
-    public void info_WarnAdapter() throws Exception {
+    public void info_WarnAdapter()  {
         EO adapter = createWarnAdapter();
         adapter.info(S_MESSAGE);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + adapter.getLog(), adapter.getLog().isEmpty());
     }
 
     @Test
-    public void debug_WarnAdapter() throws Exception {
+    public void debug_WarnAdapter()  {
         EO adapter = createWarnAdapter();
         adapter.debug(S_MESSAGE);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + adapter.getLog(), adapter.getLog().isEmpty());
     }
 
     @Test
-    public void info_InfoChildAdapter() throws Exception {
+    public void info_InfoChildAdapter()  {
         EO adapter = createWarnAdapter();
         EO childAdapter = adapter
                 .add(S_LEVEL0)
@@ -78,7 +78,7 @@ public class EOLogTest extends TestHelper {
     }
 
     @Test
-    public void info_childAdapterHas_HasDefaultWarningFromParent() throws Exception {
+    public void info_childAdapterHas_HasDefaultWarningFromParent()  {
         EO adapter = createWarnAdapter();
         adapter.info(S_MESSAGE);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + adapter.getLog(), adapter.getLog().isEmpty());

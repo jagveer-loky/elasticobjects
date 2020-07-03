@@ -12,7 +12,7 @@ public class ScalarConverterDateTest {
     private static final Logger log = LogManager.getLogger(ScalarConverterDateTest.class);
 
     @Test
-    public void transformDate() throws Exception {
+    public void transformDate()  {
         TestHelper.printStartMethod();
         dateTestForms(TEO_STATIC.SAMPLE_DATE);
     }

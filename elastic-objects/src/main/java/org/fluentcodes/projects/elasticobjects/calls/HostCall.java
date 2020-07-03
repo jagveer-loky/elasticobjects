@@ -8,11 +8,11 @@ import org.fluentcodes.projects.elasticobjects.config.HostConfig;
  */
 public class HostCall extends CallIO {
 
-    public HostCall(EOConfigsCache provider, String cacheKey) throws Exception {
+    public HostCall(EOConfigsCache provider, String cacheKey)  {
         super(provider, cacheKey);
     }
 
-    public HostConfig getHostConfig() throws Exception {
+    public HostConfig getHostConfig()  {
         return ((HostConfig) getConfig());
     }
 }

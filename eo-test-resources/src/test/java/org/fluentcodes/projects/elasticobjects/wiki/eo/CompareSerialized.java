@@ -9,7 +9,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class CompareSerialized {
     @Test
-    public void test() throws Exception {
+    public void test()  {
         final EO eo = TestEOProvider.create();
         final String mapJson = "{\"first\": 1,\"second\": 2,\"third\": 3}";
         eo.add()

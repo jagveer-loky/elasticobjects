@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.executor.statics;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.ValueCall;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
@@ -47,7 +48,7 @@ public class ValuesEO extends ValueParamsHelper {
     }
 
 
-    public static List<String> getConfigurationKeys(Object[] values) throws Exception {
+    public static List<String> getConfigurationKeys(Object[] values)  {
         EO eo = getEO(0, values);
         String configName = null;
         try {
@@ -70,36 +71,36 @@ public class ValuesEO extends ValueParamsHelper {
 
     }
 
-    public static Object getConfiguration(Object[] values) throws Exception {
+    public static Object getConfiguration(Object[] values)  {
         EO eo = getEO(0, values);
         if (eo == null) {
-            throw new Exception("No EO object defined");
+            throw new EoException("No EO object defined");
         }
         if (values.length < 3) {
-            throw new Exception("Parameters smaller than 3 " + values.length);
+            throw new EoException("Parameters smaller than 3 " + values.length);
         }
         String configType = getString(1, values);
         if (configType == null) {
-            throw new Exception("No config type defined");
+            throw new EoException("No config type defined");
         }
         String configKey = getString(2, values);
         if (configType == null) {
-            throw new Exception("No config key defined");
+            throw new EoException("No config key defined");
         }
         return eo.getConfigsCache().getConfigMap(configType).get(configKey);
     }
 
-    public static List getConfigurationList(Object[] values) throws Exception {
+    public static List getConfigurationList(Object[] values)  {
         EO eo = getEO(0, values);
         if (eo == null) {
-            throw new Exception("No EO object defined");
+            throw new EoException("No EO object defined");
         }
         if (values.length < 3) {
-            throw new Exception("Parameters smaller than 3 " + values.length);
+            throw new EoException("Parameters smaller than 3 " + values.length);
         }
         String configType = getString(1, values);
         if (configType == null) {
-            throw new Exception("No config type defined");
+            throw new EoException("No config type defined");
         }
         final String configFilter = getString(2, values);
         Map map = eo.getConfigsCache().getConfigMap(configType);
@@ -111,7 +112,7 @@ public class ValuesEO extends ValueParamsHelper {
                 .collect(Collectors.toList());
     }
 
-    static final CallExecutor createGetConfigurationList(String... values) throws Exception {
+    static final CallExecutor createGetConfigurationList(String... values)  {
         switch(values.length) {
             case(0):
                 return ValueCall.createSetExecutor(GET_CONFIGURATION_LIST, values);
@@ -120,11 +121,11 @@ public class ValuesEO extends ValueParamsHelper {
             case(2):
                 return ValueCall.createSetExecutor(GET_CONFIGURATION_LIST, CONFIG_TYPE,values[0], CONFIG_FILTER, values[1]);
             default:
-                throw new Exception("Length is '" + values.length + "' and longer than 2.");
+                throw new EoException("Length is '" + values.length + "' and longer than 2.");
         }
     }
 
-    static final CallExecutor createGetConfigurationKeys(String... values) throws Exception {
+    static final CallExecutor createGetConfigurationKeys(String... values)  {
         switch(values.length) {
             case(0):
                 return ValueCall.createSetExecutor(GET_CONFIGURATION_KEYS, values);
@@ -133,27 +134,27 @@ public class ValuesEO extends ValueParamsHelper {
             case(2):
                 return ValueCall.createSetExecutor(GET_CONFIGURATION_KEYS, CONFIG_TYPE,values[0], CONFIG_FILTER, values[1]);
             default:
-                throw new Exception("Length is '" + values.length + "' and longer than 2.");
+                throw new EoException("Length is '" + values.length + "' and longer than 2.");
         }
     }
 
-    public static final CallExecutor createCallGetConfiguration(final String configType, final String configKey) throws Exception {
+    public static final CallExecutor createCallGetConfiguration(final String configType, final String configKey)  {
         return ValueCall.createSetExecutor(GET_CONFIGURATION, CONFIG_TYPE, configType, CONFIG_KEY, configKey);
     }
 
-    public static final ExecutorValues createsExecutorGetConfigurationList(final Object... values) throws Exception {
+    public static final ExecutorValues createsExecutorGetConfigurationList(final Object... values)  {
         ExecutorValues executorValues = new ExecutorValues(ValuesEO.class, M_GET_CONFIGURATION_LIST, new String[]{"eo", CONFIG_TYPE, CONFIG_FILTER});
         executorValues.mapAttributes(EO_STATIC.toMap(values));
         return executorValues;
     }
 
-    public static final ExecutorValues createsExecutorGetConfigurationKeys(final Object... values) throws Exception {
+    public static final ExecutorValues createsExecutorGetConfigurationKeys(final Object... values)  {
         ExecutorValues executorValues = new ExecutorValues(ValuesEO.class, M_GET_CONFIGURATION_KEYS, new String[]{"eo", CONFIG_TYPE});
         executorValues.mapAttributes(EO_STATIC.toMap(values));
         return executorValues;
     }
 
-    public static final ExecutorValues createsExecutorGetConfiguration(final Object... values) throws Exception {
+    public static final ExecutorValues createsExecutorGetConfiguration(final Object... values)  {
         ExecutorValues executorValues = new ExecutorValues(ValuesEO.class, M_GET_CONFIGURATION, new String[]{"eo", CONFIG_TYPE, CONFIG_KEY});
         Map attributes = EO_STATIC.toMap(values);
         attributes.put(F_MAP_PATH, ".");

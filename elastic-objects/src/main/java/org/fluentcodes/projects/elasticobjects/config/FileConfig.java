@@ -1,9 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -61,7 +64,7 @@ public class FileConfig extends ConfigIO {
         this.cachedContent = cachedContent;
     }
 
-    public String getUrlPath() throws Exception {
+    public String getUrlPath()  {
         String hostPath = getHostConfig().getUrlPath();
         if (hostPath == null || hostPath.isEmpty()) {
             return filePath + "/" + fileName;
@@ -69,17 +72,22 @@ public class FileConfig extends ConfigIO {
         return ReplaceUtil.replace(hostPath + "" + filePath + "/" + fileName);
     }
 
-    public URL findUrl(String fileName) throws Exception {
-        Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(fileName.replaceAll("^/+", ""));
-        while (urls.hasMoreElements()) {
-            return urls.nextElement();
+    public URL findUrl(String fileName)  {
+        try {
+            Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(fileName.replaceAll("^/+", ""));
+            while (urls.hasMoreElements()) {
+                return urls.nextElement();
+            }
+            throw new EoException("Could not find " + fileName.replaceAll("^/+", ""));
         }
-        throw new Exception("Could not find " + fileName.replaceAll("^/+", ""));
+        catch (Exception e) {
+            throw new EoException(e);
+        }
     }
 
-    public URL getUrl() throws Exception {
+    public URL getUrl()  {
         if (fileName == null || fileName.equals("")) {
-            throw new Exception("No name in file provided!");
+            throw new EoException("No name in file provided!");
         }
         if (FileConfig.CLASSPATH.equals(filePath)) {
             return this.findUrl(this.fileName);
@@ -87,18 +95,30 @@ public class FileConfig extends ConfigIO {
             return this.findUrl(filePath.replace(FileConfig.CLASSPATH, "") + "/" + this.fileName);
         } else {
             String urlString = getUrlPath();
-            return new URL(ReplaceUtil.replace(urlString, new HashMap<>()));
+            try {
+                return new URL(ReplaceUtil.replace(urlString, new HashMap<>()));
+            } catch (MalformedURLException e) {
+                throw new EoException(e);
+            }
         }
     }
 
-    public void write(URL url, String content) throws Exception {
+    public void write(URL url, String content)  {
         BufferedWriter out = null;
         try {
             out = new BufferedWriter(new FileWriter(url.getFile()));
             out.write(content);
-        } finally {
+        }
+        catch (Exception e) {
+            throw new EoException(e);
+        }
+        finally {
             if (out != null) {
-                out.close();
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    throw new EoException(e);
+                }
             }
         }
     }
@@ -141,10 +161,10 @@ public class FileConfig extends ConfigIO {
     /**
      * The field for hostCache e.g. defined in {@link FileConfig}
      */
-    public HostConfig getHostConfig() throws Exception {
+    public HostConfig getHostConfig()  {
         if (this.hostCache == null) {
             if (this.getConfigsCache() == null) {
-                throw new Exception("Config could not be initialized with a null provider for 'hostCache' - 'hostKey''!");
+                throw new EoException("Config could not be initialized with a null provider for 'hostCache' - 'hostKey''!");
             }
             this.hostCache = (HostConfig) getConfigsCache().find(HostConfig.class, hostKey);
         }
@@ -173,11 +193,11 @@ public class FileConfig extends ConfigIO {
 
         }
 
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             super.prepare(configsCache, values);
             fileKey = (String) configsCache.transform(F_FILE_KEY, values);
             if (fileKey == null) {
-                throw new Exception("fileKey is not add!");
+                throw new EoException("fileKey is not add!");
             }
             fileName = (String) configsCache.transform(F_FILE_NAME, values, fileKey);
             filePath = (String) configsCache.transform(F_FILE_PATH, values, FileConfig.CLASSPATH);
@@ -186,7 +206,7 @@ public class FileConfig extends ConfigIO {
         }
 
         @Override
-        public Config build(final EOConfigsCache configsCache, final Map<String, Object> values) throws Exception {
+        public Config build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             prepare(configsCache, values);
             return new FileConfig(configsCache, this);
         }

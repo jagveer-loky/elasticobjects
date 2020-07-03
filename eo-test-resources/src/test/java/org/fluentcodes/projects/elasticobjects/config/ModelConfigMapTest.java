@@ -16,7 +16,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MAP;
 public class ModelConfigMapTest extends TestHelper {
 
     @Test
-    public void readMainJackson() throws Exception {
+    public void readMainJackson()  {
         TestHelper.printStartMethod();
 
         final ModelConfigMap mapModel = (ModelConfigMap) TestEOProvider.EO_CONFIGS.findModel(Map.class);
@@ -26,7 +26,7 @@ public class ModelConfigMapTest extends TestHelper {
     }
 
     @Test
-    public void assertMap() throws Exception {
+    public void assertMap()  {
         TestHelper.printStartMethod();
         ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(M_MAP);
         Assert.assertEquals(ShapeTypes.MAP, model.getShapeType());

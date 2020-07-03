@@ -12,12 +12,12 @@ public class EOPathNewRootSet_models_Test extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPathNewRootSet_models_Test.class);
 
     @Test
-    public void setIntegerNull_ok() throws Exception {
+    public void setIntegerNull_ok()  {
         EOTest.setValue_ok(Integer.class);
     }
 
     @Test
-    public void setInteger_ok() throws Exception {
+    public void setInteger_ok()  {
         EOTest.set_ok(F_TEST_INTEGER, Integer.class);
     }
 }
