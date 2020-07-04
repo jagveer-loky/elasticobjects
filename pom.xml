@@ -6,8 +6,8 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.0</version>
-    <name>EO - Elastic objects</name>
+    <version>0.2.0-SNAPSHOT</version>
+    <name>EO - Elastic Objects Root</name>
     <url>http://www.elasticobjects.com</url>
 
     <licenses>
@@ -37,20 +37,12 @@
         <url></url>
     </issueManagement>
 
-    <build>
-        <defaultGoal>install</defaultGoal>
-        <plugins>
-        </plugins>
-    </build>
-
-    <repositories>
-        <repository>
-            <id>maven</id>
-            <url>https://mvnrepository.com/artifact/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.5</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -61,16 +53,40 @@
 
     <modules>
         <module>elastic-objects</module>
-        <module>eo-test-resources</module>
+        <module>elastic-objects-test</module>
         <module>actions-csv</module>
         <module>actions-xlsx</module>
     </modules>
-    <profiles>
-    </profiles>
-
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+    <build>
+        <plugins>
+            <!--https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>package-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

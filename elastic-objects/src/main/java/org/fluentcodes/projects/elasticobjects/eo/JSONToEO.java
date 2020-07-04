@@ -397,13 +397,13 @@ public class JSONToEO {
                 switch (name) {
                     case (DATA):  // Map directly to the parentAdapter
                         if (parentAdapter.isEmpty() && models != null) {
-                            ((EOScalar) parentAdapter).setModels(models);
+                            //parentAdapter.setModels(models);
                         }
                         this.mapObject(parentAdapter);
                         return parentAdapter;
 
                     case (LOGS):  // Create a log
-                        EO logAdapter = new EOBuilder(((EOScalar) parentAdapter).getConfigsCache())
+                        EO logAdapter = new EOBuilder(parentAdapter.getConfigsCache())
                                 .setModels(LoggingObjectsImpl.class.getSimpleName())
                                 .set(this);
                         ((EORoot) parentAdapter).setLog((LoggingObjectsImpl) logAdapter.get());
@@ -442,7 +442,7 @@ public class JSONToEO {
                     EO actionListAdapter = createChild(new EOBuilder(this.provider).build(), null);
                     ((EORoot) parentAdapter).setCallsByMap((List<Map>) actionListAdapter.get());
                 } else if (DATA.equals(rawFieldName)) {  // Create a list of actions
-                    EO rootAdapter = ((EOScalar) parentAdapter).getRoot();
+                    EO rootAdapter = (parentAdapter).getRoot();
                     rootAdapter
                             .add()
                             .map(this);
@@ -458,7 +458,7 @@ public class JSONToEO {
                             ModelInterface model = parentAdapter.getModel();
                             if (model.isMap()) {
                                 if (model.getModelClass() == Map.class) {
-                                    ((EOScalar) parentAdapter).setModelClasses(List.class);
+                                    //parentAdapter.setModelClasses(List.class);
                                 }
                             } else if (model.isObject()) {
                                 throw new EoException("Could not map an array to an object!");

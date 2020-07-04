@@ -27,13 +27,12 @@ public class EORoot extends EOContainer {
     public EORoot(final EOConfigsCache cache)  {
         super(new Models(cache),LogLevel.DEBUG);
         this.provider = cache;
+        this.log = new LoggingObjectsImpl(LogLevel.DEBUG);
     }
 
     protected EORoot(final EOBuilder params)  {
         super(params);
     }
-
-
 
     protected void initRoot(EOBuilder params)  {
         this.actions = new ExecutorList();

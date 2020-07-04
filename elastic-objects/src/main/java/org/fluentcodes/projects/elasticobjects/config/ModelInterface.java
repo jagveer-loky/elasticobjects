@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
 import java.util.List;
@@ -113,7 +114,7 @@ public interface ModelInterface extends Config {
     boolean exists(final String fieldName, final Object object) ;
 
     boolean hasKey(final String fieldName) ;
-
+    boolean hasKey(final Path path);
     /**
      * Removes a value depending on the type.
      * <ul>

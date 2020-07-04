@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-    <artifactId>elastic-objects</artifactId>
+    <artifactId>eo-test-resources</artifactId>
     <packaging>jar</packaging>
     <version>0.2.0-SNAPSHOT</version>
-    <name>EO - Elastic Objects Core</name>
-    <description>An object wrapper for access, navigate, modify, serialize and deserialize complex java object via path in a typesafe and ordered way with JSON.</description>
+    <name>EO - Elastic Objects Tests and Test Resource</name>
+    <description>Package for testing Elastic Objects</description>
     <url>http://www.elasticobjects.com</url>
+
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo</artifactId>
@@ -18,9 +20,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.fluentcodes.tools</groupId>
-            <artifactId>xpect</artifactId>
-            <version>0.6.0</version>
+            <groupId>org.fluentcodes.projects.elasticobjects</groupId>
+            <artifactId>elastic-objects</artifactId>
+            <version>0.2.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

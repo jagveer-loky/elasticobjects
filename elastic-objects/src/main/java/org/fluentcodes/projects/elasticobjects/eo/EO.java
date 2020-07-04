@@ -67,7 +67,7 @@ public interface EO {
 
     Object get(String paths) ;
 
-    EO getChild(String paths) ;
+    EO getChild(String path) ;
 
     EOBuilder add();
 
