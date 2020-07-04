@@ -6,6 +6,8 @@ import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.models.Model;
+import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -293,7 +295,15 @@ public class Models {
         }
         return new Models(this.models.subList(1, models.size()));
     }
-
+    public Models getChildModels(Path path, Object value) {
+        if (!hasChildModel()) {
+            if (path.hasChild()) {
+                return new Models(configsCache);
+            }
+            return new Models(configsCache.findModel(value));
+        }
+        return getChildModelsList();
+    }
     public List<ModelInterface> getModels() {
         List<ModelInterface> models = new ArrayList<>();
 

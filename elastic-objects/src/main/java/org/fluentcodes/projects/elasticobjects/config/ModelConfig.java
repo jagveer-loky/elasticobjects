@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -57,7 +58,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         this.fieldCacheMap = new LinkedHashMap<>();
         this.interfacesMap = new LinkedHashMap<>();
         this.importClasses = new LinkedHashMap<>();
-
     }
 
     protected static final ModelConfig add(EOConfigsCache configsCache, String key) {
@@ -139,6 +139,11 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     @Override
     public Map getCustomParams() {
         return customParams;
+    }
+
+    @Override
+    public boolean hasKey(Path path) {
+        return true;
     }
 
     /**

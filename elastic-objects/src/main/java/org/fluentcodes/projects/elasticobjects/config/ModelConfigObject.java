@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.Models;
 import org.fluentcodes.projects.elasticobjects.executor.statics.ValuesMisc;
+import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
@@ -194,6 +195,14 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
             LOG.warn("  Problem with fieldName '" + fieldName + "' in '" + getModelKey() + "'.");
         }
         return hasKey;
+    }
+
+    @Override
+    public boolean hasKey(final Path path) {
+        if (path.isEmpty()) {
+            return false;
+        }
+        return hasKey(path.first());
     }
 
     @Override
