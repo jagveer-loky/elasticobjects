@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 
 import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
@@ -11,16 +11,13 @@ import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
  * @since 07.09.2018
  */
 public class STProviderJSN {
-    public static EOBuilder builder() {
-        return TestEOProvider.createEOBuilder();
-    }
-
+    
     public static String readEmpty()  {
         return readInputJSN(TYPE.ST, EMPTY);
     }
 
     public static EO createEmpty()  {
-        final EO eo = builder().map(readEmpty());
+        final EO eo = TestEOProvider.create(readEmpty());
         STProviderEO.assertEmpty(eo);
         return eo;
     }
@@ -36,7 +33,7 @@ public class STProviderJSN {
     }
 
     public static EO createString()  {
-        final EO eo = builder().map(readString());
+        final EO eo = TestEOProvider.create(readString());
         STProviderEO.assertString(eo);
         return eo;
     }
@@ -52,7 +49,7 @@ public class STProviderJSN {
     }
 
     public static EO createName()  {
-        final EO eo = builder().map(readName());
+        final EO eo = TestEOProvider.create(readName());
         STProviderEO.assertName(eo);
         return eo;
     }
@@ -68,7 +65,7 @@ public class STProviderJSN {
     }
 
     public static EO createST()  {
-        final EO eo = builder().map(readST());
+        final EO eo = TestEOProvider.create(readST());
         STProviderEO.assertST(eo);
         return eo;
     }
@@ -84,7 +81,7 @@ public class STProviderJSN {
     }
 
     public static EO createSimple()  {
-        final EO eo = builder().map(readSimple());
+        final EO eo = TestEOProvider.create(readSimple());
         STProviderEO.assertSimple(eo);
         return eo;
     }
@@ -100,7 +97,7 @@ public class STProviderJSN {
     }
 
     public static EO create()  {
-        final EO eo = builder().map(readAll());
+        final EO eo = TestEOProvider.create(readAll());
         STProviderEO.asserts(eo);
         return eo;
     }

@@ -29,7 +29,7 @@ public class ExecutorProvider {
     }
 
     public static EO execute(final boolean serialize, final Executor callExecutor, Map values)  {
-        EO eo = TestEOProvider.createEmptyMap();
+        EO eo = TestEOProvider.create();
         callExecutor.execute(eo, values);
         if (!serialize) {
             return eo;

@@ -17,7 +17,7 @@ public class PathTest extends TestHelper {
     public void constructorStringEmpty() {
         TestHelper.printStartMethod();
         Assert.assertEquals(Path.DELIMITER, new Path(S_EMPTY).directory());
-        Assert.assertEquals(Path.DELIMITER, new Path(Path.SAME).directory());
+        Assert.assertEquals(Path.DELIMITER, new Path(PathElement.SAME).directory());
         Assert.assertEquals(Path.DELIMITER, new Path(Path.DELIMITER).directory());
         Assert.assertEquals(Path.DELIMITER, new Path("///").directory());
         Assert.assertEquals(Path.DELIMITER, new Path("/././").directory());
@@ -29,25 +29,25 @@ public class PathTest extends TestHelper {
         TestHelper.printStartMethod();
         String toCompare = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2);
         Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = toPath(Path.SAME, S_EMPTY, EO_STATIC.CON_SPACE, S_LEVEL0, S_LEVEL1, S_LEVEL2);
+        String other = toPath(PathElement.SAME, S_EMPTY, EO_STATIC.CON_SPACE, S_LEVEL0, S_LEVEL1, S_LEVEL2);
         Assert.assertEquals(toCompare, new Path(other).directory(false));
-        other = toPath(S_LEVEL0, Path.SAME, S_LEVEL1, S_EMPTY, S_LEVEL2);
+        other = toPath(S_LEVEL0, PathElement.SAME, S_LEVEL1, S_EMPTY, S_LEVEL2);
         Assert.assertEquals(toCompare, new Path(other).directory(false));
     }
 
     @Test
     public void constructorString_BackAtTheBeginning() {
         TestHelper.printStartMethod();
-        String toCompare = toPath(Path.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
+        String toCompare = toPath(PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
         Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = toPath(Path.SAME, Path.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
+        String other = toPath(PathElement.SAME, PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
         Assert.assertEquals(toCompare, new Path(other).directory(false));
     }
 
     @Test
     public void constructorString_SeveralBacksAtTheBeginning() {
         TestHelper.printStartMethod();
-        String toCompare = toPath(Path.BACK, Path.BACK, Path.BACK, S_LEVEL0);
+        String toCompare = toPath(PathElement.BACK, PathElement.BACK, PathElement.BACK, S_LEVEL0);
         Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
     }
 
@@ -56,7 +56,7 @@ public class PathTest extends TestHelper {
         TestHelper.printStartMethod();
         String toCompare = toPath(S_LEVEL0, S_LEVEL2);
         Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = toPath(S_LEVEL0, S_LEVEL1, Path.BACK, S_LEVEL2);
+        String other = toPath(S_LEVEL0, S_LEVEL1, PathElement.BACK, S_LEVEL2);
         Assert.assertEquals(toCompare, new Path(other).directory(false));
     }
 
@@ -65,7 +65,7 @@ public class PathTest extends TestHelper {
         TestHelper.printStartMethod();
         String toCompare = toPath(S_LEVEL0, S_LEVEL1);
         Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, Path.BACK);
+        String other = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, PathElement.BACK);
         Assert.assertEquals(toCompare, new Path(other).directory(false));
     }
 
@@ -111,7 +111,7 @@ public class PathTest extends TestHelper {
     @Test
     public void hasMatcher() {
         TestHelper.printStartMethod();
-        Path path = new Path(toPath(S_LEVEL0, Path.MATCHER, S_LEVEL1));
+        Path path = new Path(toPath(S_LEVEL0, PathElement.MATCHER, S_LEVEL1));
         Assert.assertTrue(path.hasMatcher());
         path = new Path(toPath(S_LEVEL0, S_LEVEL1));
         Assert.assertFalse(path.hasMatcher());

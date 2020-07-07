@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.JSONInputReader;
@@ -23,11 +24,32 @@ public class JSONToEOMapTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(JSONToEOMapTest.class);
 
     @Test
-    public void test()  {
-        EO eoMap = DevObjectProvider
-                .createEOBuilder()
-                .map("{}");
-        Assert.assertEquals(Map.class, eoMap.getModelClass());
+    public void testEmpty()  {
+        EO eoMap = DevObjectProvider.createEO();
+        eoMap.mapObject("{}");
+        Assert.assertTrue(eoMap.isEmpty());
+    }
+
+    @Test
+    public void testOneValue()  {
+        EO eoMap = DevObjectProvider.createEO();
+        eoMap.mapObject("{\"testKey\":\"testObject\"}");
+        Assertions.assertThat(eoMap.get("testKey")).isEqualTo("testObject");
+    }
+
+    @Test
+    public void testOneValueEmbedded()  {
+        EO eoMap = DevObjectProvider.createEO();
+        eoMap.mapObject("{\"test1\":{\"test2\":\"testObject\"}}");
+        Assertions.assertThat(eoMap.get("test1/test2")).isEqualTo("testObject");
+    }
+
+    @Test
+    public void testTwoValues()  {
+        EO eoMap = DevObjectProvider.createEO();
+        eoMap.mapObject("{\"test1\":\"testObject1\",\"test2\":\"testObject2\"}");
+        Assertions.assertThat(eoMap.get("test1")).isEqualTo("testObject1");
+        Assertions.assertThat(eoMap.get("test2")).isEqualTo("testObject2");
     }
 
     @Test

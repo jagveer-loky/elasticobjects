@@ -167,16 +167,12 @@ public class ConfigCall extends Call {
         if (configsCache == null) {
             throw new EoException("No config cache in adapter?!");
         }
-        EOConfigs config = configsCache.getConfig(filterConfigClass);
-        if (config == null) {
-            throw new EoException("No config found for " + filterConfigClass.getSimpleName() + "in adapter?!");
-        }
         EO childAdapter = adapter;
         if (hasPath()) {
             childAdapter = super.createAdapter(adapter, attributes);
         }
-        for (String key : config.getKeys()) {
-            Config configEntry = config.find(key);
+        for (String key : configsCache.getConfigKeys(filterConfigClass)) {
+            Config configEntry = (Config) configsCache.find(filterConfigClass, key);
             try {
                 if (!configEntry.getModule().equals(this.getFilterModule())) {
                     continue;
@@ -190,7 +186,7 @@ public class ConfigCall extends Call {
             } catch (Exception e) {
                 throw e;
             }
-            childAdapter.add(key).set(configEntry);
+            childAdapter.setPathValue(key, configEntry);
         }
         return "";
     }

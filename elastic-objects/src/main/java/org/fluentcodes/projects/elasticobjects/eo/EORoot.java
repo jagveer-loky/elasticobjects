@@ -30,20 +30,23 @@ public class EORoot extends EOContainer {
         this.log = new LoggingObjectsImpl(LogLevel.DEBUG);
     }
 
-    protected EORoot(final EOBuilder params)  {
-        super(params);
+    public EORoot(final EOConfigsCache cache, Object value)  {
+        super(new Models(cache, value), LogLevel.DEBUG);
+        this.log = new LoggingObjectsImpl(LogLevel.DEBUG);
+        this.provider = cache;
+        mapObject(value);
     }
 
-    protected void initRoot(EOBuilder params)  {
-        this.actions = new ExecutorList();
-        this.serializationType = params.getSerializationType();
-        this.adapterExtension = params.getEoExtension();
-        if (params.getConfigCache() == null) {
-            throw new EoException("MODULE_NAME only works with an embedded provider!");
-        } else {
-            this.provider = params.getConfigCache();
-        }
-        this.log = new LoggingObjectsImpl(params.getLogLevel());
+    public EORoot(final EOConfigsCache cache, Class... classes)  {
+        super(new Models(cache, classes), LogLevel.DEBUG);
+        this.log = new LoggingObjectsImpl(LogLevel.DEBUG);
+        this.provider = cache;
+    }
+
+    public EORoot(final EOConfigsCache cache, final LogLevel logLevel, Class<?>... classes)  {
+        super(new Models(cache, classes), logLevel);
+        this.provider = cache;
+        this.log = new LoggingObjectsImpl(LogLevel.DEBUG);
     }
 
     public boolean isRoot() {
@@ -179,17 +182,6 @@ public class EORoot extends EOContainer {
         this.actions.add(callExecutor);
     }
 
-    public void addCallExecutor(Map attributes) {
-        if (attributes == null || attributes.isEmpty()) {
-            return;
-        }// directly add the builder without json parsing.
-        try {
-            this.actions.add(attributes);
-        } catch (Exception e) {
-            this.warn(e.getMessage());
-        }
-    }
-
     @Override
     public boolean hasCalls() {
         return actions != null && !actions.isEmpty();
@@ -198,23 +190,5 @@ public class EORoot extends EOContainer {
     @Override
     public void executeCalls() {
         actions.execute(this);
-    }
-
-    @Override
-    protected void initObjectRegistry() {
-        this.objectRegistry = new ArrayList();
-    }
-
-    protected boolean checkObjectRegistry(Object object) {
-        if (objectRegistry == null) {
-            objectRegistry = new ArrayList();
-        }
-        for (Object registered : objectRegistry) {
-            if (registered == object) {
-                return true;
-            }
-        }
-        objectRegistry.add(object);
-        return false;
     }
 }

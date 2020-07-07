@@ -27,7 +27,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     public void configurationListModelConfig_listsAllModelConfigs()  {
         final TemplateCall action = DIRECT_CALL_CONFIGURATION_LIST(null);
 
-        EO root = TestEOProvider.createEmptyMap();
+        EO root = TestEOProvider.create();
         final String result = action.execute(root);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, "Load configurationList: ", result);
@@ -84,7 +84,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     public void configurationList_withFieldConfig_listsAllFieldConfigs()  {
         TemplateCall call = DIRECT_CALL_CONFIGURATION_LIST(M_FIELD_CONFIG);
 
-        EO root = TestEOProvider.createEmptyMap();
+        EO root = TestEOProvider.create();
         final String result = call.execute(root);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, "Load configurationList: ", result);
@@ -95,7 +95,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     public void configurationFieldConfig_hasAllFieldConfigs()  {
         final TemplateCall action = DIRECT_CALL_CONFIGURAION(M_FIELD_CONFIG, F_PATH_PATTERN_AS_STRING);
 
-        EO root = TestEOProvider.createEmptyMap();
+        EO root = TestEOProvider.create();
         final String result = action.execute(root);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, "Load configurationList: ", result);
@@ -106,7 +106,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     public void callConfiguration_WithFieldConfig_WithPathPatternAsString_hasConfig()  {
         final TemplateCall action = VALUE_CALL_CONFIGURATION(M_FIELD_CONFIG, F_PATH_PATTERN_AS_STRING);
 
-        EO root = TestEOProvider.createEmptyMap();
+        EO root = TestEOProvider.create();
         final String result = action.execute(root);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, "Load configurationList: ", result);
@@ -117,7 +117,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
     public void callConfigurationListWithFieldConfig_hasAllFieldConfigs()  {
         final TemplateCall action = VALUE_CALL_CONFIGURATION_LIST(M_FIELD_CONFIG);
 
-        EO root = TestEOProvider.createEmptyMap();
+        EO root = TestEOProvider.create();
         final String result = action.execute(root);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, "Load configurationList: ", result);
@@ -133,7 +133,7 @@ public class ValuesEOTemplateCallTest extends TestHelper {
         final String template = "Load configurationList: <call execute=\"ValuesEO.getConfigurationKeys(eo,typeKey)\" typeKey=\"FieldConfig\" mapPath=\"target\" />";
         call.setContent(template);
 
-        EO root = TestEOProvider.createEmptyMap();
+        EO root = TestEOProvider.create();
         final String result = call.execute(root);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, "Load configurationList: ", result);

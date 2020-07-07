@@ -4,7 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.ConfigImpl;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+import org.fluentcodes.projects.elasticobjects.eo.EORoot;
+
 
 import java.util.Date;
 
@@ -102,8 +103,7 @@ public class ModelImpl implements Model {
 
     public String toString(EOConfigsCache provider) {
         try {
-            return new EOBuilder(provider)
-                    .set(this).toString();
+            return new EORoot(provider,this).toString();
         } catch (Exception e) {
             return e.getMessage();
         }

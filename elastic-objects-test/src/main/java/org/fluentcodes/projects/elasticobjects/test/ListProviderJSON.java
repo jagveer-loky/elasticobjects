@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
 
@@ -13,16 +13,12 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 public class ListProviderJSON {
-    public static EOBuilder builder() {
-        return TestEOProvider.createEOBuilder();
-    }
-
     public static String readEmpty()  {
         return JSONInputReader.readInputJSON(TYPE.LIST, EMPTY);
     }
 
     public static EO createEmpty()  {
-        final EO eo = builder().map(readEmpty());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readEmpty());
         ListProviderEO.assertEmpty(eo);
         return eo;
     }
@@ -39,7 +35,7 @@ public class ListProviderJSON {
     }
 
     public static EO createString()  {
-        final EO eo = builder().map(readString());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readString());
         ListProviderEO.assertString(eo);
         return eo;
     }
@@ -56,7 +52,7 @@ public class ListProviderJSON {
     }
 
     public static EO createInteger()  {
-        final EO eo = builder().map(readInteger());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readInteger());
         Assert.assertEquals(new Long(S_INTEGER), eo.get(S0));
         return eo;
     }
@@ -73,7 +69,7 @@ public class ListProviderJSON {
     }
 
     public static EO createLong()  {
-        final EO eo = builder().map(readLong());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readLong());
         ListProviderEO.assertLong(eo);
         return eo;
     }
@@ -90,7 +86,7 @@ public class ListProviderJSON {
     }
 
     public static EO createFloat()  {
-        final EO eo = builder().map(readFloat());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readFloat());
         Assert.assertEquals(new Double(SAMPLE_FLOAT.toString()), eo.get(S0));
         return eo;
     }
@@ -107,7 +103,7 @@ public class ListProviderJSON {
     }
 
     public static EO createDouble()  {
-        final EO eo = builder().map(readDouble());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readDouble());
         ListProviderEO.assertDouble(eo);
         return eo;
     }
@@ -124,7 +120,7 @@ public class ListProviderJSON {
     }
 
     public static EO createDate()  {
-        final EO eo = builder().map(readDate());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readDate());
         Assert.assertEquals(SAMPLE_DATE.getTime(), eo.get(S0));
         return eo;
     }
@@ -141,7 +137,7 @@ public class ListProviderJSON {
     }
 
     public static EO createBoolean()  {
-        final EO eo = builder().map(readBoolean());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readBoolean());
         ListProviderEO.assertBoolean(eo);
         return eo;
     }
@@ -157,7 +153,7 @@ public class ListProviderJSON {
     }
 
     public static EO createMap()  {
-        final EO eo = builder().map(readMap());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readMap());
         Assert.assertEquals(S_STRING, eo.get(S0 + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(S0 + Path.DELIMITER + F_TEST_INTEGER));
         return eo;
@@ -175,7 +171,7 @@ public class ListProviderJSON {
     }
 
     public static EO createList()  {
-        final EO eo = builder().map(readList());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readList());
         Assert.assertEquals(S_STRING, eo.get(S0 + Path.DELIMITER + S0));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(S0 + Path.DELIMITER + S1));
         return eo;
@@ -193,7 +189,7 @@ public class ListProviderJSON {
     }
 
     public static EO createST()  {
-        final EO eo = builder().map(readST());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readST());
         ListProviderEO.assertST(eo);
         return eo;
     }
@@ -209,7 +205,7 @@ public class ListProviderJSON {
     }
 
     public static EO createBT()  {
-        final EO eo = builder().map(readBT());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readBT());
         Assert.assertEquals(S_STRING, eo.get(S0 + Path.DELIMITER + F_TEST_STRING));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(S0 + Path.DELIMITER + F_TEST_INTEGER));
         return eo;
@@ -232,7 +228,7 @@ public class ListProviderJSON {
     }
 
     public static EO createSmall()  {
-        final EO eo = builder().map(readSmall());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readSmall());
         Assert.assertEquals(S_STRING, eo.get(S0));
         Assert.assertEquals(new Long(S_INTEGER), eo.get(S1));
         return eo;
@@ -251,7 +247,7 @@ public class ListProviderJSON {
     }
 
     public static EO createSimple()  {
-        final EO eo = builder().map(readSimple());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readSimple());
         assertSimple(eo);
         return eo;
     }
@@ -278,7 +274,7 @@ public class ListProviderJSON {
     }
 
     public static EO create()  {
-        final EO eo = builder().map(readAll());
+        final EO eo = TestEOProvider.create(); eo.mapObject(readAll());
         asserts(eo);
         return eo;
     }

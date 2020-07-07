@@ -61,9 +61,8 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
         final String jsnEmpty = MapProviderJSON.readEmpty();
 
         final EO eoBTJson = TestEOProvider
-                .createEOBuilder()
-                .setModels(BasicTest.class)
-                .map(jsnEmpty);
+                .create(BasicTest.class);
+        eoBTJson.mapObject(jsnEmpty);
 
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + eoBTJson.getLog(), eoBTJson.getLog().isEmpty());
         Assert.assertEquals(BasicTest.class, eoBTJson.getModelClass());
@@ -79,9 +78,8 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
         final String jsnSmall = MapProviderJSON.readSmall();
 
         final EO eoBTJsonSmall = TestEOProvider
-                .createEOBuilder()
-                .setModels(BasicTest.class)
-                .map(jsnSmall);
+                .create(BasicTest.class);
+        eoBTJsonSmall.mapObject(jsnSmall);
 
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + eoBTJsonSmall.getLog(), eoBTJsonSmall.getLog().isEmpty());
         Assert.assertEquals(BasicTest.class, eoBTJsonSmall.getModelClass());
@@ -100,9 +98,8 @@ public class EOPathNewRootMap_models_Test extends TestHelper {
         final String jsnListSmall = ListProviderJSON.readSmall();
 
         final EO eoBTJsonListSmall = TestEOProvider
-                .createEOBuilder()
-                .setModels(BasicTest.class)
-                .map(jsnListSmall);
+                .create(BasicTest.class);
+        eoBTJsonListSmall.mapObject(jsnListSmall);
 
         Assert.assertEquals(BasicTest.class, eoBTJsonListSmall.getModelClass());
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eoBTJsonListSmall.getLog().isEmpty());

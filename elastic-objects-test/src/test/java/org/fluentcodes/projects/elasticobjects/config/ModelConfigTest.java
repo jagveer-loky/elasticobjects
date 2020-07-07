@@ -2,8 +2,10 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.assets.ClassTest;
+import org.fluentcodes.projects.elasticobjects.assets.SubClassForTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.fluentcodes.projects.elasticobjects.eo.LoggingObjectsImpl;
 import org.fluentcodes.projects.elasticobjects.test.MapProvider;
 import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
@@ -27,6 +29,32 @@ public class ModelConfigTest extends TestHelper {
     private static final Map<String, Object> MODEL_CONFIG_MAP = MapProvider.createModelConfigMap();
     private static final String F_BUILD = "build";
     private static final String M_BUILDER = "$Builder";
+
+    @Test
+    public void testClassTestFromClassPath_Found()  {
+        EOConfigsCache cache = TestEOProvider.EO_CONFIGS;
+        ModelInterface model = cache.findModel(ClassTest.class);
+        for (String key: model.getFieldNames()) {
+            Assert.assertNotNull(model.getField(key));
+        }
+        ClassTest instance = (ClassTest)model.create();
+        Assert.assertNotNull(instance);
+        model.set("id", instance, 1L);
+        Assert.assertEquals(1L, model.get("id", instance));
+    }
+
+    @Test
+    public void testSubClassForTestFromClassPath_Found()  {
+        EOConfigsCache cache = TestEOProvider.EO_CONFIGS;
+        ModelInterface model = cache.findModel(SubClassForTest.class);
+        for (String key: model.getFieldNames()) {
+            Assert.assertNotNull(model.getField(key));
+        }
+        SubClassForTest instance = (SubClassForTest)model.create();
+        Assert.assertNotNull(instance);
+        model.set("value", instance, "value");
+        Assert.assertEquals("value", model.get("value", instance));
+    }
 
     @Test
     public void readModelConfigMain()  {
@@ -139,15 +167,6 @@ public class ModelConfigTest extends TestHelper {
         Assert.assertEquals(S_STRING, object.getLog());
     }
 
-
-    @Test
-    public void assertAdapterBuilder()  {
-        ModelInterface model = TestEOProvider.EO_CONFIGS.findModel(EOBuilder.class);
-        Assert.assertEquals(ShapeTypes.ADAPTER, model.getShapeType());
-        Assert.assertTrue(model.hasModel());
-        Assert.assertTrue(model.isObject());
-        Assert.assertFalse(model.isScalar());
-    }
 
     @Test
     public void checkDependentModels()  {

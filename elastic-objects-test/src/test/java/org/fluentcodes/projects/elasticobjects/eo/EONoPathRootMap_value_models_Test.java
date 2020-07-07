@@ -22,36 +22,28 @@ public class EONoPathRootMap_value_models_Test {
 
     public static EO mapEO_ok(final EO root, final Object value, final Class... classes)  {
         final Class modelClass = root.getModelClass();
-        final EO child = root.add()
-                .setModels(classes)
-                .map(value);
+        root.mapObject(value);
         Assert.assertEquals(INFO_COMPARE_FAILS, modelClass, root.getModelClass());
         Assert.assertTrue(INFO_EMPTY_FAILS, root.getLog().isEmpty());
-        return child;
+        return root;
     }
 
     public static EO mapEO_fails(final EO root, final Object value, final Class... classes)  {
-        final EO child = root.add()
-                .setModels(classes)
-                .map(value);
+        root.mapObject(value);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, root.getLog().isEmpty());
-        return child;
+        return root;
     }
 
     @Test
     public void givenString_withIntegerAndInteger_ok()  {
-        final EO eoString = DevObjectProvider
-                .createEOBuilder()
-                .set(S_STRING);
+        final EO eoString = DevObjectProvider.createEO(S_STRING);
         mapEO_ok(eoString, S_INTEGER, Integer.class);
         Assert.assertEquals(S_INTEGER.toString(), eoString.get());
     }
 
     @Test
     public void givenString_withBooleanAndInteger_ok()  {
-        final EO eoString = DevObjectProvider
-                .createEOBuilder()
-                .set(S_STRING);
+        final EO eoString = DevObjectProvider.createEO(S_STRING);
         mapEO_ok(eoString, S_BOOLEAN, Integer.class);
         Assert.assertEquals(S_BOOLEAN.toString(), eoString.get());
     }
@@ -59,9 +51,7 @@ public class EONoPathRootMap_value_models_Test {
 
     @Test
     public void givenString_WithMapAndList_fails()  {
-        final EO eoString = DevObjectProvider
-                .createEOBuilder()
-                .set(S_STRING);
+        final EO eoString = DevObjectProvider.createEO(S_STRING);
         mapEO_fails(eoString, new LinkedHashMap(), List.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get());
     }

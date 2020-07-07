@@ -16,19 +16,17 @@ public class EOPath_Test extends TestHelper {
 
     @Test
     public void withPath2()  {
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         final EO childAdapter = adapter
-                .add(toPath(S_PATH1))
-                .build();
+                .setPathValue(toPath(S_PATH1));
         Assert.assertEquals(S_PATH1, childAdapter.getPath().directory(false));
     }
 
     @Test
     public void withPath4()  {
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         final EO child = adapter
-                .add(S_PATH4)
-                .build();
+                .setPathValue(S_PATH4);
 
         Assert.assertEquals(S_PATH4, child.getPath().directory(false));
         Assert.assertEquals(Path.DELIMITER + S_PATH4, child.getPathAsString());
@@ -38,13 +36,11 @@ public class EOPath_Test extends TestHelper {
     @Test
     public void withPath3()  {
         final String path2 = toPath(S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         final EO childAdapter = adapter
-                .add(S_PATH3)
-                .build();
+                .setPathValue(S_PATH3);
         final EO childAdapter2 = adapter
-                .add(path2)
-                .build();
+                .setPathValue(path2);
 
         Assert.assertEquals(S_PATH3, childAdapter.getPath().directory(false));
         Assert.assertEquals(path2, childAdapter2.getPath().directory(false));
@@ -53,14 +49,12 @@ public class EOPath_Test extends TestHelper {
     @Test
     public void withPath3AndWithCommonPart()  {
         final String path2 = toPath(S_LEVEL0, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         final EO childAdapter = adapter
-                .add(S_PATH3)
-                .build();
+                .setPathValue(S_PATH3);
 
         final EO childAdapter2 = adapter
-                .add(path2)
-                .build();
+                .setPathValue(path2);
 
         Assert.assertEquals(S_PATH3, childAdapter.getPath().directory(false));
         Assert.assertEquals(path2, childAdapter2.getPath().directory(false));
@@ -69,13 +63,11 @@ public class EOPath_Test extends TestHelper {
     @Test
     public void withPath3WithCommon2Parts()  {
         final String path2 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         final EO childAdapter = adapter
-                .add(S_PATH3)
-                .build();
+                .setPathValue(S_PATH3);
         final EO childAdapter2 = adapter
-                .add(path2)
-                .build();
+                .setPathValue(path2);
 
         Assert.assertEquals(S_PATH3, childAdapter.getPath().directory(false));
         Assert.assertEquals(path2, childAdapter2.getPath().directory(false));

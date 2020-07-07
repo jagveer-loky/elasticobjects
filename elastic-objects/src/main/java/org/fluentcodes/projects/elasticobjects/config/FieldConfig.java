@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.Models;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -44,7 +45,7 @@ public class FieldConfig extends ConfigImpl {
 //</call>
     }
 
-    protected static final void add(EOConfigsCache configsCache, Field field)  {
+    protected static final void addByClassField(EOConfigsCache configsCache, Field field)  {
         Class modelClass = field.getDeclaringClass();
         Class typeClass = field.getType();
         Map map = new HashMap();
@@ -60,9 +61,13 @@ public class FieldConfig extends ConfigImpl {
 
         map.put(F_FIELD_KEY, field.getName());
         map.put(F_NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
+        map.put(F_NAME, field.getName());
         map.put(F_MODEL_KEYS, typeClass.getName());
         FieldConfig config = (FieldConfig) new Builder().build(configsCache, map);
-        configsCache.getConfig(FieldConfig.class).add(config);
+        configsCache.add(FieldConfig.class, config);
+        if (!configsCache.hasConfigKey(ModelConfig.class, typeClass.getSimpleName())) {
+            ModelConfig.addByClassName(configsCache, typeClass.getName());
+        }
     }
 
     @Override

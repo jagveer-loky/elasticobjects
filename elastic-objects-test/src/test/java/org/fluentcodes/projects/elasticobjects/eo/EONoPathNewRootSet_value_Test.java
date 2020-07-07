@@ -74,8 +74,7 @@ public class EONoPathNewRootSet_value_Test {
         TestHelper.printStartMethod();
         Map map = new HashMap();
         map.put(3, 1);
-        EO adapter = TestEOProvider.createEOBuilder()
-                .set(map);
+        EO adapter = TestEOProvider.create(map);
         Assert.assertEquals(new Integer(1), adapter.get(S3));
     }
 
@@ -93,8 +92,7 @@ public class EONoPathNewRootSet_value_Test {
 
     @Test
     public void withList()  {
-        EO adapter = TestEOProvider.createEOBuilder()
-                .set(Arrays.asList(S_STRING, S_INTEGER));
+        EO adapter = TestEOProvider.create(Arrays.asList(S_STRING, S_INTEGER));
         Assert.assertEquals(S_STRING, adapter.get(S0));
         Assert.assertEquals(S_INTEGER, adapter.get(S1));
         Assert.assertEquals(2, adapter.keys().size());

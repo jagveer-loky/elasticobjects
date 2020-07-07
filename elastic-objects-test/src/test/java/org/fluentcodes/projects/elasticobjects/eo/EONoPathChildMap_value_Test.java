@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.test.BTProviderEO;
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.EOTestHelper;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +19,7 @@ public class EONoPathChildMap_value_Test extends TestHelper {
 
     @Test
     public void givenMapString_withInteger_ok()  {
-        final EO eoMapString = DevObjectProvider.createEOMapString();
+        final EO eoMapString = TestEOProvider.create(String.class);
         final EO child = eoMapString.getChild(F_TEST_STRING);
         EOTestHelper
                 .mapEOValue_ok(child, S_INTEGER);
@@ -27,7 +28,7 @@ public class EONoPathChildMap_value_Test extends TestHelper {
 
     @Test
     public void givenMapString_withMap_fails()  {
-        final EO eoMapString = DevObjectProvider.createEOMapString();
+        final EO eoMapString = TestEOProvider.create(String.class);
         final EO child = eoMapString.getChild(F_TEST_STRING);
         EOTestHelper
                 .mapEOValue_fails(child, new LinkedHashMap());

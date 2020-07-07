@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
 import java.util.Map;
@@ -47,7 +48,7 @@ public class EOFieldParams {
     public String getPathPatternAsString()  {
         resolve();
         if (pathPattern == null) {
-            return Path.DELIMITER + Path.MATCHER;
+            return Path.DELIMITER + PathElement.MATCHER;
         }
         return pathPattern.getSerialized();
     }

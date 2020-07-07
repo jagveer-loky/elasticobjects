@@ -9,10 +9,11 @@ import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -37,30 +38,35 @@ public class EOContainer implements EO {
     private Boolean empty = true;
 
     private Map<String, EO> childMap;
+
     protected EOContainer(Models models, LogLevel logLevel)  {
         rootAdapter = (EORoot) this;
         parentAdapter = null;
         parentFieldName = null;
         this.logLevel = logLevel;
         this.models = models;
-        this.object = this.models.create();
-        childMap = new LinkedHashMap<>();
+        if (!isScalar()) {
+            this.object = this.models.create();
+            childMap = new LinkedHashMap<>();
+        }
+        else {
+            childMap = null;
+        }
     }
 
-    protected EOContainer(EOContainer parent, Path path, Object value) {
+    protected EOContainer(EOContainer parent, Path path, Object value, Class... classes) {
         this.rootAdapter = parent.getRoot();
         this.parentAdapter = parent;
         this.parentFieldName = path.getFirstEntry();
         this.logLevel = parent.getLogLevel();
-        this.models = parent.getModels().getChildModels(path, value);
         if (path.hasChild()) {
+            this.models = parent.getModels().getChildModels(path);
             childMap = new LinkedHashMap<>();
             this.object = this.models.create();
             EOContainer eo = new EOContainer(this, path.getChildPath(), value);
-            setChild(parentFieldName, eo);
-            setValue(parentFieldName, eo.get());
         }
         else {
+            this.models = parent.getModels().getChildModels(path, value);
             if (!isScalar()) {
                 childMap = new LinkedHashMap<>();
                 this.object = this.models.create();
@@ -70,67 +76,32 @@ public class EOContainer implements EO {
                 this.object = value;
             }
         }
+        parentAdapter.setChild(path.getFirstEntry(), this);
     }
 
-    protected EOContainer(final EOBuilder params)  {
-        if (params.getTargetModels() == null || params.getTargetModels().size() == 0) {
-            throw new EoException("No model defined for " + params.toString());
-        }
-        this.models = params.getTargetModels();
-        this.models.setEO(this);
-        this.parentAdapter = params.getEoParent();
-        this.parentFieldName = params.getParentKey();
-        this.logLevel = params.getLogLevel();
-        if (this instanceof EORoot) {
-            this.rootAdapter = (EORoot) this;
-            ((EORoot) this).initRoot(params);
-        } else {
-            this.rootAdapter = params.getEoParent().getRoot();
-        }
-        if (isScalar()) {
-            childMap = null;
-            set(params.getValue());
-            return;
-        } else {
-            childMap = new LinkedHashMap<>();
-        }
-        try {
-            if (params.isMap()) {
-                map(params);
-            } else {
-                set(params.getValue());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            this.warn("Exception: " + e.getMessage());
-        }
-    }
-
-    protected void map(final EOBuilder params)  {
-        Object source = params.getValue();
-        if (this.isEmpty()) {
-            set(getAdapterExtension().doBeforeMap(this, source));
-        } else {
-            debug("Check program flow!");
-        }
-        map(source);
-    }
-
-    protected void mapObject(final Object source)  {
-        if (source == null) {
+    public void mapObject(final Object value)  {
+        if (value == null) {
             return;
         }
 
-        ModelInterface sourceModel = getConfigsCache().findModel(source);
+        ModelInterface sourceModel = getConfigsCache().findModel(value);
         if (sourceModel.isScalar()) {
-            set(source);
+            if ((value instanceof File)) {
+                return;
+            }
+            if ((value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find()) {
+                new JSONToEO((String)value).createChild(this);
+                return;
+            }
+
+            set(value);
             return;
         }
         //PathPattern pathPattern = params.getPathPattern();
-        PathPattern pathPattern = new PathPattern(Path.MATCHER_ALL);
+        PathPattern pathPattern = new PathPattern(PathElement.MATCHER_ALL);
         Map keyValues = null;
         try {
-            keyValues = sourceModel.getKeyValues(source, pathPattern);
+            keyValues = sourceModel.getKeyValues(value, pathPattern);
         } catch (Exception e) {
             throw (e);
         }
@@ -157,126 +128,10 @@ public class EOContainer implements EO {
         }
     }
 
-    protected void map(final Object source)  {
-        if (source == null) {
-            return;
-        }
-        if (source instanceof JSONToEO) {
-            if (get() == null) {
-                set(getModel().create());
-            }
-            ((JSONToEO) source).createChild(this);
-            //((JSONToEO) source).createChild(this, null);
-            return;
-        }
-
-        ModelInterface sourceModel = getConfigsCache().findModel(source);
-        if (sourceModel.isScalar()) {
-            set(source);
-            return;
-        }
-        //PathPattern pathPattern = params.getPathPattern();
-        PathPattern pathPattern = new PathPattern(Path.MATCHER_ALL);
-        Map keyValues = null;
-        try {
-            keyValues = sourceModel.getKeyValues(source, pathPattern);
-        } catch (Exception e) {
-            throw (e);
-        }
-        //TODO: List<String> paths= this.pathPattern.set(myKeys);
-        if (keyValues.isEmpty()) {
-            return;
-        }
-
-        for (Object key : keyValues.keySet()) {
-            String fieldName = ScalarConverter.toString(key);
-            // when mapping model is a list but key is not a parseable integer use size
-            if (isList()) {
-                try {
-                    Integer.parseInt(fieldName);
-                } catch (Exception e) {
-                    fieldName = new Integer(this.size()).toString();
-                }
-            }
-            Object childValue = keyValues.get(key);
-            if (childValue == null) {
-                continue;
-            }
-
-            try {
-                EOBuilder builder = this.add()
-                        .setPath(fieldName);
-                if (isObject()) {
-                    builder.setModels(getModel().getFieldModel(fieldName));
-                } else {
-                    builder.setModels(getModels().getChildModelsList());
-                }
-                EO adapter = builder.map(childValue);
-
-                //setChanged(adapter.isChanged());
-            } catch (Exception e) {
-                LOG.warn("Problem mapping " + fieldName + ": " + e.getMessage());
-            }
-        }
-        if (isObject() && isChanged()) {
-            getAdapterExtension().doAfterMap(this);
-        }
-    }
-
-
-    protected void setCalls(List<CallExecutor> actions)  {
-
-        for (CallExecutor action : actions) {
-            action.setPath(this.getPath().directory());
-            getRoot().addCall(action);
-        }
-        this
-                .add()
-                .setPath(JSONToEO.CALLS)
-                .set(actions);
-    }
-
-    protected void setCallsByMap(List<Map> callList)  {
-        for (Map attributes : callList) {
-            if (attributes.get(EO_STATIC.F_PATH) == null && !this.getPath().isEmpty()) {
-                attributes.put(EO_STATIC.F_PATH, this.getPath().directory());
-            }
-            getRoot().addCallExecutor(attributes);
-        }
-    }
-
     public void addCall(CallExecutor callExecutor)  {
         Path path = this.getPath();
         callExecutor.setPath(path.directory());
         getRoot().addCall(callExecutor);
-    }
-
-    @Override
-    public EOBuilder add() {
-        try {
-            return new EOBuilder(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    @Override
-    public EOBuilder add(final String path) {
-        try {
-            if (path == null || path.isEmpty()) {
-                return new EOBuilder(this);
-            }
-            if (path.startsWith(Path.DELIMITER)) {
-                return new EOBuilder(getRoot())
-                        .setPath(path);
-            }
-            return new EOBuilder(this)
-                    .setPath(path);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     /**
@@ -440,32 +295,38 @@ public class EOContainer implements EO {
         return childMap!=null && childMap.containsKey(path.getFirstEntry());
     }
 
-
-    protected void setPathValue(final String pathString, Object source) {
-        if (pathString == null) {
-            warn("Null fieldName for object " + source.getClass().getSimpleName());
-            return;
-        }
-        Path path = new Path(pathString);
-        setPathValue(path, source);
+    public EO setPathValue(final String pathString) {
+        return setPathValue(pathString, null);
     }
 
-    protected void setPathValue(final Path path, Object source) {
+    public EO setPathValue(final String pathString, Object value) {
+        return setPathValue(pathString, value, null);
+    }
+
+    public EO setPathValue(final String pathString, Object source, Class... classes) {
+        if (pathString == null) {
+            warn("Null fieldName for object " + source.getClass().getSimpleName());
+            return this;
+        }
+        Path path = new Path(pathString);
+        return setPathValue(path, source);
+    }
+
+    protected EO setPathValue(final Path path, Object source, Class... classes) {
         if (path.isEmpty()) {
             warn("Empty fieldName for object " + source.getClass().getSimpleName());
-            return;
+            return this;
         }
         if (!getModel().hasKey(path)) {
             warn("No field found for  " + path.getFirstEntry());
-            return;
+            return this;
         }
         if (hasChild(path)) {
-            ((EOContainer)childMap.get(path.getFirstEntry())).setPathValue(path.getChildPath(), source);
+            return ((EOContainer)childMap.get(path.getFirstEntry())).setPathValue(path.getChildPath(), source);
         }
         else {
-            EOContainer eo = new EOContainer(this, path.getChildPath(), source);
-            childMap.put(path.getFirstEntry(), eo);
-            setValue(path.getFirstEntry(), eo.get());
+            EOContainer eo = new EOContainer(this, path, source, classes);
+            return eo;
         }
     }
 
@@ -563,69 +424,26 @@ public class EOContainer implements EO {
         if (pathString.startsWith(Path.DELIMITER) && this != getRoot()) {
             return getRoot().getChild(pathString);
         }
-        return getChild(new Path(pathString), false);
+        return getChild(new Path(pathString));
     }
 
-
-    protected EO getChild(Path path, boolean create)  {
+    protected EO getChild(Path path)  {
         if (path == null || path.isEmpty()) {
             return this;
         }
         String firstEntry = path.getFirstEntry();
         if (firstEntry.equals("..")) {
-            return getParentAdapter().getChild(path.getChildPath(), create);
+            return getParentAdapter().getChild(path.getChildPath());
         }
-        EO childAdapter = getChildAdapter(firstEntry);
-
-        if (childAdapter == null) {
-            if (create) {
-                childAdapter = this
-                        .add()
-                        .setPath(path.getFirstEntry())
-                        .build();
-            } else {
-                try {
-                    Object value = getModel()
-                            .get(path.getFirstEntry(), this.get());
-
-                    if (value != null) {
-                        childAdapter = this
-                                .add(path.getFirstEntry())
-                                .set(value);
-                    } else {
-                        debug("Problem getting a non existing object value for " + getPathAsString() + " " + path.getFirstEntry());
-                        return null;
-                    }
-                } catch (Exception e) {
-                    info("Problem getting value for " + getPathAsString() + " " + path.getFirstEntry() + ": " + e.getMessage());
-                    return null;
-                }
+        else if (path.hasChild()) {
+            if (childMap.containsKey(firstEntry)) {
+                return ((EOContainer)childMap.get(firstEntry)).getChild(path.getChildPath());
+            }
+            else {
+                throw new EoException("Could not find entry for " + firstEntry);
             }
         }
-        if (path.getChildPath().isEmpty()) {
-            return childAdapter;
-        }
-        // recursive call if child path is not empty
-        return ((EOContainer) childAdapter).getChild(path.getChildPath(), create);
-    }
-
-    /**
-     * Creates just a builder with  with a path and this adapter.
-     *
-     * @param pathString the path to look for
-     * @return a bilder with  with a path and this adapter
-     * @ on builder expception
-     */
-    protected EOBuilder createBuilder(String pathString)  {
-        return new EOBuilder(this)
-                .setPath(pathString);
-    }
-
-    public EO getChildAdapter(String fieldName) {
-        if (childMap == null || childMap.isEmpty()) {
-            return null;
-        }
-        return childMap.get(fieldName);
+        return childMap.get(firstEntry);
     }
 
     /**
@@ -639,10 +457,19 @@ public class EOContainer implements EO {
             warn("FieldName ist null setting child ObjectsBuilder! ");
             return;
         }
+        if (childMap == null) {
+            warn("Could not add a child with fieldName '" + fieldName + "'to a scalar parent!");
+            return;
+        }
         if (this.childMap.get(fieldName) == child) {
             return;
         }
         this.childMap.put(fieldName, child);
+        try {
+            getModel().set(fieldName, get(), child.get());
+        } catch (EoException e) {
+            warn("Could not setValue for fieldName '" + fieldName + "': " + e.getMessage());
+        }
     }
 
     @Override
@@ -720,29 +547,12 @@ public class EOContainer implements EO {
         }
     }
 
-
-    protected void initObjectRegistry() {
-        getRoot().initObjectRegistry();
-    }
-
-    protected boolean checkObjectRegistry(Object object) {
-        return getRoot().checkObjectRegistry(object);
-    }
-
     @Override
     public Object get() {
         return this.object;
     }
 
-    protected void setModelClasses(Class... classes)  {
-        if (classes == null || classes.length == 0) {
-            info("Empty classes!" + getPathAsString());
-            return;
-        }
-        setModels(new Models(getConfigsCache(), classes));
-    }
-
-    public void set(final Object source)  {
+    private void set(final Object source)  {
         if (this.object != null && this.object == source) {
             return;  // the same object
         }

@@ -278,7 +278,7 @@ public class Call {
         if (!hasPath()) {
             return adapter;
         }
-        adapter.add(Path.DELIMITER + path).set(object);
+        adapter.setPathValue(Path.DELIMITER + path, object);
         return moveToPath(adapter);
     }
 
@@ -289,7 +289,7 @@ public class Call {
         if (!hasPath()) {
             return adapter;
         }
-        adapter.add(Path.DELIMITER + path).map(object);
+        adapter.setPathValue(Path.DELIMITER + path, object);
         return moveToPath(adapter);
     }
 
@@ -347,7 +347,7 @@ public class Call {
 
     protected EO createAdapter(EO adapter, Map attributes)  {
         resolvePath(adapter, attributes);
-        return adapter.add(this.path).build();
+        return adapter.setPathValue(this.path);
     }
 
     @Override

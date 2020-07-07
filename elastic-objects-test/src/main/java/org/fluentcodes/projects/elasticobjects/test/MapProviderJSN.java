@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.junit.Assert;
 
 import java.util.Map;
@@ -9,10 +9,7 @@ import java.util.Map;
 import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 public class MapProviderJSN {
-    public static EOBuilder builder() {
-        return TestEOProvider.createEOBuilder();
-    }
-
+    
     public static String readEmpty()  {
         return JSONInputReader.readInputJSN(EMPTY);
     }
@@ -23,9 +20,8 @@ public class MapProviderJSN {
     }
 
     public static EO createEmpty()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readEmpty());
+        final EO eo = TestEOProvider.create(Map.class);
+                eo.mapObject(readEmpty());
         BTProviderEO.assertEmpty(eo);
         return eo;
     }
@@ -42,9 +38,8 @@ public class MapProviderJSN {
     }
 
     public static EO createString()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readString());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readString());
         BTProviderEO.assertString(eo);
         return eo;
     }
@@ -60,9 +55,8 @@ public class MapProviderJSN {
     }
 
     public static EO createInteger()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readInteger());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readInteger());
         BTProviderEO.assertInteger(eo);
         return eo;
     }
@@ -79,9 +73,8 @@ public class MapProviderJSN {
     }
 
     public static EO createLong()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readLong());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readLong());
         BTProviderEO.assertLong(eo);
         return eo;
     }
@@ -97,9 +90,8 @@ public class MapProviderJSN {
     }
 
     public static EO createFloat()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readFloat());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readFloat());
         BTProviderEO.assertFloat(eo);
         return eo;
     }
@@ -116,9 +108,8 @@ public class MapProviderJSN {
     }
 
     public static EO createDouble()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readDouble());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readDouble());
         BTProviderEO.assertDouble(eo);
         return eo;
     }
@@ -135,9 +126,8 @@ public class MapProviderJSN {
     }
 
     public static EO createDate()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readDate());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readDate());
         BTProviderEO.assertDate(eo);
         return eo;
     }
@@ -154,9 +144,8 @@ public class MapProviderJSN {
     }
 
     public static EO createBoolean()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readBoolean());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readBoolean());
         BTProviderEO.assertBoolean(eo);
         return eo;
     }
@@ -173,9 +162,8 @@ public class MapProviderJSN {
     }
 
     public static EO createMap()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readMap());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readMap());
         BTProviderEO.assertMap(eo);
         return eo;
     }
@@ -192,9 +180,8 @@ public class MapProviderJSN {
     }
 
     public static EO createList()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readList());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readList());
         BTProviderEO.assertList(eo);
         return eo;
     }
@@ -211,9 +198,8 @@ public class MapProviderJSN {
     }
 
     public static EO createBT()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readBT());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readBT());
         BTProviderEO.assertBT(eo);
         return eo;
     }
@@ -230,9 +216,8 @@ public class MapProviderJSN {
     }
 
     public static EO createST()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readST());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readST());
         BTProviderEO.assertST(eo);
         return eo;
     }
@@ -249,9 +234,8 @@ public class MapProviderJSN {
     }
 
     public static EO createMapST()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readMapST());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readMapST());
         BTProviderEO.assertMapST(eo);
         return eo;
     }
@@ -268,9 +252,8 @@ public class MapProviderJSN {
     }
 
     public static EO createListST()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readListST());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readListST());
         BTProviderEO.assertListST(eo);
         return eo;
     }
@@ -286,9 +269,8 @@ public class MapProviderJSN {
     }
 
     public static EO createSmall()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readSmall());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readSmall());
         BTProviderEO.assertSmall(eo);
         return eo;
     }
@@ -304,9 +286,8 @@ public class MapProviderJSN {
     }
 
     public static EO createSimple()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(readSimple());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(readSimple());
         BTProviderEO.assertSimple(eo);
         return eo;
     }
@@ -326,9 +307,8 @@ public class MapProviderJSN {
     }
 
     public static EO create()  {
-        final EO eo = builder()
-                .setModels(Map.class)
-                .map(read());
+        final EO eo = TestEOProvider.create(Map.class);
+eo.mapObject(read());
         BTProviderEO.asserts(eo);
         return eo;
     }

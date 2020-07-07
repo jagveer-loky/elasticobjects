@@ -14,8 +14,8 @@ public class DirectCall {
         action.setContent("key='$[key]'<call path=\"level0/level1\">level0/level1/key='$[key]'</call>");
 
         final EO root = TestEOProvider.create();
-        root.add("key").set("value");
-        root.add("level0/level1/key").set("value with path");
+        root.setPathValue("key","value");
+        root.setPathValue("level0/level1/key","value with path");
 
         final String result = action.execute(root);
         Assert.assertEquals(INFO_COMPARE_FAILS, "key='value'level0/level1/key='value with path'",result);

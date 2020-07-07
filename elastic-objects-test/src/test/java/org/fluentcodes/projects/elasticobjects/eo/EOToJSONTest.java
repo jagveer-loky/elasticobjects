@@ -23,11 +23,9 @@ public class EOToJSONTest extends TestHelper {
         map.put(S_KEY0, S_STRING);
         map.put(S_KEY1, S_INTEGER);
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(S_LEVEL0)
-                .set(map);
-        adapter.add(S_LEVEL1)
-                .set(map);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(S_LEVEL0, map);
+        adapter.setPathValue(S_LEVEL1, map);
         String toCompare = MapProviderJSON.toJSONMap(S_LEVEL0,
                 MapProviderJSON.toJSONMap(S_KEY0, S_STRING, S_KEY1, S_INTEGER),
                 S_LEVEL1,
@@ -45,12 +43,9 @@ public class EOToJSONTest extends TestHelper {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add()
-                .set(map);
+        EO adapter = TestEOProvider.create();
         adapter
-                .add(S_LEVEL0)
-                .set(map);
+                .setPathValue(S_LEVEL0, map);
         adapter.setCheckObjectReplication(true);
         String serialized = new EOToJSON()
                 .setStartIndent(0)

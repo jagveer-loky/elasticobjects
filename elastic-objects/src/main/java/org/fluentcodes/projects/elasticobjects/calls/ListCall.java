@@ -177,7 +177,7 @@ public class ListCall extends CallIO {
         ListIOInterface io = (ListIOInterface) getListConfig().createIO();
         getListConfig().resolve();
         List result = io.read(getListParams());
-        EO adapter = eo.add(getPath()).build();
+        EO adapter = eo.setPathValue(getPath());
         try {
             getListMapper().addList(adapter, result, getListConfig().getListMapper());
         } catch (Exception e) {

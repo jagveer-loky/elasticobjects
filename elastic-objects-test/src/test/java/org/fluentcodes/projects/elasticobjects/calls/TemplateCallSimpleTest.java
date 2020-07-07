@@ -26,9 +26,9 @@ public class TemplateCallSimpleTest extends TestHelper {
         final String template = "key='$[key]'<call path=\"level0/level1\">level0/level1/key='$[key]'</call>";
         action.setContent(template);
 
-        EO root = TestEOProvider.createEmptyMap();
-        root.add("key").set("value");
-        root.add("level0/level1/key").set("value with path");
+        EO root = TestEOProvider.create();
+        root.setPathValue("key","value");
+        root.setPathValue("level0/level1/key","value with path");
         final String result = action.execute(root);
 
         Assert.assertEquals(INFO_COMPARE_FAILS, "key='value'level0/level1/key='value with path'", result);

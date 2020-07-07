@@ -66,10 +66,10 @@ public class EOPath_value_Test extends TestHelper {
         final EO eoMap = MapProviderEO.create();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1);
         final String path2 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2);
-        eoMap.add(path1)
-                .map(S_STRING);
-        eoMap.add(path2)
-                .map(S_STRING_OTHER);
+        eoMap.setPathValue(path1
+                ,S_STRING);
+        eoMap.setPathValue(path2
+                ,S_STRING_OTHER);
         Assert.assertEquals(S_STRING, eoMap.get(path1));
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eoMap.getLog().isEmpty());
     }
@@ -82,21 +82,19 @@ public class EOPath_value_Test extends TestHelper {
     @Test
     public void mapWithPathsOverlapping()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3, S_TEST_STRING))
-                .map(S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3, S_TEST_STRING),S_STRING);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3, S_TEST_STRING)));
-        adapter.add(toPath(S_LEVEL1, S_LEVEL2, S_TEST_STRING))
-                .map(S_STRING);
+        adapter.setPathValue(toPath(S_LEVEL1, S_LEVEL2, S_TEST_STRING)
+                ,S_STRING);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL1, S_LEVEL2, S_TEST_STRING)));
     }
 
     @Test
     public void mapWithPathLong()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2))
-                .map(S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2),S_STRING);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2)));
     }
 
@@ -109,9 +107,7 @@ public class EOPath_value_Test extends TestHelper {
     public void setWithPath2()  {
         TestHelper.printStartMethod();
         final String path = toPath(S_LEVEL0, S_LEVEL1);
-        final EO childAdapter = TestEOProvider.createEOBuilder()
-                .setPath(path)
-                .set(S_STRING);
+        final EO childAdapter = TestEOProvider.create().setPathValue(path, S_STRING);
         EO root = childAdapter.getChild(Path.DELIMITER);
         Assert.assertEquals(path, childAdapter.getPath().directory(false));
         Assert.assertEquals(S_STRING, root.get(path));
@@ -120,9 +116,9 @@ public class EOPath_value_Test extends TestHelper {
     @Test
     public void setWithPath3()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3))
-                .set(S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3)
+                ,S_STRING);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3)));
     }
 
@@ -131,9 +127,7 @@ public class EOPath_value_Test extends TestHelper {
     public void setWithPath4()  {
         TestHelper.printStartMethod();
         final String path = toPath(S_LEVEL1, S_LEVEL2, S_LEVEL3);
-        final EO childAdapter = TestEOProvider.createEOBuilder()
-                .setPath(path)
-                .set(S_STRING);
+        final EO childAdapter = TestEOProvider.create().setPathValue(path, S_STRING);
 
         EO root = childAdapter.getRoot();
         Assert.assertEquals(path, childAdapter.getPath().directory(false));
@@ -146,13 +140,13 @@ public class EOPath_value_Test extends TestHelper {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final String path2 = toPath(S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         final EO childAdapter = adapter
-                .add(path1)
-                .set(S_STRING);
+                .setPathValue(path1
+                ,S_STRING);
         final EO childAdapter2 = adapter
-                .add(path2)
-                .set(S_STRING_OTHER);
+                .setPathValue(path2
+                ,S_STRING_OTHER);
 
         Assert.assertEquals(path1, childAdapter.getPath().directory(false));
 
@@ -167,12 +161,12 @@ public class EOPath_value_Test extends TestHelper {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final String path2 = toPath(S_LEVEL0, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
-        EO adapter = TestEOProvider.createEmptyMap();
+        EO adapter = TestEOProvider.create();
         EO childAdapter = adapter
-                .add(path1)
-                .set(S_STRING);
-        EO childAdapter2 = adapter.add(path2)
-                .set(S_STRING_OTHER);
+                .setPathValue(path1
+                ,S_STRING);
+        EO childAdapter2 = adapter.setPathValue(path2
+                ,S_STRING_OTHER);
 
         Assert.assertEquals(path1, childAdapter.getPath().directory(false));
 
@@ -187,12 +181,10 @@ public class EOPath_value_Test extends TestHelper {
         TestHelper.printStartMethod();
         final String path1 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3);
         final String path2 = toPath(S_LEVEL0, S_LEVEL1, S_LEVEL4, S_LEVEL5, S_LEVEL6, S_LEVEL7);
-        EO childAdapter = TestEOProvider.createEOBuilder()
-                .setPath(path1)
-                .set(S_STRING);
+        EO childAdapter = TestEOProvider.create().setPathValue(path1, S_STRING);
         EO adapter = childAdapter.getRoot();
-        EO childAdapter2 = adapter.add(path2)
-                .set(S_STRING_OTHER);
+        EO childAdapter2 = adapter.setPathValue(path2
+                ,S_STRING_OTHER);
 
         Assert.assertEquals(path1, childAdapter.getPath().directory(false));
 

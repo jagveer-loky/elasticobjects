@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class JsonCallTest {
     @Test
     public void readModuleConfigJson()  {
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         final JsonCall call = TestCallsProvider.createJsonCall(J_MODULE_CONFIG_JSON);
         call.read(eoEmpty);
         Assert.assertEquals(MODULE_SHORT, eoEmpty.getChild(MODULE).get(F_SHORT));
@@ -46,10 +46,10 @@ public class JsonCallTest {
     public void readTargetJsonSuperAdmin_()  {
         final JsonCall call = TestCallsProvider.createJsonCall(FILE_TARGET_JSON);
         EO eoWrite = TestEOProvider.create();
-        eoWrite.add(S0 + Path.DELIMITER + S_KEY1).set(S_VALUE11);
-        eoWrite.add(S0 + Path.DELIMITER + S_KEY2).set(S_VALUE12);
-        eoWrite.add(S1 + Path.DELIMITER + S_KEY1).set(S_VALUE21);
-        eoWrite.add(S1 + Path.DELIMITER + S_KEY2).set(S_VALUE22);
+        eoWrite.setPathValue(S0 + Path.DELIMITER + S_KEY1,S_VALUE11);
+        eoWrite.setPathValue(S0 + Path.DELIMITER + S_KEY2,S_VALUE12);
+        eoWrite.setPathValue(S1 + Path.DELIMITER + S_KEY1,S_VALUE21);
+        eoWrite.setPathValue(S1 + Path.DELIMITER + S_KEY2,S_VALUE22);
         eoWrite.setRoles(R_SUPER_ADMIN);
         call.write(eoWrite);
         EO eo = TestEOProvider.create();

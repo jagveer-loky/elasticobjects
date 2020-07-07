@@ -55,7 +55,7 @@ public class PathPattern {
     public boolean isAll() {
         for (Path path : paths) {
             String actual = path.first();
-            if (actual.equals(Path.MATCHER_ALL) || actual.equals(Path.MATCHER)) {
+            if (actual.equals(PathElement.MATCHER_ALL) || actual.equals(PathElement.MATCHER)) {
                 return true;
             }
         }

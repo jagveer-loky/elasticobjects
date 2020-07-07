@@ -15,8 +15,7 @@ public class Clone {
 
         final BasicTest BT1 = new BasicTest();
         BT1.setTestString( "value");
-        eo.add()
-                .map(BT1);
+        eo.mapObject(BT1);
 
         assertEquals("value", eo.get("testString"));
 
@@ -26,8 +25,7 @@ public class Clone {
         Assert.assertTrue(eo.get() == eo.get());
 
         final EO eo2 = TestEOProvider.create(BasicTest.class);
-        eo2.add()
-                .set(BT1);
+        eo2.mapObject(BT1);
         Assert.assertEquals(BT1, eo2.get());
 
     }

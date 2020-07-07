@@ -20,9 +20,7 @@ public class Convert {
         map.put("testString", "value");
         map.put("testFloat", 1.1D);
 
-        final EO child = eo.add("level0")
-                .setModels(BasicTest.class.getSimpleName())
-                .map(map);
+        final EO child = eo.setPathValue("level0", map, BasicTest.class);
 
         assertEquals("value", child.get("testString"));
         assertEquals(1.1F, child.get("testFloat"));

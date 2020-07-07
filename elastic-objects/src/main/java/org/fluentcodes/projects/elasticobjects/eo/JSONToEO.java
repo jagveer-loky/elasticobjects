@@ -3,16 +3,15 @@ package org.fluentcodes.projects.elasticobjects.eo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.EoException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
-import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A JSONToEO  extracts characters and tokens from a JSON serialized String.
@@ -26,6 +25,10 @@ public class JSONToEO {
     public static final String DATA = "_data";
     public static final String LOGS = "_logs";
     public static final String CONFIG = "_config";
+    //http://stackoverflow.com/questions/3651725/match-multiline-text-using-regular-expression
+    protected static final Pattern jsonPattern = Pattern.compile("^[\\s]*[\\{\\[]", Pattern.MULTILINE);
+    protected static final Pattern jsonMapPattern = Pattern.compile("^[\\s]*[\\{]", Pattern.MULTILINE);
+    protected static final Pattern jsonListPattern = Pattern.compile("^[\\s]*[\\[]", Pattern.MULTILINE);
     private static final Logger LOG = LogManager.getLogger(JSONToEO.class);
     private EOConfigsCache provider;
     private long character;
@@ -65,6 +68,11 @@ public class JSONToEO {
         this(new StringReader(s));
         this.debug = s;
         this.provider = provider;
+    }
+
+    public JSONToEO(String s) {
+        this(new StringReader(s));
+        this.debug = s;
     }
 
     private static Models stringToValue(final EOConfigsCache configsCache, final String string)  {
@@ -269,10 +277,17 @@ public class JSONToEO {
     }
 
     private String debug() {
-        return (Thread.currentThread().getStackTrace()[2].getMethodName() + ": " + index + ": " + debug.substring(0, new Long(index).intValue()) + "==" + debug.substring(new Long(index).intValue()));
+        return (Thread.currentThread().getStackTrace()[2].getMethodName()
+                + ": "
+                + index + ": "
+                + debug.substring(new Long(index).intValue()-10, new Long(index).intValue()) +
+                "=="
+                + debug.substring(new Long(index).intValue(), new Long(index).intValue()) +
+                "=="
+                + debug.substring(new Long(index).intValue()+1, new Long(index).intValue()+10));
     }
 
-    private EO mapObject(EO currentAdapter)  {
+    public EO mapObject(EO currentAdapter)  {
         if (currentAdapter == null) {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
@@ -281,7 +296,7 @@ public class JSONToEO {
         for (; ; ) {
             //Check for closing tag or a key
             char c = this.nextClean();
-            if (c == '}') {
+            if (c == '}') { // empty
                 return currentAdapter;
             }
             if (c == ',') {
@@ -325,7 +340,7 @@ public class JSONToEO {
                 this.createChild(currentEO, new Integer(counter).toString());
                 counter++;
             } else {
-                throw new EoException("Expected colon is not set but '" + next + "'!");
+                throw new EoException("Expected colon is not set but '" + next + "' on line " + this.line + ": " + this.debug());
             }
         }
     }
@@ -364,118 +379,35 @@ public class JSONToEO {
             throw new EoException("parentAdapter is null ...!");
         }
 
-        // see if fieldName has a model information '(ModelKey)fieldName'
-        String name = rawFieldName;
-        Models models = null;
-        if (rawFieldName != null && !rawFieldName.isEmpty()) {
-            Matcher modelInName = EOBuilder.modelPattern.matcher(rawFieldName);
-            if (modelInName.find()) {
-                String model = modelInName.group(1);
-                name = modelInName.group(2);
-                models = new Models(parentAdapter.getConfigsCache(), model);
-            }
-        }
         char c = this.nextClean();
         switch (c) {
             case '"':
-            case '\'':
+            case '\'':  // String value
                 if (rawFieldName == null) {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                parentAdapter
-                        .add(name)
-                        .setModels(models)
-                        .map(value);
+                parentAdapter.setPathValue(rawFieldName, value);
                 return parentAdapter;
 
-            case '{':
-                if (name == null) {
-                    this.mapObject(parentAdapter);
+            case '{':  //
+                if (rawFieldName!=null) {// Object value
+                    mapObject(parentAdapter.setPathValue(rawFieldName));
                     return parentAdapter;
                 }
-                switch (name) {
-                    case (DATA):  // Map directly to the parentAdapter
-                        if (parentAdapter.isEmpty() && models != null) {
-                            //parentAdapter.setModels(models);
-                        }
-                        this.mapObject(parentAdapter);
-                        return parentAdapter;
-
-                    case (LOGS):  // Create a log
-                        EO logAdapter = new EOBuilder(parentAdapter.getConfigsCache())
-                                .setModels(LoggingObjectsImpl.class.getSimpleName())
-                                .set(this);
-                        ((EORoot) parentAdapter).setLog((LoggingObjectsImpl) logAdapter.get());
-                        return parentAdapter;
-
-                    case (CALLS):  // Create a list of actions
-                        back();
-                        parseCalls = true;
-                        EO actionAdapter = new EOBuilder(this.provider)
-                                .setModels(List.class)
-                                .map(this);
-                        Object actionList = actionAdapter.get();
-                        ((EOContainer) parentAdapter).setCallsByMap((List<Map>) actionList);
-                        return parentAdapter;
-
-                    default:
-                        if (parentAdapter == null) {
-                            parentAdapter = new EOBuilder(provider).build();
-                        }
-                        if (name != null) {
-                            EO adapter = parentAdapter
-                                    .add(name)
-                                    .setModels(models)
-                                    .build();
-                            this.mapObject(adapter);
-                        } else {
-                            this.mapObject(parentAdapter);
-                        }
-                        return parentAdapter;
-
+                else {
+                    mapObject(parentAdapter); // start parsing
+                    return parentAdapter;
                 }
-
             case '[':
-                if (CALLS.equals(rawFieldName)) {  // Create a list of actions
-                    back();
-                    EO actionListAdapter = createChild(new EOBuilder(this.provider).build(), null);
-                    ((EORoot) parentAdapter).setCallsByMap((List<Map>) actionListAdapter.get());
-                } else if (DATA.equals(rawFieldName)) {  // Create a list of actions
-                    EO rootAdapter = (parentAdapter).getRoot();
-                    rootAdapter
-                            .add()
-                            .map(this);
-                    return rootAdapter;
-                } else {
-                    EO childAdapter = null;
-                    if (rawFieldName == null) {
-                        if (parentAdapter == null) {
-                            parentAdapter = new EOBuilder(this.provider)
-                                    .setModels(List.class.getSimpleName())
-                                    .build();
-                        } else {
-                            ModelInterface model = parentAdapter.getModel();
-                            if (model.isMap()) {
-                                if (model.getModelClass() == Map.class) {
-                                    //parentAdapter.setModelClasses(List.class);
-                                }
-                            } else if (model.isObject()) {
-                                throw new EoException("Could not map an array to an object!");
-                            }
-                        }
-                        childAdapter = parentAdapter;
-                    } else {
-                        childAdapter = parentAdapter
-                                .add()
-                                .setPath(rawFieldName)
-                                .setModels(List.class)
-                                .build();
-                    }
-                    this.mapList(childAdapter);
-
+                if (rawFieldName!=null) {// List value
+                    return mapList(parentAdapter.setPathValue(rawFieldName, new ArrayList<>()));
                 }
-                return parentAdapter;
+                else {
+                    mapList(parentAdapter); // start parsing
+                    return parentAdapter;
+                }
+
         }
         /*
          * Handle unquoted text. This could be the rows true, false, or
@@ -494,21 +426,23 @@ public class JSONToEO {
         this.back();
 
         String value = sb.toString().trim();
-        if (models == null) {
-            models = stringToValue(parentAdapter.getConfigsCache(), value);
+        if (value.matches("^\\d+$")) {
+            parentAdapter.setPathValue(rawFieldName, Integer.parseInt(value));
         }
-        if ("null".equals(value)) {
-            value = null;
-            models = new Models(parentAdapter.getConfigsCache());
+        else if (value.matches("^\\d+[.]\\d+$")) {
+            parentAdapter.setPathValue(rawFieldName, Float.parseFloat(value));
         }
 
-        /*
-        Now everything else beside String, List or Map: Integer, Boolean...
-         */
-        parentAdapter
-                .add(name)
-                .setModels(models)
-                .map(value);
+        else if (value.equals("true")) {
+            parentAdapter.setPathValue(rawFieldName, true);
+        }
+        else if (value.equals("false")) {
+            parentAdapter.setPathValue(rawFieldName, false);
+        }
+        else {
+            parentAdapter.setPathValue(rawFieldName, value);
+        }
+
         return parentAdapter;
     }
 

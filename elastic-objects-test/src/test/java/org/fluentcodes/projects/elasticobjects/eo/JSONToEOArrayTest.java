@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.test.AssertEO;
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.JSONInputReader;
@@ -25,11 +26,35 @@ public class JSONToEOArrayTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(JSONToEOArrayTest.class);
 
     @Test
-    public void test()  {
-        EO eoList = DevObjectProvider
-                .createEOBuilder()
-                .map("[]");
+    public void testEmpty()  {
+        EO eoList = DevObjectProvider.createEO("[]");
+        Assert.assertTrue(eoList.isEmpty());
         Assert.assertEquals(List.class, eoList.getModelClass());
+    }
+
+    @Test
+    public void testString()  {
+        EO eoList = DevObjectProvider.createEO("[\"testObject\"]");
+        Assertions.assertThat(eoList.get("0")).isEqualTo("testObject");
+    }
+
+    @Test
+    public void testStringEmbedded()  {
+        EO eoList = DevObjectProvider.createEO("[[\"testObject\"]]");
+        Assertions.assertThat(eoList.get("0/0")).isEqualTo("testObject");
+    }
+
+    @Test
+    public void testInteger()  {
+        EO eoList = DevObjectProvider.createEO("[1]");
+        Assertions.assertThat(eoList.get("0")).isEqualTo(1);
+    }
+
+    @Test
+    public void testTwoValues()  {
+        EO eoList = DevObjectProvider.createEO("[\"testObject\",1]");
+        Assertions.assertThat(eoList.get("0")).isEqualTo("testObject");
+        Assertions.assertThat(eoList.get("1")).isEqualTo(1);
     }
 
     @Test
@@ -70,8 +95,7 @@ public class JSONToEOArrayTest extends TestHelper {
                 "    \"0\": {\"execute\": \"testCall()\"}\n" +
                 "  }\n" +
                 "}";
-        EO eo = new EOBuilder(TestEOProvider.EO_CONFIGS)
-                .map(toParse);
+        EO eo = new EORoot(TestEOProvider.EO_CONFIGS, toParse);
         String log = eo.getLog();
         Assert.assertFalse(eo.getLog().isEmpty());
     }
@@ -85,8 +109,7 @@ public class JSONToEOArrayTest extends TestHelper {
                 "    \"1\": 1\n" +
                 "  }\n" +
                 "}";
-        EO eo = new EOBuilder(TestEOProvider.EO_CONFIGS)
-                .map(toParse);
+        EO eo = new EORoot(TestEOProvider.EO_CONFIGS, toParse);
         Assert.assertEquals(ArrayList.class, eo.get("noCalls").getClass());
         Assert.assertEquals("test",eo.get("noCalls/0"));
     }

@@ -24,7 +24,7 @@ public class EOPathSet_value_models_Test extends TestHelper {
 
     @Test
     public void givenString_withStringAndString_ok()  {
-        final EO eoString = DevObjectProvider.createEOString();
+        final EO eoString = DevObjectProvider.createEO(String.class);
         EOTestHelper
                 .setEOValue_ok(eoString, S_STRING, String.class);
     }

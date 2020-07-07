@@ -23,7 +23,7 @@ public class TestCallsProvider {
     }
 
     public static EO readFileCallEO(final String key, final String... attributeList)  {
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         final Map attributes = EO_STATIC.toMap(attributeList);
         final FileCall call = new FileCall(TestEOProvider.EO_CONFIGS, key);
         call.read(eoEmpty, attributes);
@@ -42,13 +42,13 @@ public class TestCallsProvider {
 
     public static EO executeExecutorFileRead(final String key, final String... attributeList)  {
         final CallExecutor callExecutor = createExecutorFileRead(key, attributeList);
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
 
     public static EO writeFileCallEO(final String key, final String... attributeList)  {
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         final Map attributes = EO_STATIC.toMap(attributeList);
         final FileCall call = new FileCall(TestEOProvider.EO_CONFIGS, key);
         call.write(eoEmpty, attributes);
@@ -67,14 +67,14 @@ public class TestCallsProvider {
 
     public static EO executeExecutorFileWrite(final String key, final String... attributeList)  {
         final CallExecutor callExecutor = createExecutorFileWrite(key, attributeList);
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
 
     public static EO executeExecutorValueCall(final String key, final Object... attributeList)  {
         final CallExecutor callExecutor = ValueCall.createSetExecutor(key, attributeList);
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         callExecutor.execute(eoEmpty);
         return eoEmpty;
     }
@@ -84,7 +84,7 @@ public class TestCallsProvider {
     }
 
     public static EO createConfigCallEO(final String key)  {
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         final ConfigCall call = new ConfigCall(TestEOProvider.EO_CONFIGS, key);
         call.set(eoEmpty);
         return eoEmpty;
@@ -92,7 +92,7 @@ public class TestCallsProvider {
 
 
     public static EO createConfigCallEO(final String key, final String... attributeList)  {
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         final Map attributes = EO_STATIC.toMap(attributeList);
         final ConfigCall call = new ConfigCall(TestEOProvider.EO_CONFIGS, key);
         call.set(eoEmpty, attributes);

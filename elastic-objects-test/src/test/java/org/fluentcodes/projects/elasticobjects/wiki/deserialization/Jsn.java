@@ -13,9 +13,7 @@ public class Jsn {
         final EO eo = TestEOProvider.create();
 
         final String jsnString = "{\"(BasicTest)_data\":{\"testFloat\":1.1}";
-        eo
-                .add()
-                .map(jsnString);
+        eo.mapObject(jsnString);
 
         assertEquals(BasicTest.class, eo.getModelClass());
         assertEquals(1.1F, eo.get("testFloat"));

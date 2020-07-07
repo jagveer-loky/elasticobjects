@@ -19,13 +19,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleEquals()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add("first")
-                .set(TEO_STATIC.S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue("first", TEO_STATIC.S_STRING);
 
-        EO other = TestEOProvider.createEmptyMap();
-        other.add("first")
-                .set(TEO_STATIC.S_STRING);
+        EO other = TestEOProvider.create();
+        other.setPathValue("first" ,TEO_STATIC.S_STRING);
 
         StringBuilder builder = new StringBuilder();
         adapter.compare(builder, other);
@@ -35,13 +33,13 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleScalarNotEquals()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_TEST_STRING)
-                .set(TEO_STATIC.S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_TEST_STRING
+                ,TEO_STATIC.S_STRING);
 
-        EO other = TestEOProvider.createEmptyMap();
-        other.add(TEO_STATIC.S_TEST_STRING)
-                .set(TEO_STATIC.S_STRING_OTHER);
+        EO other = TestEOProvider.create();
+        other.setPathValue(TEO_STATIC.S_TEST_STRING
+                ,TEO_STATIC.S_STRING_OTHER);
 
         StringBuilder builder = new StringBuilder();
         adapter.compare(builder, other);
@@ -51,13 +49,11 @@ public class EOCompareTest extends TestHelper {
     @Test
     public void simpleContainerNotEquals()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_KEY0)
-                .set(TEO_STATIC.S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_KEY0,TEO_STATIC.S_STRING);
 
-        EO other = TestEOProvider.createEmptyMap();
-        other.add(TEO_STATIC.S_KEY1)
-                .set(TEO_STATIC.S_STRING);
+        EO other = TestEOProvider.create();
+        other.setPathValue(TEO_STATIC.S_KEY1,TEO_STATIC.S_STRING);
 
         StringBuilder builder = new StringBuilder();
         adapter.compare(builder, other);

@@ -2,7 +2,9 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
+import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.eo.EORoot;
 import org.fluentcodes.projects.elasticobjects.eo.Models;
 import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -44,12 +46,15 @@ public class EOConfigsCache {
 
             EOConfigsField fields = new EOConfigsField(this, scope);
             eoConfigsMap.put(FieldConfig.class, fields);
+
             models.init();
             if (scope != Scope.DEV) {
                 models.addConfigs();
                 models.initCallMap();
                 fields.addConfigs();
+                models.addClassNamesJson();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,20 +68,8 @@ public class EOConfigsCache {
         return eoConfigsMap.keySet();
     }
 
-    public Map<Class, EOConfigs> getEoConfigsMap() {
-        return eoConfigsMap;
-    }
-
-    public Set<Class> getEoConfigKeys() {
-        return eoConfigsMap.keySet();
-    }
-
     public List<String> getConfigClassesAsStringList() {
         return eoConfigsMap.keySet().stream().map(x -> x.getSimpleName()).collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    public Map getConfigMap(final Class configClass)  {
-        return getConfig(configClass).getConfigMap();
     }
 
     public Set<String> getConfigNames(final String configName)  {
@@ -87,7 +80,7 @@ public class EOConfigsCache {
         if (configName == null) {
             throw new EoException("Null search name for configMap entry");
         }
-        for (Class configClass: getEoConfigKeys()) {
+        for (Class configClass: getKeys()) {
             if (configName.equals(configClass.getSimpleName())) {
                 return getConfigMap(configClass);
             }
@@ -121,7 +114,20 @@ public class EOConfigsCache {
         return find(cacheClass, assetKey);
     }
 
-    public EOConfigs getConfig(Class configClass) {
+    public boolean hasConfigKey(final Class configClass, final String key) {
+        try {
+            return getConfigMap(configClass).containsKey(key);
+        }
+        catch (EoException e) {
+            return false;
+        }
+    }
+
+    public Set<String> getConfigKeys(Class configClass) {
+        return getConfig(configClass).getConfigMap().keySet();
+    }
+
+    private EOConfigs getConfig(Class configClass) {
         if (eoConfigsMap.get(configClass) == null) {
             eoConfigsMap.put(configClass, new ConfigsImmutable(this, configClass, scope));
         }
@@ -131,13 +137,16 @@ public class EOConfigsCache {
         }
         return configs;
     }
+    private Map<String, Config> getConfigMap(final Class configClass)  {
+        return getConfig(configClass).getConfigMap();
+    }
+
+    public void add(Class configClass, Config config) {
+        getConfig(configClass).add(config);
+    }
 
     public Set<String> getCallSet()  {
         return ((ConfigsModel) getConfig(ModelConfig.class)).getCallSet();
-    }
-
-    public Set<String> getKeys(final Class<?> cacheClass)  {
-        return getConfig(cacheClass).getKeys();
     }
 
     public FieldConfig findField(final String fieldKey)  {
@@ -245,11 +254,8 @@ public class EOConfigsCache {
             //https://stackoverflow.com/questions/26357132/generic-enum-valueof-method-enum-class-in-parameter-and-return-enum-item/26357317
         }
         // complex types use MODULE_NAME...
-        return new EOBuilder(this)
-                .setModels(models)
-                .map(source)
-                .get();
-
+        EO eo = new EORoot(this, source);
+        return eo.get();
     }
 
     public String serialize() {
@@ -262,7 +268,7 @@ public class EOConfigsCache {
             builder.append("  \"");
             builder.append(entry.getSimpleName());
             builder.append("\":{\n");
-            builder.append(eoConfigsMap.get(entry).toString());
+            builder.append(eoConfigsMap.get(entry).toStringx());
             counter++;
             builder.append("  }");
             if (counter < eoConfigsMap.keySet().size()) {

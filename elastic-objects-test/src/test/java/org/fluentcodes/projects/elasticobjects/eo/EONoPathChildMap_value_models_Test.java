@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.EOTestHelper;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class EONoPathChildMap_value_models_Test extends TestHelper {
 
     @Test
     public void givenMapString_withInteger_ok()  {
-        final EO eoMapString = DevObjectProvider.createEOMapString();
+        final EO eoMapString = TestEOProvider.create(String.class);
         final EO child = eoMapString.getChild(F_TEST_STRING);
         EOTestHelper
                 .mapEOValue_ok(child, S_INTEGER, Integer.class);

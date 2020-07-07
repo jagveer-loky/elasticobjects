@@ -36,23 +36,23 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     private Class modelClass;
     private ModelInterface superModel;
 
-    public ModelConfig(EOConfigsCache provider, Builder bean) {
-        super(provider, bean);
+    public ModelConfig(EOConfigsCache provider, Builder builder) {
+        super(provider, builder);
 
         //<call keep="JAVA" templateKey="CacheSetter.tpl" }
 
-        this.modelKey = bean.modelKey;
-        this.eoParams = bean.eoParams;
-        this.dbParams = bean.dbParams;
-        this.viewParams = bean.viewParams;
-        this.customParams = bean.customParams;
+        this.modelKey = builder.modelKey;
+        this.eoParams = builder.eoParams;
+        this.dbParams = builder.dbParams;
+        this.viewParams = builder.viewParams;
+        this.customParams = builder.customParams;
 
-        this.fieldKeys = bean.fieldKeys;
-        this.packagePath = bean.packagePath;
-        this.packageGroup = bean.packageGroup;
-        this.author = bean.author;
-        this.superKey = bean.superKey;
-        this.interfaces = bean.interfaces;
+        this.fieldKeys = builder.fieldKeys;
+        this.packagePath = builder.packagePath;
+        this.packageGroup = builder.packageGroup;
+        this.author = builder.author;
+        this.superKey = builder.superKey;
+        this.interfaces = builder.interfaces;
         //</call>
 
         this.fieldCacheMap = new LinkedHashMap<>();
@@ -60,7 +60,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         this.importClasses = new LinkedHashMap<>();
     }
 
-    protected static final ModelConfig add(EOConfigsCache configsCache, String key) {
+    protected static final ModelConfig addByClassName(EOConfigsCache configsCache, String key) {
         LOG.info("Started find class " + key);
         final Map modelInfo = new HashMap();
         Class modelClass;
@@ -75,11 +75,12 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         final Package inPackage = modelClass.getPackage();
         modelInfo.put(F_PACKAGE_PATH, inPackage.getName());
 
+        final Map<String, Object> eoParams = new HashMap<>();
+        modelInfo.put("eoParams", eoParams);
+
         final Field[] fields = modelClass.getDeclaredFields();
         final List<String> fieldKeys = new ArrayList();
 
-        final Method[] methods = modelClass.getMethods();
-        EOConfigsField fieldConfigs = (EOConfigsField) configsCache.getConfig(FieldConfig.class);
         for (Field field : fields) {
             LOG.info(field.getName());
             final String fieldName = field.getName();
@@ -89,14 +90,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
                 continue;
             }
             fieldKeys.add(modelKey + "." + fieldName);
-            try {
-                FieldConfig.add(configsCache, field);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
-        final Map<String, Object> eoParams = new HashMap<>();
-        modelInfo.put("eoParams", eoParams);
         if (fieldKeys.isEmpty()) {
             eoParams.put(F_SHAPE_TYPE, ShapeTypes.SCALAR);
         } else {
@@ -104,7 +98,12 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         }
         modelInfo.put(F_FIELD_KEYS, fieldKeys);
         ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelInfo);
-        configsCache.getConfig(ModelConfig.class).add(config);
+        configsCache.add(ModelConfig.class, config);
+        for (Field field : fields) {
+            if (!configsCache.hasConfigKey(FieldConfig.class, field.getName())) {
+                FieldConfig.addByClassField(configsCache, field);
+            }
+        }
         return config;
     }
 
@@ -154,6 +153,13 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             return null;
         }
         return this.fieldKeys;
+    }
+
+    public Set<String> getFieldNames() {
+        if (fieldCacheMap.isEmpty()) {
+            return new HashSet<>();
+        }
+        return fieldCacheMap.keySet();
     }
 
     private final void setFieldKeys(List<String> fieldsNames) {
@@ -250,7 +256,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new EoException("Could not resolve class with packagePath" + packagePath + " and modelKey " + modelKey, e);
+            throw new EoException("Could not resolve class with packagePath " + packagePath + " and modelKey " + modelKey, e);
         }
     }
 

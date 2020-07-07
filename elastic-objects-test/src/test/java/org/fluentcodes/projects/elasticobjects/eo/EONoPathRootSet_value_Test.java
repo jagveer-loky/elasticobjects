@@ -25,21 +25,21 @@ public class EONoPathRootSet_value_Test {
 
     @Test
     public void givenString_withInteger_ok()  {
-        final EO eoString = DevObjectProvider.createEOString();
+        final EO eoString = DevObjectProvider.createEO(String.class);
         EOTestHelper
                 .setEOValue_ok(eoString, S_INTEGER);
     }
 
     @Test
     public void givenString_withBoolean_ok()  {
-        final EO eoString = DevObjectProvider.createEOString();
+        final EO eoString = DevObjectProvider.createEO(String.class);
         EOTestHelper
                 .setEOValue_ok(eoString, S_BOOLEAN);
     }
 
     @Test
     public void givenString_withMap_ok()  {
-        final EO eoString = DevObjectProvider.createEOString();
+        final EO eoString = DevObjectProvider.createEO(String.class);
         EOTestHelper
                 .setEOValue_ok(eoString, new LinkedHashMap());
     }
@@ -47,15 +47,14 @@ public class EONoPathRootSet_value_Test {
     @Test
     public void givenMapEmpy_withNull_ok()  {
         final EO adapter = DevObjectProvider.createEO();
-        adapter.add().set(null);
+        adapter.mapObject(null);
         Assert.assertEquals(Map.class, adapter.getModelClass());
     }
 
     @Test
     public void givenMapEmpty_withString_ok()  {
         EO eoMapEmpty = DevObjectProvider.createEO();
-        eoMapEmpty.add()
-                .set(S_STRING);
+        eoMapEmpty.mapObject(S_STRING);
     }
 
     @Test
@@ -69,7 +68,7 @@ public class EONoPathRootSet_value_Test {
     @Test
     public void givenMapString_withMapEmpty_ok()  {
         final EO eoMapString = MapProviderEO.createString();
-        eoMapString.add().set(new HashMap<>());
+        eoMapString.mapObject(new HashMap<>());
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eoMapString.getModelClass());
         Assert.assertNull(INFO_NULL_FAILS, eoMapString.get(F_TEST_STRING));
     }
@@ -77,7 +76,7 @@ public class EONoPathRootSet_value_Test {
     @Test
     public void givenMapEmpty_withMapString_ok()  {
         final EO eoMapEmpty = MapProviderEO.create();
-        eoMapEmpty.add().set(MapProvider.createString());
+        eoMapEmpty.mapObject(MapProvider.createString());
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eoMapEmpty.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoMapEmpty.get(F_TEST_STRING));
     }
@@ -107,9 +106,7 @@ public class EONoPathRootSet_value_Test {
     public void givenListEmpty_withMapJsonSmall_ok()  {
         final EO listEO = ListProviderEO.createEmpty();
         final String jsonMapSmall = MapProviderJSON.readSmall();
-        listEO
-                .add()
-                .map(jsonMapSmall);
+        listEO.mapObject(jsonMapSmall);
         Assert.assertEquals(S_STRING, listEO.get(S0));
         Assert.assertEquals(new Long(S_INTEGER), listEO.get(S1));
         Assert.assertEquals(List.class, listEO.getModelClass());

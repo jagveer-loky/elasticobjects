@@ -23,14 +23,6 @@
       "shapeType": "BEAN",
       "create": true
     },
-    "dbParams": {
-      "table": "BasicTest",
-      "idKey": "id",
-      "naturalKeys": [
-        "testString"
-      ],
-      "hibernateAnnotations": false
-    },
     "packageGroup": "assets",
     "module": "test-resources",
     "subModule": "main",
@@ -50,14 +42,6 @@
     "eoParams": {
       "shapeType": "BEAN",
       "create": true
-    },
-    "dbParams": {
-      "table": "SubTest",
-      "idKey": "id",
-      "naturalKeys": [
-        "name"
-      ],
-      "hibernateAnnotations": false
     },
     "packageGroup": "assets",
     "module": "test-resources",

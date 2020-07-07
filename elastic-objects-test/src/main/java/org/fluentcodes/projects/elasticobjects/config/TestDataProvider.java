@@ -13,11 +13,11 @@ public class TestDataProvider extends TestHelper {
 
 
     public static EO createAdapterEmbedded()  {
-        final EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_TEST_STRING)).set(S_STRING);
-        adapter.add(toPath(S_LEVEL0, S_LEVEL1, S_TEST_STRING)).set(S_STRING);
-        adapter.add(toPath(S_LEVEL0, S_TEST_STRING)).set(S_STRING);
-        adapter.add(S_TEST_STRING).set(S_STRING);
+        final EO adapter = TestEOProvider.create();
+        adapter.setPathValue(toPath(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_TEST_STRING),S_STRING);
+        adapter.setPathValue(toPath(S_LEVEL0, S_LEVEL1, S_TEST_STRING),S_STRING);
+        adapter.setPathValue(toPath(S_LEVEL0, S_TEST_STRING),S_STRING);
+        adapter.setPathValue(S_TEST_STRING,S_STRING);
         return adapter;
     }
 }

@@ -15,7 +15,7 @@ public class EOToJSONConfigTest extends TestHelper {
     @Test
     public void configImpl()  {
         final HostConfig config = (HostConfig) TestEOProvider.EO_CONFIGS.find(HostConfig.class, H_TEST);
-        EO eoHost = TestEOProvider.createEOBuilder().set(config);
+        EO eoHost = TestEOProvider.create(config);
         String serHost = new EOToJSON().toJSON(eoHost);
 
     }

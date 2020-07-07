@@ -26,28 +26,28 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenMapString_withString_ok()  {
-        final EO eoString = DevObjectProvider.createEOMapString();
+        final EO eoString = TestEOProvider.createWithClasses(String.class);
         EOTestHelper
                 .setEO_ok(eoString, F_TEST_STRING, S_STRING_OTHER);
     }
 
     @Test
     public void givenString_withStringToString_fails()  {
-        final EO eoString = DevObjectProvider.createEOString();
+        final EO eoString = DevObjectProvider.createEO(String.class);
         EOTestHelper
                 .setEO_fails(eoString, F_TEST_STRING, S_STRING_OTHER);
     }
 
     @Test
     public void givenString_withIntegerToString_fails()  {
-        final EO eoString = DevObjectProvider.createEOString();
+        final EO eoString = DevObjectProvider.createEO(String.class);
         EOTestHelper
                 .setEO_fails(eoString, F_TEST_STRING, S_INTEGER);
     }
 
     @Test
     public void givenMapEmpty_withStringPath2_ok()  {
-        final EO eoMapString = DevObjectProvider.createEOMapString();
+        final EO eoMapString = TestEOProvider.create(String.class);
         EOTestHelper
                 .setEO_ok(eoMapString, S_PATH2, S_STRING);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoMapString.get(S_PATH2));
@@ -55,7 +55,7 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenMapString_withHashMap_ok()  {
-        final EO eoMapString = DevObjectProvider.createEOMapString();
+        final EO eoMapString = TestEOProvider.create(String.class);
         EOTestHelper
                 .setEO_ok(eoMapString, F_TEST_STRING, new LinkedHashMap());
         Assert.assertEquals(INFO_COMPARE_FAILS, 0, eoMapString.getChild(F_TEST_STRING).size());
@@ -66,8 +66,7 @@ public class EOPathSet_value_Test extends TestHelper {
     public void givenMapStringTyped_withInteger_ok()  {
         final EO eoString = DevObjectProvider.createEO(Map.class, String.class);
         eoString
-                .add(F_TEST_STRING)
-                .set(S_INTEGER);
+                .setPathValue(F_TEST_STRING,S_INTEGER);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.toString(), eoString.get(F_TEST_STRING));
     }
 
@@ -93,8 +92,7 @@ public class EOPathSet_value_Test extends TestHelper {
     public void givenListEmpty_withBoolean_ok()  {
         final EO root = DevObjectProvider.createEO(List.class);
         root
-                .add(F_TEST_BOOLEAN)
-                .set(S_BOOLEAN);
+                .setPathValue(F_TEST_BOOLEAN,S_BOOLEAN);
         Assert.assertEquals(1, root.keys().size());
         Assert.assertEquals(1, ((EOContainer) root).keysValue().size());
         Assert.assertEquals(S_BOOLEAN, root.get(S0));
@@ -104,8 +102,7 @@ public class EOPathSet_value_Test extends TestHelper {
     public void givenMapEmpty_withListStringLevel0()  {
         EO adapter = DevObjectProvider.createEO();
         List<String> list = ListProvider.createString();
-        adapter.add(S_LEVEL0)
-                .set(list);
+        adapter.setPathValue(S_LEVEL0,list);
         Assert.assertEquals(S_STRING, adapter.get(S_LEVEL0 + Path.DELIMITER + S0));
     }
 
@@ -170,9 +167,7 @@ public class EOPathSet_value_Test extends TestHelper {
     @Test
     public void givenBTFloatEmpty_withString_ok()  {
         final EO eoEmpty = BTProviderEO.createEmpty();
-        eoEmpty.add(F_TEST_FLOAT)
-                .setModels(Float.class)
-                .set(SAMPLE_FLOAT.toString());
+        eoEmpty.setPathValue(F_TEST_FLOAT,SAMPLE_FLOAT.toString(),Float.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT, eoEmpty.get(F_TEST_FLOAT));
     }
 
@@ -199,7 +194,7 @@ public class EOPathSet_value_Test extends TestHelper {
         Assert.assertNotNull(INFO_NULL_FAILS, eoBTUntypedMap.get(F_UNTYPED_MAP));
         Assert.assertEquals(INFO_COMPARE_FAILS, 2, eoBTUntypedMap.getChild(F_UNTYPED_MAP).size());
 
-        eoBTUntypedMap.add(F_UNTYPED_MAP).set(new LinkedHashMap());
+        eoBTUntypedMap.setPathValue(F_UNTYPED_MAP, new LinkedHashMap());
         Assert.assertEquals(INFO_COMPARE_FAILS, HashMap.class, eoBTUntypedMap.getChild(F_UNTYPED_MAP).getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, 0, eoBTUntypedMap.getChild(F_UNTYPED_MAP).size());
     }
@@ -217,8 +212,7 @@ public class EOPathSet_value_Test extends TestHelper {
     @Test
     public void setWithLongSTPath_storeValueWithSTModel()  {
         final EO eoBT = BTProviderEO.createEmpty();
-        final EO child = eoBT.add(STProviderEO.createSTPath(3) + Path.DELIMITER + F_TEST_STRING)
-                .set(S_STRING);
+        final EO child = eoBT.setPathValue(STProviderEO.createSTPath(3) + Path.DELIMITER + F_TEST_STRING,S_STRING);
 
         Assert.assertEquals(SubTest.class, eoBT.getChild(STProviderEO.createSTPath(1)).getModelClass());
         Assert.assertEquals(SubTest.class, eoBT.getChild(STProviderEO.createSTPath(2)).getModelClass());
@@ -236,7 +230,7 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenListBTEmpty_withSTString_ok()  {
-        final EO eoBTEmpty = TestEOProvider.createEOFromJson(List.class, BasicTest.class);
+        final EO eoBTEmpty = TestEOProvider.createWithClasses(List.class, BasicTest.class);
         final String path = toPath(S0, F_SUB_TEST, F_TEST_STRING);
         EOTestHelper
                 .setEO_ok(eoBTEmpty, path, S_STRING);
@@ -245,7 +239,7 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenListBTEmpty_withSTStringAt1_ok()  {
-        final EO eoBTEmpty = TestEOProvider.createEOFromJson(List.class, BasicTest.class);
+        final EO eoBTEmpty = TestEOProvider.createWithClasses(List.class, BasicTest.class);
         final String path = toPath(S1, F_SUB_TEST, F_TEST_STRING);
         EOTestHelper
                 .setEO_ok(eoBTEmpty, path, S_STRING);
@@ -254,7 +248,7 @@ public class EOPathSet_value_Test extends TestHelper {
 
     @Test
     public void givenListBTEmpty_withMap_ok()  {
-        final EO eoBTEmpty = TestEOProvider.createEOFromJson(List.class, BasicTest.class);
+        final EO eoBTEmpty = TestEOProvider.createWithClasses(List.class, BasicTest.class);
         EOTestHelper
                 .setEO_fails(eoBTEmpty, F_SUB_TEST_MAP, MapProvider.createSmall());
     }

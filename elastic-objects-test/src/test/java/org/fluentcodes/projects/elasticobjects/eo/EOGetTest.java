@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.test.MapProviderEO;
 import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
@@ -17,7 +17,7 @@ public class EOGetTest extends TestHelper {
 
     @Test
     public void callNotExistingPaths_hasEmptyLog()  {
-        final EO rootEmpty = TestEOProvider.createEmptyMap();
+        final EO rootEmpty = TestEOProvider.create();
         Assert.assertNull(rootEmpty.get(S_KEY_NOT_EXISTING));
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + rootEmpty.getLog(), rootEmpty.getLog().isEmpty());
     }
@@ -41,9 +41,9 @@ public class EOGetTest extends TestHelper {
         TestHelper.printStartMethod();
         EO child = MapProviderEO.createWithLongPathAndValueString();
         Assert.assertEquals(S_KEY0, child.get(_PARENT_KEY));
-        Assert.assertEquals(S_LEVEL2, child.get(toPath(Path.BACK, _PARENT_KEY)));
-        Assert.assertEquals(S_LEVEL1, child.get(toPath(Path.BACK, Path.BACK, _PARENT_KEY)));
-        Assert.assertEquals(S_LEVEL0, child.get(toPath(Path.BACK, Path.BACK, Path.BACK, _PARENT_KEY)));
+        Assert.assertEquals(S_LEVEL2, child.get(toPath(PathElement.BACK, _PARENT_KEY)));
+        Assert.assertEquals(S_LEVEL1, child.get(toPath(PathElement.BACK, PathElement.BACK, _PARENT_KEY)));
+        Assert.assertEquals(S_LEVEL0, child.get(toPath(PathElement.BACK, PathElement.BACK, PathElement.BACK, _PARENT_KEY)));
     }
 }
 

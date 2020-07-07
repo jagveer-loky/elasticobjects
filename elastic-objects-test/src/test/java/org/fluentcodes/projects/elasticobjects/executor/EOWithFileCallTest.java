@@ -20,9 +20,8 @@ public class EOWithFileCallTest extends TestHelper {
 
     @Test
     public void addFileReadAction()  {
-        final EO root = TestEOProvider.createEmptyMap();
-        root.add(toPath(S_LEVEL0, S_LEVEL1))
-                .set(S_STRING);
+        final EO root = TestEOProvider.create();
+        root.setPathValue(toPath(S_LEVEL0, S_LEVEL1),S_STRING);
         final EO child = root.getChild(S_LEVEL0);
 
         final CallExecutor executor = TestCallsProvider.createExecutorFileRead(FILE_SOURCE_TXT, F_MAP_PATH, SAMPLE_CONTENT);

@@ -20,8 +20,8 @@ public class EqTest extends TestHelper {
 
     @Test
     public void filterAdapter()  {
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_TEST_STRING).set(TEO_STATIC.S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
         Eq eq = new Eq(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq.toString() + adapter.get(TEO_STATIC.S_TEST_STRING), eq.filter(adapter));
         Eq eq2 = new Eq(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING_OTHER);

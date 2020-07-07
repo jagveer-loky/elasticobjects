@@ -22,10 +22,9 @@ public class EOPathNewRootSet_value_Test {
 
     @Test
     public void listWithPath2()  {
-        EO adapter = TestEOProvider.createEmptyMap();
+        EO adapter = TestEOProvider.create();
         List<String> list = ListProvider.toList(S_STRING);
-        adapter.add(S_PATH2)
-                .set(list);
+        adapter.setPathValue(S_PATH2, list);
         Assert.assertEquals(S_STRING, adapter.get(toPath(S_PATH2, S0)));
     }
 }
