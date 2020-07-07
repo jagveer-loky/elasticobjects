@@ -27,8 +27,8 @@ public class PathPatternTest extends TestHelper {
         String path2 = toPath(S_LEVEL0, S_LEVEL2);
         pattern.addPath(path2);
         Assert.assertEquals(path2, pattern.getPath(1).directory(false));
-        pattern.addPath(Path.MATCHER_ALL);
-        Assert.assertEquals(Path.MATCHER_ALL, pattern.getPath(2).directory(false));
+        pattern.addPath(PathElement.MATCHER_ALL);
+        Assert.assertEquals(PathElement.MATCHER_ALL, pattern.getPath(2).directory(false));
         return pattern;
     }
 
@@ -49,7 +49,7 @@ public class PathPatternTest extends TestHelper {
         Assert.assertEquals(new Integer(3), nextPath.size());
         Assert.assertEquals(S_LEVEL1, nextPath.getPath(0).directory(false));
         Assert.assertEquals(S_LEVEL2, nextPath.getPath(1).directory(false));
-        Assert.assertEquals(Path.MATCHER_ALL, nextPath.getPath(2).directory(false));
+        Assert.assertEquals(PathElement.MATCHER_ALL, nextPath.getPath(2).directory(false));
     }
 
     @Test
@@ -59,7 +59,7 @@ public class PathPatternTest extends TestHelper {
         final List<String> nextPath = pattern.getFirstPath();
         Assert.assertEquals(2, nextPath.size());
         Assert.assertEquals(S_LEVEL0, nextPath.get(0));
-        Assert.assertEquals(Path.MATCHER_ALL, nextPath.get(1));
+        Assert.assertEquals(PathElement.MATCHER_ALL, nextPath.get(1));
     }
 
     @Test

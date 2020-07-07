@@ -129,9 +129,9 @@ public class JsonCall extends FileCall {
             if (isDynamicMapPath()) {
                 //TODO... has to be implemented where a value of the content defines the mapPath
             }
-            eo.add(getMergePath()).map(content);
+            eo.setPathValue(getMergePath(),content);
         } else {
-            eo.add(getPath()).map(content);
+            eo.setPathValue(getPath(), content);
         }
         return "";
     }

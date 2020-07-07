@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.eo;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.config.EOConfigs;
 import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
@@ -16,11 +17,8 @@ public class EOLogTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
     private EO createWarnAdapter()  {
-        return TestEOProvider.createEOBuilder()
-                .setLogLevel(LogLevel.WARN)
-                .setPath(S_TEST_STRING)
-                .set(S_STRING)
-                .getRoot();
+        EO root = new EORoot(TestEOProvider.EO_CONFIGS, LogLevel.WARN);
+        return root.setPathValue(S_TEST_STRING,S_STRING);
     }
 
     @Test
@@ -70,9 +68,7 @@ public class EOLogTest extends TestHelper {
     public void info_InfoChildAdapter()  {
         EO adapter = createWarnAdapter();
         EO childAdapter = adapter
-                .add(S_LEVEL0)
-                .setLogLevel(LogLevel.INFO)
-                .build();
+                .setPathValue(S_LEVEL0);
         childAdapter.info(S_MESSAGE);
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS + adapter.getLog(), adapter.getLog().isEmpty());
     }

@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.fluentcodes.projects.elasticobjects.test.*;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Ignore;
@@ -20,13 +20,8 @@ public class EOPerformance extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EOPerformance.class);
     private static final int maxRoot = 300000;
 
-    private EOBuilder builder()  {
-        return TestEOProvider.createEOBuilder();
-    }
-
     @Test
     public void root()  {
-        builder().build();
         BasicTest basicTest = new BasicTest();
         basicTest.setTestString(TEO_STATIC.S_STRING);
         basicTest.setTestBoolean(false);
@@ -44,7 +39,7 @@ public class EOPerformance extends TestHelper {
     }
 
     private String rootPerformance(Object object)  {
-        return setRootPerformance(object) + " - " + mapRootPerformance(object);
+        return setRootPerformance(object) + "";
     }
 
     private String testMap(int counter)  {
@@ -66,21 +61,10 @@ public class EOPerformance extends TestHelper {
         }
         return builder.toString();
     }
-
-    private long mapRootPerformance(Object object)  {
-        long start = System.currentTimeMillis();
-        for (long i = 0; i < maxRoot; i++) {
-            builder()
-                    .map(object);
-        }
-        return System.currentTimeMillis() - start;
-    }
-
     private long setRootPerformance(Object object)  {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            builder()
-                    .set(object);
+            TestEOProvider.create(object);
         }
         return System.currentTimeMillis() - start;
     }

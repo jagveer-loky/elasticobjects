@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.test.DevObjectProvider;
 import org.fluentcodes.projects.elasticobjects.test.EOTestHelper;
+import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +18,7 @@ public class EOPathMap_models_Test extends TestHelper {
 
     @Test
     public void givenMapString_withLinkedHashMapAtStringField_fails()  {
-        final EO eoMapString = DevObjectProvider.createEOMapString();
+        final EO eoMapString = TestEOProvider.create(String.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoMapString.get(F_TEST_STRING));
         EOTestHelper
                 .mapEO_fails(eoMapString, F_TEST_STRING, Map.class);

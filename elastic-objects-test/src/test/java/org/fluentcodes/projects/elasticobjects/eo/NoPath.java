@@ -21,7 +21,7 @@ public class NoPath extends TestHelper {
     public void empty()  {
         TestHelper.printStartMethod();
         EOConfigsCache configsCache = TestEOProvider.EO_CONFIGS;
-        EO adapter = TestEOProvider.createEmptyMap();
+        EO adapter = TestEOProvider.create();
         Assert.assertEquals(Map.class, adapter.getModelClass());
         Assert.assertEquals(LinkedHashMap.class, adapter.get().getClass());
         Assert.assertTrue(adapter.keys().size() == 0);

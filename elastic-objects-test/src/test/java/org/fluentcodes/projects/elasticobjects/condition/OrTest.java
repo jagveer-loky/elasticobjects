@@ -42,8 +42,8 @@ public class OrTest {
 
     @Test
     public void filterAdapter()  {
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(S_TEST_STRING).set(S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(S_TEST_STRING, S_STRING);
         Or condition = new Or(toLike(S_TEST_STRING, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),
                 condition.filter(adapter));

@@ -29,6 +29,9 @@ public abstract class ExecutorImpl {
     private ExecutorItem executorItem;
     private Map attributes;
     private ExecutorItem.TYPES type;
+    private String sourcePath;
+    private String targetPath;
+
 
 
     public ExecutorImpl(Map attributes, ExecutorItem.TYPES type)  {

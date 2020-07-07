@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestObjectProvider;
 import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,11 +20,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EORemoveTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(EORemoveTest.class);
 
-    private EOBuilder createBuilder()  {
-        return TestEOProvider.createEOBuilder()
-                .setLogLevel(LogLevel.WARN);
-    }
-
     /**
      * Test for the remove method, which is depending on the object
      *
@@ -31,10 +27,8 @@ public class EORemoveTest extends TestHelper {
      */
     @Test
     public void object()  {
-        EOContainer child = (EOContainer) TestEOProvider.createEOBuilder()
-                .setModels(BasicTest.class)
-                .setPath(F_TEST_STRING)
-                .set("Test");
+        EOContainer child = (EOContainer) TestEOProvider.create(BasicTest.class)
+                .setPathValue(F_TEST_STRING,"Test");
         EO root = child.getRoot();
         Assert.assertEquals(1, ((EOContainer) root).valuesize());
         Assert.assertEquals(1, ((EOContainer) root).adaptersize());
@@ -55,10 +49,7 @@ public class EORemoveTest extends TestHelper {
     @Test
     public void map()  {
         TestHelper.printStartMethod();
-        EO child = createBuilder()
-                .setModels(Map.class)
-                .setPath(S_TEST_STRING)
-                .set(S_STRING);
+        EO child = TestEOProvider.create().setPathValue(S_TEST_STRING, S_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, ((EOContainer) root).valuesize());
         Assert.assertEquals(1, ((EOContainer) root).adaptersize());
@@ -81,10 +72,8 @@ public class EORemoveTest extends TestHelper {
     @Test
     public void list()  {
         TestHelper.printStartMethod();
-        EO child = createBuilder()
-                .setModels(List.class)
-                .setPath(S0)
-                .set(S_STRING);
+        EO child = TestEOProvider.create(List.class)
+                .setPathValue(S0,S_STRING);
         // remove value entry first
         EO root = child.getRoot();
         Assert.assertEquals(1, ((EOContainer) root).adaptersize());

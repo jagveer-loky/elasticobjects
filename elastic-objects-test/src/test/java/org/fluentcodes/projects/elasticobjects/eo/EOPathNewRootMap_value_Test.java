@@ -47,44 +47,10 @@ public class EOPathNewRootMap_value_Test {
     }
 
     @Test
-    public void withJsonSmallLevel0()  {
-        EOBuilder builder = DevObjectProvider.createEOBuilder();
-        String json = MapProviderJSON.getJSONSmallWithKeys();
-        EO child = builder
-                .setPath(S_LEVEL0)
-                .map(json);
-        EO root = child.getRoot();
-        Assert.assertEquals(Map.class, child.getModelClass());
-        Assert.assertEquals(String.class, child.getChild(S_KEY0).getModelClass());
-        Assert.assertEquals(S_STRING, child.get(S_KEY0));
-        Assert.assertEquals(Long.class, child.getChild(S_KEY1).getModelClass());
-        Assert.assertEquals(new Long(S_INTEGER), child.get(S_KEY1));
-        Assert.assertEquals(LinkedHashMap.class, root.get(Path.DELIMITER).getClass());
-    }
-
-    @Test
-    public void withJsonmallWithKeysAndList()  {
-        EOBuilder builder = DevObjectProvider.createEOBuilder();
-        String json = MapProviderJSON.getJSONSmallWithKeysAndList();
-        EO adapter = builder
-                .setPath(S_LEVEL0)
-                .map(json);
-        Assert.assertEquals(Map.class, adapter.getModelClass());
-        Assert.assertEquals(String.class, adapter.getChild(S_KEY0).getModelClass());
-        Assert.assertEquals(S_STRING, adapter.get(S_KEY0));
-        Assert.assertEquals(List.class, adapter.getChild(S_KEYLIST).getModelClass());
-        Assert.assertEquals(new Long(S_INTEGER), adapter.getChild(S_KEYLIST).get(S1));
-        Assert.assertEquals(S_STRING, adapter.getChild(S_KEYLIST).get(S0));
-        Assert.assertEquals(LinkedHashMap.class, adapter.getRoot().get().getClass());
-    }
-
-    @Test
     public void withListStringPath2()  {
         TestHelper.printStartMethod();
         List<String> list = ListProvider.toList(S_STRING);
-        EO adapter = TestEOProvider.createEOBuilder()
-                .setPath(S_PATH2)
-                .map(list);
+        EO adapter = TestEOProvider.create(list);
         Assert.assertEquals(S_STRING, adapter.getRoot().get(toPath(S_PATH2, S0)));
     }
 
@@ -97,7 +63,7 @@ public class EOPathNewRootMap_value_Test {
     @Test
     public void mapBTStringWithMap_ok()  {
         final EO child = EOTestHelper.map_ok(F_UNTYPED_MAP, BTProvider.createString());
-        Assert.assertNotNull(((EOContainer) child).getChildAdapter(F_TEST_STRING));
+        Assert.assertNotNull(child.getChild(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, child.get(F_TEST_STRING));
     }
 
@@ -112,9 +78,7 @@ public class EOPathNewRootMap_value_Test {
         final String jsnSmall = BTProviderJSN.readSmall();
         final EO eoMapEmpty = MapProviderEO.createEmpty();
 
-        eoMapEmpty
-                .add(S_LEVEL0)
-                .map(jsnSmall);
+        eoMapEmpty.setPathValue(S_LEVEL0, jsnSmall);
 
         Assert.assertEquals(BasicTest.class, eoMapEmpty.getChild(S_LEVEL0).getModelClass());
         Assert.assertEquals(BasicTest.class, eoMapEmpty.getChild(S_LEVEL0).get().getClass());
@@ -134,9 +98,7 @@ public class EOPathNewRootMap_value_Test {
         final EO eoMapEmpty = MapProviderEO.createEmpty();
         final String jsnSmall = BTProviderJSN.readSmall();
 
-        eoMapEmpty
-                .add(S_PATH2)
-                .map(jsnSmall);
+        eoMapEmpty.setPathValue(S_PATH2, jsnSmall);
 
         Assert.assertEquals(BasicTest.class, eoMapEmpty.getChild(S_PATH2).getModelClass());
         Assert.assertEquals(BasicTest.class, eoMapEmpty.getChild(S_PATH2).get().getClass());
@@ -155,9 +117,7 @@ public class EOPathNewRootMap_value_Test {
         final String jsnAll = BTProviderJSN.readAll();
         final EO eoMapEmpty = MapProviderEO.createEmpty();
 
-        eoMapEmpty
-                .add(S_PATH2)
-                .map(jsnAll);
+        eoMapEmpty.setPathValue(S_PATH2, jsnAll);
 
         Assert.assertEquals(BasicTest.class, eoMapEmpty.getChild(S_PATH2).getModelClass());
         Assert.assertEquals(BasicTest.class, eoMapEmpty.getChild(S_PATH2).get().getClass());

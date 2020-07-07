@@ -16,20 +16,14 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MODEL_INTERFAC
 public class ModelConfigTest extends TestHelper {
     private static final Logger LOG = LogManager.getLogger(ModelInterface.class);
 
-    private EOBuilder createBuilder()  {
-        return TestEOProvider.createEOBuilder()
-                .setLogLevel(LogLevel.WARN);
-    }
-
 
     @Test
     public void withModelBasicTestMapNotEmpty()  {
         TestHelper.printStartMethod();
         ModelConfigObject model = (ModelConfigObject) TestEOProvider.EO_CONFIGS.findModel(ModelInterface.class);
         model.getModelClass();
-        EO adapter = createBuilder()
-                .setModels(ModelInterface.class)
-                .set(model);
+        EO adapter = TestEOProvider.create(ModelInterface.class);
+        adapter.mapObject(model);
         Assert.assertEquals(M_MODEL_INTERFACE, adapter.get(F_MODEL_KEY));
     }
 

@@ -3,9 +3,12 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.eo.EORoot;
+import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
 import org.fluentcodes.projects.elasticobjects.utils.JSONReader;
+import org.fluentcodes.tools.xpect.IOString;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.*;
@@ -113,18 +116,14 @@ public class EOConfigReader {
 
     public Map<String, Config> read(final Map<String, Config> configMap, final Scope scope)  {
         String providerSource = cacheClass.getSimpleName() + ".json";
-        try {
-            Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(providerSource);
-            List<URL> urlList = Collections.list(urls);
-            for (URL url : urlList) {
-                LOG.info("Initialize provider with " + url.getFile());
-                read(url, configMap, scope);
-            }
-            return configMap;
-        } catch (IOException e) {
-            throw new EoException(e);
+        List<String> configs = new IOString()
+                .setFileName(providerSource)
+                .readStringList();
+        for (String config : configs) {
+            EO eo = new EORoot(configsCache, LogLevel.DEBUG, Map.class);
+            eo.mapObject(config);
+            add((Map)eo.get(), configMap, scope);
         }
-
+        return configMap;
     }
-
 }

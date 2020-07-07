@@ -31,6 +31,12 @@ public interface EO {
 
     String getPathAsString();
 
+    EO setPathValue(String pathString, Object source, Class... classes);
+    EO setPathValue(String pathString, Object source);
+    EO setPathValue(String pathString);
+
+    void mapObject(Object source);
+
     boolean isContainer();
 
     boolean isList();
@@ -69,9 +75,9 @@ public interface EO {
 
     EO getChild(String path) ;
 
-    EOBuilder add();
+    //EOBuilder add();
 
-    EOBuilder add(String path);
+    //EOBuilder add(String path);
 
     EO remove() ;
 

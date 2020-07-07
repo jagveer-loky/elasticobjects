@@ -13,8 +13,7 @@ public class SetValue {
     @Test
     public void test()  {
         final EO eo = DevObjectProvider.createEO();
-        final EO child = eo.add("level0/level1/level2/key")
-                .set("value");
+        final EO child = eo.setPathValue("level0/level1/level2/key","value");
         assertEquals("value", child.get());
         assertEquals("value", eo.get("level0/level1/level2/key"));
 

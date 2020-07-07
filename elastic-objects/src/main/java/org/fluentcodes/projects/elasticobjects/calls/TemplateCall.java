@@ -266,7 +266,7 @@ public class TemplateCall extends CallIO {
                 }
             }
             if (hasMapPath()) {
-                nextAdapter.add(getMapPath()).set(result.toString());
+                nextAdapter.setPathValue(getMapPath(), result.toString());
             }
         }
         if (keepKey != null && !hasContent()) {

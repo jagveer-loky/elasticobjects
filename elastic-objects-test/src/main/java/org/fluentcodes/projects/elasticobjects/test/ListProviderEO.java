@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
 
@@ -11,14 +11,8 @@ import java.util.List;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class ListProviderEO {
-    public static EOBuilder builder() {
-        return TestEOProvider.createEOBuilder();
-    }
-
     public static EO createEmpty()  {
-        final EO eoEmpty = builder()
-                .setModels(List.class)
-                .map(ListProvider.createEmpty());
+        final EO eoEmpty = TestEOProvider.create(ListProvider.createEmpty());
         assertEmpty(eoEmpty);
         return eoEmpty;
     }
@@ -29,9 +23,7 @@ public class ListProviderEO {
 
 
     public static EO createString()  {
-        EO eoString = builder()
-                .setModels(List.class)
-                .map(ListProvider.createString());
+        EO eoString = TestEOProvider.create(ListProvider.createString());
         assertString(eoString);
         return eoString;
     }
@@ -41,9 +33,7 @@ public class ListProviderEO {
     }
 
     public static EO createInteger()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createInteger());
+        EO fromJson = TestEOProvider.create(ListProvider.createInteger());
         assertInteger(fromJson);
         return fromJson;
     }
@@ -53,9 +43,7 @@ public class ListProviderEO {
     }
 
     public static EO createLong()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createLong());
+        EO fromJson = TestEOProvider.create(ListProvider.createLong());
         assertLong(fromJson);
         return fromJson;
     }
@@ -65,9 +53,7 @@ public class ListProviderEO {
     }
 
     public static EO compareFloat()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createFloat());
+        EO fromJson = TestEOProvider.create(ListProvider.createFloat());
         assertFloat(fromJson);
         return fromJson;
     }
@@ -81,9 +67,7 @@ public class ListProviderEO {
     }
 
     public static EO createDouble()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createDouble());
+        EO fromJson = TestEOProvider.create(ListProvider.createDouble());
         assertDouble(fromJson);
         return fromJson;
     }
@@ -93,9 +77,7 @@ public class ListProviderEO {
     }
 
     public static EO createDate()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createDate());
+        EO fromJson = TestEOProvider.create(ListProvider.createDate());
         assertDate(fromJson);
         return fromJson;
     }
@@ -105,9 +87,7 @@ public class ListProviderEO {
     }
 
     public static EO createBoolean()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createBoolean());
+        EO fromJson = TestEOProvider.create(ListProvider.createBoolean());
         assertBoolean(fromJson);
         return fromJson;
     }
@@ -117,9 +97,7 @@ public class ListProviderEO {
     }
 
     public static EO createMap()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createMap());
+        EO fromJson = TestEOProvider.create(ListProvider.createMap());
         assertMap(fromJson);
         return fromJson;
     }
@@ -130,9 +108,7 @@ public class ListProviderEO {
     }
 
     public static EO createList()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createList());
+        EO fromJson = TestEOProvider.create(ListProvider.createList());
         assertList(fromJson);
         return fromJson;
     }
@@ -143,9 +119,7 @@ public class ListProviderEO {
     }
 
     public static EO createBT()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createBT());
+        EO fromJson = TestEOProvider.create(ListProvider.createBT());
         assertBT(fromJson);
         return fromJson;
     }
@@ -156,9 +130,7 @@ public class ListProviderEO {
     }
 
     public static EO createST()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createST());
+        EO fromJson = TestEOProvider.create(ListProvider.createST());
         assertST(fromJson);
         return fromJson;
     }
@@ -169,9 +141,7 @@ public class ListProviderEO {
     }
 
     public static EO createSmall()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createSmall());
+        EO fromJson = TestEOProvider.create(ListProvider.createSmall());
         assertSmall(fromJson);
         return fromJson;
     }
@@ -182,9 +152,7 @@ public class ListProviderEO {
     }
 
     public static EO createSimple()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.createSimple());
+        EO fromJson = TestEOProvider.create(ListProvider.createSimple());
         assertSimple(fromJson);
         return fromJson;
     }
@@ -200,9 +168,7 @@ public class ListProviderEO {
     }
 
     public static EO create()  {
-        EO fromJson = builder()
-                .setModels(List.class)
-                .map(ListProvider.create());
+        EO fromJson = TestEOProvider.create(ListProvider.create());
         asserts(fromJson);
         return fromJson;
     }

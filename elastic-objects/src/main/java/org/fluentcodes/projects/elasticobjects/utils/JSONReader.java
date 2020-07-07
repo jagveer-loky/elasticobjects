@@ -4,8 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.eo.EORoot;
+import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -16,9 +18,9 @@ public class JSONReader {
     private static final Logger LOG = LogManager.getLogger(JSONReader.class);
 
     public static Object readBean(final EOConfigsCache configs, final String urlString, final Class beanClass) {
-        return new EOBuilder(configs)
-                .setModels(beanClass)
-                .mapFile(urlString);
+        EO eo = new EORoot(configs,beanClass);
+        eo.mapObject(new File(urlString));
+        return eo.get();
     }
 
     public static List<Object> readListFromDataClassPath(final EOConfigsCache configs, final Class beanClass) {
@@ -61,10 +63,9 @@ public class JSONReader {
     }
 
     private static void readList(final EOConfigsCache configs, final URL url, final Class beanClass, final List result) {
-
-        List list = (List) new EOBuilder(configs)
-                .setModels(List.class, beanClass)
-                .mapFile(url).get();
+        EO eo = new EORoot(configs, LogLevel.DEBUG, List.class, beanClass);
+        eo.mapObject(url.getFile());
+        List list = (List) eo.get();
         result.addAll(list);
     }
 
@@ -94,16 +95,16 @@ public class JSONReader {
     }
 
     public static EO readAdapterBean(final EOConfigsCache configs, final String urlString, final Class beanClass) {
-        return new EOBuilder(configs)
-                .setModels(Map.class, beanClass)
-                .mapFile(urlString);
+        EO eo = new EORoot(configs, LogLevel.DEBUG, Map.class, beanClass);
+        eo.mapObject(new File(urlString));
+        return eo;
     }
 
     public static EO readAdapterBean(final EOConfigsCache configs, final URL url, final Class beanClass) {
         try {
-            return new EOBuilder(configs)
-                    .setModels(Map.class, beanClass)
-                    .mapFile(url);
+            EO eo = new EORoot(configs, LogLevel.DEBUG, Map.class, beanClass);
+            eo.mapObject(new File(url.getFile()));
+            return eo;
         } catch (Exception e) {
             throw e;
         }

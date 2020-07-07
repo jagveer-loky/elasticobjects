@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ConfigCallTest {
     @Test
     public void fieldsDirect()  {
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         final ConfigCall call = new ConfigCall();
         call.setFilterConfigName(M_FIELD_CONFIG);
         call.setFilterModule(EO_STATIC.MODULE_NAME);

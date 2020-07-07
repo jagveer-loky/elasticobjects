@@ -27,6 +27,7 @@ public interface ModelInterface extends Config {
     String getModelConfigKey();
 
     List<String> getFieldKeys();
+    Set<String> getFieldNames();
 
     ShapeTypes getShapeType();
 

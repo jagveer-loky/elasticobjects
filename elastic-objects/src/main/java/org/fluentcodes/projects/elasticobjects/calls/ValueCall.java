@@ -92,7 +92,7 @@ public class ValueCall extends Call {
             this.value = execute.invoke(eo, attributes);
         }
         final String path = getMergePath();
-        eo.add(path).set(value);
+        eo.setPathValue(path, value);
         return eo;
     }
 
@@ -107,7 +107,7 @@ public class ValueCall extends Call {
             return adapter;
         }
         final String path = getMergePath();
-        adapter.add(path).map(value);
+        adapter.setPathValue(path, value);
 
         return adapter;
     }

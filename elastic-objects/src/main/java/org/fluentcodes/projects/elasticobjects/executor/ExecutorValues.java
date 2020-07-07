@@ -145,7 +145,7 @@ public class ExecutorValues extends ExecutorImpl implements Executor {
                 if (!hasMapPath() || mapPath.equals("/")) {
                     builder.append(result);
                 } else {
-                    nextAdapter.add(mapPath).set(result);
+                    nextAdapter.setPathValue(mapPath, result);
                 }
             } catch (Exception e) {
                 StringBuilder error = new StringBuilder();

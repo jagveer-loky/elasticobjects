@@ -5,6 +5,8 @@ import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
+
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
@@ -73,7 +75,7 @@ public class EOToJSONListTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(S_STRING, fromJson.get(S0));
     }
 
@@ -96,7 +98,7 @@ public class EOToJSONListTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(S_INTEGER, fromJson.get(S0));
     }
 
@@ -119,7 +121,7 @@ public class EOToJSONListTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(SAMPLE_LONG, fromJson.get(S0));
     }
 
@@ -137,10 +139,9 @@ public class EOToJSONListTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         final String file = AssertEO.compare(stringified);
-        final EO fromJson = TestEOProvider
-                .createEOBuilder()
-                .mapFile(file);
-        Assert.assertEquals(SAMPLE_FLOAT, fromJson.get(S0));
+        /*final EO fromJson = TestEOProvider
+                .createFile(file);
+        Assert.assertEquals(SAMPLE_FLOAT, fromJson.get(S0));*/
     }
 
     @Test
@@ -162,7 +163,7 @@ public class EOToJSONListTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(SAMPLE_DOUBLE, fromJson.get(S0));
     }
 
@@ -186,7 +187,7 @@ public class EOToJSONListTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(SAMPLE_DATE, fromJson.get(S0));
     }
 
@@ -209,7 +210,7 @@ public class EOToJSONListTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(S_BOOLEAN, fromJson.get(S0));
     }
 

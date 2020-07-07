@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -64,7 +65,7 @@ public class EOToJSONMapTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(S_STRING, fromJson.get(F_TEST_STRING));
     }
 
@@ -77,7 +78,7 @@ public class EOToJSONMapTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(S_INTEGER, fromJson.get(F_TEST_INTEGER));
     }
 
@@ -90,7 +91,7 @@ public class EOToJSONMapTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(SAMPLE_LONG, fromJson.get(F_TEST_LONG));
     }
 
@@ -103,7 +104,7 @@ public class EOToJSONMapTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(SAMPLE_FLOAT, fromJson.get(F_TEST_FLOAT));
     }
 
@@ -116,7 +117,7 @@ public class EOToJSONMapTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(SAMPLE_DOUBLE, fromJson.get(F_TEST_DOUBLE));
     }
 
@@ -129,7 +130,7 @@ public class EOToJSONMapTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(SAMPLE_DATE, fromJson.get(F_TEST_DATE));
     }
 
@@ -142,7 +143,7 @@ public class EOToJSONMapTest extends TestHelper {
                 .setSerializationType(JSONSerializationType.SCALAR)
                 .toJSON(adapter);
         String file = AssertEO.compare(stringified);
-        EO fromJson = TestEOProvider.createEOBuilder().mapFile(file);
+        EO fromJson = TestEOProvider.create(new File(file));
         Assert.assertEquals(S_BOOLEAN, fromJson.get(F_TEST_BOOLEAN));
     }
 
@@ -203,11 +204,9 @@ public class EOToJSONMapTest extends TestHelper {
         map.put(S_KEY0, S_STRING);
         map.put(S_KEY1, S_INTEGER);
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(S_LEVEL0)
-                .set(map);
-        adapter.add(S_LEVEL1)
-                .set(map);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(S_LEVEL0,map);
+        adapter.setPathValue(S_LEVEL1,map);
         String toCompare = MapProviderJSON.toJSONMap(S_LEVEL0,
                 MapProviderJSON.toJSONMap(S_KEY0, S_STRING, S_KEY1, S_INTEGER),
                 S_LEVEL1,
@@ -225,12 +224,10 @@ public class EOToJSONMapTest extends TestHelper {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add()
-                .set(map);
+        EO adapter = TestEOProvider.create();
+        adapter.mapObject(map);
         adapter
-                .add(S_LEVEL0)
-                .set(map);
+                .setPathValue(S_LEVEL0,map);
         adapter.setCheckObjectReplication(true);
         String serialized = new EOToJSON()
                 .setStartIndent(0)

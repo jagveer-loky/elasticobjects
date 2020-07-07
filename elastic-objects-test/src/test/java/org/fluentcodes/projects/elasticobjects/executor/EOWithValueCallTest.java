@@ -20,7 +20,7 @@ public class EOWithValueCallTest extends TestHelper {
     @Test
     public void testItem()  {
         TestHelper.printStartMethod();
-        final EO root = TestEOProvider.createEmptyMap();
+        final EO root = TestEOProvider.create();
         final CallExecutor executor = ValueCall.createSetExecutor(VC_TEST_ITEM, F_MAP_PATH, F_TEST_STRING);
         root.addCall(executor);
         root.executeCalls();
@@ -30,10 +30,9 @@ public class EOWithValueCallTest extends TestHelper {
 
     @Test
     public void testItemAddedToChild()  {
-        final EO root = TestEOProvider.createEmptyMap();
+        final EO root = TestEOProvider.create();
         final EO child = root
-                .add(toPath(S_LEVEL0, S_LEVEL1))
-                .build();
+                .setPathValue(toPath(S_LEVEL0, S_LEVEL1));
         child.addCall(ValueCall.createSetExecutor(VC_TEST_ITEM));
         child.executeCalls();
         Assert.assertEquals(S_STRING, child.get());
@@ -42,8 +41,8 @@ public class EOWithValueCallTest extends TestHelper {
 
     @Test
     public void add2ActionsToAdapter()  {
-        EO root = TestEOProvider.createEmptyMap();
-        EO child = root.add(toPath(S_LEVEL0, S_LEVEL1)).build();
+        EO root = TestEOProvider.create();
+        EO child = root.setPathValue(toPath(S_LEVEL0, S_LEVEL1));
 
         final CallExecutor callExecutor1 = ValueCall.createSetExecutor(VC_TEST_ITEM, F_MAP_PATH, F_TEST_STRING);
         final CallExecutor callExecutor2 = ValueCall.createSetExecutor(VC_INT_VALUE1, F_MAP_PATH, F_TEST_INTEGER);

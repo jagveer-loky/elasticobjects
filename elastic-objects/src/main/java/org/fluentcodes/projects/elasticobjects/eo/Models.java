@@ -36,6 +36,25 @@ public class Models {
         models.add(configsCache.findModel(value.getClass()));
     }
 
+    protected Models(EOConfigsCache configsCache, Object value)  {
+        this.configsCache = configsCache;
+        this.models = new ArrayList();
+        if (value instanceof String) {
+            if (JSONToEO.jsonListPattern.matcher((String)value).find()) {
+                models.add(configsCache.findModel(List.class));
+            }
+            else if (JSONToEO.jsonMapPattern.matcher((String)value).find()) {
+                models.add(configsCache.findModel(Map.class));
+            }
+            else {
+                models.add(configsCache.findModel(String.class));
+            }
+        }
+        else {
+            models.add(configsCache.findModel(value));
+        }
+    }
+
     /**
      * Creates a root adapter with an ItemsCache
      */
@@ -81,36 +100,44 @@ public class Models {
     public Models(final EOConfigsCache configsCache, final Class... classes)  {
         this.configsCache = configsCache;
         if (classes.length == 0) {
-            this.models = new ArrayList();
-            try {
-                this.setByClasses(configsCache, Map.class);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.hasModel = false;
+            this.models = getByClasses(Map.class.getSimpleName());
             return;
         }
         this.models = getByClasses(configsCache, classes);
+    }
+
+    public Models(final EOConfigsCache configsCache, final List<String> classKeys)  {
+        this.configsCache = configsCache;
+        if (classKeys == null) {
+            throw new EoException("Null classKeys");
+        }
+        if (classKeys.isEmpty()) {
+            classKeys.add(Map.class.getSimpleName());
+        }
+        this.models = getByClasses(configsCache, classKeys);
     }
 
     private List<ModelInterface> getByClasses(final String classesString)  {
         if (classesString == null) {
             throw new EoException("Null value");
         }
-        return getByClasses(configsCache, classesString.split(","));
+        return getByClasses(configsCache, Arrays.asList(classesString.split(",")));
     }
 
     private List<ModelInterface> getByClasses(final EOConfigsCache provider, final String[] classes)  {
+        return getByClasses(provider, Arrays.asList(classes));
+    }
+
+    private List<ModelInterface> getByClasses(final EOConfigsCache provider, final List<String> classes)  {
         if (classes == null) {
             throw new EoException("Null value");
         }
         List<ModelInterface> models = new ArrayList<>();
-        if (classes.length == 0) {
+        if (classes.size() == 0) {
             return models;
         }
         ModelInterface buffer;
         for (String classEntry : classes) {
-
             if ("Object".equals(classEntry) && models.size() > 0) {
                 break;
             }
@@ -191,9 +218,9 @@ public class Models {
         }
         if (eo != null) {
             if (isScalar()) {
-                ((EOContainer) eo).map(ScalarConverter.transform(getModelClass(), value));
+                eo.mapObject(ScalarConverter.transform(getModelClass(), value));
             } else {
-                ((EOContainer) eo).map(value);
+                eo.mapObject(value);
             }
         }
     }
@@ -296,14 +323,29 @@ public class Models {
         return new Models(this.models.subList(1, models.size()));
     }
     public Models getChildModels(Path path, Object value) {
-        if (!hasChildModel()) {
-            if (path.hasChild()) {
-                return new Models(configsCache);
-            }
-            return new Models(configsCache.findModel(value));
+        Models models = getChildModels(path);
+        if (models!=null) {
+            return models;
         }
-        return getChildModelsList();
+        if (value == null) {
+            return new Models(configsCache);
+        }
+        return new Models(configsCache.findModel(value));
     }
+
+    public Models getChildModels(Path path) {
+        if (hasChildModel()) {
+            return getChildModelsList();
+        }
+        if (path.hasModel()) {
+            return new Models(configsCache, path.getModels());
+        }
+        if (path.hasChild()) {
+            return new Models(configsCache);
+        }
+        return null;
+    }
+
     public List<ModelInterface> getModels() {
         List<ModelInterface> models = new ArrayList<>();
 

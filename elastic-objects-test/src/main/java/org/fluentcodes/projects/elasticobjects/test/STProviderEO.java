@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.test;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.junit.Assert;
 
@@ -15,12 +15,9 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * @since 07.09.2018
  */
 public class STProviderEO {
-    public static EOBuilder builder() {
-        return TestEOProvider.createEOBuilder();
-    }
-
+    
     public static EO createEmpty()  {
-        final EO eo = builder().map(STProvider.createEmpty());
+        final EO eo = TestEOProvider.create(STProvider.createEmpty());
         assertEmpty(eo);
         return eo;
     }
@@ -30,7 +27,7 @@ public class STProviderEO {
     }
 
     public static EO createString()  {
-        final EO eo = builder().map(STProvider.createString());
+        final EO eo = TestEOProvider.create(STProvider.createString());
         assertString(eo);
         return eo;
     }
@@ -41,7 +38,7 @@ public class STProviderEO {
 
 
     public static EO createName()  {
-        final EO eo = builder().map(STProvider.createName());
+        final EO eo = TestEOProvider.create(STProvider.createName());
         assertName(eo);
         return eo;
     }
@@ -52,7 +49,7 @@ public class STProviderEO {
 
 
     public static EO createST()  {
-        final EO eo = builder().map(STProvider.createST());
+        final EO eo = TestEOProvider.create(STProvider.createST());
         assertST(eo);
         return eo;
     }
@@ -63,7 +60,7 @@ public class STProviderEO {
 
 
     public static EO createSimple()  {
-        final EO eo = builder().map(STProvider.createSimple());
+        final EO eo = TestEOProvider.create(STProvider.createSimple());
         assertSimple(eo);
         return eo;
     }
@@ -75,7 +72,7 @@ public class STProviderEO {
 
 
     public static EO create()  {
-        final EO eo = builder().map(STProvider.create());
+        final EO eo = TestEOProvider.create(STProvider.create());
         asserts(eo);
         return eo;
     }

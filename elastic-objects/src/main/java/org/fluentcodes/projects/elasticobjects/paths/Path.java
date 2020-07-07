@@ -11,11 +11,7 @@ import java.util.List;
  */
 public class Path {
     public static final String DELIMITER = "/";
-    public static final String BACK = "..";
-    public static final String SAME = ".";
-    public static final String MATCHER = "*";
-    public static final String MATCHER_ALL = "+";
-    private final ArrayList<String> entries;
+    private final ArrayList<PathElement> entries;
     private boolean parent = false;
 
     public Path(final Path path) {
@@ -28,7 +24,7 @@ public class Path {
         this.addPaths(path);
     }
 
-    private Path(final List<String> paths) {
+    private Path(final List<PathElement> paths) {
         this.entries = new ArrayList<>();
         this.entries.addAll(paths);
     }
@@ -38,15 +34,15 @@ public class Path {
     }
 
     public boolean isFilterNothing() {
-        for (String path : this.entries) {
-            if (path.equals(MATCHER_ALL)) {
+        for (PathElement path : this.entries) {
+            if (path.getPathElement().equals(PathElement.MATCHER_ALL)) {
                 return true;
             }
         }
         return false;
     }
 
-    protected ArrayList<String> getEntries() {
+    protected ArrayList<PathElement> getEntries() {
         return this.entries;
     }
 
@@ -57,14 +53,14 @@ public class Path {
         if (entries.size() == 0) {
             return null;
         }
-        return this.entries.get(0);
+        return this.entries.get(0).getPathElement();
     }
 
     public String last() {
         if (entries.size() == 0) {
             return null;
         }
-        return this.entries.get(entries.size() - 1);
+        return this.entries.get(entries.size() - 1).getPathElement();
     }
 
     public boolean isEmpty() {
@@ -96,7 +92,7 @@ public class Path {
         if (path == null || path.equals("")) {
             return this;
         }
-        this.entries.add(0, path);
+        this.entries.add(0, new PathElement(path));
         return this;
     }
 
@@ -109,22 +105,22 @@ public class Path {
         }
         String[] paths = toAdd.split(DELIMITER);
         for (String path : paths) {
-            if (path == null || path.isEmpty() || path.equals(SAME) || path.matches("^\\s+$")) {
+            if (path == null || path.isEmpty() || path.equals(PathElement.SAME) || path.matches("^\\s+$")) {
                 continue;
             }
-            if (path.equals(BACK)) {
+            if (path.equals(PathElement.BACK)) {
                 if (entries.isEmpty()) {
-                    this.entries.add(path);
+                    this.entries.add(new PathElement(path));
                     continue;
                 }
-                if (this.last().equals(Path.BACK)) {
-                    this.entries.add(path);
+                if (this.last().equals(PathElement.BACK)) {
+                    this.entries.add(new PathElement(path));
                     continue;
                 }
                 this.entries.remove(this.entries.size() - 1);
                 continue;
             }
-            this.entries.add(path);
+            this.entries.add(new PathElement(path));
         }
     }
 
@@ -135,6 +131,13 @@ public class Path {
      * @return returns the first entry of the path.
      */
     public String getFirstEntry() {
+        if (isEmpty()) {
+            return null;
+        }
+        return getFirstPathElement().getPathElement();
+    }
+
+    public PathElement getFirstPathElement() {
         if (isEmpty()) {
             return null;
         }
@@ -173,7 +176,7 @@ public class Path {
     }
 
     public String get(int i) {
-        return this.entries.get(i);
+        return this.entries.get(i).getPathElement();
     }
 
     @Override
@@ -208,7 +211,7 @@ public class Path {
         }
         StringBuffer pathDirectory = new StringBuffer("");
         for (int i = 0; i < entries.size() - 1; i++) {
-            String path = this.entries.get(i);
+            String path = this.entries.get(i).getPathElement();
             pathDirectory.append(DELIMITER + path);
         }
         return pathDirectory.toString();
@@ -219,11 +222,25 @@ public class Path {
         if (isEmpty()) {
             return null;
         }
-        return entries.get(entries.size() - 1);
+        return entries.get(entries.size() - 1).getPathElement();
     }
 
     public boolean hasChild() {
-        return !isEmpty();
+        return !isEmpty() && this.entries.size()>1;
+    }
+
+    public boolean hasModel() {
+        if (isEmpty()) {
+            return false;
+        }
+        return getFirstPathElement().hasModels();
+    }
+
+    public List<String> getModels() {
+        if (isEmpty()) {
+            return new ArrayList<>();
+        }
+        return getFirstPathElement().getModels();
     }
 
     public boolean hasPlaceHolder() {
@@ -233,7 +250,7 @@ public class Path {
 
     public boolean hasMatcher() {
         String item = this.directory();
-        return item.contains(MATCHER);
+        return item.contains(PathElement.MATCHER);
     }
 
 }

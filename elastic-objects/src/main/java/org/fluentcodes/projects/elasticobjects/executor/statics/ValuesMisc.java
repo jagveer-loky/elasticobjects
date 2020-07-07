@@ -96,7 +96,7 @@ public class ValuesMisc extends ValueParamsHelper {
         EO adapter = getEO(0, values);
         String path = getString(1, values);
         String value = getString(2, values);
-        adapter.add(path).set(value);
+        adapter.setPathValue(path, value);
         return "";
     }
 }

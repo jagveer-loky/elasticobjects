@@ -4,7 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
+import org.fluentcodes.projects.elasticobjects.eo.EORoot;
 import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
 
 import java.util.HashMap;
@@ -42,7 +43,7 @@ public class EOConfigs implements EOConfigsInterface<Config> {
     }
 
     protected void addConfigs()  {
-        addAll(new EOConfigReader(configsCache, configClass).read(scope));
+        addAll(new EOConfigReader(configsCache, ModelConfig.class).read());
     }
 
     public Map<String, Config> getConfigMap() {
@@ -61,19 +62,6 @@ public class EOConfigs implements EOConfigsInterface<Config> {
         return configMap.keySet();
     }
 
-        /*String keyAsString = (String) key;
-        List<Scope> scopes = bean.getScope();
-        if (!provider.getScope().shouldLoaded(scopes)) {
-          continue;
-        }
-        if (scopes != null) {
-          for (Scope scope : scopes) {
-            keyAsString = keyAsString.replaceAll("\\." + scope.name(), "");
-          }
-        }
-        bean.setNaturalId(keyAsString);
-        Config config = bean.build(provider);*/
-
     protected void add(Config config) {
         this.configMap.put(config.getNaturalId(), config);
     }
@@ -84,8 +72,7 @@ public class EOConfigs implements EOConfigsInterface<Config> {
         }
     }
 
-    @Override
-    public String toString() {
+    public String toStringx() {
         StringBuilder builder = new StringBuilder();
         int counter = 0;
         for (String key : configMap.keySet()) {
@@ -96,8 +83,7 @@ public class EOConfigs implements EOConfigsInterface<Config> {
                 builder.append("    \"");
                 builder.append(key);
                 builder.append("\":");
-                EO adapter = new EOBuilder(configsCache)
-                        .set(config);
+                EO adapter = new EORoot(configsCache,config);
                 builder.append(new EOToJSON()
                         .setStartIndent(3)
                         .toJSON(adapter));
@@ -112,8 +98,6 @@ public class EOConfigs implements EOConfigsInterface<Config> {
             }
         }
         return builder.toString();
-
-
     }
 
 

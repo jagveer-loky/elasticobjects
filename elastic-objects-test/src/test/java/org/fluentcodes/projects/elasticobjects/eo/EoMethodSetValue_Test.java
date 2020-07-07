@@ -84,6 +84,49 @@ public class EoMethodSetValue_Test {
         Assert.assertEquals("testObject", root.get("test/test2/testString"));
         Assert.assertEquals(BasicTest.class, root.getChild("test/test2").getModelClass());
     }
+
+    @Test
+    public void testBTByPath_ok()  {
+        final EORoot root = new EORoot(DevObjectProvider.EO_CONFIGS);
+        root.setPathValue("(BasicTest)test/testString", "testObject");
+        Assert.assertEquals("testObject", root.get("test/testString"));
+        Assert.assertEquals(BasicTest.class, root.getChild("test").getModelClass());
+    }
+
+    @Test
+    public void testBTByPathAddInteger_ok()  {
+        final EORoot root = new EORoot(DevObjectProvider.EO_CONFIGS);
+        root.setPathValue("(BasicTest)test/testString", "testObject");
+        root.setPathValue("test/testInt", 1);
+        Assert.assertEquals(1, root.get("test/testInt"));
+        Assert.assertTrue(root.getLog().isEmpty());
+        Assert.assertEquals(BasicTest.class, root.getChild("test").getModelClass());
+    }
+
+    @Test
+    public void testBTByPathAddNonsense_nok()  {
+        final EORoot root = new EORoot(DevObjectProvider.EO_CONFIGS);
+        root.setPathValue("(BasicTest)test/testString", "testObject");
+        root.setPathValue("test/nonsense", 1);
+        Assert.assertNull(root.get("test/nonsense"));
+        Assert.assertFalse(root.getLog().isEmpty());
+        Assert.assertEquals(BasicTest.class, root.getChild("test").getModelClass());
+    }
+
+    @Test
+    public void testBTByPathWithEmpty_ok()  {
+        final EORoot root = new EORoot(DevObjectProvider.EO_CONFIGS);
+        root.setPathValue("(BasicTest)test");
+        Assert.assertEquals(BasicTest.class, root.getChild("test").getModelClass());
+    }
+
+    @Test
+    public void testBTRoot_ok()  {
+        final EORoot root = new EORoot(DevObjectProvider.EO_CONFIGS, LogLevel.DEBUG, BasicTest.class);
+        root.setPathValue("testString", "testObject");
+        Assert.assertEquals(BasicTest.class, root.getModelClass());
+        Assert.assertEquals("testObject", root.get("testString"));
+    }
 }
 
 

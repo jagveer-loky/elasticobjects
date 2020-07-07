@@ -18,10 +18,8 @@ public class Merge {
         final BasicTest BT2 = new BasicTest();
         BT2.setTestFloat( 1.1F);
 
-        eo.add()
-                .set(BT1);
-        eo.add()
-                .map(BT2);
+        eo.mapObject(BT1);
+        eo.mapObject(BT2);
 
         assertEquals("value", eo.get("testString"));
         assertEquals(1.1F, eo.get("testFloat"));

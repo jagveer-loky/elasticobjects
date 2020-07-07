@@ -24,36 +24,21 @@ public class EONoPathRootMap_models_Test {
 
     public static EO mapEO_ok(final EO root, final Class... classes)  {
         final Class modelClass = root.getModelClass();
-        final EO child = root.add()
-                .setModels(classes)
-                .map(null);
         Assert.assertEquals(INFO_COMPARE_FAILS, modelClass, root.getModelClass());
         Assert.assertTrue(INFO_EMPTY_FAILS + root.getLog(), root.getLog().isEmpty());
-        return child;
-    }
-
-    public static EO mapEO_changeNothing(final EO root, final Class... classes)  {
-        final EO child = root.add()
-                .setModels(classes)
-                .map(null);
-        Assert.assertFalse(INFO_NOT_EMPTY_FAILS, root.getLog().isEmpty());
-        return child;
+        return root;
     }
 
     @Test
     public void givenString_withInteger_changeNothing()  {
-        final EO eoString = DevObjectProvider
-                .createEOBuilder()
-                .set(S_STRING);
+        final EO eoString = DevObjectProvider.createEO(S_STRING);
         mapEO_ok(eoString, Integer.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get());
     }
 
     @Test
     public void givenString_WithList_changeNothing()  {
-        final EO eoString = DevObjectProvider
-                .createEOBuilder()
-                .set(S_STRING);
+        final EO eoString = DevObjectProvider.createEO(S_STRING);
         mapEO_ok(eoString, List.class);
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eoString.get());
     }

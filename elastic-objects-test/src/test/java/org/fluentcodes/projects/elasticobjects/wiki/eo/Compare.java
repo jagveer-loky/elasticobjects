@@ -17,12 +17,12 @@ public class Compare {
         final Map map = new HashMap();
         map.put("testString", "value");
         final EO eo = TestEOProvider.create();
-        eo.add().set(map);
+        eo.mapObject(map);
 
         BasicTest BT = new BasicTest();
         BT.setTestString("value");
         final EO eo2 = TestEOProvider.create();
-        eo2.add().set(BT);
+        eo2.mapObject(BT);
 
         StringBuilder diff = new StringBuilder();
         eo.compare(diff, eo2);

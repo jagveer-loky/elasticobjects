@@ -56,7 +56,7 @@ public class EOPathNewRootMap_value_models_Test {
     @Test
     public void mapBTStringWithMap_ok()  {
         final EO child = EOTestHelper.map_ok(F_UNTYPED_MAP, BTProvider.createString(), Map.class);
-        Assert.assertNotNull(((EOContainer) child).getChildAdapter(F_TEST_STRING));
+        Assert.assertNotNull(child.getChild(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, child.get(F_TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, child.getModelClass());
     }

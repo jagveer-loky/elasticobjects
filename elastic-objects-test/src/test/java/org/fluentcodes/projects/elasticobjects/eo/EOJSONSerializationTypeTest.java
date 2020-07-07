@@ -19,9 +19,8 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setString()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_LEVEL0)
-                .set(TEO_STATIC.S_STRING);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_LEVEL0, TEO_STATIC.S_STRING);
         Assert.assertEquals(TEO_STATIC.S_STRING, adapter.get(TEO_STATIC.S_LEVEL0));
         AssertEO.compare(adapter);
     }
@@ -34,9 +33,8 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setDoubleValue()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_KEY_DOUBLE)
-                .set(1.1D);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_KEY_DOUBLE,1.1D);
 
         Assert.assertEquals(1.1D, adapter.get(TEO_STATIC.S_KEY_DOUBLE));
         Assert.assertEquals(Double.class, adapter.getChild(TEO_STATIC.S_KEY_DOUBLE).getModelClass());
@@ -52,9 +50,8 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setLong()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_KEY_LONG)
-                .set(1L);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_KEY_LONG, 1L);
 
         Assert.assertEquals(1L, adapter.get(TEO_STATIC.S_KEY_LONG));
         Assert.assertEquals(Long.class, adapter.getChild(TEO_STATIC.S_KEY_LONG).getModelClass());
@@ -70,9 +67,8 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setFloatValue()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_KEY_FLOAT)
-                .set(1.1F);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_KEY_FLOAT,1.1F);
 
         Assert.assertEquals(1.1F, adapter.get(TEO_STATIC.S_KEY_FLOAT));
         Assert.assertEquals(Float.class, adapter.getChild(TEO_STATIC.S_KEY_FLOAT).getModelClass());
@@ -88,9 +84,8 @@ public class EOJSONSerializationTypeTest extends TestHelper {
     @Test
     public void setInt()  {
         TestHelper.printStartMethod();
-        EO adapter = TestEOProvider.createEmptyMap();
-        adapter.add(TEO_STATIC.S_KEY_INTEGER)
-                .set(1);
+        EO adapter = TestEOProvider.create();
+        adapter.setPathValue(TEO_STATIC.S_KEY_INTEGER,1);
 
         Assert.assertEquals(1, adapter.get(TEO_STATIC.S_KEY_INTEGER));
         Assert.assertEquals(Integer.class, adapter.getChild(TEO_STATIC.S_KEY_INTEGER).getModelClass());

@@ -2,23 +2,17 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.Scope;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
-import org.fluentcodes.projects.elasticobjects.eo.JSONToEO;
-import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
+import org.fluentcodes.projects.elasticobjects.eo.*;
 import org.junit.Assert;
+
+import java.io.File;
 
 public class TestEOProvider {
     public static final EOConfigsCache EO_CONFIGS = new EOConfigsCache(Scope.TEST);
 
-    public static final EO createEmptyMap()  {
-        return createEOBuilder().build();
-    }
-
-    public static final EO create(Class... classes) {
+    public static final EO createWithClasses(Class... classes) {
         try {
-            return createEOBuilder(classes)
-                    .build();
+            return new EORoot(EO_CONFIGS, classes);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -26,10 +20,18 @@ public class TestEOProvider {
         }
     }
 
-    public final static EO create() {
+    public static final EO create() {
         try {
-            return createEOBuilder()
-                    .build();
+            return new EORoot(EO_CONFIGS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static final EO create(Object value) {
+        try {
+            return new EORoot(EO_CONFIGS, value);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -40,37 +42,12 @@ public class TestEOProvider {
         return new JSONToEO("{}", EO_CONFIGS);
     }
 
-    public static final JSONToEO createJSONToEOListEmpty()  {
-        return new JSONToEO("[]", EO_CONFIGS);
-    }
-
-    public static final EO createEOFromJson(Class... classes)  {
-        return createEOBuilder(classes)
-                .build();
-    }
-
-    public static final EOBuilder createEOBuilder() {
-        try {
-            return new EOBuilder(EO_CONFIGS)
-                    .setLogLevel(LogLevel.WARN);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static final EOBuilder createEOBuilder(Class... classes)  {
-        return new EOBuilder(EO_CONFIGS)
-                .setModels(classes)
-                .setLogLevel(LogLevel.WARN);
-    }
-
     public static final EO assertEOSerialized(EO eo)  {
         String fileName = AssertEO.compare(eo);
         Assert.assertTrue(eo.getLog().isEmpty());
         eo.executeCalls();
         Assert.assertTrue(eo.getLog().isEmpty());
-        EO eoFromSerialization = new EOBuilder(EO_CONFIGS).mapFile(fileName);
+        EO eoFromSerialization = new EORoot(EO_CONFIGS, new File(fileName));
         AssertEO.compare(eoFromSerialization);
         Assert.assertTrue(eoFromSerialization.getLog().isEmpty());
         return eoFromSerialization;

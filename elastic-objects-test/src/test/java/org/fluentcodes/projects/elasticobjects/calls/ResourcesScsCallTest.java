@@ -16,7 +16,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ResourcesScsCallTest {
     @Test
     public void readFileSourceJson()  {
-        final EO eoEmpty = TestEOProvider.createEmptyMap();
+        final EO eoEmpty = TestEOProvider.create();
         final ScsCall call = TestCallsProvider.createScsCall(CS_SOURCE_CSV);
         call.read(eoEmpty);
         Assert.assertEquals(S_VALUE11, eoEmpty.getChild(S0).get(S_KEY1));

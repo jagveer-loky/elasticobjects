@@ -68,9 +68,7 @@ public class EOToJSON {
 
     public String toJSON(final EOConfigsCache finder, final Object object)  {
         return this.toJSON(
-                new EOBuilder(finder)
-                        .setLogLevel(LogLevel.WARN)
-                        .set(object)
+                new EORoot(finder, object)
         );
     }
 
@@ -111,7 +109,7 @@ public class EOToJSON {
         if (executorList.size() > 0) {
             JSONSerializationType buffer = serializationType;
             serializationType = JSONSerializationType.STANDARD;
-            EO actionsAdapter = new EOBuilder(adapter.getConfigsCache()).set(executorList.getListMap());
+            EO actionsAdapter = new EORoot(adapter.getConfigsCache(),executorList.getListMap());
             jsn.append(",");
             jsn.append(lineBreak);
             jsn.append(nextIndent);

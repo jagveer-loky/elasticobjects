@@ -25,7 +25,7 @@ public class ExecutorItemTest {
         Assert.assertEquals(ValuesMisc.class, item.getExecutorClass());
         Assert.assertEquals(CON_SET, item.getMethodName());
         Assert.assertNotNull(item.getMethod());
-        EO eo = TestEOProvider.createEmptyMap();
+        EO eo = TestEOProvider.create();
         Object[] args = new Object[]{eo, F_TEST_STRING, S_STRING};
         try {
             item.getMethod().invoke(null, new Object[]{args});

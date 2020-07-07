@@ -15,7 +15,7 @@ public class TestTemplateProvider {
 
     public static EO executeTemplateActionForAdapter(Map attributes, final String key)  {
         final TemplateCall templateAction = createTemplateCall(key);
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         templateAction.execute(adapter, attributes);
         return adapter;
     }
@@ -23,7 +23,7 @@ public class TestTemplateProvider {
     public final static void assertExecutorTemplate(final String templateFile)  {
         final String template = FileUtil.readFile(templateFile);
         final ExecutorList executorList = new ExecutorListTemplate(template);
-        final String result = executorList.execute(TestEOProvider.createEmptyMap());
+        final String result = executorList.execute(TestEOProvider.create());
         AssertEO.compare(result);
     }
 
@@ -51,12 +51,12 @@ public class TestTemplateProvider {
 
     public static String executeTemplateCall(final String key)  {
         TemplateCall call = new TemplateCall(TestEOProvider.EO_CONFIGS, key);
-        return call.execute(TestEOProvider.createEmptyMap());
+        return call.execute(TestEOProvider.create());
     }
 
     public static String executeTemplateAction(Map attributes, final String key)  {
         final TemplateCall executorAction = createTemplateCall(key);
-        final EO adapter = TestEOProvider.createEmptyMap();
+        final EO adapter = TestEOProvider.create();
         return executorAction.execute(adapter, attributes);
     }
 }

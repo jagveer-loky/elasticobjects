@@ -4,9 +4,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EoException;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
-import org.fluentcodes.projects.elasticobjects.eo.Models;
+import org.fluentcodes.projects.elasticobjects.eo.*;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -246,7 +244,7 @@ public class ListMapper {
             if (adapter.isList()) {
                 return;
             }
-            if (adapter.isEmpty()) {
+            /*if (adapter.isEmpty()) {
                 adapter.add()
                         .setModels(List.class)
                         .build();
@@ -255,20 +253,10 @@ public class ListMapper {
                     return;
                 }
                 throw new EoException("Not empty adapter and not list!");
-            }
+            }*/
         } else {
             if (adapter.isMap() || adapter.isObject()) {
                 return;
-            }
-            if (adapter.isEmpty()) {
-                adapter.add()
-                        .setModels(Map.class)
-                        .build();
-            } else {
-                if (adapter.isList()) {
-                    return;
-                }
-                throw new EoException("Not empty adapter and not object or map!");
             }
         }
     }
@@ -330,7 +318,7 @@ public class ListMapper {
             if (!hasMapPath()) {
                 if (!(row instanceof List) || (!hasColKeys() || isIgnoreHeader()) && adapter.isEmpty()) {
                     try {
-                        adapter.add(position).set(row);
+                        adapter.setPathValue(position, row);
                     } catch (Exception e) {
                         e.printStackTrace();
                         adapter.error(e.getMessage());
@@ -361,10 +349,7 @@ public class ListMapper {
                 }
                 String subPath = ReplaceUtil.replace(mapPath, rowAdapter, attributes);
                 try {
-                    adapter
-                            .add(subPath)
-                            .setPathPattern(pathPattern)
-                            .set(rowAdapter.get());
+                    adapter.setPathValue(subPath,rowAdapter.get());
                 } catch (Exception e) {
                     e.printStackTrace();
                     adapter.error(e.getMessage());
@@ -375,15 +360,10 @@ public class ListMapper {
     }
 
     private EO createRowAdapter(EOConfigsCache cache)  {
-        return new EOBuilder(cache)
-                .setModels(models.getChildModel())
-                .build();
+        return new EORoot(cache);
     }
 
     private EO createRowAdapter(EO adapter, String position)  {
-        adapter.add(position)
-                .setModels(models.getChildModel())
-                .build();
         return adapter.getChild(position);
     }
 
@@ -417,13 +397,9 @@ public class ListMapper {
                 }
             }
             if (doMap) {
-                adapter
-                        .add(key)
-                        .map(value);
+                adapter.setPathValue(key, value);
             } else {
-                adapter
-                        .add(key)
-                        .set(value);
+                adapter.setPathValue(key, value);
             }
         }
         return adapter;

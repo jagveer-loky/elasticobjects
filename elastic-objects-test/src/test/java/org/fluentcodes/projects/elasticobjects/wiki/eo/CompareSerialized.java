@@ -12,8 +12,7 @@ public class CompareSerialized {
     public void test()  {
         final EO eo = TestEOProvider.create();
         final String mapJson = "{\"first\": 1,\"second\": 2,\"third\": 3}";
-        eo.add()
-                .map(mapJson);
+        eo.mapObject(mapJson);
 
         assertEquals(1L, eo.get("first"));
         assertEquals(mapJson, new EOToJSON().toJSON(eo));

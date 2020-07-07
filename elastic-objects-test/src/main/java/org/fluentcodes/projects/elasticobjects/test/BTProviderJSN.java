@@ -2,28 +2,19 @@ package org.fluentcodes.projects.elasticobjects.test;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EOBuilder;
+
 import org.junit.Assert;
 
 import static org.fluentcodes.projects.elasticobjects.test.JSONInputReader.*;
 
 public class BTProviderJSN {
-    public static EOBuilder builder() {
-        return TestEOProvider.createEOBuilder();
-    }
-
+    
     public static String readEmpty()  {
         return JSONInputReader.readInputJSN(TYPE.BT, EMPTY);
     }
-
-    public static String getJSONEmpty()  {
-        String eo = JSONInputReader.readInputJSN(TYPE.BT, EMPTY);
-        return eo;
-    }
-
+    
     public static EO createEmpty()  {
-        final EO eo = builder()
-                .map(readEmpty());
+        final EO eo = TestEOProvider.create(readEmpty());
         BTProviderEO.assertEmpty(eo);
         return eo;
     }
@@ -40,8 +31,7 @@ public class BTProviderJSN {
     }
 
     public static EO createString()  {
-        final EO eo = builder()
-                .map(readString());
+        final EO eo = TestEOProvider.create(readString());
         BTProviderEO.assertString(eo);
         return eo;
     }
@@ -57,8 +47,7 @@ public class BTProviderJSN {
     }
 
     public static EO createInteger()  {
-        final EO eo = builder()
-                .map(readInteger());
+        final EO eo = TestEOProvider.create(readInteger());
         BTProviderEO.assertInteger(eo);
         return eo;
     }
@@ -75,8 +64,7 @@ public class BTProviderJSN {
     }
 
     public static EO createLong()  {
-        final EO eo = builder()
-                .map(readLong());
+        final EO eo = TestEOProvider.create(readLong());
         BTProviderEO.assertLong(eo);
         return eo;
     }
@@ -92,8 +80,7 @@ public class BTProviderJSN {
     }
 
     public static EO createFloat()  {
-        final EO eo = builder()
-                .map(readFloat());
+        final EO eo = TestEOProvider.create(readFloat());
         BTProviderEO.assertFloat(eo);
         return eo;
     }
@@ -110,8 +97,7 @@ public class BTProviderJSN {
     }
 
     public static EO createDouble()  {
-        final EO eo = builder()
-                .map(readDouble());
+        final EO eo = TestEOProvider.create(readDouble());
         BTProviderEO.assertDouble(eo);
         return eo;
     }
@@ -128,8 +114,7 @@ public class BTProviderJSN {
     }
 
     public static EO createDate()  {
-        final EO eo = builder()
-                .map(readDate());
+        final EO eo = TestEOProvider.create(readDate());
         BTProviderEO.assertDate(eo);
         return eo;
     }
@@ -146,8 +131,7 @@ public class BTProviderJSN {
     }
 
     public static EO createBoolean()  {
-        final EO eo = builder()
-                .map(readBoolean());
+        final EO eo = TestEOProvider.create(readBoolean());
         BTProviderEO.assertBoolean(eo);
         return eo;
     }
@@ -164,8 +148,7 @@ public class BTProviderJSN {
     }
 
     public static EO createMap()  {
-        final EO eo = builder()
-                .map(readMap());
+        final EO eo = TestEOProvider.create(readMap());
         BTProviderEO.assertMap(eo);
         return eo;
     }
@@ -182,8 +165,7 @@ public class BTProviderJSN {
     }
 
     public static EO createList()  {
-        final EO eo = builder()
-                .map(readList());
+        final EO eo = TestEOProvider.create(readList());
         BTProviderEO.assertList(eo);
         return eo;
     }
@@ -200,8 +182,7 @@ public class BTProviderJSN {
     }
 
     public static EO createBT()  {
-        final EO eo = builder()
-                .map(readBT());
+        final EO eo = TestEOProvider.create(readBT());
         BTProviderEO.assertBT(eo);
         return eo;
     }
@@ -218,8 +199,7 @@ public class BTProviderJSN {
     }
 
     public static EO createST()  {
-        final EO eo = builder()
-                .map(readST());
+        final EO eo = TestEOProvider.create(readST());
         BTProviderEO.assertST(eo);
         return eo;
     }
@@ -236,8 +216,7 @@ public class BTProviderJSN {
     }
 
     public static EO createMapST()  {
-        final EO eo = builder()
-                .map(readMapST());
+        final EO eo = TestEOProvider.create(readMapST());
         BTProviderEO.assertMapST(eo);
         return eo;
     }
@@ -254,8 +233,7 @@ public class BTProviderJSN {
     }
 
     public static EO createListST()  {
-        final EO eo = builder()
-                .map(readListST());
+        final EO eo = TestEOProvider.create(readListST());
         BTProviderEO.assertListST(eo);
         return eo;
     }
@@ -271,8 +249,7 @@ public class BTProviderJSN {
     }
 
     public static EO createSmall()  {
-        final EO eo = builder()
-                .map(readSmall());
+        final EO eo = TestEOProvider.create(readSmall());
         BTProviderEO.assertSmall(eo);
         return eo;
     }
@@ -288,8 +265,7 @@ public class BTProviderJSN {
     }
 
     public static EO createSimple()  {
-        final EO eo = builder()
-                .map(readSimple());
+        final EO eo = TestEOProvider.create(readSimple());
         BTProviderEO.assertSimple(eo);
         return eo;
     }
@@ -309,8 +285,7 @@ public class BTProviderJSN {
     }
 
     public static EO create()  {
-        final EO eo = builder()
-                .map(read());
+        final EO eo = TestEOProvider.create(read());
         BTProviderEO.asserts(eo);
         return eo;
     }

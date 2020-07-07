@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.eo.EORoot;
 import org.fluentcodes.projects.elasticobjects.eo.JSONToEO;
+import org.fluentcodes.projects.elasticobjects.eo.LogLevel;
 import org.junit.Assert;
 
 import java.util.ArrayList;
@@ -47,36 +49,23 @@ public class TestObjectProvider {
         Assert.assertTrue(INFO_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
     }
 
+    public static final EO createEO(Class... classes)  {
+        return new EORoot(TestEOProvider.EO_CONFIGS, LogLevel.WARN, classes);
+    }
+
+    public static final EO createEO()  {
+        return new EORoot(TestEOProvider.EO_CONFIGS);
+    }
+
+    public static final EO createEO(Object value)  {
+        return new EORoot(TestEOProvider.EO_CONFIGS, value);
+    }
+
     public static final EO createEOString()  {
-        return TestEOProvider.createEOBuilder().set(S_STRING);
+        return TestEOProvider.create(S_STRING);
     }
 
     public static final EO createEOBoolean()  {
-        return TestEOProvider.createEOBuilder().set(S_BOOLEAN);
-    }
-
-    public static final EO createEOLong()  {
-        return TestEOProvider.createEOBuilder().set(SAMPLE_LONG);
-    }
-
-    public static final EO createEODouble()  {
-        return TestEOProvider.createEOBuilder().set(SAMPLE_DOUBLE);
-    }
-
-    public static final EO createEOMapEmpty()  {
-        return TestEOProvider.createEOBuilder()
-                .setModels(Map.class)
-                .set(new LinkedHashMap<>());
-    }
-
-    public static final EO createEOListEmpty()  {
-        return TestEOProvider.createEOBuilder()
-                .setModels(List.class)
-                .set(new ArrayList<>());
-    }
-
-    public static EO createEOFromJson(final String json)  {
-        JSONToEO tokener = new JSONToEO(json, TestEOProvider.EO_CONFIGS);
-        return tokener.createChild(TestEOProvider.createEmptyMap());
+        return TestEOProvider.create(S_BOOLEAN);
     }
 }

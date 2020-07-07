@@ -21,7 +21,7 @@ public class EONoPathRootSet_models_Test extends TestHelper {
     @Test
     public void givenString_withInteger_changeNothing()  {
         TestHelper.printStartMethod();
-        final EO eoString = TestEOProvider.createEOFromJson(String.class);
+        final EO eoString = TestEOProvider.create(String.class);
         EOTestHelper.setEO_ok(eoString, Integer.class);
     }
 

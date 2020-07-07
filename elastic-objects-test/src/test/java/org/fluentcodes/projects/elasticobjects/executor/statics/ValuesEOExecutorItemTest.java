@@ -20,7 +20,7 @@ public class ValuesEOExecutorItemTest {
     @Test
     public void getConfigurationKeys_withoutParameters()  {
         ExecutorItem item = new ExecutorItem(ValuesEO.EXECUTE_GET_CONFIGURATION_KEYS, ExecutorItem.TYPES.value);
-        EO eo = TestEOProvider.createEmptyMap();
+        EO eo = TestEOProvider.create();
         Object[] args = new Object[]{eo};
         List result = (List) item.invoke(args);
         Assert.assertEquals(M_MODEL_CONFIG, result.get(0));
@@ -29,7 +29,7 @@ public class ValuesEOExecutorItemTest {
     @Test
     public void getConfigurationKeys_withModelConfig()  {
         ExecutorItem item = new ExecutorItem(ValuesEO.EXECUTE_GET_CONFIGURATION_KEYS, ExecutorItem.TYPES.value);
-        List result = (List) item.invoke(new Object[]{TestEOProvider.createEmptyMap(), M_MODEL_CONFIG});
+        List result = (List) item.invoke(new Object[]{TestEOProvider.create(), M_MODEL_CONFIG});
         Assert.assertEquals(M_LINKED_HASH_SET, result.get(0));
     }
 

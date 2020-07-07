@@ -212,9 +212,7 @@ public class FileCall extends HostCall {
             String content = FileUtil.readFile(url);
             if (hasMapPath() && this.getClass() == FileCall.class) {
                 EO child = setToPath(eo, new LinkedHashMap<>());
-                child
-                        .add(getMapPath())
-                        .set(content);
+                child.setPathValue(getMapPath(), content);
             }
             return content;
         } catch (Exception e) {

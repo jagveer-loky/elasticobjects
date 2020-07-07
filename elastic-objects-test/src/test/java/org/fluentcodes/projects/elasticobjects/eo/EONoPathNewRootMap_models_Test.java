@@ -51,28 +51,6 @@ public class EONoPathNewRootMap_models_Test extends TestHelper {
         Assert.assertEquals(ArrayList.class, eoEmpty.get().getClass());
     }
 
-    /**
-     * Given eo builder setting List Model
-     * when adding json map empty
-     * List will be set
-     */
-    @Test
-    public void withJsnMapSmallList_ok()  {
-        final String jsnMapSmall = MapProviderJSN.readSmall();
-        final EO listEO = DevObjectProvider.createEOBuilder()
-                .setModels(List.class)
-                .map(jsnMapSmall);
-        Assert.assertEquals(S_STRING, listEO.get(S0));
-        Assert.assertEquals(S_INTEGER, listEO.get(S1));
-        Assert.assertEquals(List.class, listEO.getModelClass());
-        Assert.assertEquals(String.class, listEO.getChild(S0).getModelClass());
-    }
-
-    @Test
-    public void mapMap_ok()  {
-        EOTestHelper.map_ok(Map.class);
-    }
-
     @Test
     public void mapMapString_ok()  {
         EO eoEmpty = EOTestHelper.map_ok(Map.class, String.class);

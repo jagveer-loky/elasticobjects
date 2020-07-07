@@ -3,12 +3,11 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.eo.EORoot;
+import org.fluentcodes.tools.xpect.IOString;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
@@ -24,20 +23,6 @@ public class ConfigsModel extends EOConfigs {
 
     public ConfigsModel(final EOConfigsCache eoConfigsCache, final Scope scope)  {
         super(eoConfigsCache, ModelConfig.class, scope);
-    }
-
-    private void initClassMapPath()  {
-        final ClassFinder classFinder = new ClassFinder();
-        classFinder
-                .addPathFilter("java/util/[^/]*")
-                .addPathFilter("java/lang/[^/]*")
-                .addPathFilter("org/fluentcodes/.*")
-                .addJarFilter(".*/rt.jar")
-                .addFileExcludeFilter(".*/test/.*")
-                .addPathExcludeFilter(".*Exception.class");
-        //.addPathExcludeFilter(".*Test.class")
-        classFinder.find();
-        this.classPathMap = classFinder.getMapKeyClass();
     }
 
     protected void initCallMap() {
@@ -58,18 +43,23 @@ public class ConfigsModel extends EOConfigs {
         final String simple = key.replaceAll(".*\\.", "");
         try {
             return super.find(simple);
-        } catch (Exception e) {
-            try {
-                return ModelConfig.add(getConfigsCache(), key);
-            } catch (Exception e1) {
-                if (classPathMap == null) {
-                    initClassMapPath();
-                }
-                if (classPathMap.get(simple) == null) {
-                    throw new EoException("Could not find the " + simple + " in the class path map");
-                }
-                String classPath = classPathMap.get(simple).replaceAll("/", ".").replaceAll("\\.class$", "");
-                return ModelConfig.add(getConfigsCache(), classPath);
+        } catch (EoException e) {
+            return ModelConfig.addByClassName(getConfigsCache(), key);
+        }
+    }
+
+    protected void addClassNamesJson()  {
+        super.addConfigs();
+        String providerSource = "Models.json";
+        List<String> classNameJsons = new IOString()
+                .setFileName(providerSource)
+                .readStringList();
+        for (String classNameJson : classNameJsons) {
+            EO eo = new EORoot(getConfigsCache(), classNameJson);
+            List<String> classNames = (List<String>) eo.get();
+            for (String className: classNames) {
+                ModelConfig modelConfig = ModelConfig.addByClassName(getConfigsCache(), className);
+                getConfigMap().put(modelConfig.getModelKey(), modelConfig);
             }
         }
     }
