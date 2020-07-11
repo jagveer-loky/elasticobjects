@@ -3,10 +3,10 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.eo.EORoot;
-import org.fluentcodes.projects.elasticobjects.eo.Models;
-import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.Models;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  */
 public class EOConfigsCache {
     private static final Logger LOG = LogManager.getLogger(EOConfigsCache.class);
-    private final Map<Class, EOConfigs> eoConfigsMap;
+    private final Map<Class, EOConfigMap> eoConfigsMap;
     private final boolean localSerialized;
     private final Scope scope;
     private String serialized;
@@ -31,34 +31,27 @@ public class EOConfigsCache {
         this(Scope.ALL, false);
     }
 
-    public EOConfigsCache(Scope scope) {
+    public EOConfigsCache(final Scope scope) {
         this(scope, false);
     }
 
-    public EOConfigsCache(Scope scope, boolean localSerialized) {
+    public EOConfigsCache(final Scope scope, final boolean localSerialized) {
         eoConfigsMap = new LinkedHashMap<>();
         this.scope = scope;
         this.localSerialized = localSerialized;
         this.modelPattern = null;
         try {
-            ConfigsModel models = new ConfigsModel(this, scope);
-            eoConfigsMap.put(ModelConfig.class, models);
-
-            EOConfigsField fields = new EOConfigsField(this, scope);
-            eoConfigsMap.put(FieldConfig.class, fields);
-
-            models.init();
-            if (scope != Scope.DEV) {
-                models.addConfigs();
-                models.initCallMap();
-                fields.addConfigs();
-                models.addClassNamesJson();
-            }
-
+            eoConfigsMap.put(ModelConfig.class, new EOConfigMapModels(this));
+            eoConfigsMap.put(FieldConfig.class, new EOConfigMapFields(this));
+            eoConfigsMap.get(ModelConfig.class).addJsonConfigs();
+            eoConfigsMap.get(FieldConfig.class).addJsonConfigs();
+            ((EOConfigMapModels)eoConfigsMap.get(ModelConfig.class)).addJsonClassNames();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 
     protected Scope getScope() {
         return scope;
@@ -73,16 +66,16 @@ public class EOConfigsCache {
     }
 
     public Set<String> getConfigNames(final String configName)  {
-        return getConfigMap(configName).keySet();
+        return getConfigMap(configName).getKeys();
     }
 
-    public Map getConfigMap(final String configName)  {
+    public EOConfigMap getConfigMap(final String configName)  {
         if (configName == null) {
             throw new EoException("Null search name for configMap entry");
         }
         for (Class configClass: getKeys()) {
             if (configName.equals(configClass.getSimpleName())) {
-                return getConfigMap(configClass);
+                return eoConfigsMap.get(configClass);
             }
         }
 
@@ -96,7 +89,7 @@ public class EOConfigsCache {
         if (assetKey == null || assetKey.isEmpty()) {
             throw new EoException("assetKey is empty for finder '" + cacheClass.getSimpleName() + "'!");
         }
-        Object asset = getConfig(cacheClass).find(assetKey);
+        Object asset = getConfigMap(cacheClass).get(assetKey);
         if (asset == null) {
             throw new EoException("Could not resolve asset " + cacheClass + " for  key=" + assetKey + ".");
         }
@@ -116,7 +109,7 @@ public class EOConfigsCache {
 
     public boolean hasConfigKey(final Class configClass, final String key) {
         try {
-            return getConfigMap(configClass).containsKey(key);
+            return getConfigMap(configClass).hasKey(key);
         }
         catch (EoException e) {
             return false;
@@ -124,29 +117,26 @@ public class EOConfigsCache {
     }
 
     public Set<String> getConfigKeys(Class configClass) {
-        return getConfig(configClass).getConfigMap().keySet();
+        return getConfigMap(configClass).getKeys();
     }
 
-    private EOConfigs getConfig(Class configClass) {
+    private EOConfigMap getConfigMap(Class configClass) {
         if (eoConfigsMap.get(configClass) == null) {
-            eoConfigsMap.put(configClass, new ConfigsImmutable(this, configClass, scope));
+            eoConfigsMap.put(configClass, new EOConfigMapImmutable(this, configClass));
         }
-        EOConfigs configs = eoConfigsMap.get(configClass);
+        EOConfigMap configs = eoConfigsMap.get(configClass);
         if (configs == null) {
             throw new EoException("No provider defined for " + configClass.getSimpleName());
         }
         return configs;
     }
-    private Map<String, Config> getConfigMap(final Class configClass)  {
-        return getConfig(configClass).getConfigMap();
-    }
 
     public void add(Class configClass, Config config) {
-        getConfig(configClass).add(config);
+        getConfigMap(configClass).addConfig(config);
     }
 
     public Set<String> getCallSet()  {
-        return ((ConfigsModel) getConfig(ModelConfig.class)).getCallSet();
+        return ((EOConfigMapModels) getConfigMap(ModelConfig.class)).getCallSet();
     }
 
     public FieldConfig findField(final String fieldKey)  {
@@ -171,10 +161,6 @@ public class EOConfigsCache {
 
     public JsonConfig findJson(final String key)  {
         return (JsonConfig) find(JsonConfig.class, key);
-    }
-
-    public ValueConfig findValue(final String key)  {
-        return (ValueConfig) find(ValueConfig.class, key);
     }
 
     public ModelInterface findModel(final Object modelValue)  {
@@ -213,7 +199,14 @@ public class EOConfigsCache {
     }
 
     public final Object transform(final String fieldKey, Object source, Object defaultValue)  {
-        FieldConfig fieldConfig = findField(fieldKey);
+        FieldConfig fieldConfig = null;
+        try {
+            fieldConfig = findField(fieldKey);
+        }
+        catch (EoException e) {
+           LOG.error(e.getMessage());
+           return null;
+        }
         if (fieldConfig == null || fieldKey.isEmpty()) {
             throw new EoException("No fieldKey provided for " + fieldKey + " and source=" + source);
         }
@@ -254,7 +247,7 @@ public class EOConfigsCache {
             //https://stackoverflow.com/questions/26357132/generic-enum-valueof-method-enum-class-in-parameter-and-return-enum-item/26357317
         }
         // complex types use MODULE_NAME...
-        EO eo = new EORoot(this, source);
+        EO eo = new EoRoot(this, source);
         return eo.get();
     }
 

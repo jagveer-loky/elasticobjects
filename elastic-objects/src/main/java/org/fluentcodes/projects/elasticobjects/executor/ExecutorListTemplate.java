@@ -2,9 +2,8 @@ package org.fluentcodes.projects.elasticobjects.executor;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.calls.ValueCall;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 
 import java.util.HashMap;
@@ -48,9 +47,9 @@ public class ExecutorListTemplate extends ExecutorList {
         while (actionMatcher.find()) {
             String before = template.substring(start, actionMatcher.start());
             start = actionMatcher.end();
-            if (!before.isEmpty()) {
+            /*if (!before.isEmpty()) {
                 super.addContentTemplateAction(before, parentAttributes);
-            }
+            }*/
             Map<String, String> tagAttributes = getAttributes(actionMatcher.group(3));
             tagAttributes.put(F_INSERT, actionMatcher.group(0));
             if (!actionMatcher.group(3).endsWith(Path.DELIMITER)) {  // have some contents <call>content</call>
@@ -61,35 +60,35 @@ public class ExecutorListTemplate extends ExecutorList {
                     //actionMatcher = actionPattern.matcher(contentToParse);
                     if (tagAttributes.get(VALUES) != null && tagAttributes.get(VALUES).equals(MAP)) {
                         tagAttributes.put(F_VALUE, content);
-                        tagAttributes.put(Executor.EXECUTE, ValueCall.MAP("empty"));
-                        super.add(tagAttributes);
+                        //tagAttributes.put(Executor.EXECUTE, ValueCall.MAP("empty"));
+                        //super.add(tagAttributes);
                     } else if (tagAttributes.get(VALUES) != null && tagAttributes.get(VALUES).equals(SET)) {
                         tagAttributes.put(F_VALUE, content);
-                        tagAttributes.put(Executor.EXECUTE, ValueCall.SET("empty"));
-                        super.add(tagAttributes);
+                        //tagAttributes.put(Executor.EXECUTE, ValueCall.SET("empty"));
+                        //super.add(tagAttributes);
                     } else {
                         tagAttributes.put(F_CONTENT, content);
-                        tagAttributes.put(Executor.EXECUTE, TemplateCall.EXECUTE_TEMPLATE);
+                        tagAttributes.put(CallExecutor.EXECUTE, TemplateCall.EXECUTE_TEMPLATE);
                         //super.add(merge(parentAttributes, tagAttributes));
-                        super.add(tagAttributes);
+                        //super.add(tagAttributes);
                     }
                     continue;
                 }
             }
             //actionMatcher = actionPattern.matcher(contentToParse);
-            if (tagAttributes.get(Executor.EXECUTE) != null) {
-                super.add(tagAttributes);
+            if (tagAttributes.get(CallExecutor.EXECUTE) != null) {
+                //super.add(tagAttributes);
             } else if (tagAttributes.get(A_TEMPLATE_KEY) != null) {
                 String templateKey = tagAttributes.get(A_TEMPLATE_KEY);
                 if (!templateKey.isEmpty()) {
-                    tagAttributes.put(Executor.EXECUTE, "TemplateCall.execute(" + templateKey + ")");
-                    super.add(tagAttributes);
+                    tagAttributes.put(CallExecutor.EXECUTE, "TemplateCall.execute(" + templateKey + ")");
+                    //super.add(tagAttributes);
                 }
             } else {
                 throw new EoException("Insert without execute! " + tagAttributes.toString());
             }
         }
-        super.addContentTemplateAction(template.substring(start, template.length()), parentAttributes);
+        //super.addContentTemplateAction(template.substring(start, template.length()), parentAttributes);
     }
 
     /**

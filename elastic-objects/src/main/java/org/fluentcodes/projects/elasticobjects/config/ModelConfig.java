@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -67,7 +67,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         try {
             modelClass = Class.forName(key);
         } catch (Exception e) {
-            throw new EoException(e.getMessage());
+            throw new EoException("Could not find Class for BasicTest: " + e.getMessage());
         }
         final String modelKey = key.replaceAll(".*\\.", "");
         modelInfo.put(F_MODEL_KEY, modelKey);

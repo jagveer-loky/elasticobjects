@@ -1,11 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.FileUtil;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.tools.xpect.IOString;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.net.URL;
 
 /**
@@ -24,7 +22,7 @@ public class FileIO implements IOInterface {
             return fileConfig.getCachedContent();
         }
         URL url = fileConfig.getUrl();
-        String content = FileUtil.readFile(url);
+        String content = new IOString().setFileName(url.getFile()).read();
         if (fileConfig.isCached()) {
             fileConfig.setCachedContent(content);
         }
@@ -46,7 +44,7 @@ public class FileIO implements IOInterface {
         if (!filePath.getParentFile().exists()) {
             filePath.getParentFile().mkdirs();
         }
-        write(url, content);
+        new IOString().setFileName(url.getFile()).write(content);
     }
 
     public void write(Object content)  {
@@ -55,28 +53,6 @@ public class FileIO implements IOInterface {
         }
         if (content instanceof String) {
             write((String) content);
-        }
-        //
-    }
-
-    private void write(URL url, String content)  {
-        BufferedWriter out = null;
-        try {
-            out = new BufferedWriter(new FileWriter(url.getFile()));
-            out.write(content);
-        }
-        catch (Exception e) {
-            throw new EoException(e);
-        }
-        finally {
-            if (out != null) {
-                try {
-                out.close();
-                }
-                catch (Exception e) {
-                    throw new EoException(e);
-                }
-            }
         }
     }
 }

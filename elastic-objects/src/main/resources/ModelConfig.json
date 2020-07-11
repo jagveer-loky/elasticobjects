@@ -8,7 +8,8 @@
     "description": "Basic bean as super object for other cached items. ",
     "fieldKeys": [
       "path",
-      "mapPath"
+      "mapPath",
+      "configKey"
     ],
     "modelKey": "Call",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
@@ -56,6 +57,9 @@
     "naturalId": "CallIO",
     "description": "Not shure now.",
     "superKey": "Call",
+    "eoParams": {
+      "shapeType": "OBJECT"
+    },
     "fieldKeys": [
       "rolePermissions"
     ],
@@ -312,7 +316,8 @@
     "superKey": "ExecutorImpl",
     "interfaces": "Executor",
     "fieldKeys": [
-      "action"
+      "action",
+      "call"
     ],
     "modelKey": "CallExecutor",
     "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
@@ -325,6 +330,14 @@
     "naturalId": "ExecutorImpl",
     "description": "Constructor with or. Provides the filter method for adapter and check the or conditions",
     "interfaces": "Executor",
+    "fieldKeys": [
+      "sourcePath",
+      "targetPath",
+      "attributes",
+      "callClass",
+      "callMethod",
+      "callKey"
+    ],
     "modelKey": "ExecutorImpl",
     "packagePath": "org.fluentcodes.projects.elasticobjects.executor",
     "packageGroup": "executor",
@@ -447,6 +460,21 @@
     "packageGroup": "calls",
     "author": "Werner Diwischek"
   },
+  "FileCallRead": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "eoParams": {
+      "shapeType": "CALL",
+      "modelConfigKey": "FileConfig",
+      "create": true
+    },
+    "description": "Defines a file read access. ",
+    "superKey": "Call",
+    "modelKey": "FileCallRead",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "packageGroup": "calls",
+    "author": "Werner Diwischek"
+  },
   "FileConfig": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -470,27 +498,21 @@
     "packageGroup": "config",
     "author": "Werner Diwischek"
   },
-  "ScsCall": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "ScsCall",
+  "ScsCallRead": {
     "eoParams": {
       "shapeType": "CALL",
       "modelConfigKey": "ScsConfig",
-      "create": true,
-      "methods": "read,write,delete"
+      "create": true
     },
-    "description": "Defines a file access. ",
+    "description": "Defines a primitive csv file read operation. ",
     "superKey": "ListCall",
-    "modelKey": "ScsCall",
+    "fieldKeys": [],
+    "modelKey": "ScsCallRead",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "packageGroup": "calls",
     "author": "Werner Diwischek"
   },
   "ScsConfig": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "ScsConfig",
     "eoParams": {
       "shapeType": "CONFIG",
       "modelConfigKey": "ScsCall",

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.ListParams;
 
 import java.io.File;

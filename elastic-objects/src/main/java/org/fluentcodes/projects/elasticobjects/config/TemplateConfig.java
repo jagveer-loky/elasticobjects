@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.EoException;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorListTemplate;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;

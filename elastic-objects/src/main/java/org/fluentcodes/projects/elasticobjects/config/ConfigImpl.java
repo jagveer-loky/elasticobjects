@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 
-import org.fluentcodes.projects.elasticobjects.eo.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 

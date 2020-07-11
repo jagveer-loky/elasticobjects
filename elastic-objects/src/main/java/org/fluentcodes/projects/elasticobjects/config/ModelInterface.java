@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.eo.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
