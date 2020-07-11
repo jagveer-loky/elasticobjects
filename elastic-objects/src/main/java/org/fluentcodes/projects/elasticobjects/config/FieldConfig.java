@@ -2,8 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EoException;
-import org.fluentcodes.projects.elasticobjects.eo.Models;
+import org.fluentcodes.projects.elasticobjects.Models;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 

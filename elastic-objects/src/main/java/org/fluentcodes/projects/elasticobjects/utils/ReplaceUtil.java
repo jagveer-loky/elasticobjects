@@ -13,8 +13,7 @@ package org.fluentcodes.projects.elasticobjects.utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.executor.ExecutorValues;
+import org.fluentcodes.projects.elasticobjects.EO;
 
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -104,8 +103,8 @@ public class ReplaceUtil {
                     final Map valueAttributes = new HashMap();
                     valueAttributes.putAll(attributes);
                     valueAttributes.put(EO_STATIC.A_EXECUTE, pathOrKey);
-                    ExecutorValues executor = new ExecutorValues(valueAttributes);
-                    value = executor.execute(adapter);
+                    //ExecutorValues executor = new ExecutorValues(valueAttributes);
+                    //value = executor.execute(adapter);
                 } catch (Exception e) {
                     e.printStackTrace();
                     adapter.warn(e.getMessage());

@@ -50,9 +50,6 @@
     "description": "Definition of available attributes for an Action."
   },
   "attributes": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "attributes",
     "dbFieldParams": {
       "fieldName": "attributes"
     },
@@ -111,9 +108,6 @@
     "description": "Column keys with String interface"
   },
   "configKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "configKey",
     "dbFieldParams": {
       "length": 64
     },
@@ -153,6 +147,12 @@
     "modelKeys": "Date",
     "fieldKey": "creationDate",
     "description": "Used to define the creation of an item."
+  },
+  "call": {
+    "naturalId": "call",
+    "modelKeys": "Call",
+    "fieldKey": "call",
+    "description": "Used to define a call."
   },
   "customFieldParams": {
     "module": "elastic-objects",
@@ -686,6 +686,21 @@
     "fieldKey": "methods",
     "description": "Methods accessible in actions. "
   },
+  "callMethod": {
+    "modelKeys": "String",
+    "description": "Call Method accessible in actions. ",
+    "fieldKey": "callMethod"
+  },
+  "callKey": {
+    "modelKeys": "String",
+    "description": "Call key from cache.",
+    "fieldKey": "callKey"
+  },
+  "callClass": {
+    "modelKeys": "String",
+    "description": "Call Class referencing a call class. ",
+    "fieldKey": "callClass"
+  },
   "model": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -872,15 +887,28 @@
     "description": "The password instance var."
   },
   "path": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "path",
     "dbFieldParams": {
       "fieldName": "path",
       "length": 80
     },
     "modelKeys": "String",
     "fieldKey": "path"
+  },
+  "sourcePath": {
+    "dbFieldParams": {
+      "fieldName": "sourcePath",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "sourcePath"
+  },
+  "targetPath": {
+    "dbFieldParams": {
+      "fieldName": "targetPath",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "targetPath"
   },
   "pathPattern": {
     "module": "elastic-objects",

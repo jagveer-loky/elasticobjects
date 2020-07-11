@@ -53,7 +53,7 @@
 
     <modules>
         <module>elastic-objects</module>
-        <module>elastic-objects-test</module>
+        <module>eo-test</module>
         <module>actions-csv</module>
         <module>actions-xlsx</module>
     </modules>

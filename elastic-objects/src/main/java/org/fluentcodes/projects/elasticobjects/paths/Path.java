@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
-import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 public class Path {
     public static final String DELIMITER = "/";
     private final ArrayList<PathElement> entries;
-    private boolean parent = false;
+    private boolean absolute = false;
 
     public Path(final Path path) {
         this.entries = new ArrayList<>();
@@ -24,13 +24,27 @@ public class Path {
         this.addPaths(path);
     }
 
+    public Path(String... pathEntries) {
+        this.entries = new ArrayList<>();
+        if (pathEntries.length>0) {
+            if (pathEntries[0].startsWith(DELIMITER)) {
+                absolute = true;
+            }
+        }
+        this.addPaths(pathEntries);
+    }
+
     private Path(final List<PathElement> paths) {
         this.entries = new ArrayList<>();
         this.entries.addAll(paths);
     }
 
-    public void setParent(boolean parent) {
-        this.parent = parent;
+    public static final String ofs(String... pathEntries) {
+        return new Path(pathEntries).directory(true);
+    }
+
+    public boolean isAbsolute() {
+        return absolute;
     }
 
     public boolean isFilterNothing() {
@@ -102,10 +116,18 @@ public class Path {
         }
         if (toAdd.startsWith(DELIMITER)) {
             this.entries.clear();
+            this.absolute = true;
         }
-        String[] paths = toAdd.split(DELIMITER);
+        addPaths(toAdd.split(DELIMITER));
+    }
+
+    private void addPaths(final String[] paths) {
         for (String path : paths) {
-            if (path == null || path.isEmpty() || path.equals(PathElement.SAME) || path.matches("^\\s+$")) {
+            if (path == null || path.isEmpty() || PathElement.SAME.equals(path) || path.matches("^\\s+$")) {
+                continue;
+            }
+            if (path.contains(DELIMITER)) {
+                addPaths(path.split(DELIMITER));
                 continue;
             }
             if (path.equals(PathElement.BACK)) {
@@ -171,6 +193,20 @@ public class Path {
         return new Path(this.entries.subList(1, entries.size()));
     }
 
+    public Path getParentPath() {
+        if (size() < 1) {
+            return new Path(Path.DELIMITER);
+        }
+        return new Path(this.entries.subList(0, entries.size()-1));
+    }
+    public String getParentKey() {
+        if (size() < 1) {
+            throw new EoException("No entry in path");
+        }
+        return entries.get(entries.size()-1).getPathElement();
+    }
+
+
     public int size() {
         return this.entries.size();
     }
@@ -202,19 +238,7 @@ public class Path {
     }
 
     public String parent() {
-        if (entries == null || entries.size() == 0) {
-            return null;
-        }
-
-        if (entries.size() == 1) {
-            return "/";
-        }
-        StringBuffer pathDirectory = new StringBuffer("");
-        for (int i = 0; i < entries.size() - 1; i++) {
-            String path = this.entries.get(i).getPathElement();
-            pathDirectory.append(DELIMITER + path);
-        }
-        return pathDirectory.toString();
+        return getParentPath().directory(true);
     }
 
 
@@ -222,7 +246,11 @@ public class Path {
         if (isEmpty()) {
             return null;
         }
-        return entries.get(entries.size() - 1).getPathElement();
+        PathElement element = entries.get(entries.size() - 1);
+        if (element.hasModels()) {
+            return "(" + String.join(",",element.getModels()) + ")" + element.getPathElement();
+        }
+        return element.getPathElement();
     }
 
     public boolean hasChild() {

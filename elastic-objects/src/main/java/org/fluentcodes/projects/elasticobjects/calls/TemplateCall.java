@@ -2,15 +2,14 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EoException;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.config.Config;
+import org.fluentcodes.projects.elasticobjects.config.Permissions;
 import org.fluentcodes.projects.elasticobjects.config.TemplateConfig;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
-import org.fluentcodes.projects.elasticobjects.executor.ExecutorImpl;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.executor.CallExecutorResource;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
 import org.fluentcodes.projects.elasticobjects.executor.ExecutorListTemplate;
-import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -20,7 +19,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 /**
  * Created by werner.diwischek on 20.03.17.
  */
-public class TemplateCall extends CallIO {
+public class TemplateCall extends ResourceCall<String>{
     public static final String EXECUTE_TEMPLATE = "TemplateCall.execute(content)";
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
     private static final Set controlKeys = createControlKeys();
@@ -32,8 +31,12 @@ public class TemplateCall extends CallIO {
     private String keepStart;
     private String keepEnd;
 
-    public static final String createTemplateKeyValue(final String key, final String value) {
-        return key + "=\"" + value + "\" ";
+    public TemplateCall() {
+        super(Permissions.READ);
+    }
+
+    public TemplateCall setConfigKey(final String configKey) {
+        return (TemplateCall) super.setConfigKey(configKey);
     }
 
     public static final String createCallNoContent(final String... keyValues)  {
@@ -70,12 +73,9 @@ public class TemplateCall extends CallIO {
 
     }
 
-    public TemplateCall(EOConfigsCache provider, String key)  {
-        super(provider, key);
-    }
-
-    public TemplateCall(EOConfigsCache provider)  {
-        super(provider);
+    @Override
+    public Class<? extends Config> getConfigClass()  {
+        return TemplateConfig.class;
     }
 
     /**
@@ -171,35 +171,22 @@ public class TemplateCall extends CallIO {
     }
 
     /**
-     * This method without external attributes will be called from {@link CallExecutor}
+     * This method without external attributes will be called from {@link CallExecutorResource}
      *
-     * @param adapter adapter the adapter data object to be rendered
+     * @param eo the adapter data object to be rendered
      * @return
      * @
      */
-    public String execute(EO adapter)  {
-        return execute(adapter, new HashMap());
-    }
-
-    /**
-     * Version for a direct call of an templateAction with external attributes.
-     *
-     * @param eo                 the adapter data object to be rendered
-     * @param externalAttributes will be set to control the behaviour of the execution of the {@link ExecutorList}
-     * @return
-     * @
-     */
-    public String execute(EO eo, Map<String, String> externalAttributes)  {
-        mapAttributes(externalAttributes);
+    public String execute(EO eo)  {
         mergeConfig();
-        resolvePath(eo, externalAttributes);
+        //resolvePath(eo, externalAttributes);
         EO adapter = eo;
         if (hasPath()) {
-            adapter = eo.getChild(getPath());
+            adapter = eo.getEo(getPath());
         }
-        if (!executePathIf(adapter, externalAttributes)) {
+        /*if (!executePathIf(adapter, externalAttributes)) {
             return "";
-        }
+        }*/
         // gets the template as content from the mapPath value
         if (hasMapPath()) {
             if (adapter.get(getMapPath()) != null) {
@@ -207,7 +194,7 @@ public class TemplateCall extends CallIO {
             }
         }
         StringBuilder result = new StringBuilder();
-        List<String> pathList = ExecutorImpl.getPathList(loopPath, adapter, mergeAttributes(externalAttributes));
+        List<String> pathList = null;
         boolean isDynamic = false;
         if (getTemplateConfig() != null) {
             isDynamic = getTemplateConfig().getTemplateKey().contains("$[");
@@ -226,7 +213,7 @@ public class TemplateCall extends CallIO {
         for (String path : pathList) {
             EO nextAdapter = null;
             try {
-                nextAdapter = adapter.getChild(path);
+                nextAdapter = adapter.getEo(path);
             } catch (Exception e) {
                 adapter.error(e.getMessage());
                 e.printStackTrace();
@@ -235,12 +222,12 @@ public class TemplateCall extends CallIO {
             if (nextAdapter == null) {
                 continue;
             }
-            if (!executeLoopIf(nextAdapter, externalAttributes)) {
+            /*if (!executeLoopIf(nextAdapter, externalAttributes)) {
                 continue;
-            }
+            }*/
             if (hasContent()) {
 
-                if (!contentWithCall) {// no subsequent calls
+                /*if (!contentWithCall) {// no subsequent calls
                     result.append(ReplaceUtil.replace(content, nextAdapter, mergeAllAttributes(externalAttributes)));
                 } else {
                     if (bufferedExecutor.getExecutorList().size() > 1) {
@@ -248,9 +235,9 @@ public class TemplateCall extends CallIO {
                     } else {
                         result.append(bufferedExecutor.execute(nextAdapter, externalAttributes));
                     }
-                }
+                }*/
             } else {
-                try {
+                /*try {
                     if (isDynamic) {
                         String dynamicKey = ReplaceUtil.replace(getTemplateConfig().getKey(), nextAdapter, mergeAllAttributes(externalAttributes));
                         EOConfigsCache configsCache = nextAdapter.getConfigsCache();
@@ -263,7 +250,7 @@ public class TemplateCall extends CallIO {
                     e.printStackTrace();
                     adapter.error("Problem executing template " + getTemplateConfig().getTemplateKey() + "! " + e.getMessage());
                     return "Problem executing template " + getTemplateConfig().getTemplateKey() + "! " + e.getMessage();
-                }
+                }*/
             }
             if (hasMapPath()) {
                 nextAdapter.setPathValue(getMapPath(), result.toString());

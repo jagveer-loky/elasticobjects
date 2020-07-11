@@ -1,10 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 
-import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.Models;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.eo.*;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -360,11 +361,11 @@ public class ListMapper {
     }
 
     private EO createRowAdapter(EOConfigsCache cache)  {
-        return new EORoot(cache);
+        return new EoRoot(cache);
     }
 
     private EO createRowAdapter(EO adapter, String position)  {
-        return adapter.getChild(position);
+        return adapter.getEo(position);
     }
 
     public EO addRow(EO adapter, String position, List row)  {

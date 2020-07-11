@@ -4,7 +4,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.condition.And;
 import org.fluentcodes.projects.elasticobjects.condition.Eq;
 import org.fluentcodes.projects.elasticobjects.condition.Or;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 

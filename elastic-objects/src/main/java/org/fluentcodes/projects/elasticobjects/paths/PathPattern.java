@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
-import org.fluentcodes.projects.elasticobjects.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;

@@ -2,14 +2,13 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EoException;
-import org.fluentcodes.projects.elasticobjects.eo.Models;
-import org.fluentcodes.projects.elasticobjects.executor.statics.ValuesMisc;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.Models;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.utils.Util;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -33,25 +32,30 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
     protected static Method findSetter(Field field) {
         Class fieldType = field.getType();
         Class modelClass = field.getDeclaringClass();
-        try {
-            final String setterName = ValuesMisc.setter(field.getName());
-            return modelClass.getMethod(setterName, fieldType);
+        try{
+            return modelClass.getMethod(setter(field.getName()), fieldType);
         } catch (Exception e) {
             try {
-                final String setterName = ValuesMisc.setter(field.getName());
-                return modelClass.getMethod(setterName, Object.class);
+                return modelClass.getMethod(setter(field.getName()), Object.class);
             } catch (Exception e1) {
                 LOG.debug("Could not resolve getter for add " + field.getName() + ": " + e1.getMessage());
             }
         }
         return null;
     }
+    public static String setter(final String field) {
+        return "set" + Util.upperFirstCharacter(field);
+    }
+    public static String getter(final String field) {
+        return "get" + Util.upperFirstCharacter(field);
+    }
+
 
     protected static Method findGetter(Field field) {
         Class fieldType = field.getType();
         Class modelClass = field.getDeclaringClass();
         try {
-            final String methodName = ValuesMisc.getter(field.getName());
+            final String methodName = getter(field.getName());
             return modelClass.getMethod(methodName);
         } catch (Exception e) {
             LOG.debug("Could not resolve getter for add " + field.getName() + ": " + e.getMessage());
@@ -234,7 +238,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         } else {
             ModelInterface implementation = getConfigsCache().findModel(getDefaultImplementation());
             try {
-                return implementation.getModelClass().getConstructor(EOConfigs.class).newInstance(getConfigsCache());
+                return implementation.getModelClass().getConstructor(EOConfigMap.class).newInstance(getConfigsCache());
             } catch (Exception e) {
                 try {
                     return implementation.getModelClass().newInstance();
@@ -292,13 +296,13 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
             }
 
             Class typeClass = type.getModelClass();
-            String baseName = ValuesMisc.upperFirstChar(fieldName);
+            String baseName = Util.upperFirstCharacter(fieldName);
             try {
-                Method setterField = findSetMethod(getModelClass(), ValuesMisc.setter(fieldName), typeClass);
+                Method setterField = findSetMethod(getModelClass(), setter(fieldName), typeClass);
                 setterMap.put(fieldName, setterField);
             } catch (Exception e) {
                 try {
-                    Method setterField = findSetMethod(getModelClass(), ValuesMisc.setter(fieldName), Object.class);
+                    Method setterField = findSetMethod(getModelClass(), setter(fieldName), Object.class);
                     setterMap.put(fieldName, setterField);
                 } catch (Exception e1) {
                     LOG.debug("Could not resolve getter for add " + baseName + ": " + e1.getMessage());
@@ -310,7 +314,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
                 if (typeClass.equals(Boolean.class)) {
                     getterField = findGetMethod(getModelClass(), "is" + baseName);
                 } else {
-                    getterField = findGetMethod(getModelClass(), ValuesMisc.getter(fieldName));
+                    getterField = findGetMethod(getModelClass(), getter(fieldName));
                 }
                 getterMap.put(fieldName, getterField);
             } catch (Exception e) {

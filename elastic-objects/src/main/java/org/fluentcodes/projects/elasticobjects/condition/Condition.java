@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.condition;
 
-import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.EO;
 
 import java.util.List;
 import java.util.Map;

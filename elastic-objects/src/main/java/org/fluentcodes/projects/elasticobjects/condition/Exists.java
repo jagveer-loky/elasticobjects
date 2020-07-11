@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
+import org.fluentcodes.projects.elasticobjects.EO;
 
 import java.util.List;
 import java.util.Map;
