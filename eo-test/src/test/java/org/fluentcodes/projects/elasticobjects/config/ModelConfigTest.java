@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.assets.SubClassForTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 
 import org.fluentcodes.projects.elasticobjects.LoggingObjectsImpl;
-import org.fluentcodes.projects.elasticobjects.test.MapProvider;
+import org.fluentcodes.projects.elasticobjects.test.TestProviderConfig;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 
 import org.junit.Assert;
@@ -26,7 +26,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ModelConfigTest {
     private static final Logger LOG = LogManager.getLogger(ModelConfigTest.class);
-    private static final Map<String, Object> MODEL_CONFIG_MAP = MapProvider.createModelConfigMap();
+    private static final Map<String, Object> MODEL_CONFIG_MAP = TestProviderConfig.createModelConfigMap();
     private static final String F_BUILD = "build";
     private static final String M_BUILDER = "$Builder";
 

@@ -15,7 +15,10 @@ public class TEO_STATIC {
 
     public static final String FILE_SOURCE_TXT = "source.txt";
     public static final String FILE_SOURCE_NAME_TXT = "input/file/source.txt";
-    public static final String PATH_INPUT_JSON = "input/json/";
+    public static final String PATH_INPUT = "input/";
+    public static final String PATH_INPUT_MODELS =  PATH_INPUT + "models/";
+    public static final String PATH_INPUT_JSON = PATH_INPUT + "json/";
+
     public static final String PATH_INPUT_TEMPLATE = "SimpleInsertWithPath";
     public static final String CS_SOURCE_CSV = "source.csv";
     public static final String CS_SOURCE_CSV_NAME = "input/csv/source.csv";

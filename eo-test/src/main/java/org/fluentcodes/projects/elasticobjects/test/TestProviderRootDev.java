@@ -21,6 +21,8 @@ public class TestProviderRootDev {
     }
 
     public static final EO createEo(Object value)  {
-        return EoRoot.ofValue(EO_CONFIGS, value);
+        EoRoot eo = EoRoot.ofValue(EO_CONFIGS, value);
+        eo.setLogLevel(LogLevel.WARN);
+        return eo;
     }
 }

@@ -19,6 +19,8 @@ public enum TestProviderMapJsn {
     SCS_CALL_SOURCE_PATH(PATH_INPUT_JSON + "ScsCallSourcePath.jsn"),
     SCS_CALL_SOURCE_JOINED(PATH_INPUT_JSON + "ScsCallSourceJoined.jsn"),
     SMALL(PATH_INPUT_JSON + "mapSmall.jsn"),
+    VALUES_CALL_NUMBER_SCALAR(PATH_INPUT_JSON + "ValuesCallNumberScalar.jsn"),
+    VALUES_CALL_NUMBER_ARRAY(PATH_INPUT_JSON + "ValuesCallNumberArray.jsn"),
     ;
     private String content;
     TestProviderMapJsn(final String content) {
@@ -39,7 +41,7 @@ public enum TestProviderMapJsn {
     }
 
     public EO createMapEo() {
-        return TestProviderRootDev.createEo(content);
+        return TestProviderRootTest.createEo(content);
     }
 
     public EO createBtEo() {

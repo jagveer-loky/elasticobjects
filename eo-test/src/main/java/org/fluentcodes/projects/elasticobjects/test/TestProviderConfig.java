@@ -10,7 +10,7 @@ import java.util.Map;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
-public class MapProvider {
+public class TestProviderConfig {
     public static void createConfig(Map<String, Object> map) {
         try {
             addMap(map, F_ID, 1L,

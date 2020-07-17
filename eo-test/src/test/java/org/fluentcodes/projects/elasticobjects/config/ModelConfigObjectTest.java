@@ -2,8 +2,10 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.executor.CallExecutorResource;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 
@@ -82,7 +84,6 @@ public class ModelConfigObjectTest {
 
     @Test
     public void getModel()  {
-        
         ModelInterface cache = TestProviderRootTest.EO_CONFIGS.findModel(M_BASIC_TEST);
         Assert.assertEquals(M_BASIC_TEST, cache.getModelKey());
         BasicTest basicTest = (BasicTest) cache.create();
@@ -138,8 +139,10 @@ public class ModelConfigObjectTest {
 
     @Test
     public void assertScsConfigTest()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(ScsConfig.class);
-
+        ModelInterface model = TestProviderRootTest.findModel(ScsConfig.class);
+        Assertions.assertThatThrownBy(() -> {model.create();})
+                .isInstanceOf(EoException.class)
+                .hasMessageContaining("config has no empty constructor");
         FieldConfig field = model.getField(F_DESCRIPTION);
         Assert.assertEquals(String.class, field.getModelClass());
     }
