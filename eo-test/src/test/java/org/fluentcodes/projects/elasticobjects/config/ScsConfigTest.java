@@ -2,7 +2,9 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.calls.ListParams;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 
 import org.junit.Assert;
@@ -20,6 +22,16 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ScsConfigTest {
     private static final Logger LOG = LogManager.getLogger(ScsConfigTest.class);
+
+    @Test
+    public void assertScsConfigTest()  {
+        ModelInterface model = TestProviderRootTest.findModel(ScsConfig.class);
+        Assertions.assertThatThrownBy(() -> {model.create();})
+                .isInstanceOf(EoException.class)
+                .hasMessageContaining("config has no empty constructor");
+        FieldConfig field = model.getFieldConfig(F_DESCRIPTION);
+        Assert.assertEquals(String.class, field.getModelClass());
+    }
 
     @Test
     public void fromSourceCsv()  {

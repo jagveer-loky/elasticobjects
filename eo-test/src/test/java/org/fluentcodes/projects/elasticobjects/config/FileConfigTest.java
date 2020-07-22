@@ -43,11 +43,11 @@ public class FileConfigTest {
     public void fromEoConfigsCache()  {
         
         ModelInterface cache = TestProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
-        Assert.assertNotNull(cache.getField(F_TEST_STRING));
-        Assert.assertEquals(F_TEST_STRING, cache.getField(F_TEST_STRING).getFieldKey());
+        Assert.assertNotNull(cache.getFieldConfig(F_TEST_STRING));
+        Assert.assertEquals(F_TEST_STRING, cache.getFieldConfig(F_TEST_STRING).getFieldKey());
         ModelInterface subTest = cache.getFieldModel(F_SUB_TEST);
         Assert.assertEquals(M_SUB_TEST, subTest.getModelKey());
-        Assert.assertEquals(F_TEST_STRING, subTest.getField(F_TEST_STRING).getFieldKey());
+        Assert.assertEquals(F_TEST_STRING, subTest.getFieldConfig(F_TEST_STRING).getFieldKey());
     }
 
     @Test

@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.FileCallRead;
 import org.fluentcodes.projects.elasticobjects.calls.FileCallWrite;
 import org.fluentcodes.projects.elasticobjects.EO;
@@ -16,15 +17,16 @@ public class ExecutorWithFileCallWriteTest {
 
     @Test
     public void execute()  {
-        final CallExecutorResource executor = new CallExecutorResource(new FileCallWrite(FILE_TARGET_TXT));
-        executor.setSourcePath(F_TEST_STRING);
+        Call callWrite = new FileCallWrite(FILE_TARGET_TXT)
+                .setSourcePath(F_TEST_STRING);
         EO eo = TestProviderMapJson.STRING.createMapEo();
         //FILE_TARGET_TXT, F_MAP_PATH, F_TEST_STRING);
-        executor.execute(eo);
+        eo.addCall(callWrite);
+        eo.execute();
 
-        final CallExecutorResource readExecutor = new CallExecutorResource(new FileCallRead(FILE_TARGET_TXT));
-        executor.setTargetPath(SAMPLE_CONTENT);
-        readExecutor.execute(eo);
+        Call callRead = new FileCallRead(FILE_TARGET_TXT)
+                .setTargetPath(SAMPLE_CONTENT);
+        //new CallExecutorResource().execute(eo, callRead);
         Assert.assertEquals(S_STRING, eo.get(SAMPLE_CONTENT));
 
     }

@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.FileCallRead;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -22,13 +23,10 @@ public class EOWithFileCallTest {
         root.setPathValue(Path.ofs(S_LEVEL0, S_LEVEL1),S_STRING);
         final EO child = root.getEo(S_LEVEL0);
 
-        final CallExecutorResource executor = new CallExecutorResource(new FileCallRead(FILE_SOURCE_TXT));
-        executor.setTargetPath(S_LEVEL0);
-        child.addCall(executor);
+        final Call call = new FileCallRead(FILE_SOURCE_TXT).setTargetPath(S_LEVEL0);
+        child.addCall(call);
 
-        Assert.assertEquals(1, root.getCalls().getExecutorList().size());
-        CallExecutorResource callExecutor = (CallExecutorResource) root.getCalls().getExecutorList().get(0);
-        Assert.assertEquals(Path.DELIMITER + S_LEVEL0, callExecutor.getTargetPath());
+        Assert.assertEquals(Path.DELIMITER + S_LEVEL0, call.getTargetPath());
 
         root.execute();
         Assert.assertEquals(S_STRING, root.get(Path.ofs(S_LEVEL0, SAMPLE_CONTENT)));
@@ -37,7 +35,7 @@ public class EOWithFileCallTest {
     @Test
     public void givenJsonWithSource_ok() {
         final String json = "{" +
-                "\"(CallExecutor)content\":" +
+                "\"(List)content\":" +
                 "{" +
                 "\"(FileCallRead)call\":" +
                 "{" +

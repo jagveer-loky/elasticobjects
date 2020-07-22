@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.executor;
 
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.FileCallRead;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -19,20 +20,21 @@ public class ExecutorWithFileCallReadTest {
 
     @Test
     public void withMapPath()  {
-        final CallExecutorResource executor = new CallExecutorResource(new FileCallRead(FILE_SOURCE_TXT));
-        executor.setTargetPath(SAMPLE_CONTENT);
+        Call call = new FileCallRead(FILE_SOURCE_TXT)
+                .setTargetPath(SAMPLE_CONTENT);
         final EO eo = TestProviderRootTest.createEo();
-        executor.execute(eo);
+        eo.addCall(call);
+        eo.execute();
         Assert.assertEquals(S_STRING, eo.get(SAMPLE_CONTENT));
     }
 
     @Test
     public void withLongPathAndMapPath()  {
         final String path = Path.ofs(S_PATH2, SAMPLE_CONTENT);
-        final CallExecutorResource executor = new CallExecutorResource(new FileCallRead(FILE_SOURCE_TXT));
-        executor.setTargetPath(path);
+        Call call = new FileCallRead(FILE_SOURCE_TXT).setTargetPath(path);
         final EO eo = TestProviderRootTest.createEo();
-        executor.execute(eo);
+        eo.addCall(call);
+        eo.execute();
         Assert.assertEquals(S_STRING, eo.get(path));
     }
 }
