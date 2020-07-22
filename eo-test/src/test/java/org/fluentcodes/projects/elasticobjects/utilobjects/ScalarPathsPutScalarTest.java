@@ -15,7 +15,7 @@ import org.junit.Test;
 public class ScalarPathsPutScalarTest {
     private static final Logger log = LogManager.getLogger(ScalarPathsPutScalarTest.class);
 
-    @Test
+    /*@Test
     public void dirScalarTest()  {
 
         ScalarPaths scalarPath = new ScalarPaths();
@@ -51,6 +51,6 @@ public class ScalarPathsPutScalarTest {
         }
         Assert.assertEquals(value, scalarPath.get(path));
         Assert.assertEquals(value, scalarPath.get(absolutePath));
-    }
+    }*/
 
 }

@@ -20,7 +20,7 @@ public class EqTest {
     @Test
     public void filterAdapter()  {
         EO adapter = TestProviderRootTest.createEo();
-        adapter.setPathValue(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
+        adapter.set(TEO_STATIC.S_STRING, TEO_STATIC.S_TEST_STRING);
         Eq eq = new Eq(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq.toString() + adapter.get(TEO_STATIC.S_TEST_STRING), eq.filter(adapter));
         Eq eq2 = new Eq(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING_OTHER);

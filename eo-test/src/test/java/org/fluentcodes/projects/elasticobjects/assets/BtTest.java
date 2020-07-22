@@ -3,17 +3,23 @@ package org.fluentcodes.projects.elasticobjects.assets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.config.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_OBJECT;
 
@@ -22,6 +28,28 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_OBJECT;
  */
 public class BtTest {
     private static final Logger LOG = LogManager.getLogger(BtTest.class);
+    @Test
+    public void testMap_forWiki()  {
+        final EO eo = TestProviderRootTest.createEo();
+
+        final Map map = new HashMap();
+        map.put("testString", "value");
+        map.put("testFloat", 1.1D);
+
+        final EO child = eo.set( map, "(BasicTest)level0");
+        Assert.assertEquals(BasicTest.class, child.getModelClass());
+        assertEquals("value", child.get("testString"));
+        assertEquals(1.1F, child.get("testFloat"));
+        assertEquals("value", eo.get("level0","testString"));
+
+        assertEquals(Map.class, eo.getModelClass());
+        assertEquals(LinkedHashMap.class, eo.get().getClass());
+
+        assertEquals(BasicTest.class, eo.getEo("level0").getModelClass());
+        assertEquals(BasicTest.class, eo.get("level0").getClass());
+        assertEquals(BasicTest.class, child.get().getClass());
+        assertEquals(Float.class, eo.getEo("level0/testFloat").getModelClass());
+    }
 
     @Test
     public void bean() {
@@ -121,6 +149,87 @@ public class BtTest {
         Assert.assertEquals(S_BOOLEAN, cache.get(F_TEST_BOOLEAN, basicTest));
     }
 
+    @Test
+    public void testBT_ok()  {
+        final EO root = TestProviderRootTest.createEo();
+        BasicTest basicTest = new BasicTest();
+        basicTest.setTestString("testObject");
+        root.set( basicTest, "test","test2");
+        Assert.assertEquals("testObject", root.get("test","test2","testString"));
+        Assert.assertEquals(BasicTest.class, root.getEo("test","test2").getModelClass());
+    }
+
+    @Test
+    public void testBTByPath_ok()  {
+        final EO root = TestProviderRootTest.createEo();
+        root.set("testObject", "(BasicTest)test", "testString");
+        Assert.assertEquals("testObject", root.get("test"," testString"));
+        Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
+    }
+
+    @Test
+    public void testBTByPathAddInteger_ok()  {
+        final EO root = TestProviderRootTest.createEo();
+        root.set("testObject", "(BasicTest)test","testString");
+        root.set(1, "test","testInt");
+        Assert.assertEquals(1, root.get("test","testInt"));
+        Assertions.assertThat(root.getLog()).isEmpty();
+        Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
+    }
+
+    @Test
+    public void givenBT_whenSetPathNotExisting_hasLog()  {
+        final EO root = TestProviderRootTest.createEo();
+        root.set("testObject", "(BasicTest)test","testString");
+        root.set(1, "test", "nonsense");
+        Assert.assertNull(root.get("test","nonsense"));
+        Assertions.assertThat(root.getLog()).isNotEmpty();
+        Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
+    }
+
+    @Test
+    public void testBTByPathWithEmpty_ok()  {
+        final EoRoot root = TestProviderRootDev.createEo();
+        root.setEmpty("(BasicTest)test");
+        Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
+    }
+
+    @Test
+    public void testBTRoot_ok()  {
+        final EoRoot root = new EoRoot(TestProviderRootTest.EO_CONFIGS, LogLevel.DEBUG, BasicTest.class);
+        root.set("testObject", "testString");
+        Assert.assertEquals(BasicTest.class, root.getModelClass());
+        Assert.assertEquals("testObject", root.get("testString"));
+    }
+
+    @Test
+    public void givenBtEmpty_withPathAndString_ok()  {
+        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        eo.set(S_STRING_OTHER, F_TEST_STRING);
+        Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+    }
+
+    @Test
+    public void givenBtEmpty_withPathNotExisting_hasErrors()  {
+        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        eo.set(S_STRING_OTHER, S_KEY1);
+        Assertions.assertThat(eo.getLog()).isNotEmpty();
+    }
+
+    @Test
+    public void givenBtEmpty_whenSetScalarWithObject_hasErrors()  {
+        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        eo.set(new BasicTest(), F_TEST_STRING);
+        Assertions.assertThat(eo.getLog()).contains("Problem setting non scalar value ");
+    }
+
+    @Test
+    public void givenBtEmpty_setObjectFieldWithScalar_hasErrors()  {
+        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        eo.set(S_STRING, F_BASIC_TEST);
+        Assertions.assertThat(eo.getLog()).contains("Problem setting scalar value ");
+    }
 
 
 }

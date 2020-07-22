@@ -19,10 +19,10 @@ public class EOCompareTest {
     public void simpleEquals()  {
         
         EO adapter = TestProviderRootTest.createEo();
-        adapter.setPathValue("first", TEO_STATIC.S_STRING);
+        adapter.set(TEO_STATIC.S_STRING, "first");
 
         EO other = TestProviderRootTest.createEo();
-        other.setPathValue("first" ,TEO_STATIC.S_STRING);
+        other.set(TEO_STATIC.S_STRING,"first");
 
         StringBuilder builder = new StringBuilder();
         adapter.compare(builder, other);
@@ -33,12 +33,10 @@ public class EOCompareTest {
     public void simpleScalarNotEquals()  {
         
         EO adapter = TestProviderRootTest.createEo();
-        adapter.setPathValue(TEO_STATIC.S_TEST_STRING
-                ,TEO_STATIC.S_STRING);
+        adapter.set(TEO_STATIC.S_STRING, TEO_STATIC.S_TEST_STRING);
 
         EO other = TestProviderRootTest.createEo();
-        other.setPathValue(TEO_STATIC.S_TEST_STRING
-                ,TEO_STATIC.S_STRING_OTHER);
+        other.set(TEO_STATIC.S_STRING_OTHER, TEO_STATIC.S_TEST_STRING);
 
         StringBuilder builder = new StringBuilder();
         adapter.compare(builder, other);
@@ -49,10 +47,10 @@ public class EOCompareTest {
     public void simpleContainerNotEquals()  {
         
         EO adapter = TestProviderRootTest.createEo();
-        adapter.setPathValue(TEO_STATIC.S_KEY0,TEO_STATIC.S_STRING);
+        adapter.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY0);
 
         EO other = TestProviderRootTest.createEo();
-        other.setPathValue(TEO_STATIC.S_KEY1,TEO_STATIC.S_STRING);
+        other.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY1);
 
         StringBuilder builder = new StringBuilder();
         adapter.compare(builder, other);

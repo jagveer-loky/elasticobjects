@@ -28,7 +28,7 @@ public class EoRemoveTest {
     @Test
     public void testObjectbject()  {
         EoChild child = (EoChild) TestProviderRootTest.createEo(new BasicTest())
-                .setPathValue(F_TEST_STRING,"Test");
+                .set("Test", F_TEST_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, ((EoChild) root).valuesize());
         Assert.assertEquals(1, ((EoChild) root).adaptersize());
@@ -53,7 +53,7 @@ public class EoRemoveTest {
     @Test
     public void testMap()  {
         
-        EO child = TestProviderRootTest.createEo().setPathValue(S_TEST_STRING, S_STRING);
+        EO child = TestProviderRootTest.createEo().set(S_STRING, S_TEST_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, ((EoChild) root).valuesize());
         Assert.assertEquals(1, ((EoChild) root).adaptersize());
@@ -81,7 +81,7 @@ public class EoRemoveTest {
     public void testList()  {
         
         EO child = TestProviderRootTest.createEo(new ArrayList<>())
-                .setPathValue(S0,S_STRING);
+                .set(S_STRING, S0);
         // remove value entry first
         EO root = child.getRoot();
         Assert.assertEquals(1, ((EoChild) root).adaptersize());

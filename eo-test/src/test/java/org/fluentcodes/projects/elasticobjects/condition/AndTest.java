@@ -75,7 +75,7 @@ public class AndTest {
     @Test
     public void filterAdapter()  {
         EO adapter = TestProviderRootTest.createEo();
-        adapter.setPathValue(S_TEST_STRING, S_STRING);
+        adapter.set(S_STRING, S_TEST_STRING);
         And condition = new And(toLike(S_TEST_STRING, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString(),
                 condition.filter(adapter));

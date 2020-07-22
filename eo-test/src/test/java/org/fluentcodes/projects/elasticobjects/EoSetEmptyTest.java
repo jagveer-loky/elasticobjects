@@ -42,22 +42,19 @@ public class EoSetEmptyTest {
 
     @Test
     public void longPathWithBT_isBT()  {
-        final String path = Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(BasicTest)" + S_LEVEL3);
         final EO eo = TestProviderRootTest.createEo();
-        eo.setPathValue(path);
+        eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(BasicTest)" + S_LEVEL3);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.getEo(path).getModelClass()).isEqualTo(BasicTest.class);
+        Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(BasicTest)" + S_LEVEL3).getModelClass()).isEqualTo(BasicTest.class);
     }
 
     @Test
     public void longPath1AndLongPath2PartlyOverlapping_bothObjectsRemain()  {
-        final String path1 = Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3);
-        final String path2 = Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5);
         final EO eo = TestProviderRootTest.createEo();
-        eo.setPathValue(path1);
-        eo.setPathValue(path2);
+        eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3);
+        eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.getEo(path1)).isNotNull();
-        Assertions.assertThat(eo.getEo(path2)).isNotNull();
+        Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3)).isNotNull();
+        Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5)).isNotNull();
     }
 }
