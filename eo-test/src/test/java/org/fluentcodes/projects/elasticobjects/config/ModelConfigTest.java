@@ -2,14 +2,13 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.assets.ClassTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubClassForTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-
-import org.fluentcodes.projects.elasticobjects.LoggingObjectsImpl;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderConfig;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,6 +16,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
@@ -35,7 +36,7 @@ public class ModelConfigTest {
         EOConfigsCache cache = TestProviderRootTest.EO_CONFIGS;
         ModelInterface model = cache.findModel(ClassTest.class);
         for (String key: model.getFieldNames()) {
-            Assert.assertNotNull(model.getField(key));
+            Assert.assertNotNull(model.getFieldConfig(key));
         }
         ClassTest instance = (ClassTest)model.create();
         Assert.assertNotNull(instance);
@@ -48,7 +49,7 @@ public class ModelConfigTest {
         EOConfigsCache cache = TestProviderRootTest.EO_CONFIGS;
         ModelInterface model = cache.findModel(SubClassForTest.class);
         for (String key: model.getFieldNames()) {
-            Assert.assertNotNull(model.getField(key));
+            Assert.assertNotNull(model.getFieldConfig(key));
         }
         SubClassForTest instance = (SubClassForTest)model.create();
         Assert.assertNotNull(instance);
@@ -65,28 +66,23 @@ public class ModelConfigTest {
     @Test
     public void findCachedUnknown_fails()  {
         try {
-            TestProviderRootTest.EO_CONFIGS.findModel(M_SUB_TEST + SAMPLE_KEY_UNKNOW);
+            TestProviderRootTest.EO_CONFIGS.findModel(SAMPLE_KEY_UNKNOW);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        } catch (Exception e) {
+        } catch (EoException e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
         }
     }
 
-    @Test
-    public void findCachedString()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(M_STRING);
-        Assert.assertEquals(String.class, model.getModelClass());
-    }
+
 
     @Test
     public void findCachedST()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(SubTest.class.getSimpleName());
+        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(SubTest.class);
         Assert.assertEquals(SubTest.class, model.getModelClass());
     }
 
     @Test
     public void modelTest()  {
-        
         ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(ModelInterface.class);
         Assert.assertEquals(ModelInterface.class.getSimpleName(), model.getModelKey());
         Assert.assertEquals(INFO_COMPARE_FAILS + model.getModelClass().getSimpleName(),
@@ -130,8 +126,8 @@ public class ModelConfigTest {
         Assert.assertEquals(INFO_COMPARE_FAILS + F_FIELD_KEYS + CON_SPACE + model.getFieldKeys().size(),
                 19, model.getFieldKeys().size());
 
-        Assert.assertEquals(INFO_COMPARE_FAILS + F_DESCRIPTION + CON_SPACE + model.getField(F_DESCRIPTION).getModelClass().getSimpleName(),
-                String.class, model.getField(F_DESCRIPTION).getModelClass());
+        Assert.assertEquals(INFO_COMPARE_FAILS + F_DESCRIPTION + CON_SPACE + model.getFieldConfig(F_DESCRIPTION).getModelClass().getSimpleName(),
+                String.class, model.getFieldConfig(F_DESCRIPTION).getModelClass());
 
         //TODO
         //Assert.assertTrue(INFO_COMPARE_FAILS + F_DESCRIPTION + CON_SPACE + model.find(F_DESCRIPTION, model),
@@ -141,32 +137,13 @@ public class ModelConfigTest {
             model.set(F_DESCRIPTION, model, S_STRING);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
         } catch (Exception e) {
-            Assert.assertEquals(Exception.class, e.getClass());
+            Assert.assertEquals(EoException.class, e.getClass());
         }
 
-        Assert.assertEquals(INFO_COMPARE_FAILS + model.getField(F_CREATION_DATE).getModelClass().getSimpleName(),
-                Date.class, model.getField(F_CREATION_DATE).getModelClass());
+        Assert.assertEquals(INFO_COMPARE_FAILS + model.getFieldConfig(F_CREATION_DATE).getModelClass().getSimpleName(),
+                Date.class, model.getFieldConfig(F_CREATION_DATE).getModelClass());
 
     }
-
-    @Test
-    public void assertLoggingObjectImpl()  {
-        
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(LoggingObjectsImpl.class);
-        Assert.assertEquals(ShapeTypes.INSTANCE, model.getShapeType());
-        Assert.assertTrue(model.hasModel());
-        Assert.assertFalse(model.isMap());
-        Assert.assertFalse(model.isSet());
-        Assert.assertFalse(model.isList());
-        Assert.assertFalse(model.isScalar());
-        Assert.assertTrue(model.isObject());
-
-        LoggingObjectsImpl object = (LoggingObjectsImpl) model.create();
-        model.set(F_LOG, object, S_STRING);
-        Assert.assertEquals(S_STRING, model.get(F_LOG, object));
-        Assert.assertEquals(S_STRING, object.getLog());
-    }
-
 
     @Test
     public void checkDependentModels()  {
@@ -194,5 +171,49 @@ public class ModelConfigTest {
         Assert.assertEquals(F_INTERFACES, config.getInterfaces());
         Assert.assertEquals(F_MODULE, config.getModule());
         Assert.assertEquals(F_SUB_MODULE, config.getSubModule());
+    }
+
+    @Test
+    public void checkConfig() {
+        EOConfigsCache cache = TestProviderRootTest.EO_CONFIGS;
+        TreeSet<String> keys = new TreeSet<>(cache.getConfigKeys(ModelConfig.class));
+        int counter = 0;
+        final Set<String> allFields = new TreeSet<>();
+        for (String key: keys) {
+            counter++;
+            LOG.info("Check " + counter + ": " + key);
+            ModelConfig model = cache.findModel(key);
+            Assertions.assertThat(model).isNotNull();
+            try {
+                model.resolve();
+            }
+            catch (EoException e) {
+                LOG.info(e.getMessage());
+            }
+            if (model.getFieldKeys()!=null) {
+                allFields.addAll(model.getFieldKeys());
+            }
+        }
+        counter = 0;
+        for (String key: allFields) {
+            counter++;
+            //LOG.info("Check field " + counter + ": " + key);
+            try {
+                FieldConfig fieldConfig = cache.findField(key);
+                Assertions.assertThat(fieldConfig).isNotNull();
+            }
+            catch (EoException e) {
+                LOG.info(e.getMessage());
+            }
+        }
+        keys = new TreeSet<>(cache.getConfigKeys(FieldConfig.class));
+        counter = 0;
+        for (String fieldKey: keys) {
+            counter++;
+
+            if (!allFields.contains(fieldKey)) {
+                LOG.info("Not found in models " + fieldKey);
+            }
+        }
     }
 }

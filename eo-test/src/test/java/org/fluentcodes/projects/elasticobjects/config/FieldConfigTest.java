@@ -58,7 +58,7 @@ public class FieldConfigTest {
         
         FieldConfig fieldCacheDefinitions = TestProviderRootTest.EO_CONFIGS
                 .findModel(BasicTest.class)
-                .getField(F_TEST_STRING);
+                .getFieldConfig(F_TEST_STRING);
         Assert.assertNotNull(fieldCacheDefinitions);
         Assert.assertFalse(fieldCacheDefinitions.isUnique());
         Assert.assertFalse(fieldCacheDefinitions.isNotNull());

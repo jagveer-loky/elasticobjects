@@ -23,7 +23,7 @@ public class ScsCallReadTest {
 
     @Test
     public void sourceCsvDirect_returnsList()  {
-        final ResourceCall call = new ScsCallRead()
+        final Call call = new ScsCallRead()
                 .setConfigKey(CS_SOURCE_CSV)
                 .resolve(TestProviderRootTest.EO_CONFIGS);
         List value = ((ScsCallRead)call).execute();
@@ -36,10 +36,12 @@ public class ScsCallReadTest {
 
     @Test
     public void readSourceCsvAnonym_hasLog()  {
-        final ResourceCall call = new ScsCallRead().setConfigKey(CS_SOURCE_CSV);
+        final Call call = new ScsCallRead()
+                .setConfigKey(CS_SOURCE_CSV)
+                .setTargetPath("target");
         EO eo = TestProviderRootTest.createEo();
         eo.setRoles(R_ANONYM);
-        eo.addCall(new CallExecutorResource(call).setTargetPath("target"));
+        eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.isEmpty()).isTrue();
@@ -47,10 +49,10 @@ public class ScsCallReadTest {
 
     @Test
     public void readSourceCsvGuest_hasValues()  {
-        final ResourceCall call = new ScsCallRead().setConfigKey(CS_SOURCE_CSV);
+        final Call call = new ScsCallRead().setConfigKey(CS_SOURCE_CSV).setTargetPath("target");
         EO eo = TestProviderRootTest.createEo();
         eo.setRoles(R_GUEST);
-        eo.addCall(new CallExecutorResource(call).setTargetPath("target"));
+        eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).doesNotContain("ERROR");
         Assertions.assertThat(eo.get("target/0/0")).isEqualTo("value11");

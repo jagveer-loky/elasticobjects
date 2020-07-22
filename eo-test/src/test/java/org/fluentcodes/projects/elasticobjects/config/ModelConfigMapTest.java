@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 
 import org.junit.Assert;
@@ -17,9 +18,7 @@ public class ModelConfigMapTest {
 
     @Test
     public void readMainJackson()  {
-        
-
-        final ModelConfigMap mapModel = (ModelConfigMap) TestProviderRootTest.EO_CONFIGS.findModel(Map.class);
+        final ModelConfigMap mapModel = (ModelConfigMap) TestProviderRootDev.EO_CONFIGS.findModel(Map.class);
         Assert.assertEquals(Map.class, mapModel.getModelClass());
         final Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());
