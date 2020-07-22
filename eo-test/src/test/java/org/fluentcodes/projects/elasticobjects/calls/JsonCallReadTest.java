@@ -37,10 +37,10 @@ public class JsonCallReadTest {
     public void writeReadTmpJsonSuperAdmin_ok()  {
         final JsonCallWrite call = new JsonCallWrite(FILE_TMP_JSON);
         EO eoWrite = TestProviderRootTest.createEo();
-        eoWrite.setPathValue(S0 + Path.DELIMITER + S_KEY1,S_VALUE11);
-        eoWrite.setPathValue(S0 + Path.DELIMITER + S_KEY2,S_VALUE12);
-        eoWrite.setPathValue(S1 + Path.DELIMITER + S_KEY1,S_VALUE21);
-        eoWrite.setPathValue(S1 + Path.DELIMITER + S_KEY2,S_VALUE22);
+        eoWrite.set(S_VALUE11, S0,S_KEY1);
+        eoWrite.set(S_VALUE12, S0,S_KEY2);
+        eoWrite.set(S_VALUE21, S1,S_KEY1);
+        eoWrite.set(S_VALUE22, S1,S_KEY2);
         eoWrite.setRoles(R_SUPER_ADMIN);
         call.execute(eoWrite);
         EO eo = TestProviderRootTest.createEo();

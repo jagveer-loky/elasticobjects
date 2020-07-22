@@ -20,7 +20,7 @@ public class EOWithFileCallTest {
     @Test
     public void addFileReadAction()  {
         final EO root = TestProviderRootTest.createEo();
-        root.setPathValue(Path.ofs(S_LEVEL0, S_LEVEL1),S_STRING);
+        root.set(S_STRING, S_LEVEL0, S_LEVEL1);
         final EO child = root.getEo(S_LEVEL0);
 
         final Call call = new FileCallRead(FILE_SOURCE_TXT).setTargetPath(S_LEVEL0);

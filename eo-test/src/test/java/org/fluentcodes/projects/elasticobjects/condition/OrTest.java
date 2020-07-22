@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.condition;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -42,7 +43,7 @@ public class OrTest {
     @Test
     public void filterAdapter()  {
         EO adapter = TestProviderRootTest.createEo();
-        adapter.setPathValue(S_TEST_STRING, S_STRING);
+        adapter.set(S_STRING, S_TEST_STRING);
         Or condition = new Or(toLike(S_TEST_STRING, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),
                 condition.filter(adapter));

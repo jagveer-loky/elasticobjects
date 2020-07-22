@@ -23,20 +23,19 @@ public class EoOverwriteTest {
 
     @Test
     public void givenObject_whenOverwriteWithMap_isMap()  {
-        String path = Path.ofs(S_LEVEL0,S_LEVEL1,S_LEVEL2);
         BasicTest bt = new BasicTest();
         bt.setTestString(S_TEST_STRING);
         EoChild child = (EoChild) TestProviderRootTest.createEo(new LinkedHashMap<>())
-                .setPathValue(path,bt);
+                .set(bt, S_LEVEL0,S_LEVEL1,S_LEVEL2);
 
-        Assert.assertEquals(BasicTest.class, child.getEo(path).getModelClass());
-        Assert.assertEquals(S_TEST_STRING, child.get(path + Path.DELIMITER + F_TEST_STRING));
+        Assert.assertEquals(BasicTest.class, child.getEo(S_LEVEL0,S_LEVEL1,S_LEVEL2).getModelClass());
+        Assert.assertEquals(S_TEST_STRING, child.get(S_LEVEL0,S_LEVEL1,S_LEVEL2, F_TEST_STRING));
 
         Map map = new HashMap();
         map.put(S_KEY1, S_STRING);
-        child.overWrite(path, map);
-        Assert.assertEquals(HashMap.class, child.getEo(path).getModelClass());
-        Assert.assertNull(child.get(path + Path.DELIMITER + F_TEST_STRING));
-        Assert.assertEquals(S_STRING, child.get(path + Path.DELIMITER + S_KEY1));
+        child.overWrite( map, S_LEVEL0,S_LEVEL1,S_LEVEL2);
+        Assert.assertEquals(HashMap.class, child.getEo(S_LEVEL0,S_LEVEL1,S_LEVEL2).getModelClass());
+        Assert.assertNull(child.get(S_LEVEL0,S_LEVEL1,S_LEVEL2,  F_TEST_STRING));
+        Assert.assertEquals(S_STRING, child.get(S_LEVEL0,S_LEVEL1,S_LEVEL2, S_KEY1));
     }
 }

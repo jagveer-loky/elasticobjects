@@ -178,8 +178,8 @@ public class EOToJSONMapTest {
         map.put(S_KEY1, S_INTEGER);
         
         EO eo = TestProviderRootTest.createEo();
-        eo.setPathValue(S_LEVEL0,map);
-        eo.setPathValue(S_LEVEL1,map);
+        eo.set(map, S_LEVEL0);
+        eo.set(map, S_LEVEL1);
         /*String toCompare = MapProviderJSON.toJSONMap(S_LEVEL0,
                 MapProviderJSON.toJSONMap(S_KEY0, S_STRING, S_KEY1, S_INTEGER),
                 S_LEVEL1,
@@ -200,7 +200,7 @@ public class EOToJSONMapTest {
         EO eo = TestProviderRootTest.createEo();
         eo.mapObject(map);
         eo
-                .setPathValue(S_LEVEL0,map);
+                .set(map, S_LEVEL0);
         eo.setCheckObjectReplication(true);
         String serialized = new EOToJSON()
                 .setStartIndent(0)

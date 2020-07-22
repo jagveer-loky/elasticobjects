@@ -20,7 +20,7 @@ public class LikeTest {
     @Test
     public void filterAdapter()  {
         EO adapter = TestProviderRootTest.createEo();
-        adapter.setPathValue(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
+        adapter.set(TEO_STATIC.S_STRING,TEO_STATIC.S_TEST_STRING);
         Condition condition = new Like(TEO_STATIC.S_TEST_STRING, TEO_STATIC.S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(TEO_STATIC.S_TEST_STRING),
                 condition.filter(adapter));

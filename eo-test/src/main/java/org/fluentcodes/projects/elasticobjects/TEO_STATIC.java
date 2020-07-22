@@ -137,25 +137,16 @@ public class TEO_STATIC {
     public static final String S_LEVEL3 = "level3";
     public static final String S_LEVEL4 = "level4";
     public static final String S_LEVEL5 = "level5";
-    public static final String S_LEVEL6 = "level6";
-    public static final String S_LEVEL7 = "level7";
 
-    public static final String S__LEVEL0 = Path.DELIMITER + S_LEVEL0;
-    public static final String S_LEVEL0_LEVELMAP = S_LEVEL0 + Path.DELIMITER + S_LEVELMAP;
 
     public static final String S_PATH_DYNAMIC = S_LEVEL0 + Path.DELIMITER + "$[key]";
     public static final String S_PATH1 = S_LEVEL0 + Path.DELIMITER + S_LEVEL1;
     public static final String S_PATH2 = S_PATH1 + Path.DELIMITER + S_LEVEL2;
-    public static final String S_PATH3 = S_PATH2 + Path.DELIMITER + S_LEVEL3;
-    public static final String S_PATH4 = S_PATH3 + Path.DELIMITER + S_LEVEL4;
-    public static final String S_PATH5 = S_PATH4 + Path.DELIMITER + S_LEVEL5;
-    public static final String S_PATH6 = S_PATH5 + Path.DELIMITER + S_LEVEL6;
-    public static final String S_PATH7 = S_PATH6 + Path.DELIMITER + S_LEVEL7;
-    public static final String S_PATH00 = Path.ofs(S0, S0);
-    public static final String S_PATH0_KEY1 = Path.ofs(S0, S_KEY1);
-    public static final String S_PATH0_KEY2 = Path.ofs(S0, S_KEY2);
-    public static final String S_PATH1_KEY1 = Path.ofs(S1, S_KEY1);
-    public static final String S_PATH1_KEY2 = Path.ofs(S1, S_KEY2);
+    public static final String S_PATH00 = new Path(S0, S0).directory();
+    public static final String S_PATH0_KEY1 = new Path(S0, S_KEY1).directory();
+    public static final String S_PATH0_KEY2 = new Path(S0, S_KEY2).directory();
+    public static final String S_PATH1_KEY1 = new Path(S1, S_KEY1).directory();
+    public static final String S_PATH1_KEY2 = new Path(S1, S_KEY2).directory();
 
     public static final String PCK_CONFIG = "config";
     public static final String PACK_ROOT = "org.fluentcodes.projects.elasticobjects";
