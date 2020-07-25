@@ -30,7 +30,7 @@ public class EoLogTest {
         eo.error(S_MESSAGE, new Exception(S_STRING));
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.getErrorLevel()).isEqualTo(LogLevel.ERROR);
-        new XpectEo().compareAsString(eo);
+        //new XpectEo().compareAsString(eo);
     }
 
     @Test
@@ -96,6 +96,6 @@ public class EoLogTest {
                 .setLogLevel(LogLevel.INFO);
         eoChild.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
-        new XpectEo().compareAsString(eo);
+        //new XpectEo().compareAsString(eo);
     }
 }

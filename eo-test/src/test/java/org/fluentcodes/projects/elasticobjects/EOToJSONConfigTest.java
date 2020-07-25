@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.config.HostConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.HostConfig;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 
 import org.junit.Test;

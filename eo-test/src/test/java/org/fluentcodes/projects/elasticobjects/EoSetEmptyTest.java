@@ -24,29 +24,7 @@ public class EoSetEmptyTest {
         eo.setEmpty(S_LEVEL0);
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
     }
-    @Test
-    public void level0WithBT_isBT()  {
-        final EO eo = TestProviderRootTest.createEo();
-        eo.setEmpty("(BasicTest)" + S_LEVEL0);
-        Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(BasicTest.class);
-    }
 
-    @Test
-    public void level0OverwriteWithBT_isMap()  {
-        final EO eo = TestProviderRootTest.createEo();
-        eo.setEmpty(S_LEVEL0);
-        eo.setEmpty("(BasicTest)" + S_LEVEL0);
-        Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
-        Assertions.assertThat(eo.getLog()).isEmpty();
-    }
-
-    @Test
-    public void longPathWithBT_isBT()  {
-        final EO eo = TestProviderRootTest.createEo();
-        eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(BasicTest)" + S_LEVEL3);
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(BasicTest)" + S_LEVEL3).getModelClass()).isEqualTo(BasicTest.class);
-    }
 
     @Test
     public void longPath1AndLongPath2PartlyOverlapping_bothObjectsRemain()  {

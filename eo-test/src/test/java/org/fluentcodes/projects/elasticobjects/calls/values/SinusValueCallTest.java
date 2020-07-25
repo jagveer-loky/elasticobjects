@@ -9,8 +9,6 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.executor.CallExecutorImpl;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJsn;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
