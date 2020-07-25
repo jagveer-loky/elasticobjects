@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigurationCall;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderCalls;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
@@ -32,7 +33,7 @@ public class ConfigurationCallTest {
     public void fields()  {
         final EO eoFields = TestProviderCalls.createConfigCallEO(FIELD);
         Assert.assertFalse(eoFields.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getEo(FIELD).size(), eoFields.getEo(FIELD).size() > 100);
+        Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getEo(FIELD).eoSize(), eoFields.getEo(FIELD).eoSize() > 100);
         Assert.assertEquals(F_DESCRIPTION, eoFields.getEo(FIELD).get(Path.ofs(F_DESCRIPTION, F_FIELD_KEY)));
     }
 
@@ -40,7 +41,7 @@ public class ConfigurationCallTest {
     public void models()  {
         final EO eoModels = TestProviderCalls.createConfigCallEO(MODEL);
         Assert.assertFalse(eoModels.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getEo(MODEL).size(), eoModels.getEo(MODEL).size() > 80);
+        Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getEo(MODEL).eoSize(), eoModels.getEo(MODEL).eoSize() > 80);
         Assert.assertEquals(M_STRING, eoModels.getEo(MODEL).get(Path.ofs(M_STRING, F_MODEL_KEY)));
     }
 
@@ -48,7 +49,7 @@ public class ConfigurationCallTest {
     public void modelsWithModuleTestObjects()  {
         final EO eoModels = TestProviderCalls.createConfigCallEO(MODEL, F_FILTER_MODULE, TEO_STATIC.MODULE_NAME);
         Assert.assertFalse(eoModels.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getEo(MODEL).size(), eoModels.getEo(MODEL).size() == 2);
+        Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getEo(MODEL).eoSize(), eoModels.getEo(MODEL).eoSize() == 2);
         Assert.assertEquals(M_BASIC_TEST, eoModels.getEo(MODEL).get(Path.ofs(M_BASIC_TEST, F_MODEL_KEY)));
     }
 
@@ -56,7 +57,7 @@ public class ConfigurationCallTest {
     public void modelsWithFilterKeyMap()  {
         final EO eoModels = TestProviderCalls.createConfigCallEO(MODEL, F_FILTER_KEY, ".*Map");
         Assert.assertFalse(eoModels.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getEo(MODEL).size(), eoModels.getEo(MODEL).size() == 4);
+        Assert.assertTrue(INFO_SIZE_FAILS + eoModels.getEo(MODEL).eoSize(), eoModels.getEo(MODEL).eoSize() == 4);
         Assert.assertEquals(M_HASH_MAP, eoModels.getEo(MODEL).get(Path.ofs(M_HASH_MAP, F_MODEL_KEY)));
         Assert.assertNull(INFO_NULL_FAILS, eoModels.getEo(M_BASIC_TEST));
     }
@@ -65,7 +66,7 @@ public class ConfigurationCallTest {
     public void fieldsWithPath()  {
         final EO eoFields = TestProviderCalls.createConfigCallEO(FIELD, F_PATH, F_PATH);
         Assert.assertFalse(eoFields.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getEo(F_PATH).size(), eoFields.getEo(F_PATH).size() > 100);
+        Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getEo(F_PATH).eoSize(), eoFields.getEo(F_PATH).eoSize() > 100);
         Assert.assertEquals(F_DESCRIPTION, eoFields.getEo(F_PATH).get(Path.ofs(F_DESCRIPTION, F_FIELD_KEY)));
     }
 
@@ -73,7 +74,7 @@ public class ConfigurationCallTest {
     public void dynamic_withConfigAttributeFields()  {
         final EO eoFields = TestProviderCalls.createConfigCallEO(GENERIC_CONFIG, A_CONFIG, FIELD);
         Assert.assertFalse(eoFields.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getEo(FIELD).size(), eoFields.getEo(FIELD).size() > 100);
+        Assert.assertTrue(INFO_SIZE_FAILS + eoFields.getEo(FIELD).eoSize(), eoFields.getEo(FIELD).eoSize() > 100);
         Assert.assertEquals(F_DESCRIPTION, eoFields.getEo(FIELD).get(Path.ofs(F_DESCRIPTION, F_FIELD_KEY)));
     }
 

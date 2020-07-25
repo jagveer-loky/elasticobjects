@@ -24,7 +24,7 @@ public class NoPath {
         EO adapter = TestProviderRootTest.createEo();
         Assert.assertEquals(Map.class, adapter.getModelClass());
         Assert.assertEquals(LinkedHashMap.class, adapter.get().getClass());
-        Assert.assertTrue(adapter.keys().size() == 0);
+        Assert.assertTrue(adapter.eoKeys().size() == 0);
     }
 
 }

@@ -1,10 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.wiki.templates;
 
-import org.fluentcodes.projects.elasticobjects.calls.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
-import org.junit.Assert;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.junit.Test;
 
 public class DirectCall {

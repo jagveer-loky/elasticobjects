@@ -147,7 +147,7 @@ public class EoMapObjectRootTest {
     public void givenListEmpty_withBTBoolean_ok()  {
         final EO root = TestProviderRootDev.createEoWithClasses(List.class);
         root.mapObject(ProviderMapJson.BOOLEAN.content());
-        Assert.assertEquals(1, root.keys().size());
+        Assert.assertEquals(1, root.eoKeys().size());
         Assert.assertEquals(1, ((EoChild) root).keysValue().size());
         Assert.assertEquals(S_BOOLEAN, root.get(S0));
     }
@@ -157,7 +157,7 @@ public class EoMapObjectRootTest {
         EO root = TestProviderRootDev.createEoWithClasses(List.class, String.class);
         root
                 .mapObject(ProviderMapJson.BOOLEAN.content());
-        Assert.assertEquals(1, root.keys().size());
+        Assert.assertEquals(1, root.eoKeys().size());
         Assert.assertEquals(1, ((EoChild) root).keysValue().size());
         Assert.assertEquals(S_BOOLEAN.toString(), root.get(S0));
     }

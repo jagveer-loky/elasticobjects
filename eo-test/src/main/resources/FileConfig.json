@@ -70,6 +70,15 @@
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "filePath": "classpath"
   },
+  "BasicTest.csv": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "BasicTest.csv",
+    "fileKey": "BasicTest.csv",
+    "fileName": "input/csv/BasicTest.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "filePath": "classpath"
+  },
   "target.csv": {
     "module": "elastic-objects",
     "subModule": "test",

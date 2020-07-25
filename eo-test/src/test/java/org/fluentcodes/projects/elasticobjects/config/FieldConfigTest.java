@@ -53,23 +53,10 @@ public class FieldConfigTest {
         Assert.assertEquals(Path.DELIMITER + PathElement.MATCHER, idConfig.getEoFieldParams().getPathPatternAsString());
     }
 
-    @Test
-    public void testBasicTestWithTestString()  {
-        
-        FieldConfig fieldCacheDefinitions = TestProviderRootTest.EO_CONFIGS
-                .findModel(BasicTest.class)
-                .getFieldConfig(F_TEST_STRING);
-        Assert.assertNotNull(fieldCacheDefinitions);
-        Assert.assertFalse(fieldCacheDefinitions.isUnique());
-        Assert.assertFalse(fieldCacheDefinitions.isNotNull());
-        //Assert.assertTrue(fieldDefinitions.isElementary());
-        //Assert.assertTrue(fieldDefinitions.isScalar());
-        Assert.assertEquals(new Integer(20), fieldCacheDefinitions.getLength());
-    }
+
 
     @Test
     public void assertId()  {
-        
         FieldConfig field = TestProviderRootTest.EO_CONFIGS.findField(F_ID);
         Assert.assertEquals(F_ID, field.getFieldKey());
         Assert.assertEquals(F_ID, field.getFieldName());
@@ -86,7 +73,6 @@ public class FieldConfigTest {
      */
     @Test
     public void assertID()  {
-        
         FieldConfig field = TestProviderRootTest.EO_CONFIGS.findField(F_UPPER_ID_KEY);
         Assert.assertEquals(F_UPPER_ID, field.getFieldKey());
         Assert.assertEquals(F_UPPER_ID, field.getFieldName());
@@ -103,7 +89,6 @@ public class FieldConfigTest {
      */
     @Test
     public void assertTestObject()  {
-        
         FieldConfig field = TestProviderRootTest.EO_CONFIGS.findField(F_TEST_OBJECT);
         Assert.assertEquals(F_TEST_OBJECT, field.getFieldKey());
         Assert.assertEquals(F_TEST_OBJECT, field.getFieldName());

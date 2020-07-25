@@ -8,8 +8,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.config.Scope;
-import org.fluentcodes.projects.elasticobjects.config.ScsConfig;
-import org.junit.Test;
 
 public class TestProviderRootTest {
     public static final EOConfigsCache EO_CONFIGS = new EOConfigsCache(Scope.TEST);

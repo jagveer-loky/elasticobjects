@@ -8,7 +8,9 @@
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "listParams": {
-      "rowHead": 0
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
     },
     "rolePermissions": {
       "read": "guest",
@@ -16,12 +18,31 @@
     },
     "description": "A sample csv file with 2*2 values and a head as a source."
   },
+  "BasicTest.csv": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "source.csv",
+    "scsKey": "BasicTest.csv",
+    "fileKey": "BasicTest.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source."
+  },
   "target.csv": {
     "module": "test-resources",
     "subModule": "main",
     "naturalId": "target.csv",
     "scsKey": "target.csv",
-    "fileKey": "target.csv",
+    "fileKey": "source.csv",
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "listParams": {
