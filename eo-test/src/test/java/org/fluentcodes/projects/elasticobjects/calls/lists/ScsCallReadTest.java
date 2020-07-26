@@ -4,11 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 
 import org.junit.Test;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
@@ -114,7 +116,7 @@ public class ScsCallReadTest {
     }
 
     @Test
-    public void givenEoBasicTestCsv_whenExecuteEo_thenParameterSet()  {
+    public void givenEoBasicTestCsv_whenExecuteEo_thenLinkedHashMapForRow()  {
         final Call call = new ScsCallRead()
                 .setConfigKey("BasicTest.csv");
         EO eo = TestProviderRootTest.createEo();
@@ -122,5 +124,21 @@ public class ScsCallReadTest {
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
+        Assertions.assertThat(eo.getEo("0").get("testString")).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(LinkedHashMap.class);
+    }
+
+    @Test
+    public void givenEoBasicTestCsvWithModels_whenExecuteEo_thenBasicTestForRow()  {
+        final Call call = new ScsCallRead()
+                .setConfigKey("BasicTest.csv")
+                .setTargetPath("(List,BasicTest)level0");
+        EO eo = TestProviderRootTest.createEo();
+        eo.addCall(call);
+        eo.execute();
+        Assertions.assertThat(eo.getLog())
+                .isEmpty();
+        Assertions.assertThat(eo.getEo("level0/0").get("testString")).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.getEo("level0/0").getModelClass()).isEqualTo(BasicTest.class);
     }
 }

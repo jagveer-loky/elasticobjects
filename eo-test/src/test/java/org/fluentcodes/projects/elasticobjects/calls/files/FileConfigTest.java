@@ -57,8 +57,8 @@ public class FileConfigTest {
         EOConfigMap map = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(FILE_SOURCE_TXT));
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(FILE_RESULT_STRING));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_SOURCE_TXT));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_RESULT_STRING));
     }
 
 }

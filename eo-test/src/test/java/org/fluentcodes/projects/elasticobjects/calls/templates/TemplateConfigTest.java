@@ -29,7 +29,7 @@ public class TemplateConfigTest {
     @Test
     public void testReadConfig() {
         EOConfigMap map = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, TemplateConfig.class);
-        TemplateConfig config = (TemplateConfig) map.get(T_SIMPLE_INSERT_WITH_PATH);
+        TemplateConfig config = (TemplateConfig) map.find(T_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertEquals(INFO_COMPARE_FAILS, T_SIMPLE_INSERT_WITH_PATH, config.getTemplateKey());
     }
