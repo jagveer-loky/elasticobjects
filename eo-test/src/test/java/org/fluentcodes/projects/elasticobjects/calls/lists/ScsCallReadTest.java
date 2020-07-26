@@ -26,8 +26,7 @@ public class ScsCallReadTest {
     @Test
     public void givenCallWithSourceCsv_whenExecuteCall_thenListReturned()  {
         final Call call = new ScsCallRead()
-                .setConfigKey(CS_SOURCE_CSV)
-                .resolve(TestProviderRootTest.EO_CONFIGS);
+                .setConfigKey(CS_SOURCE_CSV);
         EO eo = TestProviderRootTest.createEo();
         List value = (List)((ScsCallRead)call).execute(eo);
         Assertions.assertThat(value).isNotEmpty();

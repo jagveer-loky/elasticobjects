@@ -11,6 +11,18 @@
       "write": "admin"
     }
   },
+  "BasicTest.json": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "BasicTest.json",
+    "jsonKey": "BasicTest.json",
+    "fileName": "input/json/BasicTest.json",
+    "description": "Simple data for the BasicTest.",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
   "target.json": {
     "module": "test-resources",
     "subModule": "main",
