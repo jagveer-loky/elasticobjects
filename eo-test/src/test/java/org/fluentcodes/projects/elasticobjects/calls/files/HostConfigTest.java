@@ -95,7 +95,7 @@ public class HostConfigTest {
     @Test
     public void testHostConfig()  {
         EOConfigMap cache = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, HostConfig.class);
-        Assert.assertNotNull(cache.get(H_LOCALHOST));
+        Assert.assertNotNull(cache.find(H_LOCALHOST));
     }
 
 }

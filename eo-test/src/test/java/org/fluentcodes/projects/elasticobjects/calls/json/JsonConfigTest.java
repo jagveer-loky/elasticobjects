@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.calls.json;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigMapImmutable;
@@ -60,6 +59,6 @@ public class JsonConfigTest {
         EOConfigMap map = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, JsonConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(J_SIMPLE_INSERT_WITH_PATH));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(J_SIMPLE_INSERT_WITH_PATH));
     }
 }

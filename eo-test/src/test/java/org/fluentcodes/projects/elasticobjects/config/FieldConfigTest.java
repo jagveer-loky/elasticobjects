@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
@@ -38,7 +37,7 @@ public class FieldConfigTest {
         EOConfigMapFields map = new EOConfigMapFields(TestProviderRootTest.EO_CONFIGS);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(F_ID_KEY));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(F_ID_KEY));
         Assert.assertTrue(map.hasKey(F_MODEL_KEYS));
     }
 

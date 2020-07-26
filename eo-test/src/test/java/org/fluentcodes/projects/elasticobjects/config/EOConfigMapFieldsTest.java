@@ -35,7 +35,7 @@ public class EOConfigMapFieldsTest {
         EOConfigMapFields map = new EOConfigMapFields(TestProviderRootTest.EO_CONFIGS);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(F_MODEL_KEY));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(F_MODEL_KEY));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class EOConfigMapFieldsTest {
         EOConfigMapFields map = new EOConfigMapFields(TestProviderRootTest.EO_CONFIGS);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(F_TEST_STRING));
+        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(F_TEST_STRING));
         Assert.assertTrue(map.hasKey(F_TEST_LONG));
     }
 
