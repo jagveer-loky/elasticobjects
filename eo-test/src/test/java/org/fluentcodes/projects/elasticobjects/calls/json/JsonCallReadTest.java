@@ -2,10 +2,13 @@ package org.fluentcodes.projects.elasticobjects.calls.json;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileCallRead;
 import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallRead;
 import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallWrite;
 
+import org.fluentcodes.projects.elasticobjects.calls.lists.ScsCallRead;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
@@ -118,4 +121,17 @@ public class JsonCallReadTest {
         Assertions.assertThat(eo.getEo(S0).get(S_KEY1)).isEqualTo(S_VALUE11);
     }
 
+    @Test
+    public void givenEoBasicTestJsonWithModels_whenExecuteEo_thenBasicTestForRow()  {
+        final Call call = new JsonCallRead()
+                .setConfigKey("BasicTest.json")
+                .setTargetPath("(List,BasicTest)level0");
+        EO eo = TestProviderRootTest.createEo();
+        eo.addCall(call);
+        eo.execute();
+        Assertions.assertThat(eo.getLog())
+                .isEmpty();
+        Assertions.assertThat(eo.getEo("level0","0").get(F_TEST_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.getEo("level0","0").getModelClass()).isEqualTo(BasicTest.class);
+    }
 }
