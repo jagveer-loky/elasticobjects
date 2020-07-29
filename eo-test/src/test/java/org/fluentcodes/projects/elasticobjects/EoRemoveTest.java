@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,15 +27,15 @@ public class EoRemoveTest {
      */
     @Test
     public void testObjectbject()  {
-        EoChild child = (EoChild) TestProviderRootTest.createEo(new BasicTest())
+        EO child = TestProviderRootTest.createEo(new BasicTest())
                 .set("Test", F_TEST_STRING);
         EO root = child.getRoot();
-        Assert.assertEquals(1, ((EoChild) root).valuesize());
-        Assert.assertEquals(1, ((EoChild) root).adaptersize());
+        Assert.assertEquals(1, (root).keys());
+        Assert.assertEquals(1, (root).keysEo());
 
         root.remove(F_TEST_STRING);
-        Assert.assertEquals(0, ((EoChild) root).valuesize());
-        Assert.assertEquals(0, ((EoChild) root).adaptersize());
+        Assert.assertEquals(0, (root).keys());
+        Assert.assertEquals(0, (root).keysEo());
         try {
             root.remove(F_TEST_STRING);
             Assert.fail("Exception expected removing non existing child '" + S_TEST_STRING + "'");
@@ -55,13 +55,13 @@ public class EoRemoveTest {
         
         EO child = TestProviderRootTest.createEo().set(S_STRING, S_TEST_STRING);
         EO root = child.getRoot();
-        Assert.assertEquals(1, ((EoChild) root).valuesize());
-        Assert.assertEquals(1, ((EoChild) root).adaptersize());
+        Assert.assertEquals(1, (root).keys());
+        Assert.assertEquals(1, (root).keysEo());
         Assert.assertEquals(S_STRING, root.get(S_TEST_STRING));
         Map map = (Map) root.get();
         root.remove(S_TEST_STRING);
-        Assert.assertEquals(0, ((EoChild) root).valuesize());
-        Assert.assertEquals(0, ((EoChild) root).adaptersize());
+        Assert.assertEquals(0, (root).keys());
+        Assert.assertEquals(0, (root).keysEo());
         try {
             root.remove(S_TEST_STRING);
             Assert.fail("Exception expected removing non existing child '" + S_TEST_STRING + "'");
@@ -84,12 +84,12 @@ public class EoRemoveTest {
                 .set(S_STRING, S0);
         // remove value entry first
         EO root = child.getRoot();
-        Assert.assertEquals(1, ((EoChild) root).adaptersize());
-        Assert.assertEquals(1, ((EoChild) root).valuesize());
+        Assert.assertEquals(1, (root).keysEo());
+        Assert.assertEquals(1, (root).keys());
 
         root.remove(S0);
-        Assert.assertEquals(0, ((EoChild) root).adaptersize());
-        Assert.assertEquals(0, ((EoChild) root).valuesize());
+        Assert.assertEquals(0, (root).keysEo());
+        Assert.assertEquals(0, (root).keys());
         try {
             root.remove(S0);
             Assert.fail("Exception expected removing non existing child '" + S0 + "'");

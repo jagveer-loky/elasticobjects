@@ -10,8 +10,8 @@ import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJsn;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJsn;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
@@ -48,6 +48,7 @@ public class SinusValueCallTest {
     @Test
     public void checkSerializationSimple()  {
         Call call = new SinusValueCall();
+        call.setSourcePath(SOURCE);
         EO eo = createSimple();
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -84,28 +85,38 @@ public class SinusValueCallTest {
     public void givenEoSimple_whenExecuteWithEo_thenDurationIsSet() throws InterruptedException {
         final Call call = new SinusValueCall().setSourcePath(SOURCE);
         EO eo = createSimple();
+
         eo.setLogLevel(LogLevel.WARN);
         eo.addCall(call);
         eo.execute();
-        //Assertions.assertThat(eo.get(Path.DELIMITER + PathElement.CALLS)).isNotNull();
-        //Assertions.assertThat(eo.get(Path.DELIMITER + PathElement.CALLS, "0")).isNotNull();
-        //Assertions.assertThat(eo.get(Path.DELIMITER + PathElement.CALLS, "0","duration")).isNotNull();
-        //eo.set(0L, "/" + PathElement.CALLS, "0", "duration");
-        //sleep(10L);
-        //Long duration = (Long)eo.get("/" + PathElement.CALLS, "0", "duration");
-        //Assertions.assertThat(duration).isGreaterThan(-1);
+        eo.setSerializationType(JSONSerializationType.STANDARD);
         new XpectEo().compareAsString(eo.getRoot());
         Assertions.assertThat(eo.getLog()).isEmpty();
+        eo.setSerializationType(JSONSerializationType.EO);
         final String asString = new EOToJSON()
-                .setSerializationType(JSONSerializationType.EO)
                 .toJSON(eo.getRoot());
         final EO fromString = TestProviderRootTest.createEo(asString);
         fromString.setLogLevel(LogLevel.INFO);
         fromString.execute();
-        //Assertions.assertThat(fromString.getLog()).contains("Already executed within");
         Assertions.assertThat(fromString.get(SOURCE)).isEqualTo(SIMPLE_RESULT);
         Long duration = (Long)fromString.get(PathElement.CALLS, "0", "duration");
         Assertions.assertThat(duration).isNotNull();
+    }
+
+    @Test
+    public void givenEoArrayWithSourceAndTargetFromFile_whenExecute_hasSinusValueInTarget() {
+        EO eo = TestProviderMapJsn.CALL_SINUS_ARRAY.createMapEo();
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
+    }
+
+    @Test
+    public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
+        EO eo = TestProviderMapJsn.CALL_SINUS_ARRAY_ON_TARGET_PATH.createMapEo();
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
     }
 
     @Test
@@ -126,6 +137,5 @@ public class SinusValueCallTest {
         Assertions.assertThat(eoFromJson.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
         Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0")).isNotNull();
         Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0","targetPath")).isEqualTo(TARGET);
-
     }
 }

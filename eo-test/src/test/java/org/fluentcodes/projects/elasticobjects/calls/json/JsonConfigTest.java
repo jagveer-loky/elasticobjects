@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigMapImmutable;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;

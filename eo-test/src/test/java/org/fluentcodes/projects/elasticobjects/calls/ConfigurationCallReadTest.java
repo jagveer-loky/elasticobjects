@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigurationCallRead;
 import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -40,7 +40,7 @@ public class ConfigurationCallReadTest {
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assert.assertTrue(INFO_SIZE_FAILS + eo.getEo(FIELD).eoSize(), eo.getEo(FIELD).eoSize() > 100);
+        Assert.assertTrue(INFO_SIZE_FAILS + eo.getEo(FIELD).sizeEo(), eo.getEo(FIELD).sizeEo() > 100);
         Assertions.assertThat(eo.get(FIELD, F_DESCRIPTION, F_FIELD_KEY)).isEqualTo(F_DESCRIPTION);
     }
 
@@ -52,7 +52,7 @@ public class ConfigurationCallReadTest {
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assert.assertTrue(INFO_SIZE_FAILS + eo.getEo(MODEL).eoSize(), eo.getEo(MODEL).eoSize() > 60);
+        Assert.assertTrue(INFO_SIZE_FAILS + eo.getEo(MODEL).sizeEo(), eo.getEo(MODEL).sizeEo() > 60);
         Assertions.assertThat(eo.get(MODEL, "ConfigImpl", F_MODEL_KEY)).isEqualTo("ConfigImpl");
     }
 
@@ -66,7 +66,7 @@ public class ConfigurationCallReadTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertFalse(eo.isEmpty());
-        Assert.assertTrue(INFO_SIZE_FAILS + eo.getEo(MODEL).eoSize(), eo.getEo(MODEL).eoSize() == 2);
+        Assert.assertTrue(INFO_SIZE_FAILS + eo.getEo(MODEL).sizeEo(), eo.getEo(MODEL).sizeEo() == 2);
         Assertions.assertThat(eo.get(MODEL, M_BASIC_TEST, F_MODEL_KEY)).isEqualTo(M_BASIC_TEST);
     }
 

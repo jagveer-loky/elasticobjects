@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileCallRead;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileCallWrite;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.files.HostConfig;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.junit.Test;
 

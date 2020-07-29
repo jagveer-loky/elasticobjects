@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.test;
+package org.fluentcodes.projects.elasticobjects.fileprovider;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

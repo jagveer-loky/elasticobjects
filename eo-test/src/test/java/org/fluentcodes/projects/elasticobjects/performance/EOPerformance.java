@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.fileprovider.*;
 
 import org.junit.Ignore;
 import org.junit.Test;

@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigMapImmutable;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;

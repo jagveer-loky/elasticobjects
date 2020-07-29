@@ -1,10 +1,9 @@
-package org.fluentcodes.projects.elasticobjects.test;
+package org.fluentcodes.projects.elasticobjects.fileprovider;
 
 import org.fluentcodes.projects.elasticobjects.config.Scope;
 import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;

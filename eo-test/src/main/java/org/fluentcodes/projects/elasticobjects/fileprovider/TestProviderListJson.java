@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.test;
+package org.fluentcodes.projects.elasticobjects.fileprovider;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.tools.xpect.IOString;

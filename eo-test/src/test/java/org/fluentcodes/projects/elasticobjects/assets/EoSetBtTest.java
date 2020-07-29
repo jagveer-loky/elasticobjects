@@ -4,14 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.config.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJson;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 

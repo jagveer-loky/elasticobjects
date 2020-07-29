@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.assets;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.Map;

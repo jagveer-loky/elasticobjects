@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.assets;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
 import org.junit.Test;
 
 import java.util.Map;

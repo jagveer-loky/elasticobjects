@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class TemplateCallContentTest {
 
     @Test
     public void callContentExample()  {
-        final TemplateCall action = new TemplateCall().setConfigKey(T_CONTENT_EXAMPLE);
+        final TemplateCallResource action = new TemplateCallResource().setConfigKey(T_CONTENT_EXAMPLE);
         final String result = action.execute(TestProviderRootTest.createEo());
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H2));
         //AssertEO.compare(result);
@@ -31,7 +31,7 @@ public class TemplateCallContentTest {
 
     @Test
     public void callContentExampleWithStaticTemplate()  {
-        final TemplateCall action = new TemplateCall().setConfigKey( T_CONTENT_EXAMPLE_WITH_STATIC_TEMPLATE);
+        final TemplateCallResource action = new TemplateCallResource().setConfigKey( T_CONTENT_EXAMPLE_WITH_STATIC_TEMPLATE);
         final EO adapter = TestProviderRootTest.createEo();
         final String result = action.execute(adapter);
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H1));
@@ -40,7 +40,7 @@ public class TemplateCallContentTest {
 
     @Test
     public void contentExampleWithKeepTpl()  {
-        final TemplateCall action = new TemplateCall().setConfigKey( T_CONTENT_EXAMPLE_WITH_KEEP);
+        final TemplateCallResource action = new TemplateCallResource().setConfigKey( T_CONTENT_EXAMPLE_WITH_KEEP);
         final EO adapter = TestProviderRootTest.createEo();
         final String result = action.execute(adapter);
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H1));
@@ -49,7 +49,7 @@ public class TemplateCallContentTest {
 
     @Test
     public void callContentExampleWithDynamicTemplateKey()  {
-        final TemplateCall action = new TemplateCall().setConfigKey(T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE);
+        final TemplateCallResource action = new TemplateCallResource().setConfigKey(T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE);
         final EO adapter = TestProviderRootTest.createEo();
         final String result = action.execute(adapter);
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(H1));
@@ -59,7 +59,7 @@ public class TemplateCallContentTest {
     @Test
     public void callContentOrExample()  {
         
-        final TemplateCall action = new TemplateCall().setConfigKey( T_CONTENT_OR_EXAMPLE);
+        final TemplateCallResource action = new TemplateCallResource().setConfigKey( T_CONTENT_OR_EXAMPLE);
         final String result = action.execute(TestProviderRootTest.createEo());
         Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains("<h1>header2</h1>"));
         //AssertEO.compare(result);

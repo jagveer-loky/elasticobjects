@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.test;
+package org.fluentcodes.projects.elasticobjects.fileprovider;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
@@ -18,6 +18,7 @@ public enum TestProviderMapJson {
     EMPTY(PATH_INPUT_JSON + "mapEmpty.json"),
     FLOAT(PATH_INPUT_JSON + "mapFloat.json"),
     INT(PATH_INPUT_JSON + "mapInteger.json"),
+    LIST_DOUBLE123(PATH_INPUT_JSON + "listDouble123.jsn"),
     STRING(PATH_INPUT_JSON + "mapString.json"),
     SCS_CALL_SOURCE(PATH_INPUT_JSON + "ScsCallSource.jsn"),
     SCS_CALL_SOURCE_PATH(PATH_INPUT_JSON + "ScsCallSourcePath.jsn"),

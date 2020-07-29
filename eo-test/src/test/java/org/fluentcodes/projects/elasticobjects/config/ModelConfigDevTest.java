@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
 import org.junit.Test;
 
 import java.util.TreeSet;

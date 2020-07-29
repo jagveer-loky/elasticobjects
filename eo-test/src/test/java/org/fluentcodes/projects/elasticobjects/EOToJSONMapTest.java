@@ -1,9 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.test.*;
+import org.fluentcodes.projects.elasticobjects.fileprovider.*;
 
 import org.junit.Test;
 

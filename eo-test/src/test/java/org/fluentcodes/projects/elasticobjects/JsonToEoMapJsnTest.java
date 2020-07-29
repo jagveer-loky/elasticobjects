@@ -4,9 +4,10 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJsn;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJsn;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -49,7 +50,7 @@ public class JsonToEoMapJsnTest {
 
     @Test
     public void testSmall()  {
-        EO eo = TestProviderMapJsn.SMALL.createMapEo();
+        EO eo = TestProviderMapJson.SMALL.createMapEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));

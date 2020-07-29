@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class NoPath {
         EO adapter = TestProviderRootTest.createEo();
         Assert.assertEquals(Map.class, adapter.getModelClass());
         Assert.assertEquals(LinkedHashMap.class, adapter.get().getClass());
-        Assert.assertTrue(adapter.eoKeys().size() == 0);
+        Assert.assertTrue(adapter.keysEo().size() == 0);
     }
 
 }
