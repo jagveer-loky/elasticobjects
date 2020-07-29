@@ -1,0 +1,17 @@
+{
+   "(List,Double)source": {
+     "0": 1,
+     "1": 2,
+     "2": 3
+   },
+   "(SinusValueCall)0": {
+     "sourcePath": "/source",
+     "targetPath": "/target",
+     "filterPath": "*"
+   },
+   "(TemplateCall)1": {
+     "sourcePath": "/source",
+     "filterPath": "*",
+     "content": "sin($[_value]) = $[/target/_parent]"
+   }
+ }

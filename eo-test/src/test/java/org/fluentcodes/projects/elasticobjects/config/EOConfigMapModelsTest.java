@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -53,12 +53,6 @@ public class EOConfigMapModelsTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Test
-    public void checkModelCalls()  {
-        final EOConfigsCache configsCache = TestProviderRootTest.EO_CONFIGS;
-        Set<String> mapCalls = configsCache.getCallSet();
     }
 
 }

@@ -1,8 +1,6 @@
-package org.fluentcodes.projects.elasticobjects.test;
+package org.fluentcodes.projects.elasticobjects.fileprovider;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
 
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;

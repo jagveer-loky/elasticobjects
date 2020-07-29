@@ -3,6 +3,11 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderCallTemplate;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.junit.Test;
 
 /**
@@ -13,21 +18,68 @@ public class TemplateCallSimpleTest {
     private static final Logger LOG = LogManager.getLogger(TemplateCallSimpleTest.class);
 
     @Test
-    public void executeDirectContent()  {
-
-        /*final TemplateCall action = new TemplateCall();
-
-        final String template = "key='$[key]'<call path=\"level0/level1\">level0/level1/key='$[key]'</call>";
-        action.setContent(template);
-
-        EO root = TestProviderRootTest.createEo();
-        root.setPathValue("key","value");
-        root.setPathValue("level0/level1/key","value with path");
-        final String result = action.execute(root);
-
-        Assert.assertEquals(INFO_COMPARE_FAILS, "key='value'level0/level1/key='value with path'", result);
-        //AssertEO.compare(result);*/
+    public void givenCallWithContentWithStringPlaceholder_whenExecuteCall_thenPlaceHolderIsReplaced()  {
+        TemplateCall call = new TemplateCall();
+        call.setContent("Just a content with placeHolder testKey=$[testKey]");
+        EO eo = TestProviderRootDev.createEo();
+        eo.set("testValue", "testKey");
+        String result = call.execute(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains("testValue");
     }
+
+    @Test
+    public void givenEoWithContentWithStringPlaceholder_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        TemplateCall call = new TemplateCall();
+        call.setContent("Just a content with placeHolder testKey=$[testKey]");
+        EO eo = TestProviderRootTest.createEo();
+        eo.addCall(call);
+        eo.set("testValue", "testKey");
+        eo.execute();
+        String result = call.execute(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains("testValue");
+        Assertions.assertThat((String)eo.get("_template")).contains("testValue");
+    }
+
+    @Test
+    public void givenEoWithContentWithSinusCallPlaceholder_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        EO eo = TestProviderCallTemplate.CALL_SINUS_ARRAY.getEo();
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat((String)eo.get("_template")).isEqualTo(
+                "\n" +
+                        " sin(1.0) = 0.8414709848078965\n" +
+                        " sin(2.0) = 0.9092974268256817\n" +
+                        " sin(3.0) = 0.1411200080598672");
+    }
+
+    @Test
+    public void givenEoWithContentWithSinusCallPlaceholderJson_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        EO eo = TestProviderCallTemplate.CALL_SINUS_ARRAY_JSON.getEo();
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat((String)eo.get("_template")).isEqualTo(
+                "\n" +
+                        " sin(1.0) = 0.8414709848078965\n" +
+                        " sin(2.0) = 0.9092974268256817\n" +
+                        " sin(3.0) = 0.1411200080598672");
+    }
+
+    @Test
+    public void givenEoWithContentWithSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        TemplateCall call = new TemplateCall();
+        call.setContent("sin($[testKey]) = <{\"sinus\":\"(SinusValueCall)testKey\"}>$[(SinusValueCall)testKey]");
+        EO eo = TestProviderRootTest.createEo();
+        eo.addCall(call);
+        eo.set(2, "testKey");
+        eo.execute();
+        String result = call.execute(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat((String)eo.get("_template")).isEqualTo("sin(2) = 0.9092974268256817");
+    }
+
+
 /*
     @Test
     public void executeWithPath()  {

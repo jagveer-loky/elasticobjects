@@ -2,16 +2,13 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_NAME;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class EOElementaryTest {
@@ -42,7 +39,7 @@ public class EOElementaryTest {
         adapter.set( S_STRING, S_LEVEL0);
 
         Assert.assertEquals(S_STRING, adapter.get(S_LEVEL0));
-        Assert.assertEquals(Map.class, ((EoChild) adapter.getEo(S_LEVEL0)).getParentAdapter().getModelClass());
+        Assert.assertEquals(Map.class, ((EoChild) adapter.getEo(S_LEVEL0)).getEoParent().getModelClass());
         Assert.assertEquals(Map.class, ((EoChild) adapter.getEo(S_LEVEL0)).getRoot().getModelClass());
 
     }

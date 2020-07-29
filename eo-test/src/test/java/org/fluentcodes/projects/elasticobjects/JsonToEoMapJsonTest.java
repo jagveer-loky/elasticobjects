@@ -5,9 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
 
-import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -81,7 +81,7 @@ public class JsonToEoMapJsonTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.longValue(), eo.get(F_TEST_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(F_TEST_INTEGER));
         //AssertEO.compareJSON(eo);
     }
 }

@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.utils;
 
+import org.fluentcodes.projects.elasticobjects.calls.templates.ReplaceUtil;
 import org.junit.Assert;
 import org.junit.Test;
 

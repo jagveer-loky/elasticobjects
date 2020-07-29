@@ -3,17 +3,10 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderListJson;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderMapJson;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
-import org.junit.Assert;
+import org.fluentcodes.projects.elasticobjects.fileprovider.*;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
@@ -28,6 +21,19 @@ public class EoSetListTest {
         Assertions.assertThat(eoEmpty.getEo(S_LEVEL0).getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, S1)).isEqualTo(S_INTEGER);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, S0)).isEqualTo(S_STRING);
+    }
+
+    @Test
+    public void givenList123Dev_hasIntegerValues()  {
+        final EO eo = TestProviderMapJson.LIST_DOUBLE123.createMapEo();
+        Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
+        Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Integer.class);
+    }
+    @Test
+    public void givenList123Test_hasDoubleValues()  {
+        final EO eo = TestProviderMapJsn.LIST_DOUBLE123.createMapEo();
+        Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
+        Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Double.class);
     }
 }
 

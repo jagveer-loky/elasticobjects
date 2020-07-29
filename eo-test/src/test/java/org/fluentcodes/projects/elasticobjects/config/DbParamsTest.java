@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.test.TestProviderConfig;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderConfig;
 import org.junit.Assert;
 import org.junit.Test;
 

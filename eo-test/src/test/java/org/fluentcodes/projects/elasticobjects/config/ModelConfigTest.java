@@ -7,8 +7,8 @@ import org.fluentcodes.projects.elasticobjects.assets.ClassTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubClassForTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderConfig;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderConfig;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 

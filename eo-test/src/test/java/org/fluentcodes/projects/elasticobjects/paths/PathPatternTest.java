@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.paths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Assert;

@@ -5,9 +5,10 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.config.Models;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,7 +34,7 @@ public class ModelsTest {
     public void createChildModelsWithList() {
         EO eo = TestProviderRootDev.createEo();
         Models models = new Models(eo.getConfigsCache(), Map.class);
-        Models childModels = models.createChildModels(eo, new Path("(ArrayList)list"), null);
+        Models childModels = models.createChildModels(eo, new PathElement("(ArrayList)list"), null);
         Assertions.assertThat(childModels.getModelClass()).isEqualTo(ArrayList.class);
     }
 
