@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderCallTemplate;
@@ -12,34 +11,34 @@ import org.junit.Test;
 
 /**
  * @author Werner Diwischek
- * @since 22.03.2017.
+ * @since 31.08.2020.
  */
-public class TemplateCallSimpleTest {
-    private static final Logger LOG = LogManager.getLogger(TemplateCallSimpleTest.class);
+public class TemplateCallSinusTest {
+    private static final Logger LOG = LogManager.getLogger(TemplateCallSinusTest.class);
 
     @Test
-    public void givenCallWithContentWithStringPlaceholder_whenExecuteCall_thenPlaceHolderIsReplaced()  {
+    public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced()  {
         TemplateCall call = new TemplateCall();
-        call.setContent("Just a content with placeHolder testKey=$[testKey]");
-        EO eo = TestProviderRootDev.createEo();
-        eo.set("testValue", "testKey");
-        String result = call.execute(eo);
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).contains("testValue");
-    }
-
-    @Test
-    public void givenEoWithContentWithStringPlaceholder_whenExecuteEo_thenPlaceHolderIsReplaced()  {
-        TemplateCall call = new TemplateCall();
-        call.setContent("Just a content with placeHolder testKey=$[testKey]");
+        call.setContent("sin($[testKey]) = $[(SinusValueCall)testKey]");
         EO eo = TestProviderRootTest.createEo();
         eo.addCall(call);
-        eo.set("testValue", "testKey");
+        eo.set(2, "testKey");
         eo.execute();
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).contains("testValue");
-        Assertions.assertThat((String)eo.get("_template")).contains("testValue");
+        Assertions.assertThat((String)eo.get("_template")).isEqualTo("sin(2) = 0.9092974268256817");
+    }
+
+
+    @Test
+    public void givenEoWithContentWithSinusCallPlaceholderJson_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        EO eo = TestProviderCallTemplate.CALL_SINUS_ARRAY_JSON.getEo();
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat((String)eo.get("_template")).isEqualTo(
+                "sin(1.0) = 0.8414709848078965\n" +
+                        "sin(2.0) = 0.9092974268256817\n" +
+                        "sin(3.0) = 0.1411200080598672\n");
     }
 /*
     @Test

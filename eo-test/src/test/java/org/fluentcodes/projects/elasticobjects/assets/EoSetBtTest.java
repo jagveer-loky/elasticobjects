@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.config.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -133,7 +133,7 @@ public class EoSetBtTest {
 
     @Test
     public void testBTSmall()  {
-        BasicTest bt = TestProviderMapJson.SMALL.createBt();
+        BasicTest bt = ProviderMapJson.SMALL.createBt();
         Assertions.assertThat(bt.getTestString()).isEqualTo(S_STRING);
     }
 
@@ -271,8 +271,8 @@ public class EoSetBtTest {
     @Test
     public void givenTestEmpty_whenSetSmallJsonBtOnIntegerField_hasError()  {
         final EO eoMap = TestProviderRootTest.createEo();
-        eoMap.set(TestProviderMapJson.SMALL.createBt(), S_LEVEL0);
-        eoMap.set(TestProviderMapJson.SMALL.createBt(), S_LEVEL0, F_TEST_INTEGER);
+        eoMap.set(ProviderMapJson.SMALL.createBt(), S_LEVEL0);
+        eoMap.set(ProviderMapJson.SMALL.createBt(), S_LEVEL0, F_TEST_INTEGER);
         Assertions.assertThat(eoMap.getLog()).contains("Tried to map scalar child");
     }
 

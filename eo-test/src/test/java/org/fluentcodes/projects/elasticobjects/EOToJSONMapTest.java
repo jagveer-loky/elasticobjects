@@ -16,7 +16,7 @@ public class EOToJSONMapTest {
 
     @Test
     public void withDefault()  {
-        EO eo = TestProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapEo();
         String serialized = new EOToJSON().toJSON(eo);
         //AssertEO.compare(serialized);
     }
@@ -24,7 +24,7 @@ public class EOToJSONMapTest {
     @Test
     public void withIndent0()  {
         
-        EO eo = TestProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(0)
                 .toJSON(eo);
@@ -34,7 +34,7 @@ public class EOToJSONMapTest {
     @Test
     public void withIndent1()  {
         
-        EO eo = TestProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .toJSON(eo);
@@ -44,7 +44,7 @@ public class EOToJSONMapTest {
     @Test
     public void withIndent2()  {
         
-        EO eo = TestProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .toJSON(eo);
@@ -54,7 +54,7 @@ public class EOToJSONMapTest {
     @Test
     public void withStringScalar()  {
         
-        final EO eo = TestProviderMapJson.STRING.createMapEo();
+        final EO eo = ProviderMapJson.STRING.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -64,7 +64,7 @@ public class EOToJSONMapTest {
     @Test
     public void withIntegerScalar()  {
         
-        final EO eo = TestProviderMapJson.INT.createMapEo();
+        final EO eo = ProviderMapJson.INT.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -84,7 +84,7 @@ public class EOToJSONMapTest {
     @Test
     public void withFloatScalar()  {
         
-        final EO eo = TestProviderMapJson.EMPTY.createMapEo();
+        final EO eo = ProviderMapJson.EMPTY.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -94,7 +94,7 @@ public class EOToJSONMapTest {
     @Test
     public void withDoubleScalar()  {
         
-        final EO eo = TestProviderMapJsn.DOUBLE.createMapEo();
+        final EO eo = ProviderMapJsn.DOUBLE.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -104,7 +104,7 @@ public class EOToJSONMapTest {
     @Test
     public void withDateScalar()  {
         
-        final EO eo = TestProviderMapJsn.DATE.createMapEo();
+        final EO eo = ProviderMapJsn.DATE.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -114,7 +114,7 @@ public class EOToJSONMapTest {
     @Test
     public void withBooleanScalar()  {
         
-        final EO eo = TestProviderMapJsn.DOUBLE.createMapEo();
+        final EO eo = ProviderMapJsn.DOUBLE.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -123,7 +123,7 @@ public class EOToJSONMapTest {
 
     @Test
     public void withIndentScalar()  {
-        EO eo = TestProviderMapJsn.SMALL.createMapEo();
+        EO eo = ProviderMapJsn.SMALL.createMapEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -132,7 +132,7 @@ public class EOToJSONMapTest {
 
     @Test
     public void loopScalar()  {
-        EO eo = TestProviderMapJsn.EMPTY.createMapEo();
+        EO eo = ProviderMapJsn.EMPTY.createMapEo();
         long duration = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
             String stringified = new EOToJSON()

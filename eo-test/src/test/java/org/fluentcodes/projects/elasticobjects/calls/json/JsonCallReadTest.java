@@ -27,41 +27,11 @@ public class JsonCallReadTest {
         Assertions.assertThat(call).isNotNull();
     }
 
-
-
     @Test
     public void givenCallWithModuleConfig_whenExecuteCall_thenReturnContent()  {
         final JsonCallRead call = new JsonCallRead(J_MODULE_CONFIG_JSON);
         String content = call.execute(TestProviderRootTest.createEo());
-        Assertions.assertThat(content).isEqualTo("{\n" +
-                "  \"sourceDirs\": {\n" +
-                "    \"main\": {\n" +
-                "      \"srcDir\": \"src/main/java\",\n" +
-                "      \"static\": \"EO_STATIC_MAIN\"\n" +
-                "    },\n" +
-                "    \"test\": {\n" +
-                "      \"srcDir\": \"src/test/java\",\n" +
-                "      \"static\": \"EO_STATIC_TEST\"\n" +
-                "    },\n" +
-                "    \"build\": {\n" +
-                "      \"srcDir\": \"src/build/java\",\n" +
-                "      \"static\": \"EO_STATIC_BUILD\"\n" +
-                "    }\n" +
-                "  },\n" +
-                "  \"short\": \"EO\",\n" +
-                "  \"dir\": \"elastic-objects\",\n" +
-                "  \"package\": \"org.fluentcodes.projects.elasticobjects\",\n" +
-                "  \"configs\": [\n" +
-                "    \"Field\",\n" +
-                "    \"Model\",\n" +
-                "    \"Role\",\n" +
-                "    \"User\",\n" +
-                "    \"Config\",\n" +
-                "    \"Host\",\n" +
-                "    \"File\",\n" +
-                "    \"Json\",\n" +
-                "    \"Template\"\n" +
-                "  ]\n}");
+        Assertions.assertThat(content).contains("\"srcDir\": \"src/main/java\",\n");
     }
 
     @Test

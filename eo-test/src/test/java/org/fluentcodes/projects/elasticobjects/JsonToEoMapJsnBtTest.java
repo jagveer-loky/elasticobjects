@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJsn;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJsn;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,27 +21,27 @@ public class JsonToEoMapJsnBtTest {
 
     @Test
     public void testDouble()  {
-        EO eo = TestProviderMapJsn.DOUBLE.createBtEo();
+        EO eo = ProviderMapJsn.DOUBLE.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
         Assertions.assertThat(eo.get(F_TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
     }
     @Test
     public void testDoubleObject()  {
-        BasicTest bt = TestProviderMapJsn.DOUBLE.createBt();
+        BasicTest bt = ProviderMapJsn.DOUBLE.createBt();
         Assertions.assertThat(bt.getTestDouble()).isEqualTo((SAMPLE_DOUBLE));
     }
 
     @Test
     public void testFloat()  {
-        EO eo = TestProviderMapJsn.FLOAT.createBtEo();
+        EO eo = ProviderMapJsn.FLOAT.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(F_TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
     }
 
     @Test
     public void testSmall()  {
-        EO eo = TestProviderMapJsn.SMALL.createBtEo();
+        EO eo = ProviderMapJsn.SMALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
         Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo((S_STRING));
@@ -50,7 +50,7 @@ public class JsonToEoMapJsnBtTest {
 
     @Test
     public void testAll()  {
-        EO eo = TestProviderMapJsn.ALL.createBtEo();
+        EO eo = ProviderMapJsn.ALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eo.getModelClass());
         Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo((S_STRING));
