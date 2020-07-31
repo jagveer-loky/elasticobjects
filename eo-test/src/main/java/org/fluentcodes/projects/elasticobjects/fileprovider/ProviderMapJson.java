@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
-public enum TestProviderMapJson {
+public enum ProviderMapJson {
     JSON_EMPTY("{}"),
     SIMPLE_INSERT_WITH_PATH(PATH_INPUT_JSON + "SimpleInsertWithPath.json"),
     ALL(PATH_INPUT_JSON + "mapAll.json"),
@@ -26,7 +26,7 @@ public enum TestProviderMapJson {
     SMALL(PATH_INPUT_JSON + "mapSmall.json"),
     ;
     private String content;
-    TestProviderMapJson(final String content) {
+    ProviderMapJson(final String content) {
         if (content.startsWith(PATH_INPUT_JSON)) {
             this.content = new IOString().setFileName(content).read();
         }

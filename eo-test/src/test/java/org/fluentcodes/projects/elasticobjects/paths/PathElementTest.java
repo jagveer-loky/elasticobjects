@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,9 +29,11 @@ public class PathElementTest {
 
     @Test
     public void testWithTwoModel() {
-        PathElement pathElement = new PathElement("(List,BasicTest)test");
+        final String pathElementAsString = "(List,BasicTest)test";
+        PathElement pathElement = new PathElement(pathElementAsString);
         Assert.assertEquals("test", pathElement.getKey());
         Assert.assertTrue(pathElement.hasModels());
         Assert.assertEquals(2, pathElement.getModels().length);
+        Assertions.assertThat(pathElement.toString()).isEqualTo(pathElementAsString);
     }
 }

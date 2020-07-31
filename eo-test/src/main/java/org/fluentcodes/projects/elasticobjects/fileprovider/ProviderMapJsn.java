@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT_JSON;
 
-public enum TestProviderMapJsn {
+public enum ProviderMapJsn {
     ALL(PATH_INPUT_JSON + "mapAll.jsn"),
     BOOLEAN(PATH_INPUT_JSON + "mapBoolean.jsn"),
     CALL_SINUS_ARRAY(PATH_INPUT_JSON + "CallSinusArray.jsn"),
@@ -26,7 +26,7 @@ public enum TestProviderMapJsn {
     VALUES_CALL_NUMBER_ARRAY(PATH_INPUT_JSON + "ValuesCallNumberArray.jsn"),
     ;
     private String content;
-    TestProviderMapJsn(final String content) {
+    ProviderMapJsn(final String content) {
         if (content.startsWith(PATH_INPUT_JSON)) {
             this.content = new IOString().setFileName(content).read();
         }

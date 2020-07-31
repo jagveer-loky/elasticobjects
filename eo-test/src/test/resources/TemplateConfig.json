@@ -37,7 +37,15 @@
     "naturalId": "ContentExample",
     "templateKey": "ContentExample",
     "fileName": "ContentExample.tpl",
-    "filePath": "classpath/templates"
+    "filePath": "input/templates"
+  },
+  "ContentExampleJson": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleJson",
+    "templateKey": "ContentExampleJson",
+    "fileName": "ContentExample.json",
+    "filePath": "input/templates"
   },
   "ContentExampleWithStaticTemplate": {
     "module": "elastic-objects",
@@ -45,7 +53,7 @@
     "naturalId": "ContentExampleWithStaticTemplate",
     "templateKey": "ContentExampleWithStaticTemplate",
     "fileName": "ContentExampleWithStaticTemplate.tpl",
-    "filePath": "classpath/templates"
+    "filePath": "input/templates/content-example"
   },
   "ContentExampleWithKeep": {
     "module": "elastic-objects",
@@ -53,7 +61,7 @@
     "naturalId": "ContentExampleWithKeep",
     "templateKey": "ContentExampleWithKeep",
     "fileName": "ContentExampleWithKeep.tpl",
-    "filePath": "classpath/templates"
+    "filePath": "input/templates/content-example"
   },
   "ContentExampleWithDynamicTemplate": {
     "module": "elastic-objects",
@@ -61,21 +69,13 @@
     "naturalId": "ContentExampleWithDynamicTemplate",
     "templateKey": "ContentExampleWithDynamicTemplate",
     "fileName": "ContentExampleWithDynamicTemplate.tpl",
-    "filePath": "classpath/templates"
+    "filePath": "input/templates/content-example"
   },
   "$[template]": {
     "module": "elastic-objects",
     "subModule": "test",
     "naturalId": "$[template]",
     "templateKey": "$[template]"
-  },
-  "ContentExampleElement1": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "ContentExampleElement1",
-    "templateKey": "ContentExampleElement1",
-    "fileName": "ContentExampleElement1.tpl",
-    "filePath": "classpath/templates"
   },
   "ContentOrExample": {
     "module": "elastic-objects",
@@ -85,13 +85,21 @@
     "fileName": "ContentOrExample.tpl",
     "filePath": "classpath/templates"
   },
+  "ContentExampleElement1": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleElement1",
+    "templateKey": "ContentExampleElement1",
+    "fileName": "ContentExampleElement1.tpl",
+    "filePath": "input/templates/content-example"
+  },
   "ContentExampleElement2": {
     "module": "elastic-objects",
     "subModule": "test",
     "naturalId": "ContentExampleElement2",
     "templateKey": "ContentExampleElement2",
     "fileName": "ContentExampleElement2.tpl",
-    "filePath": "classpath/templates"
+    "filePath": "input/templates/content-example"
   },
   "ValuesMathSinExample": {
     "module": "elastic-objects",

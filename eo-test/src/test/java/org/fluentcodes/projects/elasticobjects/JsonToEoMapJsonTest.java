@@ -7,7 +7,7 @@ import org.assertj.core.api.Assertions;
 
 import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -54,13 +54,13 @@ public class JsonToEoMapJsonTest {
 
     @Test
     public void testFromFile()  {
-        EO eo = TestProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapEo();
         Assert.assertEquals(Map.class, eo.getModelClass());
     }
 
     @Test
     public void testFloat()  {
-        EO eo = TestProviderMapJson.FLOAT.createMapEo();
+        EO eo = ProviderMapJson.FLOAT.createMapEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT, eo.get(F_TEST_FLOAT));
@@ -68,7 +68,7 @@ public class JsonToEoMapJsonTest {
 
     @Test
     public void testSmall()  {
-        EO eo = TestProviderMapJson.SMALL.createMapEo();
+        EO eo = ProviderMapJson.SMALL.createMapEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));
@@ -77,7 +77,7 @@ public class JsonToEoMapJsonTest {
 
     @Test
     public void testAll()  {
-        EO eo = TestProviderMapJson.ALL.createMapEo();
+        EO eo = ProviderMapJson.ALL.createMapEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));

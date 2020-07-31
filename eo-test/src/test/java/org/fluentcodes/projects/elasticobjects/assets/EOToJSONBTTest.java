@@ -3,8 +3,8 @@ package org.fluentcodes.projects.elasticobjects.assets;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
 
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
 import org.junit.Test;
 
 /**
@@ -14,14 +14,14 @@ public class EOToJSONBTTest {
 
     @Test
     public void mapDefault()  {
-        EO adapter = TestProviderMapJson.EMPTY.createBtEo();
+        EO adapter = ProviderMapJson.EMPTY.createBtEo();
         String serialized = new EOToJSON().toJSON(adapter);
         //AssertEO.compare(serialized);
     }
 
     @Test
     public void withIndent0()  {
-        EO adapter = TestProviderMapJson.EMPTY.createBtEo();
+        EO adapter = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(0)
                 .toJSON(adapter);
@@ -30,7 +30,7 @@ public class EOToJSONBTTest {
 
     @Test
     public void withIndent1()  {
-        EO adapter = TestProviderMapJson.EMPTY.createBtEo();
+        EO adapter = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .toJSON(adapter);
@@ -39,7 +39,7 @@ public class EOToJSONBTTest {
 
     @Test
     public void withIndent2()  {
-        EO adapter = TestProviderMapJson.EMPTY.createBtEo();
+        EO adapter = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .toJSON(adapter);
@@ -48,7 +48,7 @@ public class EOToJSONBTTest {
 
     @Test
     public void withSTANDARD()  {
-        EO adapter = TestProviderMapJson.EMPTY.createBtEo();
+        EO adapter = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .setSerializationType(JSONSerializationType.STANDARD)
@@ -59,7 +59,7 @@ public class EOToJSONBTTest {
 
     @Test
     public void withFloatStandard()  {
-        EO adapter = TestProviderMapJson.FLOAT.createBtEo();
+        EO adapter = ProviderMapJson.FLOAT.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.STANDARD)

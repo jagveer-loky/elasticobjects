@@ -86,7 +86,7 @@ public class EoSetMapTest {
     @Test
     public void givenMapEmpty_whenSetJsonSmall_ok()  {
         final EO eoEmpty = TestProviderRootDev.createEo();
-        eoEmpty.set(TestProviderMapJson.SMALL.content(), S_LEVEL0);
+        eoEmpty.set(ProviderMapJson.SMALL.content(), S_LEVEL0);
         Assertions.assertThat(eoEmpty.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, F_TEST_INTEGER)).isEqualTo(S_INTEGER);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, F_TEST_STRING)).isEqualTo(S_STRING);

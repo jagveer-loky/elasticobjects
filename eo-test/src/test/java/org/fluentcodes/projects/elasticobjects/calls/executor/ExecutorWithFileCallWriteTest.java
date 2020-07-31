@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileCallRead;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileCallWrite;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class ExecutorWithFileCallWriteTest {
     public void execute()  {
         Call callWrite = new FileCallWrite(FILE_TARGET_TXT)
                 .setSourcePath(F_TEST_STRING);
-        EO eo = TestProviderMapJson.STRING.createMapEo();
+        EO eo = ProviderMapJson.STRING.createMapEo();
         //FILE_TARGET_TXT, F_MAP_PATH, F_TEST_STRING);
         eo.addCall(callWrite);
         eo.execute();

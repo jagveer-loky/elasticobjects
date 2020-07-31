@@ -25,13 +25,13 @@ public class EoSetListTest {
 
     @Test
     public void givenList123Dev_hasIntegerValues()  {
-        final EO eo = TestProviderMapJson.LIST_DOUBLE123.createMapEo();
+        final EO eo = ProviderMapJson.LIST_DOUBLE123.createMapEo();
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Integer.class);
     }
     @Test
     public void givenList123Test_hasDoubleValues()  {
-        final EO eo = TestProviderMapJsn.LIST_DOUBLE123.createMapEo();
+        final EO eo = ProviderMapJsn.LIST_DOUBLE123.createMapEo();
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Double.class);
     }

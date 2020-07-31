@@ -1,0 +1,13 @@
+{
+  "(JsonCallRead)data": {
+    "configKey":"ContentExample"
+  },
+  "(TemplateCall)1": {
+    "content":"Start of content with a templateKey: "
+  },
+  "(TemplateCallResource)2": {
+    "sourcePath": "data",
+    "configKey":"ContentExampleElement1",
+    "filterPath":"*"
+  }
+}

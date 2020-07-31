@@ -9,8 +9,9 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderMapJsn;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJsn;
 import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
@@ -30,11 +31,11 @@ public class SinusValueCallTest {
     private static final Double ARRAY_RESULT2 = 0.1411200080598672;
 
     public static final EO createSimple() {
-        return TestProviderMapJsn.VALUES_CALL_NUMBER_SCALAR.createMapEo().getEo(SOURCE);
+        return ProviderMapJsn.VALUES_CALL_NUMBER_SCALAR.createMapEo().getEo(SOURCE);
     }
 
     public static final EO createArray() {
-        return TestProviderMapJsn.VALUES_CALL_NUMBER_ARRAY.createMapEo().getEo(SOURCE);
+        return ProviderMapJsn.VALUES_CALL_NUMBER_ARRAY.createMapEo().getEo(SOURCE);
     }
 
     @Test
@@ -105,7 +106,7 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEoArrayWithSourceAndTargetFromFile_whenExecute_hasSinusValueInTarget() {
-        EO eo = TestProviderMapJsn.CALL_SINUS_ARRAY.createMapEo();
+        EO eo = ProviderMapJsn.CALL_SINUS_ARRAY.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
@@ -113,7 +114,8 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
-        EO eo = TestProviderMapJsn.CALL_SINUS_ARRAY_ON_TARGET_PATH.createMapEo();
+        EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapEo();
+        EO eo = ProviderMapJsn.CALL_SINUS_ARRAY_ON_TARGET_PATH.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);

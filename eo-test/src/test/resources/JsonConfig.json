@@ -5,7 +5,7 @@
     "naturalId": "ContentExample",
     "jsonKey": "ContentExample",
     "fileName": "ContentExample.json",
-    "filePath": "classpath/data",
+    "filePath": "input/json",
     "description": "Simple data for the content templates."
   },
   "SimpleInsertWithPath": {

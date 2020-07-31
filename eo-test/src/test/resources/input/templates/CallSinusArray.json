@@ -12,6 +12,6 @@
    "(TemplateCall)1": {
      "sourcePath": "/source",
      "filterPath": "*",
-     "content": "sin($[_value]) = $[/target/_parent]"
+     "content": "sin($[_value]) = $[/target/_parent]\n"
    }
  }
