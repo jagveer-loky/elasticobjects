@@ -24,6 +24,7 @@ public class JSONToEOCallsTest {
     private static final String SCS_CALL_SOURCE_PATH = "ScsCallSourcePath";
     private static final String SCS_CALL_SOURCE_JOINED = "ScsCallSourceJoined";
 
+    /*
     @Test
     public void scsCallSource()  {
         // just to load initial values
@@ -60,5 +61,7 @@ public class JSONToEOCallsTest {
         Assert.assertEquals(INFO_COMPARE_FAILS, S_VALUE11, eoScs.getEo(S_PATH1 + Path.DELIMITER + S0).get(S_KEY1));
         //AssertEO.compare(eoScs);
     }
+
+     */
 
 }

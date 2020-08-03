@@ -8,11 +8,11 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateParser;
+import org.fluentcodes.projects.elasticobjects.fileprovider.*;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJsn;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
@@ -31,7 +31,13 @@ public class SinusValueCallTest {
     private static final Double ARRAY_RESULT2 = 0.1411200080598672;
 
     public static final EO createSimple() {
-        return ProviderMapJsn.VALUES_CALL_NUMBER_SCALAR.createMapEo().getEo(SOURCE);
+        try {
+            return ProviderMapJsn.VALUES_CALL_NUMBER_SCALAR.createMapEo().getEo(SOURCE);
+        }
+        catch (Exception e) {
+            LOG.info(e.getMessage());
+            throw e;
+        }
     }
 
     public static final EO createArray() {
@@ -106,7 +112,7 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEoArrayWithSourceAndTargetFromFile_whenExecute_hasSinusValueInTarget() {
-        EO eo = ProviderMapJsn.CALL_SINUS_ARRAY.createMapEo();
+        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
@@ -115,7 +121,7 @@ public class SinusValueCallTest {
     @Test
     public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
         EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapEo();
-        EO eo = ProviderMapJsn.CALL_SINUS_ARRAY_ON_TARGET_PATH.createMapEo();
+        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_ON_TARGET_PATH.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
@@ -139,5 +145,48 @@ public class SinusValueCallTest {
         Assertions.assertThat(eoFromJson.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
         Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0")).isNotNull();
         Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0","targetPath")).isEqualTo(TARGET);
+    }
+
+    @Test
+    public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        TemplateCall call = new TemplateCall();
+        call.setContent("sin($[testKey]) = $[(SinusValueCall)testKey inTemplate=\"true\"/]");
+        EO eo = ProviderRootTest.createEo();
+        eo.addCall(call);
+        eo.set(2, "testKey");
+        eo.execute();
+        String result = call.execute(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat((String)eo.get("_template")).isEqualTo("sin(2) = 0.9092974268256817");
+    }
+
+
+    @Test
+    public void givenEoWithContentWithSinusCallPlaceholderJson_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY.getEo();
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat((String)eo.get("_template")).isEqualTo(
+                "sin(1.0) = 0.8414709848078965\n" +
+                        "sin(2.0) = 0.9092974268256817\n" +
+                        "sin(3.0) = 0.1411200080598672\n");
+    }
+
+    @Test
+    public void givenEo_whenReplaceString_thenPlaceHolderIsReplaced()  {
+        EO eo = ProviderRootTest.createEo();
+        eo.set(2, "value");
+        String result = new TemplateParser("-$[(SinusValueCall)value/]-").parse(eo);
+        Assertions.assertThat(result).isEqualTo("--");
+        Assertions.assertThat(eo.get("value")).isEqualTo(0); // was integer before.
+    }
+
+    @Test
+    public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced()  {
+        EO eo = ProviderRootTest.createEo();
+        eo.set(2, "value");
+        String result = new TemplateParser("-$[(SinusValueCall)value inTemplate=\"true\"/]-").parse(eo);
+        Assertions.assertThat(result).isEqualTo("-0.9092974268256817-");
+        Assertions.assertThat(eo.get("value")).isEqualTo(2); // was integer before.
     }
 }

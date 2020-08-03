@@ -53,7 +53,6 @@ public class TemplateParserTest {
         Assertions.assertThat(result).isEqualTo("-+testString+-");
     }
 
-
     @Test
     public void givenValueCall_whenReplace_thenReplaced () {
         final EO eo = ProviderRootTest.createEo();
@@ -62,5 +61,14 @@ public class TemplateParserTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).isEqualTo("");
         Assertions.assertThat(eo.get("level0","1")).isEqualTo(2);
+    }
+
+    @Test
+    public void givenValueCallAndAddValueToResult_whenReplace_thenReplaced () {
+        final EO eo = ProviderRootTest.createEo();
+        final String replace = "$[(ValueCall)level0]{\"1\":2}$[/]$[level0/1]";
+        String result = new TemplateParser(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).isEqualTo("2");
     }
 }

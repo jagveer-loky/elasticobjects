@@ -24,7 +24,7 @@
       "create": true
     },
     "packageGroup": "assets",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
     "naturalId": "BasicTest",
@@ -44,7 +44,7 @@
       "create": true
     },
     "packageGroup": "assets",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "SubTest",
     "author": "Werner Diwischek"

@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
@@ -24,27 +25,31 @@ public class ScsCallReadTest {
 
 
     @Test
-    public void givenCallWithSourceCsv_whenExecuteCall_thenListReturned()  {
+    public void givenCallWithSourceCsv_whenExecute_thenListReturned()  {
         final Call call = new ScsCallRead()
                 .setConfigKey(CS_SOURCE_CSV);
         EO eo = ProviderRootTest.createEo();
-        List value = (List)((ScsCallRead)call).execute(eo);
+        List value = (List)call.execute(eo);
         Assertions.assertThat(value).isNotEmpty();
         Assertions.assertThat(value.size()).isEqualTo(2);
-        Assertions.assertThat(((List)value.get(0)).size()).isEqualTo(2);
+        Map firstRow = (Map) value.get(0);
+        Assertions.assertThat(firstRow.size()).isEqualTo(2);
+        Assertions.assertThat(firstRow.get("key1")).isEqualTo("value11");
     }
 
     @Test
-    public void givenEoWithSourceCsv_whenExecuteEo_thenParameterSet()  {
+    public void givenEoWithSourceCsv_whenExecute_thenParameterSet()  {
         final Call call = new ScsCallRead()
                 .setConfigKey(CS_SOURCE_CSV);
+
         EO eo = ProviderRootTest.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
-        Assertions.assertThat(eo.hasCalls()).isTrue();
-        Assertions.assertThat(eo.size()).isEqualTo(3);
-        Assertions.assertThat(eo.getEo("0").size()).isEqualTo(2);
-        Assertions.assertThat(eo.getEo("0").get("0")).isEqualTo("key1");
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(eo.size()).isEqualTo(2);
+        Map firstRow = (Map) eo.get("0");
+        Assertions.assertThat(firstRow.size()).isEqualTo(2);
+        Assertions.assertThat(firstRow.get("key1")).isEqualTo("value11");
     }
 
     @Test

@@ -42,7 +42,6 @@ public class TemplateContentExampleTest {
     @Test
     public void givenDataWithJson_whenExecuteEo_thenExpected()  {
         EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEo();
-        eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         new XpectEo().compareAsString(eo.setSerializationType(JSONSerializationType.STANDARD));
     }
@@ -50,7 +49,6 @@ public class TemplateContentExampleTest {
     @Test
     public void givenPlaceHolderNonAbsolutePath_whenReplaced_thenReplaced()  {
         EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEo();
-        eo.execute();
         String value = new TemplateParser("-$[0/header/]-").parse(eo);
         Assertions.assertThat(value).isEqualTo("-header1-");
     }
@@ -58,15 +56,13 @@ public class TemplateContentExampleTest {
     @Test
     public void givenPlaceHolderNonAbsolutePathWithEoOtherPath_whenReplaced_thenNotReplaced()  {
         EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEo();
-        eo.execute();
         String value = new TemplateParser("-$[0/header/]-").parse(eo.getEo("1"));
-        Assertions.assertThat(value).isEqualTo("-!! not found '0/header/' in '/1'!!-");
+        Assertions.assertThat(value).isEqualTo("-!! not found '0/header' in '/1'!!-");
     }
 
     @Test
     public void givenPlaceHolderAbsolutePathWithEoOtherPath_whenReplace_thenReplaced()  {
         EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEo();
-        eo.execute();
         String value = new TemplateParser("-$[/0/header/]-").parse(eo.getEo("1"));
         Assertions.assertThat(value).isEqualTo("-header1-");
     }

@@ -1,1 +1,0 @@
-START <call> :CALL_START <call> - INNER_CONTENT - </call> CALL_END: </call> END

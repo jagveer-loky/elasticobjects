@@ -1,5 +1,0 @@
-key0='test'
-Start call: loopPath='level0' --> key0='test'  :End call
-Start call: path='level0' --> key0='test'  :End call
-Start call: mapPath='level0' --> key0='test'  :End call
-level0/key0='$[level0/key0]'
