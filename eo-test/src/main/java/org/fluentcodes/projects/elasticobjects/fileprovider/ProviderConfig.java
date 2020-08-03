@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.fileprovider;
 
+import org.fluentcodes.projects.elasticobjects.models.Model;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 
@@ -12,10 +13,10 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ProviderConfig {
     public static void createConfig(Map<String, Object> map) {
         try {
-            addMap(map, F_ID, 1L,
-                    F_CREATION_DATE, SAMPLE_DATE,
-                    F_DESCRIPTION, F_DESCRIPTION,
-                    F_NATURAL_ID, F_NATURAL_ID,
+            addMap(map, Model.ID, 1L,
+                    Model.CREATION_DATE, SAMPLE_DATE,
+                    Model.DESCRIPTION, Model.DESCRIPTION,
+                    Model.NATURAL_ID, Model.NATURAL_ID,
                     F_EXPANDED, S1,
                     F_SCOPE, "ALL",
                     F_MODULE, F_MODULE,
@@ -35,7 +36,7 @@ public class ProviderConfig {
         map.put(F_FIELD_KEYS, null);
         map.put(F_PACKAGE_PATH, F_PACKAGE_PATH);
         map.put(F_PACKAGE_GROUP, F_PACKAGE_GROUP);
-        map.put(F_AUTHOR, F_AUTHOR);
+        map.put(Model.AUTHOR, Model.AUTHOR);
         map.put(F_SUPER_KEY, F_SUPER_KEY);
         map.put(F_INTERFACES, F_INTERFACES);
         createConfig(map);

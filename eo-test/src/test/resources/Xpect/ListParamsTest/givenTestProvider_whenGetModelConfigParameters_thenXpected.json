@@ -1,0 +1,40 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "ListParams",
+    "(ArrayList)fieldKeys": {
+      "0": "rowHead",
+      "1": "rowStart",
+      "2": "rowEnd",
+      "3": "length",
+      "4": "filter"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "BEAN",
+      "create": "true",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "lists",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "ListParams",
+    "description": "Defines the parameter like rowStart, rowEnd and length.",
+    "naturalId": "ListParams",
+    "author": "Werner Diwischek"
+  }
+}

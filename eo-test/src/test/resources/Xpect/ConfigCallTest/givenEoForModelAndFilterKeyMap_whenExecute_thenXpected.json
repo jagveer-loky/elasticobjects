@@ -1,0 +1,138 @@
+{
+  "_rootmodel": "LinkedHashMap",
+
+  "0": {
+    "packagePath": "java.util",
+    "modelKey": "HashMap",
+    "(ArrayList)fieldKeys": {
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "MAP",
+      "create": "false",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "HashMap",
+    "naturalId": "HashMap",
+    "author": "java"
+  },
+  "1": {
+    "packagePath": "java.util",
+    "modelKey": "LinkedHashMap",
+    "(ArrayList)fieldKeys": {
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "MAP",
+      "create": "false",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "defaultImplementation": "LinkedHashMap",
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "(ArrayList)scope": {
+    },
+    "key": "LinkedHashMap",
+    "naturalId": "LinkedHashMap"
+  },
+  "2": {
+    "packagePath": "java.util",
+    "modelKey": "Map",
+    "(ArrayList)fieldKeys": {
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "MAP",
+      "create": "false",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "defaultImplementation": "LinkedHashMap",
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "(ArrayList)scope": {
+    },
+    "key": "Map",
+    "naturalId": "Map"
+  },
+  "3": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelConfigMap",
+    "superKey": "ModelConfig",
+    "(ArrayList)fieldKeys": {
+      "0": "packagePath",
+      "1": "modelKey",
+      "2": "superKey",
+      "3": "interfaces",
+      "4": "fieldKeys",
+      "5": "eoParams",
+      "6": "dbParams",
+      "7": "viewParams",
+      "8": "customParams",
+      "9": "packageGroup",
+      "10": "module",
+      "11": "subModule",
+      "12": "scope",
+      "13": "key",
+      "14": "id",
+      "15": "description",
+      "16": "naturalId",
+      "17": "creationDate",
+      "18": "author"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CONFIG",
+      "create": "false",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "models",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "ModelConfigMap",
+    "description": "Class definitions for an map with getters and setters.",
+    "naturalId": "ModelConfigMap",
+    "author": "Werner Diwischek"
+  }
+}

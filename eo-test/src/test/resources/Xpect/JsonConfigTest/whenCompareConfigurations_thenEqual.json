@@ -1,0 +1,127 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "jsonKey": "BasicTest.json",
+    "fileName": "input/json/BasicTest.json",
+    "fileKey": "BasicTest.json",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "BasicTest.json",
+    "description": "Simple data for the BasicTest.",
+    "naturalId": "BasicTest.json"
+  },
+  "1": {
+    "jsonKey": "content",
+    "fileName": "content.json",
+    "fileKey": "content",
+    "filePath": "classpath/data",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "content",
+    "description": "Simple data for the content templates.",
+    "naturalId": "content"
+  },
+  "2": {
+    "jsonKey": "ContentExample",
+    "fileName": "ContentExample.json",
+    "fileKey": "ContentExample",
+    "filePath": "input/json",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "ContentExample",
+    "description": "Simple data for the content templates.",
+    "naturalId": "ContentExample"
+  },
+  "3": {
+    "jsonKey": "ModuleConfig.json",
+    "fileName": "ModuleConfig.json",
+    "fileKey": "ModuleConfig.json",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "ModuleConfig.json",
+    "description": "Parameter to determine general module parameters.",
+    "naturalId": "ModuleConfig.json"
+  },
+  "4": {
+    "jsonKey": "SimpleInsertWithPath",
+    "fileName": "SimpleInsertWithPath.json",
+    "fileKey": "SimpleInsertWithPath",
+    "filePath": "classpath/data",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "SimpleInsertWithPath",
+    "description": "Simple data for the SimpleInsert templates.",
+    "naturalId": "SimpleInsertWithPath"
+  },
+  "5": {
+    "jsonKey": "source.json",
+    "fileName": "input/json/source.json",
+    "fileKey": "source.json",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "source.json",
+    "description": "Simple data for the content templates.",
+    "naturalId": "source.json"
+  },
+  "6": {
+    "jsonKey": "target.json",
+    "fileName": "target.json",
+    "fileKey": "target.json",
+    "filePath": "$[TMP]/elastic-objects",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "target.json",
+    "description": "A sample target json file with tmp placeholder.",
+    "naturalId": "target.json"
+  }
+}

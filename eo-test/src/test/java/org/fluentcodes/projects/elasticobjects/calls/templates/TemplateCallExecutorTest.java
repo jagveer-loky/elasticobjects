@@ -1,24 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 
-
-import org.junit.Assert;
-import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_CONTAINS_FAILS;
-
 /**
  * Created by Werner on 22.05.2018.
  */
 public class TemplateCallExecutorTest {
     /*
-    @Test
-    public void callExecutorValuesMathSinExample()  {
-        final String result = TestTemplateProvider.executeTemplateCall(T_VALUES_MATH_SIN_EXAMPLE);
-        Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains("0.14"));
-        ;
-    }
 
     @Test
     public void callExecutorValuesMiscSetExample()  {

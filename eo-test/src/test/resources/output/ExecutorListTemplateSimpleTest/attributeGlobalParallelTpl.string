@@ -1,3 +1,0 @@
-1. call with local attribute local1=local1 and global1=global1
-2. call with local attribute local2=local2 and global2=global2:
-No attribute values from first call available: local1=$[local1] and global1=$[global1].

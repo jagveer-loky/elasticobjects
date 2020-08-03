@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallRead;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
@@ -18,7 +20,15 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 22.4.2017
  */
 public class ListParamsTest {
-    private static final Logger LOG = LogManager.getLogger(ListParamsTest.class);
+    @Test
+    public void givenTestProvider_whenGetModelConfigParameters_thenXpected() {
+        ConfigChecks.compareConfigModel(ListParams.class);
+    }
+
+    @Test
+    public void givenFoundModel_whenCreateInstance_thenOk() {
+        ConfigChecks.findModelAndCreateInstance(ListParams.class);
+    }
 
     @Test
     public void callCheckRowStart() {
@@ -28,7 +38,7 @@ public class ListParamsTest {
     }
 
     @Test
-    public void checkObjectSetRowStart()  {
+    public void checkObjectSetRowStart() {
         ListParams params = new ListParams();
         params.setRowStart(5);
         Assert.assertEquals(new Integer(5), params.getRowStart());
@@ -45,7 +55,7 @@ public class ListParamsTest {
     }
 
     @Test
-    public void checkObjectSetLength()  {
+    public void checkObjectSetLength() {
         ListParams params = new ListParams();
         params.setLength(5);
         Assert.assertEquals(new Integer(5), params.getLength());
@@ -65,7 +75,7 @@ public class ListParamsTest {
     }
 
     @Test
-    public void checkObjectSetHeadAndLength()  {
+    public void checkObjectSetHeadAndLength() {
         ListParams params = new ListParams();
         params.setRowHead(2);
         params.setLength(5);
@@ -106,23 +116,6 @@ public class ListParamsTest {
 
         Assert.assertEquals(new Integer(10), params.getLength());
         Assert.assertEquals(new Integer(11), params.getRowEnd());
-
-
-    }
-
-    @Test
-    public void assertModel()  {
-        
-        ModelInterface paramsModel = ProviderRootTest.EO_CONFIGS.findModel(ListParams.class.getSimpleName());
-        Assert.assertEquals(ShapeTypes.INSTANCE, paramsModel.getShapeType());
-        Assert.assertTrue(paramsModel.hasModel());
-        Assert.assertTrue(paramsModel.isObject());
-        Assert.assertFalse(paramsModel.isScalar());
-
-        ListParams params = (ListParams) paramsModel.create();
-
-        paramsModel.set(F_ROW_START, params, new Integer(5));
-        Assert.assertEquals(new Integer(5), paramsModel.get(F_ROW_START, params));
     }
 }
 

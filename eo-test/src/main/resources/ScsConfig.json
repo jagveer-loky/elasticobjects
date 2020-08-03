@@ -21,7 +21,7 @@
   "BasicTest.csv": {
     "module": "test-resources",
     "subModule": "main",
-    "naturalId": "source.csv",
+    "naturalId": "BasicTest.csv",
     "scsKey": "BasicTest.csv",
     "fileKey": "BasicTest.csv",
     "fieldDelimiter": ";",

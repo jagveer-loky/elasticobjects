@@ -1,0 +1,278 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "fieldKey": "basicTest",
+    "modelKeys": "BasicTest",
+    "dbFieldParams": {
+      "fieldName": "basicTest",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "basicTest",
+    "description": "A BasicTest field.",
+    "naturalId": "basicTest"
+  },
+  "1": {
+    "fieldKey": "subTest",
+    "modelKeys": "SubTest",
+    "dbFieldParams": {
+      "fieldName": "subTest",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "subTest",
+    "naturalId": "subTest"
+  },
+  "2": {
+    "fieldKey": "subTestList",
+    "modelKeys": "ArrayList,SubTest",
+    "dbFieldParams": {
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "subTestList",
+    "description": "A generic parametrized example List with {@link SubTest}",
+    "naturalId": "subTestList"
+  },
+  "3": {
+    "fieldKey": "subTestMap",
+    "modelKeys": "HashMap,SubTest",
+    "dbFieldParams": {
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "subTestMap",
+    "description": "A generic parametrized example Map with {@link SubTest}",
+    "naturalId": "subTestMap"
+  },
+  "4": {
+    "fieldKey": "testBoolean",
+    "modelKeys": "Boolean",
+    "dbFieldParams": {
+      "fieldName": "testBoolean",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testBoolean",
+    "naturalId": "testBoolean"
+  },
+  "5": {
+    "fieldKey": "testDate",
+    "modelKeys": "Date",
+    "dbFieldParams": {
+      "fieldName": "testDate",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testDate",
+    "naturalId": "testDate"
+  },
+  "6": {
+    "fieldKey": "testDouble",
+    "modelKeys": "Double",
+    "dbFieldParams": {
+      "fieldName": "testDouble",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testDouble",
+    "naturalId": "testDouble"
+  },
+  "7": {
+    "fieldKey": "testFloat",
+    "modelKeys": "Float",
+    "dbFieldParams": {
+      "fieldName": "testFloat",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testFloat",
+    "naturalId": "testFloat"
+  },
+  "8": {
+    "fieldKey": "testInt",
+    "modelKeys": "Integer",
+    "dbFieldParams": {
+      "fieldName": "testInt",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testInt",
+    "naturalId": "testInt"
+  },
+  "9": {
+    "fieldKey": "testLong",
+    "modelKeys": "Long",
+    "dbFieldParams": {
+      "fieldName": "testLong",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testLong",
+    "naturalId": "testLong"
+  },
+  "10": {
+    "fieldKey": "testObject",
+    "modelKeys": "Object",
+    "dbFieldParams": {
+      "fieldName": "testObject",
+      "unique": "false",
+      "notNull": "false"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testObject",
+    "description": "A test object thing. ",
+    "naturalId": "testObject"
+  },
+  "11": {
+    "fieldKey": "testString",
+    "modelKeys": "String",
+    "dbFieldParams": {
+      "fieldName": "testString",
+      "unique": "false",
+      "notNull": "false",
+      "length": "20"
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "testString",
+    "description": "Just a small test string used in test models. ",
+    "naturalId": "testString"
+  },
+  "12": {
+    "fieldKey": "untypedList",
+    "modelKeys": "ArrayList",
+    "dbFieldParams": {
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "untypedList",
+    "naturalId": "untypedList"
+  },
+  "13": {
+    "fieldKey": "untypedMap",
+    "modelKeys": "HashMap",
+    "dbFieldParams": {
+    },
+    "eoFieldParams": {
+      "pathPatternAsString": "/*"
+    },
+    "viewFieldParams": {
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "untypedMap",
+    "naturalId": "untypedMap"
+  }
+}

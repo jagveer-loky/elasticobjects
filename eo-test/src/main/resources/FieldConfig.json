@@ -5,7 +5,7 @@
       "fieldName": "basicTest"
     },
     "modelKeys": "BasicTest",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "A BasicTest field.",
     "naturalId": "basicTest"
@@ -16,14 +16,14 @@
       "fieldName": "subTest"
     },
     "modelKeys": "SubTest",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "subTest"
   },
   "subTestList": {
     "fieldKey": "subTestList",
     "modelKeys": "ArrayList,SubTest",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "A generic parametrized example List with {@link SubTest}",
     "naturalId": "subTestList"
@@ -31,7 +31,7 @@
   "subTestMap": {
     "fieldKey": "subTestMap",
     "modelKeys": "HashMap,SubTest",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "A generic parametrized example Map with {@link SubTest}",
     "naturalId": "subTestMap"
@@ -42,7 +42,7 @@
       "fieldName": "testBoolean"
     },
     "modelKeys": "Boolean",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "testBoolean"
   },
@@ -52,7 +52,7 @@
       "fieldName": "testDate"
     },
     "modelKeys": "Date",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "testDate"
   },
@@ -62,7 +62,7 @@
       "fieldName": "testDouble"
     },
     "modelKeys": "Double",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "testDouble"
   },
@@ -72,7 +72,7 @@
       "fieldName": "testFloat"
     },
     "modelKeys": "Float",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "testFloat"
   },
@@ -82,7 +82,7 @@
       "fieldName": "testInt"
     },
     "modelKeys": "Integer",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "testInt"
   },
@@ -92,7 +92,7 @@
       "fieldName": "testLong"
     },
     "modelKeys": "Long",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "testLong"
   },
@@ -102,7 +102,7 @@
       "fieldName": "testObject"
     },
     "modelKeys": "Object",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "A test object thing. ",
     "naturalId": "testObject"
@@ -114,7 +114,7 @@
       "length": 20
     },
     "modelKeys": "String",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Just a small test string used in test models. ",
     "naturalId": "testString"
@@ -122,14 +122,14 @@
   "untypedList": {
     "fieldKey": "untypedList",
     "modelKeys": "ArrayList",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "untypedList"
   },
   "untypedMap": {
     "fieldKey": "untypedMap",
     "modelKeys": "HashMap",
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "untypedMap"
   }

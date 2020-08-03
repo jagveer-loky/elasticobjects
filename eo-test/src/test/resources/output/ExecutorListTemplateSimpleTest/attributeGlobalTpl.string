@@ -1,3 +1,0 @@
-1. level with local attribute local=local1 and global=global1
-2. level with no further attributes has local=$[local] global=global1
-3. level with setting global to "NULL" has no values available: local=$[local] global=$[global]

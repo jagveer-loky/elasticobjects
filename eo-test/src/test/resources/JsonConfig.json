@@ -5,7 +5,16 @@
     "naturalId": "ContentExample",
     "jsonKey": "ContentExample",
     "fileName": "ContentExample.json",
-    "filePath": "input/json",
+    "filePath": "input/calls/content-example",
+    "description": "Calls templates."
+  },
+  "ContentExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleData",
+    "jsonKey": "ContentExampleData",
+    "fileName": "ContentExampleData.json",
+    "filePath": "input/calls/content-example",
     "description": "Simple data for the content templates."
   },
   "SimpleInsertWithPath": {

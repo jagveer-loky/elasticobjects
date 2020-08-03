@@ -41,6 +41,7 @@ public class ValueCallTest {
         Models childModels = models.getChildModels(eo, new PathElement(ValueCall.VALUE));
         Assertions.assertThat(childModels.isScalar()).isTrue();
         Assertions.assertThat(childModels.getModelClass()).isEqualTo(String.class);
+
         childModels = models.createChildModels(eo, new PathElement(ValueCall.VALUE),"{}");
         Assertions.assertThat(childModels.isScalar()).isTrue();
         Assertions.assertThat(childModels.getModelClass()).isEqualTo(String.class);
@@ -115,7 +116,7 @@ public class ValueCallTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(S_LEVEL0, S_LEVEL1)).isEqualTo(S_STRING);
     }
-    
+
     @Test
     public void givenTemplateWithValueCallJsonMapAndLongerPath_whenExecute_thenEoIsMap()  {
         EO eo = ProviderRootTest.createEo();

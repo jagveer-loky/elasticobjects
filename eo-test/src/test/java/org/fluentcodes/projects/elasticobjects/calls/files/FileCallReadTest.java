@@ -1,8 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallRead;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
@@ -19,19 +20,13 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class FileCallReadTest {
     @Test
-    public void testFindModelCall()  {
-        ModelConfig model = ProviderRootTest.EO_CONFIGS.findModel("FileCallRead");
-        Assertions.assertThat(model).isNotNull();
-        model.resolve();
-        FileCallRead call =  (FileCallRead)model.create();
-        Assertions.assertThat(call).isNotNull();
+    public void givenTestProvider_whenFindModel_thenCreateOk()  {
+        ConfigChecks.findModelAndCreateInstance(FileCallRead.class);
     }
 
     @Test
-    public void testFindModelConfig()  {
-        ModelConfig config = ProviderRootTest.EO_CONFIGS.findModel("FileConfig");
-        Assertions.assertThat(config).isNotNull();
-        config.resolve();
+    public void givenTestProvider_whenGetModelConfigParameters_thenXpected()  {
+        ConfigChecks.compareConfigModel(JsonCallRead.class);
     }
 
     @Test
@@ -90,6 +85,40 @@ public class FileCallReadTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assert.assertNull(INFO_NULL_FAILS, eo.get(F_CONTENT));
+    }
+
+    @Test
+    public void givenEoWithChildAddedSourceTxt_whenExecuteEo_thenChildPathIsAdded() {
+        final EO root = ProviderRootTest.createEo();
+        root.set(S_STRING, S_LEVEL0, S_LEVEL1);
+        final EO child = root.getEo(S_LEVEL0);
+
+        final Call call = new FileCallRead(FILE_SOURCE_TXT)
+                .setTargetPath(S_LEVEL2);
+        Assert.assertEquals(S_LEVEL2, call.getTargetPath());
+        child.addCall(call);
+
+        child.execute();
+        Assertions.assertThat(child.getLog()).isEmpty();
+        Assertions.assertThat(root.get(S_LEVEL0, S_LEVEL2)).isEqualTo(S_STRING);
+    }
+
+    @Test
+    public void givenJsonWithSource_ok() {
+        final String json = "{" +
+                "\"(List)content\":" +
+                "{" +
+                "\"(FileCallRead)call\":" +
+                "{" +
+                "\"configKey\":\"" + FILE_SOURCE_TXT + "\"" +
+                "}" +
+                "}" +
+                "}";
+        EO eo = ProviderRootTest.createEo(json);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assert.assertEquals(FileCallRead.class, eo.getEo("_calls", "0").getModelClass());
+        Assert.assertEquals(FILE_SOURCE_TXT, eo.get("_calls", "0", "configKey"));
+        eo.execute();
     }
 
 }

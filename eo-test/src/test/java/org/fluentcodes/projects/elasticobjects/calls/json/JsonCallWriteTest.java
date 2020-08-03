@@ -15,19 +15,18 @@ public class JsonCallWriteTest {
 
     @Test
     public void writeReadTmpJsonSuperAdmin_ok()  {
-        final JsonCallWrite call = new JsonCallWrite(FILE_TMP_JSON);
-        EO eoWrite = ProviderRootTest.createEo();
-        eoWrite.set(S_VALUE11, S0,S_KEY1);
-        eoWrite.set(S_VALUE12, S0,S_KEY2);
-        eoWrite.set(S_VALUE21, S1,S_KEY1);
-        eoWrite.set(S_VALUE22, S1,S_KEY2);
-        eoWrite.setRoles(R_SUPER_ADMIN);
-        call.execute(eoWrite);
+        final JsonCallWrite callWrite = new JsonCallWrite(FILE_TMP_JSON);
         EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_SUPER_ADMIN);
-        call.execute(eo);
+        eo.set(S_VALUE11, S0,S_KEY1);
+        eo.set(S_VALUE12, S0,S_KEY2);
+        eo.set(S_VALUE21, S1,S_KEY1);
+        eo.set(S_VALUE22, S1,S_KEY2);
+        eo.setRoles(R_SUPER_ADMIN);
+        String result = callWrite.execute(eo);
+        final JsonCallRead callRead = new JsonCallRead(FILE_TMP_JSON);
+        String readed = callRead.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, eo.getEo(S0));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_VALUE11, eo.getEo(S0).get(S_KEY1));
+        Assertions.assertThat(result).isEqualTo(readed);
     }
 }
