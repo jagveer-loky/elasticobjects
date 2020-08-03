@@ -5,8 +5,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigurationCallRead;
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.M_BASIC_TEST;
 public class ConfigurationCallReadTest {
     @Test
     public void givenCallWithField_whenExecuteCall_thenMapReturned ()  {
-        final EO eoEmpty = TestProviderRootTest.createEo();
+        final EO eoEmpty = ProviderRootTest.createEo();
         final ConfigurationCallRead call = new ConfigurationCallRead();
         call.setFilterConfigName(M_FIELD_CONFIG);
         call.setFilterModule(EO_STATIC.MODULE_NAME);
@@ -34,7 +34,7 @@ public class ConfigurationCallReadTest {
 
     @Test
     public void givenEoWithCallWithField_whenExecuteEo_thenEoHasMoreThan100Entries ()  {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         final ConfigurationCallRead call = new ConfigurationCallRead(FIELD);
         call.setTargetPath(FIELD);
         eo.addCall(call);
@@ -46,7 +46,7 @@ public class ConfigurationCallReadTest {
 
     @Test
     public void givenEoWithCallWithModel_whenExecuteEo_thenEoHasMoreThan60Entries()  {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         final ConfigurationCallRead call = new ConfigurationCallRead(MODEL);
         call.setTargetPath(MODEL);
         eo.addCall(call);
@@ -58,7 +58,7 @@ public class ConfigurationCallReadTest {
 
     @Test
     public void givenEoWithCallWithModelAndFilterModel_whenExecuteEo_thenEoHasMoreThan60Entries()  {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         final ConfigurationCallRead call = new ConfigurationCallRead(MODEL);
         call.setTargetPath(MODEL);
         call.setFilterModule(TEO_STATIC.MODULE_NAME);
@@ -72,7 +72,7 @@ public class ConfigurationCallReadTest {
 
     @Test
     public void givenEoWithCallWithModelAndFilterKey_whenExecuteEo_thenEoHas2Entries() {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         final ConfigurationCallRead call = new ConfigurationCallRead(MODEL);
         call.setTargetPath(MODEL);
         call.setFilterKey(".*Map");

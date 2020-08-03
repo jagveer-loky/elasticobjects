@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +17,7 @@ public class EOElementaryTest {
     @Test
     public void isContainer()  {
         
-        EO adapter = TestProviderRootTest.createEo(Map.class);
+        EO adapter = ProviderRootTest.createEo(Map.class);
         adapter.set(S_STRING, S_LEVEL0);
         Assert.assertEquals(S_STRING, adapter.get(S_LEVEL0));
         Assert.assertTrue(adapter.isContainer());
@@ -32,8 +32,8 @@ public class EOElementaryTest {
     @Test
     public void getChild()  {
         
-        EO adapter = TestProviderRootTest.createEo(Map.class);
-        Assert.assertEquals(Map.class, adapter.getEo(null).getModelClass());
+        EO adapter = ProviderRootTest.createEo(Map.class);
+        Assert.assertEquals(Map.class, adapter.getEo((String) null).getModelClass());
         Assert.assertEquals(Map.class, adapter.getEo(S_EMPTY).getModelClass());
         Assert.assertEquals(Map.class, adapter.getRoot().getModelClass());
         adapter.set( S_STRING, S_LEVEL0);
@@ -52,7 +52,7 @@ public class EOElementaryTest {
     @Test
     public void errorNonExistingPath()  {
         
-        EO eo = TestProviderRootTest.createEo(Map.class);
+        EO eo = ProviderRootTest.createEo(Map.class);
         Object notExisting = eo.get(S_LEVEL0, SAMPLE_KEY_UNKNOW);
         Assert.assertNull(notExisting);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS, eo.getLog().isEmpty());

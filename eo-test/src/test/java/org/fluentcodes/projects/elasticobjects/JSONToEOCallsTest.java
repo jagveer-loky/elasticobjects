@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 
 import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,7 +28,7 @@ public class JSONToEOCallsTest {
     public void scsCallSource()  {
         // just to load initial values
         final String scsCallSource = ProviderMapJson.SCS_CALL_SOURCE.content();
-        EO eoScs = TestProviderRootTest.createEo(scsCallSource);
+        EO eoScs = ProviderRootTest.createEo(scsCallSource);
         Assert.assertTrue(eoScs.hasCalls());
         eoScs.execute();
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, eoScs.getEo(S0));
@@ -39,7 +39,7 @@ public class JSONToEOCallsTest {
     @Test
     public void scsCallSourcePath()  {
         final String scsCallSource = ProviderMapJson.SCS_CALL_SOURCE_PATH.content();;
-        EO eoScs = TestProviderRootTest.createEo(scsCallSource);
+        EO eoScs = ProviderRootTest.createEo(scsCallSource);
         Assert.assertTrue(eoScs.hasCalls());
         eoScs.execute();
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, eoScs.getEo(S_PATH1 + Path.DELIMITER + S0));
@@ -51,7 +51,7 @@ public class JSONToEOCallsTest {
     public void scsCallSourceJoined()  {
         // just to load initial values
         final String scsCallSource = ProviderMapJson.SCS_CALL_SOURCE_JOINED.content();;
-        EO eoScs = TestProviderRootTest.createEo(scsCallSource);
+        EO eoScs = ProviderRootTest.createEo(scsCallSource);
         Assert.assertTrue(eoScs.hasCalls());
         eoScs.execute();
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, eoScs.getEo(S0));

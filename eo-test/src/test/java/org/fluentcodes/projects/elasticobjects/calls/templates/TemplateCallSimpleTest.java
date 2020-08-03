@@ -5,9 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderCallTemplate;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Test;
 
 /**
@@ -21,7 +20,7 @@ public class TemplateCallSimpleTest {
     public void givenCallWithContentWithStringPlaceholder_whenExecuteCall_thenPlaceHolderIsReplaced()  {
         TemplateCall call = new TemplateCall();
         call.setContent("Just a content with placeHolder testKey=$[testKey]");
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         eo.set("testValue", "testKey");
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -32,7 +31,7 @@ public class TemplateCallSimpleTest {
     public void givenEoWithContentWithStringPlaceholder_whenExecuteEo_thenPlaceHolderIsReplaced()  {
         TemplateCall call = new TemplateCall();
         call.setContent("Just a content with placeHolder testKey=$[testKey]");
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.addCall(call);
         eo.set("testValue", "testKey");
         eo.execute();

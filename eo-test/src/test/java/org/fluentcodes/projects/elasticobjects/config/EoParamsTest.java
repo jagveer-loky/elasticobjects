@@ -1,7 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.models.EOParams;
+import org.fluentcodes.projects.elasticobjects.models.Scope;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderConfig;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderConfig;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +14,7 @@ public class EoParamsTest {
 
     @Test
     public void initDbParams() {
-        EOParams eoParams = new EOParams(TestProviderConfig.createEoParams());
+        EOParams eoParams = new EOParams(ProviderConfig.createEoParams());
         Assert.assertEquals(F_MODEL_CONFIG_KEY, eoParams.getModelConfigKey());
         Assert.assertEquals(F_DEFAULT_IMPLEMENTATION, eoParams.getDefaultImplementation());
         Assert.assertEquals(ShapeTypes.MAP, eoParams.getShapeType());

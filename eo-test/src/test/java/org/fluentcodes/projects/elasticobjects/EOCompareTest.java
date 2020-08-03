@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,10 +18,10 @@ public class EOCompareTest {
     @Test
     public void simpleEquals()  {
         
-        EO adapter = TestProviderRootTest.createEo();
+        EO adapter = ProviderRootTest.createEo();
         adapter.set(TEO_STATIC.S_STRING, "first");
 
-        EO other = TestProviderRootTest.createEo();
+        EO other = ProviderRootTest.createEo();
         other.set(TEO_STATIC.S_STRING,"first");
 
         StringBuilder builder = new StringBuilder();
@@ -32,10 +32,10 @@ public class EOCompareTest {
     @Test
     public void simpleScalarNotEquals()  {
         
-        EO adapter = TestProviderRootTest.createEo();
+        EO adapter = ProviderRootTest.createEo();
         adapter.set(TEO_STATIC.S_STRING, TEO_STATIC.S_TEST_STRING);
 
-        EO other = TestProviderRootTest.createEo();
+        EO other = ProviderRootTest.createEo();
         other.set(TEO_STATIC.S_STRING_OTHER, TEO_STATIC.S_TEST_STRING);
 
         StringBuilder builder = new StringBuilder();
@@ -46,10 +46,10 @@ public class EOCompareTest {
     @Test
     public void simpleContainerNotEquals()  {
         
-        EO adapter = TestProviderRootTest.createEo();
+        EO adapter = ProviderRootTest.createEo();
         adapter.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY0);
 
-        EO other = TestProviderRootTest.createEo();
+        EO other = ProviderRootTest.createEo();
         other.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY1);
 
         StringBuilder builder = new StringBuilder();

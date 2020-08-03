@@ -22,7 +22,7 @@ public class ModelImpl implements Model {
     private String naturalId;
     private Date creationDate;
     private String author;
-    //</call>
+
     private Date modificationDate;
 
     /**
@@ -86,7 +86,7 @@ public class ModelImpl implements Model {
     public void setAuthor(String author) {
         this.author = author;
     }
-    //</call>
+
 
     public void setCreationDate() {
         this.creationDate = new Date();
@@ -103,7 +103,7 @@ public class ModelImpl implements Model {
 
     public String toString(EOConfigsCache provider) {
         try {
-            return new EoRoot(provider,this).toString();
+            return EoRoot.ofValue(provider,this).toString();
         } catch (Exception e) {
             return e.getMessage();
         }

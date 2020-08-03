@@ -24,7 +24,7 @@ public interface Model {
 
     void setCreationDate(Date creationDate);
 
-    //</call>
+
     Date getModificationDate();
 
     void setCreationDate();

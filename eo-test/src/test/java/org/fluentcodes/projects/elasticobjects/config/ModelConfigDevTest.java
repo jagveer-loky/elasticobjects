@@ -3,7 +3,9 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.junit.Test;
 
 import java.util.TreeSet;
@@ -15,7 +17,7 @@ public class ModelConfigDevTest {
     private static final Logger LOG = LogManager.getLogger(ModelConfigDevTest.class);
     @Test
     public void check() {
-        EOConfigsCache cache = TestProviderRootDev.EO_CONFIGS;
+        EOConfigsCache cache = ProviderRootDev.EO_CONFIGS;
         TreeSet<String> keys = new TreeSet<>(cache.getConfigKeys(ModelConfig.class));
         for (String key: keys) {
             LOG.info("Check " + key);

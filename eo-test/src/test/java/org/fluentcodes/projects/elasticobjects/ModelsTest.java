@@ -3,10 +3,9 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.config.Models;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.models.Models;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.junit.Assert;
@@ -25,14 +24,14 @@ public class ModelsTest {
 
     @Test
     public void withModelInterface()  {
-        Models models = new Models(TestProviderRootTest.EO_CONFIGS, M_MODEL_INTERFACE);
+        Models models = new Models(ProviderRootTest.EO_CONFIGS, M_MODEL_INTERFACE);
         Assert.assertTrue(models.hasModel());
         Assert.assertFalse(models.hasChildModel());
         Assert.assertFalse(models.isEmpty());
     }
     @Test
     public void createChildModelsWithList() {
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         Models models = new Models(eo.getConfigsCache(), Map.class);
         Models childModels = models.createChildModels(eo, new PathElement("(ArrayList)list"), null);
         Assertions.assertThat(childModels.getModelClass()).isEqualTo(ArrayList.class);
@@ -40,7 +39,7 @@ public class ModelsTest {
 
     @Test
     public void createArrayList() {
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         Models models = new Models(eo.getConfigsCache(), ArrayList.class);
         Assertions.assertThat(models.isCreate()).isTrue();
         Assertions.assertThat(models.isScalar()).isFalse();

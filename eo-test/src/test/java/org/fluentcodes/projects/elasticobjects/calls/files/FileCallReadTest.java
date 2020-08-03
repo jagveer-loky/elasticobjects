@@ -2,10 +2,10 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class FileCallReadTest {
     @Test
     public void testFindModelCall()  {
-        ModelConfig model = TestProviderRootTest.EO_CONFIGS.findModel("FileCallRead");
+        ModelConfig model = ProviderRootTest.EO_CONFIGS.findModel("FileCallRead");
         Assertions.assertThat(model).isNotNull();
         model.resolve();
         FileCallRead call =  (FileCallRead)model.create();
@@ -29,7 +29,7 @@ public class FileCallReadTest {
 
     @Test
     public void testFindModelConfig()  {
-        ModelConfig config = TestProviderRootTest.EO_CONFIGS.findModel("FileConfig");
+        ModelConfig config = ProviderRootTest.EO_CONFIGS.findModel("FileConfig");
         Assertions.assertThat(config).isNotNull();
         config.resolve();
     }
@@ -37,21 +37,21 @@ public class FileCallReadTest {
     @Test
     public void givenCallWithSourceTxtCached_whenExecuteCall_thenReturnContent()  {
         final FileCallRead call = new FileCallRead().setConfigKey(FILE_SOURCE_CACHED_TXT);
-        final String content = call.execute(TestProviderRootTest.createEo());
+        final String content = call.execute(ProviderRootTest.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
     public void givenCallWithSourceTxt_whenExecuteCall_thenReturnContent()  {
         final FileCallRead call = new FileCallRead().setConfigKey(FILE_SOURCE_TXT);
-        final String content = call.execute(TestProviderRootTest.createEo());
+        final String content = call.execute(ProviderRootTest.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
     public void givenCallWithRoleGuestAndSourceTxt_whenExecuteCall_thenReturnContent()  {
         final Call call = new FileCallRead().setConfigKey(FILE_SOURCE_TXT);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_GUEST);
         String content = (String)call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -62,7 +62,7 @@ public class FileCallReadTest {
     public void givenEoWithRoleGuestAndSourceTxt_whenExecuteCall_thenContentIsOnTargetPath()  {
         final Call call = new FileCallRead().setConfigKey(FILE_SOURCE_TXT)
                 .setTargetPath(F_TEST_STRING);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
         eo.execute();
@@ -73,7 +73,7 @@ public class FileCallReadTest {
     @Test
     public void givenRoleAnonymAndSourceTxt_whenExecuteCall_thenThrowException()  {
         final FileCallRead call = new FileCallRead().setConfigKey(FILE_SOURCE_TXT);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_ANONYM);
         Assertions
                 .assertThatThrownBy(()->{call.execute(eo);})
@@ -84,7 +84,7 @@ public class FileCallReadTest {
     @Test
     public void givenEoWithRoleAnonymAndSourceTxt_whenExecuteEo_thenHasLog()  {
         final FileCallRead call = new FileCallRead().setConfigKey(FILE_SOURCE_TXT);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.addCall(call);
         eo.setRoles(R_ANONYM);
         eo.execute();

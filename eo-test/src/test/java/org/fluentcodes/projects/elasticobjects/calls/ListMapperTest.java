@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class ListMapperTest {
     public void checkList()  {
         List row = List.of(S_STRING, S_INTEGER, S_BOOLEAN);
         ListMapper rowMapper = new ListMapper();
-        EO adapter = TestProviderRootTest.createEo();
+        EO adapter = ProviderRootTest.createEo();
         rowMapper.createRow(adapter, row);
         Assert.assertEquals(S_STRING, adapter.get(S0));
         Assert.assertEquals(S_INTEGER, adapter.get(S1));
@@ -51,7 +51,7 @@ public class ListMapperTest {
         List row = List.of(S_STRING, S_INTEGER, S_BOOLEAN);
         Map map = EO_STATIC.toMap(F_COL_KEYS, join(CON_COMMA, S0, S1, S2));
         ListMapper rowMapper = new ListMapper(map);
-        EO adapter = TestProviderRootTest.createEo();
+        EO adapter = ProviderRootTest.createEo();
         rowMapper.createRow(adapter, row);
         Assert.assertEquals(S_STRING, adapter.get(S0));
         Assert.assertEquals(S_INTEGER, adapter.get(S1));

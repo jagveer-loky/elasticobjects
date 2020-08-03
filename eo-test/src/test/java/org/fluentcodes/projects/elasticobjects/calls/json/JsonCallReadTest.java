@@ -6,9 +6,9 @@ import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileCallRead;
 
-import org.fluentcodes.projects.elasticobjects.config.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
@@ -20,7 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class JsonCallReadTest {
     @Test
     public void testFindModelCall()  {
-        ModelConfig model = TestProviderRootTest.EO_CONFIGS.findModel("JsonCallRead");
+        ModelConfig model = ProviderRootTest.EO_CONFIGS.findModel("JsonCallRead");
         Assertions.assertThat(model).isNotNull();
         model.resolve();
         FileCallRead call =  (FileCallRead)model.create();
@@ -30,14 +30,14 @@ public class JsonCallReadTest {
     @Test
     public void givenCallWithModuleConfig_whenExecuteCall_thenReturnContent()  {
         final JsonCallRead call = new JsonCallRead(J_MODULE_CONFIG_JSON);
-        String content = call.execute(TestProviderRootTest.createEo());
+        String content = call.execute(ProviderRootTest.createEo());
         Assertions.assertThat(content).contains("\"srcDir\": \"src/main/java\",\n");
     }
 
     @Test
     public void givenCallRoleGuestAndFileTmp_whenExecuteCall_thenThrowException()  {
         final JsonCallRead call = new JsonCallRead(FILE_TMP_JSON);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_GUEST);
         Assertions
                 .assertThatThrownBy(()->{call.execute(eo);})
@@ -48,7 +48,7 @@ public class JsonCallReadTest {
     @Test
     public void givenCallRoleAnonymAndFileSource_whenExecuteCall_thenThrowException()  {
         final JsonCallRead call = new JsonCallRead(FILE_SOURCE_JSON);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_ANONYM);
         Assertions
                 .assertThatThrownBy(()->{call.execute(eo);})
@@ -59,7 +59,7 @@ public class JsonCallReadTest {
     @Test
     public void givenCallRoleGuestAndFileSource_whenExecuteCall_ok()  {
         final JsonCallRead call = new JsonCallRead(FILE_SOURCE_JSON);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_GUEST);
         String content = call.execute(eo);
         Assertions.assertThat(content).isEqualTo("[\n" +
@@ -79,7 +79,7 @@ public class JsonCallReadTest {
     @Test
     public void givenEoRoleGuestAndFileSource_whenExecuteEo_thenValuesAreMapped()  {
         final JsonCallRead call = new JsonCallRead(FILE_SOURCE_JSON);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
         eo.execute();
@@ -92,7 +92,7 @@ public class JsonCallReadTest {
         final Call call = new JsonCallRead()
                 .setConfigKey("BasicTest.json")
                 .setTargetPath("(List,BasicTest)level0");
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog())

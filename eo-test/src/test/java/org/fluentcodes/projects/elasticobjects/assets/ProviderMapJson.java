@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.assets;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.Map;
@@ -31,13 +31,13 @@ public enum ProviderMapJson {
     }
 
     public EO createMapEo() {
-        EO eo =  TestProviderRootDev.createEo(content);
+        EO eo =  ProviderRootDev.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
 
     public EO createBtEo() {
-        EO eo =  TestProviderRootTest.createEoWithClasses(BasicTest.class).mapObject(content);
+        EO eo =  ProviderRootTest.createEoWithClasses(BasicTest.class).mapObject(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }

@@ -11,9 +11,6 @@ public enum TestProviderCallTemplate {
     //SIMPLE_INSERT_WITH_PATH(PATH_INPUT_TEMPLATE + "SimpleInsertWithPath"),
     //DEEP_PATH_VALUE(PATH_INPUT_TEMPLATE + "SimpleInsertWithPath"),
     CALL_SINUS_ARRAY(PATH_INPUT_TEMPLATE + "CallSinusArray.tpl"),
-    CALL_SINUS_ARRAY_JSON(PATH_INPUT_TEMPLATE + "CallSinusArray.json"),
-    CONTENT_EXAMPLE_JSON(PATH_INPUT_TEMPLATE + "content-example/ContentExample.json"),
-    CONTENT_EXAMPLE_DATA_JSON(PATH_INPUT_TEMPLATE + "content-example/ContentExampleData.json")
     ;
 
     private final String content;
@@ -34,7 +31,7 @@ public enum TestProviderCallTemplate {
     }
 
     public EO getEo() {
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.mapObject(content);
         return eo;
     }

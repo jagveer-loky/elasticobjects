@@ -1,8 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.models.EOConfigMapFields;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,14 +22,14 @@ public class FieldConfigTest {
     @Test
     public void findFieldConfigInModelCache()  {
         
-        final ModelInterface fieldModel = TestProviderRootTest.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
+        final ModelInterface fieldModel = ProviderRootTest.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
         Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
         Assert.assertEquals(FieldConfig.class, fieldModel.getModelClass());
     }
 
     @Test
     public void testFieldFromClassPath_Found()  {
-        EOConfigsCache cache = TestProviderRootTest.EO_CONFIGS;
+        EOConfigsCache cache = ProviderRootTest.EO_CONFIGS;
         FieldConfig field = cache.findField("ClassTest.id");
         Assert.assertNotNull(field);
         Assert.assertEquals("ClassTest.id", field.getNaturalId());
@@ -34,7 +38,7 @@ public class FieldConfigTest {
 
     @Test
     public void testConfigMap()  {
-        EOConfigMapFields map = new EOConfigMapFields(TestProviderRootTest.EO_CONFIGS);
+        EOConfigMapFields map = new EOConfigMapFields(ProviderRootTest.EO_CONFIGS);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(F_ID_KEY));
@@ -45,7 +49,7 @@ public class FieldConfigTest {
     @Test
     public void getId()  {
         
-        final FieldConfig idConfig = TestProviderRootTest.EO_CONFIGS.findField(F_ID);
+        final FieldConfig idConfig = ProviderRootTest.EO_CONFIGS.findField(F_ID);
         Assert.assertEquals(Long.class, idConfig.getModelConfig().getModelClass());
         Assert.assertNotNull(idConfig.getEoFieldParams());
         Assert.assertFalse(idConfig.getEoFieldParams().isDeliverAction());
@@ -56,7 +60,7 @@ public class FieldConfigTest {
 
     @Test
     public void assertId()  {
-        FieldConfig field = TestProviderRootTest.EO_CONFIGS.findField(F_ID);
+        FieldConfig field = ProviderRootTest.EO_CONFIGS.findField(F_ID);
         Assert.assertEquals(F_ID, field.getFieldKey());
         Assert.assertEquals(F_ID, field.getFieldName());
         Assert.assertEquals(S_BOOLEAN, field.isUnique());
@@ -72,7 +76,7 @@ public class FieldConfigTest {
      */
     @Test
     public void assertID()  {
-        FieldConfig field = TestProviderRootTest.EO_CONFIGS.findField(F_UPPER_ID_KEY);
+        FieldConfig field = ProviderRootTest.EO_CONFIGS.findField(F_UPPER_ID_KEY);
         Assert.assertEquals(F_UPPER_ID, field.getFieldKey());
         Assert.assertEquals(F_UPPER_ID, field.getFieldName());
         Assert.assertEquals(S_BOOLEAN, field.isUnique());
@@ -88,7 +92,7 @@ public class FieldConfigTest {
      */
     @Test
     public void assertTestObject()  {
-        FieldConfig field = TestProviderRootTest.EO_CONFIGS.findField(F_TEST_OBJECT);
+        FieldConfig field = ProviderRootTest.EO_CONFIGS.findField(F_TEST_OBJECT);
         Assert.assertEquals(F_TEST_OBJECT, field.getFieldKey());
         Assert.assertEquals(F_TEST_OBJECT, field.getFieldName());
         Assert.assertEquals(false, field.isUnique());

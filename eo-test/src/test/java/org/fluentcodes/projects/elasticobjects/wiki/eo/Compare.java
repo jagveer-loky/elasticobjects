@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.wiki.eo;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,12 +16,12 @@ public class Compare {
     public void test()  {
         final Map map = new HashMap();
         map.put("testString", "value");
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         eo.mapObject(map);
 
         BasicTest BT = new BasicTest();
         BT.setTestString("value");
-        final EO eo2 = TestProviderRootTest.createEo();
+        final EO eo2 = ProviderRootTest.createEo();
         eo2.mapObject(BT);
 
         StringBuilder diff = new StringBuilder();

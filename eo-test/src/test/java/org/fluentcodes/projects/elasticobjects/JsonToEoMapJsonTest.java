@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
 
 import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
 import org.junit.Assert;
@@ -25,28 +25,28 @@ public class JsonToEoMapJsonTest {
 
     @Test
     public void testEmpty()  {
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         eo.mapObject("{}");
         Assert.assertTrue(eo.isEmpty());
     }
 
     @Test
     public void testOneValue()  {
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         eo.mapObject("{\"testKey\":\"testObject\"}");
         Assertions.assertThat(eo.get("testKey")).isEqualTo("testObject");
     }
 
     @Test
     public void testOneValueEmbedded()  {
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         eo.mapObject("{\"test1\":{\"test2\":\"testObject\"}}");
         Assertions.assertThat(eo.get("test1/test2")).isEqualTo("testObject");
     }
 
     @Test
     public void testTwoValues()  {
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         eo.mapObject("{\"test1\":\"testObject1\",\"test2\":\"testObject2\"}");
         Assertions.assertThat(eo.get("test1")).isEqualTo("testObject1");
         Assertions.assertThat(eo.get("test2")).isEqualTo("testObject2");

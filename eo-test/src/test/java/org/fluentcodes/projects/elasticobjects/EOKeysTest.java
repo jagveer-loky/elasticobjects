@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class EOKeysTest {
 
     @Test
     public void keyPath()  {
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.set(S_STRING, S_LEVEL3);
         eo.set(S_STRING, S_LEVEL0, S_LEVEL1, S_KEY0);
         eo.set(S_STRING, S_LEVEL0, S_LEVEL2, S_KEY0);

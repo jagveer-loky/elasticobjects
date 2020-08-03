@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class ScsCallReadTest {
     public void givenCallWithSourceCsv_whenExecuteCall_thenListReturned()  {
         final Call call = new ScsCallRead()
                 .setConfigKey(CS_SOURCE_CSV);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         List value = (List)((ScsCallRead)call).execute(eo);
         Assertions.assertThat(value).isNotEmpty();
         Assertions.assertThat(value.size()).isEqualTo(2);
@@ -38,7 +38,7 @@ public class ScsCallReadTest {
     public void givenEoWithSourceCsv_whenExecuteEo_thenParameterSet()  {
         final Call call = new ScsCallRead()
                 .setConfigKey(CS_SOURCE_CSV);
-        EO eo = TestProviderRootTest.createEoWithClasses(List.class);
+        EO eo = ProviderRootTest.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.hasCalls()).isTrue();
@@ -52,7 +52,7 @@ public class ScsCallReadTest {
         final Call call = new ScsCallRead()
                 .setRowStart(2)
                 .setConfigKey(CS_SOURCE_CSV);
-        EO eo = TestProviderRootTest.createEoWithClasses(List.class);
+        EO eo = ProviderRootTest.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.execute();
@@ -67,7 +67,7 @@ public class ScsCallReadTest {
         final Call call = new ScsCallRead()
                 .setRowEnd(2)
                 .setConfigKey(CS_SOURCE_CSV);
-        EO eo = TestProviderRootTest.createEoWithClasses(List.class);
+        EO eo = ProviderRootTest.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getEo("0").get("key1")).isEqualTo("value11");
@@ -81,7 +81,7 @@ public class ScsCallReadTest {
         final Call call = new ScsCallRead()
                 .setRowHead(-1)
                 .setConfigKey(CS_SOURCE_CSV);
-        EO eo = TestProviderRootTest.createEoWithClasses(List.class);
+        EO eo = ProviderRootTest.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.execute();
@@ -94,7 +94,7 @@ public class ScsCallReadTest {
     public void givenEoWithSourceCsvAndRoleAnonym_whenExecuteEo_thenLogEntry()  {
         final Call call = new ScsCallRead()
                 .setConfigKey(CS_SOURCE_CSV);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_ANONYM);
         eo.addCall(call);
         eo.execute();
@@ -106,7 +106,7 @@ public class ScsCallReadTest {
     public void givenEoWithSourceCsvAndRoleGuest_whenExecuteEo_thenNoLogEntry()  {
         final Call call = new ScsCallRead()
                 .setConfigKey(CS_SOURCE_CSV);
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
         eo.execute();
@@ -118,7 +118,7 @@ public class ScsCallReadTest {
     public void givenEoBasicTestCsv_whenExecuteEo_thenLinkedHashMapForRow()  {
         final Call call = new ScsCallRead()
                 .setConfigKey("BasicTest.csv");
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog())
@@ -132,7 +132,7 @@ public class ScsCallReadTest {
         final Call call = new ScsCallRead()
                 .setConfigKey("BasicTest.csv")
                 .setTargetPath("(List,BasicTest)level0");
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog())

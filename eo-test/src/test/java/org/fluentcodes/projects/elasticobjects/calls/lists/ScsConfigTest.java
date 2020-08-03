@@ -3,10 +3,10 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.config.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class ScsConfigTest {
 
     @Test
     public void assertScsConfigTest()  {
-        ModelInterface model = TestProviderRootTest.findModel(ScsConfig.class);
+        ModelInterface model = ProviderRootTest.findModel(ScsConfig.class);
         Assertions.assertThatThrownBy(() -> {model.create();})
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("config has no empty constructor");
@@ -37,12 +37,12 @@ public class ScsConfigTest {
 
     @Test
     public void testResolveAllConfigs()  {
-        Set<String> keys = TestProviderRootTest.EO_CONFIGS.getConfigKeys(ScsConfig.class);
+        Set<String> keys = ProviderRootTest.EO_CONFIGS.getConfigKeys(ScsConfig.class);
         Assertions.assertThat(keys).isNotEmpty();
         for (String key: keys) {
             LOG.info("Try to resolve " + key);
             Assertions.assertThat(key).isNotEmpty();
-            ScsConfig config = (ScsConfig) TestProviderRootTest.EO_CONFIGS.find(ScsConfig.class, key);
+            ScsConfig config = (ScsConfig) ProviderRootTest.EO_CONFIGS.find(ScsConfig.class, key);
             Assertions.assertThat(config).isNotNull();
             config.resolve();
         }
@@ -51,7 +51,7 @@ public class ScsConfigTest {
     @Test
     public void fromSourceCsv()  {
         
-        final ScsConfig config = (ScsConfig) TestProviderRootTest.EO_CONFIGS.find(ScsConfig.class, CS_SOURCE_CSV);
+        final ScsConfig config = (ScsConfig) ProviderRootTest.EO_CONFIGS.find(ScsConfig.class, CS_SOURCE_CSV);
         Assert.assertEquals(CS_SOURCE_CSV, config.getScsKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -69,7 +69,7 @@ public class ScsConfigTest {
     @Test
     public void fromTargetCsv()  {
         
-        final ScsConfig config = (ScsConfig) TestProviderRootTest.EO_CONFIGS.find(ScsConfig.class, CS_TARGET_CSV);
+        final ScsConfig config = (ScsConfig) ProviderRootTest.EO_CONFIGS.find(ScsConfig.class, CS_TARGET_CSV);
         Assert.assertEquals(CS_TARGET_CSV, config.getScsKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -85,7 +85,7 @@ public class ScsConfigTest {
     @Test
     public void fromTest()  {
         
-        final ScsConfig cache = (ScsConfig) TestProviderRootTest.EO_CONFIGS.find(ScsConfig.class, SC_TEST);
+        final ScsConfig cache = (ScsConfig) ProviderRootTest.EO_CONFIGS.find(ScsConfig.class, SC_TEST);
         Assert.assertEquals(F_DESCRIPTION, cache.getDescription());
 
         Assert.assertEquals(F_FILE_NAME, cache.getFileConfig().getFileName());

@@ -23,7 +23,7 @@ public class EoSetMapTest {
 
     @Test
     public void testSinglePathScalar_ok()  {
-        final EoRoot root = TestProviderRootDev.createEo();
+        final EoRoot root = ProviderRootDev.createEo();
         Assert.assertNotNull(root);
         root.set("testPath", "test");
         String value = (String)root.get("test");
@@ -32,7 +32,7 @@ public class EoSetMapTest {
 
     @Test
     public void testDoublePathScalar_ok()  {
-        final EoRoot root = TestProviderRootDev.createEo();
+        final EoRoot root = ProviderRootDev.createEo();
         Assert.assertNotNull(root);
         root.set("testPath", "test", "test2");
         Assert.assertEquals("testPath", root.get("test","test2"));
@@ -40,7 +40,7 @@ public class EoSetMapTest {
 
     @Test
     public void testTreePathScalar_ok()  {
-        final EoRoot root = TestProviderRootDev.createEo();
+        final EoRoot root = ProviderRootDev.createEo();
         Assert.assertNotNull(root);
         root.set("testPath", "test","test2","test3");
         Assert.assertEquals("testPath", root.get("test","test2","test3"));
@@ -48,7 +48,7 @@ public class EoSetMapTest {
 
     @Test
     public void testTwoDoublePathScalarWithSameStartDirectory_ok()  {
-        final EoRoot root = TestProviderRootDev.createEo();
+        final EoRoot root = ProviderRootDev.createEo();
         Assert.assertNotNull(root);
         root.set("testPath", "test","test2");
         root.set("testPath2", "test","test3");
@@ -58,7 +58,7 @@ public class EoSetMapTest {
 
     @Test
     public void testMap_ok()  {
-        final EoRoot root = TestProviderRootDev.createEo();
+        final EoRoot root = ProviderRootDev.createEo();
         Map<String,String> map = new LinkedHashMap<>();
         map.put("test3","testMap");
         root.set(map,"test","test3");
@@ -67,7 +67,7 @@ public class EoSetMapTest {
 
     @Test
     public void testMapComplex_ok()  {
-        final EoRoot root = TestProviderRootDev.createEo();
+        final EoRoot root = ProviderRootDev.createEo();
         Map map = new LinkedHashMap<>();
         map.put("test3","testMap");
         Map<String,String> map2 = new LinkedHashMap<>();
@@ -85,7 +85,7 @@ public class EoSetMapTest {
      */
     @Test
     public void givenMapEmpty_whenSetJsonSmall_ok()  {
-        final EO eoEmpty = TestProviderRootDev.createEo();
+        final EO eoEmpty = ProviderRootDev.createEo();
         eoEmpty.set(ProviderMapJson.SMALL.content(), S_LEVEL0);
         Assertions.assertThat(eoEmpty.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, F_TEST_INTEGER)).isEqualTo(S_INTEGER);

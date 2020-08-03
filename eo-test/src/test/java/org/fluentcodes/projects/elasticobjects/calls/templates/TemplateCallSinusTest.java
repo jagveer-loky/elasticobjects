@@ -4,9 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderCallTemplate;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderJsonCalls;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Test;
 
 /**
@@ -20,7 +19,7 @@ public class TemplateCallSinusTest {
     public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced()  {
         TemplateCall call = new TemplateCall();
         call.setContent("sin($[testKey]) = $[(SinusValueCall)testKey]");
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.addCall(call);
         eo.set(2, "testKey");
         eo.execute();
@@ -32,7 +31,7 @@ public class TemplateCallSinusTest {
 
     @Test
     public void givenEoWithContentWithSinusCallPlaceholderJson_whenExecuteEo_thenPlaceHolderIsReplaced()  {
-        EO eo = TestProviderCallTemplate.CALL_SINUS_ARRAY_JSON.getEo();
+        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_JSON.getEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("_template")).isEqualTo(
@@ -40,34 +39,22 @@ public class TemplateCallSinusTest {
                         "sin(2.0) = 0.9092974268256817\n" +
                         "sin(3.0) = 0.1411200080598672\n");
     }
-/*
+
     @Test
-    public void executeWithPath()  {
-        final TemplateCall action = new TemplateCall(T_SIMPLE_INSERT_WITH_PATH);
-        final String result = action.execute(MapProviderEO.createSimpleInsertWithPath());
-        Assert.assertTrue(INFO_CONTAINS_FAILS + result, result.contains(S_STRING));
-        //AssertEO.compare(result);
+    public void givenEo_whenReplaceString_thenPlaceHolderIsReplaced()  {
+        EO eo = ProviderRootTest.createEo();
+        eo.set(2, "value");
+        String result = new TemplateParser("-$[(SinusValueCall)value/]-").parse(eo);
+        Assertions.assertThat(result).isEqualTo("--");
+        Assertions.assertThat(eo.get("value")).isEqualTo(0); // was integer before.
     }
 
     @Test
-    public void executeWithPathAndEmbeddedJson()  {
-        final String value = TestTemplateProvider.executeTemplateCall(T_SIMPLE_INSERT_WITH_PATH_AND_EMBEDDED_JSON);
-        Assert.assertEquals("\nTest testValue Insert: testValue2 testValue2", value);
+    public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced()  {
+        EO eo = ProviderRootTest.createEo();
+        eo.set(2, "value");
+        String result = new TemplateParser("-$[(SinusValueCall)value inTemplate=\"true\"/]-").parse(eo);
+        Assertions.assertThat(result).isEqualTo("-0.9092974268256817-");
+        Assertions.assertThat(eo.get("value")).isEqualTo(2); // was integer before.
     }
-
-    @Test
-    public void executeWithPathAndJson()  {
-        final String result = TestTemplateProvider.executeTemplateCall(T_SIMPLE_INSERT_WITH_PATH_AND_JSON);
-        //AssertEO.compare(result);
-    }
-
-    @Test
-    public void executeWithPathAndJsonAndStore()  {
-        final String result = TestTemplateProvider.executeTemplateCall(T_SIMPLE_INSERT_WITH_PATH_AND_JSON_STORE);
-        Assert.assertTrue(result.contains(S_STRING_OTHER));
-        //AssertEO.compare(result);
-    }
-
- */
-
 }
