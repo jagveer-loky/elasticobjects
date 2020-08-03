@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class EoRemoveTest {
      */
     @Test
     public void testObjectbject()  {
-        EO child = TestProviderRootTest.createEo(new BasicTest())
+        EO child = ProviderRootTest.createEo(new BasicTest())
                 .set("Test", F_TEST_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, (root).keys());
@@ -53,7 +53,7 @@ public class EoRemoveTest {
     @Test
     public void testMap()  {
         
-        EO child = TestProviderRootTest.createEo().set(S_STRING, S_TEST_STRING);
+        EO child = ProviderRootTest.createEo().set(S_STRING, S_TEST_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, (root).keys());
         Assert.assertEquals(1, (root).keysEo());
@@ -80,7 +80,7 @@ public class EoRemoveTest {
     @Test
     public void testList()  {
         
-        EO child = TestProviderRootTest.createEo(new ArrayList<>())
+        EO child = ProviderRootTest.createEo(new ArrayList<>())
                 .set(S_STRING, S0);
         // remove value entry first
         EO root = child.getRoot();

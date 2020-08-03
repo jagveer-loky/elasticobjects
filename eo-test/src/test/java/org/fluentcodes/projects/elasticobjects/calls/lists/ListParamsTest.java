@@ -2,9 +2,9 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -113,7 +113,7 @@ public class ListParamsTest {
     @Test
     public void assertModel()  {
         
-        ModelInterface paramsModel = TestProviderRootTest.EO_CONFIGS.findModel(ListParams.class.getSimpleName());
+        ModelInterface paramsModel = ProviderRootTest.EO_CONFIGS.findModel(ListParams.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.INSTANCE, paramsModel.getShapeType());
         Assert.assertTrue(paramsModel.hasModel());
         Assert.assertTrue(paramsModel.isObject());

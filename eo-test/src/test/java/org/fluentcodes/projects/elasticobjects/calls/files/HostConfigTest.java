@@ -4,9 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigMap;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigMapImmutable;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -35,14 +35,14 @@ public class HostConfigTest {
     @Test
     public void testReadConfig()  {
         
-        EOConfigMap map = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, HostConfig.class);
+        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, HostConfig.class);
         Assert.assertNotNull(map);
         Assert.assertFalse(map.isEmpty());
     }
 
     @Test
     public void withHostKeyTest()  {
-        final HostConfig config = (HostConfig) TestProviderRootTest.EO_CONFIGS.find(HostConfig.class, H_TEST);
+        final HostConfig config = (HostConfig) ProviderRootTest.EO_CONFIGS.find(HostConfig.class, H_TEST);
         Assert.assertEquals(F_DESCRIPTION, config.getDescription());
 
         Assert.assertEquals(F_HOST_KEY, config.getHostKey());
@@ -81,20 +81,20 @@ public class HostConfigTest {
         map.put(F_PORT, S_INTEGER);
         map.put(F_USER, F_USER);
         map.put(F_PASSWORD, F_PASSWORD);
-        HostConfig cache = (HostConfig) new HostConfig.Builder().build(TestProviderRootTest.EO_CONFIGS, map);
+        HostConfig cache = (HostConfig) new HostConfig.Builder().build(ProviderRootTest.EO_CONFIGS, map);
         Assert.assertEquals(H_LOCALHOST, cache.getHostName());
         Assert.assertEquals(F_HOST_KEY, cache.getHostKey());
     }
 
     @Test
     public void getLocalHost()  {
-        HostConfig cache = (HostConfig) TestProviderRootTest.EO_CONFIGS.find(HostConfig.class, H_LOCALHOST);
+        HostConfig cache = (HostConfig) ProviderRootTest.EO_CONFIGS.find(HostConfig.class, H_LOCALHOST);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, cache.getDescription());
     }
 
     @Test
     public void testHostConfig()  {
-        EOConfigMap cache = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, HostConfig.class);
+        EOConfigMap cache = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, HostConfig.class);
         Assert.assertNotNull(cache.find(H_LOCALHOST));
     }
 

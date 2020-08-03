@@ -1,8 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class ModelConfigScalarTest {
 
     @Test
     public void assertString()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(String.class);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(String.class);
         Assert.assertEquals(String.class, model.getModelClass());
         Assert.assertEquals(ShapeTypes.SCALAR, model.getShapeType());
         Assert.assertTrue(model.hasModel());

@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -45,7 +45,7 @@ public class EoSetStTest {
         SubTest subTest = new SubTest();
         subTest.setTestString(S_STRING);
         subTest.setName(S_STRING);
-        EO adapter = TestProviderRootTest.createEo(Map.class);
+        EO adapter = ProviderRootTest.createEo(Map.class);
         adapter
                 .set(subTest, F_SUB_TEST);
         String subTestName = (String) adapter.get(F_SUB_TEST, F_NAME);

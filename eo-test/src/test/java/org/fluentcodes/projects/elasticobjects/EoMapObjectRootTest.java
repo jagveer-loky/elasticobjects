@@ -22,28 +22,28 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenString_withInteger_ok()  {
-        final EO eo = TestProviderRootDev.createEo("");
+        final EO eo = ProviderRootDev.createEo("");
         eo.mapObject(S_INTEGER);
         Assertions.assertThat(eo.get()).isEqualTo(S_INTEGER.toString());
     }
 
     @Test
     public void givenString_withBoolean_ok()  {
-        final EO eo = TestProviderRootDev.createEo("");
+        final EO eo = ProviderRootDev.createEo("");
         eo.mapObject(S_BOOLEAN);
         Assertions.assertThat(eo.get()).isEqualTo(S_BOOLEAN.toString());
     }
 
     @Test
     public void givenString_withString_ok()  {
-        final EO eo = TestProviderRootDev.createEo("");
+        final EO eo = ProviderRootDev.createEo("");
         eo.mapObject(S_STRING_OTHER);
         Assertions.assertThat(eo.get()).isEqualTo(S_STRING_OTHER);
     }
 
     @Test
     public void givenString_withMap_fails()  {
-        final EO eo = TestProviderRootDev.createEo(S_STRING);
+        final EO eo = ProviderRootDev.createEo(S_STRING);
         eo.mapObject(new LinkedHashMap());
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.get()).isEqualTo(S_STRING);
@@ -51,7 +51,7 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenString_withBT_hasLog()  {
-        final EO eo = TestProviderRootTest.createEo(S_STRING);
+        final EO eo = ProviderRootTest.createEo(S_STRING);
         eo.mapObject(new BasicTest());
         Assertions.assertThat(eo.getLog()).contains("Tried to map scalar child");
         Assertions.assertThat(eo.get()).isEqualTo(S_STRING);
@@ -59,7 +59,7 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenMap_withString_fails()  {
-        final EO eo = TestProviderRootDev.createEo();
+        final EO eo = ProviderRootDev.createEo();
         eo.mapObject(S_STRING);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
@@ -67,7 +67,7 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenMap_withNull_ok_nothingChanged()  {
-        final EO eo = TestProviderRootDev.createEo();
+        final EO eo = ProviderRootDev.createEo();
         eo.mapObject(null);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
@@ -75,7 +75,7 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenMapEmpty_withMapString_ok()  {
-        final EO eo = TestProviderRootDev.createEo();
+        final EO eo = ProviderRootDev.createEo();
         eo.mapObject(ProviderMapJson.STRING.createMap());
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
@@ -106,7 +106,7 @@ public class EoMapObjectRootTest {
      */
     @Test
     public void givenMapString_withJsonMapString_ok()  {
-        final EO eoEmpty = TestProviderRootTest.createEo();
+        final EO eoEmpty = ProviderRootTest.createEo();
         final String jsnString = ProviderMapJson.STRING.content();
         eoEmpty
                 .mapObject(jsnString);
@@ -123,7 +123,7 @@ public class EoMapObjectRootTest {
      */
     @Test
     public void givenMapEmpty_withJsonMapBoolean_ok()  {
-        final EO eoEmpty = TestProviderRootTest.createEo();
+        final EO eoEmpty = ProviderRootTest.createEo();
         final String jsonBoolean = org.fluentcodes.projects.elasticobjects.assets.ProviderMapJson.BOOLEAN.content();
         eoEmpty
                 .mapObject(jsonBoolean);
@@ -135,7 +135,7 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenListEmpty_withBoolean_fails()  {
-        final EO root = TestProviderRootDev.createEoWithClasses(List.class);
+        final EO root = ProviderRootDev.createEoWithClasses(List.class);
         root
                 .mapObject(S_BOOLEAN);
         Assert.assertEquals(List.class, root.getModelClass());
@@ -144,7 +144,7 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenListEmpty_withBTBoolean_ok()  {
-        final EO root = TestProviderRootDev.createEoWithClasses(List.class);
+        final EO root = ProviderRootDev.createEoWithClasses(List.class);
         root.mapObject(org.fluentcodes.projects.elasticobjects.assets.ProviderMapJson.BOOLEAN.content());
         Assert.assertEquals(1, root.keysEo().size());
         Assert.assertEquals(1, ((EoChild) root).keysValue().size());
@@ -153,7 +153,7 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenListStringEmpty_withBTBoolean_ok()  {
-        EO root = TestProviderRootDev.createEoWithClasses(List.class, String.class);
+        EO root = ProviderRootDev.createEoWithClasses(List.class, String.class);
         root
                 .mapObject(org.fluentcodes.projects.elasticobjects.assets.ProviderMapJson.BOOLEAN.content());
         Assert.assertEquals(1, root.keysEo().size());

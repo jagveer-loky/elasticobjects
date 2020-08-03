@@ -7,8 +7,9 @@ import org.fluentcodes.projects.elasticobjects.assets.ClassTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubClassForTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderConfig;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderConfig;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.models.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,13 +28,13 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ModelConfigTest {
     private static final Logger LOG = LogManager.getLogger(ModelConfigTest.class);
-    private static final Map<String, Object> MODEL_CONFIG_MAP = TestProviderConfig.createModelConfigMap();
+    private static final Map<String, Object> MODEL_CONFIG_MAP = ProviderConfig.createModelConfigMap();
     private static final String F_BUILD = "build";
     private static final String M_BUILDER = "$Builder";
 
     @Test
     public void testClassTestFromClassPath_Found()  {
-        EOConfigsCache cache = TestProviderRootTest.EO_CONFIGS;
+        EOConfigsCache cache = ProviderRootTest.EO_CONFIGS;
         ModelInterface model = cache.findModel(ClassTest.class);
         for (String key: model.getFieldNames()) {
             Assert.assertNotNull(model.getFieldConfig(key));
@@ -46,7 +47,7 @@ public class ModelConfigTest {
 
     @Test
     public void testSubClassForTestFromClassPath_Found()  {
-        EOConfigsCache cache = TestProviderRootTest.EO_CONFIGS;
+        EOConfigsCache cache = ProviderRootTest.EO_CONFIGS;
         ModelInterface model = cache.findModel(SubClassForTest.class);
         for (String key: model.getFieldNames()) {
             Assert.assertNotNull(model.getFieldConfig(key));
@@ -59,14 +60,14 @@ public class ModelConfigTest {
 
     @Test
     public void testReadConfig()  {
-        EOConfigMapModels map = new EOConfigMapModels(TestProviderRootTest.EO_CONFIGS);
+        EOConfigMapModels map = new EOConfigMapModels(ProviderRootTest.EO_CONFIGS);
         Assert.assertTrue(map.hasKey(CONFIG_MODEL));
     }
 
     @Test
     public void findCachedUnknown_fails()  {
         try {
-            TestProviderRootTest.EO_CONFIGS.findModel(SAMPLE_KEY_UNKNOW);
+            ProviderRootTest.EO_CONFIGS.findModel(SAMPLE_KEY_UNKNOW);
             Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
         } catch (EoException e) {
             LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
@@ -77,13 +78,13 @@ public class ModelConfigTest {
 
     @Test
     public void findCachedST()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(SubTest.class);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(SubTest.class);
         Assert.assertEquals(SubTest.class, model.getModelClass());
     }
 
     @Test
     public void modelTest()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(ModelInterface.class);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(ModelInterface.class);
         Assert.assertEquals(ModelInterface.class.getSimpleName(), model.getModelKey());
         Assert.assertEquals(INFO_COMPARE_FAILS + model.getModelClass().getSimpleName(),
                 ModelInterface.class, model.getModelClass());
@@ -148,9 +149,9 @@ public class ModelConfigTest {
     @Test
     public void checkDependentModels()  {
         // Check if basic Models are available
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(M_BASIC_TEST);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(M_BASIC_TEST);
         Assert.assertEquals(M_BASIC_TEST, model.getModelKey());
-        model = TestProviderRootTest.EO_CONFIGS.findModel(M_SUB_TEST);
+        model = ProviderRootTest.EO_CONFIGS.findModel(M_SUB_TEST);
         Assert.assertEquals(M_SUB_TEST, model.getModelKey());
     }
 
@@ -163,7 +164,7 @@ public class ModelConfigTest {
         Method build = childClass.getMethod(F_BUILD, new Class[]{EOConfigsCache.class, Map.class});
         Constructor constructor = childClass.getConstructor(null);
         Object childObject = constructor.newInstance();
-        ModelInterface config = (ModelInterface) build.invoke(childObject, TestProviderRootTest.EO_CONFIGS, MODEL_CONFIG_MAP);
+        ModelInterface config = (ModelInterface) build.invoke(childObject, ProviderRootTest.EO_CONFIGS, MODEL_CONFIG_MAP);
         Assert.assertEquals(F_MODEL_KEY, config.getModelKey());
         Assert.assertEquals(F_AUTHOR, config.getAuthor());
         Assert.assertEquals(F_PACKAGE_GROUP, config.getPackageGroup());
@@ -175,7 +176,7 @@ public class ModelConfigTest {
 
     @Test
     public void checkConfig() {
-        EOConfigsCache cache = TestProviderRootTest.EO_CONFIGS;
+        EOConfigsCache cache = ProviderRootTest.EO_CONFIGS;
         TreeSet<String> keys = new TreeSet<>(cache.getConfigKeys(ModelConfig.class));
         int counter = 0;
         final Set<String> allFields = new TreeSet<>();

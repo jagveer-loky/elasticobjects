@@ -4,11 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.config.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class EoSetBtTest {
 
     @Test
     public void fromEoConfigsCache()  {
-        ModelInterface cache = TestProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
+        ModelInterface cache = ProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertNotNull(cache.getFieldConfig(F_TEST_STRING));
         Assert.assertEquals(F_TEST_STRING, cache.getFieldConfig(F_TEST_STRING).getFieldKey());
         ModelInterface subTest = cache.getFieldModel(F_SUB_TEST);
@@ -38,7 +38,7 @@ public class EoSetBtTest {
 
     @Test
     public void testBasicTestWithTestString()  {
-        FieldConfig fieldCacheDefinitions = TestProviderRootTest.EO_CONFIGS
+        FieldConfig fieldCacheDefinitions = ProviderRootTest.EO_CONFIGS
                 .findModel(BasicTest.class)
                 .getFieldConfig(F_TEST_STRING);
         Assert.assertNotNull(fieldCacheDefinitions);
@@ -51,7 +51,7 @@ public class EoSetBtTest {
 
     @Test
     public void testMap_forWiki()  {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
 
         final Map map = new HashMap();
         map.put("testString", "value");
@@ -81,13 +81,13 @@ public class EoSetBtTest {
 
     @Test
     public void givenModelFromString_notNull()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(BasicTest.class.getSimpleName());
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(BasicTest.class.getSimpleName());
         Assertions.assertThat(model).isNotNull();
     }
 
     @Test
     public void givenModelFromClass_createAndSetModelFieldsWith_noError()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertFalse(model.isMap());
@@ -139,7 +139,7 @@ public class EoSetBtTest {
 
     @Test
     public void assertBTFieldTest()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
 
         FieldConfig field = model.getFieldConfig(F_TEST_STRING);
         Assert.assertEquals(String.class, field.getModelClass());
@@ -151,7 +151,7 @@ public class EoSetBtTest {
 
     @Test
     public void getFields()  {
-        ModelInterface cache = TestProviderRootTest.findModel(BasicTest.class);
+        ModelInterface cache = ProviderRootTest.findModel(BasicTest.class);
         Assert.assertEquals(M_BASIC_TEST, cache.getModelKey());
         BasicTest basicTest = (BasicTest) cache.create();
         cache.set(F_TEST_STRING, basicTest, S_STRING);
@@ -172,7 +172,7 @@ public class EoSetBtTest {
 
     @Test
     public void testBT_ok()  {
-        final EO root = TestProviderRootTest.createEo();
+        final EO root = ProviderRootTest.createEo();
         BasicTest basicTest = new BasicTest();
         basicTest.setTestString("testObject");
         root.set( basicTest, "test","test2");
@@ -182,7 +182,7 @@ public class EoSetBtTest {
 
     @Test
     public void giventestBTByPath_ok()  {
-        final EO root = TestProviderRootTest.createEo();
+        final EO root = ProviderRootTest.createEo();
         root.set("testObject", "(BasicTest)test", "testString");
         Assert.assertEquals("testObject", root.get("test"," testString"));
         Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
@@ -190,7 +190,7 @@ public class EoSetBtTest {
 
     @Test
     public void testBTByPathAddInteger_ok()  {
-        final EO root = TestProviderRootTest.createEo();
+        final EO root = ProviderRootTest.createEo();
         root.set("testObject", "(BasicTest)test","testString");
         root.set(1, "test","testInt");
         Assert.assertEquals(1, root.get("test","testInt"));
@@ -200,7 +200,7 @@ public class EoSetBtTest {
 
     @Test
     public void givenBT_whenSetPathNotExisting_hasLog()  {
-        final EO root = TestProviderRootTest.createEo();
+        final EO root = ProviderRootTest.createEo();
         root.set("testObject", "(BasicTest)test","testString");
         root.set(1, "test", "nonsense");
         Assert.assertNull(root.get("test","nonsense"));
@@ -210,14 +210,14 @@ public class EoSetBtTest {
 
     @Test
     public void givenTestEmpty_whenSetEmptytestBTByPathWithEmpty_ok()  {
-        final EO root = TestProviderRootTest.createEo();
+        final EO root = ProviderRootTest.createEo();
         root.setEmpty("(BasicTest)test");
         Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
     }
 
     @Test
     public void givenBtEmpty_whenSetStringFieldWithString_ok()  {
-        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        final EO eo = ProviderRootTest.createEo(new BasicTest());
         eo.set(S_STRING_OTHER, F_TEST_STRING);
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -225,35 +225,35 @@ public class EoSetBtTest {
 
     @Test
     public void givenBtEmpty_whenSetNotExistingPath_thenLogErrors()  {
-        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        final EO eo = ProviderRootTest.createEo(new BasicTest());
         eo.set(S_STRING_OTHER, S_KEY1);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
     public void givenBtEmpty_whenSetScalarFieldWithBT_thenLogErrors()  {
-        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        final EO eo = ProviderRootTest.createEo(new BasicTest());
         eo.set(new BasicTest(), F_TEST_STRING);
         Assertions.assertThat(eo.getLog()).contains("Problem setting non scalar value ");
     }
 
     @Test
     public void givenBtEmpty_whenSetBTFieldWithScalar_thenLogErrors()  {
-        final EO eo = TestProviderRootTest.createEo(new BasicTest());
+        final EO eo = ProviderRootTest.createEo(new BasicTest());
         eo.set(S_STRING, F_BASIC_TEST);
         Assertions.assertThat(eo.getLog()).contains("Problem setting scalar value ");
     }
 
     @Test
     public void givenTestEmpty_whenSetPathWithBTDirective_thenModelIsBT()  {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         eo.setEmpty("(BasicTest)" + S_LEVEL0);
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(BasicTest.class);
     }
 
     @Test
     public void givenTestEmpty_whenSetBTOnExistingModelMap_thenModelIsMap()  {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         eo.setEmpty(S_LEVEL0);
         eo.setEmpty("(BasicTest)" + S_LEVEL0);
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
@@ -262,7 +262,7 @@ public class EoSetBtTest {
 
     @Test
     public void givenTestEmpty_whenSetBTDirectiveAtEndOfLongPath_thenIsBTClass()  {
-        final EO eo = TestProviderRootTest.createEo();
+        final EO eo = ProviderRootTest.createEo();
         eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(BasicTest)" + S_LEVEL3);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3).getModelClass()).isEqualTo(BasicTest.class);
@@ -270,7 +270,7 @@ public class EoSetBtTest {
 
     @Test
     public void givenTestEmpty_whenSetSmallJsonBtOnIntegerField_hasError()  {
-        final EO eoMap = TestProviderRootTest.createEo();
+        final EO eoMap = ProviderRootTest.createEo();
         eoMap.set(ProviderMapJson.SMALL.createBt(), S_LEVEL0);
         eoMap.set(ProviderMapJson.SMALL.createBt(), S_LEVEL0, F_TEST_INTEGER);
         Assertions.assertThat(eoMap.getLog()).contains("Tried to map scalar child");

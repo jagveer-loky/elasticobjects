@@ -4,9 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
 
-import org.fluentcodes.projects.elasticobjects.config.EOConfigMap;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigMapImmutable;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class TemplateConfigTest {
 
     @Test
     public void findCache() {
-        final TemplateConfig config = TestProviderRootTest.EO_CONFIGS
+        final TemplateConfig config = ProviderRootTest.EO_CONFIGS
                 .findTemplate(T_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertEquals(INFO_COMPARE_FAILS, T_SIMPLE_INSERT_WITH_PATH, config.getTemplateKey());
@@ -28,7 +28,7 @@ public class TemplateConfigTest {
 
     @Test
     public void testReadConfig() {
-        EOConfigMap map = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, TemplateConfig.class);
+        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, TemplateConfig.class);
         TemplateConfig config = (TemplateConfig) map.find(T_SIMPLE_INSERT_WITH_PATH);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertEquals(INFO_COMPARE_FAILS, T_SIMPLE_INSERT_WITH_PATH, config.getTemplateKey());

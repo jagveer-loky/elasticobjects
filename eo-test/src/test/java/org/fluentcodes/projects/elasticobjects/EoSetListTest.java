@@ -16,8 +16,8 @@ public class EoSetListTest {
 
     @Test
     public void givenListEmpty_withJsonListSmall_ok()  {
-        final EO eoEmpty = TestProviderRootDev.createEo();
-        eoEmpty.set(TestProviderListJson.JSON_SMALL.content(), S_LEVEL0);
+        final EO eoEmpty = ProviderRootDev.createEo();
+        eoEmpty.set(ProviderListJson.JSON_SMALL.content(), S_LEVEL0);
         Assertions.assertThat(eoEmpty.getEo(S_LEVEL0).getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, S1)).isEqualTo(S_INTEGER);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, S0)).isEqualTo(S_STRING);

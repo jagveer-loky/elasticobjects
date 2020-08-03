@@ -1,7 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +14,7 @@ public class ModelConfigNoneTest {
 
     @Test
     public void assertObject()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(Object.class.getSimpleName());
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(Object.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.NONE, model.getShapeType());
         Assert.assertFalse(model.hasModel());
         Assert.assertFalse(model.isMap());

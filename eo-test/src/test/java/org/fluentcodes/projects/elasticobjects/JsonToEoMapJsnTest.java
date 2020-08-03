@@ -6,8 +6,8 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJsn;
 import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,11 +25,11 @@ public class JsonToEoMapJsnTest {
 
     @Test
     public void testEmpty()  {
-        EO eo = TestProviderRootDev.createEo();
+        EO eo = ProviderRootDev.createEo();
         String valueBeforeCheckLog = new EOToJSON().setSerializationType(JSONSerializationType.EO).toJSON(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
         String value = new EOToJSON().setSerializationType(JSONSerializationType.EO).toJSON(eo);
-        EO eoFromJson = TestProviderRootTest.createEo();
+        EO eoFromJson = ProviderRootTest.createEo();
         eoFromJson.mapObject(value);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }

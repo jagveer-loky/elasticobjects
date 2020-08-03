@@ -174,7 +174,7 @@ public class EOToJSONMapTest {
         map.put(S_KEY0, S_STRING);
         map.put(S_KEY1, S_INTEGER);
         
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.set(map, S_LEVEL0);
         eo.set(map, S_LEVEL1);
         /*String toCompare = MapProviderJSON.toJSONMap(S_LEVEL0,
@@ -194,7 +194,7 @@ public class EOToJSONMapTest {
         Map map = new LinkedHashMap<>();
         map.put(S_KEY0, S_STRING);
         
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.mapObject(map);
         eo
                 .set(map, S_LEVEL0);

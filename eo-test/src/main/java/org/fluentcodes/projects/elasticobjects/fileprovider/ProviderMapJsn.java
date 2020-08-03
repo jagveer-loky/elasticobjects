@@ -44,11 +44,11 @@ public enum ProviderMapJsn {
     }
 
     public EO createMapEo() {
-        return TestProviderRootTest.createEo(content);
+        return ProviderRootTest.createEo(content);
     }
 
     public EO createBtEo() {
-        return TestProviderRootTest.createEoWithClasses(BasicTest.class).mapObject(content);
+        return ProviderRootTest.createEoWithClasses(BasicTest.class).mapObject(content);
     }
     public BasicTest createBt() {
         return (BasicTest) createBtEo().get();

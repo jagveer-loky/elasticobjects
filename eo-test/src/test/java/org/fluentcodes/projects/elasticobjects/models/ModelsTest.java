@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.config.ModelConfigObject;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +10,7 @@ import org.junit.Test;
 public class ModelsTest {
     @Test
     public void checkModel()  {
-        ModelInterface modelConfig = TestProviderRootTest.EO_CONFIGS.findModel(Model.class);
+        ModelInterface modelConfig = ProviderRootTest.EO_CONFIGS.findModel(Model.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(Model.class, modelConfig.getModelClass());
         Assert.assertEquals(5, modelConfig.getFieldCacheMap().size());

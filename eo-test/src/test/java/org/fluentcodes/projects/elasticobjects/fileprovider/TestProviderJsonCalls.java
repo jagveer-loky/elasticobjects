@@ -9,9 +9,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT_TEMP
 public enum TestProviderJsonCalls {
     CALL_SINUS_ARRAY_JSON(PATH_INPUT_TEMPLATE + "CallSinusArray.json"),
     CONTENT_EXAMPLE_JSON(PATH_INPUT_TEMPLATE + "content-example/ContentExample.json"),
-    CONTENT_EXAMPLE_DATA_JSON(PATH_INPUT_TEMPLATE + "content-example/ContentExampleData.json"),
-    CONTENT_EXAMPLE_DATA_JSON_DYNAMIC_TEMPLATE(PATH_INPUT_TEMPLATE + "content-example/ContentExampleDynamicTemplate.json")
-    ;
+    CONTENT_EXAMPLE_DATA_JSON_DYNAMIC_TEMPLATE(PATH_INPUT_TEMPLATE + "content-example/ContentExampleDynamicTemplate.json");
 
     private final String content;
     private ProviderMapJson eoData;
@@ -31,7 +29,7 @@ public enum TestProviderJsonCalls {
     }
 
     public EO getEo() {
-        EO eo = TestProviderRootTest.createEo();
+        EO eo = ProviderRootTest.createEo();
         eo.mapObject(content);
         return eo;
     }

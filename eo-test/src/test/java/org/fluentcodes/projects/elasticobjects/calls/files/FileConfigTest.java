@@ -3,12 +3,12 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigMap;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigMapImmutable;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class FileConfigTest {
 
     @Test
     public void testLoadModelFileConfig()  {
-        ModelInterface model = TestProviderRootTest.findModel(FileConfig.class);
+        ModelInterface model = ProviderRootTest.findModel(FileConfig.class);
         Assert.assertEquals(ShapeTypes.CONFIG, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isObject());
@@ -35,11 +35,11 @@ public class FileConfigTest {
 
     @Test
     public void testResolveAllConfigs()  {
-        Set<String> keys = TestProviderRootTest.EO_CONFIGS.getConfigKeys(FileConfig.class);
+        Set<String> keys = ProviderRootTest.EO_CONFIGS.getConfigKeys(FileConfig.class);
         Assertions.assertThat(keys).isNotEmpty();
         for (String key: keys) {
             Assertions.assertThat(key).isNotEmpty();
-            FileConfig config = TestProviderRootTest.EO_CONFIGS.findFile(key);
+            FileConfig config = ProviderRootTest.EO_CONFIGS.findFile(key);
             Assertions.assertThat(config).isNotNull();
             config.resolve();
         }
@@ -47,14 +47,14 @@ public class FileConfigTest {
 
     @Test
     public void testfindSourceTxt()  {
-        FileConfig config = TestProviderRootTest.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
+        FileConfig config = ProviderRootTest.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
     public void testCreateConfigMapDirect()  {
-        EOConfigMap map = new EOConfigMapImmutable(TestProviderRootTest.EO_CONFIGS, FileConfig.class);
+        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_SOURCE_TXT));

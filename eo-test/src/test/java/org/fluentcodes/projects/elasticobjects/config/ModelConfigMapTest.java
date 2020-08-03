@@ -1,8 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigMap;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,7 +21,7 @@ public class ModelConfigMapTest {
 
     @Test
     public void readMainJackson()  {
-        final ModelConfigMap mapModel = (ModelConfigMap) TestProviderRootDev.EO_CONFIGS.findModel(Map.class);
+        final ModelConfigMap mapModel = (ModelConfigMap) ProviderRootDev.EO_CONFIGS.findModel(Map.class);
         Assert.assertEquals(Map.class, mapModel.getModelClass());
         final Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());
@@ -27,7 +30,7 @@ public class ModelConfigMapTest {
     @Test
     public void assertMap()  {
         
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(M_MAP);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(M_MAP);
         Assert.assertEquals(ShapeTypes.MAP, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isMap());

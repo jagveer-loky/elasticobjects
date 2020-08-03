@@ -8,9 +8,13 @@ import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigObject;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,7 +31,7 @@ public class EOConfigsConfigTest {
 
     @Test
     public void checkConfigsCache()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(ModelConfigObject.class);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(ModelConfigObject.class);
         model.resolve();
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }
@@ -35,7 +39,7 @@ public class EOConfigsConfigTest {
     @Test
     public void testModelNotExisting_Exception()  {
         try {
-            ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel("Nonsense");
+            ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel("Nonsense");
             Assert.fail("Should throw EoException since Nonsense is not in the cache");
         }
         catch(EoException e) {
@@ -46,7 +50,7 @@ public class EOConfigsConfigTest {
     @Test
     public void testDevBT_Exception()  {
         try {
-            ModelInterface model = TestProviderRootDev.EO_CONFIGS.findModel(BasicTest.class);
+            ModelInterface model = ProviderRootDev.EO_CONFIGS.findModel(BasicTest.class);
             Assert.fail("Should throw EoException since BasicTest is not in the cache");
         }
         catch(EoException e) {
@@ -56,7 +60,7 @@ public class EOConfigsConfigTest {
 
     @Test
     public void checkConfigsCacheWithST()  {
-        ModelInterface model = TestProviderRootTest.EO_CONFIGS.findModel(SubTest.class);
+        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(SubTest.class);
         model.resolve();
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }
@@ -67,7 +71,7 @@ public class EOConfigsConfigTest {
         EOConfigsCache configsCache = new EOConfigsCache(Scope.DEV);
         ModelInterface model = configsCache.findModel(Map.class);
         model.resolve();
-        EO adapter = TestProviderRootTest.createEo(S_STRING);
+        EO adapter = ProviderRootTest.createEo(S_STRING);
         Assert.assertEquals(S_STRING, adapter.get());
         Assert.assertEquals(M_STRING, adapter.getModelClass().getSimpleName());
     }

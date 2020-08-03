@@ -24,53 +24,53 @@ public class JsonToEoListJsonTest {
 
     @Test
     public void testEmpty()  {
-        EO eo = TestProviderRootDev.createEo("[]");
+        EO eo = ProviderRootDev.createEo("[]");
         Assert.assertTrue(eo.isEmpty());
         Assert.assertEquals(List.class, eo.getModelClass());
     }
 
     @Test
     public void testString()  {
-        EO eo = TestProviderRootDev.createEo("[\"testObject\"]");
+        EO eo = ProviderRootDev.createEo("[\"testObject\"]");
         Assertions.assertThat(eo.get("0")).isEqualTo("testObject");
     }
 
     @Test
     public void testStringEmbedded()  {
-        EO eo = TestProviderRootDev.createEo("[[\"testObject\"]]");
+        EO eo = ProviderRootDev.createEo("[[\"testObject\"]]");
         Assertions.assertThat(eo.get("0/0")).isEqualTo("testObject");
     }
 
     @Test
     public void testInteger()  {
-        EO eo = TestProviderRootDev.createEo("[1]");
+        EO eo = ProviderRootDev.createEo("[1]");
         Assertions.assertThat(eo.get("0")).isEqualTo(1);
     }
 
     @Test
     public void testTwoValues()  {
-        EO eo = TestProviderRootDev.createEo("[\"testObject\",1]");
+        EO eo = ProviderRootDev.createEo("[\"testObject\",1]");
         Assertions.assertThat(eo.get("0")).isEqualTo("testObject");
         Assertions.assertThat(eo.get("1")).isEqualTo(1);
     }
 
     @Test
     public void testFromFile()  {
-        EO eo = TestProviderListJson.EMPTY.createEo();
+        EO eo = ProviderListJson.EMPTY.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
     }
 
     @Test
     public void testFloat()  {
-        EO eo = TestProviderListJson.FLOAT.createEo();
+        EO eo = ProviderListJson.FLOAT.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(S0)).isEqualTo(SAMPLE_FLOAT);
     }
 
     @Test
     public void testSmall()  {
-        EO eo = TestProviderListJson.SMALL.createEo();
+        EO eo = ProviderListJson.SMALL.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(S0)).isEqualTo(S_STRING);
         Assertions.assertThat(eo.get(S1)).isEqualTo(S_INTEGER);
@@ -78,7 +78,7 @@ public class JsonToEoListJsonTest {
 
     @Test
     public void testAll()  {
-        EO eo = TestProviderListJson.ALL.createEo();
+        EO eo = ProviderListJson.ALL.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(S0)).isEqualTo(S_STRING);
         Assertions.assertThat(eo.get(S1)).isEqualTo(S_INTEGER);
@@ -92,7 +92,7 @@ public class JsonToEoListJsonTest {
                 "    \"0\": {\"execute\": \"testCall()\"}\n" +
                 "  }\n" +
                 "}";
-        EO eo = TestProviderRootTest.createEo(toParse);
+        EO eo = ProviderRootTest.createEo(toParse);
         String log = eo.getLog();
         Assert.assertFalse(eo.getLog().isEmpty());
     }
@@ -106,7 +106,7 @@ public class JsonToEoListJsonTest {
                 "    \"1\": 1\n" +
                 "  }\n" +
                 "}";
-        EO eo = TestProviderRootTest.createEo(toParse);
+        EO eo = ProviderRootTest.createEo(toParse);
         Assert.assertEquals(ArrayList.class, eo.get("noCalls").getClass());
         Assert.assertEquals("test",eo.get("noCalls/0"));
     }

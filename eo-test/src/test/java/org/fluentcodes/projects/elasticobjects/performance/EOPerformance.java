@@ -64,7 +64,7 @@ public class EOPerformance {
     private long setRootPerformance(Object object)  {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            TestProviderRootTest.createEo(object);
+            ProviderRootTest.createEo(object);
         }
         return System.currentTimeMillis() - start;
     }
