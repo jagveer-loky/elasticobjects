@@ -5,12 +5,14 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -386,6 +388,7 @@ public class JSONToEO {
         }
 
         char c = this.nextClean();
+        PathElement pathElement = null;
         switch (c) {
             case '"':
             case '\'':  // String value
@@ -393,12 +396,14 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                eoParent.set(value, rawFieldName);
+                pathElement = new PathElement(rawFieldName, eoParent, String.class);
+                eoParent.set(pathElement, value);
                 return eoParent;
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    mapObject(eoParent.setEmpty(rawFieldName));
+                    pathElement = new PathElement(rawFieldName, eoParent, Map.class);
+                    mapObject(eoParent.set(pathElement));
                     return eoParent;
                 }
                 else {
@@ -407,12 +412,8 @@ public class JSONToEO {
                 }
             case '[':
                 if (rawFieldName!=null) {// List value
-                    if (rawFieldName.startsWith("(")) {
-                        return mapList(eoParent.setEmpty(rawFieldName));
-                    }
-                    else {
-                        return mapList(eoParent.setEmpty("(List)" + rawFieldName));
-                    }
+                        pathElement = new PathElement(rawFieldName, eoParent, List.class);
+                        return mapList(eoParent.set(pathElement));
                 }
                 else {
                     mapList(eoParent); // start parsing
@@ -440,11 +441,15 @@ public class JSONToEO {
         if ("null".equals(value) || value== null || value.isEmpty()) {
             return eoParent;
         }
+
         if (rawFieldName.matches("\\(.*\\).*")) {
-            eoParent.set(value, rawFieldName);
+            pathElement = new PathElement(rawFieldName, eoParent, value);
+            eoParent.set(pathElement, value);
         }
         else {
-            eoParent.set( ScalarConverter.fromJson(value), rawFieldName);
+            Object valueObject = ScalarConverter.fromJson(value);
+            pathElement = new PathElement(rawFieldName, eoParent, valueObject);
+            eoParent.set(pathElement, valueObject);
         }
         return eoParent;
     }

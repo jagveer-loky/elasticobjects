@@ -267,31 +267,5 @@ public abstract class CallResource<RESULT> extends CallImpl<RESULT> {
         return !(mapPath == null) && !mapPath.isEmpty();
     }
 
-    protected EO createAdapter(EO adapter, Map attributes)  {
-        resolvePath(adapter, attributes);
-        return adapter.setEmpty(this.path);
-    }
-
-    public String toStringx() {
-        if (this == null) {
-            return "null";
-        }
-        if (getConfig() == null) {
-            return "direct";
-        }
-        StringBuilder serialized = new StringBuilder();
-        try {
-            serialized.append("\n,\"config\":");
-            serialized.append(new EOToJSON()
-                    .setStartIndent(1)
-                    .toJSON(getConfig().getConfigsCache(), this.getConfig())
-            );
-            serialized.append("\n}");
-            return serialized.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return e.getMessage();
-        }
-    }
 
 }

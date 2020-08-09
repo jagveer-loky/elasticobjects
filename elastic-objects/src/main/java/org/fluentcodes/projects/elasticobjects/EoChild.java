@@ -44,7 +44,10 @@ public class EoChild implements EO {
             throw new EoInternalException("Null model!!!");
         }
         eoMap = new LinkedHashMap<>();
-        if (pathElement.isParentNotSet() && value!=null) {
+        if (pathElement == null) {
+            throw new EoException("Strange null pathElement!");
+        }
+        else if (pathElement.isParentNotSet() && value!=null) {
             this.models = new Models(eoParent.getConfigsCache(), value.getClass());
         }
         else if (eoParent.getSerializationType() == JSONSerializationType.EO) {
@@ -127,44 +130,6 @@ public class EoChild implements EO {
         return new EoChild(this, pathElement, value);
     }
 
-    protected EO set(Object value, final Path path) {
-        if (path.isEmpty()) {
-            mapObject(value);
-            return this;
-        }
-        if (path.isRootModel()) {
-            if (value instanceof String) {
-                this.models = new Models(getConfigsCache(), ((String)value).split(","));
-            }
-            else if (value instanceof Class) {
-                this.models = new Models(getConfigsCache(), (Class)value);
-            }
-            this.object = getModel().create();
-            return this;
-        }
-
-        if (hasEo(path)) {
-            return ((EoChild) eoMap.get(path.getFirstEntry())).set(value, path.createChildPath());
-        }
-        else {
-            try {
-                if (path.hasChild()) {
-                    new EoChild(this, path.getFirstPathElement(), null);
-                    return ((EoChild) eoMap.get(path.getFirstEntry())).set(value, path.createChildPath());
-                } else {
-                    EoChild eoChild = new EoChild(this, path.getFirstPathElement(), value);
-                    return eoChild;
-                }
-            }
-            catch (EoException e) {
-                error("Problem create new child: " + e.getMessage());
-                return this;
-            }
-            catch (NullPointerException e) {
-                throw new EoException(e);
-            }
-        }
-    }
     @Override
     public void add(EO child, PathElement pathElement) {
 
@@ -361,7 +326,8 @@ public class EoChild implements EO {
             if (childValue == null) {
                 continue;
             }
-            set(childValue, fieldName);
+            PathElement pathElement = new PathElement(fieldName, this, childValue);
+            set(pathElement, childValue);
         }
         return this;
     }

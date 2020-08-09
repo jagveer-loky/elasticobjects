@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Assert;
@@ -201,7 +202,7 @@ public class BtEoSetTest {
     @Test
     public void givenTestEmpty_whenSetEmptytestBTByPathWithEmpty_ok()  {
         final EO root = ProviderRootTest.createEo();
-        root.setEmpty("(BasicTest)test");
+        root.set(new PathElement("test", root, BasicTest.class));
         Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
     }
 
@@ -242,15 +243,15 @@ public class BtEoSetTest {
     @Test
     public void givenTestEmpty_whenSetPathWithBTDirective_thenModelIsBT()  {
         final EO eo = ProviderRootTest.createEo();
-        eo.setEmpty("(BasicTest)" + S_LEVEL0);
+        eo.set(new PathElement(S_LEVEL0, eo, BasicTest.class));
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(BasicTest.class);
     }
 
     @Test
     public void givenTestEmpty_whenSetBTOnExistingModelMap_thenModelIsMap()  {
         final EO eo = ProviderRootTest.createEo();
-        eo.setEmpty(S_LEVEL0);
-        eo.setEmpty("(BasicTest)" + S_LEVEL0);
+        eo.set(new PathElement(S_LEVEL0));
+        eo.set(new PathElement(S_LEVEL0, eo, BasicTest.class));
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
