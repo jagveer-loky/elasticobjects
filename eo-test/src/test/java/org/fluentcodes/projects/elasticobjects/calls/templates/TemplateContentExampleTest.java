@@ -63,7 +63,7 @@ public class TemplateContentExampleTest {
     public void givenEoData_whenParseTemplateWrongPathRelativePath_thenNotReplaced()  {
         EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA.getEo();
         String value = new ParserTemplate("-$[0/header/]-").parse(eo.getEo("1"));
-        Assertions.assertThat(value).isEqualTo("-!! not found '0/header' in '/1'!!-");
+        Assertions.assertThat(value).isEqualTo("-!!Path 0/header undefined: Could not find entry for '0'.!!-");
     }
 
     @Test

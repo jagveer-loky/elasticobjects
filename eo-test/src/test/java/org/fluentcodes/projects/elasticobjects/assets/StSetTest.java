@@ -20,36 +20,9 @@ public class StSetTest {
     private static final Logger LOG = LogManager.getLogger(StSetTest.class);
 
     @Test
-    public void bean() {
+    public void givenBean_whenSetTestString_thenOk() {
         SubTest test = new SubTest();
         test.setTestString("x");
         Assert.assertEquals("x", test.getTestString());
-    }
-
-    @Test
-    public void readDataFile()  {
-        /*List<Object> list = JacksonHelperObsolete.readListFromDataClassPath(SubTest.class);
-        Assert.assertNotNull(list);
-        Assert.assertTrue(list.size()>0);*/
-        //TODO  AssertObject.compare(list);
-    }
-
-    /**
-     * Error handling getting non existent path.
-     *
-     * @
-     */
-    @Test
-    public void errorGettingNotExistingObjectPath()  {
-
-        SubTest subTest = new SubTest();
-        subTest.setTestString(S_STRING);
-        subTest.setName(S_STRING);
-        EO adapter = ProviderRootTest.createEo(Map.class);
-        adapter
-                .set(subTest, F_SUB_TEST);
-        String subTestName = (String) adapter.get(F_SUB_TEST, F_NAME);
-        Assert.assertEquals(S_STRING, subTestName);
-        adapter.get(Path.ofs(F_SUB_TEST, SAMPLE_KEY_UNKNOW));
     }
 }

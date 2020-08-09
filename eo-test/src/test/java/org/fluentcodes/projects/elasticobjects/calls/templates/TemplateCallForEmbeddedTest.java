@@ -42,7 +42,9 @@ public class TemplateCallForEmbeddedTest {
                 "--> $[&*]..path='$[../path]', path='$[path]'" +
                         "$[/]");
         final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEo());
-        Assertions.assertThat(result).isEqualTo("--> ..path='value0', path='!! not found 'path' in '/path'!!'..path='value0', path='value1'");
+        Assertions
+                .assertThat(result)
+                .isEqualTo("--> ..path='value0', path='!!Path path undefined: Could not find entry for 'path'.!!'..path='value0', path='value1'");
     }
 
     @Test
