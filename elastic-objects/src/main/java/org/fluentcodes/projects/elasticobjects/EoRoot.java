@@ -152,7 +152,7 @@ public class EoRoot extends EoChild {
 
     private EO getLogEo() {
         if (!hasEo(PathElement.OF_LOGS())) {
-            setEmpty("(List,String)" + PathElement.LOGS);
+            set(new PathElement(PathElement.LOGS, List.class, String.class));
         }
         return getEo(PathElement.LOGS);
     }
@@ -200,7 +200,7 @@ public class EoRoot extends EoChild {
             return;
         }
         if (!this.hasEo(PathElement.OF_CALLS())) {
-            this.setEmpty("(List)" + PathElement.CALLS);
+            set(new PathElement(PathElement.CALLS, List.class));
         }
         callsEo = getEo(PathElement.CALLS);
         calls = (List<Call>) callsEo.get();

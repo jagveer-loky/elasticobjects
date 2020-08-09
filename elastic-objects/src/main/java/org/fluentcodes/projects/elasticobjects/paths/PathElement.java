@@ -4,6 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
@@ -24,11 +25,57 @@ public class PathElement {
     public static final String ROOT_CALLS = "_calls";
     public static final String CALLS = "_calls";
     public static final String CONFIG = "_config";
-    private final String[] models;
+    private String[] models;
     private final String key;
 
-    public PathElement(final String path) {
-        final Matcher matcher = PathElement.modelPattern.matcher(path);
+    public PathElement(final String name, EO parentEo, Object value) {
+        this(name, parentEo, getClass(value));
+    }
+
+    private static Class getClass(Object value) {
+        if (value==null) {
+            return Map.class;
+        }
+        return value.getClass();
+    }
+
+    public PathElement(final String name, EO parentEo, Class defaultClass) {
+        this(name);
+        if (!hasModels() && defaultClass != null) {
+            this.models = new String[]{defaultClass.getSimpleName()};
+        }
+    }
+    public PathElement(final String name, String... models) {
+        this(name);
+        if (!hasModels()) {
+            if (models.length>0) {
+                this.models = models;
+            }
+            else {
+                this.models = new String[]{Map.class.getSimpleName()};
+            }
+        }
+    }
+
+    public PathElement(final String name, Class... models) {
+        this(name);
+        if (!hasModels()) {
+            if (models.length>0) {
+                this.models = new String[models.length];
+                int counter = 0;
+                for (Class modelClass: models) {
+                    this.models[counter] = models[counter].getSimpleName();
+                    counter++;
+                }
+            }
+            else {
+                this.models = new String[]{Map.class.getSimpleName()};
+            }
+        }
+    }
+
+    public PathElement(final String name) {
+        final Matcher matcher = PathElement.modelPattern.matcher(name);
         if (matcher.find()) {
             String modelKey = matcher.group(1);
             this.key = matcher.group(2);
@@ -48,7 +95,7 @@ public class PathElement {
             models = modelKey.split(",");
         }
         else {
-            key = path;
+            key = name;
             models = new String[]{};
         }
     }

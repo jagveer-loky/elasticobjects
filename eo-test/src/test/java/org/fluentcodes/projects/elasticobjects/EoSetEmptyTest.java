@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
@@ -19,7 +20,7 @@ public class EoSetEmptyTest {
     @Test
     public void level0_isMap()  {
         final EO eo = ProviderRootDev.createEo();
-        eo.setEmpty(S_LEVEL0);
+        eo.set(new PathElement(S_LEVEL0));
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
     }
 

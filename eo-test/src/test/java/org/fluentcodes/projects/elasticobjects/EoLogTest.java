@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 
 import org.junit.Assert;
@@ -71,7 +72,7 @@ public class EoLogTest {
     public void givenChild_whenWarnMessage_thenLogNotEmpty()  {
         EO eo = createWarnAdapter();
         EO eoChild = eo
-                .setEmpty(S_LEVEL0);
+                .set(new PathElement(S_LEVEL0));
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
         eoChild.warn(S_MESSAGE);
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
@@ -81,7 +82,7 @@ public class EoLogTest {
     public void givenChild_whenInfoMessage_thenLogEmpty()  {
         EO eo = createWarnAdapter();
         EO eoChild = eo
-                .setEmpty(S_LEVEL0);
+                .set(new PathElement(S_LEVEL0));
         eoChild.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
@@ -90,7 +91,7 @@ public class EoLogTest {
     public void givenChildWithLogLevelInfo_whenInfoMessage_thenLogNotEmpty()  {
         EO eo = createWarnAdapter();
         EO eoChild = eo
-                .setEmpty(S_LEVEL0)
+                .set(new PathElement(S_LEVEL0))
                 .setLogLevel(LogLevel.INFO);
         eoChild.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
