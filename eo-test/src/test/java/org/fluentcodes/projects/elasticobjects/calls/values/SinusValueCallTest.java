@@ -14,6 +14,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.tools.xpect.XpectEo;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static java.lang.Thread.sleep;
@@ -65,6 +66,7 @@ public class SinusValueCallTest {
         eoFromString.execute();
     }
 
+    @Ignore
     @Test
     public void createFromModel_ok()  {
         final ModelConfig model = ProviderRootTest.findModel(SinusValueCall.class);

@@ -30,11 +30,11 @@ public class EoRemoveTest {
                 .set(S_STRING, F_TEST_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, (root).size());
-        Assert.assertEquals(2, (root).sizeEo());
+        Assert.assertEquals(3, (root).sizeEo());
 
         root.remove(F_TEST_STRING);
         Assert.assertEquals(0, (root).size());
-        Assert.assertEquals(1, (root).sizeEo());
+        Assert.assertEquals(2, (root).sizeEo());
         try {
             root.remove(F_TEST_STRING);
             Assert.fail("Exception expected removing non existing child '" + S_TEST_STRING + "'");
@@ -75,11 +75,11 @@ public class EoRemoveTest {
                 .set( S_STRING,S0);
         // remove value entry first
         EO root = child.getRoot();
-        Assert.assertEquals(2, root.sizeEo());
+        Assert.assertEquals(3, root.sizeEo());
         Assert.assertEquals(1, root.size());
 
         root.remove(S0);
-        Assert.assertEquals(1, root.sizeEo());
+        Assert.assertEquals(2, root.sizeEo());
         Assert.assertEquals(0, root.size());
         try {
             root.remove(S0);

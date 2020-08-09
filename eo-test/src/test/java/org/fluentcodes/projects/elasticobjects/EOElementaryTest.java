@@ -17,8 +17,8 @@ public class EOElementaryTest {
     private static final Logger LOG = LogManager.getLogger(EOElementaryTest.class);
 
     @Test
-    public void isContainer()  {
-        EO eo = ProviderRootTest.createEoWithClasses(Map.class);
+    public void givenEoDevEmpty_whenSetKeyString_thenSet()  {
+        EO eo = ProviderRootDev.createEoWithClasses(Map.class);
         eo.set(S_STRING, S_LEVEL0);
         Assert.assertEquals(S_STRING, eo.get(S_LEVEL0));
         Assert.assertTrue(eo.isContainer());

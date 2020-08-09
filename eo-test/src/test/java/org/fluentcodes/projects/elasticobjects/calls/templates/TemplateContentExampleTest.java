@@ -13,6 +13,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.fluentcodes.tools.xpect.XpectString;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -82,6 +83,7 @@ public class TemplateContentExampleTest {
         new XpectString().compareAsString((String) eo.get("_template"));
     }
 
+    @Ignore
     @Test
     public void givenCallTemplateResourceStatic_whenExecute_thenXpected()  {
         final EO eo = ProviderRootTest.createEo();
