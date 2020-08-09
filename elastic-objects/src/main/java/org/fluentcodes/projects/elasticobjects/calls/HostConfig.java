@@ -1,7 +1,6 @@
-package org.fluentcodes.projects.elasticobjects.calls.files;
+package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
@@ -20,7 +19,7 @@ public class HostConfig extends ConfigResourcesImpl {
     private final String user;
     private final String password;
 
-    protected HostConfig(final EOConfigsCache provider, final Builder builder) {
+    public HostConfig(final EOConfigsCache provider, final Builder builder) {
         super(provider, builder);
         this.hostKey = builder.hostKey;
         this.port = builder.port;

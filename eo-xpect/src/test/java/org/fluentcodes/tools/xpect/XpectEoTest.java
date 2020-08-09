@@ -1,9 +1,8 @@
 package org.fluentcodes.tools.xpect;
 
-import org.fluentcodes.ihe.gematik.fdv.model.DocumentWithMetadata;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.tools.testobjects.ForTestClass;
-import org.javers.core.diff.Diff;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.LinkedHashMap;
@@ -13,23 +12,24 @@ import java.util.Map;
  * Some examples are from generated code delivered by a maven artifact from a project last year with gematik
  */
 public class XpectEoTest {
+    private static final EOConfigsCache cache = new EOConfigsCache(Scope.DEV);
     @Test
     public void testHashMap() {
         Map map = new LinkedHashMap<>();
         map.put("1", "test1");
-        new XpectEo().compareAsString(map);
+        new XpectEo(cache).compareAsString(map);
     }
 
     @Test
     public void testHashMapAsObject() {
         Map map = new LinkedHashMap<>();
         map.put("1", "test1");
-        new XpectEo().compareAsObject(map);
+        new XpectEo(cache).compareAsObject(map);
     }
 
     @Test
     public void testForTestClass() {
         ForTestClass forTest  = ForTestClass.of1();
-        new XpectEo().compareAsString(forTest);
+        new XpectEo(cache).compareAsString(forTest);
     }
 }

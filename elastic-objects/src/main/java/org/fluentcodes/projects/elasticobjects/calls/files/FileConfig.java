@@ -1,18 +1,20 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigResourcesImpl;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
+import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
+import org.fluentcodes.tools.xpect.IOString;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
@@ -20,18 +22,18 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ConfigResourcesFile extends ConfigResourcesImpl {
+public class FileConfig extends ConfigResourcesImpl {
     public static final String CLASSPATH = "classpath";
     private final String fileName;
     private final String filePath;
     private final String fileKey;
     private final String hostKey;
     private final Boolean cached;
-    private ConfigResourcesHost hostCache;
+    private HostConfig hostCache;
 
     private String cachedContent;
 
-    public ConfigResourcesFile(final EOConfigsCache provider, Builder builder) {
+    public FileConfig(final EOConfigsCache provider, Builder builder) {
         super(provider, builder);
         this.fileName = builder.fileName;
         this.filePath = builder.filePath;
@@ -41,12 +43,8 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
 
 
         if (builder.isExpanded()) {
-            this.hostCache = new ConfigResourcesHost(provider, builder);
+            this.hostCache = new HostConfig(provider, builder);
         }
-    }
-
-    public FileIO createIO() {
-        return new FileIO(this);
     }
 
     @Override
@@ -71,7 +69,7 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
         if (hostPath == null || hostPath.isEmpty()) {
             return filePath + "/" + fileName;
         }
-        return ReplaceUtil.replace(hostPath + "" + filePath + "/" + fileName);
+        return new ParserTemplate(hostPath + "" + filePath + "/" + fileName).parse();
     }
 
     public URL findUrl(String fileName)  {
@@ -91,18 +89,48 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
         if (fileName == null || fileName.equals("")) {
             throw new EoException("No name in file provided!");
         }
-        if (ConfigResourcesFile.CLASSPATH.equals(filePath)) {
+        if (FileConfig.CLASSPATH.equals(filePath)) {
             return this.findUrl(this.fileName);
-        } else if (filePath.startsWith(ConfigResourcesFile.CLASSPATH)) {
-            return this.findUrl(filePath.replace(ConfigResourcesFile.CLASSPATH, "") + "/" + this.fileName);
+        } else if (filePath.startsWith(FileConfig.CLASSPATH)) {
+            return this.findUrl(filePath.replace(FileConfig.CLASSPATH, "") + "/" + this.fileName);
         } else {
             String urlString = getUrlPath();
             try {
-                return new URL(ReplaceUtil.replace(urlString, new HashMap<>()));
+                return new URL(new ParserTemplate(urlString).parse());
             } catch (MalformedURLException e) {
                 throw new EoException(e);
             }
         }
+    }
+
+    public String read()  {
+        if (hasCachedContent()) {
+            return getCachedContent();
+        }
+        URL url = getUrl();
+        String content = new IOString().setFileName(url.getFile()).read();
+        if (isCached()) {
+            setCachedContent(content);
+        }
+        return content;
+    }
+
+    /**
+     * Write the file direct without the usage of
+     *
+     * @param content
+     * @
+     */
+    public void write(String content)  {
+        if (isCached()) {
+            throw new EoException("A fileCached file could not persisted!");
+        }
+        URL url = getUrl();
+        File filePath = new File(url.getPath());
+        if (!filePath.getParentFile().exists()) {
+            filePath.getParentFile().mkdirs();
+        }
+        new IOString().setFileName(url.getFile()).write(content);
     }
 
     public void write(URL url, String content)  {
@@ -159,14 +187,14 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
      */
 
     /**
-     * The field for hostCache e.g. defined in {@link ConfigResourcesFile}
+     * The field for hostCache e.g. defined in {@link FileConfig}
      */
-    public ConfigResourcesHost getHostConfig()  {
+    public HostConfig getHostConfig()  {
         if (this.hostCache == null) {
             if (this.getConfigsCache() == null) {
                 throw new EoException("Config could not be initialized with a null provider for 'hostCache' - 'hostKey''!");
             }
-            this.hostCache = (ConfigResourcesHost) getConfigsCache().find(ConfigResourcesHost.class, hostKey);
+            this.hostCache = (HostConfig) getConfigsCache().find(HostConfig.class, hostKey);
         }
         return this.hostCache;
     }
@@ -178,7 +206,7 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
         return this.cached;
     }
 
-    public static class Builder extends ConfigResourcesHost.Builder {
+    public static class Builder extends HostConfig.Builder {
         public static final String ADAPTER_PATH = "content";
         private String fileName;
         private String filePath;
@@ -187,7 +215,6 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
         private String hostKey;
 
         public Builder() {
-
         }
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
@@ -197,7 +224,7 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
                 throw new EoException("fileKey is not add!");
             }
             fileName = (String) configsCache.transform(F_FILE_NAME, values, fileKey);
-            filePath = (String) configsCache.transform(F_FILE_PATH, values, ConfigResourcesFile.CLASSPATH);
+            filePath = (String) configsCache.transform(F_FILE_PATH, values, FileConfig.CLASSPATH);
             cached = (Boolean) configsCache.transform(F_CACHED, values, false);
             hostKey = (String) configsCache.transform(F_HOST_KEY, values, H_LOCALHOST);
         }
@@ -205,7 +232,7 @@ public class ConfigResourcesFile extends ConfigResourcesImpl {
         @Override
         public Config build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             prepare(configsCache, values);
-            return new ConfigResourcesFile(configsCache, this);
+            return new FileConfig(configsCache, this);
         }
     }
 }

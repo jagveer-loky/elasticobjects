@@ -1,5 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfig;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.InputStream;

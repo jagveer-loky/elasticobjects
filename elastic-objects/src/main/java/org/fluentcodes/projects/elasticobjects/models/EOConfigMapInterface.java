@@ -1,6 +1,5 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
-import java.util.Map;
 import java.util.Set;
 
 /**

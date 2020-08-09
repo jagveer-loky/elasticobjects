@@ -1,44 +1,44 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.XlsxCall;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
-import org.fluentcodes.projects.elasticobjects.executor.Executor;
-import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
+import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
+import org.fluentcodes.projects.elasticobjects.calls.executor.Executor;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.TestEOProvider;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class TestXlsxProvider {
-    public static CallExecutor createExecutorXlsxActionRead(final String key)  {
+    public static ExecutorCall createExecutorXlsxActionRead(final String key)  {
         return createExecutorXlsxActionRead(new HashMap(), key);
     }
 
-    public static CallExecutor createExecutorXlsxActionRead(Map attributes, final String key)  {
+    public static ExecutorCall createExecutorXlsxActionRead(Map attributes, final String key)  {
         attributes.put(Executor.EXECUTE, XlsxCall.class.getSimpleName() + ".read(" + key + ")");
-        return new CallExecutor(attributes);
+        return new ExecutorCall(attributes);
     }
 
     public static EO executeXlsxActionRead(Map attributes, final String configKey)  {
-        CallExecutor callExecutor = createExecutorXlsxActionRead(attributes, configKey);
+        ExecutorCall executorCall = createExecutorXlsxActionRead(attributes, configKey);
         EO adapter = TestEOProvider.createEmptyMap();
-        callExecutor.execute(adapter);
+        executorCall.execute(adapter);
         return adapter;
     }
 
-    public static CallExecutor createExecutorXlsxActionWrite(final String key)  {
+    public static ExecutorCall createExecutorXlsxActionWrite(final String key)  {
         return createExecutorXlsxActionWrite(new HashMap(), key);
     }
 
-    public static CallExecutor createExecutorXlsxActionWrite(Map attributes, final String key)  {
+    public static ExecutorCall createExecutorXlsxActionWrite(Map attributes, final String key)  {
         attributes.put(Executor.EXECUTE, XlsxCall.class.getSimpleName() + ".write(" + key + ")");
-        return new CallExecutor(attributes);
+        return new ExecutorCall(attributes);
     }
 
     public static EO executeXlsxActionWrite(Map attributes, final String configKey)  {
-        CallExecutor callExecutor = createExecutorXlsxActionWrite(attributes, configKey);
+        ExecutorCall executorCall = createExecutorXlsxActionWrite(attributes, configKey);
         EO adapter = TestEOProvider.createEmptyMap();
-        callExecutor.execute(adapter);
+        executorCall.execute(adapter);
         return adapter;
     }
 }

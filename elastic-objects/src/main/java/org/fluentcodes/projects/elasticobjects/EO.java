@@ -1,10 +1,11 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
-import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
+import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
 import java.util.List;
@@ -24,11 +25,11 @@ public interface EO {
     EOConfigsCache getConfigsCache();
 
     String getParentKey();
-
     boolean hasParent();
 
-    Path getPath();
+    EO getParent();
 
+    Path getPath();
     String getPathAsString();
 
     Object get();
@@ -36,50 +37,24 @@ public interface EO {
 
     EO set(Object value, String... paths) ;
     EO setEmpty(String... paths) ;
-
-    EO setPathValue(String pathString, Object source);
-    EO setPathValue(String pathString);
+    void add(EO value, PathElement pathElement);
 
     EO mapObject(Object source);
 
-    boolean isContainer();
-
-    boolean isList();
-
-    boolean isObject();
-
-    boolean isScalar();
-
-    boolean isMap();
-
-    boolean hasDefaultMap();
-
-    boolean isChildTyped();
-
-    boolean isNull();
-
-    boolean isEmpty();
-
-    int size() ;
-
-    int size(String path) ;
-
-    Set<String> keys() ;
-
+    int sizeEo();
+    int size();
+    Set<String> keys();
+    Set<String> keysEo() ;
     List<String> keys(String path) ;
-
     List<String> keys(PathPattern pathPattern) ;
-
     List<String> filterPaths(String filter) ;
 
     Map getKeyValues() ;
 
-    EO getEo(String path) ;
-
-    EO remove(String path) ;
-
+    EO getEo(String... path) ;
+    EO getEo(PathElement path) ;
+    EO remove(String... path) ;
     EO getRoot() ;
-
     boolean isRoot();
 
     boolean isCheckObjectReplication();
@@ -87,46 +62,47 @@ public interface EO {
     void setCheckObjectReplication(boolean checkObjectReplication);
 
     Models getModels();
-
     ModelInterface getModel();
-
     Class getModelClass();
+    boolean isContainer();
+    boolean isList();
+    boolean isObject();
+    boolean isScalar();
+    boolean isMap();
+    boolean hasDefaultMap();
+    boolean isChildTyped();
+    boolean isNull();
+    boolean isEmpty();
 
     void setRoles(String... roles);
-
     List<String> getRoles();
-
     void setRoles(List<String> roles);
-
     boolean hasRoles();
 
-    void addCall(CallExecutor callExecutor) ;
-
-    ExecutorList getCalls();
-
+    boolean addCall(Call callExecutor) ;
+    List<Call> getCalls();
+    EO getCallsEo();
+    Call getLastCall();
     boolean hasCalls();
+    boolean execute();
 
-    void execute() ;
+    String getLog();
+    LogLevel getLogLevel();
+    EO setLogLevel(LogLevel logLevel);
+    LogLevel getErrorLevel();
+    boolean hasErrors();
+    EO debug(String message);
+    EO info(String message);
+    EO warn(String message);
+    EO error(String message);
+    EO warn(String message, Exception e);
+    EO error(String message, Exception e);
+
+    JSONSerializationType getSerializationType();
+
+    EO setSerializationType(JSONSerializationType serializationType);
 
     void compare(final StringBuilder builder, final EO other);
 
-    String getLog();
 
-    LogLevel getLogLevel();
-
-    LogLevel getErrorLevel();
-
-    void debug(String message);
-
-    void info(String message);
-
-    void warn(String message);
-
-    void error(String message);
-
-    void warn(String message, Exception e);
-
-    void error(String message, Exception e);
-
-    boolean hasErrors();
 }

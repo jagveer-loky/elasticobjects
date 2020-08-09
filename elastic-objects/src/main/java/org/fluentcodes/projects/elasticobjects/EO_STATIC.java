@@ -200,14 +200,13 @@ public class EO_STATIC {
     public static final String M_HOST_ACTION = "HostCall";
     public static final String M_FILE_ACTION = "FileCall";
     public static final String M_CONFIG_IMPL = "ConfigImpl";
-    //</call>
+
     public static final String F_DO_MAP = "doMap";
     public static final String F_UPPER_ID_KEY = "upper.ID";
     //<call templateKey="StaticValuesLoop.tpl" config:="Field" prefix:="F_" keep="JAVA">
 
     public static final String F_PATH_PATTERN_AS_STRING = "pathPatternAsString";
     public static final String F_FILE_NAME = "fileName";
-    public static final String F_NATURAL_ID = "naturalId";
     public static final String F_LIST_MAPPER = "listMapper";
     public static final String F_PATH = "path";
     public static final String F_PASSWORD = "password";
@@ -216,7 +215,6 @@ public class EO_STATIC {
     public static final String F_ROLE_PERMISSIONS = "rolePermissions";
     public static final String F_ACTION = "call";
     public static final String F_MODEL = "model";
-    public static final String F_ID = "id";
     public static final String F_SHORT = "short";
     public static final String F_JOIN = "join";
     public static final String F_COL_KEYS = "colKeys";
@@ -278,10 +276,8 @@ public class EO_STATIC {
     public static final String F_FILTER_MODULE = "filterModule";
     public static final String F_CUSTOM_PARAMS = "customParams";
     public static final String F_FIELD_KEY = "fieldKey";
-    public static final String F_AUTHOR = "author";
     public static final String F_SUPER_KEY = "superKey";
     public static final String F_MODELS_LIST = "modelsList";
-    public static final String F_CREATION_DATE = "creationDate";
     public static final String F_USER_KEY = "userKey";
     public static final String F_FILTER_KEY = "filterKey";
     public static final String F_CONFIG_KEY = "configKey";
@@ -298,7 +294,6 @@ public class EO_STATIC {
     public static final String F_ATTRIBUTE_LIST = "attributeList";
     public static final String F_ORIGIN = "origin";
     public static final String F_ROLES = "roles";
-    public static final String F_DESCRIPTION = "description";
     public static final String F_FIELD_DELIMITER = "fieldDelimiter";
     public static final String F_MODEL_CONFIG_KEY = "modelConfigKey";
     public static final String F_DELETE = "delete";
@@ -321,24 +316,24 @@ public class EO_STATIC {
     public static final String F_FILTER_CONFIG_NAME = "filterConfigName";
     public static final String F_USER = "user";
     public static final String F_TEMPLATE_KEY = "templateKey";
-//</call>
+
 
     //<call templateKey="StaticValuesLoop.tpl" config:="Host" prefix:="H_" keep="JAVA">
 
     public static final String H_LOCALHOST = "localhost";
     public static final String H_LOCAL = "local";
-//</call>
+
     //<call templateKey="StaticValuesLoop.tpl" config:="File" prefix:="FILE_" keep="JAVA">
 
     public static final String FILE_EO_STATIC_JAVA = "EO_STATIC.java";
     public static final String FILE_EO_STATIC_TEST_JAVA = "EO_STATIC_TEST.java";
     public static final String FILE_EO_STATIC_BUILD_JAVA = "EO_STATIC_BUILD.java";
-//</call>
+
     //<call templateKey="StaticValuesLoop.tpl" config:="Json" prefix:="J_" keep="JAVA">
 
     public static final String J_CONTENT = "content";
     public static final String J_MODULE_CONFIG_JSON = "ModuleConfig.json";
-//</call>
+
     //<call templateKey="StaticValuesLoop.tpl" config:="Template" prefix:="T_" keep="JAVA">
 
     public static final String T_CONTENT = "content";
@@ -363,7 +358,7 @@ public class EO_STATIC {
         return map;
     }
 
-    //</call>
+
 
 
 }

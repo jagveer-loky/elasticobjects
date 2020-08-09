@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigurationValueCall extends CallImpl<Set> implements Call<Set> {
+public class ConfigurationValueCall extends CallImpl<Set>{
     private static final Logger LOG = LogManager.getLogger(ConfigurationValueCall.class);
     private String configType;
     private String configKey;
@@ -24,7 +24,7 @@ public class ConfigurationValueCall extends CallImpl<Set> implements Call<Set> {
         if (configType == null) {
             throw new EoException("No config type defined");
         }
-        return eo.getConfigsCache().getConfigMap(configType).getKeys();
+        return eo.getConfigsCache().getConfigNames(configType);
     }
 
     public String getConfigType() {

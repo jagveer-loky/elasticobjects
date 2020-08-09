@@ -1,10 +1,8 @@
-package org.fluentcodes.projects.elasticobjects.calls.configs;
+package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
-import org.fluentcodes.projects.elasticobjects.config.ConfigImpl;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.calls.Permissions;
-import org.fluentcodes.projects.elasticobjects.calls.RolePermissions;
+import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Arrays;
@@ -26,15 +24,15 @@ public abstract class ConfigResourcesImpl extends ConfigImpl {
         return rolePermissions;
     }
 
-    public Permissions getPermissions(String... roleKeys)  {
+    public PermissionType getPermissions(String... roleKeys)  {
         return rolePermissions.getPermissions(Arrays.asList(roleKeys));
     }
 
-    public Permissions getPermissions(List<String> roleKeys)  {
+    public PermissionType getPermissions(List<String> roleKeys)  {
         return rolePermissions.getPermissions(roleKeys);
     }
 
-    public boolean hasPermissions(Permissions permission, List<String> roleKeys)  {
+    public boolean hasPermissions(PermissionType permission, List<String> roleKeys)  {
         return permission.value() <= rolePermissions.getPermissions(roleKeys).value();
     }
 

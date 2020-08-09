@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -119,55 +119,27 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
         resolve();
         return new LinkedHashMap<>();
     }
-
-    public boolean hasModel() {
-        return true;
-    }
-
-    public boolean isCreate() {
-        return true;
-    }
-    public boolean isScalar() {
-        return false;
-    }
-
+    @Override
     public boolean hasSetter(final String fieldName) {
         return true;
     }
+    @Override
     public boolean hasGetter(final String fieldName) {
         return true;
     }
-
-    public boolean isEnum() {
-        return false;
+    @Override
+    public boolean isCreate() {
+        return true;
     }
-
+    @Override
     public boolean isMap() {
         return true;
     }
-
-    public boolean isSet() {
-        return false;
-    }
-
-    public boolean isList() {
-        return false;
-    }
-
-    public boolean isListType() {
-        return false;
-    }
-
+    @Override
     public boolean isMapType() {
         return true;
     }
 
-    public boolean isObject() {
-        return false;
-    }
 
-    public boolean isNull() {
-        return false;
-    }
 
 }

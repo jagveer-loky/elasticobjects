@@ -1,15 +1,14 @@
-package org.fluentcodes.projects.elasticobjects.calls;
+package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
-import org.fluentcodes.projects.elasticobjects.condition.And;
-import org.fluentcodes.projects.elasticobjects.condition.Eq;
-import org.fluentcodes.projects.elasticobjects.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.condition.And;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Eq;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
@@ -29,6 +28,9 @@ public class ListParams {
     private Integer rowHead;
     private Or filter;
     private String filterRaw;
+    private String mapKey;
+    private List<String> colKeys;
+    private Map<String, Integer> colKeysMap;
 
     public ListParams() {
 
@@ -62,14 +64,88 @@ public class ListParams {
         listParamsDefault.prepare();
     }
 
+    public Object filter(List toFilter) {
+        Integer start = getRowStart();
+        Integer end = getRowEnd();
+        if (!hasRowStart() && !hasRowEnd()) {
+            return toFilter;
+        }
+        if (end == null || end>toFilter.size()) {
+            end = toFilter.size();
+        }
+        if (start == null) {
+            start = 0;
+        }
+        List filteredList = new ArrayList();
+        filteredList.addAll(toFilter
+                .subList(start, end));
+        if (!hasRowHead()) {
+            return filteredList;
+        }
+
+        if (colKeys == null|| colKeys.isEmpty()) {
+            colKeys = (List) toFilter.get(getRowHead());
+        }
+        this.colKeysMap = new HashMap<>();
+        for (int i = 0; i < this.colKeys.size(); i++) {
+            this.colKeysMap.put(this.colKeys.get(i), i);
+        }
+        if (mapKey == null) {
+            List<Map<String,Object>> result = new ArrayList<>();
+            for (Object row : filteredList) {
+                result.add(createMapFromRow((List)result));
+            }
+            return result;
+        }
+        else {
+            Map<String, Map<String,Object>> result = new HashMap<>();
+            int counter = 0;
+            for (Object row : filteredList) {
+                Map<String, Object> rowMap = createMapFromRow((List)result);
+                Object mapKey = rowMap.get(this.mapKey);
+                if (mapKey == null) {
+                    mapKey = Integer.valueOf(counter);
+                }
+                result.put(mapKey.toString(), rowMap);
+            }
+            return result;
+        }
+    }
+
+    private Map<String, Object> createMapFromRow(List row) {
+        Map<String, Object> rowMap = new LinkedHashMap<>();
+        for (int i = 0; i<row.size(); i++) {
+            if (colKeys.size()<i) {
+                continue;
+            }
+            if (row.get(i) == null) {
+                continue;
+            }
+            if (colKeys.get(i) == null) {
+                continue;
+            }
+            String key = colKeys.get(i);
+            rowMap.put(colKeys.get(i), row.get(i));
+        }
+        return rowMap;
+    }
+
     public void prepare(EO adapter, Map attributes) {
         if (hasFilterRaw()) {
-            setFilter(ReplaceUtil.replace(filterRaw, adapter, attributes));
+            setFilter(new ParserTemplate(filterRaw).parse(adapter));
         }
     }
 
     public boolean isEmpty() {
         return rowEnd == null && length == null && (filter == null || filter.isEmpty());
+    }
+
+    public String getMapKey() {
+        return mapKey;
+    }
+
+    public void setMapKey(String mapKey) {
+        this.mapKey = mapKey;
     }
 
     public Or getFilter() {
@@ -219,6 +295,9 @@ public class ListParams {
         }
         this.rowStart = value;
         return this;
+    }
+    public boolean hasRowEnd() {
+        return rowEnd!=null && rowEnd>-1;
     }
 
     public Integer getRowEnd() {

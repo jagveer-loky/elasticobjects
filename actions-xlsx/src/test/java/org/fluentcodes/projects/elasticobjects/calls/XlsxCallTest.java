@@ -2,10 +2,11 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.test.ListProviderJSON;
-import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
-import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
+import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ListProviderJSON;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.TestEOProvider;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -17,13 +18,13 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC_TEST.*;
 /**
  * Created by Werner on 08.10.2016.
  */
-public class XlsxCallTest extends TestHelper {
+public class XlsxCallTest {
     private static final Logger LOG = LogManager.getLogger(XlsxCallTest.class);
 
     @Test
     public void readSourceDirect()  {
-        TestHelper.printStartMethod();
-        XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, X_SOURCE_XLSX_TEST);
+        
+        XlsxCall action = new XlsxCall(ProviderRootTest.EO_CONFIGS, X_SOURCE_XLSX_TEST);
 
         Assert.assertEquals(X_SOURCE_XLSX_TEST, action.getXlsxConfig().getXlsxKey());
         Assert.assertEquals(FILE_SOURCE_XLSX, action.getFileCache().getFileKey());
@@ -48,8 +49,8 @@ public class XlsxCallTest extends TestHelper {
 
     @Test
     public void readSourceOr()  {
-        TestHelper.printStartMethod();
-        XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, X_SOURCE_XLSX_TEST);
+        
+        XlsxCall action = new XlsxCall(ProviderRootTest.EO_CONFIGS, X_SOURCE_XLSX_TEST);
         action.setFilter(toEq(S0, S_VALUE21));
 
         EO adapter = TestEOProvider.createEmptyMap();
@@ -63,10 +64,10 @@ public class XlsxCallTest extends TestHelper {
     //TODO Some errors occured if tmp file does not exist (Workbook create but sheet is null)
     @Test
     public void writeDirect()  {
-        TestHelper.printStartMethod();
+        
         EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createJsonArray());
-        XlsxCall action = new XlsxCall(TestEOProvider.EO_CONFIGS, FILE_TARGET_XLSX);
+        XlsxCall action = new XlsxCall(ProviderRootTest.EO_CONFIGS, FILE_TARGET_XLSX);
         action.write(adapter);
     }
 }

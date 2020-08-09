@@ -149,18 +149,18 @@ public class PathPattern {
             pathPattern = pathPattern.replace("+", ".*");
             try {
                 if (pathPattern.equals(key)) {
-                    Path chompPath = path.removeFirst();
+                    /*Path chompPath = path.removeFirst();
                     if (chompPath.size() > 0) {
                         result.addPath(chompPath);
-                    }
+                    }*/
                 } else if (key.matches(pathPattern)) {
-                    Path chompPath = path.removeFirst();
+                    /*Path chompPath = path.removeFirst();
                     if (chompPath.size() == 0 && allPathFlag) {
-                        chompPath.addPaths("+");
+                        //chompPath.addPaths("+");
                     }
                     if (chompPath.size() > 0) {
-                        result.addPath(chompPath);
-                    }
+                        //result.addPath(chompPath);
+                    }*/
                 }
             } catch (Exception e) {
                 e.printStackTrace();

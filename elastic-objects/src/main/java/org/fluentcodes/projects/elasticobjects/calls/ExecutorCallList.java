@@ -9,9 +9,9 @@ import java.util.Set;
 
 /**
  */
-public class ExecutorList {
-    private static final Logger LOG = LogManager.getLogger(ExecutorList.class);
-    public ExecutorList() {
+public class ExecutorCallList {
+    private static final Logger LOG = LogManager.getLogger(ExecutorCallList.class);
+    public ExecutorCallList() {
     }
     public String execute(final EO eo) {
         if (eo == null) {
@@ -32,7 +32,7 @@ public class ExecutorList {
                     continue;
                 }
                 Call call =  (Call)callEo.get();
-                templateResult.append(new CallExecutorImpl().execute(eo, call));
+                templateResult.append(new ExecutorCallImpl().execute(eo, call));
                 callEo.set(call.getDuration(), "duration");
             } catch (Exception e) {
                 eo.error("Problem executing call for " + counter + ": " + e.getMessage());
@@ -54,7 +54,7 @@ public class ExecutorList {
         int counter = 0;
         for (Call call : callList) {
             try {
-                templateResult.append(new CallExecutorImpl().execute(eo, call));
+                templateResult.append(new ExecutorCallImpl().execute(eo, call));
             } catch (Exception e) {
                 eo.error("Problem executing call for " + counter + ": " + e.getMessage());
             }

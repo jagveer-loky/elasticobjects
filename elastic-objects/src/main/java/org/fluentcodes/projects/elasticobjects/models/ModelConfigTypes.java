@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by Werner on 4.8.2020
  */
-public enum ModelTypes {
+public enum ModelConfigTypes {
     MAP(ModelConfigMap.class),
     LIST(ModelConfigList.class),
     SET(ModelConfigSet.class),
@@ -19,7 +19,7 @@ public enum ModelTypes {
     NONE(ModelConfigNone.class);
     private Class<? extends ModelConfig> modelClass;
     private Constructor modelConstructor;
-    ModelTypes(Class<? extends ModelConfig> modelClass) {
+    ModelConfigTypes(Class<? extends ModelConfig> modelClass) {
         this.modelClass = modelClass;
         try {
             this.modelConstructor = modelClass.getConstructor(EOConfigsCache.class, ModelConfig.Builder.class);

@@ -45,6 +45,29 @@ public class ScalarConverter {
         return formatter;
     }
 
+    public static Object fromJson(final String value) {
+        if ("true".equals(value)) {
+            return true;
+        }
+        if ("false".equals(value)) {
+            return false;
+        }
+        try {
+            return Integer.parseInt(value);
+        }
+        catch (Exception e) {
+            try{
+                return Float.parseFloat(value);
+            }
+            catch (Exception e1) {
+                throw new EoException("Could not transform non quoted value '" + value + "'.");
+            }
+        }
+
+
+
+    }
+
     public static Object transformToJSON(Object source) {
         if (source == null) {
             return null;
@@ -404,11 +427,10 @@ public class ScalarConverter {
             return new Double((Double) value);
         }
         if (value instanceof String) {
-            String check = (String) value;
-            if (check.matches("^[\\d]+[\\.,]*[\\d]*$")) {
-                return Double.parseDouble(cleanNumberForParse(check));
-            } else {
-                return null;
+            try {
+                return Double.parseDouble((String)value);
+            } catch (Exception e) {
+                throw new EoException(e.getMessage());
             }
         }
 
@@ -424,7 +446,7 @@ public class ScalarConverter {
         if (value instanceof Float) {
             return new Double(value.toString());
         }
-        return null;
+        throw new EoException("No conversion defined for value " + value.toString() + " with class " + value.getClass().getSimpleName());
     }
 
     private static String cleanNumberForParse(String toParse) {

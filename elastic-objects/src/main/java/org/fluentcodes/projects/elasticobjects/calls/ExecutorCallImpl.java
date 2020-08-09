@@ -1,6 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 
 import java.util.List;
 
@@ -11,7 +13,7 @@ import java.util.List;
  * @version 0.01
  * @date 2.5.2018
  */
-public class CallExecutorImpl implements CallExecutor {
+public class ExecutorCallImpl implements ExecutorCall {
     public Object execute(final EO eo, final Call call) {
         if (eo == null) {
             return "eo is null!";
@@ -34,10 +36,15 @@ public class CallExecutorImpl implements CallExecutor {
         if (createTarget) {
             target = eo.set( source.getModel().create(), call.getTargetPath());
         }
-        long startTime = System.currentTimeMillis();
         StringBuilder templateResult = new StringBuilder();
+        templateResult.append(call.prepend());
+        long startTime = System.currentTimeMillis();
+
         for (String sourcePath : loopPaths) {
             EO sourceLoop = source.getEo(sourcePath);
+            if (!call.filter(sourceLoop)) {
+                continue;
+            }
             Object value = call.execute(sourceLoop);
             if (createTarget) {
                 target.set(value, sourcePath);
@@ -57,6 +64,7 @@ public class CallExecutorImpl implements CallExecutor {
         }
         Long duration = System.currentTimeMillis() - startTime;
         call.setDuration(duration);
+        templateResult.append(call.postPend());
         eo.info("Successfully executed within " + call.getDuration() + " ms.");
         return templateResult.toString();
     }

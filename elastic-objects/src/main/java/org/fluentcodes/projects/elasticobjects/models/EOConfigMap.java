@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,7 +14,7 @@ import org.fluentcodes.tools.xpect.IOString;
 import java.lang.reflect.Method;
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
 
 /**
  * Created by Werner on 10.10.2016.
@@ -89,25 +89,25 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
     }
 
     protected void addConfigByMap(final String key, final Map map) {
-        if (!map.containsKey(F_NATURAL_ID)) {
-            map.put(F_NATURAL_ID, key);
+        if (!map.containsKey(NATURAL_ID)) {
+            map.put(NATURAL_ID, key);
         }
         addConfigByMap(map);
     }
 
     protected void addConfigByMap(final Map map) {
-        String naturalId = (String)map.get(F_NATURAL_ID);
+        String naturalId = (String)map.get(NATURAL_ID);
         if (naturalId == null) {
             throw new EoInternalException("No naturalid provided");
         }
         if (configMap.containsKey(naturalId)) {
-            throw new EoInternalException("NaturalId " + naturalId + " already exists!");
+            throw new EoInternalException("NaturalId " + naturalId + " already exists " + configClass.getSimpleName());
         }
         try {
             Object object = builderClass.getDeclaredConstructor(null).newInstance();
             configMap.put(naturalId, (Config) builderMethod.invoke(object, configsCache, map));
         } catch (Exception e) {
-            throw new EoException("Problem resolving empty constructor for " + naturalId);
+            throw new EoException("Problem resolving empty constructor for " + naturalId + ": ", e);
         }
     }
 

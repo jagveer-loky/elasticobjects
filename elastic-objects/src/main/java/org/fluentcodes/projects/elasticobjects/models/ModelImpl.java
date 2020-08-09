@@ -2,8 +2,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.config.ConfigImpl;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 
 

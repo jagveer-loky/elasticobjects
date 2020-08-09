@@ -1,7 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
 import au.com.bytecode.opencsv.CSVReader;
-import org.fluentcodes.projects.elasticobjects.calls.ListParams;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListIO;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListIOInterface;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 
 import java.io.File;
 import java.io.FileOutputStream;

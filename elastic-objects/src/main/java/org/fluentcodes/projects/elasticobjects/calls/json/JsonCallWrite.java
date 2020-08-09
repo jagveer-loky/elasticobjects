@@ -1,8 +1,7 @@
-package org.fluentcodes.projects.elasticobjects.calls;
+package org.fluentcodes.projects.elasticobjects.calls.json;
 
-import org.fluentcodes.projects.elasticobjects.calls.file.FileCallWrite;
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.config.JsonConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileCallWrite;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 
 /**

@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -71,20 +71,6 @@ public class ModelConfigList extends ModelConfig implements ModelInterface {
         }
         return counter;
     }
-
-    public List<Object> keysAsIs(final Object object)  {
-        resolve();
-        int size = -1;
-        if (object instanceof List) {
-            size = ((List) object).size();
-        }
-        List<Integer> fields = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            fields.add(new Integer(i));
-        }
-        return (List) fields;
-    }
-
 
     @Override
     public void set(final String fieldName, final Object object, final Object value)  {
@@ -180,56 +166,31 @@ public class ModelConfigList extends ModelConfig implements ModelInterface {
         resolve();
         return new ArrayList();
     }
-
+    @Override
     public boolean hasModel() {
         return true;
     }
+    @Override
     public boolean isCreate() {
         return true;
     }
-
+    @Override
     public boolean hasSetter(final String fieldName) {
         return true;
     }
+    @Override
     public boolean hasGetter(final String fieldName) {
         return true;
     }
-
-    public boolean isScalar() {
-        return false;
-    }
-
-    public boolean isEnum() {
-        return false;
-    }
-
-    public boolean isMap() {
-        return false;
-    }
-
-    public boolean isSet() {
-        return false;
-    }
-
+    @Override
     public boolean isList() {
         return true;
     }
-
+    @Override
     public boolean isListType() {
         return true;
     }
 
-    public boolean isMapType() {
-        return false;
-    }
-
-    public boolean isObject() {
-        return false;
-    }
-
-    public boolean isNull() {
-        return false;
-    }
 
 
 }

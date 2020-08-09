@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-    <artifactId>eo</artifactId>
+    <artifactId>eo-root</artifactId>
     <packaging>pom</packaging>
     <version>0.2.0-SNAPSHOT</version>
     <name>EO - Elastic Objects Root</name>
@@ -54,6 +54,7 @@
     <modules>
         <module>elastic-objects</module>
         <module>eo-test</module>
+        <module>eo-xpect</module>
         <module>actions-csv</module>
         <module>actions-xlsx</module>
     </modules>

@@ -1,23 +1,42 @@
 package org.fluentcodes.tools.xpect;
 
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.eo.*;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.Scope;
 
-import java.io.File;
+import java.util.Arrays;
 
 public class IOJsonEo<T> extends IOObject<T> {
-    private static EOConfigsCache cache;
+    private EOConfigsCache cache;
+    private JSONSerializationType type = JSONSerializationType.STANDARD;
     private String fileEnding = "json";
 
     public IOJsonEo() {
         super();
-        this.cache = new EOConfigsCache();
     }
+
+    public IOJsonEo(XpectEo.Builder<T> builder) {
+        super();
+        this.type = builder.type;
+        this.setMappingClasses(Arrays.asList(builder.classes));
+
+    }
+
     public IOJsonEo(EOConfigsCache cache) {
         super();
         this.cache = cache;
     }
 
+    public JSONSerializationType getType() {
+        return type;
+    }
+
+    public void setType(JSONSerializationType type) {
+        this.type = type;
+    }
 
     public String getFileEnding() {
         return fileEnding;
@@ -33,8 +52,14 @@ public class IOJsonEo<T> extends IOObject<T> {
             throw new IORuntimeException("Null object for serialization!");
         }
         try {
-            EO eo = new EOBuilder(cache).set(object);
-            return new EOToJSON().toJSON(eo);
+            if (object instanceof EO) {
+                return new EOToJSON().toJSON((EO)object);
+            }
+            if (cache == null) {
+                cache = new EOConfigsCache(Scope.DEV);
+            }
+            EO eo = EoRoot.ofValue(cache, object);
+            return new EOToJSON().setSerializationType(type).toJSON(eo);
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }
@@ -43,8 +68,15 @@ public class IOJsonEo<T> extends IOObject<T> {
     @Override
     public T asObject(final String asString) {
         try {
-            EO eo = new EOBuilder(cache).map(asString);
-            return (T) eo.get();
+            return (T) asEo(asString).get();
+        } catch (Exception e) {
+            throw new IORuntimeException(e);
+        }
+    }
+
+    public EO asEo(final String asString) {
+        try {
+            return new EoRoot(cache, getMappingClass()).mapObject(asString);
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }

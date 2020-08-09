@@ -17,7 +17,6 @@ import java.util.*;
  * @since 20.05.16.
  */
 public class Models {
-    private static final Logger LOG = LogManager.getLogger(Models.class);
     private final ModelInterface[] models;
     private final boolean hasChildModel;
 
@@ -77,6 +76,10 @@ public class Models {
         return new Models(Arrays.copyOfRange(this.models, 1, models.length));
     }
 
+    private Models createValueModels(EO eo, Models childModels, Object value) {
+        return new Models(eo.getConfigsCache(), getValueClass(childModels, value));
+    }
+
     public static Class getValueClass(final Models childModel, final Object value) {
         if (value == null) {
             return Map.class;
@@ -92,6 +95,17 @@ public class Models {
                 }
             }
         }
+        else if (!childModel.isScalar() && (value instanceof String)) {
+            if (JSONToEO.jsonListPattern.matcher((String) value).find()) {
+                return childModel.getModelClass();
+            } else if (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
+                return childModel.getModelClass();
+            }
+        }
+        else if (childModel.isEnum()) {
+            return childModel.getModelClass();
+        }
+        //return null;
         return value.getClass();
     }
 
@@ -99,32 +113,38 @@ public class Models {
         return getValueClass(new Models(), value);
     }
 
-    public Models createChildModels(final EO eo, final PathElement path, final Object value) {
-        Models childModels = getChildModels(eo, path);
-        Models valueModels = new Models(eo.getConfigsCache(), getValueClass(childModels, value));
+    public Models createChildModels(final EO eo, final PathElement pathElement, final Object value) {
+        Models childModels = getChildModels(eo, pathElement);
+        Models valueModels = createValueModels(eo, childModels, value);
         if (childModels == null) {
             return valueModels;
         }
-        checkModels(path.getKey(), valueModels.getModel(), childModels.getModel());
+        checkModels(pathElement.getKey(), valueModels.getModel(), childModels.getModel());
         if (!childModels.isScalar() && !childModels.isCreate() ) {
             return valueModels;
         }
         return childModels;
     }
 
-    public Models createChildModelsSimple(final EO eo, final PathElement path, final Object value) {
-        Models models = createChildModels(eo, path, value);
+    public Models createChildModelsSimple(final EO eoParent, final PathElement path, final Object value) {
+        Models models = createChildModels(eoParent, path, value);
         if (models.isList()) {
-            return new Models(eo.getConfigsCache(), List.class);
+            return new Models(eoParent.getConfigsCache(), List.class);
         }
         else if (models.isMap()) {
-            return new Models(eo.getConfigsCache(), Map.class);
+            return new Models(eoParent.getConfigsCache(), Map.class);
         }
         else if (models.isObject()) {
-            return new Models(eo.getConfigsCache(), Map.class);
+            return new Models(eoParent.getConfigsCache(), Map.class);
+        }
+        else if (models.isEnum()) {
+            return new Models(eoParent.getConfigsCache(), String.class);
+        }
+        else if (models.isScalar()) {
+            return new Models(eoParent.getConfigsCache(), String.class);
         }
         else {
-            return new Models(eo.getConfigsCache(), String.class);
+            return new Models(eoParent.getConfigsCache(), String.class);
         }
     }
 
@@ -145,9 +165,12 @@ public class Models {
 
     public Models getChildModels(final EO eo, final PathElement pathElement) {
         final String key = pathElement.getKey();
-        if (getModel().isObject() && !PathElement.isSpecial(key)) {
+        if (key == null) {
+            return null;
+        }
+        if (getModel().isObject() && !PathElement.isParentNotSet(key)) {
             Models models = new Models(getModel().getFieldModel(key));
-            if (models.isCreate() || models.isScalar()) {
+            if (models.isCreate() || models.isScalar() ) {
                 return new Models(getModel().getFieldModel(key));
             }
         }
@@ -249,6 +272,7 @@ public class Models {
     public boolean isScalar() {
         return getModel().isScalar();
     }
+
 
     public boolean isContainer() {
         return getModel().isContainer();

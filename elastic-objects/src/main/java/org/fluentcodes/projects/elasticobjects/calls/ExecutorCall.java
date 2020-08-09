@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
  * @author Werner Diwischek
  * @version 0.2.0
  */
-public interface CallExecutor {
+public interface ExecutorCall {
     /**
      * Execute something. Exception will be documented in the adapter log.
      */

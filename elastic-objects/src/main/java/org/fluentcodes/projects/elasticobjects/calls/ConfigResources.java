@@ -1,8 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.calls.configs;
-
-import org.fluentcodes.projects.elasticobjects.calls.IOInterface;
-import org.fluentcodes.projects.elasticobjects.calls.Permissions;
-import org.fluentcodes.projects.elasticobjects.calls.RolePermissions;
+package org.fluentcodes.projects.elasticobjects.calls;
 
 import java.util.List;
 
@@ -11,13 +7,11 @@ import java.util.List;
  */
 public interface ConfigResources {
 
-    IOInterface createIO() ;
-
     RolePermissions getRolePermissions();
 
-    Permissions getPermissions(String... roleKeys);
+    PermissionType getPermissions(String... roleKeys);
 
-    Permissions getPermissions(List<String> roleKeys) ;
+    PermissionType getPermissions(List<String> roleKeys) ;
 
-    boolean hasPermissions(Permissions permission, List<String> roleKeys) ;
+    boolean hasPermissions(PermissionType permission, List<String> roleKeys) ;
 }

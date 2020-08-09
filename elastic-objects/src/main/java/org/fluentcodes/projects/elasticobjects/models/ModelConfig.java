@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -67,11 +67,11 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         try {
             modelClass = Class.forName(key);
         } catch (Exception e) {
-            throw new EoException("Could not find Class for BasicTest: " + e.getMessage());
+            throw new EoException("Could not find Class " + key + ": " + e.getMessage());
         }
         final String modelKey = key.replaceAll(".*\\.", "");
         modelInfo.put(F_MODEL_KEY, modelKey);
-        modelInfo.put(F_NATURAL_ID, modelKey);
+        modelInfo.put(NATURAL_ID, modelKey);
         final Package inPackage = modelClass.getPackage();
         modelInfo.put(F_PACKAGE_PATH, inPackage.getName());
 
@@ -149,9 +149,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
      * Table definitions with pojo.
      */
     public List<String> getFieldKeys() {
-        if (fieldKeys.isEmpty()) {
-            return null;
-        }
+        resolve();
         return this.fieldKeys;
     }
 
@@ -513,9 +511,61 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         }
     }
 
-    public boolean isContainer() {
-        return isMap() || isObject() || isList();
+    @Override
+    public boolean hasSetter(final String fieldName) {
+        return false;
     }
+    @Override
+    public boolean hasGetter(final String fieldName) {
+        return false;
+    }
+
+    @Override
+    public boolean isNumber() {
+        return false;
+    }
+    @Override
+    public boolean hasModel() {
+        return true;
+    }
+    @Override
+    public boolean isCreate() {
+        return false;
+    }
+    @Override
+    public boolean isMap() {
+        return false;
+    }
+    @Override
+    public boolean isSet() {
+        return false;
+    }
+    @Override
+    public boolean isList() {
+        return false;
+    }
+    @Override
+    public boolean isObject() {
+        return false;
+    }
+    @Override
+    public boolean isListType() {
+        return false;
+    }
+    @Override
+    public boolean isMapType() {
+        return false;
+    }
+    @Override
+    public boolean isScalar() {
+        return false;
+    }
+    @Override
+    public boolean isNull() {
+        return false;
+    }
+
+
 
     public static class Builder extends ConfigImpl.Builder {
         //<call keep="JAVA" templateKey="BeanInstanceVars.tpl" }
@@ -541,7 +591,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             modelKey = ScalarConverter.toString(values.get(F_MODEL_KEY));
             packageGroup = ScalarConverter.toString(values.get(F_PACKAGE_GROUP));
             packagePath = ScalarConverter.toString(values.get(F_PACKAGE_PATH));
-            author = ScalarConverter.toString(values.get(F_AUTHOR));
+            author = ScalarConverter.toString(values.get(AUTHOR));
             superKey = ScalarConverter.toString(values.get(F_SUPER_KEY));
             interfaces = ScalarConverter.toString(values.get(F_INTERFACES));
 
@@ -562,11 +612,16 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             } else {
                 fieldKeys = new ArrayList<>();
             }
-            dbParams = new DBParams(values.get(F_DB_PARAMS));
-            eoParams = new EOParams(values.get(F_EO_PARAMS));
-            viewParams = new ViewParams(values.get(F_VIEW_PARAMS));
-            customParams = (Map) values.get(F_CUSTOM_PARAMS);
-
+            try {
+                dbParams = new DBParams(values.get(F_DB_PARAMS));
+                eoParams = new EOParams(values.get(F_EO_PARAMS));
+                viewParams = new ViewParams(values.get(F_VIEW_PARAMS));
+                customParams = (Map) values.get(F_CUSTOM_PARAMS);
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+                throw new EoException(e);
+            }
             super.prepare(configsCache, values);
         }
 
@@ -584,11 +639,13 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
                 return new ModelConfigSet(configsCache, this);
             } else if (shapeType == ShapeTypes.SCALAR) {
                 return new ModelConfigScalar(configsCache, this);
-            } else {
+            }
+            else if (shapeType == ShapeTypes.ENUM) {
+                return new ModelConfigScalar(configsCache, this);
+            }else {
                 return new ModelConfigObject(configsCache, this);
             }
         }
-
     }
 
 }

@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_EO_PARAMS;
 
 /**
  * Created by Werner on 10.10.2016.
@@ -23,7 +22,7 @@ public class EOConfigMapFields extends EOConfigMap {
     protected void addBasicConfigs() {
         Map<String, Object> map = new HashMap<>();
         Map<String, Object> eoParamsMap = new HashMap<>();
-        map.put(F_NATURAL_ID, "log");
+        map.put(Model.NATURAL_ID, "log");
         map.put(F_FIELD_KEY, "log");
         map.put(F_MODEL_KEYS, "String");
         super.addConfigByMap(map);

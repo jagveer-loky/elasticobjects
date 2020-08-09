@@ -1,9 +1,7 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResources;
-import org.fluentcodes.projects.elasticobjects.calls.ListMapper;
-import org.fluentcodes.projects.elasticobjects.calls.ListParams;
-import org.fluentcodes.projects.elasticobjects.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -67,7 +67,7 @@ public class EOConfigMapModels extends EOConfigMap {
     protected void addBasicConfigs()  {
         Map<String, Object> map = new HashMap<>();
         Map<String, Object> eoParamsMap = new HashMap<>();
-        map.put(F_NATURAL_ID, "Map");
+        map.put(Model.NATURAL_ID, "Map");
         map.put(F_MODEL_KEY, "Map");
         map.put(F_PACKAGE_PATH, "java.util");
         eoParamsMap.put(F_SHAPE_TYPE, "MAP");
@@ -76,7 +76,7 @@ public class EOConfigMapModels extends EOConfigMap {
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "LinkedHashMap");
+        map.put(Model.NATURAL_ID, "LinkedHashMap");
         map.put(F_MODEL_KEY, "LinkedHashMap");
         map.put(F_PACKAGE_PATH, "java.util");
         map.put(F_EO_PARAMS, eoParamsMap);
@@ -84,7 +84,7 @@ public class EOConfigMapModels extends EOConfigMap {
 
         map = new HashMap<>();
         eoParamsMap = new HashMap<>();
-        map.put(F_NATURAL_ID, "List");
+        map.put(Model.NATURAL_ID, "List");
         map.put(F_MODEL_KEY, "List");
         map.put(F_PACKAGE_PATH, "java.util");
         eoParamsMap.put(F_SHAPE_TYPE, "LIST");
@@ -93,7 +93,7 @@ public class EOConfigMapModels extends EOConfigMap {
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "ArrayList");
+        map.put(Model.NATURAL_ID, "ArrayList");
         map.put(F_MODEL_KEY, "ArrayList");
         map.put(F_PACKAGE_PATH, "java.util");
         map.put(F_EO_PARAMS, eoParamsMap);
@@ -101,7 +101,7 @@ public class EOConfigMapModels extends EOConfigMap {
 
         map = new HashMap<>();
         eoParamsMap = new HashMap<>();
-        map.put(F_NATURAL_ID, "Integer");
+        map.put(Model.NATURAL_ID, "Integer");
         map.put(F_MODEL_KEY, "Integer");
         map.put(F_PACKAGE_PATH, "java.lang");
         eoParamsMap.put(F_SHAPE_TYPE, "SCALAR");
@@ -109,49 +109,49 @@ public class EOConfigMapModels extends EOConfigMap {
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "Long");
+        map.put(Model.NATURAL_ID, "Long");
         map.put(F_MODEL_KEY, "Long");
         map.put(F_PACKAGE_PATH, "java.lang");
         map.put(F_EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "String");
+        map.put(Model.NATURAL_ID, "String");
         map.put(F_MODEL_KEY, "String");
         map.put(F_PACKAGE_PATH, "java.lang");
         map.put(F_EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "Double");
+        map.put(Model.NATURAL_ID, "Double");
         map.put(F_MODEL_KEY, "Double");
         map.put(F_PACKAGE_PATH, "java.lang");
         map.put(F_EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "Float");
+        map.put(Model.NATURAL_ID, "Float");
         map.put(F_MODEL_KEY, "Float");
         map.put(F_PACKAGE_PATH, "java.lang");
         map.put(F_EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "Boolean");
+        map.put(Model.NATURAL_ID, "Boolean");
         map.put(F_MODEL_KEY, "Boolean");
         map.put(F_PACKAGE_PATH, "java.lang");
         map.put(F_EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "Date");
+        map.put(Model.NATURAL_ID, "Date");
         map.put(F_MODEL_KEY, "Date");
         map.put(F_PACKAGE_PATH, "java.util");
         map.put(F_EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "LogLevel");
+        map.put(Model.NATURAL_ID, "LogLevel");
         map.put(F_MODEL_KEY, "LogLevel");
         map.put(F_PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         eoParamsMap = new HashMap<>();
@@ -159,7 +159,7 @@ public class EOConfigMapModels extends EOConfigMap {
         super.addConfigByMap(map);
 
         map = new HashMap<>();
-        map.put(F_NATURAL_ID, "JSONSerializationType");
+        map.put(Model.NATURAL_ID, "JSONSerializationType");
         map.put(F_MODEL_KEY, "JSONSerializationType");
         map.put(F_PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         eoParamsMap = new HashMap<>();

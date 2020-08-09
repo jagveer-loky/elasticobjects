@@ -1,10 +1,9 @@
-package org.fluentcodes.projects.elasticobjects.calls.file;
+package org.fluentcodes.projects.elasticobjects.calls.files;
 
 
 import org.fluentcodes.projects.elasticobjects.calls.CallResource;
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.Permissions;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 /**
@@ -13,17 +12,11 @@ import org.fluentcodes.projects.elasticobjects.EO;
 public class FileCallRead extends CallResource<String> {
 
     public FileCallRead() {
-        super(Permissions.READ);
+        super(PermissionType.READ);
     }
 
     public FileCallRead(final String configKey) {
-        super(Permissions.READ);
-        setConfigKey(configKey);
-    }
-
-
-    public FileCallRead(final EOConfigsCache cache, final String configKey) {
-        super(Permissions.READ);
+        super(PermissionType.READ);
         setConfigKey(configKey);
     }
 
@@ -32,19 +25,18 @@ public class FileCallRead extends CallResource<String> {
     }
 
 
-    public ConfigResourcesFile getFileConfig()  {
-        return ((ConfigResourcesFile) getConfig());
+    public FileConfig getFileConfig()  {
+        return ((FileConfig) getConfig());
     }
-
-    public String execute() { return execute(null);}
 
     @Override
     public String execute(final EO eo)  {
-        return getFileConfig().createIO().read();
+        init(eo);
+        return getFileConfig().read();
     }
 
     @Override
     public Class<? extends Config> getConfigClass()  {
-        return ConfigResourcesFile.class;
+        return FileConfig.class;
     }
 }
