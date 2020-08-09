@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.junit.Test;
 
@@ -19,12 +19,12 @@ public class ConfigKeysCallTest {
 
     @Test
     public void givenTestProvider_whenSetConfigType_thenIsSet()  {
-        ConfigChecks.checkField(ConfigKeysCall.class,"configType", ModelConfig.class.getSimpleName());
+        ConfigChecks.findModelAndCheck(ConfigKeysCall.class,"configType", ModelConfig.class.getSimpleName());
     }
 
     @Test
     public void givenTestProvider_whenSetConfigFilter_thenIsSet()  {
-        ConfigChecks.checkField(ConfigKeysCall.class,"configFilter", ".+");
+        ConfigChecks.findModelAndCheck(ConfigKeysCall.class,"configFilter", ".+");
     }
 
     @Test

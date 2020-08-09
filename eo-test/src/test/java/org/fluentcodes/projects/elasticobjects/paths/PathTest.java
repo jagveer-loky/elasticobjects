@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.paths;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 
 import org.junit.Assert;
@@ -15,9 +16,8 @@ public class PathTest {
 
     @Test
     public void constructorStringEmpty() {
-        
-        Assert.assertEquals(Path.DELIMITER, new Path(S_EMPTY).directory());
-        Assert.assertEquals(Path.DELIMITER, new Path(PathElement.SAME).directory());
+        Assert.assertEquals("", new Path(S_EMPTY).directory());
+        Assert.assertEquals("", new Path(PathElement.SAME).directory());
         Assert.assertEquals(Path.DELIMITER, new Path(Path.DELIMITER).directory());
         Assert.assertEquals(Path.DELIMITER, new Path("///").directory());
         Assert.assertEquals(Path.DELIMITER, new Path("/././").directory());
@@ -25,23 +25,15 @@ public class PathTest {
     }
 
     @Test
-    public void constructorString_3Entries() {
-        
-        String toCompare = Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2);
-        Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = Path.ofs(PathElement.SAME, S_EMPTY, EO_STATIC.CON_SPACE, S_LEVEL0, S_LEVEL1, S_LEVEL2);
-        Assert.assertEquals(toCompare, new Path(other).directory(false));
-        other = Path.ofs(S_LEVEL0, PathElement.SAME, S_LEVEL1, S_EMPTY, S_LEVEL2);
-        Assert.assertEquals(toCompare, new Path(other).directory(false));
+    public void givenBackAtTheMiddle_thenRemains() {
+        String other = Path.ofs(PathElement.SAME, PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
+        Assertions.assertThat(new Path(other).directory()).isEqualTo(Path.ofs(PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2));
     }
 
     @Test
-    public void constructorString_BackAtTheBeginning() {
-        
+    public void givenBackInTheBeginning_thenRemains() {
         String toCompare = Path.ofs(PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
-        Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = Path.ofs(PathElement.SAME, PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
-        Assert.assertEquals(toCompare, new Path(other).directory(false));
+        Assertions.assertThat(new Path(toCompare).directory()).isEqualTo(toCompare);
     }
 
     @Test
@@ -52,61 +44,71 @@ public class PathTest {
     }
 
     @Test
-    public void constructorString_BackAtTheMiddle() {
-        
+    public void givenBackInTheMiddle_thenPrecedingElementIsCut() {
         String toCompare = Path.ofs(S_LEVEL0, S_LEVEL2);
-        Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = Path.ofs(S_LEVEL0, S_LEVEL1, PathElement.BACK, S_LEVEL2);
-        Assert.assertEquals(toCompare, new Path(other).directory(false));
+        Assertions.assertThat(new Path(S_LEVEL0, S_LEVEL1, PathElement.BACK, S_LEVEL2).directory()).isEqualTo(toCompare);
     }
 
     @Test
-    public void constructorString_BackAtTheEnd() {
-        
+    public void givenBackAtTheEnd_thenPrecedingElementIsCut() {
         String toCompare = Path.ofs(S_LEVEL0, S_LEVEL1);
-        Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
-        String other = Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2, PathElement.BACK);
-        Assert.assertEquals(toCompare, new Path(other).directory(false));
+        Assertions.assertThat(new Path(S_LEVEL0, S_LEVEL1, S_LEVEL2, PathElement.BACK).directory()).isEqualTo(toCompare);
     }
 
 
     @Test
-    public void constructorPath() {
-        
-        Path path = new Path(Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2));
-        Path otherPath = new Path(path);
-        Assert.assertEquals(Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2), otherPath.directory(false));
-        path = new Path(S_LEVEL0);
-        otherPath = new Path(path);
-        Assert.assertEquals(Path.ofs(S_LEVEL0), otherPath.directory(false));
-        path = new Path(S_EMPTY);
-        otherPath = new Path(path);
-        Assert.assertEquals(S_EMPTY, otherPath.directory(false));
+    public void given3Entries_thenSizeIs3() {
+        Path path = new Path(S_LEVEL0, S_LEVEL1, S_LEVEL2);
+        Assertions.assertThat(path.size()).isEqualTo(3);
+        Assertions.assertThat(path.directory()).isEqualTo(S_LEVEL0 + Path.DELIMITER + S_LEVEL1 + Path.DELIMITER + S_LEVEL2);
     }
 
     @Test
-    public void childPath() {
-        
-        Path path = new Path(Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2));
-        Path childPath = path.getChildPath();
-        Assert.assertEquals(Path.ofs(S_LEVEL1, S_LEVEL2), childPath.directory(false));
-        // checks path with one element
-        path = new Path(S_LEVEL0);
-        childPath = path.getChildPath();
-        Assert.assertEquals(Path.DELIMITER, childPath.directory());
+    public void given3EntriesAsString_thenSizeIs3() {
+        Path path = new Path(S_LEVEL0 + Path.DELIMITER + S_LEVEL1 + Path.DELIMITER + S_LEVEL2);
+        Assertions.assertThat(path.size()).isEqualTo(3);
+        Assertions.assertThat(path.directory()).isEqualTo(S_LEVEL0 + Path.DELIMITER + S_LEVEL1 + Path.DELIMITER + S_LEVEL2);
     }
 
     @Test
-    public void firstEntry() {
-        
-        Path path = new Path(Path.ofs(S_LEVEL0, S_LEVEL1, S_LEVEL2));
-        Assert.assertEquals(S_LEVEL0, path.getFirstEntry());
-        // checks path with one element
-        path = new Path(S_LEVEL0);
-        Assert.assertEquals(S_LEVEL0, path.getFirstEntry());
-        path = new Path(S_EMPTY);
-        Assert.assertNull(path.getFirstEntry());
+    public void given3EntriesAsStringWithOneEmpty_thenSizeIs2() {
+        Path path = new Path(S_LEVEL0 + Path.DELIMITER  + Path.DELIMITER + S_LEVEL2);
+        Assertions.assertThat(path.size()).isEqualTo(2);
+        Assertions.assertThat(path.directory()).isEqualTo(S_LEVEL0 + Path.DELIMITER + S_LEVEL2);
     }
+
+    @Test
+    public void givenFirstPathDelimiter_whenIsAbsolute_thenTrue() {
+        Path path = new Path(Path.DELIMITER, S_LEVEL0);
+        Assertions.assertThat(path.isAbsolute()).isTrue();
+        Assertions.assertThat(path.size()).isEqualTo(1);
+        Assertions.assertThat(path.directory()).isEqualTo(Path.DELIMITER + S_LEVEL0);
+    }
+
+    @Test
+    public void given3EntriesWith1Empty_thenSizeIs2() {
+        Path path = new Path(S_LEVEL0, "", S_LEVEL2);
+        Assertions.assertThat(path.isAbsolute()).isFalse();
+        Assertions.assertThat(path.size()).isEqualTo(2);
+        Assertions.assertThat(path.directory()).isEqualTo(S_LEVEL0 + Path.DELIMITER + S_LEVEL2);
+    }
+
+    @Test
+    public void given3Entrieswith1Null_thenSizeIs2() {
+        Path path = new Path(S_LEVEL0, null, S_LEVEL2);
+        Assertions.assertThat(path.isAbsolute()).isFalse();
+        Assertions.assertThat(path.size()).isEqualTo(2);
+        Assertions.assertThat(path.directory()).isEqualTo(S_LEVEL0 + Path.DELIMITER + S_LEVEL2);
+    }
+
+    @Test
+    public void given3EntriesAnd1Same_thenSizeIs2() {
+        Path path = new Path(S_LEVEL0, PathElement.SAME, S_LEVEL2);
+        Assertions.assertThat(path.isAbsolute()).isFalse();
+        Assertions.assertThat(path.size()).isEqualTo(2);
+        Assertions.assertThat(path.directory()).isEqualTo(S_LEVEL0 + Path.DELIMITER + S_LEVEL2);
+    }
+
 
     @Test
     public void hasMatcher() {
@@ -121,7 +123,6 @@ public class PathTest {
 
     @Test
     public void hasPlaceHolder() {
-        
         Path path = new Path(Path.ofs(S_LEVEL0, "$[test]"));
         Assert.assertTrue(path.hasPlaceHolder());
         path = new Path(Path.ofs(S_LEVEL0));
@@ -130,14 +131,4 @@ public class PathTest {
         Assert.assertFalse(path.hasPlaceHolder());
     }
 
-    @Test
-    public void callToString() {
-        
-        Path path = new Path(Path.ofs(S_LEVEL0));
-        Assert.assertEquals(Path.DELIMITER + Path.ofs(S_LEVEL0), path.toString());
-        path = new Path(Path.ofs(S_LEVEL0, S_LEVEL1));
-        Assert.assertEquals(Path.DELIMITER + Path.ofs(S_LEVEL0, S_LEVEL1), path.toString());
-        path = new Path(S_EMPTY);
-        Assert.assertEquals(Path.DELIMITER, path.toString());
-    }
 }

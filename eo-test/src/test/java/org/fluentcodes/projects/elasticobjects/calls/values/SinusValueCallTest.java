@@ -9,8 +9,8 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateParser;
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.tools.xpect.XpectEo;
@@ -176,7 +176,7 @@ public class SinusValueCallTest {
     public void givenEo_whenReplaceString_thenPlaceHolderIsReplaced()  {
         EO eo = ProviderRootTest.createEo();
         eo.set(2, "value");
-        String result = new TemplateParser("-$[(SinusValueCall)value/]-").parse(eo);
+        String result = new ParserTemplate("-$[(SinusValueCall)value/]-").parse(eo);
         Assertions.assertThat(result).isEqualTo("--");
         Assertions.assertThat(eo.get("value")).isEqualTo(0); // was integer before.
     }
@@ -185,7 +185,7 @@ public class SinusValueCallTest {
     public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced()  {
         EO eo = ProviderRootTest.createEo();
         eo.set(2, "value");
-        String result = new TemplateParser("-$[(SinusValueCall)value inTemplate=\"true\"/]-").parse(eo);
+        String result = new ParserTemplate("-$[(SinusValueCall)value inTemplate=\"true\"/]-").parse(eo);
         Assertions.assertThat(result).isEqualTo("-0.9092974268256817-");
         Assertions.assertThat(eo.get("value")).isEqualTo(2); // was integer before.
     }

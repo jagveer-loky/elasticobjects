@@ -1,11 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigMap;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.junit.Assert;
 import org.junit.Test;
 

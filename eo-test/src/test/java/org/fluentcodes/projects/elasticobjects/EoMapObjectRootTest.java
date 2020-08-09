@@ -4,7 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -58,7 +59,7 @@ public class EoMapObjectRootTest {
     }
 
     @Test
-    public void givenMap_withString_fails()  {
+    public void givenEoMap_whenMapObjectString_fails()  {
         final EO eo = ProviderRootDev.createEo();
         eo.mapObject(S_STRING);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
@@ -124,7 +125,7 @@ public class EoMapObjectRootTest {
     @Test
     public void givenMapEmpty_withJsonMapBoolean_ok()  {
         final EO eoEmpty = ProviderRootTest.createEo();
-        final String jsonBoolean = org.fluentcodes.projects.elasticobjects.assets.ProviderMapJson.BOOLEAN.content();
+        final String jsonBoolean = TestProviderBtJson.BOOLEAN.content();
         eoEmpty
                 .mapObject(jsonBoolean);
         Assert.assertEquals(S_BOOLEAN, eoEmpty.get(F_TEST_BOOLEAN));
@@ -145,7 +146,7 @@ public class EoMapObjectRootTest {
     @Test
     public void givenListEmpty_withBTBoolean_ok()  {
         final EO root = ProviderRootDev.createEoWithClasses(List.class);
-        root.mapObject(org.fluentcodes.projects.elasticobjects.assets.ProviderMapJson.BOOLEAN.content());
+        root.mapObject(TestProviderBtJson.BOOLEAN.content());
         Assert.assertEquals(1, root.keysEo().size());
         Assert.assertEquals(1, ((EoChild) root).keysValue().size());
         Assert.assertEquals(S_BOOLEAN, root.get(S0));
@@ -155,7 +156,7 @@ public class EoMapObjectRootTest {
     public void givenListStringEmpty_withBTBoolean_ok()  {
         EO root = ProviderRootDev.createEoWithClasses(List.class, String.class);
         root
-                .mapObject(org.fluentcodes.projects.elasticobjects.assets.ProviderMapJson.BOOLEAN.content());
+                .mapObject(TestProviderBtJson.BOOLEAN.content());
         Assert.assertEquals(1, root.keysEo().size());
         Assert.assertEquals(1, ((EoChild) root).keysValue().size());
         Assert.assertEquals(S_BOOLEAN.toString(), root.get(S0));

@@ -1,12 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallRead;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +16,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public class ListParamsTest {
     @Test
     public void givenTestProvider_whenGetModelConfigParameters_thenXpected() {
-        ConfigChecks.compareConfigModel(ListParams.class);
+        ConfigChecks.findModelAndCompare(ListParams.class);
     }
 
     @Test

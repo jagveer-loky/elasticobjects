@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
 import org.junit.Test;
 

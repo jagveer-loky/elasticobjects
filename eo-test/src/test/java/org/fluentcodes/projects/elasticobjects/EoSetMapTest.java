@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -61,7 +61,7 @@ public class EoSetMapTest {
         final EoRoot root = ProviderRootDev.createEo();
         Map<String,String> map = new LinkedHashMap<>();
         map.put("test3","testMap");
-        root.set(map,"test","test3");
+        root.set(map,"test","test2");
         Assert.assertEquals("testMap", root.get("test","test2","test3"));
     }
 

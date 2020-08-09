@@ -2,13 +2,15 @@ package org.fluentcodes.projects.elasticobjects.wiki.eo;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class Clone {
+    @Ignore
     @Test
     public void test()  {
         final EO eo = ProviderRootTest.createEo(BasicTest.class);
@@ -27,6 +29,5 @@ public class Clone {
         final EO eo2 = ProviderRootTest.createEo(BasicTest.class);
         eo2.mapObject(BT1);
         Assert.assertEquals(BT1, eo2.get());
-
     }
 }

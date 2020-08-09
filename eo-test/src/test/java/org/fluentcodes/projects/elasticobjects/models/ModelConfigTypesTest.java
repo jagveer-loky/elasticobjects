@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 import org.junit.Test;
 
 import java.util.HashMap;

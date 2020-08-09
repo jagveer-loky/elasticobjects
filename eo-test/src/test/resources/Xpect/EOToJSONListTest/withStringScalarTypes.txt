@@ -1,3 +1,6 @@
-[
-  "test"
-]
+{
+  "_rootmodel": "List",
+
+  "0": "test",
+  "(LogLevel)_logLevel": "WARN"
+}

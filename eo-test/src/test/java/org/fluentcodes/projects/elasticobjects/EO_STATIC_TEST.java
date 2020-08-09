@@ -62,7 +62,6 @@ public class EO_STATIC_TEST {
     //<call templateKey="StaticValuesLoop.tpl" config:="Template" prefix:="T_" keep="JAVA" >
 
     public static final String T_VALUES_MATH_SIN_EXAMPLE = "ValuesMathSinExample";
-    public static final String T_CONTENT_EXAMPLE = "ContentExample";
     public static final String T_VALUES_MISC_SET_EXAMPLE = "ValuesMiscSetExample";
     public static final String T_EMBEDDED_2_WITH_PLACE_HOLDER = "Embedded2WithPlaceHolder";
     public static final String T_SIMPLE_INSERT_WITH_PATH_AND_EMBEDDED_JSON = "SimpleInsertWithPathAndEmbeddedJson";
@@ -72,9 +71,7 @@ public class EO_STATIC_TEST {
     public static final String T_CONTENT_EXAMPLE_ELEMENT_2 = "ContentExampleElement2";
     public static final String T_EMBEDDED_1_WITH_PLACE_HOLDER = "Embedded1WithPlaceHolder";
     public static final String T_STATIC_VALUES_LOOP_TPL = "StaticValuesLoop.tpl";
-    public static final String T_CONTENT_EXAMPLE_WITH_STATIC_TEMPLATE = "ContentExampleWithStaticTemplate";
     public static final String T_VALUES_MISC_REPLACE_EXAMPLE = "ValuesMiscReplaceExample";
-    public static final String T_CONTENT_EXAMPLE_WITH_DYNAMIC_TEMPLATE = "ContentExampleWithDynamicTemplate";
     public static final String T_VALUES_MISC_REPEAT_EXAMPLE = "ValuesMiscRepeatExample";
     public static final String T_EMBEDDED_0_WITH_PLACE_HOLDER = "Embedded0WithPlaceHolder";
     public static final String T_CONFIG_TEST_LOOP_TPL = "ConfigTestLoop.tpl";
@@ -83,7 +80,6 @@ public class EO_STATIC_TEST {
     public static final String T_SIMPLE_INSERT_WITH_PATH_AND_JSON_STORE = "SimpleInsertWithPathAndJsonStore";
     public static final String T_SIMPLE_INSERT_WITH_PATH_AND_JSON = "SimpleInsertWithPathAndJson";
     public static final String T___TEMPLATE_ = "$[template]";
-    public static final String T_CONTENT_OR_EXAMPLE = "ContentOrExample";
     public static final String T_EMBEDDED_2 = "Embedded2";
     public static final String T_EMBEDDED_0 = "Embedded0";
     public static final String T_CONTENT_EXAMPLE_WITH_KEEP = "ContentExampleWithKeep";

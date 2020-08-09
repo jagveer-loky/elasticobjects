@@ -1,0 +1,205 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "fileName": "input/csv/BasicTest.csv",
+    "fileKey": "BasicTest.csv",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "BasicTest.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "naturalId": "BasicTest.csv"
+  },
+  "1": {
+    "fileName": "input/file/source.txt",
+    "fileKey": "classpath_source.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "classpath_source.txt",
+    "description": "Local 'source.txt' definition with classpath.",
+    "naturalId": "classpath_source.txt"
+  },
+  "2": {
+    "fileName": "input/file/source.txt",
+    "fileKey": "localhost:source.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "localhost:source.txt",
+    "description": "Local 'source.txt' definition with classpath.",
+    "naturalId": "localhost:source.txt"
+  },
+  "3": {
+    "fileName": "result.string",
+    "fileKey": "result.string",
+    "filePath": "src/test/resources/output/persistedobjects",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "result.string",
+    "description": "Saving content",
+    "naturalId": "result.string"
+  },
+  "4": {
+    "fileName": "resultWithMapPath.string",
+    "fileKey": "resultWithMapPath.string",
+    "filePath": "src/test/resources/output/persistedobjects",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "resultWithMapPath.string",
+    "description": "Saving content this is true",
+    "naturalId": "resultWithMapPath.string"
+  },
+  "5": {
+    "fileName": "input/csv/source.csv",
+    "fileKey": "source.csv",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "source.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "naturalId": "source.csv"
+  },
+  "6": {
+    "fileName": "input/file/source.txt",
+    "fileKey": "source.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "source.txt",
+    "description": "Local 'source.txt' definition.",
+    "naturalId": "source.txt"
+  },
+  "7": {
+    "fileName": "input/file/source.txt",
+    "fileKey": "sourceCached.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": "true",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "sourceCached.txt",
+    "description": "Local 'source.txt' definition.",
+    "naturalId": "sourceCached.txt"
+  },
+  "8": {
+    "fileName": "target.csv",
+    "fileKey": "target.csv",
+    "filePath": "$[TMP]/elastic-objects",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "target.csv",
+    "description": "A sample target csv file with tmp placeholder.",
+    "naturalId": "target.csv"
+  },
+  "9": {
+    "fileName": "target.txt",
+    "fileKey": "target.txt",
+    "filePath": "$[TMP]/elastic-objects",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "target.txt",
+    "description": "Target file definition",
+    "naturalId": "target.txt"
+  },
+  "10": {
+    "fileName": "fileName",
+    "fileKey": "test:test",
+    "filePath": "path",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "anonym",
+      "write": "guest",
+      "create": "testRoleCreate,admin",
+      "delete": "admin",
+      "execute": "superadmin"
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "test:test",
+    "description": "description",
+    "naturalId": "test:test"
+  },
+  "11": {
+    "fileName": "input/file/source.txt",
+    "fileKey": "test_source.txt",
+    "filePath": "classpath/test",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "test_source.txt",
+    "description": "source.txt on a path",
+    "naturalId": "test_source.txt"
+  }
+}

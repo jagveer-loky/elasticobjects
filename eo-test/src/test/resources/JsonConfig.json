@@ -8,7 +8,7 @@
     "filePath": "input/calls/content-example",
     "description": "Calls templates."
   },
-  "ContentExample": {
+  "ContentExampleData": {
     "module": "elastic-objects",
     "subModule": "test",
     "naturalId": "ContentExampleData",

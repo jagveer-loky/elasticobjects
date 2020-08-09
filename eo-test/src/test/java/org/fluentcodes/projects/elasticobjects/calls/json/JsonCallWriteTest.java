@@ -2,8 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.json;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
-import org.junit.Assert;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;

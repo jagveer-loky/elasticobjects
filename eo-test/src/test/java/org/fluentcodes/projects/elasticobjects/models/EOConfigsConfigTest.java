@@ -3,13 +3,11 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -43,16 +41,6 @@ public class EOConfigsConfigTest {
         }
     }
 
-    @Test
-    public void testDevBT_Exception()  {
-        try {
-            ModelInterface model = ProviderRootDev.EO_CONFIGS.findModel(BasicTest.class);
-            Assert.fail("Should throw EoException since BasicTest is not in the cache");
-        }
-        catch(EoException e) {
-            LOG.info(e.getMessage());
-        }
-    }
 
     @Test
     public void checkConfigsCacheWithST()  {

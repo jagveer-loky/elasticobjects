@@ -1,5 +1,4 @@
 {
-  "_data": {
     "testString": "test",
     "(Integer)testInt": 1,
     "testLong": 2,
@@ -42,5 +41,4 @@
         "testString": "test"
       }
     }
-  }
 }

@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallRead;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,8 +25,8 @@ public class FileCallReadTest {
     }
 
     @Test
-    public void givenTestProvider_whenGetModelConfigParameters_thenXpected()  {
-        ConfigChecks.compareConfigModel(JsonCallRead.class);
+    public void whenCompareConfigurations_thenXpected()  {
+        ConfigChecks.findModelAndCompare(JsonCallRead.class);
     }
 
     @Test

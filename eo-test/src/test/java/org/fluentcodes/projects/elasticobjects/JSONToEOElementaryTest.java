@@ -3,14 +3,13 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
-import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
@@ -96,33 +95,27 @@ public class JSONToEOElementaryTest {
     }
 
     @Test
-    public void exceptionMap_Key_NoEndQuote() {
-        try {
-            ProviderRootTest.createEo("{\"k:\"v\"}");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon after map k!");
-        } catch (Exception e) {
-            Assert.assertTrue("Unexpected Exception message: " + e.getMessage(),
-                    e.getMessage().contains("Expected ':' in the map after the k"));
-        }
+    public void givenKeyNoEndQuote_thenExceptionThrown() {
+        Assertions
+                .assertThatThrownBy(()->{ProviderRootTest.createEo("{\"k:\"v\"}");})
+                .isInstanceOf(EoException.class)
+                .hasMessage("Unterminated string cause of an escaped carriage return in a character: 'k:'.");
     }
 
     @Test
-    public void exceptionMap_Key_NoStartQuote() {
-        try {
-            ProviderRootTest.createEo("{k\":\"v\"}");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon after map k!");
-        } catch (Exception e) {
-            LOG.info(e.getMessage());
-            Assert.assertTrue("Unexpected Exception message: " + e.getMessage(),
-                    e.getMessage().contains("Expected ':' in the map after the k"));
-        }
+    public void givenNoStartQuote_thenExceptionThrown() {
+        Assertions
+                .assertThatThrownBy(()->{ProviderRootTest.createEo("{k\":\"v\"}");})
+                .isInstanceOf(EoException.class)
+                .hasMessage("Expected colon not found but ':': mapObject: 4: {k\":====v\"}");
     }
 
     @Test
-    public void stringNotQuoted_setValue()  {
-        EO adapter = ProviderRootTest.createEo("{\"string\":test}");
-        Assert.assertEquals(S_STRING, adapter.get(S_TEST_STRING));
-        Assert.assertEquals(S_STRING, ((Map) adapter.get()).get(S_TEST_STRING));
+    public void givenStringNotQuoted_throwException()  {
+        Assertions
+                .assertThatThrownBy(()->{ProviderRootTest.createEo("{\"string\":test}");})
+                .isInstanceOf(EoException.class)
+                .hasMessage("Could not transform non quoted value 'test'.");
     }
 
     @Test
@@ -147,16 +140,11 @@ public class JSONToEOElementaryTest {
     }
 
     @Test
-    public void exceptionList_NoColon() {
-        try {
-            EO adapter = ProviderRootDev.createEo("[test]");
-            Assert.assertEquals(S_STRING, adapter.get(S0));
-            Assert.assertEquals(S_STRING, ((List) adapter.get()).get(0));
-            //Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon within list!");
-        } catch (Exception e) {
-            Assert.assertTrue("Unexpected Exception message: " + e.getMessage(),
-                    e.getMessage().contains("Expected  ',' or ']' within list v:"));
-        }
+    public void givenListWithStringWithNoColon_ThenExceptionThrown() {
+        Assertions
+                .assertThatThrownBy(()->{ProviderRootDev.createEo("[test]");})
+                .isInstanceOf(EoException.class)
+                .hasMessage("Could not transform non quoted value 'test'.");
     }
 
     @Test
@@ -191,14 +179,11 @@ public class JSONToEOElementaryTest {
     }
 
     @Test
-    public void ListWrongStartValues_fails() {
-        try {
-            ProviderRootDev.createEo("\"k\",[\"v\":2]");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon within list!");
-        } catch (Exception e) {
-            Assert.assertTrue("Unexpected Exception message: " + e.getMessage(),
-                    e.getMessage().contains("Scalar value with no name"));
-        }
+    public void givenNoObjectCharacter_thenMappedAsString() {
+        EO eo = ProviderRootDev.createEo("\"k\",[\"v\":2]");
+        Assertions
+                .assertThat(eo.get())
+                .isEqualTo("\"k\",[\"v\":2]");
     }
 
 }

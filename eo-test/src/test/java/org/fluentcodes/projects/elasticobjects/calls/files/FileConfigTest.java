@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.models.*;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,9 +25,25 @@ public class FileConfigTest {
     }
 
     @Test
+    public void givenModel_whenCompare_thenEqual()  {
+        ConfigChecks.findModelAndCompare(FileConfig.class);
+    }
+
+    @Test
     public void givenConfigEntries_whenResolve_thenNoErrors()  {
         ConfigChecks.resolveConfigs(FileConfig.class);
     }
+
+    @Test
+    public void whenResolveConfigEntries_thenNoError()  {
+        ConfigChecks.resolveConfigEntries(FileConfig.class);
+    }
+
+    @Test
+    public void whenCompareConfigurations_thenEqual()  {
+        ConfigChecks.compareConfigurations(FileConfig.class);
+    }
+
 
     @Test
     public void testfindSourceTxt()  {
@@ -44,16 +60,5 @@ public class FileConfigTest {
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_SOURCE_TXT));
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_RESULT_STRING));
     }
-
-    @Test
-    public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(FileConfig.class);
-    }
-
-    @Test
-    public void whenCompareConfigurations_thenEqual()  {
-        ConfigChecks.compareConfigurations(FileConfig.class);
-    }
-
 }
 

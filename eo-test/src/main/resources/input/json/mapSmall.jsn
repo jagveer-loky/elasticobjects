@@ -1,6 +1,1 @@
-{
-  "_data": {
-    "testString": "test",
-    "(Integer)testInt": 1
-  }
-}
+{"testString": "test", "testInt": 1}

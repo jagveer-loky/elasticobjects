@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,0 +1,50 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
+    "modelKey": "ConfigCall",
+    "superKey": "ConfigKeysCall",
+    "(ArrayList)fieldKeys": {
+      "0": "filterModule",
+      "1": "filterSubModule",
+      "2": "configType",
+      "3": "configFilter",
+      "4": "sourcePath",
+      "5": "targetPath",
+      "6": "locationPath",
+      "7": "models",
+      "8": "filterPath",
+      "9": "condition",
+      "10": "overwrite",
+      "11": "logLevel",
+      "12": "duration",
+      "13": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CALL",
+      "create": "true",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "configs",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "ConfigCall",
+    "description": "For getting a map of configurations for a specific configuration type.",
+    "naturalId": "ConfigCall",
+    "author": "Werner Diwischek"
+  }
+}

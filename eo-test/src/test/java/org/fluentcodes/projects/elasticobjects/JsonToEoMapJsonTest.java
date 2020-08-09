@@ -5,9 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.junit.Assert;
 import org.junit.Test;
 

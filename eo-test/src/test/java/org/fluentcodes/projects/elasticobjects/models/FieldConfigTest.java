@@ -4,9 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.junit.Assert;
@@ -22,15 +21,29 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class FieldConfigTest {
 
-
     @Test
     public void givenModel_whenCreate_thenThrowsException()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(FieldConfig.class);
+        ConfigChecks.findModelAndCreateInstanceExceptionThrown(FileConfig.class);
+    }
+
+    @Test
+    public void givenModel_whenCompare_thenEqual()  {
+        ConfigChecks.findModelAndCompare(FileConfig.class);
     }
 
     @Test
     public void givenConfigEntries_whenResolve_thenNoErrors()  {
-        ConfigChecks.resolveConfigs(FieldConfig.class);
+        ConfigChecks.resolveConfigs(FileConfig.class);
+    }
+
+    @Test
+    public void whenResolveConfigEntries_thenNoError()  {
+        ConfigChecks.resolveConfigEntries(FileConfig.class);
+    }
+
+    @Test
+    public void whenCompareConfigurations_thenEqual()  {
+        ConfigChecks.compareConfigurations(FileConfig.class);
     }
 
     @Test
@@ -39,14 +52,6 @@ public class FieldConfigTest {
         call.setConfigType(FieldConfig.class.getSimpleName());
         call.setConfigFilter("naturalId");
         List<String> result = call.execute(ProviderRootTest.createEo());
-        Assertions.assertThat(result.size()).isEqualTo(1);
-    }
-
-    @Test
-    public void givenConfigCallWithFieldKeysDevEo_whenExecuteCall_thenListIsReturned() {
-        ConfigKeysCall call = new ConfigKeysCall();
-        call.setConfigType(FieldConfig.class.getSimpleName());
-        List<String> result = call.execute(ProviderRootDev.createEo());
         Assertions.assertThat(result.size()).isEqualTo(1);
     }
 
@@ -66,48 +71,11 @@ public class FieldConfigTest {
     }
 
     @Test
-    public void givenEoWithTemplateWithConfigKeyListCallAndConfigFilterNaturalId_whenExecuteEo_thenTemplateResultContainsNaturalId()  {
-        final TemplateCall call = new TemplateCall();
-        final String template = "Load model configuration key list: " +
-                "$[(ConfigKeyListCall)fieldKey\" " +
-                "configType=\"ModelConfig\" " +
-                "configFilter=\"FieldConfig\" " +
-                "inTemplate=\"true\"/]";
-        call.setContent(template);
-
-        EO eo = ProviderRootTest.createEo();
-        eo.addCall(call);
-        eo.execute();
-
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get("_template")).isEqualTo("Load model configuration key list: [FieldConfig]");
-    }
-
-    @Test
     public void findFieldConfigInModelCache()  {
         final ModelInterface fieldModel = ProviderRootTest.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
         Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
         Assert.assertEquals(FieldConfig.class, fieldModel.getModelClass());
     }
-
-    @Test
-    public void testFieldFromClassPath_Found()  {
-        EOConfigsCache cache = ProviderRootTest.EO_CONFIGS;
-        FieldConfig field = cache.findField("ClassTest.id");
-        Assert.assertNotNull(field);
-        Assert.assertEquals("ClassTest.id", field.getNaturalId());
-        Assert.assertEquals("id", field.getKey());
-    }
-
-    @Test
-    public void testConfigMap()  {
-        EOConfigMapFields map = new EOConfigMapFields(ProviderRootTest.EO_CONFIGS);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
-        Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(F_ID_KEY));
-        Assert.assertTrue(map.hasKey(F_MODEL_KEYS));
-    }
-
 
     @Test
     public void getId()  {

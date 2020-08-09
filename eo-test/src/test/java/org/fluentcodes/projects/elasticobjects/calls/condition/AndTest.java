@@ -1,7 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -84,17 +85,19 @@ public class AndTest {
                 condition.filter(adapter));
     }
 
+
+
     @Test
     public void filterRow()  {
-        List list = List.of(S_STRING, S_STRING_OTHER, null, S_KEY0, S_INTEGER);
+        List row = ProviderListJson.JSON_FILTER.createList();
         And condition = new And(toLike(S0, S_STRING));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(0),
-                condition.filter(list));
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(0),
+                condition.filter(row));
         condition = new And(toLike(S3, S_STRING));
-        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + list.get(3),
-                condition.filter(list));
+        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + row.get(3),
+                condition.filter(row));
         condition = new And(toLike(S4, S_INTEGER.toString()));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(4),
-                condition.filter(list));
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(4),
+                condition.filter(row));
     }
 }

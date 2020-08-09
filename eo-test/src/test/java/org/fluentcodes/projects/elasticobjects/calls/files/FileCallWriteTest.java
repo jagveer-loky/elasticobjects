@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Test;
 
 /**

@@ -1,0 +1,28 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.assets.byclass",
+    "modelKey": "SubClass",
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "BEAN",
+      "create": "false",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "(ArrayList)scope": {
+    },
+    "key": "SubClass",
+    "naturalId": "SubClass"
+  }
+}
