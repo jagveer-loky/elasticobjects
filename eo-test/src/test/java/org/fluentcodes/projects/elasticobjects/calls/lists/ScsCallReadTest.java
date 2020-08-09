@@ -64,7 +64,7 @@ public class ScsCallReadTest {
         Assertions.assertThat(eo.getEo("0").get("key1")).isEqualTo("value21");
         Assertions.assertThatThrownBy(() -> { eo.getEo("1");})
                 .isInstanceOf(Exception.class)
-                .hasMessageContaining("Could not find entry for 1");
+                .hasMessageContaining("Could not find entry for '1'.");
     }
 
     @Test
@@ -78,7 +78,7 @@ public class ScsCallReadTest {
         Assertions.assertThat(eo.getEo("0").get("key1")).isEqualTo("value11");
         Assertions.assertThatThrownBy(() -> { eo.getEo("1");})
                 .isInstanceOf(Exception.class)
-                .hasMessageContaining("Could not find entry for 1");
+                .hasMessageContaining("Could not find entry for '1'.");
     }
 
     @Test

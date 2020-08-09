@@ -84,7 +84,6 @@ public class FileCallReadTest {
         eo.setRoles(R_ANONYM);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isNotEmpty();
-        Assert.assertNull(INFO_NULL_FAILS, eo.get(F_CONTENT));
     }
 
     @Test

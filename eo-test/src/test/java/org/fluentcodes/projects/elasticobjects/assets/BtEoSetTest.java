@@ -199,16 +199,6 @@ public class BtEoSetTest {
     }
 
     @Test
-    public void givenBT_whenSetPathNotExisting_hasLog()  {
-        final EO root = ProviderRootTest.createEo();
-        root.set("testObject", "(BasicTest)test","testString");
-        root.set(1, "test", "nonsense");
-        Assert.assertNull(root.get("test","nonsense"));
-        Assertions.assertThat(root.getLog()).isNotEmpty();
-        Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
-    }
-
-    @Test
     public void givenTestEmpty_whenSetEmptytestBTByPathWithEmpty_ok()  {
         final EO root = ProviderRootTest.createEo();
         root.setEmpty("(BasicTest)test");

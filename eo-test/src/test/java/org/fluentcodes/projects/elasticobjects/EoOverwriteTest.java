@@ -36,7 +36,6 @@ public class EoOverwriteTest {
         root.overWrite( map, S_LEVEL0,S_LEVEL1,S_LEVEL2);
 
         Assert.assertEquals(HashMap.class, root.getEo(S_LEVEL0,S_LEVEL1,S_LEVEL2).getModelClass());
-        Assert.assertNull(root.get(S_LEVEL0,S_LEVEL1,S_LEVEL2,  F_TEST_STRING));
         Assert.assertEquals(S_STRING, root.get(S_LEVEL0,S_LEVEL1,S_LEVEL2, S_KEY1));
     }
 }

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
@@ -47,18 +48,11 @@ public class EOElementaryTest {
 
     }
 
-    /**
-     * Error handling getting non existent path.
-     *
-     * @
-     */
     @Test
-    public void errorNonExistingPath()  {
-        
+    public void givenEoEmpy_whenGetNonExistingPath_thenExceptionThrown()  {
         EO eo = ProviderRootTest.createEo(Map.class);
-        Object notExisting = eo.get(S_LEVEL0, SAMPLE_KEY_UNKNOW);
-        Assert.assertNull(notExisting);
-        Assert.assertTrue(INFO_LOG_EMPTY_FAILS, eo.getLog().isEmpty());
+        Assertions.assertThatThrownBy(()->{eo.get(S_LEVEL0);})
+                .hasMessage("Path level0 undefined: Could not find entry for 'level0'.");
     }
 }
 

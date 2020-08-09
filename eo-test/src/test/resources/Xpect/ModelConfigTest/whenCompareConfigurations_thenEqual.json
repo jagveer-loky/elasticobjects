@@ -1698,35 +1698,6 @@
   },
   "47": {
     "packagePath": "org.fluentcodes.projects.elasticobjects",
-    "modelKey": "LoggingObjectsImpl",
-    "eoParams": {
-      "(ArrayList)scope": {
-        "0": "ALL"
-      },
-      "shapeType": "INSTANCE",
-      "create": "true",
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "packageGroup": "eo",
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "LoggingObjectsImpl",
-    "description": "The embedded logging object for EO adapter.",
-    "naturalId": "LoggingObjectsImpl",
-    "author": "Werner Diwischek"
-  },
-  "48": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects",
     "modelKey": "LogLevel",
     "(ArrayList)fieldKeys": {
     },
@@ -1742,7 +1713,7 @@
     "key": "LogLevel",
     "naturalId": "LogLevel"
   },
-  "49": {
+  "48": {
     "packagePath": "java.lang",
     "modelKey": "Long",
     "(ArrayList)fieldKeys": {
@@ -1768,9 +1739,13 @@
     "key": "Long",
     "naturalId": "Long"
   },
-  "50": {
+  "49": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets.byclass",
     "modelKey": "MainClass",
+    "(ArrayList)fieldKeys": {
+      "0": "MainClass.id",
+      "1": "MainClass.subClass"
+    },
     "eoParams": {
       "(ArrayList)scope": {
         "0": "ALL"
@@ -1792,7 +1767,7 @@
     "key": "MainClass",
     "naturalId": "MainClass"
   },
-  "51": {
+  "50": {
     "packagePath": "java.util",
     "modelKey": "Map",
     "(ArrayList)fieldKeys": {
@@ -1819,7 +1794,7 @@
     "key": "Map",
     "naturalId": "Map"
   },
-  "52": {
+  "51": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Model",
     "(ArrayList)fieldKeys": {
@@ -1856,7 +1831,7 @@
     "naturalId": "Model",
     "author": "Werner Diwischek"
   },
-  "53": {
+  "52": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfig",
     "superKey": "ConfigImpl",
@@ -1908,7 +1883,7 @@
     "naturalId": "ModelConfig",
     "author": "Werner Diwischek"
   },
-  "54": {
+  "53": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigList",
     "superKey": "ModelConfig",
@@ -1959,7 +1934,7 @@
     "naturalId": "ModelConfigList",
     "author": "Werner Diwischek"
   },
-  "55": {
+  "54": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigMap",
     "superKey": "ModelConfig",
@@ -2010,7 +1985,7 @@
     "naturalId": "ModelConfigMap",
     "author": "Werner Diwischek"
   },
-  "56": {
+  "55": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigNone",
     "superKey": "ModelConfig",
@@ -2061,7 +2036,7 @@
     "naturalId": "ModelConfigNone",
     "author": "Werner Diwischek"
   },
-  "57": {
+  "56": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigObject",
     "superKey": "ModelConfig",
@@ -2112,7 +2087,7 @@
     "naturalId": "ModelConfigObject",
     "author": "Werner Diwischek"
   },
-  "58": {
+  "57": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigScalar",
     "superKey": "ModelConfig",
@@ -2163,7 +2138,7 @@
     "naturalId": "ModelConfigScalar",
     "author": "Werner Diwischek"
   },
-  "59": {
+  "58": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigSet",
     "superKey": "ModelConfig",
@@ -2214,7 +2189,7 @@
     "naturalId": "ModelConfigSet",
     "author": "Werner Diwischek"
   },
-  "60": {
+  "59": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelImpl",
     "interfaces": "Model",
@@ -2251,7 +2226,7 @@
     "naturalId": "ModelImpl",
     "author": "Werner Diwischek"
   },
-  "61": {
+  "60": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelInterface",
     "superKey": "Config",
@@ -2281,7 +2256,7 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "true",
+      "create": "false",
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
@@ -2302,7 +2277,7 @@
     "naturalId": "ModelInterface",
     "author": "Werner Diwischek"
   },
-  "62": {
+  "61": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Models",
     "(ArrayList)fieldKeys": {
@@ -2334,7 +2309,7 @@
     "naturalId": "Models",
     "author": "Werner Diwischek"
   },
-  "63": {
+  "62": {
     "packagePath": "java.lang",
     "modelKey": "Object",
     "(ArrayList)fieldKeys": {
@@ -2363,7 +2338,7 @@
     "naturalId": "Object",
     "author": "java"
   },
-  "64": {
+  "63": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Or",
     "(ArrayList)fieldKeys": {
@@ -2394,36 +2369,7 @@
     "naturalId": "Or",
     "author": "Werner Diwischek"
   },
-  "65": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "Password",
-    "eoParams": {
-      "(ArrayList)scope": {
-        "0": "ALL"
-      },
-      "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "packageGroup": "models",
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "Password",
-    "description": "A password will be escaped when serialized",
-    "naturalId": "Password",
-    "author": "Werner Diwischek"
-  },
-  "66": {
+  "64": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.paths",
     "modelKey": "Path",
     "(ArrayList)fieldKeys": {
@@ -2455,7 +2401,7 @@
     "naturalId": "Path",
     "author": "Werner Diwischek"
   },
-  "67": {
+  "65": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.paths",
     "modelKey": "PathPattern",
     "(ArrayList)fieldKeys": {
@@ -2487,7 +2433,7 @@
     "naturalId": "PathPattern",
     "author": "Werner Diwischek"
   },
-  "68": {
+  "66": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "RolePermissions",
     "(ArrayList)fieldKeys": {
@@ -2523,7 +2469,7 @@
     "naturalId": "RolePermissions",
     "author": "Werner Diwischek"
   },
-  "69": {
+  "67": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Scope",
     "(ArrayList)fieldKeys": {
@@ -2554,7 +2500,7 @@
     "naturalId": "Scope",
     "author": "Werner Diwischek"
   },
-  "70": {
+  "68": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ScsCallRead",
     "superKey": "ListCallRead",
@@ -2601,7 +2547,7 @@
     "naturalId": "ScsCallRead",
     "author": "Werner Diwischek"
   },
-  "71": {
+  "69": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ScsConfig",
     "superKey": "ListConfig",
@@ -2647,7 +2593,7 @@
     "naturalId": "ScsConfig",
     "author": "Werner Diwischek"
   },
-  "72": {
+  "70": {
     "packagePath": "java.util",
     "modelKey": "Set",
     "(ArrayList)fieldKeys": {
@@ -2677,7 +2623,7 @@
     "naturalId": "Set",
     "author": "java"
   },
-  "73": {
+  "71": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ShapeTypes",
     "(ArrayList)fieldKeys": {
@@ -2708,7 +2654,7 @@
     "naturalId": "ShapeTypes",
     "author": "Werner Diwischek"
   },
-  "74": {
+  "72": {
     "packagePath": "java.lang",
     "modelKey": "Short",
     "(ArrayList)fieldKeys": {
@@ -2737,7 +2683,7 @@
     "naturalId": "Short",
     "author": "java"
   },
-  "75": {
+  "73": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "SimpleValueFromEoCall",
     "superKey": "CallImpl",
@@ -2779,7 +2725,7 @@
     "naturalId": "SimpleValueFromEoCall",
     "author": "Werner Diwischek"
   },
-  "76": {
+  "74": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "SinusValueCall",
     "superKey": "CallImpl",
@@ -2821,7 +2767,7 @@
     "naturalId": "SinusValueCall",
     "author": "Werner Diwischek"
   },
-  "77": {
+  "75": {
     "packagePath": "java.lang",
     "modelKey": "String",
     "(ArrayList)fieldKeys": {
@@ -2847,7 +2793,7 @@
     "key": "String",
     "naturalId": "String"
   },
-  "78": {
+  "76": {
     "packagePath": "java.lang",
     "modelKey": "StringBuffer",
     "(ArrayList)fieldKeys": {
@@ -2876,7 +2822,7 @@
     "naturalId": "StringBuffer",
     "author": "java"
   },
-  "79": {
+  "77": {
     "packagePath": "java.lang",
     "modelKey": "StringBuilder",
     "(ArrayList)fieldKeys": {
@@ -2905,7 +2851,7 @@
     "naturalId": "StringBuilder",
     "author": "java"
   },
-  "80": {
+  "78": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringLowerCall",
     "superKey": "SimpleValueFromEoCall",
@@ -2947,7 +2893,7 @@
     "naturalId": "StringLowerCall",
     "author": "Werner Diwischek"
   },
-  "81": {
+  "79": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringUpperCall",
     "superKey": "SimpleValueFromEoCall",
@@ -2989,7 +2935,7 @@
     "naturalId": "StringUpperCall",
     "author": "Werner Diwischek"
   },
-  "82": {
+  "80": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringUpperFirstCharCall",
     "superKey": "SimpleValueFromEoCall",
@@ -3031,9 +2977,12 @@
     "naturalId": "StringUpperFirstCharCall",
     "author": "Werner Diwischek"
   },
-  "83": {
+  "81": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets.byclass",
     "modelKey": "SubClass",
+    "(ArrayList)fieldKeys": {
+      "0": "SubClass.value"
+    },
     "eoParams": {
       "(ArrayList)scope": {
         "0": "ALL"
@@ -3055,7 +3004,7 @@
     "key": "SubClass",
     "naturalId": "SubClass"
   },
-  "84": {
+  "82": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
     "modelKey": "SubTest",
     "(ArrayList)fieldKeys": {
@@ -3089,7 +3038,7 @@
     "naturalId": "SubTest",
     "author": "Werner Diwischek"
   },
-  "85": {
+  "83": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateCall",
     "superKey": "CallImpl",
@@ -3134,7 +3083,7 @@
     "naturalId": "TemplateCall",
     "author": "Werner Diwischek"
   },
-  "86": {
+  "84": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateConfig",
     "superKey": "FileConfig",
@@ -3183,7 +3132,7 @@
     "naturalId": "TemplateConfig",
     "author": "Werner Diwischek"
   },
-  "87": {
+  "85": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
     "superKey": "FileCallRead",
@@ -3229,7 +3178,7 @@
     "naturalId": "TemplateResourceCall",
     "author": "Werner Diwischek"
   },
-  "88": {
+  "86": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "ValueCall",
     "superKey": "CallImpl",
@@ -3272,7 +3221,7 @@
     "naturalId": "ValueCall",
     "author": "Werner Diwischek"
   },
-  "89": {
+  "87": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ViewFieldParams",
     "(ArrayList)fieldKeys": {
@@ -3305,7 +3254,7 @@
     "naturalId": "ViewFieldParams",
     "author": "Werner Diwischek"
   },
-  "90": {
+  "88": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ViewParams",
     "(ArrayList)fieldKeys": {
