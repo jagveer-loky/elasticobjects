@@ -1,8 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.fluentcodes.projects.elasticobjects.models.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,27 +10,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.H_TEST;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by Werner on 11.10.2016.
  */
 public class HostConfigTest {
-
     @Test
     public void givenModel_whenCreate_thenThrowsException()  {
-        final ModelConfig model = ProviderRootTest
-                .EO_CONFIGS
-                .findModel(HostConfig.class);
-        Assert.assertEquals(HostConfig.class, model.getModelClass());
-        Assertions
-                .assertThatThrownBy(
-                        () -> { model.create();})
-                .isInstanceOf(EoException.class)
-                .hasMessageContaining("Could not create empty instance from model for 'HostConfig'");
-        Assertions.assertThat(model.getFieldKeys()).isNotEmpty();
+        ConfigChecks.findModelAndCreateInstanceExceptionThrown(HostConfig.class);
     }
+
+    @Test
+    public void givenModel_whenCompare_thenEqual()  {
+        ConfigChecks.findModelAndCompare(HostConfig.class);
+    }
+
+    @Test
+    public void givenConfigEntries_whenResolve_thenNoErrors()  {
+        ConfigChecks.resolveConfigs(HostConfig.class);
+    }
+
+    @Test
+    public void whenResolveConfigEntries_thenNoError()  {
+        ConfigChecks.resolveConfigEntries(HostConfig.class);
+    }
+
+    @Test
+    public void whenCompareConfigurations_thenEqual()  {
+        ConfigChecks.compareConfigurations(HostConfig.class);
+    }
+
 
     @Test
     public void byAdapterPermissions()  {
@@ -40,47 +49,7 @@ public class HostConfigTest {
     }
 
     @Test
-    public void testReadConfig()  {
-        
-        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, HostConfig.class);
-        Assert.assertNotNull(map);
-        Assert.assertFalse(map.isEmpty());
-    }
-
-    @Test
-    public void withHostKeyTest()  {
-        final HostConfig config = (HostConfig) ProviderRootTest.EO_CONFIGS.find(HostConfig.class, H_TEST);
-        Assert.assertEquals(Model.DESCRIPTION, config.getDescription());
-
-        Assert.assertEquals(F_HOST_KEY, config.getHostKey());
-        Assert.assertEquals(F_HOST_NAME, config.getHostName());
-
-        Assert.assertEquals(F_PASSWORD, config.getPassword());
-        Assert.assertEquals(new Integer(1), config.getPort());
-        Assert.assertEquals(F_PROTOCOL, config.getProtocol());
-        Assert.assertEquals(F_USER, config.getUser());
-        Assert.assertEquals(F_PROTOCOL + "://" + F_HOST_NAME + ":" + S_INTEGER, config.getUrlPath());
-
-        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_READ, R_GUEST), config.getRolePermissions().getRead());
-        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_WRITE, R_ADMIN), config.getRolePermissions().getWrite());
-        Assert.assertEquals(join(CON_COMMA, R_TEST_ROLE_CREATE, R_ADMIN), config.getRolePermissions().getCreate());
-        Assert.assertEquals(R_ADMIN, config.getRolePermissions().getDelete());
-        Assert.assertEquals(R_SUPER_ADMIN, config.getRolePermissions().getExecute());
-        Assert.assertEquals(PermissionType.READ, config.getPermissions(R_TEST_ROLE_READ));
-        Assert.assertEquals(PermissionType.WRITE, config.getPermissions(R_TEST_ROLE_WRITE));
-        Assert.assertEquals(PermissionType.CREATE, config.getPermissions(R_TEST_ROLE_CREATE));
-        Assert.assertEquals(PermissionType.DELETE, config.getPermissions(R_ADMIN));
-        Assert.assertEquals(PermissionType.EXECUTE, config.getPermissions(R_SUPER_ADMIN));
-        Assert.assertEquals(PermissionType.READ, config.getPermissions(R_GUEST));
-        Assert.assertEquals(PermissionType.NOTHING, config.getPermissions(R_ANONYM));
-
-        //AssertEO.compare(TRootTestProvider.EO_CONFIGS, config);
-
-    }
-
-    @Test
     public void createWithBean()  {
-        
         Map<String, Object> map = new HashMap<>();
         map.put(F_HOST_NAME, H_LOCALHOST);
         map.put(F_HOST_KEY, F_HOST_KEY);
@@ -94,13 +63,7 @@ public class HostConfigTest {
     }
 
     @Test
-    public void getLocalHost()  {
-        HostConfig cache = (HostConfig) ProviderRootTest.EO_CONFIGS.find(HostConfig.class, H_LOCALHOST);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, cache.getDescription());
-    }
-
-    @Test
-    public void testHostConfig()  {
+    public void givenConfigMapHost_whenNew_thenEntryFromFiles()  {
         EOConfigMap cache = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, HostConfig.class);
         Assert.assertNotNull(cache.find(H_LOCALHOST));
     }

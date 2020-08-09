@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 import org.junit.Test;
 
 import java.util.List;
@@ -24,11 +24,19 @@ public class EoSetListTest {
     }
 
     @Test
-    public void givenList123Dev_hasIntegerValues()  {
+    public void givenListDouble123Dev_hasDoubleValues()  {
         final EO eo = ProviderMapJson.LIST_DOUBLE123.createMapEo();
+        Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
+        Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Double.class);
+    }
+
+    @Test
+    public void givenList123_hasIntegerValues()  {
+        final EO eo = ProviderMapJson.LIST_123.createMapEo();
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Integer.class);
     }
+
     @Test
     public void givenList123Test_hasDoubleValues()  {
         final EO eo = ProviderMapJsn.LIST_DOUBLE123.createMapEo();

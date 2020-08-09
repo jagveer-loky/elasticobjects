@@ -1,9 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,8 +18,7 @@ public class ModelConfigNoneTest {
         Assert.assertFalse(model.isMap());
         Assert.assertFalse(model.isSet());
         Assert.assertFalse(model.isList());
-        Assert.assertFalse(model.isScalar());
+        Assert.assertTrue(model.isScalar());
         Assert.assertFalse(model.isObject());
-        String stringified = model.toString();
     }
 }

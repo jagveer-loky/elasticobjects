@@ -1,7 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -53,16 +54,16 @@ public class OrTest {
 
     @Test
     public void filterRow() {
-        List list = List.of(S_KEY0, S_KEY1, null, S_KEY2, S_INTEGER);
-        Or condition = new Or(toLike(S0, S_KEY));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(0),
-                condition.filter(list));
+        List row = ProviderListJson.JSON_FILTER.createList();
+        Or condition = new Or(toLike(S0, S_STRING));
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(0),
+                condition.filter(row));
         condition = new Or(toLike(S2, S_KEY2));
-        Assert.assertFalse(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(2),
-                condition.filter(list));
+        Assert.assertFalse(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(2),
+                condition.filter(row));
         condition = new Or(toLike(S4, S1));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + list.get(4),
-                condition.filter(list));
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(4),
+                condition.filter(row));
     }
 
 }

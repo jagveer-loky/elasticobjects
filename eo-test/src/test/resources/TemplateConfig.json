@@ -1,26 +1,34 @@
 {
-  "ContentExampleWithStaticTemplate": {
+  "ContentExampleStatic": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "ContentExampleWithStaticTemplate",
-    "templateKey": "ContentExampleWithStaticTemplate",
-    "fileName": "ContentExampleWithStaticTemplate.tpl",
+    "naturalId": "ContentExampleStatic",
+    "templateKey": "ContentExampleStatic",
+    "fileName": "ContentExampleStatic.tpl",
     "filePath": "input/calls/content-example"
   },
-  "ContentExampleWithKeep": {
+  "ContentExampleStaticKeep": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "ContentExampleWithKeep",
-    "templateKey": "ContentExampleWithKeep",
-    "fileName": "ContentExampleWithKeep.tpl",
+    "naturalId": "ContentExampleStaticKeep",
+    "templateKey": "ContentExampleStaticKeep",
+    "fileName": "ContentExampleStaticKeep.tpl",
     "filePath": "input/calls/content-example"
   },
-  "ContentExampleWithDynamicTemplate": {
+  "ContentExampleStaticCondition": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "ContentExampleWithDynamicTemplate",
-    "templateKey": "ContentExampleWithDynamicTemplate",
-    "fileName": "ContentExampleWithDynamicTemplate.tpl",
+    "naturalId": "ContentExampleStaticCondition",
+    "templateKey": "ContentExampleStaticCondition",
+    "fileName": "ContentExampleStaticCondition.tpl",
+    "filePath": "input/calls/content-example"
+  },
+  "ContentExampleDynamic": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleDynamic",
+    "templateKey": "ContentExampleDynamic",
+    "fileName": "ContentExampleDynamic.tpl",
     "filePath": "input/calls/content-example"
   },
   "ContentExampleElement1": {

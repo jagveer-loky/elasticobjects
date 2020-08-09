@@ -41,7 +41,7 @@
     "jsonKey": "ContentExample",
     "fileName": "ContentExample.json",
     "fileKey": "ContentExample",
-    "filePath": "input/json",
+    "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": "false",
     "rolePermissions": {
@@ -51,10 +51,27 @@
     "(ArrayList)scope": {
     },
     "key": "ContentExample",
-    "description": "Simple data for the content templates.",
+    "description": "Calls templates.",
     "naturalId": "ContentExample"
   },
   "3": {
+    "jsonKey": "ContentExampleData",
+    "fileName": "ContentExampleData.json",
+    "fileKey": "ContentExampleData",
+    "filePath": "input/calls/content-example",
+    "hostKey": "localhost",
+    "cached": "false",
+    "rolePermissions": {
+    },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(ArrayList)scope": {
+    },
+    "key": "ContentExampleData",
+    "description": "Simple data for the content templates.",
+    "naturalId": "ContentExampleData"
+  },
+  "4": {
     "jsonKey": "ModuleConfig.json",
     "fileName": "ModuleConfig.json",
     "fileKey": "ModuleConfig.json",
@@ -71,7 +88,7 @@
     "description": "Parameter to determine general module parameters.",
     "naturalId": "ModuleConfig.json"
   },
-  "4": {
+  "5": {
     "jsonKey": "SimpleInsertWithPath",
     "fileName": "SimpleInsertWithPath.json",
     "fileKey": "SimpleInsertWithPath",
@@ -88,7 +105,7 @@
     "description": "Simple data for the SimpleInsert templates.",
     "naturalId": "SimpleInsertWithPath"
   },
-  "5": {
+  "6": {
     "jsonKey": "source.json",
     "fileName": "input/json/source.json",
     "fileKey": "source.json",
@@ -107,7 +124,7 @@
     "description": "Simple data for the content templates.",
     "naturalId": "source.json"
   },
-  "6": {
+  "7": {
     "jsonKey": "target.json",
     "fileName": "target.json",
     "fileKey": "target.json",

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Test;
@@ -12,38 +12,38 @@ public class EOToJSONListTest {
     @Test
     public void withDefault()  {
         
-        EO adapter = ProviderListJson.JSON_EMPTY.createEo();
-        String json = new EOToJSON().toJSON(adapter);
+        EO eo = ProviderListJson.JSON_EMPTY.createEo();
+        String json = new EOToJSON().toJSON(eo);
         //AssertEO.compare(json);
     }
 
     @Test
     public void withIndent0()  {
         
-        EO adapter = ProviderListJson.JSON_EMPTY.createEo();
+        EO eo = ProviderListJson.JSON_EMPTY.createEo();
         String json = new EOToJSON()
                 .setStartIndent(0)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(json);
     }
 
     @Test
     public void withIndent1()  {
         
-        EO adapter = ProviderListJson.JSON_EMPTY.createEo();
+        EO eo = ProviderListJson.JSON_EMPTY.createEo();
         String json = new EOToJSON()
                 .setStartIndent(1)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(json);
     }
 
     @Test
     public void withIndent2()  {
         
-        EO adapter = ProviderListJson.JSON_EMPTY.createEo();
+        EO eo = ProviderListJson.JSON_EMPTY.createEo();
         String json = new EOToJSON()
                 .setStartIndent(2)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(json);
     }
 
@@ -55,22 +55,22 @@ public class EOToJSONListTest {
     @Test
     public void withStringScalarTypes()  {
         
-        final EO adapter = ProviderListJson.JSON_STRING.createEo();
+        final EO eo = ProviderListJson.JSON_STRING.createEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
-                .toJSON(adapter);
+                .toJSON(eo);
         new XpectString().compareAsString(stringified);
     }
 
     @Test
     public void withIntegerScalarTypes()  {
         
-        final EO adapter = ProviderListJson.JSON_INT.createEo();
+        final EO eo = ProviderListJson.JSON_INT.createEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
-                .toJSON(adapter);
+                .toJSON(eo);
     }
 
 }

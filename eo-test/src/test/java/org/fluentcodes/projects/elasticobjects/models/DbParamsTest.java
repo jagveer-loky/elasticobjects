@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderConfig;
-import org.fluentcodes.projects.elasticobjects.models.DBParams;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfig;
 import org.junit.Assert;
 import org.junit.Test;
 

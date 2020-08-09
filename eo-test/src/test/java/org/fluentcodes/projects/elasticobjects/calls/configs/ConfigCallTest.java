@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.tools.xpect.XpectEo;
@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
 public class ConfigCallTest {
 
     @Test
-    public void givenCallForModelAndConfigFilterConfigCall_whenExecute_thenXpected() {
+    public void whenCompareConfigurations_thenXpected() {
         ConfigCall call = new ConfigCall(ModelConfig.class,"ConfigCall");
         EO eo = ProviderRootTest.createEo();
         List result = call.execute(eo);

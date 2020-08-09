@@ -4,10 +4,10 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJsn;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderMapJson;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJsn;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -63,7 +63,7 @@ public class JsonToEoMapJsnTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER.longValue(), eo.get(F_TEST_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(F_TEST_INTEGER));
         //AssertEO.compareJSON(eo);
     }
 }

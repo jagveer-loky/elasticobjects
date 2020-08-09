@@ -2,20 +2,18 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigCall;
-import org.fluentcodes.projects.elasticobjects.calls.json.JsonConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.tools.xpect.XpectEo;
-import org.junit.Test;
 
 import java.util.List;
 import java.util.Set;
 
 public class ConfigChecks {
 
-    public static ModelConfig findModelAndCreateInstanceExceptionThrown(final Class<? extends Config> configClass) {
+    public static ModelConfig findModelAndCreateInstanceExceptionThrown(final Class configClass) {
         final ModelConfig model = ProviderRootTest
                 .EO_CONFIGS
                 .findModel(configClass);
@@ -44,14 +42,17 @@ public class ConfigChecks {
     public static Object findModelAndCreateInstance(final Class configClass)  {
         ModelConfig config = ProviderRootTest.EO_CONFIGS.findModel(configClass);
         Assertions.assertThat(config).isNotNull();
-        if (config.isCreate()) {
-            Object instance = config.create();
-            return instance;
+        if (config.isScalar()) {
+            return config.create();
         }
-        throw new EoException("Method expects a create model type");
+        else if (config.isCreate()) {
+            return config.create();
+        }
+
+        throw new EoException("Method expects a create model type " + configClass.getSimpleName());
     }
 
-    public static void compareConfigModel(final Class configClass) {
+    public static void findModelAndCompare(final Class configClass) {
         ConfigCall call = new ConfigCall(ModelConfig.class, configClass.getSimpleName());
         EO eo = ProviderRootTest.createEo();
         List result = call.execute(eo);
@@ -59,7 +60,7 @@ public class ConfigChecks {
         new XpectEo().compareAsString(result);
     }
 
-    public static void compareConfigurations(final Class configClass) {
+    public static void compareConfigurations(final Class<? extends Config> configClass) {
         ConfigCall call = new ConfigCall(configClass,".*");
         EO eo = ProviderRootTest.createEo();
         List result = call.execute(eo);
@@ -67,7 +68,7 @@ public class ConfigChecks {
         new XpectEo().compareAsString(result);
     }
 
-    public static final Object checkField(final Class modelClass, final String fieldKey, final Object value) {
+    public static final Object findModelAndCheck(final Class modelClass, final String fieldKey, final Object value) {
         Object object = ConfigChecks.findModelAndCreateInstance(modelClass);
         ModelConfig model = ProviderRootTest.EO_CONFIGS.findModel(modelClass);
         model.set(fieldKey, object, value);

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 
 import org.junit.Test;
 
@@ -143,7 +143,7 @@ public class EOToJSONMapTest {
         System.out.println("Duration: " + duration + " ms.");
     }
 
-    @Test
+   /* @Test
     public void mapBigAdapter10000()  {
         EO eo = null;//MapProviderEO.createBigEO(100);
         long duration = System.currentTimeMillis();
@@ -153,9 +153,9 @@ public class EOToJSONMapTest {
         duration = System.currentTimeMillis() - duration;
         System.out.println("Duration: " + duration + " ms.");
         //AssertEO.compare(stringified);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void mapBigAdapterUnexpanded10000()  {
         
         EO eo = null;//DevObjectProvider(MapProvider.creatcreateBigAEOUnexpanded(100);
@@ -166,7 +166,7 @@ public class EOToJSONMapTest {
         duration = System.currentTimeMillis() - duration;
         System.out.println("Duration: " + duration + " ms.");
         //AssertEO.compare(stringified);
-    }
+    }*/
 
     @Test
     public void setSameMaps()  {

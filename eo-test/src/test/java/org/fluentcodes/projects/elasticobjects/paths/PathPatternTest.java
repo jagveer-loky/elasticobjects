@@ -3,9 +3,6 @@ package org.fluentcodes.projects.elasticobjects.paths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
-
-import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,7 +30,7 @@ public class PathPatternTest {
         return pattern;
     }
 
-    @Test
+    /*@Test
     public void compareSerialized()  {
         
         final PathPattern pattern = new PathPattern();
@@ -41,18 +38,17 @@ public class PathPatternTest {
         pattern.addPath(Path.ofs(S_LEVEL0, S_LEVEL1));
         new XpectEo<>(ProviderRootTest.EO_CONFIGS).compareAsString(pattern);
         //AssertEO.compare(TRootTestProvider.EO_CONFIGS, pattern);
-    }
+    }*/
 
-    @Test
+   /* @Test
     public void getPathListTest()  {
-        
         final PathPattern pathPattern = createPathPatternExample();
         final PathPattern nextPath = pathPattern.getPathList(S_LEVEL0);
         Assert.assertEquals(new Integer(3), nextPath.size());
         Assert.assertEquals(S_LEVEL1, nextPath.getPath(0).directory(false));
         Assert.assertEquals(S_LEVEL2, nextPath.getPath(1).directory(false));
         Assert.assertEquals(PathElement.MATCHER_ALL, nextPath.getPath(2).directory(false));
-    }
+    }*/
 
     @Test
     public void getFirstPathTest()  {

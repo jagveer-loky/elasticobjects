@@ -1,10 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.models.EOParams;
-import org.fluentcodes.projects.elasticobjects.models.Scope;
-import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderConfig;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfig;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -22,7 +18,7 @@ public class EoParamsTest {
         Assert.assertEquals(F_METHODS, eoParams.getMethods().get(0));
         Assert.assertEquals(F_ATTRIBUTE_LIST, eoParams.getAttributeList().get(0));
         Assert.assertEquals(Scope.ALL, eoParams.getScope().get(0));
-        Assert.assertEquals(Path.DELIMITER + F_PATH_PATTERN, eoParams.getPathPatternAsString());
+        Assert.assertEquals(F_PATH_PATTERN, eoParams.getPathPatternAsString());
     }
 
 }

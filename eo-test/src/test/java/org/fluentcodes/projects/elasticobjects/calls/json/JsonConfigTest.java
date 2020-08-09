@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.json;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
-import org.fluentcodes.projects.elasticobjects.fileprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
 import org.junit.Assert;
 import org.junit.Test;

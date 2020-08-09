@@ -4,7 +4,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.fileprovider.*;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -84,8 +84,9 @@ public class JsonToEoListJsonTest {
         Assertions.assertThat(eo.get(S1)).isEqualTo(S_INTEGER);
     }
 
+    //TODO only calls should be set here.
     @Test
-    public void checkListModel_Calls()  {
+    public void givenListJson_noErrors()  {
         final String toParse = "{\n" +
                 "\"(List)_calls\":\n" +
                 "  {\n" +
@@ -93,8 +94,7 @@ public class JsonToEoListJsonTest {
                 "  }\n" +
                 "}";
         EO eo = ProviderRootTest.createEo(toParse);
-        String log = eo.getLog();
-        Assert.assertFalse(eo.getLog().isEmpty());
+        Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test

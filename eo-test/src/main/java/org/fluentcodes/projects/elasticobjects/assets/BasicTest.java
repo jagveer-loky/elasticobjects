@@ -7,23 +7,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-//<call keep="JAVA" templateKey="BeanImport.tpl" }
-
-//</call>
-
-//<call keep="JAVA" templateKey="BeanHeader.tpl" }
-
 /**
  * Model class with different types of fields including generic collections, maps and {@link SubTest} objects.
  * Created by Werner Diwischek on 09.10.2016.
  */
-//</call>
 
 public class BasicTest {
     public static final int SIZE = 15;
     private static transient Logger LOG = LogManager.getLogger(BasicTest.class);
-
-    //<call keep="JAVA" templateKey="BeanInstanceVars.tpl" }
+    
     private Long id;
     private BasicTest basicTest;
     private SubTest subTest;
@@ -39,9 +31,6 @@ public class BasicTest {
     private Float testFloat;
     private Double testDouble;
     private Object testObject;
-//</call>
-
-    //<call keep="JAVA" templateKey="BeanSetter.tpl" }
 
     /**
      * The id with a autonumbering
@@ -54,9 +43,7 @@ public class BasicTest {
         this.id = id;
     }
 
-    /**
-     *
-     */
+
     public BasicTest getBasicTest() {
         return this.basicTest;
     }
@@ -65,9 +52,7 @@ public class BasicTest {
         this.basicTest = basicTest;
     }
 
-    /**
-     *
-     */
+
     public SubTest getSubTest() {
         return this.subTest;
     }
@@ -98,9 +83,7 @@ public class BasicTest {
         this.subTestMap = subTestMap;
     }
 
-    /**
-     *
-     */
+
     public ArrayList getUntypedList() {
         return this.untypedList;
     }
@@ -109,9 +92,7 @@ public class BasicTest {
         this.untypedList = untypedList;
     }
 
-    /**
-     *
-     */
+
     public HashMap getUntypedMap() {
         return this.untypedMap;
     }
@@ -120,9 +101,7 @@ public class BasicTest {
         this.untypedMap = untypedMap;
     }
 
-    /**
-     *
-     */
+
     public Integer getTestInt() {
         return this.testInt;
     }
@@ -142,9 +121,7 @@ public class BasicTest {
         this.testString = testString;
     }
 
-    /**
-     *
-     */
+
     public Long getTestLong() {
         return this.testLong;
     }
@@ -153,9 +130,7 @@ public class BasicTest {
         this.testLong = testLong;
     }
 
-    /**
-     *
-     */
+
     public Date getTestDate() {
         return this.testDate;
     }
@@ -164,9 +139,7 @@ public class BasicTest {
         this.testDate = testDate;
     }
 
-    /**
-     *
-     */
+
     public Boolean isTestBoolean() {
         return this.testBoolean;
     }
@@ -175,9 +148,7 @@ public class BasicTest {
         this.testBoolean = testBoolean;
     }
 
-    /**
-     *
-     */
+
     public Float getTestFloat() {
         return this.testFloat;
     }
@@ -186,9 +157,7 @@ public class BasicTest {
         this.testFloat = testFloat;
     }
 
-    /**
-     *
-     */
+
     public Double getTestDouble() {
         return this.testDouble;
     }

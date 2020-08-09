@@ -1,0 +1,51 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "HostConfig",
+    "superKey": "ConfigResourcesImpl",
+    "(ArrayList)fieldKeys": {
+      "0": "hostKey",
+      "1": "port",
+      "2": "protocol",
+      "3": "hostName",
+      "4": "user",
+      "5": "password",
+      "6": "rolePermissions",
+      "7": "module",
+      "8": "subModule",
+      "9": "scope",
+      "10": "key",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CONFIG",
+      "create": "false",
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "calls",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "HostConfig",
+    "description": "Basic host definition for file or db cache. ",
+    "naturalId": "HostConfig"
+  }
+}
