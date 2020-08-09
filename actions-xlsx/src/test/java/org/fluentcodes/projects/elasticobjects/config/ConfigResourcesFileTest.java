@@ -2,9 +2,10 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.calls.file.FileConfig;
-import org.fluentcodes.projects.elasticobjects.test.TestProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 
+import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,12 +20,12 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC_TEST.FILE_TARGE
 /**
  * Created by Werner on 14.08.2018.
  */
-public class FileConfigTest {
-    private static final Logger LOG = LogManager.getLogger(FileConfigTest.class);
+public class ConfigResourcesFileTest {
+    private static final Logger LOG = LogManager.getLogger(ConfigResourcesFileTest.class);
 
     @Test
     public void findConfigInCache()  {
-        FileConfig config = TestProviderRootTest.EO_CONFIGS.findFile(FILE_SOURCE_XLSX);
+        FileConfig config = ProviderRootTest.EO_CONFIGS.findFile(FILE_SOURCE_XLSX);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }

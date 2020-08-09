@@ -1,37 +1,47 @@
-package org.fluentcodes.projects.elasticobjects.calls.file;
+package org.fluentcodes.projects.elasticobjects.calls.files;
 
 
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.calls.CallResource;
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.config.Permissions;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileCallWrite extends CallResource<Boolean> {
+public class FileCallWrite extends CallResource<String> {
 
     public FileCallWrite() {
-        super(Permissions.WRITE);
+        super(PermissionType.WRITE);
     }
 
     public FileCallWrite(final String configKey) {
-        super(Permissions.READ);
+        super(PermissionType.READ);
         setConfigKey(configKey);
     }
 
-    public ConfigResourcesFile getFileConfig()  {
-        return ((ConfigResourcesFile) getConfig());
+    public FileConfig getFileConfig()  {
+        return ((FileConfig) getConfig());
     }
 
     @Override
-    public Boolean execute(final EO eo)  {
-        getFileConfig().createIO().write(eo.get());
-        return true;
+    public String execute(final EO eo)  {
+        resolve(eo.getConfigsCache());
+        hasPermissions(eo.getRoles());
+        String result = null;
+        if (eo.isScalar()) {
+            result = eo.get().toString();
+        }
+        else {
+            result = new EOToJSON().toJSON(eo);
+        }
+        getFileConfig().write(result);
+        return result;
     }
 
     @Override
     public Class<? extends Config> getConfigClass()  {
-        return ConfigResourcesFile.class;
+        return FileConfig.class;
     }
 }

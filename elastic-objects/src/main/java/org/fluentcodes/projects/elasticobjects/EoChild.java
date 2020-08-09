@@ -2,18 +2,17 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.executor.CallExecutorResource;
-import org.fluentcodes.projects.elasticobjects.executor.CallExecutor;
-import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.io.File;
 import java.util.*;
 
 /**
@@ -25,63 +24,279 @@ import java.util.*;
 
 public class EoChild implements EO {
     private static final Logger LOG = LogManager.getLogger(EoChild.class);
-    private final EoRoot rootAdapter;
-    private final EoChild parentAdapter;
-    private final String parentFieldName;
-    private final Models models;
-    private LogLevel logLevel;
-
+    private EoChild eoParent;
+    private String parentKey;
+    private Models models;
     private Object object;
 
     private boolean changed = false;
-    private boolean insert = false;
-    private Boolean empty = true;
 
-    private Map<String, EO> childMap;
+    private Map<String, EO> eoMap;
 
-    protected EoChild(Models models, LogLevel logLevel)  {
-        rootAdapter = (EoRoot) this;
-        parentAdapter = null;
-        parentFieldName = null;
-        this.logLevel = logLevel;
-        this.models = models;
-        if (!isScalar()) {
-            this.object = this.models.create();
-            childMap = new LinkedHashMap<>();
-        }
-        else {
-            childMap = null;
-        }
+    protected EoChild()  {
+        eoParent = null;
+        parentKey = null;
+        eoMap = new LinkedHashMap<>();
     }
 
-    protected EoChild(EoChild parent, Path path, Object value) {
-        this.rootAdapter = parent.getRoot();
-        this.parentAdapter = parent;
-        this.parentFieldName = path.getFirstEntry();
-        this.logLevel = parent.getLogLevel();
-        if (path.hasChild()) {
-            this.models = parent.getModels().getChildModels(path);
-            childMap = new LinkedHashMap<>();
-            this.object = this.models.create();
-            EoChild eo = new EoChild(this, path.getChildPath(), value);
+    protected EoChild(EoChild eoParent, PathElement pathElement, Object value) {
+        if (eoParent.getModels() == null) {
+            throw new EoInternalException("Null model!!!");
+        }
+        eoMap = new LinkedHashMap<>();
+        if (pathElement.isParentNotSet() && value!=null) {
+            this.models = new Models(eoParent.getConfigsCache(), value.getClass());
+        }
+        else if (eoParent.getSerializationType() == JSONSerializationType.EO) {
+            this.models = eoParent.getModels().createChildModels(eoParent, pathElement, value);
         }
         else {
-            this.models = parent.getModels().getChildModels(path, value);
-            if (!isScalar()) {
-                childMap = new LinkedHashMap<>();
-                this.object = this.models.create();
-                mapObject(value);
-                if (this.object instanceof CallExecutor) {
-                    addCall((CallExecutorResource) this.object);
+            this.models = eoParent.getModels().createChildModelsSimple(eoParent, pathElement, value);
+        }
+        if (isScalar() ) {
+            this.eoParent = eoParent;
+            this.parentKey = pathElement.getKey();
+            this.object = models.transform(value);
+        }
+        else {
+            this.object = this.models.create();
+            if ((object instanceof Call) && !PathElement.isCallPath(eoParent)) {
+                String targetPath = getPathAsString() + Path.DELIMITER + pathElement.getKey() ;
+                this.eoParent = (EoChild)eoParent.getCallsEo();
+                this.parentKey = Integer.valueOf(this.eoParent.size()).toString();
+                if (!targetPath.isEmpty()) {
+                    this.set(targetPath, "targetPath");
                 }
             }
             else {
-                this.object = value;
+                this.eoParent = eoParent;
+                this.parentKey = pathElement.getKey();
             }
+            mapObject(value);
         }
-        parentAdapter.setEo(path.getFirstEntry(), this);
+        this.eoParent.setEo(pathElement, this);
     }
 
+    /**
+     * Gets the fieldName to access the adapter in the  parent adapter object.
+     *
+     * @return The fieldName of the parent adapters object.
+     */
+    public String getParentKey() {
+        return parentKey;
+    }
+
+    public EoChild getEoParent() {
+        return eoParent;
+    }
+
+    public EO getParent() {
+        return eoParent;
+    }
+
+    public boolean hasParent() {
+        return eoParent != null;
+    }
+
+    protected boolean hasEo(Path path) {
+        return hasEo(path.getFirstPathElement());
+    }
+
+    protected boolean hasEo(PathElement pathElement) {
+        return eoMap !=null && eoMap.containsKey(pathElement.getKey());
+    }
+
+    @Override
+    public EO set(Object value, final String... paths) {
+        return set(value, new Path(paths));
+    }
+
+    @Override
+    public EO setEmpty(final String... paths) {
+        return set(null, new Path(paths));
+    }
+
+    protected EO set(Object value, final Path path) {
+        if (path.isEmpty()) {
+            mapObject(value);
+            return this;
+        }
+        if (path.isRootModel()) {
+            if (value instanceof String) {
+                this.models = new Models(getConfigsCache(), ((String)value).split(","));
+            }
+            else if (value instanceof Class) {
+                this.models = new Models(getConfigsCache(), (Class)value);
+            }
+            this.object = getModel().create();
+            return this;
+        }
+
+        if (hasEo(path)) {
+            return ((EoChild) eoMap.get(path.getFirstEntry())).set(value, path.createChildPath());
+        }
+        else {
+            try {
+                if (path.hasChild()) {
+                    new EoChild(this, path.getFirstPathElement(), null);
+                    return ((EoChild) eoMap.get(path.getFirstEntry())).set(value, path.createChildPath());
+                } else {
+                    EoChild eoChild = new EoChild(this, path.getFirstPathElement(), value);
+                    return eoChild;
+                }
+            }
+            catch (EoException e) {
+                error("Problem create new child: " + e.getMessage());
+                return this;
+            }
+            catch (NullPointerException e) {
+                throw new EoException(e);
+            }
+        }
+    }
+    @Override
+    public void add(EO child, PathElement pathElement) {
+
+    }
+
+    protected Object getValue(final String fieldName) {
+        try {
+            return getModel().get(fieldName, get());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Object get(final String... pathStrings) {
+        return new Path(pathStrings).moveTo(this).get();
+    }
+
+    protected void removeChild(String parentFieldName) {
+        this.eoMap.remove(parentFieldName);
+        getModel().remove(parentFieldName, get());
+    }
+
+    @Override
+    public EO remove(final String... path) {
+        Path removePath = new Path(path);
+        EoChild parentEo = (EoChild) getEo(removePath.parent());
+        if (parentEo == null) {
+            return this;
+        }
+        String parentFieldName = removePath.getParentKey();
+        parentEo.removeChild(parentFieldName);
+        return parentEo;
+    }
+
+    public EO overWrite( final Object value, final String... path) {
+        remove(path);
+        return set(value, path);
+    }
+
+
+    @Override
+    public EO getEo(String... pathString)  {
+        return new Path(pathString).moveTo(this);
+    }
+
+    @Override
+    public EO getEo(PathElement path)  {
+        if (!hasEo(path)) {
+            throw new EoException("Could not find entry for '" + path + "'.");
+        }
+        return eoMap.get(path.getKey());
+    }
+
+    @Override
+    public Object get() {
+        return this.object;
+    }
+
+    private final void set(final Object value)  {
+        if (this.object != null && this.object == value) {
+            return;  // the same object
+        }
+        if (object != null && value != null) {
+            //throw new eoException("Not allowed to set a null source");
+            if (this.object.hashCode() == value.hashCode()) {
+                return;
+            }
+            if (!(object instanceof LogLevel)) {
+                info("Existing Object is overwritten! " + getPath() + ".");
+            }
+        }
+        this.object = value;
+        //empty = this.models.isEmpty(source);
+        changed = true;
+        setParent();
+    }
+
+    /**
+     * Sets the object of the embedded object. Implemtented in the appropriate child implementations.
+     *
+     * @param fieldName
+     * @param source
+     * @
+     */
+    protected void setValue(final String fieldName, Object source) {
+        if (fieldName == null|| fieldName.isEmpty()) {
+            throw new EoException("Empty fieldname for object " + source.getClass().getSimpleName());
+        }
+        if (PathElement.isParentNotSet(fieldName)) {
+            return;
+        }
+        try {
+            getModel().set(fieldName, get(), source);
+        } catch (EoException e) {
+            warn("Could not setValue for fieldName '" + fieldName + "': " + e.getMessage());
+        }
+    }
+
+    /**
+     * Add the adapter with fieldName to childMap.
+     *
+     * @param fieldName The fieldName
+     * @param child     the child eo
+     */
+    protected void setEo(final PathElement pathElement, final EO child) {
+        final String fieldName = pathElement.getKey();
+        if (fieldName == null) {
+            throw new EoException("FieldName ist null setting child ObjectsBuilder! ");
+        }
+        if (eoMap == null) {
+            throw new EoException("Could not add a child with fieldName '" + fieldName + "'to a scalar parent!");
+        }
+        String fieldKey = fieldName;
+        if (getModels().isList() && !PathElement.isParentNotSet(fieldKey)) {
+            try {
+                Integer.parseInt(fieldName);
+            }
+            catch(NumberFormatException e) {
+                fieldKey= new Integer(((List)object).size()).toString();
+            }
+        }
+        if (this.eoMap.containsKey(fieldKey) && this.eoMap.get(fieldKey) == child) {
+            EO stored = this.eoMap.get(fieldKey);
+            return;
+        }
+        this.eoMap.put(fieldKey, child);
+        if (PathElement.isParentNotSet(fieldKey)) {
+            return;
+        }
+        try {
+            getModel().set(fieldKey, get(), child.get());
+        } catch (EoException e) {
+            warn("Could not setValue for fieldName '" + fieldName + "': " + e.getMessage());
+        }
+    }
+
+    protected void setModels(Models models) {
+        this.models = models;
+        this.object = models.getModel().create();
+    }
+
+    @Override
     public EO mapObject(final Object value)  {
         if (value == null) {
             return this;
@@ -89,23 +304,20 @@ public class EoChild implements EO {
 
         ModelInterface sourceModel = getConfigsCache().findModel(value);
         if (sourceModel.isScalar()) {
-            if ((value instanceof File)) {
-                return this;
-            }
-            if ((value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find()) {
+            if (isContainer() && (value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find()) {
                 new JSONToEO((String)value).createChild(this);
                 return this;
             }
-
-            if (getModel().isScalar()  && value.getClass() != getModelClass()) {
+            if (getModel().isScalar()  || getModel().isScalar()) {
                 set(getModels().transform(value));
             }
             else {
-                set(value);
+                error("Problem setting value with Model " + sourceModel.toString() + " and eo with Model " + getModels().toString() );
+                //set(value);
             }
             return this;
         }
-        if (getModel().isScalar()) {
+        if (models.isScalar()) {
             error("Tried to map scalar child(" + getModelClass().getSimpleName() + ") with a non scalar value " + sourceModel + ".");
             return this;
         }
@@ -131,73 +343,65 @@ public class EoChild implements EO {
                 try {
                     Integer.parseInt(fieldName);
                 } catch (Exception e) {
-                    fieldName = new Integer(this.size()).toString();
+                    fieldName = new Integer(this.sizeEo()).toString();
                 }
             }
             Object childValue = keyValues.get(key);
             if (childValue == null) {
                 continue;
             }
-            setPathValue(fieldName, childValue);
+            set(childValue, fieldName);
         }
         return this;
-    }
-
-    public void addCall(CallExecutor callExecutor)  {
-        Path path = this.getPath();
-        callExecutor.setTargetPath(path.directory());
-        getRoot().addCall(callExecutor);
     }
 
     /**
      * If the object has a non null object.
      *
      * @return true if the object is not null.
-     * TODO implement correct isEmpty in object.
      */
     @Override
     public boolean isEmpty() {
-        if (this.getEmpty() != null) {
-            return this.getEmpty();
-        }
-        if (this.get() == null) {
-            this.setEmpty(true);
-            return true;
-        }
-        try {
-            this.setEmpty(getModel().isEmpty(this.get()));
-            return getEmpty();
-        } catch (Exception e) {
-            warn("Exception in isEmpty: " + e.getMessage());
-            return false;
-        }
-
+        return keys().isEmpty();
     }
 
-
-    public int adaptersize() {
-        return this.childMap.keySet().size();
-    }
-
-    public int valuesize() {
-        try {
-            return getModel().size(get());
-        } catch (Exception e) {
+    @Override
+    public int sizeEo()  {
+        if (eoMap==null) {
             return 0;
         }
+        return this.keysEo().size();
     }
 
     @Override
     public int size()  {
-        if (!isContainer()) {
+        if (eoMap==null) {
             return 0;
         }
         return this.keys().size();
     }
 
     @Override
-    public int size(final String path)  {
-        return (this.childKeys(path).size());
+    public Set<String> keysEo()  {
+        if (this.eoMap == null || get() == null) {
+            return new HashSet<>();
+        }
+        return eoMap.keySet();
+    }
+
+    @Override
+    public Set<String> keys()  {
+        Set filteredSet = new LinkedHashSet();
+        if (this.eoMap == null || get() == null) {
+            return filteredSet;
+        }
+        for (String key: keysEo()) {
+            if (PathElement.isParentNotSet(key)) {
+                continue;
+            }
+            filteredSet.add(key);
+        }
+        return filteredSet;
     }
 
     public List<String> keys(String pathString)  {
@@ -210,7 +414,7 @@ public class EoChild implements EO {
     }
 
     public List<String> keys(PathPattern pathPattern)  {
-        return pathPattern.filter(keys());
+        return pathPattern.filter(keysEo());
     }
 
     public final Map getKeyValues()  {
@@ -235,7 +439,7 @@ public class EoChild implements EO {
 
     public List<String> filterPaths(PathPattern pathPattern, String path)  {
         List<String> result = new ArrayList<>();
-        List<String> filter = pathPattern.filter(keys());
+        List<String> filter = pathPattern.filter(keysEo());
         for (String key : filter) {
             if (key.equals(".config")) {
                 continue;
@@ -257,24 +461,6 @@ public class EoChild implements EO {
         return result;
     }
 
-    @Override
-    public Set<String> keys()  {
-        if (!isContainer()) {
-            return new HashSet<>();
-        }
-        if (this.childMap == null) {
-            return new HashSet<>();
-        }
-        if (get() == null) {
-            return new HashSet<>();
-        }
-        return this.getModel().keys(get());
-    }
-
-    public Set<String> childKeys(final String path)  {
-        return getEo(path).keys();
-    }
-
     /**
      * Return the keys of an Object as String. Not defined in the base implementations.
      * Mainly used for List or Maps
@@ -287,235 +473,49 @@ public class EoChild implements EO {
 
     }
 
-    /**
-     * Sets the object of the embedded object. Implemtented in the appropriate child implementations.
-     *
-     * @param fieldName
-     * @param source
-     * @
-     */
-    protected void setValue(final String fieldName, Object source) {
-        if (fieldName == null) {
-            warn("Null fieldname for object " + source.getClass().getSimpleName());
-            return;
-        }
-        try {
-            getModel().set(fieldName, get(), source);
-        } catch (EoException e) {
-            warn("Could not setValue for fieldName '" + fieldName + "': " + e.getMessage());
-        }
-    }
-
-    public boolean hasChild(Path path) {
-        return childMap!=null && childMap.containsKey(path.getFirstEntry());
-    }
-
     @Override
-    public EO set(Object value, final String... paths) {
-        return setPathValue(new Path(paths), value);
-    }
-
-    @Override
-    public EO setEmpty(final String... paths) {
-        return setPathValue(new Path(paths), null);
-    }
-
-    @Override
-    public EO setPathValue(final String pathString) {
-        return setPathValue(new Path(pathString), null);
-    }
-
-    @Override
-    public EO setPathValue(final String pathString, Object value) {
-        return setPathValue(new Path(pathString), value);
-    }
-
-    protected EO setPathValue(final Path path, Object value) {
-        if (path.isEmpty()) {
-            mapObject(value);
-            return this;
-        }
-        if (!getModel().hasKey(path)) {
-            warn("No field found for  " + path.getFirstEntry());
-            return this;
-        }
-
-        if (hasChild(path)) {
-            return ((EoChild)childMap.get(path.getFirstEntry())).setPathValue(path.getChildPath(), value);
+    public boolean addCall(Call call)  {
+        if (call.hasTargetPath()) {
+            if (!call.getTargetPath().startsWith(Path.DELIMITER)) {
+                call.setTargetPath(getPathAsString() + Path.DELIMITER + call.getTargetPath());
+            }
         }
         else {
-            try {
-                if (path.isAbsolute()) {
-                    return new EoChild(getRoot(), path, value);
-                }
-                else {
-                    return new EoChild(this, path, value);
-                }
-            }
-            catch (EoException e) {
-                error("Problem create new child: " + e.getMessage());
-            }
-            return this;
+            call.setTargetPath(getPathAsString());
         }
-    }
-
-    protected Object getValue(final String fieldName) {
-        try {
-            return getModel().get(fieldName, get());
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    protected void removeChild(String parentFieldName) {
-        this.childMap.remove(parentFieldName);
-        getModel().remove(parentFieldName, get());
+        return getRoot().addCall(call);
     }
 
     @Override
-    public EO remove(final String path) {
-        Path removePath = new Path(path);
-        EoChild parentEo = (EoChild) getEo(removePath.parent());
-        if (parentEo == null) {
-            return this;
-        }
-        String parentFieldName = removePath.getParentKey();
-        parentEo.removeChild(parentFieldName);
-        return parentEo;
+    public List<Call> getCalls() {
+        return getRoot().getCalls();
     }
-
-    public EO overWrite(final String path, final Object value) {
-        remove(path);
-        return setPathValue(path, value);
+    @Override
+    public EO getCallsEo() {
+        return getRoot().getCallsEo();
     }
 
     @Override
-    public Object get(final String... pathStrings) {
-        return get(new Path(pathStrings));
-    }
-
-    private Object get(final Path path) {
-        if (path.isEmpty()) {
-            return get();
-        }
-        try {
-            EO child = getEo(path);
-            if (path.getParentKey().equals(EO_STATIC._PARENT_KEY)) {
-                return child.getParentKey();
-            }
-            else {
-                return child.get();
-            }
-        } catch (Exception e) {
-            error(e.getMessage());
-            return null;
-        }
+    public Call getLastCall() {
+        return getRoot().getLastCall();
     }
 
 
-    protected void removeChildEO(Object value)  {
-        if (this.isScalar()) {
-            this.childMap = null;
-        } else {
-            this.childMap = new LinkedHashMap<>();
-        }
-        set(value);
+    @Override
+    public boolean hasCalls() {
+        return getRoot().hasCalls();
     }
 
     @Override
-    public EO getEo(String pathString)  {
-        if (pathString == null || pathString.equals("") || pathString.equals("./") || pathString.equals(".")) {
-            return this;
-        }
-        if (pathString.equals(Path.DELIMITER)) {
-            return getRoot();
-        }
-        if (pathString.startsWith(Path.DELIMITER) && this != getRoot()) {
-            return getRoot().getEo(pathString);
-        }
-        return getEo(new Path(pathString));
-    }
-
-    protected EO getEo(Path path)  {
-        if (path == null || path.isEmpty()) {
-            return this;
-        }
-        if (path.isAbsolute() && !isRoot()) {
-            return getRoot().getEo(path);
-        }
-        String firstEntry = path.getFirstEntry();
-        if (firstEntry.equals("..")) {
-            return getParentAdapter().getEo(path.getChildPath());
-        }
-        else if (path.hasChild()) {
-            if (childMap.containsKey(firstEntry)) {
-                return ((EoChild)childMap.get(firstEntry)).getEo(path.getChildPath());
-            }
-            else {
-                throw new EoException("Could not find entry for " + firstEntry);
-            }
-        }
-        if (childMap.containsKey(firstEntry)) {
-            return childMap.get(firstEntry);
-        }
-        else {
-            throw new EoException("Could not find entry for " + firstEntry);
-        }
-    }
-
-    /**
-     * Add the adapter with fieldName to childMap.
-     *
-     * @param fieldName The fieldName
-     * @param child     the child eo
-     */
-    protected void setEo(final String fieldName, final EO child) {
-        if (fieldName == null) {
-            warn("FieldName ist null setting child ObjectsBuilder! ");
-            return;
-        }
-        if (childMap == null) {
-            warn("Could not add a child with fieldName '" + fieldName + "'to a scalar parent!");
-            return;
-        }
-        if (this.childMap.get(fieldName) == child) {
-            return;
-        }
-        this.childMap.put(fieldName, child);
-        try {
-            getModel().set(fieldName, get(), child.get());
-        } catch (EoException e) {
-            warn("Could not setValue for fieldName '" + fieldName + "': " + e.getMessage());
-        }
-    }
-
-    @Override
-    public Object get() {
-        return this.object;
-    }
-
-    private void set(final Object source)  {
-        if (this.object != null && this.object == source) {
-            return;  // the same object
-        }
-        if (object != null && source != null) {
-            //throw new eoException("Not allowed to set a null source");
-            if (this.object.hashCode() == source.hashCode()) {
-                return;
-            }
-            info("Existing Object is overwritten! " + getPath() + ".");
-        }
-        this.object = source;
-        //empty = this.models.isEmpty(source);
-        changed = true;
-        setParent();
+    public boolean execute() {
+        return getRoot().execute();
     }
 
     protected void setParent() {
-        if (parentAdapter == null) {
+        if (eoParent == null) {
             return;
         }
-        Object value = parentAdapter.getValue(parentFieldName);
+        Object value = eoParent.getValue(parentKey);
         if (this.object != null && value == this.object) {
             return;
         }
@@ -524,10 +524,9 @@ public class EoChild implements EO {
                 return;
             }
         }
-        parentAdapter.setEmpty(false);
-        parentAdapter.setChanged(true);
-        parentAdapter.setValue(getParentKey(), this.object);
-        parentAdapter.setEo(parentFieldName, this);
+        eoParent.setChanged(true);
+        eoParent.setValue(getParentKey(), this.object);
+        eoParent.setEo(new PathElement(parentKey), this);
 
     }
 
@@ -551,24 +550,8 @@ public class EoChild implements EO {
         }
     }*/
 
-    public final boolean isChanged() {
-        return this.changed;
-    }
-
     protected final void setChanged(final boolean changed) {
         this.changed = this.changed || changed;
-    }
-
-    public boolean isInsert() {
-        return insert;
-    }
-
-    public void setInsert(boolean insert) {
-        this.insert = insert;
-    }
-
-    protected final void initChanged() {
-        this.changed = false;
     }
 
     /**
@@ -577,26 +560,23 @@ public class EoChild implements EO {
      * @return The rootAdapter adapter instance var
      */
     public EoRoot getRoot() {
-        return rootAdapter;
+        if (eoParent !=null) {
+            return eoParent.getRoot();
+        }
+        return (EoRoot) this;
     }
 
+    @Override
     public boolean isRoot() {
         return false;
     }
 
+    @Override
     public Path getPath() {
-        Path path = new Path(Path.DELIMITER);
-        getPath(path);
-        return path;
+        return new Path(getPathAsString());
     }
 
-    public void getPath(Path path) {
-        if (parentAdapter != null) {
-            path.prependPath(this.parentFieldName);
-            parentAdapter.getPath(path);
-        }
-    }
-
+    @Override
     public String getPathAsString() {
         StringBuilder builder = new StringBuilder();
         getPathAsString(builder);
@@ -604,10 +584,10 @@ public class EoChild implements EO {
     }
 
     protected void getPathAsString(StringBuilder builder) {
-        if (parentFieldName != null && !parentFieldName.isEmpty()) {
-            builder.insert(0, this.parentFieldName);
+        if (parentKey != null && !parentKey.isEmpty()) {
+            builder.insert(0, this.parentKey);
             builder.insert(0, Path.DELIMITER);
-            parentAdapter.getPathAsString(builder);
+            eoParent.getPathAsString(builder);
         }
     }
 
@@ -621,77 +601,121 @@ public class EoChild implements EO {
      * @return The params of the rootAdapter adapter instance var
      */
     public LogLevel getLogLevel() {
-        return logLevel;
+        if (!hasLogLevel()) {
+            if (eoParent != null) {
+                return eoParent.getLogLevel();
+            } else {
+                setLogLevel(LogLevel.WARN);
+            }
+        }
+        if (get(PathElement.LOG_LEVEL) instanceof LogLevel) {
+            return (LogLevel) get(PathElement.LOG_LEVEL);
+        }
+        else if (get(PathElement.LOG_LEVEL) instanceof String) {
+            try {
+                return LogLevel.valueOf((String)get(PathElement.LOG_LEVEL));
+            }
+            catch (Exception e) {
+                throw new EoException(e);
+            }
+        }
+        else {
+            throw new EoException("Mismatch in LogLevel " + getPathAsString() + ": " + get(PathElement.LOG_LEVEL));
+        }
+
     }
 
+    public boolean hasLogLevel() {
+        return hasEo(new PathElement(PathElement.LOG_LEVEL));
+    }
+
+    @Override
     public LogLevel getErrorLevel() {
         return getRoot().getErrorLevel();
     }
 
+    @Override
+    public boolean hasErrors() {
+        return getRoot().hasErrors();
+    }
+
+    @Override
     public String getLog() {
         return getRoot().getLog();
     }
 
     @Override
-    public void debug(String message) {
-        if (this.logLevel == null) {
-            getRoot().debug(getPathAsString() + ": " + message);
-        } else if (checkLevel(LogLevel.DEBUG)) {
-            getRoot().log(getPathAsString() + ": " + message, LogLevel.DEBUG);
-            return;
-        }
+    public EO setLogLevel(LogLevel logLevel) {
+        set(logLevel, "(LogLevel)" + PathElement.LOG_LEVEL);
+        return this;
     }
 
     @Override
-    public void info(String message) {
-        if (this.logLevel == null) {
-            getRoot().info(getPathAsString() + ": " + message);
-        } else if (checkLevel(LogLevel.INFO)) {
-            getRoot().log(getPathAsString() + ": " + message, LogLevel.INFO);
+    public EO debug(String message) {
+        if (checkLevel(LogLevel.DEBUG)) {
+            return log(message, getLogLevel());
         }
+        return this;
     }
 
     @Override
-    public void warn(String message) {
-        if (this.logLevel == null) {
-            getRoot().warn(getPathAsString() + ": " + message);
-        } else if (checkLevel(LogLevel.WARN)) {
-            getRoot().log(getPathAsString() + ": " + message, LogLevel.WARN);
+    public EO info(String message) {
+        if (checkLevel(LogLevel.INFO)) {
+            return log(message, LogLevel.INFO);
         }
+        return this;
     }
 
     @Override
-    public void error(String message) {
-        if (this.logLevel == null) {
-            getRoot().error(getPathAsString() + ": " + message);
-        } else if (checkLevel(LogLevel.ERROR)) {
-            getRoot().log(getPathAsString() + ": " + message, LogLevel.ERROR);
+    public EO warn(String message) {
+        if (checkLevel(LogLevel.WARN)) {
+            return log(message, LogLevel.WARN);
         }
+        return this;
     }
 
     @Override
-    public void warn(String message, Exception e) {
-        if (this.logLevel == null) {
-            getRoot().warn(getPathAsString() + ": " + message, e);
-        } else if (checkLevel(LogLevel.WARN)) {
-            getRoot().log(getPathAsString() + ": " + message, LogLevel.WARN);
+    public EO warn(String message, Exception e) {
+        if (checkLevel(LogLevel.WARN)) {
+            return log( message, LogLevel.WARN, e);
         }
+        return this;
     }
 
     @Override
-    public void error(String message, Exception e) {
-        if (this.logLevel == null) {
-            getRoot().error(getPathAsString() + ": " + message, e);
-        } else if (checkLevel(LogLevel.ERROR)) {
-            getRoot().log(getPathAsString() + ": " + message, LogLevel.ERROR);
+    public EO error(String message) {
+        if (checkLevel(LogLevel.ERROR)) {
+            return log( message, LogLevel.ERROR);
         }
+        return this;
     }
 
     @Override
-    public boolean hasErrors() {
-        return
-                getRoot().hasErrors();
+    public EO error(String message, Exception e) {
+        if (checkLevel(LogLevel.ERROR)) {
+            return log( message, LogLevel.ERROR, e);
+        }
+        return this;
     }
+
+    private EO log(String message, LogLevel logLevel) {
+        if (message == null) {
+            return this;
+        }
+        getRoot().log(getPathAsString() + ": " + message, logLevel);
+        return this;
+    }
+
+    private EO log(String message, LogLevel logLevel, Exception e) {
+        getRoot().log(getPathAsString() + " - " + message + ": " + e.getMessage(), logLevel);
+        return this;
+    }
+
+    protected boolean checkLevel(LogLevel messageLevel) {
+        return getLogLevel().ordinal() <= messageLevel.ordinal();
+    }
+
+
 
     @Override
     public void setRoles(final String... roles) {
@@ -708,37 +732,13 @@ public class EoChild implements EO {
         getRoot().setRoles(roles);
     }
 
-    @Override
     public boolean hasRoles() {
         return getRoot().hasRoles();
     }
 
-    protected boolean checkLevel(LogLevel messageLevel) {
-        if (logLevel == null) {
-            return false;
-        }
-        return logLevel.ordinal() <= messageLevel.ordinal();
-    }
-
-    public Boolean getEmpty() {
-        return empty;
-    }
-
+    @Override
     public EOConfigsCache getConfigsCache() {
         return getRoot().getConfigsCache();
-    }
-
-    public ExecutorList getCalls() {
-        return getRoot().getCalls();
-    }
-
-    @Override
-    public boolean hasCalls() {
-        return this.hasCalls();
-    }
-
-    public void execute() {
-        getRoot().execute();
     }
 
     public boolean isCheckObjectReplication() {
@@ -756,22 +756,6 @@ public class EoChild implements EO {
      */
     public Models getModels() {
         return models;
-    }
-
-    protected void setModels(Models newModels)  {
-        if (newModels.isEmpty()) {
-            info("Empty classes!" + getPathAsString());
-            return;
-        }
-        if (!this.isEmpty()) {
-            warn("Could not add the models value on a nonempty adapter!" + getPathAsString());
-            return;
-        }
-        try {
-            models.setClasses(newModels);
-        } catch (Exception e) {
-            warn("Could not set " + e.getMessage());
-        }
     }
 
     /**
@@ -807,8 +791,10 @@ public class EoChild implements EO {
     }
 
     public boolean isScalar() {
-        return getModel().isScalar();
+        return getModel().isScalar() || getModels().isEnum();
     }
+
+
 
     public boolean isMap() {
         return getModel().isMap();
@@ -835,51 +821,25 @@ public class EoChild implements EO {
         return !isScalar();
     }
 
-    /**
-     * If the object has a non null object.
-     *
-     * @return true if the object is not null.
-     */
-    /*public boolean isEmpty() {
-        if (this.empty != null) {
-            return this.empty;
-        }
-        if (this.object != null) {
-            this.empty = false;
-            return true;
-        }
-        this.empty = true;
-        return false;
-    }*/
 
-    public void setEmpty(Boolean empty) {
-        if (this.empty != null && this.empty == false) {
-            return;
-        }
-        this.empty = empty;
+    @Override
+    public JSONSerializationType getSerializationType() {
+        return getRoot().getSerializationType();
     }
 
-    /**
-     * Gets the fieldName to access the adapter in the  parent adapter object.
-     *
-     * @return The fieldName of the parent adapters object.
-     */
-    public String getParentKey() {
-        return parentFieldName;
-    }
-
-    public EoChild getParentAdapter() {
-        return parentAdapter;
-    }
-
-    public boolean hasParent() {
-        return parentAdapter != null;
+    @Override
+    public EO setSerializationType(final JSONSerializationType serializationType) {
+        getRoot().setSerializationType(serializationType);
+        return this;
     }
 
     @Override
     public String toString() {
         if (this == null) {
             return "Not instanciated";
+        }
+        if (isScalar()) {
+            return get().toString();
         }
         try {
             return new EOToJSON().toJSON(this);
@@ -901,7 +861,7 @@ public class EoChild implements EO {
         }
         List<String> list;
         try {
-            list = new ArrayList<>(keys());
+            list = new ArrayList<>(keysEo());
         } catch (Exception e) {
             e.printStackTrace();
             builder.append(getPath() + ":");
@@ -932,7 +892,7 @@ public class EoChild implements EO {
             } else if (nextAdapter == null && nextOther != null) {
                 try {
                     if (nextOther.isContainer()) {
-                        builder.append("null != " + getPath() + "/" + key + " with size= " + nextOther.size() + "\n");
+                        builder.append("null != " + getPath() + "/" + key + " with size= " + nextOther.sizeEo() + "\n");
                         continue;
                     } else {
                         builder.append("null != " + getPath() + "/" + key + " = " + nextOther.get() + "\n");
@@ -947,7 +907,7 @@ public class EoChild implements EO {
             } else if (nextAdapter != null && nextOther == null) {
                 try {
                     if (nextAdapter.isContainer()) {
-                        builder.append(getPath() + "/" + key + " with size= " + nextAdapter.size() + " != null\n");
+                        builder.append(getPath() + "/" + key + " with size= " + nextAdapter.sizeEo() + " != null\n");
                         continue;
 
                     } else {

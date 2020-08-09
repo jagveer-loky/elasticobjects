@@ -3,8 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.TestXlsxProvider;
-import org.fluentcodes.projects.elasticobjects.eo.EO;
-import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
+import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,12 +19,12 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC_TEST.X_SOURCE_X
 /**
  * Created by Werner on 08.10.2016.
  */
-public class XlsxCallReadTest extends TestHelper {
+public class XlsxCallReadTest {
     private static final Logger LOG = LogManager.getLogger(XlsxCallReadTest.class);
 
     @Test
     public void serialize()  {
-        TestHelper.printStartMethod();
+        
         Map attributes = new HashMap();
         attributes.put(F_PATH, F_PATH);
         TestXlsxProvider.executeXlsxActionRead(attributes, X_SOURCE_XLSX_TEST);

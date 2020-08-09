@@ -30,17 +30,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class ReplaceParser {
-    private static final Logger LOG = LogManager.getLogger(ReplaceParser.class);
-    private static final Pattern varPattern = Pattern.compile("\\eo->([^ ]*) ");
+public abstract class Parser {
+    private static final Logger LOG = LogManager.getLogger(Parser.class);
     private static final Map<String, String> SYSTEM = populateSystem();
     private final String template;
-    private final Matcher match;
+    private Matcher match;
     private int end;
 
-    public ReplaceParser(final String template) {
+    public Parser(final String template) {
         this.template = template;
-        this.match = varPattern.matcher(template);
+    }
+
+    public String getTemplate() {
+        return template;
+    }
+
+    public int getEnd() {
+        return end;
     }
 
     private static final Map<String, String> populateSystem() {
@@ -57,8 +63,8 @@ public class ReplaceParser {
         return result;
     }
 
-    public String parse() {
-        return parse(null);
+    public String parse(Pattern varPattern) {
+        return parse(null, varPattern);
     }
 
 
@@ -71,15 +77,11 @@ public class ReplaceParser {
      * @return
      */
 
-    public String parse(final EO eo) {
+    public String parse(final EO eo, Pattern varPattern) {
         if (template == null || template.isEmpty()) {
             return "";
         }
-        if (!template.contains("$[")) {
-            LOG.debug("no placeholder $[ found  : " + template);
-            return template;
-        }
-
+        this.match = varPattern.matcher(template);
         StringBuffer result = new StringBuffer();
         String parseString = template;
         end = 0;
@@ -154,14 +156,14 @@ public class ReplaceParser {
         return value;
     }
 
-    private Object makeCall(String callPathCore, String finish,  final EO eo) {
+    protected Object makeCall(final String callDirective, String finish,  final EO eo) {
         String content = "";
         if (!finish.startsWith(Path.DELIMITER)) {
             content = findContent();
         }
-        String[] callsAndAttributes = callPathCore.split(" +");
-        callPathCore = callsAndAttributes[0];
-        Map<String, String> attributes = extractAttributes(Arrays.copyOfRange(callsAndAttributes, 1, callsAndAttributes.length));
+        String[] callsAndAttributes = callDirective.split("\" +");
+        String callPathCore = callsAndAttributes[0].replaceAll(" .*","");
+        Map<String, String> attributes = extractAttributes(callsAndAttributes);
         Path path = new Path(callPathCore);
         if (!path.hasModel()) {
             throw new EoException("Could not find call in path " + callPathCore);
@@ -191,7 +193,14 @@ public class ReplaceParser {
             eoForMapAttributesToCall.mapObject(attributes);
             callObject = (Call) eoForMapAttributesToCall.get();
         }
-
+        if (callObject instanceof TemplateResourceCall) {
+            if (((TemplateResourceCall)callObject).getKeepCall()!=null) {
+                KeepCalls keepCall = ((TemplateResourceCall)callObject).getKeepCall();
+                String directiveWithComment = keepCall.createDirective(callDirective);
+                ((TemplateResourceCall)callObject).setDirective(directiveWithComment);
+                ((TemplateResourceCall)callObject).setEndDirective(keepCall.createDirective("/"));
+            }
+        }
         Object value = new ExecutorCallImpl().execute(eo, (Call) callObject);
         return value.toString();
     }
@@ -222,16 +231,21 @@ public class ReplaceParser {
 
     private static final Map<String, String> extractAttributes(final String[] attributesList) {
         Map<String, String> attributes = new LinkedHashMap<>();
+        if (attributesList.length == 1 && !attributesList[0].contains(" ")) {
+            return attributes;
+        }
+        attributesList[0] = attributesList[0].replaceAll(".*? ","");
+
         for (String attribute: attributesList) {
             String[] keyValue = attribute.split("=\"");
-            if (keyValue.length > 2) {
-                throw new EoException("Wrong attribute! " + attribute);
+            if (keyValue.length == 2) {
+                attributes.put(keyValue[0], keyValue[1].replaceAll("\"$",""));
             }
             if (keyValue.length == 1) {
                 attributes.put(keyValue[0], "true");
             }
-            if (keyValue.length == 2) {
-                attributes.put(keyValue[0], keyValue[1].replaceAll("\"$",""));
+            if (keyValue.length > 2) {
+                throw new EoException("Wrong attribute! " + attribute);
             }
         }
         return attributes;

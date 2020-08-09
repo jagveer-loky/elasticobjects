@@ -1,10 +1,10 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.calls.templates;
 
-import org.fluentcodes.projects.elasticobjects.calls.file.ConfigResourcesFile;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
-import org.fluentcodes.projects.elasticobjects.executor.ExecutorListTemplate;
+import org.fluentcodes.projects.elasticobjects.calls.ExecutorCallList;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
@@ -15,10 +15,10 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 02.07.2014.
  * Refactored 28.2.2015: Moved to adapter pattern
  */
-public class TemplateConfig extends ConfigResourcesFile {
+public class TemplateConfig extends FileConfig {
     private final String templateKey;
-    private final KeepKeys keepKey;
-    private ExecutorList executorList;
+    private final KeepCalls keepKey;
+    private ExecutorCallList executorCallList;
 
     public TemplateConfig(EOConfigsCache configsCache, Builder builder) {
         super(configsCache, builder);
@@ -31,11 +31,11 @@ public class TemplateConfig extends ConfigResourcesFile {
         return templateKey;
     }
 
-    public ExecutorList getExecutorList()  {
-        if (executorList == null) {
-            executorList = new ExecutorListTemplate(createIO().read());
+    public ExecutorCallList getExecutorCallList()  {
+        if (executorCallList == null) {
+            //executorList = new ExecutorListTemplate(createIO().read());//TODO
         }
-        return executorList;
+        return executorCallList;
     }
 
     public String execute(EO execute, Map attributes)  {
@@ -43,35 +43,16 @@ public class TemplateConfig extends ConfigResourcesFile {
             execute.warn("Empty execution list for template " + templateKey);
             return "!!! Empty execution list for template " + templateKey + "!!!";
         }*/
-        return getExecutorList().execute(execute);
+        return getExecutorCallList().execute(execute);
     }
 
     public String getTemplateKey() {
         return templateKey;
     }
 
-    public enum KeepKeys {
-        JAVA("\n//", " "), TARGET("", "");
-        private String startComment;
-        private String endComment;
-
-        KeepKeys(String startComment, String endComment) {
-            this.startComment = startComment;
-            this.endComment = endComment;
-        }
-
-        public String getStartComment() {
-            return startComment;
-        }
-
-        public String getEndComment() {
-            return endComment;
-        }
-    }
-
-    public static class Builder extends ConfigResourcesFile.Builder {
+    public static class Builder extends FileConfig.Builder {
         private String templateKey;
-        private KeepKeys keep;
+        private KeepCalls keep;
 
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
@@ -81,7 +62,7 @@ public class TemplateConfig extends ConfigResourcesFile {
             }
             String keep = ScalarConverter.toString(values.get(A_KEEP));
             if (keep != null && !keep.isEmpty()) {
-                this.keep = KeepKeys.valueOf(keep);
+                this.keep = KeepCalls.valueOf(keep);
             }
             values.put(F_FILE_KEY, this.templateKey);
             super.prepare(configsCache, values);

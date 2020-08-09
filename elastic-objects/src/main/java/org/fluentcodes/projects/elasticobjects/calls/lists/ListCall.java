@@ -1,14 +1,15 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
-import org.fluentcodes.projects.elasticobjects.calls.CallResource;
-import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-import org.fluentcodes.projects.elasticobjects.calls.Permissions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
+import org.fluentcodes.projects.elasticobjects.calls.CallResource;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Base for list type calls.
@@ -16,139 +17,136 @@ import java.util.*;
  * @since 18.12.17.
  */
 
-public class ListCallRead extends CallResource {
-    private ListParams listParams;
-    private ListMapper listMapper;
+public class ListCall extends CallResource {
+    private Integer rowStart;
+    private Integer rowEnd;
+    private Integer length;
+    private Integer rowHead;
+    private Or filter;
+    private String filterRaw;
+    private String mapKey;
+    private List<String> colKeys;
+    private Map<String, Integer> colKeysMap;
 
-    public ListCallRead() {
-        super(Permissions.READ);
-        listParams = new ListParams();
-        listMapper = new ListMapper();
-    }
-
-    protected ListConfig getListConfig() {
-        return (ListConfig) getConfig();
-    }
-
-    public void mapAttributes(final Map attributes) {
-    }
-
-    public ListMapper getListMapper() {
-        return listMapper;
-    }
-
-    public ListParams getListParams() {
-        return listParams;
-    }
-
-    public String getModelKeys() {
-        return listMapper.getModelKeys();
-    }
-
-    public void setModelKeys(Object modelKeys) {
-        listMapper.setModelKeys(modelKeys);
-    }
-
-    public boolean isDoMap() {
-        return listMapper.isDoMap();
-    }
-
-    public void setDoMap(Boolean doMap) {
-        listMapper.setDoMap(doMap);
-    }
-
-    public String getMapPath() {
-        return listMapper.getMapPath();
-    }
-
-    public void setMapPath(String mapPath) {
-        listMapper.setMapPath(mapPath);
-    }
-
-    protected boolean hasMapPath() {
-        return !(getMapPath() == null) && !getMapPath().isEmpty();
-    }
-
-    //<call keep="JAVA" templateKey="ActionListSetter.tpl">
-    public boolean isIgnoreHeader() {
-        return listMapper.isIgnoreHeader();
-    }
-
-    public void setIgnoreHeader(boolean ignoreHeader) {
-        listMapper.setIgnoreHeader(ignoreHeader);
+    public ListCall(PermissionType permissionType) {
+        super(permissionType);
     }
 
     public boolean hasRowStart() {
-        return listParams.hasRowStart();
-    }
-    public Integer getRowStart() {
-        return listParams.getRowStart();
+        return rowStart != null && rowStart > -1;
     }
 
-    public ListCallRead setRowStart(Integer rowStart) {
-        listParams.setRowStart(rowStart);
+    public Integer getRowStart() {
+        return rowStart;
+    }
+
+    public ListCall setRowStart(Integer rowStart) {
+        this.rowStart = rowStart;
         return this;
     }
-    public Integer getRowEnd() {
-        return listParams.getRowStart();
+
+    public boolean hasRowEnd() {
+        return rowEnd != null && rowEnd > -1;
     }
 
-    public void setRowEnd(Integer rowEnd) {
-        listParams.setRowEnd(rowEnd);
+    public Integer getRowEnd() {
+        return rowEnd;
+    }
+
+    public ListCall setRowEnd(Integer rowEnd) {
+        this.rowEnd = rowEnd;
+        return this;
     }
 
     public Integer getLength() {
-        return listParams.getLength();
+        return length;
     }
 
-    public void setLength(Integer rowEnd) {
-        listParams.setRowStart(rowEnd);
+    public void setLength(Integer length) {
+        this.length = length;
     }
 
-    public void addAnd(String key, Object value) {
-        if (getFilter() == null) {
-            setFilter(key + " eq " + value.toString());
-        }
-        //TODO if exists
+    public boolean hasRowHead() {
+        return rowHead!=null && rowHead>-1;
+    }
+
+    public Integer getRowHead() {
+        return rowHead;
+    }
+
+    public ListCall setRowHead(Integer rowHead) {
+        this.rowHead = rowHead;
+        return this;
     }
 
     public Or getFilter() {
-        return listParams.getFilter();
+        return filter;
     }
 
-    public void setFilter(Or or) {
-        this.listParams.setFilter(or);
+    public void setFilter(Or filter) {
+        this.filter = filter;
     }
 
-    public void setFilter(String orAsString) {
-        this.listParams.setFilter(orAsString);
+    public String getFilterRaw() {
+        return filterRaw;
     }
 
-    public PathPattern getPathPattern() {
-        return listMapper.getPathPattern();
+    public void setFilterRaw(String filterRaw) {
+        this.filterRaw = filterRaw;
     }
 
-    public String getPathPatternAsString() {
-        return listMapper.getPathPattern().getSerialized();
+    public boolean hasMapKey() {
+        return mapKey !=null && !mapKey.isEmpty();
     }
 
-    public void setPathPatternAsString(String pathPattern) {
-        listMapper.setPathPattern(new PathPattern(pathPattern));
+    public String getMapKey() {
+        return mapKey;
     }
 
-    public String getColKeysAsString() {
-        return String.join(",", listMapper.getColKeys());
+    public void setMapKey(String mapKey) {
+        this.mapKey = mapKey;
     }
 
-    public void setColKeysAsString(String colKeys) {
-        listMapper.setColKeys(Arrays.asList(colKeys.split(",")));
+    public boolean hasColKeys() {
+        return colKeys != null && !colKeys.isEmpty();
+    }
+
+    public List<String> getColKeys() {
+        return colKeys;
+    }
+
+    public void setColKeys(List<String> colKeys) {
+        this.colKeys = colKeys;
+        if (hasColKeys()) {
+            this.colKeysMap = new HashMap<>();
+            for (int i = 0; i < getColKeys().size(); i++) {
+                this.colKeysMap.put(getColKeys().get(i), i);
+            }
+        }
+    }
+
+    public Object execute(EO eo) {
+        resolve(eo.getConfigsCache());
+        hasPermissions(eo.getRoles());
+        return null;
     }
 
     @Override
-    public Object execute(final EO eo)  {
-        ListIOInterface io = (ListIOInterface) getListConfig().createIO();
-        getListConfig().resolve();
-        List result = io.read(getListParams());
-        return result;
+    public CallResource resolve(EOConfigsCache cache) {
+        super.resolve(cache);
+        ListConfig config = (ListConfig)getConfig();
+        if (config.hasRowHead() && rowHead == null) {
+            rowHead = config.getRowHead();
+        }
+        if (config.hasRowStart() && rowStart == null) {
+            rowStart = config.getRowStart();
+        }
+        if (config.hasRowEnd() && rowEnd == null) {
+            rowEnd = config.getRowEnd();
+        }
+        if (config.hasColKeys() && colKeys == null) {
+            setColKeys(config.getColKeys());
+        }
+        return this;
     }
 }

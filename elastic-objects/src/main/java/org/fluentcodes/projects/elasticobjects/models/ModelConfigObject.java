@@ -2,10 +2,10 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
-import org.fluentcodes.projects.elasticobjects.utils.Util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -43,10 +43,10 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         return null;
     }
     public static String setter(final String field) {
-        return "set" + Util.upperFirstCharacter(field);
+        return "set" + StringUpperFirstCharCall.upperFirstCharacter(field);
     }
     public static String getter(final String field) {
-        return "get" + Util.upperFirstCharacter(field);
+        return "get" + StringUpperFirstCharCall.upperFirstCharacter(field);
     }
 
 
@@ -61,7 +61,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         }
         return null;
     }
-
+    @Override
     public ModelInterface getFieldModel(final String fieldName)  {
         resolve();
         return getFieldConfig(fieldName).getModelConfig();
@@ -104,6 +104,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         return (List) this.getFieldKeys();
     }
 
+    @Override
     public boolean hasSetter(final String fieldName) {
         return setterMap.containsKey(fieldName);
     }
@@ -147,7 +148,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
             throw new EoException(e);
         }
     }
-
+    @Override
     public boolean hasGetter(final String fieldName) {
         return getterMap.containsKey(fieldName);
     }
@@ -221,6 +222,9 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
     @Override
     public Object create()  {
         resolve();
+        if (!isCreate()) {
+            throw new EoException("Could not create empty instance from model for '" + getModelKey() + "'");
+        }
         if (getShapeType() == ShapeTypes.CONFIG) {
             throw new EoException("A config has no empty constructor and can't initialized by eo " + getModelKey());
         }
@@ -294,7 +298,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
             }
 
             Class typeClass = type.getModelClass();
-            String baseName = Util.upperFirstCharacter(fieldName);
+            String baseName = StringUpperFirstCharCall.upperFirstCharacter(fieldName);
             try {
                 Method setterField = findSetMethod(getModelClass(), setter(fieldName), typeClass);
                 setterMap.put(fieldName, setterField);
@@ -358,53 +362,15 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         }
         return getModelKey().equals(modelCache.getModelKey());
     }
-
-    public boolean hasModel() {
-        return true;
-    }
-
-    public boolean isScalar() {
-        return false;
-    }
-
-    public boolean isEnum() {
-        return false;
-    }
-
-    public boolean isMap() {
-        return false;
-    }
-
-    public boolean isSet() {
-        return false;
-    }
-
-    public boolean isList() {
-        return false;
-    }
-
     public boolean isInterface() {
         return getEoParams().getShapeType() == ShapeTypes.INTERFACE;
     }
+    @Override
     public boolean isCreate() {
         return getEoParams().isCreate();
     }
-
-    public boolean isListType() {
-        return false;
-    }
-
-    public boolean isMapType() {
-        return true;
-    }
-
+    @Override
     public boolean isObject() {
         return true;
     }
-
-    public boolean isNull() {
-        return false;
-    }
-
-
 }

@@ -1,11 +1,8 @@
-package org.fluentcodes.projects.elasticobjects.calls;
+package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.JsonConfig;
-import org.fluentcodes.projects.elasticobjects.config.ScsConfig;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 
 /**
  * Created by werner.diwischek on 03.12.16.

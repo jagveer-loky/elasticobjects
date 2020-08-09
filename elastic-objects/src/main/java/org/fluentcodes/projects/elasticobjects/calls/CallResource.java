@@ -3,13 +3,14 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.condition.Or;
-import org.fluentcodes.projects.elasticobjects.config.*;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.utils.ReplaceUtil;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -20,11 +21,11 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 10.10.2016.
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
-public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
-    private static final Logger LOG = LogManager.getLogger(ResourceCall.class);
+public abstract class CallResource<RESULT> extends CallImpl<RESULT> {
+    private static final Logger LOG = LogManager.getLogger(CallResource.class);
     private Config config;
     private String configKey;
-    private Permissions permissions;
+    private PermissionType permissions;
 
     private Map attributes;
     private Map globalAttributes;
@@ -41,17 +42,22 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
     private String pathIf;
     private String loopIf;
 
-    public ResourceCall() {
+    public CallResource() {
     }
-    public ResourceCall(Permissions permissions) {
-        this.permissions = permissions;
+    public CallResource(PermissionType permissionType) {
+        this.permissions = permissionType;
     }
 
     public boolean hasPermissions(final List<String> roles) {
-        return ((ConfigResources)getConfig()).getRolePermissions().hasPermissions(permissions, roles);
+        return ((ConfigResourcesImpl)getConfig()).getRolePermissions().hasPermissions(permissions, roles);
     }
 
-    public ResourceCall resolve(EOConfigsCache cache) {
+    protected void init(final EO eo)  {
+        resolve(eo.getConfigsCache());
+        hasPermissions(eo.getRoles());
+    }
+
+    public CallResource resolve(EOConfigsCache cache) {
         if (config!=null) {
             return this;
         }
@@ -67,7 +73,7 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
         return configKey;
     }
 
-    public ResourceCall setConfigKey(String configKey) {
+    public CallResource setConfigKey(String configKey) {
         this.configKey = configKey;
         return this;
     }
@@ -120,7 +126,7 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
 
 
     public Class<? extends Config> getConfigClass()  {
-        throw new EoException("Problem");
+        throw new EoException("Problem with configClass getMethod should be overwritten");
     }
 
     public boolean hasConfig() {
@@ -155,7 +161,7 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
     }
 
     private boolean executeIf(String _if, EO adapter, Map externalAttributes) {
-        _if = ReplaceUtil.replace(_if, adapter, externalAttributes);
+        _if = new ParserTemplate(_if).parse(adapter);
         Or or = new Or(_if);
         return or.filter(adapter);
     }
@@ -180,13 +186,6 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
             return;
         }
         LOG.error("Only String will be supported for creating loopIf " + entry);
-    }
-
-    protected boolean executeLoopIf(EO adapter, Map externalAttributes) {
-        if (!hasLoopIf()) {
-            return true;
-        }
-        return executeIf(loopIf, adapter, externalAttributes);
     }
 
     public String getPath() {
@@ -221,7 +220,7 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
         if (this.path == null) {
             return;
         }
-        this.path = ReplaceUtil.replace(this.path, adapter, attributes);
+        this.path = new ParserTemplate(this.path).parse(adapter);
     }
 
 
@@ -243,7 +242,7 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
         return mapPath;
     }
 
-    public ResourceCall setMapPath(Object entry) {
+    public CallResource setMapPath(Object entry) {
         if (entry == null) {
             return this;
         }
@@ -273,8 +272,7 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
         return adapter.setEmpty(this.path);
     }
 
-    @Override
-    public String toString() {
+    public String toStringx() {
         if (this == null) {
             return "null";
         }
@@ -282,10 +280,7 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
             return "direct";
         }
         StringBuilder serialized = new StringBuilder();
-
         try {
-            serialized.append("{\n\"attributes\":");
-            serialized.append(attributes.toString());
             serialized.append("\n,\"config\":");
             serialized.append(new EOToJSON()
                     .setStartIndent(1)
@@ -297,34 +292,6 @@ public abstract class ResourceCall<RESULT> extends CallImpl<RESULT> {
             e.printStackTrace();
             return e.getMessage();
         }
-    }
-
-    public String toString2() {
-        StringBuilder builder = new StringBuilder(this.getClass().getSimpleName());
-        for (Object key : getAttributes().keySet()) {
-            if (EO_STATIC.F_INSERT.equals(key)) {
-                continue;
-            }
-            builder.append(" ");
-            builder.append(key);
-            builder.append("=\"");
-            builder.append(attributes.get(key));
-            builder.append("\"");
-        }
-        for (Object key : getGlobalAttributes().keySet()) {
-            builder.append(" ");
-            builder.append(key);
-            builder.append(":=\"");
-            builder.append(globalAttributes.get(key));
-            builder.append("\"");
-        }
-        if (attributes.get(EO_STATIC.F_INSERT) != null) {
-            builder.append("\nFrom ");
-            builder.append(EO_STATIC.F_INSERT);
-            builder.append(": ");
-            builder.append(attributes.get(EO_STATIC.F_INSERT));
-        }
-        return builder.toString();
     }
 
 }

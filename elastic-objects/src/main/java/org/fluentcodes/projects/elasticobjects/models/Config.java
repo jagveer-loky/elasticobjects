@@ -1,6 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
-
-import org.fluentcodes.projects.elasticobjects.models.Model;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import java.util.List;
 

@@ -1,10 +1,8 @@
-package org.fluentcodes.projects.elasticobjects.config;
-
-import org.fluentcodes.projects.elasticobjects.calls.ListParams;
+package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import java.util.List;
 
-public interface ListIOInterface extends IOInterface {
+public interface ListIOInterface {
     List read(ListParams listParams) ;
 
     Object readRow() ;

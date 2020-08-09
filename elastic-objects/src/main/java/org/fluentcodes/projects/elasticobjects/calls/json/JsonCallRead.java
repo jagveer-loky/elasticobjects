@@ -1,8 +1,7 @@
-package org.fluentcodes.projects.elasticobjects.calls;
+package org.fluentcodes.projects.elasticobjects.calls.json;
 
-import org.fluentcodes.projects.elasticobjects.calls.file.FileCallRead;
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.config.JsonConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileCallRead;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 
 /**
  * Created by werner.diwischek on 20.03.2018.
@@ -14,8 +13,7 @@ public class JsonCallRead extends FileCallRead {
     }
 
     public JsonCallRead(final String configKey) {
-        super();
-        setConfigKey(configKey);
+        super(configKey);
     }
 
     @Override

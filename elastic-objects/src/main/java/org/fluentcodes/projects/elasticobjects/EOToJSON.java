@@ -1,27 +1,29 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.config.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.executor.ExecutorList;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.Models;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by werner.diwischek on 13.01.18.
  */
 public class EOToJSON {
     public static final String REPEATED = ".repeated";
-    private int startIndent = 0;
+    private int startIndent = 1;
     private PathPattern pathPattern;
     private JSONSerializationType serializationType;
     private boolean checkObjectReplication = false;
     private List<EO> objectRegistry;
     private String spacer = "  ";
-
 
     public EOToJSON() {
 
@@ -68,78 +70,65 @@ public class EOToJSON {
 
     public String toJSON(final EOConfigsCache finder, final Object object)  {
         return this.toJSON(
-                new EoRoot(finder, object)
+                EoRoot.ofValue(finder, object)
         );
     }
 
-    public String toJSON(final EO adapter)  {
-        this.setCheckObjectReplication(adapter.isCheckObjectReplication());
+    public String toJSON(final EO eo)  {
+        this.setSerializationType(eo.getSerializationType());
+        this.setCheckObjectReplication(eo.isCheckObjectReplication());
         if (this.pathPattern == null) {
             this.pathPattern = new PathPattern("+");
         }
-        if (this.serializationType == null) {
-            serializationType = JSONSerializationType.STANDARD;
-        }
         StringBuilder json = new StringBuilder();
         if (serializationType != JSONSerializationType.EO) {
-            toJSON(json, adapter, startIndent, this.pathPattern);
+            toJSON(json, eo, startIndent, this.pathPattern);
             return json.toString();
         } else {
-            return toJSONRoot(adapter.getRoot());
+            return toJSONRoot(eo.getRoot());
         }
     }
 
-    private String toJSONRoot(final EO adapter)  {
-        this.setCheckObjectReplication(adapter.isCheckObjectReplication());
-        StringBuilder jsn = new StringBuilder();
+    private String toJSONRoot(final EO eo)  {
+        this.setCheckObjectReplication(eo.isCheckObjectReplication());
+
         final String indent = getIndent(startIndent);
         final String nextIndent = getIndent(startIndent+1);
         final String lineBreak = getLineBreak(startIndent);
-        jsn.append("{");
-        jsn.append(lineBreak);
-        jsn.append(nextIndent);
-        jsn.append("\"");
-        addEOModel(jsn, adapter, false);
-        jsn.append(JSONToEO.DATA);
-        jsn.append("\": ");
-        //jsn.append(lineBreak);
-        toJSON(jsn, adapter, startIndent + 1, this.pathPattern);
-
-        ExecutorList executorList = adapter.getCalls();
-        if (executorList.size() > 0) {
-            JSONSerializationType buffer = serializationType;
-            serializationType = JSONSerializationType.STANDARD;
-            serializationType = buffer;
+        String json = toJSON(new StringBuilder(), eo, startIndent, this.pathPattern);
+        if (eo.getModelClass() != Map.class) {
+            StringBuilder jsnModel = new StringBuilder();
+            jsnModel.append("{");
+            jsnModel.append(lineBreak);
+            jsnModel.append(nextIndent);
+            jsnModel.append("\"");
+            jsnModel.append(PathElement.ROOT_MODEL);
+            jsnModel.append("\": \"");
+            jsnModel.append(eo.getModels());
+            jsnModel.append("\"");
+            if (eo.sizeEo()>0) {
+                jsnModel.append(",");
+                jsnModel.append(lineBreak);
+            }
+            json = json.replaceAll("^\\{",jsnModel.toString());
         }
-
-        if (!adapter.getLog().isEmpty()) {
-            jsn.append(",");
-            jsn.append(lineBreak);
-            jsn.append(indent);
-            jsn.append("\"");
-            jsn.append(JSONToEO.LOGS);
-            jsn.append("\":");
-            this.addScalarSimple(jsn, String.class, adapter.getLog());
-        }
-        jsn.append(lineBreak);
-        jsn.append("}");
-        return jsn.toString();
+        return json;
     }
 
 
-    private String toJSON(final StringBuilder json, final EO adapter, final int indentLevel, PathPattern pathPattern)  {
-        if (adapter.get() == null) {
+    private String toJSON(final StringBuilder json, final EO eoParent, final int indentLevel, PathPattern pathPattern)  {
+        if (eoParent.get() == null) {
             return "";
         }
         final String indent = getIndent(indentLevel);
         final String lineBreak = getLineBreak(indentLevel);
-        EO repeated = checkObjectReplication(adapter);
+        EO repeated = checkObjectReplication(eoParent);
         if (repeated != null) {
             this.addRepeated(json, repeated, lineBreak, indent);
             return json.toString();
         }
 
-        ModelInterface model = adapter.getModel();
+        ModelInterface model = eoParent.getModel();
         if (model.isObject()) {
             if (!model.getPathPattern().isEmpty()) {
                 if (pathPattern.isFilterNothing()) {
@@ -148,35 +137,38 @@ public class EOToJSON {
             }
         }
 
-        this.addStart(json, adapter, indent);
+        this.addStart(json, eoParent, indent);
 
         List<String> fieldNames;
         try {
-            fieldNames = adapter.keys(pathPattern);
+            fieldNames = eoParent.keys(pathPattern);
         } catch (Exception e) {
-            adapter.debug("Empty keys for " + e.getMessage());
+            eoParent.debug("Empty keys for " + e.getMessage());
             return "";
         }
 
         if (fieldNames.isEmpty()) {
-            addEnd(json, adapter, lineBreak, indent);
+            addEnd(json, eoParent, lineBreak, indent);
             return json.toString();
         }
         // main loop
         boolean firstEntry = true;
         final String nextIndent = getNextIndent(indentLevel);
         final int nextIndentLevel = getNextIndentLevel(indentLevel);
-        final boolean isTyped = adapter.isChildTyped();
+        final boolean isTyped = eoParent.isChildTyped();
         for (int i = 0; i < fieldNames.size(); i++) {
             String fieldName = fieldNames.get(i);
-            EO childAdapter = adapter.getEo(fieldName);
-            if (childAdapter == null) {
+            if (PathElement.isParentNotSet(fieldName) && serializationType == JSONSerializationType.STANDARD) {
                 continue;
             }
-            if (childAdapter.get() == null) {
+            EO eoChild = null;
+            try {
+                eoChild = eoParent.getEo(fieldName);
+            }
+            catch (EoException e) {
                 continue;
             }
-            if (childAdapter.getModel().isToSerialize() && childAdapter.isEmpty()) {
+            if (eoChild.get() == null || (eoChild.getModel().isToSerialize() && eoChild.isEmpty())) {
                 continue;
             }
             if (!firstEntry) {
@@ -186,44 +178,44 @@ public class EOToJSON {
             }
             json.append(lineBreak);
             // named serialization ....
-            if (adapter.getModel().isMapType() || serializationType == JSONSerializationType.EO) {
+            if (eoParent.getModel().isMapType() || serializationType == JSONSerializationType.EO) {
                 json.append(nextIndent);
                 json.append("\"");
                 if (serializationType == JSONSerializationType.EO) {
-                    addEOModel(json, childAdapter, isTyped);
+                    addEOModel(json, eoChild, isTyped);
                 }
                 json.append(fieldName);
                 json.append("\": ");
             } else {
                 json.append(nextIndent);
             }
-            if (childAdapter.isScalar() || childAdapter.getModel().isToSerialize()) {
-                addScalar(json, childAdapter, isTyped);
+            if (eoChild.isScalar() || eoChild.getModel().isToSerialize()) {
+                addScalar(json, eoChild, isTyped);
                 continue;
             }
             //json.append(lineBreak);
             PathPattern fieldPathPattern = getChildPathPattern(fieldName, model, pathPattern);
-            toJSON(json, childAdapter, nextIndentLevel, fieldPathPattern);
+            toJSON(json, eoChild, nextIndentLevel, fieldPathPattern);
         }
-        addEnd(json, adapter, lineBreak, indent);
+        addEnd(json, eoParent, lineBreak, indent);
         return json.toString();
     }
 
-    private final void addEOModel(final StringBuilder jsn, final EO adapter, boolean isParentTyped) {
-        if (isParentTyped && adapter.getModelClass() != Object.class) {
+    private final void addEOModel(final StringBuilder jsn, final EO eoChild, boolean isParentTyped) {
+        //if (isParentTyped && eoChild.getModelClass() != Object.class) {
+            //return;
+        //}
+        if (eoChild.hasDefaultMap()) {
             return;
         }
-        if (adapter.hasDefaultMap()) {
+        if (eoChild.getModelClass() == String.class) {
             return;
         }
-        if (adapter.getModelClass() == String.class) {
-            return;
-        }
-        if (adapter.getModelClass() == Long.class) {
+        if (eoChild.getModelClass() == Integer.class) {
             return;
         }
         jsn.append("(");
-        jsn.append(adapter.getModels().toString());
+        jsn.append(eoChild.getModels().toString());
         jsn.append(")");
     }
 
@@ -260,7 +252,7 @@ public class EOToJSON {
         if (pathPattern != null && pathPattern.filterSomething()) {
             fieldPathPattern = pathPattern.getPathList(key);
         } else {
-            FieldConfig fieldConfig = model.getField(key);
+            FieldConfig fieldConfig = model.getFieldConfig(key);
             if (fieldConfig != null && fieldConfig.hasPathPattern()) {
                 fieldPathPattern = fieldConfig.getPathPattern();
             } else {

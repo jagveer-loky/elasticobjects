@@ -3,8 +3,14 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
-import org.fluentcodes.projects.elasticobjects.utils.TestHelper;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+
+import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,12 +26,12 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC.M_XLSX_CONFIG;
 /**
  * Created by Werner on 04.11.2016.
  */
-public class ModelConfigTest extends TestHelper {
+public class ModelConfigTest {
 
 
     @Test
     public void findConfigInCache()  {
-        ModelConfig config = TestEOProvider.EO_CONFIGS.findModel(M_XLSX_CALL);
+        ModelConfig config = ProviderRootTest.EO_CONFIGS.findModel(M_XLSX_CALL);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
@@ -57,41 +63,41 @@ public class ModelConfigTest extends TestHelper {
 
     @Test
     public void checkDependentModels()  {
-        TestHelper.printStartMethod();
+        
         // Check if basic Models are available
-        ModelInterface model = TestEOProvider.EO_CONFIGS
+        ModelInterface model = ProviderRootTest.EO_CONFIGS
                 .findModel(ModelInterface.class.getSimpleName());
         //Assert.assertEquals(ModelInterface.class.getSimpleName(),model.getModelKey());
-        model = TestEOProvider.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
+        model = ProviderRootTest.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
         Assert.assertEquals(M_FIELD_CONFIG, model.getModelKey());
 
-        model = TestEOProvider.EO_CONFIGS.findModel(BasicTest.class);
+        model = ProviderRootTest.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertEquals(BasicTest.class.getSimpleName(), model.getModelKey());
-        model = TestEOProvider.EO_CONFIGS.findModel(SubTest.class);
+        model = ProviderRootTest.EO_CONFIGS.findModel(SubTest.class);
         Assert.assertEquals(SubTest.class.getSimpleName(), model.getModelKey());
 
-        model = TestEOProvider.EO_CONFIGS.findModel(HostConfig.class);
-        model = TestEOProvider.EO_CONFIGS.findModel(FileConfig.class);
-        model = TestEOProvider.EO_CONFIGS.findModel(UserConfig.class);
+        model = ProviderRootTest.EO_CONFIGS.findModel(HostConfig.class);
+        model = ProviderRootTest.EO_CONFIGS.findModel(FileConfig.class);
+        model = ProviderRootTest.EO_CONFIGS.findModel(UserConfig.class);
     }
 
     @Test
     public void checkModelXlsxConfig()  {
-        TestHelper.printStartMethod();
-        ModelConfig model = TestEOProvider.EO_CONFIGS
+        
+        ModelConfig model = ProviderRootTest.EO_CONFIGS
                 .findModel(XlsxConfig.class);
         Assert.assertEquals(M_XLSX_CONFIG, model.getModelKey());
     }
 
     @Test
     public void checkModelXlsxAction()  {
-        final ModelInterface model = TestEOProvider.EO_CONFIGS
+        final ModelInterface model = ProviderRootTest.EO_CONFIGS
                 .findModel(M_XLSX_CALL);
         Assert.assertEquals(M_XLSX_CALL, model.getModelKey());
         model.resolve();
-        FieldConfig fieldConfig = model.getField(F_LIST_PARAMS);
+        FieldConfig fieldConfig = model.getFieldConfig(F_LIST_PARAMS);
         Assert.assertNotNull(fieldConfig);
-        fieldConfig = model.getField(F_LIST_MAPPER);
+        fieldConfig = model.getFieldConfig(F_LIST_MAPPER);
         Assert.assertNotNull(fieldConfig);
     }
 

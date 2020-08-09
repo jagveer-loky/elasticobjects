@@ -2,14 +2,15 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -21,13 +22,10 @@ import java.util.regex.Pattern;
  * @since 10.6.2016
  */
 public class JSONToEO {
-    public static final String DATA = "_data";
-    public static final String LOGS = "_logs";
-    public static final String CONFIG = "_config";
     //http://stackoverflow.com/questions/3651725/match-multiline-text-using-regular-expression
-    protected static final Pattern jsonPattern = Pattern.compile("^[\\s]*[\\{\\[]", Pattern.MULTILINE);
-    protected static final Pattern jsonMapPattern = Pattern.compile("^[\\s]*[\\{]", Pattern.MULTILINE);
-    protected static final Pattern jsonListPattern = Pattern.compile("^[\\s]*[\\[]", Pattern.MULTILINE);
+    public static final Pattern jsonPattern = Pattern.compile("^[\\s]*[\\{\\[]", Pattern.MULTILINE);
+    public static final Pattern jsonMapPattern = Pattern.compile("^[\\s]*[\\{]", Pattern.MULTILINE);
+    public static final Pattern jsonListPattern = Pattern.compile("^[\\s]*[\\[]", Pattern.MULTILINE);
     private static final Logger LOG = LogManager.getLogger(JSONToEO.class);
     private EOConfigsCache provider;
     private long character;
@@ -43,7 +41,7 @@ public class JSONToEO {
      *
      * @param s A source getSerialized.
      */
-    private String debug;
+    private String json;
 
 
     /**
@@ -63,15 +61,15 @@ public class JSONToEO {
         this.line = 1;
     }
 
-    public JSONToEO(String s, EOConfigsCache provider) {
-        this(new StringReader(s));
-        this.debug = s;
+    public JSONToEO(String json, EOConfigsCache provider) {
+        this(new StringReader(json));
+        this.json = json;
         this.provider = provider;
     }
 
-    public JSONToEO(String s) {
-        this(new StringReader(s));
-        this.debug = s;
+    public JSONToEO(String json) {
+        this(new StringReader(json));
+        this.json = json;
     }
 
     private static Models stringToValue(final EOConfigsCache configsCache, final String string)  {
@@ -276,18 +274,27 @@ public class JSONToEO {
     }
 
     private String debug() {
+        int position = new Long(index).intValue();
+        int max = position + 20;
+        int min = position - 20;
+        if (min<0) {
+            min = 0;
+        }
+        if (max>json.length()) {
+            max = json.length();
+        }
         return (Thread.currentThread().getStackTrace()[2].getMethodName()
                 + ": "
                 + index + ": "
-                + debug.substring(new Long(index).intValue()-20, new Long(index).intValue()) +
+                + json.substring(min, position) +
                 "=="
-                + debug.substring(new Long(index).intValue(), new Long(index).intValue()) +
+                + json.substring(position, position) +
                 "=="
-                + debug.substring(new Long(index).intValue()+1, new Long(index).intValue()+20));
+                + json.substring(position + 1, max));
     }
 
-    public EO mapObject(EO currentAdapter)  {
-        if (currentAdapter == null) {
+    public EO mapObject(EO eoCurrent)  {
+        if (eoCurrent == null) {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
         }
@@ -296,21 +303,21 @@ public class JSONToEO {
             //Check for closing tag or a key
             char c = this.nextClean();
             if (c == '}') { // empty
-                return currentAdapter;
+                return eoCurrent;
             }
             if (c == ',') {
                 final String key = this.nextKey();
                 if (this.nextClean() != ':') {
                     new EoException("Expected ':' in the map after the key '" + key + "' but see '" + c + "'': " + this.debug());
                 }
-                createChild(currentAdapter, key);
+                createChild(eoCurrent, key);
             } else if (startFlag) {
                 back();
                 final String key = this.nextKey();
                 if (this.nextClean() != ':') {
                     new EoException("Expected ':' in the map after the key '" + key + "' but see '" + c + "'': " + this.debug());
                 }
-                createChild(currentAdapter, key);
+                createChild(eoCurrent, key);
                 startFlag = false;
             } else {
                 throw new EoException("Expected colon not found but '" + c + "': " + this.debug());
@@ -368,14 +375,14 @@ public class JSONToEO {
      * <li>Scalar else. </li>
      * </ul>
      *
-     * @param parentAdapter the parent builder where the child will be added
+     * @param eoParent the parent builder where the child will be added
      * @param rawFieldName  The fieldname of the child.
      * @return
      * @
      */
-    private EO createChild(EO parentAdapter, final String rawFieldName)  {
-        if (parentAdapter == null) {
-            throw new EoException("parentAdapter is null ...!");
+    private EO createChild(EO eoParent, final String rawFieldName)  {
+        if (eoParent == null) {
+            throw new EoException("parent eo is null ...!");
         }
 
         char c = this.nextClean();
@@ -386,25 +393,30 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                parentAdapter.setPathValue(rawFieldName, value);
-                return parentAdapter;
+                eoParent.set(value, rawFieldName);
+                return eoParent;
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    mapObject(parentAdapter.setPathValue(rawFieldName));
-                    return parentAdapter;
+                    mapObject(eoParent.setEmpty(rawFieldName));
+                    return eoParent;
                 }
                 else {
-                    mapObject(parentAdapter); // start parsing
-                    return parentAdapter;
+                    mapObject(eoParent); // start parsing
+                    return eoParent;
                 }
             case '[':
                 if (rawFieldName!=null) {// List value
-                    return mapList(parentAdapter.setPathValue(rawFieldName, new ArrayList<>()));
+                    if (rawFieldName.startsWith("(")) {
+                        return mapList(eoParent.setEmpty(rawFieldName));
+                    }
+                    else {
+                        return mapList(eoParent.setEmpty("(List)" + rawFieldName));
+                    }
                 }
                 else {
-                    mapList(parentAdapter); // start parsing
-                    return parentAdapter;
+                    mapList(eoParent); // start parsing
+                    return eoParent;
                 }
 
         }
@@ -425,24 +437,16 @@ public class JSONToEO {
         this.back();
 
         String value = sb.toString().trim();
-        if (value.matches("^\\d+$")) {
-            parentAdapter.setPathValue(rawFieldName, Integer.parseInt(value));
+        if ("null".equals(value) || value== null || value.isEmpty()) {
+            return eoParent;
         }
-        else if (value.matches("^\\d+[.]\\d+$")) {
-            parentAdapter.setPathValue(rawFieldName, Float.parseFloat(value));
-        }
-
-        else if (value.equals("true")) {
-            parentAdapter.setPathValue(rawFieldName, true);
-        }
-        else if (value.equals("false")) {
-            parentAdapter.setPathValue(rawFieldName, false);
+        if (rawFieldName.matches("\\(.*\\).*")) {
+            eoParent.set(value, rawFieldName);
         }
         else {
-            parentAdapter.setPathValue(rawFieldName, value);
+            eoParent.set( ScalarConverter.fromJson(value), rawFieldName);
         }
-
-        return parentAdapter;
+        return eoParent;
     }
 
     /**

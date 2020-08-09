@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -58,7 +58,7 @@ public class FieldConfig extends ConfigImpl {
         map.put(F_CUSTOM_FIELD_PARAMS, customFieldParams);
 
         map.put(F_FIELD_KEY, field.getName());
-        map.put(F_NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
+        map.put(NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
         map.put(F_NAME, field.getName());
         map.put(F_MODEL_KEYS, typeClass.getName());
         FieldConfig config = (FieldConfig) new Builder().build(configsCache, map);

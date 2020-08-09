@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -196,47 +196,25 @@ public class ModelConfigSet extends ModelConfig implements ModelInterface {
         resolve();
         return new ArrayList();
     }
+    @Override
     public boolean isCreate() {
         return true;
     }
+    @Override
     public boolean hasModel() {
         return false;
     }
-
-    public boolean isScalar() {
-        return false;
-    }
-
-    public boolean isEnum() {
-        return false;
-    }
-
-    public boolean isMap() {
-        return false;
-    }
-
+    @Override
     public boolean isSet() {
         return true;
     }
-
+    @Override
     public boolean isList() {
         return true;
     }
-
-    public boolean isObject() {
-        return false;
-    }
-
+    @Override
     public boolean isListType() {
         return true;
-    }
-
-    public boolean isMapType() {
-        return false;
-    }
-
-    public boolean isNull() {
-        return false;
     }
 
 

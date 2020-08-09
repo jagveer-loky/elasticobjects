@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigNone extends ModelConfig implements ModelInterface {
+public class ModelConfigNone extends ModelConfig {
     private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
 
     public ModelConfigNone(EOConfigsCache provider, Builder bean) {
@@ -92,51 +92,16 @@ public class ModelConfigNone extends ModelConfig implements ModelInterface {
         throw new EoException("No field defined for scalar models: ");
     }
 
+    @Override
     public boolean hasModel() {
         return false;
     }
-
-    public boolean isCreate() {
-        return false;
-    }
+    @Override
     public boolean isScalar() {
         return true;
     }
-    public boolean hasSetter(final String fieldName) {
-        return false;
-    }
-    public boolean hasGetter(final String fieldName) {
-        return false;
-    }
 
-    public boolean isEnum() {
-        return false;
-    }
-
-    public boolean isMap() {
-        return false;
-    }
-
-    public boolean isSet() {
-        return false;
-    }
-
-    public boolean isList() {
-        return false;
-    }
-
-    public boolean isListType() {
-        return false;
-    }
-
-    public boolean isMapType() {
-        return false;
-    }
-
-    public boolean isObject() {
-        return false;
-    }
-
+    @Override
     public boolean isNull() {
         return true;
     }

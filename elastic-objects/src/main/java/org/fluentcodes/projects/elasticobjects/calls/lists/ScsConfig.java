@@ -2,11 +2,14 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.config.Config;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,28 +18,51 @@ import java.util.Map;
  * @author Werner Diwischek
  * @since 09.10.2017.
  */
-public class ConfigResourcesScs extends ListConfig {
+public class ScsConfig extends ListConfig {
     //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
     private final String fileKey;
     private final String scsKey;
     private final String fieldDelimiter;
     private final String rowDelimiter;
-
-
     private FileConfig fileConfig;
 
-    public ConfigResourcesScs(final EOConfigsCache provider, Builder builder)  {
+    public ScsConfig(final EOConfigsCache provider, Builder builder)  {
         super(provider, builder);
-
-        //<call keep="JAVA" templateKey="CacheSetter.tpl" }
         this.fileKey = builder.fileKey;
         this.scsKey = builder.scsKey;
         this.fieldDelimiter = builder.fieldDelimiter;
         this.rowDelimiter = builder.rowDelimiter;
-        //readHead();
     }
 
-    //<call keep="JAVA" templateKey="CacheGetter.tpl" }
+    public void resolve()  {
+        if (isResolved()) {
+            return;
+        }
+        super.resolve();
+        if (!hasFileKey()) {
+            throw new EoException("No fileKey defined for SCS " + getKey());
+        }
+        fileConfig = getConfigsCache().findFile(fileKey);
+    }
+
+    public List<List<String>> read() {
+        resolve();
+        fileConfig.resolve();
+        String content = fileConfig.read();
+        if (content == null|| content.isEmpty()) {
+            return new ArrayList<>();
+        }
+        String[] rows = content.split(rowDelimiter);
+        List<List<String>> result = new ArrayList<>();
+        for (String row:rows) {
+            if (row == null|| row.isEmpty()) {
+                continue;
+            }
+            String[] fields = row.split(fieldDelimiter);
+            result.add(Arrays.asList(fields));
+        }
+        return result;
+    }
 
     public String getKey() {
         return this.scsKey;
@@ -49,6 +75,10 @@ public class ConfigResourcesScs extends ListConfig {
         return this.scsKey;
     }
 
+    public boolean hasFileKey() {
+        return this.fileKey!=null && !this.fileKey.isEmpty();
+    }
+
     /**
      * A key for file objects.
      */
@@ -59,6 +89,8 @@ public class ConfigResourcesScs extends ListConfig {
     /**
      * The field for fileConfig e.g. defined in {@link FileConfig}
      */
+
+
     public FileConfig getFileConfig()  {
         if (this.fileConfig == null) {
             if (this.getConfigsCache() == null) {
@@ -69,7 +101,6 @@ public class ConfigResourcesScs extends ListConfig {
         return this.fileConfig;
     }
 
-    @Override
     public ListIOInterface createIO()  {
         return new ScsIO(this);
     }
@@ -122,7 +153,7 @@ public class ConfigResourcesScs extends ListConfig {
 
         public Config build(EOConfigsCache configsCache, Map<String, Object> values)  {
             prepare(configsCache, values);
-            return new ConfigResourcesScs(configsCache, this);
+            return new ScsConfig(configsCache, this);
         }
     }
 }

@@ -6,8 +6,8 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,22 +15,24 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigKeyListCall extends CallImpl<List>{
-    private static final Logger LOG = LogManager.getLogger(ConfigKeyListCall.class);
+public class ConfigKeysCall extends CallImpl<List>{
+    private static final Logger LOG = LogManager.getLogger(ConfigKeysCall.class);
     private String configType;
     private String configFilter = ".*";
     private SortOrder sortOrder = SortOrder.ASC;
+    private Class<? extends Config> configClass;
 
-    public ConfigKeyListCall() {
+    public ConfigKeysCall() {
         super();
     }
 
-    public ConfigKeyListCall(final Class<? extends Config> configClass) {
+    public ConfigKeysCall(final Class<? extends Config> configClass) {
         super();
+        this.configClass = configClass;
         this.configType = configClass.getSimpleName();
     }
 
-    public ConfigKeyListCall(final Class<? extends Config> configClass, final String configFilter) {
+    public ConfigKeysCall(final Class<? extends Config> configClass, final String configFilter) {
         this(configClass);
         this.configFilter = configFilter;
     }
@@ -38,10 +40,14 @@ public class ConfigKeyListCall extends CallImpl<List>{
     @Override
     public List<String> execute(final EO eo) {
         super.check(eo);
-        if (configType == null) {
+        if (configType == null && configClass == null) {
             throw new EoException("Problem no config type defined.");
         }
-        Set<String> keys = eo.getConfigsCache().getConfigNames(configType);
+        if (configClass == null) {
+            ModelConfig configTypeConfig = eo.getConfigsCache().findModel(configType);
+            configClass = configTypeConfig.getModelClass();
+        }
+        Set<String> keys = eo.getConfigsCache().getConfigKeys(configClass);
         try {
             return keys
                     .stream()

@@ -1,8 +1,7 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
@@ -155,10 +154,10 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             this.subModule = ScalarConverter.toString(values.get(F_SUB_MODULE));
             this.path = ScalarConverter.toString(values.get(F_PATH));
             this.mapPath = ScalarConverter.toString(values.get(F_MAP_PATH));
-            this.naturalId = ScalarConverter.toString(values.get(F_NATURAL_ID));
-            this.description = ScalarConverter.toString(values.get(F_DESCRIPTION));
-            this.creationDate = ScalarConverter.toDate(values.get(F_CREATION_DATE));
-            this.id = ScalarConverter.toLong(values.get(F_ID));
+            this.naturalId = ScalarConverter.toString(values.get(NATURAL_ID));
+            this.description = ScalarConverter.toString(values.get(Model.DESCRIPTION));
+            this.creationDate = ScalarConverter.toDate(values.get(CREATION_DATE));
+            this.id = ScalarConverter.toLong(values.get(ID));
             Object scopeAsObject = values.get(F_SCOPE);
             this.scope = new ArrayList<Scope>();
             if (scopeAsObject != null && scopeAsObject instanceof List) {

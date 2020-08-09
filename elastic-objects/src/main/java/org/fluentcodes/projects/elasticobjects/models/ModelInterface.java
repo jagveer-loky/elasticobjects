@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
@@ -140,24 +140,21 @@ public interface ModelInterface extends Config {
     boolean hasModel();
 
     boolean isScalar();
-
+    boolean isNumber();
     boolean isMap();
-
     boolean isMapType();
-
     boolean isSet();
-
     boolean isList();
     boolean isCreate();
     boolean isListType();
-
     boolean isObject();
-
     boolean isNull();
-
-    boolean isEnum();
-
-    boolean isContainer();
+    default boolean isEnum() {
+        return this.getModelClass().isEnum();
+    }
+    default boolean isContainer() {
+        return isMap() || isObject() || isList();
+    }
 
     String toJSON(final JSONSerializationType serializationType, final Object object) ;
 

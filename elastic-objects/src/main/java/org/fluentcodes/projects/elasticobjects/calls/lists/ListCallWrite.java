@@ -1,11 +1,10 @@
-package org.fluentcodes.projects.elasticobjects.calls;
+package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
+import org.fluentcodes.projects.elasticobjects.calls.CallResource;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.condition.Or;
-import org.fluentcodes.projects.elasticobjects.config.ListConfig;
-import org.fluentcodes.projects.elasticobjects.config.ListIOInterface;
-import org.fluentcodes.projects.elasticobjects.config.Permissions;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
@@ -22,7 +21,7 @@ public class ListCallWrite extends CallResource<Boolean> {
     private ListMapper listMapper;
 
     public ListCallWrite() {
-        super(Permissions.WRITE);
+        super(PermissionType.WRITE);
     }
 
     protected ListConfig getListConfig() {
@@ -30,16 +29,6 @@ public class ListCallWrite extends CallResource<Boolean> {
     }
 
     public void mapAttributes(final Map attributes) {
-        if (attributes == null || attributes.isEmpty()) {
-            return;
-        }
-        try {
-            super.mapAttributes(attributes);
-            listParams.mapAttributes(attributes);
-            listMapper.mapAttributes(attributes);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public ListMapper getListMapper() {
@@ -156,7 +145,7 @@ public class ListCallWrite extends CallResource<Boolean> {
         }
         List toWrite = toList(eo, null);
         try {
-            ((ListIOInterface) getListConfig().createIO()).write(toWrite);
+            //((ListIOInterface) getListConfig().createIO()).write(toWrite);
         } catch (Exception e) {
             throw new EoException(e);
         }
@@ -171,7 +160,7 @@ public class ListCallWrite extends CallResource<Boolean> {
         }
         List<String> keys = null;
         try {
-            keys = new ArrayList<>(adapter.keys());
+            keys = new ArrayList<>(adapter.keysEo());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -191,7 +180,7 @@ public class ListCallWrite extends CallResource<Boolean> {
 
         List<String> colKeys = null;
         try {
-            colKeys = new ArrayList<>(firstChild.keys());
+            colKeys = new ArrayList<>(firstChild.keysEo());
         } catch (Exception e) {
             e.printStackTrace();
             return toWrite;

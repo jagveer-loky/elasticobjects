@@ -1,6 +1,7 @@
-package org.fluentcodes.projects.elasticobjects.config;
+package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,44 +98,47 @@ public class RolePermissions {
         }
     }
 
-    public boolean hasPermissions(Permissions requiredPermission, List<String> roles)  {
+    public boolean hasPermissions(PermissionType requiredPermission, List<String> roles)  {
         if (roles == null) {
             return true;
         }
         if (roles.isEmpty()) {
             return false;
         }
-        Permissions permission = getPermissions(roles);
-        return permission.value() >= requiredPermission.value();
+        PermissionType permission = getPermissions(roles);
+        if (permission.value() < requiredPermission.value()) {
+            throw new EoException("No permissions for roles " + roles + ": " + permission.name() + "(" + permission.value() + ") < " + requiredPermission.name() + "(" + requiredPermission.value() + ")");
+        }
+        return true;
     }
 
-    public Permissions getPermissions(List<String> roles) {
+    public PermissionType getPermissions(List<String> roles) {
         resolve();
         if (roles == null) {
-            return Permissions.EXECUTE;
+            return PermissionType.EXECUTE;
         }
         if (roles.contains(SUPERADMIN)) {
-            return Permissions.EXECUTE;
+            return PermissionType.EXECUTE;
         }
         if (roles.size() == 0) {
-            return Permissions.NOTHING;
+            return PermissionType.NOTHING;
         }
         if (contains(executeList, roles)) {
-            return Permissions.EXECUTE;
+            return PermissionType.EXECUTE;
         }
         if (contains(deleteList, roles)) {
-            return Permissions.DELETE;
+            return PermissionType.DELETE;
         }
         if (contains(createList, roles)) {
-            return Permissions.CREATE;
+            return PermissionType.CREATE;
         }
         if (contains(writeList, roles)) {
-            return Permissions.WRITE;
+            return PermissionType.WRITE;
         }
         if (contains(readList, roles)) {
-            return Permissions.READ;
+            return PermissionType.READ;
         }
-        return Permissions.NOTHING;
+        return PermissionType.NOTHING;
     }
 
     private boolean contains(List<String> permissions, List<String> roles) {

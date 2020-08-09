@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigTypeKeyListCall extends CallImpl<List> implements Call<List> {
+public class ConfigTypeKeyListCall extends CallImpl<List> {
     private static final Logger LOG = LogManager.getLogger(ConfigTypeKeyListCall.class);
     private String configFilter;
 

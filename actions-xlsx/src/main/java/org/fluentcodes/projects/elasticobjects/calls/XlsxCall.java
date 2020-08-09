@@ -1,9 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.config.FileConfig;
-import org.fluentcodes.projects.elasticobjects.config.HostConfig;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.config.XlsxConfig;
 
 import java.util.Map;

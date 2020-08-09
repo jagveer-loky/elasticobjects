@@ -1,10 +1,11 @@
-package org.fluentcodes.projects.elasticobjects.executor;
+package org.fluentcodes.projects.elasticobjects.calls.executor;
 
 import org.fluentcodes.projects.elasticobjects.TestXlsxProvider;
+import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.calls.XlsxCall;
 import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.test.TestEOProvider;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.TestEOProvider;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,12 +28,12 @@ public class XlsxCallWithinEOTestHelper {
         //TODO should work ;-) child = .createChildForMap("../");
         EO child = adapter.getChild(S_LEVEL0);
 
-        CallExecutor executor = TestXlsxProvider.createExecutorXlsxActionRead(X_SOURCE_XLSX_TEST);
+        ExecutorCall executor = TestXlsxProvider.createExecutorXlsxActionRead(X_SOURCE_XLSX_TEST);
         child.addCall(executor);
 
         Assert.assertEquals(1, adapter.getCalls().getExecutorList().size());
 
-        CallExecutor call = (CallExecutor) adapter.getCalls().getExecutorList().get(0);
+        ExecutorCall call = (ExecutorCall) adapter.getCalls().getExecutorList().get(0);
         Assert.assertEquals(XlsxCall.class.getSimpleName() + ".read(source.xlsx:test)", call.getAction());
         Assert.assertEquals(Path.DELIMITER + S_LEVEL0, call.getPath());
 
