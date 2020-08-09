@@ -151,6 +151,42 @@ public class Path {
         return target;
     }
 
+    public EO create (final EO eo, final Object value) {
+        EO target = eo;
+        if (isEmpty()) {
+            target.mapObject(value);
+        }
+        if (isAbsolute()) {
+            target = eo.getRoot();
+        }
+        int counter = 0;
+        for (PathElement element: entries) {
+            counter++;
+            try {
+                if (element.isBack()) {
+                    target = target.getParent();
+                }
+                else if (element.isSame()) {
+                    if (counter==entries.length) {
+                        target.mapObject(value);
+                    }
+                }
+                else {
+                    if (counter==entries.length) {
+                        target = target.set(element, value);
+                    }
+                    else {
+                        target = target.set(element);
+                    }
+                }
+            }
+            catch (EoException e) {
+                throw new EoException("Path " + this.toString() + " undefined: " + e.getMessage());
+            }
+        }
+        return target;
+    }
+
     protected List<PathElement> getEntries() {
         return Arrays.asList(this.entries);
     }

@@ -37,6 +37,8 @@ public interface EO {
 
     EO set(Object value, String... paths) ;
     EO setEmpty(String... paths) ;
+    EO set(PathElement pathElement);
+    EO set(PathElement pathElement, Object value);
     void add(EO value, PathElement pathElement);
 
     EO mapObject(Object source);

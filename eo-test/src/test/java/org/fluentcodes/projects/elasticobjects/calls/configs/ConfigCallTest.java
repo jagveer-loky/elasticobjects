@@ -9,6 +9,7 @@ import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
 
@@ -54,6 +55,7 @@ public class ConfigCallTest {
     public void givenEoForModelAndFilterKeyMap_whenExecute_thenXpected() {
         final EO eo = ProviderRootTest.createEo();
         final ConfigCall call = new ConfigCall(ModelConfig.class, ".*Map");
+        List result = call.execute(eo);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

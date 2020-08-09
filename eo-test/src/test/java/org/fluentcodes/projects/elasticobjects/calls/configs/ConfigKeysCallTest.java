@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -36,6 +37,7 @@ public class ConfigKeysCallTest {
     }
 
 
+    @Ignore
     @Test
     public void givenEoWithTemplate_whenExecuteEo_thenTemplateResultContainsConfigKeyListCall()  {
         final TemplateCall call = new TemplateCall();

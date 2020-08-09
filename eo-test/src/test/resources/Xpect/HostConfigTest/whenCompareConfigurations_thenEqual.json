@@ -1,6 +1,5 @@
 {
   "_rootmodel": "ArrayList",
-
   "0": {
     "hostKey": "h2",
     "protocol": "jdbc:h2",

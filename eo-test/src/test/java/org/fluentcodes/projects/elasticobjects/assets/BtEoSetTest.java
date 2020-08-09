@@ -214,24 +214,29 @@ public class BtEoSetTest {
     }
 
     @Test
-    public void givenBtEmpty_whenSetNotExistingPath_thenLogErrors()  {
+    public void givenBtEmpty_whenSetNotExistingPath_thenExceptionThrown()  {
         final EO eo = ProviderRootTest.createEo(new BasicTest());
-        eo.set(S_STRING_OTHER, S_KEY1);
-        Assertions.assertThat(eo.getLog()).isNotEmpty();
+        Assertions.assertThatThrownBy(
+                ()->{ eo.set(S_STRING_OTHER, S_KEY1);}
+        )
+                .hasMessage("Path key1 undefined: No fieldName defined key1(BasicTest).");
     }
 
     @Test
-    public void givenBtEmpty_whenSetScalarFieldWithBT_thenLogErrors()  {
+    public void givenBtEmpty_whenSetScalarFieldWithBT_thenExeptionThrown()  {
         final EO eo = ProviderRootTest.createEo(new BasicTest());
-        eo.set(new BasicTest(), F_TEST_STRING);
-        Assertions.assertThat(eo.getLog()).contains("Problem setting non scalar value ");
+        Assertions
+                .assertThatThrownBy(
+                        ()->{eo.set(new BasicTest(), F_TEST_STRING);}
+                )
+                .hasMessage("Path testString undefined: Problem setting non scalar value (BasicTest) for field name 'testString'. Expected is String!");
     }
 
     @Test
     public void givenBtEmpty_whenSetBTFieldWithScalar_thenLogErrors()  {
         final EO eo = ProviderRootTest.createEo(new BasicTest());
-        eo.set(S_STRING, F_BASIC_TEST);
-        Assertions.assertThat(eo.getLog()).contains("Problem setting scalar value ");
+        Assertions.assertThatThrownBy(()->{eo.set(S_STRING, F_BASIC_TEST);})
+                .hasMessage("Path basicTest undefined: Problem setting scalar value (String) for field name 'basicTest'. Expected is BasicTest!");
     }
 
     @Test
@@ -256,14 +261,6 @@ public class BtEoSetTest {
         eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(BasicTest)" + S_LEVEL3);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3).getModelClass()).isEqualTo(BasicTest.class);
-    }
-
-    @Test
-    public void givenTestEmpty_whenSetSmallJsonBtOnIntegerField_hasError()  {
-        final EO eoMap = ProviderRootTest.createEo();
-        eoMap.set(ProviderMapJson.SMALL.createBt(), S_LEVEL0);
-        eoMap.set(ProviderMapJson.SMALL.createBt(), S_LEVEL0, F_TEST_INTEGER);
-        Assertions.assertThat(eoMap.getLog()).contains("Tried to map scalar child");
     }
 
 }

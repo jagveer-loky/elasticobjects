@@ -108,12 +108,23 @@ public class EoChild implements EO {
 
     @Override
     public EO set(Object value, final String... paths) {
-        return set(value, new Path(paths));
+        return new Path(paths).create(this, value);
     }
 
     @Override
     public EO setEmpty(final String... paths) {
-        return set(null, new Path(paths));
+        return new Path(paths).create(this, null);
+    }
+    @Override
+    public EO  set(PathElement pathElement) {
+        return set(pathElement, (Object) null);
+    }
+    @Override
+    public EO  set(PathElement pathElement, Object value) {
+        if (value == null && hasEo(pathElement)) {
+            return getEo(pathElement);
+        }
+        return new EoChild(this, pathElement, value);
     }
 
     protected EO set(Object value, final Path path) {

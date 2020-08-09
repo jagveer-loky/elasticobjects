@@ -99,7 +99,7 @@ public class EOToJSON {
         if (eo.getModelClass() != Map.class) {
             StringBuilder jsnModel = new StringBuilder();
             jsnModel.append("{");
-            jsnModel.append(lineBreak);
+            /*jsnModel.append(lineBreak);
             jsnModel.append(nextIndent);
             jsnModel.append("\"");
             jsnModel.append(PathElement.ROOT_MODEL);
@@ -109,7 +109,7 @@ public class EOToJSON {
             if (eo.sizeEo()>0) {
                 jsnModel.append(",");
                 jsnModel.append(lineBreak);
-            }
+            }*/
             json = json.replaceAll("^\\{",jsnModel.toString());
         }
         return json;

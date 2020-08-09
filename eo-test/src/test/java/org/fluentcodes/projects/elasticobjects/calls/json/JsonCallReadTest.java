@@ -84,6 +84,7 @@ public class JsonCallReadTest {
         eo.setRoles(R_GUEST);
         eo.addCall(call);
         eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo(S0)).isNotNull();
         Assertions.assertThat(eo.getEo(S0).get(S_KEY1)).isEqualTo(S_VALUE11);
     }
