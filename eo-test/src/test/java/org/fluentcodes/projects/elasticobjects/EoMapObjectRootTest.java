@@ -77,7 +77,7 @@ public class EoMapObjectRootTest {
     @Test
     public void givenMapEmpty_withMapString_ok()  {
         final EO eo = ProviderRootDev.createEo();
-        eo.mapObject(ProviderMapJson.STRING.createMap());
+        eo.mapObject(TestProviderBtJson.STRING.createMap());
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
         Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo(S_STRING);
@@ -85,8 +85,8 @@ public class EoMapObjectRootTest {
 
     @Test
     public void givenBTString_withMapInteger_ok()  {
-        final EO eo = ProviderMapJson.STRING.createBtEo();
-        eo.mapObject(ProviderMapJson.INT.createMap());
+        final EO eo = TestProviderBtJson.STRING.createBtEo();
+        eo.mapObject(TestProviderBtJson.INT.createMap());
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
         Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo(S_STRING);
         Assertions.assertThat(eo.get(F_TEST_INTEGER)).isEqualTo(S_INTEGER);
@@ -108,7 +108,7 @@ public class EoMapObjectRootTest {
     @Test
     public void givenMapString_withJsonMapString_ok()  {
         final EO eoEmpty = ProviderRootTest.createEo();
-        final String jsnString = ProviderMapJson.STRING.content();
+        final String jsnString = TestProviderBtJson.STRING.content();
         eoEmpty
                 .mapObject(jsnString);
 

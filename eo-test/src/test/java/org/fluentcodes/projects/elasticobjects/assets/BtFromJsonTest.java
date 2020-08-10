@@ -20,28 +20,28 @@ public class BtFromJsonTest {
     private static final Logger LOG = LogManager.getLogger(BtFromJsonTest.class);
 
     @Test
-    public void testDouble()  {
-        EO eo = ProviderMapJson.DOUBLE.createBtEo();
+    public void givenJsonTypedDouble_thenDouble()  {
+        EO eo = TestProviderBtJson.DOUBLE_TYPED.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
         Assertions.assertThat(eo.get(F_TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
     }
     @Test
-    public void testDoubleObject()  {
-        BasicTest bt = ProviderMapJson.DOUBLE.createBt();
+    public void givenJsonUntypedDouble_thenDouble()  {
+        BasicTest bt = TestProviderBtJson.DOUBLE.createBt();
         Assertions.assertThat(bt.getTestDouble()).isEqualTo((SAMPLE_DOUBLE));
     }
 
     @Test
     public void testFloat()  {
-        EO eo = ProviderMapJson.FLOAT.createBtEo();
+        EO eo = TestProviderBtJson.FLOAT.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(F_TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
     }
 
     @Test
     public void testSmall()  {
-        EO eo = ProviderMapJson.SMALL.createBtEo();
+        EO eo = TestProviderBtJson.SMALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
         Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo((S_STRING));
@@ -49,11 +49,19 @@ public class BtFromJsonTest {
     }
 
     @Test
-    public void testAll()  {
-        EO eo = ProviderMapJson.ALL.createBtEo();
+    public void givenAllUnTyped_thenNoLog()  {
+        EO eo = TestProviderBtJson.ALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eo.getModelClass());
         Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo((S_STRING));
         Assertions.assertThat(eo.get(F_TEST_INTEGER)).isEqualTo((S_INTEGER));
+    }
+
+    @Test
+    public void givenSubTestUnTyped_thenNoLog()  {
+        EO eo = TestProviderBtJson.SUB_TEST.createBtEo();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eo.getModelClass());
+        Assertions.assertThat(eo.get(F_SUB_TEST, F_TEST_STRING)).isEqualTo((S_STRING));
     }
 }

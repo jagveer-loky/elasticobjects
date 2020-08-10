@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.json;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
@@ -20,8 +21,8 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class JsonConfigTest {
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenExceptionThrown()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(JsonConfig.class);
+    public void givenModelClass_whenCreate_thenExceptionThrown()  {
+        ConfigModelChecks.createThrowException(JsonConfig.class);
     }
 
     @Test
@@ -30,7 +31,7 @@ public class JsonConfigTest {
     }
 
     @Test
-    public void whenCompareConfigurations_thenEqual()  {
+    public void whenCompareConfigurations_thenXpected()  {
         ConfigChecks.compareConfigurations(JsonConfig.class);
     }
 

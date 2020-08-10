@@ -12,6 +12,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -396,13 +398,13 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                pathElement = new PathElement(rawFieldName, eoParent, String.class);
+                pathElement = new PathElement(rawFieldName, eoParent, "");
                 eoParent.set(pathElement, value);
                 return eoParent;
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    pathElement = new PathElement(rawFieldName, eoParent, Map.class);
+                    pathElement = new PathElement(rawFieldName, eoParent, new LinkedHashMap());
                     mapObject(eoParent.set(pathElement));
                     return eoParent;
                 }
@@ -412,7 +414,7 @@ public class JSONToEO {
                 }
             case '[':
                 if (rawFieldName!=null) {// List value
-                        pathElement = new PathElement(rawFieldName, eoParent, List.class);
+                        pathElement = new PathElement(rawFieldName, eoParent, new ArrayList());
                         return mapList(eoParent.set(pathElement));
                 }
                 else {

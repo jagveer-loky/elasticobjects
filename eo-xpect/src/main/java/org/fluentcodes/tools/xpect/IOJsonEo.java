@@ -56,7 +56,7 @@ public class IOJsonEo<T> extends IOObject<T> {
                 return new EOToJSON().toJSON((EO)object);
             }
             if (cache == null) {
-                cache = new EOConfigsCache(Scope.DEV);
+                cache = new EOConfigsCache(Scope.TEST);
             }
             EO eo = EoRoot.ofValue(cache, object);
             return new EOToJSON().setSerializationType(type).toJSON(eo);

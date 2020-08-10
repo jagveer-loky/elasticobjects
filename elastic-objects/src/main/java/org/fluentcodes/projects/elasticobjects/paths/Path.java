@@ -337,7 +337,7 @@ public class Path {
         }
         PathElement element = entries[entries.length - 1];
         if (element.hasModels()) {
-            return "(" + String.join(",",element.getModels()) + ")" + element.getKey();
+            return "(" + String.join(",",element.getModelsArray()) + ")" + element.getKey();
         }
         return element.getKey();
     }
@@ -350,14 +350,14 @@ public class Path {
         if (isEmpty()) {
             return false;
         }
-        return getFirstPathElement().hasModels();
+        return getFirstPathElement().hasModelArray();
     }
 
     public String[] getModels() {
         if (isEmpty()) {
             return new String[]{};
         }
-        return getFirstPathElement().getModels();
+        return getFirstPathElement().getModelsArray();
     }
 
     public boolean hasPlaceHolder() {

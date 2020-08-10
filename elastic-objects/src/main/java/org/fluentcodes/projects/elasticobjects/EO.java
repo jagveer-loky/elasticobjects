@@ -81,7 +81,7 @@ public interface EO {
     void setRoles(List<String> roles);
     boolean hasRoles();
 
-    boolean addCall(Call callExecutor) ;
+    EO addCall(Call callExecutor) ;
     List<Call> getCalls();
     EO getCallsEo();
     Call getLastCall();

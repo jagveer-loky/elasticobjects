@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
@@ -22,13 +23,13 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class FieldConfigTest {
 
     @Test
-    public void givenModel_whenCreate_thenThrowsException()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(FileConfig.class);
+    public void givenModelClass_whenCreate_thenExceptionThrown()  {
+        ConfigModelChecks.createThrowException(FileConfig.class);
     }
 
     @Test
     public void givenModel_whenCompare_thenEqual()  {
-        ConfigChecks.findModelAndCompare(FileConfig.class);
+        ConfigModelChecks.compare(FileConfig.class);
     }
 
     @Test
@@ -42,7 +43,7 @@ public class FieldConfigTest {
     }
 
     @Test
-    public void whenCompareConfigurations_thenEqual()  {
+    public void whenCompareConfigurations_thenXpected()  {
         ConfigChecks.compareConfigurations(FileConfig.class);
     }
 

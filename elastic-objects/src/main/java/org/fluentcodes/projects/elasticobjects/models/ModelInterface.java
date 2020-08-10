@@ -147,6 +147,7 @@ public interface ModelInterface extends Config {
     boolean isList();
     boolean isCreate();
     boolean isListType();
+    boolean isCall();
     boolean isObject();
     boolean isNull();
     default boolean isEnum() {

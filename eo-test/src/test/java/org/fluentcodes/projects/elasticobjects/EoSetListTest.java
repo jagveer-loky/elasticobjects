@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -17,7 +18,7 @@ public class EoSetListTest {
     @Test
     public void givenListEmpty_withJsonListSmall_ok()  {
         final EO eoEmpty = ProviderRootDev.createEo();
-        eoEmpty.set(ProviderListJson.JSON_SMALL.content(), S_LEVEL0);
+        eoEmpty.set(ProviderMapJson.LIST_SMALL.content(), S_LEVEL0);
         Assertions.assertThat(eoEmpty.getEo(S_LEVEL0).getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, S1)).isEqualTo(S_INTEGER);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, S0)).isEqualTo(S_STRING);
@@ -33,13 +34,13 @@ public class EoSetListTest {
     @Test
     public void givenList123_hasIntegerValues()  {
         final EO eo = ProviderMapJson.LIST_123.createMapEo();
-        Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
+        Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(ArrayList.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Integer.class);
     }
 
     @Test
-    public void givenList123Test_hasDoubleValues()  {
-        final EO eo = ProviderMapJsn.LIST_DOUBLE123.createMapEo();
+    public void givenList123Typed_hasDoubleValues()  {
+        final EO eo = ProviderMapJson.LIST_123_TYPED.createMapEo();
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Double.class);
     }

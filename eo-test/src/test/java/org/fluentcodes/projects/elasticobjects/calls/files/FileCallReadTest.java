@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallRead;
 import org.fluentcodes.projects.elasticobjects.EO;
@@ -11,7 +11,6 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_CONTENT;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
@@ -20,13 +19,13 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class FileCallReadTest {
     @Test
-    public void givenTestProvider_whenFindModel_thenCreateOk()  {
-        ConfigChecks.findModelAndCreateInstance(FileCallRead.class);
+    public void givenModelClass_whenCreate_thenNoException()  {
+        ConfigModelChecks.create(FileCallRead.class);
     }
 
     @Test
     public void whenCompareConfigurations_thenXpected()  {
-        ConfigChecks.findModelAndCompare(JsonCallRead.class);
+        ConfigModelChecks.compare(JsonCallRead.class);
     }
 
     @Test
@@ -99,7 +98,7 @@ public class FileCallReadTest {
 
         child.execute();
         Assertions.assertThat(child.getLog()).isEmpty();
-        Assertions.assertThat(root.get(S_LEVEL0, S_LEVEL2)).isEqualTo(S_STRING);
+        Assertions.assertThat(root.get(S_LEVEL2)).isEqualTo(S_STRING);
     }
 
     @Test

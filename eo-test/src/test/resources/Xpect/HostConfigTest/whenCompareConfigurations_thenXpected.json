@@ -45,7 +45,7 @@
   },
   "3": {
     "hostKey": "hostKey",
-    "port": "1",
+    "port": 1,
     "protocol": "protocol",
     "hostName": "hostName",
     "user": "user",
@@ -67,7 +67,7 @@
   },
   "4": {
     "hostKey": "testFtp",
-    "port": "21",
+    "port": 21,
     "protocol": "ftp",
     "hostName": "ftpServer",
     "user": "testUser",

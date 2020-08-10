@@ -5,11 +5,10 @@
     "modelKeys": "BasicTest",
     "dbFieldParams": {
       "fieldName": "basicTest",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -26,11 +25,10 @@
     "modelKeys": "SubTest",
     "dbFieldParams": {
       "fieldName": "subTest",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -46,8 +44,7 @@
     "modelKeys": "ArrayList,SubTest",
     "dbFieldParams": {
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -64,8 +61,7 @@
     "modelKeys": "HashMap,SubTest",
     "dbFieldParams": {
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -82,11 +78,10 @@
     "modelKeys": "Boolean",
     "dbFieldParams": {
       "fieldName": "testBoolean",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -102,11 +97,10 @@
     "modelKeys": "Date",
     "dbFieldParams": {
       "fieldName": "testDate",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -122,11 +116,10 @@
     "modelKeys": "Double",
     "dbFieldParams": {
       "fieldName": "testDouble",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -142,11 +135,10 @@
     "modelKeys": "Float",
     "dbFieldParams": {
       "fieldName": "testFloat",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -162,11 +154,10 @@
     "modelKeys": "Integer",
     "dbFieldParams": {
       "fieldName": "testInt",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -182,11 +173,10 @@
     "modelKeys": "Long",
     "dbFieldParams": {
       "fieldName": "testLong",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -202,11 +192,10 @@
     "modelKeys": "Object",
     "dbFieldParams": {
       "fieldName": "testObject",
-      "unique": "false",
-      "notNull": "false"
+      "unique": false,
+      "notNull": false
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -223,12 +212,11 @@
     "modelKeys": "String",
     "dbFieldParams": {
       "fieldName": "testString",
-      "unique": "false",
-      "notNull": "false",
-      "length": "20"
+      "unique": false,
+      "notNull": false,
+      "length": 20
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -245,8 +233,7 @@
     "modelKeys": "ArrayList",
     "dbFieldParams": {
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },
@@ -262,8 +249,7 @@
     "modelKeys": "HashMap",
     "dbFieldParams": {
     },
-    "eoFieldParams": {
-      "pathPatternAsString": "/*"
+    "(EOFieldParams)eoFieldParams": {
     },
     "viewFieldParams": {
     },

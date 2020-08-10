@@ -23,8 +23,8 @@ public class PathElementTest {
     public void testWithOneModel() {
         PathElement pathElement = new PathElement("(nonsense)test");
         Assert.assertEquals("test", pathElement.getKey());
-        Assert.assertTrue(pathElement.hasModels());
-        Assert.assertEquals(1, pathElement.getModels().length);
+        Assert.assertTrue(pathElement.hasModelArray());
+        Assert.assertEquals(1, pathElement.getModelsArray().length);
     }
 
     @Test
@@ -32,8 +32,8 @@ public class PathElementTest {
         final String pathElementAsString = "(List,BasicTest)test";
         PathElement pathElement = new PathElement(pathElementAsString);
         Assert.assertEquals("test", pathElement.getKey());
-        Assert.assertTrue(pathElement.hasModels());
-        Assert.assertEquals(2, pathElement.getModels().length);
+        Assert.assertTrue(pathElement.hasModelArray());
+        Assert.assertEquals(2, pathElement.getModelsArray().length);
         Assertions.assertThat(pathElement.toString()).isEqualTo(pathElementAsString);
     }
 }

@@ -76,9 +76,9 @@ public class ParserTemplateTest {
     @Test
     public void givenValueCallAndAddValueToResult_whenReplace_thenReplaced () {
         final EO eo = ProviderRootTest.createEo();
-        final String replace = "$[(ValueCall)level0]{\"1\":2}$[/]$[level0/1]";
+        final String replace = "$[(ValueCall)level0]{\"1\":2}$[/]Value: $[level0/1]";
         String result = new ParserTemplate(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).isEqualTo("2");
+        Assertions.assertThat(result).isEqualTo("Value: 2");
     }
 }

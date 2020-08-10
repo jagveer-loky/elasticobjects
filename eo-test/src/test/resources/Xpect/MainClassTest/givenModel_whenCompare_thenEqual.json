@@ -8,12 +8,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },

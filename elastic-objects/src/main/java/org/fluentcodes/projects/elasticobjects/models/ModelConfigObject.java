@@ -239,7 +239,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
             try {
                 return implementation.getModelClass().newInstance();
             } catch (Exception e) {
-                throw new EoException(e);
+                throw new EoException("Problem create " + this.getModelKey(), e);
             }
         }
     }
@@ -362,6 +362,10 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         }
         return getModelKey().equals(modelCache.getModelKey());
     }
+    public boolean isCall() {
+        return getEoParams().getShapeType() == ShapeTypes.CALL || getEoParams().getShapeType() == ShapeTypes.CALL_BEAN;
+    }
+
     public boolean isInterface() {
         return getEoParams().getShapeType() == ShapeTypes.INTERFACE;
     }

@@ -553,6 +553,10 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return false;
     }
     @Override
+    public boolean isCall() {
+        return false;
+    }
+    @Override
     public boolean isMapType() {
         return false;
     }

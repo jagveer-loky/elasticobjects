@@ -214,6 +214,9 @@ public class EOToJSON {
         if (eoChild.getModelClass() == Integer.class) {
             return;
         }
+        if (eoChild.getModelClass() == Boolean.class) {
+            return;
+        }
         jsn.append("(");
         jsn.append(eoChild.getModels().toString());
         jsn.append(")");

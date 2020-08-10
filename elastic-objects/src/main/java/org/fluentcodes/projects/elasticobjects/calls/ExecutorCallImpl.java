@@ -57,7 +57,7 @@ public class ExecutorCallImpl implements ExecutorCall {
                     if (call.getTargetPath() != null) {
                         eo.set(value, call.getTargetPath());
                     } else {
-                        source.set(value, sourcePath);
+                        sourceLoop.mapObject(value);
                     }
                 }
             }

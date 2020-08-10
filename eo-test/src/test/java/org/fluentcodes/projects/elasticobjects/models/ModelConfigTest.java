@@ -4,10 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.assets.byclass.MainClass;
-import org.fluentcodes.projects.elasticobjects.assets.byclass.SubClass;
-import org.fluentcodes.projects.elasticobjects.assets.SubTest;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
@@ -16,7 +13,6 @@ import org.junit.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -34,13 +30,13 @@ public class ModelConfigTest {
     private static final String M_BUILDER = "$Builder";
 
     @Test
-    public void givenModel_whenCreate_thenThrowsException()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(ModelConfig.class);
+    public void givenModelClass_whenCreate_thenExceptionThrown()  {
+        ConfigModelChecks.createThrowException(ModelConfig.class);
     }
 
     @Test
     public void givenModel_whenCompare_thenEqual()  {
-        ConfigChecks.findModelAndCompare(ModelConfig.class);
+        ConfigModelChecks.compare(ModelConfig.class);
     }
 
     @Test
@@ -54,7 +50,7 @@ public class ModelConfigTest {
     }
 
     @Test
-    public void whenCompareConfigurations_thenEqual()  {
+    public void whenCompareConfigurations_thenXpected()  {
         ConfigChecks.compareConfigurations(ModelConfig.class);
     }
 
