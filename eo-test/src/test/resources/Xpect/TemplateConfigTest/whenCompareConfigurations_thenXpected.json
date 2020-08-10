@@ -6,7 +6,7 @@
     "fileKey": "content",
     "filePath": "classpath/templates",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -22,7 +22,7 @@
     "fileKey": "ContentExampleDynamic",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -38,7 +38,7 @@
     "fileKey": "ContentExampleElement1",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -54,7 +54,7 @@
     "fileKey": "ContentExampleElement2",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -70,7 +70,7 @@
     "fileKey": "ContentExampleStatic",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -86,7 +86,7 @@
     "fileKey": "ContentExampleStaticCondition",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -102,7 +102,7 @@
     "fileKey": "ContentExampleStaticKeep",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",

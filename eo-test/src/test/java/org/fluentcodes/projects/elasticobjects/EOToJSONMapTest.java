@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 
 import org.junit.Test;
@@ -53,8 +54,7 @@ public class EOToJSONMapTest {
 
     @Test
     public void withStringScalar()  {
-        
-        final EO eo = ProviderMapJson.STRING.createMapEo();
+        final EO eo = TestProviderBtJson.STRING.createTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -64,7 +64,7 @@ public class EOToJSONMapTest {
     @Test
     public void withIntegerScalar()  {
         
-        final EO eo = ProviderMapJson.INT.createMapEo();
+        final EO eo = TestProviderBtJson.INT.createTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -84,7 +84,7 @@ public class EOToJSONMapTest {
     @Test
     public void withFloatScalar()  {
         
-        final EO eo = ProviderMapJson.EMPTY.createMapEo();
+        final EO eo = TestProviderBtJson.FLOAT.createTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -94,7 +94,7 @@ public class EOToJSONMapTest {
     @Test
     public void withDoubleScalar()  {
         
-        final EO eo = ProviderMapJsn.DOUBLE.createMapEo();
+        final EO eo = TestProviderBtJson.DOUBLE.createTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -104,7 +104,7 @@ public class EOToJSONMapTest {
     @Test
     public void withDateScalar()  {
         
-        final EO eo = ProviderMapJsn.DATE.createMapEo();
+        final EO eo = TestProviderBtJson.DATE.createTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -114,7 +114,7 @@ public class EOToJSONMapTest {
     @Test
     public void withBooleanScalar()  {
         
-        final EO eo = ProviderMapJsn.DOUBLE.createMapEo();
+        final EO eo = TestProviderBtJson.BOOLEAN.createTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -123,7 +123,7 @@ public class EOToJSONMapTest {
 
     @Test
     public void withIndentScalar()  {
-        EO eo = ProviderMapJsn.SMALL.createMapEo();
+        EO eo = TestProviderBtJson.SMALL_TYPED.createTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -132,7 +132,7 @@ public class EOToJSONMapTest {
 
     @Test
     public void loopScalar()  {
-        EO eo = ProviderMapJsn.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapEo();
         long duration = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
             String stringified = new EOToJSON()

@@ -42,10 +42,6 @@ public class ValueCallTest {
         Models childModels = models.getChildModels(eo, new PathElement(ValueCall.VALUE));
         Assertions.assertThat(childModels.isScalar()).isTrue();
         Assertions.assertThat(childModels.getModelClass()).isEqualTo(String.class);
-
-        childModels = models.createChildModels(eo, new PathElement(ValueCall.VALUE),"{}");
-        Assertions.assertThat(childModels.isScalar()).isTrue();
-        Assertions.assertThat(childModels.getModelClass()).isEqualTo(String.class);
     }
 
     @Test

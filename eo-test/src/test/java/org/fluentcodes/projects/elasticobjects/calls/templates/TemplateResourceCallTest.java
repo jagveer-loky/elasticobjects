@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.junit.Test;
 
 /**
@@ -10,11 +10,11 @@ public class TemplateResourceCallTest {
 
     @Test
     public void whenCompareConfiguration_thenXpected()  {
-        ConfigChecks.findModelAndCompare(TemplateResourceCall.class);
+        ConfigModelChecks.compare(TemplateResourceCall.class);
     }
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenOk()  {
-        ConfigChecks.findModelAndCreateInstance(TemplateResourceCall.class);
+    public void givenModelClass_whenCreate_thenNoException()  {
+        ConfigModelChecks.create(TemplateResourceCall.class);
     }
 }

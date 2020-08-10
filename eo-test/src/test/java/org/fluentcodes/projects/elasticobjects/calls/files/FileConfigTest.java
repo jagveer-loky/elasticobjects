@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.models.*;
 
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
@@ -20,13 +21,13 @@ public class FileConfigTest {
     private static final Logger LOG = LogManager.getLogger(FileConfigTest.class);
 
     @Test
-    public void givenModel_whenCreate_thenThrowsException()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(FileConfig.class);
+    public void givenModelClass_whenCreate_thenExceptionThrown()  {
+        ConfigModelChecks.createThrowException(FileConfig.class);
     }
 
     @Test
     public void givenModel_whenCompare_thenEqual()  {
-        ConfigChecks.findModelAndCompare(FileConfig.class);
+        ConfigModelChecks.compare(FileConfig.class);
     }
 
     @Test
@@ -40,7 +41,7 @@ public class FileConfigTest {
     }
 
     @Test
-    public void whenCompareConfigurations_thenEqual()  {
+    public void whenCompareConfigurations_thenXpected()  {
         ConfigChecks.compareConfigurations(FileConfig.class);
     }
 

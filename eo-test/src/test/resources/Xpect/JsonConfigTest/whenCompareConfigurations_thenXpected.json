@@ -6,7 +6,7 @@
     "fileKey": "BasicTest.json",
     "filePath": "classpath",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
@@ -25,7 +25,7 @@
     "fileKey": "content",
     "filePath": "classpath/data",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -42,7 +42,7 @@
     "fileKey": "ContentExample",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -59,7 +59,7 @@
     "fileKey": "ContentExampleData",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -76,7 +76,7 @@
     "fileKey": "ModuleConfig.json",
     "filePath": "classpath",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -93,7 +93,7 @@
     "fileKey": "SimpleInsertWithPath",
     "filePath": "classpath/data",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "elastic-objects",
@@ -110,7 +110,7 @@
     "fileKey": "source.json",
     "filePath": "classpath",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
@@ -129,7 +129,7 @@
     "fileKey": "target.json",
     "filePath": "$[TMP]/elastic-objects",
     "hostKey": "localhost",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
     },
     "module": "test-resources",

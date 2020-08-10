@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.junit.Test;
 
 /**
@@ -10,11 +10,11 @@ public class TemplateCallTest {
 
     @Test
     public void whenCompareConfigurations_thenXpected()  {
-        ConfigChecks.findModelAndCompare(TemplateCall.class);
+        ConfigModelChecks.compare(TemplateCall.class);
     }
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenOk()  {
-        ConfigChecks.findModelAndCreateInstance(TemplateCall.class);
+    public void givenModelClass_whenCreate_thenNoException()  {
+        ConfigModelChecks.create(TemplateCall.class);
     }
 }

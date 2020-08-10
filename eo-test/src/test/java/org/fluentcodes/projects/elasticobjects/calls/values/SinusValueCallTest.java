@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
@@ -33,7 +34,7 @@ public class SinusValueCallTest {
 
     public static final EO createSimple() {
         try {
-            return ProviderMapJsn.VALUES_CALL_NUMBER_SCALAR.createMapEo().getEo(SOURCE);
+            return ProviderMapJson.VALUES_CALL_NUMBER_SCALAR.createMapEo().getEo(SOURCE);
         }
         catch (Exception e) {
             LOG.info(e.getMessage());
@@ -42,7 +43,7 @@ public class SinusValueCallTest {
     }
 
     public static final EO createArray() {
-        return ProviderMapJsn.VALUES_CALL_NUMBER_ARRAY.createMapEo().getEo(SOURCE);
+        return ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapEo().getEo(SOURCE);
     }
 
     @Test
@@ -50,7 +51,7 @@ public class SinusValueCallTest {
         final Call call = new SinusValueCall();
         EO eo = createSimple();
         Double result = (Double) call.execute(eo);
-        Assertions.assertThat(result).isNotNull();
+        Assertions.assertThat(result).isEqualTo(0.8632093666488737);
     }
 
     @Test

@@ -30,12 +30,11 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },

@@ -25,7 +25,7 @@ import java.util.*;
 public class EoChild implements EO {
     private static final Logger LOG = LogManager.getLogger(EoChild.class);
     private EoChild eoParent;
-    private String parentKey;
+    private PathElement pathElement;
     private Models models;
     private Object object;
 
@@ -35,7 +35,7 @@ public class EoChild implements EO {
 
     protected EoChild()  {
         eoParent = null;
-        parentKey = null;
+        pathElement = null;
         eoMap = new LinkedHashMap<>();
     }
 
@@ -47,34 +47,19 @@ public class EoChild implements EO {
         if (pathElement == null) {
             throw new EoException("Strange null pathElement!");
         }
-        else if (pathElement.isParentNotSet() && value!=null) {
-            this.models = new Models(eoParent.getConfigsCache(), value.getClass());
+        if (!pathElement.hasModels()) {
+            throw new EoException("No models defined for " + pathElement.toString());
         }
-        else if (eoParent.getSerializationType() == JSONSerializationType.EO) {
-            this.models = eoParent.getModels().createChildModels(eoParent, pathElement, value);
-        }
-        else {
-            this.models = eoParent.getModels().createChildModelsSimple(eoParent, pathElement, value);
-        }
+        this.models = pathElement.getModels();
+        this.pathElement = pathElement;
+        this.eoParent = eoParent;
         if (isScalar() ) {
             this.eoParent = eoParent;
-            this.parentKey = pathElement.getKey();
             this.object = models.transform(value);
         }
         else {
             this.object = this.models.create();
-            if ((object instanceof Call) && !PathElement.isCallPath(eoParent)) {
-                String targetPath = getPathAsString() + Path.DELIMITER + pathElement.getKey() ;
-                this.eoParent = (EoChild)eoParent.getCallsEo();
-                this.parentKey = Integer.valueOf(this.eoParent.size()).toString();
-                if (!targetPath.isEmpty()) {
-                    this.set(targetPath, "targetPath");
-                }
-            }
-            else {
-                this.eoParent = eoParent;
-                this.parentKey = pathElement.getKey();
-            }
+            this.eoParent = eoParent;
             mapObject(value);
         }
         this.eoParent.setEo(pathElement, this);
@@ -86,7 +71,16 @@ public class EoChild implements EO {
      * @return The fieldName of the parent adapters object.
      */
     public String getParentKey() {
-        return parentKey;
+        if (hasPathElement()) {
+            return pathElement.getKey();
+        }
+        else {
+            return "";
+        }
+    }
+
+    public boolean hasPathElement() {
+        return pathElement != null && pathElement.hasModels();
     }
 
     public EoChild getEoParent() {
@@ -124,9 +118,20 @@ public class EoChild implements EO {
     }
     @Override
     public EO  set(PathElement pathElement, Object value) {
+        pathElement.resolve(this, value);
+        if (pathElement.isCall()) {
+            String path = getPathAsString() + Path.DELIMITER + pathElement.getKey();
+            if (!path.contains(PathElement.CALLS)) {
+                if (value == null) {
+                    value = pathElement.create();
+                }
+                return addCall((Call) value, path);
+            }
+        }
         if (value == null && hasEo(pathElement)) {
             return getEo(pathElement);
         }
+
         return new EoChild(this, pathElement, value);
     }
 
@@ -225,7 +230,7 @@ public class EoChild implements EO {
         try {
             getModel().set(fieldName, get(), source);
         } catch (EoException e) {
-            warn("Could not setValue for fieldName '" + fieldName + "': " + e.getMessage());
+            warn("Could not set object value for fieldName '" + fieldName + "': " + e.getMessage());
         }
     }
 
@@ -451,14 +456,19 @@ public class EoChild implements EO {
     }
 
     @Override
-    public boolean addCall(Call call)  {
-        if (call.hasTargetPath()) {
-            if (!call.getTargetPath().startsWith(Path.DELIMITER)) {
-                call.setTargetPath(getPathAsString() + Path.DELIMITER + call.getTargetPath());
+    public EO addCall(Call call)  {
+        return getRoot().addCall(call);
+    }
+
+    public EO addCall(Call call, final String path)  {
+        if (!path.isEmpty() && !path.contains(PathElement.CALLS)) {
+            if (call.hasTargetPath()) {
+                if (!call.getTargetPath().startsWith(Path.DELIMITER)) {
+                    call.setTargetPath(path + Path.DELIMITER + call.getTargetPath());
+                }
+            } else {
+                call.setTargetPath(path);
             }
-        }
-        else {
-            call.setTargetPath(getPathAsString());
         }
         return getRoot().addCall(call);
     }
@@ -492,7 +502,7 @@ public class EoChild implements EO {
         if (eoParent == null) {
             return;
         }
-        Object value = eoParent.getValue(parentKey);
+        Object value = eoParent.getValue(getParentKey());
         if (this.object != null && value == this.object) {
             return;
         }
@@ -503,7 +513,7 @@ public class EoChild implements EO {
         }
         eoParent.setChanged(true);
         eoParent.setValue(getParentKey(), this.object);
-        eoParent.setEo(new PathElement(parentKey), this);
+        eoParent.setEo(new PathElement(getParentKey()), this);
 
     }
 
@@ -561,8 +571,8 @@ public class EoChild implements EO {
     }
 
     protected void getPathAsString(StringBuilder builder) {
-        if (parentKey != null && !parentKey.isEmpty()) {
-            builder.insert(0, this.parentKey);
+        if (hasPathElement()) {
+            builder.insert(0, getParentKey());
             builder.insert(0, Path.DELIMITER);
             eoParent.getPathAsString(builder);
         }

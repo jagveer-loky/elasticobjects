@@ -4,10 +4,9 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
-
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -60,7 +59,7 @@ public class JsonToEoMapJsonTest {
 
     @Test
     public void testFloat()  {
-        EO eo = ProviderMapJson.FLOAT.createMapEo();
+        EO eo = TestProviderBtJson.FLOAT.createTestEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT, eo.get(F_TEST_FLOAT));
@@ -68,7 +67,7 @@ public class JsonToEoMapJsonTest {
 
     @Test
     public void testSmall()  {
-        EO eo = ProviderMapJson.SMALL.createMapEo();
+        EO eo = TestProviderBtJson.SMALL.createTestEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));
@@ -77,7 +76,7 @@ public class JsonToEoMapJsonTest {
 
     @Test
     public void testAll()  {
-        EO eo = ProviderMapJson.ALL.createMapEo();
+        EO eo = TestProviderBtJson.ALL.createTestEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));

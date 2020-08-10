@@ -134,7 +134,7 @@ public class BtEoSetTest {
 
     @Test
     public void testBTSmall()  {
-        BasicTest bt = ProviderMapJson.SMALL.createBt();
+        BasicTest bt = TestProviderBtJson.SMALL.createBt();
         Assertions.assertThat(bt.getTestString()).isEqualTo(S_STRING);
     }
 
@@ -234,9 +234,10 @@ public class BtEoSetTest {
     }
 
     @Test
-    public void givenBtEmpty_whenSetBTFieldWithScalar_thenLogErrors()  {
+    public void givenBtEmpty_whenSetBTFieldWithScalar_thenExceptionThrown()  {
         final EO eo = ProviderRootTest.createEo(new BasicTest());
-        Assertions.assertThatThrownBy(()->{eo.set(S_STRING, F_BASIC_TEST);})
+        Assertions
+                .assertThatThrownBy(()->{eo.set(S_STRING, F_BASIC_TEST);})
                 .hasMessage("Path basicTest undefined: Problem setting scalar value (String) for field name 'basicTest'. Expected is BasicTest!");
     }
 

@@ -15,12 +15,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.assets;
 
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
@@ -21,13 +21,13 @@ public class StTest {
     }
 
     @Test
-    public void givenModel_whenCreate_thenOk()  {
-        ConfigChecks.findModelAndCreateInstance(SubTest.class);
+    public void givenModelClass_whenCreate_thenNoException()  {
+        ConfigModelChecks.create(SubTest.class);
     }
 
     @Test
     public void givenModel_whenCompare_thenEqual()  {
-        ConfigChecks.findModelAndCompare(SubTest.class);
+        ConfigModelChecks.compare(SubTest.class);
     }
 
 }

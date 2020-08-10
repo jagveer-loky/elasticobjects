@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -69,7 +67,7 @@ public class Models {
         }
     }
 
-    public Models getChildModelsList()  {
+    public Models getChildModels()  {
         if (models.length < 2) {
             return new Models(models[0].getConfigsCache(), "Map");
         }
@@ -113,72 +111,25 @@ public class Models {
         return getValueClass(new Models(), value);
     }
 
-    public Models createChildModels(final EO eo, final PathElement pathElement, final Object value) {
-        Models childModels = getChildModels(eo, pathElement);
-        Models valueModels = createValueModels(eo, childModels, value);
-        if (childModels == null) {
-            return valueModels;
-        }
-        checkModels(pathElement.getKey(), valueModels.getModel(), childModels.getModel());
-        if (!childModels.isScalar() && !childModels.isCreate() ) {
-            return valueModels;
-        }
-        return childModels;
-    }
-
-    public Models createChildModelsSimple(final EO eoParent, final PathElement path, final Object value) {
-        Models models = createChildModels(eoParent, path, value);
-        if (models.isList()) {
-            return new Models(eoParent.getConfigsCache(), List.class);
-        }
-        else if (models.isMap()) {
-            return new Models(eoParent.getConfigsCache(), Map.class);
-        }
-        else if (models.isObject()) {
-            return new Models(eoParent.getConfigsCache(), Map.class);
-        }
-        else if (models.isEnum()) {
-            return new Models(eoParent.getConfigsCache(), String.class);
-        }
-        else if (models.isScalar()) {
-            return new Models(eoParent.getConfigsCache(), String.class);
-        }
-        else {
-            return new Models(eoParent.getConfigsCache(), String.class);
-        }
-    }
-
-    private void checkModels(String path, ModelInterface valueModel, ModelInterface childModel)  {
-        if (childModel.isScalar() && !valueModel.isScalar()) {
-            throw new EoException("Problem setting non scalar value ("
-                    + valueModel.getNaturalId() + ") for field name '"
-                    + path + "'. Expected is "
-                    + childModel.getNaturalId() + "!");
-        }
-        else if (!childModel.isScalar() && valueModel.isScalar()) {
-            throw new EoException("Problem setting scalar value ("
-                    + valueModel.getNaturalId() + ") for field name '"
-                    + path + "'. Expected is "
-                    + childModel.getNaturalId() + "!");
-        }
-    }
-
     public Models getChildModels(final EO eo, final PathElement pathElement) {
+        if (pathElement == null) {
+            return null;
+        }
         final String key = pathElement.getKey();
         if (key == null) {
             return null;
         }
+        if (pathElement.isParentNotSet()) {
+            return null;
+        }
         if (getModel().isObject() && !PathElement.isParentNotSet(key)) {
-            Models models = new Models(getModel().getFieldModel(key));
-            if (models.isCreate() || models.isScalar() ) {
-                return new Models(getModel().getFieldModel(key));
+            Models fieldModels = new Models(getModel().getFieldModel(key));
+            if (fieldModels.isCreate() || fieldModels.isScalar() ) {
+                return fieldModels;
             }
         }
         if (hasChildModel() && (getChildModel().isCreate()||getChildModel().isScalar())) {
-            return getChildModelsList();
-        }
-        if (pathElement.hasModels()) {
-            return new Models(eo.getConfigsCache(), pathElement.getModels());
+            return getChildModels();
         }
         return null;
     }
@@ -214,6 +165,10 @@ public class Models {
 
     public boolean isMap() {
         return getModel().isMap();
+    }
+
+    public boolean isCall() {
+        return getModel().isCall();
     }
 
     public boolean isDefaultMap() {

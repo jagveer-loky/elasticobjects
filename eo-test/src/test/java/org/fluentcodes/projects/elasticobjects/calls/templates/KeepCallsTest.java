@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.junit.Test;
 
 /**
@@ -11,11 +11,11 @@ public class KeepCallsTest {
 
     @Test
     public void givenTestProvider_whenGetModelConfigParameters_thenXpected()  {
-        ConfigChecks.findModelAndCompare(KeepCalls.class);
+        ConfigModelChecks.compare(KeepCalls.class);
     }
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenNull()  {
-        Assertions.assertThat(ConfigChecks.findModelAndCreateInstance(KeepCalls.class)).isNull();
+    public void givenModelClass_whenCreate_thenNoException()  {
+        Assertions.assertThat(ConfigModelChecks.create(KeepCalls.class)).isNull();
     }
 }

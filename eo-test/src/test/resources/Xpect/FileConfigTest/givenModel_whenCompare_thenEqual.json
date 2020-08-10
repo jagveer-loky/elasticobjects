@@ -26,12 +26,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },

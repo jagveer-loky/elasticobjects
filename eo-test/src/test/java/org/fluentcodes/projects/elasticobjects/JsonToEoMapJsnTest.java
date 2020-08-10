@@ -4,8 +4,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJsn;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.junit.Assert;
@@ -36,21 +35,21 @@ public class JsonToEoMapJsnTest {
 
     @Test
     public void testDouble()  {
-        EO eo = ProviderMapJsn.DOUBLE.createMapEo();
+        EO eo = TestProviderBtJson.DOUBLE_TYPED.createTestEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(F_TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
     }
 
     @Test
-    public void testFloat()  {
-        EO eo = ProviderMapJsn.FLOAT.createMapEo();
+    public void givenJsonFloatTypes_thenSetValue()  {
+        EO eo = TestProviderBtJson.FLOAT_TYPED.createTestEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(F_TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
     }
 
     @Test
     public void testSmall()  {
-        EO eo = ProviderMapJson.SMALL.createMapEo();
+        EO eo = TestProviderBtJson.SMALL.createTestEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));
@@ -59,7 +58,7 @@ public class JsonToEoMapJsnTest {
 
     @Test
     public void testAll()  {
-        EO eo = ProviderMapJsn.ALL.createMapEo();
+        EO eo = TestProviderBtJson.ALL_TYPED.createTestEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(F_TEST_STRING));

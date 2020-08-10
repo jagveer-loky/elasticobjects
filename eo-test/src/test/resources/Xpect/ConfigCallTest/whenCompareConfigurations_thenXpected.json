@@ -25,12 +25,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },

@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
 import org.fluentcodes.projects.elasticobjects.models.*;
 import org.junit.Assert;
@@ -17,13 +18,13 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class HostConfigTest {
     @Test
-    public void givenModel_whenCreate_thenThrowsException()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(HostConfig.class);
+    public void givenModelClass_whenCreate_thenExceptionThrown()  {
+        ConfigModelChecks.createThrowException(HostConfig.class);
     }
 
     @Test
     public void givenModel_whenCompare_thenEqual()  {
-        ConfigChecks.findModelAndCompare(HostConfig.class);
+        ConfigModelChecks.compare(HostConfig.class);
     }
 
     @Test
@@ -37,7 +38,7 @@ public class HostConfigTest {
     }
 
     @Test
-    public void whenCompareConfigurations_thenEqual()  {
+    public void whenCompareConfigurations_thenXpected()  {
         ConfigChecks.compareConfigurations(HostConfig.class);
     }
 

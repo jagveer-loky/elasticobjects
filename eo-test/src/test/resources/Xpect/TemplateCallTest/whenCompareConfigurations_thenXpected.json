@@ -22,14 +22,13 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
         "0": "execute"
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "TemplateConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "TemplateConfig"
     },
     "dbParams": {
     },

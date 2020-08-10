@@ -1,0 +1,70 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "scsKey": "BasicTest.csv",
+    "fileKey": "BasicTest.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "BasicTest.csv",
+    "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source.",
+    "naturalId": "BasicTest.csv"
+  },
+  "1": {
+    "scsKey": "source.csv",
+    "fileKey": "source.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "source.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "naturalId": "source.csv"
+  },
+  "2": {
+    "scsKey": "target.csv",
+    "fileKey": "source.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "test-resources",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "target.csv",
+    "description": "A sample target csv file with tmp placeholder.",
+    "naturalId": "target.csv"
+  }
+}

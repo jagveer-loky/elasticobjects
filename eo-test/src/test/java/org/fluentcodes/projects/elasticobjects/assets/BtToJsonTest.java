@@ -1,11 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.assets;
 
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_FLOAT;
 
 /**
  * Created by werner.diwischek on 14.1.18.
@@ -14,78 +17,75 @@ public class BtToJsonTest {
 
     @Test
     public void mapDefault()  {
-        EO adapter = ProviderMapJson.EMPTY.createBtEo();
-        String serialized = new EOToJSON().toJSON(adapter);
+        EO eo = ProviderMapJson.EMPTY.createBtEo();
+        String serialized = new EOToJSON().toJSON(eo);
         //AssertEO.compare(serialized);
     }
 
     @Test
     public void withIndent0()  {
-        EO adapter = ProviderMapJson.EMPTY.createBtEo();
+        EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(0)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(stringified);
     }
 
     @Test
     public void withIndent1()  {
-        EO adapter = ProviderMapJson.EMPTY.createBtEo();
+        EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(stringified);
     }
 
     @Test
     public void withIndent2()  {
-        EO adapter = ProviderMapJson.EMPTY.createBtEo();
+        EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(stringified);
     }
 
     @Test
     public void withSTANDARD()  {
-        EO adapter = ProviderMapJson.EMPTY.createBtEo();
+        EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .setSerializationType(JSONSerializationType.STANDARD)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(stringified);
     }
 
 
     @Test
-    public void withFloatStandard()  {
-        EO adapter = ProviderMapJson.FLOAT.createBtEo();
-        String stringified = new EOToJSON()
-                .setStartIndent(1)
-                .setSerializationType(JSONSerializationType.STANDARD)
-                .toJSON(adapter);
+    public void givenUntypedJsonFloat_thenFloat()  {
+        EO eo = TestProviderBtJson.FLOAT.createBtEo();
+        Assertions.assertThat(eo.get(F_TEST_FLOAT)).isEqualTo(1.1f);
     }
 
 
 
     /*@Test
     public void withSubTestMapAndSerializationTypePARAMS()  {
-        EO adapter = TestEOProvider
+        EO eo = TestEOProvider
                 .create(BTProvider.createMapST());
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.EO)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(stringified);
     }
 
     @Test
     public void withIndentAndSerializationTypeSCALAR_TYPES()  {
-        EO adapter = BTProviderEO.create();
+        EO eo = BTProviderEO.create();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .setSerializationType(JSONSerializationType.SCALAR)
-                .toJSON(adapter);
+                .toJSON(eo);
         //AssertEO.compare(stringified);
     }
      */

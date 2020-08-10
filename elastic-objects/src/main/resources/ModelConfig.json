@@ -285,7 +285,7 @@
     "naturalId": "DBFieldParams",
     "eoParams": {
       "shapeType": "BEAN",
-      "create": true
+      "create": false
     },
     "description": "Params controlling the behaviour of persisting of an EO FieldConfig e.g. for a database.",
     "fieldKeys": [
@@ -310,7 +310,7 @@
     "naturalId": "DBParams",
     "eoParams": {
       "shapeType": "BEAN",
-      "create": true
+      "create": false
     },
     "description": "Params controlling the behavior of persisting an EO ModelConfig e.g. for a database.",
     "fieldKeys": [
@@ -333,9 +333,7 @@
       "create": true
     },
     "description": "Params controlling the behavior of an EO FieldConfig like serialization/deserialization.",
-    "fieldKeys": [
-      "pathPatternAsString"
-    ],
+    "fieldKeys": [],
     "modelKey": "EOFieldParams",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "packageGroup": "models",
@@ -347,7 +345,7 @@
     "naturalId": "EOParams",
     "eoParams": {
       "shapeType": "BEAN",
-      "create": true
+      "create": false
     },
     "description": "Params controlling the behavior of an EO ModelConfig like serialization/deserialization.",
     "fieldKeys": [
@@ -357,8 +355,7 @@
       "methods",
       "attributeList",
       "modelConfigKey",
-      "defaultImplementation",
-      "pathPatternAsString"
+      "defaultImplementation"
     ],
     "modelKey": "EOParams",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -1189,7 +1186,7 @@
     "naturalId": "ViewFieldParams",
     "eoParams": {
       "shapeType": "BEAN",
-      "create": true
+      "create": false
     },
     "description": "Params controlling the behavior the view of an elastic field including input.",
     "fieldKeys": [
@@ -1207,7 +1204,7 @@
     "naturalId": "ViewParams",
     "eoParams": {
       "shapeType": "BEAN",
-      "create": true
+      "create": false
     },
     "description": "Params controlling the behavior of the view of an elastic object.",
     "fieldKeys": [

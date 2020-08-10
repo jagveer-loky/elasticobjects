@@ -1,9 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.paths;
-import com.google.gson.JsonSerializationContext;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
+import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,87 +30,171 @@ public class PathElement {
     public static final String ROOT_CALLS = "_calls";
     public static final String CALLS = "_calls";
     public static final String CONFIG = "_config";
-    private String[] models;
+    private String[] modelsArray;
+    private Models models;
     private final String key;
 
     public PathElement(final String name, EO parentEo, Object value) {
-        this(name, parentEo, getClass(value));
-    }
-
-    private static Class getClass(Object value) {
-        if (value==null) {
-            return Map.class;
-        }
-        return value.getClass();
+        this(name);
+        resolve(parentEo, value);
     }
 
     public PathElement(final String name, EO parentEo, Class defaultClass) {
         this(name);
-        if (!hasModels() && defaultClass != null) {
-            this.models = new String[]{defaultClass.getSimpleName()};
+        if (!hasModelArray() && defaultClass != null) {
+            this.modelsArray = new String[]{defaultClass.getSimpleName()};
+            this.models = new Models(parentEo.getConfigsCache(), defaultClass);
+        }
+        else {
+            resolve(parentEo, null);
         }
     }
-    public PathElement(final String name, String... models) {
+
+    public PathElement(final Call call, EO parentEo) {
+        this(Integer.valueOf(parentEo.sizeEo()).toString());
+        this.modelsArray = new String[]{call.getClass().getSimpleName()};
+    }
+
+    public PathElement(final String name, String... modelsArray) {
         this(name);
         if (!hasModels()) {
-            if (models.length>0) {
-                this.models = models;
+            if (modelsArray.length>0) {
+                this.modelsArray = modelsArray;
             }
             else {
-                this.models = new String[]{Map.class.getSimpleName()};
+                this.modelsArray = new String[]{Map.class.getSimpleName()};
             }
         }
     }
 
-    public PathElement(final String name, Class... models) {
+    public PathElement(final String name, Class... modelsArray) {
         this(name);
         if (!hasModels()) {
-            if (models.length>0) {
-                this.models = new String[models.length];
+            if (modelsArray.length>0) {
+                this.modelsArray = new String[modelsArray.length];
                 int counter = 0;
-                for (Class modelClass: models) {
-                    this.models[counter] = models[counter].getSimpleName();
+                for (Class modelClass: modelsArray) {
+                    this.modelsArray[counter] = modelsArray[counter].getSimpleName();
                     counter++;
                 }
             }
             else {
-                this.models = new String[]{Map.class.getSimpleName()};
+                this.modelsArray = new String[]{Map.class.getSimpleName()};
             }
         }
     }
 
     public PathElement(final String name) {
         final Matcher matcher = PathElement.modelPattern.matcher(name);
+        String modelKey = null;
         if (matcher.find()) {
-            String modelKey = matcher.group(1);
+            modelKey = matcher.group(1);
             this.key = matcher.group(2);
-            if (LOG_LEVEL.equals(key) ) {
-                modelKey = LogLevel.class.getSimpleName();
-            }
-            else if (ERROR_LEVEL.equals(key) ) {
-                modelKey = LogLevel.class.getSimpleName();
-            }
-            else if (SERIALIZATION_TYPE.equals(key) ) {
-                modelKey = JSONSerializationType.class.getSimpleName();
-            }
-            if (modelKey == null || modelKey.isEmpty()) {
-                models = new String[]{};
-                return;
-            }
-            models = modelKey.split(",");
         }
         else {
-            key = name;
-            models = new String[]{};
+            this.key = name;
+        }
+
+        if (LOG_LEVEL.equals(key) ) {
+            modelKey = LogLevel.class.getSimpleName();
+        }
+        else if (ERROR_LEVEL.equals(key) ) {
+            modelKey = LogLevel.class.getSimpleName();
+        }
+        else if (CALLS.equals(key) ) {
+            modelKey = List.class.getSimpleName();
+        }
+        else if (SERIALIZATION_TYPE.equals(key) ) {
+            modelKey = JSONSerializationType.class.getSimpleName();
+        }
+        if (modelKey == null || modelKey.isEmpty()) {
+            modelsArray = new String[]{};
+            return;
+        }
+        modelsArray = modelKey.split(",");
+    }
+
+    public void resolve(EO parentEo, Object value) {
+        if (hasModels()) {
+            return;
+        }
+        Models valueModels = null;
+        Models childModels = parentEo.getModels().getChildModels(parentEo,this);
+        if (childModels == null) {
+            if (!hasModelArray()) {
+                if (value == null) {
+                    modelsArray = new String[]{Map.class.getSimpleName()};
+                }
+                else {
+                    if (value instanceof String) {
+                        if (JSONToEO.jsonListPattern.matcher((String) value).find()) {
+                            modelsArray = new String[]{List.class.getSimpleName()};
+                        } else if (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
+                            modelsArray = new String[]{Map.class.getSimpleName()};
+                        }
+                        else {
+                            modelsArray = new String[]{String.class.getSimpleName()};
+                            valueModels = new Models(parentEo.getConfigsCache(), String.class);
+                        }
+                    }
+                    else {
+                        if (value.getClass().isEnum()) {
+                            modelsArray = new String[]{String.class.getSimpleName()};
+                        }
+                        else {
+                            valueModels = new Models(parentEo.getConfigsCache(), value.getClass());
+                            if (valueModels.isCreate() || valueModels.isScalar()) {
+                                modelsArray = new String[]{value.getClass().getSimpleName()};
+                            } else if (valueModels.isEnum()) {
+                                modelsArray = new String[]{String.class.getSimpleName()};
+                            } else {
+                                modelsArray = new String[]{Map.class.getSimpleName()};
+                            }
+                        }
+                    }
+                }
+            }
+            this.models = new Models(parentEo.getConfigsCache(), getModelsArray());
+        }
+        else {
+            if (value != null) {
+                valueModels = new Models(parentEo.getConfigsCache(), value.getClass());
+            }
+            if (!hasModelArray()) {
+                this.models = childModels;
+            }
+            else {
+                Models setModels = new Models(parentEo.getConfigsCache(), getModelsArray());
+                if (childModels.toString().contains(setModels.toString())) {
+                    this.models = setModels;
+                }
+            }
+        }
+        if (valueModels == null) {
+            return;
+        }
+        if (models.isScalar() && !valueModels.isScalar()) {
+                throw new EoException("Problem setting non scalar value ("
+                        + valueModels.getModel().getNaturalId() + ") for field name '"
+                        + key + "'. Expected is "
+                        + models.getModel().getNaturalId() + "!");
+        }
+        else if (!models.isScalar() && valueModels.isScalar()) {
+            throw new EoException("Problem setting scalar value ("
+                    + valueModels.getModel().getNaturalId() + ") for field name '"
+                    + key + "'. Expected is "
+                    + models.getModel().getNaturalId() + "!");
         }
     }
 
     public static final PathElement OF_SERIALIZATION_TYPE() {
         return new PathElement(SERIALIZATION_TYPE);
     }
+
     public static final PathElement OF_LOG_LEVEL() {
         return new PathElement(LOG_LEVEL);
     }
+
     public static final PathElement OF_ERROR_LEVEL() {
         return new PathElement(ERROR_LEVEL);
     }
@@ -130,12 +219,12 @@ public class PathElement {
         return key == null || key.isEmpty() || key.startsWith("_");
     }
 
-    public static boolean isCallPath(final EO parentAdapter) {
-        if (parentAdapter == null) {
-            return false;
-        }
-        final String fieldName = parentAdapter.getParentKey();
-        return ROOT_CALLS.equals(fieldName) || CALLS.equals(fieldName);
+    public Object create() {
+        return getModels().create();
+    }
+
+    public boolean isCall() {
+        return getModels().isCall();
     }
 
     public boolean isBack() {
@@ -145,15 +234,27 @@ public class PathElement {
         return SAME.equals(key);
     }
 
-    public String[] getModels() {
+    public String[] getModelsArray() {
+        return modelsArray;
+    }
+
+    public Models getModels() {
         return models;
     }
 
     public String getKey() {
         return key;
     }
+    public boolean hasKey() {
+        return key != null && !key.isEmpty();
+    }
+
     public boolean hasModels() {
-        return models != null && models.length>0;
+        return models != null && !models.isEmpty();
+    }
+
+    public boolean hasModelArray() {
+        return modelsArray != null && modelsArray.length>0;
     }
 
     public boolean isRootModel() {
@@ -162,9 +263,9 @@ public class PathElement {
 
     @Override
     public String toString(){
-        if (!hasModels()) {
+        if (!hasModelArray()) {
             return key;
         }
-        return "(" + String.join(",", models) + ")" + key;
+        return "(" + String.join(",", modelsArray) + ")" + key;
     }
 }

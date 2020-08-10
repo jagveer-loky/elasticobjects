@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,12 +15,12 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public class ListParamsTest {
     @Test
     public void givenTestProvider_whenGetModelConfigParameters_thenXpected() {
-        ConfigChecks.findModelAndCompare(ListParams.class);
+        ConfigModelChecks.compare(ListParams.class);
     }
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenOk() {
-        ConfigChecks.findModelAndCreateInstance(ListParams.class);
+    public void givenModelClass_whenCreate_thenNoException() {
+        ConfigModelChecks.create(ListParams.class);
     }
 
     @Test

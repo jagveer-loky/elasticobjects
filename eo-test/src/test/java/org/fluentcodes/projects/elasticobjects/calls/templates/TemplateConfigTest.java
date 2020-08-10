@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
@@ -19,8 +20,8 @@ public class TemplateConfigTest {
     private static final Logger LOG = LogManager.getLogger(TemplateConfigTest.class);
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenExceptionThrown()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(TemplateConfig.class);
+    public void givenModelClass_whenCreate_thenExceptionThrown()  {
+        ConfigModelChecks.createThrowException(TemplateConfig.class);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class TemplateConfigTest {
     }
 
     @Test
-    public void whenCompareConfigurations_thenEqual()  {
+    public void whenCompareConfigurations_thenXpected()  {
         ConfigChecks.compareConfigurations(TemplateConfig.class);
     }
 

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.junit.Test;
 
 /**
@@ -13,8 +14,8 @@ public class ScsConfigTest {
     private static final Logger LOG = LogManager.getLogger(ScsConfigTest.class);
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenExceptionThrown()  {
-        ConfigChecks.findModelAndCreateInstanceExceptionThrown(ScsConfig.class);
+    public void givenModelClass_whenCreate_thenExceptionThrown()  {
+        ConfigModelChecks.createThrowException(ScsConfig.class);
     }
 
     @Test
@@ -23,7 +24,7 @@ public class ScsConfigTest {
     }
 
     @Test
-    public void whenCompareConfigurations_thenEqual()  {
+    public void whenCompareConfigurations_thenXpected()  {
         ConfigChecks.compareConfigurations(ScsConfig.class);
     }
 

@@ -8,6 +8,7 @@ import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -152,7 +153,7 @@ public class EoRoot extends EoChild {
 
     private EO getLogEo() {
         if (!hasEo(PathElement.OF_LOGS())) {
-            set(new PathElement(PathElement.LOGS, List.class, String.class));
+            set(new PathElement(PathElement.LOGS, List.class, String.class), new ArrayList());
         }
         return getEo(PathElement.LOGS);
     }
@@ -174,14 +175,12 @@ public class EoRoot extends EoChild {
         return getErrorLevel() == LogLevel.ERROR;
     }
 
-    @Override
-    public boolean addCall(Call call) {
+    public EO addCall(Call call) {
         if (call == null) {
-            return false;
+            throw new EoException("Null call?!");
         }
         initCalls();
-        callsEo.set(call, Integer.valueOf(callsEo.sizeEo()).toString());
-        return true;
+        return callsEo.set(new PathElement(Integer.valueOf(callsEo.size()).toString(), callsEo, call), call);
     }
 
     protected boolean addCall(EO callEo) {
@@ -200,7 +199,7 @@ public class EoRoot extends EoChild {
             return;
         }
         if (!this.hasEo(PathElement.OF_CALLS())) {
-            set(new PathElement(PathElement.CALLS, List.class));
+            set(new PathElement(PathElement.CALLS), new ArrayList<Call>());
         }
         callsEo = getEo(PathElement.CALLS);
         calls = (List<Call>) callsEo.get();

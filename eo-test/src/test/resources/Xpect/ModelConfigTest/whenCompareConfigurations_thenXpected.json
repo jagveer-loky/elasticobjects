@@ -10,12 +10,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -41,13 +40,12 @@
         "0": "ALL"
       },
       "shapeType": "LIST",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "defaultImplementation": "ArrayList",
-      "pathPatternAsString": ""
+      "defaultImplementation": "ArrayList"
     },
     "dbParams": {
     },
@@ -68,12 +66,11 @@
         "0": "ALL"
       },
       "shapeType": "LIST",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -112,12 +109,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -143,12 +139,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -179,12 +174,11 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -221,12 +215,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -264,7 +257,7 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
         "0": "read",
         "1": "write",
@@ -272,8 +265,7 @@
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "CallResource",
-      "pathPatternAsString": ""
+      "modelConfigKey": "CallResource"
     },
     "dbParams": {
     },
@@ -299,12 +291,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -328,12 +319,11 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -369,12 +359,11 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -415,12 +404,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -457,12 +445,11 @@
         "0": "ALL"
       },
       "shapeType": "OBJECT",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -501,12 +488,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -533,12 +519,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -575,12 +560,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -606,12 +590,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -641,12 +624,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -676,12 +658,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -707,12 +688,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -727,19 +707,17 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "EOFieldParams",
     "(ArrayList)fieldKeys": {
-      "0": "pathPatternAsString"
     },
     "eoParams": {
       "(ArrayList)scope": {
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -765,20 +743,18 @@
       "3": "methods",
       "4": "attributeList",
       "5": "modelConfigKey",
-      "6": "defaultImplementation",
-      "7": "pathPatternAsString"
+      "6": "defaultImplementation"
     },
     "eoParams": {
       "(ArrayList)scope": {
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -805,12 +781,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -836,12 +811,11 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -866,12 +840,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -894,12 +867,11 @@
         "0": "ALL"
       },
       "shapeType": "OBJECT",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -938,12 +910,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -981,13 +952,12 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "FileConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "FileConfig"
     },
     "dbParams": {
     },
@@ -1025,13 +995,12 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "FileConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "FileConfig"
     },
     "dbParams": {
     },
@@ -1073,12 +1042,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1104,12 +1072,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1130,12 +1097,11 @@
         "0": "ALL"
       },
       "shapeType": "MAP",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1176,12 +1142,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1206,12 +1171,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1247,7 +1211,7 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
         "0": "read",
         "1": "write",
@@ -1255,8 +1219,7 @@
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "JsonConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "JsonConfig"
     },
     "dbParams": {
     },
@@ -1299,13 +1262,12 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "JsonCall",
-      "pathPatternAsString": ""
+      "modelConfigKey": "JsonCall"
     },
     "dbParams": {
     },
@@ -1348,12 +1310,11 @@
         "0": "ALL"
       },
       "shapeType": "ENUM",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1380,12 +1341,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1411,13 +1371,12 @@
         "0": "ALL"
       },
       "shapeType": "MAP",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "defaultImplementation": "LinkedHashMap",
-      "pathPatternAsString": ""
+      "defaultImplementation": "LinkedHashMap"
     },
     "dbParams": {
     },
@@ -1438,12 +1397,11 @@
         "0": "ALL"
       },
       "shapeType": "SET",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1467,13 +1425,12 @@
         "0": "ALL"
       },
       "shapeType": "LIST",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "defaultImplementation": "ArrayList",
-      "pathPatternAsString": ""
+      "defaultImplementation": "ArrayList"
     },
     "dbParams": {
     },
@@ -1511,13 +1468,12 @@
         "0": "ALL"
       },
       "shapeType": "OBJECT",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "ListConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "ListConfig"
     },
     "dbParams": {
     },
@@ -1560,13 +1516,12 @@
         "0": "ALL"
       },
       "shapeType": "OBJECT",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "ListConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "ListConfig"
     },
     "dbParams": {
     },
@@ -1605,12 +1560,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1638,12 +1592,11 @@
         "0": "ALL"
       },
       "shapeType": "INSTANCE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1674,12 +1627,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1722,12 +1674,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1750,12 +1701,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1776,13 +1726,12 @@
         "0": "ALL"
       },
       "shapeType": "MAP",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "defaultImplementation": "LinkedHashMap",
-      "pathPatternAsString": ""
+      "defaultImplementation": "LinkedHashMap"
     },
     "dbParams": {
     },
@@ -1808,13 +1757,12 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "defaultImplementation": "ModelImpl",
-      "pathPatternAsString": ""
+      "defaultImplementation": "ModelImpl"
     },
     "dbParams": {
     },
@@ -1861,12 +1809,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1912,12 +1859,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -1963,12 +1909,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2014,12 +1959,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2065,12 +2009,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2116,12 +2059,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2167,12 +2109,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2204,12 +2145,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2255,12 +2195,11 @@
         "0": "ALL"
       },
       "shapeType": "INTERFACE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2287,12 +2226,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2318,12 +2256,11 @@
         "0": "ALL"
       },
       "shapeType": "NONE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2347,12 +2284,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2379,12 +2315,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2411,12 +2346,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR_SERIALIZED",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2447,12 +2381,11 @@
         "0": "ALL"
       },
       "shapeType": "INSTANCE",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2478,12 +2411,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2526,13 +2458,12 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "ScsConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "ScsConfig"
     },
     "dbParams": {
     },
@@ -2573,12 +2504,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2602,13 +2532,12 @@
         "0": "ALL"
       },
       "shapeType": "SET",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
       },
-      "defaultImplementation": "LinkedHashSet",
-      "pathPatternAsString": ""
+      "defaultImplementation": "LinkedHashSet"
     },
     "dbParams": {
     },
@@ -2632,12 +2561,11 @@
         "0": "ALL"
       },
       "shapeType": "ENUM",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2663,12 +2591,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2703,12 +2630,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2745,12 +2671,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2776,12 +2701,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2802,12 +2726,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2831,12 +2754,11 @@
         "0": "ALL"
       },
       "shapeType": "SCALAR",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2871,12 +2793,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2913,12 +2834,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2955,12 +2875,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -2987,12 +2906,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -3017,12 +2935,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -3059,14 +2976,13 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
         "0": "execute"
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "TemplateConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "TemplateConfig"
     },
     "dbParams": {
     },
@@ -3110,12 +3026,11 @@
         "0": "ALL"
       },
       "shapeType": "CONFIG",
-      "create": "false",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -3154,14 +3069,13 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
         "0": "execute"
       },
       "(ArrayList)attributeList": {
       },
-      "modelConfigKey": "TemplateConfig",
-      "pathPatternAsString": ""
+      "modelConfigKey": "TemplateConfig"
     },
     "dbParams": {
     },
@@ -3199,12 +3113,11 @@
         "0": "ALL"
       },
       "shapeType": "CALL",
-      "create": "true",
+      "create": true,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -3232,12 +3145,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },
@@ -3265,12 +3177,11 @@
         "0": "ALL"
       },
       "shapeType": "BEAN",
-      "create": "true",
+      "create": false,
       "(ArrayList)methods": {
       },
       "(ArrayList)attributeList": {
-      },
-      "pathPatternAsString": ""
+      }
     },
     "dbParams": {
     },

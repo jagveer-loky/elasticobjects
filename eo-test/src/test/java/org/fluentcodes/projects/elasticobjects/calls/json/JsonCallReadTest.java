@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.json;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
@@ -20,12 +20,12 @@ public class JsonCallReadTest {
 
     @Test
     public void whenCompareConfigurations_thenXpected()  {
-        ConfigChecks.findModelAndCompare(JsonCallRead.class);
+        ConfigModelChecks.compare(JsonCallRead.class);
     }
 
     @Test
-    public void givenFoundModel_whenCreateInstance_thenOk()  {
-        ConfigChecks.findModelAndCreateInstance(JsonCallRead.class);
+    public void givenModelClass_whenCreate_thenNoException()  {
+        ConfigModelChecks.create(JsonCallRead.class);
     }
 
     @Test

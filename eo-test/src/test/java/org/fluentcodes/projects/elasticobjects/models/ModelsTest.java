@@ -25,13 +25,6 @@ public class ModelsTest {
         Assert.assertFalse(models.hasChildModel());
         Assert.assertFalse(models.isEmpty());
     }
-    @Test
-    public void createChildModelsWithList() {
-        EO eo = ProviderRootDev.createEo();
-        Models models = new Models(eo.getConfigsCache(), Map.class);
-        Models childModels = models.createChildModels(eo, new PathElement("(ArrayList)list"), null);
-        Assertions.assertThat(childModels.getModelClass()).isEqualTo(ArrayList.class);
-    }
 
     @Test
     public void createArrayList() {
@@ -41,12 +34,5 @@ public class ModelsTest {
         Assertions.assertThat(models.isScalar()).isFalse();
     }
 
-    @Test
-    public void givenProviderTestWithMap_whenCreateChildWithJsonSerializationType_thenStringType() {
-        EO eo = ProviderRootTest.createEo();
-        Models models = new Models(eo.getConfigsCache(), Map.class);
-        Models childModels = models.createChildModelsSimple(eo, new PathElement("test"), JSONSerializationType.STANDARD);
-        Assertions.assertThat(childModels.getModelClass()).isEqualTo(String.class);
-    }
 
 }

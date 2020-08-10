@@ -10,18 +10,14 @@ import java.util.Map;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public enum ProviderMapJson {
-    JSON_EMPTY("{}"),
-    SIMPLE_INSERT_WITH_PATH(PATH_INPUT_JSON + "SimpleInsertWithPath.json"),
-    ALL(PATH_INPUT_JSON + "mapAll.json"),
-    DATE(PATH_INPUT_JSON + "mapDate.json"),
-    DOUBLE(PATH_INPUT_JSON + "mapDouble.json"),
-    EMPTY(PATH_INPUT_JSON + "mapEmpty.json"),
-    FLOAT(PATH_INPUT_JSON + "mapFloat.json"),
-    INT(PATH_INPUT_JSON + "mapInteger.json"),
+    SIMPLE_INSERT_WITH_PATH("{\"key0\": \"test\", \"level0\": {\"key0\": \"testOther\"}}"),
+    EMPTY("{}"),
     LIST_DOUBLE123("{\"(List,Double)source\": {\"0\": 1,\"1\": 2,\"2\": 3}}"),
     LIST_123("{\"source\": [ 1, 2, 3]}"),
-    STRING(PATH_INPUT_JSON + "mapString.json"),
-    SMALL(PATH_INPUT_JSON + "mapSmall.json"),
+    LIST_123_TYPED("{\"(List,Double)source\": {\"0\": 1,\"1\": 2,\"2\": 3}}"),
+    LIST_SMALL("[\"test\", 1]"),
+    VALUES_CALL_NUMBER_SCALAR("{\"(Double)source\":2.1}"),
+    VALUES_CALL_NUMBER_ARRAY("{\"(List,Double)source\":[1,2,3]}"),
     ;
     private String content;
     ProviderMapJson(final String content) {
@@ -42,7 +38,7 @@ public enum ProviderMapJson {
     }
 
     public EO createMapEo() {
-        EO eo =  ProviderRootDev.createEo(content);
+        EO eo =  ProviderRootTest.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
