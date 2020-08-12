@@ -101,7 +101,7 @@ public class ModelImpl implements Model {
 
     public String toString(EOConfigsCache provider) {
         try {
-            return EoRoot.ofValue(provider,this).toString();
+            return new EoRoot(provider,this).toString();
         } catch (Exception e) {
             return e.getMessage();
         }

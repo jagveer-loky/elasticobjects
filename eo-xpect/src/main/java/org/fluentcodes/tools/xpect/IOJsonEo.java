@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class IOJsonEo<T> extends IOObject<T> {
     private EOConfigsCache cache;
-    private JSONSerializationType type = JSONSerializationType.STANDARD;
+    private JSONSerializationType type;
     private String fileEnding = "json";
 
     public IOJsonEo() {
@@ -58,8 +58,11 @@ public class IOJsonEo<T> extends IOObject<T> {
             if (cache == null) {
                 cache = new EOConfigsCache(Scope.TEST);
             }
-            EO eo = EoRoot.ofValue(cache, object);
-            return new EOToJSON().setSerializationType(type).toJSON(eo);
+            EO eo = new EoRoot(cache, object);
+            if (type!=null) {
+                return new EOToJSON().setSerializationType(type).toJSON(eo);
+            }
+            return new EOToJSON().toJSON(eo);
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }

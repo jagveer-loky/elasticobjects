@@ -6,10 +6,10 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.calls.json.JsonCallRead;
+import org.fluentcodes.projects.elasticobjects.calls.json.JsonReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.fluentcodes.tools.xpect.XpectString;
@@ -35,8 +35,8 @@ public class TemplateContentExampleTest {
 
     @Test
     public void givenCallJsonData_whenExecute_thenExpected()  {
-        EO eo = ProviderRootTest.createEo();
-        final JsonCallRead call = new JsonCallRead(DATA_JSON_CONFIG_KEY);
+        EO eo = ProviderRootTestScope.createEo();
+        final JsonReadCall call = new JsonReadCall(DATA_JSON_CONFIG_KEY);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -86,7 +86,7 @@ public class TemplateContentExampleTest {
     @Ignore
     @Test
     public void givenCallTemplateResourceStatic_whenExecute_thenXpected()  {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall()
                 .setConfigKey(STATIC_TEMPLATE_CONFIG_KEY);
@@ -96,7 +96,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void givenCallTemplateResourceStaticKeep_whenExecute_thenXpected()  {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall()
                 .setConfigKey(TEMPLATE_STATIC_KEEP_CONFIG_KEY);
@@ -106,7 +106,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void givenCallTemplateResourceStaticCondition_whenExecute_thenXpected()  {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall()
                 .setConfigKey(TEMPLATE_STATIC_CONDITION_CONFIG_KEY);
@@ -125,7 +125,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void givenCallTemplateResourceDynamic_whenExecute_thenXpected()  {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall()
                 .setConfigKey(DYNAMIC_TEMPLATE_CONFIG_KEY);

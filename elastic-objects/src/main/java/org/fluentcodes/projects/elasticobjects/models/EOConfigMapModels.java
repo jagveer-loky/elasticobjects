@@ -49,7 +49,7 @@ public class EOConfigMapModels extends EOConfigMap {
                 .setFileName(providerSource)
                 .readStringList();
         for (String classNameJson : classNameJsons) {
-            EO eo = EoRoot.ofValue(getConfigsCache(), classNameJson);
+            EO eo = new EoRoot(getConfigsCache(), classNameJson);
             List classNames = (List) eo.get();
             if (classNames == null) {
                 continue;

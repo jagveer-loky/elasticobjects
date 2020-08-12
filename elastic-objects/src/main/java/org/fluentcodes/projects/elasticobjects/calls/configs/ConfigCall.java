@@ -78,6 +78,7 @@ public class ConfigCall extends ConfigKeysCall {
             } catch (Exception e) {
                 throw new EoException(e);
             }
+            configEntry.resolve();
             result.set(configEntry, Integer.valueOf(result.size()).toString());
         }
         return (List)result.get();

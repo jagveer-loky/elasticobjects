@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.junit.Assert;
@@ -23,7 +23,7 @@ public class XlsxConfigTest {
 
     @Test
     public void findConfigInCache()  {
-        final XlsxConfig config = (XlsxConfig) ProviderRootTest.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
+        final XlsxConfig config = (XlsxConfig) ProviderRootTestScope.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
         Assert.assertNotNull(config.getDescription());
         Assert.assertEquals(FILE_SOURCE_XLSX, config.getFileConfig().getFileName());
     }
@@ -44,7 +44,7 @@ public class XlsxConfigTest {
 
     @Test
     public void readSourceXlsx()  {
-        final XlsxConfig config = (XlsxConfig) ProviderRootTest.EO_CONFIGS.find(XlsxConfig.class, FILE_SOURCE_XLSX);
+        final XlsxConfig config = (XlsxConfig) ProviderRootTestScope.EO_CONFIGS.find(XlsxConfig.class, FILE_SOURCE_XLSX);
         Assert.assertEquals(FILE_SOURCE_XLSX, config.getXlsxKey());
         Assert.assertEquals(X_SHEET_TEST, config.getSheetName());
         Assert.assertEquals(FILE_SOURCE_XLSX, config.getFileKey());
@@ -59,7 +59,7 @@ public class XlsxConfigTest {
     @Test
     public void checkTarget()  {
         
-        final XlsxConfig config = (XlsxConfig) ProviderRootTest.EO_CONFIGS
+        final XlsxConfig config = (XlsxConfig) ProviderRootTestScope.EO_CONFIGS
                 .find(XlsxConfig.class, FILE_TARGET_XLSX);
         Assert.assertEquals(FILE_TARGET_XLSX, config.getXlsxKey());
         Assert.assertEquals(FILE_TARGET_XLSX, config.getFileKey());

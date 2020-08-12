@@ -3,11 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
@@ -42,6 +38,17 @@ public class SinusValueCallTest {
         }
     }
 
+    @Test
+    public void givenModelClass_whenCreate_thenNoException()  {
+        ConfigModelChecks.create(SinusValueCall.class);
+    }
+
+    @Test
+    public void whenCompareConfigurations_thenXpected()  {
+        ConfigModelChecks.compare(SinusValueCall.class);
+    }
+
+
     public static final EO createArray() {
         return ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapEo().getEo(SOURCE);
     }
@@ -62,7 +69,7 @@ public class SinusValueCallTest {
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
         String value = new EOToJSON().setSerializationType(JSONSerializationType.EO).toJSON(eo);
-        EO eoFromString = ProviderRootTest.createEo(value);
+        EO eoFromString = ProviderRootTestScope.createEo(value);
         Assertions.assertThat(eoFromString.getLog()).isEmpty();
         eoFromString.execute();
     }
@@ -70,16 +77,16 @@ public class SinusValueCallTest {
     @Ignore
     @Test
     public void createFromModel_ok()  {
-        final ModelConfig model = ProviderRootTest.findModel(SinusValueCall.class);
+        final ModelConfig model = ProviderRootTestScope.findModel(SinusValueCall.class);
         final Call call = (Call) model.create();
         EO eo = createSimple();
         Double result = (Double) call.execute(eo);
         Assertions.assertThat(result).isNotNull();
-        final EO eoCall = ProviderRootTest.createEo(call);
+        final EO eoCall = ProviderRootTestScope.createEo(call);
         final String asString = new EOToJSON()
                 .setSerializationType(JSONSerializationType.EO)
                 .toJSON(eoCall);
-        final Call fromString = (Call) ProviderRootTest.createEo(asString).get();
+        final Call fromString = (Call) ProviderRootTestScope.createEo(asString).get();
         Double fromResult = (Double) fromString.execute(eo);
         Assertions.assertThat(fromResult).isEqualTo(result);
     }
@@ -105,7 +112,7 @@ public class SinusValueCallTest {
         eo.setSerializationType(JSONSerializationType.EO);
         final String asString = new EOToJSON()
                 .toJSON(eo.getRoot());
-        final EO fromString = ProviderRootTest.createEo(asString);
+        final EO fromString = ProviderRootTestScope.createEo(asString);
         fromString.setLogLevel(LogLevel.INFO);
         fromString.execute();
         Assertions.assertThat(fromString.get(SOURCE)).isEqualTo(SIMPLE_RESULT);
@@ -144,7 +151,7 @@ public class SinusValueCallTest {
         String value = new EOToJSON()
                 .setSerializationType(JSONSerializationType.EO)
                 .toJSON(eo.getRoot());
-        EO eoFromJson = ProviderRootTest.createEo(value);
+        EO eoFromJson = ProviderRootTestScope.createEo(value);
         Assertions.assertThat(eoFromJson.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
         Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0")).isNotNull();
         Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0","targetPath")).isEqualTo(TARGET);
@@ -154,7 +161,7 @@ public class SinusValueCallTest {
     public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced()  {
         TemplateCall call = new TemplateCall();
         call.setContent("sin($[testKey]) = $[(SinusValueCall)testKey inTemplate=\"true\"/]");
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.set(2, "testKey");
         eo.execute();
@@ -177,7 +184,7 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEo_whenReplaceString_thenPlaceHolderIsReplaced()  {
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.set(2, "value");
         String result = new ParserTemplate("-$[(SinusValueCall)value/]-").parse(eo);
         Assertions.assertThat(result).isEqualTo("--");
@@ -186,7 +193,7 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced()  {
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.set(2, "value");
         String result = new ParserTemplate("-$[(SinusValueCall)value inTemplate=\"true\"/]-").parse(eo);
         Assertions.assertThat(result).isEqualTo("-0.9092974268256817-");

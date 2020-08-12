@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -31,7 +31,7 @@ public class ConfigKeysCallTest {
     @Test
     public void givenCallWithModelConfig_whenExecute_thenResultIsOrderedList() {
         ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class);
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         List<String> result = call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
     }
@@ -48,7 +48,7 @@ public class ConfigKeysCallTest {
                 "inTemplate=\"true\"/]";
         call.setContent(template);
 
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.execute();
 

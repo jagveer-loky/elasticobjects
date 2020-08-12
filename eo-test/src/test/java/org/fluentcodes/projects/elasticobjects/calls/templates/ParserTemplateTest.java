@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,7 +29,7 @@ public class ParserTemplateTest {
 
     @Test
     public void givenSimpleTemplateAndEoTestPath_whenReplace_thenReplaced () {
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.set("testString", "testPath");
         String replace = "-$[testPath]-";
         String result = new ParserTemplate(replace).parse(eo);
@@ -45,7 +45,7 @@ public class ParserTemplateTest {
 
     @Test
     public void givenSimpleCallTemplateAndEoTestPath_whenReplace_thenReplaced () {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
         eo.set("testString", "testPath");
         final String replace = "-$[(TemplateCall)testPath]+$[_value]+$[/]-";
         String result = new ParserTemplate(replace).parse(eo);
@@ -55,7 +55,7 @@ public class ParserTemplateTest {
 
     @Test
     public void givenSimpleTemplateCallWithPlaceHolderAndEoTestPath_whenReplace_thenReplaced () {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
         eo.set("testString", "testPath");
         final String replace = "-$[&testPath]+$[_value]+$[/]-";
         String result = new ParserTemplate(replace).parse(eo);
@@ -65,7 +65,7 @@ public class ParserTemplateTest {
 
     @Test
     public void givenValueCall_whenReplace_thenReplaced () {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
         final String replace = "$[(ValueCall)level0]{\"1\":2}$[/]";
         String result = new ParserTemplate(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -75,7 +75,7 @@ public class ParserTemplateTest {
 
     @Test
     public void givenValueCallAndAddValueToResult_whenReplace_thenReplaced () {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
         final String replace = "$[(ValueCall)level0]{\"1\":2}$[/]Value: $[level0/1]";
         String result = new ParserTemplate(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

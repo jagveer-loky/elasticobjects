@@ -21,7 +21,7 @@ public class EoSetScalarTest {
 
     @Test
     public void givenMapEmpty_withPathAndString_ok()  {
-        final EO eo = ProviderRootDev.createEo();
+        final EO eo = ProviderRootDevScope.createEo();
         eo.set(S_STRING_OTHER, F_TEST_STRING);
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
         Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo(S_STRING_OTHER);
@@ -29,7 +29,7 @@ public class EoSetScalarTest {
 
     @Test
     public void givenString_withString_fails()  {
-        final EO eo = ProviderRootDev.createEo(S_STRING);
+        final EO eo = ProviderRootDevScope.createEo(S_STRING);
         eo.set(S_STRING_OTHER, F_TEST_STRING);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(String.class);
@@ -40,7 +40,7 @@ public class EoSetScalarTest {
 
     @Test
     public void givenListEmpty_withBoolean_ok()  {
-        final EO root = ProviderRootDev.createEo(new ArrayList<>());
+        final EO root = ProviderRootDevScope.createEo(new ArrayList<>());
         root
                 .set(S_BOOLEAN, S0);
         Assert.assertEquals(S_BOOLEAN, root.get(S0));
@@ -48,7 +48,7 @@ public class EoSetScalarTest {
 
     @Test
     public void givenEmpty_whenSetStringValueWithLongPath_ok()  {
-        final EO eo = ProviderRootDev.createEo();
+        final EO eo = ProviderRootDevScope.createEo();
         final EO child = eo.set("value", "level0", "level1", "level2", "key");
         assertEquals("value", child.get());
         assertEquals("value", eo.get("level0","level1","level2","key"));
@@ -74,7 +74,7 @@ public class EoSetScalarTest {
 
         assertEquals(Map.class,child.getRoot().getModelClass());
         assertEquals(LinkedHashMap.class, child.getRoot().get().getClass());
-        assertEquals("", child.getRoot().getPathAsString());
+        assertEquals("/", child.getRoot().getPathAsString());
     }
 }
 

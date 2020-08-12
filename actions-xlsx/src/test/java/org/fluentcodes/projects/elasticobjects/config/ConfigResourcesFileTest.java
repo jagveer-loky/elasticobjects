@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.junit.Assert;
@@ -25,7 +25,7 @@ public class ConfigResourcesFileTest {
 
     @Test
     public void findConfigInCache()  {
-        FileConfig config = ProviderRootTest.EO_CONFIGS.findFile(FILE_SOURCE_XLSX);
+        FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(FILE_SOURCE_XLSX);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }

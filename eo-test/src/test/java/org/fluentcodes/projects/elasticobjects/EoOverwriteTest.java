@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class EoOverwriteTest {
     public void givenBT_whenOverwriteWithMap_isMap()  {
         BasicTest bt = new BasicTest();
         bt.setTestString(S_TEST_STRING);
-        EoChild child = (EoChild) ProviderRootTest.createEo(new LinkedHashMap<>())
+        EoChild child = (EoChild) ProviderRootTestScope.createEo(new LinkedHashMap<>())
                 .set(bt, S_LEVEL0,S_LEVEL1,S_LEVEL2);
 
         EoRoot root = child.getRoot();

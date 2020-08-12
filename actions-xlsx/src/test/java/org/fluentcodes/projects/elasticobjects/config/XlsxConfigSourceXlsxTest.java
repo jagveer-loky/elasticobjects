@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class XlsxConfigSourceXlsxTest {
     @Test
     public void checkSource()  {
         
-        XlsxConfig config = (XlsxConfig) ProviderRootTest.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
+        XlsxConfig config = (XlsxConfig) ProviderRootTestScope.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
         Assert.assertEquals(X_SOURCE_XLSX_TEST, config.getXlsxKey());
         Assert.assertEquals(FILE_SOURCE_XLSX, config.getFileKey());
         Assert.assertEquals(S_STRING, config.getSheetName());
@@ -37,7 +37,7 @@ public class XlsxConfigSourceXlsxTest {
 
     @Test
     public void read()  {
-        XlsxConfig config = (XlsxConfig) ProviderRootTest.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
+        XlsxConfig config = (XlsxConfig) ProviderRootTestScope.EO_CONFIGS.find(XlsxConfig.class, X_SOURCE_XLSX_TEST);
         //List<List> result = config.createIO().read(new ListParams());
         //AssertEO.compare(TRootTestProvider.EO_CONFIGS, result);
     }

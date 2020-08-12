@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.junit.Assert;
@@ -27,7 +27,7 @@ public class CsvConfigTest {
     @Test
     public void fromSourceCsv()  {
         
-        CsvConfig config = (CsvConfig) ProviderRootTest.EO_CONFIGS.find(CsvConfig.class, CSV_SOURCE_CSV);
+        CsvConfig config = (CsvConfig) ProviderRootTestScope.EO_CONFIGS.find(CsvConfig.class, CSV_SOURCE_CSV);
         Assert.assertEquals(CSV_SOURCE_CSV, config.getCsvKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -42,7 +42,7 @@ public class CsvConfigTest {
     @Test
     public void fromTargetCsv()  {
         
-        final CsvConfig config = (CsvConfig) ProviderRootTest.EO_CONFIGS.find(CsvConfig.class, CSV_TARGET_CSV);
+        final CsvConfig config = (CsvConfig) ProviderRootTestScope.EO_CONFIGS.find(CsvConfig.class, CSV_TARGET_CSV);
         Assert.assertEquals(CSV_TARGET_CSV, config.getCsvKey());
         Assert.assertEquals(S_ROW_DELIMITER, config.getRowDelimiter());
         Assert.assertEquals(S_FIELD_DELIMITER, config.getFieldDelimiter());
@@ -59,7 +59,7 @@ public class CsvConfigTest {
     @Test
     public void fromCache()  {
         
-        final CsvConfig config = (CsvConfig) ProviderRootTest.EO_CONFIGS.find(CsvConfig.class, S_STRING);
+        final CsvConfig config = (CsvConfig) ProviderRootTestScope.EO_CONFIGS.find(CsvConfig.class, S_STRING);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
         Assert.assertEquals(S_STRING, config.getCsvKey());
     }

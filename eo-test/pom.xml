@@ -30,6 +30,18 @@
             <version>0.6.0</version>
         </dependency>
         <dependency>
+            <groupId>org.fluentcodes.tools</groupId>
+            <artifactId>xpect-jackson</artifactId>
+            <version>0.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.fluentcodes.tools</groupId>
+            <artifactId>xpect-gson</artifactId>
+            <version>0.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>

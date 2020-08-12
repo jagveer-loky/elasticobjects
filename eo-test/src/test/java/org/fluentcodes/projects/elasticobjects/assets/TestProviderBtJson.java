@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.assets;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.Map;
@@ -12,8 +12,8 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public enum TestProviderBtJson {
     BOOLEAN("{\"" + F_TEST_BOOLEAN + "\": true}"),
-    ALL(PATH_INPUT_JSON + "mapAll.json"),
-    ALL_TYPED(PATH_INPUT_JSON + "mapAll.jsn"),
+    ALL(PATH_INPUT + "assets/bt/all.json"),
+    ALL_TYPED(PATH_INPUT + "assets/bt/all.tjson"),
     DATE("{\"testDate\": 1465280215000}"),
     DOUBLE("{\"testDouble\": 2.2}"),
     DOUBLE_TYPED("{\"(Double)testDouble\": 2.2}"),
@@ -46,19 +46,19 @@ public enum TestProviderBtJson {
     }
 
     public EO createTestEo() {
-        EO eo =  ProviderRootTest.createEo(content);
+        EO eo =  ProviderRootTestScope.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
 
     public EO createDevEo() {
-        EO eo =  ProviderRootDev.createEo(content);
+        EO eo =  ProviderRootDevScope.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
 
     public EO createBtEo() {
-        EO eo =  ProviderRootTest.createEoWithClasses(BasicTest.class);
+        EO eo =  ProviderRootTestScope.createEoWithClasses(BasicTest.class);
         eo.mapObject(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;

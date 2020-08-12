@@ -2,15 +2,12 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
-import org.fluentcodes.projects.elasticobjects.paths.PathElement;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MODEL_INTERFACE;
 
@@ -20,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MODEL_INTERFAC
 public class ModelsTest {
     @Test
     public void withModelInterface()  {
-        Models models = new Models(ProviderRootTest.EO_CONFIGS, M_MODEL_INTERFACE);
+        Models models = new Models(ProviderRootTestScope.EO_CONFIGS, M_MODEL_INTERFACE);
         Assert.assertTrue(models.hasModel());
         Assert.assertFalse(models.hasChildModel());
         Assert.assertFalse(models.isEmpty());
@@ -28,7 +25,7 @@ public class ModelsTest {
 
     @Test
     public void createArrayList() {
-        EO eo = ProviderRootDev.createEo();
+        EO eo = ProviderRootDevScope.createEo();
         Models models = new Models(eo.getConfigsCache(), ArrayList.class);
         Assertions.assertThat(models.isCreate()).isTrue();
         Assertions.assertThat(models.isScalar()).isFalse();

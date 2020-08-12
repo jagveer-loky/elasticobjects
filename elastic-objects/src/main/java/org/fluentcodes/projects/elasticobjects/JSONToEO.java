@@ -398,7 +398,7 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                pathElement = new PathElement(rawFieldName, eoParent, "");
+                pathElement = new PathElement(rawFieldName, eoParent, value);
                 eoParent.set(pathElement, value);
                 return eoParent;
 

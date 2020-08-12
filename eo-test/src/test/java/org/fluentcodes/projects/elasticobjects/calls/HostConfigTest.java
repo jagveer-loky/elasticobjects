@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.models.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -58,14 +58,14 @@ public class HostConfigTest {
         map.put(F_PORT, S_INTEGER);
         map.put(F_USER, F_USER);
         map.put(F_PASSWORD, F_PASSWORD);
-        HostConfig cache = (HostConfig) new HostConfig.Builder().build(ProviderRootTest.EO_CONFIGS, map);
+        HostConfig cache = (HostConfig) new HostConfig.Builder().build(ProviderRootTestScope.EO_CONFIGS, map);
         Assert.assertEquals(H_LOCALHOST, cache.getHostName());
         Assert.assertEquals(F_HOST_KEY, cache.getHostKey());
     }
 
     @Test
     public void givenConfigMapHost_whenNew_thenEntryFromFiles()  {
-        EOConfigMap cache = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, HostConfig.class);
+        EOConfigMap cache = new EOConfigMapImmutable(ProviderRootTestScope.EO_CONFIGS, HostConfig.class);
         Assert.assertNotNull(cache.find(H_LOCALHOST));
     }
 

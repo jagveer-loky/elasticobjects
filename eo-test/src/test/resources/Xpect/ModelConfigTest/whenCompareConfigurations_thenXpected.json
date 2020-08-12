@@ -214,7 +214,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": false,
       "(ArrayList)methods": {
       },
@@ -231,7 +231,7 @@
     "(ArrayList)scope": {
     },
     "key": "CallImpl",
-    "description": "Defines a file access. ",
+    "description": "Basic implementation for calls. ",
     "naturalId": "CallImpl",
     "author": "Werner Diwischek"
   },
@@ -256,16 +256,12 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
-      "create": true,
+      "shapeType": "OBJECT",
+      "create": false,
       "(ArrayList)methods": {
-        "0": "read",
-        "1": "write",
-        "2": "delete"
       },
       "(ArrayList)attributeList": {
-      },
-      "modelConfigKey": "CallResource"
+      }
     },
     "dbParams": {
     },
@@ -277,7 +273,7 @@
     "(ArrayList)scope": {
     },
     "key": "CallResource",
-    "description": "Defines a file access. ",
+    "description": "Basic bean as super object for other cached items. ",
     "naturalId": "CallResource",
     "author": "Werner Diwischek"
   },
@@ -403,7 +399,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },
@@ -487,7 +483,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },
@@ -932,92 +928,6 @@
   },
   "27": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "FileCallRead",
-    "superKey": "CallResource",
-    "(ArrayList)fieldKeys": {
-      "0": "configKey",
-      "1": "sourcePath",
-      "2": "targetPath",
-      "3": "locationPath",
-      "4": "models",
-      "5": "filterPath",
-      "6": "condition",
-      "7": "overwrite",
-      "8": "logLevel",
-      "9": "duration",
-      "10": "inTemplate"
-    },
-    "eoParams": {
-      "(ArrayList)scope": {
-        "0": "ALL"
-      },
-      "shapeType": "CALL",
-      "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
-      "modelConfigKey": "FileConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "packageGroup": "files",
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "FileCallRead",
-    "description": "Defines a file read access. ",
-    "naturalId": "FileCallRead",
-    "author": "Werner Diwischek"
-  },
-  "28": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "FileCallWrite",
-    "superKey": "CallResource",
-    "(ArrayList)fieldKeys": {
-      "0": "configKey",
-      "1": "sourcePath",
-      "2": "targetPath",
-      "3": "locationPath",
-      "4": "models",
-      "5": "filterPath",
-      "6": "condition",
-      "7": "overwrite",
-      "8": "logLevel",
-      "9": "duration",
-      "10": "inTemplate"
-    },
-    "eoParams": {
-      "(ArrayList)scope": {
-        "0": "ALL"
-      },
-      "shapeType": "CALL",
-      "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
-      "modelConfigKey": "FileConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "packageGroup": "files",
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "FileCallWrite",
-    "description": "Defines a file write access. ",
-    "naturalId": "FileCallWrite",
-    "author": "Werner Diwischek"
-  },
-  "29": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileConfig",
     "superKey": "ConfigResourcesImpl",
     "(ArrayList)fieldKeys": {
@@ -1060,6 +970,92 @@
     "key": "FileConfig",
     "description": "Immutabel EO file configuration will be initalized by internal builder using map values.",
     "naturalId": "FileConfig",
+    "author": "Werner Diwischek"
+  },
+  "28": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "FileReadCall",
+    "superKey": "CallResource",
+    "(ArrayList)fieldKeys": {
+      "0": "configKey",
+      "1": "sourcePath",
+      "2": "targetPath",
+      "3": "locationPath",
+      "4": "models",
+      "5": "filterPath",
+      "6": "condition",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CALL_BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "FileConfig"
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "files",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "FileReadCall",
+    "description": "Defines a file read access. ",
+    "naturalId": "FileReadCall",
+    "author": "Werner Diwischek"
+  },
+  "29": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "FileWriteCall",
+    "superKey": "CallResource",
+    "(ArrayList)fieldKeys": {
+      "0": "configKey",
+      "1": "sourcePath",
+      "2": "targetPath",
+      "3": "locationPath",
+      "4": "models",
+      "5": "filterPath",
+      "6": "condition",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CALL_BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "FileConfig"
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "files",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "FileWriteCall",
+    "description": "Defines a file write access. ",
+    "naturalId": "FileWriteCall",
     "author": "Werner Diwischek"
   },
   "30": {
@@ -1188,55 +1184,6 @@
   },
   "34": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
-    "modelKey": "JsonCallRead",
-    "superKey": "FileCallRead",
-    "(ArrayList)fieldKeys": {
-      "0": "content",
-      "1": "indent",
-      "2": "serializationType",
-      "3": "configKey",
-      "4": "sourcePath",
-      "5": "targetPath",
-      "6": "locationPath",
-      "7": "models",
-      "8": "filterPath",
-      "9": "condition",
-      "10": "overwrite",
-      "11": "logLevel",
-      "12": "duration",
-      "13": "inTemplate"
-    },
-    "eoParams": {
-      "(ArrayList)scope": {
-        "0": "ALL"
-      },
-      "shapeType": "CALL",
-      "create": true,
-      "(ArrayList)methods": {
-        "0": "read",
-        "1": "write",
-        "2": "delete"
-      },
-      "(ArrayList)attributeList": {
-      },
-      "modelConfigKey": "JsonConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "packageGroup": "json",
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "JsonCallRead",
-    "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
-    "naturalId": "JsonCallRead",
-    "author": "Werner Diwischek"
-  },
-  "35": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
     "modelKey": "JsonConfig",
     "superKey": "FileConfig",
     "(ArrayList)fieldKeys": {
@@ -1281,6 +1228,55 @@
     "key": "JsonConfig",
     "description": "Configuration for {@link JsonAction}.",
     "naturalId": "JsonConfig",
+    "author": "Werner Diwischek"
+  },
+  "35": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
+    "modelKey": "JsonReadCall",
+    "superKey": "FileReadCall",
+    "(ArrayList)fieldKeys": {
+      "0": "content",
+      "1": "indent",
+      "2": "serializationType",
+      "3": "configKey",
+      "4": "sourcePath",
+      "5": "targetPath",
+      "6": "locationPath",
+      "7": "models",
+      "8": "filterPath",
+      "9": "condition",
+      "10": "overwrite",
+      "11": "logLevel",
+      "12": "duration",
+      "13": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CALL_BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+        "0": "read",
+        "1": "write",
+        "2": "delete"
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "JsonConfig"
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "json",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "JsonReadCall",
+    "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
+    "naturalId": "JsonReadCall",
     "author": "Werner Diwischek"
   },
   "36": {
@@ -1491,54 +1487,6 @@
   },
   "43": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ListCallRead",
-    "superKey": "ListCall",
-    "(ArrayList)fieldKeys": {
-      "0": "rowHead",
-      "1": "rowStart",
-      "2": "rowEnd",
-      "3": "length",
-      "4": "filter",
-      "5": "configKey",
-      "6": "sourcePath",
-      "7": "targetPath",
-      "8": "locationPath",
-      "9": "models",
-      "10": "filterPath",
-      "11": "condition",
-      "12": "overwrite",
-      "13": "logLevel",
-      "14": "duration",
-      "15": "inTemplate"
-    },
-    "eoParams": {
-      "(ArrayList)scope": {
-        "0": "ALL"
-      },
-      "shapeType": "OBJECT",
-      "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
-      "modelConfigKey": "ListConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "packageGroup": "lists",
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "ListCallRead",
-    "description": "Defines the parameter like listMapper.",
-    "naturalId": "ListCallRead",
-    "author": "Werner Diwischek"
-  },
-  "44": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListConfig",
     "superKey": "ConfigResourcesImpl",
     "(ArrayList)fieldKeys": {
@@ -1580,7 +1528,7 @@
     "naturalId": "ListConfig",
     "author": "Werner Diwischek"
   },
-  "45": {
+  "44": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListMapper",
     "(ArrayList)fieldKeys": {
@@ -1612,7 +1560,7 @@
     "naturalId": "ListMapper",
     "author": "Werner Diwischek"
   },
-  "46": {
+  "45": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListParams",
     "(ArrayList)fieldKeys": {
@@ -1645,6 +1593,54 @@
     "key": "ListParams",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
     "naturalId": "ListParams",
+    "author": "Werner Diwischek"
+  },
+  "46": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "ListReadCall",
+    "superKey": "ListCall",
+    "(ArrayList)fieldKeys": {
+      "0": "rowHead",
+      "1": "rowStart",
+      "2": "rowEnd",
+      "3": "length",
+      "4": "filter",
+      "5": "configKey",
+      "6": "sourcePath",
+      "7": "targetPath",
+      "8": "locationPath",
+      "9": "models",
+      "10": "filterPath",
+      "11": "condition",
+      "12": "overwrite",
+      "13": "logLevel",
+      "14": "duration",
+      "15": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "OBJECT",
+      "create": true,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "ListConfig"
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "lists",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "ListReadCall",
+    "description": "Defines the parameter like listMapper.",
+    "naturalId": "ListReadCall",
     "author": "Werner Diwischek"
   },
   "47": {
@@ -2433,52 +2429,6 @@
   },
   "68": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ScsCallRead",
-    "superKey": "ListCallRead",
-    "(ArrayList)fieldKeys": {
-      "0": "rowHead",
-      "1": "rowStart",
-      "2": "rowEnd",
-      "3": "length",
-      "4": "filter",
-      "5": "configKey",
-      "6": "sourcePath",
-      "7": "targetPath",
-      "8": "locationPath",
-      "9": "models",
-      "10": "filterPath",
-      "11": "condition",
-      "12": "overwrite",
-      "13": "logLevel",
-      "14": "duration",
-      "15": "inTemplate"
-    },
-    "eoParams": {
-      "(ArrayList)scope": {
-        "0": "ALL"
-      },
-      "shapeType": "CALL",
-      "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
-      "modelConfigKey": "ScsConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "packageGroup": "lists",
-    "(ArrayList)scope": {
-    },
-    "key": "ScsCallRead",
-    "description": "Defines a primitive csv file read operation. ",
-    "naturalId": "ScsCallRead",
-    "author": "Werner Diwischek"
-  },
-  "69": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ScsConfig",
     "superKey": "ListConfig",
     "(ArrayList)fieldKeys": {
@@ -2520,6 +2470,52 @@
     "key": "ScsConfig",
     "description": "Immutabel EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "naturalId": "ScsConfig",
+    "author": "Werner Diwischek"
+  },
+  "69": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "ScsReadCall",
+    "superKey": "ListReadCall",
+    "(ArrayList)fieldKeys": {
+      "0": "rowHead",
+      "1": "rowStart",
+      "2": "rowEnd",
+      "3": "length",
+      "4": "filter",
+      "5": "configKey",
+      "6": "sourcePath",
+      "7": "targetPath",
+      "8": "locationPath",
+      "9": "models",
+      "10": "filterPath",
+      "11": "condition",
+      "12": "overwrite",
+      "13": "logLevel",
+      "14": "duration",
+      "15": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CALL_BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "ScsConfig"
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "lists",
+    "(ArrayList)scope": {
+    },
+    "key": "ScsReadCall",
+    "description": "Defines a primitive csv file read operation. ",
+    "naturalId": "ScsReadCall",
     "author": "Werner Diwischek"
   },
   "70": {
@@ -2629,7 +2625,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },
@@ -2670,7 +2666,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },
@@ -2792,7 +2788,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },
@@ -2833,7 +2829,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },
@@ -2874,7 +2870,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },
@@ -2975,7 +2971,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
         "0": "execute"
@@ -3049,10 +3045,10 @@
   "85": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
-    "superKey": "FileCallRead",
+    "superKey": "FileReadCall",
     "(ArrayList)fieldKeys": {
-      "0": "configKey",
-      "1": "keepCall",
+      "0": "keepCall",
+      "1": "configKey",
       "2": "sourcePath",
       "3": "targetPath",
       "4": "locationPath",
@@ -3068,7 +3064,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
         "0": "execute"
@@ -3112,7 +3108,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
       },

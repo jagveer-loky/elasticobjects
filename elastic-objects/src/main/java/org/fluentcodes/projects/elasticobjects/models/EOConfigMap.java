@@ -76,7 +76,7 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
                 .setFileName(providerSource)
                 .readStringList();
         for (String config : configs) {
-            EO eo = new EoRoot(configsCache, LogLevel.DEBUG, Map.class);
+            EO eo = new EoRoot(configsCache, Map.class);
             eo.mapObject(config);
             addConfigMap((Map)eo.get());
         }
@@ -126,7 +126,7 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
                 builder.append("    \"");
                 builder.append(key);
                 builder.append("\":");
-                EO adapter = EoRoot.ofValue(configsCache,config);
+                EO adapter = new EoRoot(configsCache,config);
                 builder.append(new EOToJSON()
                         .setStartIndent(3)
                         .toJSON(adapter));

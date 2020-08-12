@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT_TEMPLATE;
 
 public enum TestProviderCallTemplate {
 
@@ -41,7 +40,7 @@ public enum TestProviderCallTemplate {
     }
 
     public EO getEo() {
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(content);
         return eo;
     }
