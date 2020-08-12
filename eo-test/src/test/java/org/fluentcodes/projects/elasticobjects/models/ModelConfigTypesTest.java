@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.Map;
 public class ModelConfigTypesTest {
     @Test
     public void testCreate() {
-        EOConfigsCache cache = ProviderRootDev.EO_CONFIGS;
+        EOConfigsCache cache = ProviderRootDevScope.EO_CONFIGS;
         ModelConfigTypes type = ModelConfigTypes.OBJECT;
         Map values = new HashMap();
         values.put(Model.NATURAL_ID, Model.NATURAL_ID);

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import org.junit.Test;
 public class ConfigResourcesImplTest {
     @Test
     public void givenModel_whenCreate_thenThrowsException()  {
-        final ModelConfig model = ProviderRootTest
+        final ModelConfig model = ProviderRootTestScope
                 .EO_CONFIGS
                 .findModel(ConfigResourcesImpl.class);
         Assert.assertEquals(ConfigResourcesImpl.class, model.getModelClass());

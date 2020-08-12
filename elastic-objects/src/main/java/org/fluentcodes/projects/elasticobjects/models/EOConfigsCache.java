@@ -42,20 +42,14 @@ public class EOConfigsCache {
         this.scope = scope;
         this.localSerialized = localSerialized;
         this.modelPattern = null;
-        try {
-            eoConfigsMap.put(ModelConfig.class, new EOConfigMapModels(this));
-            eoConfigsMap.put(FieldConfig.class, new EOConfigMapFields(this));
-            if (scope != Scope.DEV) {
-                eoConfigsMap.get(ModelConfig.class).addJsonConfigs();
-                eoConfigsMap.get(FieldConfig.class).addJsonConfigs();
-                ((EOConfigMapModels)eoConfigsMap.get(ModelConfig.class)).addJsonClassNames();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        eoConfigsMap.put(ModelConfig.class, new EOConfigMapModels(this));
+        eoConfigsMap.put(FieldConfig.class, new EOConfigMapFields(this));
+        if (scope != Scope.DEV) {
+            eoConfigsMap.get(ModelConfig.class).addJsonConfigs();
+            eoConfigsMap.get(FieldConfig.class).addJsonConfigs();
+            ((EOConfigMapModels)eoConfigsMap.get(ModelConfig.class)).addJsonClassNames();
         }
     }
-
-
 
     protected Scope getScope() {
         return scope;
@@ -247,7 +241,7 @@ public class EOConfigsCache {
             //https://stackoverflow.com/questions/26357132/generic-enum-valueof-method-enum-class-in-parameter-and-return-enum-item/26357317
         }
         // complex types use MODULE_NAME...
-        EO eo = EoRoot.ofValue(this, source);
+        EO eo = new EoRoot(this, source);
         return eo.get();
     }
 

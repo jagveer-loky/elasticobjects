@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.wiki.eo;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class Clone {
     @Ignore
     @Test
     public void test()  {
-        final EO eo = ProviderRootTest.createEo(BasicTest.class);
+        final EO eo = ProviderRootTestScope.createEo(BasicTest.class);
 
         final BasicTest BT1 = new BasicTest();
         BT1.setTestString( "value");
@@ -26,7 +26,7 @@ public class Clone {
         Assert.assertTrue(BT1 == BT1);
         Assert.assertTrue(eo.get() == eo.get());
 
-        final EO eo2 = ProviderRootTest.createEo(BasicTest.class);
+        final EO eo2 = ProviderRootTestScope.createEo(BasicTest.class);
         eo2.mapObject(BT1);
         Assert.assertEquals(BT1, eo2.get());
     }

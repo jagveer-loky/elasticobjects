@@ -189,7 +189,7 @@ public abstract class Parser {
         }
 
         if (!attributes.isEmpty()) {
-            EO eoForMapAttributesToCall = EoRoot.ofValue(eo.getConfigsCache(), callObject);
+            EO eoForMapAttributesToCall = new EoRoot(eo.getConfigsCache(), callObject);
             eoForMapAttributesToCall.mapObject(attributes);
             callObject = (Call) eoForMapAttributesToCall.get();
         }

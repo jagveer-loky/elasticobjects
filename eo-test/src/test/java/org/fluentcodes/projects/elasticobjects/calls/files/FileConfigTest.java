@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.models.*;
 
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -48,14 +48,14 @@ public class FileConfigTest {
 
     @Test
     public void testfindSourceTxt()  {
-        FileConfig config = ProviderRootTest.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
+        FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
     @Test
     public void testCreateConfigMapDirect()  {
-        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, FileConfig.class);
+        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTestScope.EO_CONFIGS, FileConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_SOURCE_TXT));

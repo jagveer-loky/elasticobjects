@@ -38,13 +38,13 @@ public enum ProviderMapJson {
     }
 
     public EO createMapEo() {
-        EO eo =  ProviderRootTest.createEo(content);
+        EO eo =  ProviderRootTestScope.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
 
     public EO createBtEo() {
-        EO eo =  ProviderRootTest.createEoWithClasses(BasicTest.class).mapObject(content);
+        EO eo =  ProviderRootTestScope.createEoWithClasses(BasicTest.class).mapObject(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }

@@ -4,7 +4,7 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
-    "superKey": "FileCallRead",
+    "superKey": "FileReadCall",
     "(ArrayList)fieldKeys": {
       "0": "configKey",
       "1": "keepCall",

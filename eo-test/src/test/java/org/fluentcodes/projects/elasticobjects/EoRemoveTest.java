@@ -2,14 +2,18 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
@@ -26,22 +30,21 @@ public class EoRemoveTest {
      */
     @Test
     public void givenBT_thenRemoved()  {
-        EO child = ProviderRootTest.createEo(new BasicTest())
+        EO child = ProviderRootTestScope.createEo(new BasicTest())
                 .set(S_STRING, F_TEST_STRING);
         EO root = child.getRoot();
-        Assert.assertEquals(1, (root).size());
-        Assert.assertEquals(3, (root).sizeEo());
+        Assert.assertEquals(1, (root).sizeEo());
 
         root.remove(F_TEST_STRING);
-        Assert.assertEquals(0, (root).size());
-        Assert.assertEquals(2, (root).sizeEo());
-        try {
-            root.remove(F_TEST_STRING);
-            Assert.fail("Exception expected removing non existing child '" + S_TEST_STRING + "'");
-        }
-        catch (EoException e) {
-            LOG.info("Expected Exception: " + e.getMessage());
-        }
+        Assert.assertEquals(0, (root).sizeEo());
+    }
+
+    @Test
+    public void givenBtEmpty_WhenRemove_thenExceptionThrown()  {
+        EO root = ProviderRootTestScope.createEo(BasicTest.class);
+        Assertions
+                .assertThatThrownBy(()->{root.remove(F_TEST_STRING);})
+                .hasMessage("Object value for testString is already null.");
     }
 
     /**
@@ -51,42 +54,39 @@ public class EoRemoveTest {
      */
     @Test
     public void givenMap_thenRemoved()  {
-        EO child = ProviderRootTest.createEo().set(S_STRING, S_TEST_STRING);
+        EO child = ProviderRootTestScope.createEo().set(S_STRING, S_TEST_STRING);
         EO root = child.getRoot();
-        Assert.assertEquals(1, root.size());
         Assert.assertEquals(1, root.sizeEo());
         Assert.assertEquals(S_STRING, root.get(S_TEST_STRING));
         root.remove(S_TEST_STRING);
-        Assert.assertEquals(0, root.size());
         Assert.assertEquals(0, root.sizeEo());
-        try {
-            root.remove(S_TEST_STRING);
-            Assert.fail("Exception expected removing non existing child '" + S_TEST_STRING + "'");
-        }
-        catch (EoException e) {
-            LOG.info("Expected Exception: " + e.getMessage());
-        }
+
+    }
+
+    @Test
+    public void givenMapEmpty_WhenRemove_thenExceptionThrown()  {
+        EO root = ProviderRootDevScope.createEo(Map.class);
+        Assertions
+                .assertThatThrownBy(()->{root.remove("test");})
+                .hasMessage("No value add for fieldName=test");
     }
 
     @Test
     public void givenList_thenRemoved()  {
-        
-        EO child = ProviderRootTest.createEo(new ArrayList<>())
+        EO child = ProviderRootTestScope.createEo(new ArrayList<>())
                 .set( S_STRING,S0);
         // remove value entry first
         EO root = child.getRoot();
-        Assert.assertEquals(3, root.sizeEo());
-        Assert.assertEquals(1, root.size());
-
+        Assert.assertEquals(1, root.sizeEo());
         root.remove(S0);
-        Assert.assertEquals(2, root.sizeEo());
-        Assert.assertEquals(0, root.size());
-        try {
-            root.remove(S0);
-            Assert.fail("Exception expected removing non existing child '" + S0 + "'");
-        }
-        catch (EoException e) {
-            LOG.info("Expected Exception: " + e.getMessage());
-        }
+        Assert.assertEquals(0, root.sizeEo());
+    }
+
+    @Test
+    public void givenListEmpty_WhenRemove_thenExceptionThrown()  {
+        EO root = ProviderRootDevScope.createEo(new ArrayList<>());
+        Assertions
+                .assertThatThrownBy(()->{root.remove(S0);})
+                .hasMessage("List size 0 greater than 0");
     }
 }

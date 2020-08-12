@@ -47,7 +47,7 @@ public enum TestProviderJson {
     }
 
     public EO getEo() {
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(content);
         return eo;
     }

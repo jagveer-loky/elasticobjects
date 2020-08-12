@@ -12,6 +12,7 @@ public enum TestProviderJsonCalls {
     CALL_SINUS_ARRAY_ON_TARGET_PATH(PATH_INPUT + "calls/call-sinus/CallSinusArrayOnTargetPath.jsn"),
     CONTENT_EXAMPLE_STATIC_JSON(PATH_INPUT + "calls/content-example/ContentExampleStatic.json"),
     CONTENT_EXAMPLE_DYNAMIC_JSON(PATH_INPUT + "calls/content-example/ContentExampleDynamic.json");
+
     private String fileName;
     private final String content;
     private ProviderMapJson eoData;
@@ -48,11 +49,11 @@ public enum TestProviderJsonCalls {
     }
 
     public EO createMapEo() {
-        return ProviderRootTest.createEo(content);
+        return ProviderRootTestScope.createEo(content);
     }
 
     public EO getEo() {
-        EO eo = ProviderRootTest.createEo();
+        EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(content);
         return eo;
     }

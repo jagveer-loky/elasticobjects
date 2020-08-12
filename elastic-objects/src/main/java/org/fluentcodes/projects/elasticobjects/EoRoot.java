@@ -25,37 +25,47 @@ public class EoRoot extends EoChild {
     private boolean checkObjectReplication = false;
     private EO callsEo;
     private List<Call> calls;
+
     private EoRoot(final EOConfigsCache cache)  {
+        this(cache, Map.class);
+    }
+
+    public EoRoot(final EOConfigsCache cache, Object value)  {
         super();
         this.eoConfigCache = cache;
-    }
-
-    public static EoRoot ofMap(final EOConfigsCache cache) {
-        return new EoRoot(cache, Map.class);
-    }
-
-    public static EoRoot ofValue(final EOConfigsCache cache, Object value) {
-        EoRoot root =  new EoRoot(cache, Models.getValueClass(value));
-        root.mapObject(value);
-        return root;
+        if (value instanceof Class) {
+            setPathElement(new PathElement(cache, new Class[]{(Class) value}));
+        }
+        else {
+            if (value instanceof String) {
+                if (JSONToEO.jsonMapPattern.matcher((String)value).find()) {
+                    setPathElement(new PathElement(cache, new Class[]{Map.class}));
+                }
+                else if (JSONToEO.jsonListPattern.matcher((String)value).find()) {
+                    setPathElement(new PathElement(cache, new Class[]{List.class}));
+                }
+                else {
+                    setPathElement(new PathElement(cache, new Class[]{String.class}));
+                }
+            }
+            else {
+                setPathElement(new PathElement(cache, new Class[]{value.getClass()}));
+            }
+            mapObject(value);
+        }
     }
 
     public EoRoot(final EOConfigsCache cache, Class... classes)  {
-        this(cache, LogLevel.DEBUG, classes);
+        super();
+        this.eoConfigCache = cache;
+        setPathElement(new PathElement(cache, classes));
     }
 
-    public EoRoot(final EOConfigsCache cache, final LogLevel logLevel, Class<?>... classes)  {
-        this(cache);
-        setRootModel(classes);
-    }
-
-    private void setRootModel(Class... classes) {
-        Models models = new Models(this.eoConfigCache, classes);
-        super.setModels(models);
-        if (models.isDefaultMap()) {
-            return;
+    public static Class getClass(Object value) {
+        if (value == null) {
+            return Map.class;
         }
-        super.set(models.toString(), PathElement.ROOT_MODEL);
+        return value.getClass();
     }
 
     @Override

@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class ModelConfigListTest {
 
     @Test
     public void createList_create_isArrayList()  {
-        ModelConfigList listModel = (ModelConfigList) ProviderRootDev.EO_CONFIGS.findModel(List.class);
+        ModelConfigList listModel = (ModelConfigList) ProviderRootDevScope.EO_CONFIGS.findModel(List.class);
         Assertions.assertThat(listModel.getModelClass()).isEqualTo(List.class);
         List list = (List) listModel.create();
         Assertions.assertThat(list.getClass()).isEqualTo(ArrayList.class);
@@ -26,7 +26,7 @@ public class ModelConfigListTest {
 
     @Test
     public void createArrayList_createArrayListObjec()  {
-        ModelConfigList listModel = (ModelConfigList) ProviderRootDev.EO_CONFIGS.findModel(ArrayList.class);
+        ModelConfigList listModel = (ModelConfigList) ProviderRootDevScope.EO_CONFIGS.findModel(ArrayList.class);
         Assertions.assertThat(listModel.getModelClass()).isEqualTo(ArrayList.class);
         List list = (List) listModel.create();
         Assertions.assertThat(list.getClass()).isEqualTo(ArrayList.class);
@@ -36,7 +36,7 @@ public class ModelConfigListTest {
 
     @Test
     public void createArrayListInScopeTest_createArrayListObject()  {
-        ModelConfigList listModel = (ModelConfigList) ProviderRootTest.EO_CONFIGS.findModel(ArrayList.class);
+        ModelConfigList listModel = (ModelConfigList) ProviderRootTestScope.EO_CONFIGS.findModel(ArrayList.class);
         Assertions.assertThat(listModel.getModelClass()).isEqualTo(ArrayList.class);
         List list = (List) listModel.create();
         Assertions.assertThat(list.getClass()).isEqualTo(ArrayList.class);

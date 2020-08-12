@@ -1,10 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.paths;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.JSONToEO;
-import org.fluentcodes.projects.elasticobjects.LogLevel;
+import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
@@ -36,6 +34,9 @@ public class PathElement {
 
     public PathElement(final String name, EO parentEo, Object value) {
         this(name);
+        if (PathElement.ROOT_MODEL.equals(name)) {
+            this.modelsArray = ((String)value).split(",");
+        }
         resolve(parentEo, value);
     }
 
@@ -84,7 +85,19 @@ public class PathElement {
         }
     }
 
+    public PathElement(EOConfigsCache cache, Class... modelsArray) {
+        this.key = PathElement.ROOT_MODEL;
+        this.models = new Models(cache, modelsArray);
+        this.modelsArray = models.toString().split(",");
+    }
+
+
+
     public PathElement(final String name) {
+        if (PathElement.ROOT_MODEL.equals(name)) {
+            this.key = name;
+            return;
+        }
         final Matcher matcher = PathElement.modelPattern.matcher(name);
         String modelKey = null;
         if (matcher.find()) {
@@ -118,8 +131,26 @@ public class PathElement {
         if (hasModels()) {
             return;
         }
+        if (parentEo == null) {
+            throw new EoException("Parent must be set!");
+        }
+        if (isRootModel() && parentEo.isRoot()) {
+            /**if (!hasModelArray()) {
+                if (value!=null) {
+                    this.modelsArray = new String[]{value.getClass().getSimpleName()};
+                }
+                else {
+                    throw new EoException("No value or model array for resolve root");
+                }
+            }*/
+            this.models = new Models(parentEo.getConfigsCache(), getModelsArray());
+            return;
+        }
+        if (!((EoChild)parentEo).hasPathElement()) {
+            throw new EoException("Parent must be set!");
+        }
         Models valueModels = null;
-        Models childModels = parentEo.getModels().getChildModels(parentEo,this);
+        Models childModels = ((EoChild)parentEo).getChildModels(this);
         if (childModels == null) {
             if (!hasModelArray()) {
                 if (value == null) {
@@ -220,7 +251,14 @@ public class PathElement {
     }
 
     public Object create() {
-        return getModels().create();
+        if (isCreate()) {
+            return getModels().create();
+        }
+        return null;
+    }
+
+    public boolean isCreate() {
+        return getModels().isCreate();
     }
 
     public boolean isCall() {
@@ -251,6 +289,9 @@ public class PathElement {
 
     public boolean hasModels() {
         return models != null && !models.isEmpty();
+    }
+    public boolean hasModel() {
+        return getModels().hasModel();
     }
 
     public boolean hasModelArray() {

@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class LikeTest {
 
     @Test
     public void filterAdapter()  {
-        EO adapter = ProviderRootTest.createEo();
+        EO adapter = ProviderRootTestScope.createEo();
         adapter.set(S_STRING,S_TEST_STRING);
         Condition condition = new Like(S_TEST_STRING, S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),
@@ -30,7 +30,7 @@ public class LikeTest {
 
     @Test
     public void filterRow()  {
-        List row = ProviderListJson.JSON_FILTER.createList();
+        List row = ProviderListJson.JSON_FILTER.createListDev();
         Condition condition = new Like(S0, S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(0),
                 condition.filter(row));

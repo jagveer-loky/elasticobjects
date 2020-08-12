@@ -21,7 +21,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
         "0": "execute"

@@ -144,7 +144,7 @@ public class Models {
     }
 
     public boolean hasModel() {
-        return getModel().getModelClass()!=Map.class;
+        return getModel()!=null && getModel().getModelClass()!=Map.class;
     }
 
     public boolean isCreate() {
@@ -216,10 +216,12 @@ public class Models {
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         for (int i = 0; i < size(); i++) {
-            if (i > 0) {
-                buffer.append(",");
+            if (get(i) !=null) {
+                if (i > 0) {
+                    buffer.append(",");
+                }
+                buffer.append(this.get(i).getModelKey());
             }
-            buffer.append(this.get(i).getModelKey());
         }
         return buffer.toString();
     }

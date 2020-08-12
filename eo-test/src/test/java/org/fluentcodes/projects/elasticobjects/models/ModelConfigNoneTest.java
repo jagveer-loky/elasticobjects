@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,7 +12,7 @@ public class ModelConfigNoneTest {
 
     @Test
     public void assertObject()  {
-        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(Object.class.getSimpleName());
+        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(Object.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.NONE, model.getShapeType());
         Assert.assertFalse(model.hasModel());
         Assert.assertFalse(model.isMap());

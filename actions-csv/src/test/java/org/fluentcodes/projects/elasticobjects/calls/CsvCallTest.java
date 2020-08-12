@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
 
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ListProviderJSON;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestEOProvider;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class CsvCallTest {
     private static final Logger LOG = LogManager.getLogger(CsvCallTest.class);
 
     private CsvCall createActionWithSourceCsv()  {
-        CsvCall action = new CsvCall(ProviderRootTest.EO_CONFIGS, CSV_SOURCE_CSV);
+        CsvCall action = new CsvCall(ProviderRootTestScope.EO_CONFIGS, CSV_SOURCE_CSV);
         return action;
     }
 
@@ -31,7 +31,7 @@ public class CsvCallTest {
     public void withSourceCsv()  {
         CsvCall action = createActionWithSourceCsv();
         Assert.assertEquals(CSV_SOURCE_CSV, action.getCsvConfig().getFileConfig().getFileName());
-        EO adapter = ProviderRootTest.createEo();
+        EO adapter = ProviderRootTestScope.createEo();
         action.read(adapter);
         Assert.assertEquals(S_VALUE11, adapter.get(S_PATH0_KEY1));
         Assert.assertEquals(S_VALUE12, adapter.get(S_PATH0_KEY2));
@@ -76,7 +76,7 @@ public class CsvCallTest {
         
         EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createRow());
-        CsvCall action = new CsvCall(ProviderRootTest.EO_CONFIGS, CSV_TARGET_CSV);
+        CsvCall action = new CsvCall(ProviderRootTestScope.EO_CONFIGS, CSV_TARGET_CSV);
         action.write(adapter);
         Assert.assertEquals(CSV_TARGET_CSV, action.getCsvConfig().getFileConfig().getFileName());
 

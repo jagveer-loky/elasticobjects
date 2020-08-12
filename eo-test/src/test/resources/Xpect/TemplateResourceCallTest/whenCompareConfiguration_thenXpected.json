@@ -3,10 +3,10 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
-    "superKey": "FileCallRead",
+    "superKey": "FileReadCall",
     "(ArrayList)fieldKeys": {
-      "0": "configKey",
-      "1": "keepCall",
+      "0": "keepCall",
+      "1": "configKey",
       "2": "sourcePath",
       "3": "targetPath",
       "4": "locationPath",
@@ -22,7 +22,7 @@
       "(ArrayList)scope": {
         "0": "ALL"
       },
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true,
       "(ArrayList)methods": {
         "0": "execute"

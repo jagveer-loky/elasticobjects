@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.wiki.eo;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class Merge {
     @Ignore
     @Test
     public void test()  {
-        final EO eo = ProviderRootTest.createEo();
+        final EO eo = ProviderRootTestScope.createEo();
 
         final BasicTest BT1 = new BasicTest();
         BT1.setTestString( "value");

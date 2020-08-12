@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,7 +37,7 @@ public class JsonConfigTest {
 
     @Test
     public void givenTestCache_whenNewEoConfigMap_thenMapIsPopulated()  {
-        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, JsonConfig.class);
+        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTestScope.EO_CONFIGS, JsonConfig.class);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
         Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(J_SIMPLE_INSERT_WITH_PATH));

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ModelsImplTest {
     @Test
     public void check()  {
-        ModelInterface modelConfig = ProviderRootTest.EO_CONFIGS.findModel(ModelImpl.class);
+        ModelInterface modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(ModelImpl.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(ModelImpl.class, modelConfig.getModelClass());
         Assert.assertEquals(5, modelConfig.getFieldCacheMap().size());

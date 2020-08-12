@@ -26,7 +26,6 @@ public class EoChild implements EO {
     private static final Logger LOG = LogManager.getLogger(EoChild.class);
     private EoChild eoParent;
     private PathElement pathElement;
-    private Models models;
     private Object object;
 
     private boolean changed = false;
@@ -35,7 +34,6 @@ public class EoChild implements EO {
 
     protected EoChild()  {
         eoParent = null;
-        pathElement = null;
         eoMap = new LinkedHashMap<>();
     }
 
@@ -50,26 +48,34 @@ public class EoChild implements EO {
         if (!pathElement.hasModels()) {
             throw new EoException("No models defined for " + pathElement.toString());
         }
-        this.models = pathElement.getModels();
         this.pathElement = pathElement;
         this.eoParent = eoParent;
         if (isScalar() ) {
             this.eoParent = eoParent;
-            this.object = models.transform(value);
+            this.object = pathElement.getModels().transform(value);
         }
         else {
-            this.object = this.models.create();
+            this.object = pathElement.getModels().create();
             this.eoParent = eoParent;
             mapObject(value);
         }
         this.eoParent.setEo(pathElement, this);
     }
 
-    /**
-     * Gets the fieldName to access the adapter in the  parent adapter object.
-     *
-     * @return The fieldName of the parent adapters object.
-     */
+    protected void setPathElement(PathElement pathElement) {
+        if (!isEmpty()) {
+            throw new EoException("Could not set new type for non empty node");
+        }
+        if (isRoot()) {
+            pathElement.resolve(this, null);
+            this.object = pathElement.create();
+        }
+        else {
+            pathElement.resolve(eoParent, null);
+        }
+        this.pathElement = pathElement;
+    }
+
     public String getParentKey() {
         if (hasPathElement()) {
             return pathElement.getKey();
@@ -119,13 +125,28 @@ public class EoChild implements EO {
     @Override
     public EO  set(PathElement pathElement, Object value) {
         pathElement.resolve(this, value);
+        if (pathElement.isRootModel()) {
+            setPathElement(pathElement);
+            return this;
+        }
+        if (!pathElement.hasModels()) {
+            throw new EoException("No model resolved!");
+        }
+        if (pathElement.getModels().getModel() == null) {
+            throw new EoException("No model resolved!");
+        }
         if (pathElement.isCall()) {
             String path = getPathAsString() + Path.DELIMITER + pathElement.getKey();
             if (!path.contains(PathElement.CALLS)) {
                 if (value == null) {
                     value = pathElement.create();
                 }
-                return addCall((Call) value, path);
+                try {
+                    return addCall((Call) value, path);
+                }
+                catch (ClassCastException e) {
+                    throw new EoException(e.getMessage());
+                }
             }
         }
         if (value == null && hasEo(pathElement)) {
@@ -272,11 +293,6 @@ public class EoChild implements EO {
         }
     }
 
-    protected void setModels(Models models) {
-        this.models = models;
-        this.object = models.getModel().create();
-    }
-
     @Override
     public EO mapObject(final Object value)  {
         if (value == null) {
@@ -289,16 +305,15 @@ public class EoChild implements EO {
                 new JSONToEO((String)value).createChild(this);
                 return this;
             }
-            if (getModel().isScalar()  || getModel().isScalar()) {
+            if (getModel().isScalar()) {
                 set(getModels().transform(value));
             }
             else {
                 error("Problem setting value with Model " + sourceModel.toString() + " and eo with Model " + getModels().toString() );
-                //set(value);
             }
             return this;
         }
-        if (models.isScalar()) {
+        if (isScalar()) {
             error("Tried to map scalar child(" + getModelClass().getSimpleName() + ") with a non scalar value " + sourceModel + ".");
             return this;
         }
@@ -498,6 +513,16 @@ public class EoChild implements EO {
         return getRoot().execute();
     }
 
+    public void setPathRoot() {
+        PathElement pathElement = new PathElement(getConfigsCache(), String.class);
+        EoChild eo = new EoChild(this, pathElement, this.pathElement.getModels().toString());
+        eoMap.put(PathElement.ROOT_MODEL, eo);
+    }
+
+    public boolean hasPathRoot() {
+         return eoMap.containsKey(PathElement.ROOT_MODEL);
+    }
+
     protected void setParent() {
         if (eoParent == null) {
             return;
@@ -565,13 +590,14 @@ public class EoChild implements EO {
 
     @Override
     public String getPathAsString() {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         getPathAsString(builder);
+        builder.insert(0, Path.DELIMITER);
         return builder.toString();
     }
 
-    protected void getPathAsString(StringBuilder builder) {
-        if (hasPathElement()) {
+    protected void getPathAsString(final StringBuilder builder) {
+        if (!isRoot()) {
             builder.insert(0, getParentKey());
             builder.insert(0, Path.DELIMITER);
             eoParent.getPathAsString(builder);
@@ -735,31 +761,22 @@ public class EoChild implements EO {
     public void setCheckObjectReplication(boolean checkObjectReplication) {
         getRoot().setCheckObjectReplication(checkObjectReplication);
     }
-
-    /**
-     * Returns the object class stored in the adapter.
-     *
-     * @return The object class instance object of the adapter.
-     */
     public Models getModels() {
-        return models;
+        return pathElement.getModels();
     }
-
-    /**
-     * Returns the object class stored in the adapter.
-     *
-     * @return The object class instance object of the adapter.
-     */
     public ModelInterface getModel() {
-        return models.getModel();
+        return getModels().getModel();
+    }
+    public Models getChildModels(PathElement pathElement) {
+        return getModels().getChildModels(this, pathElement);
     }
 
     public Class getModelClass() {
-        return models.getModelClass();
+        return getModels().getModelClass();
     }
 
     protected boolean hasChildModel() {
-        return models.hasChildModel();
+        return getModels().hasChildModel();
     }
 
 

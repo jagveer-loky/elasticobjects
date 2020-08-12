@@ -363,7 +363,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         return getModelKey().equals(modelCache.getModelKey());
     }
     public boolean isCall() {
-        return getEoParams().getShapeType() == ShapeTypes.CALL || getEoParams().getShapeType() == ShapeTypes.CALL_BEAN;
+        return  getEoParams().getShapeType() == ShapeTypes.CALL_BEAN;
     }
 
     public boolean isInterface() {

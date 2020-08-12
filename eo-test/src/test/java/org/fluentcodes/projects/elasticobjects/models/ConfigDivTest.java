@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class ConfigDivTest {
     @Test
     public void testMap()  {
         
-        ModelInterface mapModel = ProviderRootTest.EO_CONFIGS.findModel(M_MAP);
+        ModelInterface mapModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_MAP);
         Assert.assertEquals(M_MAP, mapModel.getModelKey());
         Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());
@@ -38,7 +38,7 @@ public class ConfigDivTest {
     @Test
     public void testString()  {
         
-        ModelInterface scalarModel = ProviderRootTest.EO_CONFIGS.findModel(M_STRING);
+        ModelInterface scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_STRING);
         Assert.assertEquals(M_STRING, scalarModel.getModelKey());
         Assert.assertTrue(scalarModel.isScalar());
 

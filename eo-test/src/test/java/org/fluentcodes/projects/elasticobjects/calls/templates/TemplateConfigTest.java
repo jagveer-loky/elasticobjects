@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMap;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigMapImmutable;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,7 +36,7 @@ public class TemplateConfigTest {
 
     @Test
     public void testReadConfig() {
-        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTest.EO_CONFIGS, TemplateConfig.class);
+        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTestScope.EO_CONFIGS, TemplateConfig.class);
         TemplateConfig config = (TemplateConfig) map.find(TemplateContentExampleTest.STATIC_TEMPLATE_CONFIG_KEY);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertEquals(INFO_COMPARE_FAILS, TemplateContentExampleTest.STATIC_TEMPLATE_CONFIG_KEY, config.getTemplateKey());

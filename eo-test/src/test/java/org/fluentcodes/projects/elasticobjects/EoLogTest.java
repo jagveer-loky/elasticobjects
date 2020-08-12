@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.paths.PathElement;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDev;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class EoLogTest {
     private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
     private static EO createWarnAdapter()  {
-        EO root = ProviderRootDev.createEo();
+        EO root = ProviderRootDevScope.createEo();
         Assertions.assertThat(root.getLogLevel()).isEqualTo(LogLevel.WARN);
         return root;
     }

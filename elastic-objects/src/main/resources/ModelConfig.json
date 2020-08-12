@@ -31,11 +31,11 @@
     "naturalId": "CallImpl",
     "description": "Basic implementation for calls. ",
     "modelKey": "CallImpl",
+    "interfaces": "Call",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": false
     },
-    "interfaces": "Call",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "packageGroup": "calls",
     "author": "Werner Diwischek"
@@ -47,7 +47,7 @@
     "description": "For setting sinus value to EO.",
     "modelKey": "SinusValueCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "superKey": "CallImpl",
@@ -62,7 +62,7 @@
     "description": "For getting a list of keys for a specific configuration type.",
     "modelKey": "ConfigKeysCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "fieldKeys": ["configType", "configFilter"],
@@ -78,7 +78,7 @@
     "description": "For getting a map of configurations for a specific configuration type.",
     "modelKey": "ConfigCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "fieldKeys": ["filterModule", "filterSubModule"],
@@ -94,7 +94,7 @@
     "description": "For setting upper value to EO.",
     "modelKey": "StringUpperCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "superKey": "SimpleValueFromEoCall",
@@ -109,7 +109,7 @@
     "description": "For setting upper value to EO.",
     "modelKey": "StringUpperFirstCharCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "superKey": "SimpleValueFromEoCall",
@@ -124,7 +124,7 @@
     "description": "For setting upper value to EO.",
     "modelKey": "StringLowerCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "superKey": "SimpleValueFromEoCall",
@@ -139,7 +139,7 @@
     "description": "For setting upper value to EO.",
     "modelKey": "SimpleValueFromEoCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "superKey": "CallImpl",
@@ -154,7 +154,7 @@
     "description": "For setting values to EO.",
     "modelKey": "ValueCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "create": true
     },
     "fieldKeys": [
@@ -169,6 +169,7 @@
     "module": "elastic-objects",
     "subModule": "main",
     "naturalId": "CallResource",
+    "superKey": "CallImpl",
     "eoParams": {
     },
     "description": "Basic bean as super object for other cached items. ",
@@ -435,66 +436,36 @@
     "packageGroup": "models",
     "author": "Werner Diwischek"
   },
-  "FileCallWrite": {
+  "FileWriteCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "FileCallWrite",
+    "naturalId": "FileWriteCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "modelConfigKey": "FileConfig",
       "create": true
     },
     "description": "Defines a file write access. ",
     "superKey": "CallResource",
-    "modelKey": "FileCallWrite",
+    "modelKey": "FileWriteCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "packageGroup": "files",
     "author": "Werner Diwischek"
   },
-  "FileCallRead": {
+  "FileReadCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "FileCallRead",
+    "naturalId": "FileReadCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "modelConfigKey": "FileConfig",
       "create": true
     },
     "description": "Defines a file read access. ",
     "superKey": "CallResource",
-    "modelKey": "FileCallRead",
+    "modelKey": "FileReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "packageGroup": "files",
-    "author": "Werner Diwischek"
-  },
-  "CallResource": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "CallResource",
-    "eoParams": {
-      "shapeType": "CALL",
-      "modelConfigKey": "CallResource",
-      "create": true,
-      "methods": "read,write,delete"
-    },
-    "description": "Defines a file access. ",
-    "superKey": "CallImpl",
-    "modelKey": "CallResource",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "packageGroup": "calls",
-    "author": "Werner Diwischek"
-  },
-  "CallImpl": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "CallImpl",
-    "eoParams": {
-      "shapeType": "CALL"
-    },
-    "description": "Defines a file access. ",
-    "modelKey": "CallImpl",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "packageGroup": "calls",
     "author": "Werner Diwischek"
   },
   "FileConfig": {
@@ -519,16 +490,16 @@
     "packageGroup": "models",
     "author": "Werner Diwischek"
   },
-  "ScsCallRead": {
+  "ScsReadCall": {
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "modelConfigKey": "ScsConfig",
       "create": true
     },
     "description": "Defines a primitive csv file read operation. ",
-    "superKey": "ListCallRead",
+    "superKey": "ListReadCall",
     "fieldKeys": [],
-    "modelKey": "ScsCallRead",
+    "modelKey": "ScsReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "packageGroup": "lists",
     "author": "Werner Diwischek"
@@ -614,24 +585,24 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "packageGroup": "calls"
   },
-  "JsonCallRead": {
+  "JsonReadCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "JsonCallRead",
+    "naturalId": "JsonReadCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "modelConfigKey": "JsonConfig",
       "create": true,
       "methods": "read,write,delete"
     },
     "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
-    "superKey": "FileCallRead",
+    "superKey": "FileReadCall",
     "fieldKeys": [
       "content",
       "indent",
       "serializationType"
     ],
-    "modelKey": "JsonCallRead",
+    "modelKey": "JsonReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
     "packageGroup": "json",
     "author": "Werner Diwischek"
@@ -702,17 +673,17 @@
     "packageGroup": "lists",
     "author": "Werner Diwischek"
   },
-  "ListCallRead": {
+  "ListReadCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ListCallRead",
+    "naturalId": "ListReadCall",
     "eoParams": {
       "modelConfigKey": "ListConfig",
       "create": true
     },
     "description": "Defines the parameter like listMapper.",
     "superKey": "ListCall",
-    "modelKey": "ListCallRead",
+    "modelKey": "ListReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "packageGroup": "lists",
     "author": "Werner Diwischek"
@@ -1125,7 +1096,7 @@
     "subModule": "main",
     "naturalId": "TemplateCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "modelConfigKey": "TemplateConfig",
       "create": true,
       "methods": "execute"
@@ -1145,15 +1116,14 @@
     "subModule": "main",
     "naturalId": "TemplateResourceCall",
     "eoParams": {
-      "shapeType": "CALL",
+      "shapeType": "CALL_BEAN",
       "modelConfigKey": "TemplateConfig",
       "create": true,
       "methods": "execute"
     },
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
-    "superKey": "FileCallRead",
+    "superKey": "FileReadCall",
     "fieldKeys": [
-      "configKey",
       "keepCall"
     ],
     "modelKey": "TemplateResourceCall",

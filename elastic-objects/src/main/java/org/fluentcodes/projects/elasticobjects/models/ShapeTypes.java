@@ -17,7 +17,6 @@ public enum ShapeTypes {
     NULL(),
     NONE(),
     BEAN(ModelConfigTypes.OBJECT),
-    CALL(ModelConfigTypes.OBJECT),
     CALL_BEAN(ModelConfigTypes.OBJECT),
     MODEL(),
     INSTANCE(),

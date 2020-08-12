@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ListProviderJSON;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestEOProvider;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -24,7 +24,7 @@ public class XlsxCallTest {
     @Test
     public void readSourceDirect()  {
         
-        XlsxCall action = new XlsxCall(ProviderRootTest.EO_CONFIGS, X_SOURCE_XLSX_TEST);
+        XlsxCall action = new XlsxCall(ProviderRootTestScope.EO_CONFIGS, X_SOURCE_XLSX_TEST);
 
         Assert.assertEquals(X_SOURCE_XLSX_TEST, action.getXlsxConfig().getXlsxKey());
         Assert.assertEquals(FILE_SOURCE_XLSX, action.getFileCache().getFileKey());
@@ -50,7 +50,7 @@ public class XlsxCallTest {
     @Test
     public void readSourceOr()  {
         
-        XlsxCall action = new XlsxCall(ProviderRootTest.EO_CONFIGS, X_SOURCE_XLSX_TEST);
+        XlsxCall action = new XlsxCall(ProviderRootTestScope.EO_CONFIGS, X_SOURCE_XLSX_TEST);
         action.setFilter(toEq(S0, S_VALUE21));
 
         EO adapter = TestEOProvider.createEmptyMap();
@@ -67,7 +67,7 @@ public class XlsxCallTest {
         
         EO adapter = TestEOProvider.createEOBuilder()
                 .map(ListProviderJSON.createJsonArray());
-        XlsxCall action = new XlsxCall(ProviderRootTest.EO_CONFIGS, FILE_TARGET_XLSX);
+        XlsxCall action = new XlsxCall(ProviderRootTestScope.EO_CONFIGS, FILE_TARGET_XLSX);
         action.write(adapter);
     }
 }

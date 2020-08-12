@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.assets.SubTest;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class EOConfigsConfigTest {
 
     @Test
     public void checkConfigsCache()  {
-        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(ModelConfigObject.class);
+        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(ModelConfigObject.class);
         model.resolve();
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }
@@ -33,7 +33,7 @@ public class EOConfigsConfigTest {
     @Test
     public void testModelNotExisting_Exception()  {
         try {
-            ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel("Nonsense");
+            ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel("Nonsense");
             Assert.fail("Should throw EoException since Nonsense is not in the cache");
         }
         catch(EoException e) {
@@ -44,7 +44,7 @@ public class EOConfigsConfigTest {
 
     @Test
     public void checkConfigsCacheWithST()  {
-        ModelInterface model = ProviderRootTest.EO_CONFIGS.findModel(SubTest.class);
+        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(SubTest.class);
         model.resolve();
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }
@@ -55,7 +55,7 @@ public class EOConfigsConfigTest {
         EOConfigsCache configsCache = new EOConfigsCache(Scope.DEV);
         ModelInterface model = configsCache.findModel(Map.class);
         model.resolve();
-        EO adapter = ProviderRootTest.createEo(S_STRING);
+        EO adapter = ProviderRootTestScope.createEo(S_STRING);
         Assert.assertEquals(S_STRING, adapter.get());
         Assert.assertEquals(M_STRING, adapter.getModelClass().getSimpleName());
     }

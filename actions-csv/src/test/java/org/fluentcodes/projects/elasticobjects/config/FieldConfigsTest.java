@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.junit.Assert;
@@ -24,7 +24,7 @@ public class FieldConfigsTest {
 
     @Test
     public void findConfigInCache()  {
-        FieldConfig config = ProviderRootTest.EO_CONFIGS.findField(F_CSV_KEY);
+        FieldConfig config = ProviderRootTestScope.EO_CONFIGS.findField(F_CSV_KEY);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
