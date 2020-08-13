@@ -19,10 +19,9 @@ import org.fluentcodes.projects.elasticobjects.calls.ExecutorCallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.values.ValueCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;

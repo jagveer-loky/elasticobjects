@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
+import org.fluentcodes.projects.elasticobjects.PathPattern;
 
 import java.util.*;
 

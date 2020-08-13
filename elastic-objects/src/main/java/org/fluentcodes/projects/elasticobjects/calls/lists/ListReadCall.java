@@ -1,10 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
-import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
 
 import java.util.*;
 

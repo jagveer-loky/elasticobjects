@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.paths.PathElement;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.List;

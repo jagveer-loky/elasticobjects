@@ -1,9 +1,7 @@
-package org.fluentcodes.projects.elasticobjects.paths;
-import org.fluentcodes.projects.elasticobjects.*;
+package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.List;
@@ -28,8 +26,10 @@ public class PathElement {
     public static final String ROOT_CALLS = "_calls";
     public static final String CALLS = "_calls";
     public static final String CONFIG = "_config";
+
     private String[] modelsArray;
     private Models models;
+    private Object value;
     private EO parent;
     private final String key;
 
@@ -224,6 +224,14 @@ public class PathElement {
                 }
             }
         }
+        if (value != null) {
+            this.value = value;
+        }
+        else {
+            if (this.models.isCreate()) {
+                this.value = models.create();
+            }
+        }
         if (valueModels == null) {
             return;
         }
@@ -247,7 +255,12 @@ public class PathElement {
     public boolean hasParent() {
         return parent != null;
     }
-
+    public Object getValue() {
+        return value;
+    }
+    public boolean hasObject() {
+        return value != null;
+    }
     /**
      * fieldnames starting with underscores will not mapped to a parent object.
      * @param fieldName the fieldName

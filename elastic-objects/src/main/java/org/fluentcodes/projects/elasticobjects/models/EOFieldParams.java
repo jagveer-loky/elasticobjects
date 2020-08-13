@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-import org.fluentcodes.projects.elasticobjects.paths.PathElement;
-import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
+import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.PathPattern;
 
 import java.util.Map;
 

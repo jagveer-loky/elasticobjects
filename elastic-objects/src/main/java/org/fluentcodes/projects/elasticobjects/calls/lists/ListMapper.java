@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.paths.PathPattern;
+import org.fluentcodes.projects.elasticobjects.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;

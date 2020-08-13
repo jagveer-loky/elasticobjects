@@ -4,7 +4,7 @@ package org.fluentcodes.projects.elasticobjects.paths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;

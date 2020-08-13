@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.TestXlsxProvider;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.calls.XlsxCall;
 import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestEOProvider;
 
 import org.junit.Assert;

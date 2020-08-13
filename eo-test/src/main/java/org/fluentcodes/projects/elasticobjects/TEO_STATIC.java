@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Condition;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;

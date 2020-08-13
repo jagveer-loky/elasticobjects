@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.paths.PathElement;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.BufferedReader;
@@ -14,7 +13,6 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
