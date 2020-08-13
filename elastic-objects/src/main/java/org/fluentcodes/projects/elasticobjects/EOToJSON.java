@@ -73,10 +73,9 @@ public class EOToJSON {
     }
 
     public String toJSON(final EO eo)  {
-        if (serializationType == JSONSerializationType.EO) {
-            ((EoChild) eo).setPathRoot();
+        if (serializationType ==null) {
+            this.setSerializationType(eo.getSerializationType());
         }
-        this.setSerializationType(eo.getSerializationType());
         this.setCheckObjectReplication(eo.isCheckObjectReplication());
         if (this.pathPattern == null) {
             this.pathPattern = new PathPattern("+");
@@ -126,13 +125,13 @@ public class EOToJSON {
         final int nextIndentLevel = getNextIndentLevel(indentLevel);
         final boolean isTyped = eoParent.isChildTyped();
         boolean first = true;
-        if (((EoChild)eoParent).hasPathRoot() && serializationType == JSONSerializationType.EO) {
+        if (eoParent.isRoot() && serializationType == JSONSerializationType.EO) {
             json.append(lineBreak);
             json.append(nextIndent);
             json.append("\"");
             json.append(PathElement.ROOT_MODEL);
             json.append("\": \"");
-            json.append(eoParent.get(PathElement.ROOT_MODEL));
+            json.append(eoParent.getModels().toString());
             json.append("\"");
             first = false;
         }

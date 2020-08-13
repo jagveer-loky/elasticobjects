@@ -30,6 +30,7 @@ public class PathElement {
     public static final String CONFIG = "_config";
     private String[] modelsArray;
     private Models models;
+    private EO parent;
     private final String key;
 
     public PathElement(final String name, EO parentEo, Object value) {
@@ -42,9 +43,11 @@ public class PathElement {
 
     public PathElement(final String name, EO parentEo, Class defaultClass) {
         this(name);
+
         if (!hasModelArray() && defaultClass != null) {
             this.modelsArray = new String[]{defaultClass.getSimpleName()};
             this.models = new Models(parentEo.getConfigsCache(), defaultClass);
+            this.parent = parentEo;
         }
         else {
             resolve(parentEo, null);
@@ -127,10 +130,30 @@ public class PathElement {
         modelsArray = modelKey.split(",");
     }
 
+    public static final PathElement OF_SERIALIZATION_TYPE() {
+        return new PathElement(SERIALIZATION_TYPE);
+    }
+
+    public static final PathElement OF_LOG_LEVEL() {
+        return new PathElement(LOG_LEVEL);
+    }
+
+    public static final PathElement OF_ERROR_LEVEL() {
+        return new PathElement(ERROR_LEVEL);
+    }
+    public static final PathElement OF_LOGS() {
+        return new PathElement(LOGS);
+    }
+    public static final PathElement OF_CALLS() {
+        return new PathElement(CALLS);
+    }
+
+
     public void resolve(EO parentEo, Object value) {
         if (hasModels()) {
             return;
         }
+        this.parent = parentEo;
         if (parentEo == null) {
             throw new EoException("Parent must be set!");
         }
@@ -218,24 +241,12 @@ public class PathElement {
         }
     }
 
-    public static final PathElement OF_SERIALIZATION_TYPE() {
-        return new PathElement(SERIALIZATION_TYPE);
+    public EO getParent() {
+        return parent;
     }
-
-    public static final PathElement OF_LOG_LEVEL() {
-        return new PathElement(LOG_LEVEL);
+    public boolean hasParent() {
+        return parent != null;
     }
-
-    public static final PathElement OF_ERROR_LEVEL() {
-        return new PathElement(ERROR_LEVEL);
-    }
-    public static final PathElement OF_LOGS() {
-        return new PathElement(LOGS);
-    }
-    public static final PathElement OF_CALLS() {
-        return new PathElement(CALLS);
-    }
-
 
     /**
      * fieldnames starting with underscores will not mapped to a parent object.
