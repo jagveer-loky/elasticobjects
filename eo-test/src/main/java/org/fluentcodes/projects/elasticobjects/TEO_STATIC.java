@@ -13,41 +13,15 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public class TEO_STATIC {
     public static final String S_EMPTY = "";
 
-    public static final String FILE_SOURCE_TXT = "source.txt";
-    public static final String FILE_SOURCE_NAME_TXT = "input/file/source.txt";
+    public static final String FILE_SOURCE_TXT = "FileTest.txt";
+    public static final String FILE_SOURCE_NAME_TXT = "input/calls/file-simple/FileTest.txt";
     public static final String PATH_INPUT = "input/";
     public static final String PATH_INPUT_MODELS =  PATH_INPUT + "models/";
     public static final String PATH_INPUT_JSON = PATH_INPUT + "json/";
 
-    public static final String PATH_INPUT_TEMPLATE = PATH_INPUT + "templates/";
-    public static final String CS_SOURCE_CSV = "source.csv";
-    public static final String CS_SOURCE_CSV_NAME = "input/csv/source.csv";
-    public static final String CS_TARGET_CSV = "target.csv";
-    public static final String FILE_TARGET_TXT = "target.txt";
-    public static final String FILE_SOURCE_CACHED_TXT = "sourceCached.txt";
-    public static final String FILE_SOURCE_CACHED_TXT_NAME = "input/file/sourceCached.txt";
-    public static final String FILE_LOCALHOST_SOURCE_TXT = "localhost:source.txt";
-    public static final String FILE_SOURCE_JSON = "source.json";
-    public static final String FILE_CLASSPATH_SOURCE_TXT = "classpath_source.txt";
     public static final String FILE_TMP_JSON = "target.json";
-
-    public static final String MODULE_NAME = "test-resources";
     public static final String F_SUB_TEST = "subTest";
     public static final String F_BASIC_TEST = "basicTest";
-    public static final String F_TEST_STRING = "testString";
-    public static final String F_TEST_DATE = "testDate";
-    public static final String F_TEST_BOOLEAN = "testBoolean";
-    public static final String F_TEST_INTEGER = "testInt";
-    public static final String F_TEST_DOUBLE = "testDouble";
-    public static final String F_TEST_FLOAT = "testFloat";
-    public static final String F_TEST_LONG = "testLong";
-    public static final String F_TEST_OBJECT = "testObject";
-    public static final String F_UNTYPED_LIST = "untypedList";
-    public static final String F_UNTYPED_MAP = "untypedMap";
-    public static final String F_BASIC_TEST_MAP = "BasicTest.json";
-    public static final String F_BASIC_TEST_LIST = "data/BasicTest.json";
-    public static final String F_SUB_TEST_MAP = "subTestMap";
-    public static final String F_SUB_TEST_LIST = "subTestList";
 
     public static final String M_BASIC_TEST = "BasicTest";
     public static final String M_SUB_TEST = "SubTest";
@@ -60,17 +34,6 @@ public class TEO_STATIC {
     public static final String S_ROW_DELIMITER = CON_NEWLINE;
     public static final String S_FIELD_DELIMITER = CON_SEMICOLON;
     public static final String CON_COMMA = ",";
-    public static final String CON_COLON = ":";
-    public static final String CON_DOT = ".";
-    public static final String CON_LIKE = " like ";
-    public static final String CON_SET = "set";
-    public static final String CON_GET = "find";
-
-
-    public static final String DB_H2_MEM_BASIC = "h2:mem:basic";
-    public static final String DB_H2_FILE_BASIC = "h2:file:basic";
-    public static final String DB_H2_MEM_BASIC_TEST = "h2:mem:BasicTest";
-    public static final String DB_H2_MEM_SUB_TEST = "h2:file:SubTest";
 
     public static final String INFO_EXPECTED_EXCEPTION = "Expected Exception: ";
     public static final String INFO_EXPECTED_EXCEPTION_FAILS = "Expected Exception was not thrown";
@@ -177,8 +140,6 @@ public class TEO_STATIC {
     public static final String R_TEST_ROLE_EXECUTE = "testRoleExecute";
     //</call>
 
-    public static final String FILE_BASIC_TEST_SIMPLE = "BasicTestSimple.json";
-
     public static final String join(String delimiter, String... keyValues) {
         if (keyValues == null || keyValues.length == 0) {
             return "";
@@ -192,10 +153,6 @@ public class TEO_STATIC {
 
     public static final String toLike(String... keyValues) {
         return join(CON_SPACE + Condition.LIKE + CON_SPACE, keyValues);
-    }
-
-    public static final String toEx(String... keyValues) {
-        return join(CON_SPACE + Condition.EX + CON_SPACE, keyValues);
     }
 
     public static final String toAnd(String... keyValues) {
@@ -217,14 +174,5 @@ public class TEO_STATIC {
         return map;
     }
 
-    public static final Map<String, Object> createListParamsMap()  {
-        Map<String, Object> map = toMap(
-                F_LENGTH, 1,
-                F_ROW_HEAD, 2,
-                F_ROW_START, 3,
-                F_ROW_END, 4,
-                F_FILTER, toEq(S4, S_INTEGER.toString()));
-        return map;
-    }
 
 }

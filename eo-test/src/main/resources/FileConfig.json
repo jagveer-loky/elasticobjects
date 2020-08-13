@@ -20,13 +20,13 @@
       "write": "admin"
     }
   },
-  "source.txt": {
+  "FileTest.txt": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "source.txt",
+    "naturalId": "FileTest.txt",
     "mapPath": "content",
-    "fileKey": "source.txt",
-    "fileName": "input/file/source.txt",
+    "fileKey": "FileTest.txt",
+    "fileName": "input/calls/file-simple/FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "cached": "false",
     "rolePermissions": {
@@ -34,12 +34,12 @@
       "write": "admin"
     }
   },
-  "sourceCached.txt": {
+  "FileTestCached.txt": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "sourceCached.txt",
-    "fileKey": "sourceCached.txt",
-    "fileName": "input/file/source.txt",
+    "naturalId": "FileTestCached.txt",
+    "fileKey": "FileTestCached.txt",
+    "fileName": "input/calls/file-simple/FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "cached": "true"
   },
@@ -61,12 +61,12 @@
     "description": "source.txt on a path",
     "filePath": "classpath/test"
   },
-  "source.csv": {
+  "ListSimple.csv": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "source.csv",
-    "fileKey": "source.csv",
-    "fileName": "input/csv/source.csv",
+    "naturalId": "ListSimple.csv",
+    "fileKey": "ListSimple.csv",
+    "fileName": "input/calls/list-simple/ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "filePath": "classpath"
   },
@@ -75,7 +75,7 @@
     "subModule": "test",
     "naturalId": "BasicTest.csv",
     "fileKey": "BasicTest.csv",
-    "fileName": "input/csv/BasicTest.csv",
+    "fileName": "input/assets/bt/BasicTest.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "filePath": "classpath"
   },

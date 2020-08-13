@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 
 import org.junit.Assert;
@@ -22,15 +23,15 @@ public class EoSetScalarTest {
     @Test
     public void givenMapEmpty_withPathAndString_ok()  {
         final EO eo = ProviderRootDevScope.createEo();
-        eo.set(S_STRING_OTHER, F_TEST_STRING);
+        eo.set(S_STRING_OTHER, BasicTest.TEST_STRING);
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
-        Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo(S_STRING_OTHER);
+        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo(S_STRING_OTHER);
     }
 
     @Test
     public void givenString_withString_fails()  {
         final EO eo = ProviderRootDevScope.createEo(S_STRING);
-        eo.set(S_STRING_OTHER, F_TEST_STRING);
+        eo.set(S_STRING_OTHER, BasicTest.TEST_STRING);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(String.class);
         Assertions.assertThat(eo.get()).isEqualTo(S_STRING);

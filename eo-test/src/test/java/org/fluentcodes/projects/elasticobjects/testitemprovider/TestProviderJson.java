@@ -9,23 +9,17 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public enum TestProviderJson {
     CONTENT_EXAMPLE_DATA(PATH_INPUT + "calls/content-example/ContentExampleData.json"),
-    FOR_EMBEDDED_TEST(PATH_INPUT + "calls/embedded/ForEmbeddedTest.json")
+    FOR_EMBEDDED_TEST(PATH_INPUT + "calls/embedded/ForEmbeddedTest.json"),
+    MAP_SMALL_WITH_KEY("{\"key0\": \"test\", \"key1\": 1}"),
+    MAP_SMALL_WITH_KEY_AND_LIST("{\"key0\": \"test\", \"list\": [\"test\", 1]}"),
+    VALUES_CALL_NUMBER_ARRAY("{\"(List,Double)source\":[1,2,3]}"),
+    VALUES_CALL_NUMBER_SCALAR("{\"(Double)source\":2.1}"),
     ;
     private String fileName;
     private final String content;
     private ProviderMapJson eoData;
     TestProviderJson(final String content) {
-        if (content.startsWith(PATH_INPUT_JSON)) {
-            try {
-                this.fileName = content;
-                this.content = new IOString().setFileName(content).read();
-            }
-            catch (Exception e) {
-                System.out.println("Could not load file " + content);
-                throw new EoException(e);
-            }
-        }
-        else if (content.startsWith(PATH_INPUT)) {
+    if (content.startsWith(PATH_INPUT)) {
             try {
                 this.fileName = content;
                 this.content = new IOString().setFileName(content).read();

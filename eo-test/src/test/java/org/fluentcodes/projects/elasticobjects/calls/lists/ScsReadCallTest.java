@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Test;
@@ -22,7 +23,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ScsReadCallTest {
     private static final Logger LOG = LogManager.getLogger(ScsReadCallTest.class);
-
+    private static final String CS_SOURCE_CSV = ProviderFileContent.LIST_SIMPLE_CSV.getConfigKey();
 
     @Test
     public void givenCallWithSourceCsv_whenExecute_thenListReturned()  {

@@ -8,7 +8,6 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.F_TEST_FLOAT;
 
 /**
  * Created by werner.diwischek on 14.1.18.
@@ -63,7 +62,7 @@ public class BtToJsonTest {
     @Test
     public void givenUntypedJsonFloat_thenFloat()  {
         EO eo = TestProviderBtJson.FLOAT.createBtEo();
-        Assertions.assertThat(eo.get(F_TEST_FLOAT)).isEqualTo(1.1f);
+        Assertions.assertThat(eo.get(BasicTest.TEST_FLOAT)).isEqualTo(1.1f);
     }
 
 

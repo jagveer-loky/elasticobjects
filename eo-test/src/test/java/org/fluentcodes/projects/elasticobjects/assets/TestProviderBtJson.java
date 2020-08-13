@@ -11,7 +11,7 @@ import java.util.Map;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public enum TestProviderBtJson {
-    BOOLEAN("{\"" + F_TEST_BOOLEAN + "\": true}"),
+    BOOLEAN("{\"" + BasicTest.TEST_BOOLEAN + "\": true}"),
     ALL(PATH_INPUT + "assets/bt/all.json"),
     ALL_TYPED(PATH_INPUT + "assets/bt/all.tjson"),
     DATE("{\"testDate\": 1465280215000}"),

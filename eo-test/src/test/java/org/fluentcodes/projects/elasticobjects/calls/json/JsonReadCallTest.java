@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created 12.6.2018
  */
 public class JsonReadCallTest {
-
+    private static String LIST_SIMPLE_CONFIG = ProviderListJson.LIST_SIMPLE.getConfigKey();
     @Test
     public void whenCompareConfigurations_thenXpected()  {
         ConfigModelChecks.compare(JsonReadCall.class);
@@ -48,7 +49,7 @@ public class JsonReadCallTest {
 
     @Test
     public void givenCallRoleAnonymAndFileSource_whenExecuteCall_thenThrowException()  {
-        final JsonReadCall call = new JsonReadCall(FILE_SOURCE_JSON);
+        final JsonReadCall call = new JsonReadCall(LIST_SIMPLE_CONFIG);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_ANONYM);
         Assertions
@@ -59,7 +60,7 @@ public class JsonReadCallTest {
 
     @Test
     public void givenCallRoleGuestAndFileSource_whenExecuteCall_ok()  {
-        final JsonReadCall call = new JsonReadCall(FILE_SOURCE_JSON);
+        final JsonReadCall call = new JsonReadCall(LIST_SIMPLE_CONFIG);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         String content = call.execute(eo);
@@ -79,7 +80,7 @@ public class JsonReadCallTest {
 
     @Test
     public void givenEoRoleGuestAndFileSource_whenExecute_thenValuesAreMapped()  {
-        final JsonReadCall call = new JsonReadCall(FILE_SOURCE_JSON);
+        final JsonReadCall call = new JsonReadCall(LIST_SIMPLE_CONFIG);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
@@ -99,7 +100,7 @@ public class JsonReadCallTest {
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("level0","0").get(F_TEST_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.getEo("level0","0").get(BasicTest.TEST_STRING)).isEqualTo(S_STRING);
         Assertions.assertThat(eo.getEo("level0","0").getModelClass()).isEqualTo(BasicTest.class);
     }
 
