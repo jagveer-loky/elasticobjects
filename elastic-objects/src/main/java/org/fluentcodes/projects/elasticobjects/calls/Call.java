@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.Path;
 
 public interface Call<RESULT> {
     RESULT execute(final EO eo);

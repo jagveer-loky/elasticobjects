@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.paths.Path;
-
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 public class CEO_STATIC {

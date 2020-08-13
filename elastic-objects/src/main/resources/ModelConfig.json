@@ -966,7 +966,7 @@
       "entries"
     ],
     "modelKey": "Path",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.paths",
+    "packagePath": "org.fluentcodes.projects.elasticobjects",
     "packageGroup": "paths",
     "author": "Werner Diwischek"
   },
@@ -982,7 +982,7 @@
       "serialized"
     ],
     "modelKey": "PathPattern",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.paths",
+    "packagePath": "org.fluentcodes.projects.elasticobjects",
     "packageGroup": "paths",
     "author": "Werner Diwischek"
   },

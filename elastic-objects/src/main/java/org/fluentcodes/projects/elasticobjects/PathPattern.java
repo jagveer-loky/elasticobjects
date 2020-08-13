@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.paths;
+package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;

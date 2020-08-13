@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.junit.Assert;
 import org.junit.Test;
 

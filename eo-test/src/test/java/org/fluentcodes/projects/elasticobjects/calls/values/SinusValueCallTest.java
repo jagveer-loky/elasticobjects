@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.paths.PathElement;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Ignore;
 import org.junit.Test;
