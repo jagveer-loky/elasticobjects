@@ -43,7 +43,7 @@ public class EOElementaryTest {
         EO eo = ProviderRootDevScope.createEo(Map.class);
         eo.set( S_STRING, S_LEVEL0);
         Assert.assertEquals(S_STRING, eo.get(S_LEVEL0));
-        Assert.assertEquals(Map.class, ((EoChild) eo.getEo(S_LEVEL0)).getEoParent().getModelClass());
+        Assert.assertEquals(Map.class, ((EoChild) eo.getEo(S_LEVEL0)).getParentEo().getModelClass());
         Assert.assertEquals(Map.class, ((EoChild) eo.getEo(S_LEVEL0)).getRoot().getModelClass());
 
     }

@@ -59,7 +59,7 @@ public class EOListJson2Test {
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.STANDARD)
-                .toJSON(eo);
+                .toJSON(eo.getRoot());
         new XpectString().compareAsString(stringified);
     }
 

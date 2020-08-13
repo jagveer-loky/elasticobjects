@@ -24,7 +24,6 @@ import java.util.*;
 
 public class EoChild implements EO {
     private static final Logger LOG = LogManager.getLogger(EoChild.class);
-    private EoChild eoParent;
     private PathElement pathElement;
     private Object object;
 
@@ -33,7 +32,6 @@ public class EoChild implements EO {
     private Map<String, EO> eoMap;
 
     protected EoChild()  {
-        eoParent = null;
         eoMap = new LinkedHashMap<>();
     }
 
@@ -49,17 +47,14 @@ public class EoChild implements EO {
             throw new EoException("No models defined for " + pathElement.toString());
         }
         this.pathElement = pathElement;
-        this.eoParent = eoParent;
         if (isScalar() ) {
-            this.eoParent = eoParent;
             this.object = pathElement.getModels().transform(value);
         }
         else {
             this.object = pathElement.getModels().create();
-            this.eoParent = eoParent;
             mapObject(value);
         }
-        this.eoParent.setEo(pathElement, this);
+        getParentEo().setEo(pathElement, this);
     }
 
     protected void setPathElement(PathElement pathElement) {
@@ -71,7 +66,7 @@ public class EoChild implements EO {
             this.object = pathElement.create();
         }
         else {
-            pathElement.resolve(eoParent, null);
+            pathElement.resolve(getParentEo(), null);
         }
         this.pathElement = pathElement;
     }
@@ -89,16 +84,18 @@ public class EoChild implements EO {
         return pathElement != null && pathElement.hasModels();
     }
 
-    public EoChild getEoParent() {
-        return eoParent;
+    public EoChild getParentEo() {
+        return (EoChild) pathElement.getParent();
     }
 
+    @Override
     public EO getParent() {
-        return eoParent;
+        return pathElement.getParent();
     }
 
+    @Override
     public boolean hasParent() {
-        return eoParent != null;
+        return pathElement.hasParent();
     }
 
     protected boolean hasEo(Path path) {
@@ -524,10 +521,10 @@ public class EoChild implements EO {
     }
 
     protected void setParent() {
-        if (eoParent == null) {
+        if (!hasParent()) {
             return;
         }
-        Object value = eoParent.getValue(getParentKey());
+        Object value = getParentEo().getValue(getParentKey());
         if (this.object != null && value == this.object) {
             return;
         }
@@ -536,9 +533,9 @@ public class EoChild implements EO {
                 return;
             }
         }
-        eoParent.setChanged(true);
-        eoParent.setValue(getParentKey(), this.object);
-        eoParent.setEo(new PathElement(getParentKey()), this);
+        getParentEo().setChanged(true);
+        getParentEo().setValue(getParentKey(), this.object);
+        getParentEo().setEo(new PathElement(getParentKey()), this);
 
     }
 
@@ -571,9 +568,10 @@ public class EoChild implements EO {
      *
      * @return The rootAdapter adapter instance var
      */
+    @Override
     public EoRoot getRoot() {
-        if (eoParent !=null) {
-            return eoParent.getRoot();
+        if (hasParent()) {
+            return getParentEo().getRoot();
         }
         return (EoRoot) this;
     }
@@ -600,7 +598,7 @@ public class EoChild implements EO {
         if (!isRoot()) {
             builder.insert(0, getParentKey());
             builder.insert(0, Path.DELIMITER);
-            eoParent.getPathAsString(builder);
+            getParentEo().getPathAsString(builder);
         }
     }
 
@@ -613,10 +611,11 @@ public class EoChild implements EO {
      *
      * @return The params of the rootAdapter adapter instance var
      */
+    @Override
     public LogLevel getLogLevel() {
         if (!hasLogLevel()) {
-            if (eoParent != null) {
-                return eoParent.getLogLevel();
+            if (hasParent()) {
+                return getParent().getLogLevel();
             } else {
                 setLogLevel(LogLevel.WARN);
             }
