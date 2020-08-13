@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * @since 18.04.2017.
  */
 public class EOAddCallTest {
-    private static String METHOD_READ_SOUCE = ".read(source.csv)";
+    private static String METHOD_READ_SOUCE = ".read(ListSimple.csv)";
 
     @Test
     public void addFileCsvReadAction()  {

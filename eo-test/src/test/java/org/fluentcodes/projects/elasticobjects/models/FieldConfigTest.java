@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -124,9 +125,9 @@ public class FieldConfigTest {
      */
     @Test
     public void assertTestObject()  {
-        FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(F_TEST_OBJECT);
-        Assert.assertEquals(F_TEST_OBJECT, field.getFieldKey());
-        Assert.assertEquals(F_TEST_OBJECT, field.getFieldName());
+        FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(BasicTest.TEST_OBJECT);
+        Assert.assertEquals(BasicTest.TEST_OBJECT, field.getFieldKey());
+        Assert.assertEquals(BasicTest.TEST_OBJECT, field.getFieldName());
         Assert.assertEquals(false, field.isUnique());
         Assert.assertEquals(false, field.isNotNull());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());

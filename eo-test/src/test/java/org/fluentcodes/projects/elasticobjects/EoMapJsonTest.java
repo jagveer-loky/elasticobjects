@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
+import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 
@@ -219,9 +220,9 @@ public class EoMapJsonTest {
         final String jsnString = TestProviderBtJson.STRING.content();
         eoEmpty
                 .mapObject(jsnString);
-        Assert.assertEquals(S_STRING, eoEmpty.get(F_TEST_STRING));
+        Assert.assertEquals(S_STRING, eoEmpty.get(BasicTest.TEST_STRING));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(String.class, eoEmpty.getEo(F_TEST_STRING).getModelClass());
+        Assert.assertEquals(String.class, eoEmpty.getEo(BasicTest.TEST_STRING).getModelClass());
     }
 
     /**
@@ -235,8 +236,8 @@ public class EoMapJsonTest {
         final String jsonBoolean = TestProviderBtJson.BOOLEAN.content();
         eoEmpty
                 .mapObject(jsonBoolean);
-        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(F_TEST_BOOLEAN));
+        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(BasicTest.TEST_BOOLEAN));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(Boolean.class, eoEmpty.getEo(F_TEST_BOOLEAN).getModelClass());
+        Assert.assertEquals(Boolean.class, eoEmpty.getEo(BasicTest.TEST_BOOLEAN).getModelClass());
     }
 }

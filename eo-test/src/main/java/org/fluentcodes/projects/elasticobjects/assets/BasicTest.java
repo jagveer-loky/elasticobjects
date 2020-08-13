@@ -13,7 +13,20 @@ import java.util.HashMap;
  */
 
 public class BasicTest {
-    public static final int SIZE = 15;
+    public static final String TEST_STRING = "testString";
+    public static final String TEST_DATE = "testDate";
+    public static final String TEST_BOOLEAN = "testBoolean";
+    public static final String TEST_INTEGER = "testInt";
+    public static final String TEST_DOUBLE = "testDouble";
+    public static final String TEST_FLOAT = "testFloat";
+    public static final String TEST_LONG = "testLong";
+    public static final String TEST_OBJECT = "testObject";
+    public static final String F_UNTYPED_LIST = "untypedList";
+    public static final String F_UNTYPED_MAP = "untypedMap";
+    public static final String F_BASIC_TEST_MAP = "input/assets/bt/2.json";
+    public static final String F_BASIC_TEST_LIST = "input/assets/bt/BasicTestList.json";
+    public static final String F_SUB_TEST_MAP = "subTestMap";
+    public static final String F_SUB_TEST_LIST = "subTestList";
     private static transient Logger LOG = LogManager.getLogger(BasicTest.class);
     
     private Long id;

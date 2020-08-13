@@ -1,10 +1,10 @@
 {
-  "source.csv": {
+  "ListSimple.csv": {
     "module": "test-resources",
     "subModule": "main",
-    "naturalId": "source.csv",
-    "scsKey": "source.csv",
-    "fileKey": "source.csv",
+    "naturalId": "ListSimple.csv",
+    "scsKey": "ListSimple.csv",
+    "fileKey": "ListSimple.csv",
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "listParams": {
@@ -42,7 +42,7 @@
     "subModule": "main",
     "naturalId": "target.csv",
     "scsKey": "target.csv",
-    "fileKey": "source.csv",
+    "fileKey": "target.csv",
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "listParams": {

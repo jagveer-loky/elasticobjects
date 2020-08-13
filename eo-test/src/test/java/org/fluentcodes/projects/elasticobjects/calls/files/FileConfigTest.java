@@ -1,11 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.models.*;
 
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import org.junit.Assert;
@@ -18,7 +17,8 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created by Werner on 12.10.2016.
  */
 public class FileConfigTest {
-    private static final Logger LOG = LogManager.getLogger(FileConfigTest.class);
+    public static final String FILE_SOURCE_TXT = ProviderFileContent.FILE_SIMPLE.getConfigKey();
+    public static final String FILE_TEST_CACHED = ProviderFileContent.FILE_SIMPLE_CACHED.getConfigKey();
 
     @Test
     public void givenModelClass_whenCreate_thenExceptionThrown()  {
@@ -47,8 +47,8 @@ public class FileConfigTest {
 
 
     @Test
-    public void testfindSourceTxt()  {
-        FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(FILE_SOURCE_TXT);
+    public void givenTestScope_whenFindFileContent_thenFound()  {
+        FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(ProviderFileContent.FILE_SIMPLE.getConfigKey());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }

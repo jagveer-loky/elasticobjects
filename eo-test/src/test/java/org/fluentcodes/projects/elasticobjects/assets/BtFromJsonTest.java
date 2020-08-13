@@ -5,7 +5,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,7 +23,7 @@ public class BtFromJsonTest {
         EO eo = TestProviderBtJson.DOUBLE_TYPED.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
-        Assertions.assertThat(eo.get(F_TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
+        Assertions.assertThat(eo.get(BasicTest.TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
     }
     @Test
     public void givenJsonUntypedDouble_thenDouble()  {
@@ -36,7 +35,7 @@ public class BtFromJsonTest {
     public void testFloat()  {
         EO eo = TestProviderBtJson.FLOAT.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get(F_TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
+        Assertions.assertThat(eo.get(BasicTest.TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
     }
 
     @Test
@@ -44,8 +43,8 @@ public class BtFromJsonTest {
         EO eo = TestProviderBtJson.SMALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
-        Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo((S_STRING));
-        Assertions.assertThat(eo.get(F_TEST_INTEGER)).isEqualTo((S_INTEGER));
+        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo((S_STRING));
+        Assertions.assertThat(eo.get(BasicTest.TEST_INTEGER)).isEqualTo((S_INTEGER));
     }
 
     @Test
@@ -53,8 +52,8 @@ public class BtFromJsonTest {
         EO eo = TestProviderBtJson.ALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eo.getModelClass());
-        Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo((S_STRING));
-        Assertions.assertThat(eo.get(F_TEST_INTEGER)).isEqualTo((S_INTEGER));
+        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo((S_STRING));
+        Assertions.assertThat(eo.get(BasicTest.TEST_INTEGER)).isEqualTo((S_INTEGER));
     }
 
     @Test
@@ -62,6 +61,6 @@ public class BtFromJsonTest {
         EO eo = TestProviderBtJson.SUB_TEST.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eo.getModelClass());
-        Assertions.assertThat(eo.get(F_SUB_TEST, F_TEST_STRING)).isEqualTo((S_STRING));
+        Assertions.assertThat(eo.get(F_SUB_TEST, BasicTest.TEST_STRING)).isEqualTo((S_STRING));
     }
 }

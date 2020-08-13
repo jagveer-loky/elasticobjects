@@ -29,7 +29,7 @@ public class EoOverwriteTest {
 
         EoRoot root = child.getRoot();
         Assert.assertEquals(BasicTest.class, root.getEo(S_LEVEL0,S_LEVEL1,S_LEVEL2).getModelClass());
-        Assert.assertEquals(S_TEST_STRING, root.get(S_LEVEL0,S_LEVEL1,S_LEVEL2, F_TEST_STRING));
+        Assert.assertEquals(S_TEST_STRING, root.get(S_LEVEL0,S_LEVEL1,S_LEVEL2, BasicTest.TEST_STRING));
 
         Map map = new HashMap();
         map.put(S_KEY1, S_STRING);

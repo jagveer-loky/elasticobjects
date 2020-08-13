@@ -83,7 +83,7 @@ public class EoScalarRootTest {
         eo.mapObject(TestProviderBtJson.STRING.createMap());
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
-        Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo(S_STRING);
     }
 
     @Test
@@ -91,8 +91,8 @@ public class EoScalarRootTest {
         final EO eo = TestProviderBtJson.STRING.createBtEo();
         eo.mapObject(TestProviderBtJson.INT.createMap());
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
-        Assertions.assertThat(eo.get(F_TEST_STRING)).isEqualTo(S_STRING);
-        Assertions.assertThat(eo.get(F_TEST_INTEGER)).isEqualTo(S_INTEGER);
+        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.get(BasicTest.TEST_INTEGER)).isEqualTo(S_INTEGER);
     }
 
     /*@Test
@@ -115,9 +115,9 @@ public class EoScalarRootTest {
         eoEmpty
                 .mapObject(jsnString);
 
-        Assert.assertEquals(S_STRING, eoEmpty.get(F_TEST_STRING));
+        Assert.assertEquals(S_STRING, eoEmpty.get(BasicTest.TEST_STRING));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(String.class, eoEmpty.getEo(F_TEST_STRING).getModelClass());
+        Assert.assertEquals(String.class, eoEmpty.getEo(BasicTest.TEST_STRING).getModelClass());
     }
 
     /**
@@ -131,9 +131,9 @@ public class EoScalarRootTest {
         final String jsonBoolean = TestProviderBtJson.BOOLEAN.content();
         eoEmpty
                 .mapObject(jsonBoolean);
-        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(F_TEST_BOOLEAN));
+        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(BasicTest.TEST_BOOLEAN));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(Boolean.class, eoEmpty.getEo(F_TEST_BOOLEAN).getModelClass());
+        Assert.assertEquals(Boolean.class, eoEmpty.getEo(BasicTest.TEST_BOOLEAN).getModelClass());
     }
 
 

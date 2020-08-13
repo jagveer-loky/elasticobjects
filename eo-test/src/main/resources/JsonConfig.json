@@ -1,11 +1,11 @@
 {
-  "source.json": {
+  "ListSimple.json": {
     "module": "test-resources",
     "subModule": "main",
-    "naturalId": "source.json",
-    "jsonKey": "source.json",
-    "fileName": "input/json/source.json",
-    "description": "Simple data for the content templates.",
+    "naturalId": "ListSimple.json",
+    "jsonKey": "ListSimple.json",
+    "fileName": "input/calls/list-simple/ListSimple.json",
+    "description": "Simple list equivalent for ListSimple.csv.",
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
@@ -16,7 +16,7 @@
     "subModule": "main",
     "naturalId": "BasicTest.json",
     "jsonKey": "BasicTest.json",
-    "fileName": "input/json/BasicTest.json",
+    "fileName": "input/assets/bt/BasicTest.json",
     "description": "Simple data for the BasicTest.",
     "rolePermissions": {
       "read": "guest",
