@@ -93,11 +93,11 @@ public class AndTest {
         And condition = new And(toLike(S0, S_STRING));
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(0),
                 condition.filter(row));
-        condition = new And(toLike(S3, S_STRING));
-        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + row.get(3),
+        condition = new And(toLike(S2, S_STRING));
+        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + row.get(2),
                 condition.filter(row));
-        condition = new And(toLike(S4, S_INTEGER.toString()));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(4),
+        condition = new And(toLike(S3, S_INTEGER.toString()));
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(3),
                 condition.filter(row));
     }
 }

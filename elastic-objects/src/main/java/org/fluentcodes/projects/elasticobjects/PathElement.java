@@ -1,15 +1,19 @@
 package org.fluentcodes.projects.elasticobjects;
+
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
- * Path creates from a string a special of elements splitted by te delimiter
+ * PathElement encapsulate eo local values of eo and its parent.
  * Created by Werner on 4.07.2020.
  */
 public class PathElement {
@@ -23,27 +27,59 @@ public class PathElement {
     public static final String ERROR_LEVEL = "_errorLevel";
     public static final String SERIALIZATION_TYPE = "_serializationType";
     public static final String LOG_LEVEL = "_logLevel";
-    public static final String ROOT_CALLS = "_calls";
     public static final String CALLS = "_calls";
     public static final String CONFIG = "_config";
+
+    public static final PathElement OF_SERIALIZATION_TYPE(EO eo, JSONSerializationType serializationType) {
+        return new PathElement(SERIALIZATION_TYPE, JSONSerializationType.class)
+                .resolve(eo, serializationType);
+    }
+
+    public static final PathElement OF_LOG_LEVEL(EO eo, LogLevel logLevel) {
+        return new PathElement(LOG_LEVEL, LogLevel.class)
+                .resolve(eo, logLevel);
+    }
+
+    public static final PathElement OF_ERROR_LEVEL(EO eo, LogLevel logLevel) {
+        return new PathElement(ERROR_LEVEL, LogLevel.class)
+                .resolve(eo, logLevel);
+    }
+    public static final PathElement OF_LOGS(EO eo) {
+        return new PathElement(LOGS,  List.class, String.class)
+                .resolve(eo, null);
+    }
+    public static final PathElement OF_CALLS(EO eo) {
+        return new PathElement(CALLS,  List.class)
+                .resolve(eo, null);
+    }
 
     private String[] modelsArray;
     private Models models;
     private Object value;
     private EO parent;
-    private final String key;
+    private String key;
+    private boolean resolved = false;
+    private boolean root = false;
+    private boolean changed = false;
+    private boolean isJson = false;
 
     public PathElement(final String name, EO parentEo, Object value) {
         this(name);
-        if (PathElement.ROOT_MODEL.equals(name)) {
-            this.modelsArray = ((String)value).split(",");
+        if (PathElement.ROOT_MODEL.equals(name) && parentEo.isRoot()) {
+            if (!parentEo.isEmpty()) {
+                throw new EoException("Not null root could not be changed");
+            }
+            this.parent = parentEo;
+            this.value = value;
+            resolved = true;
         }
-        resolve(parentEo, value);
+        else {
+            resolve(parentEo, value);
+        }
     }
 
     public PathElement(final String name, EO parentEo, Class defaultClass) {
         this(name);
-
         if (!hasModelArray() && defaultClass != null) {
             this.modelsArray = new String[]{defaultClass.getSimpleName()};
             this.models = new Models(parentEo.getConfigsCache(), defaultClass);
@@ -92,9 +128,57 @@ public class PathElement {
         this.key = PathElement.ROOT_MODEL;
         this.models = new Models(cache, modelsArray);
         this.modelsArray = models.toString().split(",");
+        this.value = models.create();
+        this.root = true;
+        resolved = true;
     }
 
+    private PathElement(EO root, String classNames) {
+        if (!root.isRoot()) {
+            throw new EoException("No Root element");
+        }
+        this.key = ROOT_MODEL;
+        this.models = new Models(root.getConfigsCache(), classNames.split(","));
+        this.modelsArray = models.toString().split(",");
+        this.value = models.create();
+        this.root = true;
+        resolved = true;
+    }
 
+    public PathElement(EOConfigsCache cache, Object value) {
+        this.key = PathElement.ROOT_MODEL;
+        if (value instanceof Class) {
+            modelsArray = new String[]{((Class)value).getSimpleName()};
+            this.models = new Models(cache, modelsArray);
+            this.value = models.create();
+            resolved = true;
+            this.root = true;
+            return;
+        }
+        if (value instanceof String) {
+            if (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
+                modelsArray = new String[]{Map.class.getSimpleName()};
+                this.value = new LinkedHashMap<>();
+            } else if (JSONToEO.jsonListPattern.matcher((String) value).find()) {
+                modelsArray = new String[]{List.class.getSimpleName()};
+                this.value = new ArrayList<>();
+            } else {
+                modelsArray = new String[]{String.class.getSimpleName()};
+                this.value = value;
+            }
+        } else {
+            modelsArray = new String[]{value.getClass().getSimpleName()};
+            this.value = value;
+        }
+        this.models = new Models(cache, modelsArray);
+        this.root = true;
+        resolved = true;
+    }
+
+    public PathElement(final Models models) {
+        this.models = models;
+        this.modelsArray = models.toString().split(",");
+    }
 
     public PathElement(final String name) {
         if (PathElement.ROOT_MODEL.equals(name)) {
@@ -110,7 +194,6 @@ public class PathElement {
         else {
             this.key = name;
         }
-
         if (LOG_LEVEL.equals(key) ) {
             modelKey = LogLevel.class.getSimpleName();
         }
@@ -130,116 +213,89 @@ public class PathElement {
         modelsArray = modelKey.split(",");
     }
 
-    public static final PathElement OF_SERIALIZATION_TYPE() {
-        return new PathElement(SERIALIZATION_TYPE);
-    }
-
-    public static final PathElement OF_LOG_LEVEL() {
-        return new PathElement(LOG_LEVEL);
-    }
-
-    public static final PathElement OF_ERROR_LEVEL() {
-        return new PathElement(ERROR_LEVEL);
-    }
-    public static final PathElement OF_LOGS() {
-        return new PathElement(LOGS);
-    }
-    public static final PathElement OF_CALLS() {
-        return new PathElement(CALLS);
-    }
-
-
-    public void resolve(EO parentEo, Object value) {
-        if (hasModels()) {
+    protected void resolveRoot(EO rootEo, Object value) {
+        if (resolved) {
             return;
         }
+        root = true;
+        resolved = true;
+        Models valueModels = resolveFromValue(rootEo.getConfigsCache(), value);
+        if (hasModelArray()) {
+            this.models = new Models(rootEo.getConfigsCache(), getModelsArray());
+        }
+        else {
+            this.models = valueModels;
+        }
+        createValue(valueModels, value);
+    }
+
+    protected PathElement resolve(EO parentEo, Object value) {
+        if (resolved) {
+            return this;
+        }
+        resolved = true;
         this.parent = parentEo;
         if (parentEo == null) {
             throw new EoException("Parent must be set!");
         }
-        if (isRootModel() && parentEo.isRoot()) {
-            /**if (!hasModelArray()) {
-                if (value!=null) {
-                    this.modelsArray = new String[]{value.getClass().getSimpleName()};
-                }
-                else {
-                    throw new EoException("No value or model array for resolve root");
-                }
-            }*/
-            this.models = new Models(parentEo.getConfigsCache(), getModelsArray());
-            return;
-        }
         if (!((EoChild)parentEo).hasPathElement()) {
             throw new EoException("Parent must be set!");
         }
-        Models valueModels = null;
+        if (parentEo.isList() && isParentSet()) {
+            key = Integer.valueOf(parentEo.size()).toString();
+        }
+        Models valueModels = resolveFromValue(parentEo.getConfigsCache(), value);
         Models childModels = ((EoChild)parentEo).getChildModels(this);
-        if (childModels == null) {
-            if (!hasModelArray()) {
-                if (value == null) {
-                    modelsArray = new String[]{Map.class.getSimpleName()};
+        if (childModels != null) {
+            this.models = childModels;
+            if (hasModelArray()) {
+                Models arrayModels = new Models(parentEo.getConfigsCache(), getModelsArray());
+                if (childModels.toString().contains(arrayModels.toString())) {
+                    this.models = arrayModels;
                 }
                 else {
-                    if (value instanceof String) {
-                        if (JSONToEO.jsonListPattern.matcher((String) value).find()) {
-                            modelsArray = new String[]{List.class.getSimpleName()};
-                        } else if (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
-                            modelsArray = new String[]{Map.class.getSimpleName()};
-                        }
-                        else {
-                            modelsArray = new String[]{String.class.getSimpleName()};
-                            valueModels = new Models(parentEo.getConfigsCache(), String.class);
-                        }
-                    }
-                    else {
-                        if (value.getClass().isEnum()) {
-                            modelsArray = new String[]{String.class.getSimpleName()};
-                        }
-                        else {
-                            valueModels = new Models(parentEo.getConfigsCache(), value.getClass());
-                            if (valueModels.isCreate() || valueModels.isScalar()) {
-                                modelsArray = new String[]{value.getClass().getSimpleName()};
-                            } else if (valueModels.isEnum()) {
-                                modelsArray = new String[]{String.class.getSimpleName()};
-                            } else {
-                                modelsArray = new String[]{Map.class.getSimpleName()};
-                            }
-                        }
-                    }
+                    throw new EoException("Problem with incompatible directives from child " + childModels.toString() + " and field " + arrayModels.toString() );
                 }
             }
+        }
+        else if (hasModelArray()) {
             this.models = new Models(parentEo.getConfigsCache(), getModelsArray());
         }
         else {
-            if (value != null) {
-                valueModels = new Models(parentEo.getConfigsCache(), value.getClass());
-            }
-            if (!hasModelArray()) {
-                this.models = childModels;
-            }
-            else {
-                Models setModels = new Models(parentEo.getConfigsCache(), getModelsArray());
-                if (childModels.toString().contains(setModels.toString())) {
-                    this.models = setModels;
-                }
+            this.models = valueModels;
+            if (!valueModels.isCreate() && !valueModels.isScalar()) {
+                this.models = new Models(parent.getConfigsCache(), Map.class);
             }
         }
-        if (value != null) {
-            this.value = value;
-        }
-        else {
-            if (this.models.isCreate()) {
-                this.value = models.create();
+        createValue(valueModels, value);
+        if (this.value instanceof Call) {
+            String path = parentEo.getPathAsString() + Path.DELIMITER + key;
+            if (!path.contains(CALLS)) {
+                ((Call)this.value).setTargetPath(path);
             }
+            EO calls = ((EoChild)parentEo).getCallsEo();
+            this.key = Integer.valueOf(calls.size()).toString();
+            this.parent = calls;
+        }
+        return this;
+    }
+
+    private void createValue(Models valueModels, Object value) {
+        this.value = this.models.create();
+        if (value != null && this.value == null) {
+            this.value = this.models.transform(value);
         }
         if (valueModels == null) {
             return;
         }
+        if (models.getModelClass() == String.class && isJson) {
+            return;
+        }
         if (models.isScalar() && !valueModels.isScalar()) {
-                throw new EoException("Problem setting non scalar value ("
-                        + valueModels.getModel().getNaturalId() + ") for field name '"
-                        + key + "'. Expected is "
-                        + models.getModel().getNaturalId() + "!");
+            throw new EoException("Problem setting non scalar value ("
+                    + valueModels.getModel().getNaturalId() + ") for field name '"
+                    + key + "'. Expected is "
+                    + models.getModel().getNaturalId() + "!");
         }
         else if (!models.isScalar() && valueModels.isScalar()) {
             throw new EoException("Problem setting scalar value ("
@@ -249,11 +305,51 @@ public class PathElement {
         }
     }
 
+    private Models resolveFromValue(EOConfigsCache cache, Object value) {
+        if (value == null) {
+            return new Models(cache, Map.class.getSimpleName());
+        }
+        if (value instanceof String) {
+            if (JSONToEO.jsonListPattern.matcher((String) value).find()) {
+                isJson = true;
+                return new Models(cache, List.class);
+            } else if (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
+                isJson = true;
+                return new Models(cache, Map.class);
+            }
+            else {
+                return new Models(cache, String.class);
+            }
+        }
+        /*else if (value.getClass().isEnum()) {
+            modelsArray = new String[]{String.class.getSimpleName()};
+            this.value = value;
+        }*/
+        else {
+            return new Models(cache, value.getClass());
+        }
+    }
+
+    public EO buildEo() {
+        if (ROOT_MODEL.equals(key)) {
+            if (!parent.isRoot()) {
+                throw new EoException("No Root element");
+            }
+            ((EoChild)parent).setRootModels((String)value);
+            return parent;
+        }
+        return new EoChild(this);
+    }
+
     public EO getParent() {
         return parent;
     }
     public boolean hasParent() {
         return parent != null;
+    }
+
+    protected void addToParent(EoChild eo) {
+        ((EoChild)parent).addEo(eo);
     }
     public Object getValue() {
         return value;
@@ -261,32 +357,80 @@ public class PathElement {
     public boolean hasObject() {
         return value != null;
     }
+    protected boolean setValue(Object newValue) {
+        /*if (this.object != null && this.object == value) {
+            return;  // the same object
+        }
+        if (object != null && value != null) {
+            //throw new eoException("Not allowed to set a null source");
+            if (this.object.hashCode() == value.hashCode()) {
+                return;
+            }
+            if (!(object instanceof LogLevel)) {
+                info("Existing Object is overwritten! " + getPath() + ".");
+            }
+        }*/
+        if (isScalar()) {
+            this.value = models.transform(newValue);
+        }
+        else {
+            this.value = newValue;
+        }
+
+        if (this.value != null) {
+            changed = true;
+        }
+        if (hasParent() && isParentSet()) {
+            ((EoChild)parent).setValueChecked(key, this.value);
+        }
+        return true;
+    }
     /**
      * fieldnames starting with underscores will not mapped to a parent object.
-     * @param fieldName the fieldName
+     * @param key the fieldName
      * @return true if empty or starting with "_"
      */
-    public static boolean isParentNotSet(final String fieldName) {
-        return fieldName == null || fieldName.isEmpty() || fieldName.startsWith("_");
+    public static boolean isParentNotSet(final String key) {
+        return key == null || key.isEmpty() || key.startsWith("_");
     }
 
     public boolean isParentNotSet() {
         return key == null || key.isEmpty() || key.startsWith("_");
     }
 
+    public static boolean isParentSet(final String key) {
+        return !isParentNotSet(key);
+    }
+
+    public boolean isParentSet() {
+        return !isParentNotSet();
+    }
+
+    public boolean isChanged() {
+        return changed;
+    }
+
     public Object create() {
         if (isCreate()) {
-            return getModels().create();
+            return this.models.create();
         }
         return null;
     }
 
+    public boolean isRoot() {
+        return root;
+    }
+
     public boolean isCreate() {
-        return getModels().isCreate();
+        return this.models.isCreate();
+    }
+
+    public boolean isScalar() {
+        return this.models.isScalar()|| this.models.isEnum();
     }
 
     public boolean isCall() {
-        return getModels().isCall();
+        return this.models.isCall();
     }
 
     public boolean isBack() {
@@ -301,7 +445,20 @@ public class PathElement {
     }
 
     public Models getModels() {
-        return models;
+        return this.models;
+    }
+
+    protected void setRootModels(final EO root, final String models) {
+        if (!isRoot()) {
+            throw new EoException("No Root element, no models could be redefined");
+        }
+        this.models = new Models(root.getConfigsCache(), models.split(","));
+        this.modelsArray = models.toString().split(",");
+        this.value = this.models.create();
+    }
+
+    public ModelInterface getModel() {
+        return this.models.getModel();
     }
 
     public String getKey() {
@@ -315,7 +472,7 @@ public class PathElement {
         return models != null && !models.isEmpty();
     }
     public boolean hasModel() {
-        return getModels().hasModel();
+        return this.models.hasModel();
     }
 
     public boolean hasModelArray() {

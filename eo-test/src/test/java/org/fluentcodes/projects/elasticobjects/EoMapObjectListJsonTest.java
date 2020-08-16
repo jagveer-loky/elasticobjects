@@ -20,58 +20,58 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * @since 27.10.2018.
  */
 
-public class EoListJsonTest {
-    private static final Logger LOG = LogManager.getLogger(EoListJsonTest.class);
+public class EoMapObjectListJsonTest {
+    private static final Logger LOG = LogManager.getLogger(EoMapObjectListJsonTest.class);
 
     @Test
-    public void testEmpty()  {
-        EO eo = ProviderRootDevScope.createEo("[]");
+    public void givenDev_whenEmpty_thenNothingSet()  {
+        EO eo = ProviderRootDevScope.createEo(List.class);
+        eo.mapObject("[]");
         Assert.assertTrue(eo.isEmpty());
         Assert.assertEquals(List.class, eo.getModelClass());
     }
 
     @Test
-    public void testString()  {
-        EO eo = ProviderRootDevScope.createEo("[\"testObject\"]");
+    public void givenDev_whenListString_thenSet()  {
+        EO eo = ProviderRootDevScope.createEo(List.class);
+        eo.mapObject("[\"testObject\"]");
         Assertions.assertThat(eo.get("0")).isEqualTo("testObject");
     }
 
     @Test
-    public void testStringEmbedded()  {
-        EO eo = ProviderRootDevScope.createEo("[[\"testObject\"]]");
+    public void givenDev_whenListListString_thenSet()  {
+        EO eo = ProviderRootDevScope.createEo(List.class);
+        eo.mapObject("[[\"testObject\"]]");
         Assertions.assertThat(eo.get("0/0")).isEqualTo("testObject");
     }
 
     @Test
-    public void testInteger()  {
-        EO eo = ProviderRootDevScope.createEo("[1]");
+    public void givenDev_whenListInteger_thenSet()  {
+        EO eo = ProviderRootDevScope.createEo(List.class);
+        eo.mapObject("[1]");
         Assertions.assertThat(eo.get("0")).isEqualTo(1);
     }
 
     @Test
-    public void testTwoValues()  {
-        EO eo = ProviderRootDevScope.createEo("[\"testObject\",1]");
+    public void givenDev_whenListTwoValues_thenSet()  {
+        EO eo = ProviderRootDevScope.createEo(List.class);
+        eo.mapObject("[\"testObject\",1]");
         Assertions.assertThat(eo.get("0")).isEqualTo("testObject");
         Assertions.assertThat(eo.get("1")).isEqualTo(1);
     }
 
     @Test
-    public void testFromFile()  {
-        EO eo = ProviderListJson.EMPTY.createEoDev();
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
-    }
-
-    @Test
-    public void testFloat()  {
-        EO eo = ProviderListJson.FLOAT.createEoDev();
+    public void givenDev_whenFileFloat_thenSet()  {
+        EO eo = ProviderRootDevScope.createEo(List.class);
+        eo.mapObject(ProviderListJson.FLOAT.content());
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(S0)).isEqualTo(SAMPLE_FLOAT);
     }
 
     @Test
-    public void testSmall()  {
-        EO eo = ProviderListJson.SMALL.createEoDev();
+    public void givenDev_whenFileSmall_thenSet()  {
+        EO eo = ProviderRootDevScope.createEo(List.class);
+        eo.mapObject(ProviderListJson.SMALL.content());
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(S0)).isEqualTo(S_STRING);
         Assertions.assertThat(eo.get(S1)).isEqualTo(S_INTEGER);
@@ -86,13 +86,13 @@ public class EoListJsonTest {
                 "    \"1\": 1\n" +
                 "  }\n" +
                 "}";
-        EO eo = ProviderRootTestScope.createEo(toParse);
+        EO eo = ProviderRootDevScope.createEo(toParse);
         Assert.assertEquals(ArrayList.class, eo.get("noCalls").getClass());
         Assert.assertEquals("test",eo.get("noCalls/0"));
     }
 
     @Test
-    public void givenListStringEmpty_whenMapBTBoolean_thenFirstListElementSetWithString()  {
+    public void givenDevListStringEmpty_whenMapBTBoolean_thenFirstListElementSetWithString()  {
         EO root = ProviderRootDevScope.createEo(List.class, String.class);
         root
                 .mapObject(TestProviderBtJson.BOOLEAN.content());
@@ -101,10 +101,33 @@ public class EoListJsonTest {
     }
 
     @Test
-    public void givenListEmpty_whenMapBTBoolean_thenFirstListElementSetWithBoolean()  {
+    public void givenDevList_whenMapJsonBoolean_thenFirstListElementSetWithBoolean()  {
         final EO root = ProviderRootDevScope.createEo(List.class);
         root.mapObject(TestProviderBtJson.BOOLEAN.content());
         Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(root.get(S0)).isEqualTo(S_BOOLEAN);
+    }
+
+    @Test
+    public void givenDev_whenMapJsonListWithRootModel_thenLogEmptyAndModelInteger()  {
+        final EO root = ProviderRootDevScope.createEo();
+        root
+                .mapObject("{\"_rootmodel\": \"List\",\"test\": 1}");
+        Assertions.assertThat(root.getLog())
+                .isEmpty();
+        Assertions.assertThat(root.getModelClass())
+                .isEqualTo(List.class);
+        Assertions.assertThat(root.get("0"))
+                .isEqualTo(1);
+    }
+
+    @Test
+    public void givenDev_whenMapJsonList1_thenLogEmptyAndModelInteger()  {
+        final EO root = ProviderRootDevScope.createEo();
+        root
+                .mapObject("[1]");
+        Assertions.assertThat(root.getLog()).isEmpty();
+        Assertions.assertThat(root.getEo("0").getModelClass()).isEqualTo(Integer.class);
+        Assertions.assertThat(root.get("0")).isEqualTo(1);
     }
 }

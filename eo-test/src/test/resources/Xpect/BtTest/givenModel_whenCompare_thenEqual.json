@@ -22,9 +22,9 @@
     },
     "eoParams": {
       "(ArrayList)scope": {
-        "0": "ALL"
+        "(Scope)0": "ALL"
       },
-      "shapeType": "BEAN",
+      "(ShapeTypes)shapeType": "BEAN",
       "create": true,
       "(ArrayList)methods": {
       },

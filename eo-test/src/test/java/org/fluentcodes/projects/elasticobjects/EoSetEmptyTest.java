@@ -17,15 +17,15 @@ public class EoSetEmptyTest {
     private static final Logger LOG = LogManager.getLogger(EoSetEmptyTest.class);
 
     @Test
-    public void level0_isMap()  {
+    public void givenDev_whenSetEmptyWithLevel0_thenIsMapClass()  {
         final EO eo = ProviderRootDevScope.createEo();
-        eo.set(new PathElement(S_LEVEL0));
+        eo.setEmpty(S_LEVEL0);
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
     }
 
 
     @Test
-    public void longPath1AndLongPath2PartlyOverlapping_bothObjectsRemain()  {
+    public void givenDev_whenSetEmptyLongPath1AndLongPath2PartlyOverlapping_thenBothObjectsRemain()  {
         final EO eo = ProviderRootTestScope.createEo();
         eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3);
         eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5);

@@ -356,7 +356,7 @@ public class JSONToEO {
     public EO createChild(EO parentAdapter)  {
         EO eo = createChild(parentAdapter, null);
         if (isEof()) {
-            return eo;
+            return parentAdapter;
         }
         if (parseCalls && eo instanceof EoRoot) {
             return eo;
@@ -396,14 +396,13 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                pathElement = new PathElement(rawFieldName, eoParent, value);
-                eoParent.set(pathElement, value);
+                new PathElement(rawFieldName, eoParent, value).buildEo();
                 return eoParent;
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    pathElement = new PathElement(rawFieldName, eoParent, new LinkedHashMap());
-                    mapObject(eoParent.set(pathElement));
+                    pathElement = new PathElement(rawFieldName, eoParent, null);
+                    mapObject(new EoChild(pathElement));
                     return eoParent;
                 }
                 else {
@@ -411,9 +410,11 @@ public class JSONToEO {
                     return eoParent;
                 }
             case '[':
-                if (rawFieldName!=null) {// List value
-                        pathElement = new PathElement(rawFieldName, eoParent, new ArrayList());
-                        return mapList(eoParent.set(pathElement));
+                if (rawFieldName != null) {// List value
+                    PathElement element = new PathElement(rawFieldName, eoParent, new ArrayList());
+                    EO child = new EoChild(element);
+                    mapList(child);
+                    return child;
                 }
                 else {
                     mapList(eoParent); // start parsing
@@ -444,14 +445,14 @@ public class JSONToEO {
 
         if (rawFieldName.matches("\\(.*\\).*")) {
             pathElement = new PathElement(rawFieldName, eoParent, value);
-            eoParent.set(pathElement, value);
+            return new EoChild(pathElement);
         }
         else {
             Object valueObject = ScalarConverter.fromJson(value);
             pathElement = new PathElement(rawFieldName, eoParent, valueObject);
-            eoParent.set(pathElement, valueObject);
+            EO child = pathElement.buildEo();
+            return child;
         }
-        return eoParent;
     }
 
     /**

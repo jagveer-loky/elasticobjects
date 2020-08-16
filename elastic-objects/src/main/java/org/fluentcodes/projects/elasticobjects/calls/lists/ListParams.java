@@ -245,7 +245,7 @@ public class ListParams {
         return rowHead;
     }
 
-    protected ListParams setRowHead(Object rowHead) {
+    public ListParams setRowHead(Object rowHead) {
         if (rowHead == null) {
             rowHead = -1;
         }

@@ -37,7 +37,7 @@ public class LikeTest {
         condition = new Like(S2, S_STRING_OTHER);
         Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + row.get(2),
                 condition.filter(row));
-        condition = new Like(S4, S_INTEGER);
+        condition = new Like(S3, S_INTEGER);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + " " + row.get(3),
                 condition.filter(row));
     }

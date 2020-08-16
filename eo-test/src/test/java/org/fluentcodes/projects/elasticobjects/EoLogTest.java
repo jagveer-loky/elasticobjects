@@ -16,31 +16,37 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EoLogTest {
     private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
-    private static EO createWarnAdapter()  {
-        EO root = ProviderRootDevScope.createEo();
-        Assertions.assertThat(root.getLogLevel()).isEqualTo(LogLevel.WARN);
-        return root;
+    @Test
+    public void givenDev_thenLogLevelWarn()  {
+        EO eo = ProviderRootDevScope.createEo();
+        Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
+    }
+
+    @Test
+    public void givenDev_WhenSetLogLevelError_thenLogLevelError()  {
+        EO eo = ProviderRootDevScope.createEo();
+        eo.setLogLevel(LogLevel.ERROR);
+        Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.ERROR);
     }
 
     @Test
     public void givenEORootWithWarn_whenErrorMessage_thenLogNotEmpty()  {
-        EO eo = createWarnAdapter();
+        EO eo = ProviderRootDevScope.createEo();
         eo.error(S_MESSAGE, new Exception(S_STRING));
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.getErrorLevel()).isEqualTo(LogLevel.ERROR);
-        //new XpectEo().compareAsString(eo);
     }
 
     @Test
     public void error_WarnAdapter()  {
-        EO eo = createWarnAdapter();
+        EO eo = ProviderRootDevScope.createEo();
         eo.error(S_MESSAGE);
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eo.getLog().isEmpty());
     }
 
     @Test
     public void warnWithException_WarnAdapter()  {
-        EO eo = createWarnAdapter();
+        EO eo = ProviderRootDevScope.createEo();
         eo.warn(S_MESSAGE, new Exception(S_STRING));
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eo.getLog().isEmpty());
     }
@@ -48,51 +54,50 @@ public class EoLogTest {
 
     @Test
     public void warn_WarnAdapter()  {
-        EO eo = createWarnAdapter();
+        EO eo = ProviderRootDevScope.createEo();
         eo.warn(S_MESSAGE);
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eo.getLog().isEmpty());
     }
 
     @Test
     public void info_WarnAdapter()  {
-        EO eo = createWarnAdapter();
+        EO eo = ProviderRootDevScope.createEo();
         eo.info(S_MESSAGE);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
     }
 
     @Test
     public void debug_WarnAdapter()  {
-        EO eo = createWarnAdapter();
+        EO eo = ProviderRootDevScope.createEo();
         eo.debug(S_MESSAGE);
         Assert.assertTrue(INFO_LOG_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
     }
 
     @Test
-    public void givenChild_whenWarnMessage_thenLogNotEmpty()  {
-        EO eo = createWarnAdapter();
+    public void givenDevWitChild_whenWarnMessage_thenLogNotEmpty()  {
+        EO eo = ProviderRootDevScope.createEo();
         EO eoChild = eo
-                .set(new PathElement(S_LEVEL0));
+                .setEmpty(S_LEVEL0);
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
         eoChild.warn(S_MESSAGE);
         Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
     }
 
     @Test
-    public void givenChild_whenInfoMessage_thenLogEmpty()  {
-        EO eo = createWarnAdapter();
+    public void givenDevWithChild_whenInfoMessage_thenLogEmpty()  {
+        EO eo = ProviderRootDevScope.createEo();
         EO eoChild = eo
-                .set(new PathElement(S_LEVEL0));
+                .setEmpty(S_LEVEL0);
         eoChild.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
     public void givenChildWithLogLevelInfo_whenInfoMessage_thenLogNotEmpty()  {
-        EO eo = createWarnAdapter();
-        EO eoChild = eo
-                .set(new PathElement(S_LEVEL0))
-                .setLogLevel(LogLevel.INFO);
-        eoChild.info(S_MESSAGE);
+        EO eo = ProviderRootDevScope.createEo();
+        EO child = eo.setEmpty(S_LEVEL0);
+        child.setLogLevel(LogLevel.INFO);
+        child.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         //new XpectEo().compareAsString(eo);
     }

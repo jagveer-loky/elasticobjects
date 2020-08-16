@@ -23,28 +23,28 @@ public class ModelConfigScalar extends ModelConfig {
 
     @Override
     public ModelInterface getFieldModel(final String fieldName)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
+        throw new EoException("Could not get sub field model because no field defined for scalar models: " + fieldName);
     }
 
     @Override
     public FieldConfig getFieldConfig(final String fieldName)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
+        throw new EoException("Could not get sub field because no field defined for scalar models: " + fieldName);
     }
 
 
     @Override
     public Class getFieldClass(String fieldName)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
+        throw new EoException("Could not get sub value because no field defined for scalar models: " + fieldName);
     }
 
     @Override
     public Set<String> keys(Object object)  {
-        throw new EoException("No field defined for scalar models! " + object.getClass().getSimpleName());
+        throw new EoException("Could not get field names because no sub fields defined for scalar models! " + object.getClass().getSimpleName());
     }
 
     @Override
     public int size(final Object object)  {
-        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
+        throw new EoException("Could not get field names size because no sub fields  defined for scalar models!" + object.getClass().getSimpleName());
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ModelConfigScalar extends ModelConfig {
 
     @Override
     public void set(final String fieldName, final Object object, final Object value)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
+        throw new EoException("Could not set value because no field defined for scalar models: " + fieldName);
     }
 
     @Override
@@ -64,12 +64,12 @@ public class ModelConfigScalar extends ModelConfig {
 
     @Override
     public Object get(final String fieldName, final Object object)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
+        throw new EoException("Could not get field value because no sub fields defined for scalar models: " + fieldName);
     }
 
     @Override
     public boolean exists(final String fieldName, final Object object)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
+        throw new EoException("No sub fields defined for scalar models: " + fieldName);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class ModelConfigScalar extends ModelConfig {
 
     @Override
     public void remove(final String fieldName, final Object object)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
+        throw new EoException("Could not remove sub field because not sub fields defined for scalar models: " + fieldName);
     }
 
     @Override

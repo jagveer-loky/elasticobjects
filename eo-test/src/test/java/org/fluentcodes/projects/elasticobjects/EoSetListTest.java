@@ -13,8 +13,8 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
-public class EoListSetTest {
-    private static final Logger LOG = LogManager.getLogger(EoListSetTest.class);
+public class EoSetListTest {
+    private static final Logger LOG = LogManager.getLogger(EoSetListTest.class);
 
     @Test
     public void givenListEmpty_withJsonListSmall_ok()  {

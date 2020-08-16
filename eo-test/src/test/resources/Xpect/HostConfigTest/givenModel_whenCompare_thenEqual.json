@@ -11,22 +11,13 @@
       "3": "hostName",
       "4": "user",
       "5": "password",
-      "6": "rolePermissions",
-      "7": "module",
-      "8": "subModule",
-      "9": "scope",
-      "10": "key",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
+      "6": "rolePermissions"
     },
     "eoParams": {
       "(ArrayList)scope": {
-        "0": "ALL"
+        "(Scope)0": "ALL"
       },
-      "shapeType": "CONFIG",
+      "(ShapeTypes)shapeType": "CONFIG",
       "create": false,
       "(ArrayList)methods": {
       },

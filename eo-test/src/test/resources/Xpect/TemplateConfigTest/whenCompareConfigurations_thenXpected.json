@@ -8,13 +8,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "content",
-    "naturalId": "content"
+    }
   },
   "1": {
     "templateKey": "ContentExampleDynamic",
@@ -24,13 +18,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExampleDynamic",
-    "naturalId": "ContentExampleDynamic"
+    }
   },
   "2": {
     "templateKey": "ContentExampleElement1",
@@ -40,13 +28,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExampleElement1",
-    "naturalId": "ContentExampleElement1"
+    }
   },
   "3": {
     "templateKey": "ContentExampleElement2",
@@ -56,13 +38,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExampleElement2",
-    "naturalId": "ContentExampleElement2"
+    }
   },
   "4": {
     "templateKey": "ContentExampleStatic",
@@ -72,13 +48,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExampleStatic",
-    "naturalId": "ContentExampleStatic"
+    }
   },
   "5": {
     "templateKey": "ContentExampleStaticCondition",
@@ -88,13 +58,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExampleStaticCondition",
-    "naturalId": "ContentExampleStaticCondition"
+    }
   },
   "6": {
     "templateKey": "ContentExampleStaticKeep",
@@ -104,12 +68,6 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExampleStaticKeep",
-    "naturalId": "ContentExampleStaticKeep"
+    }
   }
 }

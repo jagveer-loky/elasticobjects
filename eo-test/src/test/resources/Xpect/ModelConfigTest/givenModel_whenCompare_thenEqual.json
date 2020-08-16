@@ -28,9 +28,9 @@
     },
     "eoParams": {
       "(ArrayList)scope": {
-        "0": "ALL"
+        "(Scope)0": "ALL"
       },
-      "shapeType": "CONFIG",
+      "(ShapeTypes)shapeType": "CONFIG",
       "create": false,
       "(ArrayList)methods": {
       },

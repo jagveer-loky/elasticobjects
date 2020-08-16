@@ -15,7 +15,7 @@ import org.junit.Test;
 public class TemplateCallForEmbeddedTest {
     private static final Logger LOG = LogManager.getLogger(TemplateCallForEmbeddedTest.class);
     private static EO initEo() {
-        return TestProviderJson.FOR_EMBEDDED_TEST.getEo();
+        return TestProviderJson.FOR_EMBEDDED_TEST.getEoTest();
     }
 
     @Test
@@ -33,7 +33,7 @@ public class TemplateCallForEmbeddedTest {
         final TemplateCall call = new TemplateCall(
                         "--> $[&l*]..path='$[../path]', path='$[path]'" +
                         "$[/]");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEo());
+        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("--> ..path='value0', path='value1'");
     }
     @Test
@@ -41,10 +41,10 @@ public class TemplateCallForEmbeddedTest {
         final TemplateCall call = new TemplateCall(
                 "--> $[&*]..path='$[../path]', path='$[path]'" +
                         "$[/]");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEo());
+        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions
                 .assertThat(result)
-                .isEqualTo("--> ..path='value0', path='!!Path path undefined: Could not find entry for 'path'.!!'..path='value0', path='value1'");
+                .isEqualTo("--> ..path='value0', path='!!Could not move to path 'path' because key 'path' does not exist on '/path'.!!'..path='value0', path='value1'");
     }
 
     @Test
@@ -53,7 +53,7 @@ public class TemplateCallForEmbeddedTest {
                 "path='$[path]' " +
                         "--> $[&level0/level1]../path='$[../path]', path='$[path]'" +
                         "$[/]");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEo());
+        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("path='value0' --> ../path='value1', path='value2'");
     }
 
@@ -65,7 +65,7 @@ public class TemplateCallForEmbeddedTest {
                         "--> $[&level1]../path='$[../path]', path='$[path]'" +
                         "$[/]" +
                         "$[/]");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEo());
+        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("path='value0' -->  --> ../path='value1', path='value2'");
     }
 
@@ -75,7 +75,7 @@ public class TemplateCallForEmbeddedTest {
                 "path='$[path]' " +
                         "--> $[&level0/level1/level2]../path='$[../path]', path='$[path]'" +
                         "$[/]");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEo());
+        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("path='value0' --> ../path='value2', path='value3'");
     }
 
@@ -89,7 +89,7 @@ public class TemplateCallForEmbeddedTest {
                         "$[/]" +
                         "$[/]" +
                         "$[/]");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEo());
+        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("path='value0' -->  -->  --> ../path='value2', path='value3'");
     }
 }

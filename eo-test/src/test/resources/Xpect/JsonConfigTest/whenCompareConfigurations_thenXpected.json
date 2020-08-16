@@ -10,14 +10,7 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    },
-    "module": "test-resources",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "BasicTest.json",
-    "description": "Simple data for the BasicTest.",
-    "naturalId": "BasicTest.json"
+    }
   },
   "1": {
     "jsonKey": "content",
@@ -27,14 +20,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "content",
-    "description": "Simple data for the content templates.",
-    "naturalId": "content"
+    }
   },
   "2": {
     "jsonKey": "ContentExample",
@@ -44,14 +30,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExample",
-    "description": "Calls templates.",
-    "naturalId": "ContentExample"
+    }
   },
   "3": {
     "jsonKey": "ContentExampleData",
@@ -61,14 +40,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "ContentExampleData",
-    "description": "Simple data for the content templates.",
-    "naturalId": "ContentExampleData"
+    }
   },
   "4": {
     "jsonKey": "ListSimple.json",
@@ -80,14 +52,7 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    },
-    "module": "test-resources",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "ListSimple.json",
-    "description": "Simple list equivalent for ListSimple.csv.",
-    "naturalId": "ListSimple.json"
+    }
   },
   "5": {
     "jsonKey": "ModuleConfig.json",
@@ -97,14 +62,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "ModuleConfig.json",
-    "description": "Parameter to determine general module parameters.",
-    "naturalId": "ModuleConfig.json"
+    }
   },
   "6": {
     "jsonKey": "SimpleInsertWithPath",
@@ -114,14 +72,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "SimpleInsertWithPath",
-    "description": "Simple data for the SimpleInsert templates.",
-    "naturalId": "SimpleInsertWithPath"
+    }
   },
   "7": {
     "jsonKey": "target.json",
@@ -131,13 +82,6 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    },
-    "module": "test-resources",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "target.json",
-    "description": "A sample target json file with tmp placeholder.",
-    "naturalId": "target.json"
+    }
   }
 }

@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,6 +14,9 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 22.4.2017
  */
 public class ListParamsTest {
+
+
+
     @Test
     public void givenTestProvider_whenGetModelConfigParameters_thenXpected() {
         ConfigModelChecks.compare(ListParams.class);
@@ -21,6 +25,11 @@ public class ListParamsTest {
     @Test
     public void givenModelClass_whenCreate_thenNoException() {
         ConfigModelChecks.create(ListParams.class);
+    }
+
+    @Test
+    public void givenModelClass_whenSetRowHead_thenException() {
+        ConfigModelChecks.checkSetGet(ListParams.class, F_ROW_HEAD, 1);
     }
 
     @Test
@@ -86,29 +95,6 @@ public class ListParamsTest {
         params.prepareStartEnd(5);
         Assert.assertEquals(new Integer(2), params.getLength());
         Assert.assertEquals(new Integer(5), params.getRowEnd());
-    }
-
-    @Test
-    public void callMapAttributes() {
-        final ListParams params = new ListParams();
-
-        Map<String, Object> attributes = new HashMap<>();
-        attributes.put(F_ROW_HEAD, 0);
-        attributes.put(F_ROW_START, 1);
-        attributes.put(F_LENGTH, 10);
-        attributes.put(F_ROW_END, 21);
-        params.mapAttributes(attributes);
-        Assert.assertEquals(new Integer(0), params.getRowHead());
-        Assert.assertEquals(new Integer(1), params.getRowStart());
-
-        Assert.assertEquals(new Integer(10), params.getLength());
-        Assert.assertEquals(new Integer(21), params.getRowEnd());
-        params.prepare();
-        Assert.assertEquals(new Integer(0), params.getRowHead());
-        Assert.assertEquals(new Integer(1), params.getRowStart());
-
-        Assert.assertEquals(new Integer(10), params.getLength());
-        Assert.assertEquals(new Integer(11), params.getRowEnd());
     }
 }
 

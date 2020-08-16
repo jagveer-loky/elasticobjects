@@ -15,7 +15,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 /**
  * Created by werner.diwischek on 14.1.18.
  */
-public class EoMapJsonTest {
+public class EoToJsonMapTest {
 
     @Test
     public void withDefault()  {
@@ -56,7 +56,7 @@ public class EoMapJsonTest {
 
     @Test
     public void withStringScalar()  {
-        final EO eo = TestProviderBtJson.STRING.createTestEo();
+        final EO eo = TestProviderBtJson.STRING.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -66,7 +66,7 @@ public class EoMapJsonTest {
     @Test
     public void withIntegerScalar()  {
         
-        final EO eo = TestProviderBtJson.INT.createTestEo();
+        final EO eo = TestProviderBtJson.INT.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -86,7 +86,7 @@ public class EoMapJsonTest {
     @Test
     public void withFloatScalar()  {
         
-        final EO eo = TestProviderBtJson.FLOAT.createTestEo();
+        final EO eo = TestProviderBtJson.FLOAT.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -96,7 +96,7 @@ public class EoMapJsonTest {
     @Test
     public void withDoubleScalar()  {
         
-        final EO eo = TestProviderBtJson.DOUBLE.createTestEo();
+        final EO eo = TestProviderBtJson.DOUBLE.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -106,7 +106,7 @@ public class EoMapJsonTest {
     @Test
     public void withDateScalar()  {
         
-        final EO eo = TestProviderBtJson.DATE.createTestEo();
+        final EO eo = TestProviderBtJson.DATE.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -116,7 +116,7 @@ public class EoMapJsonTest {
     @Test
     public void withBooleanScalar()  {
         
-        final EO eo = TestProviderBtJson.BOOLEAN.createTestEo();
+        final EO eo = TestProviderBtJson.BOOLEAN.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -125,7 +125,7 @@ public class EoMapJsonTest {
 
     @Test
     public void withIndentScalar()  {
-        EO eo = TestProviderBtJson.SMALL_TYPED.createTestEo();
+        EO eo = TestProviderBtJson.SMALL_TYPED.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -144,31 +144,6 @@ public class EoMapJsonTest {
         duration = System.currentTimeMillis() - duration;
         System.out.println("Duration: " + duration + " ms.");
     }
-
-   /* @Test
-    public void mapBigAdapter10000()  {
-        EO eo = null;//MapProviderEO.createBigEO(100);
-        long duration = System.currentTimeMillis();
-        String stringified = new EOToJSON()
-                .setSerializationType(JSONSerializationType.SCALAR)
-                .toJSON(eo);
-        duration = System.currentTimeMillis() - duration;
-        System.out.println("Duration: " + duration + " ms.");
-        //AssertEO.compare(stringified);
-    }*/
-
-    /*@Test
-    public void mapBigAdapterUnexpanded10000()  {
-        
-        EO eo = null;//DevObjectProvider(MapProvider.creatcreateBigAEOUnexpanded(100);
-        long duration = System.currentTimeMillis();
-        String stringified = new EOToJSON()
-                .setSerializationType(JSONSerializationType.SCALAR)
-                .toJSON(eo);
-        duration = System.currentTimeMillis() - duration;
-        System.out.println("Duration: " + duration + " ms.");
-        //AssertEO.compare(stringified);
-    }*/
 
     @Test
     public void setSameMaps()  {

@@ -19,10 +19,7 @@ public class EoRoot extends EoChild {
     private final EOConfigsCache eoConfigCache;
     private List<String> roles;
 
-    private boolean eoCallEmpty = true;
     private boolean checkObjectReplication = false;
-    private EO callsEo;
-    private List<Call> calls;
 
     private EoRoot(final EOConfigsCache cache)  {
         this(cache, Map.class);
@@ -30,25 +27,20 @@ public class EoRoot extends EoChild {
 
     public EoRoot(final EOConfigsCache cache, Object value)  {
         super();
+
         this.eoConfigCache = cache;
-        if (value instanceof Class) {
-            setPathElement(new PathElement(cache, new Class[]{(Class) value}));
+        if (value == null) {
+            PathElement rootPathElement = new PathElement(cache, Map.class);
+            setPathElement(rootPathElement);
         }
         else {
-            if (value instanceof String) {
-                if (JSONToEO.jsonMapPattern.matcher((String)value).find()) {
-                    setPathElement(new PathElement(cache, new Class[]{Map.class}));
-                }
-                else if (JSONToEO.jsonListPattern.matcher((String)value).find()) {
-                    setPathElement(new PathElement(cache, new Class[]{List.class}));
-                }
-                else {
-                    setPathElement(new PathElement(cache, new Class[]{String.class}));
-                }
-            }
-            else {
-                setPathElement(new PathElement(cache, new Class[]{value.getClass()}));
-            }
+            PathElement rootPathElement = new PathElement(cache, value);
+            setPathElement(rootPathElement);
+        }
+        if (value == null || value instanceof Class) {
+            return;
+        }
+        if (!isScalar()) {
             mapObject(value);
         }
     }
@@ -56,7 +48,9 @@ public class EoRoot extends EoChild {
     public EoRoot(final EOConfigsCache cache, Class... classes)  {
         super();
         this.eoConfigCache = cache;
-        setPathElement(new PathElement(cache, classes));
+        PathElement rootPathElement = new PathElement(cache, classes);
+        rootPathElement.resolveRoot(this, null);
+        setPathElement(rootPathElement);
     }
 
     public static Class getClass(Object value) {
@@ -67,17 +61,15 @@ public class EoRoot extends EoChild {
     }
 
     @Override
-    public boolean isRoot() {
-        return true;
-    }
-    @Override
     public EOConfigsCache getConfigsCache() {
         return eoConfigCache;
     }
+
     @Override
     public boolean isCheckObjectReplication() {
         return this.checkObjectReplication;
     }
+
     @Override
     public void setCheckObjectReplication(boolean checkObjectReplication) {
         this.checkObjectReplication = checkObjectReplication;
@@ -98,145 +90,9 @@ public class EoRoot extends EoChild {
         this.roles = roles;
     }
 
-
     @Override
     public boolean hasRoles() {
         return roles != null && !roles.isEmpty();
-    }
-
-    @Override
-    public JSONSerializationType getSerializationType() {
-        if (!hasEo(PathElement.OF_SERIALIZATION_TYPE())) {
-            return JSONSerializationType.EO;
-        }
-
-        if (get(PathElement.SERIALIZATION_TYPE) instanceof JSONSerializationType) {
-            return (JSONSerializationType) get(PathElement.SERIALIZATION_TYPE);
-        }
-        else if (get(PathElement.SERIALIZATION_TYPE) instanceof String) {
-            try {
-                return JSONSerializationType.valueOf((String) get(PathElement.SERIALIZATION_TYPE));
-            }
-            catch (Exception e) {
-                throw new EoException(e);
-            }
-        }
-        else {
-            throw new EoException("Mismatch in JSONSerializationType " + getPathAsString() + ": " + get(PathElement.SERIALIZATION_TYPE));
-        }
-
-    }
-
-    @Override
-    public EO setSerializationType(JSONSerializationType serializationType) {
-        set(serializationType, PathElement.SERIALIZATION_TYPE);
-        return this;
-    }
-
-    @Override
-    public LogLevel getErrorLevel() {
-        if (!hasEo(PathElement.OF_ERROR_LEVEL())) {
-            set(LogLevel.DEBUG, PathElement.ERROR_LEVEL);
-        }
-        return (LogLevel) get(PathElement.ERROR_LEVEL);
-    }
-
-    private void setErrorLevel(LogLevel messageLogLevel) {
-        if (getErrorLevel().ordinal() <= messageLogLevel.ordinal()) {
-            set(messageLogLevel, PathElement.ERROR_LEVEL);
-        }
-    }
-
-    protected void log(String message, LogLevel messageLogLevel) {
-        if (message == null) {
-            return;
-        }
-        setErrorLevel(messageLogLevel);
-        getLogEo().set(messageLogLevel.name() + " - " + LocalDateTime.now().toString() + " - " + message, Integer.valueOf(getLogSize()).toString());
-    }
-
-    private int getLogSize() {
-        return getLogEo().sizeEo();
-    }
-
-    private EO getLogEo() {
-        if (!hasEo(PathElement.OF_LOGS())) {
-            set(new PathElement(PathElement.LOGS, List.class, String.class), new ArrayList());
-        }
-        return getEo(PathElement.LOGS);
-    }
-
-    @Override
-    public String getLog() {
-        if (!hasEo(PathElement.OF_LOGS())) {
-            return "";
-        }
-        List<String> logs = (List<String>)getLogEo().get();
-        if (logs == null|| logs.isEmpty()) {
-            return "";
-        }
-        return logs.stream().collect(Collectors.joining());
-    }
-
-    @Override
-    public boolean hasErrors() {
-        return getErrorLevel() == LogLevel.ERROR;
-    }
-
-    public EO addCall(Call call) {
-        if (call == null) {
-            throw new EoException("Null call?!");
-        }
-        initCalls();
-        return callsEo.set(new PathElement(Integer.valueOf(callsEo.size()).toString(), callsEo, call), call);
-    }
-
-    protected boolean addCall(EO callEo) {
-        if (callEo == null) {
-            return false;
-        }
-        initCalls();
-        String counterKey = Integer.valueOf(callsEo.sizeEo()).toString();
-        //callsEo.set(call, Integer.valueOf(callsEo.sizeEo()).toString());
-        ((EoChild)callsEo).setEo(new PathElement(counterKey), callEo);
-        return true;
-    }
-
-    private void initCalls() {
-        if (callsEo != null) {
-            return;
-        }
-        if (!this.hasEo(PathElement.OF_CALLS())) {
-            set(new PathElement(PathElement.CALLS), new ArrayList<Call>());
-        }
-        callsEo = getEo(PathElement.CALLS);
-        calls = (List<Call>) callsEo.get();
-    }
-
-    @Override
-    public List<Call> getCalls() {
-        initCalls();
-        return calls;
-    }
-
-    @Override
-    public EO getCallsEo() {
-        initCalls();
-        return callsEo;
-    }
-
-    @Override
-    public Call getLastCall() {
-        initCalls();
-        if (!hasCalls()) {
-            return null;
-        }
-        return calls.get(calls.size()-1);
-    }
-
-    @Override
-    public boolean hasCalls() {
-        return calls != null && !calls.isEmpty();
     }
 
     @Override

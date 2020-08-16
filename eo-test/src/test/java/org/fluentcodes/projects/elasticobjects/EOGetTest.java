@@ -13,23 +13,9 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
-public class EOElementaryTest {
-    private static final Logger LOG = LogManager.getLogger(EOElementaryTest.class);
+public class EOGetTest {
+    private static final Logger LOG = LogManager.getLogger(EOGetTest.class);
 
-    @Test
-    public void givenEoDevEmpty_whenSetKeyString_thenSet()  {
-        EO eo = ProviderRootDevScope.createEo(Map.class);
-        eo.set(S_STRING, S_LEVEL0);
-        Assert.assertEquals(S_STRING, eo.get(S_LEVEL0));
-        Assert.assertTrue(eo.isContainer());
-        Assert.assertFalse(eo.getEo(S_LEVEL0).isContainer());
-    }
-
-    /**
-     * Test different createChildForMap value
-     *
-     * @
-     */
     @Test
     public void givenEoEmpty_thenModelIsSet() {
         EO eo = ProviderRootDevScope.createEo(Map.class);
@@ -39,20 +25,10 @@ public class EOElementaryTest {
     }
 
     @Test
-    public void givenEoEWithKeyValueString_thenModelIsSet() {
-        EO eo = ProviderRootDevScope.createEo(Map.class);
-        eo.set( S_STRING, S_LEVEL0);
-        Assert.assertEquals(S_STRING, eo.get(S_LEVEL0));
-        Assert.assertEquals(Map.class, ((EoChild) eo.getEo(S_LEVEL0)).getParentEo().getModelClass());
-        Assert.assertEquals(Map.class, ((EoChild) eo.getEo(S_LEVEL0)).getRoot().getModelClass());
-
-    }
-
-    @Test
     public void givenEoEmpy_whenGetNonExistingPath_thenExceptionThrown()  {
         EO eo = ProviderRootTestScope.createEo(Map.class);
         Assertions.assertThatThrownBy(()->{eo.get(S_LEVEL0);})
-                .hasMessage("Path level0 undefined: Could not find entry for 'level0'.");
+                .hasMessage("Could not move to path 'level0' because key 'level0' does not exist on '/'.");
     }
 }
 
