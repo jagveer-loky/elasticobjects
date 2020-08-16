@@ -102,7 +102,6 @@ public class SinusValueCallTest {
     public void givenEoSimple_whenExecuteWithEo_thenDurationIsSet() throws InterruptedException {
         final Call call = new SinusValueCall().setSourcePath(SOURCE);
         EO eo = createSimple();
-
         eo.setLogLevel(LogLevel.WARN);
         eo.addCall(call);
         eo.execute();
@@ -173,6 +172,7 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEoWithContentWithSinusCallPlaceholderJson_whenExecuteEo_thenPlaceHolderIsReplaced()  {
+        EO eox = TestProviderJson.MAP_SMALL_WITH_KEY.getEoTest();
         EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY.getEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

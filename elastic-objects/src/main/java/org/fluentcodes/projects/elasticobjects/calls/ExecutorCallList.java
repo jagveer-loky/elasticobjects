@@ -18,16 +18,16 @@ public class ExecutorCallList {
             eo.error("Null adapter!");
             return "";
         }
-        Set<String> keys = eo.getCallsEo().keys();
+        Set<String> keys = eo.getCallKeys();
         if (keys.isEmpty()) {
             eo.info("No calls");
             return "";
         }
         StringBuilder templateResult = new StringBuilder();
         int counter = 0;
-        for (String key : eo.getCallsEo().keys()) {
+        for (String key : eo.getCallKeys()) {
             try {
-                EO callEo = eo.getCallsEo().getEo(key);
+                EO callEo = eo.getCallEo(key);
                 if (callEo == null) {
                     continue;
                 }

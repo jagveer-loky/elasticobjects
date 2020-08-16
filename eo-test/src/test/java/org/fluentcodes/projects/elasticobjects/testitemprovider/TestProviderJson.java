@@ -40,8 +40,15 @@ public enum TestProviderJson {
         }
     }
 
-    public EO getEo() {
+    public EO getEoTest() {
         EO eo = ProviderRootTestScope.createEo();
+        eo.mapObject(content);
+        return eo;
+    }
+
+
+    public EO getEoDev() {
+        EO eo = ProviderRootDevScope.createEo();
         eo.mapObject(content);
         return eo;
     }

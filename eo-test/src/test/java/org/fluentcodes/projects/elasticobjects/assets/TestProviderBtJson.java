@@ -41,17 +41,21 @@ public enum TestProviderBtJson {
         return content;
     }
 
-    public Map createMap() {
-        return (Map) createTestEo().get();
+    public Map createMapTest() {
+        return (Map) createEoTest().get();
     }
 
-    public EO createTestEo() {
+    public Map createMapDev() {
+        return (Map) createEoDev().get();
+    }
+
+    public EO createEoTest() {
         EO eo =  ProviderRootTestScope.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
 
-    public EO createDevEo() {
+    public EO createEoDev() {
         EO eo =  ProviderRootDevScope.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;

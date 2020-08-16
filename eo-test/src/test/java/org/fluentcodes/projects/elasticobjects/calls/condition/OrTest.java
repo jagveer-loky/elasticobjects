@@ -61,8 +61,8 @@ public class OrTest {
         condition = new Or(toLike(S2, S_KEY2));
         Assert.assertFalse(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(2),
                 condition.filter(row));
-        condition = new Or(toLike(S4, S1));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(4),
+        condition = new Or(toLike(S3, S1));
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(3),
                 condition.filter(row));
     }
 

@@ -17,9 +17,9 @@
     },
     "eoParams": {
       "(ArrayList)scope": {
-        "0": "ALL"
+        "(Scope)0": "ALL"
       },
-      "shapeType": "INTERFACE",
+      "(ShapeTypes)shapeType": "INTERFACE",
       "create": false,
       "(ArrayList)methods": {
       },

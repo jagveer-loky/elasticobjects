@@ -8,15 +8,7 @@ import org.junit.Test;
 /**
  * Created by werner.diwischek on 14.1.18.
  */
-public class EOListJson2Test {
-    @Test
-    public void withDefault()  {
-        
-        EO eo = ProviderListJson.JSON_EMPTY.createEoDev();
-        String json = new EOToJSON().toJSON(eo);
-        //AssertEO.compare(json);
-    }
-
+public class EoToJsonListTest {
     @Test
     public void withIndent0()  {
         

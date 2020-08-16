@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
@@ -75,12 +76,19 @@ public class ModelConfigList extends ModelConfig implements ModelInterface {
     @Override
     public void set(final String fieldName, final Object object, final Object value)  {
         resolve();
-        Integer i = null;
-        try {
-            i = Integer.parseInt(fieldName);
+        if (object == null) {
+            throw new EoInternalException("List object for " + fieldName + " is null!");
         }
-        catch(NumberFormatException e) {
-            throw new EoException("Could not parse for integer " + fieldName + ": ", e);
+        Integer i = null;
+        if (fieldName == null) {
+            i = ((List) object).size();
+        }
+        else {
+            try {
+                i = Integer.parseInt(fieldName);
+            } catch (NumberFormatException e) {
+                throw new EoException("Could not parse for integer " + fieldName + ": ", e);
+            }
         }
         if (i == ((List) object).size()) {
             ((List) object).add(value);

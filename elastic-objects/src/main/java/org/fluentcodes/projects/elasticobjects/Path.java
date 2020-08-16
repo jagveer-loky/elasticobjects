@@ -134,56 +134,79 @@ public class Path {
             target = eo.getRoot();
         }
         for (PathElement element: entries) {
-            try {
                 if (element.isBack()) {
                     target = target.getParent();
                 }
                 else if (element.isSame()) { }
                 else {
-                    target = target.getEo(element);
-                }
-            }
-            catch (EoException e) {
-                throw new EoException("Path " + this.toString() + " undefined: " + e.getMessage());
+                    if (((EoChild)target).hasEo(element)) {
+                        target = target.getEo(element);
+                    }
+                    else {
+                        throw new EoException("Could not move to path '" + this.toString() + "' because key '" + element.toString() + "' does not exist on '" + target.getPathAsString() + "'." );
+                    }
+
             }
         }
         return target;
     }
 
-    public EO create (final EO eo, final Object value) {
-        EO target = eo;
+    public EO create (EO parent, final Object value) {
+        EO target = parent;
         if (isEmpty()) {
             target.mapObject(value);
         }
         if (isAbsolute()) {
-            target = eo.getRoot();
+            parent = parent.getRoot();
         }
         int counter = 0;
         for (PathElement element: entries) {
             counter++;
-            try {
-                if (element.isBack()) {
-                    target = target.getParent();
+            if (element.isBack()) {
+                parent = parent.getParent();
+            }
+            else if (element.isSame()) {
+                if (counter==entries.length) {
+                    parent.mapObject(value);
                 }
-                else if (element.isSame()) {
-                    if (counter==entries.length) {
-                        target.mapObject(value);
+            }
+            else {
+                if (counter==entries.length) {
+                    if (element.isRootModel()) {
+                        ((EoChild)parent).setRootModels((String)value);
+                    }
+                    else if (((EoChild)parent).hasEo(element)) {
+                        parent = parent.getEo(element);
+                        parent.mapObject(value);
+                        //element.resolve(parent, value);
+                        //((EoChild)parent).setPathElement(element);
+                    }
+                    else {
+                        if (parent.isScalar()) {
+                            throw new EoException("Could not create a field value with '" + element.getKey() + "' for a scalar (" + parent.getModel().toString() + ") parent on path '" + parent.getPathAsString() + "'");
+                        }
+                        element.resolve(parent, value);
+                        parent = new EoChild(element);
+                        if (!element.isScalar()){
+                            parent.mapObject(value);
+                        }
                     }
                 }
                 else {
-                    if (counter==entries.length) {
-                        target = target.set(element, value);
+                    if (((EoChild)parent).hasEo(element)) {
+                        parent = parent.getEo(element);
+                        //element.resolve(parent, null);
+                        //((EoChild)parent).setPathElement(element);
                     }
                     else {
-                        target = target.set(element);
+                        element.resolve(parent, null);
+                        parent = new EoChild(element);
                     }
                 }
             }
-            catch (EoException e) {
-                throw new EoException("Path " + this.toString() + " undefined: " + e.getMessage());
-            }
+
         }
-        return target;
+        return parent;
     }
 
     protected List<PathElement> getEntries() {

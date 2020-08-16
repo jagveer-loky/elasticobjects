@@ -32,7 +32,7 @@ public class EqTest {
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq.toString() + row.get(0), eq.filter(row));
         Eq eq2 = new Eq(S3, S_STRING);
         Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + eq2.toString() + row.get(3), eq2.filter(row));
-        Eq eq3 = new Eq(S4, S_INTEGER);
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq3.toString() + row.get(4), eq3.filter(row));
+        Eq eq3 = new Eq(S3, S_INTEGER);
+        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq3.toString() + row.get(3), eq3.filter(row));
     }
 }

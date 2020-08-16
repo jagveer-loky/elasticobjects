@@ -4,10 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,8 +23,8 @@ import static org.fluentcodes.projects.elasticobjects.assets.BasicTest.TEST_OBJE
 /**
  * Created by Werner on 04.11.2016.
  */
-public class BtEoSetTest {
-    private static final Logger LOG = LogManager.getLogger(BtEoSetTest.class);
+public class EoBtSetTest {
+    private static final Logger LOG = LogManager.getLogger(EoBtSetTest.class);
 
     @Test
     public void fromEoConfigsCache()  {
@@ -197,16 +197,9 @@ public class BtEoSetTest {
         Assertions.assertThat(root.getLog()).isEmpty();
         Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
     }
-
+    
     @Test
-    public void givenTestEmpty_whenSetEmptytestBTByPathWithEmpty_ok()  {
-        final EO root = ProviderRootTestScope.createEo();
-        root.set(new PathElement("test", root, BasicTest.class));
-        Assert.assertEquals(BasicTest.class, root.getEo("test").getModelClass());
-    }
-
-    @Test
-    public void givenBtEmpty_whenSetStringFieldWithString_ok()  {
+    public void givenBt_whenSetStringField_ok()  {
         final EO eo = ProviderRootTestScope.createEo(new BasicTest());
         eo.set(S_STRING_OTHER, BasicTest.TEST_STRING);
         Assertions.assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
@@ -214,47 +207,32 @@ public class BtEoSetTest {
     }
 
     @Test
-    public void givenBtEmpty_whenSetNotExistingPath_thenExceptionThrown()  {
+    public void givenBt_whenSetNotExistingField_thenExceptionThrown()  {
         final EO eo = ProviderRootTestScope.createEo(new BasicTest());
         Assertions.assertThatThrownBy(
                 ()->{ eo.set(S_STRING_OTHER, S_KEY1);}
         )
-                .hasMessage("Path key1 undefined: No fieldName defined key1(BasicTest).");
+                .hasMessage("No fieldName defined key1(BasicTest).");
     }
 
     @Test
-    public void givenBtEmpty_whenSetScalarFieldWithBT_thenExeptionThrown()  {
+    public void givenBt_whenSetScalarFieldWithObject_thenExeptionThrown()  {
         final EO eo = ProviderRootTestScope.createEo(new BasicTest());
         Assertions
                 .assertThatThrownBy(
                         ()->{eo.set(new BasicTest(), BasicTest.TEST_STRING);}
                 )
-                .hasMessage("Path testString undefined: Problem setting non scalar value (BasicTest) for field name 'testString'. Expected is String!");
+                .hasMessage("Problem setting non scalar value (BasicTest) for field name 'testString'. Expected is String!");
     }
 
     @Test
-    public void givenBtEmpty_whenSetBTFieldWithScalar_thenExceptionThrown()  {
-        final EO eo = ProviderRootTestScope.createEo(new BasicTest());
-        Assertions
-                .assertThatThrownBy(()->{eo.set(S_STRING, F_BASIC_TEST);})
-                .hasMessage("Path basicTest undefined: Problem setting scalar value (String) for field name 'basicTest'. Expected is BasicTest!");
-    }
-
-    @Test
-    public void givenTestEmpty_whenSetPathWithBTDirective_thenModelIsBT()  {
+    public void givenTest_whenSetPathWithBTDirective_thenModelIsBT()  {
         final EO eo = ProviderRootTestScope.createEo();
-        eo.set(new PathElement(S_LEVEL0, eo, BasicTest.class));
+        eo.set(new BasicTest(), S_LEVEL0);
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(BasicTest.class);
     }
 
-    @Test
-    public void givenTestEmpty_whenSetBTOnExistingModelMap_thenModelIsMap()  {
-        final EO eo = ProviderRootTestScope.createEo();
-        eo.set(new PathElement(S_LEVEL0));
-        eo.set(new PathElement(S_LEVEL0, eo, BasicTest.class));
-        Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
-        Assertions.assertThat(eo.getLog()).isEmpty();
-    }
+
 
     @Test
     public void givenTestEmpty_whenSetBTDirectiveAtEndOfLongPath_thenIsBTClass()  {

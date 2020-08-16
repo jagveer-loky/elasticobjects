@@ -89,7 +89,7 @@ public class ModelConfigNone extends ModelConfig {
 
     @Override
     public Object create() {
-        throw new EoException("No field defined for scalar models: ");
+        return null;
     }
 
     @Override

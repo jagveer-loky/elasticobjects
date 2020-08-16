@@ -34,9 +34,6 @@ public interface EO {
 
     EO set(Object value, String... paths) ;
     EO setEmpty(String... paths) ;
-    EO set(PathElement pathElement);
-    EO set(PathElement pathElement, Object value);
-    void add(EO value, PathElement pathElement);
 
     EO mapObject(Object source);
 
@@ -63,6 +60,7 @@ public interface EO {
     Models getModels();
     ModelInterface getModel();
     Class getModelClass();
+    boolean isChanged();
     boolean isContainer();
     boolean isList();
     boolean isObject();
@@ -79,15 +77,14 @@ public interface EO {
     boolean hasRoles();
 
     EO addCall(Call callExecutor) ;
-    List<Call> getCalls();
-    EO getCallsEo();
-    Call getLastCall();
-    boolean hasCalls();
+    Set<String> getCallKeys();
+    EO getCallEo(String key);
+
     boolean execute();
 
     String getLog();
     LogLevel getLogLevel();
-    EO setLogLevel(LogLevel logLevel);
+    void setLogLevel(LogLevel logLevel);
     LogLevel getErrorLevel();
     boolean hasErrors();
     EO debug(String message);

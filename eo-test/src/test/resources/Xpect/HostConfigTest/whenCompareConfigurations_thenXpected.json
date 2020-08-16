@@ -6,42 +6,21 @@
     "hostName": "",
     "user": "sa",
     "rolePermissions": {
-    },
-    "module": "test-resources",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "h2",
-    "description": "H2 Host Definition",
-    "naturalId": "h2"
+    }
   },
   "1": {
     "hostKey": "local",
     "protocol": "file:",
     "hostName": "localhost",
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "local",
-    "description": "local host with key 'local'",
-    "naturalId": "local"
+    }
   },
   "2": {
     "hostKey": "localhost",
     "protocol": "file:",
     "hostName": "localhost",
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "localhost",
-    "description": "local host with key 'localhost'",
-    "naturalId": "localhost"
+    }
   },
   "3": {
     "hostKey": "hostKey",
@@ -56,14 +35,7 @@
       "create": "testRoleCreate,admin",
       "delete": "admin",
       "execute": "superadmin"
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "hostKey",
-    "description": "description",
-    "naturalId": "test"
+    }
   },
   "4": {
     "hostKey": "testFtp",
@@ -73,13 +45,6 @@
     "user": "testUser",
     "password": "testPassword",
     "rolePermissions": {
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(ArrayList)scope": {
-    },
-    "key": "testFtp",
-    "description": "Test Ftp Dummy",
-    "naturalId": "testFtp"
+    }
   }
 }

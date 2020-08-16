@@ -3,9 +3,11 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
@@ -24,6 +26,16 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ScsReadCallTest {
     private static final Logger LOG = LogManager.getLogger(ScsReadCallTest.class);
     private static final String CS_SOURCE_CSV = ProviderFileContent.LIST_SIMPLE_CSV.getConfigKey();
+
+    @Test
+    public void givenModelClass_whenCreate_thenNoException()  {
+        ConfigModelChecks.create(ScsReadCall.class);
+    }
+
+    @Test
+    public void whenCompareConfigurations_thenXpected()  {
+        ConfigModelChecks.compare(ScsReadCall.class);
+    }
 
     @Test
     public void givenCallWithSourceCsv_whenExecute_thenListReturned()  {
@@ -65,7 +77,7 @@ public class ScsReadCallTest {
         Assertions.assertThat(eo.getEo("0").get("key1")).isEqualTo("value21");
         Assertions.assertThatThrownBy(() -> { eo.getEo("1");})
                 .isInstanceOf(Exception.class)
-                .hasMessageContaining("Could not find entry for '1'.");
+                .hasMessageContaining("Could not move to path '1' because key '1' does not exist on '/'.");
     }
 
     @Test
@@ -79,7 +91,7 @@ public class ScsReadCallTest {
         Assertions.assertThat(eo.getEo("0").get("key1")).isEqualTo("value11");
         Assertions.assertThatThrownBy(() -> { eo.getEo("1");})
                 .isInstanceOf(Exception.class)
-                .hasMessageContaining("Could not find entry for '1'.");
+                .hasMessageContaining("Could not move to path '1' because key '1' does not exist on '/'.");
     }
 
     @Test

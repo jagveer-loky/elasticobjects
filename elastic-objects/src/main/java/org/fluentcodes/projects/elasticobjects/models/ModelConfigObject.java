@@ -130,7 +130,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         try {
             setter.invoke(object, usedValue);
         } catch (Exception e) {
-            throw new EoException("Problem setting field '" + fieldName + "' with value " + value.toString() + " " + value.getClass().getSimpleName() + ": " + e.getMessage());
+            throw new EoException("Problem setting field '" + fieldName + "' with value '" + value.toString() + "'(" + value.getClass().getSimpleName() + ") in '" + getNaturalId() + "': " + e.getMessage());
         }
     }
 

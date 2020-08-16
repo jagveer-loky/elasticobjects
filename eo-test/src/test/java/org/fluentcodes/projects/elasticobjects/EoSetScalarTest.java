@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
@@ -19,40 +20,55 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EoSetScalarTest {
     private static final Logger LOG = LogManager.getLogger(EoSetScalarTest.class);
 
-
     @Test
-    public void givenMapEmpty_withPathAndString_ok()  {
+    public void givenDev_whenSetStringWithLevel0_thenValueIsSet()  {
         final EO eo = ProviderRootDevScope.createEo();
-        eo.set(S_STRING_OTHER, BasicTest.TEST_STRING);
-        Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
-        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo(S_STRING_OTHER);
+        eo.set(S_STRING_OTHER, S_LEVEL0);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(String.class);
+        Assertions.assertThat(eo.getEo().getModelClass()).isEqualTo(Map.class);
+        Assertions.assertThat(eo.get(S_LEVEL0)).isEqualTo(S_STRING_OTHER);
+        Assertions.assertThat(eo.isContainer()).isTrue();
+        Assertions.assertThat(eo.getEo(S_LEVEL0).isContainer()).isFalse();
     }
 
     @Test
-    public void givenString_withString_fails()  {
+    public void givenDev_whenSetStringWithLevel0Level1_thenValueIsSet()  {
+        final EO eo = ProviderRootDevScope.createEo();
+        final EO child = eo.set(S_STRING_OTHER, S_LEVEL0, S_LEVEL1);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(child.getModelClass()).isEqualTo(String.class);
+        Assertions.assertThat(child.getPathAsString()).isEqualTo(Path.DELIMITER + S_LEVEL0 + Path.DELIMITER + S_LEVEL1);
+    }
+
+    @Test
+    public void givenDevString_whenSetStringWithPath_thenExceptionThrown()  {
         final EO eo = ProviderRootDevScope.createEo(S_STRING);
-        eo.set(S_STRING_OTHER, BasicTest.TEST_STRING);
-        Assertions.assertThat(eo.getLog()).isNotEmpty();
-        Assertions.assertThat(eo.getModelClass()).isEqualTo(String.class);
-        Assertions.assertThat(eo.get()).isEqualTo(S_STRING);
+        Assertions
+                .assertThatThrownBy(()->{eo.set(S_STRING_OTHER, BasicTest.TEST_STRING);})
+                .hasMessage("Could not create a field value with 'testString' for a scalar (String) parent on path '/'");
     }
 
-
-
     @Test
-    public void givenListEmpty_withBoolean_ok()  {
-        final EO root = ProviderRootDevScope.createEo(new ArrayList<>());
-        root
-                .set(S_BOOLEAN, S0);
+    public void givenDevList_whenSetBooleanWith0_thenSetValue()  {
+        final EO root = new EoRoot(ProviderRootDevScope.EO_CONFIGS, List.class);
+        root.set(S_BOOLEAN, S0);
         Assert.assertEquals(S_BOOLEAN, root.get(S0));
     }
 
     @Test
-    public void givenEmpty_whenSetStringValueWithLongPath_ok()  {
+    public void givenDevList_whenSetStringWithLevel0_thenSetValueWith0()  {
+        final EO root = new EoRoot(ProviderRootDevScope.EO_CONFIGS, List.class);
+        root.set(S_STRING, S_LEVEL0);
+        Assert.assertEquals(S_STRING, root.get(S0));
+    }
+
+    @Test
+    public void givenEmpty_whenSetStringWithLevel0Level1Level2Level2_thenValueSet()  {
         final EO eo = ProviderRootDevScope.createEo();
-        final EO child = eo.set("value", "level0", "level1", "level2", "key");
-        assertEquals("value", child.get());
-        assertEquals("value", eo.get("level0","level1","level2","key"));
+        final EO child = eo.set("value", S_LEVEL0,S_LEVEL1,S_LEVEL2, S_LEVEL3);
+        //assertEquals("value", child.get());
+        assertEquals("value", eo.get(S_LEVEL0,S_LEVEL1,S_LEVEL2, S_LEVEL3));
 
         assertEquals(Map.class, eo.getModelClass());
         assertEquals(LinkedHashMap.class, eo.get().getClass());
@@ -66,12 +82,11 @@ public class EoSetScalarTest {
         assertEquals(Map.class, eo.getEo("level0","level1","level2").getModelClass());
         assertEquals(LinkedHashMap.class, eo.get("level0","level1","level2").getClass());
 
-        assertEquals(String.class, eo.getEo("level0","level1","level2","key").getModelClass());
-        assertEquals(String.class, eo.get("level0","level1","level2","key").getClass());
+        assertEquals(String.class, eo.getEo(S_LEVEL0,S_LEVEL1,S_LEVEL2, S_LEVEL3).getModelClass());
+        assertEquals(String.class, eo.get(S_LEVEL0,S_LEVEL1,S_LEVEL2, S_LEVEL3).getClass());
 
         assertEquals(Map.class,child.getEo("..").getModelClass());
         assertEquals(LinkedHashMap.class, child.get("..").getClass());
-        //assertEquals("/level0","level1","level2", child.getEo("..").getPathAsString());
 
         assertEquals(Map.class,child.getRoot().getModelClass());
         assertEquals(LinkedHashMap.class, child.getRoot().get().getClass());

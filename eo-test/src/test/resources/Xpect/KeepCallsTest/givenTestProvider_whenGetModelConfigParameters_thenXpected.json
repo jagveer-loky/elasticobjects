@@ -7,9 +7,9 @@
     },
     "eoParams": {
       "(ArrayList)scope": {
-        "0": "ALL"
+        "(Scope)0": "ALL"
       },
-      "shapeType": "ENUM",
+      "(ShapeTypes)shapeType": "ENUM",
       "create": false,
       "(ArrayList)methods": {
       },
