@@ -1,0 +1,31 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "fileKey": "ListSimple.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "1": {
+    "fileKey": "target.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+    }
+  }
+}

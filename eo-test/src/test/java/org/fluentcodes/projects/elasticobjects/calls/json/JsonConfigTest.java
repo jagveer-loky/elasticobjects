@@ -21,17 +21,17 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class JsonConfigTest {
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(JsonConfig.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(JsonConfig.class);
     }
 
     @Test
-    public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(JsonConfig.class);
+    public void resolveConfigurations()  {
+        ConfigChecks.resolveConfigurations(JsonConfig.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(JsonConfig.class);
     }
 

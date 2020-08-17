@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
@@ -24,27 +23,27 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class FieldConfigTest {
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(FileConfig.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(FieldConfig.class);
     }
 
     @Test
-    public void givenModel_whenCompare_thenEqual()  {
-        ConfigModelChecks.compare(FileConfig.class);
+    public void compareModelConfig()  {
+        ConfigModelChecks.compare(FieldConfig.class);
     }
 
     @Test
     public void givenConfigEntries_whenResolve_thenNoErrors()  {
-        ConfigChecks.resolveConfigs(FileConfig.class);
+        ConfigChecks.resolveConfigs(FieldConfig.class);
     }
 
     @Test
-    public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(FileConfig.class);
+    public void resolveConfigurations()  {
+        ConfigChecks.resolveConfigurations(FieldConfig.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(FieldConfig.class);
     }
 

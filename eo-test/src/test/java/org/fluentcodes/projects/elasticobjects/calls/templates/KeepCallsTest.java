@@ -10,12 +10,12 @@ import org.junit.Test;
 public class KeepCallsTest {
 
     @Test
-    public void givenTestProvider_whenGetModelConfigParameters_thenXpected()  {
+    public void gcompareModelConfig()  {
         ConfigModelChecks.compare(KeepCalls.class);
     }
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         Assertions.assertThat(ConfigModelChecks.create(KeepCalls.class)).isNull();
     }
 }

@@ -18,12 +18,12 @@ public class ListParamsTest {
 
 
     @Test
-    public void givenTestProvider_whenGetModelConfigParameters_thenXpected() {
+    public void compareModelConfig() {
         ConfigModelChecks.compare(ListParams.class);
     }
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException() {
+    public void createByModelConfig() {
         ConfigModelChecks.create(ListParams.class);
     }
 

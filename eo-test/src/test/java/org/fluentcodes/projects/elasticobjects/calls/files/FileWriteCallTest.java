@@ -9,12 +9,12 @@ import org.junit.Test;
  */
 public class FileWriteCallTest {
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(FileWriteCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(FileWriteCall.class);
     }
 }

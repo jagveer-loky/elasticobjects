@@ -9,12 +9,12 @@ import org.junit.Test;
 public class TemplateCallTest {
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(TemplateCall.class);
     }
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(TemplateCall.class);
     }
 }

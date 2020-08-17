@@ -11,6 +11,7 @@ import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.tools.xpect.IOString;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
@@ -36,7 +37,7 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
             this.builderMethod = builderClass.getMethod("build", EOConfigsCache.class, Map.class);
         }
         catch (Exception e) {
-            throw new EoException(e);
+            throw new EoException("General building problem with config class '" + configClass.getSimpleName() + "'",  e);
         }
         configMap = new HashMap<>();
     }
@@ -106,8 +107,11 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
         try {
             Object object = builderClass.getDeclaredConstructor(null).newInstance();
             configMap.put(naturalId, (Config) builderMethod.invoke(object, configsCache, map));
-        } catch (Exception e) {
-            throw new EoException("Problem resolving empty constructor for " + naturalId + ": ", e);
+        } catch (InvocationTargetException e) {
+            throw new EoException("Problem create config object via build method in '" + configClass.getSimpleName() + "' for '" + naturalId + "': " + map.toString(), e);
+        }
+        catch (Exception e) {
+            throw new EoException("Problem instantiation config builder object '" + configClass.getSimpleName() + "' for '" + naturalId + "': ", e);
         }
     }
 

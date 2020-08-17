@@ -39,12 +39,12 @@ public class SinusValueCallTest {
     }
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(SinusValueCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(SinusValueCall.class);
     }
 

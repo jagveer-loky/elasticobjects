@@ -21,12 +21,12 @@ public class BtTest {
     }
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(BasicTest.class);
     }
 
     @Test
-    public void givenModel_whenCompare_thenEqual()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(BasicTest.class);
     }
 

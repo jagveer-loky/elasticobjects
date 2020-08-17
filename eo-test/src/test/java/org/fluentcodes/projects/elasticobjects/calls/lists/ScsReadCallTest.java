@@ -7,7 +7,6 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
@@ -25,22 +24,22 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ScsReadCallTest {
     private static final Logger LOG = LogManager.getLogger(ScsReadCallTest.class);
-    private static final String CS_SOURCE_CSV = ProviderFileContent.LIST_SIMPLE_CSV.getConfigKey();
+    private static final String LIST_SIMPLE_CSV = ProviderFileContent.LIST_SIMPLE_CSV.getConfigKey();
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(ScsReadCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(ScsReadCall.class);
     }
 
     @Test
-    public void givenCallWithSourceCsv_whenExecute_thenListReturned()  {
+    public void givenCallWithListSimpleCsv_whenExecute_thenListReturned()  {
         final Call call = new ScsReadCall()
-                .setConfigKey(CS_SOURCE_CSV);
+                .setConfigKey(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();
         List value = (List)call.execute(eo);
         Assertions.assertThat(value).isNotEmpty();
@@ -51,9 +50,9 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoWithSourceCsv_whenExecute_thenParameterSet()  {
+    public void givenEoWithListSimpleCsv_whenExecute_thenParameterSet()  {
         final Call call = new ScsReadCall()
-                .setConfigKey(CS_SOURCE_CSV);
+                .setConfigKey(LIST_SIMPLE_CSV);
 
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
@@ -69,7 +68,7 @@ public class ScsReadCallTest {
     public void givenEoWithSourceCsvAndRowStart1_whenExecuteEo_thenParameterSet()  {
         final Call call = new ScsReadCall()
                 .setRowStart(2)
-                .setConfigKey(CS_SOURCE_CSV);
+                .setConfigKey(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -84,7 +83,7 @@ public class ScsReadCallTest {
     public void givenEoWithSourceCsvAndRowEnd2_whenExecuteEo_thenParameterSet()  {
         final Call call = new ScsReadCall()
                 .setRowEnd(2)
-                .setConfigKey(CS_SOURCE_CSV);
+                .setConfigKey(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
@@ -98,7 +97,7 @@ public class ScsReadCallTest {
     public void givenEoWithSourceCsvAndRowHeadEmpty_whenExecuteEo_thenParameterSet()  {
         final Call call = new ScsReadCall()
                 .setRowHead(-1)
-                .setConfigKey(CS_SOURCE_CSV);
+                .setConfigKey(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -111,7 +110,7 @@ public class ScsReadCallTest {
     @Test
     public void givenEoWithSourceCsvAndRoleAnonym_whenExecuteEo_thenLogEntry()  {
         final Call call = new ScsReadCall()
-                .setConfigKey(CS_SOURCE_CSV);
+                .setConfigKey(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_ANONYM);
         eo.addCall(call);
@@ -123,7 +122,7 @@ public class ScsReadCallTest {
     @Test
     public void givenEoWithSourceCsvAndRoleGuest_whenExecuteEo_thenNoLogEntry()  {
         final Call call = new ScsReadCall()
-                .setConfigKey(CS_SOURCE_CSV);
+                .setConfigKey(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);

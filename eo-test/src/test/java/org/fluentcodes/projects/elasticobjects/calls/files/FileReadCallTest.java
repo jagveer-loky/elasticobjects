@@ -19,12 +19,12 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class FileReadCallTest {
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(FileReadCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(FileReadCall.class);
     }
 

@@ -12,7 +12,6 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 09.10.2016.
  */
 public class HostConfig extends ConfigResourcesImpl {
-    private final String hostKey;
     private final Integer port;
     private final String protocol;
     private final String hostName;
@@ -21,24 +20,11 @@ public class HostConfig extends ConfigResourcesImpl {
 
     public HostConfig(final EOConfigsCache provider, final Builder builder) {
         super(provider, builder);
-        this.hostKey = builder.hostKey;
         this.port = builder.port;
         this.protocol = builder.protocol;
         this.hostName = builder.hostName;
         this.user = builder.user;
         this.password = builder.password;
-    }
-
-    @Override
-    public String getKey() {
-        return hostKey;
-    }
-
-    /**
-     * A key for host objects.
-     */
-    public String getHostKey() {
-        return this.hostKey;
     }
 
     /**
@@ -91,7 +77,6 @@ public class HostConfig extends ConfigResourcesImpl {
 
     public static class Builder extends ConfigResourcesImpl.Builder {
         //<call keep="JAVA" templateKey="BeanInstanceVars.tpl">
-        private String hostKey;
         private Integer port;
         private String protocol;
         private String hostName;
@@ -100,27 +85,14 @@ public class HostConfig extends ConfigResourcesImpl {
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             super.prepare(configsCache, values);
-            hostKey = (String) configsCache.transform(F_HOST_KEY, values);
             protocol = (String) configsCache.transform(F_PROTOCOL, values);
             hostName = (String) configsCache.transform(F_HOST_NAME, values);
             user = (String) configsCache.transform(F_USER, values);
             password = (String) configsCache.transform(F_PASSWORD, values);
             port = (Integer) configsCache.transform(F_PORT, values);
-            String fileKey = (String) configsCache.transform(F_FILE_KEY, values);
-            if (hostKey == null) {
-                if (fileKey != null && fileKey.contains(":")) {
-                    hostKey = fileKey.replaceAll(":[^:]+$", "");
-                } else {
-                    hostKey = H_LOCALHOST;
-                }
-            }
             if (hostName == null) {
                 hostName = "";
             }
-        }
-
-        protected String getHostKey() {
-            return this.hostKey;
         }
 
         public Config build(final EOConfigsCache configsCache, final Map<String, Object> values)  {

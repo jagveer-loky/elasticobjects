@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
@@ -66,7 +67,7 @@ public abstract class CallResource<RESULT> extends CallImpl<RESULT> {
 
 
     public Class<? extends Config> getConfigClass()  {
-        throw new EoException("Problem with configClass getMethod should be overwritten");
+        throw new EoInternalException("Problem with the implementation of call '" + this.getClass().getSimpleName() + "': Method configClass should be overwritten");
     }
 
     public boolean hasConfig() {

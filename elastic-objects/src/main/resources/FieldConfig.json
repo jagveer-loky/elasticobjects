@@ -354,17 +354,6 @@
     "fieldKey": "fields",
     "description": "A list of field keys for the model configuration. "
   },
-  "scsKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "scsKey",
-    "dbFieldParams": {
-      "length": 80
-    },
-    "modelKeys": "String",
-    "fieldKey": "scsKey",
-    "description": "A key for configs for simple commaseparated files."
-  },
   "fileKey": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -611,18 +600,6 @@
     "modelKeys": "String",
     "fieldKey": "joinInverse",
     "description": "A self reference key to a id field on a glue n-m table."
-  },
-  "jsonKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "jsonKey",
-    "dbFieldParams": {
-      "fieldName": "jsonKey",
-      "length": 64
-    },
-    "modelKeys": "String",
-    "fieldKey": "jsonKey",
-    "description": "The key for the json config/action."
   },
   "serializationType": {
     "module": "elastic-objects",
@@ -1175,18 +1152,6 @@
     "modelKeys": "String",
     "fieldKey": "template",
     "description": "A template key used to generate a model."
-  },
-  "templateKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "templateKey",
-    "dbFieldParams": {
-      "fieldName": "templateKey",
-      "length": 64
-    },
-    "modelKeys": "String",
-    "fieldKey": "templateKey",
-    "description": "The key for the template"
   },
   "unique": {
     "module": "elastic-objects",

@@ -12,12 +12,12 @@ public class ModelInterfaceTest {
     private static final Logger LOG = LogManager.getLogger(ModelInterfaceTest.class);
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(ModelInterface.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(ModelInterface.class);
     }
 
     @Test
-    public void givenModel_whenCompare_thenEqual()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(ModelInterface.class);
     }
 

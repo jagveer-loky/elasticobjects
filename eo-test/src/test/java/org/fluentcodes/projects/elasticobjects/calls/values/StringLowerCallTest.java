@@ -19,12 +19,12 @@ import static org.fluentcodes.projects.elasticobjects.calls.values.StringLowerCa
  */
 public class StringLowerCallTest {
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(StringLowerCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(StringLowerCall.class);
     }
 

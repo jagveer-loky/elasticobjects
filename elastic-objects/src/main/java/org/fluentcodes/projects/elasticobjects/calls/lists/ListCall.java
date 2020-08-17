@@ -147,6 +147,9 @@ public class ListCall extends CallResource {
         if (config.hasColKeys() && colKeys == null) {
             setColKeys(config.getColKeys());
         }
+        if (hasRowHead() && !hasRowStart()) {
+            rowStart = rowHead + 1;
+        }
         return this;
     }
 }

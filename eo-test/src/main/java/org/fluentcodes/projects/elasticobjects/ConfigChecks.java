@@ -33,7 +33,7 @@ public class ConfigChecks {
                 .compareAsString(result);
     }
 
-    public static void resolveConfigEntries(Class<? extends Config> configClass)  {
+    public static void resolveConfigurations(Class<? extends Config> configClass)  {
         Set<String> keys = ProviderRootTestScope.EO_CONFIGS.getConfigKeys(configClass);
         Assertions.assertThat(keys).isNotEmpty();
         for (String key: keys) {

@@ -21,7 +21,6 @@ import java.util.Map;
 public class ScsConfig extends ListConfig {
     //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
     private final String fileKey;
-    private final String scsKey;
     private final String fieldDelimiter;
     private final String rowDelimiter;
     private FileConfig fileConfig;
@@ -29,7 +28,6 @@ public class ScsConfig extends ListConfig {
     public ScsConfig(final EOConfigsCache provider, Builder builder)  {
         super(provider, builder);
         this.fileKey = builder.fileKey;
-        this.scsKey = builder.scsKey;
         this.fieldDelimiter = builder.fieldDelimiter;
         this.rowDelimiter = builder.rowDelimiter;
     }
@@ -64,17 +62,6 @@ public class ScsConfig extends ListConfig {
         return result;
     }
 
-    public String getKey() {
-        return this.scsKey;
-    }
-
-    /**
-     * Defines the processing parameters for a csv content stored in a final config object delivered by the provider.
-     */
-    public String getScsKey() {
-        return this.scsKey;
-    }
-
     public boolean hasFileKey() {
         return this.fileKey!=null && !this.fileKey.isEmpty();
     }
@@ -101,10 +88,6 @@ public class ScsConfig extends ListConfig {
         return this.fileConfig;
     }
 
-    public ListIOInterface createIO()  {
-        return new ScsIO(this);
-    }
-
     /**
      * Defines the processing parameters for a csv content stored in a final config object delivered by the provider.
      */
@@ -123,24 +106,16 @@ public class ScsConfig extends ListConfig {
 
 
     public static class Builder extends ListConfig.Builder {
-        //<call keep="JAVA" templateKey="BeanInstanceVars.tpl" }
-
-        private String scsKey;
         private String fileKey;
         private String fieldDelimiter;
         private String rowDelimiter;
 
-
         protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
-            scsKey = ScalarConverter.toString(values.get(EO_STATIC.F_SCS_KEY));
-            if (scsKey == null) {
-                throw new EoException("No list key defined - No build process possible");
-            }
             fileKey = ScalarConverter.toString(values.get(EO_STATIC.F_FILE_KEY));
             rowDelimiter = ScalarConverter.toString(values.get(EO_STATIC.F_ROW_DELIMITER));
             fieldDelimiter = ScalarConverter.toString(values.get(EO_STATIC.F_FIELD_DELIMITER));
             if (fileKey == null || fileKey.isEmpty()) {
-                fileKey = scsKey;
+                fileKey = ScalarConverter.toString(values.get(NATURAL_ID));
             }
             if (fieldDelimiter == null || fieldDelimiter.isEmpty()) {
                 fieldDelimiter = ";";

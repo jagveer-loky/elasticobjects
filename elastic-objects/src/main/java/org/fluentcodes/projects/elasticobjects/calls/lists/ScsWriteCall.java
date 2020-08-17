@@ -22,4 +22,6 @@ public class ScsWriteCall extends ListReadCall {
     public Class<? extends Config> getConfigClass()  {
         return ScsConfig.class;
     }
+
+
 }

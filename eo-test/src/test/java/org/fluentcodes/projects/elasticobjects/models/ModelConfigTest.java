@@ -31,12 +31,12 @@ public class ModelConfigTest {
     private static final String M_BUILDER = "$Builder";
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(ModelConfig.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(ModelConfig.class);
     }
 
     @Test
-    public void givenModel_whenCompare_thenEqual()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(ModelConfig.class);
     }
 
@@ -46,14 +46,15 @@ public class ModelConfigTest {
         ConfigChecks.resolveConfigs(ModelConfig.class);
     }
 
+    @Ignore
     @Test
-    public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(ModelConfig.class);
+    public void resolveConfigurations()  {
+        ConfigChecks.resolveConfigurations(ModelConfig.class);
     }
 
     @Ignore
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(ModelConfig.class);
     }
 

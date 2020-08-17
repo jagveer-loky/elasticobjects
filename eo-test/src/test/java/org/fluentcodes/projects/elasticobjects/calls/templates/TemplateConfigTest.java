@@ -20,17 +20,17 @@ public class TemplateConfigTest {
     private static final Logger LOG = LogManager.getLogger(TemplateConfigTest.class);
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(TemplateConfig.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(TemplateConfig.class);
     }
 
     @Test
-    public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(TemplateConfig.class);
+    public void resolveConfigurations()  {
+        ConfigChecks.resolveConfigurations(TemplateConfig.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(TemplateConfig.class);
     }
 
@@ -39,6 +39,6 @@ public class TemplateConfigTest {
         EOConfigMap map = new EOConfigMapImmutable(ProviderRootTestScope.EO_CONFIGS, TemplateConfig.class);
         TemplateConfig config = (TemplateConfig) map.find(TemplateContentExampleTest.STATIC_TEMPLATE_CONFIG_KEY);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
-        Assert.assertEquals(INFO_COMPARE_FAILS, TemplateContentExampleTest.STATIC_TEMPLATE_CONFIG_KEY, config.getTemplateKey());
+        Assert.assertEquals(INFO_COMPARE_FAILS, TemplateContentExampleTest.STATIC_TEMPLATE_CONFIG_KEY, config.getKey());
     }
 }
