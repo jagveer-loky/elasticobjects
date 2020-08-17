@@ -12,11 +12,11 @@ public class CallTest {
     private static final Logger LOG = LogManager.getLogger(CallTest.class);
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(Call.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(Call.class);
     }
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(Call.class);
     }
 }

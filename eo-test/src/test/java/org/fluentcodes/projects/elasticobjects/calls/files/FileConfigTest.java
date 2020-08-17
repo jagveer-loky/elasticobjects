@@ -21,12 +21,12 @@ public class FileConfigTest {
     public static final String FILE_TEST_CACHED = ProviderFileContent.FILE_SIMPLE_CACHED.getConfigKey();
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(FileConfig.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(FileConfig.class);
     }
 
     @Test
-    public void givenModel_whenCompare_thenEqual()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(FileConfig.class);
     }
 
@@ -37,11 +37,11 @@ public class FileConfigTest {
 
     @Test
     public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(FileConfig.class);
+        ConfigChecks.resolveConfigurations(FileConfig.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(FileConfig.class);
     }
 

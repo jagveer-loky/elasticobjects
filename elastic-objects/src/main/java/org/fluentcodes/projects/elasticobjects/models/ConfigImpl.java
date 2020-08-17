@@ -17,7 +17,6 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public abstract class ConfigImpl extends ModelImpl implements Config {
     private final EOConfigsCache configsCache;
     private final String module;
-    //<call keep="JAVA" templateKey="CacheInstanceVars.tpl">
     private final String subModule;
     private final String path;
     private final String mapPath;
@@ -41,7 +40,10 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         super.setModificationDate(new Date());
 
     }
-
+    @Override
+    public String getKey() {
+        return getNaturalId();
+    }
 
     protected boolean isResolved() {
         return this.resolved;
@@ -131,7 +133,6 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     }
 
     public static class Builder {
-        //<call keep="JAVA" templateKey="BeanInstanceVars.tpl">
         private String module;
         private String subModule;
         private String path;
@@ -146,9 +147,9 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         public Builder() {
             super();
         }
-
-//{/insert
-
+        public String getNaturalId() {
+            return naturalId;
+        }
         protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
             this.module = ScalarConverter.toString(values.get(F_MODULE));
             this.subModule = ScalarConverter.toString(values.get(F_SUB_MODULE));

@@ -76,11 +76,6 @@ public class EoRoot extends EoChild {
     }
 
     @Override
-    public EoRoot getRoot() {
-        return this;
-    }
-
-    @Override
     public List<String> getRoles() {
         return roles;
     }

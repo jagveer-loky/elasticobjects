@@ -1,0 +1,44 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "fileKey": "source.xlsx",
+    "sheetName": "test",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+    }
+  },
+  "1": {
+    "fileKey": "source.xlsx",
+    "sheetName": "test",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+    }
+  },
+  "2": {
+    "fileKey": "source.xlsx",
+    "(ListParams)listParams": {
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+    }
+  },
+  "3": {
+    "fileKey": "target.xlsx",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+    }
+  }
+}

@@ -20,12 +20,12 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class JsonReadCallTest {
     private static String LIST_SIMPLE_CONFIG = ProviderListJson.LIST_SIMPLE.getConfigKey();
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(JsonReadCall.class);
     }
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(JsonReadCall.class);
     }
 

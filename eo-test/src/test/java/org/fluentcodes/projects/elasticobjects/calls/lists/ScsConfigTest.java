@@ -14,17 +14,22 @@ public class ScsConfigTest {
     private static final Logger LOG = LogManager.getLogger(ScsConfigTest.class);
 
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(ScsConfig.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(ScsConfig.class);
     }
 
     @Test
-    public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(ScsConfig.class);
+    public void resolveModelConfig()  {
+        ConfigModelChecks.resolve(ScsConfig.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void resolveConfigurations()  {
+        ConfigChecks.resolveConfigurations(ScsConfig.class);
+    }
+
+    @Test
+    public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(ScsConfig.class);
     }
 

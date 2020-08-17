@@ -1,0 +1,53 @@
+{
+  "CsvReadCall": {
+    "module": "actions-csv",
+    "subModule": "main",
+    "naturalId": "CsvReadCall",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "modelConfigKey": "CsvConfig",
+      "create": true
+    },
+    "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
+    "superKey": "ListCall",
+    "modelKey": "CsvReadCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
+    "packageGroup": "csv",
+    "author": "Werner Diwischek"
+  },
+  "CsvWriteCall": {
+    "module": "actions-csv",
+    "subModule": "main",
+    "naturalId": "CsvWriteCall",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "modelConfigKey": "CsvConfig",
+      "create": true
+    },
+    "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
+    "superKey": "ListCall",
+    "modelKey": "CsvWriteCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
+    "packageGroup": "csv",
+    "author": "Werner Diwischek"
+  },
+  "CsvConfig": {
+    "module": "actions-csv",
+    "subModule": "main",
+    "naturalId": "CsvConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": false
+    },
+    "description": "Defines the configuration for a csv content stored in a final config object delivered by the config cache.",
+    "superKey": "ListConfig",
+    "fieldKeys": [
+      "fileKey",
+      "fieldDelimiter",
+      "rowDelimiter"
+    ],
+    "modelKey": "CsvConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
+    "packageGroup": "csv"
+  }
+}

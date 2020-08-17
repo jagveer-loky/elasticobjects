@@ -1,0 +1,108 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "fileName": "input/assets/bt/BasicTest.csv",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "1": {
+    "fileName": "input/file/source.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "2": {
+    "fileName": "input/calls/file-simple/FileTest.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "3": {
+    "fileName": "input/calls/file-simple/FileTest.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": true,
+    "rolePermissions": {
+    }
+  },
+  "4": {
+    "fileName": "input/calls/list-simple/ListSimple.csv",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "5": {
+    "fileName": "input/file/source.txt",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "6": {
+    "fileName": "result.string",
+    "filePath": "src/test/resources/output/persistedobjects",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "7": {
+    "fileName": "resultWithMapPath.string",
+    "filePath": "src/test/resources/output/persistedobjects",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "8": {
+    "fileName": "target.csv",
+    "filePath": "$[TMP]/elastic-objects",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "9": {
+    "fileName": "target.txt",
+    "filePath": "$[TMP]/elastic-objects",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "10": {
+    "fileName": "fileName",
+    "filePath": "path",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "anonym",
+      "write": "guest",
+      "create": "testRoleCreate,admin",
+      "delete": "admin",
+      "execute": "superadmin"
+    }
+  },
+  "11": {
+    "fileName": "input/file/source.txt",
+    "filePath": "classpath/test",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  }
+}

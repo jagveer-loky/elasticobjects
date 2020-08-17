@@ -14,7 +14,7 @@ import java.util.List;
 public class ConfigKeysCallTest {
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void gcreateByModelConfig()  {
         ConfigModelChecks.create(ConfigKeysCall.class);
     }
 

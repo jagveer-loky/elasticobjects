@@ -20,12 +20,12 @@ import static org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFi
  */
 public class StringUpperFirstCharCallTest {
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(StringUpperFirstCharCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(StringUpperFirstCharCall.class);
     }
     @Test

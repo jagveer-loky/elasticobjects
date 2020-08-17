@@ -12,18 +12,19 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
 
 /**
  * Created by Werner on 11.10.2016.
  */
 public class HostConfigTest {
     @Test
-    public void givenModelClass_whenCreate_thenExceptionThrown()  {
-        ConfigModelChecks.createThrowException(HostConfig.class);
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(HostConfig.class);
     }
 
     @Test
-    public void givenModel_whenCompare_thenEqual()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(HostConfig.class);
     }
 
@@ -33,12 +34,12 @@ public class HostConfigTest {
     }
 
     @Test
-    public void whenResolveConfigEntries_thenNoError()  {
-        ConfigChecks.resolveConfigEntries(HostConfig.class);
+    public void resolveConfigurations()  {
+        ConfigChecks.resolveConfigurations(HostConfig.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(HostConfig.class);
     }
 
@@ -53,14 +54,14 @@ public class HostConfigTest {
     public void createWithBean()  {
         Map<String, Object> map = new HashMap<>();
         map.put(F_HOST_NAME, H_LOCALHOST);
-        map.put(F_HOST_KEY, F_HOST_KEY);
         map.put(F_PROTOCOL, F_PROTOCOL);
+        map.put(NATURAL_ID, F_HOST_KEY);
         map.put(F_PORT, S_INTEGER);
         map.put(F_USER, F_USER);
         map.put(F_PASSWORD, F_PASSWORD);
         HostConfig cache = (HostConfig) new HostConfig.Builder().build(ProviderRootTestScope.EO_CONFIGS, map);
         Assert.assertEquals(H_LOCALHOST, cache.getHostName());
-        Assert.assertEquals(F_HOST_KEY, cache.getHostKey());
+        Assert.assertEquals(F_HOST_KEY, cache.getKey());
     }
 
     @Test

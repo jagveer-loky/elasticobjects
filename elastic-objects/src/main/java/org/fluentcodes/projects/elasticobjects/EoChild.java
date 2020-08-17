@@ -498,7 +498,7 @@ public class EoChild implements EO {
 
     @Override
     public boolean isRoot() {
-        return pathElement.isRoot();
+        return this instanceof EoRoot;
     }
 
     @Override

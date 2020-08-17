@@ -1,0 +1,39 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "FileConfig",
+    "superKey": "ConfigResourcesImpl",
+    "(ArrayList)fieldKeys": {
+      "0": "fileName",
+      "1": "filePath",
+      "2": "hostKey",
+      "3": "cached",
+      "4": "rolePermissions"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "CONFIG",
+      "create": false,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      }
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "models",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "FileConfig",
+    "description": "Immutabel EO file configuration will be initalized by internal builder using map values.",
+    "naturalId": "FileConfig",
+    "author": "Werner Diwischek"
+  }
+}

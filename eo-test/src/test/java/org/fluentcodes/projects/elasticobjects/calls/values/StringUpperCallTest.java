@@ -19,12 +19,12 @@ import static org.fluentcodes.projects.elasticobjects.calls.values.StringUpperCa
  */
 public class StringUpperCallTest {
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(StringUpperCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(StringUpperCall.class);
     }
     @Test

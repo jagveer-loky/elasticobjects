@@ -16,25 +16,13 @@ import java.util.Map;
  */
 public class JsonConfig extends FileConfig {
     private static final Logger LOG = LogManager.getLogger(JsonConfig.class);
-    private final String jsonKey;
     private final Integer indent;
     private final JSONSerializationType serializationType;
 
     public JsonConfig(final EOConfigsCache eoCache, JsonConfig.Builder builder) {
         super(eoCache, builder);
-        this.jsonKey = builder.jsonKey;
         this.indent = builder.indent;
         this.serializationType =builder.serializationType;
-    }
-
-
-    @Override
-    public String getKey() {
-        return jsonKey;
-    }
-
-    public String getJsonKey() {
-        return jsonKey;
     }
 
     public JSONSerializationType getSerializationType() {
@@ -46,7 +34,6 @@ public class JsonConfig extends FileConfig {
     }
 
     public static class Builder extends FileConfig.Builder {
-        private String jsonKey;
         private Integer indent;
         private JSONSerializationType serializationType;
 
@@ -54,13 +41,8 @@ public class JsonConfig extends FileConfig {
             super();
         }
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            this.jsonKey = (String) configsCache.transform(EO_STATIC.F_JSON_KEY, values);
-            if (jsonKey == null || jsonKey.isEmpty()) {
-                throw new EoException("jsonKey is not in the map defined!?");
-            }
             this.serializationType = JSONSerializationType.EO; //TODO Refactor transform (JSONSerializationType) configsCache.transform(EO_STATIC.F_SERIALIZATION_TYPE, values, JSONSerializationType.STANDARD);
             indent = (Integer) configsCache.transform(EO_STATIC.F_INDENT, values, 1);
-            values.put(EO_STATIC.F_FILE_KEY, this.jsonKey);
             super.prepare(configsCache, values);
         }
 

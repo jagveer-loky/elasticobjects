@@ -26,7 +26,6 @@ public class FileConfig extends ConfigResourcesImpl {
     public static final String CLASSPATH = "classpath";
     private final String fileName;
     private final String filePath;
-    private final String fileKey;
     private final String hostKey;
     private final Boolean cached;
     private HostConfig hostCache;
@@ -37,19 +36,11 @@ public class FileConfig extends ConfigResourcesImpl {
         super(provider, builder);
         this.fileName = builder.fileName;
         this.filePath = builder.filePath;
-        this.fileKey = builder.fileKey;
         this.cached = builder.cached;
         this.hostKey = builder.hostKey;
-
-
         if (builder.isExpanded()) {
             this.hostCache = new HostConfig(provider, builder);
         }
-    }
-
-    @Override
-    public String getKey() {
-        return fileKey;
     }
 
     public boolean hasCachedContent() {
@@ -169,13 +160,6 @@ public class FileConfig extends ConfigResourcesImpl {
     }
 
     /**
-     * A key for file objects.
-     */
-    public String getFileKey() {
-        return this.fileKey;
-    }
-
-    /**
      * A key for host objects.
      */
     public String getHostKey() {
@@ -210,7 +194,6 @@ public class FileConfig extends ConfigResourcesImpl {
         public static final String ADAPTER_PATH = "content";
         private String fileName;
         private String filePath;
-        private String fileKey;
         private Boolean cached;
         private String hostKey;
 
@@ -219,11 +202,10 @@ public class FileConfig extends ConfigResourcesImpl {
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             super.prepare(configsCache, values);
-            fileKey = (String) configsCache.transform(F_FILE_KEY, values);
-            if (fileKey == null) {
-                throw new EoException("fileKey is not add!");
+            fileName = (String) configsCache.transform(F_FILE_NAME, values);
+            if (fileName == null) {
+                fileName = (String) configsCache.transform(NATURAL_ID, values);
             }
-            fileName = (String) configsCache.transform(F_FILE_NAME, values, fileKey);
             filePath = (String) configsCache.transform(F_FILE_PATH, values, FileConfig.CLASSPATH);
             cached = (Boolean) configsCache.transform(F_CACHED, values, false);
             hostKey = (String) configsCache.transform(F_HOST_KEY, values, H_LOCALHOST);

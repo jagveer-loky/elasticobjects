@@ -21,12 +21,12 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ValueCallTest {
 
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(ValueCall.class);
     }
 
     @Test
-    public void whenCompareConfigurations_thenXpected()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(ValueCall.class);
     }
 

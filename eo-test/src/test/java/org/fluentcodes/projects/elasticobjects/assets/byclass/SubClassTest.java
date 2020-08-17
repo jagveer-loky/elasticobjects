@@ -22,13 +22,13 @@ public class SubClassTest {
     }
     @Ignore
     @Test
-    public void givenModelClass_whenCreate_thenNoException()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(SubClass.class);
     }
 
     @Ignore
     @Test
-    public void givenModel_whenCompare_thenEqual()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(SubClass.class);
     }
 

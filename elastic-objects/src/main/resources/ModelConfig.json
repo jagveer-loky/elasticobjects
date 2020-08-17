@@ -480,7 +480,6 @@
     "superKey": "ConfigResourcesImpl",
     "fieldKeys": [
       "fileName",
-      "fileKey",
       "filePath",
       "hostKey",
       "cached"
@@ -509,10 +508,9 @@
       "shapeType": "CONFIG",
       "create": false
     },
-    "description": "Immutabel EO configuration for simple comma separated files will be initalized by internal builder using map values.",
+    "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "superKey": "ListConfig",
     "fieldKeys": [
-      "scsKey",
       "fileKey",
       "fieldDelimiter",
       "rowDelimiter"
@@ -574,7 +572,6 @@
     "description": "Basic host definition for file or db cache. ",
     "superKey": "ConfigResourcesImpl",
     "fieldKeys": [
-      "hostKey",
       "port",
       "protocol",
       "hostName",
@@ -619,7 +616,7 @@
     "description": "Configuration for {@link JsonAction}.",
     "superKey": "FileConfig",
     "fieldKeys": [
-      "jsonKey"
+      "indent"
     ],
     "modelKey": "JsonConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
@@ -1142,7 +1139,6 @@
     "description": "The cache {@link TemplateConfig} contains a prepared TemplateParser.",
     "superKey": "FileConfig",
     "fieldKeys": [
-      "templateKey",
       "keepCall"
     ],
     "modelKey": "TemplateConfig",

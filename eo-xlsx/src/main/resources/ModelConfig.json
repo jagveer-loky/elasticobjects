@@ -1,0 +1,37 @@
+{
+  "XlsxReadCall": {
+    "module": "actions-xlsx",
+    "subModule": "main",
+    "naturalId": "XlsxReadCall",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": true,
+      "modelConfigKey": "XlsxConfig"
+    },
+    "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
+    "superKey": "ListCall",
+    "modelKey": "XlsxReadCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
+    "packageGroup": "xlsx",
+    "author": "Werner Diwischek"
+  },
+  "XlsxConfig": {
+    "module": "actions-xlsx",
+    "subModule": "main",
+    "naturalId": "XlsxConfig",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": false
+    },
+    "description": "The cache class for excel access. Contains the file cache.",
+    "superKey": "ListConfig",
+    "fieldKeys": [
+      "fileKey",
+      "sheetName"
+    ],
+    "modelKey": "XlsxConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
+    "packageGroup": "xlsx",
+    "author": "Werner Diwischek"
+  }
+}

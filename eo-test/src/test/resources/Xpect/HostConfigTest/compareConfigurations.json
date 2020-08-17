@@ -1,0 +1,45 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "protocol": "jdbc:h2",
+    "hostName": "",
+    "user": "sa",
+    "rolePermissions": {
+    }
+  },
+  "1": {
+    "protocol": "file:",
+    "hostName": "localhost",
+    "rolePermissions": {
+    }
+  },
+  "2": {
+    "protocol": "file:",
+    "hostName": "localhost",
+    "rolePermissions": {
+    }
+  },
+  "3": {
+    "port": 1,
+    "protocol": "protocol",
+    "hostName": "hostName",
+    "user": "user",
+    "password": "password",
+    "rolePermissions": {
+      "read": "testRoleRead,guest",
+      "write": "testRoleWrite,admin",
+      "create": "testRoleCreate,admin",
+      "delete": "admin",
+      "execute": "superadmin"
+    }
+  },
+  "4": {
+    "port": 21,
+    "protocol": "ftp",
+    "hostName": "ftpServer",
+    "user": "testUser",
+    "password": "testPassword",
+    "rolePermissions": {
+    }
+  }
+}

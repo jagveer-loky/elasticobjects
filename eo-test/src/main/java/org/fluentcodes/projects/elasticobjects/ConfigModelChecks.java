@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ConfigModelChecks {
 
-    public static ModelConfig createThrowException(final Class modelClass) {
+    public static ModelConfig createThrowsException(final Class modelClass) {
         final ModelConfig model = ProviderRootTestScope
                 .EO_CONFIGS
                 .findModel(modelClass);
@@ -23,6 +23,15 @@ public class ConfigModelChecks {
                         })
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Could not create empty instance from model for '" + modelClass.getSimpleName() + "'");
+        return model;
+    }
+
+    public static ModelConfig resolve(final Class modelClass) {
+        final ModelConfig model = ProviderRootTestScope
+                .EO_CONFIGS
+                .findModel(modelClass);
+        model.resolve();
+        Assertions.assertThat(model.getModelClass()).isEqualTo(modelClass);
         return model;
     }
 
