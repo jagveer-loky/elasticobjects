@@ -1,0 +1,52 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
+    "modelKey": "JsonReadCall",
+    "superKey": "FileReadCall",
+    "(ArrayList)fieldKeys": {
+      "0": "content",
+      "1": "indent",
+      "2": "serializationType",
+      "3": "configKey",
+      "4": "sourcePath",
+      "5": "targetPath",
+      "6": "locationPath",
+      "7": "models",
+      "8": "filterPath",
+      "9": "condition",
+      "10": "overwrite",
+      "11": "logLevel",
+      "12": "duration",
+      "13": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+        "0": "read",
+        "1": "write",
+        "2": "delete"
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "JsonConfig"
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "json",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "JsonReadCall",
+    "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
+    "naturalId": "JsonReadCall",
+    "author": "Werner Diwischek"
+  }
+}

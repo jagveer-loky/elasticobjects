@@ -1,0 +1,49 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "FieldConfig",
+    "superKey": "ConfigImpl",
+    "(ArrayList)fieldKeys": {
+      "0": "fieldKey",
+      "1": "modelKeys",
+      "2": "dbFieldParams",
+      "3": "eoFieldParams",
+      "4": "viewFieldParams",
+      "5": "customFieldParams",
+      "6": "module",
+      "7": "subModule",
+      "8": "scope",
+      "9": "key",
+      "10": "id",
+      "11": "description",
+      "12": "naturalId",
+      "13": "creationDate",
+      "14": "author"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "CONFIG",
+      "create": false,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      }
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "models",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "FieldConfig",
+    "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
+    "naturalId": "FieldConfig",
+    "author": "Werner Diwischek"
+  }
+}

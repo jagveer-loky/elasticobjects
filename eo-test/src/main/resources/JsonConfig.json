@@ -1,0 +1,35 @@
+{
+  "ListSimple.json": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "ListSimple.json",
+    "jsonKey": "ListSimple.json",
+    "fileName": "input/calls/list-simple/ListSimple.json",
+    "description": "Simple list equivalent for ListSimple.csv.",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "BasicTest.json": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "BasicTest.json",
+    "jsonKey": "BasicTest.json",
+    "fileName": "input/assets/bt/BasicTest.json",
+    "description": "Simple data for the BasicTest.",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "target.json": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "target.json",
+    "jsonKey": "target.json",
+    "fileName": "target.json",
+    "description": "A sample target json file with tmp placeholder.",
+    "filePath": "$[TMP]/elastic-objects"
+  }
+}

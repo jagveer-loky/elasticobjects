@@ -1,8 +1,0 @@
-{
-  "(BasicTest)_data": {
-    "untypedMap": {
-      "testString": "test",
-      "(Integer)testInt": 1
-    }
-  }
-}

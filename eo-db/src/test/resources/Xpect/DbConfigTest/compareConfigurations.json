@@ -1,0 +1,81 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "schema": "$[TMP]/test",
+    "driver": "org.h2.Driver",
+    "dbType": {
+    },
+    "hostKey": "h2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "rolePermissions": {
+    }
+  },
+  "1": {
+    "schema": "file:basic",
+    "driver": "org.h2.Driver",
+    "dbType": {
+    },
+    "hostKey": "h2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "rolePermissions": {
+    }
+  },
+  "2": {
+    "schema": "mem:test",
+    "driver": "org.h2.Driver",
+    "dbType": {
+    },
+    "hostKey": "h2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "rolePermissions": {
+    }
+  },
+  "3": {
+    "schema": "mem:basic",
+    "driver": "org.h2.Driver",
+    "dbType": {
+    },
+    "hostKey": "h2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "rolePermissions": {
+    }
+  },
+  "4": {
+    "schema": "file:$[TMP]/test.hsql",
+    "dbType": {
+    },
+    "hostKey": "hsql",
+    "rolePermissions": {
+    }
+  },
+  "5": {
+    "schema": "mem",
+    "dbType": {
+    },
+    "hostKey": "hsql",
+    "rolePermissions": {
+    }
+  },
+  "6": {
+    "dbType": {
+    },
+    "hostKey": "localMySql",
+    "rolePermissions": {
+    }
+  },
+  "7": {
+    "dbType": {
+    },
+    "hostKey": "localMySql",
+    "rolePermissions": {
+    }
+  },
+  "8": {
+    "schema": "XE",
+    "dbType": {
+    },
+    "hostKey": "localOracle",
+    "rolePermissions": {
+    }
+  }
+}

@@ -6,6 +6,14 @@ import java.util.Date;
  * Created by Werner on 10.10.2017.
  */
 public interface Model {
+
+    String AUTHOR = "author";
+    String CREATION_DATE = "creationDate";
+    String DESCRIPTION = "description";
+    String ID = "id";
+    String MODIFICATION_DATE = "modificationDate";
+    String NATURAL_ID = "naturalId";
+;
     //<call keep="JAVA" templateKey="InterfacesBeanSetter.tpl">
 
     Long getId();
@@ -24,7 +32,7 @@ public interface Model {
 
     void setCreationDate(Date creationDate);
 
-    //</call>
+
     Date getModificationDate();
 
     void setCreationDate();

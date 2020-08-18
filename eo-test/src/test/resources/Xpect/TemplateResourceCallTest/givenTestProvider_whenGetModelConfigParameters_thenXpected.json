@@ -1,0 +1,49 @@
+{
+  "_rootmodel": "ArrayList",
+
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "modelKey": "TemplateResourceCall",
+    "superKey": "FileReadCall",
+    "(ArrayList)fieldKeys": {
+      "0": "configKey",
+      "1": "keepCall",
+      "2": "sourcePath",
+      "3": "targetPath",
+      "4": "locationPath",
+      "5": "models",
+      "6": "filterPath",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "0": "ALL"
+      },
+      "shapeType": "CALL",
+      "create": "true",
+      "(ArrayList)methods": {
+        "0": "execute"
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "TemplateConfig",
+      "pathPatternAsString": ""
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "templates",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "TemplateResourceCall",
+    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "naturalId": "TemplateResourceCall",
+    "author": "Werner Diwischek"
+  }
+}

@@ -8,7 +8,6 @@ build/
 */.idea/
 target/*
 out/*
-actions-db/
 actions-db-hibernate/
 builder/
 builder-eo/

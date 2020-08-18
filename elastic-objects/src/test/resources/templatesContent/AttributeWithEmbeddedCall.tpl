@@ -1,1 +1,0 @@
-Start <call local="local1"> - Content with local=$[local] <call embed="embed1">local=$[local]/embed=$[embed]</call> - </call> End

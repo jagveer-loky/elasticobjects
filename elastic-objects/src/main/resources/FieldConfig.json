@@ -50,9 +50,6 @@
     "description": "Definition of available attributes for an Action."
   },
   "attributes": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "attributes",
     "dbFieldParams": {
       "fieldName": "attributes"
     },
@@ -111,15 +108,28 @@
     "description": "Column keys with String interface"
   },
   "configKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "configKey",
     "dbFieldParams": {
       "length": 64
     },
     "modelKeys": "String",
     "fieldKey": "configKey",
     "description": "Key for configuration  {@link ConfigConfig}"
+  },
+  "configFilter": {
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "configFilter",
+    "description": "Key for filter configuration"
+  },
+  "configType": {
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "configType",
+    "description": "Key for configuration type."
   },
   "content": {
     "module": "elastic-objects",
@@ -131,6 +141,17 @@
     "modelKeys": "String",
     "fieldKey": "content",
     "description": "A content."
+  },
+  "condition": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "condition",
+    "dbFieldParams": {
+      "length": 1000
+    },
+    "modelKeys": "String",
+    "fieldKey": "condition",
+    "description": "A condition for calls. "
   },
   "create": {
     "module": "elastic-objects",
@@ -153,6 +174,12 @@
     "modelKeys": "Date",
     "fieldKey": "creationDate",
     "description": "Used to define the creation of an item."
+  },
+  "call": {
+    "naturalId": "call",
+    "modelKeys": "Call",
+    "fieldKey": "call",
+    "description": "Used to define a call."
   },
   "customFieldParams": {
     "module": "elastic-objects",
@@ -327,17 +354,6 @@
     "fieldKey": "fields",
     "description": "A list of field keys for the model configuration. "
   },
-  "scsKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "scsKey",
-    "dbFieldParams": {
-      "length": 80
-    },
-    "modelKeys": "String",
-    "fieldKey": "scsKey",
-    "description": "A key for configs for simple commaseparated files."
-  },
   "fileKey": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -399,6 +415,19 @@
     "fieldKey": "filterConfigClass",
     "description": "Filter for configuration class in  {@link ConfigAction}"
   },
+
+
+  "filterConfigNameDynamic": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "filterConfigNameDynamic",
+    "dbFieldParams": {
+      "length": 64
+    },
+    "modelKeys": "String",
+    "fieldKey": "filterConfigNameDynamic",
+    "description": "Filter for key in  {@link ConfigAction}"
+  },
   "filterKey": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -432,6 +461,7 @@
     "fieldKey": "filterSubModule",
     "description": "Filter for subModules in  {@link ConfigAction}"
   },
+
   "hibernate": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -485,6 +515,17 @@
     "modelKeys": "Long",
     "fieldKey": "id",
     "description": "The id with a autonumbering"
+  },
+  "duration": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "duration",
+    "dbFieldParams": {
+      "fieldName": "duration"
+    },
+    "modelKeys": "Long",
+    "fieldKey": "duration",
+    "description": "The duration of a call."
   },
   "idKey": {
     "module": "elastic-objects",
@@ -560,18 +601,6 @@
     "fieldKey": "joinInverse",
     "description": "A self reference key to a id field on a glue n-m table."
   },
-  "jsonKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "jsonKey",
-    "dbFieldParams": {
-      "fieldName": "jsonKey",
-      "length": 64
-    },
-    "modelKeys": "String",
-    "fieldKey": "jsonKey",
-    "description": "The key for the json config/action."
-  },
   "serializationType": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -633,18 +662,6 @@
     "fieldKey": "listParams",
     "description": "Filter for the readings within {@link ListAction}."
   },
-  "log": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "log",
-    "dbFieldParams": {
-      "fieldName": "log",
-      "length": 80
-    },
-    "modelKeys": "String",
-    "fieldKey": "log",
-    "description": "Log entray as String."
-  },
   "loopPath": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -685,6 +702,21 @@
     "modelKeys": "ArrayList,String",
     "fieldKey": "methods",
     "description": "Methods accessible in actions. "
+  },
+  "callMethod": {
+    "modelKeys": "String",
+    "description": "Call Method accessible in actions. ",
+    "fieldKey": "callMethod"
+  },
+  "callKey": {
+    "modelKeys": "String",
+    "description": "Call key from cache.",
+    "fieldKey": "callKey"
+  },
+  "callClass": {
+    "modelKeys": "String",
+    "description": "Call Class referencing a call class. ",
+    "fieldKey": "callClass"
   },
   "model": {
     "module": "elastic-objects",
@@ -746,7 +778,7 @@
     "module": "elastic-objects",
     "subModule": "main",
     "naturalId": "modelsList",
-    "modelKeys": "ModelsList",
+    "modelKeys": "Models",
     "fieldKey": "modelsList",
     "description": "A list of models to specify field types."
   },
@@ -806,6 +838,15 @@
     },
     "modelKeys": "Boolean",
     "fieldKey": "notNull"
+  },
+  "inTemplate": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "inTemplate",
+    "dbFieldParams": {
+    },
+    "modelKeys": "Boolean",
+    "fieldKey": "inTemplate"
   },
   "or": {
     "module": "elastic-objects",
@@ -872,15 +913,44 @@
     "description": "The password instance var."
   },
   "path": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "path",
     "dbFieldParams": {
       "fieldName": "path",
       "length": 80
     },
     "modelKeys": "String",
     "fieldKey": "path"
+  },
+  "sourcePath": {
+    "dbFieldParams": {
+      "fieldName": "sourcePath",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "sourcePath"
+  },
+  "targetPath": {
+    "dbFieldParams": {
+      "fieldName": "targetPath",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "targetPath"
+  },
+  "filterPath": {
+    "dbFieldParams": {
+      "fieldName": "filterPath",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "filterPath"
+  },
+  "locationPath": {
+    "dbFieldParams": {
+      "fieldName": "locationPath",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "locationPath"
   },
   "pathPattern": {
     "module": "elastic-objects",
@@ -1021,6 +1091,23 @@
     "modelKeys": "ShapeTypes",
     "fieldKey": "shapeType"
   },
+  "keepCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "keepCall",
+    "modelKeys": "KeepCalls",
+    "fieldKey": "keepCall"
+  },
+  "logLevel": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "logLevel",
+    "dbFieldParams": {
+      "fieldName": "logLevel"
+    },
+    "modelKeys": "LogLevel",
+    "fieldKey": "logLevel"
+  },
   "subModule": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -1066,18 +1153,6 @@
     "fieldKey": "template",
     "description": "A template key used to generate a model."
   },
-  "templateKey": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "naturalId": "templateKey",
-    "dbFieldParams": {
-      "fieldName": "templateKey",
-      "length": 64
-    },
-    "modelKeys": "String",
-    "fieldKey": "templateKey",
-    "description": "The key for the template"
-  },
   "unique": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -1087,6 +1162,16 @@
     },
     "modelKeys": "Boolean",
     "fieldKey": "unique"
+  },
+  "overwrite": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "overwrite",
+    "dbFieldParams": {
+      "fieldName": "overwrite"
+    },
+    "modelKeys": "Boolean",
+    "fieldKey": "overwrite"
   },
   "upper.ID": {
     "module": "elastic-objects",
@@ -1135,7 +1220,10 @@
     "module": "elastic-objects",
     "subModule": "main",
     "naturalId": "value",
-    "modelKeys": "Object",
+    "modelKeys": "String",
+    "dbFieldParams": {
+      "length": 20000
+    },
     "fieldKey": "value"
   },
   "valueAsString": {

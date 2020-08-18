@@ -1,8 +1,0 @@
-rootProject.name = "elasticobjects"
-include 'test-resources'
-include 'elastic-objects'
-
-include 'actions-csv'
-include 'actions-xlsx'
-
-

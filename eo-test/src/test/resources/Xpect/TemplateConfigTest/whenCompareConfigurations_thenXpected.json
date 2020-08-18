@@ -1,0 +1,73 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "templateKey": "content",
+    "fileName": "content.tpl",
+    "fileKey": "content",
+    "filePath": "classpath/templates",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "1": {
+    "templateKey": "ContentExampleDynamic",
+    "fileName": "ContentExampleDynamic.tpl",
+    "fileKey": "ContentExampleDynamic",
+    "filePath": "input/calls/content-example",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "2": {
+    "templateKey": "ContentExampleElement1",
+    "fileName": "ContentExampleElement1.tpl",
+    "fileKey": "ContentExampleElement1",
+    "filePath": "input/calls/content-example",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "3": {
+    "templateKey": "ContentExampleElement2",
+    "fileName": "ContentExampleElement2.tpl",
+    "fileKey": "ContentExampleElement2",
+    "filePath": "input/calls/content-example",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "4": {
+    "templateKey": "ContentExampleStatic",
+    "fileName": "ContentExampleStatic.tpl",
+    "fileKey": "ContentExampleStatic",
+    "filePath": "input/calls/content-example",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "5": {
+    "templateKey": "ContentExampleStaticCondition",
+    "fileName": "ContentExampleStaticCondition.tpl",
+    "fileKey": "ContentExampleStaticCondition",
+    "filePath": "input/calls/content-example",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  },
+  "6": {
+    "templateKey": "ContentExampleStaticKeep",
+    "fileName": "ContentExampleStaticKeep.tpl",
+    "fileKey": "ContentExampleStaticKeep",
+    "filePath": "input/calls/content-example",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+    }
+  }
+}

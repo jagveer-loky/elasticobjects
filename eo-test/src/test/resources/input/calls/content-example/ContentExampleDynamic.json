@@ -1,0 +1,13 @@
+{
+  "(JsonReadCall)data": {
+    "configKey":"ContentExampleData"
+  },
+  "(TemplateCall)1": {
+    "content":"Start of content with a templateKey as variable: "
+  },
+  "(TemplateResourceCall)2": {
+    "sourcePath": "data",
+    "configKey":"eo->template.",
+    "filterPath":"*"
+  }
+}
