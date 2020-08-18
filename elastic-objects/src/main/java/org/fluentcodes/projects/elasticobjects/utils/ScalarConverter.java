@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -42,6 +43,29 @@ public class ScalarConverter {
         formatter.put(weekdays + " " + months + " [\\d]{2,2} [\\d]{2,2}:[\\d]{2,2}:[\\d]{2,2} [\\w]+ [\\d]{4,4}", new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US));//RSS 2.0
         //http://tutorials.jenkov.com/java-date-time/java-util-timezone.html
         return formatter;
+    }
+
+    public static Object fromJson(final String value) {
+        if ("true".equals(value)) {
+            return true;
+        }
+        if ("false".equals(value)) {
+            return false;
+        }
+        try {
+            return Integer.parseInt(value);
+        }
+        catch (Exception e) {
+            try{
+                return Float.parseFloat(value);
+            }
+            catch (Exception e1) {
+                throw new EoException("Could not transform non quoted value '" + value + "'.");
+            }
+        }
+
+
+
     }
 
     public static Object transformToJSON(Object source) {
@@ -91,7 +115,7 @@ public class ScalarConverter {
      * @param source
      * @return
      */
-    public static Object transformScalar(Class<?> mapClass, Object source) throws Exception {
+    public static Object transformScalar(Class<?> mapClass, Object source)  {
         if (mapClass == null || mapClass == Object.class) {
             return source;
         }
@@ -171,7 +195,7 @@ public class ScalarConverter {
      * @throws IllegalAccessException
      * @throws java.lang.reflect.InvocationTargetException
      */
-    public static Object transform(Class<?> mapClass, Object source) throws Exception {
+    public static Object transform(Class<?> mapClass, Object source)  {
         // Setter call would not work with a null vlue
         if (mapClass == null || mapClass == Object.class) {
             return source;
@@ -403,11 +427,10 @@ public class ScalarConverter {
             return new Double((Double) value);
         }
         if (value instanceof String) {
-            String check = (String) value;
-            if (check.matches("^[\\d]+[\\.,]*[\\d]*$")) {
-                return Double.parseDouble(cleanNumberForParse(check));
-            } else {
-                return null;
+            try {
+                return Double.parseDouble((String)value);
+            } catch (Exception e) {
+                throw new EoException(e.getMessage());
             }
         }
 
@@ -423,7 +446,7 @@ public class ScalarConverter {
         if (value instanceof Float) {
             return new Double(value.toString());
         }
-        return null;
+        throw new EoException("No conversion defined for value " + value.toString() + " with class " + value.getClass().getSimpleName());
     }
 
     private static String cleanNumberForParse(String toParse) {
@@ -433,7 +456,7 @@ public class ScalarConverter {
         return toParse;
     }
 
-    public static Integer toInt(Object value) throws Exception {
+    public static Integer toInt(Object value)  {
         if (value == null) {
             return null;
         }
@@ -451,7 +474,7 @@ public class ScalarConverter {
             return null;
         }
         if (!(value instanceof Number)) {
-            throw new Exception("Could not transform to integer since value is neither String nor parsable String nor Number with value='" + value.toString() + "': " + value.getClass());
+            throw new EoException("Could not transform to integer since value is neither String nor parsable String nor Number with value='" + value.toString() + "': " + value.getClass());
         }
         if (value instanceof Integer) {
             return (Integer) value;

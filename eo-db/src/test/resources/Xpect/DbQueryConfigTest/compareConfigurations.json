@@ -1,0 +1,21 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "modelKey": "BasicTest",
+    "(ListParams)listParams": {
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+    }
+  },
+  "1": {
+    "modelKey": "SubTest",
+    "(ListParams)listParams": {
+    },
+    "listMapper": {
+    },
+    "rolePermissions": {
+    }
+  }
+}

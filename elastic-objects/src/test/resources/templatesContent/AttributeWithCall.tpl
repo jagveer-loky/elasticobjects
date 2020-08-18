@@ -1,1 +1,0 @@
-Start <call local="local1"> - Content with local=$[local] - </call> End

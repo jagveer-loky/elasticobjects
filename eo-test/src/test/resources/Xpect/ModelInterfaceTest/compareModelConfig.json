@@ -1,0 +1,53 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelInterface",
+    "superKey": "Config",
+    "(ArrayList)fieldKeys": {
+      "0": "packagePath",
+      "1": "modelKey",
+      "2": "superKey",
+      "3": "interfaces",
+      "4": "fieldKeys",
+      "5": "eoParams",
+      "6": "dbParams",
+      "7": "viewParams",
+      "8": "customParams",
+      "9": "packageGroup",
+      "10": "module",
+      "11": "subModule",
+      "12": "scope",
+      "13": "key",
+      "14": "id",
+      "15": "description",
+      "16": "naturalId",
+      "17": "creationDate",
+      "18": "author"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "INTERFACE",
+      "create": false,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      }
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "models",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "ModelInterface",
+    "description": "Table definitions with pojo.",
+    "naturalId": "ModelInterface",
+    "author": "Werner Diwischek"
+  }
+}

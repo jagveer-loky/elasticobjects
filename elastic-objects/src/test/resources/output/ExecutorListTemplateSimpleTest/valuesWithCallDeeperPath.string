@@ -1,4 +1,0 @@
-The value can be set by path:
-level0/level1/level2/level3/level4/string='test'
-Now the call solution with subsequent path:
-This is the value with string='test'

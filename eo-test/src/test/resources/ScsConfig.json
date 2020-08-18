@@ -1,0 +1,51 @@
+{
+  "ListSimple.csv": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "ListSimple.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "description": "A sample csv file with 2*2 values and a head as a source."
+  },
+  "BasicTest.csv": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "BasicTest.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source."
+  },
+  "target.csv": {
+    "module": "test-resources",
+    "subModule": "main",
+    "naturalId": "target.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "description": "A sample target csv file with tmp placeholder."
+  }
+}
