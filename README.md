@@ -1,10 +1,12 @@
 <div align="right" clear="left">
-[Path](#path)
-[JSON](#json)
-[Under The Hood](#under-the-hood)
-[Further Documentation](#further-documentation)
-[Packages](#packages)
-[Status](#status)
+<font size="2">
+<a href="#path">Path</a><br>
+<a href="#json">JSON</a><br>
+<a href="#under-the-hood">Under the Hood</a><br>
+<a href="#further-documentation">Further-Documentation</a><br>
+<a href="#packages">Packages</a><br>
+<a href="#status">Status</a><br>
+</font>
 </div>
 
 # Elastic Objects
@@ -16,7 +18,7 @@ It's serialization with [json](#json) has some specialties:
 * [unmapped fields](#unmapped) starting with "_" allow integration of extra information in JSON like comments.
 * every type directive implementing the [Call bean](#calls) trigger an execution on the target system. 
 
-<div align="right" style="font-size:10px">[top](#top)</div>
+<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
 
 #### Path
  [EO](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/EO.java) allows creating, accessing and modifing complex Java objects via path. Non existing elements will be created automatically. 
@@ -25,7 +27,10 @@ It's serialization with [json](#json) has some specialties:
     EO child = eo.set("value","level0/level1/level2/level3");
     assertThat(child.get()).isEqualTo("value");
     assertThat(eo.get("level0/level1/level2/level3")).isEqualTo("value");
-<div align="right" style="font-size:10px">[example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoSetScalarTest)</div>
+<div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoSetScalarTest">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
 
 One can integrate typed objects in a complex structure and access it without loosing the type.
 
@@ -34,8 +39,10 @@ One can integrate typed objects in a complex structure and access it without loo
     eo.set(bt, "level0");
     assertThat(eo.get("level0/testString")).isEqualTo("value");
     assertThat(eo.getEo("level0").getModelClass()).isEqualTo(BasicTest.class);
-<div align="right" style="font-size:10px">[example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapSetBtTes)</div>
-
+<div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapSetBtTest">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
 Objects will be automatically mapped to the existing model class. This allows easy merge and conversion of objects with same names.
 
     final EO eo = ProviderRootTestScope.createEo(Map.class);
@@ -44,7 +51,11 @@ Objects will be automatically mapped to the existing model class. This allows ea
     eo.mapObject(bt);
     assertThat(((Map)eo.get())get()"testString")).isEqualTo("value");
     assertThat(eo.getModelClass()).isEqualTo(Map.class);
-<div align="right" style="font-size:10px">[example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest)</div>
+
+<div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
 
 The last example the other way round:
 
@@ -54,11 +65,15 @@ The last example the other way round:
     eo.mapObject(map);
     assertThat(((BasicTest)eo.get()).getTestString()).isEqualTo("value");
     assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
-<div align="right" style="font-size:10px">[example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest)</div>
+
+<div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
 
 Elastic objects offers some nice tools for objects which can be used in a native solution. 
 
-<div align="right" style="font-size:10px">[top](#top)</div>
+<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
 
 #### JSON
 The serialization/deserialization implementation extends some limitations of standard json 
@@ -138,7 +153,7 @@ eo.execute();
 Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
 Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
 ```
-<div align="right" style="font-size:10px"><a href="#top">top</top></div>
+<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
 
 This is a rather small example and the implementation [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) is minimal and no restrictions for execution need to be made, since only a value is set to EO.
 
@@ -156,7 +171,7 @@ These calls use also configurations with a permission part.
 ### Under The Hood
 
 
-<div align="right" style="font-size:10px">[top](#top)</div>
+<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
 
 
 ### Further documentation
@@ -165,7 +180,7 @@ An in depth documentation is created on this [github wiki](https://github.com/fl
 
 
 
-<div align="right" style="font-size:10px">[top](#top)</div>
+<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
 
 
 ### Packages
@@ -180,7 +195,11 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
         <version>0.2.0-SNAPSHOT</version>
     </dependency>
 ```
-<div align="right" style="font-size:10px">[mvn repository](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo)</div>
+
+<div align="right" style="font-size:10px">
+<a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
 
 #### eo-csv
 [eo-csv](https://github.com/fluentcodes/elasticobjects/tree/master/eo-csv) offers calls and configurations for reading and writing csv files using [OpenCsv](https://mvnrepository.com/artifact/com.opencsv/opencsv).
@@ -191,8 +210,11 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
         <artifactId>eo-csv</artifactId>
         <version>0.2.0-SNAPSHOT</version>
     </dependency>
-<div align="right" style="font-size:10px">[mvn repository](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-csv)</div>
 
+<div align="right" style="font-size:10px">
+<a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-csv">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
 #### eo-xlsx
 [eo-xlsx](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations for reading and writing xlsx files using [Apache POI](https://mvnrepository.com/artifact/org.apache.poi/poi).
 
@@ -202,9 +224,13 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
         <artifactId>eo-xlsx</artifactId>
         <version>0.2.0-SNAPSHOT</version>
     </dependency>
-<div align="right" style="font-size:10px">[mvn repository](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-xlsx)</div>
 
-<div align="right" style="font-size:10px">[top](#top)</div>
+<div align="right" style="font-size:10px">
+<a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-xlsx">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
+
+<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
 
 ### Status
 After a lot of breaks the java version is now in a state I could accept as "fit" to the concept. It's basic mechanism works direct and with minimal implementation flourish.
