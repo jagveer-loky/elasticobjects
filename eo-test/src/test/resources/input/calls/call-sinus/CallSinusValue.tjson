@@ -1,15 +1,8 @@
 {
-  "(List,Double)source": {
-    "0": 1,
-    "1": 2,
-    "2": 3
-  },
-  "(LogLevel)_logLevel": "WARN",
+  "(Double)source":1,
   "(List)_calls": {
     "(SinusValueCall)0": {
-      "sourcePath": "/source",
-      "targetPath": "/target",
-      "filterPath": "*"
+      "sourcePath": "/source"
     }
   }
 }

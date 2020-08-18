@@ -20,6 +20,17 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EoSetScalarTest {
     private static final Logger LOG = LogManager.getLogger(EoSetScalarTest.class);
 
+    /**
+     * Basic wiki example
+     */
+    @Test
+    public void givenDev_whenSetLongPath_thenChildAndRootCanBeAccessed() {
+        final EO eo = ProviderRootDevScope.createEo();
+        EO child = eo.set("value","level0/level1/level2/level3");
+        Assertions.assertThat(child.get()).isEqualTo("value");
+        Assertions.assertThat(eo.get("level0/level1/level2/level3")).isEqualTo("value");
+    }
+
     @Test
     public void givenDev_whenSetStringWithLevel0_thenValueIsSet()  {
         final EO eo = ProviderRootDevScope.createEo();
