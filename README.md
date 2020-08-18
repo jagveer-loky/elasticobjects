@@ -9,12 +9,12 @@
 
 # Elastic Objects
 
-Elastic Objects is a small java application framework for handling complex objects via path. 
+Elastic Objects is a small java application framework for handling complex objects via [path](#path). 
 
-It's serialization with [json](#json) contains some specialties:
+It's serialization with [json](#json) has some specialties:
 * [embedded type directives](#typed) offers looseless data exchange without webservers or REST. 
 * [unmapped fields](#unmapped) starting with "_" allow integration of extra information in JSON like comments.
-* every type implementing [Calls](#calls) will execute something on the target system. 
+* every type directive implementing the [Call bean](#calls) trigger an execution on the target system. 
 
 <div align="right" style="font-size:10px">[top](#top)</div>
 
@@ -138,8 +138,20 @@ eo.execute();
 Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
 Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
 ```
-<div align="right" style="font-size:10px">[top](#top)</div>
+<div align="right" style="font-size:10px"><a href="#top">top</top></div>
 
+This is a rather small example and the implementation [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) is minimal and no restrictions for execution need to be made, since only a value is set to EO.
+
+Other examples for these simple calls you can find under the [calls/values](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/) package.
+
+When it comes to read or write something on the server, it's a more complex topic. The following Calls are implemented: 
+
+* [File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files)
+* [JSON File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/json)
+* [String Separated File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/scs)
+* [Templates](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates)
+
+These calls use also configurations with a permission part. 
 
 ### Under The Hood
 
@@ -192,6 +204,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
     </dependency>
 <div align="right" style="font-size:10px">[mvn repository](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-xlsx)</div>
 
+<div align="right" style="font-size:10px">[top](#top)</div>
 
 ### Status
 After a lot of breaks the java version is now in a state I could accept as "fit" to the concept. It's basic mechanism works direct and with minimal implementation flourish.
