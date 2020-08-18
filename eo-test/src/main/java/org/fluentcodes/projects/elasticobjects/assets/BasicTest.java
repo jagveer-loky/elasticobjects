@@ -130,8 +130,9 @@ public class BasicTest {
         return this.testString;
     }
 
-    public void setTestString(String testString) {
+    public BasicTest setTestString(String testString) {
         this.testString = testString;
+        return this;
     }
 
 

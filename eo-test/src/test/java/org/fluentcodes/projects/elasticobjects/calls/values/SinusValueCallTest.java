@@ -53,8 +53,19 @@ public class SinusValueCallTest {
         return ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapEo().getEo(SOURCE);
     }
 
+    /**
+     * Basic Wiki Example
+     */
     @Test
-    public void direct_ok()  {
+    public void givenCallSinusValue_thenInputValueIsReplaced() {
+        EO eo = TestProviderJsonCalls.CALL_SINUS_VALUE.createMapEo();
+        eo.execute();
+        Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
+        Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
+        new XpectEo<>().compareAsString(eo);
+    }
+    @Test
+    public void givenSimple_thenSourceValueWillBeOverwritten()  {
         final Call call = new SinusValueCall();
         EO eo = createSimple();
         Double result = (Double) call.execute(eo);
@@ -172,7 +183,6 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEoWithContentWithSinusCallPlaceholderJson_whenExecuteEo_thenPlaceHolderIsReplaced()  {
-        EO eox = TestProviderJson.MAP_SMALL_WITH_KEY.getEoTest();
         EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY.getEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
