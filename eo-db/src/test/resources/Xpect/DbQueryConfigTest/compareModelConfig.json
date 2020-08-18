@@ -1,0 +1,40 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbQueryConfig",
+    "superKey": "ListConfig",
+    "(ArrayList)fieldKeys": {
+      "0": "dbKey",
+      "1": "modelKey",
+      "2": "sql",
+      "3": "listParams",
+      "4": "listMapper",
+      "5": "rolePermissions"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "CONFIG",
+      "create": false,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      }
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "config",
+    "module": "actions-db",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "DbQueryConfig",
+    "description": "Execute sql statement via jdbc connection. ",
+    "naturalId": "DbQueryConfig",
+    "author": "Werner Diwischek"
+  }
+}

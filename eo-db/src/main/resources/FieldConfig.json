@@ -1,0 +1,95 @@
+{
+  "dbConfig": {
+    "fieldKey": "dbConfig",
+    "modelKeys": "DbConfig",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "The cache embeded int {@link HibernateCache}.",
+    "naturalId": "dbConfig"
+  },
+  "dbKey": {
+    "fieldKey": "dbKey",
+    "dbFieldParams": {
+      "fieldName": "dbKey",
+      "unique": true,
+      "notNull": true,
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "The key finding a cache {@Link DbCache} entry.",
+    "naturalId": "dbKey"
+  },
+  "dbType": {
+    "fieldKey": "dbType",
+    "modelKeys": "DbTypes",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "The type of the db as Enumeration providing informations like the driver.",
+    "naturalId": "dbType"
+  },
+  "sql": {
+    "fieldKey": "sql",
+    "dbFieldParams": {
+      "fieldName": "sql",
+      "length": 2048
+    },
+    "modelKeys": "String",
+    "module": "actions-db",
+    "subModule": "main",
+    "naturalId": "sql"
+  },
+  "driver": {
+    "fieldKey": "driver",
+    "dbFieldParams": {
+      "fieldName": "driver",
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db",
+    "subModule": "main",
+    "naturalId": "driver"
+  },
+  "extension": {
+    "fieldKey": "extension",
+    "dbFieldParams": {
+      "length": 1024
+    },
+    "modelKeys": "String",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "An extension for database initialization. ",
+    "naturalId": "extension"
+  },
+  "jndi": {
+    "fieldKey": "jndi",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "The jndi lookup for a hibernate session factory. ",
+    "naturalId": "jndi"
+  },
+  "schema": {
+    "fieldKey": "schema",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "The database schema used for persisting. {@link HostCache}",
+    "naturalId": "schema"
+  },
+  "sqlList": {
+    "fieldKey": "sqlList",
+    "modelKeys": "ArrayList,String",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "A list of sql strings to be executed within {@Link HibernateSqlCache} or {@Link DbSqlCache}.",
+    "naturalId": "sqlList"
+  }
+}

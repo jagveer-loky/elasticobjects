@@ -26,6 +26,11 @@ public abstract class CallResource<RESULT> extends CallImpl<RESULT> {
         this.permissions = permissionType;
     }
 
+    public CallResource(PermissionType permissionType, final String configKey) {
+        this.permissions = permissionType;
+        this.configKey = configKey;
+    }
+
     public boolean hasPermissions(final List<String> roles) {
         return ((ConfigResourcesImpl)getConfig()).getRolePermissions().hasPermissions(permissions, roles);
     }

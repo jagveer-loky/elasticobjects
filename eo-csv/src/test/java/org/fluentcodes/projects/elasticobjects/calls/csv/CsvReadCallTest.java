@@ -6,7 +6,6 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ScsReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
@@ -39,8 +38,7 @@ public class CsvReadCallTest {
 
     @Test
     public void givenCallWithListSimpleCsv_whenExecute_thenListReturned()  {
-        final Call call = new CsvReadCall()
-                .setConfigKey(LIST_SIMPLE_CSV);
+        final Call call = new CsvReadCall(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();
         List value = (List)call.execute(eo);
         Assertions.assertThat(value).isNotEmpty();

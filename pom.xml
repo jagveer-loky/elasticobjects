@@ -54,9 +54,10 @@
     <modules>
         <module>elastic-objects</module>
         <module>eo-test</module>
-        <module>eo-xpect</module>
         <module>eo-csv</module>
         <module>eo-xlsx</module>
+        <module>eo-db</module>
+        <module>eo-xpect</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

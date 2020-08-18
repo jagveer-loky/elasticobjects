@@ -32,6 +32,10 @@ public class ListCall extends CallResource {
         super(permissionType);
     }
 
+    public ListCall(final PermissionType permissionType, final String configKey) {
+        super(permissionType, configKey);
+    }
+
     public boolean hasRowStart() {
         return rowStart != null && rowStart > -1;
     }
