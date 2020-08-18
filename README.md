@@ -198,7 +198,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
 
 <div align="right" style="font-size:10px">
 <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">mvn repository</font>
 </a></div>
 
 #### eo-csv
@@ -213,7 +213,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
 
 <div align="right" style="font-size:10px">
 <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-csv">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">mvn repository</font>
 </a></div>
 #### eo-xlsx
 [eo-xlsx](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations for reading and writing xlsx files using [Apache POI](https://mvnrepository.com/artifact/org.apache.poi/poi).
@@ -227,7 +227,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
 
 <div align="right" style="font-size:10px">
 <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-xlsx">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">mvn repository</font>
 </a></div>
 
 <div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
