@@ -1,0 +1,71 @@
+{
+  "localMySql:core": {
+    "dbKey": "localMySql:core",
+    "dbType": "MYSQL",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "Core Schema",
+    "naturalId": "localMySql:core"
+  },
+  "localMySql:test": {
+    "dbKey": "localMySql:test",
+    "dbType": "MYSQL",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "Test Schema",
+    "naturalId": "localMySql:test"
+  },
+  "localOracle:XE": {
+    "dbKey": "localOracle:XE",
+    "schema": "XE",
+    "dbType": "ORACLE",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "Oracle Schem",
+    "naturalId": "localOracle:XE"
+  },
+  "hsql:mem": {
+    "dbKey": "hsql:mem",
+    "hostKey": "hsql",
+    "schema": "mem",
+    "dbType": "HSQL",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "local HSQL which exists just in memory",
+    "naturalId": "hsql:mem"
+  },
+  "hsql:fileTest": {
+    "dbKey": "hsql:fileTest",
+    "hostKey": "hsql",
+    "schema": "file:$[TMP]/test.hsql",
+    "dbType": "HSQL",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
+    "naturalId": "hsql:fileTest"
+  },
+  "h2:mem": {
+    "dbKey": "h2:mem",
+    "hostKey": "h2",
+    "schema": "mem:test",
+    "driver": "org.h2.Driver",
+    "dbType": "H2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "local H2 which exists just in memory",
+    "naturalId": "h2:mem"
+  },
+  "h2:file": {
+    "dbKey": "h2:file",
+    "hostKey": "h2",
+    "schema": "$[TMP]/test",
+    "driver": "org.h2.Driver",
+    "dbType": "H2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "module": "actions-db",
+    "subModule": "main",
+    "description": "local H2 with a temp file",
+    "naturalId": "h2:file"
+  }
+}

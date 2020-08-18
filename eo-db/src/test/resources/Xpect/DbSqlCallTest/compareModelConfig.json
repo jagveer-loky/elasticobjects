@@ -1,0 +1,46 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbSqlCall",
+    "superKey": "CallResource",
+    "(ArrayList)fieldKeys": {
+      "0": "configKey",
+      "1": "sourcePath",
+      "2": "targetPath",
+      "3": "locationPath",
+      "4": "models",
+      "5": "filterPath",
+      "6": "condition",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      },
+      "modelConfigKey": "DbSqlConfig"
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "calls",
+    "module": "actions-db",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "DbSqlCall",
+    "description": "A execution method for  {@link DbSqlConfig}",
+    "naturalId": "DbSqlCall",
+    "author": "Werner Diwischek"
+  }
+}

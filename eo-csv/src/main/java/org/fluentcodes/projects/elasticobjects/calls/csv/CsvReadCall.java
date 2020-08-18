@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
+import java.security.Permissions;
 import java.util.List;
 
 /**
@@ -17,6 +18,10 @@ public class CsvReadCall extends ListReadCall {
 
     public CsvReadCall()  {
         super();
+    }
+
+    public CsvReadCall(final String configKey)  {
+        super(configKey);
     }
 
     @Override

@@ -16,6 +16,10 @@ public class ListReadCall extends ListCall {
         super(PermissionType.READ);
     }
 
+    public ListReadCall(final String configKey) {
+        super(PermissionType.READ, configKey);
+    }
+
     public Object transform(List toFilter) {
         List filteredList = new ArrayList();
         if (hasRowStart() || hasRowEnd()) {
