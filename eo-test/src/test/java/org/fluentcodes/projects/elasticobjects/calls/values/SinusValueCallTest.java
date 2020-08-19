@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.*;
+import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
@@ -15,6 +16,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import static java.lang.Thread.sleep;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Tests for {@link SinusValueCall}
@@ -36,6 +38,23 @@ public class SinusValueCallTest {
             LOG.info(e.getMessage());
             throw e;
         }
+    }
+
+    /**
+     * Wiki example
+     */
+    @Test
+    public void givenDev_whenTargetIsSinus_thenExecutedValue() {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String jsonString = "{\n" +
+                "  \"(Double)source\":1,\n" +
+                "  \"(SinusValueCall)target\": {\n" +
+                "    \"sourcePath\": \"/source\"\n" +
+                "  }\n" +
+                "}";
+        eo.mapObject(jsonString);
+        eo.execute();
+        assertThat(eo.get("target")).isEqualTo(0.8414709848078965);
     }
 
     @Test
