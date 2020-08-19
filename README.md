@@ -287,7 +287,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>elastic-objects</artifactId>
-        <version>0.2.0-SNAPSHOT</version>
+        <version>0.2.0</version>
     </dependency>
 ```
 
@@ -303,7 +303,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-csv</artifactId>
-        <version>0.2.0-SNAPSHOT</version>
+        <version>0.2.0</version>
     </dependency>
 
 <div align="right" style="font-size:10px">
@@ -318,7 +318,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-xlsx</artifactId>
-        <version>0.2.0-SNAPSHOT</version>
+        <version>0.2.0</version>
     </dependency>
 
 <div align="right" style="font-size:10px">
