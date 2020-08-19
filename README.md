@@ -83,11 +83,12 @@ Elastic objects without JSON serialization could be used as a tool in a java nat
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 #### Typed JSON
-The serialization/deserialization implementation extends some limitations of standard json 
-It allows 
-* embed type directives in the name allows typesafe transfer
-* embed information with names starting with "_" (e.g _comment)
-* embed calling functionality with special call classes implementing an execute method.
+The serialization/deserialization implementation extends some limitations of standard json.
+
+It allows
+* [embed type](#typed) directives in the name allows typesafe transfer
+* [embed information](#unmapped) with names starting with "_" (e.g _comment)
+* [embed calling functionality](#calls) with special call classes implementing an execute method.
 
 ##### Untyped
 Standard JSON will be interpreted to standard untyped objects like map or list.
