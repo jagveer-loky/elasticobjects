@@ -13,12 +13,12 @@
 
 # Elastic Objects
 
-Elastic Objects is a small java application framework for handling (compound) objects via [path](#path).
+Elastic Objects is a java application handling (compound) objects via [path](#path).
 
-It could read or write typed [JSON](#typed-json) for string representation which offers
-* [embedded type directives](#typed) for looseless data exchange without webservers or REST.
-* [unmapped fields](#unmapped) for integration of extra information in JSON like comments.
-* special types for the execution of [Call Beans](#calls).
+It read and write typed [JSON](#typed-json) for string representation which offers
+* [embedded type directives](#typed) for looseless data exchange: (BasicTest)fieldName:{...}
+* [unmapped fields](#unmapped) for integration of extra information in JSON: _comment
+* execution of [Call Beans](#calls): (SinusValueCall)result:{...}
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
@@ -358,4 +358,11 @@ object has to be wrapped by EO before serializing. Another reason is the slownes
 Since EO allows more than just simple type mapping I suppose it will never reach the performance of the other frameworks.
 
 ### Links
-* https://help.github.com/articles/licensing-a-repository/
+* https://tech.signavio.com/2017/json-type-information
+* https://www.json.org/json-en.html
+* https://de.wikipedia.org/wiki/JSON-LD
+* http://restcookbook.com/Mediatypes/json/
+* https://gkulshrestha.wordpress.com/2013/11/16/embedding-type-information-in-json-posted-to-web-api/
+* https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_TypeNameHandling.htm
+* https://de.wikipedia.org/wiki/JavaScript_Object_Notation
+* http://jsonp.eu/
