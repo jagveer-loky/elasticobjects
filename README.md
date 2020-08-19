@@ -191,13 +191,82 @@ The following configured calls are implemented:
 * [List files](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists)
 * [Templates](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates)
 
-These calls use also configurations with a permission part. 
+These calls use also configurations with a permission part.
 
-### Under The Hood
+Other calls using some frameworks will deployed separately. Actually you find here the modules for
+* [CSV](https://github.com/fluentcodes/elasticobjects/blob/master/eo-csv)
+* [Excel](https://github.com/fluentcodes/elasticobjects/blob/master/eo-xlsx)
+* [JDBC](https://github.com/fluentcodes/elasticobjects/blob/master/eo-db)
 
+A description and examples of these calls you will find on [github wiki](https://github.com/fluentcodes/elasticobjects/wiki) and the site http://elasticobjects.com.
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
+### Under The Hood
+
+The type directives are just String refering to model configurations. If a new EO-Object is created a reference to the  
+[configuration map](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java)  
+is required.
+
+It initially contains a map with  
+[ModelConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfig.java) and a map with  
+[FieldConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/FieldConfig.java) objects.
+
+If the  
+[Scope](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java)  
+is not DEV then all files called  
+[ModelConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/ModelConfig.json) and  
+[FieldConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/FieldConfig.json) are initially loaded from the class path.
+
+To avoid defining confurations before using EO its also possible to create a simple class list with  
+[Model.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/resources/Models.json).
+
+The same procedure happens on demand with other configurations like
+[FileConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files/FileConfig.java)
+
+#### ModelConfig
+The configuration entry contains mainly a list of field names referencing to a field configuration. So field configurations can defined independent
+of a underlying class.
+
+The following example shows the configuration for [SubTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/SubTest.java) class.
+
+```
+  "SubTest": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "modelKey": "SubTest",
+    "fieldKeys": [
+      "id",
+      "subTest",
+      "name",
+      "testString"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "author": "Werner Diwischek"
+  }
+```
+
+#### FieldConfig
+In following code shows the field definition for the subTest field with the Model [SubTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/SubTest.java)
+```
+  "subTest": {
+    "fieldKey": "subTest",
+    "modelKeys": "SubTest",
+    "module": "eo-test",
+    "subModule": "main",
+  }
+```
+
+#### Exchange Configurations
+The model configuration are rather bloated since it's originally used to generate code from a list. In the version 0.3.0 a more stream lined version for
+configuration exchange will be implemented.
+
+
+<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 ### Further documentation
 
