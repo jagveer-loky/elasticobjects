@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
@@ -22,6 +22,22 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class EoMapObjectMapJsonTest {
     private static final Logger LOG = LogManager.getLogger(EoMapObjectMapJsonTest.class);
+
+    /**
+     * Wiki example
+     */
+    @Test
+    public void givenDev_whenMapTestStringWithPathLevel0_thenValueIsSet() {
+        final EO eo = ProviderRootDevScope.createEo();
+        final String jsonString = "{\n" +
+                "\t\"level0\":{\n" +
+                "\t\t\"testString\":\"value\"\n" +
+                "    }\n" +
+                "}";
+        eo.mapObject(jsonString);
+        assertThat(eo.get("level0/testString")).isEqualTo("value");
+        assertThat(eo.getEo("level0").getModelClass()).isEqualTo(Map.class);
+    }
 
     @Test
     public void givenDev_whenEmpty_thenNothingSet()  {
@@ -56,30 +72,30 @@ public class EoMapObjectMapJsonTest {
     public void givenDev_whenJsonMap_thenValueSet()  {
         final EO eo = ProviderRootDevScope.createEo();;
         eo.mapObject("{\"" + S_LEVEL0 + "\":1}");
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get(S_LEVEL0)).isEqualTo(1);
+        assertThat(eo.getLog()).isEmpty();
+        assertThat(eo.get(S_LEVEL0)).isEqualTo(1);
     }
 
     @Test
     public void givenDev_whenOneValueEmbedded_thenValuesSet()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.mapObject("{\"test1\":{\"test2\":\"testObject\"}}");
-        Assertions.assertThat(eo.get("test1/test2")).isEqualTo("testObject");
+        assertThat(eo.get("test1/test2")).isEqualTo("testObject");
     }
 
     @Test
         public void givenDev_whenTwoValues_thenValuesSet()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.mapObject("{\"test1\":\"testObject1\",\"test2\":\"testObject2\"}");
-        Assertions.assertThat(eo.get("test1")).isEqualTo("testObject1");
-        Assertions.assertThat(eo.get("test2")).isEqualTo("testObject2");
+        assertThat(eo.get("test1")).isEqualTo("testObject1");
+        assertThat(eo.get("test2")).isEqualTo("testObject2");
     }
 
     @Test
     public void givenDev_whenFileFloat_thenValuesSet()  {
         final EO eo = ProviderRootDevScope.createEo();;
         eo.mapObject(TestProviderBtJson.FLOAT.content());
-        Assertions.assertThat(eo.getLog()).isEmpty();
+        assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT, eo.get(BasicTest.TEST_FLOAT));
     }
@@ -88,7 +104,7 @@ public class EoMapObjectMapJsonTest {
     public void givenDev_whenSmall_thenValuesSet()  {
         final EO eo = ProviderRootDevScope.createEo();;
         eo.mapObject(TestProviderBtJson.SMALL.content());
-        Assertions.assertThat(eo.getLog()).isEmpty();
+        assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(BasicTest.TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(BasicTest.TEST_INTEGER));
@@ -98,7 +114,7 @@ public class EoMapObjectMapJsonTest {
     public void givenDev_whenFileAll_thenValuesSet()  {
         final EO eo = ProviderRootDevScope.createEo();;
         eo.mapObject(TestProviderBtJson.ALL.content());
-        Assertions.assertThat(eo.getLog()).isEmpty();
+        assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(BasicTest.TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(BasicTest.TEST_INTEGER));
@@ -108,21 +124,21 @@ public class EoMapObjectMapJsonTest {
     @Test
     public void testDouble()  {
         EO eo = TestProviderBtJson.DOUBLE_TYPED.createEoTest();
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get(BasicTest.TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
+        assertThat(eo.getLog()).isEmpty();
+        assertThat(eo.get(BasicTest.TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
     }
 
     @Test
     public void givenJsonFloatTypes_thenSetValue()  {
         EO eo = TestProviderBtJson.FLOAT_TYPED.createEoTest();
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get(BasicTest.TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
+        assertThat(eo.getLog()).isEmpty();
+        assertThat(eo.get(BasicTest.TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
     }
 
     @Test
     public void testAll()  {
         EO eo = TestProviderBtJson.ALL_TYPED.createEoTest();
-        Assertions.assertThat(eo.getLog()).isEmpty();
+        assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(BasicTest.TEST_STRING));
         Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(BasicTest.TEST_INTEGER));

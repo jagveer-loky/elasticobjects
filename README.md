@@ -1,4 +1,6 @@
+
 <div align="right" clear="left">
+<a name="page"/>
 <font size="2">
 <a href="#path">Path</a><br>
 <a href="#json">JSON</a><br>
@@ -11,24 +13,23 @@
 
 # Elastic Objects
 
-Elastic Objects is a small java application framework for handling complex objects via [path](#path). 
+Elastic Objects is a small java application framework for handling (compound) objects via [path](#path).
 
-It's serialization with [json](#json) has some specialties:
-* [embedded type directives](#typed) offers looseless data exchange without webservers or REST. 
-* [unmapped fields](#unmapped) starting with "_" allow integration of extra information in JSON like comments.
-* every type directive implementing the [Call bean](#calls) trigger an execution on the target system. 
+It offers to read or write typed [JSON](#json) for serialization that allow
+* [embedded type directives](#typed) looseless data exchange without webservers or REST.
+* [unmapped fields](#unmapped) integration of extra information in JSON like comments.
+* start execution for every type implementing the [Call bean](#calls).
 
-<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
+<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 #### Path
  [EO](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/EO.java) allows creating, accessing and modifing complex Java objects via path. Non existing elements will be created automatically. 
-
 
     EO child = eo.set("value","level0/level1/level2/level3");
     assertThat(child.get()).isEqualTo("value");
     assertThat(eo.get("level0/level1/level2/level3")).isEqualTo("value");
 <div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoSetScalarTest">
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoSetScalarTest.java">
 <font size="2"><a href="#packages">example</a><br></font>
 </a></div>
 
@@ -40,9 +41,11 @@ One can integrate typed objects in a complex structure and access it without loo
     assertThat(eo.get("level0/testString")).isEqualTo("value");
     assertThat(eo.getEo("level0").getModelClass()).isEqualTo(BasicTest.class);
 <div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapSetBtTest">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapSetBtTest.java">
 <font size="2"><a href="#packages">example</a><br></font>
 </a></div>
+
+##### Object Conversion
 Objects will be automatically mapped to the existing model class. This allows easy merge and conversion of objects with same names.
 
     final EO eo = ProviderRootTestScope.createEo(Map.class);
@@ -53,7 +56,7 @@ Objects will be automatically mapped to the existing model class. This allows ea
     assertThat(eo.getModelClass()).isEqualTo(Map.class);
 
 <div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest.java">
 <font size="2"><a href="#packages">example</a><br></font>
 </a></div>
 
@@ -67,13 +70,13 @@ The last example the other way round:
     assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
 
 <div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest.java">
 <font size="2"><a href="#packages">example</a><br></font>
 </a></div>
 
 Elastic objects offers some nice tools for objects which can be used in a native solution. 
 
-<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
+<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 #### JSON
 The serialization/deserialization implementation extends some limitations of standard json 
@@ -92,12 +95,15 @@ Standard JSON will be interpreted to standard untyped objects like map or list.
 }
 ```
 
+        eo.mapObject(jsonString);
+        assertThat(eo.get("level0/testString")).isEqualTo("value");
+        assertThat(eo.getEo("level0").getModelClass()).isEqualTo(Map.class);
 
-```
-eo.mapObject(jsonString);
-assertEquals("value", child.get(eo.get("level0/testString"));
-assertEquals(Map.class, eo.getEo("level0").getModelClass());
-```
+ <div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoMapObjectMapJsonTest.java">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
+
 ##### Typed
 The type directive is embedded in the name in java-style: (Type)name
 
@@ -108,12 +114,15 @@ The type directive is embedded in the name in java-style: (Type)name
     }
 
     
+        eo.mapObject(jsonString);
+        assertThat(eo.get("level0/testString")).isEqualTo("value");
+        assertThat(((BasicTest)eo.get("level0")).getTestString()).isEqualTo("value");
+        assertThat(eo.getEo("level0").getModelClass()).isEqualTo(BasicTest.class);
 
-    eo.mapObject(jsonString);
-    assertEquals("value", eo.get(eo.get("level0/testString"));
-    assertEquals(BasicTest.class, eo.getEo("level0").getModelClass());
-    assertEquals("value", ((BasicTest)eo.get("level0")).getTestString());
-
+ <div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectTest.java">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
 
 ##### Unmapped
 All fieldnames starting with _ will not be mapped to the underlying object:
@@ -126,40 +135,47 @@ All fieldnames starting with _ will not be mapped to the underlying object:
 }
 ```
 
-```
-eo.mapObject(jsonString);
-assertEquals("value", eo.get(eo.get("level0/testString"));
-Assertions.assertThat(eo.get(eo.get("level0/_comment")).contains("BasicTest.class");
-assertEquals(BasicTest.class, eo.getEo("level0").getModelClass());
-```
+        eo.mapObject(jsonString);
+        assertThat(eo.get("level0/_comment")).isEqualTo("_comment is not a field of the BasicTest.class");
+        assertThat(((BasicTest)eo.get("level0")).getTestString()).isEqualTo("value");
+
+ <div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectTest.java">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
+
 ##### Calls
-With the [call]((https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java) type beans containing the execute method its very easy to embed function calls. 
+For very type implementing [Call](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java) this could be executed.
 
 This simple [example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCallTest.java) computes the [sinus](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) from 1 and replace it. 
 ```
 {
   "(Double)source":1,
-  "(List)_calls": {
-    "(SinusValueCall)0": {
-      "sourcePath": "/source"
-    }
+  "(SinusValueCall)target": {
+    "sourcePath": "/source"
   }
 }
 ```
 
-```
-eo.mapObject(jsonString);
-eo.execute();
-Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
-Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
-```
-<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
+        eo.mapObject(jsonString);
+        eo.execute();
+        assertThat(eo.get("target")).isEqualTo(0.8414709848078965);
 
-This is a rather small example and the implementation [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) is minimal and no restrictions for execution need to be made, since only a value is set to EO.
+ <div align="right" style="font-size:10px">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCallTest.java">
+<font size="2"><a href="#packages">example</a><br></font>
+</a></div>
+
+<div align="right" style="font-size:10px"><a href="#page"><font size="2">#page</font></a></div>
+The used [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) is minimal and no restrictions for execution need to be made, since only a value is set to EO.
 
 Other examples for these simple calls you can find under the [calls/values](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/) package.
+A special call for setting configuration values is under [calls/configs](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/configs/).
 
-When it comes to read or write something on the server, it's a more complex topic. The following Calls are implemented: 
+
+##### Configured Calls
+When it comes to read or write something on the server, it's more complex topic with concerning access permissions or configurations.  
+The following configured calls are implemented:
 
 * [File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files)
 * [JSON File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/json)
@@ -171,7 +187,7 @@ These calls use also configurations with a permission part.
 ### Under The Hood
 
 
-<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
+<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 
 ### Further documentation
@@ -180,7 +196,7 @@ An in depth documentation is created on this [github wiki](https://github.com/fl
 
 
 
-<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
+<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 
 ### Packages
@@ -230,7 +246,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
 <font size="1">mvn repository</font>
 </a></div>
 
-<div align="right" style="font-size:10px"><a href="#top"><font size="2">top</font></a></div>
+<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 ### Status
 After a lot of breaks the java version is now in a state I could accept as "fit" to the concept. It's basic mechanism works direct and with minimal implementation flourish.
