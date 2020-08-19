@@ -15,10 +15,10 @@
 
 Elastic Objects is a small java application framework for handling (compound) objects via [path](#path).
 
-It offers to read or write typed [JSON](#json) for serialization that allow
-* [embedded type directives](#typed) looseless data exchange without webservers or REST.
-* [unmapped fields](#unmapped) integration of extra information in JSON like comments.
-* start execution for every type implementing the [Call bean](#calls).
+It could read or write typed [JSON](#typed-json) for string representation which offers
+* [embedded type directives](#typed) for looseless data exchange without webservers or REST.
+* [unmapped fields](#unmapped) for integration of extra information in JSON like comments.
+* special types for the execution of [Call Beans](#calls).
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
@@ -47,7 +47,7 @@ One can integrate typed objects in a complex structure and access it without loo
 
 ##### Object Conversion
 
-Objects will be automatically mapped to the existing model class. This allows easy merge and conversion of objects with same names.
+Objects will be automatically mapped to the existing model class. This allows easy merge and conversion of objects with same field names.
 
 In the following example a Map value will be set by [BasicTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/BasicTest.java) object:
 
@@ -78,7 +78,7 @@ The last example the other way round setting a [BasicTest](https://github.com/fl
 <font size="1">example</font>
 </a></div>
 
-Elastic objects offers some nice tools for objects which can be used in a native solution. 
+Elastic objects without JSON serialization could be used as a tool in a java native solution.
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
@@ -153,7 +153,9 @@ All fieldnames starting with _ will not be mapped to the underlying object:
 ##### Calls
 For very type implementing [Call](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java) this could be executed.
 
-This simple [example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCallTest.java) computes the [sinus](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) from the source value 1 and set it to target. 
+Here JSON includes [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java)  
+with SourcePath "source". It will compute the sinus from source value 1 and set it to target.
+
 ```
 {
   "(Double)source":1,
@@ -172,15 +174,15 @@ This simple [example](https://github.com/fluentcodes/elasticobjects/blob/master/
 <font size="1">example</font>
 </a></div>
 
-<div align="right" style="font-size:10px"><a href="#page"><font size="2">#page</font></a></div>
-The used [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) is minimal and no restrictions for execution need to be made, since only a value is set to object.
+The used [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java)
+is minimal and no restrictions for execution need to be made, since only a value is set to object.
 
 Other examples for these simple calls you can find under the [calls/values](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/) package.
 A special call for setting configuration values is under [calls/configs](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/configs/).
 
 
 ##### Configured Calls
-When it comes to read or write something on the server, it's more complex topic with concerning access permissions or configurations.  
+When it comes to read or write something on the server, it's more complex concerning access permissions and configurations.  
 The following configured calls are implemented:
 
 * [File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files)
