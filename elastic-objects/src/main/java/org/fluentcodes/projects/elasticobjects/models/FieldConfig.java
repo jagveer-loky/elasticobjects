@@ -43,7 +43,7 @@ public class FieldConfig extends ConfigImpl {
 
     }
 
-    protected static final void addByClassField(EOConfigsCache configsCache, Field field)  {
+    protected final static void addByClassField(EOConfigsCache configsCache, Field field)  {
         Class modelClass = field.getDeclaringClass();
         Class typeClass = field.getType();
         Map map = new HashMap();
@@ -60,7 +60,7 @@ public class FieldConfig extends ConfigImpl {
         map.put(F_FIELD_KEY, field.getName());
         map.put(NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
         map.put(F_NAME, field.getName());
-        map.put(F_MODEL_KEYS, typeClass.getName());
+        map.put(F_MODEL_KEYS, typeClass.getSimpleName());
         FieldConfig config = (FieldConfig) new Builder().build(configsCache, map);
         configsCache.add(FieldConfig.class, config);
         if (!configsCache.hasConfigKey(ModelConfig.class, typeClass.getSimpleName())) {

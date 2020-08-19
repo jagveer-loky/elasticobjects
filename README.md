@@ -6,7 +6,7 @@
 <a href="#typed-json">Typed JSON</a><br>
 <a href="#under-the-hood">Under the Hood</a><br>
 <a href="#further-documentation">Further-Documentation</a><br>
-<a href="#packages">Packages</a><br>
+<a href="#maven-repositories">Maven Repositories</a><br>
 <a href="#status">Status</a><br>
 </font>
 </div>
@@ -278,8 +278,8 @@ An in depth documentation is created on this [github wiki](https://github.com/fl
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 
-### Packages
-Actually three modules are deployed on [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
+### Maven Repositories
+Actually three modules are deployed to [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
 
 #### elastic-objects
 The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects) has actually no dependencies beside Log4j and is rather small with a jar size of approximately 160 KB.
@@ -310,8 +310,8 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
 <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-csv">
 <font size="1">mvn repository</font>
 </a></div>
-#### eo-xlsx
 
+#### eo-xlsx
 [eo-xlsx](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations for reading and writing xlsx files using [Apache POI](https://mvnrepository.com/artifact/org.apache.poi/poi).
 
 
@@ -331,8 +331,8 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
 ### Status
 After a break of more than one year due to project work the java version is now in a state I would see as "fit to the concept". It's basic mechanism works direct and with minimal implementation flourish.
 
-A simple [performance test](https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/eo-test/src/test/resources/performance-Sun%20Aug%2016%2010:05:28%20CEST%202020.info) on [EOPerformance.java](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/performance/EOPerformance.java) compare serialization and deserializaten with
-* [Jackson](https://github.com/FasterXML/jackson)
+A simple [performance test](https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/eo-test/src/test/resources/performance-Sun%20Aug%2016%2010:05:28%20CEST%202020.info) with [EOPerformance.java](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/performance/EOPerformance.java) compare serialization and deserialization speed with
+* [Jackson](https://github.com/FasterXML/jackson) and
 * [Gson](https://github.com/google/gson)
 
 ```
@@ -352,7 +352,7 @@ Gson   : 99 ms
 
 Serialization with [EoToJson](https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/EOToJSON.java) is about 20 times slower and Deserialization with [JsonToEo](https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/JSONToEO.java) 5 times.
 
-Performance had not the priority until. The slowness in serialization is due to the fact, that the
+Performance had not the priority until now. The slowness in serialization is due to the fact, that the
 object has to be wrapped by EO before serializing. Another reason is the slowness of StringBuilder. I suppose the change to StringWriter will offer a quick win.
 
 Since EO allows more than just simple type mapping I suppose it will never reach the performance of the other frameworks.

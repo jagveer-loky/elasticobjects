@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.wiki.eo;
+package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class CompareSerialized {
+public class EoCompareSerializedTest {
     @Ignore
     @Test
     public void test()  {

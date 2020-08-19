@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.wiki.eo;
+package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.EO;
@@ -10,7 +10,9 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CompareDifferent {
+import static junit.framework.TestCase.assertEquals;
+
+public class EoCompare2Test {
     @Ignore
     @Test
     public void test()  {
@@ -20,12 +22,12 @@ public class CompareDifferent {
         eo.mapObject(map);
 
         BasicTest BT = new BasicTest();
-        BT.setTestString("value2");
+        BT.setTestString("value");
         final EO eo2 = ProviderRootTestScope.createEo();
         eo2.mapObject(BT);
 
         StringBuilder diff = new StringBuilder();
         eo.compare(diff, eo2);
-        Assert.assertEquals("/testString = value: != value2\n", diff.toString());
+        Assert.assertEquals("", diff.toString());
     }
 }

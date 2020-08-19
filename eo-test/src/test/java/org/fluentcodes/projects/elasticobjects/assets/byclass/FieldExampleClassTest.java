@@ -5,31 +5,30 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
-public class MainClassTest {
+public class FieldExampleClassTest {
 
     @Test
-    public void givenScopeDev_whenFindBasicTest_thenExceptionThrown()  {
+    public void givenScopeDev_whenFindFieldExampleClass_thenExceptionThrown()  {
         try {
-            ModelInterface model = ProviderRootDevScope.EO_CONFIGS.findModel(MainClass.class);
+            ModelInterface model = ProviderRootDevScope.EO_CONFIGS.findModel(FieldExampleClass.class);
             Assert.fail("Should throw EoException since BasicTest is not in the cache");
         }
         catch(EoException e) {
 
         }
     }
-    @Ignore
+
+
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(MainClass.class);
+        ConfigModelChecks.create(FieldExampleClass.class);
     }
 
-    @Ignore
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(MainClass.class);
+        ConfigModelChecks.compare(FieldExampleClass.class);
     }
 
 }

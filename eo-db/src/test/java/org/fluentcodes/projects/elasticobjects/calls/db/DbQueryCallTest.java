@@ -36,9 +36,6 @@ public class DbQueryCallTest {
         Assert.assertNotNull(call);
         EO eo = ProviderRootTestScope.createEo();
         call.execute(eo);
-        int counter = 0;
-        Assert.assertEquals(2, eo.size());
-        ;
     }
 }
 

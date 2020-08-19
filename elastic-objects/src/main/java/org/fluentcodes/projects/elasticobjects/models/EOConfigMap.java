@@ -18,7 +18,7 @@ import java.util.*;
 import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
 
 /**
- * Created by Werner on 10.10.2016.
+ * Created by Werner on 19.8.2020.
  */
 public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
     public static final Logger LOG = LogManager.getLogger(EOConfigMap.class);
@@ -115,8 +115,12 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
         }
     }
 
-    protected void addConfig(Config config) {
+    protected void addConfig(final Config config) {
         this.configMap.put(config.getNaturalId(), config);
+
+        if (!configMap.containsKey(config.getNaturalId())) {
+            throw new EoException("Could not set '" + this.configClass.getSimpleName() + "' for " + config.getNaturalId());
+        }
     }
 
     public String toStringx() {
