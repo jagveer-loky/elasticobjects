@@ -30,7 +30,7 @@ It offers to read or write typed [JSON](#json) for serialization that allow
     assertThat(eo.get("level0/level1/level2/level3")).isEqualTo("value");
 <div align="right" style="font-size:10px">
     <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoSetScalarTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">example</font>
 </a></div>
 
 One can integrate typed objects in a complex structure and access it without loosing the type.
@@ -42,11 +42,14 @@ One can integrate typed objects in a complex structure and access it without loo
     assertThat(eo.getEo("level0").getModelClass()).isEqualTo(BasicTest.class);
 <div align="right" style="font-size:10px">
 <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapSetBtTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">example</font>
 </a></div>
 
 ##### Object Conversion
+
 Objects will be automatically mapped to the existing model class. This allows easy merge and conversion of objects with same names.
+
+In the following example a Map value will be set by [BasicTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/BasicTest.java) object:
 
     final EO eo = ProviderRootTestScope.createEo(Map.class);
     final BasicTest bt = new BasicTest()
@@ -56,11 +59,12 @@ Objects will be automatically mapped to the existing model class. This allows ea
     assertThat(eo.getModelClass()).isEqualTo(Map.class);
 
 <div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
-</a></div>
+<font size="1">
+<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest.java">example</a>
+</font>
+</div>
 
-The last example the other way round:
+The last example the other way round setting a [BasicTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/BasicTest.java) value with a Map object:
 
     final EO eo = ProviderRootTestScope.createEo(BasicTest.class);
     final Map map = new HashMap()
@@ -71,7 +75,7 @@ The last example the other way round:
 
 <div align="right" style="font-size:10px">
 <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">example</font>
 </a></div>
 
 Elastic objects offers some nice tools for objects which can be used in a native solution. 
@@ -101,53 +105,55 @@ Standard JSON will be interpreted to standard untyped objects like map or list.
 
  <div align="right" style="font-size:10px">
 <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoMapObjectMapJsonTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">example</font>
 </a></div>
 
 ##### Typed
 The type directive is embedded in the name in java-style: (Type)name
-
-    {
-	   "(BasicTest)level0":{
-		    "testString":"value"
-       }
+```
+{
+	"(BasicTest)level0":{
+	    "testString":"value"
     }
-
+}
+``
     
         eo.mapObject(jsonString);
         assertThat(eo.get("level0/testString")).isEqualTo("value");
         assertThat(((BasicTest)eo.get("level0")).getTestString()).isEqualTo("value");
         assertThat(eo.getEo("level0").getModelClass()).isEqualTo(BasicTest.class);
 
- <div align="right" style="font-size:10px">
+<div align="right" style="font-size:10px">
 <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">example</font>
 </a></div>
 
 ##### Unmapped
 All fieldnames starting with _ will not be mapped to the underlying object:
 ```
 {
-	"level0":{
-		"(BasicTest)testString":"value",
-        "_comment":"_comment is not a field of the BasicTest.class"
+	"(BasicTest)level0":{  
+	    "testString":"value",  
+	    "_comment":"_comment is not a field of the BasicTest.class"
     }
 }
 ```
+
 
         eo.mapObject(jsonString);
         assertThat(eo.get("level0/_comment")).isEqualTo("_comment is not a field of the BasicTest.class");
         assertThat(((BasicTest)eo.get("level0")).getTestString()).isEqualTo("value");
 
- <div align="right" style="font-size:10px">
+
+<div align="right" style="font-size:10px">
 <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">example</font>
 </a></div>
 
 ##### Calls
 For very type implementing [Call](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java) this could be executed.
 
-This simple [example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCallTest.java) computes the [sinus](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) from 1 and replace it. 
+This simple [example](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCallTest.java) computes the [sinus](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) from the source value 1 and set it to target. 
 ```
 {
   "(Double)source":1,
@@ -163,11 +169,11 @@ This simple [example](https://github.com/fluentcodes/elasticobjects/blob/master/
 
  <div align="right" style="font-size:10px">
 <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCallTest.java">
-<font size="2"><a href="#packages">example</a><br></font>
+<font size="1">example</font>
 </a></div>
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">#page</font></a></div>
-The used [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) is minimal and no restrictions for execution need to be made, since only a value is set to EO.
+The used [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java) is minimal and no restrictions for execution need to be made, since only a value is set to object.
 
 Other examples for these simple calls you can find under the [calls/values](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/) package.
 A special call for setting configuration values is under [calls/configs](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/configs/).
@@ -213,7 +219,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
 ```
 
 <div align="right" style="font-size:10px">
-<a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo">
+<a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/elastic-objects">
 <font size="1">mvn repository</font>
 </a></div>
 
@@ -232,6 +238,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/eo) has act
 <font size="1">mvn repository</font>
 </a></div>
 #### eo-xlsx
+
 [eo-xlsx](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations for reading and writing xlsx files using [Apache POI](https://mvnrepository.com/artifact/org.apache.poi/poi).
 
 
