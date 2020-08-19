@@ -16,9 +16,9 @@
 Elastic Objects is a java application handling (compound) objects via [path](#path).
 
 It read and write typed [JSON](#typed-json) for string representation which offers
-* [embedded type directives](#typed) for looseless data exchange: (BasicTest)fieldName:{...}
-* [unmapped fields](#unmapped) for integration of extra information in JSON: _comment
-* execution of [Call Beans](#calls): (SinusValueCall)result:{...}
+* [embedded type directives](#typed) for looseless data exchange e.g. "(BasicTest)fieldName":{...}
+* [unmapped fields](#unmapped) for integration of extra information in JSON e.g. "_comment":"xyz"
+* execution of [Call Beans](#calls) e.g. "(SinusValueCall)result":{...}
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
