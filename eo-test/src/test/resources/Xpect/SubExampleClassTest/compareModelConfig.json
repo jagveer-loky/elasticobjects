@@ -1,0 +1,29 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.assets.byclass",
+    "modelKey": "SubExampleClass",
+    "(ArrayList)fieldKeys": {
+      "0": "SubExampleClass.name"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      }
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "(ArrayList)scope": {
+    },
+    "key": "SubExampleClass",
+    "naturalId": "SubExampleClass"
+  }
+}

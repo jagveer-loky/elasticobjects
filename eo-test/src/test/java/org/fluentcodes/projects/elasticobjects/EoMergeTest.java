@@ -1,33 +1,34 @@
-package org.fluentcodes.projects.elasticobjects.wiki.eo;
+package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class Clone {
+public class EoMergeTest {
     @Ignore
     @Test
     public void test()  {
-        final EO eo = ProviderRootTestScope.createEo(BasicTest.class);
+        final EO eo = ProviderRootTestScope.createEo();
 
         final BasicTest BT1 = new BasicTest();
         BT1.setTestString( "value");
+
+        final BasicTest BT2 = new BasicTest();
+        BT2.setTestFloat( 1.1F);
+
         eo.mapObject(BT1);
+        eo.mapObject(BT2);
 
         assertEquals("value", eo.get("testString"));
+        assertEquals(1.1F, eo.get("testFloat"));
+        assertEquals(1.1F, BT1.getTestFloat());
 
         assertEquals(BasicTest.class, eo.getModelClass());
-        Assert.assertNotEquals(BT1, eo.get());
-        Assert.assertTrue(BT1 == BT1);
-        Assert.assertTrue(eo.get() == eo.get());
+        assertEquals(BasicTest.class, eo.get().getClass());
 
-        final EO eo2 = ProviderRootTestScope.createEo(BasicTest.class);
-        eo2.mapObject(BT1);
-        Assert.assertEquals(BT1, eo2.get());
     }
 }

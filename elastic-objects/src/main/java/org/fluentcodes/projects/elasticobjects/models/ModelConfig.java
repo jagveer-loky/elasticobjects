@@ -62,25 +62,32 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
     protected static final ModelConfig addByClassName(EOConfigsCache configsCache, String key) {
         LOG.info("Started find class " + key);
-        final Map modelInfo = new HashMap();
+        final Map modelMap = new HashMap();
         Class modelClass;
         try {
             modelClass = Class.forName(key);
         } catch (Exception e) {
             throw new EoException("Could not find Class " + key + ": " + e.getMessage());
         }
+        if (modelClass.getSuperclass() != null && modelClass.getSuperclass() != Object.class) {
+            ModelConfig.addByClassName(configsCache, modelClass.getSuperclass().getName());
+        }
         final String modelKey = key.replaceAll(".*\\.", "");
-        modelInfo.put(F_MODEL_KEY, modelKey);
-        modelInfo.put(NATURAL_ID, modelKey);
+        if (configsCache.hasConfigKey(ModelConfig.class, modelKey)) {
+            throw new EoException("An entry for modelConfig '" + modelKey + "' already exists and would not be resolved by class '" + key + "'.");
+        }
+        modelMap.put(F_MODEL_KEY, modelKey);
+        modelMap.put(NATURAL_ID, modelKey);
         final Package inPackage = modelClass.getPackage();
-        modelInfo.put(F_PACKAGE_PATH, inPackage.getName());
+        modelMap.put(F_PACKAGE_PATH, inPackage.getName());
 
         final Map<String, Object> eoParams = new HashMap<>();
-        modelInfo.put("eoParams", eoParams);
+        eoParams.put(F_CREATE, true);
+        modelMap.put("eoParams", eoParams);
 
         final Field[] fields = modelClass.getDeclaredFields();
         final List<String> fieldKeys = new ArrayList();
-
+        Map<String, Field> fieldMap = new HashMap<>();
         for (Field field : fields) {
             LOG.info(field.getName());
             final String fieldName = field.getName();
@@ -89,19 +96,21 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             if (getMethod == null && setMethod == null) {
                 continue;
             }
-            fieldKeys.add(modelKey + "." + fieldName);
+            String fieldKey = modelKey + "." + fieldName;
+            fieldKeys.add(fieldKey);
+            fieldMap.put(fieldKey, field);
         }
         if (fieldKeys.isEmpty()) {
             eoParams.put(F_SHAPE_TYPE, ShapeTypes.SCALAR);
         } else {
             eoParams.put(F_SHAPE_TYPE, ShapeTypes.BEAN);
         }
-        modelInfo.put(F_FIELD_KEYS, fieldKeys);
-        ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelInfo);
+        modelMap.put(F_FIELD_KEYS, fieldKeys);
+        ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelMap);
         configsCache.add(ModelConfig.class, config);
-        for (Field field : fields) {
-            if (!configsCache.hasConfigKey(FieldConfig.class, field.getName())) {
-                FieldConfig.addByClassField(configsCache, field);
+        for (String fieldKey: fieldMap.keySet()) {
+            if (!configsCache.hasConfigKey(FieldConfig.class, fieldKey)) {
+                FieldConfig.addByClassField(configsCache, fieldMap.get(fieldKey));
             }
         }
         return config;

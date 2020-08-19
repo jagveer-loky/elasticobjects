@@ -4,9 +4,9 @@ package org.fluentcodes.projects.elasticobjects.assets.byclass;
  * Created by Werner Diwischek on 09.10.2016.
  */
 
-public class MainClass {
+public class SuperExampleClass {
     private Long id;
-    private SubClass subClass;
+    private FieldExampleClass subClass;
     public Long getId() {
         return this.id;
     }
@@ -14,11 +14,11 @@ public class MainClass {
         this.id = id;
     }
 
-    public SubClass getSubClass() {
+    public FieldExampleClass getSubClass() {
         return subClass;
     }
 
-    public void setSubClass(SubClass subClass) {
+    public void setSubClass(FieldExampleClass subClass) {
         this.subClass = subClass;
     }
 }
