@@ -9,6 +9,7 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
@@ -29,6 +30,7 @@ public class JsonReadCallTest {
         ConfigModelChecks.create(JsonReadCall.class);
     }
 
+    @Ignore
     @Test
     public void givenCallWithModuleConfig_whenExecuteCall_thenReturnContent()  {
         final JsonReadCall call = new JsonReadCall(J_MODULE_CONFIG_JSON);

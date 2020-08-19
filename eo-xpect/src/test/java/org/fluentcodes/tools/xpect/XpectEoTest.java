@@ -3,6 +3,7 @@ package org.fluentcodes.tools.xpect;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.tools.testobjects.ForTestClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.LinkedHashMap;
@@ -27,6 +28,7 @@ public class XpectEoTest {
         new XpectEo(cache).compareAsObject(map);
     }
 
+    @Ignore
     @Test
     public void testForTestClass() {
         ForTestClass forTest  = ForTestClass.of1();
