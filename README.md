@@ -204,13 +204,9 @@ A description and examples of these calls you will find on [github wiki](https:/
 
 ### Under The Hood
 
-The type directives are just String refering to model configurations. If a new EO-Object is created a reference to the  
-[configuration map](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java)  
-is required.
+The type directives are just String refering to model configurations. If a new EO-Object is created a reference to the configuration object [EOConfigsCache](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java)  is required.
 
-It initially contains a map with  
-[ModelConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfig.java) and a map with  
-[FieldConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/FieldConfig.java) objects.
+It initially contains a map with  [ModelConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfig.java) and a map with [FieldConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/FieldConfig.java) objects.
 
 If the  [Scope](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java)  is not DEV then all files called  [ModelConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/ModelConfig.json) and  [FieldConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/FieldConfig.json) are initially loaded from the class path.
 
