@@ -212,17 +212,11 @@ It initially contains a map with
 [ModelConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfig.java) and a map with  
 [FieldConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/FieldConfig.java) objects.
 
-If the  
-[Scope](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java)  
-is not DEV then all files called  
-[ModelConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/ModelConfig.json) and  
-[FieldConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/FieldConfig.json) are initially loaded from the class path.
+If the  [Scope](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java)  is not DEV then all files called  [ModelConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/ModelConfig.json) and  [FieldConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/FieldConfig.json) are initially loaded from the class path.
 
-To avoid defining confurations before using EO its also possible to create a simple class list with  
-[Model.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/resources/Models.json).
+To avoid defining configurations before using EO its also possible to create a simple class list with  [Model.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/resources/Models.json).
 
-The same procedure happens on demand with other configurations like
-[FileConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files/FileConfig.java)
+The same procedure happens on demand with other configurations like [FileConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files/FileConfig.java)
 
 #### ModelConfig
 The configuration entry contains mainly a list of field names referencing to a field configuration. So field configurations can defined independent
@@ -264,6 +258,8 @@ In following code shows the field definition for the subTest field with the Mode
 #### Exchange Configurations
 The model configuration are rather bloated since it's originally used to generate code from a list. In the version 0.3.0 a more stream lined version for
 configuration exchange will be implemented.
+
+It should have similar structure than json scheme definition but keep the separation of class and field definitions.
 
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
