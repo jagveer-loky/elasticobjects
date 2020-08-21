@@ -6,5 +6,19 @@
     "templateKey": "test",
     "fileName": "Test.tpl.html",
     "filePath": "classpath/input/templates"
+  },
+  "ConfigKeysCall_LinkListHtml": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "ConfigKeysCall_LinkListHtml",
+    "fileName": "ConfigKeysCall_LinkListHtml.tpl",
+    "filePath": "input/calls/configs"
+  },
+  "ConfigCall_Form": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "ConfigCall_Form",
+    "fileName": "ConfigCall_Form.tpl",
+    "filePath": "input/calls/configs"
   }
 }

@@ -1,5 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.json.JsonConfig;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateConfig;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-public class EOConfigurations {
+public class EOConfigCached {
     @Value("${elasticobjects.scope:QS}")
     String scope;
 
@@ -23,11 +28,11 @@ public class EOConfigurations {
     @Bean
     public EOConfigsCache createProvider() throws Exception {
         EOConfigsCache provider = new EOConfigsCache(Scope.valueOf(scope), true);
-        /*provider.getConfig(HostConfig.class);
-        provider.getConfig(FileConfig.class);
-        provider.getConfig(JsonConfig.class);
-        provider.getConfig(ScsConfig.class);
-        provider.getConfig(TemplateConfig.class);*/
+        provider.getKeys(HostConfig.class);
+        provider.getKeys(FileConfig.class);
+        provider.getKeys(JsonConfig.class);
+        provider.getKeys(ScsConfig.class);
+        provider.getKeys(TemplateConfig.class);
         //FileUtil.writeFile("src/main/resources/static/eoConfigurations.json", provider.toString());
         return provider;
     }

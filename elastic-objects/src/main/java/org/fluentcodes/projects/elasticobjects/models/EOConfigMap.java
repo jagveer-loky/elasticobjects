@@ -9,6 +9,7 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.tools.xpect.IORuntimeException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.lang.reflect.InvocationTargetException;
@@ -73,13 +74,18 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
 
     protected void addJsonConfigs()  {
         String providerSource = configClass.getSimpleName() + ".json";
-        List<String> configs = new IOString()
-                .setFileName(providerSource)
-                .readStringList();
-        for (String config : configs) {
-            EO eo = new EoRoot(configsCache, Map.class);
-            eo.mapObject(config);
-            addConfigMap((Map)eo.get());
+        try {
+            List<String> configs = new IOString()
+                    .setFileName(providerSource)
+                    .readStringList();
+            for (String config : configs) {
+                EO eo = new EoRoot(configsCache, Map.class);
+                eo.mapObject(config);
+                addConfigMap((Map) eo.get());
+            }
+        }
+        catch (IORuntimeException e) {
+            LOG.info("No configuration file found for '" + getClass().getSimpleName() + "' in the classpath!");
         }
     }
 
