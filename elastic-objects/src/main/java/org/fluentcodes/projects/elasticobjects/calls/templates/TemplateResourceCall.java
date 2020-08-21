@@ -18,12 +18,18 @@ public class TemplateResourceCall extends TemplateCall {
         super();
     }
 
+    public TemplateResourceCall(String configKey) {
+        super();
+        this.configKey = configKey;
+    }
+
     public String getConfigKey() {
         return configKey;
     }
 
     public TemplateResourceCall setConfigKey(String configKey) {
         this.configKey = configKey;
+
         return this;
     }
 

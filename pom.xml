@@ -6,10 +6,19 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo-root</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.0</version>
+    <version>0.2.1-SNAPSHOT</version>
     <name>EO - Elastic Objects Root</name>
     <url>http://www.elasticobjects.com</url>
+    <modules>
+        <module>elastic-objects</module>
+        <module>eo-test</module>
+        <module>eo-csv</module>
+        <module>eo-xlsx</module>
+        <module>eo-db</module>
 
+        <module>eo-xpect</module>
+        <module>example-springboot</module>
+    </modules>
     <licenses>
       <license>
         <name>Apache License Version 2.0</name>
@@ -51,14 +60,6 @@
         </dependency>
     </dependencies>
 
-    <modules>
-        <module>elastic-objects</module>
-        <module>eo-test</module>
-        <module>eo-csv</module>
-        <module>eo-xlsx</module>
-        <module>eo-db</module>
-        <module>eo-xpect</module>
-    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

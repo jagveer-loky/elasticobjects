@@ -6,7 +6,7 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo-test</artifactId>
     <packaging>jar</packaging>
-    <version>0.2.0</version>
+    <version>0.2.1-SNAPSHOT</version>
     <name>EO - Elastic Objects Tests and Test Resource</name>
     <description>Package for testing Elastic Objects</description>
     <url>http://www.elasticobjects.com</url>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-root</artifactId>
-        <version>0.2.0</version>
+        <version>0.2.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -22,12 +22,12 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects</artifactId>
-            <version>0.2.0</version>
+            <version>0.2.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-eo</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>

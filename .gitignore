@@ -8,7 +8,7 @@ build/
 */.idea/
 target/*
 out/*
-actions-db-hibernate/
+eo-db-hibernate/
 builder/
 builder-eo/
 builder-sandboxes/

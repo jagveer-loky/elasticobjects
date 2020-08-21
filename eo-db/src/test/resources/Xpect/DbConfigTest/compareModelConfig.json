@@ -1,0 +1,41 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbConfig",
+    "superKey": "ConfigResourcesImpl",
+    "(ArrayList)fieldKeys": {
+      "0": "schema",
+      "1": "driver",
+      "2": "jndi",
+      "3": "dbType",
+      "4": "hostKey",
+      "5": "extension",
+      "6": "rolePermissions"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "CONFIG",
+      "create": false,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      }
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "packageGroup": "config",
+    "module": "actions-db",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "DbConfig",
+    "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
+    "naturalId": "DbConfig",
+    "author": "Werner Diwischek"
+  }
+}

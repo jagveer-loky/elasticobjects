@@ -18,17 +18,7 @@ public enum TestProviderJsonCalls {
     private final String content;
     private ProviderMapJson eoData;
     TestProviderJsonCalls(final String content) {
-        if (content.startsWith(PATH_INPUT_JSON)) {
-            try {
-                this.fileName = content;
-                this.content = new IOString().setFileName(content).read();
-            }
-            catch (Exception e) {
-                System.out.println("Could not load file " + content);
-                throw new EoException(e);
-            }
-        }
-        else if (content.startsWith(PATH_INPUT)) {
+        if (content.startsWith(PATH_INPUT)) {
             try {
                 this.fileName = content;
                 this.content = new IOString().setFileName(content).read();

@@ -59,6 +59,10 @@ public class EOConfigsCache {
         return eoConfigsMap.keySet();
     }
 
+    public Set<String> getKeys(final Class<? extends Config> configClass) {
+        return getConfigMap(configClass).getKeys();
+    }
+
     public List<String> getConfigClassesAsStringList() {
         return eoConfigsMap.keySet().stream().map(x -> x.getSimpleName()).collect(Collectors.toCollection(ArrayList::new));
     }

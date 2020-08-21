@@ -1,0 +1,10 @@
+{
+  "test": {
+    "module": "eo-example-springboot",
+    "subModule": "main",
+    "naturalId": "test",
+    "templateKey": "test",
+    "fileName": "Test.tpl.html",
+    "filePath": "classpath/input/templates"
+  }
+}

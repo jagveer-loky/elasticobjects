@@ -1,0 +1,17 @@
+.git/
+.idea/
+.gradle/
+build/
+*.iml
+*.log
+*/build/
+*/.idea/
+.idea/
+target/*
+out/*
+actions-db/
+actions-db-hibernate/
+builder/
+builder-eo/
+builder-sandboxes/
+builder-projects/

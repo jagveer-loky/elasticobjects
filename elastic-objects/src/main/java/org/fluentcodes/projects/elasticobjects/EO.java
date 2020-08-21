@@ -84,7 +84,7 @@ public interface EO {
 
     String getLog();
     LogLevel getLogLevel();
-    void setLogLevel(LogLevel logLevel);
+    EO setLogLevel(LogLevel logLevel);
     LogLevel getErrorLevel();
     boolean hasErrors();
     EO debug(String message);
