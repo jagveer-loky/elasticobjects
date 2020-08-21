@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by Werner on 12.10.2016.
  */
 public class RolePermissions {
-
+    public static final String NOTHING = "nothing";
     public static final String GUEST = "guest";
     public static final String ANONYM = "anonym";
     public static final String SUPERADMIN = "superadmin";

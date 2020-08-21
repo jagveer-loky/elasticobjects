@@ -1,0 +1,5476 @@
+{
+  "ModelCache":{
+    "ModelCacheMap":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCacheMap",
+			"superKey":"ModelCacheImpl",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Class definitions for an map with getters and setters.",
+			"naturalId":"ModelCacheMap",
+			"author":"Werner Diwischek"
+		},
+    "ViewParams":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ViewParams",
+			"fieldKeys":
+			[
+				"viewKey",
+				"inputKey"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Params controlling the behavior of the view of an elastic object.",
+			"naturalId":"ViewParams",
+			"author":"Werner Diwischek"
+		},
+    "Or":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
+			"modelKey":"Or",
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"condition",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A list of {@ And}.",
+			"naturalId":"Or",
+			"author":"Werner Diwischek"
+		},
+    "Address":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"Address",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"street",
+				"streetNumber",
+				"postalCode",
+				"city",
+				"country",
+				"company",
+				"firstName",
+				"lastName",
+				"customerMap",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/street,/streetNumber,/postalCode,/city,/country,/company,/firstName,/lastName,/customerMap"
+			},
+			"dbParams":
+			{
+				"table":"Address",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"Address",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "Customer":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"Customer",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"title",
+				"salutation",
+				"firstName",
+				"lastName",
+				"mobile",
+				"phone",
+				"email",
+				"fax",
+				"addressMap",
+				"productOrderMap",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/title,/salutation,/firstName,/lastName,/mobile,/phone,/email,/fax,/addressMap,/productOrderMap"
+			},
+			"dbParams":
+			{
+				"table":"Customer",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"Customer",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "ArrayList":		{
+			"packagePath":"java.util",
+			"modelKey":"ArrayList",
+			"eoParams":
+			{
+				"shapeType":"LIST"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"ArrayList",
+			"author":"java"
+		},
+    "ModelCacheSet":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCacheSet",
+			"superKey":"ModelCacheImpl",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Class definitions for a scalar.",
+			"naturalId":"ModelCacheSet",
+			"author":"Werner Diwischek"
+		},
+    "Product":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"Product",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"price",
+				"propertyMap",
+				"header",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/price,/propertyMap,/header"
+			},
+			"dbParams":
+			{
+				"table":"Product",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"description":"From https://docs.jboss.org/hibernate/stable/core.old/reference/en/html/example-mappings-customerorderproduct.html",
+			"naturalId":"Product",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "SubTest":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.assets",
+			"modelKey":"SubTest",
+			"fieldKeys":
+			[
+				"id",
+				"subTest",
+				"name",
+				"testString"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"dbParams":
+			{
+				"table":"SubTest",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"name"
+				],
+				"hibernateAnnotations":false
+			},
+			"packageGroup":"assets",
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"SubTest",
+			"author":"Werner Diwischek"
+		},
+    "AdapterBuilder":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.adapters",
+			"modelKey":"AdapterBuilder",
+			"eoParams":
+			{
+				"shapeType":"ADAPTER"
+			},
+			"packageGroup":"adapters",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters for creating adapter",
+			"naturalId":"AdapterBuilder",
+			"author":"Werner Diwischek"
+		},
+    "String":		{
+			"packagePath":"java.lang",
+			"modelKey":"String",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"String",
+			"author":"java"
+		},
+    "ModelsList":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.adapters",
+			"modelKey":"ModelsList",
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"adapters",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A list of models to specify field types.",
+			"naturalId":"ModelsList",
+			"author":"Werner Diwischek"
+		},
+    "Boolean":		{
+			"packagePath":"java.lang",
+			"modelKey":"Boolean",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Boolean",
+			"author":"java"
+		},
+    "EOParams":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"EOParams",
+			"fieldKeys":
+			[
+				"scope",
+				"shapeType",
+				"EOParams.create",
+				"methods",
+				"attributeList",
+				"modelCacheKey",
+				"modelBeanKey",
+				"defaultImplementation",
+				"pathPatternAsString"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Params controlling the behavior of an elastic objects like serialization/deserialization.",
+			"naturalId":"EOParams",
+			"author":"Werner Diwischek"
+		},
+    "HibernateCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HibernateCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"hibernateKey",
+				"dbKey",
+				"models",
+				"configFile",
+				"auto",
+				"properties",
+				"showSql",
+				"formatSql",
+				"useCacheSecondLevel",
+				"useCacheQuery",
+				"registerAutoListener",
+				"useReflectionOptimizer",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"HibernateCache",
+				"modelBeanKey":"HibernateBean"
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Mainly the schema ",
+			"naturalId":"HibernateCache",
+			"author":"Werner Diwischek"
+		},
+    "PersistentMap":		{
+			"packagePath":"org.hibernate.collection.internal",
+			"modelKey":"PersistentMap",
+			"eoParams":
+			{
+				"shapeType":"MAP"
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Hibernate object with a certain model ",
+			"naturalId":"PersistentMap",
+			"author":"hibernate"
+		},
+    "HibernateSqlCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HibernateSqlCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"hibernateSqlKey",
+				"hibernateKey",
+				"sqlList",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"HibernateSqlCache",
+				"modelBeanKey":"HibernateSqlBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Execute sql statements via hibernate. ",
+			"naturalId":"HibernateSqlCache",
+			"author":"Werner Diwischek"
+		},
+    "FileCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"FileCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"fileName",
+				"fileKey",
+				"path",
+				"hostKey",
+				"cached",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"FileCache",
+				"modelBeanKey":"FileBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"File cached",
+			"naturalId":"FileCache"
+		},
+    "Float":		{
+			"packagePath":"java.lang",
+			"modelKey":"Float",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Float",
+			"author":"java"
+		},
+    "ModelCacheImpl":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCacheImpl",
+			"superKey":"CacheImpl",
+			"interfaces":"ModelCache",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"ModelCache",
+				"modelBeanKey":"ModelBean"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Table definitions with pojo.",
+			"naturalId":"ModelCacheImpl",
+			"author":"Werner Diwischek"
+		},
+    "HibernateSqlBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HibernateSqlBean",
+			"superKey":"HibernateBean",
+			"fieldKeys":
+			[
+				"hibernateSqlKey",
+				"hibernateKey",
+				"sqlList",
+				"models",
+				"configFile",
+				"auto",
+				"properties",
+				"showSql",
+				"formatSql",
+				"useCacheSecondLevel",
+				"useCacheQuery",
+				"registerAutoListener",
+				"useReflectionOptimizer",
+				"dbKey",
+				"schema",
+				"driver",
+				"jndi",
+				"dbType",
+				"extension",
+				"hostKey",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"HibernateSqlCache",
+				"modelBeanKey":"HibernateSqlBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Prepares a config entry from JSON for {@link HibernateSqlCache} for executing cached sql statements.",
+			"naturalId":"HibernateSqlBean",
+			"author":"Werner Diwischek"
+		},
+    "Object":		{
+			"packagePath":"java.lang",
+			"modelKey":"Object",
+			"eoParams":
+			{
+				"shapeType":"NONE"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Object",
+			"author":"java"
+		},
+    "ActionList":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"ActionList",
+			"eoParams":
+			{
+				"shapeType":"ACTION"
+			},
+			"packageGroup":"actions",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"For a list of actions. ",
+			"naturalId":"ActionList",
+			"author":"Werner Diwischek"
+		},
+    "Arrays":		{
+			"packagePath":"java.util",
+			"modelKey":"Arrays",
+			"eoParams":
+			{
+				"shapeType":"LIST"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Arrays",
+			"author":"java"
+		},
+    "ValueAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"ValueAction",
+			"superKey":"AssetAction",
+			"fieldKeys":
+			[
+				"value",
+				"rolePermissions"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"methods":
+				[
+					"execute"
+				],
+				"modelCacheKey":"ValueCache",
+				"modelBeanKey":"ValueBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Sets a value to path and mapPath",
+			"naturalId":"ValueAction",
+			"author":"Werner Diwischek"
+		},
+    "Map":		{
+			"packagePath":"java.util",
+			"modelKey":"Map",
+			"eoParams":
+			{
+				"shapeType":"MAP",
+				"defaultImplementation":"LinkedHashMap"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Map",
+			"author":"java"
+		},
+    "DbTypes":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"DbTypes",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Enum with different shapetypes like ORACLE or H2",
+			"naturalId":"DbTypes",
+			"author":"Werner Diwischek"
+		},
+    "ModelCacheNone":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCacheNone",
+			"superKey":"ModelCacheImpl",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Class definitions for a null.",
+			"naturalId":"ModelCacheNone",
+			"author":"Werner Diwischek"
+		},
+    "Set":		{
+			"packagePath":"java.util",
+			"modelKey":"Set",
+			"eoParams":
+			{
+				"shapeType":"SET",
+				"defaultImplementation":"LinkedHashSet"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Set",
+			"author":"java"
+		},
+    "ActionBuilder":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.adapters",
+			"modelKey":"ActionBuilder",
+			"fieldKeys":
+			[
+				"call",
+				"attributes",
+				"modelKeys",
+				"path",
+				"mapPath",
+				"info"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"adapters",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Wrapper to call adapter call of a bean. ",
+			"naturalId":"ActionBuilder",
+			"author":"Werner Diwischek"
+		},
+    "ModelCacheScalar":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCacheScalar",
+			"superKey":"ModelCacheImpl",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Class definitions for a scalar.",
+			"naturalId":"ModelCacheScalar",
+			"author":"Werner Diwischek"
+		},
+    "UserCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"UserCache",
+			"superKey":"CacheImpl",
+			"fieldKeys":
+			[
+				"userKey",
+				"userName",
+				"roles",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"UserCache",
+				"modelBeanKey":"UserBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Cache definitions with final instance vars",
+			"naturalId":"UserCache",
+			"author":"Werner Diwischek"
+		},
+    "ModelCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCache",
+			"superKey":"Cache",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"INTERFACE",
+				"create":true,
+				"modelCacheKey":"ModelCache",
+				"modelBeanKey":"ModelBean"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Table definitions with pojo.",
+			"naturalId":"ModelCache",
+			"author":"Werner Diwischek"
+		},
+    "PathPattern":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.paths",
+			"modelKey":"PathPattern",
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"paths",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A list of paths to filter object hierarchy.",
+			"naturalId":"PathPattern",
+			"author":"Werner Diwischek"
+		},
+    "HibernateBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HibernateBean",
+			"superKey":"DbBean",
+			"fieldKeys":
+			[
+				"hibernateKey",
+				"models",
+				"configFile",
+				"auto",
+				"properties",
+				"showSql",
+				"formatSql",
+				"useCacheSecondLevel",
+				"useCacheQuery",
+				"registerAutoListener",
+				"useReflectionOptimizer",
+				"dbKey",
+				"schema",
+				"driver",
+				"jndi",
+				"dbType",
+				"extension",
+				"hostKey",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"HibernateCache",
+				"modelBeanKey":"HibernateBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Mainly the schema ",
+			"naturalId":"HibernateBean",
+			"author":"Werner Diwischek"
+		},
+    "ModelImpl":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"ModelImpl",
+			"interfaces":"Model",
+			"fieldKeys":
+			[
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"models",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
+			"naturalId":"ModelImpl",
+			"author":"Werner Diwischek"
+		},
+    "Property":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"Property",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"property.value",
+				"product",
+				"propertyType",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/value,/product,/ propertyType"
+			},
+			"dbParams":
+			{
+				"table":"Property",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"Property",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "Path":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.paths",
+			"modelKey":"Path",
+			"fieldKeys":
+			[
+				"entries"
+			],
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"paths",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A path with useful methonds. ",
+			"naturalId":"Path",
+			"author":"Werner Diwischek"
+		},
+    "ValueBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ValueBean",
+			"superKey":"AssetBean",
+			"fieldKeys":
+			[
+				"valueAsString",
+				"valueKey",
+				"rolePermissions"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"ValueCache",
+				"modelBeanKey":"ValueBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a bean with a value to create {@ValueCache}",
+			"naturalId":"ValueBean",
+			"author":"Werner Diwischek"
+		},
+    "FieldCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"FieldCache",
+			"superKey":"CacheImpl",
+			"fieldKeys":
+			[
+				"fieldKey",
+				"modelKeys",
+				"dbFieldParams",
+				"eoFieldParams",
+				"viewFieldParams",
+				"customFieldParams",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"FieldCache",
+				"modelBeanKey":"FieldBean"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Fielddefinitions depending on MetaModels",
+			"naturalId":"FieldCache",
+			"creationDate":1491429600000,
+			"author":"Werner Diwischek"
+		},
+    "LoggingObjectsImpl":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.adapters",
+			"modelKey":"LoggingObjectsImpl",
+			"fieldKeys":
+			[
+				"log"
+			],
+			"eoParams":
+			{
+				"shapeType":"INSTANCE"
+			},
+			"packageGroup":"adapters",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters for creating adapter",
+			"naturalId":"LoggingObjectsImpl",
+			"author":"Werner Diwischek"
+		},
+    "RoleCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"RoleCache",
+			"superKey":"CacheImpl",
+			"fieldKeys":
+			[
+				"name",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the roles",
+			"naturalId":"RoleCache"
+		},
+    "DbSqlCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"DbSqlCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"dbSqlKey",
+				"dbKey",
+				"sqlList",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"DbSqlCache",
+				"modelBeanKey":"DbSqlBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Execute sql statements via jdbc connection. ",
+			"naturalId":"DbSqlCache",
+			"author":"Werner Diwischek"
+		},
+    "AssetBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"AssetBean",
+			"superKey":"AssetBean",
+			"fieldKeys":
+			[
+				"rolePermissions"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a bean with rolePermissions{@AssetCache}",
+			"naturalId":"AssetBean",
+			"author":"Werner Diwischek"
+		},
+    "StringBuffer":		{
+			"packagePath":"java.lang",
+			"modelKey":"StringBuffer",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"StringBuffer",
+			"author":"java"
+		},
+    "Model":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"Model",
+			"fieldKeys":
+			[
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"INTERFACE",
+				"defaultImplementation":"ModelImpl"
+			},
+			"packageGroup":"models",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Basic bean as super interface for other cached items. ",
+			"naturalId":"Model",
+			"creationDate":1491516000000,
+			"author":"Werner Diwischek"
+		},
+    "FieldBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"FieldBean",
+			"superKey":"BeanImpl",
+			"fieldKeys":
+			[
+				"fieldKey",
+				"dbFieldParams",
+				"eoFieldParams",
+				"viewFieldParams",
+				"customFieldParams",
+				"modelKeys",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"FieldCache",
+				"modelBeanKey":"FieldBean"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Fielddefinitions depending on MetaModels",
+			"naturalId":"FieldBean",
+			"creationDate":1491429600000,
+			"author":"Werner Diwischek"
+		},
+    "HostAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"HostAction",
+			"superKey":"Action",
+			"fieldKeys":
+			[
+				"rolePermissions",
+				"path",
+				"mapPath",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"modelCacheKey":"HostCache",
+				"modelBeanKey":"HostBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a host call. Actually no call defined. ",
+			"naturalId":"HostAction",
+			"author":"Werner Diwischek"
+		},
+    "FileAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"FileAction",
+			"superKey":"HostAction",
+			"fieldKeys":
+			[
+				"rolePermissions",
+				"path",
+				"mapPath",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"methods":
+				[
+					"read",
+					"write"
+				],
+				"modelCacheKey":"FileCache",
+				"modelBeanKey":"FileBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a file access. ",
+			"naturalId":"FileAction",
+			"author":"Werner Diwischek"
+		},
+    "CsvAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"CsvAction",
+			"superKey":"FileAction",
+			"fieldKeys":
+			[
+				"ignoreHeader",
+				"length",
+				"rowStart",
+				"rowEnd",
+				"whereAsString",
+				"colKeysAsString",
+				"pathPatternAsString",
+				"mapPath",
+				"modelKey",
+				"rolePermissions",
+				"path",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"methods":
+				[
+					"read",
+					"write"
+				],
+				"attributeList":
+				[
+					"length",
+					"rowStart",
+					"rowEnd",
+					"ignoreHeader",
+					"colKeysAsString",
+					"pathPatternAsString"
+				],
+				"modelCacheKey":"CsvCache",
+				"modelBeanKey":"CsvBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the processing parameters for a csv content.",
+			"naturalId":"CsvAction",
+			"author":"Werner Diwischek"
+		},
+    "HostBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HostBean",
+			"superKey":"BeanImpl",
+			"fieldKeys":
+			[
+				"hostKey",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"HostCache",
+				"modelBeanKey":"HostBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Basic host definition for file or db config. ",
+			"naturalId":"HostBean",
+			"author":"Werner Diwischek"
+		},
+    "DbSqlAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"DbSqlAction",
+			"superKey":"HibernateAction",
+			"fieldKeys":
+			[
+				"ignoreHeader",
+				"length",
+				"rowStart",
+				"rowEnd",
+				"whereAsString",
+				"colKeysAsString",
+				"pathPatternAsString",
+				"mapPath",
+				"modelKey",
+				"rolePermissions",
+				"path",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"methods":
+				[
+					"execute"
+				],
+				"modelCacheKey":"DbSqlCache",
+				"modelBeanKey":"DbSqlBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"A execution method for  {@link DbSqlCache}",
+			"naturalId":"DbSqlAction",
+			"author":"Werner Diwischek"
+		},
+    "LinkedHashSet":		{
+			"packagePath":"java.util",
+			"modelKey":"LinkedHashSet",
+			"eoParams":
+			{
+				"shapeType":"SET"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"LinkedHashSet",
+			"author":"java"
+		},
+    "DBFieldParams":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"DBFieldParams",
+			"fieldKeys":
+			[
+				"fieldName",
+				"hibernate",
+				"table",
+				"join",
+				"joinInverse",
+				"mapKey",
+				"unique",
+				"notNull",
+				"length"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Params controlling the behaviour of persisting of an elastic field in a database.",
+			"naturalId":"DBFieldParams",
+			"author":"Werner Diwischek"
+		},
+    "ViewFieldParams":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ViewFieldParams",
+			"fieldKeys":
+			[
+				"viewKey",
+				"inputKey"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Params controlling the behavior the view of an elastic field including input.",
+			"naturalId":"ViewFieldParams",
+			"author":"Werner Diwischek"
+		},
+    "HostCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HostCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"hostKey",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"HostCache",
+				"modelBeanKey":"HostBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Basic host definition for file or db config. ",
+			"naturalId":"HostCache"
+		},
+    "HashMap":		{
+			"packagePath":"java.util",
+			"modelKey":"HashMap",
+			"eoParams":
+			{
+				"shapeType":"MAP"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"HashMap",
+			"author":"java"
+		},
+    "RoleBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"RoleBean",
+			"superKey":"CacheImpl",
+			"fieldKeys":
+			[
+				"name",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the roles",
+			"naturalId":"RoleBean"
+		},
+    "BeanImpl":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"BeanImpl",
+			"superKey":"ModelImpl",
+			"interfaces":"Bean",
+			"fieldKeys":
+			[
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"defaultImplementation":"ModelImpl"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Basic bean as super object for other cached items. ",
+			"naturalId":"BeanImpl",
+			"creationDate":1491516000000,
+			"author":"Werner Diwischek"
+		},
+    "PropertyType":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"PropertyType",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"header",
+				"type",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/header,/type"
+			},
+			"dbParams":
+			{
+				"table":"PropertyType",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"PropertyType",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "ListParams":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"ListParams",
+			"fieldKeys":
+			[
+				"rowStart",
+				"rowEnd",
+				"length"
+			],
+			"eoParams":
+			{
+				"shapeType":"INSTANCE"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the parameter like rowStart, rowEnd and length.",
+			"naturalId":"ListParams",
+			"author":"Werner Diwischek"
+		},
+    "LinkedHashMap":		{
+			"packagePath":"java.util",
+			"modelKey":"LinkedHashMap",
+			"eoParams":
+			{
+				"shapeType":"MAP"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"LinkedHashMap",
+			"author":"java"
+		},
+    "Like":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
+			"modelKey":"Like",
+			"interfaces":"Condition",
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"condition",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Like check for strings.",
+			"naturalId":"Like",
+			"author":"Werner Diwischek"
+		},
+    "FileBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"FileBean",
+			"superKey":"HostBean",
+			"fieldKeys":
+			[
+				"fileName",
+				"fileKey",
+				"path",
+				"hostKey",
+				"cached",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"FileCache",
+				"modelBeanKey":"FileBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a file access. ",
+			"naturalId":"FileBean",
+			"author":"Werner Diwischek"
+		},
+    "List":		{
+			"packagePath":"java.util",
+			"modelKey":"List",
+			"eoParams":
+			{
+				"shapeType":"LIST",
+				"defaultImplementation":"ArrayList"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"List",
+			"author":"java"
+		},
+    "Short":		{
+			"packagePath":"java.lang",
+			"modelKey":"Short",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Short",
+			"author":"java"
+		},
+    "HashSet":		{
+			"packagePath":"java.util",
+			"modelKey":"HashSet",
+			"eoParams":
+			{
+				"shapeType":"SET"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"HashSet",
+			"author":"java"
+		},
+    "DBParams":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"DBParams",
+			"fieldKeys":
+			[
+				"table",
+				"idKey",
+				"naturalKeys",
+				"hibernateAnnotations"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Params controlling the behavior of persistiong an elastic objects in a database.",
+			"naturalId":"DBParams",
+			"author":"Werner Diwischek"
+		},
+    "AssetCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"AssetCache",
+			"superKey":"CacheImpl",
+			"fieldKeys":
+			[
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the role access.",
+			"naturalId":"AssetCache",
+			"author":"Werner Diwischek"
+		},
+    "ShapeTypes":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ShapeTypes",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Enum with different shapetypes like SCALAR or BEAN. ",
+			"naturalId":"ShapeTypes",
+			"author":"Werner Diwischek"
+		},
+    "ModelAnnotated":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"models",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Basic bean as super object for model beans with id, naturalId and description and hibernate annotations. ",
+			"naturalId":"ModelAnnotated",
+			"author":"Werner Diwischek"
+		},
+    "CsvCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"CsvCache",
+			"superKey":"FileCache",
+			"fieldKeys":
+			[
+				"csvKey",
+				"fieldDelimiter",
+				"rowDelimiter",
+				"rowHead",
+				"colKeys",
+				"fileName",
+				"fileKey",
+				"path",
+				"hostKey",
+				"cached",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"CsvCache",
+				"modelBeanKey":"CsvBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the processing parameters for a csv content stored in a final config object delivered by the EOConfigs.",
+			"naturalId":"CsvCache"
+		},
+    "CsvBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"CsvBean",
+			"superKey":"FileBean",
+			"fieldKeys":
+			[
+				"csvKey",
+				"fieldDelimiter",
+				"rowDelimiter",
+				"rowHead",
+				"colKeys",
+				"fileName",
+				"fileKey",
+				"path",
+				"hostKey",
+				"cached",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"CsvCache",
+				"modelBeanKey":"CsvBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the processing parameters for a csv content.",
+			"naturalId":"CsvBean",
+			"author":"Werner Diwischek"
+		},
+    "AssetAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"AssetAction",
+			"superKey":"AssetAction",
+			"fieldKeys":
+			[
+				"rolePermissions"
+			],
+			"eoParams":
+			{
+				"shapeType":"ACTION"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Not shure now.",
+			"naturalId":"AssetAction",
+			"author":"Werner Diwischek"
+		},
+    "Double":		{
+			"packagePath":"java.lang",
+			"modelKey":"Double",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Double",
+			"author":"java"
+		},
+    "And":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
+			"modelKey":"And",
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"condition",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A list of {@ Condition}.",
+			"naturalId":"And",
+			"author":"Werner Diwischek"
+		},
+    "ValueCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ValueCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"valueAsString",
+				"valueKey",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"ValueCache",
+				"modelBeanKey":"ValueBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a config with a value",
+			"naturalId":"ValueCache"
+		},
+    "Long":		{
+			"packagePath":"java.lang",
+			"modelKey":"Long",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Long",
+			"author":"java"
+		},
+    "ModelCacheList":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCacheList",
+			"superKey":"ModelCacheImpl",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Class definitions for an list with getters and setters.",
+			"naturalId":"ModelCacheList",
+			"author":"Werner Diwischek"
+		},
+    "HibernateAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"HibernateAction",
+			"superKey":"DbAction",
+			"fieldKeys":
+			[
+				"ignoreHeader",
+				"length",
+				"rowStart",
+				"rowEnd",
+				"whereAsString",
+				"colKeysAsString",
+				"pathPatternAsString",
+				"mapPath",
+				"modelKey",
+				"rolePermissions",
+				"path",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"modelCacheKey":"HibernateCache",
+				"modelBeanKey":"HibernateBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Mainly the schema ",
+			"naturalId":"HibernateAction",
+			"author":"Werner Diwischek"
+		},
+    "Class":		{
+			"packagePath":"java.lang",
+			"modelKey":"Class",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Class",
+			"author":"java"
+		},
+    "ModelCacheObject":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelCacheObject",
+			"superKey":"ModelCacheImpl",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Class definitions for an object with getters and setters.",
+			"naturalId":"ModelCacheObject",
+			"author":"Werner Diwischek"
+		},
+    "CustomerAddress":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"CustomerAddress",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"address",
+				"customer",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/address,/customer"
+			},
+			"dbParams":
+			{
+				"table":"CustomerAddress",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"CustomerAddress",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "Cache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"Cache",
+			"superKey":"Model",
+			"fieldKeys":
+			[
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"INTERFACE"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Basic config interface as super interface for other cached items. ",
+			"naturalId":"Cache",
+			"creationDate":1491516000000,
+			"author":"Werner Diwischek"
+		},
+    "RolePermissions":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"RolePermissions",
+			"fieldKeys":
+			[
+				"read",
+				"write",
+				"create",
+				"delete",
+				"execute"
+			],
+			"eoParams":
+			{
+				"shapeType":"INSTANCE"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the roles ",
+			"naturalId":"RolePermissions",
+			"author":"Werner Diwischek"
+		},
+    "Action":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"Action",
+			"fieldKeys":
+			[
+				"path",
+				"mapPath",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ACTION"
+			},
+			"packageGroup":"actions",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Basic bean as super object for other cached items. ",
+			"naturalId":"Action",
+			"creationDate":1491516000000,
+			"author":"Werner Diwischek"
+		},
+    "Category":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"Category",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"childs",
+				"name",
+				"parent",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/childs,/name,/parent"
+			},
+			"dbParams":
+			{
+				"table":"Category",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"Category",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "DbCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"DbCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"dbKey",
+				"schema",
+				"driver",
+				"jndi",
+				"dbType",
+				"hostKey",
+				"extension",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"modelCacheKey":"DbCache",
+				"modelBeanKey":"DbBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Mainly the schema ",
+			"naturalId":"DbCache",
+			"author":"Werner Diwischek"
+		},
+    "StringBuilder":		{
+			"packagePath":"java.lang",
+			"modelKey":"StringBuilder",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"StringBuilder",
+			"author":"java"
+		},
+    "HibernateModelCache":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HibernateModelCache",
+			"superKey":"AssetCache",
+			"fieldKeys":
+			[
+				"hibernateModelKey",
+				"hibernateKey",
+				"modelKey",
+				"pathPattern",
+				"rowStart",
+				"length",
+				"rowEnd",
+				"and",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG",
+				"create":true,
+				"attributeList":
+				[
+					"length",
+					"rowStart",
+					"rowEnd",
+					"pathPatternAsString"
+				],
+				"modelCacheKey":"HibernateModelCache",
+				"modelBeanKey":"HibernateModelBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Hibernate object with a certain model ",
+			"naturalId":"HibernateModelCache",
+			"author":"Werner Diwischek"
+		},
+    "ModelBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"ModelBean",
+			"superKey":"BeanImpl",
+			"fieldKeys":
+			[
+				"packagePath",
+				"modelKey",
+				"superKey",
+				"interfaces",
+				"fieldKeys",
+				"eoParams",
+				"dbParams",
+				"viewParams",
+				"customParams",
+				"packageGroup",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"ModelCache",
+				"modelBeanKey":"ModelBean"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Model bean definition used for creating the config object {@link ModelCache}.",
+			"naturalId":"ModelBean",
+			"author":"Werner Diwischek"
+		},
+    "CalcAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"CalcAction",
+			"superKey":"FileAction",
+			"fieldKeys":
+			[
+				"calc",
+				"rolePermissions",
+				"path",
+				"mapPath",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"methods":
+				[
+					"execute"
+				],
+				"modelCacheKey":"ValueCache",
+				"modelBeanKey":"ValueBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a simple calc call using jCalc. Uses the attribute calcString.",
+			"naturalId":"CalcAction",
+			"author":"Werner Diwischek"
+		},
+    "DbSqlBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"DbSqlBean",
+			"superKey":"DbBean",
+			"fieldKeys":
+			[
+				"dbSqlKey",
+				"dbKey",
+				"sqlList",
+				"schema",
+				"driver",
+				"jndi",
+				"dbType",
+				"extension",
+				"hostKey",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"DbSqlCache",
+				"modelBeanKey":"DbSqlBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Prepares a config entry from JSON for {@link DbSqlCache} for executing cached sql statements.",
+			"naturalId":"DbSqlBean",
+			"author":"Werner Diwischek"
+		},
+    "HibernateModelAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"HibernateModelAction",
+			"superKey":"HibernateAction",
+			"fieldKeys":
+			[
+				"useAdapterValues",
+				"ignoreHeader",
+				"length",
+				"rowStart",
+				"rowEnd",
+				"whereAsString",
+				"colKeysAsString",
+				"pathPatternAsString",
+				"mapPath",
+				"modelKey",
+				"rolePermissions",
+				"path",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"methods":
+				[
+					"read",
+					"write",
+					"delete"
+				],
+				"modelCacheKey":"HibernateModelCache",
+				"modelBeanKey":"HibernateModelBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Hibernate object with a certain model ",
+			"naturalId":"HibernateModelAction",
+			"author":"Werner Diwischek"
+		},
+    "Eq":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
+			"modelKey":"Eq",
+			"interfaces":"Condition",
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"condition",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Equality check for objects.",
+			"naturalId":"Eq",
+			"author":"Werner Diwischek"
+		},
+    "CacheImpl":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"CacheImpl",
+			"superKey":"ModelImpl",
+			"interfaces":"Cache",
+			"fieldKeys":
+			[
+				"module",
+				"subModule",
+				"scope",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CONFIG"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Basic config as super object for other cached items. ",
+			"naturalId":"CacheImpl",
+			"creationDate":1491516000000,
+			"author":"Werner Diwischek"
+		},
+    "HibernateModelBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"HibernateModelBean",
+			"superKey":"HibernateBean",
+			"fieldKeys":
+			[
+				"hibernateModelKey",
+				"hibernateKey",
+				"modelKey",
+				"pathPattern",
+				"rowStart",
+				"length",
+				"rowEnd",
+				"andAsString",
+				"models",
+				"configFile",
+				"auto",
+				"properties",
+				"showSql",
+				"formatSql",
+				"useCacheSecondLevel",
+				"useCacheQuery",
+				"registerAutoListener",
+				"useReflectionOptimizer",
+				"dbKey",
+				"schema",
+				"driver",
+				"jndi",
+				"dbType",
+				"extension",
+				"hostKey",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"HibernateModelCache",
+				"modelBeanKey":"HibernateModelBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Hibernate object with a certain model ",
+			"naturalId":"HibernateModelBean",
+			"author":"Werner Diwischek"
+		},
+    "Bean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"Bean",
+			"superKey":"Model",
+			"fieldKeys":
+			[
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"INTERFACE",
+				"defaultImplementation":"BeanImpl"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Basic bean as super object for other cached items. ",
+			"naturalId":"Bean",
+			"creationDate":1491516000000,
+			"author":"Werner Diwischek"
+		},
+    "UserBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"UserBean",
+			"superKey":"BeanImpl",
+			"fieldKeys":
+			[
+				"userKey",
+				"userName",
+				"roles",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"UserCache",
+				"modelBeanKey":"UserBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Cache definitions with final instance vars",
+			"naturalId":"UserBean",
+			"author":"Werner Diwischek"
+		},
+    "PersistentBag":		{
+			"packagePath":"org.hibernate.collection.internal",
+			"modelKey":"PersistentBag",
+			"eoParams":
+			{
+				"shapeType":"LIST"
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Hibernate object with a certain model ",
+			"naturalId":"PersistentBag",
+			"author":"hibernate"
+		},
+    "ListRowMapper":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"ListRowMapper",
+			"fieldKeys":
+			[
+				"colKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"INSTANCE"
+			},
+			"packageGroup":"actions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines the parameter names list for mapping.",
+			"naturalId":"ListRowMapper",
+			"author":"Werner Diwischek"
+		},
+    "ProductOrder":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"ProductOrder",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"lineItemList",
+				"customer",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/lineItemList,/customer"
+			},
+			"dbParams":
+			{
+				"table":"ProductOrder",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"ProductOrder",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "EOFieldParams":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"EOFieldParams",
+			"fieldKeys":
+			[
+				"pathPatternAsString"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Params controlling the behavior of an elastic field like serialization/deserialization.",
+			"naturalId":"EOFieldParams",
+			"author":"Werner Diwischek"
+		},
+    "Password":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"Password",
+			"fieldKeys":
+			[
+				"password"
+			],
+			"eoParams":
+			{
+				"shapeType":"SCALAR_SERIALIZED"
+			},
+			"packageGroup":"models",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A password will be escaped when serialized",
+			"naturalId":"Password",
+			"author":"Werner Diwischek"
+		},
+    "DbBean":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"DbBean",
+			"superKey":"HostBean",
+			"fieldKeys":
+			[
+				"dbKey",
+				"schema",
+				"driver",
+				"jndi",
+				"dbType",
+				"extension",
+				"hostKey",
+				"port",
+				"protocol",
+				"hostName",
+				"user",
+				"password",
+				"rolePermissions",
+				"module",
+				"subModule",
+				"scope",
+				"origin",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate",
+				"author"
+			],
+			"eoParams":
+			{
+				"shapeType":"CACHEBEAN",
+				"create":true,
+				"modelCacheKey":"DbCache",
+				"modelBeanKey":"DbBean"
+			},
+			"packageGroup":"config",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Mainly the schema ",
+			"naturalId":"DbBean",
+			"author":"Werner Diwischek"
+		},
+    "Condition":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.condition",
+			"modelKey":"Condition",
+			"eoParams":
+			{
+				"shapeType":"INTERFACE"
+			},
+			"packageGroup":"condition",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Interface for conditions, mainly a filterKey value pair with some methods serving as filter expressions. ",
+			"naturalId":"Condition",
+			"author":"Werner Diwischek"
+		},
+    "LineItem":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.models",
+			"modelKey":"LineItem",
+			"superKey":"ModelAnnotated",
+			"fieldKeys":
+			[
+				"quantity",
+				"product",
+				"productOrder",
+				"id",
+				"description",
+				"naturalId",
+				"creationDate"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"pathPatternAsString":"/quantity,/product,/productOrder"
+			},
+			"dbParams":
+			{
+				"table":"LineItem",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"naturalId"
+				],
+				"hibernateAnnotations":true
+			},
+			"packageGroup":"models",
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"LineItem",
+			"creationDate":1513119600000,
+			"author":"Werner Diwischek"
+		},
+    "BasicTest":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.assets",
+			"modelKey":"BasicTest",
+			"fieldKeys":
+			[
+				"id",
+				"basicTest",
+				"subTest",
+				"subTestList",
+				"subTestMap",
+				"untypedList",
+				"untypedMap",
+				"testInt",
+				"testString",
+				"testLong",
+				"testDate",
+				"testBoolean",
+				"testFloat",
+				"testDouble",
+				"testObject"
+			],
+			"eoParams":
+			{
+				"shapeType":"BEAN",
+				"create":true
+			},
+			"dbParams":
+			{
+				"table":"BasicTest",
+				"idKey":"id",
+				"naturalKeys":
+				[
+					"testString"
+				],
+				"hibernateAnnotations":false
+			},
+			"packageGroup":"assets",
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
+			"naturalId":"BasicTest",
+			"author":"Werner Diwischek"
+		},
+    "Date":		{
+			"packagePath":"java.util",
+			"modelKey":"Date",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Date",
+			"author":"java"
+		},
+    "Integer":		{
+			"packagePath":"java.lang",
+			"modelKey":"Integer",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"Integer",
+			"author":"java"
+		},
+    "HibernateSqlAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"HibernateSqlAction",
+			"superKey":"HibernateAction",
+			"fieldKeys":
+			[
+				"ignoreHeader",
+				"length",
+				"rowStart",
+				"rowEnd",
+				"whereAsString",
+				"colKeysAsString",
+				"pathPatternAsString",
+				"mapPath",
+				"modelKey",
+				"rolePermissions",
+				"path",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"methods":
+				[
+					"execute"
+				],
+				"modelCacheKey":"HibernateSqlCache",
+				"modelBeanKey":"HibernateSqlBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"A execution method for  {@link HibernateSqlCache}",
+			"naturalId":"HibernateSqlAction",
+			"author":"Werner Diwischek"
+		},
+    "DbAction":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.actions",
+			"modelKey":"DbAction",
+			"superKey":"HostAction",
+			"fieldKeys":
+			[
+				"ignoreHeader",
+				"length",
+				"rowStart",
+				"rowEnd",
+				"whereAsString",
+				"colKeysAsString",
+				"pathPatternAsString",
+				"mapPath",
+				"modelKey",
+				"rolePermissions",
+				"path",
+				"modelKeys"
+			],
+			"eoParams":
+			{
+				"shapeType":"ADAPTER",
+				"create":true,
+				"modelCacheKey":"DbCache",
+				"modelBeanKey":"DbBean"
+			},
+			"packageGroup":"actions",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Mainly the schema ",
+			"naturalId":"DbAction",
+			"author":"Werner Diwischek"
+		},
+    "Scope":		{
+			"packagePath":"org.fluentcodes.projects.elasticobjects.config",
+			"modelKey":"Scope",
+			"eoParams":
+			{
+				"shapeType":"SCALAR"
+			},
+			"packageGroup":"config",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Enum with different Scopes to environment specific caches.",
+			"naturalId":"Scope",
+			"author":"Werner Diwischek"
+		}
+  },
+  "FieldCache":{
+    "pathPatternAsString":		{
+			"fieldKey":"pathPatternAsString",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"pathPatternString",
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A path pattern for {@link FieldBean}.",
+			"naturalId":"pathPatternAsString"
+		},
+    "parent":		{
+			"fieldKey":"parent",
+			"modelKeys":"Category",
+			"dbFieldParams":
+			{
+				"fieldName":"parent",
+				"hibernate":"ManyToOne",
+				"table":"Category",
+				"join":"parent_id"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A category that is the parent of this category in the category tree.",
+			"naturalId":"parent"
+		},
+    "csvKey":		{
+			"fieldKey":"csvKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":4
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"csvKey"
+		},
+    "fileName":		{
+			"fieldKey":"fileName",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"fileName"
+		},
+    "naturalId":		{
+			"fieldKey":"naturalId",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"naturalId",
+				"unique":true,
+				"notNull":true,
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The naturalKey for all caches {@link CacheImpl} and {@link BeanImpl}",
+			"naturalId":"naturalId"
+		},
+    "productOrder":		{
+			"fieldKey":"productOrder",
+			"modelKeys":"ProductOrder",
+			"dbFieldParams":
+			{
+				"fieldName":"productOrder",
+				"hibernate":"ManyToOne",
+				"table":"ProductOrder",
+				"join":"id"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A reference to the customer",
+			"naturalId":"productOrder"
+		},
+    "type":		{
+			"fieldKey":"type",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"type",
+				"hibernate":"Column",
+				"length":12
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A type like String/Integer/Float",
+			"naturalId":"type"
+		},
+    "childs":		{
+			"fieldKey":"childs",
+			"modelKeys":"Map,Category",
+			"dbFieldParams":
+			{
+				"fieldName":"childs",
+				"hibernate":"OneToMany",
+				"table":"Category",
+				"join":"parent",
+				"mapKey":"naturalId"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The child categories derived from the parent value.",
+			"naturalId":"childs"
+		},
+    "building":		{
+			"fieldKey":"building",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"building",
+				"hibernate":"Column",
+				"length":16
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"building"
+		},
+    "hibernateModelKey":		{
+			"fieldKey":"hibernateModelKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"hibernateModelKey",
+				"unique":true,
+				"notNull":true,
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The filterKey finding a config {@Link HibernateModelCache} entry.",
+			"naturalId":"hibernateModelKey"
+		},
+    "path":		{
+			"fieldKey":"path",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"path",
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"path"
+		},
+    "password":		{
+			"fieldKey":"password",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":15
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The password instance var.",
+			"naturalId":"password"
+		},
+    "packageGroup":		{
+			"fieldKey":"packageGroup",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"packageGroup",
+				"length":12
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Defines to which group a model belong e.g. asset/config/call",
+			"naturalId":"packageGroup"
+		},
+    "price":		{
+			"fieldKey":"price",
+			"modelKeys":"Float",
+			"dbFieldParams":
+			{
+				"fieldName":"price",
+				"hibernate":"Column"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The price of a product.",
+			"naturalId":"price"
+		},
+    "rolePermissions":		{
+			"fieldKey":"rolePermissions",
+			"modelKeys":"RolePermissions",
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"rolePermissions"
+		},
+    "dbFieldParams":		{
+			"fieldKey":"dbFieldParams",
+			"modelKeys":"DBFieldParams",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters for persisting perspective. ",
+			"naturalId":"dbFieldParams"
+		},
+    "property":		{
+			"fieldKey":"property",
+			"modelKeys":"Property",
+			"dbFieldParams":
+			{
+				"fieldName":"property",
+				"hibernate":"ManyToOne",
+				"table":"Product",
+				"join":"id"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A reference to the customer",
+			"naturalId":"property"
+		},
+    "call":		{
+			"fieldKey":"call",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"call",
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A value extending the {@link Action} Class.",
+			"naturalId":"call"
+		},
+    "model":		{
+			"fieldKey":"model",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The simple name of the class referenced as first value of the {@link ModelsList}",
+			"naturalId":"model"
+		},
+    "state":		{
+			"fieldKey":"state",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"state",
+				"hibernate":"Column",
+				"length":32
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The state in a country.",
+			"naturalId":"state"
+		},
+    "id":		{
+			"fieldKey":"id",
+			"modelKeys":"Long",
+			"dbFieldParams":
+			{
+				"fieldName":"id",
+				"unique":true,
+				"notNull":true
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The id with a autonumbering",
+			"naturalId":"id"
+		},
+    "ID":		{
+			"fieldKey":"ID",
+			"modelKeys":"Long",
+			"dbFieldParams":
+			{
+				"fieldName":"ID",
+				"unique":true,
+				"notNull":true
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Alias for id with uppercase.",
+			"naturalId":"ID"
+		},
+    "join":		{
+			"fieldKey":"join",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A reference filterKey to a id field for joining.",
+			"naturalId":"join"
+		},
+    "fax":		{
+			"fieldKey":"fax",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"fax",
+				"hibernate":"Column",
+				"length":32
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The fax number.",
+			"naturalId":"fax"
+		},
+    "colKeys":		{
+			"fieldKey":"colKeys",
+			"modelKeys":"ArrayList,String",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"The filterKey list for mapping values in a value list. ",
+			"naturalId":"colKeys"
+		},
+    "write":		{
+			"fieldKey":"write",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"String representation of RolePermission write permissions",
+			"naturalId":"write"
+		},
+    "testDouble":		{
+			"fieldKey":"testDouble",
+			"modelKeys":"Double",
+			"dbFieldParams":
+			{
+				"fieldName":"testDouble"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"testDouble"
+		},
+    "andAsString":		{
+			"fieldKey":"andAsString",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":1024
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Stringified value of {@And}",
+			"naturalId":"andAsString"
+		},
+    "models":		{
+			"fieldKey":"models",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":512
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A string representation for a list of model keys.",
+			"naturalId":"models"
+		},
+    "hibernateAnnotations":		{
+			"fieldKey":"hibernateAnnotations",
+			"modelKeys":"Boolean",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"sets a Flag for using hibernate annotations when bean is created. ",
+			"naturalId":"hibernateAnnotations"
+		},
+    "pOBox":		{
+			"fieldKey":"pOBox",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"pOBox",
+				"hibernate":"Column",
+				"length":16
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"pOBox"
+		},
+    "streetNumber":		{
+			"fieldKey":"streetNumber",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"streetNumber",
+				"hibernate":"Column",
+				"length":4
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The streetnumber is a string to include street numbers like 1a",
+			"naturalId":"streetNumber"
+		},
+    "notNull":		{
+			"fieldKey":"notNull",
+			"modelKeys":"Boolean",
+			"dbFieldParams":
+			{
+				"fieldName":"notNull"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"notNull"
+		},
+    "addressMap":		{
+			"fieldKey":"addressMap",
+			"modelKeys":"Map,Address",
+			"dbFieldParams":
+			{
+				"fieldName":"addressMap",
+				"hibernate":"ManyToMany",
+				"table":"CustomerAddress",
+				"join":"address_id",
+				"joinInverse":"customer_id",
+				"mapKey":"naturalId"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A map of addresses with a n-m relation in {@link Customer}",
+			"naturalId":"addressMap"
+		},
+    "module":		{
+			"fieldKey":"module",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Defines a target module where generating occurs. ",
+			"naturalId":"module"
+		},
+    "version":		{
+			"fieldKey":"version",
+			"modelKeys":"Float",
+			"dbFieldParams":
+			{
+				"fieldName":"version",
+				"hibernate":"Column"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The current version of the category.",
+			"naturalId":"version"
+		},
+    "execute":		{
+			"fieldKey":"execute",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"String representation of RolePermission execute permissions",
+			"naturalId":"execute"
+		},
+    "ignoreHeader":		{
+			"fieldKey":"ignoreHeader",
+			"modelKeys":"Boolean",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Ignore the setting of a header.",
+			"naturalId":"ignoreHeader"
+		},
+    "shapeType":		{
+			"fieldKey":"shapeType",
+			"modelKeys":"ShapeTypes",
+			"dbFieldParams":
+			{
+				"fieldName":"shapeType"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"shapeType"
+		},
+    "driver":		{
+			"fieldKey":"driver",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"driver",
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"naturalId":"driver"
+		},
+    "phone":		{
+			"fieldKey":"phone",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"phone",
+				"hibernate":"Column",
+				"length":32
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The phone number.",
+			"naturalId":"phone"
+		},
+    "lineItemList":		{
+			"fieldKey":"lineItemList",
+			"modelKeys":"List,LineItem",
+			"dbFieldParams":
+			{
+				"fieldName":"lineItemList",
+				"hibernate":"OneToMany",
+				"table":"LineItem",
+				"join":"product"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A list of lineItems for an order",
+			"naturalId":"lineItemList"
+		},
+    "unique":		{
+			"fieldKey":"unique",
+			"modelKeys":"Boolean",
+			"dbFieldParams":
+			{
+				"fieldName":"unique"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"unique"
+		},
+    "hibernateSqlKey":		{
+			"fieldKey":"hibernateSqlKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"hibernateSqlKey",
+				"unique":true,
+				"notNull":true,
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The filterKey finding a config {@Link HibernateSqlCache} entry.",
+			"naturalId":"hibernateSqlKey"
+		},
+    "inputKey":		{
+			"fieldKey":"inputKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A filterKey for a input view.",
+			"naturalId":"inputKey"
+		},
+    "viewFieldParams":		{
+			"fieldKey":"viewFieldParams",
+			"modelKeys":"ViewFieldParams",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters used to define views. ",
+			"naturalId":"viewFieldParams"
+		},
+    "whereAsString":		{
+			"fieldKey":"whereAsString",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Where to be set as a String",
+			"naturalId":"whereAsString"
+		},
+    "schema":		{
+			"fieldKey":"schema",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The database schema used for persisting. {@link HostCache}",
+			"naturalId":"schema"
+		},
+    "template":		{
+			"fieldKey":"template",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":50
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A template filterKey used to generate a model.",
+			"naturalId":"template"
+		},
+    "lastName":		{
+			"fieldKey":"lastName",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"lastName",
+				"hibernate":"Column",
+				"length":64
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The last name of a person.",
+			"naturalId":"lastName"
+		},
+    "hostName":		{
+			"fieldKey":"hostName",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A name for host objects.",
+			"naturalId":"hostName"
+		},
+    "testBoolean":		{
+			"fieldKey":"testBoolean",
+			"modelKeys":"Boolean",
+			"dbFieldParams":
+			{
+				"fieldName":"testBoolean"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"testBoolean"
+		},
+    "extension":		{
+			"fieldKey":"extension",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":1024
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"An extension for database initialization. ",
+			"naturalId":"extension"
+		},
+    "city":		{
+			"fieldKey":"city",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"city",
+				"hibernate":"Column",
+				"length":80
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The city name field.",
+			"naturalId":"city"
+		},
+    "rowHead":		{
+			"fieldKey":"rowHead",
+			"modelKeys":"Integer",
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"rowHead"
+		},
+    "log":		{
+			"fieldKey":"log",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"log",
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Log entray as String.",
+			"naturalId":"log"
+		},
+    "methods":		{
+			"fieldKey":"methods",
+			"modelKeys":"ArrayList,String",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Methods accessible in actions. ",
+			"naturalId":"methods"
+		},
+    "eoFieldParams":		{
+			"fieldKey":"eoFieldParams",
+			"modelKeys":"EOFieldParams",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters used by elastic objects. ",
+			"naturalId":"eoFieldParams"
+		},
+    "fileKey":		{
+			"fieldKey":"fileKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A filterKey for file objects.",
+			"naturalId":"fileKey"
+		},
+    "EOParams.create":		{
+			"fieldKey":"create",
+			"modelKeys":"Boolean",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Set a flag to create a class. ",
+			"naturalId":"EOParams.create"
+		},
+    "subTestList":		{
+			"fieldKey":"subTestList",
+			"modelKeys":"ArrayList,SubTest",
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"A generic parametrized example List with {@link SubTest}",
+			"naturalId":"subTestList"
+		},
+    "hibernate":		{
+			"fieldKey":"hibernate",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"hibernate",
+				"length":16
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"hibernate"
+		},
+    "colKeysAsString":		{
+			"fieldKey":"colKeysAsString",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":1024
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Column keys with String interface",
+			"naturalId":"colKeysAsString"
+		},
+    "subTest":		{
+			"fieldKey":"subTest",
+			"modelKeys":"SubTest",
+			"dbFieldParams":
+			{
+				"fieldName":"subTest"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"subTest"
+		},
+    "listParams":		{
+			"fieldKey":"listParams",
+			"modelKeys":"ListParams",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A filterKey listModel objects.",
+			"naturalId":"listParams"
+		},
+    "orderHint":		{
+			"fieldKey":"orderHint",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"orderHint",
+				"hibernate":"Column",
+				"table":"64",
+				"join":"",
+				"joinInverse":"",
+				"mapKey":""
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"An attribute as base for a custom category order in one level.",
+			"naturalId":"orderHint"
+		},
+    "testObject":		{
+			"fieldKey":"testObject",
+			"modelKeys":"Object",
+			"dbFieldParams":
+			{
+				"fieldName":"testObject"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"A test object thing. ",
+			"naturalId":"testObject"
+		},
+    "configFile":		{
+			"fieldKey":"configFile",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"A hibernate property which defines the location of a xml mapping configuration file.",
+			"naturalId":"configFile"
+		},
+    "cached":		{
+			"fieldKey":"cached",
+			"modelKeys":"Boolean",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"If true will config the readed file within the config object. ",
+			"naturalId":"cached"
+		},
+    "basicTest":		{
+			"fieldKey":"basicTest",
+			"modelKeys":"BasicTest",
+			"dbFieldParams":
+			{
+				"fieldName":"basicTest"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"A BasicTest field.",
+			"naturalId":"basicTest"
+		},
+    "rowStart":		{
+			"fieldKey":"rowStart",
+			"modelKeys":"Integer",
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"rowStart"
+		},
+    "viewParams":		{
+			"fieldKey":"viewParams",
+			"modelKeys":"ViewParams",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters used to define views. ",
+			"naturalId":"viewParams"
+		},
+    "email":		{
+			"fieldKey":"email",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"email",
+				"hibernate":"Column",
+				"length":80
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The email address.",
+			"naturalId":"email"
+		},
+    "filterKey":		{
+			"fieldKey":"filterKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"filterKey"
+		},
+    "table":		{
+			"fieldKey":"table",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The name of the persistence entity in {@link ModelCache} or the join table in {@link FieldCache}.",
+			"naturalId":"table"
+		},
+    "product":		{
+			"fieldKey":"product",
+			"modelKeys":"Product",
+			"dbFieldParams":
+			{
+				"fieldName":"product",
+				"hibernate":"ManyToOne",
+				"table":"Product",
+				"join":"id"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A reference to the Product.",
+			"naturalId":"product"
+		},
+    "address":		{
+			"fieldKey":"address",
+			"modelKeys":"Address",
+			"dbFieldParams":
+			{
+				"fieldName":"address",
+				"hibernate":"ManyToOne",
+				"table":"Address",
+				"join":"id"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The address field.",
+			"naturalId":"address"
+		},
+    "viewKey":		{
+			"fieldKey":"viewKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A filterKey for a view.",
+			"naturalId":"viewKey"
+		},
+    "eoParams":		{
+			"fieldKey":"eoParams",
+			"modelKeys":"EOParams",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters used by elastic objects. ",
+			"naturalId":"eoParams"
+		},
+    "customFieldParams":		{
+			"fieldKey":"customFieldParams",
+			"modelKeys":"HashMap",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Custom Parameters stored by fields elastic objects. ",
+			"naturalId":"customFieldParams"
+		},
+    "fieldKeys":		{
+			"fieldKey":"fieldKeys",
+			"modelKeys":"ArrayList,String",
+			"dbFieldParams":
+			{
+				"fieldName":"fieldKeys"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A list of field keys for the model configuration. ",
+			"naturalId":"fieldKeys"
+		},
+    "productOrderMap":		{
+			"fieldKey":"productOrderMap",
+			"modelKeys":"Map,ProductOrder",
+			"dbFieldParams":
+			{
+				"fieldName":"productOrderMap",
+				"hibernate":"OneToMany",
+				"table":"ProductOrder",
+				"join":"customer",
+				"mapKey":"naturalId"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A map of orders with natural id as filterKey.",
+			"naturalId":"productOrderMap"
+		},
+    "modelKey":		{
+			"fieldKey":"modelKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The model name for the bean/call object {@link Bean}.",
+			"naturalId":"modelKey"
+		},
+    "rowEnd":		{
+			"fieldKey":"rowEnd",
+			"modelKeys":"Integer",
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"rowEnd"
+		},
+    "attributes":		{
+			"fieldKey":"attributes",
+			"modelKeys":"Map",
+			"dbFieldParams":
+			{
+				"fieldName":"attributes"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Setting as String object. (new)",
+			"naturalId":"attributes"
+		},
+    "calc":		{
+			"fieldKey":"calc",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":1024
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Defines a simple calc call using jCalc. Uses the attribute calcString.",
+			"naturalId":"calc"
+		},
+    "mapPath":		{
+			"fieldKey":"mapPath",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A filterKey for the super class of a class.",
+			"naturalId":"mapPath"
+		},
+    "country":		{
+			"fieldKey":"country",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"country",
+				"hibernate":"Column",
+				"notNull":true,
+				"length":2
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A two-digit country code as per ↗ ISO 3166-1 alpha-2 .",
+			"naturalId":"country"
+		},
+    "auto":		{
+			"fieldKey":"auto",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":12
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"A hibernate property which defines the creation type of the database, e.g. update or create.",
+			"naturalId":"auto"
+		},
+    "untypedMap":		{
+			"fieldKey":"untypedMap",
+			"modelKeys":"HashMap",
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"untypedMap"
+		},
+    "postalCode":		{
+			"fieldKey":"postalCode",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"postalCode",
+				"hibernate":"Column",
+				"length":16
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The postalcode of the address.",
+			"naturalId":"postalCode"
+		},
+    "dbParams":		{
+			"fieldKey":"dbParams",
+			"modelKeys":"DBParams",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Parameters for persisting perspective. ",
+			"naturalId":"dbParams"
+		},
+    "testLong":		{
+			"fieldKey":"testLong",
+			"modelKeys":"Long",
+			"dbFieldParams":
+			{
+				"fieldName":"testLong"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"testLong"
+		},
+    "fieldBeanMap":		{
+			"fieldKey":"fieldBeanMap",
+			"modelKeys":"LinkedHashMap,FieldBean",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A list of field beans referenced by the filterKey of the field. {@link FieldBean}",
+			"naturalId":"fieldBeanMap"
+		},
+    "untypedList":		{
+			"fieldKey":"untypedList",
+			"modelKeys":"ArrayList",
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"untypedList"
+		},
+    "protocol":		{
+			"fieldKey":"protocol",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":8
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"protocol"
+		},
+    "fieldCacheMap":		{
+			"fieldKey":"fieldCacheMap",
+			"modelKeys":"LinkedHashMap,FieldCache",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A list of field config objects referenced by the name of the field. {@link FieldCache}",
+			"naturalId":"fieldCacheMap"
+		},
+    "actionMap":		{
+			"fieldKey":"actionMap",
+			"modelKeys":"Map",
+			"dbFieldParams":
+			{
+				"fieldName":"actionMap"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"An object map preparing value setting in the call implementation. (new)",
+			"naturalId":"actionMap"
+		},
+    "create":		{
+			"fieldKey":"create",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"String representation of RolePermission create permissions",
+			"naturalId":"create"
+		},
+    "naturalKeys":		{
+			"fieldKey":"naturalKeys",
+			"modelKeys":"ArrayList,String",
+			"dbFieldParams":
+			{
+				"fieldName":"naturalKeys"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"naturalKeys"
+		},
+    "modelBeanKey":		{
+			"fieldKey":"modelBeanKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The model name for the config object {@link Bean}.",
+			"naturalId":"modelBeanKey"
+		},
+    "slug":		{
+			"fieldKey":"slug",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"slug",
+				"hibernate":"Column",
+				"notNull":true,
+				"length":256
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"must match the pattern [-a-zA-Z0-9_]{2,256} human-readable identifiers usually used as deep-link URL to the related category. Each slug is unique across a project, but a category can have the same slug for different languages.",
+			"naturalId":"slug"
+		},
+    "modelKeys":		{
+			"fieldKey":"modelKeys",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"modelKeys",
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A string representation for a list of modelsCache.",
+			"naturalId":"modelKeys"
+		},
+    "info":		{
+			"fieldKey":"info",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"info",
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"info"
+		},
+    "packagePath":		{
+			"fieldKey":"packagePath",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":124
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"packagePath"
+		},
+    "rowDelimiter":		{
+			"fieldKey":"rowDelimiter",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":4
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"rowDelimiter"
+		},
+    "dbCache":		{
+			"fieldKey":"dbCache",
+			"modelKeys":"DbCache",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The config embeded int {@link HibernateCache}.",
+			"naturalId":"dbCache"
+		},
+    "read":		{
+			"fieldKey":"read",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"String representation of RolePermission read permissions",
+			"naturalId":"read"
+		},
+    "defaultImplementation":		{
+			"fieldKey":"defaultImplementation",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"defaultImplementation"
+		},
+    "customParams":		{
+			"fieldKey":"customParams",
+			"modelKeys":"HashMap",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Custom Parameters stored by models elastic objects. ",
+			"naturalId":"customParams"
+		},
+    "fieldKey":		{
+			"fieldKey":"fieldKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"fieldKey"
+		},
+    "author":		{
+			"fieldKey":"author",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"author",
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The autor of something e,g. a class.",
+			"naturalId":"author"
+		},
+    "superKey":		{
+			"fieldKey":"superKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"superKey",
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A filterKey for the super class of a class.",
+			"naturalId":"superKey"
+		},
+    "models":		{
+			"fieldKey":"models",
+			"modelKeys":"ModelsList",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A list of models to specify field types.",
+			"naturalId":"models"
+		},
+    "showSql":		{
+			"fieldKey":"showSql",
+			"modelKeys":"Boolean",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"showSql",
+			"naturalId":"showSql"
+		},
+    "propertyMap":		{
+			"fieldKey":"propertyMap",
+			"modelKeys":"Map,Property",
+			"dbFieldParams":
+			{
+				"fieldName":"propertyMap",
+				"hibernate":"OneToMany",
+				"table":"Property",
+				"join":"product",
+				"mapKey":"naturalId"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A map of properties for the product.",
+			"naturalId":"propertyMap"
+		},
+    "creationDate":		{
+			"fieldKey":"creationDate",
+			"modelKeys":"Date",
+			"dbFieldParams":
+			{
+				"fieldName":"creationDate"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Used to define the creation of an item.",
+			"naturalId":"creationDate"
+		},
+    "formatSql":		{
+			"fieldKey":"formatSql",
+			"modelKeys":"Boolean",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"formatSql",
+			"naturalId":"formatSql"
+		},
+    "testFloat":		{
+			"fieldKey":"testFloat",
+			"modelKeys":"Float",
+			"dbFieldParams":
+			{
+				"fieldName":"testFloat"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"testFloat"
+		},
+    "userKey":		{
+			"fieldKey":"userKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":50
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"userKey"
+		},
+    "dbKey":		{
+			"fieldKey":"dbKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"dbKey",
+				"unique":true,
+				"notNull":true,
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The filterKey finding a config {@Link DbCache} entry.",
+			"naturalId":"dbKey"
+		},
+    "firstName":		{
+			"fieldKey":"firstName",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"firstName",
+				"hibernate":"Column",
+				"length":32
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The first name of a person.",
+			"naturalId":"firstName"
+		},
+    "entries":		{
+			"fieldKey":"entries",
+			"modelKeys":"ArrayList",
+			"dbFieldParams":
+			{
+				"fieldName":"entries"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"naturalId":"entries"
+		},
+    "idKey":		{
+			"fieldKey":"idKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The id filterKey defined in models",
+			"naturalId":"idKey"
+		},
+    "port":		{
+			"fieldKey":"port",
+			"modelKeys":"Integer",
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"port"
+		},
+    "subModule":		{
+			"fieldKey":"subModule",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":64
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Defines the target  sub module like 'main' or 'test'. ",
+			"naturalId":"subModule"
+		},
+    "testString":		{
+			"fieldKey":"testString",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"testString",
+				"length":20
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Just a small test string used in test models. ",
+			"naturalId":"testString"
+		},
+    "name":		{
+			"fieldKey":"name",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"name",
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The name field of a class. ",
+			"naturalId":"name"
+		},
+    "header":		{
+			"fieldKey":"header",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"header",
+				"hibernate":"Column",
+				"length":256
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A header",
+			"naturalId":"header"
+		},
+    "salutation":		{
+			"fieldKey":"salutation",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"salutation",
+				"hibernate":"Column",
+				"length":16
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"Like Mr. Or Mrs.",
+			"naturalId":"salutation"
+		},
+    "region":		{
+			"fieldKey":"region",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"region",
+				"hibernate":"Column",
+				"length":32
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"region"
+		},
+    "fields":		{
+			"fieldKey":"fields",
+			"modelKeys":"ArrayList,String",
+			"dbFieldParams":
+			{
+				"fieldName":"fields"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A list of field keys for the model configuration. ",
+			"naturalId":"fields"
+		},
+    "joinInverse":		{
+			"fieldKey":"joinInverse",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A self reference filterKey to a id field on a glue n-m table.",
+			"naturalId":"joinInverse"
+		},
+    "orAsString":		{
+			"fieldKey":"orAsString",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":2048
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Stringified value of {@Or} ",
+			"naturalId":"orAsString"
+		},
+    "fieldName":		{
+			"fieldKey":"fieldName",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"fieldName",
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A name for different purposes depending on the model.",
+			"naturalId":"fieldName"
+		},
+    "modelCacheKey":		{
+			"fieldKey":"modelCacheKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The model name for the config object {@link Cache}.",
+			"naturalId":"modelCacheKey"
+		},
+    "roles":		{
+			"fieldKey":"roles",
+			"modelKeys":"ArrayList,String",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A list of role keys. ",
+			"naturalId":"roles"
+		},
+    "attributeList":		{
+			"fieldKey":"attributeList",
+			"modelKeys":"ArrayList,String",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Definition of available attributes for an Action.",
+			"naturalId":"attributeList"
+		},
+    "origin":		{
+			"fieldKey":"origin",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"origin",
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The filterKey to resolve an config entry ",
+			"naturalId":"origin"
+		},
+    "description":		{
+			"fieldKey":"description",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"description",
+				"length":512
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A description of the model used by every model extending BaseClassImpl. ",
+			"naturalId":"description"
+		},
+    "testInt":		{
+			"fieldKey":"testInt",
+			"modelKeys":"Integer",
+			"dbFieldParams":
+			{
+				"fieldName":"testInt"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"testInt"
+		},
+    "title":		{
+			"fieldKey":"title",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"title",
+				"hibernate":"Column",
+				"length":8
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"Title like Dr, Prof...",
+			"naturalId":"title"
+		},
+    "fieldDelimiter":		{
+			"fieldKey":"fieldDelimiter",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":4
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"fieldDelimiter"
+		},
+    "hibernateKey":		{
+			"fieldKey":"hibernateKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"hibernateKey",
+				"unique":true,
+				"notNull":true,
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The filterKey finding a config {@Link HibernateCache} entry.",
+			"naturalId":"hibernateKey"
+		},
+    "delete":		{
+			"fieldKey":"delete",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"String representation of RolePermission delete permissions",
+			"naturalId":"delete"
+		},
+    "useCacheSecondLevel":		{
+			"fieldKey":"useCacheSecondLevel",
+			"modelKeys":"Boolean",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"useSecondLevelCache",
+			"naturalId":"useCacheSecondLevel"
+		},
+    "useAdapterValues":		{
+			"fieldKey":"useAdapterValues",
+			"modelKeys":"Boolean",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Use adapter values for creating filter conditions. ",
+			"naturalId":"useAdapterValues"
+		},
+    "expanded":		{
+			"fieldKey":"expanded",
+			"modelKeys":"Boolean",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"For creating a config using only bean fields.",
+			"naturalId":"expanded"
+		},
+    "street":		{
+			"fieldKey":"street",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"street",
+				"hibernate":"Column",
+				"length":80
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The street name.",
+			"naturalId":"street"
+		},
+    "and":		{
+			"fieldKey":"and",
+			"modelKeys":"And",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A list of {@link Condition} conditions",
+			"naturalId":"and"
+		},
+    "propertyType":		{
+			"fieldKey":"propertyType",
+			"modelKeys":"PropertyType",
+			"dbFieldParams":
+			{
+				"fieldName":"propertyType",
+				"hibernate":"ManyToOne",
+				"table":"PropertyType",
+				"join":"id"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A reference to the property type like string or number.",
+			"naturalId":"propertyType"
+		},
+    "scope":		{
+			"fieldKey":"scope",
+			"modelKeys":"ArrayList,Scope",
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A scope for the config value.",
+			"naturalId":"scope"
+		},
+    "registerAutoListener":		{
+			"fieldKey":"registerAutoListener",
+			"modelKeys":"Boolean",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"registerAutoListener",
+			"naturalId":"registerAutoListener"
+		},
+    "company":		{
+			"fieldKey":"company",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"company",
+				"hibernate":"Column",
+				"length":80
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The companiies name.",
+			"naturalId":"company"
+		},
+    "sqlList":		{
+			"fieldKey":"sqlList",
+			"modelKeys":"ArrayList,String",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"A list of sql strings to be executed within {@Link HibernateSqlCache} or {@Link DbSqlCache}.",
+			"naturalId":"sqlList"
+		},
+    "pathPattern":		{
+			"fieldKey":"pathPattern",
+			"modelKeys":"PathPattern",
+			"dbFieldParams":
+			{
+				"fieldName":"pathPattern"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A path pattern for {@link FieldCache}.",
+			"naturalId":"pathPattern"
+		},
+    "department":		{
+			"fieldKey":"department",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"department",
+				"hibernate":"Column",
+				"length":32
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The department of a country",
+			"naturalId":"department"
+		},
+    "valueKey":		{
+			"fieldKey":"valueKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":50
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"valueKey"
+		},
+    "value":		{
+			"fieldKey":"value",
+			"modelKeys":"Object",
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"value"
+		},
+    "interfaces":		{
+			"fieldKey":"interfaces",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":256
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"A comma separeted list of interface keys. ",
+			"naturalId":"interfaces"
+		},
+    "quantity":		{
+			"fieldKey":"quantity",
+			"modelKeys":"Integer",
+			"dbFieldParams":
+			{
+				"fieldName":"quantity",
+				"hibernate":"Column"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The quantity e.g. of a LineItem",
+			"naturalId":"quantity"
+		},
+    "or":		{
+			"fieldKey":"or",
+			"modelKeys":"Or",
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A list of {@link And} condition list",
+			"naturalId":"or"
+		},
+    "useReflectionOptimizer":		{
+			"fieldKey":"useReflectionOptimizer",
+			"modelKeys":"Boolean",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"useReflectionOptimizer",
+			"naturalId":"useReflectionOptimizer"
+		},
+    "valueAsString":		{
+			"fieldKey":"valueAsString",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":1024
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"valueAsString"
+		},
+    "mobile":		{
+			"fieldKey":"mobile",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"mobile",
+				"hibernate":"Column",
+				"length":32
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The mobile number.",
+			"naturalId":"mobile"
+		},
+    "length":		{
+			"fieldKey":"length",
+			"modelKeys":"Integer",
+			"dbFieldParams":
+			{
+				"fieldName":"length"
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"Length of a field.",
+			"naturalId":"length"
+		},
+    "mapKey":		{
+			"fieldKey":"mapKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"elastic-objects",
+			"subModule":"main",
+			"description":"The field used as a filterKey for joined maps. ",
+			"naturalId":"mapKey"
+		},
+    "dbType":		{
+			"fieldKey":"dbType",
+			"modelKeys":"DbTypes",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The type of the db as Enumeration providing informations like the driver.",
+			"naturalId":"dbType"
+		},
+    "dbSqlKey":		{
+			"fieldKey":"dbSqlKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"dbSqlKey",
+				"unique":true,
+				"notNull":true,
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The filterKey finding a config {@Link DbSqlCache} entry.",
+			"naturalId":"dbSqlKey"
+		},
+    "hostKey":		{
+			"fieldKey":"hostKey",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"A filterKey for host objects.",
+			"naturalId":"hostKey"
+		},
+    "userName":		{
+			"fieldKey":"userName",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":50
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"userName"
+		},
+    "subTestMap":		{
+			"fieldKey":"subTestMap",
+			"modelKeys":"HashMap,SubTest",
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"A generic parametrized example Map with {@link SubTest}",
+			"naturalId":"subTestMap"
+		},
+    "property.value":		{
+			"fieldKey":"value",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"value",
+				"hibernate":"Column",
+				"length":256
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A value for a property as String.",
+			"naturalId":"property.value"
+		},
+    "jndi":		{
+			"fieldKey":"jndi",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":80
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"The jndi lookup for a hibernate session factory. ",
+			"naturalId":"jndi"
+		},
+    "user":		{
+			"fieldKey":"user",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"length":50
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"naturalId":"user"
+		},
+    "apartment":		{
+			"fieldKey":"apartment",
+			"modelKeys":"String",
+			"dbFieldParams":
+			{
+				"fieldName":"apartment",
+				"hibernate":"Column",
+				"length":16
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"naturalId":"apartment"
+		},
+    "customerMap":		{
+			"fieldKey":"customerMap",
+			"modelKeys":"Map,Customer",
+			"dbFieldParams":
+			{
+				"fieldName":"customerMap",
+				"hibernate":"ManyToMany",
+				"table":"CustomerAddress",
+				"join":"customer_id",
+				"joinInverse":"address_id",
+				"mapKey":"naturalId"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"A map of customers with a n-m relation in {@link Address}.",
+			"naturalId":"customerMap"
+		},
+    "testDate":		{
+			"fieldKey":"testDate",
+			"modelKeys":"Date",
+			"dbFieldParams":
+			{
+				"fieldName":"testDate"
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"naturalId":"testDate"
+		},
+    "properties":		{
+			"fieldKey":"properties",
+			"modelKeys":"HashMap,String",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Hibernate properties which are not specified by instance var.",
+			"naturalId":"properties"
+		},
+    "customer":		{
+			"fieldKey":"customer",
+			"modelKeys":"Customer",
+			"dbFieldParams":
+			{
+				"fieldName":"customer",
+				"hibernate":"ManyToOne",
+				"table":"Customer",
+				"join":"id"
+			},
+			"module":"project-model",
+			"subModule":"main",
+			"description":"The customer field.",
+			"naturalId":"customer"
+		},
+    "useCacheQuery":		{
+			"fieldKey":"useCacheQuery",
+			"modelKeys":"Boolean",
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"useQueryCache",
+			"naturalId":"useCacheQuery"
+		}
+  },
+  "HibernateModelCache":{
+    "h2:file:basic:BasicTest":		{
+			"hibernateModelKey":"h2:file:basic:BasicTest",
+			"hibernateKey":"h2:file:basic",
+			"modelKey":"BasicTest",
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Basic H2 Test with BasicTest table",
+			"naturalId":"h2:file:basic:BasicTest"
+		},
+    "h2:mem:Category":		{
+			"hibernateModelKey":"h2:mem:Category",
+			"hibernateKey":"h2:mem:ProjectModel",
+			"modelKey":"Category",
+			"rolePermissions":
+			{
+			},
+			"description":"Basic H2 in Memory Test with Category Table",
+			"naturalId":"h2:mem:Category"
+		},
+    "h2:mem:basic:SubTest":		{
+			"hibernateModelKey":"h2:mem:basic:SubTest",
+			"hibernateKey":"h2:mem:basic",
+			"modelKey":"SubTest",
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Basic H2 in Memory Test with SubTest Table",
+			"naturalId":"h2:mem:basic:SubTest"
+		},
+    "h2:mem:Customer":		{
+			"hibernateModelKey":"h2:mem:Customer",
+			"hibernateKey":"h2:mem:ProjectModel",
+			"modelKey":"Customer",
+			"rolePermissions":
+			{
+			},
+			"description":"Basic H2 in Memory Test with Customer Table",
+			"naturalId":"h2:mem:Customer"
+		},
+    "h2:mem:basic:BasicTest":		{
+			"hibernateModelKey":"h2:mem:basic:BasicTest",
+			"hibernateKey":"h2:mem:basic",
+			"modelKey":"BasicTest",
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Basic H2 in Memory Test with BasicTest Table",
+			"naturalId":"h2:mem:basic:BasicTest"
+		},
+    "h2:mem:Address":		{
+			"hibernateModelKey":"h2:mem:Address",
+			"hibernateKey":"h2:mem:ProjectModel",
+			"modelKey":"Address",
+			"rolePermissions":
+			{
+			},
+			"description":"Basic H2 in Memory Test with Address Table",
+			"naturalId":"h2:mem:Address"
+		},
+    "h2:file:basic:SubTest":		{
+			"hibernateModelKey":"h2:file:basic:SubTest",
+			"hibernateKey":"h2:file:basic",
+			"modelKey":"SubTest",
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Basic H2 Test with SubTest table",
+			"naturalId":"h2:file:basic:SubTest"
+		}
+  },
+  "AssetCache":{
+  },
+  "DbCache":{
+    "h2:mem":		{
+			"dbKey":"h2:mem",
+			"schema":"mem:test",
+			"driver":"org.h2.Driver",
+			"dbType":"H2",
+			"hostKey":"h2",
+			"extension":"DATABASE_TO_UPPER=false;",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"local H2 which exists just in memory",
+			"naturalId":"h2:mem"
+		},
+    "h2:file:basic":		{
+			"dbKey":"h2:file:basic",
+			"schema":"file:basic",
+			"driver":"org.h2.Driver",
+			"dbType":"H2",
+			"hostKey":"h2",
+			"extension":"DATABASE_TO_UPPER=false;",
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Local H2 in file persisted for the test resources.",
+			"naturalId":"h2:file:basic"
+		},
+    "hsql:fileTest":		{
+			"dbKey":"hsql:fileTest",
+			"schema":"file:$[TMP]/test.hsql",
+			"dbType":"HSQL",
+			"hostKey":"hsql",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
+			"naturalId":"hsql:fileTest"
+		},
+    "localMySql:test":		{
+			"dbKey":"localMySql:test",
+			"dbType":"MYSQL",
+			"hostKey":"localMySql",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Test Schema",
+			"naturalId":"localMySql:test"
+		},
+    "localOracle:XE":		{
+			"dbKey":"localOracle:XE",
+			"schema":"XE",
+			"dbType":"ORACLE",
+			"hostKey":"localOracle",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Oracle Schem",
+			"naturalId":"localOracle:XE"
+		},
+    "h2:file":		{
+			"dbKey":"h2:file",
+			"schema":"$[TMP]/test",
+			"driver":"org.h2.Driver",
+			"dbType":"H2",
+			"hostKey":"h2",
+			"extension":"DATABASE_TO_UPPER=false;",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"local H2 with a temp file",
+			"naturalId":"h2:file"
+		},
+    "hsql:mem":		{
+			"dbKey":"hsql:mem",
+			"schema":"mem",
+			"dbType":"HSQL",
+			"hostKey":"hsql",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"local HSQL which exists just in memory",
+			"naturalId":"hsql:mem"
+		},
+    "localMySql:core":		{
+			"dbKey":"localMySql:core",
+			"dbType":"MYSQL",
+			"hostKey":"localMySql",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-db",
+			"subModule":"main",
+			"description":"Core Schema",
+			"naturalId":"localMySql:core"
+		},
+    "h2:mem:basic":		{
+			"dbKey":"h2:mem:basic",
+			"schema":"mem:basic",
+			"driver":"org.h2.Driver",
+			"dbType":"H2",
+			"hostKey":"h2",
+			"extension":"DATABASE_TO_UPPER=false;",
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Local H2 in memory for the test resources.",
+			"naturalId":"h2:mem:basic"
+		}
+  },
+  "HostCache":{
+    "localhost":		{
+			"hostKey":"localhost",
+			"protocol":"file:",
+			"hostName":"localhost",
+			"password":"",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"local host with filterKey 'localhost'",
+			"naturalId":"localhost"
+		},
+    "testFtp":		{
+			"hostKey":"testFtp",
+			"port":21,
+			"protocol":"ftp",
+			"hostName":"ftpServer",
+			"user":"testUser",
+			"password":"testPassword",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"Test Ftp Dummy",
+			"naturalId":"testFtp"
+		},
+    "hsql":		{
+			"hostKey":"hsql",
+			"protocol":"jdbc:hsqldb",
+			"hostName":"",
+			"user":"sa",
+			"password":"",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"HSQL Host Definition",
+			"naturalId":"hsql"
+		},
+    "localOracle":		{
+			"hostKey":"localOracle",
+			"port":1521,
+			"protocol":"jdbc:oracle:thin",
+			"hostName":"localhost",
+			"user":"test",
+			"password":"test",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"local Oracle",
+			"naturalId":"localOracle"
+		},
+    "h2":		{
+			"hostKey":"h2",
+			"protocol":"jdbc:h2",
+			"hostName":"",
+			"user":"sa",
+			"password":"",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"H2 Host Definition",
+			"naturalId":"h2"
+		},
+    "localMySql":		{
+			"hostKey":"localMySql",
+			"port":3000,
+			"protocol":"jdbc:mysql",
+			"hostName":"localhost",
+			"user":"root",
+			"password":".MySql_",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"local MySql",
+			"naturalId":"localMySql"
+		},
+    "local":		{
+			"hostKey":"local",
+			"protocol":"file:",
+			"hostName":"localhost",
+			"password":"",
+			"rolePermissions":
+			{
+			},
+			"module":"actions-basic",
+			"subModule":"main",
+			"description":"local host with filterKey 'local'",
+			"naturalId":"local"
+		}
+  },
+  "HibernateCache":{
+    "h2:file:basic":		{
+			"hibernateKey":"h2:file:basic",
+			"dbKey":"h2:file:basic",
+			"models":"BasicTest,SubTest",
+			"configFile":"config.hbm.xml",
+			"auto":"create",
+			"properties":
+			{
+			},
+			"showSql":true,
+			"formatSql":false,
+			"useCacheSecondLevel":false,
+			"useCacheQuery":false,
+			"registerAutoListener":false,
+			"useReflectionOptimizer":false,
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Basic H2 Test ",
+			"naturalId":"h2:file:basic"
+		},
+    "h2:mem:ProjectModel":		{
+			"hibernateKey":"h2:mem:ProjectModel",
+			"dbKey":"h2:mem",
+			"models":"Address,Category,Customer,ProductOrder,Product,LineItem,Property,PropertyType",
+			"auto":"create",
+			"properties":
+			{
+			},
+			"showSql":true,
+			"formatSql":false,
+			"useCacheSecondLevel":false,
+			"useCacheQuery":false,
+			"registerAutoListener":false,
+			"useReflectionOptimizer":false,
+			"rolePermissions":
+			{
+			},
+			"description":"Basic H2 in Memory Test ",
+			"naturalId":"h2:mem:ProjectModel"
+		},
+    "h2:mem:basic":		{
+			"hibernateKey":"h2:mem:basic",
+			"dbKey":"h2:mem:basic",
+			"models":"BasicTest,SubTest",
+			"configFile":"config.hbm.xml",
+			"auto":"create",
+			"properties":
+			{
+			},
+			"showSql":true,
+			"formatSql":false,
+			"useCacheSecondLevel":false,
+			"useCacheQuery":false,
+			"registerAutoListener":false,
+			"useReflectionOptimizer":false,
+			"rolePermissions":
+			{
+			},
+			"module":"test-resources",
+			"subModule":"main",
+			"description":"Basic H2 in memory database for the test resources. ",
+			"naturalId":"h2:mem:basic"
+		}
+  }
+}

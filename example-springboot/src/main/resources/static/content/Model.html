@@ -1,0 +1,61 @@
+<p>The model is the core for accessing object data via the <a href="adapter">Adapter</a>. The model consists of two <a
+        href="config">cached datatypes</a>: </p>
+<ul>
+    <li>ModelCache</li>
+    <li>FieldCache</li>
+</ul>
+<p>Each entry contains information about </p>
+<ul>
+    <li>Object access</li>
+    <li>Class Generation</li>
+    <li>Database Constraints</li>
+</ul>
+<h4>The example</h4>
+<p>In the example from the <a href="http://elasticobjects.com">start page</a> we create database request for persisted
+    objects of the class BasicTest. </p>
+<pre>
+  "BasicTest":  {
+    "modelKey":"BasicTest",
+    "table":"BasicTest",
+    "hibernateAnnotations":false,
+    "description":"Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
+    "idKey":"id",
+    "naturalKeys":["testString"],
+    "fields": [
+      "id",
+      "basicTest",
+      "subTest",
+      "subTestList",
+      "subTestMap",
+      "untypedList",
+      "untypedMap",
+      "testInt",
+      "testString",
+      "testLong",
+      "testDate",
+      "testBoolean",
+      "testFloat",
+      "testDouble",
+      "testObject"
+    ],
+    "shapeType":"BEAN",
+    "module":"test-resources",
+    "subModule":"main",
+    "defaultImplementation":"",
+    "superKey":"",
+    "packagePath":"org.fluentcodes.projects.elasticobjects.assets",
+    "author":"Werner Diwischek"
+  }
+</pre>
+<p>The fields array contains keys corresponding with the FieldCache definitions e.g:</p>
+<pre>  "basicTest":  {
+    "fieldKey":"basicTest",
+    "fieldName":"basicTest",
+    "description":"",
+    "unique":"",
+    "notNull":"",
+    "length":"",
+    "modelKeys":"BasicTest"
+  }
+</pre>
+</div>

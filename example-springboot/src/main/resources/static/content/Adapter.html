@@ -1,0 +1,111 @@
+<p>The adapter is the core concept of ElasticObjects. It wraps each object with some information about the structure of
+    the fields and the model used. It&#8217;s like <a
+            href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Optional</a> in Java 8 but with a
+    finer structure.</p>
+<p>&nbsp;</p>
+<figure id="attachment_40" style="max-width: 300px" class="wp-caption alignleft"><img class="wp-image-40 size-medium"
+                                                                                      title="style=&quot;border:1px solid black&quot;"
+                                                                                      src="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapter-300x283.png"
+                                                                                      alt="Schematic adapter structure."
+                                                                                      width="300" height="283"
+                                                                                      srcset="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapter-300x283.png 300w, http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapter.png 646w"
+                                                                                      sizes="(max-width: 300px) 100vw, 300px"/>
+    <figcaption class="wp-caption-text">Schematic view of the adapter structure.</figcaption>
+</figure>
+<p><img class="alignright wp-image-39"
+        src="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapterLegend-288x300.png"
+        alt="Caption of adapter structure." width="100" height="104"
+        srcset="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapterLegend-288x300.png 288w, http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapterLegend.png 418w"
+        sizes="(max-width: 100px) 100vw, 100px"/></p>
+<h4>Requirements</h4>
+<p>The following requirements should be solved with the Adapters: </p>
+<ul>
+    <li>Access to object values via path.</li>
+    <li>Store any object defined with <a href="model">Model</a> and offers path access</li>
+    <li>Maps any object to a subsequent model structure.</li>
+    <li>Ordered looping through object or map fields</li>
+    <li>Individal path filtering to handle recursive object structures</li>
+</ul>
+<p>These core requirements evolves from template rendering, serialization and deserialization to JSON. JSON files
+    defines an order, but subsequent created objects are not ordered.</p>
+<h4>Usages</h4>
+<p>The Adapter can be used within native Java applications.</p>
+<h5>Type Conversions</h5>
+<p>Given a Map with data with the same names as the object instance vars one can transfer the Map to the object: </p>
+<pre>
+Map<String,Object> map = new HashMap<>();
+map.put("testString", "testStringValue");
+Adapter adapter = new AdapterBuilder(EOConfigs)
+  .setTargetModels(BasicTest.class)
+  .map(map);
+BasicTest test = (BasicTest) adapter.get();
+</pre>
+<p>In this scenario one can also <a
+        href="https://stackoverflow.com/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class">downcasting</a>
+    to a subtype.</p>
+<h5>Merging</h5>
+<p>If one has to merge two objects one can do it like this:</p>
+<pre>
+Map<String,Object> map = new HashMap<>();
+map.put("testString", "testStringValue");
+BasicTest baseObject = new BasicTest();
+baseObject.setFloat(1.1F);
+Adapter adapter = new AdapterBuilder(EOConfigs)
+  .set(baseObject);
+adapter.map(map);
+</pre>
+<p><a name="example"/></p>
+<h4>Spring Controller Example</h4>
+<p>In the example integration there is one entry point &#8220;/eo&#8221; defined expecting a JSON input via post.</p>
+<h5>Controller</h5>
+<pre>
+    @RequestMapping(value="/eo", method = RequestMethod.POST)
+    public String adapterPost(
+      @RequestParam(value = "adapter", required = true) String adapterAsString,
+      @RequestParam(value="logLevel", required = true) String logLevel
+    ){
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession(true);
+        String user = "guest";
+        if (session.getAttribute("user") != null) {
+          user = (String) session.getAttribute("user");
+        }
+        else {
+          session.setAttribute("user", "guest");
+        }
+
+        try {
+          return adapterService(adapterAsString, logLevel, user);
+        } catch (Exception e) {
+          return "Exception occured! " + e.getMessage();
+        }
+      }
+</pre>
+<h5>Service</h5>
+<p>The service method is separated as protected within the class. The class has an autowired <a href="config#example">EOConfigs</a>:
+</p>
+<pre>
+  @Autowired
+  private ProviderCache EOConfigs;
+</pre>
+<pre>
+    private String adapterService(final String in, final String logLevelAsString, final String user ) throws Exception {
+      LogLevel logLevel = LogLevel.WARN;
+      if (logLevelAsString != null) {
+        try {
+          logLevel = LogLevel.valueOf(logLevelAsString);
+        } catch (Exception e) {
+        }
+      }
+      final AdapterRoot adapter = (AdapterRoot) new AdapterBuilder(EOConfigs)
+        .setUser(user)
+        .setLogLevel(logLevel)
+        .map(in);
+      adapter.executeActions();
+      final String result = new AdapterSerializer()
+        .setStartIndent(1)
+        .setSerializationType(SerializationType.PARAMS)
+        .toJSON(adapter);
+      return result;
+    }
+</pre>

@@ -1,0 +1,9 @@
+{
+  "ConfigKeysCall_LinkListHtml": {
+    "module": "example-springboot",
+    "subModule": "test",
+    "configKey": "ConfigKeysCall_LinkListHtml",
+    "fileName": "ConfigKeysCall_LinkListHtml.tpl",
+    "filePath": "input/calls/configs"
+  }
+}

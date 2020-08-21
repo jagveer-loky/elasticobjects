@@ -33,6 +33,7 @@ It read and write typed [JSON](#typed-json) for string representation which offe
 <font size="1">example</font>
 </a></div>
 
+##### Embedded Objects
 One can integrate typed objects in a complex structure and access it without loosing the type.
 
     BasicTest bt = new BasicTest()
@@ -366,3 +367,4 @@ Since EO allows more than just simple type mapping I suppose it will never reach
 * https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_TypeNameHandling.htm
 * https://de.wikipedia.org/wiki/JavaScript_Object_Notation
 * http://jsonp.eu/
+* https://github.com/json-path/JsonPath

@@ -1,0 +1,9 @@
+{
+  ".models": "ValueCache",
+  "valueKey": "calc",
+  "rolePermissions": {
+    "execute": "guest"
+  },
+  "description": "Just compute a value from an input String JCalc. Associated with the {@CalcAction} the cache is just for permission setting.",
+  "naturalId": "calc"
+}

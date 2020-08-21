@@ -83,6 +83,7 @@ public class SinusValueCallTest {
         Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
         new XpectEo<>().compareAsString(eo);
     }
+
     @Test
     public void givenSimple_thenSourceValueWillBeOverwritten()  {
         final Call call = new SinusValueCall();

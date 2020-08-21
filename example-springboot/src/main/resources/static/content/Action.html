@@ -1,0 +1,81 @@
+<p>Actions are simple wrapper classes for a <a href="config">cached</a> call configurations. Usually they extend the
+    AssetCache to add rolePermissions field. </p>
+<p>These caches could contain methods for access to a certain data source. The HibernateCache for example contains
+    implicit session and wrapper methods for reading/writing. </p>
+<h4>Defined Actions</h4>
+<p>One can simply defines own actions. First implementation of some generic call are available.</p>
+<ul>
+    <li>JDBC/Hibernate access (DbSqlAction/HibernateModelAction)</li>
+    <li>Excel (XsltAction)</li>
+    <li>Csv (CsvAction)</li>
+    <li>Text File (FileAction)</li>
+    <li>Template (TemplateAction)</li>
+</ul>
+<h4>The call hierarchy </h4>
+<p>The call caches itself has a hierarchical structure. </p>
+<p>This has the advantage that one has only define a database access once, even with several hibernate
+    configurations. </p>
+<p>In the <a href="http://elasticobjects.com#example">start example</a> actionKey has the value<br/>
+    HibernateModelAction.read(h2:mem:BasicTest).<br/>
+    Here an ActionBuilder create a new instance of the <em>HibernateModelAction</em> with the an instance var <em>HibernateModelCache</em>
+    with the filterKey <em>h2:mem:BasicTest</em>.</p>
+<p><a name="HibernateModelCache"/></p>
+<h5>HibernateModelCache</h5>
+<p>Defines the <a href="ModelKey">model</a>, the permissons and the used <a href="#HibernateCache">HibernateCache</a>.
+</p>
+<pre>  "h2:mem:BasicTest": {
+    "hibernateModelKey": "h2:mem:BasicTest",
+    "hibernateKey": "<b>h2:mem:basic</b>",
+    "description": "Basic H2 in Memory Test with BasicTest Table",
+    "modelKey": "BasicTest",
+    "scope": [
+      "TEST"
+    ]
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin",
+      "delete": "admin",
+    },
+  }</pre>
+<p><a name="HibernateCache"/></p>
+<h5>HibernateCache</h5>
+<p>Here the hibernate session factory is initialized. The connection to the <a href="#DbCache">DbCache</a> defining the
+    database schema is implicit via name cutting the last entry after &#8220;:&#8221; to &#8220;h2:mem&#8221;.</p>
+<pre>  "h2:mem:basic": {
+    "hibernateKey": "h2:mem:basic",
+    "description": "Basic H2 in Memory Test with config settings of the test resources.",
+    "configFile": "test.config.hbm.xml",
+    "auto": "create"
+  }
+</pre>
+<p><a name="DbCache"/></p>
+<h5>DbCache</h5>
+<p>This cached value defines the schema and database type used. The connection to the <a href="#HostCache">HostCache</a>
+    defining access, port and protocol is implicit cutting the last entry after &#8220;:&#8221; to &#8220;h2&#8221; from
+    dbKey value.</p>
+<pre>"h2:mem": {
+    "dbKey": "h2:mem",
+    "description": "Local in memory H2 using the test resources.",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "schema": "mem:test",
+    "driver": "org.h2.Driver",
+    "jndi": "",
+    "dbType": "H2"
+  }
+</pre>
+<p><a name="HostCache"/></p>
+<h5>HostCache</h5>
+<p>This defines values accessing other server like port, protocol and user/password. </p>
+<pre>  "h2": {
+    "hostKey": "h2",
+    "protocol": "jdbc:h2",
+    "user": "sa",
+    "rolePermissions": {},
+    "module": "actions-basic",
+    "subModule": "main",
+    "expanded": false,
+    "description": "H2 Host Definition",
+    "naturalId": "h2"
+  }
+</pre>
+</div>

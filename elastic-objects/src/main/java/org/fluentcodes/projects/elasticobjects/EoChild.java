@@ -640,11 +640,12 @@ public class EoChild implements EO {
 
 
     @Override
-    public void setLogLevel(LogLevel logLevel) {
+    public EO setLogLevel(LogLevel logLevel) {
         if (!hasEo(PathElement.LOG_LEVEL)) {
             PathElement.OF_LOG_LEVEL(this, logLevel).buildEo();
         }
         ((EoChild)getEo(PathElement.LOG_LEVEL)).setValueChecked(logLevel);
+        return this;
     }
 
     public boolean hasLogLevel() {
