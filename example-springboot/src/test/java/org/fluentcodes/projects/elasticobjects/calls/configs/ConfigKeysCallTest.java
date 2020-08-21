@@ -2,13 +2,18 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.calls.testitemproviders.TestProviderTemplateContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderTemplateContent;
+import org.fluentcodes.tools.xpect.XpectEo;
 import org.fluentcodes.tools.xpect.XpectString;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -33,4 +38,26 @@ public class ConfigKeysCallTest {
         Assertions.assertThat((List) eo.get("keys")).isNotEmpty();
         new XpectString().compareAsString(result);
     }
+
+    @Test
+    public void testConfigKeysCall_LinkListHtml_whenConfigTypeFieldConfig_thenFieldConfigsUsedForLinkList() {
+        EO eo = ProviderRootTestScope.createEo();
+        eo.set("FieldConfig", "configType");
+        eo.addCall(new TemplateResourceCall("ConfigKeysCall_LinkListHtml"));
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        new XpectString().compareAsString((String)eo.get("_template"));
+    }
+
+    @Test
+    public void testConfigCallForm_whenConfigTypeFieldConfig_thenFieldConfigsUsedForLinkList() {
+        EO eo = ProviderRootTestScope.createEo();
+        eo.set("ModelConfig", "configType");
+        eo.set("Scope", "configFilter");
+        eo.addCall(new TemplateResourceCall("ConfigCall_Form"));
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        new XpectString().compareAsString((String)eo.get("_template"));
+    }
+
 }

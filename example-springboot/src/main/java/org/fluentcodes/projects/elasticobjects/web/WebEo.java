@@ -12,15 +12,13 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by werner.diwischek on 11.12.17.
  */
 
 @RestController
-public class EOController {
+public class WebEo {
 
     @Autowired
     private EOConfigsCache configsCache;
@@ -52,20 +50,20 @@ public class EOController {
             @RequestParam(value = "adapter", required = false) final String eoAsString,
             @RequestParam(value = "logLevel", required = false) final String logLevel) {
 
-        return adapterPostForm(eoAsString, logLevel);
+        return eoPostForm(eoAsString, logLevel);
     }
 
     // https://stackoverflow.com/questions/36520314/accessing-httpsession-in-a-controlleradvice-in-a-springboot-application
     // https://stackoverflow.com/questions/49670209/can-spring-map-post-parameters-by-a-way-other-than-requestbody
 
     @RequestMapping(value = "/eo", method = RequestMethod.POST)
-    public String adapterPost(@RequestBody String body) {
-        return adapterPostForm(body, LogLevel.WARN.name());
+    public String eoPost(@RequestBody String body) {
+        return eoPostForm(body, LogLevel.WARN.name());
     }
 
 
     @RequestMapping(value = "/eo-form", method = RequestMethod.POST)
-    public String adapterPostForm(
+    public String eoPostForm(
             @RequestParam(value = "eo", required = false) final String eoAsString,
             @RequestParam(value = "logLevel", required = false) final String logLevelAsString
     ) {

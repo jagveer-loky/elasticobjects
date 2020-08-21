@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.EO;
@@ -42,6 +43,12 @@ public class ConfigKeysCall extends CallImpl<List>{
         super.check(eo);
         if (configType == null && configClass == null) {
             throw new EoException("Problem no config type defined.");
+        }
+        if (configType.startsWith("eo->")) {
+            configType = new ParserEoReplace(configType).parse(eo);
+        }
+        if (configFilter.startsWith("eo->")) {
+            configFilter = new ParserEoReplace(configFilter).parse(eo);
         }
         if (configClass == null) {
             ModelConfig configTypeConfig = eo.getConfigsCache().findModel(configType);

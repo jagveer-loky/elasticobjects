@@ -17,7 +17,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import java.util.regex.Pattern;
 
 
-public class ParserEoReplace extends Parser{
+public class ParserEoReplace extends Parser {
     private static final Logger LOG = LogManager.getLogger(ParserEoReplace.class);
     private static final Pattern varPattern = Pattern.compile("eo->([^\\.]*)(\\.)");
     public ParserEoReplace(final String template) {
