@@ -14,11 +14,11 @@ to navigate through the used configurations.
 
 ### Web Controller
 There are two Web-Controller classes defined.
-* WebEo(https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java) defines two generic post end points
-* WebEoGet(https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java) defines three special get end points using the path parameter to create an EO template call.
+* [WebEo](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java) defines two generic post end points
+* [WebEoGet](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java) defines three special get end points using the path parameter to create an EO template call.
 
 ### ConfigController
-The configurations are loaded in the [ConfigController](https://github.com/fluentcodes/eo-example-springboot/blob/master/src/main/java/org/fluentcodes/projects/elasticobjects/web/ConfigController.java)
+The configurations are loaded in the [EOConfigCached.java](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/EOConfigCached.java)
 as a singleton.
 
 ### Templates
@@ -38,6 +38,5 @@ Three part are loaded straigtforward:
 * [Header.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/header.html)
 * [Footer.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/Footer.html)
 
-The [Svg.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/Svg.html)  
-for the responsiveness of the example site the will be loaded as a file without parsing content.
+The [Svg.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/Svg.html) for the responsiveness of the example site will be loaded as a file without parsing content.
 
