@@ -15,6 +15,7 @@
       "models",
       "filterPath",
       "condition",
+      "localCondition",
       "overwrite",
       "logLevel",
       "duration",
@@ -58,7 +59,6 @@
   "ConfigKeysCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ConfigKeysCall",
     "description": "For getting a list of keys for a specific configuration type.",
     "modelKey": "ConfigKeysCall",
     "eoParams": {
@@ -69,6 +69,19 @@
     "superKey": "CallImpl",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "packageGroup": "configs",
+    "author": "Werner Diwischek"
+  },
+  "ConfigTypesCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "description": "For getting a list of keys for a configuration types.",
+    "modelKey": "ConfigTypesCall",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": true
+    },
+    "superKey": "CallImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "author": "Werner Diwischek"
   },
   "ConfigCall": {
@@ -85,6 +98,19 @@
     "superKey": "ConfigKeysCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "packageGroup": "configs",
+    "author": "Werner Diwischek"
+  },
+  "JsonAsStringCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "description": "For setting the string representation of eo.",
+    "modelKey": "JsonAsStringCall",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": true
+    },
+    "superKey": "SimpleValueFromEoCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "author": "Werner Diwischek"
   },
   "StringUpperCall": {

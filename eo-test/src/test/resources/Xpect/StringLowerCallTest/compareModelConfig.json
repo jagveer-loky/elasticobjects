@@ -11,10 +11,11 @@
       "3": "models",
       "4": "filterPath",
       "5": "condition",
-      "6": "overwrite",
-      "7": "logLevel",
-      "8": "duration",
-      "9": "inTemplate"
+      "6": "localCondition",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "inTemplate"
     },
     "eoParams": {
       "(ArrayList)scope": {

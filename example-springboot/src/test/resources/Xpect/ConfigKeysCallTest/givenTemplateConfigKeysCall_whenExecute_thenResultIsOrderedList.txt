@@ -24,6 +24,7 @@
         <li><a href="/config/ConfigKeysCall>ConfigKeysCall</a></li>;
         <li><a href="/config/ConfigResources>ConfigResources</a></li>;
         <li><a href="/config/ConfigResourcesImpl>ConfigResourcesImpl</a></li>;
+        <li><a href="/config/ConfigTypesCall>ConfigTypesCall</a></li>;
         <li><a href="/config/Date>Date</a></li>;
         <li><a href="/config/DBFieldParams>DBFieldParams</a></li>;
         <li><a href="/config/DBParams>DBParams</a></li>;
@@ -42,6 +43,7 @@
         <li><a href="/config/HashMap>HashMap</a></li>;
         <li><a href="/config/HostConfig>HostConfig</a></li>;
         <li><a href="/config/Integer>Integer</a></li>;
+        <li><a href="/config/JsonAsStringCall>JsonAsStringCall</a></li>;
         <li><a href="/config/JsonConfig>JsonConfig</a></li>;
         <li><a href="/config/JsonReadCall>JsonReadCall</a></li>;
         <li><a href="/config/JSONSerializationType>JSONSerializationType</a></li>;

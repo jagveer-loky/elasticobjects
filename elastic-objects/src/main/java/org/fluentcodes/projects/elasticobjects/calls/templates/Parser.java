@@ -32,6 +32,10 @@ import java.util.regex.Pattern;
 
 public abstract class Parser {
     private static final Logger LOG = LogManager.getLogger(Parser.class);
+    private static final String TEMPLATE_CALL_CHAR = "^&";
+    private static final String VALUE_CALL_CHAR = "^#";
+    private static final String SYSTEM_CHAR = "^@";
+    private static final String ENV_CHAR = "^%";
     private static final Map<String, String> SYSTEM = populateSystem();
     private final String template;
     private Matcher match;
@@ -111,8 +115,8 @@ public abstract class Parser {
         }
         pathOrKey = pathOrKey
                 .replaceAll("\\\\", "/")
-                .replaceAll("^&","(TemplateCall)")
-                .replaceAll("^#","(ValueCall)");
+                .replaceAll(TEMPLATE_CALL_CHAR,"(TemplateCall)")
+                .replaceAll(VALUE_CALL_CHAR ,"(ValueCall)");
 
         if (eo != null && pathOrKey.startsWith("(")) {
             try {
@@ -129,11 +133,11 @@ public abstract class Parser {
         }
 
         else if (pathOrKey.startsWith("@")) {
-            value = getSystemValue(pathOrKey.replaceAll("^@", ""));
+            value = getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
         }
 
         else if (pathOrKey.startsWith("%")) {
-            value = System.getenv(pathOrKey.replaceAll("^%", ""));
+            value = System.getenv(pathOrKey.replaceAll(ENV_CHAR, ""));
         }
 
         else if (eo != null){
@@ -202,6 +206,9 @@ public abstract class Parser {
             }
         }
         Object value = new ExecutorCallImpl().execute(eo, (Call) callObject);
+        if (value == null) {
+            return "";
+        }
         return value.toString();
     }
 
@@ -234,7 +241,7 @@ public abstract class Parser {
         if (attributesList.length == 1 && !attributesList[0].contains(" ")) {
             return attributes;
         }
-        attributesList[0] = attributesList[0].replaceAll(".*? ","");
+        attributesList[0] = attributesList[0].replaceAll("^[^ ]* ","");
 
         for (String attribute: attributesList) {
             String[] keyValue = attribute.split("=\"");

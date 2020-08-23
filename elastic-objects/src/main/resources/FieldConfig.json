@@ -145,12 +145,21 @@
   "condition": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "condition",
     "dbFieldParams": {
       "length": 1000
     },
     "modelKeys": "String",
     "fieldKey": "condition",
+    "description": "A condition for calls. "
+  },
+  "localCondition": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "dbFieldParams": {
+      "length": 1000
+    },
+    "modelKeys": "String",
+    "fieldKey": "localCondition",
     "description": "A condition for calls. "
   },
   "create": {

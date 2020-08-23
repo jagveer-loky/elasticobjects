@@ -28,6 +28,8 @@ public class PathElement {
     public static final String SERIALIZATION_TYPE = "_serializationType";
     public static final String LOG_LEVEL = "_logLevel";
     public static final String CALLS = "_calls";
+    public static final String TEMPLATE = "_template";
+    public static final String IN_TEMPLATE = "_";
     public static final String CONFIG = "_config";
 
     public static final PathElement OF_SERIALIZATION_TYPE(EO eo, JSONSerializationType serializationType) {

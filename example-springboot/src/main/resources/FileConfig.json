@@ -1,0 +1,9 @@
+{
+  "Svg.html": {
+    "module": "eo-example-springboot",
+    "subModule": "main",
+    "configKey": "Svg.html",
+    "fileName": "Svg.html",
+    "filePath": "input/web"
+  }
+}

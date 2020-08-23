@@ -1,0 +1,44 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
+    "modelKey": "ConfigTypesCall",
+    "superKey": "CallImpl",
+    "(ArrayList)fieldKeys": {
+      "0": "sourcePath",
+      "1": "targetPath",
+      "2": "locationPath",
+      "3": "models",
+      "4": "filterPath",
+      "5": "condition",
+      "6": "localCondition",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
+      "create": true,
+      "(ArrayList)methods": {
+      },
+      "(ArrayList)attributeList": {
+      }
+    },
+    "dbParams": {
+    },
+    "viewParams": {
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(ArrayList)scope": {
+    },
+    "key": "ConfigTypesCall",
+    "description": "For getting a list of keys for a configuration types.",
+    "naturalId": "ConfigTypesCall",
+    "author": "Werner Diwischek"
+  }
+}

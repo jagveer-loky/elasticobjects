@@ -1,11 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
@@ -17,7 +15,6 @@ import java.util.stream.Collectors;
  * Created by Werner on 14.07.2020.
  */
 public class ConfigKeysCall extends CallImpl<List>{
-    private static final Logger LOG = LogManager.getLogger(ConfigKeysCall.class);
     private String configType;
     private String configFilter = ".*";
     private SortOrder sortOrder = SortOrder.ASC;
