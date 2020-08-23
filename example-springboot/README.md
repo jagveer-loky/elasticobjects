@@ -1,18 +1,43 @@
-Target of this repository is to show the some simple use cases to integrate 
-[Elastic Objects](https://github.com/fluentcodes/elasticobjects) as a web service.
+# Spring Boot Example
+
+Target of this module is to create a runable spring boot web application with the help of templates.
+Originally it's a copy of a wordpress page.
 
 Acually it uses configurations from the 
 * [core package](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects/src/main/resources)
-* [test package](https://github.com/fluentcodes/elasticobjects/tree/master/test-resources/src/main/resources)
+* [test package](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/main/resources)
 
-### [ConfigController](https://github.com/fluentcodes/eo-example-springboot/blob/master/src/main/java/org/fluentcodes/projects/elasticobjects/web/ConfigController.java)
-The configController just offers some endpoint to browse through available configurations.
-Endpoints are 
- * &lt;url&gt;/config
- * &lt;url&gt;/config/&lt;configType&gt;
- * &lt;url&gt;/config/&lt;configType&gt;/&lt;key&gt;
- 
-### [EOController](https://github.com/fluentcodes/eo-example-springboot/blob/master/src/main/java/org/fluentcodes/projects/elasticobjects/web/EOController.java)
-Here there is one endpoint defined for posting EO objects
- * &lt;url&gt;/eo
- 
+The starting point is the [Start class](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java).
+
+The pages uses path parameters so the links are pure HTML links. The spring boot example is mostly a tool
+to navigate through the used configurations.
+
+### Web Controller
+There are two Web-Controller classes defined.
+* WebEo(https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java) defines two generic post end points
+* WebEoGet(https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java) defines three special get end points using the path parameter to create an EO template call.
+
+### ConfigController
+The configurations are loaded in the [ConfigController](https://github.com/fluentcodes/eo-example-springboot/blob/master/src/main/java/org/fluentcodes/projects/elasticobjects/web/ConfigController.java)
+as a singleton.
+
+### Templates
+#### Page Templates
+There are two templates defined for rendering the page
+* [Content.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/content/Content.tpl) for the content
++ [Configs.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/calls/configs/Configs.tpl) for navigate throught configuration
+
+#### Content Templates
+The content will be loaded as a template within the [Content.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/content/Content.tpl)
+from
+* [docs](https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot/src/main/resources/input/content/docs)
+* [root](https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot/src/main/resources/input/content/root)
+
+#### Template Parts
+Three part are loaded straigtforward:
+* [Header.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/header.html)
+* [Footer.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/Footer.html)
+
+The [Svg.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/Svg.html)  
+for the responsiveness of the example site the will be loaded as a file without parsing content.
+
