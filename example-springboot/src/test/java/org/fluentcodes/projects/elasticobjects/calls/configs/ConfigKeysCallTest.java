@@ -39,25 +39,4 @@ public class ConfigKeysCallTest {
         new XpectString().compareAsString(result);
     }
 
-    @Test
-    public void testConfigKeysCall_LinkListHtml_whenConfigTypeFieldConfig_thenFieldConfigsUsedForLinkList() {
-        EO eo = ProviderRootTestScope.createEo();
-        eo.set("FieldConfig", "configType");
-        eo.addCall(new TemplateResourceCall("ConfigKeysCall_LinkListHtml"));
-        eo.execute();
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectString().compareAsString((String)eo.get("_template"));
-    }
-
-    @Test
-    public void testConfigCallForm_whenConfigTypeFieldConfig_thenFieldConfigsUsedForLinkList() {
-        EO eo = ProviderRootTestScope.createEo();
-        eo.set("ModelConfig", "configType");
-        eo.set("Scope", "configFilter");
-        eo.addCall(new TemplateResourceCall("ConfigCall_Form"));
-        eo.execute();
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectString().compareAsString((String)eo.get("_template"));
-    }
-
 }

@@ -64,23 +64,26 @@ public class SpringWebTest {
     }
 
     @Test
-    public void testConfigKeysCall_LinkListHtml_whenConfigTypeFieldConfig_thenFieldConfigsUsedForLinkList() {
-        EO eo = ProviderRootTestScope.createEo();
-        eo.set("FieldConfig", "configType");
-        eo.addCall(new TemplateResourceCall("ConfigKeysCall_LinkListHtml"));
-        String post = new EOToJSON().toJSON(eo);
-        String url = "http://localhost:" + port + "/eo";
-        ResponseEntity<String> result = restTemplate.postForEntity(url, post, String.class);
-        String body = result.getBody();
-        Assertions.assertThat(body).isNotEmpty();
-        EO resultEo = ProviderRootTestScope.createEo(body);
-        Assertions.assertThat((String)resultEo.get("_template")).isNotEmpty();
-        new XpectString().compareAsString((String)resultEo.get("_template"));
+    public void givenGetContent_whenImpressumHtml_thenContentBodyIsLoaded() {
+        String url = "http://localhost:" + port + "/Impressum.html";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        String parsedContent = response.getBody();
+        Assertions.assertThat(parsedContent).isNotEmpty();
+        new XpectString().compareAsString(parsedContent);
     }
 
     @Test
-    public void testGetConfigs_whenFieldConfig_thenFieldConfigsUsedForLinkList() {
-        String url = "http://localhost:" + port + "/config/FieldConfig";
+    public void givenGetContent_whenHomeHtml_thenContentBodyIsLoaded() {
+        String url = "http://localhost:" + port + "/Home.html";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        String parsedContent = response.getBody();
+        Assertions.assertThat(parsedContent).isNotEmpty();
+        new XpectString().compareAsString(parsedContent);
+    }
+
+    @Test
+    public void givenGetContent_whenEo_thenContentBodyIsLoaded() {
+        String url = "http://localhost:" + port + "/docs/Eo";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();

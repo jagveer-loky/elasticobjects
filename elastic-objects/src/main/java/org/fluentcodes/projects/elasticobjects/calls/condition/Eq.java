@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 public class Eq implements Condition {
     private static final Logger LOG = LogManager.getLogger(Eq.class);
     private final Object object;
-    private final String key;
+    private String key;
 
     public Eq(String key, Object object) {
         this.key = key;
@@ -69,18 +70,15 @@ public class Eq implements Condition {
         return false;
     }
 
-    public boolean filter(EO adapter) {
-        if (adapter == null) {
+    public boolean filter(EO eo) {
+        if (eo == null) {
             LOG.warn("Null adapter should not occure!");
             return true;
         }
-        try {
-            Object value = adapter.get(key);
-            return ScalarComparator.compare(value, this.object);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (key.startsWith("eo->")) {
+            key = new ParserEoReplace(key).parse(eo);
         }
-        return false;
+        return ScalarComparator.compare(this.key, this.object);
     }
 
     @Override

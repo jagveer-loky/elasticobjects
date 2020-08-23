@@ -7,18 +7,88 @@
     "fileName": "Test.tpl.html",
     "filePath": "classpath/input/templates"
   },
-  "ConfigKeysCall_LinkListHtml": {
+  "Header.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "ConfigKeysCall_LinkListHtml",
-    "fileName": "ConfigKeysCall_LinkListHtml.tpl",
+    "configKey": "Header.html",
+    "fileName": "Header.html",
+    "filePath": "input/web"
+  },
+  "Footer.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Footer.html",
+    "fileName": "Footer.html",
+    "filePath": "input/web"
+  },
+  "Configs": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Configs",
+    "fileName": "Configs.tpl",
     "filePath": "input/calls/configs"
   },
-  "ConfigCall_Form": {
+  "Content": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "ConfigCall_Form",
-    "fileName": "ConfigCall_Form.tpl",
-    "filePath": "input/calls/configs"
+    "configKey": "Content",
+    "fileName": "Content.tpl",
+    "filePath": "input/content"
+  },
+  "Impressum.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Impressum.html",
+    "fileName": "Impressum.html",
+    "filePath": "input/content/root"
+  },
+  "Home.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Home.html",
+    "fileName": "Home.html",
+    "filePath": "input/content/root"
+  },
+  "Index.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Index.html",
+    "fileName": "Home.html",
+    "filePath": "input/content/root"
+  },
+  "Cache": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Cache",
+    "fileName": "Cache.html",
+    "filePath": "input/content/docs"
+  },
+  "Calls": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Index",
+    "fileName": "Calls.html",
+    "filePath": "input/content/docs"
+  },
+  "Eo": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Eo",
+    "fileName": "Eo.html",
+    "filePath": "input/content/docs"
+  },
+  "Models": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Models",
+    "fileName": "Models.html",
+    "filePath": "input/content/docs"
+  },
+  "Templates": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Templates",
+    "fileName": "Templates.html",
+    "filePath": "input/content/docs"
   }
 }

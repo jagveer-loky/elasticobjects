@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 
@@ -27,9 +28,13 @@ public class ExecutorCallImpl implements ExecutorCall {
         }
 
         EO source = eo;
+        if (!call.filter(source)) {
+            return null;
+        }
         if (call.hasSourcePath()) {
             source = eo.getEo(call.getSourcePath());
         }
+
         List<String> loopPaths = source.keys(call.getFilterPath());
         EO target = eo;
         boolean createTarget = loopPaths.size() > 1 && call.getTargetPath() != null && !(call.getInTemplate());
@@ -39,10 +44,12 @@ public class ExecutorCallImpl implements ExecutorCall {
         StringBuilder templateResult = new StringBuilder();
         templateResult.append(call.prepend());
         long startTime = System.currentTimeMillis();
-
+        if (PathElement.SAME.equals(call.getTargetPath())) {
+            call.setInTemplate(true);
+        }
         for (String sourcePath : loopPaths) {
             EO sourceLoop = source.getEo(sourcePath);
-            if (!call.filter(sourceLoop)) {
+            if (!call.localFilter(sourceLoop)) {
                 continue;
             }
             Object value = call.execute(sourceLoop);

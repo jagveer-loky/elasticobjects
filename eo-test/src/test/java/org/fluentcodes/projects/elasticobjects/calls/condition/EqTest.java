@@ -19,9 +19,9 @@ public class EqTest {
     public void filterAdapter()  {
         EO adapter = ProviderRootTestScope.createEo();
         adapter.set(S_STRING, S_TEST_STRING);
-        Eq eq = new Eq(S_TEST_STRING, S_STRING);
+        Eq eq = new Eq("eo->string.", S_STRING);
         Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + eq.toString() + adapter.get(S_TEST_STRING), eq.filter(adapter));
-        Eq eq2 = new Eq(S_TEST_STRING, S_STRING_OTHER);
+        Eq eq2 = new Eq("eo->" + S_TEST_STRING + ".", S_STRING_OTHER);
         Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + eq.toString() + adapter.get(S_TEST_STRING), eq2.filter(adapter));
     }
 

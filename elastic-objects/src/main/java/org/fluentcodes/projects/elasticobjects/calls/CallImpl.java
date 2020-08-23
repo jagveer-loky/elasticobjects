@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
@@ -24,6 +25,7 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
     private LogLevel logLevel;
     private Long duration;
     private String condition;
+    private String localCondition;
 
     public CallImpl() {
     }
@@ -39,6 +41,14 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
 
     @Override
     public Boolean getInTemplate() {
+        if (inTemplate == null) {
+            return false;
+        }
+        return inTemplate;
+    }
+
+    @Override
+    public Boolean isInTemplate() {
         if (inTemplate == null) {
             return false;
         }
@@ -104,12 +114,36 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
     public boolean hasCondition() {
         return condition!=null && !condition.isEmpty();
     }
+
     @Override
     public boolean filter(EO eo) {
         if (!hasCondition()) {
             return true;
         }
-        return new Or(this.condition).filter(eo);
+        return new Or(new ParserEoReplace(condition).parse(eo)).filter(eo);
+    }
+
+    @Override
+    public String getLocalCondition() {
+        return localCondition;
+    }
+
+    @Override
+    public void setLocalCondition(String localCondition) {
+        this.localCondition = localCondition;
+    }
+
+    @Override
+    public boolean hasLocalCondition() {
+        return localCondition!=null && !localCondition.isEmpty();
+    }
+
+    @Override
+    public boolean localFilter(EO eo) {
+        if (!hasLocalCondition()) {
+            return true;
+        }
+        return new Or(new ParserEoReplace(localCondition).parse(eo)).filter(eo);
     }
 
     public String prepend() {

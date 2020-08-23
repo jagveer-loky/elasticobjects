@@ -131,14 +131,14 @@ public class And {
         return true;
     }
 
-    public boolean filter(EO adapter) {
-        if (adapter == null) {
+    public boolean filter(EO eo) {
+        if (eo == null) {
             LOG.warn("Null adapter should not occure!");
             return true;
         }
         boolean result = true;
         for (Condition condition : conditions) {
-            result = result && condition.filter(adapter);
+            result = result && condition.filter(eo);
             if (!result) {
                 return false;
             }
