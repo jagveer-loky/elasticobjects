@@ -56,7 +56,7 @@ public class EoChild implements EO {
         pathElement.setRootModels(this, models);
     }
 
-    protected void setValue(Object value) {
+    public void setValue(Object value) {
         if (value == null) {
             return;
         }
@@ -118,7 +118,7 @@ public class EoChild implements EO {
         return hasEo(path.getFirstPathElement());
     }
 
-    protected boolean hasEo(final String key) {
+    public boolean hasEo(final String key) {
         return eoMap!=null && eoMap.containsKey(key);
     }
 

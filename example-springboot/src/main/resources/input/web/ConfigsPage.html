@@ -1,0 +1,58 @@
+$[(ConfigKeysCall)configurationList configType="eo->configType." configFilter="eo->configFilter."/]
+$[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected."/]
+
+$[(TemplateResourceCall). configKey="Header.html"/]
+    <header class="entry-header">
+        <div id="rootNav">
+            <input type="text" value="$[configFilter]" onchange="
+            var newLocation = window.location + 'x';
+            document.location.href = newLocation.replace(/=.*/, '=' + this.value);
+            "/>
+            <ul>
+            $[(TemplateCall)/configurationList/*]
+                <li><a href="/config/$[/configType]/$[_value]?configFilter=$[/configFilter]">$[_value]</a></li>
+            $[/]
+            </ul>
+        </div>
+    </header>
+    <div class="entry-content" id="entry-content">
+
+
+    <h3>$[configuration/0/naturalId]</h3>
+
+    $[configuration/0/description]
+
+    <h4>Configuration</h4>
+
+        <xmp style="background-color:lightgray;border:1px solid darkgray;">$[(JsonAsStringCall)configuration/0 /]</xmp>
+
+    <h4>This Page Post Version</h4>
+    The page calls with url can also created by the client side with the generic post end point.
+    <form action="/eo-form" method="post">
+    <textarea name="eo">{
+    "asTemplate":true,
+    "configFilter": "$[configFilter]",
+    "configType": "$[configType]",
+    "configSelected": "$[configSelected]",
+    "(TemplateResourceCall)call": {
+        "configKey":"ConfigsPage.html"
+    }
+ }</textarea>
+    <input type="submit" value="post"/>
+    </form>
+
+
+
+    $[(TemplateCall). condition="eo->configType. eq FileConfig" ]
+    <h4>Content</h4>
+       <xmp style="background-color:lightgray;border:1px solid darkgray;">$[(FileReadCall). configKey="eo->configuration/0/naturalId." /]</xmp>
+    $[/]
+
+    $[(TemplateCall). condition="eo->configType. eq FieldConfig" ]
+    $[/]
+
+
+
+       <hr/>
+     </div>
+$[(TemplateResourceCall). configKey="Footer.html"/]

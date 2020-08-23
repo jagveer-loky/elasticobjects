@@ -1,60 +1,84 @@
 {
-  "test": {
-    "module": "eo-example-springboot",
-    "subModule": "main",
-    "naturalId": "test",
-    "templateKey": "test",
-    "fileName": "Test.tpl.html",
-    "filePath": "classpath/input/templates"
-  },
-  "Header.html": {
+  "ConfigsPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Header.html",
-    "fileName": "Header.html",
-    "filePath": "input/web"
+    "configKey": "ConfigsPage.html",
+    "fileName": "ConfigsPage.html",
+    "filePath": "input/web",
+    "description": "The config template loading a config and show it's properties."
+  },
+  "ContentPage.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "ContentPage.html",
+    "fileName": "ContentPage.html",
+    "filePath": "input/web",
+    "description": "The content template loading a content template file in the content part."
   },
   "Footer.html": {
     "module": "example-springboot",
     "subModule": "main",
     "configKey": "Footer.html",
     "fileName": "Footer.html",
-    "filePath": "input/web"
+    "filePath": "input/web",
+    "description": "The Wordpress footer part"
   },
-  "Configs": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "configKey": "Configs",
-    "fileName": "Configs.tpl",
-    "filePath": "input/calls/configs"
-  },
-  "Content": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "configKey": "Content",
-    "fileName": "Content.tpl",
-    "filePath": "input/content"
-  },
+
   "Impressum.html": {
     "module": "example-springboot",
     "subModule": "main",
     "configKey": "Impressum.html",
     "fileName": "Impressum.html",
-    "filePath": "input/content/root"
+    "filePath": "input/content/root",
+    "description": "The impressum content."
   },
   "Home.html": {
     "module": "example-springboot",
     "subModule": "main",
     "configKey": "Home.html",
     "fileName": "Home.html",
-    "filePath": "input/content/root"
+    "filePath": "input/content/root",
+    "description": "The home content."
   },
   "Index.html": {
     "module": "example-springboot",
     "subModule": "main",
     "configKey": "Index.html",
     "fileName": "Home.html",
-    "filePath": "input/content/root"
+    "filePath": "input/content/root",
+    "description": "The home content with a different url."
+  },
+  "ModelConfig.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "ModelConfig.html",
+    "fileName": "ModelConfig.html",
+    "filePath": "input/content/docs",
+    "description": "Entry content for ModelConfig."
+  },
+  "FieldConfig.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "FieldConfig.html",
+    "fileName": "FieldConfig.html",
+    "filePath": "input/content/docs",
+    "description": "Entry content for FieldConfig."
+  },
+  "FileConfig.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "FileConfig.html",
+    "fileName": "FileConfig.html",
+    "filePath": "input/content/docs",
+    "description": "Entry content for FileConfig."
+  },
+  "TemplateConfig.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "TemplateConfig.html",
+    "fileName": "TemplateConfig.html",
+    "filePath": "input/content/docs",
+    "description": "Entry content for TemplateConfig."
   },
   "Cache": {
     "module": "example-springboot",
@@ -90,5 +114,21 @@
     "configKey": "Templates",
     "fileName": "Templates.html",
     "filePath": "input/content/docs"
+  },
+  "test": {
+    "module": "eo-example-springboot",
+    "subModule": "main",
+    "naturalId": "test",
+    "templateKey": "test",
+    "fileName": "Test.tpl.html",
+    "filePath": "classpath/input/templates"
+  },
+  "Header.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Header.html",
+    "fileName": "Header.html",
+    "filePath": "input/web",
+    "description": "The Wordpress header part"
   }
 }

@@ -10,17 +10,15 @@
  */
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EoChild;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.values.ValueCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.HashMap;
@@ -31,11 +29,14 @@ import java.util.regex.Pattern;
 
 
 public abstract class Parser {
-    private static final Logger LOG = LogManager.getLogger(Parser.class);
-    private static final String TEMPLATE_CALL_CHAR = "^&";
-    private static final String VALUE_CALL_CHAR = "^#";
-    private static final String SYSTEM_CHAR = "^@";
-    private static final String ENV_CHAR = "^%";
+    private static final String TEMPLATE_CALL_MATCH = "^&";
+    private static final String VALUE_CALL_MATCH = "^#";
+    private static final String TEMPLATE_CALL_CHAR = "&";
+    private static final String VALUE_CALL_CHAR = "#";
+    private static final String SYSTEM_CHAR = "@";
+    private static final String ENV_CHAR = "%";
+    private static final String CLOSE_TAG = "$[/]";
+    private static final String END_SEQUENCE = "/]";
     private static final Map<String, String> SYSTEM = populateSystem();
     private final String template;
     private Matcher match;
@@ -115,8 +116,8 @@ public abstract class Parser {
         }
         pathOrKey = pathOrKey
                 .replaceAll("\\\\", "/")
-                .replaceAll(TEMPLATE_CALL_CHAR,"(TemplateCall)")
-                .replaceAll(VALUE_CALL_CHAR ,"(ValueCall)");
+                .replaceAll(TEMPLATE_CALL_MATCH,"(TemplateCall)")
+                .replaceAll(VALUE_CALL_MATCH ,"(ValueCall)");
 
         if (eo != null && pathOrKey.startsWith("(")) {
             try {
@@ -132,11 +133,11 @@ public abstract class Parser {
                     .replaceAll("_parent", eo.getParentKey());
         }
 
-        else if (pathOrKey.startsWith("@")) {
+        else if (pathOrKey.startsWith(SYSTEM_CHAR)) {
             value = getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
         }
 
-        else if (pathOrKey.startsWith("%")) {
+        else if (pathOrKey.startsWith(ENV_CHAR)) {
             value = System.getenv(pathOrKey.replaceAll(ENV_CHAR, ""));
         }
 
@@ -163,7 +164,12 @@ public abstract class Parser {
     protected Object makeCall(final String callDirective, String finish,  final EO eo) {
         String content = "";
         if (!finish.startsWith(Path.DELIMITER)) {
-            content = findContent();
+            try {
+                content = findContent();
+            }
+            catch(EoException e) {
+                throw new EoException(e.getMessage() + ": " + callDirective);
+            }
         }
         String[] callsAndAttributes = callDirective.split("\" +");
         String callPathCore = callsAndAttributes[0].replaceAll(" .*","");
@@ -193,6 +199,9 @@ public abstract class Parser {
         }
 
         if (!attributes.isEmpty()) {
+             if (attributes.keySet().contains("configKey") && attributes.get("configKey").contains("eo->") && (callObject instanceof FileReadCall)) {
+                 attributes.put("configKey", new ParserEoReplace(attributes.get("configKey")).parse(eo));
+             }
             EO eoForMapAttributesToCall = new EoRoot(eo.getConfigsCache(), callObject);
             eoForMapAttributesToCall.mapObject(attributes);
             callObject = (Call) eoForMapAttributesToCall.get();
@@ -221,12 +230,15 @@ public abstract class Parser {
             String found = match.group(1);
             String foundEnd = match.group(2);
             String foundAll = match.group();
-            if (foundAll.equals("$[/]")) {
+            if (foundAll.equals(CLOSE_TAG)) {
                 hierarchy--;
             }
-            else if (!found.endsWith(Path.DELIMITER) && (found.startsWith("&") || found.startsWith("("))){
-                hierarchy++;
+            else if (found.startsWith(VALUE_CALL_CHAR) || found.startsWith(TEMPLATE_CALL_CHAR) || found.startsWith("(")) {
+                if (!foundEnd.equals(END_SEQUENCE)) {
+                    hierarchy++;
+                }
             }
+
             if (hierarchy == 0) {
                 return content.toString();
             } else {

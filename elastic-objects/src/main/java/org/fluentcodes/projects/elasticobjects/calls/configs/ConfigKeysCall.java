@@ -30,6 +30,11 @@ public class ConfigKeysCall extends CallImpl<List>{
         this.configType = configClass.getSimpleName();
     }
 
+    public ConfigKeysCall(final String configType) {
+        super();
+        this.configType = configType;
+    }
+
     public ConfigKeysCall(final Class<? extends Config> configClass, final String configFilter) {
         this(configClass);
         this.configFilter = configFilter;

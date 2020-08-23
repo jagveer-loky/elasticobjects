@@ -6,7 +6,7 @@ import org.fluentcodes.tools.xpect.IOString;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum TestProviderTemplateContent {
-    CONFIG_KEYS_CALL(PATH_INPUT + "calls/configs/ConfigKeysCallModelConfig.tpl");
+    CONFIGS_HTML(PATH_INPUT + "calls/configs/ConfigsPage.html");
 
     private final String content;
     private String fileName;

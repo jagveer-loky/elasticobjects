@@ -1,8 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.*;
+import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by werner.diwischek on 11.12.17.
@@ -34,7 +34,7 @@ public class WebEoGet {
         eo.set(configFilter, "configFilter");
         eo.set(configType, "configType");
         eo.set(configSelected, "configSelected");
-        eo.addCall(new TemplateResourceCall("Configs"));
+        eo.addCall(new TemplateResourceCall("ConfigsPage.html"));
         eo.execute();
         return (String) eo.get(PathElement.TEMPLATE);
     }
@@ -45,7 +45,7 @@ public class WebEoGet {
         EO eo = new EoRoot(cache);
         eo.set(selectedItem + ".html", "selectedItem");
         eo.set("[]", "navigationItem");
-        eo.addCall(new TemplateResourceCall("Content"));
+        eo.addCall(new TemplateResourceCall("ContentPage.html"));
         try {
             eo.execute();
         }
@@ -61,8 +61,30 @@ public class WebEoGet {
     public String createDocumentationPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
         eo.set(selectedItem, "selectedItem");
-        eo.set("[\"/docs/Eo\",\"/docs/Models\",\"/docs/Cache\",\"/docs/Calls\",\"/docs/Templates\"]", "navigationItem");
-        eo.addCall(new TemplateResourceCall("Content"));
+        EO child = eo.setEmpty("navigationItem");
+        child.set("/docs/Eo","EO");
+        child.set("/docs/Cache", "Cache");
+        child.set("/docs/Models", "Models");
+        child.set("/docs/Calls","Calls");
+        child.set("/docs/Templates", "Templates");
+        eo.addCall(new TemplateResourceCall("ContentPage.html"));
+        eo.execute();
+        return (String) eo.get(PathElement.TEMPLATE);
+    }
+
+    @RequestMapping(value = "/config/{selectedItem:.+}", method = RequestMethod.GET)
+    @ResponseBody
+    public String createConfigStartPage(@PathVariable String selectedItem) {
+        EO eo = new EoRoot(cache);
+        eo.set(selectedItem, "selectedItem");
+
+        ConfigKeysCall configKeysCall = new ConfigKeysCall(selectedItem.replaceAll(".html$", ""));
+        List entries = configKeysCall.execute(eo);
+        EO child = eo.setEmpty("navigationItem");
+        for (Object entry: entries) {
+            child.set("/config/" + selectedItem.replaceAll(".html$", "") + "/" + entry, (String) entry);
+        }
+        eo.addCall(new TemplateResourceCall("ContentPage.html"));
         eo.execute();
         return (String) eo.get(PathElement.TEMPLATE);
     }

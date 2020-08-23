@@ -2,14 +2,9 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.JSONToEO;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
-import org.fluentcodes.projects.elasticobjects.calls.testitemproviders.TestProviderTemplateContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectString;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,16 +46,6 @@ public class SpringWebTest {
         Assertions.assertThat(body).isNotEmpty();
         EO eo = ProviderRootTestScope.createEo(body);
         Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
-    }
-
-    @Test
-    public void testTemplateConfigKeyCall() {
-        String test = TestProviderTemplateContent.CONFIG_KEYS_CALL.content();
-        String url = "http://localhost:" + port + "/eo/template";
-        ResponseEntity<String> result = restTemplate.postForEntity(url, test, String.class);
-        String body = result.getBody();
-        Assertions.assertThat(body).isNotEmpty();
-        new XpectString().compareAsString(body);
     }
 
     @Test

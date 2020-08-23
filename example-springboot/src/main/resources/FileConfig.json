@@ -4,6 +4,7 @@
     "subModule": "main",
     "configKey": "Svg.html",
     "fileName": "Svg.html",
-    "filePath": "input/web"
+    "filePath": "input/web",
+    "description": "The svg part of the page for responsiveness."
   }
 }

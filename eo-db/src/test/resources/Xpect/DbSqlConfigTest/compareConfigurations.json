@@ -6,7 +6,8 @@
       "0": "drop table BasicTest"
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "h2:mem:basic:BasicTestDrop"
   },
   "1": {
     "dbKey": "h2:mem:basic",
@@ -21,6 +22,7 @@
       "7": "alter table SubTest add constraint FKowivfpy0agy32ba81eayhtgf foreign key (subTest) references SubTest"
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "h2:mem:basic:Create"
   }
 }

@@ -9,7 +9,8 @@
     "listMapper": {
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "ListSimple.xlsx:test"
   },
   "1": {
     "fileKey": "source.xlsx",
@@ -20,7 +21,8 @@
     "listMapper": {
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "source.xlsx"
   },
   "2": {
     "fileKey": "source.xlsx",
@@ -29,7 +31,8 @@
     "listMapper": {
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "sourceExplicit"
   },
   "3": {
     "fileKey": "target.xlsx",
@@ -39,6 +42,7 @@
     "listMapper": {
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "target.xlsx"
   }
 }
