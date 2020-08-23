@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
 import org.fluentcodes.projects.elasticobjects.*;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -44,15 +42,6 @@ public class WebEo {
         session.setAttribute("roles", roles);
         return roles;
     }
-
-    @RequestMapping(value = "/eo", method = RequestMethod.GET)
-    public String adapterGet(
-            @RequestParam(value = "adapter", required = false) final String eoAsString,
-            @RequestParam(value = "logLevel", required = false) final String logLevel) {
-
-        return eoPostForm(eoAsString, logLevel);
-    }
-
     // https://stackoverflow.com/questions/36520314/accessing-httpsession-in-a-controlleradvice-in-a-springboot-application
     // https://stackoverflow.com/questions/49670209/can-spring-map-post-parameters-by-a-way-other-than-requestbody
 
@@ -64,7 +53,7 @@ public class WebEo {
 
     @RequestMapping(value = "/eo-form", method = RequestMethod.POST)
     public String eoPostForm(
-            @RequestParam(value = "eo", required = false) final String eoAsString,
+            @RequestParam(value = "eo", required = true) final String eoAsString,
             @RequestParam(value = "logLevel", required = false) final String logLevelAsString
     ) {
         if (eoAsString == null) {
@@ -94,56 +83,4 @@ public class WebEo {
             return "Exception occured! " + e.getMessage();
         }
     }
-
-
-    @RequestMapping(value = "/eo/template", method = RequestMethod.POST)
-    public String executeTemplate(
-            @RequestBody String template
-    ) {
-        TemplateCall templateCall = new TemplateCall();
-        templateCall.setContent(template);
-        final String[] roles = getRoles();
-
-        try {
-            EO eo = new EoRoot(configsCache);
-            eo.setRoles(Arrays.asList(roles));
-            return templateCall.execute(eo);
-        } catch (EoException e) {
-            return "Problem: " + e.getMessage();
-        }
-    }
-
-    @RequestMapping(value = "/eo/template/{templateKey}", method = RequestMethod.GET)
-    public String getTemplate(
-            @PathVariable final String templateKey,
-            @RequestParam(value = "logLevel", required = false) final String logLevelAsString
-    ) {
-        if (templateKey == null) {
-            return "No 'templateKey' is set!";
-        }
-        if (templateKey.isEmpty()) {
-            return "'templateKey' is empty!";
-        }
-
-        TemplateCall templateCall = null;
-        try {
-            templateCall = new TemplateCall(templateKey);
-        } catch (Exception e) {
-            return "No config found for '" + templateKey + "'! " + e.getMessage();
-        }
-
-        final String[] roles = getRoles();
-        final LogLevel logLevel = getLevel(logLevelAsString);
-
-        try {
-            EO eo = new EoRoot(configsCache)
-                    .setLogLevel(logLevel);
-            eo.setRoles(Arrays.asList(roles));
-            return templateCall.execute(eo);
-        } catch (Exception e) {
-            return "No config found for '" + templateKey + "' is set!";
-        }
-
-    }
-
 }
