@@ -5,19 +5,22 @@
     "hostName": "",
     "user": "sa",
     "rolePermissions": {
-    }
+    },
+    "naturalId": "h2"
   },
   "1": {
     "protocol": "file:",
     "hostName": "localhost",
     "rolePermissions": {
-    }
+    },
+    "naturalId": "local"
   },
   "2": {
     "protocol": "file:",
     "hostName": "localhost",
     "rolePermissions": {
-    }
+    },
+    "naturalId": "localhost"
   },
   "3": {
     "port": 1,
@@ -31,7 +34,8 @@
       "create": "testRoleCreate,admin",
       "delete": "admin",
       "execute": "superadmin"
-    }
+    },
+    "naturalId": "test"
   },
   "4": {
     "port": 21,
@@ -40,6 +44,7 @@
     "user": "testUser",
     "password": "testPassword",
     "rolePermissions": {
-    }
+    },
+    "naturalId": "testFtp"
   }
 }

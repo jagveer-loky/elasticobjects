@@ -14,7 +14,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "BasicTest.csv"
   },
   "1": {
     "fileKey": "ListSimple.csv",
@@ -30,7 +31,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "ListSimple.csv"
   },
   "2": {
     "fileKey": "target.csv",
@@ -44,6 +46,7 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "target.csv"
   }
 }

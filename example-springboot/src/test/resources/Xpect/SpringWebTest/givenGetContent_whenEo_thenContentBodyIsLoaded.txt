@@ -104,15 +104,19 @@
                             <li></li>
                             <li id="menu-item-62"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="/config/ModelConfig/ModelConfig?configFilter=.*">Configurations</a>
+                                <a href="/config/ModelConfig.html">ModelConfig</a>
                             </li>
                             <li id="menu-item-13"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="#" onclick="view.direct.view();">Actions Examples</a>
+                                <a href="/config/FieldConfig.html">FieldConfig</a>
                             </li>
                             <li id="menu-item-13"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="#" onclick="view.actions.view();">Actions</a>
+                                <a href="/config/TemplateConfig.html">TemplateConfig</a>
+                            </li>
+                            <li id="menu-item-13"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
+                                <a href="/config/FileConfig.html">FileConfig</a>
                             </li>
                         </ul>
                     </div>
@@ -133,15 +137,15 @@
         <div id="rootNav">
             <ul>
             
-            <li><a href="/docs/Eo">/docs/Eo</a></li>
+            <li><a href="/docs/Eo">EO</a></li>
             
-            <li><a href="/docs/Models">/docs/Models</a></li>
+            <li><a href="/docs/Cache">Cache</a></li>
             
-            <li><a href="/docs/Cache">/docs/Cache</a></li>
+            <li><a href="/docs/Models">Models</a></li>
             
-            <li><a href="/docs/Calls">/docs/Calls</a></li>
+            <li><a href="/docs/Calls">Calls</a></li>
             
-            <li><a href="/docs/Templates">/docs/Templates</a></li>
+            <li><a href="/docs/Templates">Templates</a></li>
             
             </ul>
         </div>

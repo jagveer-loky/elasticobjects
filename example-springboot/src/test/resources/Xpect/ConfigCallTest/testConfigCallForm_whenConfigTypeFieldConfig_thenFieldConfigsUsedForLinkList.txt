@@ -1,7 +1,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en-US" class="js svg background-fixed">
 <head>
@@ -108,15 +107,19 @@
                             <li></li>
                             <li id="menu-item-62"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="/config/ModelConfig/ModelConfig?configFilter=.*">Configurations</a>
+                                <a href="/config/ModelConfig.html">ModelConfig</a>
                             </li>
                             <li id="menu-item-13"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="#" onclick="view.direct.view();">Actions Examples</a>
+                                <a href="/config/FieldConfig.html">FieldConfig</a>
                             </li>
                             <li id="menu-item-13"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="#" onclick="view.actions.view();">Actions</a>
+                                <a href="/config/TemplateConfig.html">TemplateConfig</a>
+                            </li>
+                            <li id="menu-item-13"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
+                                <a href="/config/FileConfig.html">FileConfig</a>
                             </li>
                         </ul>
                     </div>
@@ -141,32 +144,20 @@
             "/>
             <ul>
             
-            <li><a href="/config/FieldConfig/_?configFilter=Scope">FieldConfig</a>
+                <li><a href="/config/ModelConfig/Scope?configFilter=Scope">Scope</a></li>
             
-                </li>
-                
-            <li><a href="/config/FileConfig/_?configFilter=Scope">FileConfig</a>
-            
-                </li>
-                
-            <li><a href="/config/HostConfig/_?configFilter=Scope">HostConfig</a>
-            
-                </li>
-                
-            <li><a href="/config/ModelConfig/_?configFilter=Scope">ModelConfig</a>
-            
-                <br/> - <a href="/config/ModelConfig/Scope?configFilter=Scope">Scope</a>
-                
-                </li>
-                
-            <li><a href="/config/TemplateConfig/_?configFilter=Scope">TemplateConfig</a>
-            
-                </li>
-                
             </ul>
         </div>
     </header>
     <div class="entry-content" id="entry-content">
+
+
+    <h3>Scope</h3>
+
+    Enum with different Scopes to environment specific caches.
+
+    <h4>Configuration</h4>
+
         <xmp style="background-color:lightgray;border:1px solid darkgray;">{
   "packagePath": "org.fluentcodes.projects.elasticobjects.models",
   "modelKey": "Scope",
@@ -198,12 +189,29 @@
   "author": "Werner Diwischek"
 }</xmp>
 
-        <form action="/eo" method="POST">
-        <textarea name="eo" cols="60" rows="6" style="background-color:red">
-            (!!Could not move to path 'configuration/0/modelKeys' because key 'modelKeys' does not exist on '/configuration/0'.!!)
-        </textarea>
-        <input type="submit" value="post"/>
-       </form>
+    <h4>This Page Post Version</h4>
+    The page calls with url can also created by the client side with the generic post end point.
+    <form action="/eo-form" method="post">
+    <textarea name="eo">{
+    "asTemplate":true,
+    "configFilter": "Scope",
+    "configType": "ModelConfig",
+    "configSelected": "Scope",
+    "(TemplateResourceCall)call": {
+        "configKey":"ConfigsPage.html"
+    }
+ }</textarea>
+    <input type="submit" value="post"/>
+    </form>
+
+
+
+    
+
+    
+
+
+
        <hr/>
      </div>
 

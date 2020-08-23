@@ -79,7 +79,8 @@ public class ConfigCall extends ConfigKeysCall {
                 throw new EoException(e);
             }
             configEntry.resolve();
-            result.set(configEntry, Integer.valueOf(result.size()).toString());
+            EO child = result.set(configEntry, Integer.valueOf(result.size()).toString());
+            child.set(key, "naturalId");
         }
         return (List)result.get();
     }

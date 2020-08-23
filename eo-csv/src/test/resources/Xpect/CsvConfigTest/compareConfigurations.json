@@ -14,7 +14,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "ListSimple.csv"
   },
   "1": {
     "fileKey": "target.csv",
@@ -26,6 +27,7 @@
     "listMapper": {
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "target.csv"
   }
 }

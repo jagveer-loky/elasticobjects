@@ -6,7 +6,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "BasicTest.csv"
   },
   "1": {
     "fileName": "input/file/source.txt",
@@ -14,7 +15,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "classpath_source.txt"
   },
   "2": {
     "fileName": "input/calls/file-simple/FileTest.txt",
@@ -24,7 +26,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "FileTest.txt"
   },
   "3": {
     "fileName": "input/calls/file-simple/FileTest.txt",
@@ -32,7 +35,8 @@
     "hostKey": "localhost",
     "cached": true,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "FileTestCached.txt"
   },
   "4": {
     "fileName": "input/calls/list-simple/ListSimple.csv",
@@ -40,7 +44,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "ListSimple.csv"
   },
   "5": {
     "fileName": "input/file/source.txt",
@@ -50,7 +55,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "localhost:source.txt"
   },
   "6": {
     "fileName": "result.string",
@@ -58,7 +64,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "result.string"
   },
   "7": {
     "fileName": "resultWithMapPath.string",
@@ -66,7 +73,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "resultWithMapPath.string"
   },
   "8": {
     "fileName": "target.csv",
@@ -74,7 +82,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "target.csv"
   },
   "9": {
     "fileName": "target.txt",
@@ -82,7 +91,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "target.txt"
   },
   "10": {
     "fileName": "fileName",
@@ -95,7 +105,8 @@
       "create": "testRoleCreate,admin",
       "delete": "admin",
       "execute": "superadmin"
-    }
+    },
+    "naturalId": "test:test"
   },
   "11": {
     "fileName": "input/file/source.txt",
@@ -103,6 +114,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "test_source.txt"
   }
 }

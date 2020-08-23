@@ -24,8 +24,8 @@ public class TemplateConfigTest {
     /*
     @Test
     public void createTemplateCacheMain() throws Exception {
-        Map<String, Config> configMap = TestConfig.readConfigMapFromFile(CONFIG_TEMPLATE_MAIN, TemplateConfig.class);
-        TemplateConfig config = (TemplateConfig) configMap.get(TEST_TPL_HTML);
+        Map<String, Config> configMap = TestConfig.readConfigMapFromFile(CONFIG_TEMPLATE_MAIN, TemplateConfig.html.class);
+        TemplateConfig.html config = (TemplateConfig.html) configMap.get(TEST_TPL_HTML);
         Assert.assertNotNull(config);
         Assert.assertEquals(TEST_TPL_HTML, config.getTemplateKey());
     }*/

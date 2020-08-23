@@ -7,7 +7,8 @@
     "listMapper": {
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "h2:mem:basic:BasicTest"
   },
   "1": {
     "modelKey": "SubTest",
@@ -16,6 +17,7 @@
     "listMapper": {
     },
     "rolePermissions": {
-    }
+    },
+    "naturalId": "h2:mem:basic:SubTest"
   }
 }

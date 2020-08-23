@@ -9,7 +9,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "BasicTest.json"
   },
   "1": {
     "indent": 1,
@@ -18,7 +19,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "content"
   },
   "2": {
     "indent": 1,
@@ -27,7 +29,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "ContentExample"
   },
   "3": {
     "indent": 1,
@@ -36,7 +39,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "ContentExampleData"
   },
   "4": {
     "indent": 1,
@@ -47,7 +51,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "naturalId": "ListSimple.json"
   },
   "5": {
     "indent": 1,
@@ -56,7 +61,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "ModuleConfig.json"
   },
   "6": {
     "indent": 1,
@@ -65,7 +71,8 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "SimpleInsertWithPath"
   },
   "7": {
     "indent": 1,
@@ -74,6 +81,7 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-    }
+    },
+    "naturalId": "target.json"
   }
 }

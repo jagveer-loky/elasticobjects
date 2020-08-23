@@ -54,7 +54,7 @@ public class WebEo {
     @RequestMapping(value = "/eo-form", method = RequestMethod.POST)
     public String eoPostForm(
             @RequestParam(value = "eo", required = true) final String eoAsString,
-            @RequestParam(value = "logLevel", required = false) final String logLevelAsString
+            @RequestParam(value = "logLevel", required = false, defaultValue = "WARN") final String logLevelAsString
     ) {
         if (eoAsString == null) {
             return "No 'value' is set!";
@@ -73,7 +73,9 @@ public class WebEo {
 
             eo.setRoles(Arrays.asList(roles));
             eo.execute();
-
+            if (((EoChild)eo).hasEo("asTemplate")) {
+                return (String)eo.get(PathElement.TEMPLATE);
+            }
             final String result = new EOToJSON()
                     .setStartIndent(1)
                     .setSerializationType(JSONSerializationType.EO)
