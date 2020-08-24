@@ -73,16 +73,16 @@ public class WebEo {
 
             eo.setRoles(Arrays.asList(roles));
             eo.execute();
+            eo.debug("'/eo-form' is executed ");
             if (((EoChild)eo).hasEo("asTemplate")) {
                 return (String)eo.get(PathElement.TEMPLATE);
             }
             final String result = new EOToJSON()
                     .setStartIndent(1)
-                    .setSerializationType(JSONSerializationType.EO)
                     .toJSON(eo);
             return result;
         } catch (Exception e) {
-            return "Exception occured! " + e.getMessage();
+            return "Unexpected Exception occured. Please contact Elastic Objects support! " + e.getMessage();
         }
     }
 }

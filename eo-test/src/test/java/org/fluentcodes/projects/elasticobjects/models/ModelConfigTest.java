@@ -87,13 +87,13 @@ public class ModelConfigTest {
         Constructor constructor = childClass.getConstructor(null);
         Object childObject = constructor.newInstance();
         ModelInterface config = (ModelInterface) build.invoke(childObject, ProviderRootTestScope.EO_CONFIGS, MODEL_CONFIG_MAP);
-        Assert.assertEquals(F_MODEL_KEY, config.getModelKey());
+        Assert.assertEquals(ModelConfig.MODEL_KEY, config.getModelKey());
         Assert.assertEquals(Model.AUTHOR, config.getAuthor());
-        Assert.assertEquals(F_PACKAGE_GROUP, config.getPackageGroup());
-        Assert.assertEquals(F_PACKAGE_PATH, config.getPackagePath());
+        Assert.assertEquals(ModelConfig.F_PACKAGE_GROUP, config.getPackageGroup());
+        Assert.assertEquals(ModelConfig.PACKAGE_PATH, config.getPackagePath());
         Assert.assertEquals(F_INTERFACES, config.getInterfaces());
-        Assert.assertEquals(F_MODULE, config.getModule());
-        Assert.assertEquals(F_SUB_MODULE, config.getSubModule());
+        Assert.assertEquals(ModelConfig.MODULE, config.getModule());
+        Assert.assertEquals(ModelConfig.SUB_MODULE, config.getSubModule());
     }
 
     @Test

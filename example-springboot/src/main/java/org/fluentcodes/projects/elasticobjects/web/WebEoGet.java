@@ -56,19 +56,18 @@ public class WebEoGet {
         return (String) eo.get(PathElement.TEMPLATE);
     }
 
-    @RequestMapping(value = "/docs/{selectedItem:.+}", method = RequestMethod.GET)
+    @RequestMapping(value = "/examples/{selectedItem:.+}", method = RequestMethod.GET)
     @ResponseBody
-    public String createDocumentationPage(@PathVariable String selectedItem) {
+    public String createExamplesPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
         eo.set(selectedItem, "selectedItem");
         EO child = eo.setEmpty("navigationItem");
-        child.set("/docs/Eo","EO");
-        child.set("/docs/Cache", "Cache");
-        child.set("/docs/Models", "Models");
-        child.set("/docs/Calls","Calls");
-        child.set("/docs/Templates", "Templates");
-        eo.addCall(new TemplateResourceCall("ContentPage.html"));
+        //child.set("/docs/Eo","EO");
+        eo.addCall(new TemplateResourceCall("ExamplesPage.html"));
         eo.execute();
+        if (eo.hasErrors()) {
+            return new EOToJSON().toJSON(eo);
+        }
         return (String) eo.get(PathElement.TEMPLATE);
     }
 

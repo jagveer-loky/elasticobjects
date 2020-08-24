@@ -13,7 +13,23 @@
     "configKey": "ContentPage.html",
     "fileName": "ContentPage.html",
     "filePath": "input/web",
-    "description": "The content template loading a content template file in the content part."
+    "description": "The content template loading a content template file in the content part without navigation."
+  },
+  "ExamplesPage.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "ExamplesPage.html",
+    "fileName": "ExamplesPage.html",
+    "filePath": "input/web",
+    "description": "The examples template loading an examples template file in the content part together with navigation."
+  },
+  "Header.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "Header.html",
+    "fileName": "Header.html",
+    "filePath": "input/web",
+    "description": "The Wordpress header part"
   },
   "Footer.html": {
     "module": "example-springboot",
@@ -29,7 +45,7 @@
     "subModule": "main",
     "configKey": "Impressum.html",
     "fileName": "Impressum.html",
-    "filePath": "input/content/root",
+    "filePath": "input/web/docs",
     "description": "The impressum content."
   },
   "Home.html": {
@@ -37,7 +53,7 @@
     "subModule": "main",
     "configKey": "Home.html",
     "fileName": "Home.html",
-    "filePath": "input/content/root",
+    "filePath": "input/web/docs",
     "description": "The home content."
   },
   "Index.html": {
@@ -45,7 +61,7 @@
     "subModule": "main",
     "configKey": "Index.html",
     "fileName": "Home.html",
-    "filePath": "input/content/root",
+    "filePath": "input/web/docs",
     "description": "The home content with a different url."
   },
   "ModelConfig.html": {
@@ -53,7 +69,7 @@
     "subModule": "main",
     "configKey": "ModelConfig.html",
     "fileName": "ModelConfig.html",
-    "filePath": "input/content/docs",
+    "filePath": "input/web/configs",
     "description": "Entry content for ModelConfig."
   },
   "FieldConfig.html": {
@@ -61,7 +77,7 @@
     "subModule": "main",
     "configKey": "FieldConfig.html",
     "fileName": "FieldConfig.html",
-    "filePath": "input/content/docs",
+    "filePath": "input/web/configs",
     "description": "Entry content for FieldConfig."
   },
   "FileConfig.html": {
@@ -69,7 +85,7 @@
     "subModule": "main",
     "configKey": "FileConfig.html",
     "fileName": "FileConfig.html",
-    "filePath": "input/content/docs",
+    "filePath": "input/web/configs",
     "description": "Entry content for FileConfig."
   },
   "TemplateConfig.html": {
@@ -77,43 +93,15 @@
     "subModule": "main",
     "configKey": "TemplateConfig.html",
     "fileName": "TemplateConfig.html",
-    "filePath": "input/content/docs",
+    "filePath": "input/web/configs",
     "description": "Entry content for TemplateConfig."
   },
-  "Cache": {
+  "ExamplesStart.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Cache",
-    "fileName": "Cache.html",
-    "filePath": "input/content/docs"
-  },
-  "Calls": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "configKey": "Index",
-    "fileName": "Calls.html",
-    "filePath": "input/content/docs"
-  },
-  "Eo": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "configKey": "Eo",
-    "fileName": "Eo.html",
-    "filePath": "input/content/docs"
-  },
-  "Models": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "configKey": "Models",
-    "fileName": "Models.html",
-    "filePath": "input/content/docs"
-  },
-  "Templates": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "configKey": "Templates",
-    "fileName": "Templates.html",
-    "filePath": "input/content/docs"
+    "configKey": "ExamplesStart.html",
+    "fileName": "ExamplesStart.html",
+    "filePath": "input/web/examples"
   },
   "test": {
     "module": "eo-example-springboot",
@@ -121,14 +109,6 @@
     "naturalId": "test",
     "templateKey": "test",
     "fileName": "Test.tpl.html",
-    "filePath": "classpath/input/templates"
-  },
-  "Header.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "configKey": "Header.html",
-    "fileName": "Header.html",
-    "filePath": "input/web",
-    "description": "The Wordpress header part"
+    "filePath": "input/templates"
   }
 }

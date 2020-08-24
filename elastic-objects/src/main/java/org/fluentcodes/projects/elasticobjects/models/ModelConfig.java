@@ -18,7 +18,21 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 09.10.2016.
  */
 public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
+    public static final String MODEL_KEY = "modelKey";
+    public static final String FIELD_KEYS = "fieldKeys";
+    public static final String VIEW_PARAMS = "viewParams";
+    public static final String EO_PARAMS = "eoParams";
+    public static final String CUSTOM_FIELD_PARAMS = "customFieldParams";
+
+
+    public static final String F_PATH = "path";
+    public static final String F_PACKAGE_GROUP = "packageGroup";
+    public static final String MODULE = "module";
+    public static final String SUB_MODULE = "subModule";
+    public static final String PACKAGE_PATH = "packagePath";
+
     private static final Logger LOG = LogManager.getLogger(ModelConfig.class);
+
     private final String modelKey;
     private final DBParams dbParams;
     private final EOParams eoParams;
@@ -76,10 +90,10 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         if (configsCache.hasConfigKey(ModelConfig.class, modelKey)) {
             throw new EoException("An entry for modelConfig '" + modelKey + "' already exists and would not be resolved by class '" + key + "'.");
         }
-        modelMap.put(F_MODEL_KEY, modelKey);
+        modelMap.put(MODEL_KEY, modelKey);
         modelMap.put(NATURAL_ID, modelKey);
         final Package inPackage = modelClass.getPackage();
-        modelMap.put(F_PACKAGE_PATH, inPackage.getName());
+        modelMap.put(PACKAGE_PATH, inPackage.getName());
 
         final Map<String, Object> eoParams = new HashMap<>();
         eoParams.put(F_CREATE, true);
@@ -105,7 +119,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         } else {
             eoParams.put(F_SHAPE_TYPE, ShapeTypes.BEAN);
         }
-        modelMap.put(F_FIELD_KEYS, fieldKeys);
+        modelMap.put(FIELD_KEYS, fieldKeys);
         ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelMap);
         configsCache.add(ModelConfig.class, config);
         for (String fieldKey: fieldMap.keySet()) {
@@ -601,14 +615,14 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
 
         protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) {
-            modelKey = ScalarConverter.toString(values.get(F_MODEL_KEY));
+            modelKey = ScalarConverter.toString(values.get(MODEL_KEY));
             packageGroup = ScalarConverter.toString(values.get(F_PACKAGE_GROUP));
-            packagePath = ScalarConverter.toString(values.get(F_PACKAGE_PATH));
+            packagePath = ScalarConverter.toString(values.get(PACKAGE_PATH));
             author = ScalarConverter.toString(values.get(AUTHOR));
             superKey = ScalarConverter.toString(values.get(F_SUPER_KEY));
             interfaces = ScalarConverter.toString(values.get(F_INTERFACES));
 
-            Object fieldKeysAsObject = values.get(F_FIELD_KEYS);
+            Object fieldKeysAsObject = values.get(FIELD_KEYS);
 
 
             if (fieldKeysAsObject == null) {
@@ -627,8 +641,8 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             }
             try {
                 dbParams = new DBParams(values.get(F_DB_PARAMS));
-                eoParams = new EOParams(values.get(F_EO_PARAMS));
-                viewParams = new ViewParams(values.get(F_VIEW_PARAMS));
+                eoParams = new EOParams(values.get(EO_PARAMS));
+                viewParams = new ViewParams(values.get(VIEW_PARAMS));
                 customParams = (Map) values.get(F_CUSTOM_PARAMS);
             }
             catch(Exception e) {

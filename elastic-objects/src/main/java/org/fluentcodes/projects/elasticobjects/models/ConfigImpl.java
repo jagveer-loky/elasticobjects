@@ -151,9 +151,9 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             return naturalId;
         }
         protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
-            this.module = ScalarConverter.toString(values.get(F_MODULE));
-            this.subModule = ScalarConverter.toString(values.get(F_SUB_MODULE));
-            this.path = ScalarConverter.toString(values.get(F_PATH));
+            this.module = ScalarConverter.toString(values.get(ModelConfig.MODULE));
+            this.subModule = ScalarConverter.toString(values.get(ModelConfig.SUB_MODULE));
+            this.path = ScalarConverter.toString(values.get(ModelConfig.F_PATH));
             this.mapPath = ScalarConverter.toString(values.get(F_MAP_PATH));
             this.naturalId = ScalarConverter.toString(values.get(NATURAL_ID));
             this.description = ScalarConverter.toString(values.get(Model.DESCRIPTION));

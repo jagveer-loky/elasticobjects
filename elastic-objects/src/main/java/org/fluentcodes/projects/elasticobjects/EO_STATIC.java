@@ -39,17 +39,13 @@ public class EO_STATIC {
     public static final String F_UPPER_ID_KEY = "upper.ID";
 
     public static final String F_FILE_NAME = "fileName";
-    public static final String F_PATH = "path";
     public static final String F_PASSWORD = "password";
-    public static final String F_PACKAGE_GROUP = "packageGroup";
-    public static final String F_DB_FIELD_PARAMS = "dbFieldParams";
     public static final String F_ROLE_PERMISSIONS = "rolePermissions";
     public static final String F_JOIN = "join";
     public static final String F_COL_KEYS = "colKeys";
     public static final String F_WRITE = "write";
     public static final String F_HIBERNATE_ANNOTATIONS = "hibernateAnnotations";
     public static final String F_NOT_NULL = "notNull";
-    public static final String F_MODULE = "module";
     public static final String F_EXECUTE = "execute";
     public static final String F_IGNORE_HEADER = "ignoreHeader";
     public static final String F_SHAPE_TYPE = "shapeType";
@@ -64,14 +60,9 @@ public class EO_STATIC {
     public static final String F_HIBERNATE = "hibernate";
     public static final String F_CACHED = "cached";
     public static final String F_ROW_START = "rowStart";
-    public static final String F_VIEW_PARAMS = "viewParams";
     public static final String F_TABLE = "table";
     public static final String F_UPPER_ID = "ID";
     public static final String F_VIEW_KEY = "viewKey";
-    public static final String F_EO_PARAMS = "eoParams";
-    public static final String F_CUSTOM_FIELD_PARAMS = "customFieldParams";
-    public static final String F_FIELD_KEYS = "fieldKeys";
-    public static final String F_MODEL_KEY = "modelKey";
     public static final String F_FILTER = "filter";
     public static final String F_ATTRIBUTES = "attributes";
     public static final String F_ROW_END = "rowEnd";
@@ -82,7 +73,6 @@ public class EO_STATIC {
     public static final String F_CREATE = "create";
     public static final String F_NATURAL_KEYS = "naturalKeys";
     public static final String F_MODEL_KEYS = "modelKeys";
-    public static final String F_PACKAGE_PATH = "packagePath";
     public static final String F_ROW_DELIMITER = "rowDelimiter";
     public static final String F_READ = "read";
     public static final String F_DEFAULT_IMPLEMENTATION = "defaultImplementation";
@@ -91,7 +81,6 @@ public class EO_STATIC {
     public static final String F_SUPER_KEY = "superKey";
     public static final String F_ID_KEY = "idKey";
     public static final String F_PORT = "port";
-    public static final String F_SUB_MODULE = "subModule";
     public static final String F_NAME = "name";
     public static final String F_JOIN_INVERSE = "joinInverse";
     public static final String F_FIELD_NAME = "fieldName";

@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
 import org.fluentcodes.projects.elasticobjects.models.Model;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 
@@ -19,8 +20,8 @@ public class ProviderConfig {
                     Model.NATURAL_ID, Model.NATURAL_ID,
                     F_EXPANDED, S1,
                     F_SCOPE, "ALL",
-                    F_MODULE, F_MODULE,
-                    F_SUB_MODULE, F_SUB_MODULE);
+                    ModelConfig.MODULE, ModelConfig.MODULE,
+                    ModelConfig.SUB_MODULE, ModelConfig.SUB_MODULE);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -28,14 +29,14 @@ public class ProviderConfig {
 
     public static final Map<String, Object> createModelConfigMap() {
         Map<String, Object> map = new HashMap<>();
-        map.put(F_MODEL_KEY, F_MODEL_KEY);
+        map.put(ModelConfig.MODEL_KEY, ModelConfig.MODEL_KEY);
         map.put(F_DB_PARAMS, createDbParams());
-        map.put(F_EO_PARAMS, createEoParams());
-        map.put(F_VIEW_PARAMS, null);
+        map.put(ModelConfig.EO_PARAMS, createEoParams());
+        map.put(ModelConfig.VIEW_PARAMS, null);
         map.put(F_CUSTOM_PARAMS, null);
-        map.put(F_FIELD_KEYS, null);
-        map.put(F_PACKAGE_PATH, F_PACKAGE_PATH);
-        map.put(F_PACKAGE_GROUP, F_PACKAGE_GROUP);
+        map.put(ModelConfig.FIELD_KEYS, null);
+        map.put(ModelConfig.PACKAGE_PATH, ModelConfig.PACKAGE_PATH);
+        map.put(ModelConfig.F_PACKAGE_GROUP, ModelConfig.F_PACKAGE_GROUP);
         map.put(Model.AUTHOR, Model.AUTHOR);
         map.put(F_SUPER_KEY, F_SUPER_KEY);
         map.put(F_INTERFACES, F_INTERFACES);

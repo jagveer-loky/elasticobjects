@@ -9,6 +9,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -121,7 +122,7 @@ public class DbQueryConfig extends ListConfig {
             dbKey = ScalarConverter.toString(values.get(F_DB_KEY));
             sql = (String) configsCache.transform(F_SQL, values);
             pathPattern = new PathPattern(ScalarConverter.toString(values.get(F_PATH_PATTERN)));
-            modelKey = ScalarConverter.toString(values.get(F_MODEL_KEY));
+            modelKey = ScalarConverter.toString(values.get(ModelConfig.MODEL_KEY));
             and = new And(ScalarConverter.toString(values.get(F_AND)));
             super.prepare(configsCache, values);
             if (dbKey == null || dbKey.isEmpty()) {

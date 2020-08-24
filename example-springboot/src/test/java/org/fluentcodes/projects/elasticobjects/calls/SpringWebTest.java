@@ -67,8 +67,8 @@ public class SpringWebTest {
     }
 
     @Test
-    public void givenGetContent_whenEo_thenContentBodyIsLoaded() {
-        String url = "http://localhost:" + port + "/docs/Eo";
+    public void givenGetExamplesStart_whenEo_thenContentBodyIsLoaded() {
+        String url = "http://localhost:" + port + "/examples/ExamplesStart.html";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();

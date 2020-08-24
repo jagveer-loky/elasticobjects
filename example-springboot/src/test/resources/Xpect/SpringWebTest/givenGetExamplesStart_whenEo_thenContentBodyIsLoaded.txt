@@ -8,7 +8,7 @@
 
     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
     </script>
-    <title>Adapter – Elastic Objects</title>
+    <title>Elastic Objects</title>
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="http://s.w.org/">
     <link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
@@ -99,7 +99,7 @@
                         <ul id="top-menu" class="menu">
                             <li id="menu-item-14"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/docs/Eo">Documentation</a>
+                                <a href="/examples/ExamplesStart.html">Examples</a>
                             </li>
                             <li></li>
                             <li id="menu-item-62"
@@ -137,139 +137,176 @@
         <div id="rootNav">
             <ul>
             
-            <li><a href="/docs/Eo">EO</a></li>
-            
-            <li><a href="/docs/Cache">Cache</a></li>
-            
-            <li><a href="/docs/Models">Models</a></li>
-            
-            <li><a href="/docs/Calls">Calls</a></li>
-            
-            <li><a href="/docs/Templates">Templates</a></li>
-            
             </ul>
         </div>
     </header>
     <div class="entry-content" id="entry-content">
-        <p>The adapter is the core concept of ElasticObjects. It wraps each object with some information about the structure of
-    the fields and the model used. It&#8217;s like <a
-            href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Optional</a> in Java 8 but with a
-    finer structure.</p>
-<p>&nbsp;</p>
-<figure id="attachment_40" style="max-width: 300px" class="wp-caption alignleft"><img class="wp-image-40 size-medium"
-                                                                                      title="style=&quot;border:1px solid black&quot;"
-                                                                                      src="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapter-300x283.png"
-                                                                                      alt="Schematic adapter structure."
-                                                                                      width="300" height="283"
-                                                                                      srcset="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapter-300x283.png 300w, http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapter.png 646w"
-                                                                                      sizes="(max-width: 300px) 100vw, 300px"/>
-    <figcaption class="wp-caption-text">Schematic view of the adapter structure.</figcaption>
-</figure>
-<p><img class="alignright wp-image-39"
-        src="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapterLegend-288x300.png"
-        alt="Caption of adapter structure." width="100" height="104"
-        srcset="http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapterLegend-288x300.png 288w, http://elasticobjects.com/wp-content/uploads/2018/02/elasticObjectsAdapterLegend.png 418w"
-        sizes="(max-width: 100px) 100vw, 100px"/></p>
-<h4>Requirements</h4>
-<p>The following requirements should be solved with the Adapters: </p>
-<ul>
-    <li>Access to object values via path.</li>
-    <li>Store any object defined with <a href="model">Model</a> and offers path access</li>
-    <li>Maps any object to a subsequent model structure.</li>
-    <li>Ordered looping through object or map fields</li>
-    <li>Individal path filtering to handle recursive object structures</li>
-</ul>
-<p>These core requirements evolves from template rendering, serialization and deserialization to JSON. JSON files
-    defines an order, but subsequent created objects are not ordered.</p>
-<h4>Usages</h4>
-<p>The Adapter can be used within native Java applications.</p>
-<h5>Type Conversions</h5>
-<p>Given a Map with data with the same names as the object instance vars one can transfer the Map to the object: </p>
-<pre>
-Map<String,Object> map = new HashMap<>();
-map.put("testString", "testStringValue");
-Adapter adapter = new AdapterBuilder(EOConfigs)
-  .setTargetModels(BasicTest.class)
-  .map(map);
-BasicTest test = (BasicTest) adapter.get();
-</pre>
-<p>In this scenario one can also <a
-        href="https://stackoverflow.com/questions/23414090/what-is-the-difference-between-up-casting-and-down-casting-with-respect-to-class">downcasting</a>
-    to a subtype.</p>
-<h5>Merging</h5>
-<p>If one has to merge two objects one can do it like this:</p>
-<pre>
-Map<String,Object> map = new HashMap<>();
-map.put("testString", "testStringValue");
-BasicTest baseObject = new BasicTest();
-baseObject.setFloat(1.1F);
-Adapter adapter = new AdapterBuilder(EOConfigs)
-  .set(baseObject);
-adapter.map(map);
-</pre>
-<p><a name="example"/></p>
-<h4>Spring Controller Example</h4>
-<p>In the example integration there is one entry point &#8220;/eo&#8221; defined expecting a JSON input via post.</p>
-<h5>Controller</h5>
-<pre>
-    @RequestMapping(value="/eo", method = RequestMethod.POST)
-    public String adapterPost(
-      @RequestParam(value = "adapter", required = true) String adapterAsString,
-      @RequestParam(value="logLevel", required = true) String logLevel
-    ){
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        HttpSession session = request.getSession(true);
-        String user = "guest";
-        if (session.getAttribute("user") != null) {
-          user = (String) session.getAttribute("user");
-        }
-        else {
-          session.setAttribute("user", "guest");
-        }
+         <h3>Examples</h3>
+ <p>The examples are for the generic end point <b>eo-form</b> in
+ <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">WebEo.java</a>
+ using just plain html form with an editable text field.
+ </p>
+ <p>
+ It demonstrates the communication from your browser as client to the server.
+ </p>
 
-        try {
-          return adapterService(adapterAsString, logLevel, user);
-        } catch (Exception e) {
-          return "Exception occured! " + e.getMessage();
-        }
-      }
-</pre>
-<h5>Service</h5>
-<p>The service method is separated as protected within the class. The class has an autowired <a href="config#example">EOConfigs</a>:
+
+ <h4>Empty call</h4>
+ <p>
+ One can send any json getting the json as a response.
+ </p>
+<form action="/eo-form" method="post">
+    <textarea name="eo">{}</textarea>
+    <input type="submit" value="post"/>
+</form>
+ <p>
+ As a result one receive a json with some additional special fields from elastic objects:
+ </p>
+ <ul>
+     <li>_rootmodel: Set the model of the root</li>
+     <li>_logLevel: Default logLevel to fill log information</li>
+     <li>_calls: List of calls found in Json</li>
+ </ul>
+<p>For elastic objects there this is an empty map object.</p>
+
+ <h4>Special fields</h4>
+ <p>Those "informational" fields without object mapping are defined static in
+ <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/PathElement.java">PathElement.java</a>
+ and used by Elastic Objects internally.
+ </p>
+ <p>
+     The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">generic webserver interface</a>
+     defined here has no
+ </p>
+     <ul>
+         <li>object mapping,</li>
+         <li>functional meaning</li>
+         <li>or error handling.</li>
+ </ul>
+ <p>It just
+     deliver the posted string value to Elastic Objects.
+     These fields replace these functionalities often provided by an application framework
+     with communication protocols like REST or SOAP.
+ </p>
+ <p>
+     One advantage is that one can write tests without starting any application server thing. Further more
+     the client is free to define any structure he needs.
+ </p>
+ <p>
+     One send a serialized object and receive "the same" serialized but enriched object. Thats all.
+ </p>
+
+ <h4>Log Level</h4>
+ <p>One can change the <i>_logLevel</i> to receive some more information. </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"_logLevel": "DEBUG"}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <p>One get then some feedback from the server in the logs list.</p>
+
+ <h4>Return format</h4>
+ <p>One can change the serialization type to json to return plan json without eo extensions.
+     Default value for <i>_serializationType</i> is "EO". </p>
+<p>
+    The following example will return an empty json object due to <i>_serializationType</i> "STANDARD".
 </p>
-<pre>
-  @Autowired
-  private ProviderCache EOConfigs;
-</pre>
-<pre>
-    private String adapterService(final String in, final String logLevelAsString, final String user ) throws Exception {
-      LogLevel logLevel = LogLevel.WARN;
-      if (logLevelAsString != null) {
-        try {
-          logLevel = LogLevel.valueOf(logLevelAsString);
-        } catch (Exception e) {
-        }
-      }
-      final AdapterRoot adapter = (AdapterRoot) new AdapterBuilder(EOConfigs)
-        .setUser(user)
-        .setLogLevel(logLevel)
-        .map(in);
-      adapter.executeActions();
-      final String result = new AdapterSerializer()
-        .setStartIndent(1)
-        .setSerializationType(SerializationType.PARAMS)
-        .toJSON(adapter);
-      return result;
-    }
-</pre>
+
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"_serializationType": "STANDARD"}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h4>Mapping To Objects</h4>
+ <p>
+ A mapping will be defined by keys defined in the <a href="/config/ModelConfig.html">Model Configurations</a>.
+ </p>
+ <p>
+     Generally the model keys will be prepended to the field key except the root models.
+ </p>
+ <h5>Root Models</h5>
+ <p>
+     The <i>_rootModels</i> entry refers to the type, the root is set.
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"_rootmodel":"List,Double", "0":1,"1":2}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h5>Model Prefix</h5>
+ <p>
+     The mapping for any sub field could be defined by a java casting type expression:
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"(List,Double)items":{"0":1,"1":2}}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h5>Standard JSON</h5>
+ <p>
+     Standard json will be mapped straightforward:
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">[1,2]</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h4>Functionality</h4>
+ <p>
+     All models that implements the <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java">Call.java interface</a>
+     will be set to the <i>_call</i> list and could be exectuted.
+ </p>
+ <p>
+     The implementation could be rather trivial as in the example with
+     <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java">SinusValueCall.java</a>.
+ </p>
+ <p>
+     The following example will read the value from source and set the target value with the computed sinus.
+ </p>
+
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{
+  "(Double)source":1,
+  "(SinusValueCall)target": {
+    "sourcePath": "/source"
+  }
+}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h4>Templates</h4>
+<p>
+    A special call are <a href="/config/TemplateConfig.html">templates</a> where the content will be replaced by values or the result of other function calls.
+</p>
+ <p>
+     Every page you find here will interpreted by the template and partly include a generic post call for it.
+
+ </p>
+ <p>
+     The following code will "rerender" this page by a post call:
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{
+         "asTemplate":true,
+         "navigationItem":{},
+         "selectedItem":"ExamplesStart.html",
+         "(TemplateResourceCall)call": {
+                "configKey":"ExamplesPage.html"
+         }
+}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+ <p>Without the asTemplate parameter the json will be returned. But this is not very readable. </p>
+
+
        <hr/>
      </div>
 
-</article><!-- #post-## -->
-</main><!-- #main -->
-</div><!-- #primary -->
-</div><!-- .wrap -->
-</div><!-- #content -->
+</article>
+</main>
+</div>
+</div>
+</div>
 
 <footer id="colophon" class="site-footer" role="contentinfo">
     <div class="wrap">
@@ -278,7 +315,9 @@ adapter.map(map);
                 <section id="text-3" class="widget widget_text">
                     <div class="textwidget">
                         <p></p>
-                        <center>–
+                        <center>
+                            <a href="https://github.com/fluentcodes/elasticobjects">Github</a>
+                            –
                             <a href="/Impressum.html">Impressum</a>
                             –
                             <a href="https://www.fluentcodes.com/">Fluent Codes</a> –

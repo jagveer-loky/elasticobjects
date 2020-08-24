@@ -11,7 +11,7 @@
 
     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
     </script>
-    <title>Adapter – Elastic Objects</title>
+    <title>Elastic Objects</title>
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="http://s.w.org/">
     <link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
@@ -102,7 +102,7 @@
                         <ul id="top-menu" class="menu">
                             <li id="menu-item-14"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/docs/Eo">Documentation</a>
+                                <a href="/examples/ExamplesStart.html">Examples</a>
                             </li>
                             <li></li>
                             <li id="menu-item-62"
@@ -149,15 +149,19 @@
             </ul>
         </div>
     </header>
+
     <div class="entry-content" id="entry-content">
+        <h3>Scope</h3>
+        Enum with different Scopes to environment specific caches.
 
+        
+            <h4>Fields</h4>
+            
+            
+            
+        
 
-    <h3>Scope</h3>
-
-    Enum with different Scopes to environment specific caches.
-
-    <h4>Configuration</h4>
-
+        <h4>Configuration</h4>
         <xmp style="background-color:lightgray;border:1px solid darkgray;">{
   "packagePath": "org.fluentcodes.projects.elasticobjects.models",
   "modelKey": "Scope",
@@ -189,37 +193,36 @@
   "author": "Werner Diwischek"
 }</xmp>
 
-    <h4>This Page Post Version</h4>
-    The page calls with url can also created by the client side with the generic post end point.
-    <form action="/eo-form" method="post">
-    <textarea name="eo">{
-    "asTemplate":true,
-    "configFilter": "Scope",
-    "configType": "ModelConfig",
-    "configSelected": "Scope",
-    "(TemplateResourceCall)call": {
-        "configKey":"ConfigsPage.html"
-    }
- }</textarea>
-    <input type="submit" value="post"/>
-    </form>
+        <h4>This Page Post Version</h4>
+        The page calls with url can also created by the client side with the generic post end point.
+        <form action="/eo-form" method="post">
+            <textarea name="eo">{
+            "asTemplate":true,
+            "configFilter": "Scope",
+            "configType": "ModelConfig",
+            "configSelected": "Scope",
+            "(TemplateResourceCall)call": {
+                "configKey":"ConfigsPage.html"
+            }
+         }</textarea>
+            <input type="submit" value="post"/>
+        </form>
 
 
+        
 
-    
-
-    
+        
 
 
 
        <hr/>
      </div>
 
-</article><!-- #post-## -->
-</main><!-- #main -->
-</div><!-- #primary -->
-</div><!-- .wrap -->
-</div><!-- #content -->
+</article>
+</main>
+</div>
+</div>
+</div>
 
 <footer id="colophon" class="site-footer" role="contentinfo">
     <div class="wrap">
@@ -228,7 +231,9 @@
                 <section id="text-3" class="widget widget_text">
                     <div class="textwidget">
                         <p></p>
-                        <center>–
+                        <center>
+                            <a href="https://github.com/fluentcodes/elasticobjects">Github</a>
+                            –
                             <a href="/Impressum.html">Impressum</a>
                             –
                             <a href="https://www.fluentcodes.com/">Fluent Codes</a> –
