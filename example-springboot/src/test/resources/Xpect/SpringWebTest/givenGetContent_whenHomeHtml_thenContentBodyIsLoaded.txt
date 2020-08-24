@@ -8,7 +8,7 @@
 
     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
     </script>
-    <title>Adapter – Elastic Objects</title>
+    <title>Elastic Objects</title>
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="http://s.w.org/">
     <link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
@@ -99,7 +99,7 @@
                         <ul id="top-menu" class="menu">
                             <li id="menu-item-14"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/docs/Eo">Documentation</a>
+                                <a href="/examples/ExamplesStart.html">Examples</a>
                             </li>
                             <li></li>
                             <li id="menu-item-62"
@@ -133,113 +133,59 @@
                     <main id="main" class="site-main" role="main">
                         <article id="post-7" class="post-7 page type-page status-publish hentry">
 
-    <header class="entry-header">
-        <div id="rootNav">
-            <ul>
-            
-            </ul>
-        </div>
-    </header>
     <div class="entry-content" id="entry-content">
-        <p>ElasticObjects is a Framework to build core applications by configurations. </p>
-<p>Core of the framework are linked container objects, called <a href="adapter">Adapter</a>. Each <a href="adapter">Adapter</a>
-    uses <a href="model">ModelCache</a> objects for object acces, initial loaded from JSON configurations within the
-    classpath. </p>
-<p>Several generic actions are implemented using other configuration JSON files in the classpath. The generic actions
-    use also <a href="config">cached</a> configurations, e.g. for database access via hibernate. </p>
-<p>It&#8217;s written in Java, but the concept is independent of a specific language. An implementation in a non class
-    approach language like JavaScript could save the <a href="template">class generation part</a> and simplify the
-    mapping to the <a href="adapter">Adapter</a>. </p>
-<p><a name="#example"/></p>
-<h4>A service example</h4>
-<p>One of the goals is a service interface as powerful as SOAP without its complexity and verbosity. And the interface
-    should be independent to some webserver like REST. </p>
-<p>Compare with a dumb HATEOS-REST solution a client could get all configurations available on the server to create
-    requests and handle responses including typesafety or database constraints.</p>
-<h5>Request-JSON</h5>
-<p>The request is in JSON format consists of some data and some actions calling serverside methods reference by the
-    actionKey. </p>
-<p>The following request call a read method on a h2 hibernate database with table BasicTest. It filter all entries,
-    where testString has the value &#8220;testString3&#8221;. The result should be stored in the path &#8220;/test&#8221;. </p>
-<pre>{
-  ".actions": [
-    {
-      "actionKey": "HibernateModelAction.read(h2:mem:BasicTest)",
-      "attributes": {
-        "where": "testString eq testString3"
-      "path": "test"
-      }
-    }
-  ]
-}</pre>
-<h5>Response-JSON</h5>
-<p>The response is filled with result from the database. The info field of the call is filled and furter log
-    informations, when asked for.</p>
-<pre>{
-  ".data":
-  {
-    "test":
-    [
-      {
-        ".models":"BasicTest",
-        "id":3,
-        "testInt":3,
-        "testString":"testString3",
-        "testLong":3,
-        "testDate":1514934000000,
-        "testFloat":3.1,
-        "testDouble":3.2
-      }
-    ]
-  },
-  ".actions":
-  [
-    {
-      ".models":"ActionBuilder",
-      "actionKey":"HibernateModelAction.read(h2:mem:BasicTest)",
-      "path": "test"
-      "attributes":
-      {
-        ".models":"Map",
-        "where":"testString eq testString3"
-      },
-      "info":"executed within 100 ms."
-     }
-  ]
-}
-</pre>
-<p>&nbsp;</p>
-<h4>State</h4>
-<p>Actually the service approach is a working proof of concept. It&#8217;s comparable small to its power. Even it has
-    almost 1000 tests one can easily create 1000 more due to its range of application.</p>
-<p>For the service application field some project experience is needed to make it bullet proofed.</p>
-<p>Anyhow the code generation or for data mash things are fields of applications which could save a lot of developing
-    time.</p>
-<p>In february I plan to deploy demo application and to push the sources to <a href="https://gitlab.com/fluentcodes/">Gitlab</a>.
+        <h3>Spring Boot Demo</h3>
+
+<p>
+    The intention of this site is a live demonstration of a web site with Elastic Objects with spring boot.
+    It's source and in depth documentation you find in the module
+    <a href="https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot">example-springboot</a>
+    on github.
 </p>
-<h4>Reasons</h4>
-<h5>Code Generation</h5>
-<p>I&#8217;ve started ElasticObjects almost six years ago, when working on a portfolio management project with more than
-    100 tables and 1500 fields with a relation depth of seven and GBytes of data loaded every nicght from the host. A
-    differential import should be implemented to reduce downtimes.</p>
-<p>I&#8217;ve created two excelsheet with table data and fields with all the database/hibernate and xml serialization
-    informations including natural ids, since the id is not delivered by the host. Based on these schema informations,
-    we created Java/SQL/Test and documentation via a simple template mechanism.</p>
-<p>At the end we reduced the down time for uploading data from 6 hours to half an hour. I was fascinated saving so much
-    time and effort creating Java solutions by a simple extraction of the model structure.</p>
-<h5>Transportable Service Information</h5>
-<p>My next project was a Human Resource Management solution. Here a part should refactored with hibernate and JQuery. It
-    had a rather complex access and workflow logic.</p>
-<p>During the realization I wished to have the information of the server within the client solution to avoid developing
-    things twice. This was the start of ElasticObjects.</p>
+
+<p>
+    You can browse the different configurations used with the menu items that ends with "Config".
+    Furthermore you find some editable <a href="/examples/ExamplesStart.html">examples</a> to demonstrate the
+    communication of the browser client with the server.
+</p>
+
+<p>
+    The spring boot configuration is minimal with only two classes defining the endpoints:
+</p>
+
+<ul>
+    <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">Generic post endpoints</a> to generate EO template call on the client side</li>
+    <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java">Get endpoints</a> creating EO template call on the serverside by path variables.</li>
+</ul>
+
+<p>
+    Basically the demo is pure html, with dedicated urls for each page with
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java">WebEoGet.java</a>.
+    Only three main templates are actually defined:
+</p>
+
+<ul>
+    <li><a href="/config/TemplateConfig/ContentPage.html">ContentPage.html</a></li>
+    <li><a href="/config/TemplateConfig/ExamplesPage.html">ExamplesPage.html</a></li>
+    <li><a href="/config/TemplateConfig/ConfigsPage.html">ConfigsPage.html</a></li>
+</ul>
+
+<p>
+    The layout origins from
+    a wordpress theme with all its responsive magic. It's hidden in
+    the <a href="http://localhost:8080/config/TemplateConfig/Header.html">Header.html</a> and
+    <a href="http://localhost:8080/config/TemplateConfig/Footer.html">Footer.html</a>.
+    The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">content page template</a>
+    could be rather small.
+</p>
        <hr/>
      </div>
 
-</article><!-- #post-## -->
-</main><!-- #main -->
-</div><!-- #primary -->
-</div><!-- .wrap -->
-</div><!-- #content -->
+</article>
+</main>
+</div>
+</div>
+</div>
 
 <footer id="colophon" class="site-footer" role="contentinfo">
     <div class="wrap">
@@ -248,7 +194,9 @@
                 <section id="text-3" class="widget widget_text">
                     <div class="textwidget">
                         <p></p>
-                        <center>–
+                        <center>
+                            <a href="https://github.com/fluentcodes/elasticobjects">Github</a>
+                            –
                             <a href="/Impressum.html">Impressum</a>
                             –
                             <a href="https://www.fluentcodes.com/">Fluent Codes</a> –

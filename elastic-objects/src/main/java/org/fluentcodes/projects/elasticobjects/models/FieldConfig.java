@@ -15,6 +15,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 09.10.2016.
  */
 public class FieldConfig extends ConfigImpl {
+    public static final String DB_FIELD_PARAMS = "dbFieldParams";
     private static final Logger LOG = LogManager.getLogger(FieldConfig.class);
     private final Boolean toSerialize;
     //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
@@ -49,13 +50,13 @@ public class FieldConfig extends ConfigImpl {
         Map map = new HashMap();
 
         Map dbFieldParams = new HashMap();
-        map.put(F_DB_FIELD_PARAMS, dbFieldParams);
+        map.put(DB_FIELD_PARAMS, dbFieldParams);
         Map eoFieldParams = new HashMap();
         map.put(F_EO_FIELD_PARAMS, eoFieldParams);
         Map viewFieldParams = new HashMap();
         map.put(F_VIEW_FIELD_PARAMS, viewFieldParams);
         Map customFieldParams = new HashMap();
-        map.put(F_CUSTOM_FIELD_PARAMS, customFieldParams);
+        map.put(ModelConfig.CUSTOM_FIELD_PARAMS, customFieldParams);
 
         map.put(F_FIELD_KEY, field.getName());
         map.put(NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
@@ -243,10 +244,10 @@ public class FieldConfig extends ConfigImpl {
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
             toSerialize = ScalarConverter.toBoolean(values.get(F_TO_SERIALIZE));
             fieldKey = ScalarConverter.toString(values.get(F_FIELD_KEY));
-            dbFieldParams = new DBFieldParams(values.get(F_DB_FIELD_PARAMS));
+            dbFieldParams = new DBFieldParams(values.get(DB_FIELD_PARAMS));
             eoFieldParams = new EOFieldParams(configsCache, values.get(F_EO_FIELD_PARAMS));
             viewFieldParams = new ViewFieldParams(values.get(F_VIEW_FIELD_PARAMS));
-            customFieldParams = (Map) values.get(F_CUSTOM_FIELD_PARAMS);
+            customFieldParams = (Map) values.get(ModelConfig.CUSTOM_FIELD_PARAMS);
             //models = new Models(configsCache, ScalarConverter.toString(values.get(F_MODEL_KEYS)));
             modelKeys = ScalarConverter.toString(values.get(F_MODEL_KEYS));
             super.prepare(configsCache, values);
