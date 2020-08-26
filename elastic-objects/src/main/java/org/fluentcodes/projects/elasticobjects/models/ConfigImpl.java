@@ -159,7 +159,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             this.description = ScalarConverter.toString(values.get(Model.DESCRIPTION));
             this.creationDate = ScalarConverter.toDate(values.get(CREATION_DATE));
             this.id = ScalarConverter.toLong(values.get(ID));
-            Object scopeAsObject = values.get(F_SCOPE);
+            Object scopeAsObject = values.get(EOParams.SCOPE);
             this.scope = new ArrayList<Scope>();
             if (scopeAsObject != null && scopeAsObject instanceof List) {
                 List scopeList = (List) scopeAsObject;

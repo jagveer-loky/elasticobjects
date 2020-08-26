@@ -2,22 +2,10 @@
   "_rootmodel": "ArrayList",
   "0": {
     "modelKey": "BasicTest",
-    "(ListParams)listParams": {
-    },
-    "listMapper": {
-    },
-    "rolePermissions": {
-    },
     "naturalId": "h2:mem:basic:BasicTest"
   },
   "1": {
     "modelKey": "SubTest",
-    "(ListParams)listParams": {
-    },
-    "listMapper": {
-    },
-    "rolePermissions": {
-    },
     "naturalId": "h2:mem:basic:SubTest"
   }
 }

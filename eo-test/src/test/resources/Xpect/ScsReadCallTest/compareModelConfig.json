@@ -27,21 +27,11 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CALL_BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
       "modelConfigKey": "ScsConfig"
     },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
     "packageGroup": "lists",
-    "(ArrayList)scope": {
-    },
     "key": "ScsReadCall",
     "description": "Defines a primitive csv file read operation. ",
     "naturalId": "ScsReadCall",

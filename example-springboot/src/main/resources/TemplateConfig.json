@@ -64,6 +64,14 @@
     "filePath": "input/web/docs",
     "description": "The home content with a different url."
   },
+  "index.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configKey": "index.html",
+    "fileName": "Home.html",
+    "filePath": "input/web/docs",
+    "description": "The home content with the default url."
+  },
   "ModelConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
@@ -102,13 +110,5 @@
     "configKey": "ExamplesStart.html",
     "fileName": "ExamplesStart.html",
     "filePath": "input/web/examples"
-  },
-  "test": {
-    "module": "eo-example-springboot",
-    "subModule": "main",
-    "naturalId": "test",
-    "templateKey": "test",
-    "fileName": "Test.tpl.html",
-    "filePath": "input/templates"
   }
 }

@@ -1,9 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
-import org.fluentcodes.projects.elasticobjects.models.Model;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.Scope;
-import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
+import org.fluentcodes.projects.elasticobjects.models.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +16,7 @@ public class ProviderConfig {
                     Model.DESCRIPTION, Model.DESCRIPTION,
                     Model.NATURAL_ID, Model.NATURAL_ID,
                     F_EXPANDED, S1,
-                    F_SCOPE, "ALL",
+                    EOParams.SCOPE, "ALL",
                     ModelConfig.MODULE, ModelConfig.MODULE,
                     ModelConfig.SUB_MODULE, ModelConfig.SUB_MODULE);
         } catch (Exception e) {
@@ -30,29 +27,28 @@ public class ProviderConfig {
     public static final Map<String, Object> createModelConfigMap() {
         Map<String, Object> map = new HashMap<>();
         map.put(ModelConfig.MODEL_KEY, ModelConfig.MODEL_KEY);
-        map.put(F_DB_PARAMS, createDbParams());
+        map.put(ModelConfig.F_DB_PARAMS, createDbParams());
         map.put(ModelConfig.EO_PARAMS, createEoParams());
         map.put(ModelConfig.VIEW_PARAMS, null);
         map.put(F_CUSTOM_PARAMS, null);
         map.put(ModelConfig.FIELD_KEYS, null);
         map.put(ModelConfig.PACKAGE_PATH, ModelConfig.PACKAGE_PATH);
-        map.put(ModelConfig.F_PACKAGE_GROUP, ModelConfig.F_PACKAGE_GROUP);
+        map.put(ModelConfig.PACKAGE_GROUP, ModelConfig.PACKAGE_GROUP);
         map.put(Model.AUTHOR, Model.AUTHOR);
         map.put(F_SUPER_KEY, F_SUPER_KEY);
-        map.put(F_INTERFACES, F_INTERFACES);
+        map.put(ModelConfig.INTERFACES, ModelConfig.INTERFACES);
         createConfig(map);
         return map;
     }
 
     public static Map<String, Object> createEoParams() {
         Map<String, Object> map = new HashMap();
-        map.put(F_CREATE, S1);
-        map.put(F_SHAPE_TYPE, ShapeTypes.MAP.name());
-        map.put(F_SCOPE, Scope.ALL.name());
-        map.put(F_METHODS, F_METHODS);
-        map.put(F_ATTRIBUTE_LIST, F_ATTRIBUTE_LIST);
-        map.put(F_MODEL_CONFIG_KEY, F_MODEL_CONFIG_KEY);
-        map.put(F_DEFAULT_IMPLEMENTATION, F_DEFAULT_IMPLEMENTATION);
+        map.put(EOParams.CREATE, S1);
+        map.put(EOParams.SHAPE_TYPE, ShapeTypes.MAP.name());
+        map.put(EOParams.SCOPE, Scope.ALL.name());
+        map.put(EOParams.ATTRIBUTE_LIST, EOParams.ATTRIBUTE_LIST);
+        map.put(EOParams.MODEL_CONFIG_KEY, EOParams.MODEL_CONFIG_KEY);
+        map.put(EOParams.DEFAULT_IMPLEMENTATION, EOParams.DEFAULT_IMPLEMENTATION);
         map.put(F_PATH_PATTERN, F_PATH_PATTERN);
         return map;
     }

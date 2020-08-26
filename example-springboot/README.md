@@ -1,11 +1,11 @@
 # Spring Boot Example
 
 Target of this module is to create a runable spring boot web application with the help of templates.
-Originally it's a copy of a wordpress page.
+A running copy you find in [elasticobjects.org](elasticobjects.org). Originally it's a copy of a wordpress page.
 
-Acually it uses configurations from the 
-* [core package](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects/src/main/resources)
-* [test package](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/main/resources)
+Acually it uses configurations from the modules
+* [elsticobjects](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects/src/main/resources)
+* [eo-test](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/main/resources)
 
 The starting point is the [Start class](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java).
 

@@ -25,26 +25,13 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CALL_BEAN",
       "create": true,
-      "(ArrayList)methods": {
-        "0": "read",
-        "1": "write",
-        "2": "delete"
-      },
-      "(ArrayList)attributeList": {
-      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
       "modelConfigKey": "JsonConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
     },
     "packageGroup": "json",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "JsonReadCall",
     "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
     "naturalId": "JsonReadCall",

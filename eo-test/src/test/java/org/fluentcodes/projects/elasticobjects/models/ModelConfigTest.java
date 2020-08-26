@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
@@ -89,9 +88,9 @@ public class ModelConfigTest {
         ModelInterface config = (ModelInterface) build.invoke(childObject, ProviderRootTestScope.EO_CONFIGS, MODEL_CONFIG_MAP);
         Assert.assertEquals(ModelConfig.MODEL_KEY, config.getModelKey());
         Assert.assertEquals(Model.AUTHOR, config.getAuthor());
-        Assert.assertEquals(ModelConfig.F_PACKAGE_GROUP, config.getPackageGroup());
+        Assert.assertEquals(ModelConfig.PACKAGE_GROUP, config.getPackageGroup());
         Assert.assertEquals(ModelConfig.PACKAGE_PATH, config.getPackagePath());
-        Assert.assertEquals(F_INTERFACES, config.getInterfaces());
+        Assert.assertEquals(ModelConfig.INTERFACES, config.getInterfaces());
         Assert.assertEquals(ModelConfig.MODULE, config.getModule());
         Assert.assertEquals(ModelConfig.SUB_MODULE, config.getSubModule());
     }
@@ -123,6 +122,9 @@ public class ModelConfigTest {
             //LOG.info("Check field " + counter + ": " + key);
             try {
                 FieldConfig fieldConfig = cache.findField(key);
+                if (fieldConfig.hasModelList()) {
+                    LOG.info("No model for field " + key);
+                }
                 Assertions.assertThat(fieldConfig).isNotNull();
             }
             catch (EoException e) {
@@ -133,7 +135,6 @@ public class ModelConfigTest {
         counter = 0;
         for (String fieldKey: keys) {
             counter++;
-
             if (!allFields.contains(fieldKey)) {
                 LOG.info("Not found in models " + fieldKey);
             }

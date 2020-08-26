@@ -4,22 +4,16 @@
     "protocol": "jdbc:h2",
     "hostName": "",
     "user": "sa",
-    "rolePermissions": {
-    },
     "naturalId": "h2"
   },
   "1": {
     "protocol": "file:",
     "hostName": "localhost",
-    "rolePermissions": {
-    },
     "naturalId": "local"
   },
   "2": {
     "protocol": "file:",
     "hostName": "localhost",
-    "rolePermissions": {
-    },
     "naturalId": "localhost"
   },
   "3": {
@@ -43,8 +37,6 @@
     "hostName": "ftpServer",
     "user": "testUser",
     "password": "testPassword",
-    "rolePermissions": {
-    },
     "naturalId": "testFtp"
   }
 }

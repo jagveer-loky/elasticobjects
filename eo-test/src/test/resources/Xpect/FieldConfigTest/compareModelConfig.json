@@ -11,36 +11,27 @@
       "3": "eoFieldParams",
       "4": "viewFieldParams",
       "5": "customFieldParams",
-      "6": "module",
-      "7": "subModule",
-      "8": "scope",
-      "9": "key",
-      "10": "id",
-      "11": "description",
-      "12": "naturalId",
-      "13": "creationDate",
-      "14": "author"
+      "6": "modelList",
+      "7": "module",
+      "8": "subModule",
+      "9": "scope",
+      "10": "key",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CONFIG",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "CONFIG"
     },
     "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "FieldConfig",
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
     "naturalId": "FieldConfig",

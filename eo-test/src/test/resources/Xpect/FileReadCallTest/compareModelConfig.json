@@ -22,23 +22,13 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CALL_BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
       "modelConfigKey": "FileConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
     },
     "packageGroup": "files",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "FileReadCall",
     "description": "Defines a file read access. ",
     "naturalId": "FileReadCall",

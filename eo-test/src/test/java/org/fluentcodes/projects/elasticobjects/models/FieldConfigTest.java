@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
@@ -13,6 +14,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
@@ -131,6 +134,21 @@ public class FieldConfigTest {
         Assert.assertEquals(false, field.isNotNull());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());
         Assert.assertEquals(Object.class, field.getModelClass());
+    }
+
+    @Test
+    public void checkFieldConfig() {
+        EOConfigsCache cache = ProviderRootTestScope.EO_CONFIGS;
+        Set<String> keys = cache.getConfigKeys(FieldConfig.class);
+        int counter = 0;
+        for (String key: keys) {
+            FieldConfig fieldConfig = cache.findField(key);
+            if (!fieldConfig.hasModelList()) {
+                counter++;
+                System.out.println(counter  + " no model for field " + key);
+            }
+            Assertions.assertThat(fieldConfig).isNotNull();
+        }
     }
 
 }

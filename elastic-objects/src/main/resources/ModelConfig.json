@@ -377,9 +377,8 @@
     "description": "Params controlling the behavior of an EO ModelConfig like serialization/deserialization.",
     "fieldKeys": [
       "scope",
+      "create",
       "shapeType",
-      "EOParams.create",
-      "methods",
       "attributeList",
       "modelConfigKey",
       "defaultImplementation"
@@ -455,7 +454,8 @@
       "dbFieldParams",
       "eoFieldParams",
       "viewFieldParams",
-      "customFieldParams"
+      "customFieldParams",
+      "modelList"
     ],
     "modelKey": "FieldConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",

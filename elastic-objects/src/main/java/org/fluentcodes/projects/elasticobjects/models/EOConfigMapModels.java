@@ -9,8 +9,6 @@ import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 /**
  * @Author Werner Diwischek
  * @since 12.10.2018.
@@ -70,8 +68,8 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Map");
         map.put(ModelConfig.MODEL_KEY, "Map");
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
-        eoParamsMap.put(F_SHAPE_TYPE, "MAP");
-        eoParamsMap.put(F_DEFAULT_IMPLEMENTATION, "LinkedHashMap");
+        eoParamsMap.put(EOParams.SHAPE_TYPE, "MAP");
+        eoParamsMap.put(EOParams.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -87,8 +85,8 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "List");
         map.put(ModelConfig.MODEL_KEY, "List");
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
-        eoParamsMap.put(F_SHAPE_TYPE, "LIST");
-        eoParamsMap.put(F_DEFAULT_IMPLEMENTATION, "ArrayList");
+        eoParamsMap.put(EOParams.SHAPE_TYPE, "LIST");
+        eoParamsMap.put(EOParams.DEFAULT_IMPLEMENTATION, "ArrayList");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -104,7 +102,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Integer");
         map.put(ModelConfig.MODEL_KEY, "Integer");
         map.put(ModelConfig.PACKAGE_PATH, "java.lang");
-        eoParamsMap.put(F_SHAPE_TYPE, "SCALAR");
+        eoParamsMap.put(EOParams.SHAPE_TYPE, "SCALAR");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -155,7 +153,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(ModelConfig.MODEL_KEY, "LogLevel");
         map.put(ModelConfig.PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         eoParamsMap = new HashMap<>();
-        eoParamsMap.put(F_SHAPE_TYPE, "SCALAR");
+        eoParamsMap.put(EOParams.SHAPE_TYPE, "SCALAR");
         super.addConfigByMap(map);
 
         map = new HashMap<>();
@@ -163,7 +161,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(ModelConfig.MODEL_KEY, "JSONSerializationType");
         map.put(ModelConfig.PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         eoParamsMap = new HashMap<>();
-        eoParamsMap.put(F_SHAPE_TYPE, "SCALAR");
+        eoParamsMap.put(EOParams.SHAPE_TYPE, "SCALAR");
         super.addConfigByMap(map);
     }
 }

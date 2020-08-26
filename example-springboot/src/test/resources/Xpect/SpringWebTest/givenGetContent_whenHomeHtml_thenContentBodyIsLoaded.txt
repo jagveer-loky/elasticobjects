@@ -8,7 +8,7 @@
 
     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
     </script>
-    <title>Elastic Objects</title>
+    <title>Elastic Objects: Home.html</title>
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="http://s.w.org/">
     <link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
@@ -137,22 +137,88 @@
         <h3>Spring Boot Demo</h3>
 
 <p>
-    The intention of this site is a live demonstration of a web site with Elastic Objects with spring boot.
-    It's source and in depth documentation you find in the module
-    <a href="https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot">example-springboot</a>
-    on github.
+    This site is based on a small spring boot application together
+    with Elastic Objects <a href="config/TemplateConfig.html">TemplateConfigurations</a>.
 </p>
-
 <p>
-    You can browse the different configurations used with the menu items that ends with "Config".
-    Furthermore you find some editable <a href="/examples/ExamplesStart.html">examples</a> to demonstrate the
-    communication of the browser client with the server.
+    The page you see with an "ordinary" web-url triggers the spring boot method
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java#L44">WeEoGet.createRootPage</a> with the
+    request mapping "/{selectedItem:.+}.html".
+</p>
+<p>
+    This method creates a new EO object with selectedItem="Home.html" and
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/989f10d794111b55c20921fb072bb1d18d1cfae1/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java#L10">TemplateResourceCall</a>
+    and the template name
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">ContentPage.html template</a>.
+
+</p>
+<p>
+    When the
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">ContentPage.html template</a>
+     is parsed, it will load
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/docs/Home.html">Home.html</a>.
+    So this is what you read.
+</p>
+<h4>The post version</h4>
+<p>
+    This is just an example to create EO on the server side. But one can also send create this EO object from the client and send it to the generic interface
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">WebEo.eoPostForm()</a>.
+</p>
+<p>
+<form action="/eo-form" method="post">
+            <textarea name="eo">{
+   "selectedItem": "Home.html",
+   "(TemplateResourceCall)call": {
+      "configKey":"ContentPage.html"
+   },
+   "asTemplate":true
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>
+<p>
+    The result is the same beside the url is not so "nice".
+    But it demonstrates the flexibility to send EO objects to the server.
+    If you remove the "asTemplate" value
+    you will get the "raw" JSON response.
+</p>
+<p>
+    This shows the communication philosophy of the EO approach:
+    A client can send a simple json with type information to the server, triggers complex operations
+    and receive the same "enriched" object
+    through one endpoint.
+</p>
+<p>
+    The types are responsible for
+</p>
+<ul>
+    <li>Model Mapping</li>
+    <li>Call Execution</li>
+    <li>Feedback</li>
+</ul>
+<p>
+    How the client combine values and calls is basically free.
 </p>
 
+<h4>Site Content</h4>
+<p>
+    In <a href="/examples/ExamplesStart.html">Examples</a> you will find other editable examples to
+    show the flexibility of this communication concept.
+</p>
+<p>
+    In the top bar
+    you can browse through the different configurations items that ends with "Config".
+</p>
+<p>
+    The sources of the project and in depth documentation you find on Github in the module
+    <a href="https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot">example-springboot</a>.
+</p>
+
+
+<h4>Entry Points</h4>
 <p>
     The spring boot configuration is minimal with only two classes defining the endpoints:
 </p>
-
 <ul>
     <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">Generic post endpoints</a> to generate EO template call on the client side</li>
     <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java">Get endpoints</a> creating EO template call on the serverside by path variables.</li>

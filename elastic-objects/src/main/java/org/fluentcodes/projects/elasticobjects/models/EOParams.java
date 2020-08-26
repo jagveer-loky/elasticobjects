@@ -14,10 +14,15 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by werner.diwischek on 19.02.18.
  */
 public class EOParams {
+    public static final String ATTRIBUTE_LIST = "attributeList";
+    public static final String DEFAULT_IMPLEMENTATION = "defaultImplementation";
+    public static final String MODEL_CONFIG_KEY = "modelConfigKey";
+    public static final String SCOPE = "scope";
+    public static final String SHAPE_TYPE = "shapeType";
+    public static final String CREATE = "create";
     private Boolean create;
     private ShapeTypes shapeType;
     private List<Scope> scope;
-    private List<String> methods;
     private List<String> attributeList;
     private String modelConfigKey;
     private String defaultImplementation;
@@ -34,11 +39,11 @@ public class EOParams {
         }
         Map map = (Map) object;
 
-        this.modelConfigKey = ScalarConverter.toString(map.get(F_MODEL_CONFIG_KEY));
-        this.defaultImplementation = ScalarConverter.toString(map.get(F_DEFAULT_IMPLEMENTATION));
-        this.create = ScalarConverter.toBoolean(map.get(F_CREATE));
+        this.modelConfigKey = ScalarConverter.toString(map.get(MODEL_CONFIG_KEY));
+        this.defaultImplementation = ScalarConverter.toString(map.get(DEFAULT_IMPLEMENTATION));
+        this.create = ScalarConverter.toBoolean(map.get(CREATE));
 
-        String shapeTypeAsString = ScalarConverter.toString(map.get(F_SHAPE_TYPE));
+        String shapeTypeAsString = ScalarConverter.toString(map.get(SHAPE_TYPE));
         if (shapeTypeAsString == null || shapeTypeAsString.isEmpty()) {
             this.shapeType = ShapeTypes.OBJECT;
         } else {
@@ -52,16 +57,9 @@ public class EOParams {
             this.pathPattern = new PathPattern(pathPatternAsString);
         }
 
-        setScope(map.get(F_SCOPE));
+        setScope(map.get(SCOPE));
 
-        String methods = ScalarConverter.toString(map.get(F_METHODS));
-        if (methods == null || methods.isEmpty()) {
-            this.methods = new ArrayList<>();
-        } else {
-            this.methods = Arrays.asList(methods.split(","));
-        }
-
-        String attributeList = ScalarConverter.toString(map.get(F_ATTRIBUTE_LIST));
+        String attributeList = ScalarConverter.toString(map.get(ATTRIBUTE_LIST));
         if (attributeList == null || attributeList.isEmpty()) {
             this.attributeList = new ArrayList<>();
         } else {
@@ -114,10 +112,6 @@ public class EOParams {
                 }
             }
         }
-    }
-
-    public List<String> getMethods() {
-        return methods;
     }
 
     public List<String> getAttributeList() {

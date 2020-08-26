@@ -9,8 +9,6 @@
       "rowStart": 1,
       "rowEnd": 3
     },
-    "listMapper": {
-    },
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
@@ -23,10 +21,6 @@
     "rowDelimiter": "\n",
     "(ListParams)listParams": {
       "rowHead": 0
-    },
-    "listMapper": {
-    },
-    "rolePermissions": {
     },
     "naturalId": "target.csv"
   }

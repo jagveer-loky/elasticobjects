@@ -5,8 +5,6 @@
     "(ArrayList)sqlList": {
       "0": "drop table BasicTest"
     },
-    "rolePermissions": {
-    },
     "naturalId": "h2:mem:basic:BasicTestDrop"
   },
   "1": {
@@ -20,8 +18,6 @@
       "5": "alter table BasicTest add constraint FKcc277t88h3i853t07k4l81lij foreign key (basicTest) references BasicTest",
       "6": "alter table BasicTest add constraint FKekncch2o599gwc9t148ygh9c6 foreign key (subTest) references SubTest",
       "7": "alter table SubTest add constraint FKowivfpy0agy32ba81eayhtgf foreign key (subTest) references SubTest"
-    },
-    "rolePermissions": {
     },
     "naturalId": "h2:mem:basic:Create"
   }

@@ -3,88 +3,52 @@
   "0": {
     "schema": "$[TMP]/test",
     "driver": "org.h2.Driver",
-    "dbType": {
-    },
     "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
-    "rolePermissions": {
-    },
     "naturalId": "h2:file"
   },
   "1": {
     "schema": "file:basic",
     "driver": "org.h2.Driver",
-    "dbType": {
-    },
     "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
-    "rolePermissions": {
-    },
     "naturalId": "h2:file:basic"
   },
   "2": {
     "schema": "mem:test",
     "driver": "org.h2.Driver",
-    "dbType": {
-    },
     "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
-    "rolePermissions": {
-    },
     "naturalId": "h2:mem"
   },
   "3": {
     "schema": "mem:basic",
     "driver": "org.h2.Driver",
-    "dbType": {
-    },
     "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
-    "rolePermissions": {
-    },
     "naturalId": "h2:mem:basic"
   },
   "4": {
     "schema": "file:$[TMP]/test.hsql",
-    "dbType": {
-    },
     "hostKey": "hsql",
-    "rolePermissions": {
-    },
     "naturalId": "hsql:fileTest"
   },
   "5": {
     "schema": "mem",
-    "dbType": {
-    },
     "hostKey": "hsql",
-    "rolePermissions": {
-    },
     "naturalId": "hsql:mem"
   },
   "6": {
-    "dbType": {
-    },
     "hostKey": "localMySql",
-    "rolePermissions": {
-    },
     "naturalId": "localMySql:core"
   },
   "7": {
-    "dbType": {
-    },
     "hostKey": "localMySql",
-    "rolePermissions": {
-    },
     "naturalId": "localMySql:test"
   },
   "8": {
     "schema": "XE",
-    "dbType": {
-    },
     "hostKey": "localOracle",
-    "rolePermissions": {
-    },
     "naturalId": "localOracle:XE"
   }
 }

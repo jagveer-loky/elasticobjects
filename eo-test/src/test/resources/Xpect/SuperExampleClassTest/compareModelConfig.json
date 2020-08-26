@@ -11,18 +11,8 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "(ArrayList)scope": {
+      "(ShapeTypes)shapeType": "BEAN"
     },
     "key": "SuperExampleClass",
     "naturalId": "SuperExampleClass"

@@ -5,8 +5,6 @@
     "filePath": "classpath",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "BasicTest.csv"
   },
   "1": {
@@ -14,8 +12,6 @@
     "filePath": "classpath",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "classpath_source.txt"
   },
   "2": {
@@ -34,8 +30,6 @@
     "filePath": "classpath",
     "hostKey": "localhost",
     "cached": true,
-    "rolePermissions": {
-    },
     "naturalId": "FileTestCached.txt"
   },
   "4": {
@@ -43,8 +37,6 @@
     "filePath": "classpath",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "ListSimple.csv"
   },
   "5": {
@@ -63,8 +55,6 @@
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "result.string"
   },
   "7": {
@@ -72,8 +62,6 @@
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "resultWithMapPath.string"
   },
   "8": {
@@ -81,8 +69,6 @@
     "filePath": "$[TMP]/elastic-objects",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "target.csv"
   },
   "9": {
@@ -90,8 +76,6 @@
     "filePath": "$[TMP]/elastic-objects",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "target.txt"
   },
   "10": {
@@ -113,8 +97,6 @@
     "filePath": "classpath/test",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "test_source.txt"
   }
 }

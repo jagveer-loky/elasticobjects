@@ -1,13 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import com.google.gson.internal.$Gson$Preconditions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
@@ -25,6 +25,7 @@ public class FieldConfig extends ConfigImpl {
     private final ViewFieldParams viewFieldParams;
     private final Map customFieldParams;
     private final String modelKeys;
+    private List<String> modelList;
     private Models models;
 
     public FieldConfig(EOConfigsCache provider, Builder builder) {
@@ -41,7 +42,22 @@ public class FieldConfig extends ConfigImpl {
 
         //this.models = builder.models;
         this.modelKeys = builder.modelKeys;
+        this.modelList = new ArrayList<>();
 
+    }
+
+    protected void addModel(final String modelKey) {
+        if (modelList.contains(modelKey)) {
+            return;
+        }
+        modelList.add(modelKey);
+    }
+
+    public List<String> getModelList() {
+        return new ArrayList<>(modelList);
+    }
+    public boolean hasModelList() {
+        return !modelList.isEmpty();
     }
 
     protected final static void addByClassField(EOConfigsCache configsCache, Field field)  {
