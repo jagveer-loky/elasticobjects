@@ -94,27 +94,13 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-    </profiles>
-
     <!--https://stackoverflow.com/questions/29258141/maven-compilation-error-use-source-7-or-higher-to-enable-diamond-operator-->
     <build>
-        <directory>/Users/werner.diwischek/build/eo-spring</directory>
-        <outputDirectory>/Users/werner.diwischek/build/eo-spring/classes</outputDirectory>
-        <testOutputDirectory>/Users/werner.diwischek/build/eo-spring/test-classes</testOutputDirectory>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.3.RELEASE</version>
                 <executions>
                     <execution>
                         <goals>

@@ -13,22 +13,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "BEAN"
     },
     "packageGroup": "assets",
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "SubTest",
     "naturalId": "SubTest",
     "author": "Werner Diwischek"

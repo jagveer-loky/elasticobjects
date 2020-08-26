@@ -13,22 +13,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CONFIG",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "CONFIG"
     },
     "packageGroup": "config",
     "module": "actions-db",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "DbSqlConfig",
     "description": "Execute sql statements via jdbc connection. ",
     "naturalId": "DbSqlConfig",

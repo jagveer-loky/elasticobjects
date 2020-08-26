@@ -27,18 +27,18 @@
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-eo</artifactId>
-            <version>0.7.0</version>
+            <version>0.7.1</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-jackson</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-gson</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

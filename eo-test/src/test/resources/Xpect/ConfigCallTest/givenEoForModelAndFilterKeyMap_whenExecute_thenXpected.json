@@ -3,27 +3,15 @@
   "0": {
     "packagePath": "java.util",
     "modelKey": "HashMap",
-    "(ArrayList)fieldKeys": {
-    },
     "eoParams": {
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "MAP",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "MAP"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "HashMap",
     "naturalId": "HashMap",
     "author": "java"
@@ -31,25 +19,13 @@
   "1": {
     "packagePath": "java.util",
     "modelKey": "LinkedHashMap",
-    "(ArrayList)fieldKeys": {
-    },
     "eoParams": {
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "MAP",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
+      "(ShapeTypes)shapeType": "MAP",
       "defaultImplementation": "LinkedHashMap"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "(ArrayList)scope": {
     },
     "key": "LinkedHashMap",
     "naturalId": "LinkedHashMap"
@@ -57,25 +33,13 @@
   "2": {
     "packagePath": "java.util",
     "modelKey": "Map",
-    "(ArrayList)fieldKeys": {
-    },
     "eoParams": {
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "MAP",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
+      "(ShapeTypes)shapeType": "MAP",
       "defaultImplementation": "LinkedHashMap"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
-    },
-    "(ArrayList)scope": {
     },
     "key": "Map",
     "naturalId": "Map"
@@ -109,22 +73,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CONFIG",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "CONFIG"
     },
     "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "ModelConfigMap",
     "description": "Class definitions for an map with getters and setters.",
     "naturalId": "ModelConfigMap",

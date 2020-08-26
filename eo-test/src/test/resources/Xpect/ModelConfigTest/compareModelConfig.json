@@ -30,22 +30,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CONFIG",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "CONFIG"
     },
     "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "ModelConfig",
     "description": "Table definitions with pojo.",
     "naturalId": "ModelConfig",

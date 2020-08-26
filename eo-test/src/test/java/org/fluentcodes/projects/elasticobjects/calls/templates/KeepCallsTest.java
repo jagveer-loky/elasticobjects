@@ -10,7 +10,7 @@ import org.junit.Test;
 public class KeepCallsTest {
 
     @Test
-    public void gcompareModelConfig()  {
+    public void compareModelConfig()  {
         ConfigModelChecks.compare(KeepCalls.class);
     }
 

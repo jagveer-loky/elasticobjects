@@ -16,22 +16,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CONFIG",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "CONFIG"
     },
     "packageGroup": "csv",
     "module": "actions-csv",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "CsvConfig",
     "description": "Defines the configuration for a csv content stored in a final config object delivered by the config cache.",
     "naturalId": "CsvConfig"

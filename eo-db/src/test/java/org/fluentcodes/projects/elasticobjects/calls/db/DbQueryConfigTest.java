@@ -34,43 +34,6 @@ public class DbQueryConfigTest {
     public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(DbQueryConfig.class);
     }
-    
-/*
-    protected static final DbQueryConfig DB = DbProvider.findDbCache(DB_H2_MEM_BASIC);
-    private static final Logger LOG = LogManager.getLogger(DbQueryConfigTest.class);
 
-    @Test
-    public void fromCache()  {
-
-        final DbQueryConfig config = (DbQueryConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(DbQueryConfig.class, DB_QUERY_BASIC_TEST);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
-        Assert.assertEquals(M_BASIC_TEST, config.getModelKey());
-    }
-
-    @Test
-    public void readConfigClassPath()  {
-        Map<String, Config> map = TestConfig.readClassPathConfig(DbQueryConfig.class);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
-        Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(DB_QUERY_BASIC_TEST));
-    }
-
-    @Test
-    public void readMapTest()  {
-        Map map = TestConfig.readMapFromFile(CONFIG_DB_QUERY_TEST);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
-        Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(DB_QUERY_BASIC_TEST));
-    }
-
-    @Test
-    public void readConfigTest()  {
-        Map<String, Config> map = TestConfig.readConfigMapFromFile(CONFIG_DB_QUERY_TEST, DbQueryConfig.class);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
-        Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(DB_QUERY_BASIC_TEST));
-    }
-
- */
 }
 

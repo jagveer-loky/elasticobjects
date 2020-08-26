@@ -26,10 +26,12 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
 
     public static final String F_PATH = "path";
-    public static final String F_PACKAGE_GROUP = "packageGroup";
+    public static final String PACKAGE_GROUP = "packageGroup";
     public static final String MODULE = "module";
     public static final String SUB_MODULE = "subModule";
     public static final String PACKAGE_PATH = "packagePath";
+    public static final String INTERFACES = "interfaces";
+    public static final String F_DB_PARAMS = "dbParams";
 
     private static final Logger LOG = LogManager.getLogger(ModelConfig.class);
 
@@ -68,7 +70,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         this.superKey = builder.superKey;
         this.interfaces = builder.interfaces;
 
-
         this.fieldCacheMap = new LinkedHashMap<>();
         this.interfacesMap = new LinkedHashMap<>();
         this.importClasses = new LinkedHashMap<>();
@@ -96,7 +97,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         modelMap.put(PACKAGE_PATH, inPackage.getName());
 
         final Map<String, Object> eoParams = new HashMap<>();
-        eoParams.put(F_CREATE, true);
+        eoParams.put(EOParams.CREATE, true);
         modelMap.put("eoParams", eoParams);
 
         final Field[] fields = modelClass.getDeclaredFields();
@@ -115,9 +116,9 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             fieldMap.put(fieldKey, field);
         }
         if (fieldKeys.isEmpty()) {
-            eoParams.put(F_SHAPE_TYPE, ShapeTypes.SCALAR);
+            eoParams.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR);
         } else {
-            eoParams.put(F_SHAPE_TYPE, ShapeTypes.BEAN);
+            eoParams.put(EOParams.SHAPE_TYPE, ShapeTypes.BEAN);
         }
         modelMap.put(FIELD_KEYS, fieldKeys);
         ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelMap);
@@ -616,11 +617,11 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
         protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) {
             modelKey = ScalarConverter.toString(values.get(MODEL_KEY));
-            packageGroup = ScalarConverter.toString(values.get(F_PACKAGE_GROUP));
+            packageGroup = ScalarConverter.toString(values.get(PACKAGE_GROUP));
             packagePath = ScalarConverter.toString(values.get(PACKAGE_PATH));
             author = ScalarConverter.toString(values.get(AUTHOR));
             superKey = ScalarConverter.toString(values.get(F_SUPER_KEY));
-            interfaces = ScalarConverter.toString(values.get(F_INTERFACES));
+            interfaces = ScalarConverter.toString(values.get(INTERFACES));
 
             Object fieldKeysAsObject = values.get(FIELD_KEYS);
 

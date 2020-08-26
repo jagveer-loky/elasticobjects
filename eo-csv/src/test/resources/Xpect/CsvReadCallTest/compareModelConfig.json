@@ -27,23 +27,13 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CALL_BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
       "modelConfigKey": "CsvConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
     },
     "packageGroup": "csv",
     "module": "actions-csv",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "CsvReadCall",
     "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
     "naturalId": "CsvReadCall",

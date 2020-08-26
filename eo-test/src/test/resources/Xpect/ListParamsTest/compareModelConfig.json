@@ -14,22 +14,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "BEAN"
     },
     "packageGroup": "lists",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "ListParams",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
     "naturalId": "ListParams",

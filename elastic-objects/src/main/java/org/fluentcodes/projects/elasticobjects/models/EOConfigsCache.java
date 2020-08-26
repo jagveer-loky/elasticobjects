@@ -48,6 +48,9 @@ public class EOConfigsCache {
             eoConfigsMap.get(ModelConfig.class).addJsonConfigs();
             eoConfigsMap.get(FieldConfig.class).addJsonConfigs();
             ((EOConfigMapModels)eoConfigsMap.get(ModelConfig.class)).addJsonClassNames();
+            for (String key: eoConfigsMap.get(ModelConfig.class).getKeys()) {
+                eoConfigsMap.get(ModelConfig.class).find(key).resolve();
+            }
         }
     }
 

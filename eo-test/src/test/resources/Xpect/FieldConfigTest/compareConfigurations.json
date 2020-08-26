@@ -1,119 +1,18 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "fieldKey": "action",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "fieldName": "action",
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "action",
-    "description": "A value extending the {@link Action} Class.",
-    "naturalId": "action"
-  },
-  "1": {
-    "fieldKey": "actionMap",
-    "modelKeys": "Map",
-    "dbFieldParams": {
-      "fieldName": "actionMap",
-      "unique": false,
-      "notNull": false
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "actionMap",
-    "description": "An object map preparing value setting in the action implementation. (new)",
-    "naturalId": "actionMap"
-  },
-  "2": {
-    "fieldKey": "and",
-    "modelKeys": "And",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "and",
-    "description": "A list of {@link Condition} conditions",
-    "naturalId": "and"
-  },
-  "3": {
-    "fieldKey": "andAsString",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 1024
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "andAsString",
-    "description": "Stringified value of {@And}",
-    "naturalId": "andAsString"
-  },
-  "4": {
     "fieldKey": "attributeList",
     "modelKeys": "ArrayList,String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "EOParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "attributeList",
     "description": "Definition of available attributes for an Action.",
     "naturalId": "attributeList"
   },
-  "5": {
-    "fieldKey": "attributes",
-    "modelKeys": "Map",
-    "dbFieldParams": {
-      "fieldName": "attributes",
-      "unique": false,
-      "notNull": false
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
-    },
-    "key": "attributes",
-    "description": "Setting as String object. (new)",
-    "naturalId": "attributes"
-  },
-  "6": {
+  "1": {
     "fieldKey": "author",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -122,19 +21,28 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Model",
+      "1": "Config",
+      "2": "ModelImpl",
+      "3": "ConfigImpl",
+      "4": "FieldConfig",
+      "5": "ModelInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigList",
+      "9": "ModelConfigMap",
+      "10": "ModelConfigNone",
+      "11": "ModelConfigScalar",
+      "12": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "author",
     "description": "The autor of something e,g. a class.",
     "naturalId": "author"
   },
-  "7": {
+  "2": {
     "fieldKey": "basicTest",
     "modelKeys": "BasicTest",
     "dbFieldParams": {
@@ -142,153 +50,42 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "basicTest",
     "description": "A BasicTest field.",
     "naturalId": "basicTest"
   },
-  "8": {
+  "3": {
     "fieldKey": "cached",
     "modelKeys": "Boolean",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FileConfig",
+      "1": "JsonConfig",
+      "2": "TemplateConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "cached",
     "description": "If true will cache the readed file within the cache object. ",
     "naturalId": "cached"
   },
-  "9": {
-    "fieldKey": "calc",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 1024
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "calc",
-    "description": "Defines a simple calc action using jCalc. Uses the attribute calcString.",
-    "naturalId": "calc"
-  },
-  "10": {
-    "fieldKey": "call",
-    "modelKeys": "Call",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
-    },
-    "key": "call",
-    "description": "Used to define a call.",
-    "naturalId": "call"
-  },
-  "11": {
-    "fieldKey": "callClass",
-    "modelKeys": "String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
-    },
-    "key": "callClass",
-    "description": "Call Class referencing a call class. ",
-    "naturalId": "callClass"
-  },
-  "12": {
-    "fieldKey": "callKey",
-    "modelKeys": "String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
-    },
-    "key": "callKey",
-    "description": "Call key from cache.",
-    "naturalId": "callKey"
-  },
-  "13": {
-    "fieldKey": "callMethod",
-    "modelKeys": "String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
-    },
-    "key": "callMethod",
-    "description": "Call Method accessible in actions. ",
-    "naturalId": "callMethod"
-  },
-  "14": {
+  "4": {
     "fieldKey": "colKeys",
     "modelKeys": "ArrayList,String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ListMapper"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "colKeys",
     "description": "The key list for mapping values in a value list. ",
     "naturalId": "colKeys"
   },
-  "15": {
-    "fieldKey": "colKeysAsString",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 1024
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "colKeysAsString",
-    "description": "Column keys with String interface",
-    "naturalId": "colKeysAsString"
-  },
-  "16": {
+  "5": {
     "fieldKey": "condition",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -296,19 +93,36 @@
       "notNull": false,
       "length": 1000
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "condition",
     "description": "A condition for calls. ",
     "naturalId": "condition"
   },
-  "17": {
+  "6": {
     "fieldKey": "configFilter",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -316,17 +130,15 @@
       "notNull": false,
       "length": 64
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "ConfigKeysCall",
+      "1": "ConfigCall"
     },
     "key": "configFilter",
     "description": "Key for filter configuration",
     "naturalId": "configFilter"
   },
-  "18": {
+  "7": {
     "fieldKey": "configKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -334,17 +146,21 @@
       "notNull": false,
       "length": 64
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "CallResource",
+      "1": "FileWriteCall",
+      "2": "FileReadCall",
+      "3": "ListCall",
+      "4": "TemplateResourceCall",
+      "5": "JsonReadCall",
+      "6": "ListReadCall",
+      "7": "ScsReadCall"
     },
     "key": "configKey",
     "description": "Key for configuration  {@link ConfigConfig}",
     "naturalId": "configKey"
   },
-  "19": {
+  "8": {
     "fieldKey": "configType",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -352,17 +168,15 @@
       "notNull": false,
       "length": 64
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "ConfigKeysCall",
+      "1": "ConfigCall"
     },
     "key": "configType",
     "description": "Key for configuration type.",
     "naturalId": "configType"
   },
-  "20": {
+  "9": {
     "fieldKey": "content",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -370,19 +184,17 @@
       "notNull": false,
       "length": 10000
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "TemplateCall",
+      "1": "JsonReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "content",
     "description": "A content.",
     "naturalId": "content"
   },
-  "21": {
+  "10": {
     "fieldKey": "create",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -390,19 +202,16 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "EOParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "create",
     "description": "If true will create a Java class.",
     "naturalId": "create"
   },
-  "22": {
+  "11": {
     "fieldKey": "creationDate",
     "modelKeys": "Date",
     "dbFieldParams": {
@@ -410,87 +219,90 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Model",
+      "1": "Config",
+      "2": "ModelImpl",
+      "3": "ConfigImpl",
+      "4": "FieldConfig",
+      "5": "ModelInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigList",
+      "9": "ModelConfigMap",
+      "10": "ModelConfigNone",
+      "11": "ModelConfigScalar",
+      "12": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "creationDate",
     "description": "Used to define the creation of an item.",
     "naturalId": "creationDate"
   },
-  "23": {
+  "12": {
     "fieldKey": "customFieldParams",
     "modelKeys": "HashMap",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FieldConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "customFieldParams",
     "description": "Custom Parameters stored by fields elastic objects. ",
     "naturalId": "customFieldParams"
   },
-  "24": {
+  "13": {
     "fieldKey": "customParams",
     "modelKeys": "HashMap",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "customParams",
     "description": "Custom Parameters stored by models elastic objects. ",
     "naturalId": "customParams"
   },
-  "25": {
+  "14": {
     "fieldKey": "dbFieldParams",
     "modelKeys": "DBFieldParams",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FieldConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "dbFieldParams",
     "description": "Parameters for persisting perspective. ",
     "naturalId": "dbFieldParams"
   },
-  "26": {
+  "15": {
     "fieldKey": "dbParams",
     "modelKeys": "DBParams",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "dbParams",
     "description": "Parameters for persisting perspective. ",
     "naturalId": "dbParams"
   },
-  "27": {
+  "16": {
     "fieldKey": "defaultImplementation",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -498,18 +310,15 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "EOParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "defaultImplementation",
     "naturalId": "defaultImplementation"
   },
-  "28": {
+  "17": {
     "fieldKey": "delete",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -517,19 +326,16 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "RolePermissions"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "delete",
     "description": "String representation of RolePermission delete permissions",
     "naturalId": "delete"
   },
-  "29": {
+  "18": {
     "fieldKey": "description",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -538,19 +344,28 @@
       "notNull": false,
       "length": 512
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Model",
+      "1": "Config",
+      "2": "ModelImpl",
+      "3": "ConfigImpl",
+      "4": "FieldConfig",
+      "5": "ModelInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigList",
+      "9": "ModelConfigMap",
+      "10": "ModelConfigNone",
+      "11": "ModelConfigScalar",
+      "12": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "description",
     "description": "A description of the model used by every model extending BaseClassImpl. ",
     "naturalId": "description"
   },
-  "30": {
+  "19": {
     "fieldKey": "duration",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -558,19 +373,36 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "duration",
     "description": "The duration of a call.",
     "naturalId": "duration"
   },
-  "31": {
+  "20": {
     "fieldKey": "entries",
     "modelKeys": "ArrayList",
     "dbFieldParams": {
@@ -578,69 +410,46 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Path"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "entries",
     "naturalId": "entries"
   },
-  "32": {
+  "21": {
     "fieldKey": "eoFieldParams",
     "modelKeys": "EOFieldParams",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FieldConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "eoFieldParams",
     "description": "Parameters used by elastic objects. ",
     "naturalId": "eoFieldParams"
   },
-  "33": {
+  "22": {
     "fieldKey": "eoParams",
     "modelKeys": "EOParams",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "eoParams",
     "description": "Parameters used by elastic objects. ",
     "naturalId": "eoParams"
   },
-  "34": {
-    "fieldKey": "create",
-    "modelKeys": "Boolean",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "create",
-    "description": "Set a flag to create a class.",
-    "naturalId": "EOParams.create"
-  },
-  "35": {
+  "23": {
     "fieldKey": "execute",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -648,36 +457,16 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "RolePermissions"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "execute",
     "description": "String representation of RolePermission execute permissions",
     "naturalId": "execute"
   },
-  "36": {
-    "fieldKey": "expanded",
-    "modelKeys": "Boolean",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "expanded",
-    "description": "For creating a cache using only bean fields.",
-    "naturalId": "expanded"
-  },
-  "37": {
+  "24": {
     "fieldKey": "fieldDelimiter",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -685,37 +474,29 @@
       "notNull": false,
       "length": 4
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "fieldDelimiter",
     "description": "A delimiter for fields used for csv files. ",
     "naturalId": "fieldDelimiter"
   },
-  "38": {
+  "25": {
     "fieldKey": "value",
     "modelKeys": "String",
     "dbFieldParams": {
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "customFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "FieldExampleClass"
     },
     "key": "value",
     "naturalId": "FieldExampleClass.value"
   },
-  "39": {
+  "26": {
     "fieldKey": "fieldKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -723,18 +504,15 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FieldConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "fieldKey",
     "naturalId": "fieldKey"
   },
-  "40": {
+  "27": {
     "fieldKey": "fieldKeys",
     "modelKeys": "ArrayList,String",
     "dbFieldParams": {
@@ -742,19 +520,23 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "fieldKeys",
     "description": "A list of field keys for the model configuration. ",
     "naturalId": "fieldKeys"
   },
-  "41": {
+  "28": {
     "fieldKey": "fieldName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -763,39 +545,16 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "fieldName",
     "description": "A name for different purposes depending on the model.",
     "naturalId": "fieldName"
   },
-  "42": {
-    "fieldKey": "fields",
-    "modelKeys": "ArrayList,String",
-    "dbFieldParams": {
-      "fieldName": "fields",
-      "unique": false,
-      "notNull": false
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "fields",
-    "description": "A list of field keys for the model configuration. ",
-    "naturalId": "fields"
-  },
-  "43": {
+  "29": {
     "fieldKey": "fileKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -803,19 +562,16 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "fileKey",
     "description": "A key for file objects.",
     "naturalId": "fileKey"
   },
-  "44": {
+  "30": {
     "fieldKey": "fileName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -823,18 +579,17 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FileConfig",
+      "1": "JsonConfig",
+      "2": "TemplateConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "fileName",
     "naturalId": "fileName"
   },
-  "45": {
+  "31": {
     "fieldKey": "filePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -842,115 +597,32 @@
       "notNull": false,
       "length": 512
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FileConfig",
+      "1": "JsonConfig",
+      "2": "TemplateConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "filePath",
     "naturalId": "filePath"
   },
-  "46": {
+  "32": {
     "fieldKey": "filter",
     "modelKeys": "Or",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ListParams",
+      "1": "ListCall",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "filter",
     "description": "A list of {@link And} condition list",
     "naturalId": "filter"
   },
-  "47": {
-    "fieldKey": "filterConfigClass",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "filterConfigClass",
-    "description": "Filter for configuration class in  {@link ConfigAction}",
-    "naturalId": "filterConfigClass"
-  },
-  "48": {
-    "fieldKey": "filterConfigName",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "filterConfigName",
-    "description": "Name for configuration class in  {@link ConfigAction}",
-    "naturalId": "filterConfigName"
-  },
-  "49": {
-    "fieldKey": "filterConfigNameDynamic",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "filterConfigNameDynamic",
-    "description": "Filter for key in  {@link ConfigAction}",
-    "naturalId": "filterConfigNameDynamic"
-  },
-  "50": {
-    "fieldKey": "filterKey",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "filterKey",
-    "description": "Filter for key in  {@link ConfigAction}",
-    "naturalId": "filterKey"
-  },
-  "51": {
+  "33": {
     "fieldKey": "filterModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -958,19 +630,16 @@
       "notNull": false,
       "length": 64
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ConfigCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "filterModule",
     "description": "Filter for modules in  {@link ConfigAction}",
     "naturalId": "filterModule"
   },
-  "52": {
+  "34": {
     "fieldKey": "filterPath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -979,16 +648,33 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "key": "filterPath",
     "naturalId": "filterPath"
   },
-  "53": {
+  "35": {
     "fieldKey": "filterSubModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -996,19 +682,16 @@
       "notNull": false,
       "length": 64
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ConfigCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "filterSubModule",
     "description": "Filter for subModules in  {@link ConfigAction}",
     "naturalId": "filterSubModule"
   },
-  "54": {
+  "36": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1017,35 +700,27 @@
       "notNull": false,
       "length": 16
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "hibernate",
     "naturalId": "hibernate"
   },
-  "55": {
+  "37": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "hibernateAnnotations",
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "56": {
+  "38": {
     "fieldKey": "hostKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1053,19 +728,18 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FileConfig",
+      "1": "JsonConfig",
+      "2": "TemplateConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "hostKey",
     "description": "A key for host objects.",
     "naturalId": "hostKey"
   },
-  "57": {
+  "39": {
     "fieldKey": "hostName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1073,19 +747,16 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "HostConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "hostName",
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "58": {
+  "40": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -1093,19 +764,30 @@
       "unique": true,
       "notNull": true
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Model",
+      "1": "Config",
+      "2": "ModelImpl",
+      "3": "ConfigImpl",
+      "4": "FieldConfig",
+      "5": "SubTest",
+      "6": "ModelInterface",
+      "7": "ModelConfig",
+      "8": "ModelConfigSet",
+      "9": "ModelConfigList",
+      "10": "ModelConfigMap",
+      "11": "ModelConfigNone",
+      "12": "BasicTest",
+      "13": "ModelConfigScalar",
+      "14": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "id",
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "59": {
+  "41": {
     "fieldKey": "idKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1113,75 +795,33 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "idKey",
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "60": {
-    "fieldKey": "ignoreHeader",
-    "modelKeys": "Boolean",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "ignoreHeader",
-    "description": "Ignore the setting of a header.",
-    "naturalId": "ignoreHeader"
-  },
-  "61": {
+  "42": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "dbFieldParams": {
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "JsonConfig",
+      "1": "JsonReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "indent",
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "62": {
-    "fieldKey": "info",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "fieldName": "info",
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "info",
-    "naturalId": "info"
-  },
-  "63": {
+  "43": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1189,37 +829,52 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ViewParams",
+      "1": "ViewFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "inputKey",
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "64": {
+  "44": {
     "fieldKey": "inTemplate",
     "modelKeys": "Boolean",
     "dbFieldParams": {
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "inTemplate",
     "naturalId": "inTemplate"
   },
-  "65": {
+  "45": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1227,19 +882,23 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "interfaces",
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "66": {
+  "46": {
     "fieldKey": "join",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1247,19 +906,16 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "join",
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "67": {
+  "47": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1267,35 +923,28 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "joinInverse",
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "68": {
+  "48": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "TemplateResourceCall",
+      "1": "TemplateConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "keepCall",
     "naturalId": "keepCall"
   },
-  "69": {
+  "49": {
     "fieldKey": "key",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1303,19 +952,26 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Config",
+      "1": "ConfigImpl",
+      "2": "FieldConfig",
+      "3": "ModelInterface",
+      "4": "ModelConfig",
+      "5": "ModelConfigSet",
+      "6": "ModelConfigList",
+      "7": "ModelConfigMap",
+      "8": "ModelConfigNone",
+      "9": "ModelConfigScalar",
+      "10": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "key",
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "70": {
+  "50": {
     "fieldKey": "length",
     "modelKeys": "Integer",
     "dbFieldParams": {
@@ -1323,36 +979,33 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams",
+      "1": "ListParams",
+      "2": "ListCall",
+      "3": "ListReadCall",
+      "4": "ScsReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "length",
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "71": {
+  "51": {
     "fieldKey": "listMapper",
     "modelKeys": "ListMapper",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ListConfig",
+      "1": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "listMapper",
     "description": "Maps a list to the adapter for @{link ListAction}.",
     "naturalId": "listMapper"
   },
-  "72": {
+  "52": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
     "dbFieldParams": {
@@ -1360,19 +1013,17 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ListConfig",
+      "1": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "listParams",
     "description": "Filter for the readings within {@link ListAction}.",
     "naturalId": "listParams"
   },
-  "73": {
+  "53": {
     "fieldKey": "localCondition",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1380,19 +1031,36 @@
       "notNull": false,
       "length": 1000
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "localCondition",
     "description": "A condition for calls. ",
     "naturalId": "localCondition"
   },
-  "74": {
+  "54": {
     "fieldKey": "locationPath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1401,30 +1069,39 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "key": "locationPath",
     "naturalId": "locationPath"
   },
-  "75": {
+  "55": {
     "fieldKey": "log",
     "modelKeys": "String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
-    },
     "key": "log",
     "naturalId": "log"
   },
-  "76": {
+  "56": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
     "dbFieldParams": {
@@ -1432,38 +1109,35 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "logLevel",
     "naturalId": "logLevel"
   },
-  "77": {
-    "fieldKey": "loopPath",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "loopPath",
-    "description": "The loop expression for the execution within @{link ExecutorAction}",
-    "naturalId": "loopPath"
-  },
-  "78": {
+  "57": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1471,76 +1145,16 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "mapKey",
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "79": {
-    "fieldKey": "mapPath",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "mapPath",
-    "description": "A key for the super class of a class.",
-    "naturalId": "mapPath"
-  },
-  "80": {
-    "fieldKey": "methods",
-    "modelKeys": "ArrayList,String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "methods",
-    "description": "Methods accessible in actions. ",
-    "naturalId": "methods"
-  },
-  "81": {
-    "fieldKey": "model",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "model",
-    "description": "The simple name of the class referenced as first value of the {@link ModelsList}",
-    "naturalId": "model"
-  },
-  "82": {
+  "58": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1548,19 +1162,16 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "EOParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "modelConfigKey",
     "description": "The model name for the cache object {@link Config}.",
     "naturalId": "modelConfigKey"
   },
-  "83": {
+  "59": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1568,19 +1179,23 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "modelKey",
     "description": "The model name for the bean/action object {@link Bean}.",
     "naturalId": "modelKey"
   },
-  "84": {
+  "60": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1589,19 +1204,30 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FieldConfig",
+      "1": "Models",
+      "2": "ListMapper"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "modelKeys",
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "85": {
+  "61": {
+    "fieldKey": "modelList",
+    "modelKeys": "ArrayList,String",
+    "(ArrayList)modelList": {
+      "0": "FieldConfig"
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "key": "modelList",
+    "description": "A list of naturalIds of models for FieldConfig.",
+    "naturalId": "modelList"
+  },
+  "62": {
     "fieldKey": "models",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1609,36 +1235,36 @@
       "notNull": false,
       "length": 512
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "models",
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "86": {
-    "fieldKey": "modelsList",
-    "modelKeys": "Models",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "modelsList",
-    "description": "A list of models to specify field types.",
-    "naturalId": "modelsList"
-  },
-  "87": {
+  "63": {
     "fieldKey": "module",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1646,19 +1272,26 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Config",
+      "1": "ConfigImpl",
+      "2": "FieldConfig",
+      "3": "ModelInterface",
+      "4": "ModelConfig",
+      "5": "ModelConfigSet",
+      "6": "ModelConfigList",
+      "7": "ModelConfigMap",
+      "8": "ModelConfigNone",
+      "9": "ModelConfigScalar",
+      "10": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "module",
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "88": {
+  "64": {
     "fieldKey": "name",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1667,19 +1300,16 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "SubTest"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "name",
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "89": {
+  "65": {
     "fieldKey": "naturalId",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1688,19 +1318,28 @@
       "notNull": true,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Model",
+      "1": "Config",
+      "2": "ModelImpl",
+      "3": "ConfigImpl",
+      "4": "FieldConfig",
+      "5": "ModelInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigList",
+      "9": "ModelConfigMap",
+      "10": "ModelConfigNone",
+      "11": "ModelConfigScalar",
+      "12": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "naturalId",
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "naturalId": "naturalId"
   },
-  "90": {
+  "66": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
     "dbFieldParams": {
@@ -1708,18 +1347,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "naturalKeys",
     "naturalId": "naturalKeys"
   },
-  "91": {
+  "67": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -1727,76 +1363,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "notNull",
     "naturalId": "notNull"
   },
-  "92": {
-    "fieldKey": "or",
-    "modelKeys": "Or",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "or",
-    "description": "A list of {@link And} condition list",
-    "naturalId": "or"
-  },
-  "93": {
-    "fieldKey": "orAsString",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 2048
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "orAsString",
-    "description": "Stringified value of {@Or} ",
-    "naturalId": "orAsString"
-  },
-  "94": {
-    "fieldKey": "origin",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "fieldName": "origin",
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "origin",
-    "description": "The key to resolve an cache entry ",
-    "naturalId": "origin"
-  },
-  "95": {
+  "68": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -1804,18 +1379,35 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "overwrite",
     "naturalId": "overwrite"
   },
-  "96": {
+  "69": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1824,19 +1416,23 @@
       "notNull": false,
       "length": 12
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "packageGroup",
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "97": {
+  "70": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1844,18 +1440,22 @@
       "notNull": false,
       "length": 124
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "packagePath",
     "naturalId": "packagePath"
   },
-  "98": {
+  "71": {
     "fieldKey": "password",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1863,78 +1463,16 @@
       "notNull": false,
       "length": 15
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "HostConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "password",
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "99": {
-    "fieldKey": "path",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "fieldName": "path",
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
-    },
-    "key": "path",
-    "naturalId": "path"
-  },
-  "100": {
-    "fieldKey": "pathPattern",
-    "modelKeys": "PathPattern",
-    "dbFieldParams": {
-      "fieldName": "pathPattern",
-      "unique": false,
-      "notNull": false
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "pathPattern",
-    "description": "A path pattern for {@link FieldConfig}.",
-    "naturalId": "pathPattern"
-  },
-  "101": {
-    "fieldKey": "pathPatternAsString",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "fieldName": "pathPatternString",
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "pathPatternAsString",
-    "description": "A path pattern for {@link FieldBean}.",
-    "naturalId": "pathPatternAsString"
-  },
-  "102": {
+  "72": {
     "fieldKey": "create",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1942,35 +1480,27 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "RolePermissions"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "create",
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "103": {
+  "73": {
     "fieldKey": "port",
     "modelKeys": "Integer",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "HostConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "port",
     "naturalId": "port"
   },
-  "104": {
+  "74": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1978,18 +1508,15 @@
       "notNull": false,
       "length": 8
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "HostConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "protocol",
     "naturalId": "protocol"
   },
-  "105": {
+  "75": {
     "fieldKey": "read",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1997,52 +1524,34 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "RolePermissions"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "read",
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "106": {
+  "76": {
     "fieldKey": "rolePermissions",
     "modelKeys": "RolePermissions",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ConfigResources",
+      "1": "ConfigResourcesImpl",
+      "2": "FileConfig",
+      "3": "JsonConfig",
+      "4": "HostConfig",
+      "5": "ListConfig",
+      "6": "TemplateConfig",
+      "7": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "rolePermissions",
     "naturalId": "rolePermissions"
   },
-  "107": {
-    "fieldKey": "roles",
-    "modelKeys": "ArrayList,String",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "roles",
-    "description": "A list of role keys. ",
-    "naturalId": "roles"
-  },
-  "108": {
+  "77": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2050,103 +1559,97 @@
       "notNull": false,
       "length": 4
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "rowDelimiter",
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "109": {
+  "78": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ListParams",
+      "1": "ListCall",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "rowEnd",
     "naturalId": "rowEnd"
   },
-  "110": {
+  "79": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ListParams",
+      "1": "ListCall",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "rowHead",
     "naturalId": "rowHead"
   },
-  "111": {
+  "80": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ListParams",
+      "1": "ListCall",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "rowStart",
     "naturalId": "rowStart"
   },
-  "112": {
+  "81": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Config",
+      "1": "ConfigImpl",
+      "2": "FieldConfig",
+      "3": "EOParams",
+      "4": "ModelInterface",
+      "5": "ModelConfig",
+      "6": "ModelConfigSet",
+      "7": "ModelConfigList",
+      "8": "ModelConfigMap",
+      "9": "ModelConfigNone",
+      "10": "ModelConfigScalar",
+      "11": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "scope",
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "113": {
+  "82": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
     "dbFieldParams": {
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "JsonReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "serializationType",
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "114": {
+  "83": {
     "fieldKey": "serialized",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2155,19 +1658,16 @@
       "notNull": false,
       "length": 2056
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "PathPattern"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "serialized",
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "115": {
+  "84": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
     "dbFieldParams": {
@@ -2175,18 +1675,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "EOParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "shapeType",
     "naturalId": "shapeType"
   },
-  "116": {
+  "85": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2195,34 +1692,46 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "key": "sourcePath",
     "naturalId": "sourcePath"
   },
-  "117": {
+  "86": {
     "fieldKey": "name",
     "modelKeys": "String",
     "dbFieldParams": {
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "customFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "SubExampleClass"
     },
     "key": "name",
     "naturalId": "SubExampleClass.name"
   },
-  "118": {
+  "87": {
     "fieldKey": "subModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2230,19 +1739,26 @@
       "notNull": false,
       "length": 64
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "Config",
+      "1": "ConfigImpl",
+      "2": "FieldConfig",
+      "3": "ModelInterface",
+      "4": "ModelConfig",
+      "5": "ModelConfigSet",
+      "6": "ModelConfigList",
+      "7": "ModelConfigMap",
+      "8": "ModelConfigNone",
+      "9": "ModelConfigScalar",
+      "10": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "subModule",
     "description": "Defines the target  sub module like 'main' or 'test'. ",
     "naturalId": "subModule"
   },
-  "119": {
+  "88": {
     "fieldKey": "subTest",
     "modelKeys": "SubTest",
     "dbFieldParams": {
@@ -2250,88 +1766,66 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "SubTest",
+      "1": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "subTest",
     "naturalId": "subTest"
   },
-  "120": {
+  "89": {
     "fieldKey": "subTestList",
     "modelKeys": "ArrayList,SubTest",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "subTestList",
     "description": "A generic parametrized example List with {@link SubTest}",
     "naturalId": "subTestList"
   },
-  "121": {
+  "90": {
     "fieldKey": "subTestMap",
     "modelKeys": "HashMap,SubTest",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "subTestMap",
     "description": "A generic parametrized example Map with {@link SubTest}",
     "naturalId": "subTestMap"
   },
-  "122": {
+  "91": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "dbFieldParams": {
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "customFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "SuperExampleClass"
     },
     "key": "id",
     "naturalId": "SuperExampleClass.id"
   },
-  "123": {
+  "92": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
     "dbFieldParams": {
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "customFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "SuperExampleClass"
     },
     "key": "subClass",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "124": {
+  "93": {
     "fieldKey": "superKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2340,19 +1834,23 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "superKey",
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "125": {
+  "94": {
     "fieldKey": "table",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2360,19 +1858,17 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams",
+      "1": "DBParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "table",
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
     "naturalId": "table"
   },
-  "126": {
+  "95": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2381,36 +1877,33 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "(ArrayList)scope": {
+    "(ArrayList)modelList": {
+      "0": "Call",
+      "1": "CallImpl",
+      "2": "ValueCall",
+      "3": "SimpleValueFromEoCall",
+      "4": "StringUpperCall",
+      "5": "TemplateCall",
+      "6": "JsonAsStringCall",
+      "7": "CallResource",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "FileReadCall",
+      "11": "StringLowerCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigCall",
+      "14": "ListCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "SinusValueCall"
     },
     "key": "targetPath",
     "naturalId": "targetPath"
   },
-  "127": {
-    "fieldKey": "template",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 50
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "template",
-    "description": "A template key used to generate a model.",
-    "naturalId": "template"
-  },
-  "128": {
+  "96": {
     "fieldKey": "testBoolean",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -2418,18 +1911,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testBoolean",
     "naturalId": "testBoolean"
   },
-  "129": {
+  "97": {
     "fieldKey": "testDate",
     "modelKeys": "Date",
     "dbFieldParams": {
@@ -2437,18 +1927,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testDate",
     "naturalId": "testDate"
   },
-  "130": {
+  "98": {
     "fieldKey": "testDouble",
     "modelKeys": "Double",
     "dbFieldParams": {
@@ -2456,18 +1943,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testDouble",
     "naturalId": "testDouble"
   },
-  "131": {
+  "99": {
     "fieldKey": "testFloat",
     "modelKeys": "Float",
     "dbFieldParams": {
@@ -2475,18 +1959,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testFloat",
     "naturalId": "testFloat"
   },
-  "132": {
+  "100": {
     "fieldKey": "testInt",
     "modelKeys": "Integer",
     "dbFieldParams": {
@@ -2494,18 +1975,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testInt",
     "naturalId": "testInt"
   },
-  "133": {
+  "101": {
     "fieldKey": "testLong",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -2513,18 +1991,15 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testLong",
     "naturalId": "testLong"
   },
-  "134": {
+  "102": {
     "fieldKey": "testObject",
     "modelKeys": "Object",
     "dbFieldParams": {
@@ -2532,19 +2007,16 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testObject",
     "description": "A test object thing. ",
     "naturalId": "testObject"
   },
-  "135": {
+  "103": {
     "fieldKey": "testString",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2553,19 +2025,17 @@
       "notNull": false,
       "length": 20
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "SubTest",
+      "1": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testString",
     "description": "Just a small test string used in test models. ",
     "naturalId": "testString"
   },
-  "136": {
+  "104": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -2573,50 +2043,37 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "unique",
     "naturalId": "unique"
   },
-  "137": {
+  "105": {
     "fieldKey": "untypedList",
     "modelKeys": "ArrayList",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "untypedList",
     "naturalId": "untypedList"
   },
-  "138": {
+  "106": {
     "fieldKey": "untypedMap",
     "modelKeys": "HashMap",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "untypedMap",
     "naturalId": "untypedMap"
   },
-  "139": {
+  "107": {
     "fieldKey": "ID",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -2624,19 +2081,13 @@
       "unique": true,
       "notNull": true
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "ID",
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "140": {
+  "108": {
     "fieldKey": "user",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2644,56 +2095,15 @@
       "notNull": false,
       "length": 50
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "HostConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "user",
     "naturalId": "user"
   },
-  "141": {
-    "fieldKey": "userKey",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 50
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "userKey",
-    "naturalId": "userKey"
-  },
-  "142": {
-    "fieldKey": "userName",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 50
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "userName",
-    "naturalId": "userName"
-  },
-  "143": {
+  "109": {
     "fieldKey": "value",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2701,73 +2111,27 @@
       "notNull": false,
       "length": 20000
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ValueCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "value",
     "naturalId": "value"
   },
-  "144": {
-    "fieldKey": "valueAsString",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 1024
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "valueAsString",
-    "naturalId": "valueAsString"
-  },
-  "145": {
-    "fieldKey": "valueKey",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 50
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "valueKey",
-    "naturalId": "valueKey"
-  },
-  "146": {
+  "110": {
     "fieldKey": "viewFieldParams",
     "modelKeys": "ViewFieldParams",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "FieldConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "viewFieldParams",
     "description": "Parameters used to define views. ",
     "naturalId": "viewFieldParams"
   },
-  "147": {
+  "111": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2775,56 +2139,36 @@
       "notNull": false,
       "length": 80
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ViewParams",
+      "1": "ViewFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "viewKey",
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "148": {
+  "112": {
     "fieldKey": "viewParams",
     "modelKeys": "ViewParams",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "viewParams",
     "description": "Parameters used to define views. ",
     "naturalId": "viewParams"
   },
-  "149": {
-    "fieldKey": "whereAsString",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(ArrayList)scope": {
-    },
-    "key": "whereAsString",
-    "description": "Where to be set as a String",
-    "naturalId": "whereAsString"
-  },
-  "150": {
+  "113": {
     "fieldKey": "write",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2832,14 +2176,11 @@
       "notNull": false,
       "length": 256
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "RolePermissions"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "write",
     "description": "String representation of RolePermission write permissions",
     "naturalId": "write"

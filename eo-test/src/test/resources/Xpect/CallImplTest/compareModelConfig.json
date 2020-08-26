@@ -21,22 +21,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CALL_BEAN",
       "create": false,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "CALL_BEAN"
     },
     "packageGroup": "calls",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "CallImpl",
     "description": "Basic implementation for calls. ",
     "naturalId": "CallImpl",

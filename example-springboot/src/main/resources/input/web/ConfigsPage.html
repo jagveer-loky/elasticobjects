@@ -35,6 +35,14 @@ $[(TemplateResourceCall). configKey="Header.html"/]
             $[/]
         $[/]
 
+
+        $[(TemplateCall). condition="eo->configType. eq FieldConfig" ]
+        <h4>Models</h4>
+            $[(TemplateCall)configuration/0/modelList/* ]
+            <a href="/config/ModelConfig/$[_value]">$[_value]</a> -
+            $[/]
+        $[/]
+
         <h4>Configuration</h4>
         <xmp style="background-color:lightgray;border:1px solid darkgray;">$[(JsonAsStringCall)configuration/0 /]</xmp>
 
@@ -58,11 +66,6 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         <h4>Content</h4>
            <xmp style="background-color:lightgray;border:1px solid darkgray;">$[(FileReadCall). configKey="eo->configuration/0/naturalId." /]</xmp>
         $[/]
-
-        $[(TemplateCall). condition="eo->configType. eq FieldConfig" ]
-        $[/]
-
-
 
        <hr/>
      </div>

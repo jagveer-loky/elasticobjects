@@ -6,10 +6,6 @@
     "(ListParams)listParams": {
       "rowHead": 0
     },
-    "listMapper": {
-    },
-    "rolePermissions": {
-    },
     "naturalId": "ListSimple.xlsx:test"
   },
   "1": {
@@ -18,30 +14,16 @@
     "(ListParams)listParams": {
       "rowHead": 0
     },
-    "listMapper": {
-    },
-    "rolePermissions": {
-    },
     "naturalId": "source.xlsx"
   },
   "2": {
     "fileKey": "source.xlsx",
-    "(ListParams)listParams": {
-    },
-    "listMapper": {
-    },
-    "rolePermissions": {
-    },
     "naturalId": "sourceExplicit"
   },
   "3": {
     "fileKey": "target.xlsx",
     "(ListParams)listParams": {
       "rowHead": 0
-    },
-    "listMapper": {
-    },
-    "rolePermissions": {
     },
     "naturalId": "target.xlsx"
   }

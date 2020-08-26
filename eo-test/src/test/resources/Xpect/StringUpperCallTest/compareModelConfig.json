@@ -21,22 +21,12 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CALL_BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      }
-    },
-    "dbParams": {
-    },
-    "viewParams": {
+      "(ShapeTypes)shapeType": "CALL_BEAN"
     },
     "packageGroup": "values",
     "module": "elastic-objects",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "StringUpperCall",
     "description": "For setting upper value to EO.",
     "naturalId": "StringUpperCall",

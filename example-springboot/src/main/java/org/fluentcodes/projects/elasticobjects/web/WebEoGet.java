@@ -31,6 +31,7 @@ public class WebEoGet {
     @ResponseBody
     public String get(@PathVariable String configType, @PathVariable String configSelected, @RequestParam(required = false, defaultValue = ".*") String configFilter) {
         EO eo = new EoRoot(cache);
+        eo.set(configType + " - " + configSelected, "selectedItem");
         eo.set(configFilter, "configFilter");
         eo.set(configType, "configType");
         eo.set(configSelected, "configSelected");
@@ -44,7 +45,7 @@ public class WebEoGet {
     public String createRootPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
         eo.set(selectedItem + ".html", "selectedItem");
-        eo.set("[]", "navigationItem");
+        //eo.set("[]", "navigationItem");
         eo.addCall(new TemplateResourceCall("ContentPage.html"));
         try {
             eo.execute();
@@ -83,7 +84,7 @@ public class WebEoGet {
         for (Object entry: entries) {
             child.set("/config/" + selectedItem.replaceAll(".html$", "") + "/" + entry, (String) entry);
         }
-        eo.addCall(new TemplateResourceCall("ContentPage.html"));
+        eo.addCall(new TemplateResourceCall("ExamplesPage.html"));
         eo.execute();
         return (String) eo.get(PathElement.TEMPLATE);
     }

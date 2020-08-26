@@ -22,23 +22,13 @@
       "(ArrayList)scope": {
         "(Scope)0": "ALL"
       },
-      "(ShapeTypes)shapeType": "CALL_BEAN",
       "create": true,
-      "(ArrayList)methods": {
-      },
-      "(ArrayList)attributeList": {
-      },
+      "(ShapeTypes)shapeType": "CALL_BEAN",
       "modelConfigKey": "DbSqlConfig"
-    },
-    "dbParams": {
-    },
-    "viewParams": {
     },
     "packageGroup": "calls",
     "module": "actions-db",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "DbSqlCall",
     "description": "A execution method for  {@link DbSqlConfig}",
     "naturalId": "DbSqlCall",

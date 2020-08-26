@@ -8,14 +8,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "basicTest",
     "description": "A BasicTest field.",
     "naturalId": "basicTest"
@@ -28,30 +25,23 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "SubTest",
+      "1": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "subTest",
     "naturalId": "subTest"
   },
   "2": {
     "fieldKey": "subTestList",
     "modelKeys": "ArrayList,SubTest",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "subTestList",
     "description": "A generic parametrized example List with {@link SubTest}",
     "naturalId": "subTestList"
@@ -59,16 +49,11 @@
   "3": {
     "fieldKey": "subTestMap",
     "modelKeys": "HashMap,SubTest",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "subTestMap",
     "description": "A generic parametrized example Map with {@link SubTest}",
     "naturalId": "subTestMap"
@@ -81,14 +66,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testBoolean",
     "naturalId": "testBoolean"
   },
@@ -100,14 +82,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testDate",
     "naturalId": "testDate"
   },
@@ -119,14 +98,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testDouble",
     "naturalId": "testDouble"
   },
@@ -138,14 +114,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testFloat",
     "naturalId": "testFloat"
   },
@@ -157,14 +130,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testInt",
     "naturalId": "testInt"
   },
@@ -176,14 +146,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testLong",
     "naturalId": "testLong"
   },
@@ -195,14 +162,11 @@
       "unique": false,
       "notNull": false
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testObject",
     "description": "A test object thing. ",
     "naturalId": "testObject"
@@ -216,14 +180,12 @@
       "notNull": false,
       "length": 20
     },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "SubTest",
+      "1": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "testString",
     "description": "Just a small test string used in test models. ",
     "naturalId": "testString"
@@ -231,32 +193,22 @@
   "12": {
     "fieldKey": "untypedList",
     "modelKeys": "ArrayList",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "untypedList",
     "naturalId": "untypedList"
   },
   "13": {
     "fieldKey": "untypedMap",
     "modelKeys": "HashMap",
-    "dbFieldParams": {
-    },
-    "(EOFieldParams)eoFieldParams": {
-    },
-    "viewFieldParams": {
+    "(ArrayList)modelList": {
+      "0": "BasicTest"
     },
     "module": "eo-test",
     "subModule": "main",
-    "(ArrayList)scope": {
-    },
     "key": "untypedMap",
     "naturalId": "untypedMap"
   }

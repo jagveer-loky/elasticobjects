@@ -143,9 +143,21 @@ public class EOToJSON {
             if (eoChild.get() == null) {
                 continue;
             }
-            if (eoChild.getModel().isToSerialize() && eoChild.isEmpty()) {
-                continue;
+            if (eoChild.isEmpty()) {
+                if (eoChild.getModel().isToSerialize()) {
+                    continue;
+                }
+                else if (eoChild.getModel().isList()) {
+                    continue;
+                }
+                else if (eoChild.getModel().isMap()) {
+                    continue;
+                }
+                else if (eoChild.getModel().isObject()) {
+                    continue;
+                }
             }
+
             if (!first) {
                 json.append(",");
             }

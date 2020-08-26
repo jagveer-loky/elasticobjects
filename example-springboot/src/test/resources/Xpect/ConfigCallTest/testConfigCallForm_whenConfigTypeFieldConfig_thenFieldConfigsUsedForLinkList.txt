@@ -11,7 +11,7 @@
 
     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
     </script>
-    <title>Elastic Objects</title>
+    <title>Elastic Objects: !!Could not move to path 'selectedItem' because key 'selectedItem' does not exist on '/'.!!</title>
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="http://s.w.org/">
     <link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
@@ -161,32 +161,23 @@
             
         
 
+
+        
+
         <h4>Configuration</h4>
         <xmp style="background-color:lightgray;border:1px solid darkgray;">{
   "packagePath": "org.fluentcodes.projects.elasticobjects.models",
   "modelKey": "Scope",
-  "(ArrayList)fieldKeys": {
-  },
   "eoParams": {
     "(ArrayList)scope": {
       "(Scope)0": "ALL"
     },
-    "(ShapeTypes)shapeType": "SCALAR",
     "create": false,
-    "(ArrayList)methods": {
-    },
-    "(ArrayList)attributeList": {
-    }
-  },
-  "dbParams": {
-  },
-  "viewParams": {
+    "(ShapeTypes)shapeType": "SCALAR"
   },
   "packageGroup": "models",
   "module": "elastic-objects",
   "subModule": "main",
-  "(ArrayList)scope": {
-  },
   "key": "Scope",
   "description": "Enum with different Scopes to environment specific caches.",
   "naturalId": "Scope",
@@ -210,10 +201,6 @@
 
 
         
-
-        
-
-
 
        <hr/>
      </div>

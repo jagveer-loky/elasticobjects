@@ -6,7 +6,7 @@
 <a href="#typed-json">Typed JSON</a><br>
 <a href="#under-the-hood">Under the Hood</a><br>
 <a href="#further-documentation">Further-Documentation</a><br>
-<a href="#maven-repositories">Maven Repositories</a><br>
+<a href="#modules">Modules</a><br>
 <a href="#status">Status</a><br>
 </font>
 </div>
@@ -279,7 +279,7 @@ An in depth documentation is created on this [github wiki](https://github.com/fl
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 
-### Maven Repositories
+### Modules
 Actually three modules are deployed to [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
 
 #### elastic-objects
@@ -296,6 +296,12 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
 <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/elastic-objects">
 <font size="1">mvn repository</font>
 </a></div>
+
+#### eo-test
+The objectives [eo-test](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test) is providing all tests for elastic-object module together with a main package providing test helper and test objects to other modules.
+
+#### examples-springboot
+[examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/examples-springboot) are the sources for the spring boot web example on [elasticobjects.org](elasticobjects.org).
 
 #### eo-csv
 [eo-csv](https://github.com/fluentcodes/elasticobjects/tree/master/eo-csv) offers calls and configurations for reading and writing csv files using [OpenCsv](https://mvnrepository.com/artifact/com.opencsv/opencsv).

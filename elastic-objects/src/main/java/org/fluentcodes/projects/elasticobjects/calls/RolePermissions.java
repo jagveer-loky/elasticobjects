@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.EOParams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,7 +46,7 @@ public class RolePermissions {
         }
         this.read = (String) rolePermissions.get(EO_STATIC.F_READ);
         this.write = (String) rolePermissions.get(EO_STATIC.F_WRITE);
-        this.create = (String) rolePermissions.get(EO_STATIC.F_CREATE);
+        this.create = (String) rolePermissions.get(EOParams.CREATE);
         this.delete = (String) rolePermissions.get(EO_STATIC.F_DELETE);
         this.execute = (String) rolePermissions.get(EO_STATIC.F_EXECUTE);
         resolve();

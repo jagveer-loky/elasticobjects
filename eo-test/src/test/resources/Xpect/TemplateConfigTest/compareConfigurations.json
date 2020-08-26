@@ -5,8 +5,6 @@
     "filePath": "classpath/templates",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "content"
   },
   "1": {
@@ -14,8 +12,6 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "ContentExampleDynamic"
   },
   "2": {
@@ -23,8 +19,6 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "ContentExampleElement1"
   },
   "3": {
@@ -32,8 +26,6 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "ContentExampleElement2"
   },
   "4": {
@@ -41,8 +33,6 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "ContentExampleStatic"
   },
   "5": {
@@ -50,8 +40,6 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "ContentExampleStaticCondition"
   },
   "6": {
@@ -59,8 +47,6 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "rolePermissions": {
-    },
     "naturalId": "ContentExampleStaticKeep"
   }
 }
