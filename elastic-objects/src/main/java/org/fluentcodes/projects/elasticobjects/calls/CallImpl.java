@@ -17,9 +17,7 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
     private static final Logger LOG = LogManager.getLogger(CallImpl.class);
     private Boolean inTemplate;
     private String sourcePath;
-    private String filterPath;
     private String targetPath;
-    private String locationPath;
     private String models;
     private boolean overwrite;
     private LogLevel logLevel;
@@ -84,22 +82,6 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
     }
 
     @Override
-    public boolean hasFilterPath() {
-        return filterPath !=null && !filterPath.isEmpty();
-    }
-
-    @Override
-    public String getFilterPath() {
-        return filterPath;
-    }
-
-    @Override
-    public Call setFilterPath(String filter) {
-        this.filterPath = filter;
-        return this;
-    }
-
-    @Override
     public String getCondition() {
         return condition;
     }
@@ -151,22 +133,6 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
     }
     public String postPend() {
         return "";
-    }
-
-    @Override
-    public boolean hasLocationPath() {
-        return locationPath!=null && !locationPath.isEmpty();
-    }
-
-    @Override
-    public String getLocationPath() {
-        return locationPath;
-    }
-
-    @Override
-    public Call setLocationPath(String locationPath) {
-        this.locationPath = locationPath;
-        return this;
     }
 
     @Override

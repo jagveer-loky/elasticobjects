@@ -1,0 +1,34 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "GitHubLinkCall",
+    "superKey": "SimpleValueFromEoCall",
+    "(ArrayList)fieldKeys": {
+      "0": "sourcePath",
+      "1": "targetPath",
+      "2": "locationPath",
+      "3": "models",
+      "4": "filterPath",
+      "5": "condition",
+      "6": "localCondition",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "create": true,
+      "(ShapeTypes)shapeType": "CALL_BEAN"
+    },
+    "module": "examples-springboot",
+    "subModule": "main",
+    "key": "GitHubLinkCall",
+    "description": "Creates a link to github to integrate it into the ModelConfig views when all parameters set. ",
+    "naturalId": "GitHubLinkCall",
+    "author": "Werner Diwischek"
+  }
+}

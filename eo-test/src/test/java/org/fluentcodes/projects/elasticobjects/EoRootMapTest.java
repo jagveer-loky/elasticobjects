@@ -20,7 +20,7 @@ public class EoRootMapTest {
     public void givenDev_whenNewEmpty_thenMap()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEmpty()).isTrue();
+        Assertions.assertThat(eo.isEoEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
     }
 
@@ -52,7 +52,7 @@ public class EoRootMapTest {
     public void givenDev_whenNewNull_thenValueIsNull()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, null);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEmpty()).isTrue();
+        Assertions.assertThat(eo.isEoEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
     }
 
@@ -92,7 +92,7 @@ public class EoRootMapTest {
     public void givenDev_whenNewWithStringJsonMap_thenMap()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, "{}");
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEmpty()).isTrue();
+        Assertions.assertThat(eo.isEoEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
     }
 }

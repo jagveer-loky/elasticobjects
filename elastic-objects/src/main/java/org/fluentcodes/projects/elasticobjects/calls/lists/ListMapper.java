@@ -317,7 +317,7 @@ public class ListMapper {
             attributes.put("position", position);
 
             if (!hasMapPath()) {
-                if (!(row instanceof List) || (!hasColKeys() || isIgnoreHeader()) && adapter.isEmpty()) {
+                if (!(row instanceof List) || (!hasColKeys() || isIgnoreHeader()) && adapter.isEoEmpty()) {
                     try {
                         adapter.set(row, position);
                     } catch (Exception e) {

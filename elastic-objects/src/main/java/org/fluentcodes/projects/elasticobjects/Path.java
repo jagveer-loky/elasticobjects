@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +29,12 @@ public class Path {
     }
 
     public Path(PathElement... pathElements) {
+        this(false, pathElements);
+    }
+
+    public Path(boolean isAbsolute, PathElement... pathElements) {
         this.entries = pathElements;
+        this.absolute = isAbsolute;
     }
 
     public Path(String... pathEntries) {
@@ -128,6 +134,15 @@ public class Path {
         return false;
     }
 
+    public boolean isFilter() {
+        return getParent().isFilter();
+    }
+
+    public EO moveToParent (final EO eo) {
+        Path parentPath = this.getParentPath();
+        return parentPath.moveTo(eo);
+    }
+
     public EO moveTo (EO eo) {
         EO target = eo;
         if (isAbsolute()) {
@@ -149,6 +164,14 @@ public class Path {
             }
         }
         return target;
+    }
+
+    public EO createParent (final EO eo, Models models) {
+        Path parentPath = this.getParentPath();
+        return parentPath.create(eo, models.create());
+    }
+    public EO create (EO parent) {
+        return create(parent, null);
     }
 
     public EO create (EO parent, final Object value) {
@@ -292,16 +315,23 @@ public class Path {
 
     public Path getParentPath() {
         if (size() < 1) {
-            return new Path(Path.DELIMITER);
+            Path parent =  new Path(Path.DELIMITER);
         }
-        return new Path(Arrays.copyOfRange(this.entries, 0, entries.length-1));
+        return new Path(this.absolute, Arrays.copyOfRange(this.entries, 0, entries.length-1));
     }
 
     public String getParentKey() {
         if (size() < 1) {
             throw new EoException("No entry in path");
         }
-        return entries[entries.length-1].getKey();
+        return getParent().getKey();
+    }
+
+    public PathElement getParent() {
+        if (size() < 1) {
+            throw new EoException("No entry in path");
+        }
+        return entries[entries.length-1];
     }
 
 

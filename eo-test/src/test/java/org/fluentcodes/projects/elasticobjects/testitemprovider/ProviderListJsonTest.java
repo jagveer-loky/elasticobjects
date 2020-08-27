@@ -15,10 +15,10 @@ public class ProviderListJsonTest {
             Assertions.assertThat(ENTRY.content()).isNotEmpty();
             EO eo = ENTRY.createEoDev();
             if (!ENTRY.name().contains("EMPTY")) {
-                Assertions.assertThat(eo.isEmpty()).isFalse();
+                Assertions.assertThat(eo.isEoEmpty()).isFalse();
             }
             else {
-                Assertions.assertThat(eo.isEmpty()).isTrue();
+                Assertions.assertThat(eo.isEoEmpty()).isTrue();
             }
         }
     }

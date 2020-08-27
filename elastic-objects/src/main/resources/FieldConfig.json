@@ -679,22 +679,6 @@
     "modelKeys": "String",
     "fieldKey": "targetPath"
   },
-  "filterPath": {
-    "dbFieldParams": {
-      "fieldName": "filterPath",
-      "length": 80
-    },
-    "modelKeys": "String",
-    "fieldKey": "filterPath"
-  },
-  "locationPath": {
-    "dbFieldParams": {
-      "fieldName": "locationPath",
-      "length": 80
-    },
-    "modelKeys": "String",
-    "fieldKey": "locationPath"
-  },
   "Permissions.create": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -896,6 +880,24 @@
     },
     "modelKeys": "String",
     "fieldKey": "user"
+  },
+  "toReplace": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "dbFieldParams": {
+      "length": 5
+    },
+    "modelKeys": "String",
+    "fieldKey": "toReplace"
+  },
+  "replaceBy": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "dbFieldParams": {
+      "length": 5
+    },
+    "modelKeys": "String",
+    "fieldKey": "replaceBy"
   },
   "value": {
     "module": "elastic-objects",

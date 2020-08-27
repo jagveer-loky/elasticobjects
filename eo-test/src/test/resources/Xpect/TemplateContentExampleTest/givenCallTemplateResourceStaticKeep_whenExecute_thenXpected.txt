@@ -1,6 +1,6 @@
 
 Start of content with a templateKey:
-<!--$[(TemplateResourceCall). configKey="ContentExampleElement1" sourcePath="data" filterPath="*" keepCall="HTML"]-->
+<!--$[(TemplateResourceCall). configKey="ContentExampleElement1" sourcePath="data/*" keepCall="HTML"]-->
 <h1>header1</h1>
 <b>summary1</b>
 <p>content1</p>

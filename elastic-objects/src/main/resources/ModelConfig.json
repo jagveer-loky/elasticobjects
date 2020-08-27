@@ -11,9 +11,7 @@
     "fieldKeys": [
       "sourcePath",
       "targetPath",
-      "locationPath",
       "models",
-      "filterPath",
       "condition",
       "localCondition",
       "overwrite",
@@ -116,7 +114,6 @@
   "StringUpperCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "StringUpperCall",
     "description": "For setting upper value to EO.",
     "modelKey": "StringUpperCall",
     "eoParams": {
@@ -128,10 +125,23 @@
     "packageGroup": "values",
     "author": "Werner Diwischek"
   },
+  "StringReplaceCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "description": "For replacing field 'toReplace' by 'replaceBy'.",
+    "modelKey": "StringReplaceCall",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": true
+    },
+    "fieldKeys": ["toReplace", "replaceBy"],
+    "superKey": "SimpleValueFromEoCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "author": "Werner Diwischek"
+  },
   "StringUpperFirstCharCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "StringUpperFirstCharCall",
     "description": "For setting upper value to EO.",
     "modelKey": "StringUpperFirstCharCall",
     "eoParams": {

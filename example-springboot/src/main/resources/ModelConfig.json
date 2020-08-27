@@ -1,0 +1,16 @@
+{
+  "TheGreetingCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "description": "An example for a simple call with a field.",
+    "modelKey": "TheGreetingCall",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": true
+    },
+    "fieldKeys": ["greeting"],
+    "superKey": "SimpleValueFromEoCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "author": "Werner Diwischek"
+  }
+}

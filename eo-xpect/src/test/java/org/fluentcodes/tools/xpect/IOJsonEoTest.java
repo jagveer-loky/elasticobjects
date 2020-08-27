@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 public class IOJsonEoTest {
     public static final EOConfigsCache CACHE = new EOConfigsCache();
 

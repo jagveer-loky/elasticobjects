@@ -24,7 +24,7 @@ public class EoRootListTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(ArrayList.class);
         Assertions.assertThat(eo.get().getClass()).isEqualTo(ArrayList.class);
-        Assertions.assertThat(eo.isEmpty()).isTrue();
+        Assertions.assertThat(eo.isEoEmpty()).isTrue();
         Assertions.assertThat(((List)eo.get()).size()).isEqualTo(0);
     }
 
@@ -34,7 +34,7 @@ public class EoRootListTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get().getClass()).isEqualTo(ArrayList.class);
-        Assertions.assertThat(eo.isEmpty()).isTrue();
+        Assertions.assertThat(eo.isEoEmpty()).isTrue();
         Assertions.assertThat(((List)eo.get()).size()).isEqualTo(0);
     }
 
@@ -60,7 +60,7 @@ public class EoRootListTest {
     public void givenDev_whenNewWithStringJsonList_thenList()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, "[]");
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEmpty()).isTrue();
+        Assertions.assertThat(eo.isEoEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
     }
 }
