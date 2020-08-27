@@ -11,6 +11,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoChild;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
@@ -115,7 +116,7 @@ public abstract class Parser {
             pathOrKey = pathAndDefault[0];
         }
         pathOrKey = pathOrKey
-                .replaceAll("\\\\", "/")
+                //.replaceAll("\\\\", "/")
                 .replaceAll(TEMPLATE_CALL_MATCH,"(TemplateCall)")
                 .replaceAll(VALUE_CALL_MATCH ,"(ValueCall)");
 
@@ -146,9 +147,14 @@ public abstract class Parser {
                 pathOrKey = pathOrKey
                         .replaceAll("_value", eo.get().toString())
                         .replaceAll("_parent", eo.getParentKey());
-                value = ScalarConverter.toString(eo.get(pathOrKey));
-                if (value == null) {
-                    value = "!! not found '" + pathOrKey + "' in '" + eo.getPathAsString() + "'!!";
+                if (value==null) {
+                    value = ScalarConverter.toString(eo.get(pathOrKey));
+                    if (value == null) {
+                        value = "!! not found '" + pathOrKey + "' in '" + eo.getPathAsString() + "'!!";
+                    }
+                }
+                else {
+                    System.out.println("Default value");
                 }
             } catch (Exception e) {
                 eo.debug(e.getMessage());

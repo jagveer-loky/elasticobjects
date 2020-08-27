@@ -67,13 +67,15 @@
         <div class="custom-header" style="margin-bottom: 72px;">
 
             <div class="custom-header-media">
-                <div id="wp-custom-header" class="wp-custom-header"><img src="pics/cropped-elasticobjects2.png"
+                <div id="wp-custom-header" class="wp-custom-header"><img src="/pics/cropped-elasticobjects2.png"
                                                                          width="2000" height="1200"
                                                                          alt="Elastic Objects"
-                                                                         srcset="http://elasticobjects.com/wp-content/uploads/2018/02/cropped-elasticobjects2.png 2000w, http://elasticobjects.com/wp-content/uploads/2018/02/cropped-elasticobjects2-300x180.png 300w, http://elasticobjects.com/wp-content/uploads/2018/02/cropped-elasticobjects2-768x461.png 768w, http://elasticobjects.com/wp-content/uploads/2018/02/cropped-elasticobjects2-1024x614.png 1024w"
+                                                                         srcset="/pics/cropped-elasticobjects2.png 2000w, /pics/cropped-elasticobjects2.png 300w, /pics/cropped-elasticobjects2.png 768w, /pics/cropped-elasticobjects2.png 1024w"
                                                                          sizes="100vw"></div>
             </div>
-
+            <!-- 300x180.png 300w
+            768x461.png 768w
+            1024x614.png 1024w-->
             <div class="site-branding">
                 <div class="wrap">
                     <div class="site-branding-text">
@@ -152,9 +154,21 @@
 
     <div class="entry-content" id="entry-content">
         <h3>Scope</h3>
-        Enum with different Scopes to environment specific caches.
+        <p>
+         No Description provided!
+        </p>
 
         
+
+        
+
+        
+        <ul>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elasticObjects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java">Scope.java Github</a>
+            </li>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elasticObjects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ScopeTest.java">ScopeTest.java on Github</a>
+            </li>
+        </ul>
             <h4>Fields</h4>
             
             
@@ -181,7 +195,11 @@
   "key": "Scope",
   "description": "Enum with different Scopes to environment specific caches.",
   "naturalId": "Scope",
-  "author": "Werner Diwischek"
+  "author": "Werner Diwischek",
+  "configuration": {
+    "0": {
+    }
+  }
 }</xmp>
 
         <h4>This Page Post Version</h4>
@@ -198,10 +216,6 @@
          }</textarea>
             <input type="submit" value="post"/>
         </form>
-
-
-        
-
        <hr/>
      </div>
 

@@ -2,7 +2,6 @@
   "csvKey": {
     "module": "actions-csv",
     "subModule": "main",
-    "naturalId": "csvKey",
     "dbFieldParams": {
       "length": 64
     },

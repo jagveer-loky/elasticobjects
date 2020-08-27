@@ -6,8 +6,7 @@
     "content":"Start of content with a templateKey: "
   },
   "(TemplateResourceCall)2": {
-    "sourcePath": "data",
-    "configKey":"ContentExampleElement1",
-    "filterPath":"*"
+    "sourcePath": "data/*",
+    "configKey":"ContentExampleElement1"
   }
 }

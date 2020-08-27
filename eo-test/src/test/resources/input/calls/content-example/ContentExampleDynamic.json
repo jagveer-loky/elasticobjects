@@ -6,8 +6,7 @@
     "content":"Start of content with a templateKey as variable: "
   },
   "(TemplateResourceCall)2": {
-    "sourcePath": "data",
-    "configKey":"eo->template.",
-    "filterPath":"*"
+    "sourcePath": "data/*",
+    "configKey":"eo->template."
   }
 }

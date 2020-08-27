@@ -8,15 +8,13 @@
       "0": "value",
       "1": "sourcePath",
       "2": "targetPath",
-      "3": "locationPath",
-      "4": "models",
-      "5": "filterPath",
-      "6": "condition",
-      "7": "localCondition",
-      "8": "overwrite",
-      "9": "logLevel",
-      "10": "duration",
-      "11": "inTemplate"
+      "3": "models",
+      "4": "condition",
+      "5": "localCondition",
+      "6": "overwrite",
+      "7": "logLevel",
+      "8": "duration",
+      "9": "inTemplate"
     },
     "eoParams": {
       "(ArrayList)scope": {

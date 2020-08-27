@@ -13,13 +13,6 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Offers serialized setter and getter for java objects
- *
- * @author Werner Diwischek
- * @since 10.10.2015
- */
-
 public class EoChild implements EO {
     private static final Logger LOG = LogManager.getLogger(EoChild.class);
     private PathElement pathElement;
@@ -50,7 +43,7 @@ public class EoChild implements EO {
         if (!isRoot()) {
             throw new EoException("No Root element, no models could be changed");
         }
-        if (!isEmpty()) {
+        if (!isEoEmpty()) {
             throw new EoException("Non empty root element, no models could be changed");
         }
         pathElement.setRootModels(this, models);
@@ -301,14 +294,14 @@ public class EoChild implements EO {
         return this;
     }
 
-    /**
-     * If the object has a non null object.
-     *
-     * @return true if the object is not null.
-     */
+    @Override
+    public boolean isEoEmpty() {
+        return eoMap == null || eoMap.isEmpty();
+    }
+
     @Override
     public boolean isEmpty() {
-        return keys().isEmpty();
+        return getModels().isEmpty(get());
     }
 
     @Override

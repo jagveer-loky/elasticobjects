@@ -107,8 +107,18 @@
   "ExamplesStart.html": {
     "module": "example-springboot",
     "subModule": "main",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
     "configKey": "ExamplesStart.html",
     "fileName": "ExamplesStart.html",
     "filePath": "input/web/examples"
+  },
+  "TheGreetingCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "configKey": "TheGreetingCall.html",
+    "fileName": "TheGreetingCall.html",
+    "filePath": "input/web/examples"
   }
+
 }

@@ -1,10 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 
 import java.util.List;
 
@@ -24,49 +22,69 @@ public class ExecutorCallImpl implements ExecutorCall {
             return "call eo is null!";
         }
         if (call.getDuration() != null) {
-            eo.warn("Already executed within " + call.getDuration() + "ms. ");
-            return "Already executed within " + call.getDuration() + "ms. ";
+            eo.warn("Already executed within " + call.getDuration() + " ms. ");
+            return "Already executed within " + call.getDuration() + " ms. ";
         }
 
         EO source = eo;
         if (!call.filter(source)) {
             return null;
         }
-        if (call.hasSourcePath()) {
-            source = eo.getEo(call.getSourcePath());
+        Path sourcePath = new Path(eo.getPathAsString(), call.getSourcePath());
+        boolean isFilter = sourcePath.isFilter();
+        EO sourceParent = sourcePath.moveToParent(eo);
+        List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
+
+        // get targetParent
+        if (!call.hasTargetPath()) {
+            if (isFilter) {
+                call.setTargetPath(sourceParent.getPathAsString());
+            }
+            else {
+                call.setTargetPath(call.getSourcePath());
+            }
+        }
+        Path targetPath = new Path(eo.getPathAsString(), call.getTargetPath());
+        EO targetParent = null;
+
+        if (isFilter) {
+            targetParent = targetPath.create(eo, sourceParent.getModels().create());
+        }
+        else {
+            if (targetPath.hasModel()) {
+                EO targetEo = targetPath.create(eo);
+                targetParent = targetEo.getParent();
+            }
+            else {
+                targetParent = targetPath.createParent(eo, sourceParent.getModels());
+            }
+
         }
 
-        List<String> loopPaths = source.keys(call.getFilterPath());
-        EO target = eo;
-        boolean createTarget = loopPaths.size() > 1 && call.getTargetPath() != null && !(call.getInTemplate());
-        if (createTarget) {
-            target = eo.set( source.getModel().create(), call.getTargetPath());
-        }
         StringBuilder templateResult = new StringBuilder();
         templateResult.append(call.prepend());
         long startTime = System.currentTimeMillis();
         if (PathElement.SAME.equals(call.getTargetPath())) {
             call.setInTemplate(true);
         }
-        for (String sourcePath : loopPaths) {
-            EO sourceLoop = source.getEo(sourcePath);
-            if (!call.localFilter(sourceLoop)) {
+        for (String entry : loopPaths) {
+            EO sourceEntry = sourceParent.getEo(entry);
+            /*if (sourceEntry.isEmpty()) {
+                continue;
+            }*/
+            if (!call.localFilter(sourceEntry)) {
                 continue;
             }
-            Object value = call.execute(sourceLoop);
-            if (createTarget) {
-                target.set(value, sourcePath);
+            Object value = call.execute(sourceEntry);
+            if (call.getInTemplate()) {
+                templateResult.append(value);
             }
             else {
-                if (call.getInTemplate()) {
-                    templateResult.append(value);
+                if (isFilter) {
+                    targetParent.set(value, entry);
                 }
                 else {
-                    if (call.getTargetPath() != null) {
-                        eo.set(value, call.getTargetPath());
-                    } else {
-                        sourceLoop.mapObject(value);
-                    }
+                    targetParent.set(value, targetPath.getParentKey());
                 }
             }
         }

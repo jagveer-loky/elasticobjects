@@ -143,7 +143,7 @@ public class EOToJSON {
             if (eoChild.get() == null) {
                 continue;
             }
-            if (eoChild.isEmpty()) {
+            if (eoChild.isEoEmpty()) {
                 if (eoChild.getModel().isToSerialize()) {
                     continue;
                 }

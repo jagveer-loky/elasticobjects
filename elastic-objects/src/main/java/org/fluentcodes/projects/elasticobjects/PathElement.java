@@ -68,7 +68,7 @@ public class PathElement {
     public PathElement(final String name, EO parentEo, Object value) {
         this(name);
         if (PathElement.ROOT_MODEL.equals(name) && parentEo.isRoot()) {
-            if (!parentEo.isEmpty()) {
+            if (!parentEo.isEoEmpty()) {
                 throw new EoException("Not null root could not be changed");
             }
             this.parent = parentEo;
@@ -438,8 +438,13 @@ public class PathElement {
     public boolean isBack() {
         return BACK.equals(key);
     }
+
     public boolean isSame() {
         return SAME.equals(key);
+    }
+
+    public boolean isFilter() {
+        return key.contains(MATCHER) || key.contains(MATCHER_ALL);
     }
 
     public String[] getModelsArray() {

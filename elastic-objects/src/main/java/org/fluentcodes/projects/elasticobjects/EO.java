@@ -69,6 +69,7 @@ public interface EO {
     boolean hasDefaultMap();
     boolean isChildTyped();
     boolean isNull();
+    boolean isEoEmpty();
     boolean isEmpty();
 
     void setRoles(String... roles);

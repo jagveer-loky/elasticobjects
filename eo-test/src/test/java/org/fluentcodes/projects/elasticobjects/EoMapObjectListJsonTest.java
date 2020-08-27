@@ -27,7 +27,7 @@ public class EoMapObjectListJsonTest {
     public void givenDev_whenEmpty_thenNothingSet()  {
         EO eo = ProviderRootDevScope.createEo(List.class);
         eo.mapObject("[]");
-        Assert.assertTrue(eo.isEmpty());
+        Assert.assertTrue(eo.isEoEmpty());
         Assert.assertEquals(List.class, eo.getModelClass());
     }
 

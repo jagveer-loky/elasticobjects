@@ -31,8 +31,5 @@ public class ValueCall extends CallImpl<String> implements Call<String> {
     public void setValue(String value) {
         this.value = value;
     }
-    @Override
-    public String getFilterPath() {
-        return ".";
-    }
+
 }

@@ -6,15 +6,13 @@
     "(ArrayList)fieldKeys": {
       "0": "sourcePath",
       "1": "targetPath",
-      "2": "locationPath",
-      "3": "models",
-      "4": "filterPath",
-      "5": "condition",
-      "6": "localCondition",
-      "7": "overwrite",
-      "8": "logLevel",
-      "9": "duration",
-      "10": "inTemplate"
+      "2": "models",
+      "3": "condition",
+      "4": "localCondition",
+      "5": "overwrite",
+      "6": "logLevel",
+      "7": "duration",
+      "8": "inTemplate"
     },
     "eoParams": {
       "(ArrayList)scope": {

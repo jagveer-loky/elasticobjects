@@ -171,8 +171,7 @@ public class SinusValueCallTest {
     public void givenEoArrayAndCallWithSourceAndFilterAndTarget_WhenExecuteWithinEo()  {
         Call call =  new SinusValueCall()
                 .setTargetPath(TARGET)
-                .setSourcePath("/source")
-                .setFilterPath("*");
+                .setSourcePath("/source/*");
         EO eo = createArray();
         eo.addCall(call);
         eo.execute();

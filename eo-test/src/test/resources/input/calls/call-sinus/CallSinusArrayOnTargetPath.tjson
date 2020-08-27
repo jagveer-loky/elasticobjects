@@ -6,7 +6,6 @@
   },
   "(LogLevel)_logLevel": "WARN",
   "(SinusValueCall)target": {
-      "sourcePath": "/source",
-      "filterPath": "*"
+      "sourcePath": "/source/*"
   }
 }

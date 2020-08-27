@@ -11,15 +11,13 @@
       "3": "configFilter",
       "4": "sourcePath",
       "5": "targetPath",
-      "6": "locationPath",
-      "7": "models",
-      "8": "filterPath",
-      "9": "condition",
-      "10": "localCondition",
-      "11": "overwrite",
-      "12": "logLevel",
-      "13": "duration",
-      "14": "inTemplate"
+      "6": "models",
+      "7": "condition",
+      "8": "localCondition",
+      "9": "overwrite",
+      "10": "logLevel",
+      "11": "duration",
+      "12": "inTemplate"
     },
     "eoParams": {
       "(ArrayList)scope": {

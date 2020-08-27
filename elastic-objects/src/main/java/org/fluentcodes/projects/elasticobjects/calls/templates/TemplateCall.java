@@ -42,21 +42,7 @@ public class TemplateCall extends CallImpl<String> {
 
     @Override
     public void setPathByTemplate(final Path path) {
-        setFilterPath(path.getParentKey());
-        if (hasSourcePath()) {
-            if (path.hasChild()) {
-                if (hasFilterPath()) {
-                    setFilterPath(path.getParentPath().directory(false));
-                }
-                else {
-                    setFilterPath(getFilterPath() + path.getParentPath().directory(true));
-                }
-                setFilterPath(path.getParentKey());
-            }
-        }
-        else {
-            setSourcePath(path.getParentPath().directory(false));
-        }
+        setSourcePath(path.directory(false));
     }
     /**
      */

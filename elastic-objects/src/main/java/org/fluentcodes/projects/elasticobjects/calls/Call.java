@@ -11,25 +11,19 @@ public interface Call<RESULT> {
     Boolean getInTemplate();
     Boolean isInTemplate();
 
-    String getFilterPath();
-    boolean hasFilterPath();
-    Call setFilterPath(String filter);
-
     String getCondition();
     boolean hasCondition();
     Call setCondition(String condition);
+
     public String getLocalCondition();
     public void setLocalCondition(String localCondition);
     boolean hasLocalCondition();
+
     boolean filter(EO eo);
     boolean localFilter(EO eo);
 
     String prepend();
     String postPend();
-
-    String getLocationPath();
-    boolean hasLocationPath();
-    Call setLocationPath(String path);
 
     String getSourcePath();
     boolean hasSourcePath();

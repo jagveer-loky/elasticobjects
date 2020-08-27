@@ -6,13 +6,11 @@
    },
    "(List)_call":{
      "(SinusValueCall)0": {
-       "sourcePath": "/source",
-       "targetPath": "/target",
-       "filterPath": "*"
+       "sourcePath": "/source/*",
+       "targetPath": "/target"
      },
      "(TemplateCall)1": {
-        "sourcePath": "/source",
-        "filterPath": "*"
+        "sourcePath": "/source/*"
      }
    }
  }>

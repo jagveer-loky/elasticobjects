@@ -43,7 +43,7 @@ public class EoMapObjectMapJsonTest {
     public void givenDev_whenEmpty_thenNothingSet()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.mapObject("{}");
-        Assert.assertTrue(eo.isEmpty());
+        Assert.assertTrue(eo.isEoEmpty());
     }
 
     @Test

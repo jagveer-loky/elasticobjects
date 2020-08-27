@@ -108,7 +108,7 @@ public class ListWriteCall extends CallResource<Boolean> {
     }
 
     public Boolean execute(final EO eo){
-        if (eo.isEmpty()) {
+        if (eo.isEoEmpty()) {
             throw new EoException("Empty adapter -- nothing to write for " + eo.getPath());
         }
         List toWrite = toList(eo, null);
@@ -122,7 +122,7 @@ public class ListWriteCall extends CallResource<Boolean> {
 
     public List toList(EO adapter, Map externalAttributes) {
         List toWrite = new ArrayList();
-        if (adapter.isEmpty()) {
+        if (adapter.isEoEmpty()) {
             adapter.warn("Empty adapter -- nothing to write for " + adapter.getPath());
             return toWrite;
         }
@@ -142,7 +142,7 @@ public class ListWriteCall extends CallResource<Boolean> {
             e.printStackTrace();
             return toWrite;
         }
-        if (firstChild == null || firstChild.isEmpty()) {
+        if (firstChild == null || firstChild.isEoEmpty()) {
             return toWrite;
         }
 
@@ -173,7 +173,7 @@ public class ListWriteCall extends CallResource<Boolean> {
                 continue;
             }
             List row = new ArrayList();
-            if (child.isEmpty()) {
+            if (child.isEoEmpty()) {
                 toWrite.add(row);
                 continue;
             }

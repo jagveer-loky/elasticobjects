@@ -7,9 +7,8 @@
   "(LogLevel)_logLevel": "WARN",
   "(List)_calls": {
     "(SinusValueCall)0": {
-      "sourcePath": "/source",
-      "targetPath": "/target",
-      "filterPath": "*"
+      "sourcePath": "/source/*",
+      "targetPath": "/target"
     }
   }
 }
