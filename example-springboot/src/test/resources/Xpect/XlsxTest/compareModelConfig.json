@@ -1,0 +1,40 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
+    "modelKey": "XlsxReadCall",
+    "superKey": "ListCall",
+    "(ArrayList)fieldKeys": {
+      "0": "rowHead",
+      "1": "rowStart",
+      "2": "rowEnd",
+      "3": "length",
+      "4": "filter",
+      "5": "configKey",
+      "6": "sourcePath",
+      "7": "targetPath",
+      "8": "models",
+      "9": "condition",
+      "10": "localCondition",
+      "11": "overwrite",
+      "12": "logLevel",
+      "13": "duration",
+      "14": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "create": true,
+      "(ShapeTypes)shapeType": "CALL_BEAN",
+      "modelConfigKey": "XlsxConfig"
+    },
+    "packageGroup": "xlsx",
+    "module": "actions-xlsx",
+    "subModule": "main",
+    "key": "XlsxReadCall",
+    "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
+    "naturalId": "XlsxReadCall",
+    "author": "Werner Diwischek"
+  }
+}

@@ -43,7 +43,7 @@ public class EoChild implements EO {
         if (!isRoot()) {
             throw new EoException("No Root element, no models could be changed");
         }
-        if (!isEoEmpty()) {
+        if (!isEmpty()) {
             throw new EoException("Non empty root element, no models could be changed");
         }
         pathElement.setRootModels(this, models);

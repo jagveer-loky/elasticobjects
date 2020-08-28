@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en-US" class="js svg background-fixed">
 <head>
@@ -109,19 +107,19 @@
                             <li></li>
                             <li id="menu-item-62"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="/config/ModelConfig.html">ModelConfig</a>
+                                <a href="/configs/ModelConfig.html">ModelConfig</a>
                             </li>
                             <li id="menu-item-13"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="/config/FieldConfig.html">FieldConfig</a>
+                                <a href="/configs/FieldConfig.html">FieldConfig</a>
                             </li>
                             <li id="menu-item-13"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="/config/TemplateConfig.html">TemplateConfig</a>
+                                <a href="/configs/TemplateConfig.html">TemplateConfig</a>
                             </li>
                             <li id="menu-item-13"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="/config/FileConfig.html">FileConfig</a>
+                                <a href="/configs/FileConfig.html">FileConfig</a>
                             </li>
                         </ul>
                     </div>
@@ -140,33 +138,34 @@
 
     <header class="entry-header">
         <div id="rootNav">
-            <input type="text" value="Scope" onchange="
+            
+<input type="text" value="Scope" onchange="
             var newLocation = window.location + 'x';
             document.location.href = newLocation.replace(/=.*/, '=' + this.value);
             "/>
-            <ul>
-            
-                <li><a href="/config/ModelConfig/Scope?configFilter=Scope">Scope</a></li>
-            
-            </ul>
+<ul>
+    
+    <li><a href="/config/ModelConfig/Scope?configFilter=Scope">Scope</a></li>
+    
+</ul>
         </div>
     </header>
 
     <div class="entry-content" id="entry-content">
         <h3>Scope</h3>
         <p>
-         No Description provided!
+        Enum with different Scopes to environment specific caches.
         </p>
-
         
 
         
 
         
+        <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elasticObjects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java">Scope.java Github</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java">Scope.java</a>
             </li>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elasticObjects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ScopeTest.java">ScopeTest.java on Github</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/test/java/org/fluentcodes/projects/elasticobjects/models/ScopeTest.java">ScopeTest.java</a>
             </li>
         </ul>
             <h4>Fields</h4>
