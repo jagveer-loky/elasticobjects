@@ -143,23 +143,17 @@ public abstract class Parser {
         }
 
         else if (eo != null){
-            try {
-                pathOrKey = pathOrKey
-                        .replaceAll("_value", eo.get().toString())
-                        .replaceAll("_parent", eo.getParentKey());
-                if (value==null) {
+                try {
+                    pathOrKey = pathOrKey
+                            .replaceAll("_value", eo.get().toString())
+                            .replaceAll("_parent", eo.getParentKey());
                     value = ScalarConverter.toString(eo.get(pathOrKey));
+                } catch (Exception e) {
                     if (value == null) {
-                        value = "!! not found '" + pathOrKey + "' in '" + eo.getPathAsString() + "'!!";
+                        eo.debug(e.getMessage());
+                        value = "!!" + e.getMessage() + "!!";
                     }
                 }
-                else {
-                    System.out.println("Default value");
-                }
-            } catch (Exception e) {
-                eo.debug(e.getMessage());
-                value = "!!" + e.getMessage() + "!!";
-            }
         }
         else {
             value = "!!Could not find path '" + pathOrKey + "'!!";

@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
 
@@ -75,7 +76,14 @@ public class ExecutorCallImpl implements ExecutorCall {
             if (!call.localFilter(sourceEntry)) {
                 continue;
             }
-            Object value = call.execute(sourceEntry);
+            Object value = null;
+            try {
+                value = call.execute(sourceEntry);
+            }
+            catch(EoException e) {
+                value = e.getMessage();
+                eo.error(e.getMessage());
+            }
             if (call.getInTemplate()) {
                 templateResult.append(value);
             }

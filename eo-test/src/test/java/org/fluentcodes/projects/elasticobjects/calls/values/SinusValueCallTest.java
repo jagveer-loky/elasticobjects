@@ -75,6 +75,7 @@ public class SinusValueCallTest {
     /**
      * Basic Wiki Example
      */
+    @Ignore
     @Test
     public void givenCallSinusValue_thenInputValueIsReplaced() {
         EO eo = TestProviderJsonCalls.CALL_SINUS_VALUE.createMapEo();

@@ -1,0 +1,75 @@
+<h3>Json Calls</h3>
+
+<p>
+    One can give a remote user access to a json file which content will automatically parsed,
+    when defining an configurations entry in
+    JsonConfig.json. Basically its the same than the FileConfig.json
+</p>
+ <p>Here some examples of reading file content to EO with the following two files:
+ </p>
+
+ <ul>
+     <li><a href="/config/JsonConfig/list.json">list.json</a></li>
+     <li><a href="/config/JsonConfig/map.json">map.json</a></li>
+ </ul>
+
+
+ <h4>map.json</h4>
+ <p>
+ In the following example a path "x/y/z" will be specified of type "JsonReadCall".
+ </p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+        "(JsonReadCall)x/y/z":{
+            "configKey":"map.json"
+        },
+        "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+ <p>
+If you click, you will see the values of <a href="/config/JsonConfig/map.json">map.json</a> is set to "x/y/z" since
+     your role "guest" with the generic interface is in the read permissions.
+ </p>
+<p>
+ If you remove "_serializationType" you can see the hidden fields used by EO, for example the duration of
+ this call.
+</p>
+
+<h4>map.json as Object</h4>
+<p>
+    In the following example a path "xyz" will be specified of type "JsonReadCall" with the targetPath.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+        "(BasicTest)xyz":{},
+        "(JsonReadCall).":{
+            "configKey":"map.json",
+            "targetPath":"xyz"
+        }
+        "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+    If you click, you will see the content is set as the object BasicTest.
+</p>
+
+<h4>list.json</h4>
+<p>
+    In the following example a path "x/y/z" will set with the json content.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+        "(JsonReadCall)x/y/z":{"configKey":"list.json"},
+        "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+    If you click, you will see the content is set a list.
+</p>
+
+
+
+

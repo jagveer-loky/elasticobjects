@@ -72,21 +72,15 @@ public class WebEoGet {
         return (String) eo.get(PathElement.TEMPLATE);
     }
 
-    @RequestMapping(value = "/config/{selectedItem:.+}", method = RequestMethod.GET)
+    @RequestMapping(value = "/configs/{selectedItem:.+}.html", method = RequestMethod.GET)
     @ResponseBody
     public String createConfigStartPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
-        eo.set(selectedItem, "selectedItem");
-
-        ConfigKeysCall configKeysCall = new ConfigKeysCall(selectedItem.replaceAll(".html$", ""));
-        List entries = configKeysCall.execute(eo);
-        EO child = eo.setEmpty("navigationItem");
-        for (Object entry: entries) {
-            child.set("/config/" + selectedItem.replaceAll(".html$", "") + "/" + entry, (String) entry);
-        }
-        eo.addCall(new TemplateResourceCall("ExamplesPage.html"));
+        eo.set(selectedItem + ".html", "selectedItem");
+        eo.set(".*", "configFilter");
+        eo.set(selectedItem, "configType");
+        eo.addCall(new TemplateResourceCall("ConfigsStartPage.html"));
         eo.execute();
         return (String) eo.get(PathElement.TEMPLATE);
     }
-
 }

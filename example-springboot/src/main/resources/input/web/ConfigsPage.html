@@ -1,18 +1,8 @@
-$[(ConfigKeysCall)configurationList configType="eo->configType." configFilter="eo->configFilter."/]
 $[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected."/]
-
 $[(TemplateResourceCall). configKey="Header.html"/]
     <header class="entry-header">
         <div id="rootNav">
-            <input type="text" value="$[configFilter]" onchange="
-            var newLocation = window.location + 'x';
-            document.location.href = newLocation.replace(/=.*/, '=' + this.value);
-            "/>
-            <ul>
-            $[(TemplateCall)/configurationList/*]
-                <li><a href="/config/$[/configType]/$[_value]?configFilter=$[/configFilter]">$[_value]</a></li>
-            $[/]
-            </ul>
+            $[(TemplateResourceCall). configKey="ConfigsNavigation.html"/]
         </div>
     </header>
 
@@ -21,26 +11,28 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         <p>
         $[configuration/0/description| No Description provided!]
         </p>
-
         $[(TemplateCall). condition="eo->configType. eq TemplateConfig" sourcePath="configuration/0"]
+        <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/src/$[subModule|main]/resources/$[filePath]/$[fileName]">$[fileName] on Github</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/src/$[subModule|main]/resources/$[filePath]/$[fileName]">$[fileName]</a>
             </li>
         </ul>
         $[/]
 
         $[(TemplateCall). condition="eo->configType. eq FileConfig" sourcePath="configuration/0"]
+        <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/src/$[subModule|main]/resources/$[filePath]/$[fileName]">$[fileName] on Github</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/src/$[subModule|main]/resources/$[filePath]/$[fileName]">$[fileName]</a>
             </li>
         </ul>
         $[/]
 
         $[(TemplateCall). condition="eo->configType. eq ModelConfig" sourcePath="configuration/0"]
+        <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elasticObjects]/src/$[subModule|main]/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey].java">$[modelKey].java Github</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elastic-objects]/src/main/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey].java">$[modelKey].java</a>
             </li>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elasticObjects]/src/$[subModule|main]/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">$[modelKey]Test.java on Github</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elastic-objects]/src/test/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">$[modelKey]Test.java</a>
             </li>
         </ul>
             <h4>Fields</h4>

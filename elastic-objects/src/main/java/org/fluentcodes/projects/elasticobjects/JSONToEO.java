@@ -13,6 +13,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -412,11 +413,15 @@ public class JSONToEO {
             case '[':
                 if (rawFieldName != null) {// List value
                     PathElement element = new PathElement(rawFieldName, eoParent, new ArrayList());
+
                     EO child = new EoChild(element);
                     mapList(child);
                     return child;
                 }
                 else {
+                    if (!eoParent.isList()) {
+                        ((EoChild) eoParent).setRootModels("List");
+                    }
                     mapList(eoParent); // start parsing
                     return eoParent;
                 }

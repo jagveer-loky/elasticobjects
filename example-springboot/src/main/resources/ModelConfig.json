@@ -1,6 +1,6 @@
 {
   "TheGreetingCall": {
-    "module": "elastic-objects",
+    "module": "example-springboot",
     "subModule": "main",
     "description": "An example for a simple call with a field.",
     "modelKey": "TheGreetingCall",

@@ -30,14 +30,18 @@
     <dependencies>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-            <artifactId>elastic-objects</artifactId>
+            <artifactId>eo-test</artifactId>
             <version>0.2.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-            <artifactId>eo-test</artifactId>
+            <artifactId>eo-xlsx</artifactId>
             <version>0.2.1-SNAPSHOT</version>
-            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.fluentcodes.projects.elasticobjects</groupId>
+            <artifactId>eo-db</artifactId>
+            <version>0.2.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

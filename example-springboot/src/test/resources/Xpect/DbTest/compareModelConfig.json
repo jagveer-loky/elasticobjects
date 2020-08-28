@@ -1,0 +1,40 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbQueryCall",
+    "superKey": "ListCall",
+    "(ArrayList)fieldKeys": {
+      "0": "rowHead",
+      "1": "rowStart",
+      "2": "rowEnd",
+      "3": "length",
+      "4": "filter",
+      "5": "configKey",
+      "6": "sourcePath",
+      "7": "targetPath",
+      "8": "models",
+      "9": "condition",
+      "10": "localCondition",
+      "11": "overwrite",
+      "12": "logLevel",
+      "13": "duration",
+      "14": "inTemplate"
+    },
+    "eoParams": {
+      "(ArrayList)scope": {
+        "(Scope)0": "ALL"
+      },
+      "create": true,
+      "(ShapeTypes)shapeType": "CALL_BEAN",
+      "modelConfigKey": "DbQueryConfig"
+    },
+    "packageGroup": "calls",
+    "module": "actions-db",
+    "subModule": "main",
+    "key": "DbQueryCall",
+    "description": "Executes a stored sql query.",
+    "naturalId": "DbQueryCall",
+    "author": "Werner Diwischek"
+  }
+}

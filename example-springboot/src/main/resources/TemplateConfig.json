@@ -2,123 +2,222 @@
   "ConfigsPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "ConfigsPage.html",
     "fileName": "ConfigsPage.html",
     "filePath": "input/web",
-    "description": "The config template loading a config and show it's properties."
+    "description": "The config template loading a config and show it's properties.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "ConfigsStartPage.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "ConfigsStartPage.html",
+    "filePath": "input/web",
+    "description": "The config start page template.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "ContentPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "ContentPage.html",
     "fileName": "ContentPage.html",
     "filePath": "input/web",
-    "description": "The content template loading a content template file in the content part without navigation."
+    "description": "The content template loading a content template file in the content part without navigation.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "ExamplesPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "ExamplesPage.html",
     "fileName": "ExamplesPage.html",
     "filePath": "input/web",
-    "description": "The examples template loading an examples template file in the content part together with navigation."
+    "description": "The examples template loading an examples template file in the content part together with navigation.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "ConfigsNavigation.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "ConfigsNavigation.html",
+    "filePath": "input/web",
+    "description": "The Wordpress header part",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "Header.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Header.html",
     "fileName": "Header.html",
     "filePath": "input/web",
-    "description": "The Wordpress header part"
+    "description": "The Wordpress header part",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "Footer.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Footer.html",
     "fileName": "Footer.html",
     "filePath": "input/web",
-    "description": "The Wordpress footer part"
+    "description": "The Wordpress footer part",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
 
   "Impressum.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Impressum.html",
     "fileName": "Impressum.html",
     "filePath": "input/web/docs",
-    "description": "The impressum content."
+    "description": "The impressum content.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "Home.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Home.html",
     "fileName": "Home.html",
     "filePath": "input/web/docs",
-    "description": "The home content."
+    "description": "The home content.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "Index.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Index.html",
     "fileName": "Home.html",
     "filePath": "input/web/docs",
-    "description": "The home content with a different url."
+    "description": "The home content with a different url.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "index.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "index.html",
     "fileName": "Home.html",
     "filePath": "input/web/docs",
-    "description": "The home content with the default url."
+    "description": "The home content with the default url.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "ModelConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "ModelConfig.html",
     "fileName": "ModelConfig.html",
     "filePath": "input/web/configs",
-    "description": "Entry content for ModelConfig."
+    "description": "Entry content for ModelConfig.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "FieldConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "FieldConfig.html",
     "fileName": "FieldConfig.html",
     "filePath": "input/web/configs",
-    "description": "Entry content for FieldConfig."
+    "description": "Entry content for FieldConfig.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "FileConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "FileConfig.html",
     "fileName": "FileConfig.html",
     "filePath": "input/web/configs",
-    "description": "Entry content for FileConfig."
+    "description": "Entry content for FileConfig.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "TemplateConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configKey": "TemplateConfig.html",
     "fileName": "TemplateConfig.html",
     "filePath": "input/web/configs",
-    "description": "Entry content for TemplateConfig."
+    "description": "Entry content for TemplateConfig.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "ExamplesStart.html": {
     "module": "example-springboot",
     "subModule": "main",
     "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
-    "configKey": "ExamplesStart.html",
     "fileName": "ExamplesStart.html",
-    "filePath": "input/web/examples"
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "TheGreetingCall.html": {
     "module": "example-springboot",
     "subModule": "main",
     "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
-    "configKey": "TheGreetingCall.html",
     "fileName": "TheGreetingCall.html",
-    "filePath": "input/web/examples"
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "FileCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "fileName": "FileCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "JsonCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for files in json format.",
+    "fileName": "JsonCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "ListCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for files in list format.",
+    "fileName": "ListCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "ExcelCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for files in Excel format.",
+    "fileName": "ExcelCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "DbCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for Db access.",
+    "fileName": "DbCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   }
-
 }

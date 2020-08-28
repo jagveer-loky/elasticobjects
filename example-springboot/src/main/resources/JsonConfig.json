@@ -1,0 +1,22 @@
+{
+  "map.json": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "map.json",
+    "filePath": "input/json",
+    "description": "Example simple map which has the same field names as BasicTest, so its mapable.",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "list.json": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "list.json",
+    "filePath": "input/json",
+    "description": "A simple list as example.",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  }
+}

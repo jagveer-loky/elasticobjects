@@ -1,10 +1,39 @@
 {
   "Svg.html": {
-    "module": "eo-example-springboot",
+    "module": "example-springboot",
     "subModule": "main",
-    "configKey": "Svg.html",
     "fileName": "Svg.html",
     "filePath": "input/web",
-    "description": "The svg part of the page for responsiveness."
+    "description": "The svg part of the page for responsiveness.",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "public.txt": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "public.txt",
+    "filePath": "input/files",
+    "description": "Example with restricted permission for read.",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "secret.txt": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "secret.txt",
+    "filePath": "input/files",
+    "description": "Example with restricted permission for read.",
+    "rolePermissions": {
+      "read": "admin"
+    }
+  },
+  "withoutPermissions-public.txt": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "public.txt",
+    "filePath": "input/files",
+    "description": "Public example with no permissions."
   }
 }

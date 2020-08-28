@@ -1,31 +1,47 @@
- <h3>TheGreetingCall</h3>
- <p>Since every tutorial starts with a "Hello World" example,
-     a
-     <a href="/config/ModelConfig/TheGreetingCall">TheGreetingCall.java</a> shows
-     basic principles of a call method.
-     Basically it's a bean with one special value "greeting".
-     The name will be set by the value of EO refered by "sourcePath".
+<blockquote style="font-size:11px">
+    <p>A good architecture allows you to defer framework decisions.  A good architecture allows frameworks to act as plugins to the app.</p>
+    <p><cite>Uncle Bob Martin</cite></p>
+</blockquote>
+
+<h3>TheGreetingCall</h3>
+ <p>Every tutorial starts with a "Hello World". So I do.
+     I've written a simple call
+     <a href="/config/ModelConfig/TheGreetingCall">TheGreetingCall.java</a>  to show
+     basic principles.
+ </p>
+ <p>
+     The "greeting" should be modifiable, so it contains such a field.
+     Furthermore one or several names should be used, so it will provided by EO and refered by "sourcePath".
  </p>
 
  <p>
-     For such a simple call bean class, one just define
+     To integrate the call into Eo one has to specify
  </p>
 
  <ul>
-     <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elasticObjects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/TheGreetingCall.java">Java-Class with execute</a>
-     <li><a href="/config/ModelConfig/TheGreetingCall">a ModelConfig entry</a></li>
-     <li><a href="/config/FieldConfig/greeting">a FieldConfig entry.</a></li>
+     <li><a href="/config/ModelConfig/TheGreetingCall">a ModelConfig entry for "TheGreetingCall" and </a></li>
+     <li><a href="/config/FieldConfig/greeting">a FieldConfig entry for "greeting".</a></li>
  </ul>
- <p>Here there are three editable examples. For other tests you can have a
- look at the <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elasticObjects/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/TheGreetingCallTest.java">junit test</a>.
+
+ <p>The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/TheGreetingCall.java">Java-Class</a>
+     is a pure java, a pojo.
+     No annotation magic for a framework like the one I use on these pages.
+ </p>
+ <p>
+     The configurations are also just straightforward in JSON itself with a simple naming convention.
+ </p>
+ <p>
+     You find three editable examples in the rest of the page. For other tests you can have a
+ look at the <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/TheGreetingCallTest.java">junit tests</a>.
+     The unit tests show the direct java usage within EO without typed JSON.
  </p>
 
  <h4>Empty call</h4>
  <p>
- One can send any json getting the json as a response.
+ In the following example a path "xyz" will be specified of type "TheGreetingCall".
  </p>
 <form action="/eo-form" method="post">
-    <textarea name="eo">{
+    <textarea name="eo" style="height:120px">{
         "(TheGreetingCall)xyz":{},
         "_serializationType":"STANDARD"
 }</textarea>
@@ -37,7 +53,7 @@ If you click, you will see "Hi Stranger!" is set to  "xyz".
  If you remove "_serializationType" you can see the hidden fields used by EO, for example the duration of
  this call.
  <p>
-All values in the curly brackets will be mapped to the attribute values of <a href="/config/ModelConfig/TheGreetingCall">TheGreetingCall.java</a>.
+All values in the curly brackets of "xyz" will be mapped to the field values of <a href="/config/ModelConfig/TheGreetingCall">TheGreetingCall.java</a>.
  </p>
 
  <h4>With values</h4>
@@ -46,7 +62,7 @@ All values in the curly brackets will be mapped to the attribute values of <a hr
      to the fieldName "abc"
  </p>
  <form action="/eo-form" method="post">
-    <textarea name="eo">{
+    <textarea name="eo"  style="height:210px">{
         "abc":"Guru",
         "(TheGreetingCall)xyz":{
             "sourcePath":"abc",
@@ -62,10 +78,10 @@ All values in the curly brackets will be mapped to the attribute values of <a hr
 
  <h4>Several Names</h4>
  <p>
-     If the source is a list, automatically a list of calls will be done.
+     If the source is a list, automatically a list of calls will be done. "sourcePath" containing "*" triggers a loop for all names.
  </p>
  <form action="/eo-form" method="post">
-    <textarea name="eo">{
+    <textarea name="eo" style="height:210px">{
         "abc":["Guru", "Motherfucker", "Saint"],
         "(TheGreetingCall)xyz":{
             "sourcePath":"abc/*",
@@ -76,7 +92,7 @@ All values in the curly brackets will be mapped to the attribute values of <a hr
      <input type="submit" value="post"/>
  </form>
  <p>
-     If you click, you will see a list of greetings is set to "xyz".
+     If you click, you will see a list of greetings beneath "xyz".
  </p>
 
 

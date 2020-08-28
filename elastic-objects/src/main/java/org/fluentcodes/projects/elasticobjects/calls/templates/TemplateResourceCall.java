@@ -3,6 +3,10 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.RolePermissions;
+
+import java.security.Permission;
 
 /**
  * Created by werner.diwischek on 26.08.20.
@@ -76,8 +80,13 @@ public class TemplateResourceCall extends TemplateCall {
     public String execute(EO eo)  {
         String replacedConfig = new ParserEoReplace(configKey).parse(eo);
         TemplateConfig config = eo.getConfigsCache().findTemplate(replacedConfig);
-        super.setContent(config.read());
-        return super.execute(eo);
+        if (config.hasPermissions(PermissionType.EXECUTE, eo.getRoles())) {
+            super.setContent(config.read());
+            return super.execute(eo);
+        }
+        else {
+            return "No permission to execute '" + config.getNaturalId() + "' with roles '" + eo.getRoles() + "'.";
+        }
     }
 
 }
