@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
 import au.com.bytecode.opencsv.CSVReader;
+import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.CEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfig;
@@ -74,7 +75,8 @@ public class CsvConfig extends ListConfig {
 
     public List<List<String>> read() {
         resolve();
-        URL url = getFileConfig().getUrl();
+        URL url = getFileConfig().findUrl();
+        //System.out.println("CSV " + url.toString());
         CSVReader reader = null;
         try {
             reader = new CSVReader(new InputStreamReader(url.openStream()), getFieldDelimiter().charAt(0));

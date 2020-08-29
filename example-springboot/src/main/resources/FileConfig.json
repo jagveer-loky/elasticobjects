@@ -35,5 +35,110 @@
     "fileName": "public.txt",
     "filePath": "input/files",
     "description": "Public example with no permissions."
+  },
+  "BasicTest.csv": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "fileKey": "BasicTest.csv",
+    "fileName": "BasicTest.csv",
+    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest.",
+    "filePath": "input/lists"
+  },
+  "BasicTest.xlsx": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "filePath": "input/lists",
+    "fileName": "BasicTest.xlsx",
+    "description": "A sample xlsx file separated file with 3x3 entries and a header which could be mapped to BasicTest."
+  },
+  "ExamplesStart.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "fileName": "ExamplesStart.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "TheGreetingCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "fileName": "TheGreetingCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "FileCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "fileName": "FileCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "JsonCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for files in json format.",
+    "fileName": "JsonCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "TemplateCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post template examples.",
+    "fileName": "TemplateCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "ConfigsCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for the configuration calls.",
+    "fileName": "ConfigsCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "ListCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for files in list format.",
+    "fileName": "ListCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "ExcelCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for files in Excel format.",
+    "fileName": "ExcelCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "DbCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Some small post examples for Db access.",
+    "fileName": "DbCall.html",
+    "filePath": "input/web/examples",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   }
 }

@@ -1,10 +1,10 @@
 {
   "ListSimple.json": {
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
-    "naturalId": "ListSimple.json",
     "jsonKey": "ListSimple.json",
-    "fileName": "input/calls/list-simple/ListSimple.json",
+    "filePath": "input/calls/list-simple",
+    "fileName": "ListSimple.json",
     "description": "Simple list equivalent for ListSimple.csv.",
     "rolePermissions": {
       "read": "guest",
@@ -12,11 +12,12 @@
     }
   },
   "BasicTest.json": {
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "BasicTest.json",
     "jsonKey": "BasicTest.json",
-    "fileName": "input/assets/bt/BasicTest.json",
+    "filePath": "input/assets/bt",
+    "fileName": "BasicTest.json",
     "description": "Simple data for the BasicTest.",
     "rolePermissions": {
       "read": "guest",
@@ -24,12 +25,13 @@
     }
   },
   "target.json": {
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "naturalId": "target.json",
     "jsonKey": "target.json",
+    "filePath": "$[@TMP]",
     "fileName": "target.json",
-    "description": "A sample target json file with tmp placeholder.",
-    "filePath": "$[TMP]/elastic-objects"
+    "description": "A sample target json file with tmp placeholder."
+
   }
 }

@@ -18,7 +18,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class FileConfigTest {
     public static final String FILE_SOURCE_TXT = ProviderFileContent.FILE_SIMPLE.getConfigKey();
-    public static final String FILE_TEST_CACHED = ProviderFileContent.FILE_SIMPLE_CACHED.getConfigKey();
 
     @Test
     public void createByModelConfig_throwsException()  {

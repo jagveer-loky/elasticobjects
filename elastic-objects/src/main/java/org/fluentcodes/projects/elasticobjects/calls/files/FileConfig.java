@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
@@ -63,9 +64,14 @@ public class FileConfig extends ConfigResourcesImpl {
         return new ParserTemplate(hostPath + "" + filePath + "/" + fileName).parse();
     }
 
-    public URL findUrl(String fileName)  {
+    public URL findUrl()  {
+        URL url = createUrl();
+        final String localFileName = url.toString().replaceAll("^file:","");
+        if (new File(localFileName).exists()) {
+            return url;
+        }
         try {
-            Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(fileName.replaceAll("^/+", ""));
+            Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(localFileName);
             while (urls.hasMoreElements()) {
                 return urls.nextElement();
             }
@@ -77,20 +83,32 @@ public class FileConfig extends ConfigResourcesImpl {
     }
 
     public URL getUrl()  {
-        if (fileName == null || fileName.equals("")) {
-            throw new EoException("No name in file provided!");
+        if (!hasFileName()) {
+            throw new EoException("No name in file provided '" + getNaturalId() + "'!");
         }
-        if (FileConfig.CLASSPATH.equals(filePath)) {
-            return this.findUrl(this.fileName);
-        } else if (filePath.startsWith(FileConfig.CLASSPATH)) {
-            return this.findUrl(filePath.replace(FileConfig.CLASSPATH, "") + "/" + this.fileName);
-        } else {
-            String urlString = getUrlPath();
-            try {
-                return new URL(new ParserTemplate(urlString).parse());
-            } catch (MalformedURLException e) {
-                throw new EoException(e);
-            }
+        URL url = createUrl();
+        String urlString = getUrlPath();
+        try {
+            String replaceUrl = new ParserTemplate(urlString).parse();
+            return new URL(replaceUrl);
+        } catch (MalformedURLException e) {
+            throw new EoException(e);
+        }
+    }
+
+    public URL createUrl()  {
+        if (fileName == null || fileName.equals("")) {
+            throw new EoException("No name in file provided '" + getNaturalId() + "'!");
+        }
+        if (filePath == null || filePath.equals("")) {
+            throw new EoException("No path in file provided '" + getNaturalId() + "'!");
+        }
+        String urlString = getUrlPath();
+        try {
+            String replaceUrl = new ParserTemplate(urlString).parse();
+            return new URL(replaceUrl);
+        } catch (MalformedURLException e) {
+            throw new EoException(e);
         }
     }
 
@@ -98,12 +116,22 @@ public class FileConfig extends ConfigResourcesImpl {
         if (hasCachedContent()) {
             return getCachedContent();
         }
-        URL url = getUrl();
-        String content = new IOString().setFileName(url.getFile()).read();
-        if (isCached()) {
-            setCachedContent(content);
+        URL url = createUrl();
+        String content = null;
+        try {
+            if (url.toString().startsWith("file:")) {
+                content = new IOString().setFileName(url.getFile()).read();
+            } else {
+                throw new EoException("Only local files are implemented!");
+            }
+            if (isCached()) {
+                setCachedContent(content);
+            }
+            return content;
         }
-        return content;
+        catch (Exception e) {
+            throw new EoException(e);
+        }
     }
 
     /**
@@ -116,32 +144,8 @@ public class FileConfig extends ConfigResourcesImpl {
         if (isCached()) {
             throw new EoException("A fileCached file could not persisted!");
         }
-        URL url = getUrl();
-        File filePath = new File(url.getPath());
-        if (!filePath.getParentFile().exists()) {
-            filePath.getParentFile().mkdirs();
-        }
+        URL url = createUrl();
         new IOString().setFileName(url.getFile()).write(content);
-    }
-
-    public void write(URL url, String content)  {
-        BufferedWriter out = null;
-        try {
-            out = new BufferedWriter(new FileWriter(url.getFile()));
-            out.write(content);
-        }
-        catch (Exception e) {
-            throw new EoException(e);
-        }
-        finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    throw new EoException(e);
-                }
-            }
-        }
     }
 
     /**

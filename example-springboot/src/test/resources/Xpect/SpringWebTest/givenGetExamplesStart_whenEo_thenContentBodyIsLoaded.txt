@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-US" class="js svg background-fixed">
 <head>
@@ -9,7 +8,7 @@
 
     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
     </script>
-    <title>Elastic Objects: !!Could not move to path 'selectedItem' because key 'selectedItem' does not exist on '/'.!!</title>
+    <title>Elastic Objects: ExamplesStart.html</title>
     <link rel="dns-prefetch" href="http://fonts.googleapis.com/">
     <link rel="dns-prefetch" href="http://s.w.org/">
     <link href="https://fonts.gstatic.com/" crossorigin="" rel="preconnect">
@@ -142,85 +141,177 @@
 
     <header class="entry-header">
         <div id="rootNav">
-            
-<input type="text" value="Scope" onchange="
-            var newLocation = window.location + 'x';
-            document.location.href = newLocation.replace(/=.*/, '=' + this.value);
-            "/>
-<ul>
-    
-    <li><a href="/config/ModelConfig/Scope?configFilter=Scope">Scope</a></li>
-    
-</ul>
+            <ul>
+                <li><a href="TheGreetingCall.html">TheGreetingCall</a></li>
+                <li><a href="FileCall.html">FileCall</a></li>
+                <li><a href="TemplateCall.html">TemplateCall</a></li>
+                <li><a href="JsonCall.html">JsonCall</a></li>
+                <li><a href="ConfigsCall.html">ConfigsCall</a></li>
+                <li><a href="ListCall.html">ListCall</a></li>
+                <li><a href="ExcelCall.html">ExcelCall</a></li>
+                <li><a href="DbCall.html">DbCall</a></li>
+            </ul>
         </div>
     </header>
-
     <div class="entry-content" id="entry-content">
-        <h3>Scope</h3>
-        <p>
-        Enum with different Scopes to environment specific caches.
-        </p>
-        
-
-        
-
-        
-
-        
-        <h4>Github</h4>
-        <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java">Scope.java</a>
-            </li>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/test/java/org/fluentcodes/projects/elasticobjects/models/ScopeTest.java">ScopeTest.java</a>
-            </li>
-        </ul>
-            <h4>Fields</h4>
-            
-            
-            
-        
+         <h3>Examples</h3>
+ <p>The examples are for the generic end point <b>eo-form</b> in
+ <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">WebEo.java</a>
+ using just plain html form with an editable text field.
+ </p>
+ <p>
+ It demonstrates the communication from your browser as client to the server.
+ </p>
 
 
-        
+ <h4>Empty call</h4>
+ <p>
+ One can send any json getting the json as a response.
+ </p>
+<form action="/eo-form" method="post">
+    <textarea name="eo">{}</textarea>
+    <input type="submit" value="post"/>
+</form>
+ <p>
+ As a result one receive a json with some additional special fields from elastic objects:
+ </p>
+ <ul>
+     <li>_rootmodel: Set the model of the root</li>
+     <li>_logLevel: Default logLevel to fill log information</li>
+     <li>_calls: List of calls found in Json</li>
+ </ul>
+<p>For elastic objects there this is an empty map object.</p>
 
-        <h4>Configuration</h4>
-        <xmp style="background-color:lightgray;border:1px solid darkgray;">{
-  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-  "modelKey": "Scope",
-  "eoParams": {
-    "(ArrayList)scope": {
-      "(Scope)0": "ALL"
-    },
-    "create": false,
-    "(ShapeTypes)shapeType": "SCALAR"
-  },
-  "packageGroup": "models",
-  "module": "elastic-objects",
-  "subModule": "main",
-  "key": "Scope",
-  "description": "Enum with different Scopes to environment specific caches.",
-  "naturalId": "Scope",
-  "author": "Werner Diwischek",
-  "configuration": {
-    "0": {
-    }
+ <h4>Special fields</h4>
+ <p>Those "informational" fields without object mapping are defined static in
+ <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/PathElement.java">PathElement.java</a>
+ and used by Elastic Objects internally.
+ </p>
+ <p>
+     The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">generic webserver interface</a>
+     defined here has no
+ </p>
+     <ul>
+         <li>object mapping,</li>
+         <li>functional meaning</li>
+         <li>or error handling.</li>
+ </ul>
+ <p>It just
+     deliver the posted string value to Elastic Objects.
+     These fields replace these functionalities often provided by an application framework
+     with communication protocols like REST or SOAP.
+ </p>
+ <p>
+     One advantage is that one can write tests without starting any application server thing. Further more
+     the client is free to define any structure he needs.
+ </p>
+ <p>
+     One send a serialized object and receive "the same" serialized but enriched object. Thats all.
+ </p>
+
+ <h4>Log Level</h4>
+ <p>One can change the <i>_logLevel</i> to receive some more information. </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"_logLevel": "DEBUG"}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <p>One get then some feedback from the server in the logs list.</p>
+
+ <h4>Return format</h4>
+ <p>One can change the serialization type to json to return plan json without eo extensions.
+     Default value for <i>_serializationType</i> is "EO". </p>
+<p>
+    The following example will return an empty json object due to <i>_serializationType</i> "STANDARD".
+</p>
+
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"_serializationType": "STANDARD"}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h4>Mapping To Objects</h4>
+ <p>
+ A mapping will be defined by keys defined in the <a href="/config/ModelConfig.html">Model Configurations</a>.
+ </p>
+ <p>
+     Generally the model keys will be prepended to the field key except the root models.
+ </p>
+ <h5>Root Models</h5>
+ <p>
+     The <i>_rootModels</i> entry refers to the type, the root is set.
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"_rootmodel":"List,Double", "0":1,"1":2}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h5>Model Prefix</h5>
+ <p>
+     The mapping for any sub field could be defined by a java casting type expression:
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{"(List,Double)items":{"0":1,"1":2}}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h5>Standard JSON</h5>
+ <p>
+     Standard json will be mapped straightforward:
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">[1,2]</textarea>
+     <input type="submit" value="post"/>
+ </form>
+
+ <h4>Functionality</h4>
+ <p>
+     All models that implements the <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java">Call.java interface</a>
+     will be set to the <i>_call</i> list and could be exectuted.
+ </p>
+ <p>
+     The implementation could be rather trivial as in the example with
+     <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java">SinusValueCall.java</a>.
+ </p>
+ <p>
+     The following example will read the value from source and set the target value with the computed sinus.
+ </p>
+
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{
+  "(Double)source":1,
+  "(SinusValueCall)target": {
+    "sourcePath": "/source"
   }
-}</xmp>
+}</textarea>
+     <input type="submit" value="post"/>
+ </form>
 
-        <h4>This Page Post Version</h4>
-        The page calls with url can also created by the client side with the generic post end point.
-        <form action="/eo-form" method="post">
-            <textarea name="eo">{
-            "asTemplate":true,
-            "configFilter": "Scope",
-            "configType": "ModelConfig",
-            "configSelected": "Scope",
-            "(TemplateResourceCall)call": {
-                "configKey":"ConfigsPage.html"
-            }
-         }</textarea>
-            <input type="submit" value="post"/>
-        </form>
+ <h4>Templates</h4>
+<p>
+    A special call are <a href="/config/TemplateConfig.html">templates</a> where the content will be replaced by values or the result of other function calls.
+</p>
+ <p>
+     Every page you find here will interpreted by the template and partly include a generic post call for it.
+
+ </p>
+ <p>
+     The following code will "rerender" this page by a post call:
+ </p>
+ <form action="/eo-form" method="post">
+     <textarea name="eo">{
+         "asTemplate":true,
+         "navigationItem":{},
+         "selectedItem":"ExamplesStart.html",
+         "(TemplateResourceCall)call": {
+                "configKey":"ExamplesPage.html"
+         }
+}</textarea>
+     <input type="submit" value="post"/>
+ </form>
+ <p>Without the asTemplate parameter the json will be returned. But this is not very readable. </p>
+
+
        <hr/>
      </div>
 

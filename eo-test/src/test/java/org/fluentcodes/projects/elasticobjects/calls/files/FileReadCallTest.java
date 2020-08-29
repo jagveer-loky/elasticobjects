@@ -30,7 +30,7 @@ public class FileReadCallTest {
 
     @Test
     public void givenCallWithSourceTxtCached_whenExecuteCall_thenReturnContent()  {
-        final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_CACHED);
+        final FileReadCall call = new FileReadCall().setConfigKey("FileTestCached.txt");
         final String content = call.execute(ProviderRootTestScope.createEo());
         Assert.assertEquals(S_STRING, content);
     }

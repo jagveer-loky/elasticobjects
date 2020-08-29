@@ -72,7 +72,12 @@ public class WebEo {
                     .mapObject(eoAsString);
 
             eo.setRoles(Arrays.asList(roles));
-            eo.execute();
+            try {
+                eo.execute();
+            }
+            catch (Exception e) {
+                return e.getMessage();
+            }
             eo.debug("'/eo-form' is executed ");
             if (((EoChild)eo).hasEo("asTemplate")) {
                 return (String)eo.get(PathElement.TEMPLATE);

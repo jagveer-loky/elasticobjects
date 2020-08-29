@@ -19,6 +19,14 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         </ul>
         $[/]
 
+        $[(TemplateCall). condition="eo->configType. eq JsonConfig" sourcePath="configuration/0"]
+        <h4>Github</h4>
+        <ul>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/src/$[subModule|main]/resources/$[filePath]/$[fileName]">$[fileName]</a>
+            </li>
+        </ul>
+        $[/]
+
         $[(TemplateCall). condition="eo->configType. eq FileConfig" sourcePath="configuration/0"]
         <h4>Github</h4>
         <ul>

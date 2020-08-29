@@ -2,6 +2,7 @@
   "BasicTest.csv": {
     "module": "eo-test",
     "subModule": "main",
+    "naturalId": "BasicTest.csv",
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "listParams": {

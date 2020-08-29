@@ -1,22 +1,15 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "fileName": "input/assets/bt/BasicTest.csv",
-    "filePath": "classpath",
+    "fileName": "BasicTest.csv",
+    "filePath": "input/assets/bt",
     "hostKey": "localhost",
     "cached": false,
     "naturalId": "BasicTest.csv"
   },
   "1": {
-    "fileName": "input/file/source.txt",
-    "filePath": "classpath",
-    "hostKey": "localhost",
-    "cached": false,
-    "naturalId": "classpath_source.txt"
-  },
-  "2": {
-    "fileName": "input/calls/file-simple/FileTest.txt",
-    "filePath": "classpath",
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
@@ -25,60 +18,49 @@
     },
     "naturalId": "FileTest.txt"
   },
-  "3": {
-    "fileName": "input/calls/file-simple/FileTest.txt",
-    "filePath": "classpath",
+  "2": {
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
     "cached": true,
     "naturalId": "FileTestCached.txt"
   },
-  "4": {
-    "fileName": "input/calls/list-simple/ListSimple.csv",
-    "filePath": "classpath",
+  "3": {
+    "fileName": "ListSimple.csv",
+    "filePath": "input/calls/list-simple/",
     "hostKey": "localhost",
     "cached": false,
     "naturalId": "ListSimple.csv"
   },
-  "5": {
-    "fileName": "input/file/source.txt",
-    "filePath": "classpath",
-    "hostKey": "localhost",
-    "cached": false,
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
-    },
-    "naturalId": "localhost:source.txt"
-  },
-  "6": {
+  "4": {
     "fileName": "result.string",
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
     "cached": false,
     "naturalId": "result.string"
   },
-  "7": {
+  "5": {
     "fileName": "resultWithMapPath.string",
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
     "cached": false,
     "naturalId": "resultWithMapPath.string"
   },
-  "8": {
+  "6": {
     "fileName": "target.csv",
-    "filePath": "$[TMP]/elastic-objects",
+    "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
     "naturalId": "target.csv"
   },
-  "9": {
+  "7": {
     "fileName": "target.txt",
-    "filePath": "$[TMP]/elastic-objects",
+    "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
     "naturalId": "target.txt"
   },
-  "10": {
+  "8": {
     "fileName": "fileName",
     "filePath": "path",
     "hostKey": "localhost",
@@ -91,12 +73,5 @@
       "execute": "superadmin"
     },
     "naturalId": "test:test"
-  },
-  "11": {
-    "fileName": "input/file/source.txt",
-    "filePath": "classpath/test",
-    "hostKey": "localhost",
-    "cached": false,
-    "naturalId": "test_source.txt"
   }
 }
