@@ -101,6 +101,10 @@
                         <ul id="top-menu" class="menu">
                             <li id="menu-item-14"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
+                                <a href="/Home.html">Home</a>
+                            </li>
+                            <li id="menu-item-14"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
                                 <a href="/examples/ExamplesStart.html">Examples</a>
                             </li>
                             <li></li>

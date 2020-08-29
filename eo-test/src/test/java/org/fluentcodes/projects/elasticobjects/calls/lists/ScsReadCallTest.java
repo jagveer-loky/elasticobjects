@@ -140,7 +140,7 @@ public class ScsReadCallTest {
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("0").get("testString")).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.getEo("0").get("testString")).isEqualTo("value1");
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(LinkedHashMap.class);
     }
 
@@ -154,7 +154,7 @@ public class ScsReadCallTest {
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("level0/0").get("testString")).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.getEo("level0/0").get("testString")).isEqualTo("value1");
         Assertions.assertThat(eo.getEo("level0/0").getModelClass()).isEqualTo(BasicTest.class);
     }
 }

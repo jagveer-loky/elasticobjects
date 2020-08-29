@@ -1,32 +1,11 @@
 {
-  "classpath_source.txt": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "classpath_source.txt",
-    "fileKey": "classpath_source.txt",
-    "fileName": "input/file/source.txt",
-    "description": "Local 'source.txt' definition with classpath.",
-    "filePath": "classpath"
-  },
-  "localhost:source.txt": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "localhost:source.txt",
-    "fileKey": "localhost:source.txt",
-    "fileName": "input/file/source.txt",
-    "description": "Local 'source.txt' definition with classpath.",
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
-    }
-  },
   "FileTest.txt": {
     "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "FileTest.txt",
+    "subModule": "main",
     "mapPath": "content",
     "fileKey": "FileTest.txt",
-    "fileName": "input/calls/file-simple/FileTest.txt",
+    "filePath": "input/calls/file-simple",
+    "fileName": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "cached": "false",
     "rolePermissions": {
@@ -36,56 +15,36 @@
   },
   "FileTestCached.txt": {
     "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "FileTestCached.txt",
+    "subModule": "main",
     "fileKey": "FileTestCached.txt",
-    "fileName": "input/calls/file-simple/FileTest.txt",
-    "description": "Local 'source.txt' definition.",
+    "filePath": "input/calls/file-simple",
+    "fileName": "FileTest.txt",
+    "description": "Local file with cache set true.",
     "cached": "true"
   },
   "target.txt": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "target.txt",
     "fileKey": "target.txt",
+    "filePath": "$[@TMP]",
     "fileName": "target.txt",
-    "description": "Target file definition",
-    "filePath": "$[TMP]/elastic-objects"
-  },
-  "test_source.txt": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "test_source.txt",
-    "fileKey": "test_source.txt",
-    "fileName": "input/file/source.txt",
-    "description": "source.txt on a path",
-    "filePath": "classpath/test"
+    "description": "Target file definition"
+
   },
   "ListSimple.csv": {
     "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "ListSimple.csv",
+    "subModule": "main",
     "fileKey": "ListSimple.csv",
-    "fileName": "input/calls/list-simple/ListSimple.csv",
-    "description": "A sample csv file with 2*2 values and a head as a source.",
-    "filePath": "classpath"
-  },
-  "BasicTest.csv": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "BasicTest.csv",
-    "fileKey": "BasicTest.csv",
-    "fileName": "input/assets/bt/BasicTest.csv",
-    "description": "A sample csv file with 2*2 values and a head as a source.",
-    "filePath": "classpath"
+    "filePath": "input/calls/list-simple/",
+    "fileName": "ListSimple.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source."
   },
   "target.csv": {
     "module": "elastic-objects",
     "subModule": "test",
-    "naturalId": "target.csv",
     "fileKey": "target.csv",
     "fileName": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
-    "filePath": "$[TMP]/elastic-objects"
+    "filePath": "$[@TMP]"
   }
 }

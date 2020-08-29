@@ -1,5 +1,59 @@
 <h3>Excel Calls</h3>
-<p>To be done....</p>
+<p>With the <a href="/config/ModelConfig/XlsxReadCall">ScsReadCall</a> one can read Excel files.
+ </p>
+<p>In the following examples the <a href="/config/FileConfig/BasicTest.xlsx">BasicTest.xlsx file</a> with <a href="/config/XlsxConfig/BasicTest.xlsx:test">properties</a>
+    is used.
+</p>
+<h4>Simple Call</h4>
 <p>
-    One can give a remote user access to a Excel file which content will automatically parsed stripped to a list
+    In the following example will read the file as a list of maps.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+   "(XlsxReadCall)values":{
+       "configKey":"BasicTest.xlsx:test"
+   },
+   "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+    Since the xlsx configuration defines "rowHead" with 0, the value entries will be mapped as a list of map entries using the first row as a key.
+</p>
+
+<h4>Setting Parameters</h4>
+<p>
+    In the following example will read the file as a list of lists with "rowHead" set to -1.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+   "(XlsxReadCall)values":{
+       "configKey":"BasicTest.xlsx:test",
+        "rowHead":-1,
+        "rowStart":0,
+        "rowEnd":2
+   },
+   "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+    The header row entry in  the csv configuration will ignored, the first value entry together with the header row will mapped as list of list.
+</p>
+
+<h4>Mapping to Class</h4>
+<p>
+    In the following example will map the values to an object.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+   "(List,BasicTest)values":{},
+   "(XlsxReadCall).":{
+       "configKey":"BasicTest.xlsx:test",
+       "targetPath":"values"
+   }
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
 </p>

@@ -1,0 +1,57 @@
+<h3>Template Calls</h3>
+<p>Templates are just files with special placeholders, which could be parsed. </p>
+<h4>This page</h4>
+<p>
+    You can create this page directly with this browser call:
+</p>
+<p>
+<form action="/eo-form" method="post">
+            <textarea name="eo" style="height:210px">{
+   "selectedItem": "TemplateCall.html",
+   "(TemplateResourceCall)call": {
+      "configKey":"ExamplesPage.html"
+   },
+   "asTemplate":true
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>
+
+<p>Here the <a href="config/TemplateConfig/ExamplesPage.html">ExamplesPage.html</a> will be loaded and
+when interpreted the <a href="config/TemplateConfig/TemplateCall.html">TemplateCall.html</a>
+</p>
+
+<h4>Simple Template</h4>
+<p>
+    With <a href="config/ModelConfig/TemplateCall">TemplateCall</a> on can directly send some content to the
+    server. Since it's a field, this is rather restriced.
+</p>
+<p>
+<form action="/eo-form" method="post">
+            <textarea name="eo" style="height:210px">{
+   "selectedItem": "TemplateCall.html",
+   "(TemplateCall)call": {
+      "content":"A simple call accessing '$[selectedItem]' "
+   },
+   "asTemplate":true
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>
+<h4>File access</h4>
+<p>
+    One can also embed calls in the template. Each call will have it's own permissions, it will be executed or give an error message.
+</p>
+
+<p>
+<form action="/eo-form" method="post">
+            <textarea name="eo" style="height:210px">{
+   "selectedItem": "TemplateCall.html",
+   "(TemplateCall)call": {
+      "content":"Content of public.txt: '$[(FileReadCall). configKey=\"public.txt\"/]'  -- Content of secret.txt: '$[(FileReadCall). configKey=\"secret.txt\"/]' "
+   },
+   "asTemplate":true
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>

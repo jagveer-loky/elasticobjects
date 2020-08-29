@@ -1,7 +1,8 @@
 {
   "ListSimple.csv": {
-    "module": "eo-csv",
-    "subModule": "test",
+    "module": "eo-test",
+    "subModule": "main",
+    "naturalId": "ListSimple.csv",
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "listParams": {
@@ -16,12 +17,17 @@
     "description": "A sample csv file with 2*2 values and a head as a source."
   },
   "target.csv": {
-    "module": "eo-csv",
-    "subModule": "test",
+    "module": "eo-test",
+    "subModule": "main",
+    "naturalId": "target.csv",
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "listParams": {
       "rowHead": 0
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
     },
     "description": "A sample target csv file with tmp placeholder."
   }

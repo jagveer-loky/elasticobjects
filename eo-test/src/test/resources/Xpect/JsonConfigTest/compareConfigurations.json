@@ -2,8 +2,8 @@
   "_rootmodel": "ArrayList",
   "0": {
     "indent": 1,
-    "fileName": "input/assets/bt/BasicTest.json",
-    "filePath": "classpath",
+    "fileName": "BasicTest.json",
+    "filePath": "input/assets/bt",
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
@@ -38,8 +38,8 @@
   },
   "4": {
     "indent": 1,
-    "fileName": "input/calls/list-simple/ListSimple.json",
-    "filePath": "classpath",
+    "fileName": "ListSimple.json",
+    "filePath": "input/calls/list-simple",
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
@@ -67,7 +67,7 @@
   "7": {
     "indent": 1,
     "fileName": "target.json",
-    "filePath": "$[TMP]/elastic-objects",
+    "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
     "naturalId": "target.json"

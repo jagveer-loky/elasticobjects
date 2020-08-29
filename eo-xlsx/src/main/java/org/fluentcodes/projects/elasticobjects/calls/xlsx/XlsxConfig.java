@@ -84,6 +84,9 @@ public class XlsxConfig extends ListConfig {
         getFileConfig().resolve();
         List<List> result = new ArrayList<>();
         Sheet sheet = getSheet();
+        if (sheet == null) {
+            throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + sheetName + "' is undefined.");
+        }
 
         Row row = sheet.getRow(1);
 
@@ -107,7 +110,7 @@ public class XlsxConfig extends ListConfig {
     }
 
     public Workbook readWorkbook()  {
-        URL url = getFileConfig().getUrl();
+        URL url = getFileConfig().findUrl();
         if (url == null) {
             throw new EoException("Could not load url from " + getFileConfig().getKey());
         }

@@ -1,16 +1,56 @@
-<h3>Spring Boot Demo</h3>
+<h3>EO - Elastic Objects</h3>
+<p>
+Elastic Objects is a wrapper for java objects. The wrapper knows the parent of the object
+    and access childs via fieldName.
+</p>
+<p>
+    Combining these wrappers one can easy access, create or change the object via path.
+</p>
+<p>
+EO contain some model information to create or manipulate the object with greater precision like
+plain Java. This could be the  length of a String or a validation pattern. These information are defined in configurations.
+</p>
+
+<h4>Calls</h4>
+<p>A call is special pojo with an execute method. When adding this to the
+model configuration these methods can be accessed. </p>
+
+<p>Some calls needs a lot of information like permissions, location or connections.
+    To trigger the execution via name just has to add it to the model configurations.
+</p>
+
+<h4>JSON Serialization</h4>
+<p>
+    A serialization type combining model and path is enough to build small generic web interfaces.
+    It's small since type and functionality is not provided by some endpoints and framework.
+</p>
+    This generic interface is used in the editable
+    <a href="/examples/ExamplesStart.htm">Examples</a>.
+</p>
+<h4>Configuration</h4>
+<p>
+    The code of EO is itself is not so big, but you find here a bunch of configurations that offers structure and
+    functionality. But the calling of these configurations is quite simple.
+</p>
+<p>
+    Combining different calls allows a huge flexibilty to create applications with a simple principle
+    I've called <b>ABC principle</b> (Applications by Configuration).
+</p>
+
+
+<h4>Spring Boot Demo</h4>
 
 <p>
-    This site is based on a small spring boot application together
-    with Elastic Objects <a href="config/TemplateConfig.html">TemplateConfigurations</a>.
+    This site itself is a demo for this principle: A small spring boot application together
+    with Elastic Objects and some <a href="config/TemplateConfig.html">TemplateConfigurations</a>.
 </p>
 <p>
     The page you see with an "ordinary" web-url triggers the spring boot method
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java#L44">WeEoGet.createRootPage</a> with the
-    request mapping "/{selectedItem:.+}.html".
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java#L44">WeEoGet.createRootPage</a>
+    with the MVC request mapping "/{selectedItem:.+}.html".
 </p>
 <p>
-    This method creates a new EO object with selectedItem="Home.html" and
+    This method creates at server side a new EO object with selectedItem="Home.html" and
     <a href="https://github.com/fluentcodes/elasticobjects/blob/989f10d794111b55c20921fb072bb1d18d1cfae1/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java#L10">TemplateResourceCall</a>
     and the template name
     <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">ContentPage.html template</a>.
@@ -23,14 +63,14 @@
     <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/docs/Home.html">Home.html</a>.
     So this is what you read.
 </p>
-<h4>The post version</h4>
+<h5>The post version</h5>
 <p>
-    This is just an example to create EO on the server side. But one can also send create this EO object from the client and send it to the generic interface
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">WebEo.eoPostForm()</a>.
-</p>
+    When a page has an url the server creates the EO object.
+    You can create this same EO object within the browser client and send it to the generic interface:
+ /p>
 <p>
 <form action="/eo-form" method="post">
-            <textarea name="eo">{
+            <textarea name="eo" style="height:210px">{
    "selectedItem": "Home.html",
    "(TemplateResourceCall)call": {
       "configKey":"ContentPage.html"
@@ -40,6 +80,10 @@
     <input type="submit" value="post"/>
 </form>
 </p>
+<p><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">WebEo.eoPostForm()</a>.
+ extract the "eo-form" value from the body and deserialize the json to EO.
+</p>
+
 <p>
     The result is the same beside the url is not so "nice".
     But it demonstrates the flexibility to send EO objects to the server.

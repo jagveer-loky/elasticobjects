@@ -36,7 +36,12 @@ public class WebEoGet {
         eo.set(configType, "configType");
         eo.set(configSelected, "configSelected");
         eo.addCall(new TemplateResourceCall("ConfigsPage.html"));
-        eo.execute();
+        try {
+            eo.execute();
+        }
+        catch (Exception e) {
+            return e.getMessage();
+        }
         return (String) eo.get(PathElement.TEMPLATE);
     }
 
@@ -65,7 +70,12 @@ public class WebEoGet {
         EO child = eo.setEmpty("navigationItem");
         //child.set("/docs/Eo","EO");
         eo.addCall(new TemplateResourceCall("ExamplesPage.html"));
+        try {
         eo.execute();
+        }
+        catch (Exception e) {
+            return e.getMessage();
+        }
         if (eo.hasErrors()) {
             return new EOToJSON().toJSON(eo);
         }
@@ -80,7 +90,12 @@ public class WebEoGet {
         eo.set(".*", "configFilter");
         eo.set(selectedItem, "configType");
         eo.addCall(new TemplateResourceCall("ConfigsStartPage.html"));
+        try {
         eo.execute();
+        }
+        catch (Exception e) {
+            return e.getMessage();
+        }
         return (String) eo.get(PathElement.TEMPLATE);
     }
 }

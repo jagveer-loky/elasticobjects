@@ -7,7 +7,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum ProviderFileContent {
     FILE_SIMPLE(PATH_INPUT + "calls/file-simple/FileTest.txt"),
-    FILE_SIMPLE_CACHED(PATH_INPUT + "calls/file-simple/FileTestCached.txt"),
     LIST_SIMPLE_CSV(PATH_INPUT + "calls/list-simple/ListSimple.csv"),
     BASIC_TEST_CSV(PATH_INPUT +"assets/bt/BasicTest.csv");
 
