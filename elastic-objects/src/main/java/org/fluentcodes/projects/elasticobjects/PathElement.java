@@ -300,6 +300,9 @@ public class PathElement {
                     + models.getModel().getNaturalId() + "!");
         }
         else if (!models.isScalar() && valueModels.isScalar()) {
+            if (models.isObject() && valueModels.getModelClass() == Long.class) {
+                return;
+            }
             throw new EoException("Problem setting scalar value ("
                     + valueModels.getModel().getNaturalId() + ") for field name '"
                     + key + "'. Expected is "

@@ -8,7 +8,7 @@
     "hostKey": "h2",
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Local H2 in memory for the test resources.",
     "naturalId": "h2:mem:basic"
@@ -22,7 +22,7 @@
     "hostKey": "h2",
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Local H2 in file persisted for the test resources.",
     "naturalId": "h2:file:basic"

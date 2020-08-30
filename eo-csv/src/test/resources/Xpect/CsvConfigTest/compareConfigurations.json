@@ -13,6 +13,10 @@
       "read": "guest",
       "write": "admin"
     },
+    "module": "eo-csv",
+    "subModule": "test",
+    "key": "ListSimple.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
   },
   "1": {
@@ -22,6 +26,10 @@
     "(ListParams)listParams": {
       "rowHead": 0
     },
+    "module": "eo-csv",
+    "subModule": "test",
+    "key": "target.csv",
+    "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
   }
 }

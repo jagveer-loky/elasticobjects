@@ -2,7 +2,7 @@
   "dbConfig": {
     "fieldKey": "dbConfig",
     "modelKeys": "DbConfig",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "The cache embeded int {@link HibernateCache}.",
     "naturalId": "dbConfig"
@@ -16,7 +16,7 @@
       "length": 80
     },
     "modelKeys": "String",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "The key finding a cache {@Link DbCache} entry.",
     "naturalId": "dbKey"
@@ -24,7 +24,7 @@
   "dbType": {
     "fieldKey": "dbType",
     "modelKeys": "DbTypes",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "The type of the db as Enumeration providing informations like the driver.",
     "naturalId": "dbType"
@@ -36,9 +36,8 @@
       "length": 2048
     },
     "modelKeys": "String",
-    "module": "actions-db",
-    "subModule": "main",
-    "naturalId": "sql"
+    "module": "eo-db",
+    "subModule": "main"
   },
   "driver": {
     "fieldKey": "driver",
@@ -47,7 +46,7 @@
       "length": 80
     },
     "modelKeys": "String",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "naturalId": "driver"
   },
@@ -57,7 +56,7 @@
       "length": 1024
     },
     "modelKeys": "String",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "An extension for database initialization. ",
     "naturalId": "extension"
@@ -68,7 +67,7 @@
       "length": 80
     },
     "modelKeys": "String",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "The jndi lookup for a hibernate session factory. ",
     "naturalId": "jndi"
@@ -79,7 +78,7 @@
       "length": 80
     },
     "modelKeys": "String",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "The database schema used for persisting. {@link HostCache}",
     "naturalId": "schema"
@@ -87,7 +86,7 @@
   "sqlList": {
     "fieldKey": "sqlList",
     "modelKeys": "ArrayList,String",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "A list of sql strings to be executed within {@Link HibernateSqlCache} or {@Link DbSqlCache}.",
     "naturalId": "sqlList"

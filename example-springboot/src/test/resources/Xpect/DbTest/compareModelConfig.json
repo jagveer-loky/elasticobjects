@@ -30,7 +30,7 @@
       "modelConfigKey": "DbQueryConfig"
     },
     "packageGroup": "calls",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "key": "DbQueryCall",
     "description": "Executes a stored sql query.",

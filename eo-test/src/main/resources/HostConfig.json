@@ -5,7 +5,7 @@
     "user": "sa",
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "H2 Host Definition",
     "naturalId": "h2"

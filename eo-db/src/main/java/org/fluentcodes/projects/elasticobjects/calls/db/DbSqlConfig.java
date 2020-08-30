@@ -5,6 +5,8 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 
@@ -18,25 +20,31 @@ import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.F_DB_SQL_LIST
 public class DbSqlConfig extends ConfigResourcesImpl {
     private final String dbKey;
     private final List<String> sqlList;
-    private DbConfig dbCache;
+    private DbConfig dbConfig;
 
-    public DbSqlConfig(final EOConfigsCache provider, final Builder builder)  {
-        super(provider, builder);
+    public DbSqlConfig(final EOConfigsCache cache, final Builder builder)  {
+        super(cache, builder);
         this.dbKey = builder.dbKey;
         this.sqlList = builder.sqlList;
         if (builder.isExpanded()) {
-            this.dbCache = new DbConfig(provider, builder);
+            this.dbConfig = new DbConfig(cache, builder);
         }
     }
 
-    public DbConfig getDbCache()  {
-        if (this.dbCache == null) {
-            if (this.getConfigsCache() == null) {
-                throw new EoException("Config could not be initialized with a null provider for 'hibernateCache' - 'hibernateKey''!");
-            }
-            this.dbCache = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
+    public void resolve()  {
+        if (isResolved()) {
+            return;
         }
-        return this.dbCache;
+        dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
+    }
+
+    public boolean execute() {
+        resolve();
+        boolean execution = false;
+        for (String sql : sqlList) {
+            execution = dbConfig.execute(sql) || execution;
+        }
+        return execution;
     }
 
     public String getDbKey() {

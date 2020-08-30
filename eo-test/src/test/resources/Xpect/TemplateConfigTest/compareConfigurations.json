@@ -5,6 +5,9 @@
     "filePath": "classpath/templates",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "main",
+    "key": "content",
     "naturalId": "content"
   },
   "1": {
@@ -12,6 +15,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "ContentExampleDynamic",
     "naturalId": "ContentExampleDynamic"
   },
   "2": {
@@ -19,6 +25,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "ContentExampleElement1",
     "naturalId": "ContentExampleElement1"
   },
   "3": {
@@ -26,6 +35,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "ContentExampleElement2",
     "naturalId": "ContentExampleElement2"
   },
   "4": {
@@ -33,6 +45,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "ContentExampleStatic",
     "naturalId": "ContentExampleStatic"
   },
   "5": {
@@ -40,6 +55,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "ContentExampleStaticCondition",
     "naturalId": "ContentExampleStaticCondition"
   },
   "6": {
@@ -47,6 +65,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "ContentExampleStaticKeep",
     "naturalId": "ContentExampleStaticKeep"
   }
 }

@@ -2,19 +2,10 @@
   "h2:mem:basic:BasicTest": {
     "dbQueryKey": "h2:mem:basic:BasicTest",
     "dbKey": "h2:mem:basic",
-    "modelKey": "BasicTest",
-    "module": "actions-db",
+    "sql": "Select * from BasicTest",
+    "module": "eo-db",
     "subModule": "test",
     "description": "Query for BasicTest",
     "naturalId": "h2:mem:basic:BasicTest"
-  },
-  "h2:mem:basic:SubTest": {
-    "dbQueryKey": "h2:mem:basic:SubTest",
-    "dbKey": "h2:mem:basic",
-    "modelKey": "SubTest",
-    "module": "actions-db",
-    "subModule": "test",
-    "description": "Query for SubTest",
-    "naturalId": "h2:mem:basic:SubTest"
   }
 }

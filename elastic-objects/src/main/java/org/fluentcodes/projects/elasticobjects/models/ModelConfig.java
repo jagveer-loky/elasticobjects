@@ -331,7 +331,9 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         if (getConfigsCache().getScope() == Scope.CREATE && getShapeType() == ShapeTypes.INTERFACE) {
             return;
         }
-
+        /*if (modelKey.equals("DbQueryConfig")||modelKey.equals("ConfigResourcesImpl")) {
+            System.out.println();
+        }*/
         for (String key : interfacesMap.keySet()) {
             ((ModelConfig) interfacesMap.get(key)).setFieldKeys(this.fieldKeys);
         }

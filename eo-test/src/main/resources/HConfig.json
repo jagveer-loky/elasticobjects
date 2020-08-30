@@ -10,7 +10,7 @@
     "dbKey": "h2:mem:basic",
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Basic H2 in memory database for the test resources. ",
     "naturalId": "h2:mem:basic"
@@ -25,7 +25,7 @@
     "dbKey": "h2:file:basic",
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Basic H2 Test ",
     "naturalId": "h2:file:basic"

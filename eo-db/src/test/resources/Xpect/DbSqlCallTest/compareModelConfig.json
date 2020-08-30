@@ -25,7 +25,7 @@
       "modelConfigKey": "DbSqlConfig"
     },
     "packageGroup": "calls",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "key": "DbSqlCall",
     "description": "A execution method for  {@link DbSqlConfig}",

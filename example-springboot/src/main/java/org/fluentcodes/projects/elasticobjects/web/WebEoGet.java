@@ -19,7 +19,6 @@ import java.util.List;
 
 @RestController
 public class WebEoGet {
-
     //http://www.baeldung.com/spring-value-defaults
     @Value("${elasticobjects.scope:QS}")
     String scope;

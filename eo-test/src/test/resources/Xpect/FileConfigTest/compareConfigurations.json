@@ -5,6 +5,10 @@
     "filePath": "input/assets/bt",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "BasicTest.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "BasicTest.csv"
   },
   "1": {
@@ -16,6 +20,10 @@
       "read": "guest",
       "write": "admin"
     },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "key": "FileTest.txt",
+    "description": "Local 'source.txt' definition.",
     "naturalId": "FileTest.txt"
   },
   "2": {
@@ -23,6 +31,10 @@
     "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
     "cached": true,
+    "module": "elastic-objects",
+    "subModule": "main",
+    "key": "FileTestCached.txt",
+    "description": "Local file with cache set true.",
     "naturalId": "FileTestCached.txt"
   },
   "3": {
@@ -30,6 +42,10 @@
     "filePath": "input/calls/list-simple/",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "main",
+    "key": "ListSimple.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
   },
   "4": {
@@ -37,6 +53,10 @@
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "result.string",
+    "description": "Saving content",
     "naturalId": "result.string"
   },
   "5": {
@@ -44,6 +64,10 @@
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "resultWithMapPath.string",
+    "description": "Saving content this is true",
     "naturalId": "resultWithMapPath.string"
   },
   "6": {
@@ -51,6 +75,10 @@
     "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "target.csv",
+    "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
   },
   "7": {
@@ -58,6 +86,10 @@
     "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "target.txt",
+    "description": "Target file definition",
     "naturalId": "target.txt"
   },
   "8": {
@@ -72,6 +104,10 @@
       "delete": "admin",
       "execute": "superadmin"
     },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "test:test",
+    "description": "description",
     "naturalId": "test:test"
   }
 }

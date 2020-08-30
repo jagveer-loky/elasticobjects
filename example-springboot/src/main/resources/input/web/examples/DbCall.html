@@ -1,5 +1,73 @@
 <h3>Db Calls</h3>
-<p>To be done....</p>
-<p>
-    One can give a remote user access to a Database Queries which content will automatically added as a list or a map.
+<p>With the <a href="/config/ModelConfig/DbQueryCall">DbQueryCall</a> one run queries
+    on the serverside adding the result to EO.
 </p>
+<p>In the following examples the <a href="/config/DbQueryConfig/h2:mem:basic:BasicTest">h2:mem:basic:BasicTest</a>
+    is used.
+</p>
+<p>It's just a query for the BasicTest table which will be initialized by
+    <a href="/config/DbSqlConfig/h2:mem:basic:Create">h2:mem:basic:Create</a>
+    when the
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java">spring boot container</a>
+    starts.
+</p>
+<p>This is an in memory example which will be flushed whenever the server restarts. There are two other configurations involved:</p>
+<ul>
+    <li><a href="/config/DbConfig/h2:mem:basic">Database Configuration</a></li>
+    <li><a href="/config/HostConfig/h2">Host Configuration</a></li>
+</ul>
+
+
+<h4>Simple Call</h4>
+<p>
+    The following example will add the result to "xyz" as a list of maps.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+   "(DbQueryCall)xyz":{
+       "configKey":"h2:mem:basic:BasicTest"
+   },
+   "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+    Since default configuration defines "rowHead" with 0, which will be filled with metadata of the resultset,
+    the value entries will be mapped as a list of map entries using the first row as a key.
+</p>
+
+<h4>Setting Parameters</h4>
+<p>
+    In the following example will map the result as including metadata keys as a list of lists with "rowHead" set to -1.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+   "(DbQueryCall)abc":{
+       "configKey":"h2:mem:basic:BasicTest",
+        "rowHead":-1,
+        "rowStart":0,
+        "rowEnd":2
+   },
+   "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+
+<h4>Mapping to Class</h4>
+<p>
+    This example will map the query result to the
+    <a href="/config/ModelConfig/BasicTest">BasicTest</a> class on "values".
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+   "(List,BasicTest)values":{},
+   "(DbQueryCall).":{
+       "configKey":"h2:mem:basic:BasicTest",
+       "targetPath":"values"
+   }
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+</p>
+

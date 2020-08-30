@@ -13,6 +13,12 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.*;
@@ -30,7 +36,9 @@ public class DbQueryConfig extends ListConfig {
     private final And and;
     private final String sql;
     private ModelInterface modelCache;
-    private DbConfig dbCache;
+    private DbConfig dbConfig;
+    private List<String> metaDataNames;
+    private List<String> metaDataTypes;
 
 
     public DbQueryConfig(final EOConfigsCache configsCache, final Builder builder)  {
@@ -43,20 +51,99 @@ public class DbQueryConfig extends ListConfig {
         this.pathPattern = builder.pathPattern;
         this.and = builder.and;
         this.sql = builder.sql;
+        getListParams().setRowHead(0);
+    }
+    public void resolve()  {
+        if (isResolved()) {
+            return;
+        }
+        super.resolve();
+        dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
     }
 
-    protected String getSql()  {
-        if (sql != null && !sql.isEmpty()) {
-            return sql;
+    public List execute() {
+        resolve();
+        List<List> result = new ArrayList<>();
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = getDbConfig().getConnection().createStatement();
+            resultSet = statement.executeQuery(getSql());
+            initMetaData(resultSet.getMetaData());
+            List row = metaDataNames;
+            while (row!=null) {
+                result.add(row);
+                row = createRow(resultSet);
+            }
         }
-        if (getModelCache().getDbParams() == null) {
-            throw new EoException("Db params are null for " + getModelCache().getModelKey());
+        catch (Exception e) {
+            if (resultSet!=null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException throwables) {
+                    throw new EoException(e);
+                }
+                resultSet = null;
+            }
+            if (statement!=null) {
+                try {
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throw new EoException(e);
+                }
+                statement = null;
+            }
+            throw new EoException(e);
         }
-        if (getModelCache().getDbParams() == null) {
-            throw new EoException("No Db table defined for " + getModelCache().getModelKey());
+        return result;
+    }
+
+    private void initMetaData(ResultSetMetaData metaData) throws SQLException {
+        if (metaDataNames!=null) {
+            return;
         }
-        String tableName = getModelCache().getDbParams().getTable();
-        return "select * from " + tableName;
+        this.metaDataNames = new ArrayList<>();
+        this.metaDataTypes = new ArrayList<>();
+        for (int i = 1; i < metaData.getColumnCount(); i++) {
+            metaDataTypes.add(metaData.getColumnTypeName(i));
+            metaDataNames.add(metaData.getColumnName(i));
+        }
+    }
+
+    private List createRow(final ResultSet resultSet) throws SQLException {
+        resultSet.next();
+        if (resultSet.isAfterLast()) {
+            return null;
+        }
+        List row = new ArrayList();
+        ResultSetMetaData metaData = resultSet.getMetaData();
+        for (int i = 1; i < metaData.getColumnCount(); i++) {
+            switch (metaData.getColumnTypeName(i)) {
+                case "VARCHAR":
+                    row.add(resultSet.getString(i));
+                    break;
+                case "INTEGER":
+                    row.add(resultSet.getInt(i));
+                    break;
+                case "BOOLEAN":
+                    row.add(resultSet.getBoolean(i));
+                    break;
+                case "DOUBLE":
+                    row.add(resultSet.getDouble(i));
+                    break;
+                case "DATE":
+                    row.add(resultSet.getDate(i));
+                    break;
+                case "BIGINT":
+                    row.add(resultSet.getLong(i));
+                    break;
+            }
+        }
+        return row;
+    }
+
+    public String getSql()  {
+        return sql;
     }
 
     /**
@@ -90,13 +177,13 @@ public class DbQueryConfig extends ListConfig {
      * The config embeded int {@link DbQueryConfig}.
      */
     public DbConfig getDbConfig()  {
-        if (this.dbCache == null) {
+        if (this.dbConfig == null) {
             if (this.getConfigsCache() == null) {
                 throw new EoException("Config could not be initialized with a null provider for 'dbCache' - 'dbKey''!");
             }
-            this.dbCache = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
+            this.dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
         }
-        return this.dbCache;
+        return this.dbConfig;
     }
 
     public PathPattern getPathPattern() {
@@ -109,7 +196,10 @@ public class DbQueryConfig extends ListConfig {
     public And getAnd() {
         return this.and;
     }
-//</call>
+
+    public String getDbKey() {
+        return dbKey;
+    }
 
     public static class Builder extends ListConfig.Builder {
         private String sql;

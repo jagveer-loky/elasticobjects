@@ -586,13 +586,13 @@
   "ConfigResourcesImpl": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ConfigResourcesImpl",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
     },
     "description": "Abstract implementation for resources with permissions methods ",
     "interfaces": "ConfigResources",
+    "superKey": "ConfigImpl",
     "modelKey": "ConfigResourcesImpl",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "packageGroup": "calls"

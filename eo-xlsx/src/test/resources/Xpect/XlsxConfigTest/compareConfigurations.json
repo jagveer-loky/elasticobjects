@@ -6,6 +6,10 @@
     "(ListParams)listParams": {
       "rowHead": 0
     },
+    "module": "eo-xlsx",
+    "subModule": "test",
+    "key": "ListSimple.xlsx:test",
+    "description": "Cached definition for source.xlsx.",
     "naturalId": "ListSimple.xlsx:test"
   },
   "1": {
@@ -14,10 +18,18 @@
     "(ListParams)listParams": {
       "rowHead": 0
     },
+    "module": "actions-xlsx",
+    "subModule": "test",
+    "key": "source.xlsx",
+    "description": "Cached definition for source.xlsx with explicit sheetName.",
     "naturalId": "source.xlsx"
   },
   "2": {
     "fileKey": "source.xlsx",
+    "module": "actions-xlsx",
+    "subModule": "test",
+    "key": "sourceExplicit",
+    "description": "source.xlsx with explicit fileName and sheetName",
     "naturalId": "sourceExplicit"
   },
   "3": {
@@ -25,6 +37,10 @@
     "(ListParams)listParams": {
       "rowHead": 0
     },
+    "module": "actions-xlsx",
+    "subModule": "test",
+    "key": "target.xlsx",
+    "description": "Cached definition for target.xlsx.",
     "naturalId": "target.xlsx"
   }
 }
