@@ -10,7 +10,16 @@
       "2": "hostName",
       "3": "user",
       "4": "password",
-      "5": "rolePermissions"
+      "5": "rolePermissions",
+      "6": "module",
+      "7": "subModule",
+      "8": "scope",
+      "9": "key",
+      "10": "id",
+      "11": "description",
+      "12": "naturalId",
+      "13": "creationDate",
+      "14": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {

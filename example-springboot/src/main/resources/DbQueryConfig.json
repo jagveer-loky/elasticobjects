@@ -1,0 +1,21 @@
+{
+  "h2:mem:basic:BasicTest": {
+    "dbQueryKey": "h2:mem:basic:BasicTest",
+    "dbKey": "h2:mem:basic",
+    "modelKey": "BasicTest",
+    "sql": "Select * from BasicTest",
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Query for BasicTest",
+    "naturalId": "h2:mem:basic:BasicTest"
+  },
+  "h2:mem:basic:SubTest": {
+    "dbQueryKey": "h2:mem:basic:SubTest",
+    "dbKey": "h2:mem:basic",
+    "modelKey": "SubTest",
+    "sql": "Select * from SubTest",
+
+    "description": "Query for SubTest",
+    "naturalId": "h2:mem:basic:SubTest"
+  }
+}

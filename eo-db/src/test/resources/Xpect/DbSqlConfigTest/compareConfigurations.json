@@ -5,6 +5,10 @@
     "(ArrayList)sqlList": {
       "0": "drop table BasicTest"
     },
+    "module": "eo-db",
+    "subModule": "test",
+    "key": "h2:mem:basic:BasicTestDrop",
+    "description": "Basic H2 dropping BasicTest table",
     "naturalId": "h2:mem:basic:BasicTestDrop"
   },
   "1": {
@@ -19,6 +23,10 @@
       "6": "alter table BasicTest add constraint FKekncch2o599gwc9t148ygh9c6 foreign key (subTest) references SubTest",
       "7": "alter table SubTest add constraint FKowivfpy0agy32ba81eayhtgf foreign key (subTest) references SubTest"
     },
+    "module": "eo-db",
+    "subModule": "test",
+    "key": "h2:mem:basic:Create",
+    "description": "Basic H2 creating tables",
     "naturalId": "h2:mem:basic:Create"
   }
 }

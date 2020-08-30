@@ -9,7 +9,7 @@
       "modelConfigKey": "DbSqlConfig"
     },
     "packageGroup": "calls",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Mainly the schema ",
     "naturalId": "DbAction",
@@ -32,7 +32,7 @@
       "create": false
     },
     "packageGroup": "config",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "naturalId": "DbConfig",
@@ -48,7 +48,7 @@
       "modelConfigKey": "DbSqlConfig"
     },
     "packageGroup": "calls",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "A execution method for  {@link DbSqlConfig}",
     "naturalId": "DbSqlCall",
@@ -67,7 +67,7 @@
       "create": false
     },
     "packageGroup": "config",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Execute sql statements via jdbc connection. ",
     "naturalId": "DbSqlConfig",
@@ -83,10 +83,9 @@
       "modelConfigKey": "DbQueryConfig"
     },
     "packageGroup": "calls",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Executes a stored sql query.",
-    "naturalId": "DbQueryCall",
     "author": "Werner Diwischek"
   },
   "DbQueryConfig": {
@@ -103,10 +102,9 @@
       "create": false
     },
     "packageGroup": "config",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Execute sql statement via jdbc connection. ",
-    "naturalId": "DbQueryConfig",
     "author": "Werner Diwischek"
   },
   "DbTypes": {
@@ -117,7 +115,7 @@
     "eoParams": {
     },
     "packageGroup": "config",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Enum with different shapetypes like ORACLE or H2",
     "naturalId": "DbTypes",

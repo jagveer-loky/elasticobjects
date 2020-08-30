@@ -6,14 +6,11 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
-import java.sql.SQLException;
-import java.util.List;
-
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbSqlCall extends  CallResource {
+public class DbSqlCall extends  CallResource<Boolean> {
     public DbSqlCall()  {
         super(PermissionType.EXECUTE);
     }
@@ -26,29 +23,15 @@ public class DbSqlCall extends  CallResource {
         return DbSqlConfig.class;
     }
 
-    public DbSqlConfig getDbSqlCache() {
+    public DbSqlConfig getDbSqlConfig() {
         return (DbSqlConfig) getConfig();
     }
 
-    public DbConfig getDbConfig()  {
-        return getDbSqlCache().getDbCache();
-    }
-
-    public List<String> getSqlList() {
-        return getDbSqlCache().getSqlList();
-    }
-
-    public EO execute(EO adapter)  {
-        resolve(adapter.getConfigsCache());
-        if (adapter == null) {
-            throw new EoException("Null or empty adapter. But checkConfig needs values to be readed from the db!");
+    public Boolean execute(EO eo)  {
+        resolve(eo.getConfigsCache());
+        if (eo == null) {
+            throw new EoException("Null or empty EO. But checkConfig needs values to be readed from the db!");
         }
-        DbIO dbIO = new DbIO(getDbConfig());
-        try {
-            dbIO.execute(getSqlList());
-        } catch (SQLException e) {
-            throw new EoException(e);
-        }
-        return adapter;
+        return getDbSqlConfig().execute();
     }
 }

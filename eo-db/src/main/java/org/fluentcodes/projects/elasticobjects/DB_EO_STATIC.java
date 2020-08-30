@@ -4,7 +4,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 public class DB_EO_STATIC {
 
-    public static final String ACTIONS_DB = "actions-db";
+    public static final String ACTIONS_DB = "eo-db";
     public static final String DB = "Db";
     public static final String DB_QUERY = "DbQuery";
     public static final String DB_SQL = "DbSql";

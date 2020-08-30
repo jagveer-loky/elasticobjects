@@ -7,7 +7,7 @@
     },
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Basic H2 Test with BasicTest table",
     "naturalId": "h2:file:basic:BasicTest"
@@ -20,7 +20,7 @@
     },
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Basic H2 Test with SubTest table",
     "naturalId": "h2:file:basic:SubTest"
@@ -33,7 +33,7 @@
     },
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Basic H2 in Memory Test with BasicTest Table",
     "naturalId": "h2:mem:basic:BasicTest"
@@ -46,7 +46,7 @@
     },
     "rolePermissions": {
     },
-    "module": "test-resources",
+    "module": "eo-test",
     "subModule": "main",
     "description": "Basic H2 in Memory Test with SubTest Table",
     "naturalId": "h2:mem:basic:SubTest"

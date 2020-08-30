@@ -2,7 +2,7 @@
   "localMySql:core": {
     "dbKey": "localMySql:core",
     "dbType": "MYSQL",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Core Schema",
     "naturalId": "localMySql:core"
@@ -10,7 +10,7 @@
   "localMySql:test": {
     "dbKey": "localMySql:test",
     "dbType": "MYSQL",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Test Schema",
     "naturalId": "localMySql:test"
@@ -19,7 +19,7 @@
     "dbKey": "localOracle:XE",
     "schema": "XE",
     "dbType": "ORACLE",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "Oracle Schem",
     "naturalId": "localOracle:XE"
@@ -29,7 +29,7 @@
     "hostKey": "hsql",
     "schema": "mem",
     "dbType": "HSQL",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "local HSQL which exists just in memory",
     "naturalId": "hsql:mem"
@@ -39,7 +39,7 @@
     "hostKey": "hsql",
     "schema": "file:$[TMP]/test.hsql",
     "dbType": "HSQL",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
     "naturalId": "hsql:fileTest"
@@ -51,7 +51,7 @@
     "driver": "org.h2.Driver",
     "dbType": "H2",
     "extension": "DATABASE_TO_UPPER=false;",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "local H2 which exists just in memory",
     "naturalId": "h2:mem"
@@ -63,7 +63,7 @@
     "driver": "org.h2.Driver",
     "dbType": "H2",
     "extension": "DATABASE_TO_UPPER=false;",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "description": "local H2 with a temp file",
     "naturalId": "h2:file"

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.Model;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -230,7 +231,7 @@ public class EoChild implements EO {
     }
 
     @Override
-    public EO mapObject(final Object value)  {
+    public EO mapObject(Object value)  {
         if (value == null) {
             return this;
         }
@@ -241,7 +242,16 @@ public class EoChild implements EO {
                 return this;
             }
             else {
-                if (!((value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find())) {
+                if (value instanceof Long && isObject()) {
+                    Long id = Long.valueOf((Long)value);
+                    if (id == 0) {
+                        return this;
+                    }
+                    value = getModel().create();
+                    getModel().set(Model.ID, value, id);
+                    valueModel = getModel();
+                }
+                else if (!((value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find())) {
                     error("Could not map scalar to container");
                     return this;
                 }

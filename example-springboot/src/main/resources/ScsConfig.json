@@ -1,6 +1,6 @@
 {
   "BasicTest.csv": {
-    "module": "eo-test",
+    "module": "example-springboot",
     "subModule": "main",
     "naturalId": "BasicTest.csv",
     "fieldDelimiter": ";",

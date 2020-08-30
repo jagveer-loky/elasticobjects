@@ -1,11 +1,16 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "dbKey": "h2:mem:basic",
     "modelKey": "BasicTest",
+    "sql": "Select * from BasicTest",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "key": "h2:mem:basic:BasicTest",
+    "description": "Query for BasicTest",
     "naturalId": "h2:mem:basic:BasicTest"
-  },
-  "1": {
-    "modelKey": "SubTest",
-    "naturalId": "h2:mem:basic:SubTest"
   }
 }

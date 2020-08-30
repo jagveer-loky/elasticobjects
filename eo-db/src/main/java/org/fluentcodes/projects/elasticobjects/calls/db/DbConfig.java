@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -14,6 +15,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.*;
@@ -44,7 +46,6 @@ public class DbConfig extends ConfigResourcesImpl {
         this.hostKey = builder.hostKey;
         this.extension = builder.extension;
     }
-
 
     /**
      * The database schema used for persisting. {@link HostConfig}
@@ -96,6 +97,33 @@ public class DbConfig extends ConfigResourcesImpl {
             this.hostConfig = (HostConfig) getConfigsCache().find(HostConfig.class, hostKey);
         }
         return this.hostConfig;
+    }
+
+    public boolean read(EO eo) {
+        return false;
+    }
+
+    public boolean write(EO eo) {
+        return false;
+    }
+
+
+    public boolean execute(String sql) {
+        Statement stmt = null;
+        try {
+            stmt = this.getConnection().createStatement();
+            return stmt.execute(sql);
+        } catch (Exception e) {
+            throw new EoException(e);
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException throwables) {
+                    throw new EoException(throwables);
+                }
+            }
+        }
     }
 
     public Connection getConnection() throws ClassNotFoundException, SQLException, IOException {
@@ -185,6 +213,8 @@ public class DbConfig extends ConfigResourcesImpl {
             prepare(configsCache, values);
             return new DbConfig(configsCache, this);
         }
+
+
     }
 
 }

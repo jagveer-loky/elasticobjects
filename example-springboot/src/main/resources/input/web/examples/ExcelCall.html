@@ -1,7 +1,9 @@
 <h3>Excel Calls</h3>
-<p>With the <a href="/config/ModelConfig/XlsxReadCall">ScsReadCall</a> one can read Excel files.
+<p>With the <a href="/config/ModelConfig/XlsxReadCall">XlsxReadCall</a> one can read Excel files.
  </p>
-<p>In the following examples the <a href="/config/FileConfig/BasicTest.xlsx">BasicTest.xlsx file</a> with <a href="/config/XlsxConfig/BasicTest.xlsx:test">properties</a>
+<p>In the following examples the
+    <a href="/config/FileConfig/BasicTest.xlsx">BasicTest.xlsx</a>
+    file with <a href="/config/XlsxConfig/BasicTest.xlsx:test">properties</a>
     is used.
 </p>
 <h4>Simple Call</h4>
@@ -23,7 +25,7 @@
 
 <h4>Setting Parameters</h4>
 <p>
-    In the following example will read the file as a list of lists with "rowHead" set to -1.
+    This example will read the file as a list of lists with "rowHead" set to -1.
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
@@ -38,7 +40,8 @@
     <input type="submit" value="post"/>
 </form>
 <p>
-    The header row entry in  the csv configuration will ignored, the first value entry together with the header row will mapped as list of list.
+    The header row entry in  the configuration will ignored,
+    the first value entry together with the header row will mapped as list of list.
 </p>
 
 <h4>Mapping to Class</h4>

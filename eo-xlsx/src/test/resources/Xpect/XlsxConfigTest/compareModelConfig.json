@@ -9,7 +9,16 @@
       "1": "sheetName",
       "2": "listParams",
       "3": "listMapper",
-      "4": "rolePermissions"
+      "4": "rolePermissions",
+      "5": "module",
+      "6": "subModule",
+      "7": "scope",
+      "8": "key",
+      "9": "id",
+      "10": "description",
+      "11": "naturalId",
+      "12": "creationDate",
+      "13": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {

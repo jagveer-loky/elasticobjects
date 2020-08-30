@@ -4,16 +4,28 @@
     "protocol": "jdbc:h2",
     "hostName": "",
     "user": "sa",
+    "module": "eo-test",
+    "subModule": "main",
+    "key": "h2",
+    "description": "H2 Host Definition",
     "naturalId": "h2"
   },
   "1": {
     "protocol": "file:",
     "hostName": "localhost",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "key": "local",
+    "description": "local host with key 'local'",
     "naturalId": "local"
   },
   "2": {
     "protocol": "file:",
     "hostName": "localhost",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "key": "localhost",
+    "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   },
   "3": {
@@ -29,6 +41,10 @@
       "delete": "admin",
       "execute": "superadmin"
     },
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "test",
+    "description": "description",
     "naturalId": "test"
   },
   "4": {
@@ -37,6 +53,10 @@
     "hostName": "ftpServer",
     "user": "testUser",
     "password": "testPassword",
+    "module": "elastic-objects",
+    "subModule": "test",
+    "key": "testFtp",
+    "description": "Test Ftp Dummy",
     "naturalId": "testFtp"
   }
 }

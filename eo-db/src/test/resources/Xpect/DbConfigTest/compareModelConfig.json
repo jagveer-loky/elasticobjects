@@ -11,7 +11,16 @@
       "3": "dbType",
       "4": "hostKey",
       "5": "extension",
-      "6": "rolePermissions"
+      "6": "rolePermissions",
+      "7": "module",
+      "8": "subModule",
+      "9": "scope",
+      "10": "key",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {
@@ -21,7 +30,7 @@
       "(ShapeTypes)shapeType": "CONFIG"
     },
     "packageGroup": "config",
-    "module": "actions-db",
+    "module": "eo-db",
     "subModule": "main",
     "key": "DbConfig",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
