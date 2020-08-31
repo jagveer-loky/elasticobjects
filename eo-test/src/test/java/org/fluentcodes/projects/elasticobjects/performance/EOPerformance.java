@@ -39,7 +39,6 @@ public class EOPerformance {
     private static final String ALL_JSON = TestProviderBtJson.ALL.content();
     @Test
     public void root() throws Exception {
-
         StringBuilder result = new StringBuilder();
         result.append("Create " + maxRoot + " times\n" );
 
@@ -60,6 +59,8 @@ public class EOPerformance {
         result.append(" **\n");
         result.append("--> toJson\n");
         result.append(serializeWithEo(object));
+        EO eo = ProviderRootTestScope.createEo(object);
+        result.append(serializeWithEoAndEoObject(eo));
         result.append(serializeWithJackson(object));
         result.append(serializeWithGson(object));
 
@@ -117,7 +118,7 @@ public class EOPerformance {
         }
         long duration = System.currentTimeMillis() - start;
         String result =  "EO     : " + duration  + " ms\n";
-        System.out.println(result);
+        System.out.print(result);
         return result;
     }
 
@@ -129,7 +130,18 @@ public class EOPerformance {
         }
         long duration = System.currentTimeMillis() - start;
         String result =  "EO     : " + duration  + " ms\n";
-        System.out.println(result);
+        System.out.print(result);
+        return result;
+    }
+
+    private String serializeWithEoAndEoObject(EO eo)  {
+        long start = System.currentTimeMillis();
+        for (long i = 0; i < maxRoot; i++) {
+            String json = new EOToJSON().toJSON(eo);
+        }
+        long duration = System.currentTimeMillis() - start;
+        String result =  "EO dir. : " + duration  + " ms\n";
+        System.out.print(result);
         return result;
     }
 
@@ -148,7 +160,7 @@ public class EOPerformance {
         }
         long duration = System.currentTimeMillis() - start;
         String result =  "Jackson: " + duration  + " ms\n";
-        System.out.println(result);
+        System.out.print(result);
         return result;
     }
 
@@ -161,7 +173,7 @@ public class EOPerformance {
         }
         long duration = System.currentTimeMillis() - start;
         String result =  "Jackson: " + duration  + " ms\n";
-        System.out.println(result);
+        System.out.print(result);
         return result;
     }
 

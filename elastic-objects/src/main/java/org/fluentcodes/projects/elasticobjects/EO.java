@@ -21,6 +21,7 @@ public interface EO {
      */
     EOConfigsCache getConfigsCache();
 
+    String getParentKeyWithModels();
     String getParentKey();
     boolean hasParent();
 
@@ -62,6 +63,7 @@ public interface EO {
     Class getModelClass();
     boolean isChanged();
     boolean isContainer();
+    boolean isToSerialize(JSONSerializationType serializationType);
     boolean isList();
     boolean isObject();
     boolean isScalar();

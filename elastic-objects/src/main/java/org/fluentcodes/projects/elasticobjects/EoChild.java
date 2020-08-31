@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 public class EoChild implements EO {
     private static final Logger LOG = LogManager.getLogger(EoChild.class);
+    private static final List<Class> DEFAULT_CLASSES = Arrays.asList(new Class[] {Map.class, LinkedHashMap.class, String.class, Boolean.class, Integer.class});
     private PathElement pathElement;
     private Map<String, EO> eoMap;
 
@@ -88,6 +89,19 @@ public class EoChild implements EO {
         else {
             return "";
         }
+    }
+
+    public String getParentKeyWithModels() {
+        if (isRoot()) {
+            return "";
+        }
+        if (getParentEo().isObject()) {
+            return getParentKey();
+        }
+        if (DEFAULT_CLASSES.contains(getModelClass())) {
+            return getParentKey();
+        }
+        return "(" + getModels().toString() + ")" + getParentKey();
     }
 
     public boolean hasPathElement() {
@@ -742,40 +756,66 @@ public class EoChild implements EO {
         return pathElement.isParentSet();
     }
 
+    @Override
     public boolean isChanged() {
         return pathElement.isChanged();
     }
 
+    @Override
     public boolean isList() {
         return getModel().isList();
     }
 
+    @Override
     public boolean isObject() {
         return getModel().isObject();
     }
 
+    @Override
     public boolean isScalar() {
         return getModel().isScalar() || getModels().isEnum();
     }
 
+    @Override
     public boolean isMap() {
         return getModel().isMap();
     }
 
+    @Override
     public boolean hasDefaultMap() {
         return getModels().hasDefaultMap();
     }
 
+    @Override
     public boolean isChildTyped() {
         return isObject() || hasChildModel();
     }
 
+    @Override
     public boolean isNull() {
         return getModel().isNull();
     }
 
+    @Override
     public boolean isContainer() {
         return !isScalar();
+    }
+    @Override
+    public boolean isToSerialize(JSONSerializationType serializationType) {
+        if (get() == null) {
+            return false;
+        }
+        if (isContainer()) {
+            if (serializationType == JSONSerializationType.EO) {
+                if (isEoEmpty()) {
+                    return false;
+                }
+            }
+            else if (isEmpty()) {
+                    return false;
+            }
+        }
+        return true;
     }
 
     // SERIALIZATION TYPE
