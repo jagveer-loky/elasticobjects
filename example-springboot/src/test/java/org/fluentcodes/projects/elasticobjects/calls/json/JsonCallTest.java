@@ -3,14 +3,10 @@ package org.fluentcodes.projects.elasticobjects.calls.json;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.calls.values.TheGreetingCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 

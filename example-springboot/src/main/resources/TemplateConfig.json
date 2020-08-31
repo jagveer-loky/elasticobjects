@@ -3,7 +3,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "ConfigsPage.html",
-    "filePath": "input/web",
+    "filePath": "web",
     "description": "The config template loading a config and show it's properties.",
     "rolePermissions": {
       "execute": "guest"
@@ -13,7 +13,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "ConfigsStartPage.html",
-    "filePath": "input/web",
+    "filePath": "web",
     "description": "The config start page template.",
     "rolePermissions": {
       "execute": "guest"
@@ -23,7 +23,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "ContentPage.html",
-    "filePath": "input/web",
+    "filePath": "web",
     "description": "The content template loading a content template file in the content part without navigation.",
     "rolePermissions": {
       "execute": "guest"
@@ -33,7 +33,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "ExamplesPage.html",
-    "filePath": "input/web",
+    "filePath": "web",
     "description": "The examples template loading an examples template file in the content part together with navigation.",
     "rolePermissions": {
       "execute": "guest"
@@ -43,7 +43,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "ConfigsNavigation.html",
-    "filePath": "input/web",
+    "filePath": "web",
     "description": "The Wordpress header part",
     "rolePermissions": {
       "execute": "guest"
@@ -53,7 +53,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "Header.html",
-    "filePath": "input/web",
+    "filePath": "web",
     "description": "The Wordpress header part",
     "rolePermissions": {
       "execute": "guest"
@@ -63,7 +63,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "Footer.html",
-    "filePath": "input/web",
+    "filePath": "web",
     "description": "The Wordpress footer part",
     "rolePermissions": {
       "execute": "guest"
@@ -74,7 +74,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "Impressum.html",
-    "filePath": "input/web/docs",
+    "filePath": "web/docs",
     "description": "The impressum content.",
     "rolePermissions": {
       "execute": "guest"
@@ -84,7 +84,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "Home.html",
-    "filePath": "input/web/docs",
+    "filePath": "web/docs",
     "description": "The home content.",
     "rolePermissions": {
       "execute": "guest"
@@ -94,7 +94,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "Home.html",
-    "filePath": "input/web/docs",
+    "filePath": "web/docs",
     "description": "The home content with a different url.",
     "rolePermissions": {
       "execute": "guest"
@@ -104,7 +104,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "Home.html",
-    "filePath": "input/web/docs",
+    "filePath": "web/docs",
     "description": "The home content with the default url.",
     "rolePermissions": {
       "execute": "guest"
@@ -114,7 +114,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "ModelConfig.html",
-    "filePath": "input/web/configs",
+    "filePath": "web/configs",
     "description": "Entry content for ModelConfig.",
     "rolePermissions": {
       "execute": "guest"
@@ -124,7 +124,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "FieldConfig.html",
-    "filePath": "input/web/configs",
+    "filePath": "web/configs",
     "description": "Entry content for FieldConfig.",
     "rolePermissions": {
       "execute": "guest"
@@ -134,7 +134,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "FileConfig.html",
-    "filePath": "input/web/configs",
+    "filePath": "web/configs",
     "description": "Entry content for FileConfig.",
     "rolePermissions": {
       "execute": "guest"
@@ -144,7 +144,7 @@
     "module": "example-springboot",
     "subModule": "main",
     "fileName": "TemplateConfig.html",
-    "filePath": "input/web/configs",
+    "filePath": "web/configs",
     "description": "Entry content for TemplateConfig.",
     "rolePermissions": {
       "execute": "guest"

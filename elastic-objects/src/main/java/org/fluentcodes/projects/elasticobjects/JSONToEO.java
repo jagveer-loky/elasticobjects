@@ -425,7 +425,6 @@ public class JSONToEO {
                     mapList(eoParent); // start parsing
                     return eoParent;
                 }
-
         }
         /*
          * Handle unquoted text. This could be the rows true, false, or
