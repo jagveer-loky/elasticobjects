@@ -1,0 +1,75 @@
+<h3>Configuration Calls</h3>
+
+<p>That a client knows the configurations a server provide, it's important to deliver information about the
+    provided configurations. Therefore the
+config calls are created.</p>
+
+
+ <ul>
+     <li><a href="/config/ModelConfig/ConfigTypes">ConfigTypes</a>: Lists the keys of available configuration types</li>
+     <li><a href="/config/ModelConfig/ConfigKeysCall">ConfigKeysCall</a>: Lists all naturalIds for a given "configType" matching "configFilter"</li>
+     <li><a href="/config/ModelConfig/ConfigCall">ConfigCall</a>: Lists complete configurations for a given "configType" matching "configFilter"</li>
+
+ </ul>
+<p> Since these calls just deliver loaded configurations from the configuration cache, no other informations like permission restriction
+    are needed. The configuration calls are plain value calls like the <a href="/examples/TheGreetingCall.html">TheGreetingCall</a> with a model config without configuration by its own.
+</p>
+<p>
+    On every configuration page calls are executed to get informations about the loaded configurations.
+</p>
+
+ <h4>ConfigKeysCall</h4>
+<p>
+    ConfigKeysCall returns the "naturalId" of matching configurations.
+</p>
+ <p>
+ In the following example all ModelConfig keys will be listed matching "Config.*Call".
+ </p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+         "(ConfigKeysCall)keys":{
+            "configType":"ModelConfig",
+            "configFilter":"Config.*Call"
+        },
+        "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+ <p>
+"configType" must be set with a existing configuration class.
+</p>
+
+<h4>ConfigCall</h4>
+<p>
+    ConfigCall returns the complete configurations.
+</p>
+<p>
+    In the following example all ModelConfig configurations will be listed matching "Config.*Call".
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+         "(ConfigCall)configurations":{
+            "configType":"ModelConfig",
+            "configFilter":"Config.*Call"
+        },
+        "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+
+
+
+<h4>ConfigTypesCall</h4>
+<p>
+    In the following example all ConfigType keys will be listed.
+</p>
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:120px">{
+         "(ConfigTypesCall)types":{
+        },
+        "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+</p>

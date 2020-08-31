@@ -1,0 +1,24 @@
+<h3>FieldConfig</h3>
+<p>
+    The field configurations loaded in the cache together with
+    <a href="/config/ModelConfigs.html">ModelConfigs.html</a>
+    hold all necessary informations about the type of a field.
+</p>
+
+<p>
+    When the
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java">cache</a>
+    is initialized any File in the classpath named
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/resources/FieldConfig.json">FieldConfig.json</a> will be loaded.
+</p>
+
+<p>
+    The separation of field and  <a href="/config/ModelConfigs.html">model</a> configurations
+    allow to avoid
+    annoying, misleading and error prone definitions of fields for each model with the same name.
+</p>
+<p>
+    When the model is initialize via
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/resources/Models.json">Models.json</a> class names the fields will be
+    initialized via [modelName].[fieldName].
+</p>

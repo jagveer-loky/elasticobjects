@@ -1,0 +1,2 @@
+Class-Path: /Users/werner.diwischek/dev/elasticobjects/example-springboot/config-and-content
+

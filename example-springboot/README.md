@@ -1,13 +1,25 @@
 # Spring Boot Example
 
-Target of this module is to create a runable spring boot web application with the help of templates.
-A running copy you find in [elasticobjects.org](elasticobjects.org). The pages were a copy of a wordpress page.
+Target of this module is to create a runable spring boot web application with the help of templates. A running copy you find in [elasticobjects.org](elasticobjects.org). The pages were a copy of a wordpress page.
 
+The input files are not part of the fat jar to avoid the annoying build process when changing a semicolon. So to start the application one not just use "java -jar example-springboot/target/example-springboot-0.2.1-SNAPSHOT.jar"
+
+#### Start
+Instead with linux you have to start with
+
+   java -cp example-springboot/target/example-springboot-0.2.1-SNAPSHOT.jar:example-springboot/input/ org.springframework.boot.loader.PropertiesLauncher
+
+Or with windows use ";" instead of ":" as separator
+
+   java -cp example-springboot/target/example-springboot-0.2.1-SNAPSHOT.jar;example-springboot/input/ org.springframework.boot.loader.PropertiesLauncher
+
+#### Useed Modules
 It uses configurations from the modules
 * [elasticobjects](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects/src/main/resources)
 * [eo-test](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/main/resources)
 
-The starting point is the [Start class](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java).
+The starting point is the  
+[Start class](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java).
 
 The pages uses path parameters so the links are pure HTML links. The spring boot example is mostly a tool
 to navigate through the used configurations.
@@ -23,20 +35,22 @@ as a singleton.
 
 ### Templates
 #### Page Templates
-There are two templates defined for rendering the page
-* [Content.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/content/Content.tpl) for the content
-+ [Configs.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/calls/configs/Configs.tpl) for navigate throught configuration
+There are thre templates defined for rendering the page
+* [ContentPage.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/ContentPage.tpl) for the content
+* [ExamplesPage.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/ExamplesPage.tpl) for the examples
++ [ConfigsStartPage.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/ConfigsStartPage.tpl) for entry configuration start
++ [ConfigsPage.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/ConfigsPage.tpl) for navigate through configuration
 
 #### Content Templates
-The content will be loaded as a template within the [Content.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/content/Content.tpl)
+The content will be loaded as a template within the [Content.tpl](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/content/Content.tpl)
 from
-* [docs](https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot/src/main/resources/input/content/docs)
-* [root](https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot/src/main/resources/input/content/root)
+* [docs](https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot/input/content/docs)
+* [root](https://github.com/fluentcodes/elasticobjects/tree/master/example-springboot/input/content/root)
 
 #### Template Parts
 Three part are loaded straigtforward:
-* [Header.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/header.html)
-* [Footer.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/Footer.html)
+* [Header.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Header.html)
+* [Footer.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Footer.html)
 
-The [Svg.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/Svg.html) for the responsiveness of the example site will be loaded as a file without parsing content.
+The [Svg.html](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Svg.html) for the responsiveness of the example site will be loaded as a file without parsing content.
 

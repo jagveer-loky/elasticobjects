@@ -11,6 +11,10 @@
 </font>
 </div>
 
+>... while you're programming, you are learning. It's often the case that it can take a year of programming on a project before you understand what the best design approach should have been ...
+>
+> -- <cite>Martin Fowler</cite>
+
 # Elastic Objects
 
 Elastic Objects offers access to java objects via [path](#path).
