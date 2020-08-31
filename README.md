@@ -24,7 +24,11 @@ It read and write typed [JSON](#typed-json) for string representation which offe
 * [unmapped fields](#unmapped) for integration of extra information in JSON e.g. "_comment":"xyz"
 * execution of [Call Beans](#calls) e.g. "(SinusValueCall)result":{...}
 
-You find a running example with spring boot on [elasticobjects.org](elasticobjects.org). The sources are accessible in the module example-spingboot.
+#### Example Website
+An example is worth a thousand words. So
+you find editable working examples on [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).
+
+The sources are accessible in the module example-springboot. It's based on a small spring boot application and EO.
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
