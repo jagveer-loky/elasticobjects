@@ -54,21 +54,21 @@ model configuration these methods can be accessed. </p>
     This method creates at server side a new EO object with selectedItem="Home.html" and
     <a href="https://github.com/fluentcodes/elasticobjects/blob/989f10d794111b55c20921fb072bb1d18d1cfae1/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java#L10">TemplateResourceCall</a>
     and the template name
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">ContentPage.html template</a>.
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">ContentPage.html template</a>.
 
 </p>
 <p>
     When the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">ContentPage.html template</a>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html" style="border:none;text-decoration:none;">ContentPage.html template</a>
      is parsed, it will load
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/docs/Home.html">Home.html</a>.
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/docs/Home.html">Home.html</a>.
     So this is what you read.
 </p>
 <h5>The post version</h5>
 <p>
     When a page has an url the server creates the EO object.
-    You can create this same EO object within the browser client and send it to the generic interface:
- /p>
+    You can create this same EO object as typed JSON and send it to the generic interface:
+ </p>
 <p>
 <form action="/eo-form" method="post">
             <textarea name="eo" style="height:210px">{
@@ -81,7 +81,7 @@ model configuration these methods can be accessed. </p>
     <input type="submit" value="post"/>
 </form>
 </p>
-<p><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">WebEo.eoPostForm()</a>.
+<p><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">WebEo's</a> eoPostForm method.
  extract the "eo-form" value from the body and deserialize the json to EO.
 </p>
 
@@ -150,6 +150,6 @@ model configuration these methods can be accessed. </p>
     a wordpress theme with all its responsive magic. It's hidden in
     the <a href="http://localhost:8080/config/TemplateConfig/Header.html">Header.html</a> and
     <a href="http://localhost:8080/config/TemplateConfig/Footer.html">Footer.html</a>.
-    The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">content page template</a>
+    The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">content page template</a>
     could be rather small.
 </p>
