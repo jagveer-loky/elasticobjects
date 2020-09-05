@@ -1,0 +1,244 @@
+@startuml
+
+title __CONFIG's Class Diagram__\n
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class HConfig {
+            {static} - LOG : Logger
+            - hibernateKey : String
+            - dbKey : String
+            - models : String
+            - configFile : String
+            - auto : String
+            - properties : Map<String, String>
+            - showSql : Boolean
+            - formatSql : Boolean
+            - useCacheSecondLevel : Boolean
+            - useCacheQuery : Boolean
+            - registerAutoListener : Boolean
+            - useReflectionOptimizer : Boolean
+            - modelList : List<ModelInterface>
+            - changed : boolean
+            - cfg : Configuration
+            - dbConfig : DbConfig
+            - sessionFactory : SessionFactory
+            + HConfig()
+            + getKey()
+            + getHibernateKey()
+            + getDbKey()
+            + getDbConfig()
+            + getModels()
+            + getConfigFile()
+            + getAuto()
+            + getProperties()
+            + isShowSql()
+            + isFormatSql()
+            + isUseCacheSecondLevel()
+            + isUseCacheQuery()
+            + isRegisterAutoListener()
+            + isUseReflectionOptimizer()
+            + getSession()
+            + closeConnection()
+            + getSessionFactory()
+            + initSessionFactory()
+            + init()
+            - initContent()
+            - createXMLConfig()
+            - createQuery()
+            + read()
+            + readAll()
+            + delete()
+            + find()
+            + delete()
+            + delete()
+            + write()
+            + insert()
+            + update()
+            + executeUpdate()
+            + executeUpdate()
+            + doBeforeMap()
+            + doAfterMap()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class Builder {
+            - hibernateKey : String
+            - dbKey : String
+            - models : String
+            - configFile : String
+            - auto : String
+            - properties : Map<String, String>
+            - showSql : Boolean
+            - formatSql : Boolean
+            - useCacheSecondLevel : Boolean
+            - useCacheQuery : Boolean
+            - registerAutoListener : Boolean
+            - useReflectionOptimizer : Boolean
+            - modelList : List<ModelInterface>
+            # prepare()
+            + build()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class HIO {
+            - hConfig : HConfig
+            + HIO()
+            + getSession()
+            - createQuery()
+            + read()
+            + readAll()
+            + delete()
+            + find()
+            + delete()
+            + delete()
+            + write()
+            + insert()
+            + update()
+            + executeUpdate()
+            + executeUpdate()
+            + doBeforeMap()
+            + doAfterMap()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class HQueryConfig {
+            {static} - LOG : Logger
+            - hibernateModelKey : String
+            - hql : String
+            - modelKey : String
+            - hibernateKey : String
+            - pathPattern : PathPattern
+            - and : And
+            - modelConfig : ModelInterface
+            - hibernateCache : HConfig
+            + HQueryConfig()
+            + createIO()
+            + getKey()
+            + createListIO()
+            + getHibernateModelKey()
+            + getHql()
+            + getModelKey()
+            + getModelConfig()
+            + getHibernateKey()
+            + getHConfig()
+            + getPathPattern()
+            + getAnd()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class Builder {
+            - hql : String
+            - hibernateModelKey : String
+            - modelKey : String
+            - hibernateKey : String
+            - pathPattern : PathPattern
+            - and : And
+            # prepare()
+            + build()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class HQueryIO {
+            {static} - LOG : Logger
+            - result : List
+            - pointer : int
+            # HQueryIO()
+            + read()
+            + read()
+            + write()
+            + readRow()
+            + readHead()
+            + readRow()
+            + write()
+            + reset()
+            + close()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class HSqlConfig {
+            {static} - LOG : Logger
+            - hibernateKey : String
+            - hibernateSqlKey : String
+            - sqlList : List<String>
+            - hibernateCache : HConfig
+            + HSqlConfig()
+            + getKey()
+            + getHibernateSqlKey()
+            + getSqlList()
+            + getHibernateKey()
+            + getHConfig()
+            + execute()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class Builder {
+            - hibernateSqlKey : String
+            - hibernateKey : String
+            - sqlList : List<String>
+            # prepare()
+            + build()
+        }
+      }
+    }
+  }
+  
+
+  HConfig -up-|> EOExtension
+  HConfig +-down- Builder
+  HQueryConfig +-down- Builder
+  HQueryIO -up-|> ListIOInterface
+  HSqlConfig +-down- Builder
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

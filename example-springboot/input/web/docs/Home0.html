@@ -1,0 +1,30 @@
+
+<h4>Entry Points</h4>
+<p>
+    The spring boot configuration is minimal with only two classes defining the endpoints:
+</p>
+<ul>
+    <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">Generic post endpoints</a> to generate EO template call on the client side</li>
+    <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java">Get endpoints</a> creating EO template call on the serverside by path variables.</li>
+</ul>
+
+<p>
+    Basically the demo is pure html, with dedicated urls for each page with
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java">WebEoGet.java</a>.
+    Only three main templates are actually defined:
+</p>
+
+<ul>
+    <li><a href="/config/TemplateConfig/ContentPage.html">ContentPage.html</a></li>
+    <li><a href="/config/TemplateConfig/ExamplesPage.html">ExamplesPage.html</a></li>
+    <li><a href="/config/TemplateConfig/ConfigsPage.html">ConfigsPage.html</a></li>
+</ul>
+
+<p>
+    The layout origins from
+    a wordpress theme with all its responsive magic. It's hidden in
+    the <a href="http://localhost:8080/config/TemplateConfig/Header.html">Header.html</a> and
+    <a href="http://localhost:8080/config/TemplateConfig/Footer.html">Footer.html</a>.
+    The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">content page template</a>
+    could be rather small.
+</p>

@@ -12,5 +12,6 @@
     "key": "h2:mem:basic:BasicTest",
     "description": "Query for BasicTest",
     "naturalId": "h2:mem:basic:BasicTest"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

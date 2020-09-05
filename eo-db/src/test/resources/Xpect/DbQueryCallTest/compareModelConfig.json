@@ -36,5 +36,6 @@
     "description": "Executes a stored sql query.",
     "naturalId": "DbQueryCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -34,5 +34,6 @@
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
     "naturalId": "BasicTest",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

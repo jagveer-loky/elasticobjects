@@ -1,0 +1,246 @@
+{
+  "Country": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "Country",
+    "superKey": "ModelAnnotated",
+    "fieldKeys": [
+      "name",
+      "countryCode"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "Country",
+      "idKey": "id",
+      "naturalKeys": [
+        "naturalId"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "An example country table.",
+    "naturalId": "Country",
+    "author": "Werner Diwischek"
+  },
+  "Left": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "Left",
+    "fieldKeys": [
+      "id",
+      "leftName",
+      "rightList",
+      "rightMap"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "Left",
+      "idKey": "id",
+      "naturalKeys": [
+        "leftName"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A left demo bean for relation mapping tests.",
+    "naturalId": "Left",
+    "author": "Werner Diwischek"
+  },
+  "LeftList": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "LeftList",
+    "fieldKeys": [
+      "id",
+      "leftName",
+      "LeftList.rightList"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "LeftList",
+      "idKey": "id",
+      "naturalKeys": [
+        "leftName"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A left demo bean for relation mapping tests.",
+    "naturalId": "LeftList",
+    "author": "Werner Diwischek"
+  },
+  "LeftMap": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "LeftMap",
+    "fieldKeys": [
+      "id",
+      "leftName",
+      "LeftMap.rightMap"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "LeftMap",
+      "idKey": "id",
+      "naturalKeys": [
+        "leftName"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A left demo bean for relation mapping tests.",
+    "naturalId": "LeftMap",
+    "author": "Werner Diwischek"
+  },
+  "LocalizedEntry": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "LocalizedEntry",
+    "superKey": "ModelAnnotated",
+    "fieldKeys": [
+      "countryCode",
+      "localizedString"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "LocalizedEntry",
+      "idKey": "id",
+      "naturalKeys": [
+        "naturalId"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A simple language specific test. ",
+    "naturalId": "LocalizedEntry",
+    "author": "Werner Diwischek"
+  },
+  "LocalizedString": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "LocalizedString",
+    "superKey": "ModelAnnotated",
+    "fieldKeys": [
+      "localizedEntryMap"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "LocalizedString",
+      "idKey": "id",
+      "naturalKeys": [
+        "naturalId"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A combination of localized entries.",
+    "naturalId": "LocalizedString",
+    "author": "Werner Diwischek"
+  },
+  "Right": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "Right",
+    "fieldKeys": [
+      "id",
+      "rightName",
+      "leftList",
+      "leftMap"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "Right",
+      "idKey": "id",
+      "naturalKeys": [
+        "rightName"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A left demo bean for relation mapping tests.",
+    "naturalId": "Right",
+    "author": "Werner Diwischek"
+  },
+  "RightList": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "RightList",
+    "fieldKeys": [
+      "id",
+      "rightName",
+      "RightList.leftList"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "RightList",
+      "idKey": "id",
+      "naturalKeys": [
+        "rightName"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A left demo bean for relation mapping tests.",
+    "naturalId": "RightList",
+    "author": "Werner Diwischek"
+  },
+  "RightMap": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "RightMap",
+    "fieldKeys": [
+      "id",
+      "rightName",
+      "RightMap.leftMap"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "RightMap",
+      "idKey": "id",
+      "naturalKeys": [
+        "rightName"
+      ],
+      "hibernateAnnotations": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "A left demo bean for relation mapping tests.",
+    "naturalId": "RightMap",
+    "author": "Werner Diwischek"
+  }
+}

@@ -1,0 +1,196 @@
+<h3>EO - Elastic Objects</h3>
+<p>
+    Elastic Objects is a wrapper for java objects like Java 8 Optional. The wrapper knows
+</p>
+<ul>
+    <li>the wrapper of the parent object,</li>
+    <li>all wrappers for the child objects with fieldName and </li>
+    <li>the type.</li>
+</ul>
+<p>
+    Combining these wrappers one can access, create or change java objects via path.
+</p>
+
+<h4>At a glance</h4>
+<h5>Java</h5>
+<p>
+    In a java application one could
+    create a typed object with a simple path modifier (<a href="/configs/ModelConfig/BasicTest">BasicTest</a>) before the name.
+    The <a href="/configs/ModelConfig/BasicTest">BasicTest</a> object
+    then has the value "test" in <a href="/configs/FieldConfig/testString">testString</a>.
+</p>
+<p>
+<textarea>
+eo.set("test","(BasicTest)myObject/testString");
+Assertions.assertThat(eo.get("myObject/testString").isEqualTo("value");
+Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.class");
+</textarea>
+</p>
+<p>
+    You will find a lot code like this in the github module
+    <a href="https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects">eo-test</a>.
+    Since no applicationserver is used for object mapping, the 500 tests are finished in about a second.
+</p>
+<h5>Typed JSON (De)serialization</h5>
+<p>When EO serialize the object it creates by default a typed JSON representation
+<form action="/eo-form" method="post">
+    <textarea name="eo" style="height:90px">{
+    "(BasicTest)myObject": {
+        "testString":"value"
+    }
+}
+</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>
+<p>
+    When you click, the
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">generic web interface</a>
+    will map the JSON to EO. Afterwards JSON will be generated. You can change the values of the example to see that it works.
+</p>
+<p>
+    This web interface uses a simple mapping method:
+    <textarea>
+eo.mapObject(jsonString);
+Assertions.assertThat(eo.get("myObject/testString").isEqualTo("value");
+Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.class");
+    </textarea>
+</p>
+
+<p>This works in a java application or the small generic web interface used to create this site. </p>
+
+
+<h5>Functional JSON</h5>
+<p>Beyond the passive pojos you can define "Calls". These pojos with an execute method extends the
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java">Call</a>
+    interface.</p>
+
+<p>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java">SinusValueCall</a>
+     compute the sinus from the source value:
+<form action="/eo-form" method="post">
+     <textarea name="eo">{
+  "(Double)source":1,
+  "(SinusValueCall)target": {
+    "sourcePath": "/source"
+  }
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>
+<p>
+    As with every post example you can run the example and change the value inside the text-area.
+</p>
+<h5>Synopsis</h5>
+<p>
+    A client is free to combine available values and calls. The only restriction is, that a configuration is
+    defined on the server.
+</p>
+<p>
+    On the server side one can add resources only by configurations. New Functionality can be implemented in pure Java
+    and configurations.
+</p>
+<p>
+    One generic interface offer all of the servers functionality to the client.
+</p>
+<p>
+    Adding type and functional directives into JSON is only a small change with simple rules.
+    This small change simplifies building and architecture of service oriented
+applications. But it enlarge application scope far beyond some disabled database operations.
+</p>
+
+<h5>Remote Pojo Calls</h5>
+<p>
+    From a pattern perspective ElasticObjects implements a simple path pragma in Java,
+    which determine type, structure and batched execution.
+</p>
+<p>
+    It's JSON serializing mechanism allows to trigger
+    the same remote e.g. via http. This could be called Remote Pojo Calls.
+</p>
+<p>
+    The template call allows to compose these calls in a hierarchical way.
+</p>
+
+<h4>Spring Boot Demo</h4>
+
+<p>
+    This site itself is a demo for this principle: A small spring boot application together
+    with Elastic Objects and some <a href="config/TemplateConfig.html">TemplateConfigurations</a>.
+</p>
+<p>
+    The page you see with an "ordinary" web-url triggers the spring boot method
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java#L44">WeEoGet.createRootPage</a>
+    with the MVC request mapping "/{selectedItem:.+}.html".
+</p>
+<p>
+    This method creates at server side a new EO object with selectedItem="Home.html" and
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/989f10d794111b55c20921fb072bb1d18d1cfae1/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java#L10">TemplateResourceCall</a>
+    and the template name
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">ContentPage.html</a>.
+
+</p>
+<p>
+    When the
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html" style="border:none;text-decoration:none;">ContentPage.html template</a>
+     is parsed, it will load
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/docs/Home.html">Home.html</a>.
+    So this is what you read.
+</p>
+<h5>The post version</h5>
+<p>
+   Every page with an url ending ".html" creates the EO object on server side.
+</p>
+<p>
+    In the following example with JSON from the client side render the same result:
+ </p>
+<p>
+<form action="/eo-form" method="post">
+            <textarea name="eo" style="height:150px">{
+   "selectedItem": "Home.html",
+   "(TemplateResourceCall)call": {
+      "configKey":"ContentPage.html"
+   },
+   "asTemplate":true
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>
+
+<p>
+    The result is the same beside the url is not so "nice".
+    But it demonstrates the flexibility to send EO objects to the server.
+    If you remove the "asTemplate" value
+    you will get the "raw" JSON response.
+</p>
+
+<h4>Further Content</h4>
+<p>
+    The other pages have two topics
+</p>
+<ul>
+    <li><a href="/examples/ExampleStart.html">Examples</a></li>
+    <li>Different Configurations.</li>
+</ul>
+<h5>Examples</h5>
+<p>The most pages are about getting data from the server</p>
+<ul>
+    <li><a href="/examples/FileCall.html">FileCall</a></li>
+    <li><a href="/examples/JsonCall.html">JsonCall</a></li>
+    <li><a href="/examples/CsvCall.html">CsvCall</a></li>
+    <li><a href="/examples/XlsxCall.html">XlsxCall</a></li>
+    <li><a href="/examples/DbCall.html">DbCall</a></li>
+</ul>
+
+<p>
+    They have their own configurations e.g. with permission restrictions.
+</p>
+
+<p>
+    <a href="/examples/TemplateCall.html">Templates</a> offer the possibility to embed the calls in an arbitrary text
+in a hierarchical way.
+</p>
+
+<p>
+    Finally and first there is an example creating an own call with <a href="/examples/TheGreetingCall.html">TheGreetingCall</a>.
+</p>

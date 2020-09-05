@@ -31,5 +31,6 @@
     "description": "Defines a file write access. ",
     "naturalId": "FileWriteCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

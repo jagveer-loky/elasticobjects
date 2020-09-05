@@ -31,10 +31,10 @@ public class EoRemoveTest {
         EO child = ProviderRootTestScope.createEo(new BasicTest())
                 .set(S_STRING, BasicTest.TEST_STRING);
         EO root = child.getRoot();
-        Assert.assertEquals(1, (root).sizeEo());
+        Assert.assertEquals(1, (root).size());
 
         root.remove(BasicTest.TEST_STRING);
-        Assert.assertEquals(0, (root).sizeEo());
+        Assert.assertEquals(0, (root).size());
     }
 
     @Test
@@ -54,10 +54,10 @@ public class EoRemoveTest {
     public void givenMap_thenRemoved()  {
         EO child = ProviderRootTestScope.createEo().set(S_STRING, S_TEST_STRING);
         EO root = child.getRoot();
-        Assert.assertEquals(1, root.sizeEo());
+        Assert.assertEquals(1, root.size());
         Assert.assertEquals(S_STRING, root.get(S_TEST_STRING));
         root.remove(S_TEST_STRING);
-        Assert.assertEquals(0, root.sizeEo());
+        Assert.assertEquals(0, root.size());
 
     }
 
@@ -75,9 +75,9 @@ public class EoRemoveTest {
                 .set( S_STRING,S0);
         // remove value entry first
         EO root = child.getRoot();
-        Assert.assertEquals(1, root.sizeEo());
+        Assert.assertEquals(1, root.size());
         root.remove(S0);
-        Assert.assertEquals(0, root.sizeEo());
+        Assert.assertEquals(0, root.size());
     }
 
     @Test

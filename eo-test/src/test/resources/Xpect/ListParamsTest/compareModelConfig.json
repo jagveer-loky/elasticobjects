@@ -24,5 +24,6 @@
     "description": "Defines the parameter like rowStart, rowEnd and length.",
     "naturalId": "ListParams",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

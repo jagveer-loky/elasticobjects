@@ -1,0 +1,7 @@
+{
+  "$[\\tmp\\sheet]": {
+    "jsonKey": "$[/tmp/sheet]",
+    "naturalId": "$[/tmp/sheet]",
+    "description": "Generic serialize definition for configurations."
+  }
+}

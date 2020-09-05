@@ -39,5 +39,6 @@
     "description": "Table definitions with pojo.",
     "naturalId": "ModelInterface",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -85,7 +85,7 @@ public class EoMapObjectScalarTest {
         EO root = ProviderRootDevScope.createEo(List.class, String.class);
         root
                 .mapObject(TestProviderBtJson.BOOLEAN.content());
-        Assert.assertEquals(1, root.keysEo().size());
+        Assert.assertEquals(1, root.keys().size());
         Assert.assertEquals(1, ((EoChild) root).keysValue().size());
         Assert.assertEquals(S_BOOLEAN.toString(), root.get(S0));
     }

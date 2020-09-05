@@ -36,5 +36,6 @@
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
     "naturalId": "FieldConfig",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

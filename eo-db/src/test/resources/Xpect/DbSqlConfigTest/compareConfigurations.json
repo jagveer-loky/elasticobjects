@@ -28,5 +28,6 @@
     "key": "h2:mem:basic:Create",
     "description": "Basic H2 creating tables",
     "naturalId": "h2:mem:basic:Create"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

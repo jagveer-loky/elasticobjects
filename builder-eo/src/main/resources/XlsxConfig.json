@@ -1,0 +1,346 @@
+{
+  "actions.xlsx:File": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:File",
+    "xlsxKey": "actions.xlsx:File",
+    "fileKey": "actions.xlsx",
+    "sheetName": "File",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The File configurations to build elastic objects."
+  },
+  "actions.xlsx:Json": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Json",
+    "xlsxKey": "actions.xlsx:Json",
+    "fileKey": "actions.xlsx",
+    "sheetName": "Json",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Json configurations to build elastic objects."
+  },
+  "actions.xlsx:Host": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Host",
+    "xlsxKey": "actions.xlsx:Host",
+    "fileKey": "actions.xlsx",
+    "sheetName": "Host",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Host configurations to build elastic objects."
+  },
+  "actions.xlsx:Template": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Template",
+    "xlsxKey": "actions.xlsx:Template",
+    "fileKey": "actions.xlsx",
+    "sheetName": "Template",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Template configurations to build elastic objects."
+  },
+  "actions.xlsx:Value": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Value",
+    "xlsxKey": "actions.xlsx:Value",
+    "fileKey": "actions.xlsx",
+    "sheetName": "Value",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Value configurations to build elastic objects."
+  },
+  "ConfigsCallsDb.xlsx:Db": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsDb.xlsx:Db",
+    "xlsxKey": "ConfigsCallsDb.xlsx:Db",
+    "fileKey": "ConfigsCallsDb.xlsx",
+    "sheetName": "Db",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Db configurations to build elastic objects."
+  },
+  "ConfigsCallsDb.xlsx:DbSql": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsDb.xlsx:DbSql",
+    "xlsxKey": "ConfigsCallsDb.xlsx:DbSql",
+    "fileKey": "ConfigsCallsDb.xlsx",
+    "sheetName": "DbSql",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The DbSql configurations to build elastic objects."
+  },
+  "ConfigsCallsDb.xlsx:Hibernate": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsDb.xlsx:Hibernate",
+    "xlsxKey": "ConfigsCallsDb.xlsx:Hibernate",
+    "fileKey": "ConfigsCallsDb.xlsx",
+    "sheetName": "Hibernate",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Hibernate configurations to build elastic objects."
+  },
+  "ConfigsCallsDb.xlsx:HibernateModel": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsDb.xlsx:HibernateModel",
+    "xlsxKey": "ConfigsCallsDb.xlsx:HibernateModel",
+    "fileKey": "ConfigsCallsDb.xlsx",
+    "sheetName": "HibernateModel",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The HibernateModel configurations to build elastic objects."
+  },
+  "ConfigsCallsDb.xlsx:HibernateSql": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsDb.xlsx:HibernateSql",
+    "xlsxKey": "ConfigsCallsDb.xlsx:HibernateSql",
+    "fileKey": "ConfigsCallsDb.xlsx",
+    "sheetName": "HibernateSql",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The HibernateSql configurations to build elastic objects."
+  },
+  "ConfigsCallsList.xlsx:Csv": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsList.xlsx:Csv",
+    "xlsxKey": "ConfigsCallsList.xlsx:Csv",
+    "fileKey": "ConfigsCallsList.xlsx",
+    "sheetName": "Csv",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Csv configurations to build elastic objects."
+  },
+  "ConfigsCallsList.xlsx:Xlsx": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsList.xlsx:Xlsx",
+    "xlsxKey": "ConfigsCallsList.xlsx:Xlsx",
+    "fileKey": "ConfigsCallsList.xlsx",
+    "sheetName": "Xlsx",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Xlsx configurations to build elastic objects."
+  },
+  "data.xlsx:BasicTest": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "data.xlsx:BasicTest",
+    "xlsxKey": "data.xlsx",
+    "fileKey": "data.xlsx",
+    "sheetName": "BasicTest",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "Example data for BasicTest."
+  },
+  "data.xlsx:SubTest": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "data.xlsx:SubTest",
+    "xlsxKey": "data.xlsx",
+    "fileKey": "data.xlsx",
+    "sheetName": "SubTest",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "Example data for SubTest."
+  },
+  "data.xlsx:ScalarValues": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "data.xlsx:ScalarValues",
+    "xlsxKey": "data.xlsx",
+    "fileKey": "data.xlsx",
+    "sheetName": "ScalarValues",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "Example data for ScalarValues."
+  },
+  "data.xlsx:Country": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "data.xlsx:Country",
+    "xlsxKey": "data.xlsx",
+    "fileKey": "data.xlsx",
+    "sheetName": "Country",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "Example data for Country."
+  },
+  "data.xlsx:LocalizedString": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "data.xlsx:LocalizedString",
+    "xlsxKey": "data.xlsx",
+    "fileKey": "data.xlsx",
+    "sheetName": "LocalizedString",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "Example data for LocalizedString."
+  },
+  "data.xlsx:LocalizedEntry": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "data.xlsx:LocalizedEntry",
+    "xlsxKey": "data.xlsx",
+    "fileKey": "data.xlsx",
+    "sheetName": "LocalizedEntry",
+    "listParams": {
+      "rowHead": 0
+    },
+    "description": "Example data for LocalizedEntry."
+  },
+  "models.xlsx:Field": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:Field",
+    "xlsxKey": "models.xlsx:Field",
+    "fileKey": "models.xlsx",
+    "sheetName": "Field",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Field configurations to build elastic objects."
+  },
+  "models.xlsx:Model": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:Model",
+    "xlsxKey": "models.xlsx:Model",
+    "fileKey": "models.xlsx",
+    "sheetName": "Model",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Model configurations to build elastic objects."
+  },
+  "models.xlsx:User": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:User",
+    "xlsxKey": "models.xlsx:User",
+    "fileKey": "models.xlsx",
+    "sheetName": "User",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The User configurations to build elastic objects."
+  },
+  "models.xlsx:Role": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:Role",
+    "xlsxKey": "models.xlsx:Role",
+    "fileKey": "models.xlsx",
+    "sheetName": "Role",
+    "listParams": {
+      "rowHead": 0
+    },
+    "listMapper": {
+      "modelKeys": "Map,Map",
+      "mapPath": "$[module]/$[subModule]/$[naturalId]",
+      "doMap": 1
+    },
+    "description": "The Role configurations to build elastic objects."
+  }
+}

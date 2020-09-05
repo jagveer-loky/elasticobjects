@@ -1,0 +1,10 @@
+{
+  ".actions": [
+    {
+      "action": "HibernateModelAction.delete(h2:mem:BasicTest)",
+      "attributes": {
+        "or": "testString eq testString3"
+      }
+    }
+  ]
+}

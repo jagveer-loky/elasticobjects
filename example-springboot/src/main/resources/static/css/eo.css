@@ -1,0 +1,6 @@
+textarea {
+    white-space: pre;
+    overflow: scroll;
+    text-overflow: ellipsis;
+    font: 330 12.6px Courier, Monaco, monospace;
+}

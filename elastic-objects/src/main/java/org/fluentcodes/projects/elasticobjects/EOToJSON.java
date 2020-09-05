@@ -86,11 +86,18 @@ public class EOToJSON {
     }
 
     private void toJSON(final StringWriter stringWriter, final EO eoParent, final int indentLevel)  {
-        if (eoParent.get() == null || eoParent.isEmpty()) {
+        if (eoParent.get() == null) {
             return ;
         }
+        if (eoParent.isEmpty() && serializationType!=JSONSerializationType.EO) {
+            return;
+        }
         Set<String> fieldNames = eoParent.keysEo();
+        if (fieldNames.isEmpty()) {
+            return;
+        }
         boolean first = true;
+
         for (String fieldName: fieldNames) {
             if (PathElement.isParentNotSet(fieldName) && serializationType == JSONSerializationType.STANDARD) {
                 continue;

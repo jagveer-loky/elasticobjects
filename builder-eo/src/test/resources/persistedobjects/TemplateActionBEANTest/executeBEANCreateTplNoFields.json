@@ -1,0 +1,504 @@
+{
+  "_data": {
+    "_models": "Map",
+    "module": "builder-eo",
+    "subModule": "test",
+    "packageGroup": "models",
+    "eoParams": {
+      "_models": "Map",
+      "shapeType": "BEAN"
+    },
+    "modelKey": "BuilderTest",
+    "fieldKeys": [
+      "id",
+      "untypedList",
+      "untypedMap",
+      "testInt",
+      "testString",
+      "testLong",
+      "testDate",
+      "testBoolean",
+      "testFloat",
+      "testDouble",
+      "testObject"
+    ],
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "description": "Test Description.",
+    "author": "Albert Zweistein"
+  },
+  "_logs": "ERROR - 8 - ExecutorValues.execute(Line 150): /fieldKeys/0: createType: Exception with values, id,
+  ERROR
+  -
+  11
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/1
+  :
+  createType: Exception
+  with
+  values,
+  untypedList,
+  ERROR
+  -
+  12
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/2
+  :
+  createType: Exception
+  with
+  values,
+  untypedMap,
+  ERROR
+  -
+  14
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/3
+  :
+  createType: Exception
+  with
+  values,
+  testInt,
+  ERROR
+  -
+  15
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/4
+  :
+  createType: Exception
+  with
+  values,
+  testString,
+  ERROR
+  -
+  16
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/5
+  :
+  createType: Exception
+  with
+  values,
+  testLong,
+  ERROR
+  -
+  17
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/6
+  :
+  createType: Exception
+  with
+  values,
+  testDate,
+  ERROR
+  -
+  18
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/7
+  :
+  createType: Exception
+  with
+  values,
+  testBoolean,
+  ERROR
+  -
+  19
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/8
+  :
+  createType: Exception
+  with
+  values,
+  testFloat,
+  ERROR
+  -
+  20
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/9
+  :
+  createType: Exception
+  with
+  values,
+  testDouble,
+  ERROR
+  -
+  20
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/10
+  :
+  createType: Exception
+  with
+  values,
+  testObject,
+  ERROR
+  -
+  23
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/0
+  :
+  createDescription: Exception
+  with
+  values,
+  id,
+  ERROR
+  -
+  23
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/0
+  :
+  createType: Exception
+  with
+  values,
+  id,
+  ERROR
+  -
+  24
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/0
+  :
+  createType: Exception
+  with
+  values,
+  id,
+  ERROR
+  -
+  26
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/1
+  :
+  createDescription: Exception
+  with
+  values,
+  untypedList,
+  ERROR
+  -
+  27
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/1
+  :
+  createType: Exception
+  with
+  values,
+  untypedList,
+  ERROR
+  -
+  28
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/1
+  :
+  createType: Exception
+  with
+  values,
+  untypedList,
+  ERROR
+  -
+  28
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/2
+  :
+  createDescription: Exception
+  with
+  values,
+  untypedMap,
+  ERROR
+  -
+  29
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/2
+  :
+  createType: Exception
+  with
+  values,
+  untypedMap,
+  ERROR
+  -
+  29
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/2
+  :
+  createType: Exception
+  with
+  values,
+  untypedMap,
+  ERROR
+  -
+  30
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/3
+  :
+  createDescription: Exception
+  with
+  values,
+  testInt,
+  ERROR
+  -
+  30
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/3
+  :
+  createType: Exception
+  with
+  values,
+  testInt,
+  ERROR
+  -
+  31
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/3
+  :
+  createType: Exception
+  with
+  values,
+  testInt,
+  ERROR
+  -
+  32
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/4
+  :
+  createDescription: Exception
+  with
+  values,
+  testString,
+  ERROR
+  -
+  32
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/4
+  :
+  createType: Exception
+  with
+  values,
+  testString,
+  ERROR
+  -
+  32
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/4
+  :
+  createType: Exception
+  with
+  values,
+  testString,
+  ERROR
+  -
+  33
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/5
+  :
+  createDescription: Exception
+  with
+  values,
+  testLong,
+  ERROR
+  -
+  34
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/5
+  :
+  createType: Exception
+  with
+  values,
+  testLong,
+  ERROR
+  -
+  34
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/5
+  :
+  createType: Exception
+  with
+  values,
+  testLong,
+  ERROR
+  -
+  35
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/6
+  :
+  createDescription: Exception
+  with
+  values,
+  testDate,
+  ERROR
+  -
+  35
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/6
+  :
+  createType: Exception
+  with
+  values,
+  testDate,
+  ERROR
+  -
+  36
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/6
+  :
+  createType: Exception
+  with
+  values,
+  testDate,
+  ERROR
+  -
+  37
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/7
+  :
+  createDescription: Exception
+  with
+  values,
+  testBoolean,
+  ERROR
+  -
+  37
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/7
+  :
+  createType: Exception
+  with
+  values,
+  testBoolean,
+  ERROR
+  -
+  37
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/7
+  :
+  createType: Exception
+  with
+  values,
+  testBoolean,
+  ERROR
+  -
+  38
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/8
+  :
+  createDescription: Exception
+  with
+  values,
+  testFloat,
+  ERROR
+  -
+  39
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/8
+  :
+  createType: Exception
+  with
+  values,
+  testFloat,
+  ERROR
+  -
+  39
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/8
+  :
+  createType: Exception
+  with
+  values,
+  testFloat,
+  ERROR
+  -
+  40
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/9
+  :
+  createDescription: Exception
+  with
+  values,
+  testDouble,
+  ERROR
+  -
+  40
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/9
+  :
+  createType: Exception
+  with
+  values,
+  testDouble,
+  ERROR
+  -
+  41
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/9
+  :
+  createType: Exception
+  with
+  values,
+  testDouble,
+  ERROR
+  -
+  42
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/10
+  :
+  createDescription: Exception
+  with
+  values,
+  testObject,
+  ERROR
+  -
+  42
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/10
+  :
+  createType: Exception
+  with
+  values,
+  testObject,
+  ERROR
+  -
+  42
+  -
+  ExecutorValues.execute(Line
+  150): /fieldKeys/10
+  :
+  createType: Exception
+  with
+  values,
+  testObject,
+  "
+}

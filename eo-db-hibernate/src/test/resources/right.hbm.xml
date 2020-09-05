@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.clearcodes.projects.elasticobjects.modelKeys">
+    <class name="org.fluentcodes.projects.elasticobjects.modelKeys.Right" table="Right">
+        <id name="id" column="id" type="long" length="8">
+            <generator class="native"/>
+        </id>
+        <property name="rightName">
+            <column name="rightName" length="15" unique="true" not-null="true"/>
+        </property>
+        <map name="leftMap" table="LeftRight">
+            <filterKey column="right_id"/>
+            <map-filterKey-many-to-many column="leftName"
+                                        class="org.fluentcodes.projects.elasticobjects.modelKeys.Left"/>
+            <!--map-filterKey column="x" type="string"/-->
+            <!--map-filterKey-column column="leftName"/-->
+            <many-to-many class="org.fluentcodes.projects.elasticobjects.modelKeys.Left" column="id">
+
+            </many-to-many>
+        </map>
+    </class>
+
+    <class name="org.fluentcodes.projects.elasticobjects.modelKeys.Left" table="Left">
+        <id name="id" column="id" type="long" length="8">
+            <generator class="native"/>
+        </id>
+        <property name="leftName">
+            <column name="leftName" length="15"/>
+        </property>
+    </class>
+
+</hibernate-mapping>

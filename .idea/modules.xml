@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/elastic-objects/elastic-objects.iml" filepath="$PROJECT_DIR$/elastic-objects/elastic-objects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eo.iml" filepath="$PROJECT_DIR$/eo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eo-csv/eo-csv.iml" filepath="$PROJECT_DIR$/eo-csv/eo-csv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eo-db/eo-db.iml" filepath="$PROJECT_DIR$/eo-db/eo-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eo-test/eo-test.iml" filepath="$PROJECT_DIR$/eo-test/eo-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eo-test/eo-test-resources.iml" filepath="$PROJECT_DIR$/eo-test/eo-test-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eo-xlsx/eo-xlsx.iml" filepath="$PROJECT_DIR$/eo-xlsx/eo-xlsx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-springboot/example-springboot.iml" filepath="$PROJECT_DIR$/example-springboot/example-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eo-xpect/xpect-eo.iml" filepath="$PROJECT_DIR$/eo-xpect/xpect-eo.iml" />
+    </modules>
+  </component>
+</project>

@@ -34,5 +34,6 @@
     "key": "HostConfig",
     "description": "Basic host definition for file or db cache. ",
     "naturalId": "HostConfig"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

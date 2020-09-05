@@ -15,5 +15,6 @@
     },
     "key": "FieldExampleClass",
     "naturalId": "FieldExampleClass"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

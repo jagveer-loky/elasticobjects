@@ -36,5 +36,6 @@
     "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
     "naturalId": "XlsxReadCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

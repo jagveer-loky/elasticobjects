@@ -15,6 +15,6 @@ public class EoCallsTest {
     public void givenTest_thenCallsAreEmpty()  {
         EO eo = ProviderRootTestScope.createEo();
         Assertions.assertThat(((EoChild)eo).hasCalls()).isEqualTo(false);
-        Assertions.assertThat(eo.sizeEo()).isEqualTo(0);
+        Assertions.assertThat(eo.size()).isEqualTo(0);
     }
 }

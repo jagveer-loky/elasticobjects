@@ -103,5 +103,6 @@
     "key": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "naturalId": "target.json"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

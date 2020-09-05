@@ -1,0 +1,26 @@
+[
+  {
+    "countryCode": "fr",
+    "localizedString": {
+      "naturalId": "Test"
+    },
+    "description": "Test Entry for Localized Entry",
+    "naturalId": "Test_fr"
+  },
+  {
+    "countryCode": "de",
+    "localizedString": {
+      "naturalId": "Test"
+    },
+    "description": "Test Entry for Localized Entry",
+    "naturalId": "Test_de"
+  },
+  {
+    "countryCode": "it",
+    "localizedString": {
+      "naturalId": "Test"
+    },
+    "description": "Test Entry for Localized Entry",
+    "naturalId": "Test_it"
+  }
+]

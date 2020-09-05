@@ -1,0 +1,27 @@
+{
+  "_models": "Map",
+  "module": "builder-eo",
+  "subModule": "test",
+  "packageGroup": "models",
+  "eoParams": {
+    "_models": "Map",
+    "shapeType": "BEAN"
+  },
+  "modelKey": "BuilderTest",
+  "fieldKeys": [
+    "id",
+    "untypedList",
+    "untypedMap",
+    "testInt",
+    "testString",
+    "testLong",
+    "testDate",
+    "testBoolean",
+    "testFloat",
+    "testDouble",
+    "testObject"
+  ],
+  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "description": "Test Description.",
+  "author": "Albert Zweistein"
+}

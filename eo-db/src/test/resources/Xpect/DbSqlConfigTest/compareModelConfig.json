@@ -32,5 +32,6 @@
     "description": "Execute sql statements via jdbc connection. ",
     "naturalId": "DbSqlConfig",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

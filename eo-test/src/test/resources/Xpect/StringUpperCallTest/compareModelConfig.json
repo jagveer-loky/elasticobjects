@@ -29,5 +29,6 @@
     "description": "For setting upper value to EO.",
     "naturalId": "StringUpperCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

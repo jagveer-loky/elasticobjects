@@ -1,0 +1,278 @@
+@startuml
+
+title __CONFIG's Class Diagram__\n
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CompareCallsDbTest {
+            {static} + SHEET : String
+            + dbDBMain()
+            + dbDBTest()
+            + dbHDBTest()
+            + dbDBQueryTest()
+            + dbDBSqlTest()
+            + dbHTest()
+            + dbHQueryTest()
+            + dbHSqlTest()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CompareCallsListTest {
+            + xlsxXEOTest()
+            + xlsxXEOMain()
+            + xlsxBEOMain()
+            + csvCEOTest()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CompareConfigs {
+            + compare()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CompareEOCallConfigsTest {
+            + valueEOTest()
+            + valueEOMain()
+            + hostEOTest()
+            + hostEOMain()
+            + fileEOTest()
+            + fileEOMain()
+            + fileXEOTest()
+            + fileCEOTest()
+            + fileBEOTest()
+            + templateEOTest()
+            + templateEOMain()
+            + templateBMain()
+            + templateBTest()
+            + jsonEOTest()
+            + jsonEOMain()
+            + jsonBEOMain()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CompareEOConfigsTest {
+            {static} + SHEET : String
+            + fieldsEOMain()
+            + fieldsEOTest()
+            + fieldsXEOMain()
+            + fieldsCEOMain()
+            + fieldDBMain()
+            + fieldHDBMain()
+            + fieldHDBTest()
+            + modelsEOMain()
+            + modelsEOTest()
+            + modelsXEOMain()
+            + modelsCEOMain()
+            + modelDBMain()
+            + modelHDBMain()
+            + modelHDBTest()
+            + usersEOMain()
+            + userEOTest()
+            + rolesEOMain()
+            + rolesEOTest()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CompareTest {
+            + compareElasticObjectsFieldsMain()
+            + compareElasticObjectsFieldsTest()
+            + compareActionsXlsxFieldsMain()
+            + compareElasticObjectsModelMain()
+            + compareElasticObjectsModelTest()
+            + compareActionsXlsModelMain()
+            + compareElasticObjectsUserMain()
+            + compareElasticObjectsUserTest()
+            + compareElasticObjectsRoleMain()
+            + compareElasticObjectsRoleTest()
+            + compareElasticObjectsValueTest()
+            + compareElasticObjectsValueMain()
+            + compareElasticObjectsHostTest()
+            + compareElasticObjectsHostMain()
+            + compareElasticObjectsFileTest()
+            + compareElasticObjectsFileMain()
+            + compareElasticObjectsTemplateTest()
+            + compareElasticObjectsTemplateMain()
+            + compareElasticObjectsJsonTest()
+            + compareElasticObjectsJsonMain()
+            + compare()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CreatorBaseTest {
+            + fieldEOMain()
+            + fieldEOTest()
+            + fieldXEOTest()
+            + fieldCEOTest()
+            + modelEOTest()
+            + modelEOMain()
+            + modelXEOMain()
+            + modelCEOMain()
+            + userEOTest()
+            + userEOMain()
+            + rolesEOTest()
+            + roleEOMain()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CreatorCallsBaseTest {
+            + valueEOTest()
+            + valueEOMain()
+            + hostEOTest()
+            + hostEOMain()
+            + fileEOTest()
+            + fileEOMain()
+            + fileXEOTest()
+            + fileCEOTest()
+            + fileBEOMain()
+            + templateEOTest()
+            + templateEOMain()
+            + templateBMain()
+            + jsonEOTest()
+            + jsonEOMain()
+            + jsonBEOMain()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CreatorCallsListTest {
+            + xlsxXEOTest()
+            + xlsxXEOMain()
+            + xlsxBEOMain()
+            + csvCEOTest()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class CreatorConfigs {
+            # createJsonConfig()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class FileConfigTest {
+            {static} - LOG : Logger
+            + findConfigInCache()
+            + readConfigClassPath()
+            + readMapMain()
+            + readConfigMain()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class JsonConfigTest {
+            {static} - LOG : Logger
+            + findConfigInCache()
+            + readConfigClassPath()
+            + readMapMain()
+            + readConfigMain()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class TemplateConfigTest {
+            {static} - LOG : Logger
+            + findConfigInCache()
+            + readConfigClassPath()
+            + readMapMain()
+            + readConfigMain()
+            + readMapTest()
+            + readConfigTest()
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package org.fluentcodes.projects.elasticobjects {
+      package org.fluentcodes.projects.elasticobjects.config {
+        class XlsxConfigTest {
+            {static} - LOG : Logger
+            + findConfigInCache()
+            + readConfigClassPath()
+            + readMapMain()
+            + readConfigMain()
+        }
+      }
+    }
+  }
+  
+
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

@@ -31,5 +31,6 @@
     "description": "Defines a file read access. ",
     "naturalId": "FileReadCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

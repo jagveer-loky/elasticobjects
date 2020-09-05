@@ -42,5 +42,6 @@
     "key": "target.xlsx",
     "description": "Cached definition for target.xlsx.",
     "naturalId": "target.xlsx"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

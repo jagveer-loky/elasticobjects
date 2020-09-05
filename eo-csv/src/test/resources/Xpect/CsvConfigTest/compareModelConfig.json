@@ -34,5 +34,6 @@
     "key": "CsvConfig",
     "description": "Defines the configuration for a csv content stored in a final config object delivered by the config cache.",
     "naturalId": "CsvConfig"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class EoRootListTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(ArrayList.class);
         Assertions.assertThat(eo.get().getClass()).isEqualTo(ArrayList.class);
-        Assertions.assertThat(eo.isEoEmpty()).isTrue();
+        Assertions.assertThat(eo.isEmpty()).isTrue();
         Assertions.assertThat(((List)eo.get()).size()).isEqualTo(0);
     }
 
@@ -57,11 +58,20 @@ public class EoRootListTest {
     }
 
     @Test
-    public void givenDev_whenNewWithStringJsonList_thenList()  {
+    public void givenDev_whenJsonListEmpty_thenXpected()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, "[]");
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEoEmpty()).isTrue();
+        Assertions.assertThat(eo.isEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
+        new XpectEo<>().compareAsString(eo);
+    }
+
+    @Test
+    public void givenDev_whenListDoubleWithRootModel_thenXpected()  {
+        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
+        eo.mapObject("{\"_rootmodel\":\"List,Double\", \"0\":1,\"1\":2}");
+        Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
+        new XpectEo<>().compareAsString(eo);
     }
 }
 
