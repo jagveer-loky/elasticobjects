@@ -29,5 +29,6 @@
     "description": "For setting sinus value to EO.",
     "naturalId": "SinusValueCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -29,5 +29,6 @@
     "description": "Basic implementation for calls. ",
     "naturalId": "CallImpl",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

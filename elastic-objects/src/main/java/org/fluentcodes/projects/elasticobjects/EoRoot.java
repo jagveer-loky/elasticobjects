@@ -43,6 +43,7 @@ public class EoRoot extends EoChild {
         if (!isScalar()) {
             mapObject(value);
         }
+        setLogLevel(LogLevel.WARN);
     }
 
     public EoRoot(final EOConfigsCache cache, Class... classes)  {
@@ -51,6 +52,7 @@ public class EoRoot extends EoChild {
         PathElement rootPathElement = new PathElement(cache, classes);
         rootPathElement.resolveRoot(this, null);
         setPathElement(rootPathElement);
+        setLogLevel(LogLevel.WARN);
     }
 
     public static Class getClass(Object value) {

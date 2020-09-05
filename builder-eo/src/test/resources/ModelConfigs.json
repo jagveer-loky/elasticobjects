@@ -1,0 +1,37 @@
+{
+  "BuilderTest": {
+    "module": "builder-eo",
+    "subModule": "test",
+    "naturalId": "BuilderTest",
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "dbParams": {
+      "table": "BasicTest",
+      "idKey": "id",
+      "naturalKeys": [
+        "testString"
+      ],
+      "hibernateAnnotations": false
+    },
+    "description": "For testing the bean creation",
+    "fieldKeys": [
+      "id",
+      "untypedList",
+      "untypedMap",
+      "testInt",
+      "testString",
+      "testLong",
+      "testDate",
+      "testBoolean",
+      "testFloat",
+      "testDouble",
+      "testObject"
+    ],
+    "modelKey": "BuilderTest",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "packageGroup": "models",
+    "author": "Werner Diwischek"
+  }
+}

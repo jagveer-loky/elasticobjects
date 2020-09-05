@@ -1,0 +1,110 @@
+
+    /**
+    * The id with a autonumbering
+    */
+    public void  setId(Long id){
+        this.id = id;
+    }
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+    * null
+    */
+    public void  setUntypedList(ArrayList untypedList){
+        this.untypedList = untypedList;
+    }
+    public ArrayList getUntypedList() {
+        return this.untypedList;
+    }
+
+    /**
+    * null
+    */
+    public void  setUntypedMap(HashMap untypedMap){
+        this.untypedMap = untypedMap;
+    }
+    public HashMap getUntypedMap() {
+        return this.untypedMap;
+    }
+
+    /**
+    * null
+    */
+    public void  setTestInt(Integer testInt){
+        this.testInt = testInt;
+    }
+    public Integer getTestInt() {
+        return this.testInt;
+    }
+
+    /**
+    * Just a small test string used in test models. 
+    */
+    public void  setTestString(String testString){
+        this.testString = testString;
+    }
+    public String getTestString() {
+        return this.testString;
+    }
+
+    /**
+    * null
+    */
+    public void  setTestLong(Long testLong){
+        this.testLong = testLong;
+    }
+    public Long getTestLong() {
+        return this.testLong;
+    }
+
+    /**
+    * null
+    */
+    public void  setTestDate(Date testDate){
+        this.testDate = testDate;
+    }
+    public Date getTestDate() {
+        return this.testDate;
+    }
+
+    /**
+    * null
+    */
+    public void  setTestBoolean(Boolean testBoolean){
+        this.testBoolean = testBoolean;
+    }
+    public Boolean getTestBoolean() {
+        return this.testBoolean;
+    }
+
+    /**
+    * null
+    */
+    public void  setTestFloat(Float testFloat){
+        this.testFloat = testFloat;
+    }
+    public Float getTestFloat() {
+        return this.testFloat;
+    }
+
+    /**
+    * null
+    */
+    public void  setTestDouble(Double testDouble){
+        this.testDouble = testDouble;
+    }
+    public Double getTestDouble() {
+        return this.testDouble;
+    }
+
+    /**
+    * A test object thing. 
+    */
+    public void  setTestObject(Object testObject){
+        this.testObject = testObject;
+    }
+    public Object getTestObject() {
+        return this.testObject;
+    }

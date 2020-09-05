@@ -1,0 +1,12 @@
+
+    private final Long id;
+    private final ArrayList untypedList;
+    private final HashMap untypedMap;
+    private final Integer testInt;
+    private final String testString;
+    private final Long testLong;
+    private final Date testDate;
+    private final Boolean testBoolean;
+    private final Float testFloat;
+    private final Double testDouble;
+    private final Object testObject;

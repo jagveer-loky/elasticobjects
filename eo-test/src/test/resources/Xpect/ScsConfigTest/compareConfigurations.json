@@ -54,5 +54,6 @@
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

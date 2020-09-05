@@ -1,0 +1,26 @@
+{
+  "h2:file:BasicTest": {
+    "hibernateModelKey": "h2:file:BasicTest",
+    "hibernateKey": "h2:file:basic",
+    "description": "Basic H2 Test with BasicTest table",
+    "modelKey": "BasicTest"
+  },
+  "h2:file:SubTest": {
+    "hibernateModelKey": "h2:file:SubTest",
+    "hibernateKey": "h2:file:basic",
+    "description": "Basic H2 Test with SubTest table",
+    "modelKey": "SubTest"
+  },
+  "h2:mem:BasicTest": {
+    "hibernateModelKey": "h2:mem:BasicTest",
+    "hibernateKey": "h2:mem:basic",
+    "description": "Basic H2 in Memory Test with BasicTest Table",
+    "modelKey": "BasicTest"
+  },
+  "h2:mem:SubTest": {
+    "hibernateModelKey": "h2:mem:SubTest",
+    "hibernateKey": "h2:mem:basic",
+    "description": "Basic H2 in Memory Test with SubTest Table",
+    "modelKey": "SubTest"
+  }
+}

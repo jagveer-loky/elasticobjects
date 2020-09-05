@@ -58,5 +58,6 @@
     "key": "testFtp",
     "description": "Test Ftp Dummy",
     "naturalId": "testFtp"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

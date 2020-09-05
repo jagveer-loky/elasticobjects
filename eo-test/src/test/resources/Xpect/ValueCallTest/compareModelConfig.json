@@ -30,5 +30,6 @@
     "description": "For setting values to EO.",
     "naturalId": "ValueCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

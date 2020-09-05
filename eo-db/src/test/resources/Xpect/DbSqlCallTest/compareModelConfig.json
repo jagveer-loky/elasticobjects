@@ -31,5 +31,6 @@
     "description": "A execution method for  {@link DbSqlConfig}",
     "naturalId": "DbSqlCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -1,0 +1,87 @@
+{
+  "actions.xlsx": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx",
+    "fileKey": "actions.xlsx",
+    "fileName": "actions.xlsx",
+    "description": "The sheet with action cache definitions for elastic objects. ",
+    "filePath": "classpath"
+  },
+  "data.xlsx": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "data.xlsx",
+    "fileKey": "data.xlsx",
+    "fileName": "data.xlsx",
+    "description": "The sheet with models/fields cache definition for data definitions.",
+    "filePath": "classpath"
+  },
+  "models.xlsx": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx",
+    "fileKey": "models.xlsx",
+    "fileName": "models.xlsx",
+    "description": "The sheet for basic models,fields, user and roles configuration. ",
+    "filePath": "classpath"
+  },
+  "ConfigsCallsList.xlsx": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsList.xlsx",
+    "fileKey": "ConfigsCallsList.xlsx",
+    "fileName": "ConfigsCallsList.xlsx",
+    "description": "The sheet for configurations of list calls like xlsx, csv or delimited.",
+    "filePath": "classpath"
+  },
+  "ConfigsCallsDb.xlsx": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsDb.xlsx",
+    "fileKey": "ConfigsCallsDb.xlsx",
+    "fileName": "ConfigsCallsDb.xlsx",
+    "description": "The sheet for db configurations. ",
+    "filePath": "classpath"
+  },
+  "Config.java": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "Config.java",
+    "fileKey": "Config.java",
+    "mapPath": "/tmp/template",
+    "fileName": "$[modelKey].java",
+    "description": "The sheet with models/fields cache definition for elastic objects. ",
+    "filePath": "../$[module]/src/$[subModule]/java/org/fluentcodes/projects/elasticobjects/$[packageGroup]"
+  },
+  "static.java": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "static.java",
+    "fileKey": "static.java",
+    "filePath": "../$[module]/src/$[subModule]/java/org/fluentcodes/projects/elasticobjects",
+    "mapPath": "static",
+    "fileName": "$[static].java",
+    "description": "A generic static file definition"
+  },
+  "EO_STATIC.java": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "EO_STATIC.java",
+    "fileKey": "EO_STATIC.java",
+    "mapPath": "static",
+    "fileName": "EO_STATIC.java",
+    "description": "The specific main version for static values.",
+    "filePath": "../elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects"
+  },
+  "EO_STATIC_TEST.java": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "EO_STATIC_TEST.java",
+    "fileKey": "EO_STATIC_TEST.java",
+    "filePath": "../elastic-objects/src/test/java/org/fluentcodes/projects/elasticobjects",
+    "mapPath": "static",
+    "fileName": "EO_STATIC_TEST.java",
+    "description": "Static String constants for test."
+  }
+}

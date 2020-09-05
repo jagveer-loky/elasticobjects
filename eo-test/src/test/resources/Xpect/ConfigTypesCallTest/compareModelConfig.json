@@ -28,5 +28,6 @@
     "description": "For getting a list of keys for a configuration types.",
     "naturalId": "ConfigTypesCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

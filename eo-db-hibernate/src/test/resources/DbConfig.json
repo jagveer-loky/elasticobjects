@@ -1,0 +1,38 @@
+{
+  "h2:mem:rightList": {
+    "dbKey": "h2:mem:rightList",
+    "hostKey": "h2",
+    "schema": "mem:rightList",
+    "driver": "org.h2.Driver",
+    "dbType": "H2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "local in memory H2 with schema rightList ",
+    "naturalId": "h2:mem:rightList"
+  },
+  "h2:mem:rightMap": {
+    "dbKey": "h2:mem:rightMap",
+    "hostKey": "h2",
+    "schema": "mem:rightMap",
+    "driver": "org.h2.Driver",
+    "dbType": "H2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "local in memory H2 with schema rightMap",
+    "naturalId": "h2:mem:rightMap"
+  },
+  "h2:mem:right": {
+    "dbKey": "h2:mem:right",
+    "hostKey": "h2",
+    "schema": "mem:right",
+    "driver": "org.h2.Driver",
+    "dbType": "H2",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "module": "actions-db-hibernate",
+    "subModule": "test",
+    "description": "local in memory H2 with schema right",
+    "naturalId": "h2:mem:right"
+  }
+}

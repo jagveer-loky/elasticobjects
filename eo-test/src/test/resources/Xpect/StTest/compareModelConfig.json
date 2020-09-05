@@ -22,5 +22,6 @@
     "key": "SubTest",
     "naturalId": "SubTest",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

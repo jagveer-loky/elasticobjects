@@ -1,0 +1,160 @@
+{
+  "auto": {
+    "fieldKey": "auto",
+    "dbFieldParams": {
+      "length": 12,
+      "defaultValue": "update"
+    },
+    "modelKeys": "String",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "A hibernate property which defines the creation type of the database, e.g. update or create.",
+    "naturalId": "auto"
+  },
+  "configFile": {
+    "fieldKey": "configFile",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "A hibernate property which defines the location of a xml mapping configuration file.",
+    "naturalId": "configFile"
+  },
+  "hql": {
+    "fieldKey": "hql",
+    "dbFieldParams": {
+      "length": 2048
+    },
+    "modelKeys": "String",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "hql",
+    "naturalId": "hql"
+  },
+  "formatSql": {
+    "fieldKey": "formatSql",
+    "dbFieldParams": {
+      "defaultValue": true
+    },
+    "modelKeys": "Boolean",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "formatSql",
+    "naturalId": "formatSql"
+  },
+  "hibernateKey": {
+    "fieldKey": "hibernateKey",
+    "dbFieldParams": {
+      "fieldName": "hibernateKey",
+      "unique": true,
+      "notNull": true,
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "The key finding a cache {@Link HibernateCache} entry.",
+    "naturalId": "hibernateKey"
+  },
+  "hibernateModelKey": {
+    "fieldKey": "hibernateModelKey",
+    "dbFieldParams": {
+      "fieldName": "hibernateModelKey",
+      "unique": true,
+      "notNull": true,
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "The key finding a cache {@Link HibernateModelCache} entry.",
+    "naturalId": "hibernateModelKey"
+  },
+  "hibernateSqlKey": {
+    "fieldKey": "hibernateSqlKey",
+    "dbFieldParams": {
+      "fieldName": "hibernateSqlKey",
+      "unique": true,
+      "notNull": true,
+      "length": 80
+    },
+    "modelKeys": "String",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "The key finding a cache {@Link HibernateSqlCache} entry.",
+    "naturalId": "hibernateSqlKey"
+  },
+  "properties": {
+    "fieldKey": "properties",
+    "modelKeys": "HashMap,String",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Hibernate properties which are not specified by instance var.",
+    "naturalId": "properties"
+  },
+  "registerAutoListener": {
+    "fieldKey": "registerAutoListener",
+    "dbFieldParams": {
+      "defaultValue": false
+    },
+    "modelKeys": "Boolean",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "registerAutoListener",
+    "naturalId": "registerAutoListener"
+  },
+  "showSql": {
+    "fieldKey": "showSql",
+    "dbFieldParams": {
+      "defaultValue": false
+    },
+    "modelKeys": "Boolean",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "showSql",
+    "naturalId": "showSql"
+  },
+  "useAdapterValues": {
+    "fieldKey": "useAdapterValues",
+    "modelKeys": "Boolean",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Use adapter values for creating filter conditions. ",
+    "naturalId": "useAdapterValues"
+  },
+  "useCacheQuery": {
+    "fieldKey": "useCacheQuery",
+    "dbFieldParams": {
+      "defaultValue": true
+    },
+    "modelKeys": "Boolean",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "useQueryCache",
+    "naturalId": "useCacheQuery"
+  },
+  "useCacheSecondLevel": {
+    "fieldKey": "useCacheSecondLevel",
+    "dbFieldParams": {
+      "defaultValue": true
+    },
+    "modelKeys": "Boolean",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "useSecondLevelCache",
+    "naturalId": "useCacheSecondLevel"
+  },
+  "useReflectionOptimizer": {
+    "fieldKey": "useReflectionOptimizer",
+    "dbFieldParams": {
+      "defaultValue": true
+    },
+    "modelKeys": "Boolean",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "useReflectionOptimizer",
+    "naturalId": "useReflectionOptimizer"
+  }
+}

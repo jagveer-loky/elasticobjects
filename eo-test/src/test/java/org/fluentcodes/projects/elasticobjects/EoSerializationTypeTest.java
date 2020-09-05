@@ -18,7 +18,7 @@ public class EoSerializationTypeTest {
     public void givenDev_thenSerializationTypeEo()  {
         EO eo = ProviderRootDevScope.createEo();
         Assertions.assertThat(eo.getSerializationType()).isEqualTo(JSONSerializationType.EO);
-        Assertions.assertThat(eo.sizeEo()).isEqualTo(0);
+        Assertions.assertThat(eo.size()).isEqualTo(0);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class EoSerializationTypeTest {
         eo.setSerializationType(JSONSerializationType.STANDARD);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getSerializationType()).isEqualTo(JSONSerializationType.STANDARD);
-        Assertions.assertThat(eo.sizeEo()).isEqualTo(1);
+        Assertions.assertThat(eo.size()).isEqualTo(0);
         Assertions.assertThat(((EoChild)eo.getEo(PathElement.SERIALIZATION_TYPE)).isChanged()).isFalse();
     }
 
@@ -39,7 +39,7 @@ public class EoSerializationTypeTest {
         eo.setSerializationType(JSONSerializationType.EO);
         Assertions.assertThat(eo.getSerializationType()).isEqualTo(JSONSerializationType.EO);
         Assertions.assertThat(((EoChild)eo.getEo(PathElement.SERIALIZATION_TYPE)).isChanged()).isTrue();
-        Assertions.assertThat(eo.sizeEo()).isEqualTo(1);
+        Assertions.assertThat(eo.size()).isEqualTo(0);
 
     }
 }

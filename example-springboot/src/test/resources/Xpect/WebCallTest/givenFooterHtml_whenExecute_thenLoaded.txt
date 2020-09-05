@@ -9,17 +9,38 @@
     <div class="wrap">
         <aside class="widget-area" role="complementary" aria-label="Footer">
             <div class="widget-column footer-widget-1">
+                <section id="text-2" class="widget widget_text">
+                    <div class="textwidget">
+                        <a href="/configs/ModelConfig.html">ModelConfig</a>
+                    </div>
+                    <div class="textwidget">
+                        <a href="/configs/FieldConfig.html">FieldConfig</a>
+                    </div>
+                    <div class="textwidget">
+                        <a href="/configs/FileConfig.html">FileConfig</a>
+                    </div>
+                    <div class="textwidget">
+                        <a href="/configs/JsonConfig.html">JsonConfig</a>
+                    </div>
+                    <div class="textwidget">
+                        <a href="/configs/TemplateConfig.html">TemplateConfig</a>
+                    </div>
+
+                </section>
+            </div>
+            <div class="widget-column footer-widget-1">
                 <section id="text-3" class="widget widget_text">
                     <div class="textwidget">
-                        <p></p>
-                        <center>
-                            <a href="https://github.com/fluentcodes/elasticobjects">Github</a>
-                            –
                             <a href="/Impressum.html">Impressum</a>
-                            –
-                            <a href="https://www.fluentcodes.com/">Fluent Codes</a> –
-                        </center>
-                        <p></p>
+                    </div>
+                    <div class="textwidget">
+                             <a href="https://www.fluentcodes.com/">Fluent Codes</a>
+                    </div>
+                    <div class="textwidget">
+                        <a href="https://www.linkedin.com/in/werner-diwischek/">LinkedIn</a>
+                    </div>
+                    <div class="textwidget">
+                        <a href="https://www.xing.com/profile/Werner_Diwischek/cv">Xing</a>
                     </div>
                 </section>
             </div>

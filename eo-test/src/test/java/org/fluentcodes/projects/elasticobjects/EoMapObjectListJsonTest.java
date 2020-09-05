@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
 
+import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -129,5 +130,13 @@ public class EoMapObjectListJsonTest {
         Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(root.getEo("0").getModelClass()).isEqualTo(Integer.class);
         Assertions.assertThat(root.get("0")).isEqualTo(1);
+    }
+
+    @Test
+    public void givenDev_whenListDouble_thenXpected()  {
+        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
+        eo.mapObject("{\"(List,Double)items\":{\"0\":1,\"1\":2}}");
+        Assertions.assertThat(eo.getEo("items").getModelClass()).isEqualTo(List.class);
+        new XpectEo<>().compareAsString(eo);
     }
 }

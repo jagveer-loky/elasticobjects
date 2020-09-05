@@ -28,5 +28,6 @@
     "description": "Basic interface for calls ",
     "naturalId": "Call",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

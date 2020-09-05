@@ -29,5 +29,6 @@
     "description": "An example for a simple call with a field.",
     "naturalId": "TheGreetingCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

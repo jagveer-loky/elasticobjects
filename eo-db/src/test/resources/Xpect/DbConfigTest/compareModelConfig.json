@@ -36,5 +36,6 @@
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "naturalId": "DbConfig",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -36,5 +36,6 @@
     "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
     "naturalId": "CsvReadCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

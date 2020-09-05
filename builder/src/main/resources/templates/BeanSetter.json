@@ -1,0 +1,55 @@
+[
+  {
+    "(TemplateCall)_call": {
+      "filterPath:"
+      fieldKeys/*
+      ",
+      ",$[/fields/description]
+      public
+      final
+      void
+      set$
+  [
+    !UpperFirstChar
+  ],
+  ($
+  [
+    /fields/model
+  ]
+  $
+  [
+    _value
+  ]
+  )
+  {
+    this.$
+  [
+    _value
+  ]
+  =,
+  $
+  [
+    _value
+  ]
+  ;
+}
+
+  public
+  final,
+  get$
+  [
+    !UpperFirstChar
+  ]
+  ()
+  {
+    return
+    this.$
+  [
+    _value
+  ]
+  ;
+}
+  "
+  }
+
+]

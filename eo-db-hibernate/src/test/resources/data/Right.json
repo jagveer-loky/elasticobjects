@@ -1,0 +1,15 @@
+[
+  {
+    "rightName": "1Name",
+    "leftMap": {
+      "2Left": {
+        "leftName": "2Left"
+      }
+    },
+    "leftList": [
+      {
+        "leftName": "3Left"
+      }
+    ]
+  }
+]

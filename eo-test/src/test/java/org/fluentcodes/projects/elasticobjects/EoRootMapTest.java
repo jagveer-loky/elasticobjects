@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
+import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
 import java.util.*;
@@ -20,7 +21,7 @@ public class EoRootMapTest {
     public void givenDev_whenNewEmpty_thenMap()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEoEmpty()).isTrue();
+        Assertions.assertThat(eo.isEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
     }
 
@@ -52,7 +53,7 @@ public class EoRootMapTest {
     public void givenDev_whenNewNull_thenValueIsNull()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, null);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEoEmpty()).isTrue();
+        Assertions.assertThat(eo.isEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
     }
 
@@ -89,12 +90,20 @@ public class EoRootMapTest {
     }
 
     @Test
-    public void givenDev_whenNewWithStringJsonMap_thenMap()  {
+    public void givenDev_whenJsonMapEmpty_thenMap()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, "{}");
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.isEoEmpty()).isTrue();
+        Assertions.assertThat(eo.isEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
+        new XpectEo<>().compareAsString(eo);
     }
+
+    @Test
+    public void givenDev_whenJsonMap_thenXpected()  {
+        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, "{\"store\":\"value\"}");
+        new XpectEo<>().compareAsString(eo);
+    }
+
 }
 
 

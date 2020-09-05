@@ -31,5 +31,6 @@
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "naturalId": "TemplateCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

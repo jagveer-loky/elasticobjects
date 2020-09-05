@@ -211,5 +211,6 @@
     "subModule": "main",
     "key": "untypedMap",
     "naturalId": "untypedMap"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

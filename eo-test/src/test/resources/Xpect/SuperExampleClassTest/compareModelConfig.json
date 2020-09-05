@@ -16,5 +16,6 @@
     },
     "key": "SuperExampleClass",
     "naturalId": "SuperExampleClass"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

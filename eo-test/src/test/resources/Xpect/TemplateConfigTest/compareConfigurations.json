@@ -69,5 +69,6 @@
     "subModule": "test",
     "key": "ContentExampleStaticKeep",
     "naturalId": "ContentExampleStaticKeep"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -33,5 +33,6 @@
     "description": "For getting a map of configurations for a specific configuration type.",
     "naturalId": "ConfigCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

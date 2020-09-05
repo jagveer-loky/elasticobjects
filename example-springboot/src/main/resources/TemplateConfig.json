@@ -90,6 +90,56 @@
       "execute": "guest"
     }
   },
+  "LeanServices.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "LeanServices.html",
+    "filePath": "web/docs",
+    "description": "The concept of a lean service architecture.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "LeanCode.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "LeanCode.html",
+    "filePath": "web/docs",
+    "description": "Lean code development.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "LowCode.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "LowCode.html",
+    "filePath": "web/docs",
+    "description": "Low code development.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "NoCode.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "NoCode.html",
+    "filePath": "web/docs",
+    "description": "No code development.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "Planned.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "fileName": "Planned.html",
+    "filePath": "web/docs",
+    "description": "Plans for 0.3.0.",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
   "Index.html": {
     "module": "example-springboot",
     "subModule": "main",

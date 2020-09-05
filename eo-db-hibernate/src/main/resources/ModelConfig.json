@@ -1,0 +1,169 @@
+{
+  "HConfig": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "modelKey": "HConfig",
+    "superKey": "ConfigIO",
+    "fieldKeys": [
+      "hibernateKey",
+      "dbKey",
+      "models",
+      "configFile",
+      "auto",
+      "properties",
+      "showSql",
+      "formatSql",
+      "useCacheSecondLevel",
+      "useCacheQuery",
+      "registerAutoListener",
+      "useReflectionOptimizer"
+    ],
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Mainly the schema ",
+    "naturalId": "HConfig",
+    "author": "Werner Diwischek",
+    "interfaces": "EOExtension",
+    "packageGroup": "config"
+  },
+  "HQueryCall": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "HQueryCall",
+    "superKey": "ListCall",
+    "fieldKeys": [
+      "useAdapterValues"
+    ],
+    "eoParams": {
+      "shapeType": "ADAPTER",
+      "create": true,
+      "methods": [
+        "read",
+        "write",
+        "delete"
+      ],
+      "modelConfigKey": "HQueryConfig"
+    },
+    "packageGroup": "calls",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Hibernate object with a certain model ",
+    "naturalId": "HQueryCall",
+    "author": "Werner Diwischek"
+  },
+  "HQueryConfig": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "modelKey": "HQueryConfig",
+    "superKey": "ListConfig",
+    "fieldKeys": [
+      "hibernateModelKey",
+      "hibernateKey",
+      "hql",
+      "modelKey",
+      "pathPattern"
+    ],
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true,
+      "attributeList": [
+        "length",
+        "rowStart",
+        "rowEnd",
+        "pathPatternAsString"
+      ]
+    },
+    "packageGroup": "config",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Hibernate object with a certain model ",
+    "naturalId": "HQueryConfig",
+    "author": "Werner Diwischek"
+  },
+  "HSqlCall": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "HSqlCall",
+    "superKey": "CallIO",
+    "fieldKeys": [
+    ],
+    "eoParams": {
+      "shapeType": "ADAPTER",
+      "create": true,
+      "methods": [
+        "execute"
+      ],
+      "modelConfigKey": "HSqlConfig"
+    },
+    "packageGroup": "calls",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "A execution method for  {@link HSqlConfig}",
+    "naturalId": "HSqlCall",
+    "author": "Werner Diwischek"
+  },
+  "HSqlConfig": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.config",
+    "modelKey": "HSqlConfig",
+    "superKey": "ConfigIO",
+    "fieldKeys": [
+      "hibernateSqlKey",
+      "hibernateKey",
+      "sqlList"
+    ],
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": true
+    },
+    "packageGroup": "config",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Execute sql statements via hibernate. ",
+    "naturalId": "HSqlConfig",
+    "author": "Werner Diwischek"
+  },
+  "ModelAnnotated": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelAnnotated",
+    "fieldKeys": [
+      "id",
+      "description",
+      "naturalId",
+      "creationDate"
+    ],
+    "eoParams": {
+      "shapeType": "BEAN",
+      "create": true
+    },
+    "packageGroup": "models",
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Basic bean as super object for model beans with id, naturalId and description and hibernate annotations. ",
+    "naturalId": "ModelAnnotated",
+    "author": "Werner Diwischek"
+  },
+  "PersistentBag": {
+    "packagePath": "org.hibernate.collection.internal",
+    "modelKey": "PersistentBag",
+    "eoParams": {
+      "shapeType": "LIST"
+    },
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Hibernate object with a certain model ",
+    "naturalId": "PersistentBag",
+    "author": "hibernate"
+  },
+  "PersistentMap": {
+    "packagePath": "org.hibernate.collection.internal",
+    "modelKey": "PersistentMap",
+    "eoParams": {
+      "shapeType": "MAP"
+    },
+    "module": "actions-db-hibernate",
+    "subModule": "main",
+    "description": "Hibernate object with a certain model ",
+    "naturalId": "PersistentMap",
+    "author": "hibernate"
+  }
+}

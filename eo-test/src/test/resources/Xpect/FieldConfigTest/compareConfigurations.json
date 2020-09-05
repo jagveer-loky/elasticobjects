@@ -2218,5 +2218,6 @@
     "key": "write",
     "description": "String representation of RolePermission write permissions",
     "naturalId": "write"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

@@ -34,5 +34,6 @@
     "description": "Defines a primitive csv file read operation. ",
     "naturalId": "ScsReadCall",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

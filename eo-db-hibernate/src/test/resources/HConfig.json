@@ -1,0 +1,110 @@
+{
+  "localMySql:core": {
+    "hibernateKey": "localMySql:core",
+    "models": "BasicTest,SubTest",
+    "auto": "update",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Local MySql core",
+    "naturalId": "localMySql:core"
+  },
+  "localMySql:test": {
+    "hibernateKey": "localMySql:test",
+    "models": "BasicTest,SubTest",
+    "auto": "update",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Local MySql test",
+    "naturalId": "localMySql:test"
+  },
+  "localOracle:XE": {
+    "hibernateKey": "localOracle:XE",
+    "models": "BasicTest,SubTest",
+    "auto": "update",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Local Oracle XE",
+    "naturalId": "localOracle:XE"
+  },
+  "h2:filecreate": {
+    "hibernateKey": "h2:filecreate",
+    "configFile": "config.hbm.xml",
+    "auto": "create",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Local MySql core",
+    "naturalId": "h2:filecreate"
+  },
+  "h2:mem:rightConfig": {
+    "hibernateKey": "h2:mem:rightConfig",
+    "dbKey": "h2:mem:right",
+    "configFile": "right.hbm.xml",
+    "auto": "create",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Local MySql core",
+    "naturalId": "h2:mem:rightConfig"
+  },
+  "h2:mem:right": {
+    "hibernateKey": "h2:mem:right",
+    "dbKey": "h2:mem:right",
+    "models": "Left,Right",
+    "auto": "create",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Basic H2 in Memory Test with a many to many map and list setting.",
+    "naturalId": "h2:mem:right"
+  },
+  "h2:mem:rightMap": {
+    "hibernateKey": "h2:mem:rightMap",
+    "dbKey": "h2:mem:rightMap",
+    "models": "LeftMap,RightMap",
+    "auto": "create",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Basic H2 in Memory Test with a many to many map setting.",
+    "naturalId": "h2:mem:rightMap"
+  },
+  "h2:mem:rightList": {
+    "hibernateKey": "h2:mem:rightList",
+    "dbKey": "h2:mem:rightList",
+    "models": "LeftList,RightList",
+    "auto": "create",
+    "properties": {
+    },
+    "rolePermissions": {
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "description": "Basic H2 in Memory Test with a many to many list setting.",
+    "naturalId": "h2:mem:rightList"
+  }
+}

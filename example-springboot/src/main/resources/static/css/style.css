@@ -207,7 +207,10 @@ progress {
 }
 
 textarea {
-	overflow: auto;
+    white-space: nowrap;
+    overflow: scroll;
+    text-overflow: ellipsis;
+    font: 300 12px Courier, Monaco, monospace;
 }
 
 [type="checkbox"],

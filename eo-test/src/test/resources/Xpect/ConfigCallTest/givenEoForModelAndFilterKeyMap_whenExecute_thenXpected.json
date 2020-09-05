@@ -82,5 +82,6 @@
     "description": "Class definitions for an map with getters and setters.",
     "naturalId": "ModelConfigMap",
     "author": "Werner Diwischek"
-  }
+  },
+  "(LogLevel)_logLevel": "WARN"
 }

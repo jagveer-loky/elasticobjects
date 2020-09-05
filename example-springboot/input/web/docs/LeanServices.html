@@ -1,0 +1,184 @@
+<h3>Lean Services</h3>
+<p>
+    Today's web service architecture use web endpoints to determine
+<ul>
+    <li>the structure of object(s) and </li>
+    <li>function.</li>
+</ul>
+via method call approach.
+</p>
+
+<h4>Shopping List Parable</h4>
+<p>
+    To tie web endpoints to object structure and functionality is not obvious, more a thing of IT history.
+    It comes to communication pattern one would never accept in real live.
+</p>
+<p>
+    Given you have a good restaurant and someone to buy the things you need fresh from the market.
+    Your employee would act that way:
+</p>
+<ul>
+    <li>drive to market...
+        <ul><li>buy 20 kg flour from marketeer1</li>
+            <li>driving to the restaurant</li>
+            <li>store it</li>
+        </ul>
+    </li>
+    <li>drive to market...
+        <ul><li>buy 20kg tomatoes from fruit marketeer</li>
+            <li>drive back to the restaurant</li>
+            <li>store it</li>
+        </ul>
+    </li>
+    <li>drive to market...
+        <ul><li>buy 5 kg mozarella, 2 kg parmesan from cheese marketeer</li>
+            <li>drive back to the restaurant</li>
+            <li>store it</li>
+        </ul>
+    </li>
+    <li>...</li>
+</ul>
+<p>Since the car could be broken or the shop is closed or an accident happens or traffic jam one build some kind of
+observation system to inform you about these events.</p>
+<p>
+    If you ask your employee how one can improve this task,
+    he would offer you a compound services. But he needs five day to learn the new route.
+</p>
+
+<ul>
+    <li>drive to market...
+        <ul><li>buy 12 kg flour from marketeer1, buy 30kg tomatoes from fruit marketeer, buy 3 kg mozarella, 6 kg parmesan from cheese marketeer</li>
+            <li>drive back to the restaurant</li>
+            <li>store it</li>
+        </ul>
+    </li>
+    <li>...</li>
+</ul>
+<p>
+    That looks better but it's tied to a certain combination.
+</p>
+    <p>
+    And if you need a new chair or flowers or decoration your employee need ten days to learn.
+    </p>
+<p>
+    As the owner of the restaurant you would fire your employee.
+    But since every candidate works in the same way, there is no
+    alternative. They claim it's the state of the art with no alternative. And they sacrify the word API for this.
+</p>
+<p>And they claim they need at least a new car. </p>
+
+<h4>Communication Concept</h4>
+<p>
+    To come to a conclusion. ElasticObjects implements something where object structure and functionality is bound
+    to a field. I think this is rather straightforward and obvious. And offer much more flexiblity.
+</p>
+<p>
+    To create some pseudo request for the shopping list:
+    <textarea style="height:220px">{
+  "basket": [],
+  "(BuyCall)1": {
+        "targetPath":"basket",
+        "product":"tomatoes",
+        "amount":5,
+        "shop":"fruit marketeer"
+   },
+  "(BuyCall)2": {
+        "targetPath":"basket",
+        "product":"cheese",
+        "amount":30,
+        "shop":"fruit marketeer"
+   },
+  "(BuyCall)3": {
+        "targetPath":"basket",
+        "product":"flour",
+        "amount":20,
+        "shop":"fruit marketeer"
+   }
+}
+    </textarea>
+<p>
+    This call isn't implemented yet, but it will easy to make the request work, since it a simple Java bean
+    with an execute method which can be used in any context.
+</p>
+
+<p>
+    With this approach the combination of what to be done is free. The JSON send is a compound object
+    filled by the calls in a way, the client decide.
+    There is no need to implement something
+    for each combination. And one can test it without web server, since the web server
+    just send and receive messages. Nothing else.
+</p>
+<p>
+    If you need new product from a new shop it's just a new call.
+    So thats the basic idea.
+</p>
+<p>
+    As with every parable the comparision lags. The products mean all possible methods a server would like to offer.
+    This could be the <a href="examples/TheGreetingCall.html">GreetingCall</a> or
+    the computation of a <a href="/config/ModelConfig/SinusValueCall?configFilter=.*Call">sinus</a>
+    or a database request.
+</p>
+
+<h4>Templates</h4>
+<p>
+    One could embed arbitrary calls in a text context with templates calls. This give more flexibility
+    than a batch call with JSON. If the content is not
+    relevant, this is a process engine.
+</p>
+<p>
+    These templates are a call itself, so you are free to combine data operation and rendering even in the content.
+</p>
+<p>
+    It implements 2 simple straightforward extensions of JSON and trigger bean calls.
+</p>
+<ul>
+    <li>object mapping before field name with brackets</li>
+    <li>fields with _ will not mapped to the parent</li>
+</ul>
+<p>
+    The basic implementation includes template execution and is open source. It's really small,
+    so it could use just beside existing solution.
+</p>
+<p>
+    EO does not implement something like the <a href="https://www.leanservices.info/">leanservices</a> which
+    comes from the SOA context.
+</p>
+
+<h4>Links</h4>
+<ul>
+    <li><a href="https://www.leanservices.info/">https://www.leanservices.info/</a></li>
+    <li><a href="https://json-ld.org/">JSON-LD</a></li>
+    <li><a href="http://jsonp.eu/">JSON-P</a></li>
+</ul>
+<!--
+<p>
+    And one could define special objects on the server side defining functionality working with informations of the whole message.
+</p>
+
+<p>
+So this approach independent of the technologies like SOAP or REST is rather
+lot of things has to be done on server side and the interface becomes more and more complex and each
+service has to be tested that it's working as expected with each test starting a whole application server with incredible complex frameworks.
+</p>
+<p>
+Most web service use SOAP or REST to standardize their interfaces.
+    Both use the web-endpoint to define <b>type</b> and <b>function</b>. Since most web frameworks offer a broad palette
+    do the request/response mapping or create target objects, so only the method has to be filled with it's functionality.
+    In REST with it's restricted scope even the method could be created e.g. by spring boot.
+</p>
+<p>
+    A JSON web service just say something about the format to exchange information. Everything has to be implemented on
+both sides. Information about the endpoints and structure could be generated by tools like swagger. Webservices like
+commercetool use such free JSON endpoint. The JSON content contains information about the function.
+</p>
+<p>
+    SOAP has no restriction about functions.
+    To inform the client about the endpoints and automate the creation of a sceleton SOAP uses WSDL. For object definition
+    one has the xml scheme files to create these objects for example with JAXB.
+</p>
+<p>
+    REST is a rather academic definition with a rather focused approach, specially in RESTful services with a simple CRUD
+    (create read update delete) to http methods.
+</p>
+
+-->

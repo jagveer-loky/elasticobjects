@@ -22,6 +22,7 @@ public class EoChild implements EO {
 
     protected EoChild()  {
         eoMap = new LinkedHashMap<>();
+
     }
 
     protected EoChild(PathElement pathElement) {

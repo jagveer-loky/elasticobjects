@@ -68,7 +68,7 @@ public class PathElement {
     public PathElement(final String name, EO parentEo, Object value) {
         this(name);
         if (PathElement.ROOT_MODEL.equals(name) && parentEo.isRoot()) {
-            if (!parentEo.isEoEmpty()) {
+            if (!parentEo.isEmpty()) {
                 throw new EoException("Not null root could not be changed");
             }
             this.parent = parentEo;
