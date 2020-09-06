@@ -2,5 +2,27 @@ textarea {
     white-space: pre;
     overflow: scroll;
     text-overflow: ellipsis;
+    background-color: rgb(230, 230, 230);
     font: 330 12.6px Courier, Monaco, monospace;
+}
+button, input[type="button"], input[type="submit"] {
+    background-color: rgb(200, 180, 180);
+    box-shadow: none;
+    color: rgb(34, 34, 34);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: none;
+    border-width: 1px;
+    border-style: initial;
+    border-color: #999999;
+    border-image: initial;
+    border-radius: 5px;
+    padding: 1em 2em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    transition: background 0.2s ease 0s;
 }

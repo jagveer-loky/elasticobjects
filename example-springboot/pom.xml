@@ -97,7 +97,6 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
     <!--https://stackoverflow.com/questions/29258141/maven-compilation-error-use-source-7-or-higher-to-enable-diamond-operator-->
     <build>
         <plugins>

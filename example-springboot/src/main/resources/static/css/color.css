@@ -76,7 +76,6 @@
 
 .colors-custom button,
 .colors-custom input[type="button"],
-.colors-custom input[type="submit"],
 .colors-custom .entry-footer .edit-link a.post-edit-link {
     background-color: hsl( 250, 50%, 13% ); /* base: #222; */
 }
@@ -241,7 +240,6 @@ body.colors-custom,
 .colors-custom input[type="datetime"],
 .colors-custom input[type="datetime-local"],
 .colors-custom input[type="color"],
-.colors-custom textarea,
 .colors-custom .site-description,
 .colors-custom .entry-content blockquote.alignleft,
 .colors-custom .entry-content blockquote.alignright,
@@ -324,7 +322,6 @@ body.colors-custom,
 .colors-custom input[type="datetime"],
 .colors-custom input[type="datetime-local"],
 .colors-custom input[type="color"],
-.colors-custom textarea,
 .colors-custom select,
 .colors-custom fieldset,
 .colors-custom .widget .tagcloud a:hover,
@@ -405,7 +402,6 @@ body.colors-custom,
 
 .colors-custom button,
 .colors-custom input[type="button"],
-.colors-custom input[type="submit"],
 .colors-custom .entry-footer .edit-link a.post-edit-link,
 .colors-custom .social-navigation a,
 .colors-custom .site-content .wp-playlist-light a.wp-playlist-caption:hover,

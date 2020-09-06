@@ -14,7 +14,7 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         $[(TemplateCall). condition="eo->configType. eq TemplateConfig" sourcePath="configuration/0"]
         <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/input/$[filePath]/$[fileName]">$[fileName]</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/input/$[filePath]/$[fileName]">&equiv;$[fileName]</a>
             </li>
         </ul>
         $[/]
@@ -22,7 +22,7 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         $[(TemplateCall). condition="eo->configType. eq JsonConfig" sourcePath="configuration/0"]
         <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/input/$[filePath]/$[fileName]">$[fileName]</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/input/$[filePath]/$[fileName]">&equiv;$[fileName]</a>
             </li>
         </ul>
         $[/]
@@ -30,7 +30,7 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         $[(TemplateCall). condition="eo->configType. eq FileConfig" sourcePath="configuration/0"]
         <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/input/$[filePath]/$[fileName]">$[fileName]</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/input/$[filePath]/$[fileName]">&equiv;$[fileName]</a>
             </li>
         </ul>
         $[/]
@@ -38,22 +38,24 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         $[(TemplateCall). condition="eo->configType. eq ModelConfig" sourcePath="configuration/0"]
         <h4>Github</h4>
         <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elastic-objects]/src/main/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey].java">$[modelKey].java</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elastic-objects]/src/$[submodule|main]/resources/$[/configType].json">&equiv;$[/configType].json</a>
             </li>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elastic-objects]/src/test/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">$[modelKey]Test.java</a>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elastic-objects]/src/main/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey].java">&equiv;$[modelKey].java</a>
+            </li>
+            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|elastic-objects]/src/test/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a>
             </li>
         </ul>
             <h4>Fields</h4>
             $[(TemplateCall)fieldKeys/* ]
-                <a href="/config/FieldConfig/$[_value]">$[_value]</a> -
+                <a href="/config/FieldConfig/$[_value]">&ocir;$[_value]</a> -
             $[/]
             $[(TemplateCall)superKey condition="eo->superKey"]
             <h4>Super Class</h4>
-            <a href="/config/ModelConfig/$[_value]">$[_value]</a> -
+            <a href="/config/ModelConfig/$[_value]">&ocir;$[_value]</a> -
             $[/]
             $[(TemplateCall)interfaces condition="eo->interfaces"]
             <h4>Interface</h4>
-            <a href="/config/ModelConfig/$[_value]">$[_value]</a> -
+            <a href="/config/ModelConfig/$[_value]">&ocir;$[_value]</a> -
             $[/]
         $[/]
 
@@ -61,7 +63,7 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         $[(TemplateCall). condition="eo->configType. eq FieldConfig" ]
         <h4>Models</h4>
             $[(TemplateCall)configuration/0/modelList/* ]
-            <a href="/config/ModelConfig/$[_value]">$[_value]</a> -
+            <a href="/config/ModelConfig/$[_value]">&ocir;$[_value]</a> -
             $[/]
         $[/]
 
