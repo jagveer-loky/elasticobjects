@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.List;
 
 public class ProviderListJsonTest {
-    // TODO check the reason failing
+    // TODO check the reason failing probably the default setting of the _LOG_LEVEL
     @Ignore
     @Test
     public void testHealth() {

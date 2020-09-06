@@ -28,7 +28,7 @@ Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.
 </p>
 <p>
     You will find a lot code like this in the github module
-    <a href="https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects">eo-test</a>.
+    <a href="https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects">&equiv;eo-test</a>.
     Since no applicationserver is used for object mapping, the 500 tests are finished in about a second.
 </p>
 <h5>Typed JSON (De)serialization</h5>
@@ -45,7 +45,7 @@ Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.
 </p>
 <p>
     When you click, the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">generic web interface</a>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">&equiv;generic web interface</a>
     will map the JSON to EO. Afterwards JSON will be generated. You can change the values of the example to see that it works.
 </p>
 <p>
@@ -62,11 +62,11 @@ Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.
 
 <h5>Functional JSON</h5>
 <p>Beyond the passive pojos you can define "Calls". These pojos with an execute method extends the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java">Call</a>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java">&equiv;Call</a>
     interface.</p>
 
 <p>
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java">SinusValueCall</a>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java">&equiv;SinusValueCall</a>
      compute the sinus from the source value:
 <form action="/eo-form" method="post">
      <textarea name="eo">{
@@ -120,21 +120,21 @@ applications. But it enlarge application scope far beyond some disabled database
 </p>
 <p>
     The page you see with an "ordinary" web-url triggers the spring boot method
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java#L44">WeEoGet.createRootPage</a>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java#L44">&equiv;WeEoGet.createRootPage</a>
     with the MVC request mapping "/{selectedItem:.+}.html".
 </p>
 <p>
     This method creates at server side a new EO object with selectedItem="Home.html" and
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/989f10d794111b55c20921fb072bb1d18d1cfae1/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java#L10">TemplateResourceCall</a>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/989f10d794111b55c20921fb072bb1d18d1cfae1/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java#L10">&equiv;TemplateResourceCall</a>
     and the template name
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">ContentPage.html</a>.
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">&equiv;ContentPage.html</a>.
 
 </p>
 <p>
     When the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html" style="border:none;text-decoration:none;">ContentPage.html template</a>
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html" style="border:none;text-decoration:none;">&equiv;ContentPage.html template</a>
      is parsed, it will load
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/docs/Home.html">Home.html</a>.
+    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/docs/Home.html">&equiv;Home.html</a>.
     So this is what you read.
 </p>
 <h5>The post version</h5>
