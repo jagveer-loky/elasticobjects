@@ -19,9 +19,10 @@
     "packageGroup": "assets",
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "SubTest",
-    "naturalId": "SubTest",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "SubTest"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -20,7 +20,7 @@ public class ConfigImplTest {
         
         ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(M_CONFIG_IMPL);
         model.resolve();
-        Assert.assertEquals(ShapeTypes.OBJECT, model.getShapeType());
+        Assert.assertEquals(ShapeTypes.CONFIG, model.getShapeType());
         Assert.assertTrue(model.isObject());
         Assert.assertFalse(model.isScalar());
     }

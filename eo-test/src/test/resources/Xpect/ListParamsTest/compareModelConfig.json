@@ -20,10 +20,11 @@
     "packageGroup": "lists",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "ListParams",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
-    "naturalId": "ListParams",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "ListParams"
   },
   "(LogLevel)_logLevel": "WARN"
 }

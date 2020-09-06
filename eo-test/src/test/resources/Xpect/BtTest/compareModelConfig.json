@@ -30,10 +30,11 @@
     "packageGroup": "assets",
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "BasicTest",
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
-    "naturalId": "BasicTest",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "BasicTest"
   },
   "(LogLevel)_logLevel": "WARN"
 }

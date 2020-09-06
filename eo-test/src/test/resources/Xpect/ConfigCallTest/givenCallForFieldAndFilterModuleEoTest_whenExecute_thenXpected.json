@@ -13,6 +13,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "basicTest",
     "description": "A BasicTest field.",
     "naturalId": "basicTest"
@@ -31,6 +32,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "subTest",
     "naturalId": "subTest"
   },
@@ -42,6 +44,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "subTestList",
     "description": "A generic parametrized example List with {@link SubTest}",
     "naturalId": "subTestList"
@@ -54,6 +57,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "subTestMap",
     "description": "A generic parametrized example Map with {@link SubTest}",
     "naturalId": "subTestMap"
@@ -71,6 +75,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testBoolean",
     "naturalId": "testBoolean"
   },
@@ -87,6 +92,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testDate",
     "naturalId": "testDate"
   },
@@ -103,6 +109,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testDouble",
     "naturalId": "testDouble"
   },
@@ -119,6 +126,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testFloat",
     "naturalId": "testFloat"
   },
@@ -135,6 +143,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testInt",
     "naturalId": "testInt"
   },
@@ -151,6 +160,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testLong",
     "naturalId": "testLong"
   },
@@ -167,6 +177,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testObject",
     "description": "A test object thing. ",
     "naturalId": "testObject"
@@ -186,6 +197,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testString",
     "description": "Just a small test string used in test models. ",
     "naturalId": "testString"
@@ -198,6 +210,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "untypedList",
     "naturalId": "untypedList"
   },
@@ -209,6 +222,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "untypedMap",
     "naturalId": "untypedMap"
   },

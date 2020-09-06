@@ -32,10 +32,11 @@
     "packageGroup": "calls",
     "module": "eo-db",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "DbQueryCall",
     "description": "Executes a stored sql query.",
-    "naturalId": "DbQueryCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "DbQueryCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

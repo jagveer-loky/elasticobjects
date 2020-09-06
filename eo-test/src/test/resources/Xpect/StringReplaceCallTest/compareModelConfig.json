@@ -26,10 +26,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "StringReplaceCall",
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
-    "naturalId": "StringReplaceCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "StringReplaceCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

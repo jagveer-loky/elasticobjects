@@ -24,7 +24,11 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by werner.diwischek on 03.12.16.
  */
 public class ListMapper {
-    EOConfigsCache provider;
+    public static final String COL_KEYS = "colKeys";
+    public static final String DO_MAP = "doMap";
+    public static final String IGNORE_HEADER = "ignoreHeader";
+    public static final String MAP_PATH = "mapPath";
+    EOConfigsCache eoConfigsCache;
     private List<String> colKeys;
     private Map<String, Integer> colKeysMap;
     private Models models;
@@ -46,10 +50,10 @@ public class ListMapper {
         if (attributes == null) {
             return;
         }
-        setColKeys(attributes.get(F_COL_KEYS));
-        setMapPath(attributes.get(F_MAP_PATH));
-        setDoMap(attributes.get(F_DO_MAP));
-        setIgnoreHeader(attributes.get(F_IGNORE_HEADER));
+        setColKeys(attributes.get(COL_KEYS));
+        setMapPath(attributes.get(MAP_PATH));
+        setDoMap(attributes.get(DO_MAP));
+        setIgnoreHeader(attributes.get(IGNORE_HEADER));
         setPathPattern(attributes.get(F_PATH_PATTERN));
         setModelKeys(attributes.get(F_MODEL_KEYS));
     }
@@ -172,12 +176,12 @@ public class ListMapper {
 
     }
 
-    public EOConfigsCache getProvider() {
-        return provider;
+    public EOConfigsCache getEoConfigsCache() {
+        return eoConfigsCache;
     }
 
-    public void setProvider(EOConfigsCache provider) {
-        this.provider = provider;
+    public void setEoConfigsCache(EOConfigsCache eoConfigsCache) {
+        this.eoConfigsCache = eoConfigsCache;
     }
 
     public boolean hasColKeys() {

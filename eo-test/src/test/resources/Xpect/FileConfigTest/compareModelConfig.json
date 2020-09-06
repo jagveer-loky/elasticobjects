@@ -13,12 +13,13 @@
       "5": "module",
       "6": "subModule",
       "7": "scope",
-      "8": "key",
-      "9": "id",
-      "10": "description",
-      "11": "naturalId",
-      "12": "creationDate",
-      "13": "author"
+      "8": "expose",
+      "9": "key",
+      "10": "id",
+      "11": "description",
+      "12": "naturalId",
+      "13": "creationDate",
+      "14": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {
@@ -30,10 +31,11 @@
     "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "FileConfig",
-    "description": "Immutabel EO file configuration will be initalized by internal builder using map values.",
-    "naturalId": "FileConfig",
-    "author": "Werner Diwischek"
+    "description": "Immutable EO file configuration will be initialized by internal builder using map values.",
+    "author": "Werner Diwischek",
+    "naturalId": "FileConfig"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -25,10 +25,11 @@
     "packageGroup": "calls",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "CallImpl",
     "description": "Basic implementation for calls. ",
-    "naturalId": "CallImpl",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "CallImpl"
   },
   "(LogLevel)_logLevel": "WARN"
 }

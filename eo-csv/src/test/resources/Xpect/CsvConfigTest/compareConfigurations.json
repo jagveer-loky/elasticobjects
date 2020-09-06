@@ -15,6 +15,7 @@
     },
     "module": "eo-csv",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
@@ -28,6 +29,7 @@
     },
     "module": "eo-csv",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"

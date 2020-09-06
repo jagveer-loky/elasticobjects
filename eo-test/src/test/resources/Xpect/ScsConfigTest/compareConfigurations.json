@@ -15,6 +15,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "BasicTest.csv",
     "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source.",
     "naturalId": "BasicTest.csv"
@@ -34,6 +35,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
@@ -51,6 +53,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"

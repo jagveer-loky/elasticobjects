@@ -13,7 +13,7 @@ public class ModelsImplTest {
         ModelInterface modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(ModelImpl.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(ModelImpl.class, modelConfig.getModelClass());
-        Assert.assertEquals(5, modelConfig.getFieldCacheMap().size());
+        Assert.assertEquals(4, modelConfig.getFieldCacheMap().size());
         Assert.assertEquals(5, modelConfig.getFieldKeys().size());
         ModelImpl modelImpl = (ModelImpl) modelConfig.create();
         Assert.assertNotNull(modelImpl);

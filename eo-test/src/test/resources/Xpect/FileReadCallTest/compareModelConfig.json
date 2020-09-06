@@ -27,10 +27,11 @@
     "packageGroup": "files",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "FileReadCall",
     "description": "Defines a file read access. ",
-    "naturalId": "FileReadCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "FileReadCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

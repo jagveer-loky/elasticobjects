@@ -112,16 +112,16 @@
                             <li> - </li>
                             <li id="menu-item-3"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="https://github.com/fluentcodes/elasticobjects">Github</a>
+                                <a href="https://github.com/fluentcodes/elasticobjects">&equiv;Github</a>
                             </li>
                             <li> - </li>
                             <li id="menu-item-4"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="/configs/ModelConfig.html">ModelConfig</a>
+                                <a href="/configs/ModelConfig.html">&ocir;ModelConfig</a>
                             </li>
                             <li id="menu-item-5"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="/configs/FieldConfig.html">FieldConfig</a>
+                                <a href="/configs/FieldConfig.html">&ocir;FieldConfig</a>
                             </li>
                         </ul>
                     </div>
@@ -141,69 +141,38 @@
     <header class="entry-header">
         <div id="rootNav">
             
+
 <input type="text" value="Scope" onchange="
             var newLocation = window.location + 'x';
             document.location.href = newLocation.replace(/=.*/, '=' + this.value);
             "/>
 <ul>
     
-    <li><a href="/config/ModelConfig/Scope?configFilter=Scope">Scope</a></li>
-    
 </ul>
         </div>
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h3>Scope</h3>
+        <h3>&ocir;!!Could not move to path 'configuration/0/naturalId' because key '0' does not exist on '/configuration'.!!</h3>
         <p>
-        Enum with different Scopes to environment specific caches.
+         No Description provided!
         </p>
-        
-
-        
-
-        
-
-        
         <h4>Github</h4>
-        <ul>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java">Scope.java</a>
-            </li>
-            <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/test/java/org/fluentcodes/projects/elasticobjects/models/ScopeTest.java">ScopeTest.java</a>
-            </li>
-        </ul>
-            <h4>Fields</h4>
-            
-            
-            
+        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/resources/ModelConfig.json">&equiv;ModelConfig.json</a></div>
+
+        
+
+        
+
+        
+
         
 
 
         
 
         <h4>Configuration</h4>
-        <xmp style="background-color:lightgray;border:1px solid darkgray;">{
-  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-  "modelKey": "Scope",
-  "eoParams": {
-    "(ArrayList)scope": {
-      "(Scope)0": "ALL"
-    },
-    "create": false,
-    "(ShapeTypes)shapeType": "SCALAR"
-  },
-  "packageGroup": "models",
-  "module": "elastic-objects",
-  "subModule": "main",
-  "key": "Scope",
-  "description": "Enum with different Scopes to environment specific caches.",
-  "naturalId": "Scope",
-  "author": "Werner Diwischek",
-  "configuration": {
-    "0": {
-    }
-  }
-}</xmp>
+        <xmp style="background-color:lightgray;border:1px solid darkgray;"></xmp>
 
         <h4>This Page Post Version</h4>
         The page calls with url can also created by the client side with the generic post end point.
@@ -234,19 +203,19 @@
             <div class="widget-column footer-widget-1">
                 <section id="text-2" class="widget widget_text">
                     <div class="textwidget">
-                        <a href="/configs/ModelConfig.html">ModelConfig</a>
+                        <a href="/configs/ModelConfig.html">&ocir;ModelConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/FieldConfig.html">FieldConfig</a>
+                        <a href="/configs/FieldConfig.html">&ocir;FieldConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/FileConfig.html">FileConfig</a>
+                        <a href="/configs/FileConfig.html">&ocir;FileConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/JsonConfig.html">JsonConfig</a>
+                        <a href="/configs/JsonConfig.html">&ocir;JsonConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/TemplateConfig.html">TemplateConfig</a>
+                        <a href="/configs/TemplateConfig.html">&ocir;TemplateConfig</a>
                     </div>
 
                 </section>

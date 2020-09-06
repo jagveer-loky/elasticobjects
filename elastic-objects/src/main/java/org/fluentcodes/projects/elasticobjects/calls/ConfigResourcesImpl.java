@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
 import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -44,7 +45,7 @@ public abstract class ConfigResourcesImpl extends ConfigImpl {
 
 
         protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            this.mapPath = ScalarConverter.toString(values.get(EO_STATIC.F_MAP_PATH));
+            this.mapPath = ScalarConverter.toString(values.get(ListMapper.MAP_PATH));
             this.rolePermissions = new RolePermissions((Map) values.get(EO_STATIC.F_ROLE_PERMISSIONS));
             super.prepare(configsCache, values);
         }

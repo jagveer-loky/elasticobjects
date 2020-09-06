@@ -2,7 +2,6 @@
   "attributeList": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "attributeList",
     "modelKeys": "ArrayList,String",
     "fieldKey": "attributeList",
     "description": "Definition of available attributes for an Action."
@@ -17,7 +16,6 @@
   "author": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "author",
     "dbFieldParams": {
       "fieldName": "author",
       "length": 256
@@ -29,7 +27,6 @@
   "cached": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "cached",
     "modelKeys": "Boolean",
     "fieldKey": "cached",
     "description": "If true will cache the readed file within the cache object. "
@@ -37,7 +34,6 @@
   "colKeys": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "colKeys",
     "modelKeys": "ArrayList,String",
     "fieldKey": "colKeys",
     "description": "The key list for mapping values in a value list. "
@@ -69,7 +65,6 @@
   "content": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "content",
     "dbFieldParams": {
       "length": 10000
     },
@@ -100,7 +95,6 @@
   "create": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "create",
     "dbFieldParams": {
       "length": 256
     },
@@ -111,10 +105,6 @@
   "creationDate": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "creationDate",
-    "dbFieldParams": {
-      "fieldName": "creationDate"
-    },
     "modelKeys": "Date",
     "fieldKey": "creationDate",
     "description": "Used to define the creation of an item."
@@ -122,7 +112,6 @@
   "customFieldParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "customFieldParams",
     "modelKeys": "HashMap",
     "fieldKey": "customFieldParams",
     "description": "Custom Parameters stored by fields elastic objects. "
@@ -130,7 +119,6 @@
   "customParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "customParams",
     "modelKeys": "HashMap",
     "fieldKey": "customParams",
     "description": "Custom Parameters stored by models elastic objects. "
@@ -138,7 +126,6 @@
   "dbFieldParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "dbFieldParams",
     "modelKeys": "DBFieldParams",
     "fieldKey": "dbFieldParams",
     "description": "Parameters for persisting perspective. "
@@ -146,7 +133,6 @@
   "dbParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "dbParams",
     "modelKeys": "DBParams",
     "fieldKey": "dbParams",
     "description": "Parameters for persisting perspective. "
@@ -154,7 +140,6 @@
   "defaultImplementation": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "defaultImplementation",
     "dbFieldParams": {
       "length": 80
     },
@@ -164,7 +149,6 @@
   "delete": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "delete",
     "dbFieldParams": {
       "length": 256
     },
@@ -175,7 +159,6 @@
   "description": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "description",
     "dbFieldParams": {
       "fieldName": "description",
       "length": 512
@@ -187,7 +170,6 @@
   "entries": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "entries",
     "dbFieldParams": {
       "fieldName": "entries"
     },
@@ -197,7 +179,6 @@
   "eoFieldParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "eoFieldParams",
     "modelKeys": "EOFieldParams",
     "fieldKey": "eoFieldParams",
     "description": "Parameters used by elastic objects. "
@@ -205,7 +186,6 @@
   "eoParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "eoParams",
     "modelKeys": "EOParams",
     "fieldKey": "eoParams",
     "description": "Parameters used by elastic objects. "
@@ -213,7 +193,6 @@
   "execute": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "execute",
     "dbFieldParams": {
       "length": 256
     },
@@ -224,7 +203,6 @@
   "fieldDelimiter": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "fieldDelimiter",
     "dbFieldParams": {
       "length": 4
     },
@@ -235,7 +213,6 @@
   "fieldKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "fieldKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -245,7 +222,6 @@
   "fieldKeys": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "fieldKeys",
     "dbFieldParams": {
       "fieldName": "fieldKeys"
     },
@@ -256,7 +232,6 @@
   "fieldName": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "fieldName",
     "dbFieldParams": {
       "fieldName": "fieldName",
       "length": 80
@@ -268,7 +243,6 @@
   "fileKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "fileKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -279,7 +253,6 @@
   "fileName": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "fileName",
     "dbFieldParams": {
       "length": 80
     },
@@ -289,7 +262,6 @@
   "filePath": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "filePath",
     "dbFieldParams": {
       "length": 512
     },
@@ -299,7 +271,6 @@
   "filter": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "filter",
     "modelKeys": "Or",
     "fieldKey": "filter",
     "description": "A list of {@link And} condition list"
@@ -307,7 +278,6 @@
   "filterModule": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "filterModule",
     "dbFieldParams": {
       "length": 64
     },
@@ -318,7 +288,6 @@
   "filterSubModule": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "filterSubModule",
     "dbFieldParams": {
       "length": 64
     },
@@ -330,9 +299,7 @@
   "hibernate": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "hibernate",
     "dbFieldParams": {
-      "fieldName": "hibernate",
       "length": 16
     },
     "modelKeys": "String",
@@ -341,7 +308,6 @@
   "hibernateAnnotations": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "hibernateAnnotations",
     "modelKeys": "Boolean",
     "fieldKey": "hibernateAnnotations",
     "description": "sets a Flag for using hibernate annotations when bean is created. "
@@ -349,7 +315,6 @@
   "hostKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "hostKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -360,7 +325,6 @@
   "hostName": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "hostName",
     "dbFieldParams": {
       "length": 80
     },
@@ -371,9 +335,7 @@
   "id": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "id",
     "dbFieldParams": {
-      "fieldName": "id",
       "unique": true,
       "notNull": true
     },
@@ -384,10 +346,6 @@
   "duration": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "duration",
-    "dbFieldParams": {
-      "fieldName": "duration"
-    },
     "modelKeys": "Long",
     "fieldKey": "duration",
     "description": "The duration of a call."
@@ -395,7 +353,6 @@
   "idKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "idKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -406,7 +363,6 @@
   "inputKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "inputKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -417,7 +373,6 @@
   "interfaces": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "interfaces",
     "dbFieldParams": {
       "length": 256
     },
@@ -428,7 +383,6 @@
   "join": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "join",
     "dbFieldParams": {
       "length": 80
     },
@@ -439,7 +393,6 @@
   "joinInverse": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "joinInverse",
     "dbFieldParams": {
       "length": 80
     },
@@ -450,9 +403,6 @@
   "serializationType": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "serializationType",
-    "dbFieldParams": {
-    },
     "modelKeys": "JSONSerializationType",
     "fieldKey": "serializationType",
     "description": "The types of Serialization. "
@@ -460,7 +410,6 @@
   "key": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "key",
     "dbFieldParams": {
       "length": 80
     },
@@ -471,9 +420,6 @@
   "indent": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "indent",
-    "dbFieldParams": {
-    },
     "modelKeys": "Integer",
     "fieldKey": "indent",
     "description": "The number of indent for serialization level."
@@ -481,10 +427,6 @@
   "length": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "length",
-    "dbFieldParams": {
-      "fieldName": "length"
-    },
     "modelKeys": "Integer",
     "fieldKey": "length",
     "description": "Length of a field."
@@ -492,7 +434,6 @@
   "listMapper": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "listMapper",
     "modelKeys": "ListMapper",
     "fieldKey": "listMapper",
     "description": "Maps a list to the adapter for @{link ListAction}."
@@ -500,7 +441,6 @@
   "listParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "listParams",
     "dbFieldParams": {
       "length": 80
     },
@@ -511,7 +451,6 @@
   "mapKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "mapKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -522,7 +461,6 @@
   "modelConfigKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "modelConfigKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -533,7 +471,6 @@
   "modelKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "modelKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -544,7 +481,6 @@
   "modelKeys": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "modelKeys",
     "dbFieldParams": {
       "fieldName": "modelKeys",
       "length": 256
@@ -556,7 +492,6 @@
   "models": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "models",
     "dbFieldParams": {
       "length": 512
     },
@@ -567,7 +502,6 @@
   "module": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "module",
     "dbFieldParams": {
       "length": 80
     },
@@ -578,9 +512,7 @@
   "name": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "name",
     "dbFieldParams": {
-      "fieldName": "name",
       "length": 80
     },
     "modelKeys": "String",
@@ -590,52 +522,36 @@
   "naturalId": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "naturalId",
     "dbFieldParams": {
-      "fieldName": "naturalId",
       "length": 80,
       "unique": true,
       "notNull": true
     },
     "modelKeys": "String",
-    "fieldKey": "naturalId",
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}"
   },
   "naturalKeys": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "naturalKeys",
-    "dbFieldParams": {
-      "fieldName": "naturalKeys"
-    },
     "modelKeys": "ArrayList,String",
     "fieldKey": "naturalKeys"
   },
   "notNull": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "notNull",
-    "dbFieldParams": {
-      "fieldName": "notNull"
-    },
     "modelKeys": "Boolean",
     "fieldKey": "notNull"
   },
   "inTemplate": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "inTemplate",
-    "dbFieldParams": {
-    },
     "modelKeys": "Boolean",
     "fieldKey": "inTemplate"
   },
   "packageGroup": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "packageGroup",
     "dbFieldParams": {
-      "fieldName": "packageGroup",
       "length": 12
     },
     "modelKeys": "String",
@@ -645,7 +561,6 @@
   "packagePath": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "packagePath",
     "dbFieldParams": {
       "length": 124
     },
@@ -655,7 +570,6 @@
   "password": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "password",
     "dbFieldParams": {
       "length": 15
     },
@@ -682,7 +596,6 @@
   "Permissions.create": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Permissions.create",
     "dbFieldParams": {
       "length": 256
     },
@@ -693,14 +606,12 @@
   "port": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "port",
     "modelKeys": "Integer",
     "fieldKey": "port"
   },
   "protocol": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "protocol",
     "dbFieldParams": {
       "length": 8
     },
@@ -710,7 +621,6 @@
   "read": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "read",
     "dbFieldParams": {
       "length": 256
     },
@@ -721,14 +631,12 @@
   "rolePermissions": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "rolePermissions",
     "modelKeys": "RolePermissions",
     "fieldKey": "rolePermissions"
   },
   "rowDelimiter": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "rowDelimiter",
     "dbFieldParams": {
       "length": 4
     },
@@ -739,28 +647,24 @@
   "rowEnd": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "rowEnd",
     "modelKeys": "Integer",
     "fieldKey": "rowEnd"
   },
   "rowHead": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "rowHead",
     "modelKeys": "Integer",
     "fieldKey": "rowHead"
   },
   "rowStart": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "rowStart",
     "modelKeys": "Integer",
     "fieldKey": "rowStart"
   },
   "scope": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "scope",
     "modelKeys": "ArrayList,Scope",
     "fieldKey": "scope",
     "description": "A scope for the cache value."
@@ -768,9 +672,7 @@
   "serialized": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "serialized",
     "dbFieldParams": {
-      "fieldName": "serialized",
       "length": 2056
     },
     "modelKeys": "String",
@@ -780,34 +682,30 @@
   "shapeType": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "shapeType",
-    "dbFieldParams": {
-      "fieldName": "shapeType"
-    },
     "modelKeys": "ShapeTypes",
     "fieldKey": "shapeType"
+  },
+  "expose": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "modelKeys": "Expose",
+    "fieldKey": "expose"
   },
   "keepCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "keepCall",
     "modelKeys": "KeepCalls",
     "fieldKey": "keepCall"
   },
   "logLevel": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "logLevel",
-    "dbFieldParams": {
-      "fieldName": "logLevel"
-    },
     "modelKeys": "LogLevel",
     "fieldKey": "logLevel"
   },
   "subModule": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "subModule",
     "dbFieldParams": {
       "length": 64
     },
@@ -818,9 +716,7 @@
   "superKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "superKey",
     "dbFieldParams": {
-      "fieldName": "superKey",
       "length": 256
     },
     "modelKeys": "String",
@@ -830,7 +726,6 @@
   "table": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "table",
     "dbFieldParams": {
       "length": 80
     },
@@ -841,27 +736,18 @@
   "unique": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "unique",
-    "dbFieldParams": {
-      "fieldName": "unique"
-    },
     "modelKeys": "Boolean",
     "fieldKey": "unique"
   },
   "overwrite": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "overwrite",
-    "dbFieldParams": {
-      "fieldName": "overwrite"
-    },
     "modelKeys": "Boolean",
     "fieldKey": "overwrite"
   },
   "upper.ID": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "upper.ID",
     "dbFieldParams": {
       "fieldName": "ID",
       "unique": true,
@@ -874,7 +760,6 @@
   "user": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "user",
     "dbFieldParams": {
       "length": 50
     },
@@ -902,7 +787,6 @@
   "value": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "value",
     "modelKeys": "String",
     "dbFieldParams": {
       "length": 20000
@@ -912,7 +796,6 @@
   "viewFieldParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "viewFieldParams",
     "modelKeys": "ViewFieldParams",
     "fieldKey": "viewFieldParams",
     "description": "Parameters used to define views. "
@@ -920,7 +803,6 @@
   "viewKey": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "viewKey",
     "dbFieldParams": {
       "length": 80
     },
@@ -931,7 +813,6 @@
   "viewParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "viewParams",
     "modelKeys": "ViewParams",
     "fieldKey": "viewParams",
     "description": "Parameters used to define views. "
@@ -939,7 +820,6 @@
   "write": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "write",
     "dbFieldParams": {
       "length": 256
     },

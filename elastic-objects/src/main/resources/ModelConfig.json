@@ -2,8 +2,8 @@
   "Call": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Call",
     "description": "Basic interface for calls ",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "INTERFACE",
       "create": false
@@ -27,10 +27,10 @@
   "CallImpl": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "CallImpl",
     "description": "Basic implementation for calls. ",
     "modelKey": "CallImpl",
     "interfaces": "Call",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": false
@@ -42,9 +42,9 @@
   "SinusValueCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "SinusValueCall",
     "description": "For setting sinus value to EO.",
     "modelKey": "SinusValueCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -59,11 +59,16 @@
     "subModule": "main",
     "description": "For getting a list of keys for a specific configuration type.",
     "modelKey": "ConfigKeysCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
     },
-    "fieldKeys": ["configType", "configFilter"],
+    "fieldKeys": [
+      "configType",
+      "configFilter",
+      "expose"
+    ],
     "superKey": "CallImpl",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "packageGroup": "configs",
@@ -74,6 +79,7 @@
     "subModule": "main",
     "description": "For getting a list of keys for a configuration types.",
     "modelKey": "ConfigTypesCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -85,9 +91,9 @@
   "ConfigCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ConfigCall",
     "description": "For getting a map of configurations for a specific configuration type.",
     "modelKey": "ConfigCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -103,6 +109,7 @@
     "subModule": "main",
     "description": "For setting the string representation of eo.",
     "modelKey": "JsonAsStringCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -116,6 +123,7 @@
     "subModule": "main",
     "description": "For setting upper value to EO.",
     "modelKey": "StringUpperCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -130,6 +138,7 @@
     "subModule": "main",
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
     "modelKey": "StringReplaceCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -144,6 +153,7 @@
     "subModule": "main",
     "description": "For setting upper value to EO.",
     "modelKey": "StringUpperFirstCharCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -156,9 +166,9 @@
   "StringLowerCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "StringLowerCall",
-    "description": "For setting upper value to EO.",
+    "description": "For setting lower value to EO.",
     "modelKey": "StringLowerCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -171,9 +181,9 @@
   "SimpleValueFromEoCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "SimpleValueFromEoCall",
-    "description": "For setting upper value to EO.",
+    "description": "For setting a value to EO.",
     "modelKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -186,9 +196,9 @@
   "ValueCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ValueCall",
     "description": "For setting values to EO.",
     "modelKey": "ValueCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -204,11 +214,13 @@
   "CallResource": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "CallResource",
     "superKey": "CallImpl",
+    "expose": "INFO",
     "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": false
     },
-    "description": "Basic bean as super object for other cached items. ",
+    "description": "Super class for class using ResourceConfigs with permission rights. ",
     "fieldKeys": [
       "configKey"
     ],
@@ -220,9 +232,10 @@
   "And": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "And",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR_SERIALIZED"
+      "shapeType": "SCALAR_SERIALIZED",
+      "create": true
     },
     "description": "A list of {@ Condition}.",
     "modelKey": "And",
@@ -233,9 +246,10 @@
   "Arrays": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Arrays",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "LIST"
+      "shapeType": "LIST",
+      "create": false
     },
     "modelKey": "Arrays",
     "packagePath": "java.util",
@@ -244,11 +258,12 @@
   "ConfigResourcesImpl": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ConfigResourcesImpl",
     "description": "Defines the role access.",
     "superKey": "ConfigImpl",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "OBJECT"
+      "shapeType": "CONFIG",
+      "create": false
     },
     "fieldKeys": [
     ],
@@ -260,9 +275,10 @@
   "Class": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Class",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR"
+      "shapeType": "SCALAR",
+      "create": false
     },
     "modelKey": "Class",
     "packagePath": "java.lang",
@@ -271,9 +287,10 @@
   "Condition": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Condition",
+    "expose": "CREATE",
     "eoParams": {
-      "shapeType": "INTERFACE"
+      "shapeType": "INTERFACE",
+      "create": false
     },
     "description": "Interface for conditions, mainly a key value pair with some methods serving as filter expressions. ",
     "modelKey": "Condition",
@@ -284,9 +301,10 @@
   "Config": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Config",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "INTERFACE"
+      "shapeType": "INTERFACE",
+      "create": false
     },
     "description": "Basic config interface as super interface for other cached items. ",
     "superKey": "Model",
@@ -294,6 +312,7 @@
       "module",
       "subModule",
       "scope",
+      "expose",
       "key"
     ],
     "modelKey": "Config",
@@ -304,10 +323,11 @@
   "ConfigImpl": {
     "module": "elastic-objects",
     "subModule": "main",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "OBJECT"
+      "shapeType": "CONFIG",
+      "create": false
     },
-    "naturalId": "ConfigImpl",
     "description": "Basic cache as super object for other cached items. ",
     "superKey": "ModelImpl",
     "interfaces": "Config",
@@ -319,12 +339,12 @@
   "DBFieldParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "DBFieldParams",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "BEAN",
+      "shapeType": "CONFIG",
       "create": false
     },
-    "description": "Params controlling the behaviour of persisting of an EO FieldConfig e.g. for a database.",
+    "description": "Params defining the properties of an objects field  when it will persisted e.g. in a database.",
     "fieldKeys": [
       "fieldName",
       "hibernate",
@@ -344,9 +364,9 @@
   "DBParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "DBParams",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "BEAN",
+      "shapeType": "CONFIG",
       "create": false
     },
     "description": "Params controlling the behavior of persisting an EO ModelConfig e.g. for a database.",
@@ -364,7 +384,7 @@
   "EOFieldParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "EOFieldParams",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "BEAN",
       "create": true
@@ -379,9 +399,9 @@
   "EOParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "EOParams",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "BEAN",
+      "shapeType": "CONFIG",
       "create": false
     },
     "description": "Params controlling the behavior of an EO ModelConfig like serialization/deserialization.",
@@ -401,9 +421,10 @@
   "Eq": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Eq",
+    "expose": "CREATE",
     "eoParams": {
-      "shapeType": "SCALAR_SERIALIZED"
+      "shapeType": "SCALAR_SERIALIZED",
+      "create": false
     },
     "description": "Equality check for objects.",
     "interfaces": "Condition",
@@ -413,20 +434,20 @@
     "author": "Werner Diwischek"
   },
   "ExecutorCallList": {
-    "naturalId": "ExecutorCallList",
     "description": "For a list of executors",
     "modelKey": "ExecutorCallList",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "OBJECT",
-      "create": true
+      "create": false
     },
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "author": "Werner Diwischek"
   },
 
   "ExecutorCall": {
-    "naturalId": "ExecutorCall",
     "description": "Facade execution ",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "INTERFACE",
       "create": false
@@ -436,12 +457,12 @@
     "author": "Werner Diwischek"
   },
   "ExecutorCallImpl": {
-    "naturalId": "ExecutorCallImpl",
     "description": "Facade execution ",
     "superKey": "ExecutorCall",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "BEAN",
-      "create": true
+      "shapeType": "OBJECT",
+      "create": false
     },
     "interfaces": "ExecutorCall",
     "modelKey": "ExecutorCallImpl",
@@ -451,7 +472,7 @@
   "FieldConfig": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "FieldConfig",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -475,7 +496,7 @@
   "FileWriteCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "FileWriteCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "modelConfigKey": "FileConfig",
@@ -491,7 +512,7 @@
   "FileReadCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "FileReadCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "modelConfigKey": "FileConfig",
@@ -507,12 +528,12 @@
   "FileConfig": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "FileConfig",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
     },
-    "description": "Immutabel EO file configuration will be initalized by internal builder using map values.",
+    "description": "Immutable EO file configuration will be initialized by internal builder using map values.",
     "superKey": "ConfigResourcesImpl",
     "fieldKeys": [
       "fileName",
@@ -528,9 +549,9 @@
   "ScsReadCall": {
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "modelConfigKey": "ScsConfig",
       "create": true
     },
+    "expose": "WEB",
     "description": "Defines a primitive csv file read operation. ",
     "superKey": "ListReadCall",
     "fieldKeys": [],
@@ -544,6 +565,7 @@
       "shapeType": "CONFIG",
       "create": false
     },
+    "expose": "INFO",
     "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "superKey": "ListConfig",
     "fieldKeys": [
@@ -559,9 +581,10 @@
   "HashMap": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "HashMap",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "MAP"
+      "shapeType": "MAP",
+      "create": true
     },
     "modelKey": "HashMap",
     "packagePath": "java.util",
@@ -570,9 +593,9 @@
   "ConfigResources": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ConfigResources",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "CONFIG",
+      "shapeType": "INTERFACE",
       "create": false
     },
     "description": "Interface with permissions methods ",
@@ -586,6 +609,7 @@
   "ConfigResourcesImpl": {
     "module": "elastic-objects",
     "subModule": "main",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -600,7 +624,7 @@
   "HostConfig": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "HostConfig",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -621,14 +645,12 @@
   "JsonReadCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "JsonReadCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "modelConfigKey": "JsonConfig",
-      "create": true,
-      "methods": "read,write,delete"
+      "create": true
     },
-    "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
+    "description": "Calls with configuration {@link JsonConfig} to read a file write its content to EO on targetPath.",
     "superKey": "FileReadCall",
     "fieldKeys": [
       "content",
@@ -643,10 +665,9 @@
   "JsonConfig": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "JsonConfig",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
-      "modelConfigKey": "JsonCall",
       "create": false
     },
     "description": "Configuration for {@link JsonAction}.",
@@ -662,9 +683,10 @@
   "Like": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Like",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR_SERIALIZED"
+      "shapeType": "SCALAR_SERIALIZED",
+      "create": false
     },
     "description": "Like check for strings.",
     "interfaces": "Condition",
@@ -676,9 +698,10 @@
   "LinkedHashSet": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "LinkedHashSet",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SET"
+      "shapeType": "SET",
+      "create": true
     },
     "modelKey": "LinkedHashSet",
     "packagePath": "java.util",
@@ -687,10 +710,10 @@
   "ListCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ListCall",
+    "expose": "INFO",
     "eoParams": {
-      "modelConfigKey": "ListConfig",
-      "create": true
+      "shapeType": "BEAN",
+      "create": false
     },
     "description": "Defines the parameter like listMapper.",
     "superKey": "CallResource",
@@ -709,10 +732,10 @@
   "ListReadCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ListReadCall",
+    "expose": "INFO",
     "eoParams": {
-      "modelConfigKey": "ListConfig",
-      "create": true
+      "shapeType": "CALL_BEAN",
+      "create": false
     },
     "description": "Defines the parameter like listMapper.",
     "superKey": "ListCall",
@@ -724,7 +747,7 @@
   "ListConfig": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ListConfig",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -743,7 +766,7 @@
   "ListParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ListParams",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "BEAN",
       "create": true
@@ -764,9 +787,10 @@
   "ListMapper": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ListMapper",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "INSTANCE"
+      "shapeType": "BEAN",
+      "create": true
     },
     "description": "Defines the parameter names list for mapping.",
     "fieldKeys": [
@@ -781,10 +805,10 @@
   "Model": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Model",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "INTERFACE",
-      "defaultImplementation": "ModelImpl"
+      "create": false
     },
     "description": "Basic bean as super interface for other cached items. ",
     "fieldKeys": [
@@ -802,12 +826,12 @@
   "ModelConfigList": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelConfigList",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
     },
-    "description": "Class definitions for an list with getters and setters.",
+    "description": "List class wrapper for create, get and set.",
     "superKey": "ModelConfig",
     "modelKey": "ModelConfigList",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -817,12 +841,12 @@
   "ModelConfigMap": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelConfigMap",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
     },
-    "description": "Class definitions for an map with getters and setters.",
+    "description": "Map class wrapper for for create, get and set.",
     "superKey": "ModelConfig",
     "modelKey": "ModelConfigMap",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -832,12 +856,12 @@
   "ModelConfigNone": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelConfigNone",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
     },
-    "description": "Class definitions for a null.",
+    "description": "Object class wrapper for .",
     "superKey": "ModelConfig",
     "modelKey": "ModelConfigNone",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -847,7 +871,7 @@
   "ModelConfigObject": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelConfigObject",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -862,7 +886,7 @@
   "ModelConfigScalar": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelConfigScalar",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -877,7 +901,7 @@
   "ModelConfigSet": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelConfigSet",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -892,7 +916,7 @@
   "ModelConfig": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelConfig",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -908,7 +932,7 @@
   "ModelImpl": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelImpl",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "BEAN",
       "create": true
@@ -923,7 +947,7 @@
   "ModelInterface": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ModelInterface",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "INTERFACE",
       "create": false
@@ -950,9 +974,10 @@
   "Models": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Models",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "SCALAR_SERIALIZED"
+      "shapeType": "CONFIG",
+      "create": false
     },
     "description": "A list of models to specify model configs for a path.",
     "fieldKeys": [
@@ -966,9 +991,10 @@
   "Object": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Object",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "NONE"
+      "shapeType": "NONE",
+      "create": "false"
     },
     "modelKey": "Object",
     "packagePath": "java.lang",
@@ -977,9 +1003,10 @@
   "Or": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Or",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR_SERIALIZED"
+      "shapeType": "SCALAR_SERIALIZED",
+      "create": false
     },
     "description": "A list of {@ And}.",
     "modelKey": "Or",
@@ -990,9 +1017,10 @@
   "Path": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Path",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR_SERIALIZED"
+      "shapeType": "SCALAR_SERIALIZED",
+      "create": false
     },
     "description": "A path with useful methonds. ",
     "fieldKeys": [
@@ -1006,9 +1034,10 @@
   "PathPattern": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "PathPattern",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR_SERIALIZED"
+      "shapeType": "SCALAR_SERIALIZED",
+      "create": false
     },
     "description": "A list of paths to filter object hierarchy.",
     "fieldKeys": [
@@ -1022,9 +1051,10 @@
   "RolePermissions": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "RolePermissions",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "INSTANCE"
+      "shapeType": "INSTANCE",
+      "create": false
     },
     "description": "Defines the roles ",
     "fieldKeys": [
@@ -1042,9 +1072,10 @@
   "Scope": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Scope",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR"
+      "shapeType": "SCALAR",
+      "create": false
     },
     "description": "Enum with different Scopes to environment specific caches.",
     "modelKey": "Scope",
@@ -1052,13 +1083,28 @@
     "packageGroup": "models",
     "author": "Werner Diwischek"
   },
+  "Expose": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "expose": "NONE",
+    "eoParams": {
+      "shapeType": "SCALAR",
+      "create": false
+    },
+    "description": "Enum with different exposing types for filter delivery types.",
+    "modelKey": "Expose",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "packageGroup": "models",
+    "author": "Werner Diwischek"
+  },
   "Set": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Set",
+    "expose": "NONE",
     "eoParams": {
       "shapeType": "SET",
-      "defaultImplementation": "LinkedHashSet"
+      "defaultImplementation": "LinkedHashSet",
+      "create": false
     },
     "modelKey": "Set",
     "packagePath": "java.util",
@@ -1067,9 +1113,10 @@
   "ShapeTypes": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ShapeTypes",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "ENUM"
+      "shapeType": "ENUM",
+      "create": false
     },
     "description": "Enum with different shapetypes like SCALAR or BEAN. ",
     "modelKey": "ShapeTypes",
@@ -1080,7 +1127,7 @@
   "KeepCalls": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "KeepCalls",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "ENUM",
       "create": false
@@ -1094,9 +1141,10 @@
   "Short": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "Short",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR"
+      "shapeType": "SCALAR",
+      "create": false
     },
     "modelKey": "Short",
     "packagePath": "java.lang",
@@ -1105,9 +1153,10 @@
   "StringBuffer": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "StringBuffer",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR"
+      "shapeType": "SCALAR",
+      "create": false
     },
     "modelKey": "StringBuffer",
     "packagePath": "java.lang",
@@ -1116,9 +1165,10 @@
   "StringBuilder": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "StringBuilder",
+    "expose": "NONE",
     "eoParams": {
-      "shapeType": "SCALAR"
+      "shapeType": "SCALAR",
+      "create": false
     },
     "modelKey": "StringBuilder",
     "packagePath": "java.lang",
@@ -1127,14 +1177,13 @@
   "TemplateCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "TemplateCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "modelConfigKey": "TemplateConfig",
-      "create": true,
-      "methods": "execute"
+      "create": true
     },
-    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "description": "Executes a template content. ",
     "superKey": "CallImpl",
     "fieldKeys": [
       "content"
@@ -1147,12 +1196,10 @@
   "TemplateResourceCall": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "TemplateResourceCall",
+    "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "modelConfigKey": "TemplateConfig",
-      "create": true,
-      "methods": "execute"
+      "create": true
     },
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "superKey": "FileReadCall",
@@ -1167,7 +1214,7 @@
   "TemplateConfig": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "TemplateConfig",
+    "expose": "INFO",
     "eoParams": {
       "shapeType": "CONFIG",
       "create": false
@@ -1185,9 +1232,9 @@
   "ViewFieldParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ViewFieldParams",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "BEAN",
+      "shapeType": "CONFIG",
       "create": false
     },
     "description": "Params controlling the behavior the view of an elastic field including input.",
@@ -1203,9 +1250,9 @@
   "ViewParams": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "ViewParams",
+    "expose": "INFO",
     "eoParams": {
-      "shapeType": "BEAN",
+      "shapeType": "CONFIG",
       "create": false
     },
     "description": "Params controlling the behavior of the view of an elastic object.",

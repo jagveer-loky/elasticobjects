@@ -24,16 +24,16 @@
         "(Scope)0": "ALL"
       },
       "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN",
-      "modelConfigKey": "JsonConfig"
+      "(ShapeTypes)shapeType": "CALL_BEAN"
     },
     "packageGroup": "json",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "JsonReadCall",
-    "description": "The action with configuration {@link JsonConfig} will read a file to a adapter or write a file from the mapPath.",
-    "naturalId": "JsonReadCall",
-    "author": "Werner Diwischek"
+    "description": "Calls with configuration {@link JsonConfig} to read a file write its content to EO on targetPath.",
+    "author": "Werner Diwischek",
+    "naturalId": "JsonReadCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

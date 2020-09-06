@@ -8,6 +8,7 @@
     },
     "module": "eo-xlsx",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.xlsx:test",
     "description": "Cached definition for source.xlsx.",
     "naturalId": "ListSimple.xlsx:test"
@@ -20,6 +21,7 @@
     },
     "module": "actions-xlsx",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "source.xlsx",
     "description": "Cached definition for source.xlsx with explicit sheetName.",
     "naturalId": "source.xlsx"
@@ -28,6 +30,7 @@
     "fileKey": "source.xlsx",
     "module": "actions-xlsx",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "sourceExplicit",
     "description": "source.xlsx with explicit fileName and sheetName",
     "naturalId": "sourceExplicit"
@@ -39,6 +42,7 @@
     },
     "module": "actions-xlsx",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "target.xlsx",
     "description": "Cached definition for target.xlsx.",
     "naturalId": "target.xlsx"

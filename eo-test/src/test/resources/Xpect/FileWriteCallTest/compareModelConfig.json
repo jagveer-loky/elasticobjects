@@ -27,10 +27,11 @@
     "packageGroup": "files",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "FileWriteCall",
     "description": "Defines a file write access. ",
-    "naturalId": "FileWriteCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "FileWriteCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -26,10 +26,11 @@
     "packageGroup": "values",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "ValueCall",
     "description": "For setting values to EO.",
-    "naturalId": "ValueCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "ValueCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -19,12 +19,13 @@
       "10": "module",
       "11": "subModule",
       "12": "scope",
-      "13": "key",
-      "14": "id",
-      "15": "description",
-      "16": "naturalId",
-      "17": "creationDate",
-      "18": "author"
+      "13": "expose",
+      "14": "key",
+      "15": "id",
+      "16": "description",
+      "17": "naturalId",
+      "18": "creationDate",
+      "19": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {
@@ -36,10 +37,11 @@
     "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "ModelConfig",
     "description": "Table definitions with pojo.",
-    "naturalId": "ModelConfig",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "ModelConfig"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -83,6 +83,9 @@ public class ExecutorCallImpl implements ExecutorCall {
             catch(EoException e) {
                 value = e.getMessage();
                 eo.error(e.getMessage());
+                if (call.getInTemplate()) {
+                    templateResult.append(value);
+                }
             }
             if (call.getInTemplate()) {
                 templateResult.append(value);

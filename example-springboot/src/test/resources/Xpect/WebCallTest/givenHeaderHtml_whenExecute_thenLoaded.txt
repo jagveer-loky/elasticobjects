@@ -111,16 +111,16 @@
                             <li> - </li>
                             <li id="menu-item-3"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="https://github.com/fluentcodes/elasticobjects">Github</a>
+                                <a href="https://github.com/fluentcodes/elasticobjects">&equiv;Github</a>
                             </li>
                             <li> - </li>
                             <li id="menu-item-4"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="/configs/ModelConfig.html">ModelConfig</a>
+                                <a href="/configs/ModelConfig.html">&ocir;ModelConfig</a>
                             </li>
                             <li id="menu-item-5"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="/configs/FieldConfig.html">FieldConfig</a>
+                                <a href="/configs/FieldConfig.html">&ocir;FieldConfig</a>
                             </li>
                         </ul>
                     </div>

@@ -13,12 +13,13 @@
       "5": "module",
       "6": "subModule",
       "7": "scope",
-      "8": "key",
-      "9": "id",
-      "10": "description",
-      "11": "naturalId",
-      "12": "creationDate",
-      "13": "author"
+      "8": "expose",
+      "9": "key",
+      "10": "id",
+      "11": "description",
+      "12": "naturalId",
+      "13": "creationDate",
+      "14": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {
@@ -30,10 +31,11 @@
     "packageGroup": "xlsx",
     "module": "actions-xlsx",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "XlsxConfig",
     "description": "The cache class for excel access. Contains the file cache.",
-    "naturalId": "XlsxConfig",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "XlsxConfig"
   },
   "(LogLevel)_logLevel": "WARN"
 }

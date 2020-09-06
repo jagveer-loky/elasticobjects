@@ -13,6 +13,7 @@
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },
+    "(Expose)expose": "INFO",
     "key": "FieldExampleClass",
     "naturalId": "FieldExampleClass"
   },

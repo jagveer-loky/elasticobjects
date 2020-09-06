@@ -11,19 +11,19 @@
             <div class="widget-column footer-widget-1">
                 <section id="text-2" class="widget widget_text">
                     <div class="textwidget">
-                        <a href="/configs/ModelConfig.html">ModelConfig</a>
+                        <a href="/configs/ModelConfig.html">&ocir;ModelConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/FieldConfig.html">FieldConfig</a>
+                        <a href="/configs/FieldConfig.html">&ocir;FieldConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/FileConfig.html">FileConfig</a>
+                        <a href="/configs/FileConfig.html">&ocir;FileConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/JsonConfig.html">JsonConfig</a>
+                        <a href="/configs/JsonConfig.html">&ocir;JsonConfig</a>
                     </div>
                     <div class="textwidget">
-                        <a href="/configs/TemplateConfig.html">TemplateConfig</a>
+                        <a href="/configs/TemplateConfig.html">&ocir;TemplateConfig</a>
                     </div>
 
                 </section>

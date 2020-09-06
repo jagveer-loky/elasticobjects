@@ -12,6 +12,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "BasicTest.json",
     "description": "Simple data for the BasicTest.",
     "naturalId": "BasicTest.json"
@@ -24,6 +25,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "content",
     "description": "Simple data for the content templates.",
     "naturalId": "content"
@@ -36,6 +38,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "ContentExample",
     "description": "Calls templates.",
     "naturalId": "ContentExample"
@@ -48,6 +51,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleData",
     "description": "Simple data for the content templates.",
     "naturalId": "ContentExampleData"
@@ -64,6 +68,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.json",
     "description": "Simple list equivalent for ListSimple.csv.",
     "naturalId": "ListSimple.json"
@@ -76,6 +81,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "ModuleConfig.json",
     "description": "Parameter to determine general module parameters.",
     "naturalId": "ModuleConfig.json"
@@ -88,6 +94,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "SimpleInsertWithPath",
     "description": "Simple data for the SimpleInsert templates.",
     "naturalId": "SimpleInsertWithPath"
@@ -100,6 +107,7 @@
     "cached": false,
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "naturalId": "target.json"

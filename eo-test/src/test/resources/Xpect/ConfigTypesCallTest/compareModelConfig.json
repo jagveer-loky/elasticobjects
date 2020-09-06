@@ -24,10 +24,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "ConfigTypesCall",
     "description": "For getting a list of keys for a configuration types.",
-    "naturalId": "ConfigTypesCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "ConfigTypesCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

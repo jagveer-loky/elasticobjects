@@ -122,7 +122,21 @@ public class EOConfigsCache {
     }
 
     public Set<String> getConfigKeys(Class configClass) {
-        return getConfigMap(configClass).getKeys();
+        return getConfigKeys(configClass, Expose.NONE);
+    }
+
+    public Set<String> getConfigKeys(Class configClass, Expose expose) {
+        if (expose == Expose.NONE || getConfigMap(configClass).isEmpty()) {
+            return getConfigMap(configClass).getKeys();
+        }
+        Set<String> configKeys = new LinkedHashSet<>();
+        for (String naturalId: getConfigMap(configClass).getKeys()) {
+            Config config = getConfigMap(configClass).find(naturalId);
+            if (config.getExpose().ordinal() <= expose.ordinal()) {
+                configKeys.add(naturalId);
+            }
+        }
+        return configKeys;
     }
 
     private EOConfigMap getConfigMap(Class configClass) {

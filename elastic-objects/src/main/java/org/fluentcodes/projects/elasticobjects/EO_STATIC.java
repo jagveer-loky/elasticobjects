@@ -35,19 +35,16 @@ public class EO_STATIC {
     public static final String M_MAP = "Map";
     public static final String M_CONFIG_IMPL = "ConfigImpl";
 
-    public static final String F_DO_MAP = "doMap";
     public static final String F_UPPER_ID_KEY = "upper.ID";
 
     public static final String F_FILE_NAME = "fileName";
     public static final String F_PASSWORD = "password";
     public static final String F_ROLE_PERMISSIONS = "rolePermissions";
     public static final String F_JOIN = "join";
-    public static final String F_COL_KEYS = "colKeys";
     public static final String F_WRITE = "write";
     public static final String F_HIBERNATE_ANNOTATIONS = "hibernateAnnotations";
     public static final String F_NOT_NULL = "notNull";
     public static final String F_EXECUTE = "execute";
-    public static final String F_IGNORE_HEADER = "ignoreHeader";
     public static final String F_UNIQUE = "unique";
     public static final String F_INPUT_KEY = "inputKey";
     public static final String F_VIEW_FIELD_PARAMS = "viewFieldParams";
@@ -63,7 +60,6 @@ public class EO_STATIC {
     public static final String F_VIEW_KEY = "viewKey";
     public static final String F_FILTER = "filter";
     public static final String F_ROW_END = "rowEnd";
-    public static final String F_MAP_PATH = "mapPath";
     public static final String F_PROTOCOL = "protocol";
     public static final String F_NATURAL_KEYS = "naturalKeys";
     public static final String F_MODEL_KEYS = "modelKeys";

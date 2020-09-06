@@ -25,10 +25,11 @@
     },
     "module": "example-springboot",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "TheGreetingCall",
     "description": "An example for a simple call with a field.",
-    "naturalId": "TheGreetingCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "TheGreetingCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

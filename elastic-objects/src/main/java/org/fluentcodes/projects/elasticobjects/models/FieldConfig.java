@@ -4,6 +4,7 @@ import com.google.gson.internal.$Gson$Preconditions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
@@ -43,14 +44,20 @@ public class FieldConfig extends ConfigImpl {
         //this.models = builder.models;
         this.modelKeys = builder.modelKeys;
         this.modelList = new ArrayList<>();
-
+        super.setExpose(Expose.NONE);
     }
 
-    protected void addModel(final String modelKey) {
-        if (modelList.contains(modelKey)) {
+    protected void addModel(final ModelConfig modelConfig) {
+        if (modelConfig == null || modelConfig.getNaturalId() == null)  {
+            throw new EoInternalException("Problem with modelConfig where naturalId could not be resolved");
+        }
+        if (modelList.contains(modelConfig.getNaturalId())) {
             return;
         }
-        modelList.add(modelKey);
+        modelList.add(modelConfig.getNaturalId());
+        if (getExpose().ordinal() >= modelConfig.getExpose().ordinal()) {
+            super.setExpose(modelConfig.getExpose());
+        }
     }
 
     public List<String> getModelList() {

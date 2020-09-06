@@ -19,8 +19,6 @@ public class ExecutorCallListTest {
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isObject());
         Assert.assertFalse(model.isScalar());
-        Object instance = model.create();
-        Assertions.assertThat(instance).isNotNull();
         Assertions.assertThat(model.getFieldKeys()).isEmpty();
     }
 }

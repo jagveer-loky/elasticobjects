@@ -8,6 +8,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "attributeList",
     "description": "Definition of available attributes for an Action.",
     "naturalId": "attributeList"
@@ -45,6 +46,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "author",
     "description": "The autor of something e,g. a class.",
     "naturalId": "author"
@@ -62,6 +64,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "basicTest",
     "description": "A BasicTest field.",
     "naturalId": "basicTest"
@@ -76,6 +79,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "cached",
     "description": "If true will cache the readed file within the cache object. ",
     "naturalId": "cached"
@@ -88,6 +92,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "colKeys",
     "description": "The key list for mapping values in a value list. ",
     "naturalId": "colKeys"
@@ -126,6 +131,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "condition",
     "description": "A condition for calls. ",
     "naturalId": "condition"
@@ -142,6 +148,7 @@
       "0": "ConfigKeysCall",
       "1": "ConfigCall"
     },
+    "(Expose)expose": "WEB",
     "key": "configFilter",
     "description": "Key for filter configuration",
     "naturalId": "configFilter"
@@ -164,6 +171,7 @@
       "6": "ListReadCall",
       "7": "ScsReadCall"
     },
+    "(Expose)expose": "WEB",
     "key": "configKey",
     "description": "Key for configuration  {@link ConfigConfig}",
     "naturalId": "configKey"
@@ -180,6 +188,7 @@
       "0": "ConfigKeysCall",
       "1": "ConfigCall"
     },
+    "(Expose)expose": "WEB",
     "key": "configType",
     "description": "Key for configuration type.",
     "naturalId": "configType"
@@ -198,6 +207,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "content",
     "description": "A content.",
     "naturalId": "content"
@@ -215,6 +225,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "create",
     "description": "If true will create a Java class.",
     "naturalId": "create"
@@ -222,11 +233,6 @@
   "11": {
     "fieldKey": "creationDate",
     "modelKeys": "Date",
-    "dbFieldParams": {
-      "fieldName": "creationDate",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "Model",
       "1": "Config",
@@ -251,6 +257,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "creationDate",
     "description": "Used to define the creation of an item.",
     "naturalId": "creationDate"
@@ -263,6 +270,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "customFieldParams",
     "description": "Custom Parameters stored by fields elastic objects. ",
     "naturalId": "customFieldParams"
@@ -282,6 +290,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "customParams",
     "description": "Custom Parameters stored by models elastic objects. ",
     "naturalId": "customParams"
@@ -294,6 +303,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "dbFieldParams",
     "description": "Parameters for persisting perspective. ",
     "naturalId": "dbFieldParams"
@@ -313,6 +323,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "dbParams",
     "description": "Parameters for persisting perspective. ",
     "naturalId": "dbParams"
@@ -330,6 +341,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "defaultImplementation",
     "naturalId": "defaultImplementation"
   },
@@ -346,6 +358,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "delete",
     "description": "String representation of RolePermission delete permissions",
     "naturalId": "delete"
@@ -383,6 +396,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "description",
     "description": "A description of the model used by every model extending BaseClassImpl. ",
     "naturalId": "description"
@@ -390,11 +404,6 @@
   "19": {
     "fieldKey": "duration",
     "modelKeys": "Long",
-    "dbFieldParams": {
-      "fieldName": "duration",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -421,6 +430,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "duration",
     "description": "The duration of a call.",
     "naturalId": "duration"
@@ -438,6 +448,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "entries",
     "naturalId": "entries"
   },
@@ -449,6 +460,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "eoFieldParams",
     "description": "Parameters used by elastic objects. ",
     "naturalId": "eoFieldParams"
@@ -468,6 +480,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "eoParams",
     "description": "Parameters used by elastic objects. ",
     "naturalId": "eoParams"
@@ -485,11 +498,43 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "execute",
     "description": "String representation of RolePermission execute permissions",
     "naturalId": "execute"
   },
   "24": {
+    "fieldKey": "expose",
+    "modelKeys": "Expose",
+    "(ArrayList)modelList": {
+      "0": "Config",
+      "1": "ConfigImpl",
+      "2": "FieldConfig",
+      "3": "ConfigResourcesImpl",
+      "4": "ModelInterface",
+      "5": "ModelConfig",
+      "6": "ModelConfigSet",
+      "7": "ModelConfigList",
+      "8": "ModelConfigMap",
+      "9": "ConfigKeysCall",
+      "10": "ConfigCall",
+      "11": "FileConfig",
+      "12": "JsonConfig",
+      "13": "ModelConfigNone",
+      "14": "HostConfig",
+      "15": "ListConfig",
+      "16": "TemplateConfig",
+      "17": "ScsConfig",
+      "18": "ModelConfigScalar",
+      "19": "ModelConfigObject"
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "WEB",
+    "key": "expose",
+    "naturalId": "expose"
+  },
+  "25": {
     "fieldKey": "fieldDelimiter",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -502,11 +547,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "fieldDelimiter",
     "description": "A delimiter for fields used for csv files. ",
     "naturalId": "fieldDelimiter"
   },
-  "25": {
+  "26": {
     "fieldKey": "value",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -516,10 +562,11 @@
     "(ArrayList)modelList": {
       "0": "FieldExampleClass"
     },
+    "(Expose)expose": "INFO",
     "key": "value",
     "naturalId": "FieldExampleClass.value"
   },
-  "26": {
+  "27": {
     "fieldKey": "fieldKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -532,10 +579,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "fieldKey",
     "naturalId": "fieldKey"
   },
-  "27": {
+  "28": {
     "fieldKey": "fieldKeys",
     "modelKeys": "ArrayList,String",
     "dbFieldParams": {
@@ -555,11 +603,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "fieldKeys",
     "description": "A list of field keys for the model configuration. ",
     "naturalId": "fieldKeys"
   },
-  "28": {
+  "29": {
     "fieldKey": "fieldName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -573,11 +622,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "fieldName",
     "description": "A name for different purposes depending on the model.",
     "naturalId": "fieldName"
   },
-  "29": {
+  "30": {
     "fieldKey": "fileKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -590,11 +640,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "fileKey",
     "description": "A key for file objects.",
     "naturalId": "fileKey"
   },
-  "30": {
+  "31": {
     "fieldKey": "fileName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -609,10 +660,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "fileName",
     "naturalId": "fileName"
   },
-  "31": {
+  "32": {
     "fieldKey": "filePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -627,10 +679,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "filePath",
     "naturalId": "filePath"
   },
-  "32": {
+  "33": {
     "fieldKey": "filter",
     "modelKeys": "Or",
     "(ArrayList)modelList": {
@@ -641,11 +694,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "filter",
     "description": "A list of {@link And} condition list",
     "naturalId": "filter"
   },
-  "33": {
+  "34": {
     "fieldKey": "filterModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -658,11 +712,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "filterModule",
     "description": "Filter for modules in  {@link ConfigAction}",
     "naturalId": "filterModule"
   },
-  "34": {
+  "35": {
     "fieldKey": "filterSubModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -675,15 +730,15 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "filterSubModule",
     "description": "Filter for subModules in  {@link ConfigAction}",
     "naturalId": "filterSubModule"
   },
-  "35": {
+  "36": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
     "dbFieldParams": {
-      "fieldName": "hibernate",
       "unique": false,
       "notNull": false,
       "length": 16
@@ -693,10 +748,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "hibernate",
     "naturalId": "hibernate"
   },
-  "36": {
+  "37": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -704,11 +760,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "hibernateAnnotations",
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "37": {
+  "38": {
     "fieldKey": "hostKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -723,11 +780,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "hostKey",
     "description": "A key for host objects.",
     "naturalId": "hostKey"
   },
-  "38": {
+  "39": {
     "fieldKey": "hostName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -740,15 +798,15 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "hostName",
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "39": {
+  "40": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "dbFieldParams": {
-      "fieldName": "id",
       "unique": true,
       "notNull": true
     },
@@ -778,11 +836,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "id",
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "40": {
+  "41": {
     "fieldKey": "idKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -795,28 +854,26 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "idKey",
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "41": {
+  "42": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "JsonConfig",
       "1": "JsonReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "indent",
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "42": {
+  "43": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -830,17 +887,14 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "inputKey",
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "43": {
+  "44": {
     "fieldKey": "inTemplate",
     "modelKeys": "Boolean",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -867,10 +921,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "inTemplate",
     "naturalId": "inTemplate"
   },
-  "44": {
+  "45": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -890,11 +945,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "interfaces",
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "45": {
+  "46": {
     "fieldKey": "join",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -907,11 +963,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "join",
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "46": {
+  "47": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -924,11 +981,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "joinInverse",
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "47": {
+  "48": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
@@ -937,10 +995,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "keepCall",
     "naturalId": "keepCall"
   },
-  "48": {
+  "49": {
     "fieldKey": "key",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -970,18 +1029,14 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "key",
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "49": {
+  "50": {
     "fieldKey": "length",
     "modelKeys": "Integer",
-    "dbFieldParams": {
-      "fieldName": "length",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "DBFieldParams",
       "1": "ListParams",
@@ -991,11 +1046,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "length",
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "50": {
+  "51": {
     "fieldKey": "listMapper",
     "modelKeys": "ListMapper",
     "(ArrayList)modelList": {
@@ -1004,11 +1060,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "listMapper",
     "description": "Maps a list to the adapter for @{link ListAction}.",
     "naturalId": "listMapper"
   },
-  "51": {
+  "52": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
     "dbFieldParams": {
@@ -1022,11 +1079,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "listParams",
     "description": "Filter for the readings within {@link ListAction}.",
     "naturalId": "listParams"
   },
-  "52": {
+  "53": {
     "fieldKey": "localCondition",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1060,24 +1118,21 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "localCondition",
     "description": "A condition for calls. ",
     "naturalId": "localCondition"
   },
-  "53": {
+  "54": {
     "fieldKey": "log",
     "modelKeys": "String",
+    "(Expose)expose": "NONE",
     "key": "log",
     "naturalId": "log"
   },
-  "54": {
+  "55": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
-    "dbFieldParams": {
-      "fieldName": "logLevel",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -1104,10 +1159,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "logLevel",
     "naturalId": "logLevel"
   },
-  "55": {
+  "56": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1120,11 +1176,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "mapKey",
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "56": {
+  "57": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1137,11 +1194,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "modelConfigKey",
     "description": "The model name for the cache object {@link Config}.",
     "naturalId": "modelConfigKey"
   },
-  "57": {
+  "58": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1161,11 +1219,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "modelKey",
     "description": "The model name for the bean/action object {@link Bean}.",
     "naturalId": "modelKey"
   },
-  "58": {
+  "59": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1181,11 +1240,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "modelKeys",
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "59": {
+  "60": {
     "fieldKey": "modelList",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1193,11 +1253,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "modelList",
     "description": "A list of naturalIds of models for FieldConfig.",
     "naturalId": "modelList"
   },
-  "60": {
+  "61": {
     "fieldKey": "models",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1231,11 +1292,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "models",
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "61": {
+  "62": {
     "fieldKey": "module",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1265,15 +1327,15 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "module",
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "62": {
+  "63": {
     "fieldKey": "name",
     "modelKeys": "String",
     "dbFieldParams": {
-      "fieldName": "name",
       "unique": false,
       "notNull": false,
       "length": 80
@@ -1283,87 +1345,51 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "name",
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "63": {
-    "fieldKey": "naturalId",
+  "64": {
     "modelKeys": "String",
     "dbFieldParams": {
-      "fieldName": "naturalId",
       "unique": true,
       "notNull": true,
       "length": 80
     },
-    "(ArrayList)modelList": {
-      "0": "Model",
-      "1": "Config",
-      "2": "ModelImpl",
-      "3": "ConfigImpl",
-      "4": "FieldConfig",
-      "5": "ConfigResourcesImpl",
-      "6": "ModelInterface",
-      "7": "ModelConfig",
-      "8": "ModelConfigSet",
-      "9": "ModelConfigList",
-      "10": "ModelConfigMap",
-      "11": "FileConfig",
-      "12": "JsonConfig",
-      "13": "ModelConfigNone",
-      "14": "HostConfig",
-      "15": "ListConfig",
-      "16": "TemplateConfig",
-      "17": "ScsConfig",
-      "18": "ModelConfigScalar",
-      "19": "ModelConfigObject"
-    },
     "module": "elastic-objects",
     "subModule": "main",
-    "key": "naturalId",
+    "(Expose)expose": "NONE",
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "naturalId": "naturalId"
   },
-  "64": {
+  "65": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
-    "dbFieldParams": {
-      "fieldName": "naturalKeys",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "DBParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "naturalKeys",
     "naturalId": "naturalKeys"
   },
-  "65": {
+  "66": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
-    "dbFieldParams": {
-      "fieldName": "notNull",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "notNull",
     "naturalId": "notNull"
   },
-  "66": {
+  "67": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
-    "dbFieldParams": {
-      "fieldName": "overwrite",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -1390,14 +1416,14 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "overwrite",
     "naturalId": "overwrite"
   },
-  "67": {
+  "68": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
     "dbFieldParams": {
-      "fieldName": "packageGroup",
       "unique": false,
       "notNull": false,
       "length": 12
@@ -1414,11 +1440,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "packageGroup",
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "68": {
+  "69": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1438,10 +1465,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "packagePath",
     "naturalId": "packagePath"
   },
-  "69": {
+  "70": {
     "fieldKey": "password",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1454,11 +1482,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "password",
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "70": {
+  "71": {
     "fieldKey": "create",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1471,11 +1500,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "create",
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "71": {
+  "72": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1483,10 +1513,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "port",
     "naturalId": "port"
   },
-  "72": {
+  "73": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1499,10 +1530,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "protocol",
     "naturalId": "protocol"
   },
-  "73": {
+  "74": {
     "fieldKey": "read",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1515,11 +1547,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "read",
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "74": {
+  "75": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1532,10 +1565,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "replaceBy",
     "naturalId": "replaceBy"
   },
-  "75": {
+  "76": {
     "fieldKey": "rolePermissions",
     "modelKeys": "RolePermissions",
     "(ArrayList)modelList": {
@@ -1550,10 +1584,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "rolePermissions",
     "naturalId": "rolePermissions"
   },
-  "76": {
+  "77": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1566,11 +1601,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "rowDelimiter",
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "77": {
+  "78": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1581,10 +1617,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "rowEnd",
     "naturalId": "rowEnd"
   },
-  "78": {
+  "79": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1595,10 +1632,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "rowHead",
     "naturalId": "rowHead"
   },
-  "79": {
+  "80": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1609,10 +1647,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "rowStart",
     "naturalId": "rowStart"
   },
-  "80": {
+  "81": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
     "(ArrayList)modelList": {
@@ -1638,31 +1677,28 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "scope",
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "81": {
+  "82": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "JsonReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "serializationType",
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "82": {
+  "83": {
     "fieldKey": "serialized",
     "modelKeys": "String",
     "dbFieldParams": {
-      "fieldName": "serialized",
       "unique": false,
       "notNull": false,
       "length": 2056
@@ -1672,27 +1708,24 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "serialized",
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "83": {
+  "84": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
-    "dbFieldParams": {
-      "fieldName": "shapeType",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "EOParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "shapeType",
     "naturalId": "shapeType"
   },
-  "84": {
+  "85": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1725,10 +1758,11 @@
       "20": "StringReplaceCall",
       "21": "SinusValueCall"
     },
+    "(Expose)expose": "WEB",
     "key": "sourcePath",
     "naturalId": "sourcePath"
   },
-  "85": {
+  "86": {
     "fieldKey": "name",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1738,10 +1772,11 @@
     "(ArrayList)modelList": {
       "0": "SubExampleClass"
     },
+    "(Expose)expose": "INFO",
     "key": "name",
     "naturalId": "SubExampleClass.name"
   },
-  "86": {
+  "87": {
     "fieldKey": "subModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1771,11 +1806,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "subModule",
     "description": "Defines the target  sub module like 'main' or 'test'. ",
     "naturalId": "subModule"
   },
-  "87": {
+  "88": {
     "fieldKey": "subTest",
     "modelKeys": "SubTest",
     "dbFieldParams": {
@@ -1789,10 +1825,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "subTest",
     "naturalId": "subTest"
   },
-  "88": {
+  "89": {
     "fieldKey": "subTestList",
     "modelKeys": "ArrayList,SubTest",
     "(ArrayList)modelList": {
@@ -1800,11 +1837,12 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "subTestList",
     "description": "A generic parametrized example List with {@link SubTest}",
     "naturalId": "subTestList"
   },
-  "89": {
+  "90": {
     "fieldKey": "subTestMap",
     "modelKeys": "HashMap,SubTest",
     "(ArrayList)modelList": {
@@ -1812,11 +1850,12 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "subTestMap",
     "description": "A generic parametrized example Map with {@link SubTest}",
     "naturalId": "subTestMap"
   },
-  "90": {
+  "91": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -1826,10 +1865,11 @@
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
+    "(Expose)expose": "INFO",
     "key": "id",
     "naturalId": "SuperExampleClass.id"
   },
-  "91": {
+  "92": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
     "dbFieldParams": {
@@ -1839,14 +1879,14 @@
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
+    "(Expose)expose": "INFO",
     "key": "subClass",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "92": {
+  "93": {
     "fieldKey": "superKey",
     "modelKeys": "String",
     "dbFieldParams": {
-      "fieldName": "superKey",
       "unique": false,
       "notNull": false,
       "length": 256
@@ -1863,11 +1903,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "superKey",
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "93": {
+  "94": {
     "fieldKey": "table",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1881,11 +1922,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "table",
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
     "naturalId": "table"
   },
-  "94": {
+  "95": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1918,10 +1960,11 @@
       "20": "StringReplaceCall",
       "21": "SinusValueCall"
     },
+    "(Expose)expose": "WEB",
     "key": "targetPath",
     "naturalId": "targetPath"
   },
-  "95": {
+  "96": {
     "fieldKey": "testBoolean",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -1934,10 +1977,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testBoolean",
     "naturalId": "testBoolean"
   },
-  "96": {
+  "97": {
     "fieldKey": "testDate",
     "modelKeys": "Date",
     "dbFieldParams": {
@@ -1950,10 +1994,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testDate",
     "naturalId": "testDate"
   },
-  "97": {
+  "98": {
     "fieldKey": "testDouble",
     "modelKeys": "Double",
     "dbFieldParams": {
@@ -1966,10 +2011,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testDouble",
     "naturalId": "testDouble"
   },
-  "98": {
+  "99": {
     "fieldKey": "testFloat",
     "modelKeys": "Float",
     "dbFieldParams": {
@@ -1982,10 +2028,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testFloat",
     "naturalId": "testFloat"
   },
-  "99": {
+  "100": {
     "fieldKey": "testInt",
     "modelKeys": "Integer",
     "dbFieldParams": {
@@ -1998,10 +2045,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testInt",
     "naturalId": "testInt"
   },
-  "100": {
+  "101": {
     "fieldKey": "testLong",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -2014,10 +2062,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testLong",
     "naturalId": "testLong"
   },
-  "101": {
+  "102": {
     "fieldKey": "testObject",
     "modelKeys": "Object",
     "dbFieldParams": {
@@ -2030,11 +2079,12 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testObject",
     "description": "A test object thing. ",
     "naturalId": "testObject"
   },
-  "102": {
+  "103": {
     "fieldKey": "testString",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2049,11 +2099,12 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "testString",
     "description": "Just a small test string used in test models. ",
     "naturalId": "testString"
   },
-  "103": {
+  "104": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2066,26 +2117,23 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "toReplace",
     "naturalId": "toReplace"
   },
-  "104": {
+  "105": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
-    "dbFieldParams": {
-      "fieldName": "unique",
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "DBFieldParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "unique",
     "naturalId": "unique"
   },
-  "105": {
+  "106": {
     "fieldKey": "untypedList",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
@@ -2093,10 +2141,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "untypedList",
     "naturalId": "untypedList"
   },
-  "106": {
+  "107": {
     "fieldKey": "untypedMap",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
@@ -2104,10 +2153,11 @@
     },
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "untypedMap",
     "naturalId": "untypedMap"
   },
-  "107": {
+  "108": {
     "fieldKey": "ID",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -2117,11 +2167,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "ID",
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "108": {
+  "109": {
     "fieldKey": "user",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2134,10 +2185,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "user",
     "naturalId": "user"
   },
-  "109": {
+  "110": {
     "fieldKey": "value",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2150,10 +2202,11 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "value",
     "naturalId": "value"
   },
-  "110": {
+  "111": {
     "fieldKey": "viewFieldParams",
     "modelKeys": "ViewFieldParams",
     "(ArrayList)modelList": {
@@ -2161,11 +2214,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "viewFieldParams",
     "description": "Parameters used to define views. ",
     "naturalId": "viewFieldParams"
   },
-  "111": {
+  "112": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2179,11 +2233,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "viewKey",
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "112": {
+  "113": {
     "fieldKey": "viewParams",
     "modelKeys": "ViewParams",
     "(ArrayList)modelList": {
@@ -2198,11 +2253,12 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "viewParams",
     "description": "Parameters used to define views. ",
     "naturalId": "viewParams"
   },
-  "113": {
+  "114": {
     "fieldKey": "write",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2215,6 +2271,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "write",
     "description": "String representation of RolePermission write permissions",
     "naturalId": "write"
