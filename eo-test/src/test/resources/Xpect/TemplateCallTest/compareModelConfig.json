@@ -27,10 +27,11 @@
     "packageGroup": "templates",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "TemplateCall",
-    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
-    "naturalId": "TemplateCall",
-    "author": "Werner Diwischek"
+    "description": "Executes a template content. ",
+    "author": "Werner Diwischek",
+    "naturalId": "TemplateCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

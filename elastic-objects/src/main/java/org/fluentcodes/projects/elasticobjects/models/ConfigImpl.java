@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
@@ -21,16 +22,16 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     private final String path;
     private final String mapPath;
     private final List<Scope> scope;
+    private Expose expose;
     private boolean resolved = false;
 
     public ConfigImpl(EOConfigsCache configsCache, Builder builder) {
-        //<call keep="JAVA" templateKey="CacheSetter.tpl">
-
         this.module = builder.module;
         this.subModule = builder.subModule;
         this.path = builder.path;
         this.mapPath = builder.mapPath;
         this.scope = builder.scope;
+        this.expose = builder.expose;
         this.configsCache = configsCache;
 
         super.setId(builder.id);
@@ -43,6 +44,20 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     @Override
     public String getKey() {
         return getNaturalId();
+    }
+
+    @Override
+    public Expose getExpose() {
+        return expose;
+    }
+
+    @Override
+    public void setExpose(Expose expose) {
+        this.expose = expose;
+    }
+    @Override
+    public boolean hasExpose() {
+        return expose != null && expose != Expose.NONE;
     }
 
     protected boolean isResolved() {
@@ -142,6 +157,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         private String naturalId;
         private Long id;
         private Date creationDate;
+        private Expose expose;
         private boolean expanded = false;
 
         public Builder() {
@@ -154,11 +170,18 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             this.module = ScalarConverter.toString(values.get(ModelConfig.MODULE));
             this.subModule = ScalarConverter.toString(values.get(ModelConfig.SUB_MODULE));
             this.path = ScalarConverter.toString(values.get(ModelConfig.F_PATH));
-            this.mapPath = ScalarConverter.toString(values.get(F_MAP_PATH));
+            this.mapPath = ScalarConverter.toString(values.get(ListMapper.MAP_PATH));
             this.naturalId = ScalarConverter.toString(values.get(NATURAL_ID));
             this.description = ScalarConverter.toString(values.get(Model.DESCRIPTION));
             this.creationDate = ScalarConverter.toDate(values.get(CREATION_DATE));
             this.id = ScalarConverter.toLong(values.get(ID));
+            String exposeAsString = ScalarConverter.toString(values.get(EXPOSE));
+            if (exposeAsString == null || exposeAsString.isEmpty()) {
+                expose = Expose.INFO;
+            }
+            else {
+                expose = Expose.valueOf(exposeAsString);
+            }
             Object scopeAsObject = values.get(EOParams.SCOPE);
             this.scope = new ArrayList<Scope>();
             if (scopeAsObject != null && scopeAsObject instanceof List) {

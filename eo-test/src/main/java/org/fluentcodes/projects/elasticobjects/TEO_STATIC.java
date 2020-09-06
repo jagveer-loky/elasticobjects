@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Condition;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -116,10 +117,10 @@ public class TEO_STATIC {
 
     public static final Map<String, Object> createListMapperMap() {
         Map<String, Object> map = new HashMap<>();
-        map.put(F_COL_KEYS, F_COL_KEYS);
-        map.put(F_DO_MAP, S_BOOLEAN);
-        map.put(F_IGNORE_HEADER, S_BOOLEAN);
-        map.put(F_MAP_PATH, F_MAP_PATH);
+        map.put(ListMapper.COL_KEYS, ListMapper.COL_KEYS);
+        map.put(ListMapper.DO_MAP, S_BOOLEAN);
+        map.put(ListMapper.IGNORE_HEADER, S_BOOLEAN);
+        map.put(ListMapper.MAP_PATH, ListMapper.MAP_PATH);
         map.put(F_MODEL_KEYS, join(CON_COMMA, List.class.getSimpleName(), Map.class.getSimpleName()));
         map.put(F_PATH_PATTERN, F_PATH_PATTERN);
         return map;

@@ -270,7 +270,7 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
                     //throw new EoException("Null fieldName?! " + fieldName);
                     continue;
                 }
-                fieldConfig.addModel(this.getNaturalId());
+                fieldConfig.addModel(this);
                 getFieldCacheMap().put(fieldName, fieldConfig);
                 type = fieldConfig.getModelConfig();
                 if (type == null) {

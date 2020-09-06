@@ -24,10 +24,11 @@
     "packageGroup": "calls",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "Call",
     "description": "Basic interface for calls ",
-    "naturalId": "Call",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "Call"
   },
   "(LogLevel)_logLevel": "WARN"
 }

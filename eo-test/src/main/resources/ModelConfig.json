@@ -2,6 +2,7 @@
   "BasicTest": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
     "modelKey": "BasicTest",
+    "expose":"WEB",
     "fieldKeys": [
       "id",
       "basicTest",
@@ -27,11 +28,11 @@
     "module": "eo-test",
     "subModule": "main",
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
-    "naturalId": "BasicTest",
     "author": "Werner Diwischek"
   },
   "SubTest": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "expose":"WEB",
     "modelKey": "SubTest",
     "fieldKeys": [
       "id",
@@ -46,7 +47,6 @@
     "packageGroup": "assets",
     "module": "eo-test",
     "subModule": "main",
-    "naturalId": "SubTest",
     "author": "Werner Diwischek"
   }
 }

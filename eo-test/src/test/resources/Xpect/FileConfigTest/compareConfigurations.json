@@ -7,6 +7,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "BasicTest.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "BasicTest.csv"
@@ -22,6 +23,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "naturalId": "FileTest.txt"
@@ -33,6 +35,7 @@
     "cached": true,
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "FileTestCached.txt",
     "description": "Local file with cache set true.",
     "naturalId": "FileTestCached.txt"
@@ -44,6 +47,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
@@ -55,6 +59,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "result.string",
     "description": "Saving content",
     "naturalId": "result.string"
@@ -66,6 +71,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "resultWithMapPath.string",
     "description": "Saving content this is true",
     "naturalId": "resultWithMapPath.string"
@@ -77,6 +83,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
@@ -88,6 +95,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "target.txt",
     "description": "Target file definition",
     "naturalId": "target.txt"
@@ -106,6 +114,7 @@
     },
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "test:test",
     "description": "description",
     "naturalId": "test:test"

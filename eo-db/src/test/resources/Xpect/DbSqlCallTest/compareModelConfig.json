@@ -27,10 +27,11 @@
     "packageGroup": "calls",
     "module": "eo-db",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "DbSqlCall",
     "description": "A execution method for  {@link DbSqlConfig}",
-    "naturalId": "DbSqlCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "DbSqlCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

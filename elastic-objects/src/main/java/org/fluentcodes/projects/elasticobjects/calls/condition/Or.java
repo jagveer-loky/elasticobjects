@@ -4,10 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by werner.diwischek on 08.01.18.
@@ -24,6 +21,11 @@ public class Or {
         for (And and : or.andList) {
             this.addAnd(and);
         }
+    }
+
+    public Or(And... and) {
+        this();
+        this.andList = Arrays.asList(and);
     }
 
     public Or() {

@@ -97,7 +97,6 @@ public class FieldConfigTest {
     public void assertId()  {
         FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(Model.ID);
         Assert.assertEquals(Model.ID, field.getFieldKey());
-        Assert.assertEquals(Model.ID, field.getFieldName());
         Assert.assertEquals(S_BOOLEAN, field.isUnique());
         Assert.assertEquals(S_BOOLEAN, field.isNotNull());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());

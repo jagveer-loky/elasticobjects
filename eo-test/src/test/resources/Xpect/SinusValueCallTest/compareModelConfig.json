@@ -25,10 +25,11 @@
     "packageGroup": "values",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "SinusValueCall",
     "description": "For setting sinus value to EO.",
-    "naturalId": "SinusValueCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "SinusValueCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

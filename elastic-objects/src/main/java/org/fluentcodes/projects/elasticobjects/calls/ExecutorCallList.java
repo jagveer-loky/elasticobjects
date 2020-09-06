@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 import java.util.List;
@@ -10,7 +8,6 @@ import java.util.Set;
 /**
  */
 public class ExecutorCallList {
-    private static final Logger LOG = LogManager.getLogger(ExecutorCallList.class);
     public ExecutorCallList() {
     }
     public String execute(final EO eo) {

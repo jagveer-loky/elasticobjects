@@ -1,0 +1,23 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": "BasicTest",
+  "1": "ConfigCall",
+  "2": "ConfigKeysCall",
+  "3": "ConfigTypesCall",
+  "4": "FileReadCall",
+  "5": "FileWriteCall",
+  "6": "JsonAsStringCall",
+  "7": "JsonReadCall",
+  "8": "ScsReadCall",
+  "9": "SimpleValueFromEoCall",
+  "10": "SinusValueCall",
+  "11": "StringLowerCall",
+  "12": "StringReplaceCall",
+  "13": "StringUpperCall",
+  "14": "StringUpperFirstCharCall",
+  "15": "SubTest",
+  "16": "TemplateCall",
+  "17": "TemplateResourceCall",
+  "18": "ValueCall",
+  "(LogLevel)_logLevel": "WARN"
+}

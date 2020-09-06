@@ -41,6 +41,18 @@ public class OrTest {
     }
 
     @Test
+    public void twoConditions2() {
+        /*final String orAsString = new Or(
+                new And(S_KEY0, S_STRING),
+                new And(S_KEY1, S_STRING_OTHER));
+        Or or = new Or(orAsString);
+        Assert.assertEquals(S_KEY1, or.getAnd(1).getCondition(0).getKey());
+        Assert.assertEquals(S_STRING_OTHER, or.getAnd(1).getCondition(0).getValue());
+        Assert.assertEquals("key1=:key1_0 ", or.getAnd(1).getCondition(0).createQuery(new HashMap<>()));
+        Assert.assertEquals("(key0=:key0_0 ) or (key1=:key1_1 )", or.createQuery());*/
+    }
+
+    @Test
     public void filterAdapter()  {
         EO adapter = ProviderRootTestScope.createEo();
         adapter.set(S_STRING, S_TEST_STRING);

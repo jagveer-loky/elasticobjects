@@ -7,6 +7,7 @@
     },
     "module": "eo-db",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "h2:mem:basic:BasicTestDrop",
     "description": "Basic H2 dropping BasicTest table",
     "naturalId": "h2:mem:basic:BasicTestDrop"
@@ -25,6 +26,7 @@
     },
     "module": "eo-db",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "h2:mem:basic:Create",
     "description": "Basic H2 creating tables",
     "naturalId": "h2:mem:basic:Create"

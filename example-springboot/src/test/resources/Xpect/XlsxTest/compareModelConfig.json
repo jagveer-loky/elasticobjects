@@ -32,10 +32,11 @@
     "packageGroup": "xlsx",
     "module": "actions-xlsx",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "XlsxReadCall",
     "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
-    "naturalId": "XlsxReadCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "XlsxReadCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

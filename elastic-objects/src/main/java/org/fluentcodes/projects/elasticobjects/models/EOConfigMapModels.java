@@ -68,6 +68,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Map");
         map.put(ModelConfig.MODEL_KEY, "Map");
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         eoParamsMap.put(EOParams.SHAPE_TYPE, "MAP");
         eoParamsMap.put(EOParams.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
@@ -76,6 +77,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map = new HashMap<>();
         map.put(Model.NATURAL_ID, "LinkedHashMap");
         map.put(ModelConfig.MODEL_KEY, "LinkedHashMap");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
@@ -94,6 +96,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "ArrayList");
         map.put(ModelConfig.MODEL_KEY, "ArrayList");
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -102,6 +105,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Integer");
         map.put(ModelConfig.MODEL_KEY, "Integer");
         map.put(ModelConfig.PACKAGE_PATH, "java.lang");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         eoParamsMap.put(EOParams.SHAPE_TYPE, "SCALAR");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
@@ -110,6 +114,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Long");
         map.put(ModelConfig.MODEL_KEY, "Long");
         map.put(ModelConfig.PACKAGE_PATH, "java.lang");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -117,6 +122,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "String");
         map.put(ModelConfig.MODEL_KEY, "String");
         map.put(ModelConfig.PACKAGE_PATH, "java.lang");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -124,6 +130,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Double");
         map.put(ModelConfig.MODEL_KEY, "Double");
         map.put(ModelConfig.PACKAGE_PATH, "java.lang");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -131,6 +138,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Float");
         map.put(ModelConfig.MODEL_KEY, "Float");
         map.put(ModelConfig.PACKAGE_PATH, "java.lang");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -138,6 +146,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Boolean");
         map.put(ModelConfig.MODEL_KEY, "Boolean");
         map.put(ModelConfig.PACKAGE_PATH, "java.lang");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 
@@ -145,6 +154,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Model.NATURAL_ID, "Date");
         map.put(ModelConfig.MODEL_KEY, "Date");
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
+        map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         super.addConfigByMap(map);
 

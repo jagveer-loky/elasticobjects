@@ -32,10 +32,11 @@
     "packageGroup": "csv",
     "module": "actions-csv",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "CsvReadCall",
     "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
-    "naturalId": "CsvReadCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "CsvReadCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

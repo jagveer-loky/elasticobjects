@@ -4,10 +4,13 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.models.Expose;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderTemplateContent;
+import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -16,7 +19,7 @@ import java.util.List;
 public class ConfigKeysCallTest {
 
     @Test
-    public void gcreateByModelConfig()  {
+    public void createByModelConfig()  {
         ConfigModelChecks.create(ConfigKeysCall.class);
     }
 
@@ -31,11 +34,53 @@ public class ConfigKeysCallTest {
     }
 
     @Test
-    public void givenCallWithModelConfig_whenExecute_thenResultIsOrderedList() {
-        ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class);
+    public void givenCallWithModelConfigAndExposeInfo_whenExecute_thenXpected() {
+        ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
+                .setExpose(Expose.INFO);
         EO eo = ProviderRootTestScope.createEo();
         List<String> result = call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
+        new XpectEo<>().compareAsString(result);
+    }
+
+    @Test
+    public void givenCallWithModelConfigAndExposeWeb_whenExecute_thenXpected() {
+        ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
+                .setExpose(Expose.WEB);
+        EO eo = ProviderRootTestScope.createEo();
+        List<String> result = call.execute(eo);
+        Assertions.assertThat(result).isNotEmpty();
+        new XpectEo<>().compareAsString(result);
+    }
+
+    @Test
+    public void givenCallWithFieldConfigAndExposeNone_whenExecute_thenXpected() {
+        ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
+                .setExpose(Expose.NONE);
+        EO eo = ProviderRootTestScope.createEo();
+        List<String> result = call.execute(eo);
+        Assertions.assertThat(result).isNotEmpty();
+        new XpectEo<>().compareAsString(result);
+    }
+
+    @Test
+    public void givenCallWithFieldConfigAndExposeInfo_whenExecute_thenXpected() {
+        ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
+                .setExpose(Expose.INFO);
+        EO eo = ProviderRootTestScope.createEo();
+        List<String> result = call.execute(eo);
+        Assertions.assertThat(result).isNotEmpty();
+        new XpectEo<>().compareAsString(result);
+    }
+
+    @Test
+    public void givenCallWithFieldConfigAndExposeWeb_whenExecute_thenXpected() {
+        ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
+                .setExpose(Expose.WEB);
+        EO eo = ProviderRootTestScope.createEo();
+        List<String> result = call.execute(eo);
+        Assertions.assertThat(result).isNotEmpty();
+        new XpectEo<>().compareAsString(result);
     }
 
     @Test

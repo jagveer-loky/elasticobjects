@@ -14,12 +14,13 @@
       "6": "module",
       "7": "subModule",
       "8": "scope",
-      "9": "key",
-      "10": "id",
-      "11": "description",
-      "12": "naturalId",
-      "13": "creationDate",
-      "14": "author"
+      "9": "expose",
+      "10": "key",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {
@@ -31,10 +32,11 @@
     "packageGroup": "config",
     "module": "eo-db",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "DbQueryConfig",
     "description": "Execute sql statement via jdbc connection. ",
-    "naturalId": "DbQueryConfig",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "DbQueryConfig"
   },
   "(LogLevel)_logLevel": "WARN"
 }

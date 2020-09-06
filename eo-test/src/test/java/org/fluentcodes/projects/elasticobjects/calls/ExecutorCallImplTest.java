@@ -15,12 +15,10 @@ public class ExecutorCallImplTest {
     @Test
     public void givenModel_whenCreate_thenOkAndFieldsAreEmpty()  {
         final ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(ExecutorCallImpl.class);
-        Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
+        Assert.assertEquals(ShapeTypes.OBJECT, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isObject());
         Assert.assertFalse(model.isScalar());
-        Object instance = model.create();
-        Assertions.assertThat(instance).isNotNull();
         Assertions.assertThat(model.getFieldKeys()).isEmpty();
     }
 }

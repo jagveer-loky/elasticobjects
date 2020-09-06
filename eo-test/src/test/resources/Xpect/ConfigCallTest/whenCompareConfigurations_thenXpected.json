@@ -9,15 +9,16 @@
       "1": "filterSubModule",
       "2": "configType",
       "3": "configFilter",
-      "4": "sourcePath",
-      "5": "targetPath",
-      "6": "models",
-      "7": "condition",
-      "8": "localCondition",
-      "9": "overwrite",
-      "10": "logLevel",
-      "11": "duration",
-      "12": "inTemplate"
+      "4": "expose",
+      "5": "sourcePath",
+      "6": "targetPath",
+      "7": "models",
+      "8": "condition",
+      "9": "localCondition",
+      "10": "overwrite",
+      "11": "logLevel",
+      "12": "duration",
+      "13": "inTemplate"
     },
     "eoParams": {
       "(ArrayList)scope": {
@@ -29,10 +30,11 @@
     "packageGroup": "configs",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "ConfigCall",
     "description": "For getting a map of configurations for a specific configuration type.",
-    "naturalId": "ConfigCall",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "ConfigCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

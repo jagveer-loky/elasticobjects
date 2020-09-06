@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -45,6 +46,16 @@ public class ConfigCallTest {
     }
 
     @Test
+    public void givenCall_ForFieldConfig_and_ConfigFilterLength_and_ConditionLength__execute__xpected()  {
+        final EO eo = ProviderRootTestScope.createEo();
+        final Call<List> call = new ConfigCall(FieldConfig.class)
+                .setConfigFilter("length")
+                .setCondition("length eq eo->0/modelKey.");
+        List result = call.execute(eo);
+        Assertions.assertThat(result.size()).isEqualTo(1);
+    }
+
+    @Test
     public void givenEoForModelAndFilterModuleEoTest_whenExecute_thenXpected()  {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(ModelConfig.class);
@@ -73,5 +84,4 @@ public class ConfigCallTest {
                 .build()
                 .compareAsString(eo.get());
     }
-
 }

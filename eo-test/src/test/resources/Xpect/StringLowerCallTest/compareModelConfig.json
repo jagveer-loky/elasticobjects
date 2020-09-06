@@ -25,10 +25,11 @@
     "packageGroup": "values",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "WEB",
     "key": "StringLowerCall",
-    "description": "For setting upper value to EO.",
-    "naturalId": "StringLowerCall",
-    "author": "Werner Diwischek"
+    "description": "For setting lower value to EO.",
+    "author": "Werner Diwischek",
+    "naturalId": "StringLowerCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

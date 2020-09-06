@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.Expose;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 public class ConfigKeysCall extends CallImpl<List>{
     private String configType;
     private String configFilter = ".*";
+    private Expose expose = Expose.NONE;
     private SortOrder sortOrder = SortOrder.ASC;
     private Class<? extends Config> configClass;
 
@@ -56,7 +58,7 @@ public class ConfigKeysCall extends CallImpl<List>{
             ModelConfig configTypeConfig = eo.getConfigsCache().findModel(configType);
             configClass = configTypeConfig.getModelClass();
         }
-        Set<String> keys = eo.getConfigsCache().getConfigKeys(configClass);
+        Set<String> keys = eo.getConfigsCache().getConfigKeys(configClass, expose);
         try {
             return keys
                     .stream()
@@ -81,7 +83,25 @@ public class ConfigKeysCall extends CallImpl<List>{
         return configFilter;
     }
 
-    public void setConfigFilter(String configFilter) {
+    public ConfigKeysCall setConfigFilter(String configFilter) {
         this.configFilter = configFilter;
+        return this;
+    }
+
+    public Expose getExpose() {
+        return expose;
+    }
+
+    public ConfigKeysCall setExpose(Expose expose) {
+        this.expose = expose;
+        return this;
+    }
+
+    public SortOrder getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(SortOrder sortOrder) {
+        this.sortOrder = sortOrder;
     }
 }

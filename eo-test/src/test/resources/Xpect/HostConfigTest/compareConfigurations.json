@@ -6,6 +6,7 @@
     "user": "sa",
     "module": "eo-test",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "h2",
     "description": "H2 Host Definition",
     "naturalId": "h2"
@@ -15,6 +16,7 @@
     "hostName": "localhost",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "local",
     "description": "local host with key 'local'",
     "naturalId": "local"
@@ -24,6 +26,7 @@
     "hostName": "localhost",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "localhost",
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
@@ -43,6 +46,7 @@
     },
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "test",
     "description": "description",
     "naturalId": "test"
@@ -55,6 +59,7 @@
     "password": "testPassword",
     "module": "elastic-objects",
     "subModule": "test",
+    "(Expose)expose": "INFO",
     "key": "testFtp",
     "description": "Test Ftp Dummy",
     "naturalId": "testFtp"

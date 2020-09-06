@@ -15,12 +15,13 @@
       "7": "module",
       "8": "subModule",
       "9": "scope",
-      "10": "key",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
+      "10": "expose",
+      "11": "key",
+      "12": "id",
+      "13": "description",
+      "14": "naturalId",
+      "15": "creationDate",
+      "16": "author"
     },
     "eoParams": {
       "(ArrayList)scope": {
@@ -32,10 +33,11 @@
     "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
+    "(Expose)expose": "INFO",
     "key": "FieldConfig",
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
-    "naturalId": "FieldConfig",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "naturalId": "FieldConfig"
   },
   "(LogLevel)_logLevel": "WARN"
 }
