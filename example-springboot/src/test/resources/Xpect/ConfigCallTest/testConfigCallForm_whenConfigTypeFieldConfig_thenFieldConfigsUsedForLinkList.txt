@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en-US" class="js svg background-fixed">
 <head>
@@ -172,20 +173,20 @@
         
 
         <h4>Configuration</h4>
-        <xmp style="background-color:lightgray;border:1px solid darkgray;"></xmp>
+        <textarea style="height:250px"></textarea>
 
         <h4>This Page Post Version</h4>
         The page calls with url can also created by the client side with the generic post end point.
         <form action="/eo-form" method="post">
             <textarea name="eo">{
-            "asTemplate":true,
-            "configFilter": "Scope",
-            "configType": "ModelConfig",
-            "configSelected": "Scope",
-            "(TemplateResourceCall)call": {
-                "configKey":"ConfigsPage.html"
-            }
-         }</textarea>
+    "asTemplate":true,
+    "configFilter": "Scope",
+    "configType": "ModelConfig",
+    "configSelected": "Scope",
+    "(TemplateResourceCall)call": {
+        "configKey":"ConfigsPage.html"
+    }
+}</textarea>
             <input type="submit" value="post"/>
         </form>
        <hr/>

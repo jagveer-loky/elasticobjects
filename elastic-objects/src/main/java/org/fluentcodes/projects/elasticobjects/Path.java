@@ -255,6 +255,9 @@ public class Path {
     }
 
     private void addPaths(final String[] pathElements, List<PathElement> entries) {
+        if (pathElements[0].isEmpty())  {
+            entries.clear();
+        }
         for (String path : pathElements) {
             if (path == null || path.isEmpty() || PathElement.SAME.equals(path) || path.matches("^\\s+$")) {
                 continue;

@@ -27,7 +27,7 @@ public class ProviderConfig {
     public static final Map<String, Object> createModelConfigMap() {
         Map<String, Object> map = new HashMap<>();
         map.put(ModelConfig.MODEL_KEY, ModelConfig.MODEL_KEY);
-        map.put(ModelConfig.F_DB_PARAMS, createDbParams());
+        map.put(ModelConfig.DB_PARAMS, createDbParams());
         map.put(ModelConfig.EO_PARAMS, createEoParams());
         map.put(ModelConfig.VIEW_PARAMS, null);
         map.put(F_CUSTOM_PARAMS, null);

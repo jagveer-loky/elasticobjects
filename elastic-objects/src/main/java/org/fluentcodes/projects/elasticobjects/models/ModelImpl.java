@@ -48,6 +48,9 @@ public class ModelImpl implements Model {
     public String getDescription() {
         return this.description;
     }
+    public boolean hasDescription() {
+        return description!=null && !description.isEmpty();
+    }
 
     public void setDescription(String description) {
         this.description = description;

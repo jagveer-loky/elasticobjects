@@ -101,7 +101,8 @@ public class ConfigKeysCall extends CallImpl<List>{
         return sortOrder;
     }
 
-    public void setSortOrder(SortOrder sortOrder) {
+    public ConfigKeysCall setSortOrder(SortOrder sortOrder) {
         this.sortOrder = sortOrder;
+        return this;
     }
 }

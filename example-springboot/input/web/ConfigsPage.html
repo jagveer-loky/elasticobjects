@@ -1,4 +1,5 @@
 $[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected." expose="INFO" /]
+$[(ConfigOpenApiCall)openApi configFilter="eo->configSelected."/]
 $[(TemplateResourceCall). configKey="Header.html"/]
     <header class="entry-header">
         <div id="rootNav">
@@ -33,13 +34,17 @@ $[(TemplateResourceCall). configKey="Header.html"/]
             $[(TemplateCall)fieldKeys/* ]
                 <div><a href="/config/FieldConfig/$[_value]">&ocir;$[_value]</a></div>
             $[/]
-            $[(TemplateCall)superKey condition="eo->superKey"]
+            $[(TemplateCall). condition="superKey ex"]
             <h4>Super Class</h4>
-            <a href="/config/ModelConfig/$[_value]">&ocir;$[_value]</a>
+            <a href="/config/ModelConfig/$[superKey]">&ocir;$[superKey]</a>
             $[/]
-            $[(TemplateCall)interfaces condition="eo->interfaces"]
+            $[(TemplateCall). condition="interfaces ex"]
             <h4>Interface</h4>
-            <a href="/config/ModelConfig/$[_value]">&ocir;$[_value]</a>
+            <a href="/config/ModelConfig/$[interfaces]">&ocir;$[interfaces]</a>
+            $[/]
+            $[(TemplateCall). condition="expose ex"]
+            <h4>OpenApi</h4>
+            <textarea style="height:200px">$[(JsonAsStringCall)/openApi /]</textarea>
             $[/]
         $[/]
 
@@ -52,20 +57,20 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         $[/]
 
         <h4>Configuration</h4>
-        <xmp style="background-color:lightgray;border:1px solid darkgray;">$[(JsonAsStringCall)configuration/0 /]</xmp>
+        <textarea style="height:250px">$[(JsonAsStringCall)configuration/0 /]</textarea>
 
         <h4>This Page Post Version</h4>
         The page calls with url can also created by the client side with the generic post end point.
         <form action="/eo-form" method="post">
             <textarea name="eo">{
-            "asTemplate":true,
-            "configFilter": "$[configFilter]",
-            "configType": "$[configType]",
-            "configSelected": "$[configSelected]",
-            "(TemplateResourceCall)call": {
-                "configKey":"ConfigsPage.html"
-            }
-         }</textarea>
+    "asTemplate":true,
+    "configFilter": "$[configFilter]",
+    "configType": "$[configType]",
+    "configSelected": "$[configSelected]",
+    "(TemplateResourceCall)call": {
+        "configKey":"ConfigsPage.html"
+    }
+}</textarea>
             <input type="submit" value="post"/>
         </form>
        <hr/>

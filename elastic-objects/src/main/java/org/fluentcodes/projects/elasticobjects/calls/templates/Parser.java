@@ -261,6 +261,9 @@ public abstract class Parser {
                 attributes.put(keyValue[0], keyValue[1].replaceAll("\"$",""));
             }
             if (keyValue.length == 1) {
+                if (keyValue[0].isEmpty()|| keyValue[0].matches("^[\\s]+$")) {
+                    continue;
+                }
                 attributes.put(keyValue[0], "true");
             }
             if (keyValue.length > 2) {
