@@ -23,23 +23,26 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     public static final String VIEW_PARAMS = "viewParams";
     public static final String EO_PARAMS = "eoParams";
     public static final String CUSTOM_FIELD_PARAMS = "customFieldParams";
+    public static final String JSON_TYPE = "jsonType";
+    public static final String JSON_FORMAT = "jsonFormat";
 
-
-    public static final String F_PATH = "path";
+    public static final String PATH = "path";
     public static final String PACKAGE_GROUP = "packageGroup";
     public static final String MODULE = "module";
     public static final String SUB_MODULE = "subModule";
     public static final String PACKAGE_PATH = "packagePath";
     public static final String INTERFACES = "interfaces";
-    public static final String F_DB_PARAMS = "dbParams";
+    public static final String DB_PARAMS = "dbParams";
 
     private static final Logger LOG = LogManager.getLogger(ModelConfig.class);
 
     private final String modelKey;
+    private final String jsonType;
     private final DBParams dbParams;
     private final EOParams eoParams;
     private final ViewParams viewParams;
     private final Map customParams;
+    private final List<String> localFieldKeys;
     private final List<String> fieldKeys;
     private final String packagePath;
     private final String packageGroup;
@@ -58,12 +61,14 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         //<call keep="JAVA" templateKey="CacheSetter.tpl" }
 
         this.modelKey = builder.modelKey;
+        this.jsonType = builder.jsonType;
         this.eoParams = builder.eoParams;
         this.dbParams = builder.dbParams;
         this.viewParams = builder.viewParams;
         this.customParams = builder.customParams;
 
         this.fieldKeys = builder.fieldKeys;
+        this.localFieldKeys = new ArrayList(builder.fieldKeys);
         this.packagePath = builder.packagePath;
         this.packageGroup = builder.packageGroup;
         this.author = builder.author;
@@ -175,6 +180,10 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     public List<String> getFieldKeys() {
         resolve();
         return this.fieldKeys;
+    }
+
+    public List<String> getLocalFieldKeys() {
+        return this.localFieldKeys;
     }
 
     public Set<String> getFieldNames() {
@@ -600,6 +609,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     public static class Builder extends ConfigImpl.Builder {
         //<call keep="JAVA" templateKey="BeanInstanceVars.tpl" }
         private String modelKey;
+        private String jsonType;
         private DBParams dbParams;
         private EOParams eoParams;
         private ViewParams viewParams;
@@ -619,6 +629,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
         protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) {
             modelKey = ScalarConverter.toString(values.get(MODEL_KEY));
+            jsonType = ScalarConverter.toString(values.get(JSON_TYPE));
             packageGroup = ScalarConverter.toString(values.get(PACKAGE_GROUP));
             packagePath = ScalarConverter.toString(values.get(PACKAGE_PATH));
             author = ScalarConverter.toString(values.get(AUTHOR));
@@ -643,7 +654,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
                 fieldKeys = new ArrayList<>();
             }
             try {
-                dbParams = new DBParams(values.get(F_DB_PARAMS));
+                dbParams = new DBParams(values.get(DB_PARAMS));
                 eoParams = new EOParams(values.get(EO_PARAMS));
                 viewParams = new ViewParams(values.get(VIEW_PARAMS));
                 customParams = (Map) values.get(F_CUSTOM_PARAMS);

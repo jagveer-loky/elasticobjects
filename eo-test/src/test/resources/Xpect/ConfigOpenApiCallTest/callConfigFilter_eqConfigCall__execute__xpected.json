@@ -1,0 +1,79 @@
+{
+  "components": {
+    "schemas": {
+      "ConfigCall": {
+        "type": "object",
+        "description": "For getting a map of configurations for a specific configuration type.",
+        "properties": {
+          "filterModule": {
+            "description": "Filter for modules in  {@link ConfigAction}",
+            "type": "string"
+          },
+          "filterSubModule": {
+            "description": "Filter for subModules in  {@link ConfigAction}",
+            "type": "string"
+          },
+          "configType": {
+            "description": "Key for configuration type.",
+            "type": "string"
+          },
+          "configFilter": {
+            "description": "Key for filter configuration",
+            "type": "string"
+          },
+          "expose": {
+            "type": "string",
+            "(ArrayList)enum": {
+              "(Expose)0": "WEB",
+              "(Expose)1": "INFO",
+              "(Expose)2": "CREATE",
+              "(Expose)3": "NONE"
+            }
+          },
+          "sourcePath": {
+            "type": "string"
+          },
+          "targetPath": {
+            "type": "string"
+          },
+          "models": {
+            "description": "A string representation for a list of model keys.",
+            "type": "string"
+          },
+          "condition": {
+            "description": "A condition for calls. ",
+            "type": "string"
+          },
+          "localCondition": {
+            "description": "A condition for calls. ",
+            "type": "string"
+          },
+          "overwrite": {
+            "type": "boolean"
+          },
+          "logLevel": {
+            "type": "string",
+            "(ArrayList)enum": {
+              "(LogLevel)0": "DEBUG",
+              "(LogLevel)1": "INFO_TEST",
+              "(LogLevel)2": "INFO_QSU",
+              "(LogLevel)3": "INFO_PROD",
+              "(LogLevel)4": "INFO",
+              "(LogLevel)5": "WARN",
+              "(LogLevel)6": "ERROR"
+            }
+          },
+          "duration": {
+            "description": "The duration of a call.",
+            "type": "integer",
+            "format": "int62"
+          },
+          "inTemplate": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

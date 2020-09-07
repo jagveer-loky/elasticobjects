@@ -104,6 +104,27 @@
     "packageGroup": "configs",
     "author": "Werner Diwischek"
   },
+  "ConfigOpenApiCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "description": "Creates an open api schema from model configuration.",
+    "modelKey": "ConfigOpenApiCall",
+    "expose": "WEB",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": true
+    },
+    "fieldKeys": [
+      "filterModule",
+      "filterSubModule",
+      "configType",
+      "configFilter",
+      "expose"],
+    "superKey": "ConfigCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
+    "packageGroup": "configs",
+    "author": "Werner Diwischek"
+  },
   "JsonAsStringCall": {
     "module": "elastic-objects",
     "subModule": "main",

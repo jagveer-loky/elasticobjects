@@ -32,6 +32,14 @@ public class ExecutorCallImpl implements ExecutorCall {
             return null;
         }
         Path sourcePath = new Path(eo.getPathAsString(), call.getSourcePath());
+        /*if (call.hasSourcePath()) {
+            if (call.getSourcePath().startsWith(Path.DELIMITER)) {
+                sourcePath = new Path(call.getSourcePath());
+            }
+            else {
+                sourcePath = new Path(eo.getPathAsString(), call.getSourcePath());
+            }
+        }*/
         boolean isFilter = sourcePath.isFilter();
         EO sourceParent = sourcePath.moveToParent(eo);
         List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
