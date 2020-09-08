@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 
 import java.util.List;
@@ -75,10 +76,12 @@ public class Eq implements Condition {
             LOG.warn("Null adapter should not occure!");
             return true;
         }
-        if (key.startsWith("eo->")) {
-            key = new ParserEoReplace(key).parse(eo);
+        try {
+            return ScalarComparator.compare(eo.get(key), new ParserEoReplace((String) this.object).parse(eo));
         }
-        return ScalarComparator.compare(this.key, this.object);
+        catch (EoException e) {
+            return false;
+        }
     }
 
     @Override

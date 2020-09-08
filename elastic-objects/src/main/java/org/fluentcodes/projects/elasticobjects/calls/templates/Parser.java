@@ -107,13 +107,11 @@ public abstract class Parser {
     private String replace(final EO eo, String pathOrKey, final String finish) {
         String value = null;
         if (pathOrKey.contains("|")) {
-            String[] pathAndDefault = pathOrKey.split("\\|");
-            if (pathAndDefault.length == 1) {
-                value = "";
-            } else {
+            String[] pathAndDefault = pathOrKey.split("\\|>");
+            if (pathAndDefault.length == 2) {
                 value = pathAndDefault[1];
+                pathOrKey = pathAndDefault[0];
             }
-            pathOrKey = pathAndDefault[0];
         }
         pathOrKey = pathOrKey
                 //.replaceAll("\\\\", "/")

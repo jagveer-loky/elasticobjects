@@ -1,14 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.calls.condition;
 
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
@@ -17,87 +17,110 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created by werner.diwischek on 08.01.18.
  */
 public class AndTest {
-    static final Pattern ifPattern = Pattern.compile("[\\s]*([^\\s]*?)[\\s]+(eq|ne|equals|le|ge|notEquals|like|notLike|in)[\\s]+(.*)");
 
     //static final Pattern ifPattern = Pattern.compile("(key).*");
     @Test
-    public void and() {
-        And and = new And(toEq(S_TEST_STRING, S_STRING));
-        Assert.assertEquals(S_TEST_STRING, and.getCondition(0).getKey());
+    public void eq_testString_string__createQuery__expected() {
+        And and = new And(new Eq("testString", "test"));
+        Assertions
+                .assertThat(and.getCondition(0).getKey())
+                .isEqualTo("testString");
+        Assertions
+                .assertThat(and.getCondition(0).getValue())
+                .isEqualTo("test");
+        Assertions
+                .assertThat(and.getCondition(0).createQuery(new HashMap<>()))
+                .isEqualTo("testString=:testString_0 ");
         Assert.assertEquals(S_STRING, and.getCondition(0).getValue());
-        Assert.assertEquals(S_TEST_STRING + "=:" + S_TEST_STRING + "_0 ", and.getCondition(0).createQuery(new HashMap<>()));
     }
 
     @Test
-    public void and2() {
-        And and = new And(toAnd(toEq(S_KEY0, S_STRING), toEq(S_KEY1, S_STRING_OTHER)));
-        Assert.assertEquals(S_KEY1, and.getCondition(1).getKey());
-        Assert.assertEquals(S_STRING_OTHER, and.getCondition(1).getValue());
-        Assert.assertEquals(S_KEY1 + "=:" + S_KEY1 + "_0 ", and.getCondition(1).createQuery(new HashMap<>()));
+    public void eq_key0_test_and_eq_key1_testOther__createQuery__expected() {
+        And and = new And(
+                new Eq("key0", "test"),
+                new Eq("key1", "stringOther"));
+        Assertions
+                .assertThat(and.getCondition(0).getValue())
+                .isEqualTo("test");
+        Assertions
+                .assertThat(and.getCondition(1).getKey())
+                .isEqualTo("key1");
+        Assertions
+                .assertThat(and.getCondition(1).createQuery(new HashMap<>()))
+                .isEqualTo("key1=:key1_0 ");
     }
 
     @Test
-    public void simple() {
-        pattern(S_TEST_STRING + " eq " + S_STRING);
+    public void eq_testString_test__filter_eoString__true()  {
+        And and = new And(new Eq("testString", "test"));
+        EO eo = TestProviderBtJson.STRING.createEoDev();
+
+        Assertions.assertThat( and.filter(eo)).isTrue();
     }
 
     @Test
-    public void simpleLeadingSpace() {
-        pattern(" " + S_TEST_STRING + " eq " + S_STRING);
-    }
+    public void eq_testString_test__filter_eoString__false()  {
+        And and = new And(new Eq("testString", "testOther"));
+        EO eo = TestProviderBtJson.STRING.createEoDev();
 
-    @Test
-    public void simpleMultipleSpacesBeforeOperator() {
-        pattern(S_TEST_STRING + "   eq " + S_STRING);
-    }
-
-    @Test
-    public void simpleMultipleSpacesAfterOperator() {
-        pattern(S_TEST_STRING + " eq     " + S_STRING);
-    }
-
-
-    public void simpleMultipleSpacesAfterValue() {
-        pattern("key eq value   ");
-    }
-
-    private void pattern(String condition) {
-
-        Matcher matcher = ifPattern.matcher(condition);
-        if (matcher.find()) {
-            int i = matcher.groupCount();
-            Assert.assertEquals(3, i);
-            Assert.assertEquals(S_TEST_STRING, matcher.group(1));
-            Assert.assertEquals(Condition.EQ, matcher.group(2));
-            Assert.assertEquals(S_STRING, matcher.group(3));
-        }
-    }
-
-    @Test
-    public void filterAdapter()  {
-        EO adapter = ProviderRootTestScope.createEo();
-        adapter.set(S_STRING, S_TEST_STRING);
-        And condition = new And(toLike(S_TEST_STRING, S_STRING));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString(),
-                condition.filter(adapter));
-        condition = new And(toLike(S_KEY, S_STRING_OTHER));
-        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString(),
-                condition.filter(adapter));
+        Assertions.assertThat( and.filter(eo)).isFalse();
     }
 
 
 
     @Test
-    public void filterRow()  {
-        List row = ProviderListJson.JSON_FILTER.createListDev();
-        And condition = new And(toLike(S0, S_STRING));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(0),
-                condition.filter(row));
-        condition = new And(toLike(S2, S_STRING));
-        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + row.get(2),
-                condition.filter(row));
-        condition = new And(toLike(S3, S_INTEGER.toString()));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(3),
-                condition.filter(row));
+    public void like_0_test__filterList__true()  {
+        And and = new And(new Like("0", "test"));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat(and.filter(row)).isTrue();
+    }
+
+    @Test
+    public void like_2_test__filterList__false()  {
+        And and = new And(new Like("2", "test"));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat(and.filter(row)).isFalse();
+    }
+
+    @Test
+    public void like_3_1__filterList__true()  {
+        And and = new And(new Like("3", 1));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat(and.filter(row)).isTrue();
+    }
+
+    @Test
+    public void like_0_test_and_like_3_1__filterList__true()  {
+        And and = new And(new Like("0", "test"), new Like("3", 1));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat(and.filter(row)).isTrue();
+    }
+
+    @Test
+    public void like_0_testFalse_and_like_3_1__filterList__false()  {
+        And and = new And(new Like("0", "testFalse"), new Like("3", 1));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat(and.filter(row)).isFalse();
+    }
+
+    @Test
+    public void string_like_0_test_and_like_3_1__filterList__true()  {
+        And and = new And("0 like test && 3 like 1");
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat(and.filter(row)).isTrue();
+    }
+
+    @Test
+    public void string_like_0_testFalse_and_like_3_1__filterList__false()  {
+        And and = new And("0 like testFalse && 3 like 1");
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat(and.filter(row)).isFalse();
     }
 }

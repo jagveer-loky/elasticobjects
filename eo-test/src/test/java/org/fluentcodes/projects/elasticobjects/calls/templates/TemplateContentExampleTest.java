@@ -105,7 +105,7 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void givenCallTemplateResourceStaticCondition_whenExecute_thenXpected()  {
+    public void callTemplateResource_staticCondition__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall()

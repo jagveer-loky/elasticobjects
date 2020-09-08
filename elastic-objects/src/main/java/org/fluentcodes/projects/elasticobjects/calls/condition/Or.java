@@ -23,6 +23,13 @@ public class Or {
         }
     }
 
+    public Or(Condition... conditions) {
+        this();
+        for (Condition condition:conditions) {
+            andList.add(new And(condition));
+        }
+    }
+
     public Or(And... and) {
         this();
         this.andList = Arrays.asList(and);

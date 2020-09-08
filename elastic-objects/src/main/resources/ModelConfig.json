@@ -117,10 +117,9 @@
     "fieldKeys": [
       "filterModule",
       "filterSubModule",
-      "configType",
       "configFilter",
       "expose"],
-    "superKey": "ConfigCall",
+    "superKey": "CallImpl",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "packageGroup": "configs",
     "author": "Werner Diwischek"

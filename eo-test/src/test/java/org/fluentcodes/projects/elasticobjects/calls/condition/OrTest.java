@@ -1,7 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls.condition;
 
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,62 +23,110 @@ public class OrTest {
 
     //static final Pattern ifPattern = Pattern.compile("(key).*");
     @Test
-    public void oneCondition() {
-        Or or = new Or(toEq(S_TEST_STRING, S_STRING));
-        Assert.assertEquals(S_TEST_STRING, or.getAnd(0).getCondition(0).getKey());
-        Assert.assertEquals(S_STRING, or.getAnd(0).getCondition(0).getValue());
-        Assert.assertEquals(S_TEST_STRING + "=:" + S_TEST_STRING + "_0 ", or.getAnd(0).getCondition(0).createQuery(new HashMap<>()));
-        Assert.assertEquals("(" + S_TEST_STRING + "=:" + S_TEST_STRING + "_0 )", or.createQuery());
+    public void eq_testString_test__filter_eoString__true() {
+        Or or = new Or("testString eq test");
+        Assert.assertEquals("testString", or.getAnd(0).getCondition(0).getKey());
+        Assert.assertEquals("test", or.getAnd(0).getCondition(0).getValue());
+        Assert.assertEquals( "testString=:testString_0 ", or.getAnd(0).getCondition(0).createQuery(new HashMap<>()));
+        Assert.assertEquals("(testString=:testString_0 )", or.createQuery());
+        EO eo = TestProviderBtJson.STRING.createEoDev();
+
+        Assertions.assertThat(or.filter(eo)).isTrue();
     }
 
     @Test
-    public void twoConditions() {
-        final String orAsString = toOr(
-                toEq(S_KEY0, S_STRING),
-                toEq(S_KEY1, S_STRING_OTHER));
-        Or or = new Or(orAsString);
-        Assert.assertEquals(S_KEY1, or.getAnd(1).getCondition(0).getKey());
-        Assert.assertEquals(S_STRING_OTHER, or.getAnd(1).getCondition(0).getValue());
-        Assert.assertEquals("key1=:key1_0 ", or.getAnd(1).getCondition(0).createQuery(new HashMap<>()));
-        Assert.assertEquals("(key0=:key0_0 ) or (key1=:key1_1 )", or.createQuery());
+    public void eq_testString_test2__filter_eoString__false() {
+        Or or = new Or("testString eq test2");
+        EO eo = TestProviderBtJson.STRING.createEoDev();
+
+        Assertions.assertThat(or.filter(eo)).isFalse();
     }
 
     @Test
-    public void twoConditions2() {
-        /*final String orAsString = new Or(
-                new And(S_KEY0, S_STRING),
-                new And(S_KEY1, S_STRING_OTHER));
-        Or or = new Or(orAsString);
-        Assert.assertEquals(S_KEY1, or.getAnd(1).getCondition(0).getKey());
-        Assert.assertEquals(S_STRING_OTHER, or.getAnd(1).getCondition(0).getValue());
-        Assert.assertEquals("key1=:key1_0 ", or.getAnd(1).getCondition(0).createQuery(new HashMap<>()));
-        Assert.assertEquals("(key0=:key0_0 ) or (key1=:key1_1 )", or.createQuery());*/
+    public void eq_testString2_test2__filter_eoString__false() {
+        Or or = new Or("testString2 eq test2");
+        EO eo = TestProviderBtJson.STRING.createEoDev();
+
+        Assertions.assertThat(or.filter(eo)).isFalse();
     }
 
     @Test
-    public void filterAdapter()  {
-        EO adapter = ProviderRootTestScope.createEo();
-        adapter.set(S_STRING, S_TEST_STRING);
-        Or condition = new Or(toLike(S_TEST_STRING, S_STRING));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),
-                condition.filter(adapter));
-        condition = new Or(toLike(S_TEST_STRING, S_INTEGER.toString()));
-        Assert.assertFalse(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),
-                condition.filter(adapter));
+    public void eq_key0_test0_eq_key1_test1__filter_eoKey0Test__true() {
+        Or or = new Or("key0 eq test0 || key1 eq test1");
+        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test0\"}");
+
+        Assertions.assertThat(or.filter(eo)).isTrue();
     }
 
     @Test
-    public void filterRow() {
-        List row = ProviderListJson.JSON_FILTER.createListDev();
-        Or condition = new Or(toLike(S0, S_STRING));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(0),
-                condition.filter(row));
-        condition = new Or(toLike(S2, S_KEY2));
-        Assert.assertFalse(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(2),
-                condition.filter(row));
-        condition = new Or(toLike(S3, S1));
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(3),
-                condition.filter(row));
+    public void eq_tey0_test0_eq_key1_test1__filter_eoKey1Test1__true() {
+        Or or = new Or("key0 eq test || key1 eq test1");
+        EO eo = ProviderRootDevScope.createEo("{\"key1\":\"test1\"}");
+
+        Assertions.assertThat(or.filter(eo)).isTrue();
+    }
+
+    @Test
+    public void eq_key0_test0_eq_key1_test1__filter_eoKey0Test1__false() {
+        Or or = new Or("key0 eq test0 || key1 eq test1");
+        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test1\"}");
+
+        Assertions.assertThat(or.filter(eo)).isFalse();
+    }
+
+    @Test
+    public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filter_eoKey1Test1__true() {
+        Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
+        EO eo = ProviderRootDevScope.createEo("{\"key1\":\"test1\"}");
+        Assertions.assertThat(or.filter(eo)).isTrue();
+    }
+
+    @Test
+    public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filter_eoKey2Test2__true() {
+        Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
+        EO eo = ProviderRootDevScope.createEo("{\"key2\":\"test2\"}");
+
+        Assertions.assertThat(or.filter(eo)).isTrue();
+    }
+
+    @Test
+    public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filter_eoKey0Test0__true() {
+        Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
+        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test0\"}");
+
+        Assertions.assertThat(or.filter(eo)).isTrue();
+    }
+
+    @Test
+    public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filterEoKey0Test1__false() {
+        Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
+        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test1\"}");
+
+        Assertions.assertThat(or.filter(eo)).isFalse();
+    }
+
+    @Test
+    public void like_0_string__filter_rowList__true()  {
+        Or or = new Or(new Like("0", "test"));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat( or.filter(row)).isTrue();
+    }
+
+    @Test
+    public void like_2_stringOther__filter_rowList__false()  {
+        Or or = new Or(new Like("2", "stringOther"));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat( or.filter(row)).isFalse();
+    }
+
+    @Test
+    public void like_3_s1__filter_rowList__true()  {
+        Or or = new Or(new Like("3", "1"));
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat( or.filter(row)).isTrue();
     }
 
 }

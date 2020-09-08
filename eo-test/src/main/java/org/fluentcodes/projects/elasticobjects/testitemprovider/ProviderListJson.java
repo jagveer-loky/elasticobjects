@@ -11,15 +11,15 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public enum ProviderListJson {
     JSON_EMPTY("[]"),
-    JSON_SMALL("[\"" + S_STRING + "\",\n" + S_INTEGER + "\n]"),
+    JSON_SMALL("[\"test\",\n1\n]"),
     SMALL("{" +
             "\n\"" + PathElement.ROOT_MODEL + "\":\"" + List.class.getSimpleName() + "\"," +
-            "\n\"0\":\"" + S_STRING + "\"," +
-            "\n\"1\":" + S_INTEGER + "\n}"),
+            "\n\"0\":\"test\"," +
+            "\n\"1\":1\n}"),
 
-    JSON_STRING("[\"" + S_STRING + "\"]"),
-    JSON_FILTER("[\"" + S_STRING + "\",\n\"" +  S_STRING_OTHER + "\",\n" + null + ",\n\"" +   S_KEY0 + "\",\n" +  S_INTEGER + "]"),
-    JSON_INT("[" + S_INTEGER + "]"),
+    JSON_STRING("[\"test\"]"),
+    LIST("[\"test\",\n\"testOther\",\n" + null + ",\n\"key0\",\n1]"),
+    JSON_INT("[1]"),
     BOOLEAN("{\"_rootmodel\": \"List\",\"(Boolean)0\": true}"),
     DATE("{\"_rootmodel\": \"List\",\"(Date)0\": 1465280215000}"),
     DOUBLE("{\"_rootmodel\": \"List\",\"(Double)0\": 2.2}"),

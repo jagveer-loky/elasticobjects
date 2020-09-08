@@ -20,7 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
 public class ConfigCallTest {
 
     @Test
-    public void whenCompareConfigurations_thenXpected() {
+    public void __compareConfigurations__thenXpected() {
         ConfigCall call = new ConfigCall(ModelConfig.class,"ConfigCall");
         EO eo = ProviderRootTestScope.createEo();
         List result = call.execute(eo);

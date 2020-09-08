@@ -1,13 +1,12 @@
-package org.fluentcodes.projects.elasticobjects.calls.condition;
+package org.fluentcodes.projects.elasticobjects.calls.like;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Like;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -17,28 +16,42 @@ public class LikeTest {
     private static final Logger LOG = LogManager.getLogger(LikeTest.class);
 
     @Test
-    public void filterAdapter()  {
-        EO adapter = ProviderRootTestScope.createEo();
-        adapter.set(S_STRING,S_TEST_STRING);
-        Condition condition = new Like(S_TEST_STRING, S_STRING);
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),
-                condition.filter(adapter));
-        condition = new Like(S_TEST_STRING, S_STRING_OTHER);
-        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + adapter.get(S_TEST_STRING),
-                condition.filter(adapter));
+    public void testString_string__filter_eoString__true()  {
+        Like like = new Like("testString", "test");
+        EO eo = TestProviderBtJson.STRING.createEoDev();
+
+        Assertions.assertThat( like.filter(eo)).isTrue();
     }
 
     @Test
-    public void filterRow()  {
-        List row = ProviderListJson.JSON_FILTER.createListDev();
-        Condition condition = new Like(S0, S_STRING);
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + row.get(0),
-                condition.filter(row));
-        condition = new Like(S2, S_STRING_OTHER);
-        Assert.assertFalse(INFO_CONDITION_FALSE_FAILS + condition.toString() + row.get(2),
-                condition.filter(row));
-        condition = new Like(S3, S_INTEGER);
-        Assert.assertTrue(INFO_CONDITION_TRUE_FAILS + condition.toString() + " " + row.get(3),
-                condition.filter(row));
+    public void testString_stringOther__filter_eoString__false()  {
+        Like like = new Like("testString", "stringOther");
+        EO eo = TestProviderBtJson.STRING.createEoDev();
+
+        Assertions.assertThat( like.filter(eo)).isFalse();
+     }
+
+    @Test
+    public void _0_string__filter_rowList__true()  {
+        Like like = new Like("0", "test");
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat( like.filter(row)).isTrue();
+    }
+
+    @Test
+    public void _2_stringOther__filter_rowList__false()  {
+        Like like = new Like("2", "stringOther");
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat( like.filter(row)).isFalse();
+    }
+
+    @Test
+    public void _3_s1__filter_rowList__true()  {
+        Like like = new Like("3", "1");
+        List row = ProviderListJson.LIST.createListDev();
+
+        Assertions.assertThat( like.filter(row)).isTrue();
     }
 }
