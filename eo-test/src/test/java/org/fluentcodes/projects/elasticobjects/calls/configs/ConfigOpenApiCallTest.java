@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -14,6 +15,11 @@ import java.util.Map;
  * Created 7.9.2020
  */
 public class ConfigOpenApiCallTest {
+    @Test
+    public void createByModelConfig()  {
+        ConfigModelChecks.create(ConfigOpenApiCall.class);
+    }
+
 
     @Test
     public void callConfigFilter_eqConfigCall__execute__xpected()  {

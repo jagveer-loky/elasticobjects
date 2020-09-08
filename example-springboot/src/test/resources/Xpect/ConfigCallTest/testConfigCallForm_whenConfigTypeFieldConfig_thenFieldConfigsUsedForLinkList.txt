@@ -156,7 +156,7 @@
     <div class="entry-content" id="entry-content">
         <h3>&ocir;!!Could not move to path 'configuration/0/naturalId' because key '0' does not exist on '/configuration'.!!</h3>
         <p>
-         No Description provided!
+        No Description provided!
         </p>
         <h4>Github</h4>
         <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/resources/ModelConfig.json">&equiv;ModelConfig.json</a></div>
@@ -164,11 +164,6 @@
         
 
         
-
-        
-
-        
-
 
         
 

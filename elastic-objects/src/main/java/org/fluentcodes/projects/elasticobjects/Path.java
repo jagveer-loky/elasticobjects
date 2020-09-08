@@ -257,6 +257,7 @@ public class Path {
     private void addPaths(final String[] pathElements, List<PathElement> entries) {
         if (pathElements[0].isEmpty())  {
             entries.clear();
+            absolute = true;
         }
         for (String path : pathElements) {
             if (path == null || path.isEmpty() || PathElement.SAME.equals(path) || path.matches("^\\s+$")) {
@@ -349,6 +350,7 @@ public class Path {
     @Override
     public String toString() {
         StringBuffer result = new StringBuffer();
+
         for (PathElement element: entries) {
             result.append(DELIMITER);
             result.append(element.toString());

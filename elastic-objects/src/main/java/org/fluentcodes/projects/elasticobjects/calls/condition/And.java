@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -30,6 +31,10 @@ public class And {
             Condition condition = new Eq((String) key, keyValues.get(key));
             conditions.add(condition);
         }
+    }
+
+    public And(Condition... conditions) {
+        this.conditions = Arrays.asList(conditions);
     }
 
     public And(String andAsString) {

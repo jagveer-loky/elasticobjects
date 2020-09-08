@@ -132,4 +132,10 @@ public class PathTest {
         Assert.assertFalse(path.hasPlaceHolder());
     }
 
+    @Test
+    public void level0Level1_andAbsoluteLevel2__new__absoluteLevel2() {
+        Path path = new Path("level0/level1", "/level2");
+        Assertions.assertThat(path.toString()).isEqualTo("/level2");
+    }
+
 }
