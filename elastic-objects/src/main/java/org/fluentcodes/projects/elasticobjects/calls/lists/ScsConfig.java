@@ -19,7 +19,6 @@ import java.util.Map;
  * @since 09.10.2017.
  */
 public class ScsConfig extends ListConfig {
-    //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
     private final String fileKey;
     private final String fieldDelimiter;
     private final String rowDelimiter;
@@ -46,7 +45,7 @@ public class ScsConfig extends ListConfig {
     public List<List<String>> read() {
         resolve();
         fileConfig.resolve();
-        String content = fileConfig.read();
+        String content = (String) fileConfig.read();
         if (content == null|| content.isEmpty()) {
             return new ArrayList<>();
         }

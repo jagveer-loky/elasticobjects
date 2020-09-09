@@ -1,18 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
@@ -23,7 +19,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class FileConfig extends ConfigResourcesImpl {
+public class FileConfig extends ConfigResourcesImpl implements FileConfigInterface {
     public static final String CLASSPATH = "classpath";
     private final String fileName;
     private final String filePath;
@@ -43,19 +39,19 @@ public class FileConfig extends ConfigResourcesImpl {
             this.hostCache = new HostConfig(provider, builder);
         }
     }
-
+    @Override
     public boolean hasCachedContent() {
         return cachedContent != null && !cachedContent.isEmpty();
     }
-
+    @Override
     public String getCachedContent() {
         return cachedContent;
     }
-
+    @Override
     public void setCachedContent(String cachedContent) {
         this.cachedContent = cachedContent;
     }
-
+    @Override
     public String getUrlPath()  {
         String hostPath = getHostConfig().getUrlPath();
         if (hostPath == null || hostPath.isEmpty()) {
@@ -64,6 +60,7 @@ public class FileConfig extends ConfigResourcesImpl {
         return new ParserTemplate(hostPath + "" + filePath + "/" + fileName).parse();
     }
 
+    @Override
     public URL findUrl()  {
         URL url = createUrl();
         final String localFileName = url.toString().replaceAll("^file:","");
@@ -81,7 +78,7 @@ public class FileConfig extends ConfigResourcesImpl {
             throw new EoException(e);
         }
     }
-
+    @Override
     public URL getUrl()  {
         if (!hasFileName()) {
             throw new EoException("No name in file provided '" + getNaturalId() + "'!");
@@ -95,7 +92,7 @@ public class FileConfig extends ConfigResourcesImpl {
             throw new EoException(e);
         }
     }
-
+    @Override
     public URL createUrl()  {
         if (fileName == null || fileName.equals("")) {
             throw new EoException("No name in file provided '" + getNaturalId() + "'!");
@@ -111,8 +108,8 @@ public class FileConfig extends ConfigResourcesImpl {
             throw new EoException(e);
         }
     }
-
-    public String read()  {
+    @Override
+    public Object read()  {
         if (hasCachedContent()) {
             return getCachedContent();
         }
@@ -140,25 +137,27 @@ public class FileConfig extends ConfigResourcesImpl {
      * @param content
      * @
      */
-    public void write(String content)  {
+    @Override
+    public void write(Object content)  {
         if (isCached()) {
             throw new EoException("A fileCached file could not persisted!");
         }
         URL url = createUrl();
-        new IOString().setFileName(url.getFile()).write(content);
+        new IOString().setFileName(url.getFile()).write((String)content);
     }
 
     /**
      * File cached
      */
+    @Override
     public String getFileName() {
         return this.fileName;
     }
-
+    @Override
     public String getFilePath() {
         return this.filePath;
     }
-
+    @Override
     public boolean hasFileName() {
         return fileName != null && !fileName.isEmpty();
     }
@@ -166,6 +165,7 @@ public class FileConfig extends ConfigResourcesImpl {
     /**
      * A key for host objects.
      */
+    @Override
     public String getHostKey() {
         return this.hostKey;
     }
@@ -177,6 +177,7 @@ public class FileConfig extends ConfigResourcesImpl {
     /**
      * The field for hostCache e.g. defined in {@link FileConfig}
      */
+    @Override
     public HostConfig getHostConfig()  {
         if (this.hostCache == null) {
             if (this.getConfigsCache() == null) {
@@ -190,6 +191,7 @@ public class FileConfig extends ConfigResourcesImpl {
     /**
      * If true will config the readed file within the config object.
      */
+    @Override
     public Boolean isCached() {
         return this.cached;
     }

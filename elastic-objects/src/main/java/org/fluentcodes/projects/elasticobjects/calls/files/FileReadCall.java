@@ -32,7 +32,7 @@ public class FileReadCall extends CallResource<String> {
     @Override
     public String execute(final EO eo)  {
         init(eo);
-        return getFileConfig().read();
+        return (String) getFileConfig().read();
     }
 
     @Override
