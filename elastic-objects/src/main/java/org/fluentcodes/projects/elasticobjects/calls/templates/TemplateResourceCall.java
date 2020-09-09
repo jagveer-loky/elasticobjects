@@ -79,7 +79,7 @@ public class TemplateResourceCall extends TemplateCall {
         String replacedConfig = new ParserEoReplace(configKey).parse(eo);
         FileConfig config = eo.getConfigsCache().findFile(replacedConfig);
         if (config.hasPermissions(PermissionType.EXECUTE, eo.getRoles())) {
-            super.setContent(config.read());
+            super.setContent((String) config.read());
             return super.execute(eo);
         }
         else {
