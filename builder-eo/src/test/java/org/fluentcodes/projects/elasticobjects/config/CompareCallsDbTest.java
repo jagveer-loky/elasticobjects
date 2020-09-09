@@ -6,12 +6,9 @@ import static org.fluentcodes.projects.elasticobjects.BEO_STATIC.X_CALLS_DB;
 import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.TEST;
-import static org.fluentcodes.projects.elasticobjects.H_EO_STATIC.*;
 
 public class CompareCallsDbTest extends CompareConfigs {
-    /**
-     * Xlsx
-     */
+    /*
 
     public static final String SHEET = X_CALLS_DB;
 
@@ -30,6 +27,9 @@ public class CompareCallsDbTest extends CompareConfigs {
         compare(SHEET, DB, ACTIONS_HDB, TEST);
     }
 
+     */
+    /*
+
     @Test
     public void dbDBQueryTest()  {
         compare(SHEET, DB_QUERY, ACTIONS_DB, TEST);
@@ -39,7 +39,7 @@ public class CompareCallsDbTest extends CompareConfigs {
     public void dbDBSqlTest()  {
         compare(SHEET, DB_SQL, ACTIONS_DB, TEST);
     }
-
+    /*
     @Test
     public void dbHTest()  {
         compare(SHEET, H, ACTIONS_HDB, TEST);
@@ -54,6 +54,6 @@ public class CompareCallsDbTest extends CompareConfigs {
     public void dbHSqlTest()  {
         compare(SHEET, H_SQL, ACTIONS_HDB, TEST);
     }
-
+*/
 
 }

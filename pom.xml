@@ -18,6 +18,9 @@
 
         <module>eo-xpect</module>
         <module>example-springboot</module>
+
+        <module>builder</module>
+        <module>builder-eo</module>
     </modules>
     <licenses>
       <license>

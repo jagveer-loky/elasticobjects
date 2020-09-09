@@ -12,9 +12,7 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC.XLSX;
 
 
 public class CompareCallsListTest extends CompareConfigs {
-    /**
-     * Xlsx
-     */
+    /*
     @Test
     public void xlsxXEOTest()  {
         compare(X_CALLS_LIST, XLSX, ACTIONS_XLSX, TEST);
@@ -32,11 +30,10 @@ public class CompareCallsListTest extends CompareConfigs {
         compare(X_CALLS_LIST, XLSX, BUILDER_EO, MAIN);
     }
 
-    /**
-     * Csv
-     */
     @Test
     public void csvCEOTest()  {
         compare(X_CALLS_LIST, "Csv", "actions-csv", TEST);
     }
+
+     */
 }

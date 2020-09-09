@@ -1,7 +1,7 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "JsonReadCall",
     "superKey": "FileReadCall",
     "(ArrayList)fieldKeys": {

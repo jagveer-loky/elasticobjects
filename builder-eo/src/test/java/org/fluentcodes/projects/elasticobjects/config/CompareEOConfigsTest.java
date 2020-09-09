@@ -2,16 +2,13 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.BEO_STATIC.X_MODELS;
-import static org.fluentcodes.projects.elasticobjects.CEO_STATIC.ACTIONS_CSV;
 import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.ACTIONS_DB;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.H_EO_STATIC.ACTIONS_HDB;
 import static org.fluentcodes.projects.elasticobjects.XEO_STATIC.ACTIONS_XLSX;
 
 public class CompareEOConfigsTest extends CompareConfigs {
-    public static final String SHEET = X_MODELS;
-
+    //public static final String SHEET = X_MODELS;
+/*
     @Test
     public void fieldsEOMain()  {
         compare(SHEET, FIELD, ELASTIC_OBJECTS, MAIN);
@@ -47,9 +44,6 @@ public class CompareEOConfigsTest extends CompareConfigs {
         compare(SHEET, FIELD, ACTIONS_HDB, TEST);
     }
 
-    /**
-     * Models
-     */
 
     @Test
     public void modelsEOMain()  {
@@ -70,7 +64,8 @@ public class CompareEOConfigsTest extends CompareConfigs {
     public void modelsCEOMain()  {
         compare(SHEET, MODEL, ACTIONS_CSV, MAIN);
     }
-
+*/
+    /*
     @Test
     public void modelDBMain()  {
         compare(SHEET, MODEL, ACTIONS_DB, MAIN);
@@ -86,9 +81,6 @@ public class CompareEOConfigsTest extends CompareConfigs {
         compare(SHEET, MODEL, ACTIONS_HDB, TEST);
     }
 
-    /**
-     * Users
-     */
 
     @Test
     public void usersEOMain()  {
@@ -99,10 +91,6 @@ public class CompareEOConfigsTest extends CompareConfigs {
     public void userEOTest()  {
         compare(SHEET, USER, ELASTIC_OBJECTS, TEST);
     }
-
-    /**
-     * Roles
-     */
     @Test
     public void rolesEOMain()  {
         compare(SHEET, ROLE, ELASTIC_OBJECTS, MAIN);
@@ -112,4 +100,6 @@ public class CompareEOConfigsTest extends CompareConfigs {
     public void rolesEOTest()  {
         compare(SHEET, ROLE, ELASTIC_OBJECTS, TEST);
     }
+
+     */
 }

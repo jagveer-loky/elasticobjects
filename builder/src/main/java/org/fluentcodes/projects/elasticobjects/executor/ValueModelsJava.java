@@ -1,38 +1,40 @@
 package org.fluentcodes.projects.elasticobjects.calls.executor;
 
 import org.fluentcodes.projects.elasticobjects.CreatorParams;
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EO_STATIC;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
+
+import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.DB_PARAMS;
+import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 
 
 /**
  * Created by werner.diwischek on 20.05.18.
  */
 public class ValueModelsJava {
-
+/*
     public final static EO getModelParams(final EO adapter, final String modelKey)  {
         if (adapter == null) {
             throw new Exception("Empty models adapter: Could not find model params for " + modelKey);
         }
-        return adapter.getChild(CreatorParams.MODELS_MAP_PATH + Path.DELIMITER + modelKey);
+        return adapter.getEo(CreatorParams.MODELS_MAP_PATH + Path.DELIMITER + modelKey);
     }
 
     public final static EO getModelEoParams(final EO modelParams)  {
         if (modelParams == null || modelParams.isEmpty()) {
             throw new Exception("Empty models adapter: Could not find eo params.");
         }
-        return modelParams.getChild(EO_STATIC.F_EO_PARAMS);
+        return modelParams.getEo(EO_STATIC.F_EO_PARAMS);
     }
 
     public final static EO getModelDbParams(final EO modelParams)  {
         if (modelParams == null || modelParams.isEmpty()) {
             throw new Exception("Empty models adapter: Could not find db params.");
         }
-        return modelParams.getChild(EO_STATIC.F_DB_PARAMS);
+        return modelParams.getEo(DB_PARAMS);
     }
 
     public final static EO getModelEoParams(final EO adapter, final String modelKey)  {
@@ -49,7 +51,7 @@ public class ValueModelsJava {
             throw new Exception("Empty models adapter: Could not find eo params.");
         }
         final StringBuilder builder = new StringBuilder("public class ");
-        builder.append(modelParams.get(EO_STATIC.F_MODEL_KEY));
+        builder.append(modelParams.get(MODEL_KEY));
         String superKey = ScalarConverter.toString(modelParams.get(EO_STATIC.F_SUPER_KEY));
         if (superKey != null && !superKey.isEmpty()) {
             builder.append(" extends ");
@@ -178,6 +180,6 @@ public class ValueModelsJava {
             return this.annotation;
         }
     }
-
+*/
 }
 

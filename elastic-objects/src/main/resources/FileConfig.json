@@ -1,0 +1,29 @@
+{
+  "content": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "content",
+    "jsonKey": "content",
+    "fileName": "content.json",
+    "filePath": "classpath/data",
+    "description": "Simple data for the content templates."
+  },
+  "ModuleConfig.json": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "ModuleConfig.json",
+    "jsonKey": "ModuleConfig.json",
+    "fileName": "ModuleConfig.json",
+    "filePath": "classpath",
+    "path": "/Module",
+    "description": "Parameter to determine general module parameters."
+  },
+  "content": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "naturalId": "content",
+    "templateKey": "content",
+    "fileName": "content.tpl",
+    "filePath": "classpath/templates"
+  }
+}

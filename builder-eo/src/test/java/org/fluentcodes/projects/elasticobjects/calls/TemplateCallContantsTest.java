@@ -1,14 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.TestBuilderEOProvider;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class TemplateCallContantsTest {
-
+/*
     @Test
     public void executeConstantsCreateTpl()  {
         final TemplateCall action = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, "ConstantsCreate.tpl");
@@ -37,4 +34,6 @@ public class TemplateCallContantsTest {
         String result = action.read(adapter);
         //final TemplateCall = new TemplateCall(TestObjectProvider.EO_CONFIGS_CACHE, "");
     }
+
+ */
 }

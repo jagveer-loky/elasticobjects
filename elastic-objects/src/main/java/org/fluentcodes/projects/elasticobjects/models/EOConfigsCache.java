@@ -6,8 +6,6 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.json.JsonConfig;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -166,16 +164,8 @@ public class EOConfigsCache {
         return findModel(modelClass.getSimpleName());
     }
 
-    public TemplateConfig findTemplate(final String key)  {
-        return (TemplateConfig) find(TemplateConfig.class, key);
-    }
-
     public FileConfig findFile(final String key)  {
         return (FileConfig) find(FileConfig.class, key);
-    }
-
-    public JsonConfig findJson(final String key)  {
-        return (JsonConfig) find(JsonConfig.class, key);
     }
 
     public ModelInterface findModel(final Object modelValue)  {

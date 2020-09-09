@@ -1,17 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.TestBuilderEOProvider;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestCallsProvider;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.B_STATIC.*;
 
 public class TemplateCallBEANTest {
-
+/*
     @Test
     public void executeBEANCreateTplNoFields()  {
         EO adapter = TestObjectProvider.createEOFromJson();
@@ -37,5 +33,5 @@ public class TemplateCallBEANTest {
     public void executeBeanSetterTpl()  {
         TestBuilderEOProvider.testTemplate(T_BEAN_SETTER_TPL);
     }
-
+*/
 }

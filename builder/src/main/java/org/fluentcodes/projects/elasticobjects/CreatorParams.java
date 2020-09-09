@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import com.lexicalscope.jewel.cli.Option;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
 
 import java.util.List;
 

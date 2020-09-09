@@ -6,19 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eo-builder" />
         <module name="eo-test" />
-        <module name="eo-test-resources" />
-        <module name="example-springboot" />
         <module name="elastic-objects" />
+        <module name="example-springboot" />
+        <module name="eo-db" />
         <module name="eo-xlsx" />
+        <module name="builder" />
         <module name="xpect-eo" />
         <module name="eo-csv" />
-        <module name="eo-db" />
+        <module name="eo-test-resources" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="builder" target="8" />
       <module name="elastic-objects" target="8" />
       <module name="eo" target="8" />
+      <module name="eo-builder" target="8" />
       <module name="eo-csv" target="8" />
       <module name="eo-db" target="8" />
       <module name="eo-test" target="8" />

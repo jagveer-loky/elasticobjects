@@ -21,8 +21,7 @@
         "(Scope)0": "ALL"
       },
       "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN",
-      "modelConfigKey": "TemplateConfig"
+      "(ShapeTypes)shapeType": "CALL_BEAN"
     },
     "packageGroup": "templates",
     "module": "elastic-objects",

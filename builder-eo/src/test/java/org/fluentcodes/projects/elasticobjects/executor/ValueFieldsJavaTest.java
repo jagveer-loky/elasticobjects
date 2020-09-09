@@ -1,15 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls.executor;
 
 import org.fluentcodes.projects.elasticobjects.TestBuilderEOProvider;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_ROW_DELIMITER;
 
 public class ValueFieldsJavaTest {
 
-
+/*
     @Test
     public void createTypeLong()  {
         String type = ValueFieldsJava.createType(TestBuilderEOProvider.STATIC, "id");
@@ -83,4 +81,6 @@ public class ValueFieldsJavaTest {
                 "    inverseJoinColumns = @JoinColumn(name = \"right_id\", referencedColumnName = \"id\")\n" +
                 "  )", result);
     }
+
+ */
 }

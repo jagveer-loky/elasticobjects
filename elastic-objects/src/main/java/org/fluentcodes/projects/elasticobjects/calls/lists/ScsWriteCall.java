@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
 /**
  * Created by werner.diwischek on 03.12.16.
  */
-public class ScsWriteCall extends ListReadCall {
+public class ScsWriteCall extends ListWriteCall {
     private static final Logger LOG = LogManager.getLogger(ScsWriteCall.class);
 
     public ScsWriteCall()  {

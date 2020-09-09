@@ -281,15 +281,15 @@ model configuration these methods can be accessed. </p>
 </p>
 
 <ul>
-    <li><a href="/config/TemplateConfig/ContentPage.html">ContentPage.html</a></li>
-    <li><a href="/config/TemplateConfig/ExamplesPage.html">ExamplesPage.html</a></li>
-    <li><a href="/config/TemplateConfig/ConfigsPage.html">ConfigsPage.html</a></li>
+    <li><a href="/config/FileConfig/ContentPage.html">ContentPage.html</a></li>
+    <li><a href="/config/FileConfig/ExamplesPage.html">ExamplesPage.html</a></li>
+    <li><a href="/config/FileConfig/ConfigsPage.html">ConfigsPage.html</a></li>
 </ul>
 
 <p>
     The layout origins from
     a wordpress theme with all its responsive magic. It's hidden in
-    the <a href="http://localhost:8080/config/TemplateConfig/Header.html">Header.html</a> and
+    the <a href="http://localhost:8080/config/FileConfig/Header.html">Header.html</a> and
     <a href="http://localhost:8080/config/TemplateConfig/Footer.html">Footer.html</a>.
     The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/input/web/ContentPage.html">content page template</a>
     could be rather small.

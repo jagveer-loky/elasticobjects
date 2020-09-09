@@ -2,14 +2,13 @@ package org.fluentcodes.projects.elasticobjects.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
+//import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.BEO_STATIC.JSON_XLSX;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_EMPTY_FAILS;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_FAILS;
 import static org.fluentcodes.projects.elasticobjects.XEO_STATIC.CONFIG_XLSX_MAIN;
@@ -19,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.XEO_STATIC.CONFIG_XLSX_MAI
  */
 public class XlsxConfigTest {
     private static final Logger LOG = LogManager.getLogger(XlsxConfigTest.class);
-
+/*
     @Test
     public void findConfigInCache()  {
         final XlsxConfig config = (XlsxConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(XlsxConfig.class, JSON_XLSX);
@@ -51,5 +50,5 @@ public class XlsxConfigTest {
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.get(JSON_XLSX));
     }
 
-
+*/
 }
