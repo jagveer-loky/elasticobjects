@@ -15,8 +15,8 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         <h4>Github</h4>
         <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[configuration/0/module|>elastic-objects]/src/$[configuration/0/submodule|>main]/resources/$[configType].json">&equiv;$[configType].json</a></div>
 
-        $[(TemplateCall). condition="/configType eq FileConfig||/configType eq JsonConfig||/configType eq TemplateConfig" sourcePath="configuration/0"]
-            <div><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|example-springboot]/input/$[filePath]/$[fileName]">&equiv;$[fileName]</a></div>
+        $[(TemplateCall)configuration/0 condition="/configType eq FileConfig"]
+            <div><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|>example-springboot]/input/$[filePath]/$[fileName]">&equiv;$[fileName]</a></div>
         $[/]
 
         $[(TemplateCall). condition="/configType eq ModelConfig" sourcePath="configuration/0"]
@@ -40,7 +40,7 @@ $[(TemplateResourceCall). configKey="Header.html"/]
             $[/]
         $[/]
 
-        $[(TemplateCall). condition="/configType. eq FieldConfig" ]
+        $[(TemplateCall). condition="configType eq FieldConfig" ]
         <h4>Models</h4>
             $[(TemplateCall)configuration/0/modelList/* ]
             <div><a href="/config/ModelConfig/$[_value]">&ocir;$[_value]</a></div>

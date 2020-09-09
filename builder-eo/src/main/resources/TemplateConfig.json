@@ -1,8 +1,0 @@
-{
-  "StaticFromXlsx.tpl": {
-    "templateKey": "StaticFromXlsx.tpl",
-    "fileName": "StaticFromXlsx.tpl",
-    "filePath": "classpath/templates",
-    "description": "Creates static vars. "
-  }
-}

@@ -1,10 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.calls.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestCallsProvider;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.junit.Assert;
 
 import java.util.*;
@@ -13,6 +9,7 @@ import java.util.*;
  * Created 2.6.2018
  */
 public class TestBuilderEOProvider {
+    /*
     public static final EO STATIC = initModelAdapter();
     public static final Map MAP_CONTROL = createAttributes();
 
@@ -65,4 +62,6 @@ public class TestBuilderEOProvider {
         Assert.assertFalse(result.isEmpty());
         //AssertEO.compare(result);
     }
+
+ */
 }

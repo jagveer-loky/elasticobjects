@@ -38,5 +38,80 @@
     "fileName": "resultWithMapPath.string",
     "description": "Saving content this is true",
     "filePath": "src/test/resources/output/persistedobjects"
+  },
+  "ContentExample": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExample",
+    "jsonKey": "ContentExample",
+    "fileName": "ContentExample.json",
+    "filePath": "input/calls/content-example",
+    "description": "Calls templates."
+  },
+  "ContentExampleData": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleData",
+    "jsonKey": "ContentExampleData",
+    "fileName": "ContentExampleData.json",
+    "filePath": "input/calls/content-example",
+    "description": "Simple data for the content templates."
+  },
+  "SimpleInsertWithPath": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "SimpleInsertWithPath",
+    "jsonKey": "SimpleInsertWithPath",
+    "fileName": "SimpleInsertWithPath.json",
+    "filePath": "classpath/data",
+    "description": "Simple data for the SimpleInsert templates."
+  },
+  "ContentExampleStatic": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleStatic",
+    "templateKey": "ContentExampleStatic",
+    "fileName": "ContentExampleStatic.tpl",
+    "filePath": "input/calls/content-example"
+  },
+  "ContentExampleStaticKeep": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleStaticKeep",
+    "templateKey": "ContentExampleStaticKeep",
+    "fileName": "ContentExampleStaticKeep.tpl",
+    "filePath": "input/calls/content-example"
+  },
+  "ContentExampleStaticCondition": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleStaticCondition",
+    "templateKey": "ContentExampleStaticCondition",
+    "fileName": "ContentExampleStaticCondition.tpl",
+    "filePath": "input/calls/content-example"
+  },
+  "ContentExampleDynamic": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleDynamic",
+    "templateKey": "ContentExampleDynamic",
+    "fileName": "ContentExampleDynamic.tpl",
+    "filePath": "input/calls/content-example"
+  },
+  "ContentExampleElement1": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleElement1",
+    "templateKey": "ContentExampleElement1",
+    "fileName": "ContentExampleElement1.tpl",
+    "filePath": "input/calls/content-example"
+  },
+  "ContentExampleElement2": {
+    "module": "elastic-objects",
+    "subModule": "test",
+    "naturalId": "ContentExampleElement2",
+    "templateKey": "ContentExampleElement2",
+    "fileName": "ContentExampleElement2.tpl",
+    "filePath": "input/calls/content-example"
   }
 }

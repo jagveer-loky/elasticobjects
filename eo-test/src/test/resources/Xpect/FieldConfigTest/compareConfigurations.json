@@ -34,19 +34,18 @@
       "8": "ModelConfigSet",
       "9": "ModelConfigList",
       "10": "ModelConfigMap",
-      "11": "FileConfig",
-      "12": "JsonConfig",
-      "13": "ModelConfigNone",
-      "14": "HostConfig",
-      "15": "ListConfig",
-      "16": "TemplateConfig",
-      "17": "ScsConfig",
-      "18": "ModelConfigScalar",
-      "19": "ModelConfigObject"
+      "11": "ConfigAsFlatListCall",
+      "12": "ModelConfigNone",
+      "13": "HostConfig",
+      "14": "ListConfig",
+      "15": "FileConfig",
+      "16": "ScsConfig",
+      "17": "ModelConfigScalar",
+      "18": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "author",
     "description": "The autor of something e,g. a class.",
     "naturalId": "author"
@@ -73,9 +72,7 @@
     "fieldKey": "cached",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
-      "0": "FileConfig",
-      "1": "JsonConfig",
-      "2": "TemplateConfig"
+      "0": "FileConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -188,7 +185,8 @@
     },
     "(ArrayList)modelList": {
       "0": "ConfigKeysCall",
-      "1": "ConfigCall"
+      "1": "ConfigCall",
+      "2": "ConfigAsFlatListCall"
     },
     "(Expose)expose": "WEB",
     "key": "configType",
@@ -247,19 +245,18 @@
       "8": "ModelConfigSet",
       "9": "ModelConfigList",
       "10": "ModelConfigMap",
-      "11": "FileConfig",
-      "12": "JsonConfig",
-      "13": "ModelConfigNone",
-      "14": "HostConfig",
-      "15": "ListConfig",
-      "16": "TemplateConfig",
-      "17": "ScsConfig",
-      "18": "ModelConfigScalar",
-      "19": "ModelConfigObject"
+      "11": "ConfigAsFlatListCall",
+      "12": "ModelConfigNone",
+      "13": "HostConfig",
+      "14": "ListConfig",
+      "15": "FileConfig",
+      "16": "ScsConfig",
+      "17": "ModelConfigScalar",
+      "18": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "creationDate",
     "description": "Used to define the creation of an item.",
     "naturalId": "creationDate"
@@ -386,19 +383,18 @@
       "8": "ModelConfigSet",
       "9": "ModelConfigList",
       "10": "ModelConfigMap",
-      "11": "FileConfig",
-      "12": "JsonConfig",
-      "13": "ModelConfigNone",
-      "14": "HostConfig",
-      "15": "ListConfig",
-      "16": "TemplateConfig",
-      "17": "ScsConfig",
-      "18": "ModelConfigScalar",
-      "19": "ModelConfigObject"
+      "11": "ConfigAsFlatListCall",
+      "12": "ModelConfigNone",
+      "13": "HostConfig",
+      "14": "ListConfig",
+      "15": "FileConfig",
+      "16": "ScsConfig",
+      "17": "ModelConfigScalar",
+      "18": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "description",
     "description": "A description of the model used by every model extending BaseClassImpl. ",
     "naturalId": "description"
@@ -522,15 +518,14 @@
       "9": "ModelConfigMap",
       "10": "ConfigKeysCall",
       "11": "ConfigCall",
-      "12": "FileConfig",
-      "13": "JsonConfig",
-      "14": "ModelConfigNone",
-      "15": "HostConfig",
-      "16": "ListConfig",
-      "17": "TemplateConfig",
-      "18": "ScsConfig",
-      "19": "ModelConfigScalar",
-      "20": "ModelConfigObject"
+      "12": "ConfigAsFlatListCall",
+      "13": "ModelConfigNone",
+      "14": "HostConfig",
+      "15": "ListConfig",
+      "16": "FileConfig",
+      "17": "ScsConfig",
+      "18": "ModelConfigScalar",
+      "19": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -658,9 +653,7 @@
       "length": 80
     },
     "(ArrayList)modelList": {
-      "0": "FileConfig",
-      "1": "JsonConfig",
-      "2": "TemplateConfig"
+      "0": "FileConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -677,9 +670,7 @@
       "length": 512
     },
     "(ArrayList)modelList": {
-      "0": "FileConfig",
-      "1": "JsonConfig",
-      "2": "TemplateConfig"
+      "0": "FileConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -780,9 +771,7 @@
       "length": 80
     },
     "(ArrayList)modelList": {
-      "0": "FileConfig",
-      "1": "JsonConfig",
-      "2": "TemplateConfig"
+      "0": "FileConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -829,16 +818,15 @@
       "9": "ModelConfigSet",
       "10": "ModelConfigList",
       "11": "ModelConfigMap",
-      "12": "FileConfig",
-      "13": "JsonConfig",
-      "14": "ModelConfigNone",
-      "15": "HostConfig",
-      "16": "ListConfig",
-      "17": "TemplateConfig",
-      "18": "BasicTest",
-      "19": "ScsConfig",
-      "20": "ModelConfigScalar",
-      "21": "ModelConfigObject"
+      "12": "ConfigAsFlatListCall",
+      "13": "ModelConfigNone",
+      "14": "HostConfig",
+      "15": "ListConfig",
+      "16": "FileConfig",
+      "17": "BasicTest",
+      "18": "ScsConfig",
+      "19": "ModelConfigScalar",
+      "20": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -869,8 +857,7 @@
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "JsonConfig",
-      "1": "JsonReadCall"
+      "0": "JsonReadCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -997,8 +984,7 @@
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
-      "0": "TemplateResourceCall",
-      "1": "TemplateConfig"
+      "0": "TemplateResourceCall"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1024,19 +1010,18 @@
       "6": "ModelConfigSet",
       "7": "ModelConfigList",
       "8": "ModelConfigMap",
-      "9": "FileConfig",
-      "10": "JsonConfig",
-      "11": "ModelConfigNone",
-      "12": "HostConfig",
-      "13": "ListConfig",
-      "14": "TemplateConfig",
-      "15": "ScsConfig",
-      "16": "ModelConfigScalar",
-      "17": "ModelConfigObject"
+      "9": "ConfigAsFlatListCall",
+      "10": "ModelConfigNone",
+      "11": "HostConfig",
+      "12": "ListConfig",
+      "13": "FileConfig",
+      "14": "ScsConfig",
+      "15": "ModelConfigScalar",
+      "16": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "key",
     "description": "A generic key.",
     "naturalId": "key"
@@ -1325,19 +1310,18 @@
       "6": "ModelConfigSet",
       "7": "ModelConfigList",
       "8": "ModelConfigMap",
-      "9": "FileConfig",
-      "10": "JsonConfig",
-      "11": "ModelConfigNone",
-      "12": "HostConfig",
-      "13": "ListConfig",
-      "14": "TemplateConfig",
-      "15": "ScsConfig",
-      "16": "ModelConfigScalar",
-      "17": "ModelConfigObject"
+      "9": "ConfigAsFlatListCall",
+      "10": "ModelConfigNone",
+      "11": "HostConfig",
+      "12": "ListConfig",
+      "13": "FileConfig",
+      "14": "ScsConfig",
+      "15": "ModelConfigScalar",
+      "16": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "module",
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
@@ -1586,12 +1570,10 @@
     "(ArrayList)modelList": {
       "0": "ConfigResources",
       "1": "ConfigResourcesImpl",
-      "2": "FileConfig",
-      "3": "JsonConfig",
-      "4": "HostConfig",
-      "5": "ListConfig",
-      "6": "TemplateConfig",
-      "7": "ScsConfig"
+      "2": "HostConfig",
+      "3": "ListConfig",
+      "4": "FileConfig",
+      "5": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1676,19 +1658,18 @@
       "7": "ModelConfigSet",
       "8": "ModelConfigList",
       "9": "ModelConfigMap",
-      "10": "FileConfig",
-      "11": "JsonConfig",
-      "12": "ModelConfigNone",
-      "13": "HostConfig",
-      "14": "ListConfig",
-      "15": "TemplateConfig",
-      "16": "ScsConfig",
-      "17": "ModelConfigScalar",
-      "18": "ModelConfigObject"
+      "10": "ConfigAsFlatListCall",
+      "11": "ModelConfigNone",
+      "12": "HostConfig",
+      "13": "ListConfig",
+      "14": "FileConfig",
+      "15": "ScsConfig",
+      "16": "ModelConfigScalar",
+      "17": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "scope",
     "description": "A scope for the cache value.",
     "naturalId": "scope"
@@ -1806,19 +1787,18 @@
       "6": "ModelConfigSet",
       "7": "ModelConfigList",
       "8": "ModelConfigMap",
-      "9": "FileConfig",
-      "10": "JsonConfig",
-      "11": "ModelConfigNone",
-      "12": "HostConfig",
-      "13": "ListConfig",
-      "14": "TemplateConfig",
-      "15": "ScsConfig",
-      "16": "ModelConfigScalar",
-      "17": "ModelConfigObject"
+      "9": "ConfigAsFlatListCall",
+      "10": "ModelConfigNone",
+      "11": "HostConfig",
+      "12": "ListConfig",
+      "13": "FileConfig",
+      "14": "ScsConfig",
+      "15": "ModelConfigScalar",
+      "16": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "subModule",
     "description": "Defines the target  sub module like 'main' or 'test'. ",
     "naturalId": "subModule"

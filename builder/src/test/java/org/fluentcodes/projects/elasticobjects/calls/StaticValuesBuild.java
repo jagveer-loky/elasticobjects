@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.EO;
+//import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ import static org.fluentcodes.projects.elasticobjects.B_STATIC.T_STATIC_VALUES_L
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 public class StaticValuesBuild {
-
+/*
     @Ignore
     @Test
     public void EOStaticJavaTemplate()  {
@@ -49,4 +49,6 @@ public class StaticValuesBuild {
         String result = action.execute(adapter, attributes);
         fileAction.write(adapter);
     }
+
+ */
 }

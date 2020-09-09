@@ -7,11 +7,8 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-/**
- * Created 7.6.2018
- */
 public class CreatorCallsListTest extends CreatorConfigs {
-
+/*
     @Test
     public void xlsxXEOTest()  {
         String result = createJsonConfig(BEO_STATIC.XLSX_XLSX, XEO_STATIC.MODULE_NAME, EO_STATIC.TEST);
@@ -37,5 +34,7 @@ public class CreatorCallsListTest extends CreatorConfigs {
         String result = createJsonConfig(BEO_STATIC.CSV_XLSX, "actions-csv", EO_STATIC.TEST);
         Assert.assertTrue(result.isEmpty());
     }
+
+ */
 
 }

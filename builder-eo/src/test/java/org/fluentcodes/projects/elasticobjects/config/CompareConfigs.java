@@ -1,16 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.fluentcodes.projects.elasticobjects.calls.XlsxCall;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
-import org.fluentcodes.projects.elasticobjects.utils.JSONReader;
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.junit.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CompareConfigs {
-
+/*
     public void compare(final String xlsxFile, final String config, final String module, final String subModule)  {
         EO adapter = TestObjectProvider.createEOFromJson();
 
@@ -42,4 +39,6 @@ public class CompareConfigs {
         }
         Assert.assertFalse(compare.toString().contains("!="));
     }
+
+ */
 }

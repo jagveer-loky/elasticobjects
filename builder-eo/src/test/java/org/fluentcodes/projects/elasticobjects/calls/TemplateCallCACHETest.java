@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.fluentcodes.projects.elasticobjects.B_STATIC.*;
 
 public class TemplateCallCACHETest {
-
+/*
     @Test
     public void executeCACHECreateTpl()  {
         TestBuilderEOProvider.testTemplate(T_CACHE_CREATE_TPL);
@@ -37,4 +37,6 @@ public class TemplateCallCACHETest {
         TestBuilderEOProvider.testTemplate(T_CONFIG_BUILDER_SETTER_TPL);
     }
 
+
+ */
 }

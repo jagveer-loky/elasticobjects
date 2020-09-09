@@ -104,6 +104,22 @@
     "packageGroup": "configs",
     "author": "Werner Diwischek"
   },
+  "ConfigAsFlatListCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "description": "Creates a string as list file.",
+    "modelKey": "ConfigAsFlatListCall",
+    "expose": "WEB",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": true
+    },
+    "fieldKeys": ["configType"],
+    "superKey": "ConfigImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
+    "packageGroup": "configs",
+    "author": "Werner Diwischek"
+  },
   "ConfigOpenApiCall": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -678,25 +694,7 @@
       "serializationType"
     ],
     "modelKey": "JsonReadCall",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
-    "packageGroup": "json",
-    "author": "Werner Diwischek"
-  },
-  "JsonConfig": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "expose": "INFO",
-    "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
-    },
-    "description": "Configuration for {@link JsonAction}.",
-    "superKey": "FileConfig",
-    "fieldKeys": [
-      "indent"
-    ],
-    "modelKey": "JsonConfig",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.json",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "packageGroup": "json",
     "author": "Werner Diwischek"
   },
@@ -1200,7 +1198,6 @@
     "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "modelConfigKey": "TemplateConfig",
       "create": true
     },
     "description": "Executes a template content. ",
@@ -1227,24 +1224,6 @@
       "keepCall"
     ],
     "modelKey": "TemplateResourceCall",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
-    "packageGroup": "templates",
-    "author": "Werner Diwischek"
-  },
-  "TemplateConfig": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "expose": "INFO",
-    "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
-    },
-    "description": "The cache {@link TemplateConfig} contains a prepared TemplateParser.",
-    "superKey": "FileConfig",
-    "fieldKeys": [
-      "keepCall"
-    ],
-    "modelKey": "TemplateConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "packageGroup": "templates",
     "author": "Werner Diwischek"

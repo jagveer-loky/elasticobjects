@@ -83,5 +83,110 @@
     "mapPath": "static",
     "fileName": "EO_STATIC_TEST.java",
     "description": "Static String constants for test."
+  },
+  "models.xlsx:Model": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:Model",
+    "jsonKey": "models.xlsx:Model",
+    "fileName": "ModelConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for models."
+  },
+  "models.xlsx:Field": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:Field",
+    "jsonKey": "models.xlsx:Field",
+    "fileName": "FieldConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for field."
+  },
+  "models.xlsx:User": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:User",
+    "jsonKey": "models.xlsx:User",
+    "fileName": "UserConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for user."
+  },
+  "models.xlsx:Role": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "models.xlsx:Role",
+    "jsonKey": "models.xlsx:Role",
+    "fileName": "RoleConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for roles."
+  },
+  "actions.xlsx:Json": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Json",
+    "jsonKey": "actions.xlsx:Json",
+    "fileName": "JsonConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for json files."
+  },
+  "actions.xlsx:Template": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Template",
+    "jsonKey": "actions.xlsx:Template",
+    "fileName": "TemplateConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for templates."
+  },
+  "actions.xlsx:Value": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Value",
+    "jsonKey": "actions.xlsx:Value",
+    "fileName": "ValueConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for value setting."
+  },
+  "actions.xlsx:Host": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:Host",
+    "jsonKey": "actions.xlsx:Host",
+    "fileName": "HostConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for hosts."
+  },
+  "actions.xlsx:File": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "actions.xlsx:File",
+    "jsonKey": "actions.xlsx:File",
+    "fileName": "FileConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for files."
+  },
+  "ConfigsCallsList.xlsx:Xlsx": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsList.xlsx:Xlsx",
+    "jsonKey": "ConfigsCallsList.xlsx:Xlsx",
+    "fileName": "XlsxConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for xlsx."
+  },
+  "ConfigsCallsList.xlsx:Csv": {
+    "module": "builder-eo",
+    "subModule": "main",
+    "naturalId": "ConfigsCallsList.xlsx:Csv",
+    "jsonKey": "ConfigsCallsList.xlsx:Csv",
+    "fileName": "CsvConfig.json",
+    "filePath": "../$[../_parentKey]/src/$[_parentKey]/resources",
+    "description": "Json configurations for csv."
+  },
+  "StaticFromXlsx.tpl": {
+    "templateKey": "StaticFromXlsx.tpl",
+    "fileName": "StaticFromXlsx.tpl",
+    "filePath": "classpath/templates",
+    "description": "Creates static vars. "
   }
 }

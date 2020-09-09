@@ -12,7 +12,7 @@ import org.junit.Test;
  * Created 7.6.2018
  */
 public class CreatorCallsBaseTest extends CreatorConfigs {
-
+/*
     @Test
     public void valueEOTest()  {
         String result = createJsonConfig(BEO_STATIC.VALUE_XLSX, EO_STATIC.MODULE_NAME, EO_STATIC.TEST);
@@ -27,9 +27,6 @@ public class CreatorCallsBaseTest extends CreatorConfigs {
         Assert.assertTrue(result.isEmpty());
     }
 
-    /**
-     * Hosts
-     */
 
     @Test
     public void hostEOTest()  {
@@ -42,11 +39,8 @@ public class CreatorCallsBaseTest extends CreatorConfigs {
         String result = createJsonConfig(BEO_STATIC.HOST_XLSX, EO_STATIC.MODULE_NAME, EO_STATIC.MAIN);
         Assert.assertTrue(result.isEmpty());
     }
-
-    /**
-     * Files
-     */
-
+*/
+/*
     @Test
     public void fileEOTest()  {
         String result = createJsonConfig(BEO_STATIC.FILE_XLXS, EO_STATIC.MODULE_NAME, EO_STATIC.TEST);
@@ -79,16 +73,13 @@ public class CreatorCallsBaseTest extends CreatorConfigs {
         Assert.assertTrue(result.isEmpty());
     }
 
-    /**
-     * Templates
-     */
-
     @Test
     public void templateEOTest()  {
         String result = createJsonConfig(BEO_STATIC.TEMPLATE_XLSX, EO_STATIC.MODULE_NAME, EO_STATIC.TEST);
         Assert.assertTrue(result.isEmpty());
     }
-
+*/
+    /*
     @Test
     public void templateEOMain()  {
         String result = createJsonConfig(BEO_STATIC.TEMPLATE_XLSX, EO_STATIC.MODULE_NAME, EO_STATIC.MAIN);
@@ -100,11 +91,6 @@ public class CreatorCallsBaseTest extends CreatorConfigs {
         String result = createJsonConfig(BEO_STATIC.TEMPLATE_XLSX, B_STATIC.MODULE_NAME, EO_STATIC.MAIN);
         Assert.assertTrue(result.isEmpty());
     }
-
-    /**
-     * Json
-     */
-
     @Test
     public void jsonEOTest()  {
         String result = createJsonConfig(BEO_STATIC.JSON_XLSX, EO_STATIC.MODULE_NAME, EO_STATIC.TEST);
@@ -122,5 +108,5 @@ public class CreatorCallsBaseTest extends CreatorConfigs {
         String result = createJsonConfig(BEO_STATIC.JSON_XLSX, BEO_STATIC.MODULE_NAME, EO_STATIC.MAIN);
         Assert.assertTrue(result.isEmpty());
     }
-
+*/
 }

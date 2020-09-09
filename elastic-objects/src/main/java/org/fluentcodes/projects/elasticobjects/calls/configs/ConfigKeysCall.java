@@ -75,8 +75,9 @@ public class ConfigKeysCall extends CallImpl<List>{
         return configType;
     }
 
-    public void setConfigType(String configName) {
+    public ConfigKeysCall setConfigType(String configName) {
         this.configType = configName;
+        return this;
     }
 
     public String getConfigFilter() {

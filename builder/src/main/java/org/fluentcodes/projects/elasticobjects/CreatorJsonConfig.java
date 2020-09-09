@@ -1,9 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import com.lexicalscope.jewel.cli.CliFactory;
-import org.fluentcodes.projects.elasticobjects.calls.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.config.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 
 import java.util.HashMap;
@@ -29,10 +28,10 @@ public class CreatorJsonConfig {
     public String createJson(final CreatorParams params)  {
         StringBuilder builder = new StringBuilder();
         for (final String sheet : params.getActionKeys()) {
-            TemplateCall action = new TemplateCall(configsCache, params.getExecute());
-            EO adapter = new EOBuilder(configsCache).build();
-            adapter.add("/tmp/sheet").set(sheet);
-            action.execute(adapter, getAsAttributes(params));
+            TemplateCall action = new TemplateCall();
+            EO eo = new EoRoot(configsCache);
+            eo.set(sheet,"/tmp/sheet");
+            action.execute(eo);
         }
         return builder.toString();
     }

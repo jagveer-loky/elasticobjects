@@ -1,37 +1,37 @@
 package org.fluentcodes.projects.elasticobjects.calls.executor;
 
 import org.fluentcodes.projects.elasticobjects.CreatorParams;
-import org.fluentcodes.projects.elasticobjects.config.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.paths.Path;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
-import org.fluentcodes.projects.elasticobjects.utils.Util;
-
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.models.EOParams.SHAPE_TYPE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.DB_FIELD_PARAMS;
 
 
 /**
  * Created by werner.diwischek on 20.05.18.
  */
 public class ValueFieldsJava {
-
+/*
     protected final static EO getFieldDbParams(EO fields)  {
         return fields
-                .getChild(F_DB_FIELD_PARAMS);
+                .getEo(DB_FIELD_PARAMS);
     }
 
     protected final static EO getFieldEoParams(EO fields)  {
         return fields
-                .getChild(F_EO_FIELD_PARAMS);
+                .getEo(EO_FIELD_PARAMS);
     }
 
     protected final static EO getFieldDbParams(EO adapter, String fieldKey)  {
         return getFieldParams(adapter, fieldKey)
-                .getChild(F_DB_FIELD_PARAMS);
+                .getEo(DB_FIELD_PARAMS);
     }
 
     protected final static EO getFieldParams(EO adapter, String fieldKey)  {
-        return adapter.getChild(CreatorParams.FIELDS_MAP_PATH + Path.DELIMITER + fieldKey);
+        return adapter.getEo(CreatorParams.FIELDS_MAP_PATH + Path.DELIMITER + fieldKey);
     }
 
     private final static String[] getModelKeys(EO fieldParams)  {
@@ -47,15 +47,15 @@ public class ValueFieldsJava {
         if (modelKeys == null || modelKeys.length == 0) {
             return ShapeTypes.NONE;
         }
-        EO modelParams = ValueModelsJava.getModelParams(fieldParams, modelKeys[0]);
+        EO modelParams = org.fluentcodes.projects.elasticobjects.calls.executor.ValueModelsJava.getModelParams(fieldParams, modelKeys[0]);
         if (modelParams == null || modelParams.isEmpty()) {
             return ShapeTypes.NONE;
         }
-        EO modelEoParams = ValueModelsJava.getModelEoParams(modelParams);
+        EO modelEoParams = org.fluentcodes.projects.elasticobjects.calls.executor.ValueModelsJava.getModelEoParams(modelParams);
         if (modelEoParams == null || modelEoParams.isEmpty()) {
             return ShapeTypes.NONE;
         }
-        String shapeTypeAsString = ScalarConverter.toString(modelEoParams.get(F_SHAPE_TYPE));
+        String shapeTypeAsString = ScalarConverter.toString(modelEoParams.get(SHAPE_TYPE));
         if (shapeTypeAsString == null || shapeTypeAsString.isEmpty()) {
             return ShapeTypes.NONE;
         }
@@ -97,7 +97,8 @@ public class ValueFieldsJava {
         }
         return getModelKeys(fieldParams);
     }
-
+*/
+    /*
     public static String createInstanceVar(final EO adapter, final String fieldKey)  {
         EO fieldParams = getFieldParams(adapter, fieldKey);
         if (fieldParams == null) {
@@ -153,11 +154,11 @@ public class ValueFieldsJava {
             return "";
         }
         StringBuilder result = new StringBuilder();
-        result.append("\n    /**\n");
+        result.append("\n    \n");
         result.append("    * ");
         result.append(fieldParams.get("description"));
-        result.append("\n    */\n");
-        return result.toString();
+        result.append("\n    \n");
+return result.toString();
     }
 
     protected static String createAnnotation(EO adapter, String fieldKey)  {
@@ -168,10 +169,10 @@ public class ValueFieldsJava {
         }
         String models = (String) fieldParams.get("modelKeys");
 
-        /*String modelTable = "";
+        String modelTable = "";
         if (modelTable == null ||  modelTable.isEmpty()) {
             return "";
-        }*/
+        }
 
         EO fieldDbParams = getFieldDbParams(fieldParams);
         if (fieldDbParams == null || fieldDbParams.isEmpty()) {
@@ -322,20 +323,21 @@ public class ValueFieldsJava {
         }
         return "    inverseJoinColumns=@JoinColumn(name=\"" + Util.lowerFirstCharacter(modelTable) + "_id\", referencedColumnName=\"id\")\n";
     }
-
+*/
+    /*
     public static String getManyToManyJoin(final EO dbParams)  {
-        /*String [] modelKeys = getFieldModelKeys();
+        String [] modelKeys = getFieldModelKeys();
         if (modelKeys.length!=2) {
             throw new Exception("modelKeys has not target type " + getFieldKey());
         }
         String className = modelKeys[1];
         return "    joinColumns=@JoinColumn(name=\"" + Util.lowerFirstCharacter(className) + "_id\", referencedColumnName=\"id\"),\n";
-        */
+
         return "";
     }
 
     protected static String getJoinTable(final EO dbParams)  {
-        /*List<String> tables = new ArrayList<>();
+        List<String> tables = new ArrayList<>();
         tables.add(getParent().getModelKey());
 
         String[] modelKeys = getModels().toString().split(",");
@@ -353,7 +355,7 @@ public class ValueFieldsJava {
         builder.append(getManyToManyJoin());
         builder.append(getManyToManyInverseJoin());
         builder.append("   )\n");
-        return builder.toString();*/
+        return builder.toString();
         return "";
     }
 
@@ -372,5 +374,6 @@ public class ValueFieldsJava {
             return this.annotation;
         }
     }
+    */
 }
 

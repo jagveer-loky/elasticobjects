@@ -1,8 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -15,6 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 public class TemplateCallStaticValuesTest {
     //TODO
+    /*
     @Ignore
     @Test
     public void staticValuesLoopTpl()  {
@@ -76,4 +76,6 @@ public class TemplateCallStaticValuesTest {
         String result = action.execute(adapter, attributes);
         //AssertEO.compare(result);
     }
+
+     */
 }

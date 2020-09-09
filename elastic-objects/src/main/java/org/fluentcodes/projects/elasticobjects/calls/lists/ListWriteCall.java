@@ -1,12 +1,15 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.CallResource;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 
 import java.util.*;
 
@@ -188,6 +191,96 @@ public class ListWriteCall extends CallResource<Boolean> {
             toWrite.add(row);
         }
         return toWrite;
+    }
+
+    public List<List<String>> flattenToStringList(EO eo, List values, List<String> keys) {
+        List<List<String>> result = new ArrayList<>();
+        Map<String, Integer> keyPosition = new LinkedHashMap<>();
+        boolean externalKey = true;
+        if (keys == null || keys.isEmpty()) {
+            keyPosition.put(Config.NATURAL_ID, 0);
+            externalKey = false;
+        }
+        else {
+            for (int i = 0; i<keys.size();i++) {
+                keyPosition.put(keys.get(i), i);
+            }
+        }
+        int keyMap = 1;
+        for (Object row : values) {
+            List<String> rowList = new ArrayList<>(Collections.nCopies(keyPosition.size(), ""));
+            Map<String, Object> valueMap = (Map<String, Object>) row;
+
+            for (String key: valueMap.keySet()) {
+                Object valueMapValue = valueMap.get(key);
+                if (valueMapValue==null) {
+                    continue;
+                }
+                String value = null;
+                if (valueMapValue instanceof String) {
+                    value = (String) valueMapValue;
+                }
+                else if ((valueMapValue instanceof Map)) {
+                    if (((Map) valueMapValue).isEmpty()) {
+                        value = "";
+                    }
+                    else{
+                        value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJSON(eo.getConfigsCache(), valueMapValue);
+                    }                }
+                else if ((valueMapValue instanceof List)) {
+                    if (((List) valueMapValue).isEmpty()) {
+                        value = "";
+                    }
+                    else{
+                        value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJSON(eo.getConfigsCache(), valueMapValue);
+                    }
+                }
+                else if ((valueMapValue instanceof Integer) || (valueMapValue instanceof Float) || (valueMapValue instanceof Double) || (valueMapValue instanceof Long)){
+                    value = valueMapValue.toString();
+                }
+                else {
+                    value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJSON(eo.getConfigsCache(), valueMapValue);
+                }
+                try {
+                    if (!keyPosition.containsKey(key)) {
+                        if (!externalKey) {
+                            keyPosition.put(key, keyMap);
+                            keyMap++;
+                            rowList.add(value);
+                        }
+                    } else {
+                        rowList.set(keyPosition.get(key), value);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println();
+                }
+            }
+            result.add(rowList);
+        }
+        result.add(0, new ArrayList<>(keyPosition.keySet()));
+        return result;
+    }
+
+    public String asString(EO eo, List values, List<String> keys) {
+        List<List<String>> flattened = flattenToStringList(eo, values, keys);
+        int max = flattened.get(0).size();
+        StringBuilder builder = new StringBuilder();
+        for (List<String> row: flattened) {
+            for (int i=0; i< row.size();i++) {
+                builder.append("\"");
+                builder.append(
+                        row.get(i)
+                                .replaceAll("\"", "\"\"")
+                                .replaceAll("\n", "\r"));
+                builder.append("\"");
+                if (i<max) {
+                    builder.append(";");
+                }
+            }
+            builder.append("\n");
+        }
+        return builder.toString();
     }
 
 }

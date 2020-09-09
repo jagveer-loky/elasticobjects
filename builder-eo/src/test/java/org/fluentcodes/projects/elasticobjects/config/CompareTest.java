@@ -1,9 +1,4 @@
 package org.fluentcodes.projects.elasticobjects.config;
-
-import org.fluentcodes.projects.elasticobjects.calls.XlsxCall;
-import org.fluentcodes.projects.elasticobjects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestObjectProvider;
-import org.fluentcodes.projects.elasticobjects.utils.JSONReader;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CompareTest {
+    /*
     @Test
     public void compareElasticObjectsFieldsMain()  {
         compare("models.xlsx", "Field", "elastic-objects", "main");
@@ -27,9 +23,6 @@ public class CompareTest {
         compare("models.xlsx", "Field", "actions-xlsx", "main");
     }
 
-    /**
-     * Models
-     */
 
     @Test
     public void compareElasticObjectsModelMain()  {
@@ -46,10 +39,6 @@ public class CompareTest {
         compare("models.xlsx", "Model", "actions-xlsx", "main");
     }
 
-    /**
-     * Users
-     */
-
     @Test
     public void compareElasticObjectsUserMain()  {
         compare("models.xlsx", "User", "elastic-objects", "main");
@@ -61,10 +50,6 @@ public class CompareTest {
     }
 
 
-    /**
-     * Roles
-     */
-
     @Test
     public void compareElasticObjectsRoleMain()  {
         compare("models.xlsx", "Role", "elastic-objects", "main");
@@ -75,9 +60,6 @@ public class CompareTest {
         compare("models.xlsx", "Role", "elastic-objects", "test");
     }
 
-    /**
-     * Values
-     */
     @Test
     public void compareElasticObjectsValueTest()  {
         compare("actions.xlsx", "Value", "elastic-objects", "test");
@@ -89,10 +71,6 @@ public class CompareTest {
     public void compareElasticObjectsValueMain()  {
         compare("actions.xlsx", "Value", "elastic-objects", "main");
     }
-
-    /**
-     * Host
-     */
     @Test
     public void compareElasticObjectsHostTest()  {
         compare("actions.xlsx", "Host", "elastic-objects", "test");
@@ -103,9 +81,6 @@ public class CompareTest {
         compare("actions.xlsx", "Host", "elastic-objects", "main");
     }
 
-    /**
-     * Files
-     */
     @Test
     public void compareElasticObjectsFileTest()  {
         compare("actions.xlsx", "File", "elastic-objects", "test");
@@ -118,9 +93,6 @@ public class CompareTest {
         compare("actions.xlsx", "File", "elastic-objects", "main");
     }
 
-    /**
-     * Templates
-     */
     @Test
     public void compareElasticObjectsTemplateTest()  {
         compare("actions.xlsx", "Template", "elastic-objects", "test");
@@ -130,10 +102,8 @@ public class CompareTest {
     public void compareElasticObjectsTemplateMain()  {
         compare("actions.xlsx", "Template", "elastic-objects", "main");
     }
-
-    /**
-     * Jsons
-     */
+*/
+    /*
     @Test
     public void compareElasticObjectsJsonTest()  {
         compare("actions.xlsx", "Json", "elastic-objects", "test");
@@ -176,4 +146,6 @@ public class CompareTest {
         }
 
     }
+
+     */
 }
