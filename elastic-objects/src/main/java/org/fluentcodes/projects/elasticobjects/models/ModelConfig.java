@@ -12,8 +12,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 /**
  * Created by Werner on 09.10.2016.
  */
@@ -22,7 +20,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     public static final String FIELD_KEYS = "fieldKeys";
     public static final String VIEW_PARAMS = "viewParams";
     public static final String EO_PARAMS = "eoParams";
-    public static final String CUSTOM_FIELD_PARAMS = "customFieldParams";
     public static final String JSON_TYPE = "jsonType";
     public static final String JSON_FORMAT = "jsonFormat";
 
@@ -33,6 +30,8 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     public static final String PACKAGE_PATH = "packagePath";
     public static final String INTERFACES = "interfaces";
     public static final String DB_PARAMS = "dbParams";
+    public static final String CUSTOM_PARAMS = "customParams";
+    public static final String SUPER_KEY = "superKey";
 
     private static final Logger LOG = LogManager.getLogger(ModelConfig.class);
 
@@ -633,7 +632,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             packageGroup = ScalarConverter.toString(values.get(PACKAGE_GROUP));
             packagePath = ScalarConverter.toString(values.get(PACKAGE_PATH));
             author = ScalarConverter.toString(values.get(AUTHOR));
-            superKey = ScalarConverter.toString(values.get(F_SUPER_KEY));
+            superKey = ScalarConverter.toString(values.get(SUPER_KEY));
             interfaces = ScalarConverter.toString(values.get(INTERFACES));
 
             Object fieldKeysAsObject = values.get(FIELD_KEYS);
@@ -657,7 +656,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
                 dbParams = new DBParams(values.get(DB_PARAMS));
                 eoParams = new EOParams(values.get(EO_PARAMS));
                 viewParams = new ViewParams(values.get(VIEW_PARAMS));
-                customParams = (Map) values.get(F_CUSTOM_PARAMS);
+                customParams = (Map) values.get(CUSTOM_PARAMS);
             }
             catch(Exception e) {
                 e.printStackTrace();

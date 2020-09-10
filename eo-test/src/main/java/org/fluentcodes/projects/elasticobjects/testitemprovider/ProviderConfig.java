@@ -30,12 +30,12 @@ public class ProviderConfig {
         map.put(ModelConfig.DB_PARAMS, createDbParams());
         map.put(ModelConfig.EO_PARAMS, createEoParams());
         map.put(ModelConfig.VIEW_PARAMS, null);
-        map.put(F_CUSTOM_PARAMS, null);
+        map.put(ModelConfig.CUSTOM_PARAMS, null);
         map.put(ModelConfig.FIELD_KEYS, null);
         map.put(ModelConfig.PACKAGE_PATH, ModelConfig.PACKAGE_PATH);
         map.put(ModelConfig.PACKAGE_GROUP, ModelConfig.PACKAGE_GROUP);
         map.put(Model.AUTHOR, Model.AUTHOR);
-        map.put(F_SUPER_KEY, F_SUPER_KEY);
+        map.put(ModelConfig.SUPER_KEY, ModelConfig.SUPER_KEY);
         map.put(ModelConfig.INTERFACES, ModelConfig.INTERFACES);
         createConfig(map);
         return map;

@@ -18,13 +18,12 @@
   "DbConfig": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbConfig",
-    "superKey": "ConfigResourcesImpl",
+    "superKey": "HostConfig",
     "fieldKeys": [
       "schema",
       "driver",
       "jndi",
       "dbType",
-      "hostKey",
       "extension"
     ],
     "eoParams": {

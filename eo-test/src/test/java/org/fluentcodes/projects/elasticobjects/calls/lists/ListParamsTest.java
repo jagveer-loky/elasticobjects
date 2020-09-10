@@ -1,14 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 22.4.2017
@@ -29,7 +23,7 @@ public class ListParamsTest {
 
     @Test
     public void givenModelClass_whenSetRowHead_thenException() {
-        ConfigModelChecks.checkSetGet(ListParams.class, F_ROW_HEAD, 1);
+        ConfigModelChecks.checkSetGet(ListParams.class, ListParams.ROW_HEAD, 1);
     }
 
     @Test

@@ -10,8 +10,6 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 /**
  * A bean class for containing the following values:
  * <ul>
@@ -22,6 +20,11 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by werner.diwischek on 03.12.16.
  */
 public class ListParams {
+    public static final String ROW_HEAD = "rowHead";
+    public static final String ROW_START = "rowStart";
+    public static final String LENGTH = "length";
+    public static final String ROW_END = "rowEnd";
+    public static final String FILTER = "filter";
     private Integer rowStart;
     private Integer rowEnd;
     private Integer length;
@@ -37,6 +40,7 @@ public class ListParams {
     }
 
     public ListParams(Map attributes) {
+
         mapAttributes(attributes);
     }
 
@@ -44,11 +48,11 @@ public class ListParams {
         if (attributes == null || attributes.isEmpty()) {
             return;
         }
-        setRowHead(attributes.get(F_ROW_HEAD));
-        setRowStart(attributes.get(F_ROW_START));
-        setLength(attributes.get(F_LENGTH));
-        setRowEnd(attributes.get(F_ROW_END));
-        this.filterRaw = ScalarConverter.toString(attributes.get(F_FILTER));
+        setRowHead(attributes.get(ROW_HEAD));
+        setRowStart(attributes.get(ROW_START));
+        setLength(attributes.get(LENGTH));
+        setRowEnd(attributes.get(ROW_END));
+        this.filterRaw = ScalarConverter.toString(attributes.get(FILTER));
     }
 
     /**
@@ -377,6 +381,14 @@ public class ListParams {
         if (rowEnd == null) {
             rowEnd = -1;
         }
-
     }
+    public List <String> getColKeys() {
+        return colKeys;
+    }
+
+    public ListParams setColKeys(List <String> colKeys) {
+        this.colKeys = colKeys;
+        return this;
+    }
+
 }

@@ -21,8 +21,7 @@
         "(Scope)0": "ALL"
       },
       "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN",
-      "modelConfigKey": "FileConfig"
+      "(ShapeTypes)shapeType": "CALL_BEAN"
     },
     "packageGroup": "files",
     "module": "elastic-objects",

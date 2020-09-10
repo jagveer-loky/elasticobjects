@@ -7,7 +7,7 @@
     "filePath": "input/calls/file-simple",
     "fileName": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
-    "cached": "false",
+    "cached": false,
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
@@ -20,7 +20,7 @@
     "filePath": "input/calls/file-simple",
     "fileName": "FileTest.txt",
     "description": "Local file with cache set true.",
-    "cached": "true"
+    "cached": true
   },
   "target.txt": {
     "module": "elastic-objects",
@@ -32,20 +32,41 @@
 
   },
   "ListSimple.csv": {
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "main",
-    "fileKey": "ListSimple.csv",
-    "filePath": "input/calls/list-simple/",
+    "configModelKey": "ScsConfig",
     "fileName": "ListSimple.csv",
+    "filePath": "input/calls/list-simple",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
     "description": "A sample csv file with 2*2 values and a head as a source."
   },
   "target.csv": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "fileKey": "target.csv",
+    "module": "eo-test",
+    "subModule": "main",
+    "configModelKey": "ScsConfig",
     "fileName": "target.csv",
-    "description": "A sample target csv file with tmp placeholder.",
-    "filePath": "$[@TMP]"
+    "filePath": "$[@TMP]",
+
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "description": "A sample target csv file with tmp placeholder."
   },
   "ListSimple.json": {
     "module": "eo-test",
