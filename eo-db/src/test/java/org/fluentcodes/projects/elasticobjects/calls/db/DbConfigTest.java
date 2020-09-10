@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.junit.Test;
 
 /**
@@ -27,12 +28,12 @@ public class DbConfigTest {
 
     @Test
     public void resolveConfigurations()  {
-        ConfigChecks.resolveConfigurations(DbConfig.class);
+        ConfigChecks.resolveConfigurations(HostConfig.class);
     }
 
     @Test
     public void compareConfigurations()  {
-        ConfigChecks.compareConfigurations(DbConfig.class);
+        ConfigChecks.compareConfigurations(HostConfig.class);
     }
 
     /*private static final DbConfig H2_DB = DbProvider.findDbCache(DB_H2_MEM_BASIC);

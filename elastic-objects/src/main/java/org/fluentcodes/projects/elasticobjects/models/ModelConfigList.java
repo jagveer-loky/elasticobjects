@@ -6,19 +6,17 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Werner on 09.10.2016.
  */
 public class ModelConfigList extends ModelConfig implements ModelInterface {
     private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
+    public static final String CONFIG_MODEL_KEY = "ModelConfigList";
 
-    public ModelConfigList(EOConfigsCache provider, Builder bean) {
-        super(provider, bean);
+    public ModelConfigList(EOConfigsCache provider, Map map) {
+        super(provider, map);
     }
 
     @Override

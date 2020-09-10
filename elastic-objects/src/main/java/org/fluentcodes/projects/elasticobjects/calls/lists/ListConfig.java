@@ -11,15 +11,10 @@ import java.util.Map;
 /**
  * Created by Werner on 30.10.2016.
  */
-public abstract class ListConfig implements ListConfigInterface{
+public abstract class ListConfig implements ListConfigInterface {
 
     private final ListParams listParams;
     private final ListMapper listMapper;
-
-    public ListConfig(final EOConfigsCache configsCache, final Builder builder) {
-        this.listParams = builder.listParams;
-        this.listMapper = builder.listMapper;
-    }
 
     public ListConfig(Map map) {
         this.listParams = new ListParams((Map)map.get(LIST_PARAMS));
@@ -37,17 +32,6 @@ public abstract class ListConfig implements ListConfigInterface{
     public void resolve()  {
         if (hasColKeys()) {
             return;
-        }
-    }
-
-    public static class Builder extends ConfigResourcesImpl.Builder {
-        private ListParams listParams;
-        private ListMapper listMapper;
-
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            super.prepare(configsCache, values);
-            this.listParams = new ListParams((Map) values.get("listParams"));
-            this.listMapper = new ListMapper((Map) values.get("listMapper"));
         }
     }
 }

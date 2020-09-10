@@ -14,8 +14,8 @@ public interface Config extends Model {
     EOConfigsCache getConfigsCache();
     Expose getExpose();
     void setExpose(Expose expose);
+    String getConfigModelKey();
     boolean hasExpose();
-
     boolean hasScope(final Scope scope);
 
 

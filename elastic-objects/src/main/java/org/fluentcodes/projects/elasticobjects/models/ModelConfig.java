@@ -45,7 +45,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     private final List<String> fieldKeys;
     private final String packagePath;
     private final String packageGroup;
-    private final String author;
     private final String superKey;
     private final String interfaces;
     private final Map<String, FieldConfig> fieldCacheMap;
@@ -54,26 +53,40 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     private Class modelClass;
     private ModelInterface superModel;
 
-    public ModelConfig(EOConfigsCache configsCache, Builder builder) {
-        super(configsCache, builder);
+    public ModelConfig(EOConfigsCache configsCache, Map map) {
+        super(configsCache, map);
+        modelKey = (String) map.get(MODEL_KEY);
+        jsonType = (String) map.get(JSON_TYPE);
+        packageGroup = (String) map.get(PACKAGE_GROUP);
+        packagePath = (String) map.get(PACKAGE_PATH);
+        superKey = (String) map.get(SUPER_KEY);
+        interfaces = (String) map.get(INTERFACES);
 
-        //<call keep="JAVA" templateKey="CacheSetter.tpl" }
-
-        this.modelKey = builder.modelKey;
-        this.jsonType = builder.jsonType;
-        this.eoParams = builder.eoParams;
-        this.dbParams = builder.dbParams;
-        this.viewParams = builder.viewParams;
-        this.customParams = builder.customParams;
-
-        this.fieldKeys = builder.fieldKeys;
-        this.localFieldKeys = new ArrayList(builder.fieldKeys);
-        this.packagePath = builder.packagePath;
-        this.packageGroup = builder.packageGroup;
-        this.author = builder.author;
-        this.superKey = builder.superKey;
-        this.interfaces = builder.interfaces;
-
+        Object fieldKeysAsObject = map.get(FIELD_KEYS);
+        if (fieldKeysAsObject == null) {
+            fieldKeys = new ArrayList<>();
+        } else if (fieldKeysAsObject instanceof String) {
+            String fieldKeysAsString = (String) fieldKeysAsObject;
+            if (fieldKeysAsString.isEmpty()) {
+                fieldKeys = new ArrayList<>();
+            } else {
+                fieldKeys = Arrays.asList(fieldKeysAsString.split(","));
+            }
+        } else if (fieldKeysAsObject instanceof List) {
+            fieldKeys = (List) fieldKeysAsObject;
+        } else {
+            fieldKeys = new ArrayList<>();
+        }
+        this.localFieldKeys = new ArrayList(fieldKeys);
+        try {
+            dbParams = new DBParams(map.get(DB_PARAMS));
+            eoParams = new EOParams((Map)map.get(EO_PARAMS));
+            viewParams = new ViewParams(map.get(VIEW_PARAMS));
+            customParams = (Map) map.get(CUSTOM_PARAMS);
+        }
+        catch(Exception e) {
+            throw new EoException("Problem with setting '" + getNaturalId() + "': " + e.getMessage());
+        }
         this.fieldCacheMap = new LinkedHashMap<>();
         this.interfacesMap = new LinkedHashMap<>();
         this.importClasses = new LinkedHashMap<>();
@@ -121,18 +134,18 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         }
         if (fieldKeys.isEmpty()) {
             eoParams.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR);
+            eoParams.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         } else {
-            eoParams.put(EOParams.SHAPE_TYPE, ShapeTypes.BEAN);
+            eoParams.put(EOParams.SHAPE_TYPE, ShapeTypes.BEAN.name());
         }
         modelMap.put(FIELD_KEYS, fieldKeys);
-        ModelConfig config = (ModelConfig) new Builder().build(configsCache, modelMap);
-        configsCache.add(ModelConfig.class, config);
+        configsCache.addModel(modelMap);
         for (String fieldKey: fieldMap.keySet()) {
             if (!configsCache.hasConfigKey(FieldConfig.class, fieldKey)) {
                 FieldConfig.addByClassField(configsCache, fieldMap.get(fieldKey));
             }
         }
-        return config;
+        return configsCache.findModel(modelKey);
     }
 
     @Override
@@ -151,6 +164,10 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     @Override
     public EOParams getEoParams() {
         return eoParams;
+    }
+
+    public boolean hasEoParams() {
+        return eoParams!=null;
     }
 
     @Override
@@ -217,13 +234,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
      */
     public String getPackageGroup() {
         return this.packageGroup;
-    }
-
-    /**
-     * The autor of something e,g. a class.
-     */
-    public String getAuthor() {
-        return this.author;
     }
 
     /**
@@ -404,13 +414,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         setFieldKeys();
     }
 
-    private void setModelCacheClass() {
-        if (!hasModelConfigKey()) {
-            return;
-        }
-        ModelInterface cacheModel = getConfigsCache().findModel(getModelConfigKey());
-    }
-
     /**
      * Table definitions with pojo.
      */
@@ -428,23 +431,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
         return getShapeType() == ShapeTypes.SCALAR_SERIALIZED;
     }
 
-
-
-
-    /**
-     * The model config key for the config object {@link Config}.
-     */
-    public boolean hasModelConfigKey() {
-        return getModelConfigKey() != null;
-    }
-
-    public String getModelConfigKey() {
-        if (eoParams == null) {
-            return null;
-        }
-        return eoParams.getModelConfigKey();
-    }
-
     /**
      * A default Implementation if defined
      */
@@ -453,13 +439,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
             return null;
         }
         return eoParams.getDefaultImplementation();
-    }
-
-    public PathPattern getPathPattern() {
-        if (eoParams == null) {
-            return null;
-        }
-        return eoParams.getPathPattern();
     }
 
     /**
@@ -601,91 +580,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
     @Override
     public boolean isNull() {
         return false;
-    }
-
-
-
-    public static class Builder extends ConfigImpl.Builder {
-        //<call keep="JAVA" templateKey="BeanInstanceVars.tpl" }
-        private String modelKey;
-        private String jsonType;
-        private DBParams dbParams;
-        private EOParams eoParams;
-        private ViewParams viewParams;
-        private Map customParams;
-        //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
-        private List<String> fieldKeys;
-        private String packagePath;
-        private String packageGroup;
-        private String author;
-        private String superKey;
-        private String interfaces;
-
-        public Builder() {
-            super();
-        }
-
-
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values) {
-            modelKey = ScalarConverter.toString(values.get(MODEL_KEY));
-            jsonType = ScalarConverter.toString(values.get(JSON_TYPE));
-            packageGroup = ScalarConverter.toString(values.get(PACKAGE_GROUP));
-            packagePath = ScalarConverter.toString(values.get(PACKAGE_PATH));
-            author = ScalarConverter.toString(values.get(AUTHOR));
-            superKey = ScalarConverter.toString(values.get(SUPER_KEY));
-            interfaces = ScalarConverter.toString(values.get(INTERFACES));
-
-            Object fieldKeysAsObject = values.get(FIELD_KEYS);
-
-
-            if (fieldKeysAsObject == null) {
-                fieldKeys = new ArrayList<>();
-            } else if (fieldKeysAsObject instanceof String) {
-                String fieldKeysAsString = (String) fieldKeysAsObject;
-                if (fieldKeysAsString.isEmpty()) {
-                    fieldKeys = new ArrayList<>();
-                } else {
-                    fieldKeys = Arrays.asList(fieldKeysAsString.split(","));
-                }
-            } else if (fieldKeysAsObject instanceof List) {
-                fieldKeys = (List) fieldKeysAsObject;
-            } else {
-                fieldKeys = new ArrayList<>();
-            }
-            try {
-                dbParams = new DBParams(values.get(DB_PARAMS));
-                eoParams = new EOParams(values.get(EO_PARAMS));
-                viewParams = new ViewParams(values.get(VIEW_PARAMS));
-                customParams = (Map) values.get(CUSTOM_PARAMS);
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-                throw new EoException(e);
-            }
-            super.prepare(configsCache, values);
-        }
-
-
-        public Config build(EOConfigsCache configsCache, Map values) {
-            prepare(configsCache, values);
-            ShapeTypes shapeType = eoParams.getShapeType();
-            if (shapeType == ShapeTypes.MAP) {
-                return new ModelConfigMap(configsCache, this);
-            } else if (shapeType == ShapeTypes.NONE) {
-                return new ModelConfigNone(configsCache, this);
-            } else if (shapeType == ShapeTypes.LIST) {
-                return new ModelConfigList(configsCache, this);
-            } else if (shapeType == ShapeTypes.SET) {
-                return new ModelConfigSet(configsCache, this);
-            } else if (shapeType == ShapeTypes.SCALAR) {
-                return new ModelConfigScalar(configsCache, this);
-            }
-            else if (shapeType == ShapeTypes.ENUM) {
-                return new ModelConfigScalar(configsCache, this);
-            }else {
-                return new ModelConfigObject(configsCache, this);
-            }
-        }
     }
 
 }

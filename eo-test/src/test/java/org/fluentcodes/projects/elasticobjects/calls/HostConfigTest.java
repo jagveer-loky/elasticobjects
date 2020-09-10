@@ -42,11 +42,4 @@ public class HostConfigTest {
     public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(HostConfig.class);
     }
-
-    @Test
-    public void givenConfigMapHost_whenNew_thenEntryFromFiles()  {
-        EOConfigMap cache = new EOConfigMapImmutable(ProviderRootTestScope.EO_CONFIGS, HostConfig.class);
-        Assert.assertNotNull(cache.find(H_LOCALHOST));
-    }
-
 }

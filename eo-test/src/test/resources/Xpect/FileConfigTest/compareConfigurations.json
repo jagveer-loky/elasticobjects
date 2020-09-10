@@ -19,7 +19,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "BasicTest.csv",
     "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source.",
     "naturalId": "BasicTest.csv"
@@ -35,7 +35,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "BasicTest.json",
     "description": "Simple data for the BasicTest.",
     "naturalId": "BasicTest.json"
@@ -47,7 +47,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "content",
     "naturalId": "content"
   },
@@ -58,7 +58,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExample",
     "description": "Calls templates.",
     "naturalId": "ContentExample"
@@ -70,7 +70,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleData",
     "description": "Simple data for the content templates.",
     "naturalId": "ContentExampleData"
@@ -82,7 +82,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleDynamic",
     "naturalId": "ContentExampleDynamic"
   },
@@ -93,7 +93,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleElement1",
     "naturalId": "ContentExampleElement1"
   },
@@ -104,7 +104,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleElement2",
     "naturalId": "ContentExampleElement2"
   },
@@ -115,7 +115,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleStatic",
     "naturalId": "ContentExampleStatic"
   },
@@ -126,7 +126,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleStaticCondition",
     "naturalId": "ContentExampleStaticCondition"
   },
@@ -137,7 +137,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ContentExampleStaticKeep",
     "naturalId": "ContentExampleStaticKeep"
   },
@@ -152,7 +152,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "naturalId": "FileTest.txt"
@@ -164,7 +164,7 @@
     "cached": true,
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "FileTestCached.txt",
     "description": "Local file with cache set true.",
     "naturalId": "FileTestCached.txt"
@@ -188,7 +188,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
@@ -204,7 +204,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.json",
     "description": "Simple list equivalent for ListSimple.csv.",
     "naturalId": "ListSimple.json"
@@ -216,7 +216,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ModuleConfig.json",
     "description": "Parameter to determine general module parameters.",
     "naturalId": "ModuleConfig.json"
@@ -228,7 +228,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "result.string",
     "description": "Saving content",
     "naturalId": "result.string"
@@ -240,7 +240,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "resultWithMapPath.string",
     "description": "Saving content this is true",
     "naturalId": "resultWithMapPath.string"
@@ -252,7 +252,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "SimpleInsertWithPath",
     "description": "Simple data for the SimpleInsert templates.",
     "naturalId": "SimpleInsertWithPath"
@@ -274,7 +274,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
@@ -286,7 +286,7 @@
     "cached": false,
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "naturalId": "target.json"
@@ -298,7 +298,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "target.txt",
     "description": "Target file definition",
     "naturalId": "target.txt"
@@ -317,7 +317,7 @@
     },
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "test:test",
     "description": "description",
     "naturalId": "test:test"

@@ -13,16 +13,16 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.HOST_KEY;
+
 /**
  * Created by Werner on 09.10.2016.
  */
 public class FileConfig extends ConfigResourcesImpl implements FileConfigInterface {
-    public static final String CONFIG_MODEL_KEY = "configModelKey";
-    public static final String CLASSPATH = "classpath";
     public static final String FILE_NAME = "fileName";
     public static final String FILE_PATH = "filePath";
     public static final String CACHED = "cached";
-    private final String configModelKey;
+
     private final String fileName;
     private final String filePath;
     private final String hostKey;
@@ -33,12 +33,10 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
 
     public FileConfig(final EOConfigsCache provider, Map map) {
         super(provider, map);
-        this.configModelKey = (String) map.get(CONFIG_MODEL_KEY);
         this.fileName = (String) map.get(FILE_NAME);
         this.filePath = (String) map.get(FILE_PATH);
-
         this.cached = map.containsKey(CACHED) ? (Boolean) map.get(CACHED) : false;
-        this.hostKey = map.containsKey(HostConfig.HOST_KEY) ? (String) map.get(CACHED) : HostConfig.LOCALHOST;
+        this.hostKey = map.containsKey(HOST_KEY) ? (String) map.get(HOST_KEY) : HostConfig.LOCALHOST;
         this.hostCache = (HostConfig)provider.find(HostConfig.class, hostKey);
     }
 
@@ -171,10 +169,6 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
     @Override
     public String getHostKey() {
         return this.hostKey;
-    }
-
-    public String getConfigModelKey() {
-        return configModelKey;
     }
 
     /**

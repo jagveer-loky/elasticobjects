@@ -10,10 +10,10 @@ import java.util.*;
  * Created by Werner on 09.10.2016.
  */
 public class ModelConfigMap extends ModelConfig implements ModelInterface {
-    private static final Logger LOG = LogManager.getLogger(ModelConfigMap.class);
+    public static final String CONFIG_MODEL_KEY = "ModelConfigMap";
 
-    public ModelConfigMap(EOConfigsCache provider, Builder bean) {
-        super(provider, bean);
+    public ModelConfigMap(EOConfigsCache provider, Map map) {
+        super(provider, map);
     }
 
     @Override

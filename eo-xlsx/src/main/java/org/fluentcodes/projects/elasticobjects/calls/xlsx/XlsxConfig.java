@@ -29,7 +29,7 @@ public class XlsxConfig extends FileConfig implements ListConfigInterface {
 
     public XlsxConfig(final EOConfigsCache configsCache, final Map map) {
         super(configsCache, map);
-        this.sheetName = map.containsKey(SHEET_NAME)? (String) map.get(SHEET_NAME): "0";
+        this.sheetName = (String) map.get(SHEET_NAME);
         this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
         this.listMapper = map.containsKey(LIST_MAPPER) ? new ListMapper((Map)map.get(LIST_MAPPER)) : new ListMapper();
     }

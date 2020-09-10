@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class DbSqlConfig extends ConfigResourcesImpl {
         if (isResolved()) {
             return;
         }
-        dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
+        dbConfig = (DbConfig) getConfigsCache().find(HostConfig.class, dbKey);
     }
 
     public boolean execute() {

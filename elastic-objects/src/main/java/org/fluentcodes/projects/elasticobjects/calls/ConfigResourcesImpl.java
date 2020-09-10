@@ -16,11 +16,6 @@ public abstract class ConfigResourcesImpl extends ConfigImpl {
     public static final String ROLE_PERMISSIONS = "rolePermissions";
     private final RolePermissions rolePermissions;
 
-    public ConfigResourcesImpl(EOConfigsCache configsCache, Builder builder) {
-        super(configsCache, builder);
-        this.rolePermissions = builder.rolePermissions;
-    }
-
     public ConfigResourcesImpl(EOConfigsCache configsCache, Map map) {
         super(configsCache, map);
         this.rolePermissions = new RolePermissions((Map)map.get(ROLE_PERMISSIONS));
@@ -40,19 +35,5 @@ public abstract class ConfigResourcesImpl extends ConfigImpl {
 
     public boolean hasPermissions(PermissionType permission, List<String> roleKeys)  {
         return permission.value() <= rolePermissions.getPermissions(roleKeys).value();
-    }
-
-    public static class Builder extends ConfigImpl.Builder {
-        //<call keep="JAVA" templateKey="BeanInstanceVars.tpl">
-
-        private RolePermissions rolePermissions;
-        private String mapPath;
-
-
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            this.mapPath = ScalarConverter.toString(values.get(ListMapper.MAP_PATH));
-            this.rolePermissions = new RolePermissions((Map) values.get(ROLE_PERMISSIONS));
-            super.prepare(configsCache, values);
-        }
     }
 }

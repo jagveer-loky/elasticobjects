@@ -11,7 +11,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "BasicTest.json",
     "description": "Simple data for the BasicTest.",
     "naturalId": "BasicTest.json"
@@ -23,7 +23,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "content",
     "naturalId": "content"
   },
@@ -38,7 +38,7 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "naturalId": "FileTest.txt"
@@ -50,7 +50,7 @@
     "cached": true,
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "FileTestCached.txt",
     "description": "Local file with cache set true.",
     "naturalId": "FileTestCached.txt"
@@ -74,7 +74,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
@@ -90,7 +90,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ListSimple.json",
     "description": "Simple list equivalent for ListSimple.csv.",
     "naturalId": "ListSimple.json"
@@ -114,7 +114,7 @@
     },
     "module": "eo-csv",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ListSimpleCsv.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimpleCsv.csv"
@@ -126,7 +126,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "ModuleConfig.json",
     "description": "Parameter to determine general module parameters.",
     "naturalId": "ModuleConfig.json"
@@ -148,7 +148,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
@@ -160,7 +160,7 @@
     "cached": false,
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "naturalId": "target.json"
@@ -172,7 +172,7 @@
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "target.txt",
     "description": "Target file definition",
     "naturalId": "target.txt"
@@ -190,7 +190,7 @@
     "cached": false,
     "module": "eo-csv",
     "subModule": "test",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "targetCsv.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "targetCsv.csv"

@@ -1,6 +1,11 @@
 {
   "h2:mem:basic": {
     "dbKey": "h2:mem:basic",
+    "userName": "sa",
+    "password": "",
+    "hostName": "h2",
+    "configModelKey": "DbConfig",
+    "protocol": "jdbc:h2",
     "schema": "mem:basic",
     "driver": "org.h2.Driver",
     "dbType": "H2",
@@ -10,11 +15,14 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "description": "Local H2 in memory for the test resources.",
-    "naturalId": "h2:mem:basic"
+    "description": "Local H2 in memory for the test resources."
   },
   "h2:file:basic": {
     "dbKey": "h2:file:basic",
+    "configModelKey": "DbConfig",
+    "userName": "sa",
+    "password": "",
+    "hostName": "h2:mem",
     "schema": "file:basic",
     "driver": "org.h2.Driver",
     "dbType": "H2",
@@ -24,7 +32,6 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "description": "Local H2 in file persisted for the test resources.",
-    "naturalId": "h2:file:basic"
+    "description": "Local H2 in file persisted for the test resources."
   }
 }

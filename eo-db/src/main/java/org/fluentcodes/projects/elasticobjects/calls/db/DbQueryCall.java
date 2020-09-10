@@ -22,7 +22,7 @@ public class DbQueryCall extends ListReadCall {
 
     @Override
     public Class<? extends Config> getConfigClass()  {
-        return DbQueryConfig.class;
+        return DbSqlConfig.class;
     }
 
     public DbQueryConfig getDbQueryConfig() {

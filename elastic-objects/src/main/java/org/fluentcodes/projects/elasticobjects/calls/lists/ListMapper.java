@@ -4,6 +4,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -55,7 +56,7 @@ public class ListMapper {
         setDoMap(attributes.get(DO_MAP));
         setIgnoreHeader(attributes.get(IGNORE_HEADER));
         setPathPattern(attributes.get(F_PATH_PATTERN));
-        setModelKeys(attributes.get(F_MODEL_KEYS));
+        setModelKeys(attributes.get(FieldConfig.MODEL_KEYS));
     }
 
     public boolean hasPathPattern() {

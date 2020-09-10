@@ -16,7 +16,6 @@ public class ProviderConfig {
                     Model.DESCRIPTION, Model.DESCRIPTION,
                     Model.NATURAL_ID, Model.NATURAL_ID,
                     F_EXPANDED, S1,
-                    EOParams.SCOPE, "ALL",
                     ModelConfig.MODULE, ModelConfig.MODULE,
                     ModelConfig.SUB_MODULE, ModelConfig.SUB_MODULE);
         } catch (Exception e) {
@@ -43,13 +42,9 @@ public class ProviderConfig {
 
     public static Map<String, Object> createEoParams() {
         Map<String, Object> map = new HashMap();
-        map.put(EOParams.CREATE, S1);
+        map.put(EOParams.CREATE, true);
         map.put(EOParams.SHAPE_TYPE, ShapeTypes.MAP.name());
-        map.put(EOParams.SCOPE, Scope.ALL.name());
-        map.put(EOParams.ATTRIBUTE_LIST, EOParams.ATTRIBUTE_LIST);
-        map.put(EOParams.MODEL_CONFIG_KEY, EOParams.MODEL_CONFIG_KEY);
         map.put(EOParams.DEFAULT_IMPLEMENTATION, EOParams.DEFAULT_IMPLEMENTATION);
-        map.put(F_PATH_PATTERN, F_PATH_PATTERN);
         return map;
     }
 

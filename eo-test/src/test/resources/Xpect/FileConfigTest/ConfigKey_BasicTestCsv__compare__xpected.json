@@ -19,7 +19,7 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "INFO",
     "key": "BasicTest.csv",
     "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source.",
     "naturalId": "BasicTest.csv"

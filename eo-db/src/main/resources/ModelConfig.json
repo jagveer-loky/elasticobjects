@@ -5,8 +5,7 @@
     "superKey": "HostAction",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "create": true,
-      "modelConfigKey": "DbSqlConfig"
+      "create": true
     },
     "packageGroup": "calls",
     "module": "eo-db",
@@ -43,8 +42,7 @@
     "superKey": "CallResource",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "create": true,
-      "modelConfigKey": "DbSqlConfig"
+      "create": true
     },
     "packageGroup": "calls",
     "module": "eo-db",
@@ -78,8 +76,7 @@
     "superKey": "ListCall",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "create": true,
-      "modelConfigKey": "DbQueryConfig"
+      "create": true
     },
     "packageGroup": "calls",
     "module": "eo-db",
@@ -112,6 +109,8 @@
     "fieldKeys": [
     ],
     "eoParams": {
+      "shapeType": "ENUM",
+      "create": false
     },
     "packageGroup": "config",
     "module": "eo-db",

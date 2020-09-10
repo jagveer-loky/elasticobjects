@@ -3,9 +3,6 @@
     "packagePath": "java.util",
     "modelKey": "HashMap",
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": true,
       "(ShapeTypes)shapeType": "MAP"
     },
@@ -20,10 +17,7 @@
     "packagePath": "java.util",
     "modelKey": "LinkedHashMap",
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
-      "create": false,
+      "create": true,
       "(ShapeTypes)shapeType": "MAP",
       "defaultImplementation": "LinkedHashMap"
     },
@@ -35,10 +29,7 @@
     "packagePath": "java.util",
     "modelKey": "Map",
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
-      "create": false,
+      "create": true,
       "(ShapeTypes)shapeType": "MAP",
       "defaultImplementation": "LinkedHashMap"
     },
@@ -73,9 +64,6 @@
       "19": "author"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": false,
       "(ShapeTypes)shapeType": "CONFIG"
     },

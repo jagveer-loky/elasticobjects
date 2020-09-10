@@ -33,6 +33,7 @@ public class ModelImpl implements Model {
         this.naturalId = (String)map.get(NATURAL_ID);
         this.description = (String)map.get(DESCRIPTION);
         this.creationDate = (Date)map.get(CREATION_DATE);
+        this.author = (String) map.get(AUTHOR);
         this.modificationDate = new Date();
     }
 
