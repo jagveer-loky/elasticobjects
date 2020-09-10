@@ -12,19 +12,26 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 09.10.2016.
  */
 public class HostConfig extends ConfigResourcesImpl {
+    public static final String LOCALHOST = "localhost";
+    public static final String PORT = "port";
+    public static final String PROTOCOL = "protocol";
+    public static final String PASSWORD = "password";
+    public static final String HOST_NAME = "hostName";
+    public static final String USER = "user";
+    public static final String HOST_KEY = "hostKey";
     private final Integer port;
     private final String protocol;
     private final String hostName;
     private final String user;
     private final String password;
 
-    public HostConfig(final EOConfigsCache provider, final Builder builder) {
-        super(provider, builder);
-        this.port = builder.port;
-        this.protocol = builder.protocol;
-        this.hostName = builder.hostName;
-        this.user = builder.user;
-        this.password = builder.password;
+    public HostConfig(final EOConfigsCache provider, final Map map) {
+        super(provider, map);
+        this.port = (Integer) map.get(PORT);
+        this.protocol = (String) map.get(PROTOCOL);
+        this.hostName = (String) map.get(HOST_NAME);
+        this.user = (String) map.get(USER);
+        this.password = (String) map.get(PASSWORD);
     }
 
     /**
@@ -75,29 +82,4 @@ public class HostConfig extends ConfigResourcesImpl {
         }
     }
 
-    public static class Builder extends ConfigResourcesImpl.Builder {
-        //<call keep="JAVA" templateKey="BeanInstanceVars.tpl">
-        private Integer port;
-        private String protocol;
-        private String hostName;
-        private String user;
-        private String password;
-
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            super.prepare(configsCache, values);
-            protocol = (String) configsCache.transform(F_PROTOCOL, values);
-            hostName = (String) configsCache.transform(F_HOST_NAME, values);
-            user = (String) configsCache.transform(F_USER, values);
-            password = (String) configsCache.transform(F_PASSWORD, values);
-            port = (Integer) configsCache.transform(F_PORT, values);
-            if (hostName == null) {
-                hostName = "";
-            }
-        }
-
-        public Config build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            prepare(configsCache, values);
-            return new HostConfig(configsCache, this);
-        }
-    }
 }

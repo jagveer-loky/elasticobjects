@@ -72,7 +72,8 @@
     "fieldKey": "cached",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
-      "0": "FileConfig"
+      "0": "FileConfig",
+      "1": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -176,6 +177,25 @@
     "naturalId": "configKey"
   },
   "8": {
+    "fieldKey": "configModelKey",
+    "modelKeys": "String",
+    "dbFieldParams": {
+      "unique": false,
+      "notNull": false,
+      "length": 80
+    },
+    "(ArrayList)modelList": {
+      "0": "FileConfig",
+      "1": "ScsConfig"
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "key": "configModelKey",
+    "description": "The model of the configuration to determine type.",
+    "naturalId": "configModelKey"
+  },
+  "9": {
     "fieldKey": "configType",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -193,7 +213,7 @@
     "description": "Key for configuration type.",
     "naturalId": "configType"
   },
-  "9": {
+  "10": {
     "fieldKey": "content",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -212,7 +232,7 @@
     "description": "A content.",
     "naturalId": "content"
   },
-  "10": {
+  "11": {
     "fieldKey": "create",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -230,7 +250,7 @@
     "description": "If true will create a Java class.",
     "naturalId": "create"
   },
-  "11": {
+  "12": {
     "fieldKey": "creationDate",
     "modelKeys": "Date",
     "(ArrayList)modelList": {
@@ -261,7 +281,7 @@
     "description": "Used to define the creation of an item.",
     "naturalId": "creationDate"
   },
-  "12": {
+  "13": {
     "fieldKey": "customFieldParams",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
@@ -274,7 +294,7 @@
     "description": "Custom Parameters stored by fields elastic objects. ",
     "naturalId": "customFieldParams"
   },
-  "13": {
+  "14": {
     "fieldKey": "customParams",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
@@ -294,7 +314,7 @@
     "description": "Custom Parameters stored by models elastic objects. ",
     "naturalId": "customParams"
   },
-  "14": {
+  "15": {
     "fieldKey": "dbFieldParams",
     "modelKeys": "DBFieldParams",
     "(ArrayList)modelList": {
@@ -307,7 +327,7 @@
     "description": "Parameters for persisting perspective. ",
     "naturalId": "dbFieldParams"
   },
-  "15": {
+  "16": {
     "fieldKey": "dbParams",
     "modelKeys": "DBParams",
     "(ArrayList)modelList": {
@@ -327,7 +347,7 @@
     "description": "Parameters for persisting perspective. ",
     "naturalId": "dbParams"
   },
-  "16": {
+  "17": {
     "fieldKey": "defaultImplementation",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -344,7 +364,7 @@
     "key": "defaultImplementation",
     "naturalId": "defaultImplementation"
   },
-  "17": {
+  "18": {
     "fieldKey": "delete",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -362,7 +382,7 @@
     "description": "String representation of RolePermission delete permissions",
     "naturalId": "delete"
   },
-  "18": {
+  "19": {
     "fieldKey": "description",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -399,7 +419,7 @@
     "description": "A description of the model used by every model extending BaseClassImpl. ",
     "naturalId": "description"
   },
-  "19": {
+  "20": {
     "fieldKey": "duration",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -434,7 +454,7 @@
     "description": "The duration of a call.",
     "naturalId": "duration"
   },
-  "20": {
+  "21": {
     "fieldKey": "entries",
     "modelKeys": "ArrayList",
     "dbFieldParams": {
@@ -451,7 +471,7 @@
     "key": "entries",
     "naturalId": "entries"
   },
-  "21": {
+  "22": {
     "fieldKey": "eoFieldParams",
     "modelKeys": "EOFieldParams",
     "(ArrayList)modelList": {
@@ -464,7 +484,7 @@
     "description": "Parameters used by elastic objects. ",
     "naturalId": "eoFieldParams"
   },
-  "22": {
+  "23": {
     "fieldKey": "eoParams",
     "modelKeys": "EOParams",
     "(ArrayList)modelList": {
@@ -484,7 +504,7 @@
     "description": "Parameters used by elastic objects. ",
     "naturalId": "eoParams"
   },
-  "23": {
+  "24": {
     "fieldKey": "execute",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -502,7 +522,7 @@
     "description": "String representation of RolePermission execute permissions",
     "naturalId": "execute"
   },
-  "24": {
+  "25": {
     "fieldKey": "expose",
     "modelKeys": "Expose",
     "(ArrayList)modelList": {
@@ -533,7 +553,7 @@
     "key": "expose",
     "naturalId": "expose"
   },
-  "25": {
+  "26": {
     "fieldKey": "fieldDelimiter",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -551,7 +571,7 @@
     "description": "A delimiter for fields used for csv files. ",
     "naturalId": "fieldDelimiter"
   },
-  "26": {
+  "27": {
     "fieldKey": "value",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -565,7 +585,7 @@
     "key": "value",
     "naturalId": "FieldExampleClass.value"
   },
-  "27": {
+  "28": {
     "fieldKey": "fieldKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -582,7 +602,7 @@
     "key": "fieldKey",
     "naturalId": "fieldKey"
   },
-  "28": {
+  "29": {
     "fieldKey": "fieldKeys",
     "modelKeys": "ArrayList,String",
     "dbFieldParams": {
@@ -607,7 +627,7 @@
     "description": "A list of field keys for the model configuration. ",
     "naturalId": "fieldKeys"
   },
-  "29": {
+  "30": {
     "fieldKey": "fieldName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -626,7 +646,7 @@
     "description": "A name for different purposes depending on the model.",
     "naturalId": "fieldName"
   },
-  "30": {
+  "31": {
     "fieldKey": "fileKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -644,7 +664,7 @@
     "description": "A key for file objects.",
     "naturalId": "fileKey"
   },
-  "31": {
+  "32": {
     "fieldKey": "fileName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -653,7 +673,8 @@
       "length": 80
     },
     "(ArrayList)modelList": {
-      "0": "FileConfig"
+      "0": "FileConfig",
+      "1": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -661,7 +682,7 @@
     "key": "fileName",
     "naturalId": "fileName"
   },
-  "32": {
+  "33": {
     "fieldKey": "filePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -670,7 +691,8 @@
       "length": 512
     },
     "(ArrayList)modelList": {
-      "0": "FileConfig"
+      "0": "FileConfig",
+      "1": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -678,7 +700,7 @@
     "key": "filePath",
     "naturalId": "filePath"
   },
-  "33": {
+  "34": {
     "fieldKey": "filter",
     "modelKeys": "Or",
     "(ArrayList)modelList": {
@@ -694,7 +716,7 @@
     "description": "A list of {@link And} condition list",
     "naturalId": "filter"
   },
-  "34": {
+  "35": {
     "fieldKey": "filterModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -713,7 +735,7 @@
     "description": "Filter for modules in  {@link ConfigAction}",
     "naturalId": "filterModule"
   },
-  "35": {
+  "36": {
     "fieldKey": "filterSubModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -732,7 +754,7 @@
     "description": "Filter for subModules in  {@link ConfigAction}",
     "naturalId": "filterSubModule"
   },
-  "36": {
+  "37": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -749,7 +771,7 @@
     "key": "hibernate",
     "naturalId": "hibernate"
   },
-  "37": {
+  "38": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -762,7 +784,7 @@
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "38": {
+  "39": {
     "fieldKey": "hostKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -771,7 +793,8 @@
       "length": 80
     },
     "(ArrayList)modelList": {
-      "0": "FileConfig"
+      "0": "FileConfig",
+      "1": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -780,7 +803,7 @@
     "description": "A key for host objects.",
     "naturalId": "hostKey"
   },
-  "39": {
+  "40": {
     "fieldKey": "hostName",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -798,7 +821,7 @@
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "40": {
+  "41": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -835,7 +858,7 @@
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "41": {
+  "42": {
     "fieldKey": "idKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -853,7 +876,7 @@
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "42": {
+  "43": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -866,7 +889,7 @@
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "43": {
+  "44": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -885,7 +908,7 @@
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "44": {
+  "45": {
     "fieldKey": "inTemplate",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -919,7 +942,7 @@
     "key": "inTemplate",
     "naturalId": "inTemplate"
   },
-  "45": {
+  "46": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -944,7 +967,7 @@
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "46": {
+  "47": {
     "fieldKey": "join",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -962,7 +985,7 @@
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "47": {
+  "48": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -980,7 +1003,7 @@
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "48": {
+  "49": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
@@ -992,7 +1015,7 @@
     "key": "keepCall",
     "naturalId": "keepCall"
   },
-  "49": {
+  "50": {
     "fieldKey": "key",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1026,7 +1049,7 @@
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "50": {
+  "51": {
     "fieldKey": "length",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1043,12 +1066,13 @@
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "51": {
+  "52": {
     "fieldKey": "listMapper",
     "modelKeys": "ListMapper",
     "(ArrayList)modelList": {
-      "0": "ListConfig",
-      "1": "ScsConfig"
+      "0": "ListConfigInterface",
+      "1": "ListConfig",
+      "2": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1057,7 +1081,7 @@
     "description": "Maps a list to the adapter for @{link ListAction}.",
     "naturalId": "listMapper"
   },
-  "52": {
+  "53": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
     "dbFieldParams": {
@@ -1066,8 +1090,9 @@
       "length": 80
     },
     "(ArrayList)modelList": {
-      "0": "ListConfig",
-      "1": "ScsConfig"
+      "0": "ListConfigInterface",
+      "1": "ListConfig",
+      "2": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1076,7 +1101,7 @@
     "description": "Filter for the readings within {@link ListAction}.",
     "naturalId": "listParams"
   },
-  "53": {
+  "54": {
     "fieldKey": "localCondition",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1116,14 +1141,14 @@
     "description": "A condition for calls. ",
     "naturalId": "localCondition"
   },
-  "54": {
+  "55": {
     "fieldKey": "log",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
     "key": "log",
     "naturalId": "log"
   },
-  "55": {
+  "56": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
     "(ArrayList)modelList": {
@@ -1157,7 +1182,7 @@
     "key": "logLevel",
     "naturalId": "logLevel"
   },
-  "56": {
+  "57": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1175,7 +1200,7 @@
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "57": {
+  "58": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1193,7 +1218,7 @@
     "description": "The model name for the cache object {@link Config}.",
     "naturalId": "modelConfigKey"
   },
-  "58": {
+  "59": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1218,7 +1243,7 @@
     "description": "The model name for the bean/action object {@link Bean}.",
     "naturalId": "modelKey"
   },
-  "59": {
+  "60": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1239,7 +1264,7 @@
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "60": {
+  "61": {
     "fieldKey": "modelList",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1252,7 +1277,7 @@
     "description": "A list of naturalIds of models for FieldConfig.",
     "naturalId": "modelList"
   },
-  "61": {
+  "62": {
     "fieldKey": "models",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1292,7 +1317,7 @@
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "62": {
+  "63": {
     "fieldKey": "module",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1326,7 +1351,7 @@
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "63": {
+  "64": {
     "fieldKey": "name",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1344,7 +1369,7 @@
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "64": {
+  "65": {
     "modelKeys": "String",
     "dbFieldParams": {
       "unique": true,
@@ -1357,7 +1382,7 @@
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "naturalId": "naturalId"
   },
-  "65": {
+  "66": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1369,7 +1394,7 @@
     "key": "naturalKeys",
     "naturalId": "naturalKeys"
   },
-  "66": {
+  "67": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1381,7 +1406,7 @@
     "key": "notNull",
     "naturalId": "notNull"
   },
-  "67": {
+  "68": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1415,7 +1440,7 @@
     "key": "overwrite",
     "naturalId": "overwrite"
   },
-  "68": {
+  "69": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1440,7 +1465,7 @@
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "69": {
+  "70": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1464,7 +1489,7 @@
     "key": "packagePath",
     "naturalId": "packagePath"
   },
-  "70": {
+  "71": {
     "fieldKey": "password",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1482,7 +1507,7 @@
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "71": {
+  "72": {
     "fieldKey": "create",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1500,7 +1525,7 @@
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "72": {
+  "73": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1512,7 +1537,7 @@
     "key": "port",
     "naturalId": "port"
   },
-  "73": {
+  "74": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1529,7 +1554,7 @@
     "key": "protocol",
     "naturalId": "protocol"
   },
-  "74": {
+  "75": {
     "fieldKey": "read",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1547,7 +1572,7 @@
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "75": {
+  "76": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1564,7 +1589,7 @@
     "key": "replaceBy",
     "naturalId": "replaceBy"
   },
-  "76": {
+  "77": {
     "fieldKey": "rolePermissions",
     "modelKeys": "RolePermissions",
     "(ArrayList)modelList": {
@@ -1581,7 +1606,7 @@
     "key": "rolePermissions",
     "naturalId": "rolePermissions"
   },
-  "77": {
+  "78": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1599,7 +1624,7 @@
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "78": {
+  "79": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1614,7 +1639,7 @@
     "key": "rowEnd",
     "naturalId": "rowEnd"
   },
-  "79": {
+  "80": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1629,7 +1654,7 @@
     "key": "rowHead",
     "naturalId": "rowHead"
   },
-  "80": {
+  "81": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1644,7 +1669,7 @@
     "key": "rowStart",
     "naturalId": "rowStart"
   },
-  "81": {
+  "82": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
     "(ArrayList)modelList": {
@@ -1674,7 +1699,7 @@
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "82": {
+  "83": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
     "(ArrayList)modelList": {
@@ -1687,7 +1712,7 @@
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "83": {
+  "84": {
     "fieldKey": "serialized",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1705,7 +1730,7 @@
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "84": {
+  "85": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
     "(ArrayList)modelList": {
@@ -1717,7 +1742,7 @@
     "key": "shapeType",
     "naturalId": "shapeType"
   },
-  "85": {
+  "86": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1755,7 +1780,7 @@
     "key": "sourcePath",
     "naturalId": "sourcePath"
   },
-  "86": {
+  "87": {
     "fieldKey": "name",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1769,7 +1794,7 @@
     "key": "name",
     "naturalId": "SubExampleClass.name"
   },
-  "87": {
+  "88": {
     "fieldKey": "subModule",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1803,7 +1828,7 @@
     "description": "Defines the target  sub module like 'main' or 'test'. ",
     "naturalId": "subModule"
   },
-  "88": {
+  "89": {
     "fieldKey": "subTest",
     "modelKeys": "SubTest",
     "dbFieldParams": {
@@ -1821,7 +1846,7 @@
     "key": "subTest",
     "naturalId": "subTest"
   },
-  "89": {
+  "90": {
     "fieldKey": "subTestList",
     "modelKeys": "ArrayList,SubTest",
     "(ArrayList)modelList": {
@@ -1834,7 +1859,7 @@
     "description": "A generic parametrized example List with {@link SubTest}",
     "naturalId": "subTestList"
   },
-  "90": {
+  "91": {
     "fieldKey": "subTestMap",
     "modelKeys": "HashMap,SubTest",
     "(ArrayList)modelList": {
@@ -1847,7 +1872,7 @@
     "description": "A generic parametrized example Map with {@link SubTest}",
     "naturalId": "subTestMap"
   },
-  "91": {
+  "92": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -1861,7 +1886,7 @@
     "key": "id",
     "naturalId": "SuperExampleClass.id"
   },
-  "92": {
+  "93": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
     "dbFieldParams": {
@@ -1875,7 +1900,7 @@
     "key": "subClass",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "93": {
+  "94": {
     "fieldKey": "superKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1900,7 +1925,7 @@
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "94": {
+  "95": {
     "fieldKey": "table",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1919,7 +1944,7 @@
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
     "naturalId": "table"
   },
-  "95": {
+  "96": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1957,7 +1982,7 @@
     "key": "targetPath",
     "naturalId": "targetPath"
   },
-  "96": {
+  "97": {
     "fieldKey": "testBoolean",
     "modelKeys": "Boolean",
     "dbFieldParams": {
@@ -1974,7 +1999,7 @@
     "key": "testBoolean",
     "naturalId": "testBoolean"
   },
-  "97": {
+  "98": {
     "fieldKey": "testDate",
     "modelKeys": "Date",
     "dbFieldParams": {
@@ -1991,7 +2016,7 @@
     "key": "testDate",
     "naturalId": "testDate"
   },
-  "98": {
+  "99": {
     "fieldKey": "testDouble",
     "modelKeys": "Double",
     "dbFieldParams": {
@@ -2008,7 +2033,7 @@
     "key": "testDouble",
     "naturalId": "testDouble"
   },
-  "99": {
+  "100": {
     "fieldKey": "testFloat",
     "modelKeys": "Float",
     "dbFieldParams": {
@@ -2025,7 +2050,7 @@
     "key": "testFloat",
     "naturalId": "testFloat"
   },
-  "100": {
+  "101": {
     "fieldKey": "testInt",
     "modelKeys": "Integer",
     "dbFieldParams": {
@@ -2042,7 +2067,7 @@
     "key": "testInt",
     "naturalId": "testInt"
   },
-  "101": {
+  "102": {
     "fieldKey": "testLong",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -2059,7 +2084,7 @@
     "key": "testLong",
     "naturalId": "testLong"
   },
-  "102": {
+  "103": {
     "fieldKey": "testObject",
     "modelKeys": "Object",
     "dbFieldParams": {
@@ -2077,7 +2102,7 @@
     "description": "A test object thing. ",
     "naturalId": "testObject"
   },
-  "103": {
+  "104": {
     "fieldKey": "testString",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2097,7 +2122,7 @@
     "description": "Just a small test string used in test models. ",
     "naturalId": "testString"
   },
-  "104": {
+  "105": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2114,7 +2139,7 @@
     "key": "toReplace",
     "naturalId": "toReplace"
   },
-  "105": {
+  "106": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -2126,7 +2151,7 @@
     "key": "unique",
     "naturalId": "unique"
   },
-  "106": {
+  "107": {
     "fieldKey": "untypedList",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
@@ -2138,7 +2163,7 @@
     "key": "untypedList",
     "naturalId": "untypedList"
   },
-  "107": {
+  "108": {
     "fieldKey": "untypedMap",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
@@ -2150,7 +2175,7 @@
     "key": "untypedMap",
     "naturalId": "untypedMap"
   },
-  "108": {
+  "109": {
     "fieldKey": "ID",
     "modelKeys": "Long",
     "dbFieldParams": {
@@ -2165,7 +2190,7 @@
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "109": {
+  "110": {
     "fieldKey": "user",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2182,7 +2207,7 @@
     "key": "user",
     "naturalId": "user"
   },
-  "110": {
+  "111": {
     "fieldKey": "value",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2199,7 +2224,7 @@
     "key": "value",
     "naturalId": "value"
   },
-  "111": {
+  "112": {
     "fieldKey": "viewFieldParams",
     "modelKeys": "ViewFieldParams",
     "(ArrayList)modelList": {
@@ -2212,7 +2237,7 @@
     "description": "Parameters used to define views. ",
     "naturalId": "viewFieldParams"
   },
-  "112": {
+  "113": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -2231,7 +2256,7 @@
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "113": {
+  "114": {
     "fieldKey": "viewParams",
     "modelKeys": "ViewParams",
     "(ArrayList)modelList": {
@@ -2251,7 +2276,7 @@
     "description": "Parameters used to define views. ",
     "naturalId": "viewParams"
   },
-  "114": {
+  "115": {
     "fieldKey": "write",
     "modelKeys": "String",
     "dbFieldParams": {

@@ -1,7 +1,61 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "fileKey": "ListSimple.csv",
+    "fileName": "BasicTest.json",
+    "filePath": "input/assets/bt",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "BasicTest.json",
+    "description": "Simple data for the BasicTest.",
+    "naturalId": "BasicTest.json"
+  },
+  "1": {
+    "fileName": "content.tpl",
+    "filePath": "classpath/templates",
+    "hostKey": "localhost",
+    "cached": false,
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "content",
+    "naturalId": "content"
+  },
+  "2": {
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "FileTest.txt",
+    "description": "Local 'source.txt' definition.",
+    "naturalId": "FileTest.txt"
+  },
+  "3": {
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
+    "hostKey": "localhost",
+    "cached": true,
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "FileTestCached.txt",
+    "description": "Local file with cache set true.",
+    "naturalId": "FileTestCached.txt"
+  },
+  "4": {
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "(ListParams)listParams": {
@@ -9,30 +63,137 @@
       "rowStart": 1,
       "rowEnd": 3
     },
+    "configModelKey": "ScsConfig",
+    "fileName": "ListSimple.csv",
+    "filePath": "input/calls/list-simple",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "ListSimple.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "naturalId": "ListSimple.csv"
+  },
+  "5": {
+    "fileName": "ListSimple.json",
+    "filePath": "input/calls/list-simple",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "ListSimple.json",
+    "description": "Simple list equivalent for ListSimple.csv.",
+    "naturalId": "ListSimple.json"
+  },
+  "6": {
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "configModelKey": "CsvConfig",
+    "fileName": "ListSimple.csv",
+    "filePath": "input/calls/list-simple",
+    "hostKey": "localhost",
+    "cached": false,
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
     },
     "module": "eo-csv",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ListSimple.csv",
+    "(Expose)expose": "NONE",
+    "key": "ListSimpleCsv.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
-    "naturalId": "ListSimple.csv"
+    "naturalId": "ListSimpleCsv.csv"
   },
-  "1": {
-    "fileKey": "target.csv",
+  "7": {
+    "fileName": "ModuleConfig.json",
+    "filePath": "classpath",
+    "hostKey": "localhost",
+    "cached": false,
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "ModuleConfig.json",
+    "description": "Parameter to determine general module parameters.",
+    "naturalId": "ModuleConfig.json"
+  },
+  "8": {
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "(ListParams)listParams": {
       "rowHead": 0
     },
-    "module": "eo-csv",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
+    "configModelKey": "ScsConfig",
+    "fileName": "target.csv",
+    "filePath": "$[@TMP]",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
+  },
+  "9": {
+    "fileName": "target.json",
+    "filePath": "$[@TMP]",
+    "hostKey": "localhost",
+    "cached": false,
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "target.json",
+    "description": "A sample target json file with tmp placeholder.",
+    "naturalId": "target.json"
+  },
+  "10": {
+    "fileName": "target.txt",
+    "filePath": "$[@TMP]",
+    "hostKey": "localhost",
+    "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(Expose)expose": "NONE",
+    "key": "target.txt",
+    "description": "Target file definition",
+    "naturalId": "target.txt"
+  },
+  "11": {
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "configModelKey": "CsvConfig",
+    "fileName": "target.csv",
+    "filePath": "$[@TMP]",
+    "hostKey": "localhost",
+    "cached": false,
+    "module": "eo-csv",
+    "subModule": "test",
+    "(Expose)expose": "NONE",
+    "key": "targetCsv.csv",
+    "description": "A sample target csv file with tmp placeholder.",
+    "naturalId": "targetCsv.csv"
   },
   "(LogLevel)_logLevel": "WARN"
 }

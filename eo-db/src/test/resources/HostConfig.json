@@ -1,6 +1,8 @@
 {
+
   "localMySql:core": {
     "dbKey": "localMySql:core",
+    "configModelKey": "DbConfig",
     "dbType": "MYSQL",
     "module": "eo-db",
     "subModule": "main",
@@ -9,6 +11,7 @@
   },
   "localMySql:test": {
     "dbKey": "localMySql:test",
+    "configModelKey": "DbConfig",
     "dbType": "MYSQL",
     "module": "eo-db",
     "subModule": "main",
@@ -17,6 +20,7 @@
   },
   "localOracle:XE": {
     "dbKey": "localOracle:XE",
+    "configModelKey": "DbConfig",
     "schema": "XE",
     "dbType": "ORACLE",
     "module": "eo-db",
@@ -26,7 +30,7 @@
   },
   "hsql:mem": {
     "dbKey": "hsql:mem",
-    "hostKey": "hsql",
+    "configModelKey": "DbConfig",
     "schema": "mem",
     "dbType": "HSQL",
     "module": "eo-db",
@@ -36,7 +40,8 @@
   },
   "hsql:fileTest": {
     "dbKey": "hsql:fileTest",
-    "hostKey": "hsql",
+    "configModelKey": "DbConfig",
+
     "schema": "file:$[TMP]/test.hsql",
     "dbType": "HSQL",
     "module": "eo-db",
@@ -46,7 +51,10 @@
   },
   "h2:mem": {
     "dbKey": "h2:mem",
+    "configModelKey": "DbConfig",
     "hostKey": "h2",
+    "protocol": "jdbc:h2",
+    "user": "sa",
     "schema": "mem:test",
     "driver": "org.h2.Driver",
     "dbType": "H2",
@@ -58,13 +66,16 @@
   },
   "h2:file": {
     "dbKey": "h2:file",
+    "module": "eo-db",
+    "subModule": "main",
+    "configModelKey": "DbConfig",
     "hostKey": "h2",
+    "protocol": "jdbc:h2",
+    "user": "sa",
     "schema": "$[TMP]/test",
     "driver": "org.h2.Driver",
     "dbType": "H2",
     "extension": "DATABASE_TO_UPPER=false;",
-    "module": "eo-db",
-    "subModule": "main",
     "description": "local H2 with a temp file",
     "naturalId": "h2:file"
   }

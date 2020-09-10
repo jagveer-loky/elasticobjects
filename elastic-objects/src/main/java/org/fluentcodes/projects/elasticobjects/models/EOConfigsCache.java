@@ -42,6 +42,7 @@ public class EOConfigsCache {
         this.modelPattern = null;
         eoConfigsMap.put(ModelConfig.class, new EOConfigMapModels(this));
         eoConfigsMap.put(FieldConfig.class, new EOConfigMapFields(this));
+        eoConfigsMap.put(FileConfig.class, new EOConfigMapFile(this));
         if (scope != Scope.DEV) {
             eoConfigsMap.get(ModelConfig.class).addJsonConfigs();
             eoConfigsMap.get(FieldConfig.class).addJsonConfigs();
@@ -49,6 +50,7 @@ public class EOConfigsCache {
             for (String key: eoConfigsMap.get(ModelConfig.class).getKeys()) {
                 eoConfigsMap.get(ModelConfig.class).find(key).resolve();
             }
+            eoConfigsMap.get(FileConfig.class).addJsonConfigs();
         }
     }
 
@@ -281,6 +283,4 @@ public class EOConfigsCache {
         }
         return builder.toString();
     }
-
-
 }

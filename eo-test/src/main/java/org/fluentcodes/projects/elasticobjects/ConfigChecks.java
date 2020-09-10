@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigCall;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.tools.xpect.XpectEo;
@@ -23,7 +24,11 @@ public class ConfigChecks {
     }
 
     public static void compareConfigurations(final Class<? extends Config> configClass) {
-        ConfigCall call = new ConfigCall(configClass,".*");
+        compareConfiguration(configClass, ".*");
+    }
+
+    public static void compareConfiguration(final Class<? extends Config> configClass, final String configKey) {
+        ConfigCall call = new ConfigCall(configClass, configKey);
         EO eo = ProviderRootTestScope.createEo();
         List result = call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();

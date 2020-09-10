@@ -26,20 +26,10 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
     private final Map<String, Config> configMap;
     private final Class<? extends Config> configClass;
     private final EOConfigsCache configsCache;
-    private final Class builderClass;
-    private final Method builderMethod;
-
 
     public EOConfigMap(final EOConfigsCache eoConfigsCache, final Class<? extends Config> configClass)  {
         this.configClass = configClass;
         this.configsCache = eoConfigsCache;
-        try {
-            this.builderClass = Class.forName(configClass.getName() + "$Builder");
-            this.builderMethod = builderClass.getMethod("build", EOConfigsCache.class, Map.class);
-        }
-        catch (Exception e) {
-            throw new EoException("General building problem with config class '" + configClass.getSimpleName() + "'",  e);
-        }
         configMap = new HashMap<>();
     }
 
@@ -111,13 +101,21 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
             throw new EoInternalException("NaturalId " + naturalId + " already exists " + configClass.getSimpleName());
         }
         try {
-            Object object = builderClass.getDeclaredConstructor(null).newInstance();
-            configMap.put(naturalId, (Config) builderMethod.invoke(object, configsCache, map));
-        } catch (InvocationTargetException e) {
-            throw new EoException("Problem create config object via build method in '" + configClass.getSimpleName() + "' for '" + naturalId + "': " + map.toString(), e);
+            Class builderClass = Class.forName(configClass.getName() + "$Builder");
+            Method builderMethod = builderClass.getMethod("build", EOConfigsCache.class, Map.class);
+
+                try {
+                    Object object = builderClass.getDeclaredConstructor(null).newInstance();
+                    configMap.put(naturalId, (Config) builderMethod.invoke(object, configsCache, map));
+                } catch (InvocationTargetException e) {
+                    throw new EoException("Problem create config object via build method in '" + configClass.getSimpleName() + "' for '" + naturalId + "': " + map.toString(), e);
+                }
+            catch (Exception e) {
+                throw new EoException("Problem instantiation config builder object '" + configClass.getSimpleName() + "' for '" + naturalId + "': ", e);
+            }
         }
         catch (Exception e) {
-            throw new EoException("Problem instantiation config builder object '" + configClass.getSimpleName() + "' for '" + naturalId + "': ", e);
+            throw new EoException("General building problem with config class '" + configClass.getSimpleName() + "'",  e);
         }
     }
 

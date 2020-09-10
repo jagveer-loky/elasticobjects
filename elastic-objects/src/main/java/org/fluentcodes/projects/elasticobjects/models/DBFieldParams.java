@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
@@ -30,7 +31,7 @@ public class DBFieldParams {
         Map map = (Map) object;
         this.fieldName = ScalarConverter.toString(map.get(F_FIELD_NAME));
         try {
-            this.length = ScalarConverter.toInt(map.get(F_LENGTH));
+            this.length = ScalarConverter.toInt(map.get(ListParams.LENGTH));
         } catch (Exception e) {
             e.printStackTrace();
         }

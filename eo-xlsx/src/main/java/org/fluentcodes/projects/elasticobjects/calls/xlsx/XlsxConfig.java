@@ -4,10 +4,10 @@ import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfig;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -21,38 +21,27 @@ import java.util.Map;
 /**
  * Created by Werner on 30.10.2016.
  */
-public class XlsxConfig extends ListConfig {
-    private final String fileKey;
+public class XlsxConfig extends FileConfig implements ListConfigInterface {
+    private static final String SHEET_NAME = "sheetName";
     private final String sheetName;
-    private FileConfig fileConfig;
+    private final ListParams listParams;
+    private final ListMapper listMapper;
 
-    protected XlsxConfig(final EOConfigsCache provider, Builder bean) {
-        super(provider, bean);
-        this.fileKey = bean.fileKey;
-        this.sheetName = bean.sheetName;
-        if (bean.isExpanded()) {
-            //TODO this.fileCache = new FileConfig(provider, bean);
-        }
+    public XlsxConfig(final EOConfigsCache configsCache, final Map map) {
+        super(configsCache, map);
+        this.sheetName = map.containsKey(SHEET_NAME)? (String) map.get(SHEET_NAME): "0";
+        this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
+        this.listMapper = map.containsKey(LIST_MAPPER) ? new ListMapper((Map)map.get(LIST_MAPPER)) : new ListMapper();
     }
 
-    /**
-     * A key for file objects.
-     */
-    public String getFileKey() {
-        return this.fileKey;
+    @Override
+    public ListParams getListParams() {
+        return listParams;
     }
 
-    /**
-     * The field for fileConfig e.g. defined in {@link FileConfig}
-     */
-    public FileConfig getFileConfig()  {
-        if (this.fileConfig == null) {
-            if (this.getConfigsCache() == null) {
-                throw new EoException("Config could not be initialized with a null provider for 'fileCache' - 'fileKey''!");
-            }
-            this.fileConfig = (FileConfig) getConfigsCache().find(FileConfig.class, fileKey);
-        }
-        return this.fileConfig;
+    @Override
+    public ListMapper getListMapper() {
+        return listMapper;
     }
 
     /**
@@ -61,9 +50,6 @@ public class XlsxConfig extends ListConfig {
     public String getSheetName() {
         return this.sheetName;
     }
-
-
-//</call>
 
     public Sheet getSheet()  {
         Workbook wb = readWorkbook();
@@ -81,7 +67,6 @@ public class XlsxConfig extends ListConfig {
 
     public List<List> read() {
         resolve();
-        getFileConfig().resolve();
         List<List> result = new ArrayList<>();
         Sheet sheet = getSheet();
         if (sheet == null) {
@@ -110,9 +95,9 @@ public class XlsxConfig extends ListConfig {
     }
 
     public Workbook readWorkbook()  {
-        URL url = getFileConfig().findUrl();
+        URL url = findUrl();
         if (url == null) {
-            throw new EoException("Could not load url from " + getFileConfig().getKey());
+            throw new EoException("Could not load url from " + getKey());
         }
         InputStream inp = null;
         try {
@@ -245,7 +230,7 @@ public class XlsxConfig extends ListConfig {
     }
 
     public void writeWorkbook(Workbook wb)  {
-        URL url = getFileConfig().getUrl();
+        URL url = getUrl();
         //URLConnection connection = url.openConnection();
 
         //if (connection==null) {
@@ -279,36 +264,6 @@ public class XlsxConfig extends ListConfig {
         }
     }
 
-    public enum KEYS {
-        fileKey, sheetName
-    }
 
-    public static class Builder extends ListConfig.Builder {
-        private String fileKey;
-        private String sheetName;
-
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
-            fileKey = ScalarConverter.toString(values.get(KEYS.fileKey.name()));
-            sheetName = ScalarConverter.toString(values.get(KEYS.sheetName.name()));
-            super.prepare(configsCache, values);
-            if (sheetName == null || sheetName.isEmpty()) {
-                if (getNaturalId().contains(":")) {
-                    sheetName = getNaturalId().replaceAll(".+:", "");
-                }
-            }
-            if (fileKey == null || fileKey.isEmpty()) {
-                if (getNaturalId().contains(":")) {
-                    fileKey = getNaturalId().replaceAll(":.+", "");
-                } else {
-                    fileKey = getNaturalId();
-                }
-            }
-        }
-
-        public XlsxConfig build(EOConfigsCache configsCache, Map<String, Object> values)  {
-            prepare(configsCache, values);
-            return new XlsxConfig(configsCache, this);
-        }
-    }
 
 }

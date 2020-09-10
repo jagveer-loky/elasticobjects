@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import com.google.gson.internal.$Gson$Preconditions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
@@ -17,6 +16,9 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  */
 public class FieldConfig extends ConfigImpl {
     public static final String DB_FIELD_PARAMS = "dbFieldParams";
+    public static final String VIEW_FIELD_PARAMS = "viewFieldParams";
+    public static final String EO_FIELD_PARAMS = "eoFieldParams";
+    public static final String CUSTOM_FIELD_PARAMS = "customFieldParams";
     private static final Logger LOG = LogManager.getLogger(FieldConfig.class);
     private final Boolean toSerialize;
     //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
@@ -75,11 +77,11 @@ public class FieldConfig extends ConfigImpl {
         Map dbFieldParams = new HashMap();
         map.put(DB_FIELD_PARAMS, dbFieldParams);
         Map eoFieldParams = new HashMap();
-        map.put(F_EO_FIELD_PARAMS, eoFieldParams);
+        map.put(EO_FIELD_PARAMS, eoFieldParams);
         Map viewFieldParams = new HashMap();
-        map.put(F_VIEW_FIELD_PARAMS, viewFieldParams);
+        map.put(VIEW_FIELD_PARAMS, viewFieldParams);
         Map customFieldParams = new HashMap();
-        map.put(ModelConfig.CUSTOM_FIELD_PARAMS, customFieldParams);
+        map.put(CUSTOM_FIELD_PARAMS, customFieldParams);
 
         map.put(F_FIELD_KEY, field.getName());
         map.put(NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
@@ -268,9 +270,9 @@ public class FieldConfig extends ConfigImpl {
             toSerialize = ScalarConverter.toBoolean(values.get(F_TO_SERIALIZE));
             fieldKey = ScalarConverter.toString(values.get(F_FIELD_KEY));
             dbFieldParams = new DBFieldParams(values.get(DB_FIELD_PARAMS));
-            eoFieldParams = new EOFieldParams(configsCache, values.get(F_EO_FIELD_PARAMS));
-            viewFieldParams = new ViewFieldParams(values.get(F_VIEW_FIELD_PARAMS));
-            customFieldParams = (Map) values.get(ModelConfig.CUSTOM_FIELD_PARAMS);
+            eoFieldParams = new EOFieldParams(configsCache, values.get(EO_FIELD_PARAMS));
+            viewFieldParams = new ViewFieldParams(values.get(VIEW_FIELD_PARAMS));
+            customFieldParams = (Map) values.get(CUSTOM_FIELD_PARAMS);
             //models = new Models(configsCache, ScalarConverter.toString(values.get(F_MODEL_KEYS)));
             modelKeys = ScalarConverter.toString(values.get(F_MODEL_KEYS));
             super.prepare(configsCache, values);

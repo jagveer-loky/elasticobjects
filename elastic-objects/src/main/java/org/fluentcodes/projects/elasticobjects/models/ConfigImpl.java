@@ -16,11 +16,11 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 10.10.2016.
  */
 public abstract class ConfigImpl extends ModelImpl implements Config {
+    private static final String SCOPE = "scope";
+    public static final String EXPOSE = "expose";
     private final EOConfigsCache configsCache;
     private final String module;
     private final String subModule;
-    private final String path;
-    private final String mapPath;
     private final List<Scope> scope;
     private Expose expose;
     private boolean resolved = false;
@@ -28,8 +28,6 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     public ConfigImpl(EOConfigsCache configsCache, Builder builder) {
         this.module = builder.module;
         this.subModule = builder.subModule;
-        this.path = builder.path;
-        this.mapPath = builder.mapPath;
         this.scope = builder.scope;
         this.expose = builder.expose;
         this.configsCache = configsCache;
@@ -39,8 +37,25 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         super.setDescription(builder.description);
         super.setCreationDate(builder.creationDate);
         super.setModificationDate(new Date());
-
     }
+
+    public ConfigImpl(EOConfigsCache configsCache, Map map) {
+        super(map);
+        this.module = (String)map.get(ModelConfig.MODULE);
+        this.subModule = (String)map.get(ModelConfig.SUB_MODULE);
+        this.scope = new ArrayList<>();
+        if (map.containsKey(SCOPE)) {
+            List<String> scopes = (List<String>)map.get(SCOPE);
+            if (scopes!=null&& !scope.isEmpty()) {
+                for (String scopeValue: scopes) {
+                    scope.add(Scope.valueOf((String) map.get(SCOPE)));
+                }
+            }
+        }
+        this.expose = map.containsKey(EXPOSE) ? Expose.valueOf((String)map.get(EXPOSE)) : Expose.NONE;
+        this.configsCache = configsCache;
+    }
+
     @Override
     public String getKey() {
         return getNaturalId();
@@ -87,15 +102,6 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         return this.subModule;
     }
 
-    @Override
-    public String getPath() {
-        return path;
-    }
-
-    @Override
-    public String getMapPath() {
-        return mapPath;
-    }
 
     /**
      * A scope for the config value.

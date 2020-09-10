@@ -139,7 +139,7 @@ public class ListCall extends CallResource {
     @Override
     public CallResource resolve(EOConfigsCache cache) {
         super.resolve(cache);
-        ListConfig config = (ListConfig)getConfig();
+        ListConfigInterface config = (ListConfigInterface)getConfig();
         if (config.hasRowHead() && rowHead == null) {
             rowHead = config.getRowHead();
         }

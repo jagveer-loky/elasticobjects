@@ -551,7 +551,6 @@
     "expose": "WEB",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "modelConfigKey": "FileConfig",
       "create": true
     },
     "description": "Defines a file read access. ",
@@ -572,6 +571,7 @@
     "description": "Immutable EO file configuration will be initialized by internal builder using map values.",
     "superKey": "ConfigResourcesImpl",
     "fieldKeys": [
+      "configModelKey",
       "fileName",
       "filePath",
       "hostKey",
@@ -603,7 +603,8 @@
     },
     "expose": "INFO",
     "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
-    "superKey": "ListConfig",
+    "superKey": "FileConfig",
+    "interfaces": "ListConfigInterface",
     "fieldKeys": [
       "fileKey",
       "fieldDelimiter",
@@ -758,6 +759,24 @@
     "description": "Defines the parameter like listMapper.",
     "superKey": "ListCall",
     "modelKey": "ListReadCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "packageGroup": "lists",
+    "author": "Werner Diwischek"
+  },
+  "ListConfigInterface": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "expose": "INFO",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": false
+    },
+    "description": "Defines the parameter like listMapper.",
+    "fieldKeys": [
+      "listParams",
+      "listMapper"
+    ],
+    "modelKey": "ListConfigInterface",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "packageGroup": "lists",
     "author": "Werner Diwischek"

@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.tools.xpect.IOString;
 
@@ -18,13 +17,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_HOST_KEY;
+import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.HOST_KEY;
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbConfig extends ConfigResourcesImpl {
+public class DbConfig extends HostConfig {
+    public static final String SCHEMA = "schema";
+    public static final String DRIVER = "driver";
+    public static final String JNDI = "jndi";
+    public static final String DB_TYPE = "dbType";
+    public static final String EXTENSION = "extension";
     private static transient final Logger LOG = LogManager.getLogger(DbConfig.class);
 
     private final String schema;
@@ -34,17 +37,15 @@ public class DbConfig extends ConfigResourcesImpl {
     private final String hostKey;
     private final String extension;
     private Connection connection;
-    private HostConfig hostConfig;
 
-
-    public DbConfig(final EOConfigsCache provider, final Builder builder)  {
-        super(provider, builder);
-        this.schema = builder.schema;
-        this.driver = builder.driver;
-        this.jndi = builder.jndi;
-        this.dbType = builder.dbType;
-        this.hostKey = builder.hostKey;
-        this.extension = builder.extension;
+    public DbConfig(final EOConfigsCache provider, final Map map)  {
+        super(provider, map);
+        hostKey = (String) map.get(HOST_KEY);
+        schema = (String) map.get(SCHEMA);
+        driver = (String) map.get(DRIVER);
+        jndi = (String) map.get(JNDI);
+        extension = (String) map.get(EXTENSION);
+        dbType = (DbTypes) map.get(DB_TYPE);
     }
 
     /**
@@ -184,37 +185,4 @@ public class DbConfig extends ConfigResourcesImpl {
         //TODO
         //return ReplaceUtil.replace(urlPath);
     }
-
-
-    public static class Builder extends ConfigResourcesImpl.Builder {
-        private String schema;
-        private String driver;
-        private String jndi;
-        private DbTypes dbType;
-        private String hostKey;
-        private String extension;
-
-
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
-            hostKey = (String) configsCache.transform(F_HOST_KEY, values);
-            schema = (String) configsCache.transform(F_SCHEMA, values);
-            driver = (String) configsCache.transform(F_DRIVER, values);
-            jndi = (String) configsCache.transform(F_JNDI, values);
-            extension = (String) configsCache.transform(F_EXTENSION, values);
-            dbType = (DbTypes) configsCache.transform(F_DB_TYPE, values);
-            super.prepare(configsCache, values);
-            if (hostKey == null || hostKey.isEmpty()) {
-                hostKey = getNaturalId().replaceAll(":[^:]+$", "");
-            }
-
-        }
-
-        public Config build(EOConfigsCache configsCache, Map<String, Object> values)  {
-            prepare(configsCache, values);
-            return new DbConfig(configsCache, this);
-        }
-
-
-    }
-
 }
