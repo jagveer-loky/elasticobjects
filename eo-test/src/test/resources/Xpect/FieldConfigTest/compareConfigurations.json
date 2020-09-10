@@ -3,12 +3,9 @@
   "0": {
     "fieldKey": "attributeList",
     "modelKeys": "ArrayList,String",
-    "(ArrayList)modelList": {
-      "0": "EOParams"
-    },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "attributeList",
     "description": "Definition of available attributes for an Action.",
     "naturalId": "attributeList"
@@ -1208,12 +1205,9 @@
       "notNull": false,
       "length": 80
     },
-    "(ArrayList)modelList": {
-      "0": "EOParams"
-    },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "modelConfigKey",
     "description": "The model name for the cache object {@link Config}.",
     "naturalId": "modelConfigKey"
@@ -1677,20 +1671,19 @@
       "1": "ConfigImpl",
       "2": "FieldConfig",
       "3": "ConfigResourcesImpl",
-      "4": "EOParams",
-      "5": "ModelInterface",
-      "6": "ModelConfig",
-      "7": "ModelConfigSet",
-      "8": "ModelConfigList",
-      "9": "ModelConfigMap",
-      "10": "ConfigAsFlatListCall",
-      "11": "ModelConfigNone",
-      "12": "HostConfig",
-      "13": "ListConfig",
-      "14": "FileConfig",
-      "15": "ScsConfig",
-      "16": "ModelConfigScalar",
-      "17": "ModelConfigObject"
+      "4": "ModelInterface",
+      "5": "ModelConfig",
+      "6": "ModelConfigSet",
+      "7": "ModelConfigList",
+      "8": "ModelConfigMap",
+      "9": "ConfigAsFlatListCall",
+      "10": "ModelConfigNone",
+      "11": "HostConfig",
+      "12": "ListConfig",
+      "13": "FileConfig",
+      "14": "ScsConfig",
+      "15": "ModelConfigScalar",
+      "16": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",

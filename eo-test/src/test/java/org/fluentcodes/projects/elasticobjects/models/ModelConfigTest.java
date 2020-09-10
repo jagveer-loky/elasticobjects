@@ -77,25 +77,6 @@ public class ModelConfigTest {
     }
 
     @Test
-    public void callStaticMethods() throws Exception {
-        Class parentClass = ModelConfig.class;
-        Class childClass = Class.forName(parentClass.getName() + M_BUILDER);
-
-        Method[] methods = childClass.getMethods();
-        Method build = childClass.getMethod(F_BUILD, new Class[]{EOConfigsCache.class, Map.class});
-        Constructor constructor = childClass.getConstructor(null);
-        Object childObject = constructor.newInstance();
-        ModelInterface config = (ModelInterface) build.invoke(childObject, ProviderRootTestScope.EO_CONFIGS, MODEL_CONFIG_MAP);
-        Assert.assertEquals(ModelConfig.MODEL_KEY, config.getModelKey());
-        Assert.assertEquals(Model.AUTHOR, config.getAuthor());
-        Assert.assertEquals(ModelConfig.PACKAGE_GROUP, config.getPackageGroup());
-        Assert.assertEquals(ModelConfig.PACKAGE_PATH, config.getPackagePath());
-        Assert.assertEquals(ModelConfig.INTERFACES, config.getInterfaces());
-        Assert.assertEquals(ModelConfig.MODULE, config.getModule());
-        Assert.assertEquals(ModelConfig.SUB_MODULE, config.getSubModule());
-    }
-
-    @Test
     public void checkConfig() {
         EOConfigsCache cache = ProviderRootTestScope.EO_CONFIGS;
         TreeSet<String> keys = new TreeSet<>(cache.getConfigKeys(ModelConfig.class));

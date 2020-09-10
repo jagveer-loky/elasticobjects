@@ -1,12 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -27,7 +25,7 @@ public class HostConfig extends ConfigResourcesImpl {
 
     public HostConfig(final EOConfigsCache provider, final Map map) {
         super(provider, map);
-        this.port = (Integer) map.get(PORT);
+        this.port = map.containsKey(PORT) ? ScalarConverter.toInt(map.get(PORT)) : null;
         this.protocol = (String) map.get(PROTOCOL);
         this.hostName = (String) map.get(HOST_NAME);
         this.user = (String) map.get(USER);
@@ -40,6 +38,9 @@ public class HostConfig extends ConfigResourcesImpl {
     public Integer getPort() {
         return this.port;
     }
+    public boolean hasPort() {
+        return port!=null && port>-1;
+    }
 
     /**
      * Basic host definition for file or db config.
@@ -47,24 +48,33 @@ public class HostConfig extends ConfigResourcesImpl {
     public String getProtocol() {
         return this.protocol;
     }
-
+    public boolean hasProtocol() {
+        return protocol!=null && !protocol.isEmpty();
+    }
     /**
      * A name for host objects.
      */
     public String getHostName() {
         return this.hostName;
     }
-
+    public boolean hasHostName() {
+        return hostName!=null && !hostName.isEmpty();
+    }
     /**
      * Basic host definition for file or db config.
      */
     public String getUser() {
         return this.user;
     }
-
+    public boolean hasUser() {
+        return user!=null && !user.isEmpty();
+    }
     /**
      * Basic host definition for file or db config.
      */
+    public boolean hasPassword() {
+        return password!=null && !password.isEmpty();
+    }
     public String getPassword() {
         return this.password;
     }
@@ -75,8 +85,11 @@ public class HostConfig extends ConfigResourcesImpl {
         }
         if ("".equals(hostName)) {
             return protocol;
-        } else if (!H_LOCALHOST.equals(hostName)) {
-            return protocol + "://" + hostName + ":" + port;
+        } else if (!LOCALHOST.equals(hostName)) {
+            if (hasPort()) {
+                return protocol + "://" + hostName + ":" + port;
+            }
+            return protocol + "://" + hostName;
         } else {
             return "file:";
         }

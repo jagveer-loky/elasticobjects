@@ -311,6 +311,7 @@
   "Class": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "SCALAR",
@@ -442,11 +443,8 @@
     },
     "description": "Params controlling the behavior of an EO ModelConfig like serialization/deserialization.",
     "fieldKeys": [
-      "scope",
       "create",
       "shapeType",
-      "attributeList",
-      "modelConfigKey",
       "defaultImplementation"
     ],
     "modelKey": "EOParams",
@@ -618,6 +616,7 @@
   "HashMap": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigMap",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "MAP",
@@ -1028,10 +1027,11 @@
   "Object": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigNone",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "NONE",
-      "create": "false"
+      "create": false
     },
     "modelKey": "Object",
     "packagePath": "java.lang",
@@ -1109,6 +1109,7 @@
   "Scope": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "SCALAR",
@@ -1123,6 +1124,7 @@
   "Expose": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "SCALAR",
@@ -1150,6 +1152,7 @@
   "ShapeTypes": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "INFO",
     "eoParams": {
       "shapeType": "ENUM",
@@ -1164,6 +1167,7 @@
   "KeepCalls": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "INFO",
     "eoParams": {
       "shapeType": "ENUM",
@@ -1178,6 +1182,7 @@
   "Short": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "SCALAR",
@@ -1190,6 +1195,7 @@
   "StringBuffer": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "SCALAR",
@@ -1202,6 +1208,7 @@
   "StringBuilder": {
     "module": "elastic-objects",
     "subModule": "main",
+    "configModelKey": "ModelConfigScalar",
     "expose": "NONE",
     "eoParams": {
       "shapeType": "SCALAR",

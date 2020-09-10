@@ -1,17 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "protocol": "jdbc:h2",
-    "hostName": "",
-    "user": "sa",
-    "module": "eo-test",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "key": "h2",
-    "description": "H2 Host Definition",
-    "naturalId": "h2"
-  },
-  "1": {
     "protocol": "file:",
     "hostName": "localhost",
     "module": "elastic-objects",
@@ -21,7 +10,7 @@
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
-  "2": {
+  "1": {
     "protocol": "file:",
     "hostName": "localhost",
     "module": "elastic-objects",
@@ -31,7 +20,7 @@
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   },
-  "3": {
+  "2": {
     "port": 1,
     "protocol": "protocol",
     "hostName": "hostName",
@@ -51,7 +40,7 @@
     "description": "description",
     "naturalId": "test"
   },
-  "4": {
+  "3": {
     "port": 21,
     "protocol": "ftp",
     "hostName": "ftpServer",

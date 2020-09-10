@@ -7,9 +7,6 @@
       "0": "SubExampleClass.name"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },

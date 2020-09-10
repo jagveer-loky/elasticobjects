@@ -1,10 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -19,9 +16,10 @@ public class FieldConfig extends ConfigImpl {
     public static final String VIEW_FIELD_PARAMS = "viewFieldParams";
     public static final String EO_FIELD_PARAMS = "eoFieldParams";
     public static final String CUSTOM_FIELD_PARAMS = "customFieldParams";
-    private static final Logger LOG = LogManager.getLogger(FieldConfig.class);
+    public static final String FIELD_KEY = "fieldKey";
+    public static final String MODEL_KEYS = "modelKeys";
+    public static final String TO_SERIALIZE = "toSerialize";
     private final Boolean toSerialize;
-    //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
     private final String fieldKey;
     private final DBFieldParams dbFieldParams;
     private final EOFieldParams eoFieldParams;
@@ -31,20 +29,15 @@ public class FieldConfig extends ConfigImpl {
     private List<String> modelList;
     private Models models;
 
-    public FieldConfig(EOConfigsCache provider, Builder builder) {
-        super(provider, builder);
-        this.toSerialize = builder.toSerialize;
-
-        //<call keep="JAVA" templateKey="CacheSetter.tpl" }
-        this.fieldKey = builder.fieldKey;
-
-        this.dbFieldParams = builder.dbFieldParams;
-        this.eoFieldParams = builder.eoFieldParams;
-        this.viewFieldParams = builder.viewFieldParams;
-        this.customFieldParams = builder.customFieldParams;
-
-        //this.models = builder.models;
-        this.modelKeys = builder.modelKeys;
+    public FieldConfig(EOConfigsCache configsCache, Map map) {
+        super(configsCache, map);
+        this.toSerialize = map.containsKey(TO_SERIALIZE)?(Boolean)map.get(TO_SERIALIZE) : false;
+        this.fieldKey = (String)map.get(FIELD_KEY);
+        this.dbFieldParams = new DBFieldParams(map.get(DB_FIELD_PARAMS));
+        this.eoFieldParams = new EOFieldParams(configsCache, map.get(EO_FIELD_PARAMS));
+        this.viewFieldParams = new ViewFieldParams(map.get(VIEW_FIELD_PARAMS));
+        this.customFieldParams = (Map) map.get(CUSTOM_FIELD_PARAMS);
+        this.modelKeys = (String)map.get(MODEL_KEYS);
         this.modelList = new ArrayList<>();
         super.setExpose(Expose.NONE);
     }
@@ -83,11 +76,11 @@ public class FieldConfig extends ConfigImpl {
         Map customFieldParams = new HashMap();
         map.put(CUSTOM_FIELD_PARAMS, customFieldParams);
 
-        map.put(F_FIELD_KEY, field.getName());
+        map.put(FIELD_KEY, field.getName());
         map.put(NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
         map.put(F_NAME, field.getName());
-        map.put(F_MODEL_KEYS, typeClass.getSimpleName());
-        FieldConfig config = (FieldConfig) new Builder().build(configsCache, map);
+        map.put(MODEL_KEYS, typeClass.getSimpleName());
+        FieldConfig config = new FieldConfig(configsCache, map);
         configsCache.add(FieldConfig.class, config);
         if (!configsCache.hasConfigKey(ModelConfig.class, typeClass.getSimpleName())) {
             ModelConfig.addByClassName(configsCache, typeClass.getName());
@@ -244,46 +237,4 @@ public class FieldConfig extends ConfigImpl {
     public ModelInterface getChildModel()  {
         return getModels().getChildModel();
     }
-
-    public static class Builder extends ConfigImpl.Builder {
-        //<call keep="JAVA" templateKey="BeanInstanceVars.tpl" }
-
-        private Boolean toSerialize;
-
-        //<call keep="JAVA" templateKey="CacheInstanceVars.tpl" }
-        private String fieldKey;
-
-        private DBFieldParams dbFieldParams;
-        private EOFieldParams eoFieldParams;
-        private ViewFieldParams viewFieldParams;
-        private Map customFieldParams;
-
-        private Models models;
-        private String modelKeys;
-
-
-        public Builder() {
-            super();
-        }
-
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            toSerialize = ScalarConverter.toBoolean(values.get(F_TO_SERIALIZE));
-            fieldKey = ScalarConverter.toString(values.get(F_FIELD_KEY));
-            dbFieldParams = new DBFieldParams(values.get(DB_FIELD_PARAMS));
-            eoFieldParams = new EOFieldParams(configsCache, values.get(EO_FIELD_PARAMS));
-            viewFieldParams = new ViewFieldParams(values.get(VIEW_FIELD_PARAMS));
-            customFieldParams = (Map) values.get(CUSTOM_FIELD_PARAMS);
-            //models = new Models(configsCache, ScalarConverter.toString(values.get(F_MODEL_KEYS)));
-            modelKeys = ScalarConverter.toString(values.get(F_MODEL_KEYS));
-            super.prepare(configsCache, values);
-        }
-
-        public Config build(final EOConfigsCache provider, final Map<String, Object> values)  {
-            prepare(provider, values);
-            return new FieldConfig(provider, this);
-        }
-
-    }
-
-
 }

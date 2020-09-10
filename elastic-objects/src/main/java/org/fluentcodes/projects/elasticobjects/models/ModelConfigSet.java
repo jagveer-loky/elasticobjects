@@ -5,10 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -16,8 +13,8 @@ import java.util.Set;
 public class ModelConfigSet extends ModelConfig implements ModelInterface {
     private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
 
-    public ModelConfigSet(EOConfigsCache provider, Builder bean) {
-        super(provider, bean);
+    public ModelConfigSet(EOConfigsCache provider, Map map) {
+        super(provider, map);
     }
 
     @Override

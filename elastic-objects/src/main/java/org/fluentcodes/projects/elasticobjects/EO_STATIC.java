@@ -25,7 +25,6 @@ public class EO_STATIC {
     public static final String CONFIG_PATH_TEST = CONFIG_PATH_TEST_SIMPLE + Path.DELIMITER;
 
     public static final String F_INDENT = "indent";
-    public static final String F_TO_SERIALIZE = "toSerialize";
     public static final String F_PROVIDE_IN_ACTION = "provideInAction";
     public static final String F_DEFAULT_VALUE = "defaultValue";
 
@@ -48,8 +47,6 @@ public class EO_STATIC {
     public static final String F_UPPER_ID = "ID";
     public static final String F_VIEW_KEY = "viewKey";
     public static final String F_NATURAL_KEYS = "naturalKeys";
-    public static final String F_MODEL_KEYS = "modelKeys";
-    public static final String F_FIELD_KEY = "fieldKey";
     public static final String F_ID_KEY = "idKey";
     public static final String F_NAME = "name";
     public static final String F_JOIN_INVERSE = "joinInverse";
@@ -60,7 +57,6 @@ public class EO_STATIC {
     public static final String F_MAP_KEY = "mapKey";
 
 
-    public static final String H_LOCALHOST = "localhost";
     public static final String J_MODULE_CONFIG_JSON = "ModuleConfig.json";
     public static final String CON_NEWLINE = "\n";
     public static final String CON_SEMICOLON = ";";

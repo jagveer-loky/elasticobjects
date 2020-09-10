@@ -1,13 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
 
@@ -15,11 +14,9 @@ import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
  * @Author Werner Diwischek
  * @since 12.10.2018.
  */
-public class EOConfigMapFile extends EOConfigMap {
-    public static final Logger LOG = LogManager.getLogger(EOConfigMapFile.class);
-
-    public EOConfigMapFile(final EOConfigsCache eoConfigsCache)  {
-        super(eoConfigsCache, FileConfig.class);
+public class EOConfigMapHost extends EOConfigMap {
+    public EOConfigMapHost(final EOConfigsCache eoConfigsCache)  {
+        super(eoConfigsCache, HostConfig.class);
     }
 
     /*protected void addConfigByMap(final Map map) {
@@ -33,19 +30,16 @@ public class EOConfigMapFile extends EOConfigMap {
         String modelKey =
                 map.containsKey(ConfigImpl.CONFIG_MODEL_KEY) && map.get(ConfigImpl.CONFIG_MODEL_KEY) !=null
                         ? (String) map.get(ConfigImpl.CONFIG_MODEL_KEY)
-                        : "FileConfig";
+                        : "HostConfig";
         if (modelKey.isEmpty()) {
-            modelKey = "FileConfig";
-        }
-        else {
-            System.out.println("");
+            modelKey = "HostConfig";
         }
         ModelConfig modelConfig = getConfigsCache().findModel(modelKey);
         try {
-            Class fileConfigClass = modelConfig.getModelClass();
-            Constructor fileTypeConstructor = fileConfigClass.getConstructor(EOConfigsCache.class, Map.class);
+            Class hostConfigClass = modelConfig.getModelClass();
+            Constructor hostTypeConstructor = hostConfigClass.getConstructor(EOConfigsCache.class, Map.class);
             try {
-                addConfig((FileConfig)fileTypeConstructor.newInstance(getConfigsCache(), map));
+                addConfig((HostConfig)hostTypeConstructor.newInstance(getConfigsCache(), map));
             } catch (InstantiationException e) {
                 throw new EoInternalException(e);
             } catch (IllegalAccessException e) {
@@ -59,7 +53,5 @@ public class EOConfigMapFile extends EOConfigMap {
         } catch (NoSuchMethodException e) {
             throw new EoInternalException(e);
         }
-    }
-
-     */
+    }*/
 }

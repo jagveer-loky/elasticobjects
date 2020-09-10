@@ -23,6 +23,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.HOST_KEY;
  * Created by Werner on 09.10.2016.
  */
 public class DbConfig extends HostConfig {
+    public static final String DB_KEY = "dbKey";
     public static final String SCHEMA = "schema";
     public static final String DRIVER = "driver";
     public static final String JNDI = "jndi";
@@ -34,18 +35,16 @@ public class DbConfig extends HostConfig {
     private final String driver;
     private final String jndi;
     private final DbTypes dbType;
-    private final String hostKey;
     private final String extension;
     private Connection connection;
 
     public DbConfig(final EOConfigsCache provider, final Map map)  {
         super(provider, map);
-        hostKey = (String) map.get(HOST_KEY);
         schema = (String) map.get(SCHEMA);
         driver = (String) map.get(DRIVER);
         jndi = (String) map.get(JNDI);
         extension = (String) map.get(EXTENSION);
-        dbType = (DbTypes) map.get(DB_TYPE);
+        dbType = map.containsKey(DB_TYPE) ? DbTypes.valueOf((String) map.get(DB_TYPE)): DbTypes.UNDEFINED;
     }
 
     /**
@@ -80,26 +79,6 @@ public class DbConfig extends HostConfig {
         return this.dbType;
     }
 
-    /**
-     * A key for host objects.
-     */
-    public String getHostKey() {
-        return this.hostKey;
-    }
-
-    /**
-     * The field for hostConfig e.g. defined in {@link HostConfig}
-     */
-    public HostConfig getHostConfig()  {
-        if (this.hostConfig == null) {
-            if (this.getConfigsCache() == null) {
-                throw new EoException("Config could not be initialized with a null provider for 'hostConfig' - 'hostKey''!");
-            }
-            this.hostConfig = (HostConfig) getConfigsCache().find(HostConfig.class, hostKey);
-        }
-        return this.hostConfig;
-    }
-
     public boolean read(EO eo) {
         return false;
     }
@@ -115,7 +94,7 @@ public class DbConfig extends HostConfig {
             stmt = this.getConnection().createStatement();
             return stmt.execute(sql);
         } catch (Exception e) {
-            throw new EoException(e);
+            throw new EoException("Problem in " + getUrlPath() + " to execute " + sql ,e);
         } finally {
             if (stmt != null) {
                 try {
@@ -139,21 +118,9 @@ public class DbConfig extends HostConfig {
             throw new EoException("No driver is addList for '" + getKey() + "'.");
         }
         Class.forName(dbType.getDriver());
-        connection = DriverManager.getConnection(getUrlPath(), getHostConfig().getUser(), getHostConfig().getPassword());
-        initDb();
+        System.out.println(getUrlPath());
+        connection = DriverManager.getConnection(getUrlPath(), getUser(), getPassword());
         return connection;
-    }
-
-    private void initDb() throws IOException, SQLException {
-        Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources("data/" + getKey() + ".sql");
-        List<URL> urlList = Collections.list(urls);
-        for (URL url : urlList) {
-            LOG.info("Add  from " + url.getFile());
-            String sql = new IOString().setFileName(url.getFile()).read();
-            DbIO dbIO = new DbIO(this);
-            dbIO.execute(Arrays.asList(sql.split(";\n")));
-        }
-        LOG.info("Initialized db");
     }
 
     public void closeConnection()  {
@@ -168,21 +135,27 @@ public class DbConfig extends HostConfig {
         connection = null;
     }
 
+    public boolean hasExtension() {
+        return extension != null && !extension.isEmpty();
+    }
+
+    public boolean hasSchema() {
+        return schema != null && !schema.isEmpty();
+    }
 
     public String getUrlPath()  {
-        if (getHostConfig() == null) {
-            throw new EoException("Incomplete directory exception: hostConfig not addList!");
+        StringBuffer urlPath = new StringBuffer();
+        if (hasProtocol()) {
+            urlPath.append(getProtocol());
         }
-        String urlPath = hostConfig.getUrlPath();
-
-        if (schema != null && !schema.isEmpty()) {
-            urlPath += ":" + schema;
+        if (hasSchema()) {
+            urlPath.append(":");
+            urlPath.append(schema);
         }
-        if (extension != null && !extension.isEmpty()) {
-            urlPath += ";" + extension;
+        if (hasExtension()) {
+            urlPath.append( ";");
+            urlPath.append(extension);
         }
-        return urlPath;
-        //TODO
-        //return ReplaceUtil.replace(urlPath);
+        return urlPath.toString();
     }
 }

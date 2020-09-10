@@ -5,6 +5,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
  * Values from https://gist.github.com/mortezaadi/8619433
  */
 public enum DbTypes {
+    UNDEFINED("",""),
     ORACLE("com.mysema.query.jpa.support.ExtendedOracleDialect", "oracle.jdbc.driver.OracleDriver"),
     MYSQL("org.hibernate.dialect.MySQLInnoDBDialect", "com.mysql.jdbc.Driver"),
     H2("org.hibernate.dialect.H2Dialect", "org.h2.Driver"),

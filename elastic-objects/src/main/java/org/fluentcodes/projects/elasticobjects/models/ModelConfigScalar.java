@@ -4,16 +4,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
  * Created by Werner on 09.10.2016.
  */
 public class ModelConfigScalar extends ModelConfig {
-    private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
+    public static final String CONFIG_MODEL_KEY = "ModelConfigScalar";
 
-    public ModelConfigScalar(EOConfigsCache provider, Builder bean) {
-        super(provider, bean);
+    public ModelConfigScalar(EOConfigsCache provider, Map map) {
+        super(provider, map);
     }
 
     @Override

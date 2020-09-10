@@ -1,9 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Condition;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
@@ -22,7 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_AND;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_PATH_PATTERN;
 
 
 /**
@@ -31,7 +31,6 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInterface {
 
     public static final String SQL = "sql";
-    private static final Logger LOG = LogManager.getLogger(DbQueryConfig.class);
     private final String modelKey;
     private final String dbKey;
     private final PathPattern pathPattern;
@@ -62,7 +61,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
             return;
         }
         super.resolve();
-        dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
+        this.dbConfig = (DbConfig) getConfigsCache().find(HostConfig.class, dbKey);
     }
 
     @Override

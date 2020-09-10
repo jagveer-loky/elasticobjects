@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -42,6 +43,7 @@ public class EOConfigsCache {
         this.modelPattern = null;
         eoConfigsMap.put(ModelConfig.class, new EOConfigMapModels(this));
         eoConfigsMap.put(FieldConfig.class, new EOConfigMapFields(this));
+        eoConfigsMap.put(HostConfig.class, new EOConfigMapHost(this));
         eoConfigsMap.put(FileConfig.class, new EOConfigMapFile(this));
         if (scope != Scope.DEV) {
             eoConfigsMap.get(ModelConfig.class).addJsonConfigs();
@@ -50,8 +52,17 @@ public class EOConfigsCache {
             for (String key: eoConfigsMap.get(ModelConfig.class).getKeys()) {
                 eoConfigsMap.get(ModelConfig.class).find(key).resolve();
             }
+            eoConfigsMap.get(HostConfig.class).addJsonConfigs();
             eoConfigsMap.get(FileConfig.class).addJsonConfigs();
         }
+    }
+
+    protected void addModel(Map model) {
+        eoConfigsMap.get(ModelConfig.class).addConfigByMap(model);
+    }
+
+    protected void addField(Map model) {
+        eoConfigsMap.get(FieldConfig.class).addConfigByMap(model);
     }
 
     protected Scope getScope() {

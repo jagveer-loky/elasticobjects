@@ -3,8 +3,9 @@
   "0": {
     "schema": "$[TMP]/test",
     "driver": "org.h2.Driver",
-    "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
+    "protocol": "jdbc:h2",
+    "user": "sa",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -15,8 +16,9 @@
   "1": {
     "schema": "file:basic",
     "driver": "org.h2.Driver",
-    "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
+    "hostName": "h2:mem",
+    "password": "",
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -27,8 +29,9 @@
   "2": {
     "schema": "mem:test",
     "driver": "org.h2.Driver",
-    "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
+    "protocol": "jdbc:h2",
+    "user": "sa",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -39,8 +42,10 @@
   "3": {
     "schema": "mem:basic",
     "driver": "org.h2.Driver",
-    "hostKey": "h2",
     "extension": "DATABASE_TO_UPPER=false;",
+    "protocol": "jdbc:h2",
+    "hostName": "h2",
+    "password": "",
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -50,7 +55,6 @@
   },
   "4": {
     "schema": "file:$[TMP]/test.hsql",
-    "hostKey": "hsql",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -60,7 +64,6 @@
   },
   "5": {
     "schema": "mem",
-    "hostKey": "hsql",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -69,7 +72,26 @@
     "naturalId": "hsql:mem"
   },
   "6": {
-    "hostKey": "localMySql",
+    "protocol": "file:",
+    "hostName": "localhost",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "key": "local",
+    "description": "local host with key 'local'",
+    "naturalId": "local"
+  },
+  "7": {
+    "protocol": "file:",
+    "hostName": "localhost",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "key": "localhost",
+    "description": "local host with key 'localhost'",
+    "naturalId": "localhost"
+  },
+  "8": {
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -77,8 +99,7 @@
     "description": "Core Schema",
     "naturalId": "localMySql:core"
   },
-  "7": {
-    "hostKey": "localMySql",
+  "9": {
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -86,9 +107,8 @@
     "description": "Test Schema",
     "naturalId": "localMySql:test"
   },
-  "8": {
+  "10": {
     "schema": "XE",
-    "hostKey": "localOracle",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
