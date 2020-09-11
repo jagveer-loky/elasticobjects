@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 
-import org.fluentcodes.projects.elasticobjects.calls.files.JsonReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -41,7 +40,7 @@ public class JsonReadCallTest {
 
     @Test
     public void givenCallRoleGuestAndFileTmp_whenExecuteCall_thenThrowException()  {
-        final JsonReadCall call = new JsonReadCall(FILE_TMP_JSON);
+        final JsonReadCall call = new JsonReadCall(JsonWriteCallTest.FILE_TMP_JSON);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         Assertions

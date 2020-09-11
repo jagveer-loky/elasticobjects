@@ -11,7 +11,8 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    }
+    },
+    "expose":"NONE"
   },
   "FileTestCached.txt": {
     "module": "elastic-objects",
@@ -20,7 +21,8 @@
     "filePath": "input/calls/file-simple",
     "fileName": "FileTest.txt",
     "description": "Local file with cache set true.",
-    "cached": true
+    "cached": true,
+    "expose":"NONE"
   },
   "target.txt": {
     "module": "elastic-objects",
@@ -28,8 +30,8 @@
     "fileKey": "target.txt",
     "filePath": "$[@TMP]",
     "fileName": "target.txt",
-    "description": "Target file definition"
-
+    "description": "Target file definition",
+    "expose":"NONE"
   },
   "ListSimple.csv": {
     "module": "eo-test",
@@ -48,7 +50,8 @@
       "read": "guest",
       "write": "admin"
     },
-    "description": "A sample csv file with 2*2 values and a head as a source."
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "expose":"NONE"
   },
   "target.csv": {
     "module": "eo-test",
@@ -66,19 +69,8 @@
       "read": "guest",
       "write": "admin"
     },
-    "description": "A sample target csv file with tmp placeholder."
-  },
-  "ListSimple.json": {
-    "module": "eo-test",
-    "subModule": "main",
-    "jsonKey": "ListSimple.json",
-    "filePath": "input/calls/list-simple",
-    "fileName": "ListSimple.json",
-    "description": "Simple list equivalent for ListSimple.csv.",
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
-    }
+    "description": "A sample target csv file with tmp placeholder.",
+    "expose":"NONE"
   },
   "BasicTest.json": {
     "module": "eo-test",
@@ -100,7 +92,7 @@
     "jsonKey": "target.json",
     "filePath": "$[@TMP]",
     "fileName": "target.json",
-    "description": "A sample target json file with tmp placeholder."
-
+    "description": "A sample target json file with tmp placeholder.",
+    "expose":"NONE"
   }
 }

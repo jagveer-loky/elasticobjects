@@ -11,6 +11,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.EXPOSE;
 import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
 
 /**
@@ -39,6 +40,9 @@ public class EOConfigMapFields extends EOConfigMap {
         }
         if (hasKey(naturalId)) {
             throw new EoInternalException("NaturalId " + naturalId + " already exists FileConfig.");
+        }
+        if (!map.containsKey(EXPOSE)) {
+            map.put(EXPOSE, Expose.NONE.name());
         }
         try {
             Class configurationClass = FieldConfig.class;

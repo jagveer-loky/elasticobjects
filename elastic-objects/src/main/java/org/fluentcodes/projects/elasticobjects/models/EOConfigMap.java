@@ -102,6 +102,9 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
         if (hasKey(naturalId)) {
             throw new EoInternalException("NaturalId " + naturalId + " already exists FileConfig.");
         }
+        if (configMap.containsKey(naturalId)) {
+            throw new EoInternalException("NaturalId '" + naturalId + "' already exist in " + this.configClass.getSimpleName());
+        }
         String modelKey =
                 map.containsKey(ConfigImpl.CONFIG_MODEL_KEY) && map.get(ConfigImpl.CONFIG_MODEL_KEY) !=null && !((String)map.get(ConfigImpl.CONFIG_MODEL_KEY)).isEmpty()
                         ? (String) map.get(ConfigImpl.CONFIG_MODEL_KEY)

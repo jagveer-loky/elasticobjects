@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
@@ -31,7 +30,7 @@ public class EoBtSetTest {
         ModelInterface cache = ProviderRootTestScope.EO_CONFIGS.findModel(BasicTest.class);
         Assert.assertNotNull(cache.getFieldConfig(BasicTest.TEST_STRING));
         Assert.assertEquals(BasicTest.TEST_STRING, cache.getFieldConfig(BasicTest.TEST_STRING).getFieldKey());
-        ModelInterface subTest = cache.getFieldModel(F_SUB_TEST);
+        ModelInterface subTest = cache.getFieldModel(BasicTest.SUB_TEST);
         Assert.assertEquals(M_SUB_TEST, subTest.getModelKey());
         Assert.assertEquals(BasicTest.TEST_STRING, subTest.getFieldConfig(BasicTest.TEST_STRING).getFieldKey());
     }

@@ -18,6 +18,8 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * @since 11.10.2016.
  */
 public class FileReadCallTest {
+    public static final String FILE_SOURCE_TXT = "FileTest.txt";
+
     @Test
     public void createByModelConfig()  {
         ConfigModelChecks.create(FileReadCall.class);
