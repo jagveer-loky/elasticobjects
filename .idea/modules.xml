@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/builder/builder.iml" filepath="$PROJECT_DIR$/builder/builder.iml" />
       <module fileurl="file://$PROJECT_DIR$/elastic-objects/elastic-objects.iml" filepath="$PROJECT_DIR$/elastic-objects/elastic-objects.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo.iml" filepath="$PROJECT_DIR$/eo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/builder-eo/eo-builder.iml" filepath="$PROJECT_DIR$/builder-eo/eo-builder.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo-csv/eo-csv.iml" filepath="$PROJECT_DIR$/eo-csv/eo-csv.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo-db/eo-db.iml" filepath="$PROJECT_DIR$/eo-db/eo-db.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo-test/eo-test.iml" filepath="$PROJECT_DIR$/eo-test/eo-test.iml" />
