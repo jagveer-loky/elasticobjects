@@ -61,6 +61,6 @@ public class BtFromJsonTest {
         EO eo = TestProviderBtJson.SUB_TEST.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, BasicTest.class, eo.getModelClass());
-        Assertions.assertThat(eo.get(F_SUB_TEST, BasicTest.TEST_STRING)).isEqualTo((S_STRING));
+        Assertions.assertThat(eo.get(BasicTest.SUB_TEST, BasicTest.TEST_STRING)).isEqualTo((S_STRING));
     }
 }

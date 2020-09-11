@@ -1,4 +1,17 @@
 {
+  "ListSimple.json": {
+    "module": "eo-test",
+    "subModule": "main",
+    "jsonKey": "ListSimple.json",
+    "filePath": "input/calls/list-simple",
+    "fileName": "ListSimple.json",
+    "description": "Simple list equivalent for ListSimple.csv.",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "expose":"NONE"
+  },
   "BasicTest.csv": {
     "module": "eo-test",
     "subModule": "main",

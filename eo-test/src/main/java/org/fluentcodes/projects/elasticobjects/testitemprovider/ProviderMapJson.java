@@ -21,7 +21,7 @@ public enum ProviderMapJson {
     ;
     private String content;
     ProviderMapJson(final String content) {
-        if (content.startsWith(PATH_INPUT_JSON)) {
+        if (content.startsWith(PATH_INPUT)) {
             this.content = new IOString().setFileName(content).read();
         }
         else {

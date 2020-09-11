@@ -109,174 +109,93 @@ public class EOConfigMapModels extends EOConfigMap {
     protected void addBasicConfigs()  {
         Map<String, Object> map = new HashMap<>();
 
+
+        // map
         map.put(Model.NATURAL_ID, "Map");
         map.put(ModelConfig.MODEL_KEY, "Map");
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
         map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
+        map.put(CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
 
         Map<String, Object> eoParamsMap = new HashMap<>();
         eoParamsMap.put(EOParams.SHAPE_TYPE, "MAP");
         eoParamsMap.put(EOParams.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-        map = new HashMap<>();
+
         map.put(Model.NATURAL_ID, "LinkedHashMap");
         map.put(ModelConfig.MODEL_KEY, "LinkedHashMap");
-
-        map.put(ModelConfig.PACKAGE_PATH, "java.util");
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
+
+        // list
         map = new HashMap<>();
-        eoParamsMap = new HashMap<>();
         map.put(Model.NATURAL_ID, "List");
         map.put(ModelConfig.MODEL_KEY, "List");
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
+        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
+        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
+
+        eoParamsMap = new HashMap<>();
         eoParamsMap.put(EOParams.SHAPE_TYPE, "LIST");
         eoParamsMap.put(EOParams.DEFAULT_IMPLEMENTATION, "ArrayList");
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-        map = new HashMap<>();
+
         map.put(Model.NATURAL_ID, "ArrayList");
-        map.put(ModelConfig.JSON_TYPE, "list");
         map.put(ModelConfig.MODEL_KEY, "ArrayList");
-        map.put(ModelConfig.PACKAGE_PATH, "java.util");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
 
+        // scalar
         map = new HashMap<>();
         map.put(Model.NATURAL_ID, "Integer");
         map.put(ModelConfig.MODEL_KEY, "Integer");
+        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
+        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
+        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
 
         eoParamsMap = new HashMap<>();
         eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
         map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "Long");
         map.put(ModelConfig.MODEL_KEY, "Long");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "String");
         map.put(ModelConfig.MODEL_KEY, "String");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "Double");
         map.put(ModelConfig.MODEL_KEY, "Double");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "Float");
         map.put(ModelConfig.MODEL_KEY, "Float");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "Boolean");
         map.put(ModelConfig.MODEL_KEY, "Boolean");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "Date");
         map.put(ModelConfig.MODEL_KEY, "Date");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
         map.put(ModelConfig.PACKAGE_PATH, "java.util");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "LogLevel");
         map.put(ModelConfig.MODEL_KEY, "LogLevel");
         map.put(ModelConfig.PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
+        map.put(ConfigImpl.EXPOSE, Expose.INFO.name());
         addConfigByMap(map);
 
-
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "JSONSerializationType");
         map.put(ModelConfig.MODEL_KEY, "JSONSerializationType");
         map.put(ModelConfig.PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, "SCALAR");
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
-
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
     }
 }

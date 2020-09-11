@@ -5,7 +5,7 @@
     "hostName": "localhost",
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "local",
     "description": "local host with key 'local'",
     "naturalId": "local"

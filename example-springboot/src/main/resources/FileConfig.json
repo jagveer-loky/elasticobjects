@@ -353,6 +353,7 @@
     "fileName": "TemplateConfig.html",
     "filePath": "web/configs",
     "description": "Entry content for TemplateConfig.",
+    "expose": "NONE",
     "rolePermissions": {
       "execute": "guest"
     }

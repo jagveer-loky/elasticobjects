@@ -14,12 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 public class TEO_STATIC {
     public static final String S_EMPTY = "";
 
-    public static final String FILE_SOURCE_TXT = "FileTest.txt";
     public static final String PATH_INPUT = "input/";
-    public static final String PATH_INPUT_JSON = PATH_INPUT + "json/";
-
-    public static final String FILE_TMP_JSON = "target.json";
-    public static final String F_SUB_TEST = "subTest";
 
     public static final String M_BASIC_TEST = "BasicTest";
     public static final String M_SUB_TEST = "SubTest";
@@ -33,12 +28,6 @@ public class TEO_STATIC {
     public static final String INFO_EXPECTED_EXCEPTION = "Expected Exception: ";
     public static final String INFO_EXPECTED_EXCEPTION_FAILS = "Expected Exception was not thrown";
     public static final String INFO_EXPECTED_NO_EXCEPTION = "An Exception should be thrown! ";
-
-    public static final String INFO_CONDITION_TRUE_FAILS = "Expected condition result is true but is false: ";
-    public static final String INFO_CONDITION_FALSE_FAILS = "Expected condition result is false but is true: ";
-
-    public static final String INFO_EMPTY_FAILS = "Log not empty but expected empty! ";
-    public static final String INFO_NOT_EMPTY_FAILS = "Log expected not empty but is empty! ";
 
     public static final String INFO_LOG_EMPTY_FAILS = "Log not empty but expected empty! ";
     public static final String INFO_LOG_NOT_EMPTY_FAILS = "Log empty but expected NOT empty! ";
@@ -98,22 +87,6 @@ public class TEO_STATIC {
             return "";
         }
         return String.join(delimiter, keyValues);
-    }
-
-    public static final String toEq(String... keyValues) {
-        return join(CON_SPACE + Condition.EQ + CON_SPACE, keyValues);
-    }
-
-    public static final String toLike(String... keyValues) {
-        return join(CON_SPACE + Condition.LIKE + CON_SPACE, keyValues);
-    }
-
-    public static final String toAnd(String... keyValues) {
-        return join(CON_SPACE + And.DELIMITER + CON_SPACE, keyValues);
-    }
-
-    public static final String toOr(String... keyValues) {
-        return join(CON_SPACE + Or.DELIMITER + CON_SPACE, keyValues);
     }
 
     public static final Map<String, Object> createListMapperMap() {
