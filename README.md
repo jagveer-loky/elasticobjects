@@ -25,26 +25,28 @@ which itself is build by one generic spring boot endpoint and EO.
 
 A simple example where you can edit it's structure:
 
- <form action="http://www.elasticobjects.org/eo-form" method="post">
+<form action="http://www.elasticobjects.org/eo-form" method="post">
      <textarea name="eo">{
   "(Double)source":1,
   "(SinusValueCall)target": {
     "sourcePath": "/source"
   }
 }</textarea>
-     <input type="submit" value="post"/>
- </form>
+  <input type="submit" value="post"/>
+</form>
 
 Here you can edit
 * the value of source
 * the fieldName of target
 * the value of sourcePath and the corresponding fieldName
 
+The core library is rather small but allows a much rich message
+communication even within existing solutions.
+
 * any combination of functionality allowed in a message
 * any arbitrary information could placed in a message
 * minimal coupling to an application server
 * No annotation magic, pure java
-
 
 ### Modules
 Actually three modules are deployed to [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
