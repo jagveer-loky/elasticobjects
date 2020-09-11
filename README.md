@@ -14,13 +14,12 @@
 Computer communication today means some kind of typed method invocation
 and fixed method functionality bound to an url.
 
-The concept of Elastic Objects is different: It offers a generic object
-with typed parts send over one endpoint. Functionality is offered by
-beans with an execution method which can be arbitrary composed. They
-called **Calls**.
+The concept of EO is different: It offers a generic object with typed
+parts send over one endpoint. Functionality is offered by beans with an
+execution method which can be arbitrary composed. They called **Calls**.
 
-Some working editable examples of diffent you can find on
-[ElasticObjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html)
+Some working editable examples you can find on
+[elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html)
 which itself is build by one generic spring boot endpoint and EO.
 
 A simple example where you can edit it's structure:
