@@ -1,7 +1,0 @@
-{
-  ".actions": [
-    {
-      "action": "HibernateModelAction.read(h2:mem:BasicTest)"
-    }
-  ]
-}
