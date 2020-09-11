@@ -1,11 +1,6 @@
-
 <div align="right" clear="left">
 <a name="page"/>
 <font size="2">
-<a href="#path">Path</a><br>
-<a href="#typed-json">Typed JSON</a><br>
-<a href="#under-the-hood">Under the Hood</a><br>
-<a href="#further-documentation">Further-Documentation</a><br>
 <a href="#modules">Modules</a><br>
 <a href="#status">Status</a><br>
 </font>
@@ -16,277 +11,39 @@
 > -- <cite>Martin Fowler</cite>
 
 # Elastic Objects
+Computer communication today means some kind of typed method invocation
+and fixed method functionality bound to an url.
 
-Elastic Objects offers access to java objects via [path](#path).
+The concept of Elastic Objects is different: It offers a generic object
+with typed parts send over one endpoint. Functionality is offered by
+beans with an execution method which can be arbitrary composed. They
+called **Calls**.
 
-It read and write typed [JSON](#typed-json) for string representation which offers
-* [embedded type directives](#typed) for looseless data exchange e.g. "(BasicTest)fieldName":{...}
-* [unmapped fields](#unmapped) for integration of extra information in JSON e.g. "_comment":"xyz"
-* execution of [Call Beans](#calls) e.g. "(SinusValueCall)result":{...}
+Some working editable examples of diffent you can find on
+[ElasticObjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html)
+which itself is build by one generic spring boot endpoint and EO.
 
-#### Example Website
-An example is worth a thousand words. So
-you find editable working examples on [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).
+A simple example where you can edit it's structure:
 
-The sources are accessible in the module example-springboot. It's based on a small spring boot application and EO.
-
-<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
-
-#### Path
- [EO](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/EO.java) allows creating, accessing and modifing complex Java objects via path. Non existing elements will be created automatically. 
-
-    EO child = eo.set("value","level0/level1/level2/level3");
-    assertThat(child.get()).isEqualTo("value");
-    assertThat(eo.get("level0/level1/level2/level3")).isEqualTo("value");
-<div align="right" style="font-size:10px">
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoSetScalarTest.java">
-<font size="1">example</font>
-</a></div>
-
-##### Embedded Objects
-One can integrate typed objects in a complex structure and access it without loosing the type.
-
-    BasicTest bt = new BasicTest()
-       .setTestString("value");
-    eo.set(bt, "level0");
-    assertThat(eo.get("level0/testString")).isEqualTo("value");
-    assertThat(eo.getEo("level0").getModelClass()).isEqualTo(BasicTest.class);
-<div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapSetBtTest.java">
-<font size="1">example</font>
-</a></div>
-
-##### Object Conversion
-
-Objects will be automatically mapped to the existing model class. This allows easy merge and conversion of objects with same field names.
-
-In the following example a Map value will be set by [BasicTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/BasicTest.java) object:
-
-    final EO eo = ProviderRootTestScope.createEo(Map.class);
-    final BasicTest bt = new BasicTest()
-       .setTestString("value");
-    eo.mapObject(bt);
-    assertThat(((Map)eo.get())get()"testString")).isEqualTo("value");
-    assertThat(eo.getModelClass()).isEqualTo(Map.class);
-
-<div align="right" style="font-size:10px">
-<font size="1">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest.java">example</a>
-</font>
-</div>
-
-The last example the other way round setting a [BasicTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/BasicTest.java) value with a Map object:
-
-    final EO eo = ProviderRootTestScope.createEo(BasicTest.class);
-    final Map map = new HashMap()
-    map.put("testString", "value");
-    eo.mapObject(map);
-    assertThat(((BasicTest)eo.get()).getTestString()).isEqualTo("value");
-    assertThat(eo.getModelClass()).isEqualTo(BasicTest.class);
-
-<div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoMapObjectBtTest.java">
-<font size="1">example</font>
-</a></div>
-
-Elastic objects without JSON serialization could be used as a tool in a java native solution.
-
-<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
-
-#### Typed JSON
-The serialization/deserialization implementation extends some limitations of standard json.
-
-It allows
-* [embed type](#typed) directives in the name allows typesafe transfer
-* [embed information](#unmapped) with names starting with "_" (e.g _comment)
-* [embed calling functionality](#calls) with special call classes implementing an execute method.
-
-##### Untyped
-Standard JSON will be interpreted to standard untyped objects like map or list.
-```
-{
-	"level0":{
-		"testString":"value"
-    }
-}
-```
-
-        eo.mapObject(jsonString);
-        assertThat(eo.get("level0/testString")).isEqualTo("value");
-        assertThat(eo.getEo("level0").getModelClass()).isEqualTo(Map.class);
-
- <div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/EoMapObjectMapJsonTest.java">
-<font size="1">example</font>
-</a></div>
-
-##### Typed
-The type directive is embedded in the name in java-style: (Type)name
-```
-{
-	"(BasicTest)level0":{
-	    "testString":"value"
-    }
-}
-```
-    
-        eo.mapObject(jsonString);
-        assertThat(eo.get("level0/testString")).isEqualTo("value");
-        assertThat(((BasicTest)eo.get("level0")).getTestString()).isEqualTo("value");
-        assertThat(eo.getEo("level0").getModelClass()).isEqualTo(BasicTest.class);
-
-<div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoBtMapObjectTest.java">
-<font size="1">example</font>
-</a></div>
-
-##### Unmapped
-All fieldnames starting with _ will not be mapped to the underlying object:
-```
-{
-	"(BasicTest)level0":{  
-	    "testString":"value",  
-	    "_comment":"_comment is not a field of the BasicTest.class"
-    }
-}
-```
-
-
-        eo.mapObject(jsonString);
-        assertThat(eo.get("level0/_comment")).isEqualTo("_comment is not a field of the BasicTest.class");
-        assertThat(((BasicTest)eo.get("level0")).getTestString()).isEqualTo("value");
-
-
-<div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/assets/EoBtMapObjectTest.java">
-<font size="1">example</font>
-</a></div>
-
-EO will use the following unmapped fields:
-* _logLevel: A log level with default WARN
-* _errorLevel: The highest log level of messages
-* _logs: List of messages.
-* _calls: List of calls (see following)
-
-
-##### Calls
-Every type implementing [Call](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java)  could be executed.
-
-In the following example JSON includes [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java)  
-with SourcePath "source". It will compute the sinus from source value 1 and set it to target.
-
-```
-{
+ <form action="http://www.elasticobjects.org/eo-form" method="post">
+     <textarea name="eo">{
   "(Double)source":1,
   "(SinusValueCall)target": {
     "sourcePath": "/source"
   }
-}
-```
+}</textarea>
+     <input type="submit" value="post"/>
+ </form>
 
-        eo.mapObject(jsonString);
-        eo.execute();
-        assertThat(eo.get("target")).isEqualTo(0.8414709848078965);
+Here you can edit
+* the value of source
+* the fieldName of target
+* the value of sourcePath and the corresponding fieldName
 
- <div align="right" style="font-size:10px">
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCallTest.java">
-<font size="1">example</font>
-</a></div>
-
-The used [SinusValueCall](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java)
-is minimal and no restrictions for execution need to be made, since only a value is set to object.
-
-Other examples for these simple calls you can find under the [calls/values](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/) package.
-A special call for setting configuration values is under [calls/configs](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/configs/).
-
-
-##### Configured Calls
-When it comes to read or write something on the server, it's more complex concerning access permissions and configurations.  
-The following configured calls are implemented:
-
-* [File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files)
-* [JSON File Access](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/json)
-* [List files](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists)
-* [Templates](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates)
-
-These calls use also configurations with a permission part.
-
-Other calls using some frameworks will deployed separately. Actually you find here the modules for
-* [CSV](https://github.com/fluentcodes/elasticobjects/blob/master/eo-csv)
-* [Excel](https://github.com/fluentcodes/elasticobjects/blob/master/eo-xlsx)
-* [JDBC](https://github.com/fluentcodes/elasticobjects/blob/master/eo-db)
-
-A description and examples of these calls you will find on [github wiki](https://github.com/fluentcodes/elasticobjects/wiki) and the site http://elasticobjects.com.
-
-<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
-
-### Under The Hood
-
-The type directives are just strings refering to model configurations. If a new EO-Object is created a reference to the configuration object [EOConfigsCache](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java)  is required.
-
-It initially contains a map with  [ModelConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfig.java) and a map with [FieldConfig](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/FieldConfig.java) objects.
-
-If the  [Scope](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java)  is not DEV then all files called  [ModelConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/ModelConfig.json) and  [FieldConfig.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/FieldConfig.json) are initially loaded from the class path.
-
-To avoid defining configurations before using EO its also possible to create a simple class list with  [Model.json](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/resources/Models.json).
-
-The same procedure happens on demand with other configurations like [FileConfig.java](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files/FileConfig.java) with e.g. [FileConfig.java](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/resources/FileConfig.json)
-
-#### ModelConfig
-The configuration entry contains the list "fieldKeys" with field names. Those names reference to a field configuration. So field configurations can defined independent
-of an underlying class.
-
-The following example shows the configuration for [SubTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/SubTest.java) class.
-
-```
-  "SubTest": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
-    "modelKey": "SubTest",
-    "fieldKeys": [
-      "id",
-      "subTest",
-      "name",
-      "testString"
-    ],
-    "eoParams": {
-      "shapeType": "BEAN",
-      "create": true
-    },
-    "module": "eo-test",
-    "subModule": "main",
-    "author": "Werner Diwischek"
-  }
-```
-
-#### FieldConfig
-The following code shows the field definition for the subTest field with the Model [SubTest](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/assets/SubTest.java)
-```
-  "subTest": {
-    "fieldKey": "subTest",
-    "modelKeys": "SubTest",
-    "module": "eo-test",
-    "subModule": "main",
-  }
-```
-
-#### Exchange Configurations
-The model configuration are rather bloated since it's originally used to generate code from a list. The jsons are generated by itself, so module and submodule fields are required in the list. Since the configurations are loaded from the classpath these fields give a hint, from where the configuration comes from.
-
-In the version 0.3.0 a more stream lined version for
-configuration exchange is planned.
-
-It could have similar structure than json scheme definition but will keep the separation of class and field definitions.
-
-
-<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
-
-### Further documentation
-
-An in depth documentation is created on this [github wiki](https://github.com/fluentcodes/elasticobjects/wiki) and the site http://elasticobjects.com
-
-
-
-<div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
+* any combination of functionality allowed in a message
+* any arbitrary information could placed in a message
+* minimal coupling to an application server
+* No annotation magic, pure java
 
 
 ### Modules
@@ -298,7 +55,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>elastic-objects</artifactId>
-        <version>0.2.0</version>
+        <version>0.2.1</version>
     </dependency>
 ```
 
@@ -320,7 +77,7 @@ The objectives [eo-test](https://github.com/fluentcodes/elasticobjects/tree/mast
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-csv</artifactId>
-        <version>0.2.0</version>
+        <version>0.2.1</version>
     </dependency>
 
 <div align="right" style="font-size:10px">
@@ -335,7 +92,7 @@ The objectives [eo-test](https://github.com/fluentcodes/elasticobjects/tree/mast
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-xlsx</artifactId>
-        <version>0.2.0</version>
+        <version>0.2.1</version>
     </dependency>
 
 <div align="right" style="font-size:10px">
