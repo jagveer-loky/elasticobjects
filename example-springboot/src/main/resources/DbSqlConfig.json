@@ -23,5 +23,26 @@
     "subModule": "main",
     "description": "Basic H2 creating tables",
     "naturalId": "h2:mem:basic:Create"
+  },
+  "h2:mem:basic:BasicTest": {
+    "configModelKey": "DbQueryConfig",
+    "dbQueryKey": "h2:mem:basic:BasicTest",
+    "dbKey": "h2:mem:basic",
+    "modelKey": "BasicTest",
+    "sql": "Select * from BasicTest",
+    "module": "example-springboot",
+    "subModule": "main",
+    "description": "Query for BasicTest",
+    "naturalId": "h2:mem:basic:BasicTest"
+  },
+  "h2:mem:basic:SubTest": {
+    "configModelKey": "DbQueryConfig",
+    "dbQueryKey": "h2:mem:basic:SubTest",
+    "dbKey": "h2:mem:basic",
+    "modelKey": "SubTest",
+    "sql": "Select * from SubTest",
+
+    "description": "Query for SubTest",
+    "naturalId": "h2:mem:basic:SubTest"
   }
 }

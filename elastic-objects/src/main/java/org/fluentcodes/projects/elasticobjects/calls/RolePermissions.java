@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.EO_STATIC;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOParams;
 
@@ -17,6 +16,10 @@ public class RolePermissions {
     public static final String GUEST = "guest";
     public static final String ANONYM = "anonym";
     public static final String SUPERADMIN = "superadmin";
+    public static final String WRITE = "write";
+    public static final String READ = "read";
+    public static final String EXECUTE = "execute";
+    public static final String DELETE = "delete";
     private String execute;
     private String create;
     private String write;
@@ -44,11 +47,11 @@ public class RolePermissions {
         if (rolePermissions == null) {
             return;
         }
-        this.read = (String) rolePermissions.get(EO_STATIC.F_READ);
-        this.write = (String) rolePermissions.get(EO_STATIC.F_WRITE);
+        this.read = (String) rolePermissions.get(READ);
+        this.write = (String) rolePermissions.get(WRITE);
         this.create = (String) rolePermissions.get(EOParams.CREATE);
-        this.delete = (String) rolePermissions.get(EO_STATIC.F_DELETE);
-        this.execute = (String) rolePermissions.get(EO_STATIC.F_EXECUTE);
+        this.delete = (String) rolePermissions.get(DELETE);
+        this.execute = (String) rolePermissions.get(EXECUTE);
         resolve();
     }
 

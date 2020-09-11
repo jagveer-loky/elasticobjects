@@ -1,12 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.BEO_STATIC.X_CALLS_DB;
-import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.TEST;
-
 public class CompareCallsDbTest extends CompareConfigs {
     /*
 

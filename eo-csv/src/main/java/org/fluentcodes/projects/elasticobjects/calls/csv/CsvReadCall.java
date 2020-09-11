@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.csv;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -26,7 +27,7 @@ public class CsvReadCall extends ListReadCall {
 
     @Override
     public Class<? extends Config> getConfigClass()  {
-        return CsvConfig.class;
+        return FileConfig.class;
     }
 
     public CsvConfig getCsvConfig() {

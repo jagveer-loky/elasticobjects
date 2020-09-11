@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC_TEST.DQ_H2_MEM_BASIC_BASIC_TEST;
 
 /**
  * Created by Werner on 17.8.2020.
@@ -14,6 +13,7 @@ import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC_TEST.DQ_H2_ME
 public class DbSqlCallTest {
     private final static String DROP = "h2:mem:basic:BasicTestDrop";
     private final static String CREATE = "h2:mem:basic:Create";
+    public static final String DQ_H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:BasicTest";
     @Test
     public void createByModelConfig()  {
         ConfigModelChecks.create(DbSqlCall.class);

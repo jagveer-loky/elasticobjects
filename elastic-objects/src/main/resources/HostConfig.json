@@ -6,7 +6,8 @@
     "hostKey": "local",
     "hostName": "localhost",
     "description": "local host with key 'local'",
-    "protocol": "file:"
+    "protocol": "file:",
+    "expose": "NONE"
   },
   "localhost": {
     "module": "elastic-objects",

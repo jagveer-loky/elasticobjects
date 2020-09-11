@@ -1,11 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.ACTIONS_DB;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.XEO_STATIC.ACTIONS_XLSX;
-
 public class CompareEOConfigsTest extends CompareConfigs {
     //public static final String SHEET = X_MODELS;
 /*

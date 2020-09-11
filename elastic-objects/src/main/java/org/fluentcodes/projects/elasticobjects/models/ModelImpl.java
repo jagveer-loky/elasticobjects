@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by Werner on 14.12.2017.
@@ -13,7 +14,6 @@ import java.util.Date;
  */
 public class ModelImpl implements Model {
     private static final Logger LOG = LogManager.getLogger(ModelImpl.class);
-    //<call keep="JAVA" templateKey="BeanInstanceVars.tpl">
 
     private Long id;
     private String description;
@@ -27,6 +27,14 @@ public class ModelImpl implements Model {
      * Just an empty constructor since basic
      */
     public ModelImpl() {
+    }
+    public ModelImpl(Map map) {
+        this.id = (Long)map.get(ID);
+        this.naturalId = (String)map.get(NATURAL_ID);
+        this.description = (String)map.get(DESCRIPTION);
+        this.creationDate = (Date)map.get(CREATION_DATE);
+        this.author = (String) map.get(AUTHOR);
+        this.modificationDate = new Date();
     }
 
     //<call keep="JAVA" templateKey="BeanSetter.tpl">

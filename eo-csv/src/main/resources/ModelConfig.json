@@ -40,9 +40,9 @@
       "create": false
     },
     "description": "Defines the configuration for a csv content stored in a final config object delivered by the config cache.",
-    "superKey": "ListConfig",
+    "superKey": "FileConfig",
+    "interfaces": "ListConfigInterface",
     "fieldKeys": [
-      "fileKey",
       "fieldDelimiter",
       "rowDelimiter"
     ],

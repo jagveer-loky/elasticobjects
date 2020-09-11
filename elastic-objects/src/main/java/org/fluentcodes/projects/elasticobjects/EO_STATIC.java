@@ -15,17 +15,9 @@ public class EO_STATIC {
     public static final String TEST = "test";
 
     public static final String CONFIG = "Config";
-    public static final String CALL = "Call";
     public static final String JSON = "Json";
 
-    public static final String CONFIG_JSON_END = ".json";
-    public static final String CONFIG_PATH_MAIN_SIMPLE = "src/main/resources";
-    public static final String CONFIG_PATH_TEST_SIMPLE = "src/test/resources";
-    public static final String CONFIG_PATH_MAIN = CONFIG_PATH_MAIN_SIMPLE + Path.DELIMITER;
-    public static final String CONFIG_PATH_TEST = CONFIG_PATH_TEST_SIMPLE + Path.DELIMITER;
 
-    public static final String F_INDENT = "indent";
-    public static final String F_TO_SERIALIZE = "toSerialize";
     public static final String F_PROVIDE_IN_ACTION = "provideInAction";
     public static final String F_DEFAULT_VALUE = "defaultValue";
 
@@ -37,59 +29,27 @@ public class EO_STATIC {
 
     public static final String F_UPPER_ID_KEY = "upper.ID";
 
-    public static final String F_FILE_NAME = "fileName";
-    public static final String F_PASSWORD = "password";
-    public static final String F_ROLE_PERMISSIONS = "rolePermissions";
     public static final String F_JOIN = "join";
-    public static final String F_WRITE = "write";
     public static final String F_HIBERNATE_ANNOTATIONS = "hibernateAnnotations";
     public static final String F_NOT_NULL = "notNull";
-    public static final String F_EXECUTE = "execute";
     public static final String F_UNIQUE = "unique";
     public static final String F_INPUT_KEY = "inputKey";
-    public static final String F_VIEW_FIELD_PARAMS = "viewFieldParams";
-    public static final String F_HOST_NAME = "hostName";
-    public static final String F_ROW_HEAD = "rowHead";
-    public static final String F_EO_FIELD_PARAMS = "eoFieldParams";
-    public static final String F_FILE_KEY = "fileKey";
     public static final String F_HIBERNATE = "hibernate";
-    public static final String F_CACHED = "cached";
-    public static final String F_ROW_START = "rowStart";
     public static final String F_TABLE = "table";
     public static final String F_UPPER_ID = "ID";
     public static final String F_VIEW_KEY = "viewKey";
-    public static final String F_FILTER = "filter";
-    public static final String F_ROW_END = "rowEnd";
-    public static final String F_PROTOCOL = "protocol";
     public static final String F_NATURAL_KEYS = "naturalKeys";
-    public static final String F_MODEL_KEYS = "modelKeys";
-    public static final String F_ROW_DELIMITER = "rowDelimiter";
-    public static final String F_READ = "read";
-    public static final String F_CUSTOM_PARAMS = "customParams";
-    public static final String F_FIELD_KEY = "fieldKey";
-    public static final String F_SUPER_KEY = "superKey";
     public static final String F_ID_KEY = "idKey";
-    public static final String F_PORT = "port";
     public static final String F_NAME = "name";
     public static final String F_JOIN_INVERSE = "joinInverse";
     public static final String F_FIELD_NAME = "fieldName";
-    public static final String F_FIELD_DELIMITER = "fieldDelimiter";
-    public static final String F_DELETE = "delete";
     public static final String F_EXPANDED = "expanded";
     public static final String F_AND = "and";
     public static final String F_PATH_PATTERN = "pathPattern";
-    public static final String F_FILE_PATH = "filePath";
-    public static final String F_LENGTH = "length";
     public static final String F_MAP_KEY = "mapKey";
-    public static final String F_HOST_KEY = "hostKey";
-    public static final String F_USER = "user";
 
 
-
-    public static final String H_LOCALHOST = "localhost";
     public static final String J_MODULE_CONFIG_JSON = "ModuleConfig.json";
-    public static final String CON_NEWLINE = "\n";
-    public static final String CON_SEMICOLON = ";";
     public static final String CON_SPACE = " ";
 
     public static final void addMap(Map map, Object... keyValues)  {

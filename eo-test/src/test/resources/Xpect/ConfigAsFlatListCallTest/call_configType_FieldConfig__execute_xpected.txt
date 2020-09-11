@@ -7,6 +7,7 @@
 "condition";"String";"A condition for calls. ";"elastic-objects";"main";"condition";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 1000}";"{}";"";
 "configFilter";"String";"Key for filter configuration";"";"";"configFilter";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 64}";"{}";"";
 "configKey";"String";"Key for configuration  {@link ConfigConfig}";"";"";"configKey";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 64}";"{}";"";
+"configModelKey";"String";"The model of the configuration to determine type.";"elastic-objects";"main";"configModelKey";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";
 "configType";"String";"Key for configuration type.";"";"";"configType";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 64}";"{}";"";
 "content";"String";"A content.";"elastic-objects";"main";"content";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 10000}";"{}";"";
 "create";"Boolean";"If true will create a Java class.";"elastic-objects";"main";"create";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 256}";"{}";"";

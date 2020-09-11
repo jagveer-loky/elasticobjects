@@ -23,12 +23,11 @@ public class XlsxReadCall extends ListReadCall {
 
     @Override
     public Class<? extends Config> getConfigClass()  {
-        return XlsxConfig.class;
+        return FileConfig.class;
     }
 
     public Object execute(EO eo) {
         resolve(eo.getConfigsCache());
-        super.execute(eo);
         List rawInput = ((XlsxConfig)getConfig()).read();
         if (rawInput == null|| rawInput.isEmpty()) {
             return rawInput;

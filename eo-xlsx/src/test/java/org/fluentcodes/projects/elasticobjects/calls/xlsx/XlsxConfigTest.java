@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.junit.Test;
 
 /**
@@ -25,12 +26,12 @@ public class XlsxConfigTest {
 
     @Test
     public void resolveConfigurations()  {
-        ConfigChecks.resolveConfigurations(XlsxConfig.class);
+        ConfigChecks.resolveConfigurations(FileConfig.class);
     }
 
     @Test
     public void compareConfigurations()  {
-        ConfigChecks.compareConfigurations(XlsxConfig.class);
+        ConfigChecks.compareConfigurations(FileConfig.class);
     }
 
 }

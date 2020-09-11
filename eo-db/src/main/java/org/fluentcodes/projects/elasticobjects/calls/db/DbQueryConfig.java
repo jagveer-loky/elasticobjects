@@ -1,17 +1,17 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
+import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Condition;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfig;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -21,15 +21,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.DB_EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_AND;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_PATH_PATTERN;
 
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbQueryConfig extends ListConfig {
-    private static final Logger LOG = LogManager.getLogger(DbQueryConfig.class);
+public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInterface {
+
+    public static final String SQL = "sql";
     private final String modelKey;
     private final String dbKey;
     private final PathPattern pathPattern;
@@ -39,26 +40,38 @@ public class DbQueryConfig extends ListConfig {
     private DbConfig dbConfig;
     private List<String> metaDataNames;
     private List<String> metaDataTypes;
+    private final ListParams listParams;
+    private final ListMapper listMapper;
 
 
-    public DbQueryConfig(final EOConfigsCache configsCache, final Builder builder)  {
-        super(configsCache, builder);
-        if (builder.modelKey == null) {
-            throw new EoException("Problem with no modelKey.");
-        }
-        this.modelKey = builder.modelKey;
-        this.dbKey = builder.dbKey;
-        this.pathPattern = builder.pathPattern;
-        this.and = builder.and;
-        this.sql = builder.sql;
-        getListParams().setRowHead(0);
+    public DbQueryConfig(final EOConfigsCache configsCache, final Map map)  {
+        super(configsCache, map);
+        dbKey = (String)map.get(DbConfig.DB_KEY);
+        sql = (String)map.get(SQL);
+        pathPattern = new PathPattern((String) map.get(F_PATH_PATTERN));
+        modelKey = (String)map.get(ModelConfig.MODEL_KEY);
+        and = new And((String)map.get(F_AND));
+        this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
+        this.listMapper = map.containsKey(LIST_MAPPER) ? new ListMapper((Map)map.get(LIST_MAPPER)) : new ListMapper();
+        listParams.setRowHead(0);
     }
+
     public void resolve()  {
         if (isResolved()) {
             return;
         }
         super.resolve();
-        dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
+        this.dbConfig = (DbConfig) getConfigsCache().find(HostConfig.class, dbKey);
+    }
+
+    @Override
+    public ListParams getListParams() {
+        return listParams;
+    }
+
+    @Override
+    public ListMapper getListMapper() {
+        return listMapper;
     }
 
     public List execute() {
@@ -201,32 +214,4 @@ public class DbQueryConfig extends ListConfig {
         return dbKey;
     }
 
-    public static class Builder extends ListConfig.Builder {
-        private String sql;
-        private String modelKey;
-        private String dbKey;
-        private PathPattern pathPattern;
-        private And and;
-
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
-            dbKey = ScalarConverter.toString(values.get(F_DB_KEY));
-            sql = (String) configsCache.transform(F_SQL, values);
-            pathPattern = new PathPattern(ScalarConverter.toString(values.get(F_PATH_PATTERN)));
-            modelKey = ScalarConverter.toString(values.get(ModelConfig.MODEL_KEY));
-            and = new And(ScalarConverter.toString(values.get(F_AND)));
-            super.prepare(configsCache, values);
-            if (dbKey == null || dbKey.isEmpty()) {
-                dbKey = getNaturalId().replaceAll(":[^:]+$", "");
-            }
-            if (modelKey == null || modelKey.isEmpty()) {
-                modelKey = getNaturalId().replaceAll(".*:", "");
-            }
-
-        }
-
-        public Config build(EOConfigsCache configsCache, Map<String, Object> values)  {
-            prepare(configsCache, values);
-            return new DbQueryConfig(configsCache, this);
-        }
-    }
 }

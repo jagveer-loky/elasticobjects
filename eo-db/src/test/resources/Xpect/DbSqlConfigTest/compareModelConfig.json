@@ -20,9 +20,6 @@
       "12": "author"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": false,
       "(ShapeTypes)shapeType": "CONFIG"
     },

@@ -17,12 +17,8 @@
       "9": "inTemplate"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN",
-      "modelConfigKey": "DbSqlConfig"
+      "(ShapeTypes)shapeType": "CALL_BEAN"
     },
     "packageGroup": "calls",
     "module": "eo-db",

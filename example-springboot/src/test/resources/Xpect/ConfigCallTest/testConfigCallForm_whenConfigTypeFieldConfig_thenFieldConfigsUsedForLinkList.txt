@@ -124,6 +124,10 @@
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
                                 <a href="/configs/FieldConfig.html">&ocir;FieldConfig</a>
                             </li>
+                            <li id="menu-item-5"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
+                                <a href="/configs/FileConfig.html">&ocir;FileConfig</a>
+                            </li>
                         </ul>
                     </div>
                 </nav><!-- #site-navigation -->
@@ -198,22 +202,6 @@
         <aside class="widget-area" role="complementary" aria-label="Footer">
             <div class="widget-column footer-widget-1">
                 <section id="text-2" class="widget widget_text">
-                    <div class="textwidget">
-                        <a href="/configs/ModelConfig.html">&ocir;ModelConfig</a>
-                    </div>
-                    <div class="textwidget">
-                        <a href="/configs/FieldConfig.html">&ocir;FieldConfig</a>
-                    </div>
-                    <div class="textwidget">
-                        <a href="/configs/FileConfig.html">&ocir;FileConfig</a>
-                    </div>
-                    <div class="textwidget">
-                        <a href="/configs/JsonConfig.html">&ocir;JsonConfig</a>
-                    </div>
-                    <div class="textwidget">
-                        <a href="/configs/TemplateConfig.html">&ocir;TemplateConfig</a>
-                    </div>
-
                 </section>
             </div>
             <div class="widget-column footer-widget-1">

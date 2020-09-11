@@ -1,11 +1,35 @@
 {
+  "ListSimple.json": {
+    "module": "eo-test",
+    "subModule": "main",
+    "jsonKey": "ListSimple.json",
+    "filePath": "input/calls/list-simple",
+    "fileName": "ListSimple.json",
+    "description": "Simple list equivalent for ListSimple.csv.",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "expose":"NONE"
+  },
   "BasicTest.csv": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "fileKey": "BasicTest.csv",
-    "filePath": "input/assets/bt",
+    "module": "eo-test",
+    "subModule": "main",
     "fileName": "BasicTest.csv",
-    "description": "A sample csv file with 2*2 values and a head as a source."
+    "filePath": "input/assets/bt",
+    "fieldDelimiter": ";",
+    "configModelKey": "ScsConfig",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 4
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source."
   },
   "test:test": {
     "module": "elastic-objects",

@@ -1,15 +1,27 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 4
+    },
+    "configModelKey": "ScsConfig",
     "fileName": "BasicTest.csv",
     "filePath": "input/assets/bt",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
-    "subModule": "test",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
     "(Expose)expose": "INFO",
     "key": "BasicTest.csv",
-    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source.",
     "naturalId": "BasicTest.csv"
   },
   "1": {
@@ -29,17 +41,6 @@
     "naturalId": "BasicTest.json"
   },
   "2": {
-    "fileName": "content.tpl",
-    "filePath": "classpath/templates",
-    "hostKey": "localhost",
-    "cached": false,
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "key": "content",
-    "naturalId": "content"
-  },
-  "3": {
     "fileName": "ContentExample.json",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -51,7 +52,7 @@
     "description": "Calls templates.",
     "naturalId": "ContentExample"
   },
-  "4": {
+  "3": {
     "fileName": "ContentExampleData.json",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -63,7 +64,7 @@
     "description": "Simple data for the content templates.",
     "naturalId": "ContentExampleData"
   },
-  "5": {
+  "4": {
     "fileName": "ContentExampleDynamic.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -74,7 +75,7 @@
     "key": "ContentExampleDynamic",
     "naturalId": "ContentExampleDynamic"
   },
-  "6": {
+  "5": {
     "fileName": "ContentExampleElement1.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -85,7 +86,7 @@
     "key": "ContentExampleElement1",
     "naturalId": "ContentExampleElement1"
   },
-  "7": {
+  "6": {
     "fileName": "ContentExampleElement2.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -96,7 +97,7 @@
     "key": "ContentExampleElement2",
     "naturalId": "ContentExampleElement2"
   },
-  "8": {
+  "7": {
     "fileName": "ContentExampleStatic.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -107,7 +108,7 @@
     "key": "ContentExampleStatic",
     "naturalId": "ContentExampleStatic"
   },
-  "9": {
+  "8": {
     "fileName": "ContentExampleStaticCondition.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -118,7 +119,7 @@
     "key": "ContentExampleStaticCondition",
     "naturalId": "ContentExampleStaticCondition"
   },
-  "10": {
+  "9": {
     "fileName": "ContentExampleStaticKeep.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
@@ -129,7 +130,7 @@
     "key": "ContentExampleStaticKeep",
     "naturalId": "ContentExampleStaticKeep"
   },
-  "11": {
+  "10": {
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
@@ -140,36 +141,48 @@
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "naturalId": "FileTest.txt"
   },
-  "12": {
+  "11": {
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
     "cached": true,
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "FileTestCached.txt",
     "description": "Local file with cache set true.",
     "naturalId": "FileTestCached.txt"
   },
-  "13": {
+  "12": {
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "configModelKey": "ScsConfig",
     "fileName": "ListSimple.csv",
-    "filePath": "input/calls/list-simple/",
+    "filePath": "input/calls/list-simple",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
   },
-  "14": {
+  "13": {
     "fileName": "ListSimple.json",
     "filePath": "input/calls/list-simple",
     "hostKey": "localhost",
@@ -180,24 +193,12 @@
     },
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "ListSimple.json",
     "description": "Simple list equivalent for ListSimple.csv.",
     "naturalId": "ListSimple.json"
   },
-  "15": {
-    "fileName": "ModuleConfig.json",
-    "filePath": "classpath",
-    "hostKey": "localhost",
-    "cached": false,
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "key": "ModuleConfig.json",
-    "description": "Parameter to determine general module parameters.",
-    "naturalId": "ModuleConfig.json"
-  },
-  "16": {
+  "14": {
     "fileName": "result.string",
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
@@ -209,7 +210,7 @@
     "description": "Saving content",
     "naturalId": "result.string"
   },
-  "17": {
+  "15": {
     "fileName": "resultWithMapPath.string",
     "filePath": "src/test/resources/output/persistedobjects",
     "hostKey": "localhost",
@@ -221,7 +222,7 @@
     "description": "Saving content this is true",
     "naturalId": "resultWithMapPath.string"
   },
-  "18": {
+  "16": {
     "fileName": "SimpleInsertWithPath.json",
     "filePath": "classpath/data",
     "hostKey": "localhost",
@@ -233,43 +234,53 @@
     "description": "Simple data for the SimpleInsert templates.",
     "naturalId": "SimpleInsertWithPath"
   },
-  "19": {
+  "17": {
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "configModelKey": "ScsConfig",
     "fileName": "target.csv",
     "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
     "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
   },
-  "20": {
+  "18": {
     "fileName": "target.json",
     "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
     "module": "eo-test",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "naturalId": "target.json"
   },
-  "21": {
+  "19": {
     "fileName": "target.txt",
     "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
     "module": "elastic-objects",
     "subModule": "test",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "target.txt",
     "description": "Target file definition",
     "naturalId": "target.txt"
   },
-  "22": {
+  "20": {
     "fileName": "fileName",
     "filePath": "path",
     "hostKey": "localhost",

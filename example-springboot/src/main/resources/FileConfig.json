@@ -37,12 +37,7 @@
     "description": "Public example with no permissions."
   },
   "BasicTest.csv": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "fileKey": "BasicTest.csv",
-    "fileName": "BasicTest.csv",
-    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest.",
-    "filePath": "lists"
+
   },
   "BasicTest.xlsx": {
     "module": "elastic-objects",
@@ -358,8 +353,46 @@
     "fileName": "TemplateConfig.html",
     "filePath": "web/configs",
     "description": "Entry content for TemplateConfig.",
+    "expose": "NONE",
     "rolePermissions": {
       "execute": "guest"
     }
+  },
+  "BasicTest.xlsx:test": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configModelKey": "XlsxConfig",
+    "sheetName": "test",
+    "listParams": {
+      "rowHead": 0
+    },
+    "filePath": "lists",
+    "fileName": "BasicTest.xlsx",
+    "description": "A sample xml file with 3x3 entries and a header which could be mapped to BasicTest.",
+
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "BasicTest.csv": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "configModelKey": "ScsConfig",
+    "naturalId": "BasicTest.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 4
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "filePath": "lists",
+    "fileName": "BasicTest.csv",
+    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest."
   }
+
 }

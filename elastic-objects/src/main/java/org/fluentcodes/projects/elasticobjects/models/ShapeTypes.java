@@ -5,33 +5,22 @@ package org.fluentcodes.projects.elasticobjects.models;
  * Created by Werner on 18.11.2014.
  */
 public enum ShapeTypes {
-    MAP(ModelConfigTypes.MAP),
-    LIST(ModelConfigTypes.SET),
-    SET(ModelConfigTypes.SCALAR),
+    MAP(),
+    LIST(),
+    SET(),
     INTERFACE(),
-    OBJECT(ModelConfigTypes.NONE),
+    OBJECT(),
     SCALAR_SERIALIZED(),
-    SCALAR(ModelConfigTypes.SCALAR),
-    NUMBER(ModelConfigTypes.SCALAR),
-    ENUM(ModelConfigTypes.SCALAR),
+    SCALAR(),
+    NUMBER(),
+    ENUM(),
     NULL(),
     NONE(),
-    BEAN(ModelConfigTypes.OBJECT),
-    CALL_BEAN(ModelConfigTypes.OBJECT),
+    BEAN(),
+    CALL_BEAN(),
     MODEL(),
     INSTANCE(),
     CONFIG();
-
-    private ModelConfigTypes type;
-
     ShapeTypes() {
-    }
-
-    ShapeTypes(ModelConfigTypes type) {
-        this.type = type;
-    }
-
-    public ModelConfigTypes getModelConfigType() {
-        return type;
     }
 }

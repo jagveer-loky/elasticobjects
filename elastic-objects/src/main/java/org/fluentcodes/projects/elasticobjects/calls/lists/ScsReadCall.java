@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
 import java.util.List;
@@ -19,18 +20,14 @@ public class ScsReadCall extends ListReadCall {
 
     @Override
     public Class<? extends Config> getConfigClass()  {
-        return ScsConfig.class;
-    }
-
-    public ScsConfig getScsConfig()  {
-        return ((ScsConfig) getConfig());
+        return FileConfig.class;
     }
 
     @Override
     public Object execute(EO eo) {
         resolve(eo.getConfigsCache());
         super.execute(eo);
-        List rawInput = getScsConfig().read();
+        List rawInput = ((ScsConfig)getConfig()).read();
         return transform(rawInput);
     }
 }

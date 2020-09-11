@@ -468,6 +468,16 @@
     "fieldKey": "modelConfigKey",
     "description": "The model name for the cache object {@link Config}."
   },
+  "configModelKey": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "dbFieldParams": {
+      "length": 80
+    },
+    "modelKeys": "String",
+    "fieldKey": "configModelKey",
+    "description": "The model of the configuration to determine type."
+  },
   "modelKey": {
     "module": "elastic-objects",
     "subModule": "main",

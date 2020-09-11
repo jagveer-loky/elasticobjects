@@ -1,0 +1,43 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "ScsConfig",
+    "superKey": "FileConfig",
+    "interfaces": "ListConfigInterface",
+    "(ArrayList)fieldKeys": {
+      "0": "fileKey",
+      "1": "fieldDelimiter",
+      "2": "rowDelimiter",
+      "3": "listParams",
+      "4": "listMapper",
+      "5": "configModelKey",
+      "6": "fileName",
+      "7": "filePath",
+      "8": "hostKey",
+      "9": "cached",
+      "10": "rolePermissions",
+      "11": "module",
+      "12": "subModule",
+      "13": "scope",
+      "14": "expose",
+      "15": "key",
+      "16": "id",
+      "17": "description",
+      "18": "naturalId",
+      "19": "creationDate",
+      "20": "author"
+    },
+    "eoParams": {
+      "create": false,
+      "(ShapeTypes)shapeType": "CONFIG"
+    },
+    "packageGroup": "lists",
+    "(Expose)expose": "INFO",
+    "key": "ScsConfig",
+    "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
+    "author": "Werner Diwischek",
+    "naturalId": "ScsConfig"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

@@ -19,11 +19,12 @@ import java.util.Set;
  */
 public class ModelConfigObject extends ModelConfig implements ModelInterface {
     private static final Logger LOG = LogManager.getLogger(ModelConfigObject.class);
+    public static final String CONFIG_MODEL_KEY = "ModelConfigObject";
     private final Map<String, Method> getterMap;
     private final Map<String, Method> setterMap;
 
-    public ModelConfigObject(EOConfigsCache configsCache, Builder bean) {
-        super(configsCache, bean);
+    public ModelConfigObject(EOConfigsCache configsCache, Map map) {
+        super(configsCache, map);
         this.getterMap = new LinkedHashMap<>();
         this.setterMap = new LinkedHashMap<>();
     }
@@ -372,6 +373,9 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
     }
     @Override
     public boolean isCreate() {
+        if (!hasEoParams()) {
+            return true;
+        }
         return getEoParams().isCreate();
     }
     @Override

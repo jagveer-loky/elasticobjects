@@ -24,8 +24,6 @@ public interface ModelInterface extends Config {
 
     Map getCustomParams();
 
-    String getModelConfigKey();
-
     List<String> getFieldKeys();
     Set<String> getFieldNames();
 
@@ -35,17 +33,11 @@ public interface ModelInterface extends Config {
 
     String getPackageGroup();
 
-    String getAuthor();
-
     String getSuperKey();
 
     String getInterfaces();
 
-
-
     String getDefaultImplementation();
-
-    PathPattern getPathPattern();
 
     String getIdKey();
 

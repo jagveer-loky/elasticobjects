@@ -20,9 +20,6 @@
       "14": "testObject"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },
@@ -45,9 +42,6 @@
       "3": "testString"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },

@@ -120,7 +120,7 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoWithSourceCsvAndRoleGuest_whenExecuteEo_thenNoLogEntry()  {
+    public void eoListSimpleCsv_andRoleGuest__execute__noLogEntry()  {
         final Call call = new ScsReadCall()
                 .setConfigKey(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();

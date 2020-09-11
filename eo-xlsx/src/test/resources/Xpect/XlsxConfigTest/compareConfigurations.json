@@ -1,50 +1,150 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "fileKey": "ListSimple.xlsx",
+    "fileName": "BasicTest.json",
+    "filePath": "input/assets/bt",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "key": "BasicTest.json",
+    "description": "Simple data for the BasicTest.",
+    "naturalId": "BasicTest.json"
+  },
+  "1": {
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "FileTest.txt",
+    "description": "Local 'source.txt' definition.",
+    "naturalId": "FileTest.txt"
+  },
+  "2": {
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
+    "hostKey": "localhost",
+    "cached": true,
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "FileTestCached.txt",
+    "description": "Local file with cache set true.",
+    "naturalId": "FileTestCached.txt"
+  },
+  "3": {
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "(ListParams)listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "configModelKey": "ScsConfig",
+    "fileName": "ListSimple.csv",
+    "filePath": "input/calls/list-simple",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "ListSimple.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "naturalId": "ListSimple.csv"
+  },
+  "4": {
     "sheetName": "test",
     "(ListParams)listParams": {
       "rowHead": 0
     },
+    "configModelKey": "XlsxConfig",
+    "fileName": "ListSimple.xlsx",
+    "filePath": "src/test/resources/input/xlsx",
+    "hostKey": "localhost",
+    "cached": false,
     "module": "eo-xlsx",
     "subModule": "test",
     "(Expose)expose": "INFO",
     "key": "ListSimple.xlsx:test",
-    "description": "Cached definition for source.xlsx.",
+    "description": "A sample xlsx file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.xlsx:test"
   },
-  "1": {
-    "fileKey": "source.xlsx",
-    "sheetName": "test",
+  "5": {
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
     "(ListParams)listParams": {
       "rowHead": 0
     },
-    "module": "actions-xlsx",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "source.xlsx",
-    "description": "Cached definition for source.xlsx with explicit sheetName.",
-    "naturalId": "source.xlsx"
+    "configModelKey": "ScsConfig",
+    "fileName": "target.csv",
+    "filePath": "$[@TMP]",
+    "hostKey": "localhost",
+    "cached": false,
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "target.csv",
+    "description": "A sample target csv file with tmp placeholder.",
+    "naturalId": "target.csv"
   },
-  "2": {
-    "fileKey": "source.xlsx",
-    "module": "actions-xlsx",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "sourceExplicit",
-    "description": "source.xlsx with explicit fileName and sheetName",
-    "naturalId": "sourceExplicit"
+  "6": {
+    "fileName": "target.json",
+    "filePath": "$[@TMP]",
+    "hostKey": "localhost",
+    "cached": false,
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "key": "target.json",
+    "description": "A sample target json file with tmp placeholder.",
+    "naturalId": "target.json"
   },
-  "3": {
-    "fileKey": "target.xlsx",
+  "7": {
+    "fileName": "target.txt",
+    "filePath": "$[@TMP]",
+    "hostKey": "localhost",
+    "cached": false,
+    "module": "elastic-objects",
+    "subModule": "test",
+    "(Expose)expose": "NONE",
+    "key": "target.txt",
+    "description": "Target file definition",
+    "naturalId": "target.txt"
+  },
+  "8": {
     "(ListParams)listParams": {
       "rowHead": 0
     },
+    "configModelKey": "XlsxConfig",
+    "fileName": "target.xlsx",
+    "filePath": "$[TMP]",
+    "hostKey": "localhost",
+    "cached": false,
     "module": "actions-xlsx",
     "subModule": "test",
     "(Expose)expose": "INFO",
     "key": "target.xlsx",
-    "description": "Cached definition for target.xlsx.",
+    "description": "A sample target xlsx file with tmp placeholder.",
     "naturalId": "target.xlsx"
   },
   "(LogLevel)_logLevel": "WARN"
