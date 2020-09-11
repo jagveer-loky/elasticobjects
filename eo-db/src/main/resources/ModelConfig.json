@@ -5,8 +5,7 @@
     "superKey": "HostAction",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "create": true,
-      "modelConfigKey": "DbSqlConfig"
+      "create": true
     },
     "packageGroup": "calls",
     "module": "eo-db",
@@ -18,13 +17,12 @@
   "DbConfig": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbConfig",
-    "superKey": "ConfigResourcesImpl",
+    "superKey": "HostConfig",
     "fieldKeys": [
       "schema",
       "driver",
       "jndi",
       "dbType",
-      "hostKey",
       "extension"
     ],
     "eoParams": {
@@ -44,8 +42,7 @@
     "superKey": "CallResource",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "create": true,
-      "modelConfigKey": "DbSqlConfig"
+      "create": true
     },
     "packageGroup": "calls",
     "module": "eo-db",
@@ -79,8 +76,7 @@
     "superKey": "ListCall",
     "eoParams": {
       "shapeType": "CALL_BEAN",
-      "create": true,
-      "modelConfigKey": "DbQueryConfig"
+      "create": true
     },
     "packageGroup": "calls",
     "module": "eo-db",
@@ -113,6 +109,8 @@
     "fieldKeys": [
     ],
     "eoParams": {
+      "shapeType": "ENUM",
+      "create": false
     },
     "packageGroup": "config",
     "module": "eo-db",

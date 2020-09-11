@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.tools.xpect.IOString;
 
@@ -14,13 +13,16 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.HOST_KEY;
 
 /**
  * Created by Werner on 09.10.2016.
  */
 public class FileConfig extends ConfigResourcesImpl implements FileConfigInterface {
-    public static final String CLASSPATH = "classpath";
+    public static final String FILE_NAME = "fileName";
+    public static final String FILE_PATH = "filePath";
+    public static final String CACHED = "cached";
+
     private final String fileName;
     private final String filePath;
     private final String hostKey;
@@ -29,16 +31,15 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
 
     private String cachedContent;
 
-    public FileConfig(final EOConfigsCache provider, Builder builder) {
-        super(provider, builder);
-        this.fileName = builder.fileName;
-        this.filePath = builder.filePath;
-        this.cached = builder.cached;
-        this.hostKey = builder.hostKey;
-        if (builder.isExpanded()) {
-            this.hostCache = new HostConfig(provider, builder);
-        }
+    public FileConfig(final EOConfigsCache provider, Map map) {
+        super(provider, map);
+        this.fileName = (String) map.get(FILE_NAME);
+        this.filePath = (String) map.get(FILE_PATH);
+        this.cached = map.containsKey(CACHED) ? (Boolean) map.get(CACHED) : false;
+        this.hostKey = map.containsKey(HOST_KEY) ? (String) map.get(HOST_KEY) : HostConfig.LOCALHOST;
+        this.hostCache = (HostConfig)provider.find(HostConfig.class, hostKey);
     }
+
     @Override
     public boolean hasCachedContent() {
         return cachedContent != null && !cachedContent.isEmpty();
@@ -194,33 +195,5 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
     @Override
     public Boolean isCached() {
         return this.cached;
-    }
-
-    public static class Builder extends HostConfig.Builder {
-        public static final String ADAPTER_PATH = "content";
-        private String fileName;
-        private String filePath;
-        private Boolean cached;
-        private String hostKey;
-
-        public Builder() {
-        }
-
-        protected void prepare(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            super.prepare(configsCache, values);
-            fileName = (String) configsCache.transform(F_FILE_NAME, values);
-            if (fileName == null) {
-                fileName = (String) configsCache.transform(NATURAL_ID, values);
-            }
-            filePath = (String) configsCache.transform(F_FILE_PATH, values, FileConfig.CLASSPATH);
-            cached = (Boolean) configsCache.transform(F_CACHED, values, false);
-            hostKey = (String) configsCache.transform(F_HOST_KEY, values, H_LOCALHOST);
-        }
-
-        @Override
-        public Config build(final EOConfigsCache configsCache, final Map<String, Object> values)  {
-            prepare(configsCache, values);
-            return new FileConfig(configsCache, this);
-        }
     }
 }

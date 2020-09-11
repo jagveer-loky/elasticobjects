@@ -2,16 +2,12 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.models.*;
-
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC_TEST.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_FAILS;
 
 /**
  * Created by Werner on 12.10.2016.
@@ -30,9 +26,10 @@ public class FileConfigTest {
     }
 
     @Test
-    public void givenConfigEntries_whenResolve_thenNoErrors()  {
-        ConfigChecks.resolveConfigs(FileConfig.class);
+    public void ConfigKey_BasicTestCsv__compare__xpected()  {
+        ConfigChecks.compareConfiguration(FileConfig.class, "BasicTest.csv");
     }
+
 
     @Test
     public void whenResolveConfigEntries_thenNoError()  {
@@ -44,7 +41,6 @@ public class FileConfigTest {
         ConfigChecks.compareConfigurations(FileConfig.class);
     }
 
-
     @Test
     public void givenTestScope_whenFindFileContent_thenFound()  {
         FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(ProviderFileContent.FILE_SIMPLE.getConfigKey());
@@ -52,13 +48,5 @@ public class FileConfigTest {
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }
 
-    @Test
-    public void testCreateConfigMapDirect()  {
-        EOConfigMap map = new EOConfigMapImmutable(ProviderRootTestScope.EO_CONFIGS, FileConfig.class);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map);
-        Assert.assertFalse(INFO_NOT_EMPTY_FAILS, map.isEmpty());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_SOURCE_TXT));
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, map.find(FILE_RESULT_STRING));
-    }
 }
 

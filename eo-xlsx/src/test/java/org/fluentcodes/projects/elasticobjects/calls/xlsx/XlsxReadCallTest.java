@@ -34,7 +34,7 @@ public class XlsxReadCallTest {
     }
 
     @Test
-    public void givenCallWithListSimpleCsv_whenExecute_thenListReturned()  {
+    public void call_ListSimpleXlsx__execute__listReturned()  {
         final Call call = new XlsxReadCall()
                 .setConfigKey(LIST_SIMPLE_XLSX);
         EO eo = ProviderRootTestScope.createEo();
@@ -47,7 +47,7 @@ public class XlsxReadCallTest {
     }
 
     @Test
-    public void givenEoWithListSimpleCsv_whenExecute_thenParameterSet()  {
+    public void givenEoWithListSimpleXlx_whenExecute_thenParameterSet()  {
         final Call call = new XlsxReadCall()
                 .setConfigKey(LIST_SIMPLE_XLSX);
 

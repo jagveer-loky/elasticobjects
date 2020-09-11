@@ -2,6 +2,19 @@
   "_rootmodel": "ArrayList",
   "0": {
     "dbKey": "h2:mem:basic",
+    "sql": "Select * from BasicTest",
+    "(ListParams)listParams": {
+      "rowHead": 0
+    },
+    "module": "eo-db",
+    "subModule": "test",
+    "(Expose)expose": "INFO",
+    "key": "h2:mem:basic:BasicTest",
+    "description": "Query for BasicTest",
+    "naturalId": "h2:mem:basic:BasicTest"
+  },
+  "1": {
+    "dbKey": "h2:mem:basic",
     "(ArrayList)sqlList": {
       "0": "drop table BasicTest"
     },
@@ -12,7 +25,7 @@
     "description": "Basic H2 dropping BasicTest table",
     "naturalId": "h2:mem:basic:BasicTestDrop"
   },
-  "1": {
+  "2": {
     "dbKey": "h2:mem:basic",
     "(ArrayList)sqlList": {
       "0": "drop table BasicTest if exists",

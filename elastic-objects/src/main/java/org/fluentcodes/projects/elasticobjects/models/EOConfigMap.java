@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.EO;
 
@@ -12,6 +13,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 import org.fluentcodes.tools.xpect.IOString;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -26,20 +28,10 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
     private final Map<String, Config> configMap;
     private final Class<? extends Config> configClass;
     private final EOConfigsCache configsCache;
-    private final Class builderClass;
-    private final Method builderMethod;
-
 
     public EOConfigMap(final EOConfigsCache eoConfigsCache, final Class<? extends Config> configClass)  {
         this.configClass = configClass;
         this.configsCache = eoConfigsCache;
-        try {
-            this.builderClass = Class.forName(configClass.getName() + "$Builder");
-            this.builderMethod = builderClass.getMethod("build", EOConfigsCache.class, Map.class);
-        }
-        catch (Exception e) {
-            throw new EoException("General building problem with config class '" + configClass.getSimpleName() + "'",  e);
-        }
         configMap = new HashMap<>();
     }
 
@@ -105,19 +97,36 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
     protected void addConfigByMap(final Map map) {
         String naturalId = (String)map.get(NATURAL_ID);
         if (naturalId == null) {
-            throw new EoInternalException("No naturalid provided");
+            throw new EoInternalException("No naturalid provided for FileConfig");
+        }
+        if (hasKey(naturalId)) {
+            throw new EoInternalException("NaturalId " + naturalId + " already exists FileConfig.");
         }
         if (configMap.containsKey(naturalId)) {
-            throw new EoInternalException("NaturalId " + naturalId + " already exists " + configClass.getSimpleName());
+            throw new EoInternalException("NaturalId '" + naturalId + "' already exist in " + this.configClass.getSimpleName());
         }
+        String modelKey =
+                map.containsKey(ConfigImpl.CONFIG_MODEL_KEY) && map.get(ConfigImpl.CONFIG_MODEL_KEY) !=null && !((String)map.get(ConfigImpl.CONFIG_MODEL_KEY)).isEmpty()
+                        ? (String) map.get(ConfigImpl.CONFIG_MODEL_KEY)
+                        : configClass.getSimpleName();
+        ModelConfig configurationModel = getConfigsCache().findModel(modelKey);
         try {
-            Object object = builderClass.getDeclaredConstructor(null).newInstance();
-            configMap.put(naturalId, (Config) builderMethod.invoke(object, configsCache, map));
-        } catch (InvocationTargetException e) {
-            throw new EoException("Problem create config object via build method in '" + configClass.getSimpleName() + "' for '" + naturalId + "': " + map.toString(), e);
-        }
-        catch (Exception e) {
-            throw new EoException("Problem instantiation config builder object '" + configClass.getSimpleName() + "' for '" + naturalId + "': ", e);
+            Class configurationClass = configurationModel.getModelClass();
+            Constructor configurationConstructor = configurationClass.getConstructor(EOConfigsCache.class, Map.class);
+            try {
+                addConfig((Config)configurationConstructor.newInstance(getConfigsCache(), map));
+            } catch (InstantiationException e) {
+                throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
+            } catch (IllegalAccessException e) {
+                throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
+            } catch (InvocationTargetException e) {
+                throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
+            }
+            catch (Exception e) {
+                throw new EoInternalException(e);
+            }
+        } catch (NoSuchMethodException e) {
+            throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
         }
     }
 

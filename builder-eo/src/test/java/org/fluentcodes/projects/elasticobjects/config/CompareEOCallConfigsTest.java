@@ -1,15 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.config;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.BEO_STATIC.BUILDER_EO;
-import static org.fluentcodes.projects.elasticobjects.BEO_STATIC.X_CALLS;
-import static org.fluentcodes.projects.elasticobjects.B_STATIC.BUILDER;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.XEO_STATIC.ACTIONS_XLSX;
-
-
 public class CompareEOCallConfigsTest extends CompareConfigs {
     /*
     @Test

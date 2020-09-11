@@ -16,9 +16,6 @@
       "8": "inTemplate"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },

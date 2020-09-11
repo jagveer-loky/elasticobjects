@@ -18,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 public class EoRootMapTest {
 
     @Test
-    public void givenDev_whenNewEmpty_thenMap()  {
+    public void dev__newEmpty__mapClass()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.isEmpty()).isTrue();
@@ -26,7 +26,7 @@ public class EoRootMapTest {
     }
 
     @Test
-    public void givenDev_whenSetRootModelList_thenList()  {
+    public void devEmpty__set_rootModel_List__isList()  {
         final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
         eo.set(List.class.getSimpleName(), PathElement.ROOT_MODEL);
         Assertions.assertThat(eo.getLog()).isEmpty();

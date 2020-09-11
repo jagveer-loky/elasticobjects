@@ -4,9 +4,6 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "KeepCalls",
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": false,
       "(ShapeTypes)shapeType": "ENUM"
     },

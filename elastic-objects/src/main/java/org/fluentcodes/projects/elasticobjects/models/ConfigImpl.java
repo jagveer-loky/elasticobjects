@@ -16,31 +16,38 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
  * Created by Werner on 10.10.2016.
  */
 public abstract class ConfigImpl extends ModelImpl implements Config {
+    public static final String CONFIG_MODEL_KEY = "configModelKey";
+    private static final String SCOPE = "scope";
+    public static final String EXPOSE = "expose";
     private final EOConfigsCache configsCache;
     private final String module;
     private final String subModule;
-    private final String path;
-    private final String mapPath;
+    private final String configModelKey;
     private final List<Scope> scope;
     private Expose expose;
     private boolean resolved = false;
 
-    public ConfigImpl(EOConfigsCache configsCache, Builder builder) {
-        this.module = builder.module;
-        this.subModule = builder.subModule;
-        this.path = builder.path;
-        this.mapPath = builder.mapPath;
-        this.scope = builder.scope;
-        this.expose = builder.expose;
+    public ConfigImpl(EOConfigsCache configsCache, Map map) {
+        super(map);
+        this.module = (String)map.get(ModelConfig.MODULE);
+        this.subModule = (String)map.get(ModelConfig.SUB_MODULE);
+        this.configModelKey = (String) map.get(CONFIG_MODEL_KEY);
+        this.scope = new ArrayList<>();
+        if (map.containsKey(SCOPE)) {
+            List<String> scopes = (List<String>)map.get(SCOPE);
+            if (scopes!=null&& !scope.isEmpty()) {
+                for (String scopeValue: scopes) {
+                    scope.add(Scope.valueOf((String) map.get(SCOPE)));
+                }
+            }
+            else {
+                scopes.add(Scope.ALL.name());
+            }
+        }
+        this.expose = map.containsKey(EXPOSE) ? Expose.valueOf((String)map.get(EXPOSE)) : Expose.INFO;
         this.configsCache = configsCache;
-
-        super.setId(builder.id);
-        super.setNaturalId(builder.naturalId);
-        super.setDescription(builder.description);
-        super.setCreationDate(builder.creationDate);
-        super.setModificationDate(new Date());
-
     }
+
     @Override
     public String getKey() {
         return getNaturalId();
@@ -49,6 +56,11 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     @Override
     public Expose getExpose() {
         return expose;
+    }
+
+
+    public String getConfigModelKey() {
+        return configModelKey;
     }
 
     @Override
@@ -87,15 +99,6 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         return this.subModule;
     }
 
-    @Override
-    public String getPath() {
-        return path;
-    }
-
-    @Override
-    public String getMapPath() {
-        return mapPath;
-    }
 
     /**
      * A scope for the config value.
@@ -146,61 +149,4 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             return e.getMessage();
         }
     }
-
-    public static class Builder {
-        private String module;
-        private String subModule;
-        private String path;
-        private String mapPath;
-        private List<Scope> scope;
-        private String description;
-        private String naturalId;
-        private Long id;
-        private Date creationDate;
-        private Expose expose;
-        private boolean expanded = false;
-
-        public Builder() {
-            super();
-        }
-        public String getNaturalId() {
-            return naturalId;
-        }
-        protected void prepare(EOConfigsCache configsCache, Map<String, Object> values)  {
-            this.module = ScalarConverter.toString(values.get(ModelConfig.MODULE));
-            this.subModule = ScalarConverter.toString(values.get(ModelConfig.SUB_MODULE));
-            this.path = ScalarConverter.toString(values.get(ModelConfig.PATH));
-            this.mapPath = ScalarConverter.toString(values.get(ListMapper.MAP_PATH));
-            this.naturalId = ScalarConverter.toString(values.get(NATURAL_ID));
-            this.description = ScalarConverter.toString(values.get(Model.DESCRIPTION));
-            this.creationDate = ScalarConverter.toDate(values.get(CREATION_DATE));
-            this.id = ScalarConverter.toLong(values.get(ID));
-            String exposeAsString = ScalarConverter.toString(values.get(EXPOSE));
-            if (exposeAsString == null || exposeAsString.isEmpty()) {
-                expose = Expose.INFO;
-            }
-            else {
-                expose = Expose.valueOf(exposeAsString);
-            }
-            Object scopeAsObject = values.get(EOParams.SCOPE);
-            this.scope = new ArrayList<Scope>();
-            if (scopeAsObject != null && scopeAsObject instanceof List) {
-                List scopeList = (List) scopeAsObject;
-                for (Object scopeObject : scopeList) {
-                    String scope = ScalarConverter.toString(scopeObject);
-                    if (scope == null || scope.isEmpty()) {
-                        continue;
-                    }
-                    this.scope.add(Scope.valueOf(scope));
-                }
-            }
-            this.expanded = ScalarConverter.toBoolean(values.get(F_EXPANDED));
-        }
-
-
-        public boolean isExpanded() {
-            return expanded;
-        }
-    }
-
 }

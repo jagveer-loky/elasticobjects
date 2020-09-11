@@ -27,12 +27,7 @@ public class DbQueryConfigTest {
 
     @Test
     public void resolveConfigurations()  {
-        ConfigChecks.resolveConfigurations(DbQueryConfig.class);
-    }
-
-    @Test
-    public void compareConfigurations()  {
-        ConfigChecks.compareConfigurations(DbQueryConfig.class);
+        ConfigChecks.resolveConfigurations(DbSqlConfig.class);
     }
 
 }

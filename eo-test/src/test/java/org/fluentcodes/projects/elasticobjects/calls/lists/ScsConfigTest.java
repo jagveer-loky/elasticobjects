@@ -24,13 +24,8 @@ public class ScsConfigTest {
     }
 
     @Test
-    public void resolveConfigurations()  {
-        ConfigChecks.resolveConfigurations(ScsConfig.class);
-    }
-
-    @Test
-    public void compareConfigurations()  {
-        ConfigChecks.compareConfigurations(ScsConfig.class);
+    public void compareModelConfig()  {
+        ConfigModelChecks.compare(ScsConfig.class);
     }
 
 }

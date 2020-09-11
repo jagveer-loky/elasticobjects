@@ -34,7 +34,17 @@ public class ConfigKeysCallTest {
     }
 
     @Test
-    public void givenCallWithModelConfigAndExposeInfo_whenExecute_thenXpected() {
+    public void configType_ModelConfig_expose_none__execute__xpected() {
+        ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
+                .setExpose(Expose.NONE);
+        EO eo = ProviderRootTestScope.createEo();
+        List<String> result = call.execute(eo);
+        Assertions.assertThat(result).isNotEmpty();
+        new XpectEo<>().compareAsString(result);
+    }
+
+    @Test
+    public void configType_ModelConfig_expose_info__execute__xpected() {
         ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
                 .setExpose(Expose.INFO);
         EO eo = ProviderRootTestScope.createEo();
@@ -44,7 +54,7 @@ public class ConfigKeysCallTest {
     }
 
     @Test
-    public void givenCallWithModelConfigAndExposeWeb_whenExecute_thenXpected() {
+    public void configType_ModelConfig_expose_web__execute__xpected() {
         ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
                 .setExpose(Expose.WEB);
         EO eo = ProviderRootTestScope.createEo();
@@ -54,7 +64,7 @@ public class ConfigKeysCallTest {
     }
 
     @Test
-    public void givenCallWithFieldConfigAndExposeNone_whenExecute_thenXpected() {
+    public void configType_FieldConfig_expose_none__execute__xpected() {
         ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
                 .setExpose(Expose.NONE);
         EO eo = ProviderRootTestScope.createEo();
@@ -64,7 +74,7 @@ public class ConfigKeysCallTest {
     }
 
     @Test
-    public void givenCallWithFieldConfigAndExposeInfo_whenExecute_thenXpected() {
+    public void configType_FieldConfig_expose_info__execute__xpected() {
         ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
                 .setExpose(Expose.INFO);
         EO eo = ProviderRootTestScope.createEo();
@@ -74,7 +84,7 @@ public class ConfigKeysCallTest {
     }
 
     @Test
-    public void givenCallWithFieldConfigAndExposeWeb_whenExecute_thenXpected() {
+    public void configType_FieldConfig_expose_web__execute__xpected() {
         ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
                 .setExpose(Expose.WEB);
         EO eo = ProviderRootTestScope.createEo();

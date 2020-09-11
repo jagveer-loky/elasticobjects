@@ -5,26 +5,24 @@
     "modelKey": "FileConfig",
     "superKey": "ConfigResourcesImpl",
     "(ArrayList)fieldKeys": {
-      "0": "fileName",
-      "1": "filePath",
-      "2": "hostKey",
-      "3": "cached",
-      "4": "rolePermissions",
-      "5": "module",
-      "6": "subModule",
-      "7": "scope",
-      "8": "expose",
-      "9": "key",
-      "10": "id",
-      "11": "description",
-      "12": "naturalId",
-      "13": "creationDate",
-      "14": "author"
+      "0": "configModelKey",
+      "1": "fileName",
+      "2": "filePath",
+      "3": "hostKey",
+      "4": "cached",
+      "5": "rolePermissions",
+      "6": "module",
+      "7": "subModule",
+      "8": "scope",
+      "9": "expose",
+      "10": "key",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "eoParams": {
-      "(ArrayList)scope": {
-        "(Scope)0": "ALL"
-      },
       "create": false,
       "(ShapeTypes)shapeType": "CONFIG"
     },

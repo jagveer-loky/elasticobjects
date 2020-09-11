@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT_JSON;
+
 
 public enum ProviderJsonCalls {
     CALL_SINUS_ARRAY(PATH_INPUT + "calls/call-sinus/CallSinusArray.json"),

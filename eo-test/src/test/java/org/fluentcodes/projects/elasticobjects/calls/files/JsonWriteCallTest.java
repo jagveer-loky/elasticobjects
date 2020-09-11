@@ -2,8 +2,6 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.files.JsonReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.files.JsonWriteCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
@@ -13,6 +11,8 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created 23.8.2020
  */
 public class JsonWriteCallTest {
+
+    public static final String FILE_TMP_JSON = "target.json";
 
     @Test
     public void writeReadTmpJsonSuperAdmin_ok()  {

@@ -3,15 +3,6 @@ package org.fluentcodes.projects.elasticobjects.config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.junit.Assert;
-import org.junit.Test;
-
-import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.BEO_STATIC.JSON_MODELS_XLSX_MODEL;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_EMPTY_FAILS;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_FAILS;
-
 /**
  * Created by Werner on 04.11.2016.
  */
