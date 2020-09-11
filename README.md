@@ -12,17 +12,22 @@
 
 # Elastic Objects
 Computer communication today means some kind of typed method invocation
-and fixed method functionality bound to an url.
+and fixed method functionality bound to an url. Typically with every
+call one trigger one functionality and one object mapping.
 
-The concept of EO is different: It offers a generic object with typed
-parts send over one endpoint. Functionality is offered by beans with an
-execution method which can be arbitrary composed. They called **Calls**.
+The concept of EO is different: It offers a generic object where you can
+add so many typed parts and functionality as you need. And every message
+is send over one endpoint.
+
+Type and Functionality are beans. The types with an execution method
+named  **Calls**.
 
 Some working editable examples you can find on
 [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html)
 which itself is build by one generic spring boot endpoint and EO.
 
-A simple example where you can edit it's structure:
+A simple example which do not work here, since Github cut forms from
+markdown:
 
     <form action="http://www.elasticobjects.org/eo-form" method="post">
          <textarea name="eo">{
@@ -34,7 +39,7 @@ A simple example where you can edit it's structure:
       <input type="submit" value="post"/>
     </form>
 
-Here you can edit
+You could edit
 * the value of source
 * the fieldName of target
 * the value of sourcePath and the corresponding fieldName
