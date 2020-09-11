@@ -25,22 +25,22 @@ which itself is build by one generic spring boot endpoint and EO.
 
 A simple example where you can edit it's structure:
 
-<form action="http://www.elasticobjects.org/eo-form" method="post">
-     <textarea name="eo">{
-  "(Double)source":1,
-  "(SinusValueCall)target": {
-    "sourcePath": "/source"
-  }
-}</textarea>
-  <input type="submit" value="post"/>
-</form>
+    <form action="http://www.elasticobjects.org/eo-form" method="post">
+         <textarea name="eo">{
+      "(Double)source":1,
+      "(SinusValueCall)target": {
+        "sourcePath": "/source"
+      }
+    }</textarea>
+      <input type="submit" value="post"/>
+    </form>
 
 Here you can edit
 * the value of source
 * the fieldName of target
 * the value of sourcePath and the corresponding fieldName
 
-The core library is rather small but allows a much rich message
+The core library is rather small but allows a rich message
 communication even within existing solutions.
 
 * any combination of functionality allowed in a message
@@ -70,7 +70,9 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
 The objectives [eo-test](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test) is providing all tests for elastic-object module together with a main package providing test helper and test objects to other modules.
 
 #### examples-springboot
-[examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/examples-springboot) are the sources for the spring boot web example on [elasticobjects.org](elasticobjects.org).
+[examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/examples-springboot)
+are the sources for the spring boot web example on
+[elasticobjects.org](elasticobjects.org).
 
 #### eo-csv
 [eo-csv](https://github.com/fluentcodes/elasticobjects/tree/master/eo-csv) offers calls and configurations for reading and writing csv files using [OpenCsv](https://mvnrepository.com/artifact/com.opencsv/opencsv).
@@ -81,11 +83,15 @@ The objectives [eo-test](https://github.com/fluentcodes/elasticobjects/tree/mast
         <artifactId>eo-csv</artifactId>
         <version>0.2.1</version>
     </dependency>
-
-<div align="right" style="font-size:10px">
+    
+    <div align="right" style="font-size:10px">
 <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-csv">
 <font size="1">mvn repository</font>
 </a></div>
+
+#### eo-db
+[examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/eo-db)
+is provide the execution of some sql configurations as list or as query.
 
 #### eo-xlsx
 [eo-xlsx](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations for reading and writing xlsx files using [Apache POI](https://mvnrepository.com/artifact/org.apache.poi/poi).
