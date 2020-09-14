@@ -3,6 +3,14 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "HostConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "port",
+      "1": "protocol",
+      "2": "hostName",
+      "3": "user",
+      "4": "password",
+      "5": "configModelKey"
+    },
     "superKey": "ConfigResourcesImpl",
     "(ArrayList)fieldKeys": {
       "0": "port",
@@ -10,17 +18,18 @@
       "2": "hostName",
       "3": "user",
       "4": "password",
-      "5": "rolePermissions",
-      "6": "module",
-      "7": "subModule",
-      "8": "scope",
-      "9": "expose",
-      "10": "key",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
+      "5": "configModelKey",
+      "6": "rolePermissions",
+      "7": "module",
+      "8": "subModule",
+      "9": "scope",
+      "10": "expose",
+      "11": "key",
+      "12": "id",
+      "13": "description",
+      "14": "naturalId",
+      "15": "creationDate",
+      "16": "author"
     },
     "eoParams": {
       "create": false,

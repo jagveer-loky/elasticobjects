@@ -11,11 +11,14 @@ import java.util.List;
 /**
  * Created by werner.diwischek on 03.12.16.
  */
-public class ScsReadCall extends ListReadCall {
+public class ScsReadCall extends ListReadCall implements ListInterface{
     private static final Logger LOG = LogManager.getLogger(ScsReadCall.class);
 
     public ScsReadCall()  {
         super();
+    }
+    public ScsReadCall(final String configKey)  {
+        super(configKey);
     }
 
     @Override
@@ -26,8 +29,8 @@ public class ScsReadCall extends ListReadCall {
     @Override
     public Object execute(EO eo) {
         resolve(eo.getConfigsCache());
-        super.execute(eo);
-        List rawInput = ((ScsConfig)getConfig()).read();
-        return transform(rawInput);
+        hasPermissions(eo.getRoles());
+        ((ScsConfig)getConfig()).read(eo, this);
+        return null;
     }
 }

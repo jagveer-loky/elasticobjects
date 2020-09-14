@@ -6,6 +6,7 @@
     "extension": "DATABASE_TO_UPPER=false;",
     "protocol": "jdbc:h2",
     "user": "sa",
+    "configModelKey": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -18,8 +19,8 @@
     "driver": "org.h2.Driver",
     "extension": "DATABASE_TO_UPPER=false;",
     "hostName": "h2:mem",
-    "password": "",
-    "module": "eo-test",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
     "key": "h2:file:basic",
@@ -32,6 +33,7 @@
     "extension": "DATABASE_TO_UPPER=false;",
     "protocol": "jdbc:h2",
     "user": "sa",
+    "configModelKey": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -45,8 +47,8 @@
     "extension": "DATABASE_TO_UPPER=false;",
     "protocol": "jdbc:h2",
     "hostName": "h2",
-    "password": "",
-    "module": "eo-test",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
     "key": "h2:mem:basic",
@@ -55,6 +57,7 @@
   },
   "4": {
     "schema": "file:$[TMP]/test.hsql",
+    "configModelKey": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -64,6 +67,7 @@
   },
   "5": {
     "schema": "mem",
+    "configModelKey": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -92,6 +96,7 @@
     "naturalId": "localhost"
   },
   "8": {
+    "configModelKey": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -100,6 +105,7 @@
     "naturalId": "localMySql:core"
   },
   "9": {
+    "configModelKey": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",
@@ -109,6 +115,7 @@
   },
   "10": {
     "schema": "XE",
+    "configModelKey": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
     "(Expose)expose": "INFO",

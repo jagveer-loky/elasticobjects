@@ -38,7 +38,7 @@ public class EOConfigMapModels extends EOConfigMap {
                     return ModelConfig.addByClassName(getConfigsCache(), key);
                 }
                 catch(EoException e2) {
-                    throw new EoException("Could not find Class " + key + " neither in cache nor classPath! " + e.getMessage());
+                    throw new EoException("Could not find Class '" + key + "' neither in cache nor classPath! " + e.getMessage());
                 }
             }
         }

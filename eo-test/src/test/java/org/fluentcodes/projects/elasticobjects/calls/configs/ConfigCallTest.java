@@ -20,7 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
 public class ConfigCallTest {
 
     @Test
-    public void __compareConfigurations__thenXpected() {
+    public void call_ModelConfig_configFilter_ConfigCall__execute__xpected() {
         ConfigCall call = new ConfigCall(ModelConfig.class,"ConfigCall");
         EO eo = ProviderRootTestScope.createEo();
         List result = call.execute(eo);
@@ -33,7 +33,7 @@ public class ConfigCallTest {
 
 
     @Test
-    public void givenCallForFieldAndFilterModuleEoTest_whenExecute_thenXpected()  {
+    public void call_FieldConfig_module_eoTest__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(FieldConfig.class);
         call.setFilterModule("eo-test");
@@ -46,7 +46,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void givenCall_ForFieldConfig_and_ConfigFilterLength_and_ConditionLength__execute__xpected()  {
+    public void call_FieldConfig_configFilter_length_condition__execute__xpected() {
         final EO eo = ProviderRootTestScope.createEo();
         final Call<List> call = new ConfigCall(FieldConfig.class)
                 .setConfigFilter("length")
@@ -56,7 +56,7 @@ public class ConfigCallTest {
     }
 
     @Test
-    public void givenEoForModelAndFilterModuleEoTest_whenExecute_thenXpected()  {
+    public void eo_ModelConfig_module_eoTest_submodule_main__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(ModelConfig.class);
         call.setFilterModule("eo-test");
@@ -72,7 +72,7 @@ public class ConfigCallTest {
 
 
     @Test
-    public void givenEoForModelAndFilterKeyMap_whenExecute_thenXpected() {
+    public void eo_ModelConfig_configFilter_Map__execute__xpected() {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(ModelConfig.class, ".*Map");
         List result = call.execute(eo);

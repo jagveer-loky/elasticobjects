@@ -3,6 +3,15 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "FieldConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "fieldKey",
+      "1": "modelKeys",
+      "2": "dbFieldParams",
+      "3": "eoFieldParams",
+      "4": "viewFieldParams",
+      "5": "customFieldParams",
+      "6": "modelList"
+    },
     "superKey": "ConfigImpl",
     "(ArrayList)fieldKeys": {
       "0": "fieldKey",

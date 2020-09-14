@@ -604,9 +604,9 @@
     "superKey": "FileConfig",
     "interfaces": "ListConfigInterface",
     "fieldKeys": [
-      "fileKey",
       "fieldDelimiter",
-      "rowDelimiter"
+      "rowDelimiter",
+      "listParams"
     ],
     "modelKey": "ScsConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -672,7 +672,8 @@
       "protocol",
       "hostName",
       "user",
-      "password"
+      "password",
+      "configModelKey"
     ],
     "modelKey": "HostConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
@@ -725,28 +726,6 @@
     "packagePath": "java.util",
     "author": "java"
   },
-  "ListCall": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "expose": "INFO",
-    "eoParams": {
-      "shapeType": "BEAN",
-      "create": false
-    },
-    "description": "Defines the parameter like listMapper.",
-    "superKey": "CallResource",
-    "fieldKeys": [
-      "rowHead",
-      "rowStart",
-      "rowEnd",
-      "length",
-      "filter"
-    ],
-    "modelKey": "ListCall",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "packageGroup": "lists",
-    "author": "Werner Diwischek"
-  },
   "ListReadCall": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -755,9 +734,43 @@
       "shapeType": "CALL_BEAN",
       "create": false
     },
+    "fieldKeys":["listParams"],
     "description": "Defines the parameter like listMapper.",
-    "superKey": "ListCall",
+    "superKey": "CallResource",
     "modelKey": "ListReadCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "packageGroup": "lists",
+    "author": "Werner Diwischek"
+  },
+  "ListWriteCall": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "expose": "INFO",
+    "eoParams": {
+      "shapeType": "CALL_BEAN",
+      "create": false
+    },
+    "fieldKeys":["listParams"],
+    "description": "Defines common writing lists.",
+    "superKey": "CallResource",
+    "modelKey": "ListWriteCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "packageGroup": "lists",
+    "author": "Werner Diwischek"
+  },
+  "ListInterface": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "expose": "INFO",
+    "eoParams": {
+      "shapeType": "CONFIG",
+      "create": false
+    },
+    "description": "Defines default access values for ListParams",
+    "fieldKeys": [
+      "listParams"
+    ],
+    "modelKey": "ListInterface",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "packageGroup": "lists",
     "author": "Werner Diwischek"
@@ -770,31 +783,11 @@
       "shapeType": "CONFIG",
       "create": false
     },
-    "description": "Defines the parameter like listMapper.",
+    "description": "Defines default common methods for List configurations",
     "fieldKeys": [
-      "listParams",
-      "listMapper"
+      "listParams"
     ],
     "modelKey": "ListConfigInterface",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "packageGroup": "lists",
-    "author": "Werner Diwischek"
-  },
-  "ListConfig": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "expose": "INFO",
-    "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
-    },
-    "description": "Defines the parameter like listMapper.",
-    "superKey": "ConfigResourcesImpl",
-    "fieldKeys": [
-      "listParams",
-      "listMapper"
-    ],
-    "modelKey": "ListConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "packageGroup": "lists",
     "author": "Werner Diwischek"
@@ -813,29 +806,12 @@
       "rowStart",
       "rowEnd",
       "length",
-      "filter"
+      "filter",
+      "colKeys"
     ],
     "modelKey": "ListParams",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "packageGroup": "lists",
-    "author": "Werner Diwischek"
-  },
-  "ListMapper": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "expose": "INFO",
-    "eoParams": {
-      "shapeType": "BEAN",
-      "create": true
-    },
-    "description": "Defines the parameter names list for mapping.",
-    "fieldKeys": [
-      "modelKeys",
-      "colKeys"
-    ],
-    "modelKey": "ListMapper",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "packageGroup": "calls",
     "author": "Werner Diwischek"
   },
   "Model": {
@@ -993,6 +969,7 @@
     "fieldKeys": [
       "packagePath",
       "modelKey",
+      "localFieldKeys",
       "superKey",
       "interfaces",
       "fieldKeys",

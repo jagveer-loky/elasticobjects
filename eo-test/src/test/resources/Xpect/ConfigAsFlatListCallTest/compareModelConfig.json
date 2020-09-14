@@ -3,6 +3,9 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigAsFlatListCall",
+    "(ArrayList)localFieldKeys": {
+      "0": "configType"
+    },
     "superKey": "ConfigImpl",
     "(ArrayList)fieldKeys": {
       "0": "configType",

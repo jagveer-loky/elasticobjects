@@ -9,8 +9,6 @@ import org.junit.Test;
  */
 public class ListParamsTest {
 
-
-
     @Test
     public void compareModelConfig() {
         ConfigModelChecks.compare(ListParams.class);

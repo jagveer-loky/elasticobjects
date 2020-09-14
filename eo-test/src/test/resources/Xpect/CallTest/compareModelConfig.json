@@ -3,6 +3,17 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "Call",
+    "(ArrayList)localFieldKeys": {
+      "0": "sourcePath",
+      "1": "targetPath",
+      "2": "models",
+      "3": "condition",
+      "4": "localCondition",
+      "5": "overwrite",
+      "6": "logLevel",
+      "7": "duration",
+      "8": "inTemplate"
+    },
     "(ArrayList)fieldKeys": {
       "0": "sourcePath",
       "1": "targetPath",
