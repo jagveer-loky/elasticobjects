@@ -3,6 +3,13 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "schema",
+      "1": "driver",
+      "2": "jndi",
+      "3": "dbType",
+      "4": "extension"
+    },
     "superKey": "HostConfig",
     "(ArrayList)fieldKeys": {
       "0": "schema",
@@ -15,17 +22,18 @@
       "7": "hostName",
       "8": "user",
       "9": "password",
-      "10": "rolePermissions",
-      "11": "module",
-      "12": "subModule",
-      "13": "scope",
-      "14": "expose",
-      "15": "key",
-      "16": "id",
-      "17": "description",
-      "18": "naturalId",
-      "19": "creationDate",
-      "20": "author"
+      "10": "configModelKey",
+      "11": "rolePermissions",
+      "12": "module",
+      "13": "subModule",
+      "14": "scope",
+      "15": "expose",
+      "16": "key",
+      "17": "id",
+      "18": "description",
+      "19": "naturalId",
+      "20": "creationDate",
+      "21": "author"
     },
     "eoParams": {
       "create": false,

@@ -3,6 +3,9 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets.byclass",
     "modelKey": "FieldExampleClass",
+    "(ArrayList)localFieldKeys": {
+      "0": "FieldExampleClass.value"
+    },
     "(ArrayList)fieldKeys": {
       "0": "FieldExampleClass.value"
     },

@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
+
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
@@ -32,8 +31,7 @@ public class DbQueryCall extends ListReadCall {
     @Override
     public Object execute(EO eo) {
         resolve(eo.getConfigsCache());
-        List rawInput =  getDbQueryConfig().execute();
-        return transform(rawInput);
+        return getDbQueryConfig().read(eo, this);
     }
 
 }

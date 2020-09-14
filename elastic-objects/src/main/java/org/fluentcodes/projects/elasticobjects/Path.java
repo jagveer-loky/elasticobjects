@@ -190,6 +190,9 @@ public class Path {
             }
             else if (element.isSame()) {
                 if (counter==entries.length) {
+                    if (parent.isRoot() && element.hasModelArray()) {
+                        ((EoRoot)parent).setRootModels(String.join(",", element.getModelsArray()));
+                    }
                     parent.mapObject(value);
                 }
             }

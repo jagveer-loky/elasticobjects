@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  */
 public interface ConfigResources {
 
+    EOConfigsCache getConfigsCache();
     RolePermissions getRolePermissions();
 
     PermissionType getPermissions(String... roleKeys);

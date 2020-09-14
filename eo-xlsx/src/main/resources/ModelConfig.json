@@ -9,7 +9,7 @@
       "modelConfigKey": "XlsxConfig"
     },
     "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
-    "superKey": "ListCall",
+    "superKey": "ListReadCall",
     "modelKey": "XlsxReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "packageGroup": "xlsx",
@@ -27,7 +27,8 @@
     "superKey": "FileConfig",
     "interfaces": "ListConfigInterface",
     "fieldKeys": [
-      "sheetName"
+      "sheetName",
+      "listParams"
     ],
     "modelKey": "XlsxConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",

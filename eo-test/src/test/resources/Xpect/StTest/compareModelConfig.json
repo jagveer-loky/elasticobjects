@@ -3,6 +3,12 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
     "modelKey": "SubTest",
+    "(ArrayList)localFieldKeys": {
+      "0": "id",
+      "1": "subTest",
+      "2": "name",
+      "3": "testString"
+    },
     "(ArrayList)fieldKeys": {
       "0": "id",
       "1": "subTest",

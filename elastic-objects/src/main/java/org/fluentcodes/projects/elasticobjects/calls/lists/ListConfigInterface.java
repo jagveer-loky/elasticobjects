@@ -1,99 +1,57 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResources;
-import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-/**
- * Created by Werner on 30.10.2016.
- */
-public interface ListConfigInterface extends ConfigResources {
-    public static final String LIST_PARAMS = "listParams";
-    public static final String LIST_MAPPER = "listMapper";
+public interface ListConfigInterface extends Config {
     ListParams getListParams();
 
-    ListMapper getListMapper();
+    List readRaw(ListParams params);
 
-    default Integer getRowHead() {
-        if (!hasListParams()) {
-            return -1;
+    default String read(EO eo, ListReadCall readCall) {
+        ListParams params = readCall.getListParams();
+        params.merge(getListParams());
+        List filteredResult = readRaw(params);
+        if (filteredResult.isEmpty())  {
+            return "";
         }
-        return getListParams().getRowHead();
-    }
-
-    default boolean hasRowHead() {
-        return getRowHead()!=null && getRowHead()>-1;
-    }
-
-    default boolean hasListParams() {
-        return getListMapper()!=null;
-    }
-
-    default boolean hasRowStart() {
-        return getRowStart()!=null && getRowStart()>-1;
-    }
-
-    default Integer getRowStart() {
-        if (!hasListParams()) {
-            return -1;
+        String targetPath = readCall.getTargetPath();
+        boolean isMapped = targetPath.contains("eo->");
+        if (!isMapped) {
+            eo.setEmpty(targetPath);
         }
-        return getListParams().getRowStart();
-    }
-
-    default boolean hasRowEnd() {
-        return getRowEnd()!=null && getRowEnd()>-1;
-    }
-
-    default Integer getRowEnd() {
-        if (!hasListParams()) {
-            return -1;
+        for (int i = 0; i< filteredResult.size(); i++) {
+            Object row = filteredResult.get(i);
+            if (isMapped) {
+                String target = new ParserEoReplace(targetPath).parse(new EoRoot(getConfigsCache(), row));
+                eo.set(row, target);
+            }
+            else {
+                eo.set(row, targetPath, Integer.valueOf(i).toString());
+            }
         }
-        return getListParams().getRowEnd();
-    }
-
-    default boolean hasLength() {
-        return getLength()!=null && getLength()>-1;
-    }
-
-    default Integer getLength() {
-        if (!hasListParams()) {
-            return -1;
+        if (targetPath.equals("_template")) {
+            return "TODO _template";
         }
-        return getListParams().getLength();
+        return "";
     }
 
-    default boolean hasOr() {
-        return getOr()!=null && !getOr().isEmpty();
-    }
-
-    default Or getOr() {
-        if (!hasListParams()) {
-            return new Or();
+    default void addRowEntry(List result, List rowEntry, ListParams params) {
+        if (params.hasColKeys()) {
+            Map<String,Object> rowMap = params.createMapFromRow(rowEntry);
+            if (!params.hasFilter() || params.getFilter().filter(new EoRoot(getConfigsCache(), rowMap))) {
+                result.add(rowMap);
+            }
         }
-        return getListParams().getFilter();
-    }
-
-    default boolean hasColKeys() {
-        if (!hasListParams()) {
-            return false;
+        else {
+            if (!params.hasFilter() || params.getFilter().filter(new EoRoot(getConfigsCache(), rowEntry))) {
+                result.add(rowEntry);
+            }
         }
-        return getListParams().getColKeys()!=null && !getListParams().getColKeys().isEmpty();
     }
-
-    default List<String> getColKeys() {
-        if (!hasListParams()) {
-            return new ArrayList<>();
-        }
-        return getListParams().getColKeys();
-    }
-
-    default void setColKeys(List<String> colKeys) {
-        if (!hasListParams()) {
-            return ;
-        }
-        getListParams().setColKeys(colKeys);
-    }
-
 }

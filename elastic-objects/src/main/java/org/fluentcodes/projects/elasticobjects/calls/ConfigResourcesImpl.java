@@ -1,10 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
 import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;

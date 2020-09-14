@@ -34,11 +34,10 @@
       "11": "ConfigAsFlatListCall",
       "12": "ModelConfigNone",
       "13": "HostConfig",
-      "14": "ListConfig",
-      "15": "FileConfig",
-      "16": "ScsConfig",
-      "17": "ModelConfigScalar",
-      "18": "ModelConfigObject"
+      "14": "FileConfig",
+      "15": "ScsConfig",
+      "16": "ModelConfigScalar",
+      "17": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -83,7 +82,7 @@
     "fieldKey": "colKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
-      "0": "ListMapper"
+      "0": "ListParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -116,12 +115,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -162,11 +161,11 @@
       "0": "CallResource",
       "1": "FileWriteCall",
       "2": "FileReadCall",
-      "3": "ListCall",
-      "4": "TemplateResourceCall",
-      "5": "JsonReadCall",
-      "6": "ListReadCall",
-      "7": "ScsReadCall"
+      "3": "TemplateResourceCall",
+      "4": "JsonReadCall",
+      "5": "ListReadCall",
+      "6": "ScsReadCall",
+      "7": "ListWriteCall"
     },
     "(Expose)expose": "WEB",
     "key": "configKey",
@@ -182,8 +181,9 @@
       "length": 80
     },
     "(ArrayList)modelList": {
-      "0": "FileConfig",
-      "1": "ScsConfig"
+      "0": "HostConfig",
+      "1": "FileConfig",
+      "2": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -265,11 +265,10 @@
       "11": "ConfigAsFlatListCall",
       "12": "ModelConfigNone",
       "13": "HostConfig",
-      "14": "ListConfig",
-      "15": "FileConfig",
-      "16": "ScsConfig",
-      "17": "ModelConfigScalar",
-      "18": "ModelConfigObject"
+      "14": "FileConfig",
+      "15": "ScsConfig",
+      "16": "ModelConfigScalar",
+      "17": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -403,11 +402,10 @@
       "11": "ConfigAsFlatListCall",
       "12": "ModelConfigNone",
       "13": "HostConfig",
-      "14": "ListConfig",
-      "15": "FileConfig",
-      "16": "ScsConfig",
-      "17": "ModelConfigScalar",
-      "18": "ModelConfigObject"
+      "14": "FileConfig",
+      "15": "ScsConfig",
+      "16": "ModelConfigScalar",
+      "17": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -435,12 +433,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -538,11 +536,10 @@
       "12": "ConfigAsFlatListCall",
       "13": "ModelConfigNone",
       "14": "HostConfig",
-      "15": "ListConfig",
-      "16": "FileConfig",
-      "17": "ScsConfig",
-      "18": "ModelConfigScalar",
-      "19": "ModelConfigObject"
+      "15": "FileConfig",
+      "16": "ScsConfig",
+      "17": "ModelConfigScalar",
+      "18": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -651,12 +648,9 @@
       "notNull": false,
       "length": 80
     },
-    "(ArrayList)modelList": {
-      "0": "ScsConfig"
-    },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "key": "fileKey",
     "description": "A key for file objects.",
     "naturalId": "fileKey"
@@ -701,14 +695,11 @@
     "fieldKey": "filter",
     "modelKeys": "Or",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListCall",
-      "2": "ListReadCall",
-      "3": "ScsReadCall"
+      "0": "ListParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "WEB",
+    "(Expose)expose": "INFO",
     "key": "filter",
     "description": "A list of {@link And} condition list",
     "naturalId": "filter"
@@ -841,12 +832,11 @@
       "12": "ConfigAsFlatListCall",
       "13": "ModelConfigNone",
       "14": "HostConfig",
-      "15": "ListConfig",
-      "16": "FileConfig",
-      "17": "BasicTest",
-      "18": "ScsConfig",
-      "19": "ModelConfigScalar",
-      "20": "ModelConfigObject"
+      "15": "FileConfig",
+      "16": "BasicTest",
+      "17": "ScsConfig",
+      "18": "ModelConfigScalar",
+      "19": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -924,12 +914,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -1033,11 +1023,10 @@
       "9": "ConfigAsFlatListCall",
       "10": "ModelConfigNone",
       "11": "HostConfig",
-      "12": "ListConfig",
-      "13": "FileConfig",
-      "14": "ScsConfig",
-      "15": "ModelConfigScalar",
-      "16": "ModelConfigObject"
+      "12": "FileConfig",
+      "13": "ScsConfig",
+      "14": "ModelConfigScalar",
+      "15": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1051,34 +1040,16 @@
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "DBFieldParams",
-      "1": "ListParams",
-      "2": "ListCall",
-      "3": "ListReadCall",
-      "4": "ScsReadCall"
+      "1": "ListParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "WEB",
+    "(Expose)expose": "INFO",
     "key": "length",
     "description": "Length of a field.",
     "naturalId": "length"
   },
   "52": {
-    "fieldKey": "listMapper",
-    "modelKeys": "ListMapper",
-    "(ArrayList)modelList": {
-      "0": "ListConfigInterface",
-      "1": "ListConfig",
-      "2": "ScsConfig"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "key": "listMapper",
-    "description": "Maps a list to the adapter for @{link ListAction}.",
-    "naturalId": "listMapper"
-  },
-  "53": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
     "dbFieldParams": {
@@ -1087,18 +1058,21 @@
       "length": 80
     },
     "(ArrayList)modelList": {
-      "0": "ListConfigInterface",
-      "1": "ListConfig",
-      "2": "ScsConfig"
+      "0": "ListInterface",
+      "1": "ListConfigInterface",
+      "2": "ListReadCall",
+      "3": "ScsReadCall",
+      "4": "ListWriteCall",
+      "5": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "key": "listParams",
     "description": "Filter for the readings within {@link ListAction}.",
     "naturalId": "listParams"
   },
-  "54": {
+  "53": {
     "fieldKey": "localCondition",
     "modelKeys": "String",
     "dbFieldParams": {
@@ -1122,12 +1096,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -1137,6 +1111,26 @@
     "key": "localCondition",
     "description": "A condition for calls. ",
     "naturalId": "localCondition"
+  },
+  "54": {
+    "fieldKey": "localFieldKeys",
+    "modelKeys": "ArrayList,String",
+    "(ArrayList)modelList": {
+      "0": "ModelInterface",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigList",
+      "4": "ModelConfigMap",
+      "5": "ModelConfigNone",
+      "6": "ModelConfigScalar",
+      "7": "ModelConfigObject"
+    },
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "key": "localFieldKeys",
+    "description": "A list of local field keys for the model configuration not resolved. ",
+    "naturalId": "localFieldKeys"
   },
   "55": {
     "fieldKey": "log",
@@ -1164,12 +1158,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -1248,8 +1242,7 @@
     },
     "(ArrayList)modelList": {
       "0": "FieldConfig",
-      "1": "Models",
-      "2": "ListMapper"
+      "1": "Models"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1295,12 +1288,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -1332,11 +1325,10 @@
       "9": "ConfigAsFlatListCall",
       "10": "ModelConfigNone",
       "11": "HostConfig",
-      "12": "ListConfig",
-      "13": "FileConfig",
-      "14": "ScsConfig",
-      "15": "ModelConfigScalar",
-      "16": "ModelConfigObject"
+      "12": "FileConfig",
+      "13": "ScsConfig",
+      "14": "ModelConfigScalar",
+      "15": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1419,12 +1411,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -1590,9 +1582,8 @@
       "0": "ConfigResources",
       "1": "ConfigResourcesImpl",
       "2": "HostConfig",
-      "3": "ListConfig",
-      "4": "FileConfig",
-      "5": "ScsConfig"
+      "3": "FileConfig",
+      "4": "ScsConfig"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1622,14 +1613,11 @@
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListCall",
-      "2": "ListReadCall",
-      "3": "ScsReadCall"
+      "0": "ListParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "WEB",
+    "(Expose)expose": "INFO",
     "key": "rowEnd",
     "naturalId": "rowEnd"
   },
@@ -1637,14 +1625,11 @@
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListCall",
-      "2": "ListReadCall",
-      "3": "ScsReadCall"
+      "0": "ListParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "WEB",
+    "(Expose)expose": "INFO",
     "key": "rowHead",
     "naturalId": "rowHead"
   },
@@ -1652,14 +1637,11 @@
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListCall",
-      "2": "ListReadCall",
-      "3": "ScsReadCall"
+      "0": "ListParams"
     },
     "module": "elastic-objects",
     "subModule": "main",
-    "(Expose)expose": "WEB",
+    "(Expose)expose": "INFO",
     "key": "rowStart",
     "naturalId": "rowStart"
   },
@@ -1679,11 +1661,10 @@
       "9": "ConfigAsFlatListCall",
       "10": "ModelConfigNone",
       "11": "HostConfig",
-      "12": "ListConfig",
-      "13": "FileConfig",
-      "14": "ScsConfig",
-      "15": "ModelConfigScalar",
-      "16": "ModelConfigObject"
+      "12": "FileConfig",
+      "13": "ScsConfig",
+      "14": "ModelConfigScalar",
+      "15": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1760,12 +1741,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
@@ -1808,11 +1789,10 @@
       "9": "ConfigAsFlatListCall",
       "10": "ModelConfigNone",
       "11": "HostConfig",
-      "12": "ListConfig",
-      "13": "FileConfig",
-      "14": "ScsConfig",
-      "15": "ModelConfigScalar",
-      "16": "ModelConfigObject"
+      "12": "FileConfig",
+      "13": "ScsConfig",
+      "14": "ModelConfigScalar",
+      "15": "ModelConfigObject"
     },
     "module": "elastic-objects",
     "subModule": "main",
@@ -1962,12 +1942,12 @@
       "12": "ConfigOpenApiCall",
       "13": "ConfigKeysCall",
       "14": "ConfigCall",
-      "15": "ListCall",
-      "16": "TemplateResourceCall",
-      "17": "ConfigTypesCall",
-      "18": "JsonReadCall",
-      "19": "ListReadCall",
-      "20": "ScsReadCall",
+      "15": "TemplateResourceCall",
+      "16": "ConfigTypesCall",
+      "17": "JsonReadCall",
+      "18": "ListReadCall",
+      "19": "ScsReadCall",
+      "20": "ListWriteCall",
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },

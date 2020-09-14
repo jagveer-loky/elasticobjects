@@ -1,11 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Eq;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.*;
@@ -25,6 +26,8 @@ public class ListParams {
     public static final String LENGTH = "length";
     public static final String ROW_END = "rowEnd";
     public static final String FILTER = "filter";
+    public static final String COL_KEYS = "colKeys";
+
     private Integer rowStart;
     private Integer rowEnd;
     private Integer length;
@@ -52,6 +55,7 @@ public class ListParams {
         setRowStart(attributes.get(ROW_START));
         setLength(attributes.get(LENGTH));
         setRowEnd(attributes.get(ROW_END));
+        setColKeys(attributes.get(COL_KEYS));
         this.filterRaw = ScalarConverter.toString(attributes.get(FILTER));
     }
 
@@ -116,7 +120,7 @@ public class ListParams {
         }
     }
 
-    private Map<String, Object> createMapFromRow(List row) {
+    public Map<String, Object> createMapFromRow(List row) {
         Map<String, Object> rowMap = new LinkedHashMap<>();
         for (int i = 0; i<row.size(); i++) {
             if (colKeys.size()<i) {
@@ -168,6 +172,10 @@ public class ListParams {
             return;
         }
         this.filter = new Or((String) filter);
+    }
+
+    public boolean hasFilter() {
+        return getFilter()!=null && ! getFilter().isEmpty();
     }
 
     public boolean filterRow(List rowList) {
@@ -250,11 +258,11 @@ public class ListParams {
     }
 
     public ListParams setRowHead(Object rowHead) {
+        if (this.rowHead != null) {
+            return this;
+        }
         if (rowHead == null) {
             rowHead = -1;
-        }
-        if (this.rowHead != null && this.rowHead > -1) {
-            return this;
         }
         Integer value = null;
         try {
@@ -275,6 +283,26 @@ public class ListParams {
 
     public boolean hasRowStart() {
         return rowStart != null && rowStart > -1;
+    }
+
+    public boolean hasRowHead(Integer rowCounter) {
+        if (!hasRowHead()) {
+            return false;
+        }
+        if (getRowHead()<0) {
+            return false;
+        }
+        return getRowHead() < rowCounter;
+    }
+
+    public boolean isRowHead(Integer rowCounter) {
+        if (!hasRowHead()) {
+            return false;
+        }
+        if (getRowHead()<0) {
+            return false;
+        }
+        return getRowHead() == rowCounter;
     }
 
     public Integer getRowStart() {
@@ -300,6 +328,14 @@ public class ListParams {
         this.rowStart = value;
         return this;
     }
+
+    public boolean isRowStart(Integer rowCounter) {
+        if (!hasRowStart()) {
+            return true;
+        }
+        return getRowStart() <= rowCounter;
+    }
+
     public boolean hasRowEnd() {
         return rowEnd!=null && rowEnd>-1;
     }
@@ -326,6 +362,13 @@ public class ListParams {
         }
         this.rowEnd = value;
         return this;
+    }
+
+    public boolean isRowEnd(Integer rowCounter) {
+        if (!hasRowEnd()) {
+            return true;
+        }
+        return rowCounter<getRowEnd();
     }
 
     public void prepareStartEnd(int rowMax)  {
@@ -389,6 +432,21 @@ public class ListParams {
     public ListParams setColKeys(List <String> colKeys) {
         this.colKeys = colKeys;
         return this;
+    }
+
+    public ListParams setColKeys(Object colKeys) {
+        if (colKeys == null) {
+            return this;
+        }
+        if (colKeys instanceof String) {
+            setColKeys(Arrays.asList(((String)colKeys).split(",")));
+            return this;
+        }
+        throw new EoException("Could not map colkeys");
+    }
+
+    public boolean hasColKeys() {
+        return colKeys!=null && !colKeys.isEmpty();
     }
 
 }
