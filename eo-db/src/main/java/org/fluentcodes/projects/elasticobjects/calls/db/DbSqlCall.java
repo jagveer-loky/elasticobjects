@@ -11,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbSqlCall extends  CallResource<Boolean> {
+public class DbSqlCall extends  CallResource{
     public DbSqlCall()  {
         super(PermissionType.EXECUTE);
     }

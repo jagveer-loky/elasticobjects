@@ -1,21 +1,16 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.LogLevel;
+import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
 
 /**
  * Created by Werner on 13.07.2020.
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
-public abstract class CallImpl<RESULT> implements Call<RESULT> {
-    private static final Logger LOG = LogManager.getLogger(CallImpl.class);
-    private Boolean inTemplate;
+public abstract class CallImpl implements Call {
+    public static final String AS_STRING = "_asString";
     private String sourcePath;
     private String targetPath;
     private String models;
@@ -37,24 +32,55 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
         }
     }
 
+    protected Object createReturnScalar(EO eo, Object result) {
+        if (!hasTargetPath()) {
+            return result;
+        }
+        if (isInTemplate()) {
+            return result.toString();
+        }
+        eo.set(result, targetPath);
+        return "";
+    }
+
+    protected Object createReturnType(EO eo, Object result) {
+        if (!hasTargetPath()) {
+            return result;
+        }
+        if (isInTemplate()) {
+            return new EOToJSON()
+                    .setSerializationType(JSONSerializationType.STANDARD)
+                    .toJSON(eo.getConfigsCache(), result);
+        }
+        eo.set(result, targetPath);
+        return "";
+    }
+
+    protected String createReturnString(EO eo, String result) {
+        if (!hasTargetPath() || isInTemplate()) {
+            return result;
+        }
+        eo.set(result, targetPath);
+        return "";
+    }
+
     @Override
     public Boolean getInTemplate() {
-        if (inTemplate == null) {
-            return false;
-        }
-        return inTemplate;
+        return AS_STRING.equals(targetPath);
     }
 
     @Override
     public Boolean isInTemplate() {
-        if (inTemplate == null) {
-            return false;
-        }
-        return inTemplate;
+        return getInTemplate();
     }
 
     public void setInTemplate(Boolean inTemplate) {
-        this.inTemplate = inTemplate;
+        if (inTemplate) {
+            this.targetPath = AS_STRING;
+        }
+        else {
+            this.targetPath = null;
+        }
     }
 
     @Override
@@ -164,6 +190,11 @@ public abstract class CallImpl<RESULT> implements Call<RESULT> {
     @Override
     public String getTargetPath() {
         return targetPath;
+    }
+
+    @Override
+    public boolean isMapToTargetEo() {
+        return !hasTargetPath() || getTargetPath().equals(AS_STRING);
     }
 
     @Override

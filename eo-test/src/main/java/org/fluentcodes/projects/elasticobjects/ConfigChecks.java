@@ -30,7 +30,7 @@ public class ConfigChecks {
     public static void compareConfiguration(final Class<? extends Config> configClass, final String configKey) {
         ConfigCall call = new ConfigCall(configClass, configKey);
         EO eo = ProviderRootTestScope.createEo();
-        List result = call.execute(eo);
+        List result = (List)call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo.Builder<>()
                 .setType(JSONSerializationType.EO)

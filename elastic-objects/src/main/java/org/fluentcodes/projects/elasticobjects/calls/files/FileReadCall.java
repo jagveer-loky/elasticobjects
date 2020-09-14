@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileReadCall extends CallResource<String> {
+public class FileReadCall extends CallResource{
 
     public FileReadCall() {
         super(PermissionType.READ);
@@ -32,7 +32,8 @@ public class FileReadCall extends CallResource<String> {
     @Override
     public String execute(final EO eo)  {
         init(eo);
-        return (String) getFileConfig().read();
+        String result = (String) getFileConfig().read();
+        return createReturnString(eo, result);
     }
 
     @Override

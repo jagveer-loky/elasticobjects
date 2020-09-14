@@ -23,7 +23,7 @@ public class ConfigCallTest {
     public void call_ModelConfig_configFilter_ConfigCall__execute__xpected() {
         ConfigCall call = new ConfigCall(ModelConfig.class,"ConfigCall");
         EO eo = ProviderRootTestScope.createEo();
-        List result = call.execute(eo);
+        List result = (List) call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo.Builder<>()
                 .setType(JSONSerializationType.EO)
@@ -38,7 +38,7 @@ public class ConfigCallTest {
         final ConfigCall call = new ConfigCall(FieldConfig.class);
         call.setFilterModule("eo-test");
         call.setFilterSubModule(MAIN);
-        List result = call.execute(eo);
+        List result = (List) call.execute(eo);
         new XpectEo.Builder<>()
                 .setType(JSONSerializationType.EO)
                 .build()
@@ -48,10 +48,10 @@ public class ConfigCallTest {
     @Test
     public void call_FieldConfig_configFilter_length_condition__execute__xpected() {
         final EO eo = ProviderRootTestScope.createEo();
-        final Call<List> call = new ConfigCall(FieldConfig.class)
+        final Call call = new ConfigCall(FieldConfig.class)
                 .setConfigFilter("length")
                 .setCondition("length eq eo->0/modelKey.");
-        List result = call.execute(eo);
+        List result = (List) call.execute(eo);
         Assertions.assertThat(result.size()).isEqualTo(1);
     }
 
@@ -75,7 +75,7 @@ public class ConfigCallTest {
     public void eo_ModelConfig_configFilter_Map__execute__xpected() {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(ModelConfig.class, ".*Map");
-        List result = call.execute(eo);
+        List result = (List) call.execute(eo);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

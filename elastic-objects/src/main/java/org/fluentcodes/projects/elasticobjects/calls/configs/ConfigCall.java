@@ -60,10 +60,13 @@ public class ConfigCall extends ConfigKeysCall {
     }
 
     @Override
-    public List execute(EO eo)  {
+    public Object execute(EO eo)  {
         EO result = new EoRoot(eo.getConfigsCache(),List.class,Map.class);
         result.setSerializationType(JSONSerializationType.STANDARD);
-        List<String> keys = super.execute(eo);
+        String targetPath = getTargetPath();
+        setTargetPath(null);
+        List<String> keys = (List<String>) super.execute(eo);
+        setTargetPath(targetPath);
         ModelConfig model  = eo.getConfigsCache().findModel(getConfigType());
         Class configClass = model.getModelClass();
         for (String key : keys) {
@@ -82,7 +85,7 @@ public class ConfigCall extends ConfigKeysCall {
             EO child = result.set(configEntry, Integer.valueOf(result.size()).toString());
             child.set(key, "naturalId");
         }
-        return (List)result.get();
+        return super.createReturnType(eo,result.get());
     }
 
 }

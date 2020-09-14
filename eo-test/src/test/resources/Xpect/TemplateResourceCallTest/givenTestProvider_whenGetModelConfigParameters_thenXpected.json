@@ -15,8 +15,7 @@
       "6": "filterPath",
       "7": "overwrite",
       "8": "logLevel",
-      "9": "duration",
-      "10": "inTemplate"
+      "9": "duration"
     },
     "eoParams": {
       "(ArrayList)scope": {

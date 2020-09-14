@@ -80,7 +80,7 @@ public class TemplateResourceCall extends TemplateCall {
         FileConfig config = eo.getConfigsCache().findFile(replacedConfig);
         if (config.hasPermissions(PermissionType.EXECUTE, eo.getRoles())) {
             super.setContent((String) config.read());
-            return super.execute(eo);
+            return (String)super.execute(eo);
         }
         else {
             return "No permission to execute '" + config.getNaturalId() + "' with roles '" + eo.getRoles() + "'.";

@@ -25,7 +25,7 @@ public class ConfigOpenApiCallTest {
     public void callConfigFilter_eqConfigCall__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigOpenApiCall call = new ConfigOpenApiCall(ConfigCall.class.getSimpleName());
-        Map result = call.execute(eo);
+        Map result = (Map) call.execute(eo);
         new XpectEo().compareAsString(result);
     }
 

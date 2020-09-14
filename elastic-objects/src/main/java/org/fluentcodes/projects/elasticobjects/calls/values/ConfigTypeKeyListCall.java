@@ -2,9 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,12 +11,12 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigTypeKeyListCall extends CallImpl<List> {
+public class ConfigTypeKeyListCall extends CallImpl{
     private static final Logger LOG = LogManager.getLogger(ConfigTypeKeyListCall.class);
     private String configFilter;
 
     @Override
-    public List execute(final EO eo) {
+    public Object execute(final EO eo) {
         super.check(eo);
         List<String> keys = eo.getConfigsCache().getConfigClassesAsStringList();
         if (configFilter == null) {

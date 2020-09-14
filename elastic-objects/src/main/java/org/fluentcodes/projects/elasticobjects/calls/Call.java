@@ -3,8 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 
-public interface Call<RESULT> {
-    RESULT execute(final EO eo);
+public interface Call {
+    Object execute(final EO eo);
 
     void setPathByTemplate(final Path templatePath);
     void setInTemplate(Boolean inTemplate);
@@ -31,6 +31,7 @@ public interface Call<RESULT> {
 
     String getTargetPath();
     boolean hasTargetPath();
+    boolean isMapToTargetEo();
     Call setTargetPath(String targetPath);
 
     String[] getModelsAsArray();

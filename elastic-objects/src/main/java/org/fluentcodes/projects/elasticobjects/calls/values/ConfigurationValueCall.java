@@ -12,14 +12,14 @@ import java.util.Set;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigurationValueCall extends CallImpl<Set>{
+public class ConfigurationValueCall extends CallImpl{
     private static final Logger LOG = LogManager.getLogger(ConfigurationValueCall.class);
     private String configType;
     private String configKey;
     private String configFilter;
 
     @Override
-    public Set execute(final EO eo) {
+    public Object execute(final EO eo) {
         super.check(eo);
         if (configType == null) {
             throw new EoException("No config type defined");

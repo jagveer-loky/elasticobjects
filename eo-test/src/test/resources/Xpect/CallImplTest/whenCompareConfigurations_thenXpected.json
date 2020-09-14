@@ -13,8 +13,7 @@
       "5": "condition",
       "6": "overwrite",
       "7": "logLevel",
-      "8": "duration",
-      "9": "inTemplate"
+      "8": "duration"
     },
     "eoParams": {
       "(ArrayList)scope": {

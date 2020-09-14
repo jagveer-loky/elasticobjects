@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigKeysCall extends CallImpl<List>{
+public class ConfigKeysCall extends CallImpl{
     private String configType;
     private String configFilter = ".*";
     private Expose expose = Expose.NONE;
@@ -43,7 +43,7 @@ public class ConfigKeysCall extends CallImpl<List>{
     }
 
     @Override
-    public List<String> execute(final EO eo) {
+    public Object execute(final EO eo) {
         super.check(eo);
         if (configType == null && configClass == null) {
             throw new EoException("Problem no config type defined.");
@@ -60,11 +60,12 @@ public class ConfigKeysCall extends CallImpl<List>{
         }
         Set<String> keys = eo.getConfigsCache().getConfigKeys(configClass, expose);
         try {
-            return keys
+            return super.createReturnType(eo, keys
                     .stream()
                     .filter(x->x.matches(configFilter))
                     .sorted(sortOrder.getComparator())
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toList())
+            );
         }
         catch (Exception e) {
             throw new EoException(e);

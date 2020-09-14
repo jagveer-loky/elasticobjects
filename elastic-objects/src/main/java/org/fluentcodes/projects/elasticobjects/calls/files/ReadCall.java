@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class ReadCall extends CallResource<String> {
+public class ReadCall extends CallResource {
     private String configType;
     private String configKey;
     public ReadCall() {

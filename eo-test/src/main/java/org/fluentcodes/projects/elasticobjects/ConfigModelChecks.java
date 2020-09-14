@@ -51,7 +51,7 @@ public class ConfigModelChecks {
     public static void compare(final Class modelClass) {
         ConfigCall call = new ConfigCall(ModelConfig.class, modelClass.getSimpleName());
         EO eo = ProviderRootTestScope.createEo();
-        List result = call.execute(eo);
+        List result = (List) call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo.Builder<>()
                 .setType(JSONSerializationType.EO)

@@ -6,8 +6,7 @@
     "(ListParams)listParams": {
       "rowHead": 0,
       "rowStart": 1,
-      "rowEnd": 4,
-      "length": -1
+      "rowEnd": 4
     },
     "configModelKey": "ScsConfig",
     "fileName": "BasicTest.csv",
@@ -165,8 +164,7 @@
     "(ListParams)listParams": {
       "rowHead": 0,
       "rowStart": 1,
-      "rowEnd": 3,
-      "length": -1
+      "rowEnd": 3
     },
     "configModelKey": "ScsConfig",
     "fileName": "ListSimple.csv",
