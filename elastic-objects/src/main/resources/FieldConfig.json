@@ -552,12 +552,6 @@
     "modelKeys": "Boolean",
     "fieldKey": "notNull"
   },
-  "inTemplate": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "modelKeys": "Boolean",
-    "fieldKey": "inTemplate"
-  },
   "packageGroup": {
     "module": "elastic-objects",
     "subModule": "main",

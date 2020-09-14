@@ -19,7 +19,7 @@ import java.util.*;
  * @since 10.7.2020.
  */
 
-public class ListWriteCall extends CallResource<Boolean> implements ListInterface {
+public class ListWriteCall extends CallResource implements ListInterface {
     private ListParams listParams;
 
     public ListWriteCall() {

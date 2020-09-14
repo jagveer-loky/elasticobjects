@@ -14,7 +14,7 @@ import java.util.*;
  * Created by Werner on 10.10.2016.
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
-public abstract class CallResource<RESULT> extends CallImpl<RESULT> {
+public abstract class CallResource extends CallImpl {
     private static final Logger LOG = LogManager.getLogger(CallResource.class);
     private Config config;
     private String configKey;

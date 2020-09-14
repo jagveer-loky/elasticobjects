@@ -31,21 +31,21 @@ public class FileReadCallTest {
     }
 
     @Test
-    public void givenCallWithSourceTxtCached_whenExecuteCall_thenReturnContent()  {
+    public void call_FileTestCachedTxt__execute__content_returned()  {
         final FileReadCall call = new FileReadCall().setConfigKey("FileTestCached.txt");
         final String content = call.execute(ProviderRootTestScope.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
-    public void givenCallWithSourceTxt_whenExecuteCall_thenReturnContent()  {
+    public void call_SourceTxt__execute__content_returned()  {
         final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_SOURCE_TXT);
         final String content = call.execute(ProviderRootTestScope.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
-    public void givenCallWithRoleGuestAndSourceTxt_whenExecuteCall_thenReturnContent()  {
+    public void call_SourceTxt_role_Guest__execute__content_returned()  {
         final Call call = new FileReadCall().setConfigKey(FileConfigTest.FILE_SOURCE_TXT);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
@@ -55,7 +55,7 @@ public class FileReadCallTest {
     }
 
     @Test
-    public void givenEoWithRoleGuestAndSourceTxt_whenExecuteCall_thenContentIsOnTargetPath()  {
+    public void eo_SourceTxt_targetPath_test_role_Guest__execute__content_set()  {
         final Call call = new FileReadCall().setConfigKey(FileConfigTest.FILE_SOURCE_TXT)
                 .setTargetPath(BasicTest.TEST_STRING);
         EO eo = ProviderRootTestScope.createEo();
@@ -67,7 +67,7 @@ public class FileReadCallTest {
     }
 
     @Test
-    public void givenRoleAnonymAndSourceTxt_whenExecuteCall_thenThrowException()  {
+    public void call_SourceTxt_role_Anonym__execute__exception_thrown()  {
         final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_SOURCE_TXT);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_ANONYM);
@@ -78,7 +78,7 @@ public class FileReadCallTest {
     }
 
     @Test
-    public void givenEoWithRoleAnonymAndSourceTxt_whenExecuteEo_thenHasLog()  {
+    public void eo_SourceTxt_role_Anonym__execute__has_log()  {
         final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_SOURCE_TXT);
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
@@ -88,7 +88,7 @@ public class FileReadCallTest {
     }
 
     @Test
-    public void givenEoWithChildAddedSourceTxt_whenExecuteEo_thenChildPathIsAdded() {
+    public void eo_SourceTxt_child_level0_targetPath_level2___execute__eo_set_level2() {
         final EO root = ProviderRootTestScope.createEo();
         root.set(S_STRING, S_LEVEL0, S_LEVEL1);
         final EO child = root.getEo(S_LEVEL0);
@@ -104,7 +104,7 @@ public class FileReadCallTest {
     }
 
     @Test
-    public void givenJsonWithSource_ok() {
+    public void json_SourceTxt___execute__eo_set() {
         final String json = "{" +
                 "\"(List)content\":" +
                 "{" +

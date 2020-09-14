@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 22.08.2020.
  */
-public class ConfigTypesCall extends CallImpl<List>{
+public class ConfigTypesCall extends CallImpl {
     private SortOrder sortOrder = SortOrder.ASC;
     private Class<? extends Config> configClass;
 
@@ -21,7 +21,7 @@ public class ConfigTypesCall extends CallImpl<List>{
     }
 
     @Override
-    public List<String> execute(final EO eo) {
+    public Object execute(final EO eo) {
         super.check(eo);
         Set<Class> keys = eo.getConfigsCache().getKeys();
         try {

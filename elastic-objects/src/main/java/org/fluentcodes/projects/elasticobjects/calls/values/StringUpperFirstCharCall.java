@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 /**
  * Created by Werner on 3.08.2020.
  */
-public class StringUpperFirstCharCall extends SimpleValueFromEoCall<String> {
+public class StringUpperFirstCharCall extends SimpleValueFromEoCall {
 
 
     @Override

@@ -37,31 +37,19 @@ public class ExecutorCallImpl implements ExecutorCall {
             return null;
         }
         Path sourcePath = new Path(eo.getPathAsString(), call.getSourcePath());
-        /*if (call.hasSourcePath()) {
-            if (call.getSourcePath().startsWith(Path.DELIMITER)) {
-                sourcePath = new Path(call.getSourcePath());
-            }
-            else {
-                sourcePath = new Path(eo.getPathAsString(), call.getSourcePath());
-            }
-        }*/
         boolean isFilter = sourcePath.isFilter();
         EO sourceParent = sourcePath.moveToParent(eo);
         List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
-
         // get targetParent
-        if (!call.hasTargetPath()) {
+        String targetPath = call.getTargetPath();
+        if (targetPath == null||targetPath.isEmpty()) {
             if (isFilter) {
                 call.setTargetPath(sourceParent.getPathAsString());
+                targetPath = new Path(eo.getPathAsString(), call.getTargetPath()).toString();
             }
             else {
-                call.setTargetPath(call.getSourcePath());
+                targetPath = sourcePath.toString();
             }
-        }
-        Path targetPath = new Path(eo.getPathAsString(), call.getTargetPath());
-        EO targetParent = eo;
-        if (isFilter) {
-            targetParent = targetPath.create(eo, sourceParent.getModels().create());
         }
 
         StringBuilder templateResult = new StringBuilder();
@@ -72,40 +60,24 @@ public class ExecutorCallImpl implements ExecutorCall {
         }
         for (String entry : loopPaths) {
             EO sourceEntry = sourceParent.getEo(entry);
-            /*if (sourceEntry.isEmpty()) {
-                continue;
-            }*/
             if (!call.localFilter(sourceEntry)) {
                 continue;
             }
-            Object value = null;
-            try {
-                value = call.execute(sourceEntry);
-                if (value == null) {
-                    continue;
-                }
-                if ((value instanceof String)&&((String)value).isEmpty()) {
-                    continue;
-                }
-            }
-            catch(EoException e) {
-                value = e.getMessage();
-                eo.error(e.getMessage());
-                if (call.getInTemplate()) {
-                    templateResult.append(value);
-                }
-                continue;
-            }
-            if (call.getInTemplate()) {
-                templateResult.append(value);
+            if (isFilter) {
+                call.setTargetPath(targetPath + Path.DELIMITER + entry);
             }
             else {
-                if (isFilter) {
-                    targetParent.set(value, entry);
+                call.setTargetPath(targetPath);
+            }
+            try {
+                templateResult.append(call.execute(sourceEntry));
+            }
+            catch(EoException e) {
+                eo.error(e.getMessage());
+                if (call.getInTemplate()) {
+                    templateResult.append(e.getMessage());
                 }
-                 else {
-                     targetParent.set(value, call.getTargetPath());
-                }
+                continue;
             }
         }
         Long duration = System.currentTimeMillis() - startTime;

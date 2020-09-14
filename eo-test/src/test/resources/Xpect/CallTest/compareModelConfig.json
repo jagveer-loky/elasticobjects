@@ -11,8 +11,7 @@
       "4": "localCondition",
       "5": "overwrite",
       "6": "logLevel",
-      "7": "duration",
-      "8": "inTemplate"
+      "7": "duration"
     },
     "(ArrayList)fieldKeys": {
       "0": "sourcePath",
@@ -22,8 +21,7 @@
       "4": "localCondition",
       "5": "overwrite",
       "6": "logLevel",
-      "7": "duration",
-      "8": "inTemplate"
+      "7": "duration"
     },
     "eoParams": {
       "create": false,
