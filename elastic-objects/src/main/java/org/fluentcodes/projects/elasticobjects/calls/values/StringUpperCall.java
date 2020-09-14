@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 /**
  * Created by Werner on 3.08.2020.
  */
-public class StringUpperCall extends SimpleValueFromEoCall<String> {
+public class StringUpperCall extends SimpleValueFromEoCall {
     private static final Logger LOG = LogManager.getLogger(StringUpperCall.class);
 
     @Override

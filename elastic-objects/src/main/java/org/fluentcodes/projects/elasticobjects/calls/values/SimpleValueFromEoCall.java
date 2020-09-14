@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.Path;
 /**
  * Created by Werner on 3.08.2020.
  */
-public abstract class SimpleValueFromEoCall<RESULT> extends CallImpl<RESULT> {
+public abstract class SimpleValueFromEoCall extends CallImpl{
 
     @Override
     public void setPathByTemplate(final Path templatePath) {

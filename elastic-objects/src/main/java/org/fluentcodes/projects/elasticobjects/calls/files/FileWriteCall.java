@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileWriteCall extends CallResource<String> {
+public class FileWriteCall extends CallResource {
 
     public FileWriteCall() {
         super(PermissionType.WRITE);

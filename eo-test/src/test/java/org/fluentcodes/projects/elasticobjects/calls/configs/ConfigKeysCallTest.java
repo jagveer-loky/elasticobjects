@@ -38,7 +38,7 @@ public class ConfigKeysCallTest {
         ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
                 .setExpose(Expose.NONE);
         EO eo = ProviderRootTestScope.createEo();
-        List<String> result = call.execute(eo);
+        List<String> result = (List<String>)call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo<>().compareAsString(result);
     }
@@ -48,7 +48,7 @@ public class ConfigKeysCallTest {
         ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
                 .setExpose(Expose.INFO);
         EO eo = ProviderRootTestScope.createEo();
-        List<String> result = call.execute(eo);
+        List<String> result = (List<String>)call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo<>().compareAsString(result);
     }
@@ -58,7 +58,7 @@ public class ConfigKeysCallTest {
         ConfigKeysCall call = new ConfigKeysCall(ModelConfig.class)
                 .setExpose(Expose.WEB);
         EO eo = ProviderRootTestScope.createEo();
-        List<String> result = call.execute(eo);
+        List<String> result = (List<String>)call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo<>().compareAsString(result);
     }
@@ -68,7 +68,7 @@ public class ConfigKeysCallTest {
         ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
                 .setExpose(Expose.NONE);
         EO eo = ProviderRootTestScope.createEo();
-        List<String> result = call.execute(eo);
+        List<String> result = (List<String>)call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo<>().compareAsString(result);
     }
@@ -78,7 +78,7 @@ public class ConfigKeysCallTest {
         ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
                 .setExpose(Expose.INFO);
         EO eo = ProviderRootTestScope.createEo();
-        List<String> result = call.execute(eo);
+        List<String> result = (List<String>)call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo<>().compareAsString(result);
     }
@@ -88,7 +88,7 @@ public class ConfigKeysCallTest {
         ConfigKeysCall call = new ConfigKeysCall(FieldConfig.class)
                 .setExpose(Expose.WEB);
         EO eo = ProviderRootTestScope.createEo();
-        List<String> result = call.execute(eo);
+        List<String> result = (List<String>)call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
         new XpectEo<>().compareAsString(result);
     }

@@ -16,8 +16,7 @@
       "localCondition",
       "overwrite",
       "logLevel",
-      "duration",
-      "inTemplate"
+      "duration"
     ],
     "modelKey": "Call",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",

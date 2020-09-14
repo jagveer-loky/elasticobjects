@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 /**
  * Created by Werner on 26.08.2020.
  */
-public class TheGreetingCall extends SimpleValueFromEoCall<String> {
+public class TheGreetingCall extends SimpleValueFromEoCall {
     private String greeting;
     public TheGreetingCall() {
         super();

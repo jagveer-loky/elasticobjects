@@ -25,7 +25,7 @@ public class ConfigTypesCallTest {
     public void givenCall_whenExecute_thenResultIsOrderedList() {
         ConfigTypesCall call = new ConfigTypesCall();
         EO eo = ProviderRootTestScope.createEo();
-        List<String> result = call.execute(eo);
+        List<String> result = (List<String>) call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
     }
 }

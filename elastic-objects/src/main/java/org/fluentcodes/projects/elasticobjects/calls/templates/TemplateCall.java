@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 /**
  * Refactored by werner.diwischek on 27.7.2020.
  */
-public class TemplateCall extends CallImpl<String> {
+public class TemplateCall extends CallImpl {
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
     private String content;
 

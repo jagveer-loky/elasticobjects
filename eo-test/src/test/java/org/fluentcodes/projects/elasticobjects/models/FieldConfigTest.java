@@ -55,7 +55,7 @@ public class FieldConfigTest {
         ConfigKeysCall call = new ConfigKeysCall();
         call.setConfigType(FieldConfig.class.getSimpleName());
         call.setConfigFilter("naturalId");
-        List<String> result = call.execute(ProviderRootTestScope.createEo());
+        List<String> result = (List<String>) call.execute(ProviderRootTestScope.createEo());
         Assertions.assertThat(result.size()).isEqualTo(1);
     }
 

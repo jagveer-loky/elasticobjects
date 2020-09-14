@@ -71,10 +71,7 @@
   "4": {
     "sheetName": "test",
     "(ListParams)listParams": {
-      "rowHead": 0,
-      "rowStart": 1,
-      "rowEnd": -1,
-      "length": -1
+      "rowHead": 0
     },
     "configModelKey": "XlsxConfig",
     "fileName": "ListSimple.xlsx",

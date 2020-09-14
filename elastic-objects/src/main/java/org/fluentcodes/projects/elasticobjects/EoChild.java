@@ -267,14 +267,14 @@ public class EoChild implements EO {
                     valueModel = getModel();
                 }
                 else if (!((value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find())) {
-                    error("Could not map scalar to container");
+                    error("Could not map scalar to container '" + this.getPath().toString() + "'");
                     return this;
                 }
             }
         }
         else {
             if (isScalar()) {
-                error("Could not map container to scalar");
+                error("Could not map container to scalar '" + this.getPath().toString() + "'");
                 return this;
             }
         }

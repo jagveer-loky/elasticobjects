@@ -67,9 +67,6 @@
             "description": "The duration of a call.",
             "type": "integer",
             "format": "int62"
-          },
-          "inTemplate": {
-            "type": "boolean"
           }
         }
       }
