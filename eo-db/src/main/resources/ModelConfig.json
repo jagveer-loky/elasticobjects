@@ -73,7 +73,7 @@
   "DbQueryCall": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbQueryCall",
-    "superKey": "ListCall",
+    "superKey": "ListReadCall",
     "eoParams": {
       "shapeType": "CALL_BEAN",
       "create": true
@@ -87,11 +87,12 @@
   "DbQueryConfig": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbQueryConfig",
-    "superKey": "ListConfig",
+    "superKey": "ConfigResourcesImpl",
     "fieldKeys": [
       "dbKey",
       "modelKey",
-      "sql"
+      "sql",
+      "listParams"
     ],
     "eoParams": {
       "shapeType": "CONFIG",

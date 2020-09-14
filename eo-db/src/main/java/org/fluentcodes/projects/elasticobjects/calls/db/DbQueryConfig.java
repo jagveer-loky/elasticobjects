@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Condition;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -23,6 +22,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_AND;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_PATH_PATTERN;
+import static org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface.LIST_PARAMS;
 
 
 /**
@@ -41,8 +41,6 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
     private List<String> metaDataNames;
     private List<String> metaDataTypes;
     private final ListParams listParams;
-    private final ListMapper listMapper;
-
 
     public DbQueryConfig(final EOConfigsCache configsCache, final Map map)  {
         super(configsCache, map);
@@ -52,7 +50,6 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
         modelKey = (String)map.get(ModelConfig.MODEL_KEY);
         and = new And((String)map.get(F_AND));
         this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
-        this.listMapper = map.containsKey(LIST_MAPPER) ? new ListMapper((Map)map.get(LIST_MAPPER)) : new ListMapper();
         listParams.setRowHead(0);
     }
 
@@ -70,23 +67,30 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
     }
 
     @Override
-    public ListMapper getListMapper() {
-        return listMapper;
-    }
-
-    public List execute() {
+    public List readRaw(ListParams params) {
         resolve();
-        List<List> result = new ArrayList<>();
+        List result = new ArrayList<>();
         Statement statement = null;
         ResultSet resultSet = null;
         try {
             statement = getDbConfig().getConnection().createStatement();
             resultSet = statement.executeQuery(getSql());
             initMetaData(resultSet.getMetaData());
-            List row = metaDataNames;
-            while (row!=null) {
-                result.add(row);
-                row = createRow(resultSet);
+            if (!params.hasColKeys()) {
+                params.setColKeys(metaDataNames);
+            }
+
+            List rowEntry = null;
+            int i = -1;
+            while ((rowEntry = createRow(resultSet)) !=null) {
+                i++;
+                if (!params.isRowStart(i)) {
+                    continue;
+                }
+                if (!params.isRowEnd(i)) {
+                    return result;
+                }
+                addRowEntry(result, rowEntry, params);
             }
         }
         catch (Exception e) {
@@ -121,6 +125,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
             metaDataTypes.add(metaData.getColumnTypeName(i));
             metaDataNames.add(metaData.getColumnName(i));
         }
+
     }
 
     private List createRow(final ResultSet resultSet) throws SQLException {

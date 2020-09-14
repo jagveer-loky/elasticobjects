@@ -37,11 +37,11 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenCallWithListSimpleCsv_whenExecute_thenListReturned()  {
-        final Call call = new ScsReadCall()
-                .setConfigKey(LIST_SIMPLE_CSV);
+    public void call_ListSimpleCsv__execute__set_2rows()  {
+        final ScsReadCall call = new ScsReadCall(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();
-        List value = (List)call.execute(eo);
+        call.execute(eo);
+        List value =(List) eo.get();
         Assertions.assertThat(value).isNotEmpty();
         Assertions.assertThat(value.size()).isEqualTo(2);
         Map firstRow = (Map) value.get(0);
@@ -50,9 +50,8 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoWithListSimpleCsv_whenExecute_thenParameterSet()  {
-        final Call call = new ScsReadCall()
-                .setConfigKey(LIST_SIMPLE_CSV);
+    public void eo_ListSimpleCsv_rowStart_2__execute__set_2rows()  {
+        final ScsReadCall call = new ScsReadCall(LIST_SIMPLE_CSV);
 
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
@@ -65,10 +64,9 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoWithSourceCsvAndRowStart1_whenExecuteEo_thenParameterSet()  {
-        final Call call = new ScsReadCall()
-                .setRowStart(2)
-                .setConfigKey(LIST_SIMPLE_CSV);
+    public void eo_ListSimpleCsv_rowStart_2__execute__setOnlyLastRow()  {
+        final ScsReadCall call = new ScsReadCall(LIST_SIMPLE_CSV);
+        call.setRowStart(2);
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -80,10 +78,9 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoWithSourceCsvAndRowEnd2_whenExecuteEo_thenParameterSet()  {
-        final Call call = new ScsReadCall()
-                .setRowEnd(2)
-                .setConfigKey(LIST_SIMPLE_CSV);
+    public void eo_ListSimpleCsv_rowEnd_2__execute__setOnlyFirstRow()  {
+        final ScsReadCall call = new ScsReadCall(LIST_SIMPLE_CSV);
+        call.setRowEnd(2);
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
@@ -94,10 +91,9 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoWithSourceCsvAndRowHeadEmpty_whenExecuteEo_thenParameterSet()  {
-        final Call call = new ScsReadCall()
-                .setRowHead(-1)
-                .setConfigKey(LIST_SIMPLE_CSV);
+    public void eo_ListSourceCsv_rowHead_off__execute__setListValues()  {
+        final ScsReadCall call = new ScsReadCall(LIST_SIMPLE_CSV);
+        call.setRowHead(-1);
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -108,9 +104,8 @@ public class ScsReadCallTest {
 
 
     @Test
-    public void givenEoWithSourceCsvAndRoleAnonym_whenExecuteEo_thenLogEntry()  {
-        final Call call = new ScsReadCall()
-                .setConfigKey(LIST_SIMPLE_CSV);
+    public void eo_ListSimpleCsv_role_anonym__execute__has_log()  {
+        final ScsReadCall call = new ScsReadCall(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_ANONYM);
         eo.addCall(call);
@@ -120,9 +115,8 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void eoListSimpleCsv_andRoleGuest__execute__noLogEntry()  {
-        final Call call = new ScsReadCall()
-                .setConfigKey(LIST_SIMPLE_CSV);
+    public void eo_ListSimpleCsv_role_guest__execute__noLogEntry()  {
+        final ScsReadCall call = new ScsReadCall(LIST_SIMPLE_CSV);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
@@ -132,9 +126,8 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoBasicTestCsv_whenExecuteEo_thenLinkedHashMapForRow()  {
-        final Call call = new ScsReadCall()
-                .setConfigKey("BasicTest.csv");
+    public void eo_BasicTestCsv_level0_List_BasicTest__execute__setListMap()  {
+        final ScsReadCall call = new ScsReadCall("BasicTest.csv");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.execute();
@@ -145,10 +138,9 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void givenEoBasicTestCsvWithModels_whenExecuteEo_thenBasicTestForRow()  {
-        final Call call = new ScsReadCall()
-                .setConfigKey("BasicTest.csv")
-                .setTargetPath("(List,BasicTest)level0");
+    public void eo_BasicTestCsv_level0_List_BasicTest__execute__setObjectValues()  {
+        final ScsReadCall call = new ScsReadCall("BasicTest.csv");
+        call.setTargetPath("(List,BasicTest)level0");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.execute();

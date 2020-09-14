@@ -3,6 +3,11 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "JsonReadCall",
+    "(ArrayList)localFieldKeys": {
+      "0": "content",
+      "1": "indent",
+      "2": "serializationType"
+    },
     "superKey": "FileReadCall",
     "(ArrayList)fieldKeys": {
       "0": "content",

@@ -1,136 +1,156 @@
 {
   "basicTest": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "BasicTest",
+    "description": "A BasicTest field.",
+    "expose": "WEB",
     "fieldKey": "basicTest",
     "dbFieldParams": {
-      "fieldName": "basicTest"
-    },
-    "modelKeys": "BasicTest",
-    "module": "eo-test",
-    "subModule": "main",
-    "description": "A BasicTest field.",
-    "naturalId": "basicTest"
+      "fieldName": "basicTest",
+      "unique": false,
+      "notNull": false
+    }
   },
   "subTest": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "SubTest",
+    "expose": "WEB",
     "fieldKey": "subTest",
     "dbFieldParams": {
-      "fieldName": "subTest"
-    },
-    "modelKeys": "SubTest",
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "subTest"
+      "fieldName": "subTest",
+      "unique": false,
+      "notNull": false
+    }
   },
   "subTestList": {
-    "fieldKey": "subTestList",
-    "modelKeys": "ArrayList,SubTest",
     "module": "eo-test",
     "subModule": "main",
+    "modelKeys": "ArrayList,SubTest",
     "description": "A generic parametrized example List with {@link SubTest}",
-    "naturalId": "subTestList"
+    "expose": "WEB",
+    "fieldKey": "subTestList"
   },
   "subTestMap": {
-    "fieldKey": "subTestMap",
-    "modelKeys": "HashMap,SubTest",
     "module": "eo-test",
     "subModule": "main",
+    "modelKeys": "HashMap,SubTest",
     "description": "A generic parametrized example Map with {@link SubTest}",
-    "naturalId": "subTestMap"
+    "expose": "WEB",
+    "fieldKey": "subTestMap"
   },
   "testBoolean": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "Boolean",
+    "expose": "WEB",
     "fieldKey": "testBoolean",
     "dbFieldParams": {
-      "fieldName": "testBoolean"
-    },
-    "modelKeys": "Boolean",
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "testBoolean"
+      "fieldName": "testBoolean",
+      "unique": false,
+      "notNull": false
+    }
   },
   "testDate": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "Date",
+    "expose": "WEB",
     "fieldKey": "testDate",
     "dbFieldParams": {
-      "fieldName": "testDate"
-    },
-    "modelKeys": "Date",
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "testDate"
+      "fieldName": "testDate",
+      "unique": false,
+      "notNull": false
+    }
   },
   "testDouble": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "Double",
+    "expose": "WEB",
     "fieldKey": "testDouble",
     "dbFieldParams": {
-      "fieldName": "testDouble"
-    },
-    "modelKeys": "Double",
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "testDouble"
+      "fieldName": "testDouble",
+      "unique": false,
+      "notNull": false
+    }
   },
   "testFloat": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "Float",
+    "expose": "WEB",
     "fieldKey": "testFloat",
     "dbFieldParams": {
-      "fieldName": "testFloat"
-    },
-    "modelKeys": "Float",
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "testFloat"
+      "fieldName": "testFloat",
+      "unique": false,
+      "notNull": false
+    }
   },
   "testInt": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "Integer",
+    "expose": "WEB",
     "fieldKey": "testInt",
     "dbFieldParams": {
-      "fieldName": "testInt"
-    },
-    "modelKeys": "Integer",
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "testInt"
+      "fieldName": "testInt",
+      "unique": false,
+      "notNull": false
+    }
   },
   "testLong": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "Long",
+    "expose": "WEB",
     "fieldKey": "testLong",
     "dbFieldParams": {
-      "fieldName": "testLong"
-    },
-    "modelKeys": "Long",
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "testLong"
+      "fieldName": "testLong",
+      "unique": false,
+      "notNull": false
+    }
   },
   "testObject": {
-    "fieldKey": "testObject",
-    "dbFieldParams": {
-      "fieldName": "testObject"
-    },
-    "modelKeys": "Object",
     "module": "eo-test",
     "subModule": "main",
+    "modelKeys": "Object",
     "description": "A test object thing. ",
-    "naturalId": "testObject"
+    "expose": "WEB",
+    "fieldKey": "testObject",
+    "dbFieldParams": {
+      "fieldName": "testObject",
+      "unique": false,
+      "notNull": false
+    }
   },
   "testString": {
+    "module": "eo-test",
+    "subModule": "main",
+    "modelKeys": "String",
+    "description": "Just a small test string used in test models. ",
+    "expose": "WEB",
     "fieldKey": "testString",
     "dbFieldParams": {
       "fieldName": "testString",
+      "unique": false,
+      "notNull": false,
       "length": 20
-    },
-    "modelKeys": "String",
-    "module": "eo-test",
-    "subModule": "main",
-    "description": "Just a small test string used in test models. ",
-    "naturalId": "testString"
+    }
   },
   "untypedList": {
-    "fieldKey": "untypedList",
-    "modelKeys": "ArrayList",
     "module": "eo-test",
     "subModule": "main",
-    "naturalId": "untypedList"
+    "modelKeys": "ArrayList",
+    "expose": "WEB",
+    "fieldKey": "untypedList"
   },
   "untypedMap": {
-    "fieldKey": "untypedMap",
-    "modelKeys": "HashMap",
     "module": "eo-test",
     "subModule": "main",
-    "naturalId": "untypedMap"
+    "modelKeys": "HashMap",
+    "expose": "WEB",
+    "fieldKey": "untypedMap"
   }
 }

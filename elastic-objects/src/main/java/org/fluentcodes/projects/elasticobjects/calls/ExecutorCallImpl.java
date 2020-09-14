@@ -1,8 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
@@ -54,20 +59,9 @@ public class ExecutorCallImpl implements ExecutorCall {
             }
         }
         Path targetPath = new Path(eo.getPathAsString(), call.getTargetPath());
-        EO targetParent = null;
-
+        EO targetParent = eo;
         if (isFilter) {
             targetParent = targetPath.create(eo, sourceParent.getModels().create());
-        }
-        else {
-            if (targetPath.hasModel()) {
-                EO targetEo = targetPath.create(eo);
-                targetParent = targetEo.getParent();
-            }
-            else {
-                targetParent = targetPath.createParent(eo, sourceParent.getModels());
-            }
-
         }
 
         StringBuilder templateResult = new StringBuilder();
@@ -87,6 +81,12 @@ public class ExecutorCallImpl implements ExecutorCall {
             Object value = null;
             try {
                 value = call.execute(sourceEntry);
+                if (value == null) {
+                    continue;
+                }
+                if ((value instanceof String)&&((String)value).isEmpty()) {
+                    continue;
+                }
             }
             catch(EoException e) {
                 value = e.getMessage();
@@ -94,6 +94,7 @@ public class ExecutorCallImpl implements ExecutorCall {
                 if (call.getInTemplate()) {
                     templateResult.append(value);
                 }
+                continue;
             }
             if (call.getInTemplate()) {
                 templateResult.append(value);
@@ -102,8 +103,8 @@ public class ExecutorCallImpl implements ExecutorCall {
                 if (isFilter) {
                     targetParent.set(value, entry);
                 }
-                else {
-                    targetParent.set(value, targetPath.getParentKey());
+                 else {
+                     targetParent.set(value, call.getTargetPath());
                 }
             }
         }

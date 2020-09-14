@@ -3,9 +3,9 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListMapper;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -13,10 +13,9 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface.LIST_PARAMS;
 
 /**
  * Created by Werner on 30.10.2016.
@@ -25,23 +24,16 @@ public class XlsxConfig extends FileConfig implements ListConfigInterface {
     private static final String SHEET_NAME = "sheetName";
     private final String sheetName;
     private final ListParams listParams;
-    private final ListMapper listMapper;
 
     public XlsxConfig(final EOConfigsCache configsCache, final Map map) {
         super(configsCache, map);
         this.sheetName = (String) map.get(SHEET_NAME);
         this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
-        this.listMapper = map.containsKey(LIST_MAPPER) ? new ListMapper((Map)map.get(LIST_MAPPER)) : new ListMapper();
     }
 
     @Override
     public ListParams getListParams() {
         return listParams;
-    }
-
-    @Override
-    public ListMapper getListMapper() {
-        return listMapper;
     }
 
     /**
@@ -65,21 +57,30 @@ public class XlsxConfig extends FileConfig implements ListConfigInterface {
     }
 
 
-    public List<List> read() {
+    public List readRaw(ListParams params) {
         resolve();
-        List<List> result = new ArrayList<>();
+        List result = new ArrayList<>();
         Sheet sheet = getSheet();
         if (sheet == null) {
             throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + sheetName + "' is undefined.");
         }
-
-        Row row = sheet.getRow(1);
-
-        List rowAsList;
-        int counter = 0;
-        while((rowAsList = getRowAsList(sheet.getRow(counter))) != null) {
-            counter++;
-            result.add(rowAsList);
+        List rowEntry;
+        int i = -1;
+        while((rowEntry = getRowAsList(sheet.getRow(i+1))) != null) {
+            i++;
+            if (params.isRowHead(i)) {
+                if (!params.hasColKeys()) {
+                    params.setColKeys(rowEntry);
+                }
+                continue;
+            }
+            if (!params.isRowStart(i)) {
+                continue;
+            }
+            if (!params.isRowEnd(i)) {
+                return result;
+            }
+            addRowEntry(result, rowEntry, params);
         }
 
         if (sheet != null) {

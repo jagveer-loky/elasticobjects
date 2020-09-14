@@ -618,7 +618,7 @@ public class EoChild implements EO {
         if (logs == null|| logs.isEmpty()) {
             return "";
         }
-        return logs.stream().collect(Collectors.joining());
+        return logs.stream().collect(Collectors.joining("\n"));
     }
 
 

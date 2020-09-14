@@ -51,9 +51,9 @@
 "keepCall";"KeepCalls";"";"elastic-objects";"main";"keepCall";"";"";"{}";"";
 "key";"String";"A generic key.";"elastic-objects";"main";"key";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";
 "length";"Integer";"Length of a field.";"elastic-objects";"main";"length";"";"";"{}";"";
-"listMapper";"ListMapper";"Maps a list to the adapter for @{link ListAction}.";"elastic-objects";"main";"listMapper";"";"";"{}";"";
 "listParams";"ListParams";"Filter for the readings within {@link ListAction}.";"elastic-objects";"main";"listParams";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";
 "localCondition";"String";"A condition for calls. ";"elastic-objects";"main";"localCondition";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 1000}";"{}";"";
+"localFieldKeys";"ArrayList,String";"A list of local field keys for the model configuration not resolved. ";"elastic-objects";"main";"localFieldKeys";"";"";"{}";"";
 "log";"String";"";"";"";"log";"";"";"{}";"";
 "logLevel";"LogLevel";"";"elastic-objects";"main";"logLevel";"";"";"{}";"";
 "mapKey";"String";"The field used as a key for joined maps. ";"elastic-objects";"main";"mapKey";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";

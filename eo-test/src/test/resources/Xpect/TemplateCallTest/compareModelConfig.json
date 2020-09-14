@@ -3,6 +3,9 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateCall",
+    "(ArrayList)localFieldKeys": {
+      "0": "content"
+    },
     "superKey": "CallImpl",
     "(ArrayList)fieldKeys": {
       "0": "content",
