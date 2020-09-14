@@ -1,26 +1,17 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListWriteCall;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.tools.xpect.XpectString;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Creates a flat list from configurations.
  * Created by werner.diwischek on 8.9.2020
  */
-public class ConfigAsFlatListCall extends CallImpl<String> {
+public class ConfigAsFlatListCall extends CallImpl {
     private String configType;
     private List<String> keys;
     public ConfigAsFlatListCall() {
@@ -52,7 +43,7 @@ public class ConfigAsFlatListCall extends CallImpl<String> {
 
     @Override
     public String execute(EO eo)  {
-        List resultAsListMap = new ConfigCall()
+        List resultAsListMap = (List) new ConfigCall()
                 .setConfigType(configType).execute(eo);
         return new ListWriteCall()
                 .asString(eo, resultAsListMap, keys);

@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
  * Add value to eo.
  * Created by Werner on 02.08.2020.
  */
-public class ValueCall extends CallImpl<String> implements Call<String> {
+public class ValueCall extends CallImpl {
     public static final String VALUE = "value";
     private String value;
     public ValueCall() {
@@ -21,7 +21,7 @@ public class ValueCall extends CallImpl<String> implements Call<String> {
     @Override
     public String execute(final EO eo) {
         super.check(eo);
-        return value;
+        return super.createReturnString(eo, value);
     }
 
     public String getValue() {

@@ -3,9 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.*;
@@ -16,7 +14,7 @@ import java.util.*;
  * Call set parts of the config cache to the adapter.
  * Created by werner.diwischek on 10.6.2018
  */
-public class ConfigOpenApiCall extends CallImpl<Map> {
+public class ConfigOpenApiCall extends CallImpl {
     private static final Logger LOG = LogManager.getLogger(ConfigOpenApiCall.class);
     private String filterModule;
     private String filterSubModule;
@@ -88,13 +86,13 @@ public class ConfigOpenApiCall extends CallImpl<Map> {
     }
 
     @Override
-    public Map execute(final EO eo)  {
+    public Object execute(final EO eo)  {
         created = new HashSet<>();
         toCreate = new HashSet<>();
         ConfigKeysCall keysCall = new ConfigKeysCall(ModelConfig.class, configFilter)
                 .setExpose(expose)
                 .setSortOrder(sortOrder);
-        List<String> keys = keysCall.execute(eo);
+        List<String> keys = (List<String>)keysCall.execute(eo);
         EO schemeRoot = new EoRoot(eo.getConfigsCache());
         EO components = schemeRoot.setEmpty("components");
         EO schemas = components.setEmpty("schemas");
@@ -117,7 +115,7 @@ public class ConfigOpenApiCall extends CallImpl<Map> {
             configEntry.resolve();
             create(schemas, configEntry);
         }
-        return (Map)schemeRoot.get();
+        return super.createReturnType(eo, schemeRoot.get());
     }
 
     private void create(EO schemasEo, ModelConfig config) {

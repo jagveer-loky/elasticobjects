@@ -44,7 +44,6 @@
 "idKey";"String";"The id key defined in modelsList";"elastic-objects";"main";"idKey";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";
 "indent";"Integer";"The number of indent for serialization level.";"elastic-objects";"main";"indent";"";"";"{}";"";
 "inputKey";"String";"A key for a input view.";"elastic-objects";"main";"inputKey";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";
-"inTemplate";"Boolean";"";"elastic-objects";"main";"inTemplate";"";"";"{}";"";
 "interfaces";"String";"A comma separeted list of interface keys. ";"elastic-objects";"main";"interfaces";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 256}";"{}";"";
 "join";"String";"A reference key to a id field for joining.";"elastic-objects";"main";"join";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";
 "joinInverse";"String";"A self reference key to a id field on a glue n-m table.";"elastic-objects";"main";"joinInverse";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";

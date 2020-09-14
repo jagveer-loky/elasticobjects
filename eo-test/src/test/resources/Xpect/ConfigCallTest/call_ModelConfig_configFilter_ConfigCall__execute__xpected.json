@@ -21,8 +21,7 @@
       "9": "localCondition",
       "10": "overwrite",
       "11": "logLevel",
-      "12": "duration",
-      "13": "inTemplate"
+      "12": "duration"
     },
     "eoParams": {
       "create": true,
