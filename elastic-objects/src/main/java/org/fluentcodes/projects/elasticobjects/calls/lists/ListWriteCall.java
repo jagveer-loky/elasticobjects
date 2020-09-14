@@ -19,95 +19,15 @@ import java.util.*;
  * @since 10.7.2020.
  */
 
-public class ListWriteCall extends CallResource<Boolean> {
+public class ListWriteCall extends CallResource<Boolean> implements ListInterface {
     private ListParams listParams;
-    private ListMapper listMapper;
 
     public ListWriteCall() {
         super(PermissionType.WRITE);
     }
 
-    protected ListConfig getListConfig() {
-        return (ListConfig) getConfig();
-    }
-
-    public ListMapper getListMapper() {
-        return listMapper;
-    }
-
     public ListParams getListParams() {
         return listParams;
-    }
-
-    public String getModelKeys() {
-        return listMapper.getModelKeys();
-    }
-
-    public void setModelKeys(Object modelKeys) {
-        listMapper.setModelKeys(modelKeys);
-    }
-
-    public boolean isDoMap() {
-        return listMapper.isDoMap();
-    }
-
-    public void setDoMap(Boolean doMap) {
-        listMapper.setDoMap(doMap);
-    }
-
-    public String getMapPath() {
-        return listMapper.getMapPath();
-    }
-
-    public void setMapPath(String mapPath) {
-        listMapper.setMapPath(mapPath);
-    }
-
-    public Integer getRowStart() {
-        return listParams.getRowStart();
-    }
-
-    public void setRowStart(Integer rowStart) {
-        listParams.setRowStart(rowStart);
-    }
-
-    public Integer getRowEnd() {
-        return listParams.getRowEnd();
-    }
-
-    public void setRowEnd(Integer rowEnd) {
-        listParams.setRowEnd(rowEnd);
-    }
-
-    public Integer getLength() {
-        return listParams.getLength();
-    }
-
-    public void setLength(Integer rowEnd) {
-        listParams.setRowStart(rowEnd);
-    }
-
-    public void addAnd(String key, Object value) {
-        if (getFilter() == null) {
-            setFilter(key + " eq " + value.toString());
-        }
-        //TODO if exists
-    }
-
-    public Or getFilter() {
-        return listParams.getFilter();
-    }
-
-    public void setFilter(Or or) {
-        this.listParams.setFilter(or);
-    }
-
-    public void setFilter(String orAsString) {
-        this.listParams.setFilter(orAsString);
-    }
-
-    public PathPattern getPathPattern() {
-        return listMapper.getPathPattern();
     }
 
     public Boolean execute(final EO eo){

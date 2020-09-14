@@ -2,20 +2,17 @@
   "local": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "local",
-    "hostKey": "local",
+    "protocol": "file:",
     "hostName": "localhost",
     "description": "local host with key 'local'",
-    "protocol": "file:",
     "expose": "NONE"
   },
   "localhost": {
     "module": "elastic-objects",
     "subModule": "main",
-    "naturalId": "localhost",
-    "hostKey": "localhost",
+    "protocol": "file:",
     "hostName": "localhost",
     "description": "local host with key 'localhost'",
-    "protocol": "file:"
+    "expose": "INFO"
   }
 }

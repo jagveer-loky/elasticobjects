@@ -9,7 +9,7 @@
       "create": true
     },
     "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
-    "superKey": "ListCall",
+    "superKey": "ListReadCall",
     "modelKey": "CsvReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "packageGroup": "csv",
@@ -25,7 +25,7 @@
       "create": true
     },
     "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
-    "superKey": "ListCall",
+    "superKey": "ListWriteCall",
     "modelKey": "CsvWriteCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "packageGroup": "csv",
@@ -44,7 +44,8 @@
     "interfaces": "ListConfigInterface",
     "fieldKeys": [
       "fieldDelimiter",
-      "rowDelimiter"
+      "rowDelimiter",
+      "listParams"
     ],
     "modelKey": "CsvConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",

@@ -31,7 +31,7 @@ public interface Call<RESULT> {
 
     String getTargetPath();
     boolean hasTargetPath();
-    Call setTargetPath(String path);
+    Call setTargetPath(String targetPath);
 
     String[] getModelsAsArray();
     String getModels();

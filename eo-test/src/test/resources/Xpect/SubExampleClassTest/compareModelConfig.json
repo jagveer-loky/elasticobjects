@@ -3,6 +3,9 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets.byclass",
     "modelKey": "SubExampleClass",
+    "(ArrayList)localFieldKeys": {
+      "0": "SubExampleClass.name"
+    },
     "(ArrayList)fieldKeys": {
       "0": "SubExampleClass.name"
     },

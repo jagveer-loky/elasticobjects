@@ -1,12 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
 import au.com.bytecode.opencsv.CSVReader;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.*;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface.LIST_PARAMS;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig.FIELD_DELIMITER;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig.ROW_DELIMITER;
 
@@ -27,24 +27,17 @@ public class CsvConfig extends FileConfig implements ListConfigInterface {
     private final String fieldDelimiter;
     private final String rowDelimiter;
     private final ListParams listParams;
-    private final ListMapper listMapper;
 
     public CsvConfig(final EOConfigsCache configsCache, Map map)  {
         super(configsCache, map);
         this.fieldDelimiter = map.containsKey(FIELD_DELIMITER) ? (String) map.get(FIELD_DELIMITER) : ";";
         this.rowDelimiter = map.containsKey(ROW_DELIMITER) ? (String) map.get(ROW_DELIMITER) : "\n";
         this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
-        this.listMapper = map.containsKey(LIST_MAPPER) ? new ListMapper((Map)map.get(LIST_MAPPER)) : new ListMapper();
     }
 
     @Override
     public ListParams getListParams() {
         return listParams;
-    }
-
-    @Override
-    public ListMapper getListMapper() {
-        return listMapper;
     }
 
     /**
@@ -61,7 +54,8 @@ public class CsvConfig extends FileConfig implements ListConfigInterface {
         return this.rowDelimiter;
     }
 
-    public List<List<String>> read() {
+    @Override
+    public List readRaw(ListParams params) {
         resolve();
         URL url = findUrl();
         //System.out.println("CSV " + url.toString());
@@ -71,12 +65,30 @@ public class CsvConfig extends FileConfig implements ListConfigInterface {
         } catch (IOException e) {
             throw new EoException(e);
         }
-        List<List<String>> result = new ArrayList<>();
+        List result = new ArrayList<>();
 // https://stackoverflow.com/questions/10264054/assign-variable-in-java-while-loop-conditional
         try {
             String[] row = null;
+            int i = 0;
             while ((row = reader.readNext()) !=null) {
-                result.add(Arrays.asList(row));
+                i++;
+                if (row == null || row.length == 0) {
+                    continue;
+                }
+                if (params.isRowHead(i)) {
+                    if (!params.hasColKeys()) {
+                        params.setColKeys(Arrays.asList(row));
+                    }
+                    continue;
+                }
+                if (!params.isRowStart(i)) {
+                    continue;
+                }
+                if (!params.isRowEnd(i)) {
+                    return result;
+                }
+                List rowEntry = Arrays.asList(row);
+                addRowEntry(result, rowEntry, params);
             }
         }
         catch (IOException e) {

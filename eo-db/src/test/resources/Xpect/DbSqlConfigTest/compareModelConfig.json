@@ -3,6 +3,10 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "dbKey",
+      "1": "sqlList"
+    },
     "superKey": "ConfigResourcesImpl",
     "(ArrayList)fieldKeys": {
       "0": "dbKey",

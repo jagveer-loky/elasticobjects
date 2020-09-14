@@ -1,7 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.CallResource;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.*;
 
@@ -11,80 +16,43 @@ import java.util.*;
  * @since 18.12.17.
  */
 
-public class ListReadCall extends ListCall {
+public class ListReadCall extends CallResource implements ListInterface {
+    private ListParams listParams;
     public ListReadCall() {
         super(PermissionType.READ);
     }
 
     public ListReadCall(final String configKey) {
         super(PermissionType.READ, configKey);
+        this.listParams = new ListParams();
     }
 
-    public Object transform(List toFilter) {
-        List filteredList = new ArrayList();
-        if (hasRowStart() || hasRowEnd()) {
-            Integer start = getRowStart();
-            Integer end = getRowEnd();
-
-            if (end == null || end > toFilter.size()) {
-                end = toFilter.size();
-            }
-            if (start == null) {
-                start = 0;
-            }
-
-            filteredList.addAll(toFilter
-                    .subList(start, end));
-        }
-        else {
-            filteredList.addAll(toFilter);
-        }
-
-        if (!hasRowHead()) {
-            return filteredList;
-        }
-
-        if (!hasColKeys()) {
-            setColKeys((List)toFilter.get(getRowHead()));
-        }
-
-        if (getMapKey() == null) {
-            List<Map<String,Object>> result = new ArrayList<>();
-            for (Object row : filteredList) {
-                result.add(createMapFromRow((List)row));
-            }
-            return result;
-        }
-        else {
-            Map<String, Map<String,Object>> result = new HashMap<>();
-            int counter = 0;
-            for (Object row : filteredList) {
-                Map<String, Object> rowMap = createMapFromRow((List)result);
-                Object mapKey = rowMap.get(getMapKey());
-                if (mapKey == null) {
-                    mapKey = Integer.valueOf(counter);
-                }
-                result.put(mapKey.toString(), rowMap);
-            }
-            return result;
-        }
+    @Override
+    public ListParams getListParams() {
+        return listParams;
     }
 
-    private Map<String, Object> createMapFromRow(List row) {
-        Map<String, Object> rowMap = new LinkedHashMap<>();
-        for (int i = 0; i<row.size(); i++) {
-            if (getColKeys().size()<i) {
-                continue;
-            }
-            if (row.get(i) == null) {
-                continue;
-            }
-            if (getColKeys().get(i) == null) {
-                continue;
-            }
-            String key = getColKeys().get(i);
-            rowMap.put(key, row.get(i));
+    public void setListParams(ListParams listParams) {
+        this.listParams = listParams;
+    }
+    public boolean hasListParams() {
+        return listParams!=null;
+    }
+
+    @Override
+    public ListReadCall resolve(EOConfigsCache cache) {
+        super.resolve(cache);
+        if (listParams==null) {
+            listParams = new ListParams();
         }
-        return rowMap;
+        if (getTargetPath() == null) {
+            setTargetPath("(List)" + PathElement.SAME);
+        }
+        return this;
+    }
+
+    @Override
+    public Object execute(EO eo) {
+        return null;
     }
 }

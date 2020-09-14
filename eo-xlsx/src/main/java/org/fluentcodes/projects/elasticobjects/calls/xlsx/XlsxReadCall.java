@@ -21,6 +21,10 @@ public class XlsxReadCall extends ListReadCall {
         super();
     }
 
+    public XlsxReadCall(final String configKey)  {
+        super(configKey);
+    }
+
     @Override
     public Class<? extends Config> getConfigClass()  {
         return FileConfig.class;
@@ -28,10 +32,7 @@ public class XlsxReadCall extends ListReadCall {
 
     public Object execute(EO eo) {
         resolve(eo.getConfigsCache());
-        List rawInput = ((XlsxConfig)getConfig()).read();
-        if (rawInput == null|| rawInput.isEmpty()) {
-            return rawInput;
-        }
-        return transform(rawInput);
+        hasPermissions(eo.getRoles());
+        return ((XlsxConfig)getConfig()).read(eo, this);
     }
 }

@@ -229,6 +229,13 @@
     "fieldKey": "fieldKeys",
     "description": "A list of field keys for the model configuration. "
   },
+  "localFieldKeys": {
+    "module": "elastic-objects",
+    "subModule": "main",
+    "modelKeys": "ArrayList,String",
+    "fieldKey": "localFieldKeys",
+    "description": "A list of local field keys for the model configuration not resolved. "
+  },
   "fieldName": {
     "module": "elastic-objects",
     "subModule": "main",
@@ -430,13 +437,6 @@
     "modelKeys": "Integer",
     "fieldKey": "length",
     "description": "Length of a field."
-  },
-  "listMapper": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "modelKeys": "ListMapper",
-    "fieldKey": "listMapper",
-    "description": "Maps a list to the adapter for @{link ListAction}."
   },
   "listParams": {
     "module": "elastic-objects",

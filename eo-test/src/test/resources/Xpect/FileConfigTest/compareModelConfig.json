@@ -3,6 +3,13 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "configModelKey",
+      "1": "fileName",
+      "2": "filePath",
+      "3": "hostKey",
+      "4": "cached"
+    },
     "superKey": "ConfigResourcesImpl",
     "(ArrayList)fieldKeys": {
       "0": "configModelKey",

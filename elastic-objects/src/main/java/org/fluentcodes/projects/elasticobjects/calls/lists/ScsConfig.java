@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
@@ -20,16 +22,12 @@ public class ScsConfig extends FileConfig implements ListConfigInterface {
     private final String fieldDelimiter;
     private final String rowDelimiter;
     private final ListParams listParams;
-    private final ListMapper listMapper;
-    private FileConfig fileConfig;
 
     public ScsConfig(final EOConfigsCache provider, Map map)  {
         super(provider, map);
         this.fieldDelimiter = map.containsKey(FIELD_DELIMITER) ? (String) map.get(FIELD_DELIMITER) : ";";
         this.rowDelimiter = map.containsKey(ROW_DELIMITER) ? (String) map.get(ROW_DELIMITER) : "\n";
-        this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
-        this.listMapper = map.containsKey(LIST_MAPPER) ? new ListMapper((Map)map.get(LIST_MAPPER)) : new ListMapper();
-
+        this.listParams = map.containsKey(ListInterface.LIST_PARAMS) ? new ListParams((Map)map.get(ListInterface.LIST_PARAMS)) : new ListParams();
     }
 
     public void resolve()  {
@@ -38,23 +36,60 @@ public class ScsConfig extends FileConfig implements ListConfigInterface {
         }
         super.resolve();
     }
-    @Override
-    public List<List<String>> read() {
+
+    public Object read(ListReadCall readCall) {
+        return null;
+    }
+
+    public List readRaw(ListParams params) {
         super.resolve();
         String content = (String) super.read();
         if (content == null|| content.isEmpty()) {
             return new ArrayList<>();
         }
         String[] rows = content.split(rowDelimiter);
-        List<List<String>> result = new ArrayList<>();
-        for (String row:rows) {
+        List result = new ArrayList<>();
+
+        if (params.hasRowHead(rows.length)) {
+            String header = rows[params.getRowHead()];
+            if (header!=null && !header.isEmpty()) {
+                String[] fields = header.split(fieldDelimiter);
+                if (!params.hasColKeys()) {
+                    params.setColKeys(Arrays.asList(fields));
+                }
+            }
+        }
+        for (int i=0; i<rows.length;i++) {
+            String row = rows[i];
+            if (row == null || row.isEmpty()) {
+                continue;
+            }
+            if (!params.isRowStart(i)) {
+                continue;
+            }
+            if (!params.isRowEnd(i)) {
+                return result;
+            }
             if (row == null|| row.isEmpty()) {
                 continue;
             }
             String[] fields = row.split(fieldDelimiter);
-            result.add(Arrays.asList(fields));
+            List rowEntry = Arrays.asList(fields);
+            addRowEntry(result, rowEntry, params);
         }
         return result;
+    }
+
+
+
+    public Object read(ScsReadCall readCall) {
+        EO eo = new EoRoot(getConfigsCache());
+        read(eo, readCall);
+        return eo.get();
+    }
+
+    public ListParams getListParams() {
+        return listParams;
     }
 
     /**
@@ -69,15 +104,5 @@ public class ScsConfig extends FileConfig implements ListConfigInterface {
      */
     public String getRowDelimiter() {
         return this.rowDelimiter;
-    }
-
-    @Override
-    public ListParams getListParams() {
-        return listParams;
-    }
-
-    @Override
-    public ListMapper getListMapper() {
-        return listMapper;
     }
 }
