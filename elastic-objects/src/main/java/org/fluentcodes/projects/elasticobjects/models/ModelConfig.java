@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
+public abstract class ModelConfig extends ConfigImpl implements ModelInterface, JavaPropertiesAccessor {
     public static final String MODEL_KEY = "modelKey";
     public static final String FIELD_KEYS = "fieldKeys";
     public static final String VIEW_PARAMS = "viewParams";
@@ -25,8 +25,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface {
 
     public static final String PATH = "path";
     public static final String PACKAGE_GROUP = "packageGroup";
-    public static final String MODULE = "module";
-    public static final String SUB_MODULE = "subModule";
     public static final String PACKAGE_PATH = "packagePath";
     public static final String INTERFACES = "interfaces";
     public static final String DB_PARAMS = "dbParams";

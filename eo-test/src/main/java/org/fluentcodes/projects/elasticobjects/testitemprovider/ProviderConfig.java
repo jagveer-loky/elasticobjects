@@ -16,8 +16,8 @@ public class ProviderConfig {
                     Model.DESCRIPTION, Model.DESCRIPTION,
                     Model.NATURAL_ID, Model.NATURAL_ID,
                     F_EXPANDED, S1,
-                    ModelConfig.MODULE, ModelConfig.MODULE,
-                    ModelConfig.SUB_MODULE, ModelConfig.SUB_MODULE);
+                    ConfigImpl.MODULE, ConfigImpl.MODULE,
+                    ConfigImpl.SUB_MODULE, ConfigImpl.SUB_MODULE);
         } catch (Exception e) {
             e.printStackTrace();
         }
