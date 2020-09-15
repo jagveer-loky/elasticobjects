@@ -2,14 +2,9 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
 import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Reads and writes Excelsheets.

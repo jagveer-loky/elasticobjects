@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum TestProviderJson {
     CONTENT_EXAMPLE_DATA(PATH_INPUT + "calls/content-example/ContentExampleData.json"),

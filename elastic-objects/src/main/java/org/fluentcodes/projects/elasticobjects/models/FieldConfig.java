@@ -2,11 +2,15 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.PathPattern;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_NAME;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -31,15 +35,21 @@ public class FieldConfig extends ConfigImpl {
 
     public FieldConfig(EOConfigsCache configsCache, Map map) {
         super(configsCache, map);
-        this.toSerialize = map.containsKey(TO_SERIALIZE)?(Boolean)map.get(TO_SERIALIZE) : false;
-        this.fieldKey = (String)map.get(FIELD_KEY);
-        this.dbFieldParams = new DBFieldParams(map.get(DB_FIELD_PARAMS));
-        this.eoFieldParams = new EOFieldParams(configsCache, map.get(EO_FIELD_PARAMS));
-        this.viewFieldParams = new ViewFieldParams(map.get(VIEW_FIELD_PARAMS));
-        this.customFieldParams = (Map) map.get(CUSTOM_FIELD_PARAMS);
-        this.modelKeys = (String)map.get(MODEL_KEYS);
-        this.modelList = new ArrayList<>();
-        super.setExpose(Expose.NONE);
+        try {
+
+            this.toSerialize = map.containsKey(TO_SERIALIZE) ? ScalarConverter.toBoolean(TO_SERIALIZE) : false;
+            this.fieldKey = (String) map.get(FIELD_KEY);
+            this.dbFieldParams = new DBFieldParams(map.get(DB_FIELD_PARAMS));
+            this.eoFieldParams = new EOFieldParams(configsCache, map.get(EO_FIELD_PARAMS));
+            this.viewFieldParams = new ViewFieldParams(map.get(VIEW_FIELD_PARAMS));
+            this.customFieldParams = (Map) map.get(CUSTOM_FIELD_PARAMS);
+            this.modelKeys = (String) map.get(MODEL_KEYS);
+            this.modelList = new ArrayList<>();
+            super.setExpose(Expose.NONE);
+        }
+        catch (Exception e) {
+            throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));
+        }
     }
 
     protected void addModel(final ModelConfig modelConfig) {
@@ -154,6 +164,9 @@ public class FieldConfig extends ConfigImpl {
      * Fielddefinitions depending on MetaModels
      */
     public Boolean isNotNull() {
+        if (dbFieldParams.isNotNull() == null) {
+            return false;
+        }
         return dbFieldParams.isNotNull();
     }
 
@@ -165,18 +178,14 @@ public class FieldConfig extends ConfigImpl {
      * Fielddefinitions depending on MetaModels
      */
     public Boolean isUnique() {
+        if (dbFieldParams.isUnique() == null) {
+            return false;
+        }
         return dbFieldParams.isUnique();
     }
 
     public Boolean getUnique() {
         return dbFieldParams.isUnique();
-    }
-
-    /**
-     * A name for different purposes depending on the model.
-     */
-    public String getFieldName() {
-        return dbFieldParams.getFieldName();
     }
 
     /**

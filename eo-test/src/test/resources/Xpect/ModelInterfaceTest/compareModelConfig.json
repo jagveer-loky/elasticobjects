@@ -33,22 +33,19 @@
       "12": "subModule",
       "13": "scope",
       "14": "expose",
-      "15": "key",
-      "16": "id",
-      "17": "description",
-      "18": "naturalId",
-      "19": "creationDate",
-      "20": "author"
+      "15": "id",
+      "16": "description",
+      "17": "naturalId",
+      "18": "creationDate",
+      "19": "author"
     },
     "eoParams": {
       "create": false,
       "(ShapeTypes)shapeType": "INTERFACE"
     },
-    "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "INFO",
-    "key": "ModelInterface",
     "description": "Table definitions with pojo.",
     "author": "Werner Diwischek",
     "naturalId": "ModelInterface"

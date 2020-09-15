@@ -1,8 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,8 +50,6 @@ public interface ListInterface {
         return getListParams().isRowStart(rowCounter);
     }
 
-
-
     default boolean hasRowEnd() {
         return getRowEnd()!=null && getRowEnd()>-1;
     }
@@ -85,68 +80,32 @@ public interface ListInterface {
         return getListParams().getLength();
     }
 
-    default boolean hasOr() {
-        return getOr()!=null && !getOr().isEmpty();
-    }
-
-    default Or getOr() {
-        if (!hasListParams()) {
-            return new Or();
-        }
-        return getListParams().getFilter();
-    }
-
     default boolean hasColKeys() {
-        if (!hasListParams()) {
-            return false;
-        }
-        return getListParams().getColKeys()!=null && !getListParams().getColKeys().isEmpty();
+        return getListParams().hasColKeys();
     }
 
     default List<String> getColKeys() {
-        if (!hasListParams()) {
-            return new ArrayList<>();
-        }
         return getListParams().getColKeys();
     }
 
     default void setColKeys(List<String> colKeys) {
-        if (!hasListParams()) {
-            return ;
-        }
         getListParams().setColKeys(colKeys);
     }
-
-
 
     default void setLength(Integer rowEnd) {
         getListParams().setRowStart(rowEnd);
     }
-    default void addAnd(String key, Object value) {
-        if (hasFilter()) {
-            setFilter(key + " eq " + value.toString());
-        }
-        //TODO if exists
+
+    default boolean hasFilterRaw() {
+        return getListParams().hasFilter();
     }
 
-    default Or getFilter() {
+    default void setFilter(String filter) {
+        getListParams().setFilter(filter);
+    }
+
+    default String getFilter() {
         return getListParams().getFilter();
-    }
-
-    default boolean hasFilter() {
-        return getFilter()!=null && ! getFilter().isEmpty();
-    }
-
-    default void setFilter(Or or) {
-        getListParams().setFilter(or);
-    }
-
-    default void setFilter(String orAsString) {
-        getListParams().setFilter(orAsString);
-    }
-
-    default String getMapKey() {
-        return getListParams().getMapKey();
     }
 
     default Map<String, Object> createMapFromRow(List row) {

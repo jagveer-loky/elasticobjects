@@ -1,24 +1,20 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_UPPER_ID;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_UPPER_ID_KEY;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_FAILS;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_BOOLEAN;
 
 /**
  * Created by Werner on 27.8.2018.
@@ -112,7 +108,6 @@ public class FieldConfigTest {
     public void assertID()  {
         FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(F_UPPER_ID_KEY);
         Assert.assertEquals(F_UPPER_ID, field.getFieldKey());
-        Assert.assertEquals(F_UPPER_ID, field.getFieldName());
         Assert.assertEquals(S_BOOLEAN, field.isUnique());
         Assert.assertEquals(S_BOOLEAN, field.isNotNull());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());
@@ -128,7 +123,6 @@ public class FieldConfigTest {
     public void assertTestObject()  {
         FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(BasicTest.TEST_OBJECT);
         Assert.assertEquals(BasicTest.TEST_OBJECT, field.getFieldKey());
-        Assert.assertEquals(BasicTest.TEST_OBJECT, field.getFieldName());
         Assert.assertEquals(false, field.isUnique());
         Assert.assertEquals(false, field.isNotNull());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());

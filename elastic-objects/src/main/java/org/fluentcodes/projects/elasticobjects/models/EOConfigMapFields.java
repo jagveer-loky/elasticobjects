@@ -2,12 +2,10 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,12 +47,8 @@ public class EOConfigMapFields extends EOConfigMap {
             Constructor configurationConstructor = configurationClass.getConstructor(EOConfigsCache.class, Map.class);
             try {
                 addConfig((Config)configurationConstructor.newInstance(getConfigsCache(), map));
-            } catch (InstantiationException e) {
-                throw new EoInternalException("Problem with '" + naturalId + "'/'FieldConfig'", e);
-            } catch (IllegalAccessException e) {
-                throw new EoInternalException("Problem with '" + naturalId + "'/'FieldConfig'", e);
-            } catch (InvocationTargetException e) {
-                throw new EoInternalException("Problem with '" + naturalId + "'/'FieldConfig'", e);
+            } catch (InstantiationException|IllegalAccessException|InvocationTargetException e) {
+                throw new EoInternalException("Problem with '" + naturalId + " in '/'FieldConfig'", e);
             }
             catch (Exception e) {
                 throw new EoInternalException(e);

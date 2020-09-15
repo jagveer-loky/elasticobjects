@@ -3,13 +3,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.*;
-
-import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
 
 /**
  * @Author Werner Diwischek

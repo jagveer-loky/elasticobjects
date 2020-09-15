@@ -20,8 +20,7 @@
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "INFO",
-    "key": "BasicTest.csv",
-    "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source.",
+    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest.",
     "naturalId": "BasicTest.csv"
   },
   "1": {
@@ -36,7 +35,6 @@
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "INFO",
-    "key": "BasicTest.json",
     "description": "Simple data for the BasicTest.",
     "naturalId": "BasicTest.json"
   },
@@ -45,10 +43,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExample",
+    "(Expose)expose": "NONE",
     "description": "Calls templates.",
     "naturalId": "ContentExample"
   },
@@ -57,10 +54,9 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExampleData",
+    "(Expose)expose": "NONE",
     "description": "Simple data for the content templates.",
     "naturalId": "ContentExampleData"
   },
@@ -69,10 +65,10 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExampleDynamic",
+    "(Expose)expose": "NONE",
+    "description": "A template or ContentExample using the template field for rendering with a template",
     "naturalId": "ContentExampleDynamic"
   },
   "5": {
@@ -80,10 +76,10 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExampleElement1",
+    "(Expose)expose": "NONE",
+    "description": "A template for an entry fo ContentExample",
     "naturalId": "ContentExampleElement1"
   },
   "6": {
@@ -91,10 +87,10 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExampleElement2",
+    "(Expose)expose": "NONE",
+    "description": "A template for an entry fo ContentExample",
     "naturalId": "ContentExampleElement2"
   },
   "7": {
@@ -102,10 +98,10 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExampleStatic",
+    "(Expose)expose": "NONE",
+    "description": "A template  ContentExample with condition",
     "naturalId": "ContentExampleStatic"
   },
   "8": {
@@ -113,10 +109,10 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExampleStaticCondition",
+    "(Expose)expose": "NONE",
+    "description": "A template  ContentExample with condition",
     "naturalId": "ContentExampleStaticCondition"
   },
   "9": {
@@ -124,10 +120,10 @@
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "ContentExampleStaticKeep",
+    "(Expose)expose": "NONE",
+    "description": "A template  ContentExample with condition",
     "naturalId": "ContentExampleStaticKeep"
   },
   "10": {
@@ -139,10 +135,9 @@
       "read": "guest",
       "write": "admin"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
+    "module": "eo-test",
+    "subModule": "test",
     "(Expose)expose": "NONE",
-    "key": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
     "naturalId": "FileTest.txt"
   },
@@ -150,11 +145,10 @@
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
-    "cached": true,
-    "module": "elastic-objects",
-    "subModule": "main",
+    "cached": false,
+    "module": "eo-test",
+    "subModule": "test",
     "(Expose)expose": "NONE",
-    "key": "FileTestCached.txt",
     "description": "Local file with cache set true.",
     "naturalId": "FileTestCached.txt"
   },
@@ -178,7 +172,6 @@
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "NONE",
-    "key": "ListSimple.csv",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
   },
@@ -192,49 +185,12 @@
       "write": "admin"
     },
     "module": "eo-test",
-    "subModule": "main",
+    "subModule": "test",
     "(Expose)expose": "NONE",
-    "key": "ListSimple.json",
-    "description": "Simple list equivalent for ListSimple.csv.",
+    "description": "A sample json file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.json"
   },
   "14": {
-    "fileName": "result.string",
-    "filePath": "src/test/resources/output/persistedobjects",
-    "hostKey": "localhost",
-    "cached": false,
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "result.string",
-    "description": "Saving content",
-    "naturalId": "result.string"
-  },
-  "15": {
-    "fileName": "resultWithMapPath.string",
-    "filePath": "src/test/resources/output/persistedobjects",
-    "hostKey": "localhost",
-    "cached": false,
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "resultWithMapPath.string",
-    "description": "Saving content this is true",
-    "naturalId": "resultWithMapPath.string"
-  },
-  "16": {
-    "fileName": "SimpleInsertWithPath.json",
-    "filePath": "classpath/data",
-    "hostKey": "localhost",
-    "cached": false,
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "SimpleInsertWithPath",
-    "description": "Simple data for the SimpleInsert templates.",
-    "naturalId": "SimpleInsertWithPath"
-  },
-  "17": {
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "(ListParams)listParams": {
@@ -250,54 +206,32 @@
       "write": "admin"
     },
     "module": "eo-test",
-    "subModule": "main",
+    "subModule": "test",
     "(Expose)expose": "NONE",
-    "key": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
   },
-  "18": {
+  "15": {
     "fileName": "target.json",
     "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
     "module": "eo-test",
-    "subModule": "main",
+    "subModule": "test",
     "(Expose)expose": "NONE",
-    "key": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "naturalId": "target.json"
   },
-  "19": {
+  "16": {
     "fileName": "target.txt",
     "filePath": "$[@TMP]",
     "hostKey": "localhost",
     "cached": false,
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
     "(Expose)expose": "NONE",
-    "key": "target.txt",
     "description": "Target file definition",
     "naturalId": "target.txt"
-  },
-  "20": {
-    "fileName": "fileName",
-    "filePath": "path",
-    "hostKey": "localhost",
-    "cached": false,
-    "rolePermissions": {
-      "read": "anonym",
-      "write": "guest",
-      "create": "testRoleCreate,admin",
-      "delete": "admin",
-      "execute": "superadmin"
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "key": "test:test",
-    "description": "description",
-    "naturalId": "test:test"
   },
   "(LogLevel)_logLevel": "WARN"
 }

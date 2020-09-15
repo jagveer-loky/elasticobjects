@@ -2,12 +2,9 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.EO;
-
-import java.util.Set;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /**
  * Created by Werner on 14.07.2020.

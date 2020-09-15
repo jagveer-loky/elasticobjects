@@ -6,9 +6,6 @@ import org.junit.Test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_TEST_STRING;
-
 /**
  * Created by werner.diwischek on 08.01.18.
  */

@@ -8,7 +8,7 @@ import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum TestProviderBtJson {
     BOOLEAN("{\"" + BasicTest.TEST_BOOLEAN + "\": true}"),

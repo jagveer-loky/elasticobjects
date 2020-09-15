@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.io.File;
@@ -35,7 +36,7 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
         super(provider, map);
         this.fileName = (String) map.get(FILE_NAME);
         this.filePath = (String) map.get(FILE_PATH);
-        this.cached = map.containsKey(CACHED) ? (Boolean) map.get(CACHED) : false;
+        this.cached = map.containsKey(CACHED) ? ScalarConverter.toBoolean(CACHED) : false;
         this.hostKey = map.containsKey(HOST_KEY) ? (String) map.get(HOST_KEY) : HostConfig.LOCALHOST;
         this.hostCache = (HostConfig)provider.find(HostConfig.class, hostKey);
     }

@@ -19,11 +19,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "files",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "FileWriteCall",
     "description": "Defines a file write access. ",
     "author": "Werner Diwischek",
     "naturalId": "FileWriteCall"

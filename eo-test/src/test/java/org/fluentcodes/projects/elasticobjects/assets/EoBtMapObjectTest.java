@@ -4,23 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import static junit.framework.TestCase.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.assets.BasicTest.TEST_OBJECT;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * Created by Werner on 04.11.2016.
