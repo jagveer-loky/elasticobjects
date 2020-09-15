@@ -13,6 +13,8 @@ import java.util.Map;
  */
 public abstract class ConfigImpl extends ModelImpl implements Config {
     public static final String CONFIG_MODEL_KEY = "configModelKey";
+    public static final String MODULE = "module";
+    public static final String SUB_MODULE = "subModule";
     private static final String SCOPE = "scope";
     public static final String EXPOSE = "expose";
     private final EOConfigsCache configsCache;
@@ -26,8 +28,8 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     public ConfigImpl(EOConfigsCache configsCache, Map map) {
         super(map);
         try {
-            this.module = (String) map.get(ModelConfig.MODULE);
-            this.subModule = (String) map.get(ModelConfig.SUB_MODULE);
+            this.module = (String) map.get(MODULE);
+            this.subModule = (String) map.get(SUB_MODULE);
             this.configModelKey = (String) map.get(CONFIG_MODEL_KEY);
             this.scope = new ArrayList<>();
             if (map.containsKey(SCOPE)) {
