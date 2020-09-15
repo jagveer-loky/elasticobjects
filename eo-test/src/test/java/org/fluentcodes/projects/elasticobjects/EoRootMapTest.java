@@ -1,11 +1,14 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_KEY;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;

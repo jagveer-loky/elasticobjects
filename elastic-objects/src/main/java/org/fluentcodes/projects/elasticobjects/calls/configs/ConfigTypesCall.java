@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 

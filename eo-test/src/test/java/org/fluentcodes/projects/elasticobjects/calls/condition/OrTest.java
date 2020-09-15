@@ -5,15 +5,12 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
  * Created by werner.diwischek on 08.01.18.

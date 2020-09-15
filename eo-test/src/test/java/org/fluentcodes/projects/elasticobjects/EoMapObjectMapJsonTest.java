@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.assertj.core.api.Assertions.assertThat;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
@@ -13,6 +12,7 @@ import org.junit.Test;
 
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**

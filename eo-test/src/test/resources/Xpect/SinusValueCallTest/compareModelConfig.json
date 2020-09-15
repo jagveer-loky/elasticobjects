@@ -18,11 +18,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "values",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "SinusValueCall",
     "description": "For setting sinus value to EO.",
     "author": "Werner Diwischek",
     "naturalId": "SinusValueCall"

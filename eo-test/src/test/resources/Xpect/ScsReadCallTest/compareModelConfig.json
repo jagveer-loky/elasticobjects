@@ -20,9 +20,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "lists",
+    "module": "elastic-objects",
+    "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "ScsReadCall",
     "description": "Defines a primitive csv file read operation. ",
     "author": "Werner Diwischek",
     "naturalId": "ScsReadCall"

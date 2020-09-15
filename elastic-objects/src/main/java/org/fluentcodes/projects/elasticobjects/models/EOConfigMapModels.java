@@ -7,7 +7,6 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.CONFIG_MODEL_KEY;

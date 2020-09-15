@@ -23,11 +23,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },
-    "packageGroup": "lists",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "INFO",
-    "key": "ListParams",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
     "author": "Werner Diwischek",
     "naturalId": "ListParams"

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;

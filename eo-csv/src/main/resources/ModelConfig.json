@@ -1,54 +1,49 @@
 {
-  "CsvReadCall": {
-    "module": "actions-csv",
+  "CsvConfig": {
+    "module": "eo-csv",
     "subModule": "main",
-    "naturalId": "CsvReadCall",
-    "eoParams": {
-      "shapeType": "CALL_BEAN",
-      "modelConfigKey": "CsvConfig",
-      "create": true
-    },
-    "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
-    "superKey": "ListReadCall",
-    "modelKey": "CsvReadCall",
+    "fieldKeys": [
+      "fieldDelimiter",
+      "rowDelimiter"
+    ],
+    "interfaces": "ListConfigInterface",
+    "superKey": "FileConfig",
+    "expose": "INFO",
+    "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
-    "packageGroup": "csv",
+    "modelKey": "CsvConfig",
+    "eoParams": {
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "CsvReadCall": {
+    "module": "eo-csv",
+    "subModule": "main",
+    "superKey": "ListReadCall",
+    "expose": "INFO",
+    "description": "Defines read call for a csv action depending on one link CsvConfig. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
+    "modelKey": "CsvReadCall",
+    "eoParams": {
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
     "author": "Werner Diwischek"
   },
   "CsvWriteCall": {
-    "module": "actions-csv",
+    "module": "eo-csv",
     "subModule": "main",
-    "naturalId": "CsvWriteCall",
-    "eoParams": {
-      "shapeType": "CALL_BEAN",
-      "modelConfigKey": "CsvConfig",
-      "create": true
-    },
-    "description": "Defines read call for a csv action depending on one {@link CsvConfig}. Offers several attributes to be set by external caller ",
     "superKey": "ListWriteCall",
+    "expose": "INFO",
+    "description": "Defines write call for a csv action depending on one link CsvConfig. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvWriteCall",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
-    "packageGroup": "csv",
-    "author": "Werner Diwischek"
-  },
-  "CsvConfig": {
-    "module": "actions-csv",
-    "subModule": "main",
-    "naturalId": "CsvConfig",
     "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
+      "create": true,
+      "shapeType": "CALL_BEAN"
     },
-    "description": "Defines the configuration for a csv content stored in a final config object delivered by the config cache.",
-    "superKey": "FileConfig",
-    "interfaces": "ListConfigInterface",
-    "fieldKeys": [
-      "fieldDelimiter",
-      "rowDelimiter",
-      "listParams"
-    ],
-    "modelKey": "CsvConfig",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
-    "packageGroup": "csv"
+    "author": "Werner Diwischek"
   }
 }

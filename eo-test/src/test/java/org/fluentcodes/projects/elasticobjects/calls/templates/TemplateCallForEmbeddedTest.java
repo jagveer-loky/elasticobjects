@@ -5,8 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
-
-
 import org.junit.Ignore;
 import org.junit.Test;
 

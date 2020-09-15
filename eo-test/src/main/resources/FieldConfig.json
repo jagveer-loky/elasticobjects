@@ -5,24 +5,14 @@
     "modelKeys": "BasicTest",
     "description": "A BasicTest field.",
     "expose": "WEB",
-    "fieldKey": "basicTest",
-    "dbFieldParams": {
-      "fieldName": "basicTest",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "basicTest"
   },
   "subTest": {
     "module": "eo-test",
     "subModule": "main",
     "modelKeys": "SubTest",
     "expose": "WEB",
-    "fieldKey": "subTest",
-    "dbFieldParams": {
-      "fieldName": "subTest",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "subTest"
   },
   "subTestList": {
     "module": "eo-test",
@@ -45,72 +35,42 @@
     "subModule": "main",
     "modelKeys": "Boolean",
     "expose": "WEB",
-    "fieldKey": "testBoolean",
-    "dbFieldParams": {
-      "fieldName": "testBoolean",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "testBoolean"
   },
   "testDate": {
     "module": "eo-test",
     "subModule": "main",
     "modelKeys": "Date",
     "expose": "WEB",
-    "fieldKey": "testDate",
-    "dbFieldParams": {
-      "fieldName": "testDate",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "testDate"
   },
   "testDouble": {
     "module": "eo-test",
     "subModule": "main",
     "modelKeys": "Double",
     "expose": "WEB",
-    "fieldKey": "testDouble",
-    "dbFieldParams": {
-      "fieldName": "testDouble",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "testDouble"
   },
   "testFloat": {
     "module": "eo-test",
     "subModule": "main",
     "modelKeys": "Float",
     "expose": "WEB",
-    "fieldKey": "testFloat",
-    "dbFieldParams": {
-      "fieldName": "testFloat",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "testFloat"
   },
   "testInt": {
     "module": "eo-test",
     "subModule": "main",
     "modelKeys": "Integer",
     "expose": "WEB",
-    "fieldKey": "testInt",
-    "dbFieldParams": {
-      "fieldName": "testInt",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "testInt"
   },
   "testLong": {
     "module": "eo-test",
     "subModule": "main",
     "modelKeys": "Long",
     "expose": "WEB",
-    "fieldKey": "testLong",
-    "dbFieldParams": {
-      "fieldName": "testLong",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "testLong"
   },
   "testObject": {
     "module": "eo-test",
@@ -118,12 +78,7 @@
     "modelKeys": "Object",
     "description": "A test object thing. ",
     "expose": "WEB",
-    "fieldKey": "testObject",
-    "dbFieldParams": {
-      "fieldName": "testObject",
-      "unique": false,
-      "notNull": false
-    }
+    "fieldKey": "testObject"
   },
   "testString": {
     "module": "eo-test",
@@ -133,9 +88,6 @@
     "expose": "WEB",
     "fieldKey": "testString",
     "dbFieldParams": {
-      "fieldName": "testString",
-      "unique": false,
-      "notNull": false,
       "length": 20
     }
   },

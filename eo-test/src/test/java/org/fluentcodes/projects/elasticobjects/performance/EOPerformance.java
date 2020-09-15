@@ -9,10 +9,8 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-
 import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
-
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.IOJsonGson;
 import org.fluentcodes.tools.xpect.IOJsonJackson;
 import org.fluentcodes.tools.xpect.IOString;

@@ -2,13 +2,13 @@ package org.fluentcodes.projects.elasticobjects.assets;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import static org.assertj.core.api.Assertions.assertThat;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 

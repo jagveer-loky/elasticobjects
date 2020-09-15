@@ -1,197 +1,30 @@
 {
-  "Svg.html": {
+  "BasicTest.xlsx:test": {
+    "configModelKey": "XlsxConfig",
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "Svg.html",
-    "filePath": "web",
-    "description": "The svg part of the page for responsiveness.",
-    "rolePermissions": {
-      "read": "guest"
-    }
-  },
-  "public.txt": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "public.txt",
-    "filePath": "files",
-    "description": "Example with restricted permission for read.",
-    "rolePermissions": {
-      "read": "guest"
-    }
-  },
-  "secret.txt": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "secret.txt",
-    "filePath": "files",
-    "description": "Example with restricted permission for read.",
-    "rolePermissions": {
-      "read": "admin"
-    }
-  },
-  "withoutPermissions-public.txt": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "public.txt",
-    "filePath": "files",
-    "description": "Public example with no permissions."
-  },
-  "BasicTest.csv": {
-
-  },
-  "BasicTest.xlsx": {
-    "module": "elastic-objects",
-    "subModule": "main",
+    "hostKey": "localhost",
     "filePath": "lists",
     "fileName": "BasicTest.xlsx",
-    "description": "A sample xlsx file separated file with 3x3 entries and a header which could be mapped to BasicTest."
-  },
-  "ExamplesStart.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
-    "fileName": "ExamplesStart.html",
-    "filePath": "web/examples",
+    "description": "A sample xml file with 3x3 entries and a header which could be mapped to BasicTest.",
+    "expose": "INFO",
+    "cached": "false",
+    "listParams": {
+      "rowHead": 0
+    },
     "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "TheGreetingCall.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
-    "fileName": "TheGreetingCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "FileCall.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
-    "fileName": "FileCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "JsonCall.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some small post examples for files in json format.",
-    "fileName": "JsonCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "TemplateCall.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some small post template examples.",
-    "fileName": "TemplateCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
+      "read": "guest"
     }
   },
   "ConfigsCall.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "description": "Some small post examples for the configuration calls.",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
     "fileName": "ConfigsCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "ListCall.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some small post examples for files in list format.",
-    "fileName": "ListCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "ExcelCall.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some small post examples for files in Excel format.",
-    "fileName": "ExcelCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "DbCall.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "description": "Some small post examples for Db access.",
-    "fileName": "DbCall.html",
-    "filePath": "web/examples",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "map.json": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "map.json",
-    "filePath": "json",
-    "description": "Example simple map which has the same field names as BasicTest, so its mapable.",
-    "rolePermissions": {
-      "read": "guest"
-    }
-  },
-  "list.json": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "list.json",
-    "filePath": "json",
-    "description": "A simple list as example.",
-    "rolePermissions": {
-      "read": "guest"
-    }
-  },
-  "ConfigsPage.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "ConfigsPage.html",
-    "filePath": "web",
-    "description": "The config template loading a config and show it's properties.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "ConfigsStartPage.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "ConfigsStartPage.html",
-    "filePath": "web",
-    "description": "The config start page template.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "ContentPage.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "ContentPage.html",
-    "filePath": "web",
-    "description": "The content template loading a content template file in the content part without navigation.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "ExamplesPage.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "ExamplesPage.html",
-    "filePath": "web",
-    "description": "The examples template loading an examples template file in the content part together with navigation.",
+    "description": "Some small post examples for the configuration calls.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
@@ -199,130 +32,103 @@
   "ConfigsNavigation.html": {
     "module": "example-springboot",
     "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web",
     "fileName": "ConfigsNavigation.html",
-    "filePath": "web",
     "description": "The Wordpress header part",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-  "Header.html": {
+  "ConfigsPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "Header.html",
+    "hostKey": "localhost",
     "filePath": "web",
-    "description": "The Wordpress header part",
+    "fileName": "ConfigsPage.html",
+    "description": "The config template loading a config and show it's properties.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-  "Footer.html": {
+  "ConfigsStartPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "Footer.html",
+    "hostKey": "localhost",
     "filePath": "web",
-    "description": "The Wordpress footer part",
+    "fileName": "ConfigsStartPage.html",
+    "description": "The config start page template.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-
-  "Impressum.html": {
+  "ContentPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "Impressum.html",
-    "filePath": "web/docs",
-    "description": "The impressum content.",
+    "hostKey": "localhost",
+    "filePath": "web",
+    "fileName": "ContentPage.html",
+    "description": "The content template loading a content template file in the content part without navigation.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-  "Home.html": {
+  "DbCall.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "Home.html",
-    "filePath": "web/docs",
-    "description": "The home content.",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "DbCall.html",
+    "description": "Some small post examples for Db access.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-  "LeanServices.html": {
+  "ExamplesPage.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "LeanServices.html",
-    "filePath": "web/docs",
-    "description": "The concept of a lean service architecture.",
+    "hostKey": "localhost",
+    "filePath": "web",
+    "fileName": "ExamplesPage.html",
+    "description": "The examples template loading an examples template file in the content part together with navigation.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-  "LeanCode.html": {
+  "ExamplesStart.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "LeanCode.html",
-    "filePath": "web/docs",
-    "description": "Lean code development.",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "ExamplesStart.html",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-  "LowCode.html": {
+  "ExcelCall.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "LowCode.html",
-    "filePath": "web/docs",
-    "description": "Low code development.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "NoCode.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "NoCode.html",
-    "filePath": "web/docs",
-    "description": "No code development.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "Planned.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "Planned.html",
-    "filePath": "web/docs",
-    "description": "Plans for 0.3.0.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "Index.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "Home.html",
-    "filePath": "web/docs",
-    "description": "The home content with a different url.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "index.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "Home.html",
-    "filePath": "web/docs",
-    "description": "The home content with the default url.",
-    "rolePermissions": {
-      "execute": "guest"
-    }
-  },
-  "ModelConfig.html": {
-    "module": "example-springboot",
-    "subModule": "main",
-    "fileName": "ModelConfig.html",
-    "filePath": "web/configs",
-    "description": "Entry content for ModelConfig.",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "ExcelCall.html",
+    "description": "Some small post examples for files in Excel format.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
@@ -330,9 +136,25 @@
   "FieldConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "FieldConfig.html",
+    "hostKey": "localhost",
     "filePath": "web/configs",
+    "fileName": "FieldConfig.html",
     "description": "Entry content for FieldConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "FileCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "FileCall.html",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
@@ -340,9 +162,272 @@
   "FileConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "FileConfig.html",
+    "hostKey": "localhost",
     "filePath": "web/configs",
+    "fileName": "FileConfig.html",
     "description": "Entry content for FileConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "Footer.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web",
+    "fileName": "Footer.html",
+    "description": "The Wordpress footer part",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "Header.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web",
+    "fileName": "Header.html",
+    "description": "The Wordpress header part",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "Home.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "Home.html",
+    "description": "The home content.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "Impressum.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "Impressum.html",
+    "description": "The impressum content.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "index.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "Home.html",
+    "description": "The home content with the default url.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "Index.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "Home.html",
+    "description": "The home content with a different url.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "JsonCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "JsonCall.html",
+    "description": "Some small post examples for files in json format.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "LeanCode.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "LeanCode.html",
+    "description": "Lean code development.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "LeanServices.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "LeanServices.html",
+    "description": "The concept of a lean service architecture.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "list.json": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "json",
+    "fileName": "list.json",
+    "description": "A simple list as example.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "ListCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "ListCall.html",
+    "description": "Some small post examples for files in list format.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "LowCode.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "LowCode.html",
+    "description": "Low code development.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "map.json": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "json",
+    "fileName": "map.json",
+    "description": "Example simple map which has the same field names as BasicTest, so its mapable.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "ModelConfig.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/configs",
+    "fileName": "ModelConfig.html",
+    "description": "Entry content for ModelConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "NoCode.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "NoCode.html",
+    "description": "No code development.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "Planned.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "Planned.html",
+    "description": "Plans for 0.3.0.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "public.txt": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "files",
+    "fileName": "public.txt",
+    "description": "Example with restricted permission for read.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "secret.txt": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "files",
+    "fileName": "secret.txt",
+    "description": "Example with restricted permission for read.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "admin"
+    }
+  },
+  "Svg.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web",
+    "fileName": "Svg.html",
+    "description": "The svg part of the page for responsiveness.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "TemplateCall.html": {
+    "module": "example-springboot",
+    "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "TemplateCall.html",
+    "description": "Some small post template examples.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
@@ -350,49 +435,37 @@
   "TemplateConfig.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "fileName": "TemplateConfig.html",
+    "hostKey": "localhost",
     "filePath": "web/configs",
+    "fileName": "TemplateConfig.html",
     "description": "Entry content for TemplateConfig.",
     "expose": "NONE",
+    "cached": "false",
     "rolePermissions": {
       "execute": "guest"
     }
   },
-  "BasicTest.xlsx:test": {
+  "TheGreetingCall.html": {
     "module": "example-springboot",
     "subModule": "main",
-    "configModelKey": "XlsxConfig",
-    "sheetName": "test",
-    "listParams": {
-      "rowHead": 0
-    },
-    "filePath": "lists",
-    "fileName": "BasicTest.xlsx",
-    "description": "A sample xml file with 3x3 entries and a header which could be mapped to BasicTest.",
-
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "TheGreetingCall.html",
+    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "expose": "INFO",
+    "cached": "false",
     "rolePermissions": {
-      "read": "guest"
+      "execute": "guest"
     }
   },
-  "BasicTest.csv": {
+  "withoutPermissions-public.txt": {
     "module": "example-springboot",
     "subModule": "main",
-    "configModelKey": "ScsConfig",
-    "naturalId": "BasicTest.csv",
-    "fieldDelimiter": ";",
-    "rowDelimiter": "\n",
-    "listParams": {
-      "rowHead": 0,
-      "rowStart": 1,
-      "rowEnd": 4
-    },
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
-    },
-    "filePath": "lists",
-    "fileName": "BasicTest.csv",
-    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest."
+    "hostKey": "localhost",
+    "filePath": "files",
+    "fileName": "public.txt",
+    "description": "Public example with no permissions.",
+    "expose": "INFO",
+    "cached": "false"
   }
-
 }

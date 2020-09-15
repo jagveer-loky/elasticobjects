@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.testitemprovider.*;
-
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Test;
 

@@ -1,94 +1,92 @@
 {
   "dbConfig": {
-    "fieldKey": "dbConfig",
-    "modelKeys": "DbConfig",
     "module": "eo-db",
     "subModule": "main",
+    "modelKeys": "DbConfig",
     "description": "The cache embeded int {@link HibernateCache}.",
-    "naturalId": "dbConfig"
+    "expose": "NONE",
+    "fieldKey": "dbConfig"
   },
   "dbKey": {
+    "module": "eo-db",
+    "subModule": "main",
+    "modelKeys": "String",
+    "description": "The key finding a cache {@Link DbCache} entry.",
+    "expose": "INFO",
     "fieldKey": "dbKey",
     "dbFieldParams": {
-      "fieldName": "dbKey",
       "unique": true,
       "notNull": true,
       "length": 80
-    },
-    "modelKeys": "String",
-    "module": "eo-db",
-    "subModule": "main",
-    "description": "The key finding a cache {@Link DbCache} entry.",
-    "naturalId": "dbKey"
+    }
   },
   "dbType": {
-    "fieldKey": "dbType",
-    "modelKeys": "DbTypes",
     "module": "eo-db",
     "subModule": "main",
+    "modelKeys": "DbTypes",
     "description": "The type of the db as Enumeration providing informations like the driver.",
-    "naturalId": "dbType"
-  },
-  "sql": {
-    "fieldKey": "sql",
-    "dbFieldParams": {
-      "fieldName": "sql",
-      "length": 2048
-    },
-    "modelKeys": "String",
-    "module": "eo-db",
-    "subModule": "main"
+    "expose": "INFO",
+    "fieldKey": "dbType"
   },
   "driver": {
-    "fieldKey": "driver",
-    "dbFieldParams": {
-      "fieldName": "driver",
-      "length": 80
-    },
-    "modelKeys": "String",
     "module": "eo-db",
     "subModule": "main",
-    "naturalId": "driver"
+    "modelKeys": "String",
+    "expose": "INFO",
+    "fieldKey": "driver",
+    "dbFieldParams": {
+      "length": 80
+    }
   },
   "extension": {
+    "module": "eo-db",
+    "subModule": "main",
+    "modelKeys": "String",
+    "description": "An extension for database initialization. ",
+    "expose": "INFO",
     "fieldKey": "extension",
     "dbFieldParams": {
       "length": 1024
-    },
-    "modelKeys": "String",
-    "module": "eo-db",
-    "subModule": "main",
-    "description": "An extension for database initialization. ",
-    "naturalId": "extension"
+    }
   },
   "jndi": {
+    "module": "eo-db",
+    "subModule": "main",
+    "modelKeys": "String",
+    "description": "The jndi lookup for a hibernate session factory. ",
+    "expose": "INFO",
     "fieldKey": "jndi",
     "dbFieldParams": {
       "length": 80
-    },
-    "modelKeys": "String",
-    "module": "eo-db",
-    "subModule": "main",
-    "description": "The jndi lookup for a hibernate session factory. ",
-    "naturalId": "jndi"
+    }
   },
   "schema": {
+    "module": "eo-db",
+    "subModule": "main",
+    "modelKeys": "String",
+    "description": "The database schema used for persisting. {@link HostCache}",
+    "expose": "INFO",
     "fieldKey": "schema",
     "dbFieldParams": {
       "length": 80
-    },
-    "modelKeys": "String",
+    }
+  },
+  "sql": {
     "module": "eo-db",
     "subModule": "main",
-    "description": "The database schema used for persisting. {@link HostCache}",
-    "naturalId": "schema"
+    "modelKeys": "String",
+    "expose": "INFO",
+    "fieldKey": "sql",
+    "dbFieldParams": {
+      "length": 2048
+    }
   },
   "sqlList": {
-    "fieldKey": "sqlList",
-    "modelKeys": "ArrayList,String",
     "module": "eo-db",
     "subModule": "main",
+    "modelKeys": "ArrayList,String",
     "description": "A list of sql strings to be executed within {@Link HibernateSqlCache} or {@Link DbSqlCache}.",
-    "naturalId": "sqlList"
+    "expose": "INFO",
+    "fieldKey": "sqlList"
   }
 }
