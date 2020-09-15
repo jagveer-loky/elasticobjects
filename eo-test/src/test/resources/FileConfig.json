@@ -1,141 +1,158 @@
 {
-  "ListSimple.json": {
-    "module": "eo-test",
-    "subModule": "main",
-    "jsonKey": "ListSimple.json",
-    "filePath": "input/calls/list-simple",
-    "fileName": "ListSimple.json",
-    "description": "Simple list equivalent for ListSimple.csv.",
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
-    },
-    "expose":"NONE"
-  },
-  "BasicTest.csv": {
-    "module": "eo-test",
-    "subModule": "main",
-    "fileName": "BasicTest.csv",
-    "filePath": "input/assets/bt",
-    "fieldDelimiter": ";",
-    "configModelKey": "ScsConfig",
-    "rowDelimiter": "\n",
-    "listParams": {
-      "rowHead": 0,
-      "rowStart": 1,
-      "rowEnd": 4
-    },
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
-    },
-    "description": "A sample csv file which can be mapped to BasicTest Modell with 2*2 values and a head as a source."
-  },
-  "test:test": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "fileKey": "test:test",
-    "fileName": "fileName",
-    "description": "description",
-    "filePath": "path",
-    "rolePermissions": {
-      "read": "anonym",
-      "write": "guest",
-      "create": "testRoleCreate,admin",
-      "delete": "admin",
-      "execute": "superadmin"
-    }
-  },
-  "result.string": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "fileKey": "result.string",
-    "fileName": "result.string",
-    "description": "Saving content",
-    "filePath": "src/test/resources/output/persistedobjects"
-  },
-  "resultWithMapPath.string": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "fileKey": "resultWithMapPath.string",
-    "mapPath": "content",
-    "fileName": "resultWithMapPath.string",
-    "description": "Saving content this is true",
-    "filePath": "src/test/resources/output/persistedobjects"
-  },
   "ContentExample": {
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "naturalId": "ContentExample",
-    "jsonKey": "ContentExample",
-    "fileName": "ContentExample.json",
+    "hostKey": "localhost",
     "filePath": "input/calls/content-example",
-    "description": "Calls templates."
+    "fileName": "ContentExample.json",
+    "description": "Calls templates.",
+    "expose": "NONE",
+    "cached": "true"
   },
   "ContentExampleData": {
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "naturalId": "ContentExampleData",
-    "jsonKey": "ContentExampleData",
-    "fileName": "ContentExampleData.json",
+    "hostKey": "localhost",
     "filePath": "input/calls/content-example",
-    "description": "Simple data for the content templates."
-  },
-  "SimpleInsertWithPath": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "SimpleInsertWithPath",
-    "jsonKey": "SimpleInsertWithPath",
-    "fileName": "SimpleInsertWithPath.json",
-    "filePath": "classpath/data",
-    "description": "Simple data for the SimpleInsert templates."
-  },
-  "ContentExampleStatic": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "ContentExampleStatic",
-    "templateKey": "ContentExampleStatic",
-    "fileName": "ContentExampleStatic.tpl",
-    "filePath": "input/calls/content-example"
-  },
-  "ContentExampleStaticKeep": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "ContentExampleStaticKeep",
-    "templateKey": "ContentExampleStaticKeep",
-    "fileName": "ContentExampleStaticKeep.tpl",
-    "filePath": "input/calls/content-example"
-  },
-  "ContentExampleStaticCondition": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "naturalId": "ContentExampleStaticCondition",
-    "templateKey": "ContentExampleStaticCondition",
-    "fileName": "ContentExampleStaticCondition.tpl",
-    "filePath": "input/calls/content-example"
+    "fileName": "ContentExampleData.json",
+    "description": "Simple data for the content templates.",
+    "expose": "NONE",
+    "cached": "true"
   },
   "ContentExampleDynamic": {
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "naturalId": "ContentExampleDynamic",
-    "templateKey": "ContentExampleDynamic",
+    "hostKey": "localhost",
+    "filePath": "input/calls/content-example",
     "fileName": "ContentExampleDynamic.tpl",
-    "filePath": "input/calls/content-example"
+    "description": "A template or ContentExample using the template field for rendering with a template",
+    "expose": "NONE",
+    "cached": "true"
   },
   "ContentExampleElement1": {
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "naturalId": "ContentExampleElement1",
-    "templateKey": "ContentExampleElement1",
+    "hostKey": "localhost",
+    "filePath": "input/calls/content-example",
     "fileName": "ContentExampleElement1.tpl",
-    "filePath": "input/calls/content-example"
+    "description": "A template for an entry fo ContentExample",
+    "expose": "NONE",
+    "cached": "true"
   },
   "ContentExampleElement2": {
-    "module": "elastic-objects",
+    "module": "eo-test",
     "subModule": "test",
-    "naturalId": "ContentExampleElement2",
-    "templateKey": "ContentExampleElement2",
+    "hostKey": "localhost",
+    "filePath": "input/calls/content-example",
     "fileName": "ContentExampleElement2.tpl",
-    "filePath": "input/calls/content-example"
+    "description": "A template for an entry fo ContentExample",
+    "expose": "NONE",
+    "cached": "true"
+  },
+  "ContentExampleStatic": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "input/calls/content-example",
+    "fileName": "ContentExampleStatic.tpl",
+    "description": "A template  ContentExample with condition",
+    "expose": "NONE",
+    "cached": "true"
+  },
+  "ContentExampleStaticCondition": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "input/calls/content-example",
+    "fileName": "ContentExampleStaticCondition.tpl",
+    "description": "A template  ContentExample with condition",
+    "expose": "NONE",
+    "cached": "true"
+  },
+  "ContentExampleStaticKeep": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "input/calls/content-example",
+    "fileName": "ContentExampleStaticKeep.tpl",
+    "description": "A template  ContentExample with condition",
+    "expose": "NONE",
+    "cached": "true"
+  },
+  "FileTest.txt": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "input/calls/file-simple",
+    "fileName": "FileTest.txt",
+    "description": "Local 'source.txt' definition.",
+    "expose": "NONE",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "FileTestCached.txt": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "input/calls/file-simple",
+    "fileName": "FileTest.txt",
+    "description": "Local file with cache set true.",
+    "expose": "NONE",
+    "cached": "true"
+  },
+  "ListSimple.json": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "input/calls/list-simple",
+    "fileName": "ListSimple.json",
+    "description": "A sample json file with 2*2 values and a head as a source.",
+    "expose": "NONE",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "target.csv": {
+    "configModelKey": "ScsConfig",
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "$[@TMP]",
+    "fileName": "target.csv",
+    "description": "A sample target csv file with tmp placeholder.",
+    "expose": "NONE",
+    "cached": "false",
+    "listParams": {
+      "rowHead": 0
+    },
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "target.json": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "$[@TMP]",
+    "fileName": "target.json",
+    "description": "A sample target json file with tmp placeholder.",
+    "expose": "NONE",
+    "cached": "false"
+  },
+  "target.txt": {
+    "module": "eo-test",
+    "subModule": "test",
+    "hostKey": "localhost",
+    "filePath": "$[@TMP]",
+    "fileName": "target.txt",
+    "description": "Target file definition",
+    "expose": "NONE",
+    "cached": "false"
   }
 }

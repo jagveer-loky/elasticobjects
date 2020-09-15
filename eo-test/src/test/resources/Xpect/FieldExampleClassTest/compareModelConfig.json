@@ -14,7 +14,6 @@
       "(ShapeTypes)shapeType": "BEAN"
     },
     "(Expose)expose": "INFO",
-    "key": "FieldExampleClass",
     "naturalId": "FieldExampleClass"
   },
   "(LogLevel)_logLevel": "WARN"

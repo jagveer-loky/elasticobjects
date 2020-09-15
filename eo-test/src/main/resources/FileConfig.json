@@ -1,46 +1,48 @@
 {
-  "FileTest.txt": {
-    "module": "elastic-objects",
+  "BasicTest.csv": {
+    "configModelKey": "ScsConfig",
+    "module": "eo-test",
     "subModule": "main",
-    "mapPath": "content",
-    "fileKey": "FileTest.txt",
-    "filePath": "input/calls/file-simple",
-    "fileName": "FileTest.txt",
-    "description": "Local 'source.txt' definition.",
-    "cached": false,
+    "hostKey": "localhost",
+    "filePath": "input/assets/bt",
+    "fileName": "BasicTest.csv",
+    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest.",
+    "expose": "INFO",
+    "cached": "false",
+    "listParams": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 4
+    },
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    },
-    "expose":"NONE"
+    }
   },
-  "FileTestCached.txt": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "fileKey": "FileTestCached.txt",
-    "filePath": "input/calls/file-simple",
-    "fileName": "FileTest.txt",
-    "description": "Local file with cache set true.",
-    "cached": true,
-    "expose":"NONE"
-  },
-  "target.txt": {
-    "module": "elastic-objects",
-    "subModule": "test",
-    "fileKey": "target.txt",
-    "filePath": "$[@TMP]",
-    "fileName": "target.txt",
-    "description": "Target file definition",
-    "expose":"NONE"
-  },
-  "ListSimple.csv": {
+  "BasicTest.json": {
     "module": "eo-test",
     "subModule": "main",
+    "hostKey": "localhost",
+    "filePath": "input/assets/bt",
+    "fileName": "BasicTest.json",
+    "description": "Simple data for the BasicTest.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    }
+  },
+  "ListSimple.csv": {
     "configModelKey": "ScsConfig",
-    "fileName": "ListSimple.csv",
+    "module": "eo-test",
+    "subModule": "main",
+    "hostKey": "localhost",
     "filePath": "input/calls/list-simple",
-    "fieldDelimiter": ";",
-    "rowDelimiter": "\n",
+    "fileName": "ListSimple.csv",
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "expose": "NONE",
+    "cached": "false",
     "listParams": {
       "rowHead": 0,
       "rowStart": 1,
@@ -49,50 +51,6 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    },
-    "description": "A sample csv file with 2*2 values and a head as a source.",
-    "expose":"NONE"
-  },
-  "target.csv": {
-    "module": "eo-test",
-    "subModule": "main",
-    "configModelKey": "ScsConfig",
-    "fileName": "target.csv",
-    "filePath": "$[@TMP]",
-
-    "fieldDelimiter": ";",
-    "rowDelimiter": "\n",
-    "listParams": {
-      "rowHead": 0
-    },
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
-    },
-    "description": "A sample target csv file with tmp placeholder.",
-    "expose":"NONE"
-  },
-  "BasicTest.json": {
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "BasicTest.json",
-    "jsonKey": "BasicTest.json",
-    "filePath": "input/assets/bt",
-    "fileName": "BasicTest.json",
-    "description": "Simple data for the BasicTest.",
-    "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
     }
-  },
-  "target.json": {
-    "module": "eo-test",
-    "subModule": "main",
-    "naturalId": "target.json",
-    "jsonKey": "target.json",
-    "filePath": "$[@TMP]",
-    "fileName": "target.json",
-    "description": "A sample target json file with tmp placeholder.",
-    "expose":"NONE"
   }
 }

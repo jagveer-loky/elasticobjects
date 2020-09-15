@@ -25,7 +25,6 @@ public enum ProviderListJson {
     DOUBLE("{\"_rootmodel\": \"List\",\"(Double)0\": 2.2}"),
     EMPTY("{\"_rootmodel\": \"List\"}"),
     FLOAT("{\"_rootmodel\": \"List\",\"(Float)0\": 1.1}"),
-    LIST_SIMPLE(PATH_INPUT + "calls/list-simple/ListSimple.json"),
     DOUBLE_LIST("{\"_rootmodel\":\"List,Double\",\"0\": 1, \"1\": 2, \"2\": 3}"),
     DOUBLE_LIST_JSON("[ 1, 2, 3]");
 

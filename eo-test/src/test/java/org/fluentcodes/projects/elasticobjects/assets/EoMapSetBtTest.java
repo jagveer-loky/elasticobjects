@@ -1,12 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.assets;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
 
 

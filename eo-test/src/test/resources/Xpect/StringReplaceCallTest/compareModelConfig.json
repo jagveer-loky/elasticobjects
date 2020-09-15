@@ -27,7 +27,6 @@
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "StringReplaceCall",
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
     "author": "Werner Diwischek",
     "naturalId": "StringReplaceCall"

@@ -8,7 +8,6 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.Expose;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 

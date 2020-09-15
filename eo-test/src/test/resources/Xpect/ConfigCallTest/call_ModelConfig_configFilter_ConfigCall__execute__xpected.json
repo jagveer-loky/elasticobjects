@@ -27,11 +27,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "configs",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "ConfigCall",
     "description": "For getting a map of configurations for a specific configuration type.",
     "author": "Werner Diwischek",
     "naturalId": "ConfigCall"

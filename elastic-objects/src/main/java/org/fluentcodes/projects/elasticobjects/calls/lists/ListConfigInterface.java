@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
@@ -35,8 +36,8 @@ public interface ListConfigInterface extends Config {
                 eo.set(row, targetPath, Integer.valueOf(i).toString());
             }
         }
-        if (targetPath.equals("_template")) {
-            return "TODO _template";
+        if (targetPath.equals(CallImpl.AS_STRING)) {
+            return "TODO asString";
         }
         return "";
     }
@@ -44,12 +45,12 @@ public interface ListConfigInterface extends Config {
     default void addRowEntry(List result, List rowEntry, ListParams params) {
         if (params.hasColKeys()) {
             Map<String,Object> rowMap = params.createMapFromRow(rowEntry);
-            if (!params.hasFilter() || params.getFilter().filter(new EoRoot(getConfigsCache(), rowMap))) {
+            if (params.filter(new EoRoot(getConfigsCache(), rowMap))) {
                 result.add(rowMap);
             }
         }
         else {
-            if (!params.hasFilter() || params.getFilter().filter(new EoRoot(getConfigsCache(), rowEntry))) {
+            if (params.filter(new EoRoot(getConfigsCache(), rowEntry))) {
                 result.add(rowEntry);
             }
         }

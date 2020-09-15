@@ -23,11 +23,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "templates",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "TemplateResourceCall",
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "author": "Werner Diwischek",
     "naturalId": "TemplateResourceCall"

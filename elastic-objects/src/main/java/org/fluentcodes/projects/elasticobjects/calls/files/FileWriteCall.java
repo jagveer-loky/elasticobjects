@@ -1,11 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.calls.CallResource;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.EO;
 
 /**
  * Created by werner.diwischek on 9.7.2020.

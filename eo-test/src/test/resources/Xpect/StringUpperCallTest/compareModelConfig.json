@@ -18,11 +18,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "values",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "StringUpperCall",
     "description": "For setting upper value to EO.",
     "author": "Werner Diwischek",
     "naturalId": "StringUpperCall"

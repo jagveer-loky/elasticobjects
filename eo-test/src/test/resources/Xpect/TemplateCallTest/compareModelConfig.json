@@ -22,11 +22,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "templates",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "TemplateCall",
     "description": "Executes a template content. ",
     "author": "Werner Diwischek",
     "naturalId": "TemplateCall"

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,23 +25,27 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
 
     public ConfigImpl(EOConfigsCache configsCache, Map map) {
         super(map);
-        this.module = (String)map.get(ModelConfig.MODULE);
-        this.subModule = (String)map.get(ModelConfig.SUB_MODULE);
-        this.configModelKey = (String) map.get(CONFIG_MODEL_KEY);
-        this.scope = new ArrayList<>();
-        if (map.containsKey(SCOPE)) {
-            List<String> scopes = (List<String>)map.get(SCOPE);
-            if (scopes!=null&& !scope.isEmpty()) {
-                for (String scopeValue: scopes) {
-                    scope.add(Scope.valueOf((String) map.get(SCOPE)));
+        try {
+            this.module = (String) map.get(ModelConfig.MODULE);
+            this.subModule = (String) map.get(ModelConfig.SUB_MODULE);
+            this.configModelKey = (String) map.get(CONFIG_MODEL_KEY);
+            this.scope = new ArrayList<>();
+            if (map.containsKey(SCOPE)) {
+                List<String> scopes = (List<String>) map.get(SCOPE);
+                if (scopes != null && !scope.isEmpty()) {
+                    for (String scopeValue : scopes) {
+                        scope.add(Scope.valueOf((String) map.get(SCOPE)));
+                    }
+                } else {
+                    scopes.add(Scope.ALL.name());
                 }
             }
-            else {
-                scopes.add(Scope.ALL.name());
-            }
+            this.expose = map.containsKey(EXPOSE) ? Expose.valueOf((String) map.get(EXPOSE)) : Expose.INFO;
+            this.configsCache = configsCache;
         }
-        this.expose = map.containsKey(EXPOSE) ? Expose.valueOf((String)map.get(EXPOSE)) : Expose.INFO;
-        this.configsCache = configsCache;
+        catch (Exception e) {
+            throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));
+        }
     }
 
     @Override

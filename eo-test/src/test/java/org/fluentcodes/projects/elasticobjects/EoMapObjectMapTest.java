@@ -7,7 +7,6 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevS
 import org.junit.Test;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 

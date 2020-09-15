@@ -6,8 +6,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
-import java.util.List;
-
 /**
  * Created by werner.diwischek on 03.12.16.
  */

@@ -5,8 +5,7 @@
     "modelKey": "ScsConfig",
     "(ArrayList)localFieldKeys": {
       "0": "fieldDelimiter",
-      "1": "rowDelimiter",
-      "2": "listParams"
+      "1": "rowDelimiter"
     },
     "superKey": "FileConfig",
     "interfaces": "ListConfigInterface",
@@ -24,20 +23,19 @@
       "10": "subModule",
       "11": "scope",
       "12": "expose",
-      "13": "key",
-      "14": "id",
-      "15": "description",
-      "16": "naturalId",
-      "17": "creationDate",
-      "18": "author"
+      "13": "id",
+      "14": "description",
+      "15": "naturalId",
+      "16": "creationDate",
+      "17": "author"
     },
     "eoParams": {
       "create": false,
       "(ShapeTypes)shapeType": "CONFIG"
     },
-    "packageGroup": "lists",
+    "module": "elastic-objects",
+    "subModule": "main",
     "(Expose)expose": "INFO",
-    "key": "ScsConfig",
     "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "ScsConfig"

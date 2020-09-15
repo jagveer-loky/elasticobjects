@@ -16,7 +16,6 @@
       "(ShapeTypes)shapeType": "BEAN"
     },
     "(Expose)expose": "INFO",
-    "key": "SuperExampleClass",
     "naturalId": "SuperExampleClass"
   },
   "(LogLevel)_logLevel": "WARN"

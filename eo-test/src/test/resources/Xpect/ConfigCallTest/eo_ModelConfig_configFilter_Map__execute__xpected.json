@@ -9,7 +9,6 @@
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "NONE",
-    "key": "HashMap",
     "author": "java",
     "naturalId": "HashMap"
   },
@@ -22,7 +21,6 @@
       "defaultImplementation": "LinkedHashMap"
     },
     "(Expose)expose": "NONE",
-    "key": "LinkedHashMap",
     "naturalId": "LinkedHashMap"
   },
   "2": {
@@ -34,7 +32,6 @@
       "defaultImplementation": "LinkedHashMap"
     },
     "(Expose)expose": "NONE",
-    "key": "Map",
     "naturalId": "Map"
   },
   "3": {
@@ -57,22 +54,19 @@
       "12": "subModule",
       "13": "scope",
       "14": "expose",
-      "15": "key",
-      "16": "id",
-      "17": "description",
-      "18": "naturalId",
-      "19": "creationDate",
-      "20": "author"
+      "15": "id",
+      "16": "description",
+      "17": "naturalId",
+      "18": "creationDate",
+      "19": "author"
     },
     "eoParams": {
       "create": false,
       "(ShapeTypes)shapeType": "CONFIG"
     },
-    "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "NONE",
-    "key": "ModelConfigMap",
     "description": "Map class wrapper for for create, get and set.",
     "author": "Werner Diwischek",
     "naturalId": "ModelConfigMap"

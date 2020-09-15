@@ -25,22 +25,19 @@
       "8": "subModule",
       "9": "scope",
       "10": "expose",
-      "11": "key",
-      "12": "id",
-      "13": "description",
-      "14": "naturalId",
-      "15": "creationDate",
-      "16": "author"
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "eoParams": {
       "create": false,
       "(ShapeTypes)shapeType": "CONFIG"
     },
-    "packageGroup": "models",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "INFO",
-    "key": "FieldConfig",
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "FieldConfig"

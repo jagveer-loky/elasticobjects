@@ -4,9 +4,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.fluentcodes.tools.xpect.IOString;
 import org.fluentcodes.tools.xpect.XpectEo;
-import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Test;
 
 import java.util.Map;

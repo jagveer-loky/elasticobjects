@@ -4,7 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.junit.Test;
 

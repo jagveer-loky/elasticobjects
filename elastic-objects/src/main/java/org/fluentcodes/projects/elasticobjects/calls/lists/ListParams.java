@@ -2,14 +2,14 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.condition.And;
-import org.fluentcodes.projects.elasticobjects.calls.condition.Eq;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * A bean class for containing the following values:
@@ -25,16 +25,15 @@ public class ListParams {
     public static final String ROW_START = "rowStart";
     public static final String LENGTH = "length";
     public static final String ROW_END = "rowEnd";
-    public static final String FILTER = "filter";
+    public static final String FILTER_RAW = "filterRaw";
     public static final String COL_KEYS = "colKeys";
 
     private Integer rowStart;
     private Integer rowEnd;
     private Integer length;
     private Integer rowHead;
-    private Or filter;
-    private String filterRaw;
-    private String mapKey;
+    private Or or;
+    private String filter;
     private List<String> colKeys;
     private Map<String, Integer> colKeysMap;
 
@@ -56,7 +55,7 @@ public class ListParams {
         setLength(attributes.get(LENGTH));
         setRowEnd(attributes.get(ROW_END));
         setColKeys(attributes.get(COL_KEYS));
-        this.filterRaw = ScalarConverter.toString(attributes.get(FILTER));
+        this.filter = ScalarConverter.toString(attributes.get(FILTER_RAW));
     }
 
     /**
@@ -72,52 +71,12 @@ public class ListParams {
         listParamsDefault.prepare();
     }
 
-    public Object filter(List toFilter) {
-        Integer start = getRowStart();
-        Integer end = getRowEnd();
-        if (!hasRowStart() && !hasRowEnd()) {
-            return toFilter;
+    public boolean filter(EO toFilter) {
+        if (!hasFilter()) {
+            return true;
         }
-        if (end == null || end>toFilter.size()) {
-            end = toFilter.size();
-        }
-        if (start == null) {
-            start = 0;
-        }
-        List filteredList = new ArrayList();
-        filteredList.addAll(toFilter
-                .subList(start, end));
-        if (!hasRowHead()) {
-            return filteredList;
-        }
-
-        if (colKeys == null|| colKeys.isEmpty()) {
-            colKeys = (List) toFilter.get(getRowHead());
-        }
-        this.colKeysMap = new HashMap<>();
-        for (int i = 0; i < this.colKeys.size(); i++) {
-            this.colKeysMap.put(this.colKeys.get(i), i);
-        }
-        if (mapKey == null) {
-            List<Map<String,Object>> result = new ArrayList<>();
-            for (Object row : filteredList) {
-                result.add(createMapFromRow((List)result));
-            }
-            return result;
-        }
-        else {
-            Map<String, Map<String,Object>> result = new HashMap<>();
-            int counter = 0;
-            for (Object row : filteredList) {
-                Map<String, Object> rowMap = createMapFromRow((List)result);
-                Object mapKey = rowMap.get(this.mapKey);
-                if (mapKey == null) {
-                    mapKey = Integer.valueOf(counter);
-                }
-                result.put(mapKey.toString(), rowMap);
-            }
-            return result;
-        }
+        resolve();
+        return or.filter(toFilter);
     }
 
     public Map<String, Object> createMapFromRow(List row) {
@@ -138,107 +97,28 @@ public class ListParams {
         return rowMap;
     }
 
-    public void prepare(EO adapter, Map attributes) {
-        if (hasFilterRaw()) {
-            setFilter(new ParserTemplate(filterRaw).parse(adapter));
+    public void resolve() {
+        if (or != null) {
+            return;
+        }
+        if (hasFilter()) {
+            this.or = new Or(filter);
         }
     }
 
     public boolean isEmpty() {
-        return rowEnd == null && length == null && (filter == null || filter.isEmpty());
-    }
-
-    public String getMapKey() {
-        return mapKey;
-    }
-
-    public void setMapKey(String mapKey) {
-        this.mapKey = mapKey;
-    }
-
-    public Or getFilter() {
-        return filter;
-    }
-
-    public void setFilter(Object filter) {
-        if (filter == null) {
-            return;
-        }
-        if (filter instanceof Or) {
-            this.filter = (Or) filter;
-            return;
-        }
-        if (!(filter instanceof String)) {
-            return;
-        }
-        this.filter = new Or((String) filter);
+        return rowEnd == null && length == null && (or == null || or.isEmpty());
     }
 
     public boolean hasFilter() {
         return getFilter()!=null && ! getFilter().isEmpty();
     }
 
-    public boolean filterRow(List rowList) {
-        if (filter == null) {
-            return true;
-        }
-        if (filter.isEmpty()) {
-            return true;
-        }
-        return filter.filter(rowList);
+    public void setFilter(String filter) {
+        this.filter = filter;
     }
-
-    public ListParams addAnd(EO adapter)  {
-        if (adapter == null) {
-            return this;
-        }
-        if (this.filter == null) {
-            this.filter = new Or();
-        }
-        And and = new And(adapter);
-        this.filter.addAnd(and);
-        return this;
-    }
-
-    public ListParams addAnd(And value) {
-        if (value == null) {
-            return this;
-        }
-        if (filter == null) {
-            this.filter = new Or();
-        }
-        this.filter.addAnd(value);
-        return this;
-    }
-
-    public ListParams addAnd(String key, Object value) {
-        if (key == null) {
-            return this;
-        }
-        if (value == null) {
-            return this;
-        }
-        if (filter == null) {
-            this.filter = new Or();
-        }
-        And and = new And();
-        and.addCondition(new Eq(key, value));
-        this.filter.addAnd(and);
-        return this;
-    }
-
-    private boolean hasFilterRaw() {
-        return filterRaw != null && !filterRaw.isEmpty();
-    }
-
-    public void setFilterRaw(Object filter) {
-        if (filter == null) {
-            return;
-        }
-        if (!(filter instanceof String)) {
-            return;
-        }
-        this.filterRaw = (String) filter;
+    public String getFilter() {
+        return filter;
     }
 
     protected ListParams checkRowStart() {
