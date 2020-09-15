@@ -8,6 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -80,7 +81,12 @@ public class XlsxConfig extends FileConfig implements ListConfigInterface {
             if (!params.isRowEnd(i)) {
                 return result;
             }
-            addRowEntry(result, rowEntry, params);
+            try {
+                addRowEntry(result, rowEntry, params);
+            }
+            catch (Exception e) {
+                throw new EoInternalException("Problem with row " + i + ": " + rowEntry);
+            }
         }
 
         if (sheet != null) {

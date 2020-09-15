@@ -1,13 +1,13 @@
 {
   "sheetName": {
-    "module": "actions-xlsx",
+    "module": "eo-xlsx",
     "subModule": "main",
-    "dbFieldParams": {
-      "fieldName": "sheetName",
-      "length": 64
-    },
     "modelKeys": "String",
+    "description": "A name for the sheet selected.",
+    "expose": "INFO",
     "fieldKey": "sheetName",
-    "description": "A name for the sheet selected."
+    "dbFieldParams": {
+      "length": 64
+    }
   }
 }

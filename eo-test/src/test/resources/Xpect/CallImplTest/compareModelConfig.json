@@ -18,11 +18,9 @@
       "create": false,
       "(ShapeTypes)shapeType": "CALL_BEAN"
     },
-    "packageGroup": "calls",
     "module": "elastic-objects",
     "subModule": "main",
     "(Expose)expose": "INFO",
-    "key": "CallImpl",
     "description": "Basic implementation for calls. ",
     "author": "Werner Diwischek",
     "naturalId": "CallImpl"

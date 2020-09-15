@@ -3,11 +3,11 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Model;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.time.LocalDateTime;
@@ -267,14 +267,14 @@ public class EoChild implements EO {
                     valueModel = getModel();
                 }
                 else if (!((value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find())) {
-                    error("Could not map scalar to container");
+                    error("Could not map scalar to container '" + this.getPath().toString() + "'");
                     return this;
                 }
             }
         }
         else {
             if (isScalar()) {
-                error("Could not map container to scalar");
+                error("Could not map container to scalar '" + this.getPath().toString() + "'");
                 return this;
             }
         }

@@ -2,21 +2,15 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
 import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_TEST_STRING;
 
 public class EqTest {
     private static final Logger LOG = LogManager.getLogger(EqTest.class);

@@ -1,8 +1,7 @@
 {
   "BasicTest": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
-    "modelKey": "BasicTest",
-    "expose":"WEB",
+    "module": "eo-test",
+    "subModule": "main",
     "fieldKeys": [
       "id",
       "basicTest",
@@ -20,33 +19,32 @@
       "testDouble",
       "testObject"
     ],
-    "eoParams": {
-      "shapeType": "BEAN",
-      "create": true
-    },
-    "packageGroup": "assets",
-    "module": "eo-test",
-    "subModule": "main",
+    "expose": "WEB",
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "modelKey": "BasicTest",
+    "eoParams": {
+      "create": true,
+      "shapeType": "BEAN"
+    },
     "author": "Werner Diwischek"
   },
   "SubTest": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
-    "expose":"WEB",
-    "modelKey": "SubTest",
+    "module": "eo-test",
+    "subModule": "main",
     "fieldKeys": [
       "id",
       "subTest",
       "name",
       "testString"
     ],
+    "expose": "WEB",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "modelKey": "SubTest",
     "eoParams": {
-      "shapeType": "BEAN",
-      "create": true
+      "create": true,
+      "shapeType": "BEAN"
     },
-    "packageGroup": "assets",
-    "module": "eo-test",
-    "subModule": "main",
     "author": "Werner Diwischek"
   }
 }

@@ -9,9 +9,8 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Pattern;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * Created by werner.diwischek on 08.01.18.

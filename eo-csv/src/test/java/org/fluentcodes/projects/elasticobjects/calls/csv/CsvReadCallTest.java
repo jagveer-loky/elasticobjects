@@ -1,12 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -19,8 +16,7 @@ import java.util.Map;
  * Created by Werner on 11.10.2016.
  */
 public class CsvReadCallTest {
-    private static final Logger LOG = LogManager.getLogger(CsvReadCallTest.class);
-    private static final String LIST_SIMPLE_CSV = ProviderFileContent.LIST_SIMPLE_CSV.getConfigKey();
+    private static final String LIST_SIMPLE_CSV = "ListSimple.csv";
 
     @Test
     public void createByModelConfig()  {

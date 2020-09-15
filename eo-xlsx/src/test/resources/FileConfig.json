@@ -6,7 +6,7 @@
     "fileName": "ListSimple.xlsx",
     "sheetName": "test",
     "description": "A sample xlsx file with 2*2 values and a head as a source.",
-    "filePath": "src/test/resources/input/xlsx",
+    "filePath": "input/xlsx",
     "listParams": {
       "rowHead": 0
     }

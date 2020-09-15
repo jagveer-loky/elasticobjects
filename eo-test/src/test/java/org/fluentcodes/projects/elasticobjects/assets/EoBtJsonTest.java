@@ -4,14 +4,12 @@ package org.fluentcodes.projects.elasticobjects.assets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import static org.fluentcodes.projects.elasticobjects.assets.BasicTest.*;
-
 import org.fluentcodes.projects.elasticobjects.EO;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.assets.BasicTest.*;
 
 /**
  * @author Werner Diwischek

@@ -4,8 +4,6 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfig;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-
 public class EoParamsTest {
 
     @Test

@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
-
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.util.Date;
 import java.util.Map;
@@ -29,12 +29,17 @@ public class ModelImpl implements Model {
     public ModelImpl() {
     }
     public ModelImpl(Map map) {
-        this.id = (Long)map.get(ID);
-        this.naturalId = (String)map.get(NATURAL_ID);
-        this.description = (String)map.get(DESCRIPTION);
-        this.creationDate = (Date)map.get(CREATION_DATE);
-        this.author = (String) map.get(AUTHOR);
-        this.modificationDate = new Date();
+        try {
+            this.id = (Long) map.get(ID);
+            this.naturalId = (String) map.get(NATURAL_ID);
+            this.description = (String) map.get(DESCRIPTION);
+            this.creationDate = (Date) map.get(CREATION_DATE);
+            this.author = (String) map.get(AUTHOR);
+            this.modificationDate = new Date();
+        }
+        catch (Exception e) {
+            throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));
+        }
     }
 
     //<call keep="JAVA" templateKey="BeanSetter.tpl">

@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderFileContent;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -14,7 +13,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_F
  * Created by Werner on 12.10.2016.
  */
 public class FileConfigTest {
-    public static final String FILE_SOURCE_TXT = ProviderFileContent.FILE_SIMPLE.getConfigKey();
+    public static final String FILE_TEST_TXT = "FileTest.txt";
 
     @Test
     public void createByModelConfig_throwsException()  {
@@ -46,7 +45,7 @@ public class FileConfigTest {
 
     @Test
     public void givenTestScope_whenFindFileContent_thenFound()  {
-        FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(ProviderFileContent.FILE_SIMPLE.getConfigKey());
+        FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(FILE_TEST_TXT);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
     }

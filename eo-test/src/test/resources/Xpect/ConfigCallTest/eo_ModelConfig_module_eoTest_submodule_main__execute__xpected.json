@@ -40,11 +40,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },
-    "packageGroup": "assets",
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "BasicTest",
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
     "author": "Werner Diwischek",
     "naturalId": "BasicTest"
@@ -68,11 +66,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },
-    "packageGroup": "assets",
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "SubTest",
     "author": "Werner Diwischek",
     "naturalId": "SubTest"
   },

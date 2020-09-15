@@ -19,11 +19,9 @@
       "create": true,
       "(ShapeTypes)shapeType": "BEAN"
     },
-    "packageGroup": "assets",
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "key": "SubTest",
     "author": "Werner Diwischek",
     "naturalId": "SubTest"
   },

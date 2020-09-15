@@ -1,38 +1,34 @@
 {
-  "XlsxReadCall": {
-    "module": "actions-xlsx",
+  "XlsxConfig": {
+    "module": "eo-xlsx",
     "subModule": "main",
-    "naturalId": "XlsxReadCall",
-    "eoParams": {
-      "shapeType": "CALL_BEAN",
-      "create": true,
-      "modelConfigKey": "XlsxConfig"
-    },
-    "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
-    "superKey": "ListReadCall",
-    "modelKey": "XlsxReadCall",
+    "fieldKeys": [
+      "sheetName"
+    ],
+    "interfaces": "ListConfigInterface",
+    "superKey": "FileConfig",
+    "expose": "INFO",
+    "description": "The cache class for excel access. Contains the file cache.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
-    "packageGroup": "xlsx",
+    "modelKey": "XlsxConfig",
+    "eoParams": {
+      "create": false,
+      "shapeType": "CONFIG"
+    },
     "author": "Werner Diwischek"
   },
-  "XlsxConfig": {
-    "module": "actions-xlsx",
+  "XlsxReadCall": {
+    "module": "eo-xlsx",
     "subModule": "main",
-    "naturalId": "XlsxConfig",
-    "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
-    },
-    "description": "The cache class for excel access. Contains the file cache.",
-    "superKey": "FileConfig",
-    "interfaces": "ListConfigInterface",
-    "fieldKeys": [
-      "sheetName",
-      "listParams"
-    ],
-    "modelKey": "XlsxConfig",
+    "superKey": "ListReadCall",
+    "expose": "INFO",
+    "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
-    "packageGroup": "xlsx",
+    "modelKey": "XlsxReadCall",
+    "eoParams": {
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
     "author": "Werner Diwischek"
   }
 }

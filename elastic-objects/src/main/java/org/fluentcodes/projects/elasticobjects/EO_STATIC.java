@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**

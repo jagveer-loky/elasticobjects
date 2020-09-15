@@ -1,23 +1,7 @@
 {
-  "DbSqlCall": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlCall",
-    "superKey": "HostAction",
-    "eoParams": {
-      "shapeType": "CALL_BEAN",
-      "create": true
-    },
-    "packageGroup": "calls",
+  "DbConfig": {
     "module": "eo-db",
     "subModule": "main",
-    "description": "Mainly the schema ",
-    "naturalId": "DbAction",
-    "author": "Werner Diwischek"
-  },
-  "DbConfig": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbConfig",
-    "superKey": "HostConfig",
     "fieldKeys": [
       "schema",
       "driver",
@@ -25,99 +9,93 @@
       "dbType",
       "extension"
     ],
+    "superKey": "HostConfig",
+    "expose": "INFO",
+    "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbConfig",
     "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
+      "create": false,
+      "shapeType": "CONFIG"
     },
-    "packageGroup": "config",
+    "author": "Werner Diwischek"
+  },
+  "DbQueryCall": {
     "module": "eo-db",
     "subModule": "main",
-    "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
-    "naturalId": "DbConfig",
+    "superKey": "ListReadCall",
+    "expose": "INFO",
+    "description": "Executes a stored sql query.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbQueryCall",
+    "eoParams": {
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbQueryConfig": {
+    "module": "eo-db",
+    "subModule": "main",
+    "fieldKeys": [
+      "dbKey",
+      "modelKey",
+      "sql"
+    ],
+    "superKey": "ConfigResourcesImpl",
+    "expose": "INFO",
+    "description": "Execute sql statement via jdbc connection. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbQueryConfig",
+    "eoParams": {
+      "create": false,
+      "shapeType": "CONFIG"
+    },
     "author": "Werner Diwischek"
   },
   "DbSqlCall": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlCall",
-    "superKey": "CallResource",
-    "eoParams": {
-      "shapeType": "CALL_BEAN",
-      "create": true
-    },
-    "packageGroup": "calls",
     "module": "eo-db",
     "subModule": "main",
+    "superKey": "CallResource",
+    "expose": "INFO",
     "description": "A execution method for  {@link DbSqlConfig}",
-    "naturalId": "DbSqlCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbSqlCall",
+    "eoParams": {
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
     "author": "Werner Diwischek"
   },
   "DbSqlConfig": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlConfig",
-    "superKey": "ConfigResourcesImpl",
+    "module": "eo-db",
+    "subModule": "main",
     "fieldKeys": [
       "dbKey",
       "sqlList"
     ],
-    "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
-    },
-    "packageGroup": "config",
-    "module": "eo-db",
-    "subModule": "main",
-    "description": "Execute sql statements via jdbc connection. ",
-    "naturalId": "DbSqlConfig",
-    "author": "Werner Diwischek"
-  },
-  "DbQueryCall": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbQueryCall",
-    "superKey": "ListReadCall",
-    "eoParams": {
-      "shapeType": "CALL_BEAN",
-      "create": true
-    },
-    "packageGroup": "calls",
-    "module": "eo-db",
-    "subModule": "main",
-    "description": "Executes a stored sql query.",
-    "author": "Werner Diwischek"
-  },
-  "DbQueryConfig": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbQueryConfig",
     "superKey": "ConfigResourcesImpl",
-    "fieldKeys": [
-      "dbKey",
-      "modelKey",
-      "sql",
-      "listParams"
-    ],
+    "expose": "INFO",
+    "description": "Execute sql statements via jdbc connection. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbSqlConfig",
     "eoParams": {
-      "shapeType": "CONFIG",
-      "create": false
+      "create": false,
+      "shapeType": "CONFIG"
     },
-    "packageGroup": "config",
-    "module": "eo-db",
-    "subModule": "main",
-    "description": "Execute sql statement via jdbc connection. ",
     "author": "Werner Diwischek"
   },
   "DbTypes": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbTypes",
-    "fieldKeys": [
-    ],
-    "eoParams": {
-      "shapeType": "ENUM",
-      "create": false
-    },
-    "packageGroup": "config",
     "module": "eo-db",
     "subModule": "main",
+    "expose": "INFO",
     "description": "Enum with different shapetypes like ORACLE or H2",
-    "naturalId": "DbTypes",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbTypes",
+    "eoParams": {
+      "create": false,
+      "shapeType": "ENUM"
+    },
     "author": "Werner Diwischek"
   }
 }

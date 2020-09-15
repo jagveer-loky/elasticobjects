@@ -76,7 +76,7 @@ public class WebEoGet {
             return e.getMessage();
         }
         if (eo.hasErrors()) {
-            return new EOToJSON().toJSON(eo);
+            return eo.getLog();
         }
         return (String) eo.get(PathElement.TEMPLATE);
     }
