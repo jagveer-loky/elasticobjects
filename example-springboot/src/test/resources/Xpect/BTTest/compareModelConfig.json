@@ -1,0 +1,52 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "modelKey": "BasicTest",
+    "(ArrayList)localFieldKeys": {
+      "0": "id",
+      "1": "basicTest",
+      "2": "subTest",
+      "3": "subTestList",
+      "4": "subTestMap",
+      "5": "untypedList",
+      "6": "untypedMap",
+      "7": "testInt",
+      "8": "testString",
+      "9": "testLong",
+      "10": "testDate",
+      "11": "testBoolean",
+      "12": "testFloat",
+      "13": "testDouble",
+      "14": "testObject"
+    },
+    "(ArrayList)fieldKeys": {
+      "0": "id",
+      "1": "basicTest",
+      "2": "subTest",
+      "3": "subTestList",
+      "4": "subTestMap",
+      "5": "untypedList",
+      "6": "untypedMap",
+      "7": "testInt",
+      "8": "testString",
+      "9": "testLong",
+      "10": "testDate",
+      "11": "testBoolean",
+      "12": "testFloat",
+      "13": "testDouble",
+      "14": "testObject"
+    },
+    "eoParams": {
+      "create": true,
+      "(ShapeTypes)shapeType": "BEAN"
+    },
+    "module": "eo-test",
+    "subModule": "main",
+    "(Expose)expose": "WEB",
+    "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
+    "author": "Werner Diwischek",
+    "naturalId": "BasicTest"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}
