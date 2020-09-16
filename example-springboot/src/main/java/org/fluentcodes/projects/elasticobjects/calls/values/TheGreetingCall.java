@@ -29,7 +29,9 @@ public class TheGreetingCall extends SimpleValueFromEoCall {
         if ((eo.get() instanceof String)) {
             name = (String)eo.get();
         }
-        return (this.greeting + " " + name + "!");
+        String value = this.greeting + " " + name + "!";
+        eo.set(value, getTargetPath());
+        return (value);
     }
 
     public String getGreeting() {

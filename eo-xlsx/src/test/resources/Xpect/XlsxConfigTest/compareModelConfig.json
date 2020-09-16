@@ -1,0 +1,42 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
+    "modelKey": "XlsxConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "sheetName"
+    },
+    "superKey": "FileConfig",
+    "interfaces": "ListConfigInterface",
+    "(ArrayList)fieldKeys": {
+      "0": "sheetName",
+      "1": "listParams",
+      "2": "configModelKey",
+      "3": "fileName",
+      "4": "filePath",
+      "5": "hostKey",
+      "6": "cached",
+      "7": "rolePermissions",
+      "8": "module",
+      "9": "subModule",
+      "10": "scope",
+      "11": "expose",
+      "12": "id",
+      "13": "description",
+      "14": "naturalId",
+      "15": "creationDate",
+      "16": "author"
+    },
+    "eoParams": {
+      "create": false,
+      "(ShapeTypes)shapeType": "CONFIG"
+    },
+    "module": "eo-xlsx",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "The cache class for excel access. Contains the file cache.",
+    "author": "Werner Diwischek",
+    "naturalId": "XlsxConfig"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

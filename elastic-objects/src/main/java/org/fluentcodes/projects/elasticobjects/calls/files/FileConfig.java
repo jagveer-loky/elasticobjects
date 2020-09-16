@@ -77,7 +77,7 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
             throw new EoException("Could not find " + fileName.replaceAll("^/+", ""));
         }
         catch (Exception e) {
-            throw new EoException(e);
+            throw new EoException("Could not find " + fileName.replaceAll("^/+", ""), e);
         }
     }
     @Override

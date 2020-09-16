@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -29,12 +30,11 @@ public class TheGreetingCallTest {
         Assertions.assertThat(content).isEqualTo("Hello Albert!");
     }
 
-
     @Test
     public void givenNameAndGreetingAndTargetPath_whenExecuteCall_thenNamesAreSet()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.set("Albert", "abc");
-        eo.addCall(new TheGreetingCall("Hello").setSourcePath("abc").setTargetPath("x/y/z"));
+        eo.addCall(new TheGreetingCall("Hello").setSourcePath("abc").setTargetPath("/x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("x/y/z")).isEqualTo("Hello Albert!");
@@ -56,7 +56,7 @@ public class TheGreetingCallTest {
         EO eo = ProviderRootTestScope.createEo();
         List<String> nameList = Arrays.asList(new String[]{"Albert", "Victor", "Chessy"});
         eo.set(nameList, "abc");
-        eo.addCall(new TheGreetingCall("Hello").setSourcePath("abc/*").setTargetPath("x/y/z"));
+        eo.addCall(new TheGreetingCall("Hello").setSourcePath("abc/*").setTargetPath("/x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("x/y/z/0")).isEqualTo("Hello Albert!");
@@ -66,7 +66,7 @@ public class TheGreetingCallTest {
     public void givenTemplate_whenExecuteTemplate_thenDefaultReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new TemplateCall("* $[(TheGreetingCall) inTemplate=\"true\"/] *").execute(eo);
+        String content = new TemplateCall("* $[(TheGreetingCall). targetPath=\"asString\" /] *").execute(eo);
         Assertions.assertThat(content).isEqualTo("* Hi Stranger! *");
     }
 
