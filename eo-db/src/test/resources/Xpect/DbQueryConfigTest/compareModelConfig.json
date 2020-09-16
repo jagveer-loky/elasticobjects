@@ -1,0 +1,39 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbQueryConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "dbKey",
+      "1": "modelKey",
+      "2": "sql"
+    },
+    "superKey": "ConfigResourcesImpl",
+    "(ArrayList)fieldKeys": {
+      "0": "dbKey",
+      "1": "modelKey",
+      "2": "sql",
+      "3": "rolePermissions",
+      "4": "module",
+      "5": "subModule",
+      "6": "scope",
+      "7": "expose",
+      "8": "id",
+      "9": "description",
+      "10": "naturalId",
+      "11": "creationDate",
+      "12": "author"
+    },
+    "eoParams": {
+      "create": false,
+      "(ShapeTypes)shapeType": "CONFIG"
+    },
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "Execute sql statement via jdbc connection. ",
+    "author": "Werner Diwischek",
+    "naturalId": "DbQueryConfig"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}
