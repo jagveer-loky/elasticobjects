@@ -373,7 +373,7 @@
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "Planned.html",
-    "description": "Plans for 0.3.0.",
+    "description": "Plans for 0.4.0-SNAPSHOT.",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
