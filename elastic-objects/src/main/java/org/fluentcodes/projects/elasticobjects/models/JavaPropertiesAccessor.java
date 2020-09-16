@@ -19,6 +19,12 @@ public interface JavaPropertiesAccessor {
         return hasProperties()?getJavaProperties().getModule():null;
     }
 
+    default void setModule(final String module) {
+        if (hasProperties()) {
+            getJavaProperties().setModule(module);
+        }
+    }
+
     default boolean hasClassPath() {
         return getClassPath()!=null && !getClassPath().isEmpty();
     }
@@ -27,7 +33,11 @@ public interface JavaPropertiesAccessor {
         return hasProperties()?getJavaProperties().getClassPath():null;
     }
 
-
+    default void setClassPath(final String classPath) {
+        if (hasProperties()) {
+            getJavaProperties().setClassPath(classPath);
+        }
+    }
 
     default boolean hasPackagePath() {
         return getPackagePath()!=null && !getPackagePath().isEmpty();
@@ -35,6 +45,12 @@ public interface JavaPropertiesAccessor {
 
     default String getPackagePath() {
         return hasProperties()?getJavaProperties().getPackagePath():null;
+    }
+
+    default void setPackagePath(final String packagePath) {
+        if (hasProperties()) {
+            getJavaProperties().setPackagePath(packagePath);
+        }
     }
 
     default boolean hasTargetDirectory() {
