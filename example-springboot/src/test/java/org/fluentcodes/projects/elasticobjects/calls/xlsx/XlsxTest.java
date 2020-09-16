@@ -18,7 +18,8 @@ public class XlsxTest {
         final Call call = new XlsxReadCall()
                 .setConfigKey("BasicTest.xlsx:test");
         EO eo = ProviderRootTestScope.createEo();
-        List value = (List)call.execute(eo);
+        call.execute(eo);
+        List value = (List)eo.get();
         Assertions.assertThat(value).isNotEmpty();
      }
 }

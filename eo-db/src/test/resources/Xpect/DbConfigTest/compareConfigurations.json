@@ -1,0 +1,116 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "schema": "$[TMP]/test",
+    "driver": "org.h2.Driver",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "protocol": "jdbc:h2",
+    "user": "sa",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "local H2 with a temp file",
+    "naturalId": "h2:file"
+  },
+  "1": {
+    "schema": "file:basic",
+    "driver": "org.h2.Driver",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "hostName": "h2:mem",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "Local H2 in file persisted for the test resources.",
+    "naturalId": "h2:file:basic"
+  },
+  "2": {
+    "schema": "mem:test",
+    "driver": "org.h2.Driver",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "protocol": "jdbc:h2",
+    "user": "sa",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "local H2 which exists just in memory",
+    "naturalId": "h2:mem"
+  },
+  "3": {
+    "schema": "mem:basic",
+    "driver": "org.h2.Driver",
+    "extension": "DATABASE_TO_UPPER=false;",
+    "protocol": "jdbc:h2",
+    "hostName": "h2",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "Local H2 in memory for the test resources.",
+    "naturalId": "h2:mem:basic"
+  },
+  "4": {
+    "schema": "file:$[TMP]/test.hsql",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
+    "naturalId": "hsql:fileTest"
+  },
+  "5": {
+    "schema": "mem",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "local HSQL which exists just in memory",
+    "naturalId": "hsql:mem"
+  },
+  "6": {
+    "protocol": "file:",
+    "hostName": "localhost",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "NONE",
+    "description": "local host with key 'local'",
+    "naturalId": "local"
+  },
+  "7": {
+    "protocol": "file:",
+    "hostName": "localhost",
+    "module": "elastic-objects",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "local host with key 'localhost'",
+    "naturalId": "localhost"
+  },
+  "8": {
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "Core Schema",
+    "naturalId": "localMySql:core"
+  },
+  "9": {
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "Test Schema",
+    "naturalId": "localMySql:test"
+  },
+  "10": {
+    "schema": "XE",
+    "configModelKey": "DbConfig",
+    "module": "eo-db",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "Oracle Schem",
+    "naturalId": "localOracle:XE"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

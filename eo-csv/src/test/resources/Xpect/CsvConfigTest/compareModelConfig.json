@@ -1,0 +1,44 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
+    "modelKey": "CsvConfig",
+    "(ArrayList)localFieldKeys": {
+      "0": "fieldDelimiter",
+      "1": "rowDelimiter"
+    },
+    "superKey": "FileConfig",
+    "interfaces": "ListConfigInterface",
+    "(ArrayList)fieldKeys": {
+      "0": "fieldDelimiter",
+      "1": "rowDelimiter",
+      "2": "listParams",
+      "3": "configModelKey",
+      "4": "fileName",
+      "5": "filePath",
+      "6": "hostKey",
+      "7": "cached",
+      "8": "rolePermissions",
+      "9": "module",
+      "10": "subModule",
+      "11": "scope",
+      "12": "expose",
+      "13": "id",
+      "14": "description",
+      "15": "naturalId",
+      "16": "creationDate",
+      "17": "author"
+    },
+    "eoParams": {
+      "create": false,
+      "(ShapeTypes)shapeType": "CONFIG"
+    },
+    "module": "eo-csv",
+    "subModule": "main",
+    "(Expose)expose": "INFO",
+    "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
+    "author": "Werner Diwischek",
+    "naturalId": "CsvConfig"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}
