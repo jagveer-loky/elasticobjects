@@ -17,6 +17,8 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     public static final String SUB_MODULE = "subModule";
     private static final String SCOPE = "scope";
     public static final String EXPOSE = "expose";
+    public static final String JAVA_PROPERTIES = "javaProperties";
+    private final JavaProperties javaProperties;
     private final EOConfigsCache configsCache;
     private final String module;
     private final String subModule;
@@ -44,10 +46,17 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             }
             this.expose = map.containsKey(EXPOSE) ? Expose.valueOf((String) map.get(EXPOSE)) : Expose.INFO;
             this.configsCache = configsCache;
+            this.javaProperties = map.containsKey(JAVA_PROPERTIES) && map.get(JAVA_PROPERTIES)!=null ?
+                    new JavaPropertiesImmutable((Map)map.get(JAVA_PROPERTIES)):
+                    null;
         }
         catch (Exception e) {
             throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));
         }
+    }
+
+    public JavaProperties getJavaProperties() {
+        return javaProperties;
     }
 
     @Override
