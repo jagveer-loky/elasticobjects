@@ -6,38 +6,32 @@
     "(ArrayList)localFieldKeys": {
       "0": "fieldKey",
       "1": "modelKeys",
-      "2": "dbFieldParams",
-      "3": "eoFieldParams",
-      "4": "viewFieldParams",
-      "5": "customFieldParams",
-      "6": "modelList"
+      "2": "modelList"
     },
     "superKey": "ConfigImpl",
     "(ArrayList)fieldKeys": {
       "0": "fieldKey",
       "1": "modelKeys",
-      "2": "dbFieldParams",
-      "3": "eoFieldParams",
-      "4": "viewFieldParams",
-      "5": "customFieldParams",
-      "6": "modelList",
-      "7": "module",
-      "8": "subModule",
-      "9": "scope",
-      "10": "expose",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
+      "2": "modelList",
+      "3": "scope",
+      "4": "expose",
+      "5": "module",
+      "6": "moduleScope",
+      "7": "properties",
+      "8": "id",
+      "9": "description",
+      "10": "naturalId",
+      "11": "creationDate",
+      "12": "author"
     },
-    "eoParams": {
-      "create": false,
-      "(ShapeTypes)shapeType": "CONFIG"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG",
+      "module": "elastic-objects"
+    },
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "FieldConfig"

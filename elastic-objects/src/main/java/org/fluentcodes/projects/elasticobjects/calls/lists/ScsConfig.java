@@ -16,18 +16,16 @@ import java.util.Map;
  * @author Werner Diwischek
  * @since 09.10.2017.
  */
-public class ScsConfig extends FileConfig implements ListConfigInterface {
+public class ScsConfig extends FileConfig implements PropertiesListAccessor {
     public static final String FIELD_DELIMITER = "fieldDelimiter";
     public static final String ROW_DELIMITER = "rowDelimiter";
     private final String fieldDelimiter;
     private final String rowDelimiter;
-    private final ListParams listParams;
 
     public ScsConfig(final EOConfigsCache provider, Map map)  {
         super(provider, map);
         this.fieldDelimiter = map.containsKey(FIELD_DELIMITER) ? (String) map.get(FIELD_DELIMITER) : ";";
         this.rowDelimiter = map.containsKey(ROW_DELIMITER) ? (String) map.get(ROW_DELIMITER) : "\n";
-        this.listParams = map.containsKey(ListInterface.LIST_PARAMS) ? new ListParams((Map)map.get(ListInterface.LIST_PARAMS)) : new ListParams();
     }
 
     public void resolve()  {
@@ -75,7 +73,7 @@ public class ScsConfig extends FileConfig implements ListConfigInterface {
             }
             String[] fields = row.split(fieldDelimiter);
             List rowEntry = Arrays.asList(fields);
-            addRowEntry(result, rowEntry, params);
+            addRowEntry(getConfigsCache(), result, rowEntry, params);
         }
         return result;
     }
@@ -86,10 +84,6 @@ public class ScsConfig extends FileConfig implements ListConfigInterface {
         EO eo = new EoRoot(getConfigsCache());
         read(eo, readCall);
         return eo.get();
-    }
-
-    public ListParams getListParams() {
-        return listParams;
     }
 
     /**

@@ -20,23 +20,25 @@
       "4": "password",
       "5": "configModelKey",
       "6": "rolePermissions",
-      "7": "module",
-      "8": "subModule",
-      "9": "scope",
-      "10": "expose",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
+      "7": "scope",
+      "8": "expose",
+      "9": "module",
+      "10": "moduleScope",
+      "11": "properties",
+      "12": "id",
+      "13": "description",
+      "14": "naturalId",
+      "15": "creationDate",
+      "16": "author"
     },
-    "eoParams": {
-      "create": false,
-      "(ShapeTypes)shapeType": "CONFIG"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG",
+      "module": "elastic-objects"
+    },
     "description": "Basic host definition for file or db cache. ",
     "naturalId": "HostConfig"
   },

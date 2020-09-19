@@ -15,7 +15,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class ConfigKeysCallTest {
+public class ConfigKeysCallCheck {
 
     @Test
     public void createByModelConfig()  {

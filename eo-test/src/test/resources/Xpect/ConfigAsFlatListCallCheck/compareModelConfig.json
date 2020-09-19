@@ -9,23 +9,25 @@
     "superKey": "ConfigImpl",
     "(ArrayList)fieldKeys": {
       "0": "configType",
-      "1": "module",
-      "2": "subModule",
-      "3": "scope",
-      "4": "expose",
-      "5": "id",
-      "6": "description",
-      "7": "naturalId",
-      "8": "creationDate",
-      "9": "author"
+      "1": "scope",
+      "2": "expose",
+      "3": "module",
+      "4": "moduleScope",
+      "5": "properties",
+      "6": "id",
+      "7": "description",
+      "8": "naturalId",
+      "9": "creationDate",
+      "10": "author"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "elastic-objects"
+    },
     "description": "Creates a string as list file.",
     "author": "Werner Diwischek",
     "naturalId": "ConfigAsFlatListCall"

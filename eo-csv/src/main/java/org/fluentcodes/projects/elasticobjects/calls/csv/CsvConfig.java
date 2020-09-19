@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
 import au.com.bytecode.opencsv.CSVReader;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.*;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -23,21 +21,14 @@ import static org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig.ROW_
 /**
  * Created by Werner on 09.10.2016.
  */
-public class CsvConfig extends FileConfig implements ListConfigInterface {
+public class CsvConfig extends FileConfig implements PropertiesListAccessor {
     private final String fieldDelimiter;
     private final String rowDelimiter;
-    private final ListParams listParams;
 
     public CsvConfig(final EOConfigsCache configsCache, Map map)  {
         super(configsCache, map);
         this.fieldDelimiter = map.containsKey(FIELD_DELIMITER) ? (String) map.get(FIELD_DELIMITER) : ";";
         this.rowDelimiter = map.containsKey(ROW_DELIMITER) ? (String) map.get(ROW_DELIMITER) : "\n";
-        this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
-    }
-
-    @Override
-    public ListParams getListParams() {
-        return listParams;
     }
 
     /**
@@ -88,7 +79,7 @@ public class CsvConfig extends FileConfig implements ListConfigInterface {
                     return result;
                 }
                 List rowEntry = Arrays.asList(row);
-                addRowEntry(result, rowEntry, params);
+                addRowEntry(getConfigsCache(), result, rowEntry, params);
             }
         }
         catch (IOException e) {

@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by Werner on 10.10.2016.
  */
-public abstract class ConfigResourcesImpl extends ConfigImpl {
+public abstract class ConfigResourcesImpl extends ConfigImpl implements ConfigResources{
     public static final String ROLE_PERMISSIONS = "rolePermissions";
     private final RolePermissions rolePermissions;
 

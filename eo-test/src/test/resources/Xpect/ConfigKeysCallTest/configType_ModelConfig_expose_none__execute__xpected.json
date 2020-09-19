@@ -47,7 +47,7 @@
   "44": "LinkedHashMap",
   "45": "LinkedHashSet",
   "46": "List",
-  "47": "ListConfigInterface",
+  "47": "PropertiesListAccessor",
   "48": "ListInterface",
   "49": "ListParams",
   "50": "ListReadCall",

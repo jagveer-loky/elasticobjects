@@ -1,18 +1,19 @@
 {
   "CsvConfig": {
     "module": "eo-csv",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "fieldDelimiter",
       "rowDelimiter"
     ],
-    "interfaces": "ListConfigInterface",
+    "interfaces": "PropertiesListAccessor",
     "superKey": "FileConfig",
     "expose": "INFO",
     "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -20,13 +21,14 @@
   },
   "CsvReadCall": {
     "module": "eo-csv",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ListReadCall",
     "expose": "INFO",
     "description": "Defines read call for a csv action depending on one link CsvConfig. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvReadCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -34,13 +36,14 @@
   },
   "CsvWriteCall": {
     "module": "eo-csv",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ListWriteCall",
     "expose": "INFO",
     "description": "Defines write call for a csv action depending on one link CsvConfig. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvWriteCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },

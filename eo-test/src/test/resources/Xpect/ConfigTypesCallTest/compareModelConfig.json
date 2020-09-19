@@ -14,13 +14,14 @@
       "6": "logLevel",
       "7": "duration"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "elastic-objects"
+    },
     "description": "For getting a list of keys for a configuration types.",
     "author": "Werner Diwischek",
     "naturalId": "ConfigTypesCall"

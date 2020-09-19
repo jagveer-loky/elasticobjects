@@ -1,53 +1,28 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "protocol": "file:",
     "hostName": "localhost",
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "localhost",
+      "module": "elastic-objects"
+    },
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
   "1": {
-    "protocol": "file:",
     "hostName": "localhost",
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "localhost",
+      "module": "elastic-objects"
+    },
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
-  },
-  "2": {
-    "port": 1,
-    "protocol": "protocol",
-    "hostName": "hostName",
-    "user": "user",
-    "password": "password",
-    "rolePermissions": {
-      "read": "testRoleRead,guest",
-      "write": "testRoleWrite,admin",
-      "create": "testRoleCreate,admin",
-      "delete": "admin",
-      "execute": "superadmin"
-    },
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "description": "description",
-    "naturalId": "test"
-  },
-  "3": {
-    "port": 21,
-    "protocol": "ftp",
-    "hostName": "ftpServer",
-    "user": "testUser",
-    "password": "testPassword",
-    "module": "elastic-objects",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "description": "Test Ftp Dummy",
-    "naturalId": "testFtp"
   },
   "(LogLevel)_logLevel": "WARN"
 }

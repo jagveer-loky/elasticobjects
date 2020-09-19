@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,12 +14,17 @@ import java.util.Map;
  */
 public abstract class ConfigImpl extends ModelImpl implements Config {
     public static final String CONFIG_MODEL_KEY = "configModelKey";
+    public static final String MODULE = "module";
+    public static final String MODULE_SCOPE = " moduleScope";
     private static final String SCOPE = "scope";
     public static final String EXPOSE = "expose";
+    public static final String PROPERTIES = "properties";
+
+    private final Map properties;
     private final EOConfigsCache configsCache;
-    private final String module;
-    private final String subModule;
     private final String configModelKey;
+    private final String module;
+    private final String moduleScope;
     private final List<Scope> scope;
     private Expose expose;
     private boolean resolved = false;
@@ -26,9 +32,9 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     public ConfigImpl(EOConfigsCache configsCache, Map map) {
         super(map);
         try {
-            this.module = (String) map.get(ModelConfig.MODULE);
-            this.subModule = (String) map.get(ModelConfig.SUB_MODULE);
             this.configModelKey = (String) map.get(CONFIG_MODEL_KEY);
+            this.module = (String) map.get(MODULE);
+            this.moduleScope = (String) map.get(MODULE_SCOPE);
             this.scope = new ArrayList<>();
             if (map.containsKey(SCOPE)) {
                 List<String> scopes = (List<String>) map.get(SCOPE);
@@ -42,10 +48,28 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             }
             this.expose = map.containsKey(EXPOSE) ? Expose.valueOf((String) map.get(EXPOSE)) : Expose.INFO;
             this.configsCache = configsCache;
+            Map properties = (Map)map.get(PROPERTIES);
+            if (properties == null) {
+                properties = new LinkedHashMap();
+            }
+            properties.put(MODULE, module);
+            this.properties = new LinkedHashMap(properties);
         }
         catch (Exception e) {
             throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));
         }
+    }
+
+    public Map getProperties() {
+        return properties;
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public String getModuleScope() {
+        return moduleScope;
     }
 
     @Override
@@ -83,22 +107,6 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     public void resolve()  {
         this.resolved = true;
     }
-
-    /**
-     * Defines a target module where generating occurs.
-     */
-    public String getModule() {
-        return this.module;
-    }
-    //<call keep="JAVA" templateKey="CacheGetter.tpl">
-
-    /**
-     * Defines the target  sub module like 'main' or 'test'.
-     */
-    public String getSubModule() {
-        return this.subModule;
-    }
-
 
     /**
      * A scope for the config value.

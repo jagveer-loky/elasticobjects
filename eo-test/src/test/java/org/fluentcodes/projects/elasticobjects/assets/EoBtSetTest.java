@@ -37,15 +37,15 @@ public class EoBtSetTest {
 
     @Test
     public void testBasicTestWithTestString()  {
-        FieldConfig fieldCacheDefinitions = ProviderRootTestScope.EO_CONFIGS
+        FieldConfig fieldConfig = ProviderRootTestScope.EO_CONFIGS
                 .findModel(BasicTest.class)
                 .getFieldConfig(BasicTest.TEST_STRING);
-        Assert.assertNotNull(fieldCacheDefinitions);
-        Assert.assertFalse(fieldCacheDefinitions.isUnique());
-        Assert.assertFalse(fieldCacheDefinitions.isNotNull());
+        Assert.assertNotNull(fieldConfig);
+        Assert.assertFalse(fieldConfig.getUnique());
+        Assert.assertFalse(fieldConfig.getNotNull());
         //Assert.assertTrue(fieldDefinitions.isElementary());
         //Assert.assertTrue(fieldDefinitions.isScalar());
-        Assert.assertEquals(new Integer(20), fieldCacheDefinitions.getLength());
+        Assert.assertEquals(new Integer(20), fieldConfig.getLength());
     }
 
     @Test

@@ -17,6 +17,7 @@ public class ListReadCall extends CallResource implements ListInterface {
     private ListParams listParams;
     public ListReadCall() {
         super(PermissionType.READ);
+        this.listParams = new ListParams();
     }
 
     public ListReadCall(final String configKey) {

@@ -2,26 +2,36 @@
   "h2:file:basic": {
     "configModelKey": "DbConfig",
     "module": "eo-db",
-    "subModule": "main",
-    "hostName": "h2:mem",
+    "moduleScope": "main",
     "description": "Local H2 in file persisted for the test resources.",
     "expose": "INFO",
-    "schema": "file:basic",
-    "driver": "org.h2.Driver",
-    "dbType": "H2",
-    "extension": "DATABASE_TO_UPPER=false;"
+    "properties": {
+      "classPath": "src.main.resources",
+      "schema": "file:basic",
+      "dbType": "H2",
+      "extensionx": "DATABASE_TO_UPPER=false;",
+      "driver": "org.h2.Driver",
+      "protocol": "jdbc",
+      "hostName": "h2",
+      "user": "sa"
+    }
   },
   "h2:mem:basic": {
     "configModelKey": "DbConfig",
     "module": "eo-db",
-    "subModule": "main",
-    "protocol": "jdbc:h2",
-    "hostName": "h2",
+    "moduleScope": "main",
     "description": "Local H2 in memory for the test resources.",
     "expose": "INFO",
-    "schema": "mem:basic",
-    "driver": "org.h2.Driver",
-    "dbType": "H2",
-    "extension": "DATABASE_TO_UPPER=false;"
+    "properties": {
+      "classPath": "src.main.resources",
+      "schema": "mem:basic",
+      "dbType": "H2",
+      "extension": "DATABASE_TO_UPPER=false;",
+      "driver": "org.h2.Driver",
+      "protocol": "jdbc",
+      "hostName": "h2",
+      "user": "sa",
+      "password": ""
+    }
   }
 }

@@ -5,12 +5,13 @@ import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Condition;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
+import org.fluentcodes.projects.elasticobjects.calls.lists.PropertiesListAccessor;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.PropertiesAccessor;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -28,29 +29,25 @@ import static org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface.
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInterface {
+public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesListAccessor, PropertiesDbSqlAccessor {
 
     public static final String SQL = "sql";
     private final String modelKey;
-    private final String dbKey;
     private final PathPattern pathPattern;
     private final And and;
     private final String sql;
+
     private ModelInterface modelCache;
     private DbConfig dbConfig;
     private List<String> metaDataNames;
     private List<String> metaDataTypes;
-    private final ListParams listParams;
 
     public DbQueryConfig(final EOConfigsCache configsCache, final Map map)  {
         super(configsCache, map);
-        dbKey = (String)map.get(DbConfig.DB_KEY);
         sql = (String)map.get(SQL);
         pathPattern = new PathPattern((String) map.get(F_PATH_PATTERN));
         modelKey = (String)map.get(ModelConfig.MODEL_KEY);
         and = new And((String)map.get(F_AND));
-        this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
-        listParams.setRowHead(0);
     }
 
     public void resolve()  {
@@ -58,12 +55,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
             return;
         }
         super.resolve();
-        this.dbConfig = (DbConfig) getConfigsCache().find(HostConfig.class, dbKey);
-    }
-
-    @Override
-    public ListParams getListParams() {
-        return listParams;
+        this.dbConfig = (DbConfig) getConfigsCache().find(HostConfig.class, getDbKey());
     }
 
     @Override
@@ -90,7 +82,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
                 if (!params.isRowEnd(i)) {
                     return result;
                 }
-                addRowEntry(result, rowEntry, params);
+                addRowEntry(getConfigsCache(), result, rowEntry, params);
             }
         }
         catch (Exception e) {
@@ -185,13 +177,6 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
     }
 
     /**
-     * Hibernate object with a certain model
-     */
-    public String getdbKey() {
-        return this.dbKey;
-    }
-
-    /**
      * The config embeded int {@link DbQueryConfig}.
      */
     public DbConfig getDbConfig()  {
@@ -199,7 +184,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
             if (this.getConfigsCache() == null) {
                 throw new EoException("Config could not be initialized with a null provider for 'dbCache' - 'dbKey''!");
             }
-            this.dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, dbKey);
+            this.dbConfig = (DbConfig) getConfigsCache().find(DbConfig.class, getDbKey());
         }
         return this.dbConfig;
     }
@@ -213,10 +198,6 @@ public class DbQueryConfig extends ConfigResourcesImpl implements ListConfigInte
      */
     public And getAnd() {
         return this.and;
-    }
-
-    public String getDbKey() {
-        return dbKey;
     }
 
 }
