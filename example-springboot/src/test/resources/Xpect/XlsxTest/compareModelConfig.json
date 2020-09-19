@@ -16,13 +16,14 @@
       "8": "logLevel",
       "9": "duration"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "eo-xlsx",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-xlsx",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "eo-xlsx"
+    },
     "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
     "author": "Werner Diwischek",
     "naturalId": "XlsxReadCall"

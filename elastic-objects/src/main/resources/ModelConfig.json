@@ -1,13 +1,14 @@
 {
   "And": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "description": "A list of {@ Condition}.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "And",
-    "eoParams": {
-      "create": true,
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
       "shapeType": "SCALAR_SERIALIZED"
     },
     "author": "Werner Diwischek"
@@ -15,11 +16,12 @@
   "Arrays": {
     "configModelKey": "ModelConfigList",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.util",
     "modelKey": "Arrays",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "LIST"
     },
@@ -27,7 +29,7 @@
   },
   "Call": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "sourcePath",
       "targetPath",
@@ -42,7 +44,8 @@
     "description": "Basic interface for calls ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "Call",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     },
@@ -50,13 +53,14 @@
   },
   "CallImpl": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "Call",
     "expose": "INFO",
     "description": "Basic implementation for calls. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallImpl",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CALL_BEAN"
     },
@@ -64,7 +68,7 @@
   },
   "CallResource": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "configKey"
     ],
@@ -73,7 +77,8 @@
     "description": "Super class for class using ResourceConfigs with permission rights. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallResource",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CALL_BEAN"
     },
@@ -82,11 +87,12 @@
   "Class": {
     "configModelKey": "ModelConfigNone",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.lang",
     "modelKey": "Class",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR"
     },
@@ -94,12 +100,13 @@
   },
   "Condition": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "CREATE",
     "description": "Interface for conditions, mainly a key value pair with some methods serving as filter expressions. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Condition",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     },
@@ -107,19 +114,21 @@
   },
   "Config": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
-      "module",
-      "subModule",
       "scope",
-      "expose"
+      "expose",
+      "module",
+      "moduleScope",
+      "properties"
     ],
     "superKey": "Model",
     "expose": "INFO",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Config",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     },
@@ -127,7 +136,7 @@
   },
   "ConfigAsFlatListCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "configType"
     ],
@@ -136,7 +145,8 @@
     "description": "Creates a string as list file.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigAsFlatListCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -144,7 +154,7 @@
   },
   "ConfigCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "filterModule",
       "filterSubModule"
@@ -154,7 +164,8 @@
     "description": "For getting a map of configurations for a specific configuration type.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -162,14 +173,15 @@
   },
   "ConfigImpl": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "Config",
     "superKey": "ModelImpl",
     "expose": "INFO",
     "description": "Basic cache as super object for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ConfigImpl",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -177,7 +189,7 @@
   },
   "ConfigKeysCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "configType",
       "configFilter",
@@ -188,7 +200,8 @@
     "description": "For getting a list of keys for a specific configuration type.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigKeysCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -196,7 +209,7 @@
   },
   "ConfigOpenApiCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "filterModule",
       "filterSubModule",
@@ -208,7 +221,8 @@
     "description": "Creates an open api schema from model configuration.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigOpenApiCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -216,7 +230,7 @@
   },
   "ConfigResources": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "rolePermissions"
     ],
@@ -224,122 +238,52 @@
     "description": "Interface with permissions methods ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ConfigResources",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     }
   },
   "ConfigResourcesImpl": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "ConfigResources",
     "superKey": "ConfigImpl",
     "expose": "INFO",
     "description": "Abstract implementation for resources with permissions methods ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ConfigResourcesImpl",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     }
   },
   "ConfigTypesCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For getting a list of keys for a configuration types.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigTypesCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
     "author": "Werner Diwischek"
   },
-  "DBFieldParams": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "fieldKeys": [
-      "fieldName",
-      "hibernate",
-      "table",
-      "join",
-      "joinInverse",
-      "mapKey",
-      "unique",
-      "notNull",
-      "length"
-    ],
-    "expose": "INFO",
-    "description": "Params defining the properties of an objects field  when it will persisted e.g. in a database.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "DBFieldParams",
-    "eoParams": {
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
-  "DBParams": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "fieldKeys": [
-      "table",
-      "idKey",
-      "naturalKeys",
-      "hibernateAnnotations"
-    ],
-    "expose": "INFO",
-    "description": "Params controlling the behavior of persisting an EO ModelConfig e.g. for a database.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "DBParams",
-    "eoParams": {
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
-  "EOFieldParams": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "expose": "INFO",
-    "description": "Params controlling the behavior of an EO FieldConfig like serialization/deserialization.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "EOFieldParams",
-    "eoParams": {
-      "create": true,
-      "shapeType": "BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "EOParams": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "fieldKeys": [
-      "create",
-      "shapeType",
-      "defaultImplementation"
-    ],
-    "expose": "INFO",
-    "description": "Params controlling the behavior of an EO ModelConfig like serialization/deserialization.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "EOParams",
-    "eoParams": {
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
   "Eq": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "Condition",
     "expose": "CREATE",
     "description": "Equality check for objects.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Eq",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR_SERIALIZED"
     },
@@ -347,12 +291,13 @@
   },
   "ExecutorCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "description": "Facade execution ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ExecutorCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     },
@@ -360,14 +305,15 @@
   },
   "ExecutorCallImpl": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "ExecutorCall",
     "superKey": "ExecutorCall",
     "expose": "NONE",
     "description": "Facade execution ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ExecutorCallImpl",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "OBJECT"
     },
@@ -375,12 +321,13 @@
   },
   "ExecutorCallList": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "description": "For a list of executors",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ExecutorCallList",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "OBJECT"
     },
@@ -389,12 +336,13 @@
   "Expose": {
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "description": "Enum with different exposing types for filter delivery types.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Expose",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR"
     },
@@ -402,14 +350,10 @@
   },
   "FieldConfig": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "fieldKey",
       "modelKeys",
-      "dbFieldParams",
-      "eoFieldParams",
-      "viewFieldParams",
-      "customFieldParams",
       "modelList"
     ],
     "superKey": "ConfigImpl",
@@ -417,7 +361,8 @@
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "FieldConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -425,7 +370,7 @@
   },
   "FileConfig": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "configModelKey",
       "fileName",
@@ -438,7 +383,8 @@
     "description": "Immutable EO file configuration will be initialized by internal builder using map values.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -446,13 +392,14 @@
   },
   "FileReadCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "CallResource",
     "expose": "WEB",
     "description": "Defines a file read access. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileReadCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -460,13 +407,14 @@
   },
   "FileWriteCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "CallResource",
     "expose": "WEB",
     "description": "Defines a file write access. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileWriteCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -475,11 +423,12 @@
   "HashMap": {
     "configModelKey": "ModelConfigMap",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.util",
     "modelKey": "HashMap",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "MAP"
     },
@@ -487,7 +436,7 @@
   },
   "HostConfig": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "port",
       "protocol",
@@ -501,20 +450,22 @@
     "description": "Basic host definition for file or db cache. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "HostConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     }
   },
   "JsonAsStringCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "SimpleValueFromEoCall",
     "expose": "WEB",
     "description": "For setting the string representation of eo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "JsonAsStringCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -522,7 +473,7 @@
   },
   "JsonReadCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "content",
       "indent",
@@ -533,7 +484,8 @@
     "description": "Calls with configuration {@link JsonConfig} to read a file write its content to EO on targetPath.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "JsonReadCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -542,12 +494,13 @@
   "KeepCalls": {
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "INFO",
     "description": "Enum for templates to keep the template directives in the template result as a comment. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "KeepCalls",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "ENUM"
     },
@@ -555,13 +508,14 @@
   },
   "Like": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "Condition",
     "expose": "NONE",
     "description": "Like check for strings.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Like",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR_SERIALIZED"
     },
@@ -570,27 +524,59 @@
   "LinkedHashSet": {
     "configModelKey": "ModelConfigSet",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.util",
     "modelKey": "LinkedHashSet",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "SET"
     },
     "author": "java"
   },
-  "ListConfigInterface": {
+  "PropertiesListAccessor": {
     "module": "elastic-objects",
-    "subModule": "main",
-    "fieldKeys": [
-      "listParams"
-    ],
+    "moduleScope": "main",
+    "superKey": "PropertiesConfigAccessor",
     "expose": "INFO",
     "description": "Defines default common methods for List configuration",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ListConfigInterface",
-    "eoParams": {
+    "modelKey": "PropertiesListAccessor",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "PropertiesConfigAccessor": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "PropertiesAccessor",
+    "expose": "INFO",
+    "description": "Defines default common methods for List configuration",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "PropertiesConfigAccessor",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "PropertiesAccessor": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "properties"
+    ],
+    "expose": "INFO",
+    "description": "Root interface for properties access. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "PropertiesAccessor",
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -598,7 +584,7 @@
   },
   "ListInterface": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "listParams"
     ],
@@ -606,7 +592,8 @@
     "description": "Defines default access values for ListParams",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListInterface",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -614,7 +601,7 @@
   },
   "ListParams": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "rowHead",
       "rowStart",
@@ -627,7 +614,8 @@
     "description": "Defines the parameter like rowStart, rowEnd and length.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListParams",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -635,7 +623,7 @@
   },
   "ListReadCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "listParams"
     ],
@@ -644,7 +632,8 @@
     "description": "Defines the parameter listParams.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListReadCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CALL_BEAN"
     },
@@ -652,7 +641,7 @@
   },
   "ListWriteCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "listParams"
     ],
@@ -661,7 +650,8 @@
     "description": "Defines the parameter like listMapper.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListWriteCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CALL_BEAN"
     },
@@ -669,7 +659,7 @@
   },
   "Model": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "id",
       "description",
@@ -681,7 +671,8 @@
     "description": "Basic bean as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Model",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     },
@@ -689,14 +680,15 @@
   },
   "ModelConfig": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "ModelInterface",
     "superKey": "ConfigImpl",
     "expose": "INFO",
     "description": "Table definitions with pojo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -704,13 +696,14 @@
   },
   "ModelConfigList": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ModelConfig",
     "expose": "NONE",
     "description": "List class wrapper for create, get and set.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigList",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -718,13 +711,14 @@
   },
   "ModelConfigMap": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ModelConfig",
     "expose": "NONE",
     "description": "Map class wrapper for for create, get and set.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigMap",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -732,13 +726,14 @@
   },
   "ModelConfigNone": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ModelConfig",
     "expose": "NONE",
     "description": "Object class wrapper for .",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigNone",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -746,13 +741,14 @@
   },
   "ModelConfigObject": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ModelConfig",
     "expose": "NONE",
     "description": "Class definitions for an object with getters and setters.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigObject",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -760,13 +756,14 @@
   },
   "ModelConfigScalar": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ModelConfig",
     "expose": "NONE",
     "description": "Class definitions for a scalar.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigScalar",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -774,13 +771,14 @@
   },
   "ModelConfigSet": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ModelConfig",
     "expose": "NONE",
     "description": "Class definitions for a scalar.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigSet",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -788,13 +786,14 @@
   },
   "ModelImpl": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "interfaces": "Model",
     "expose": "INFO",
     "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelImpl",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -802,26 +801,22 @@
   },
   "ModelInterface": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "packagePath",
       "modelKey",
       "localFieldKeys",
       "superKey",
       "interfaces",
-      "fieldKeys",
-      "eoParams",
-      "dbParams",
-      "viewParams",
-      "customParams",
-      "packageGroup"
+      "fieldKeys"
     ],
     "superKey": "Config",
     "expose": "INFO",
     "description": "Table definitions with pojo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelInterface",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     },
@@ -829,7 +824,7 @@
   },
   "Models": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "modelKeys"
     ],
@@ -837,7 +832,8 @@
     "description": "A list of models to specify model configs for a path.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Models",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -846,11 +842,12 @@
   "Object": {
     "configModelKey": "ModelConfigNone",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.lang",
     "modelKey": "Object",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "NONE"
     },
@@ -858,12 +855,13 @@
   },
   "Or": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "description": "A list of {@ And}.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Or",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR_SERIALIZED"
     },
@@ -871,7 +869,7 @@
   },
   "Path": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "entries"
     ],
@@ -879,7 +877,8 @@
     "description": "A path with useful methonds. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects",
     "modelKey": "Path",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR_SERIALIZED"
     },
@@ -887,7 +886,7 @@
   },
   "PathPattern": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "serialized"
     ],
@@ -895,7 +894,8 @@
     "description": "A list of paths to filter object hierarchy.",
     "packagePath": "org.fluentcodes.projects.elasticobjects",
     "modelKey": "PathPattern",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR_SERIALIZED"
     },
@@ -903,7 +903,7 @@
   },
   "RolePermissions": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "read",
       "write",
@@ -915,7 +915,8 @@
     "description": "Defines the roles ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "RolePermissions",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INSTANCE"
     },
@@ -924,12 +925,13 @@
   "Scope": {
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "description": "Enum with different Scopes to environment specific caches.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Scope",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR"
     },
@@ -937,18 +939,19 @@
   },
   "ScsConfig": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "fieldDelimiter",
       "rowDelimiter"
     ],
-    "interfaces": "ListConfigInterface",
+    "interfaces": "PropertiesListAccessor",
     "superKey": "FileConfig",
     "expose": "INFO",
     "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ScsConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -956,13 +959,14 @@
   },
   "ScsReadCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ListReadCall",
     "expose": "WEB",
     "description": "Defines a primitive csv file read operation. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ScsReadCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -971,11 +975,12 @@
   "Set": {
     "configModelKey": "ModelConfigSet",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.util",
     "modelKey": "Set",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SET",
       "defaultImplementation": "LinkedHashSet"
@@ -985,12 +990,13 @@
   "ShapeTypes": {
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "INFO",
     "description": "Enum with different shapetypes like SCALAR or BEAN. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ShapeTypes",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "ENUM"
     },
@@ -999,11 +1005,12 @@
   "Short": {
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.lang",
     "modelKey": "Short",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR"
     },
@@ -1011,13 +1018,14 @@
   },
   "SimpleValueFromEoCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For setting a value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "SimpleValueFromEoCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1025,13 +1033,14 @@
   },
   "SinusValueCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For setting sinus value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "SinusValueCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1040,11 +1049,12 @@
   "StringBuffer": {
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.lang",
     "modelKey": "StringBuffer",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR"
     },
@@ -1053,11 +1063,12 @@
   "StringBuilder": {
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "NONE",
     "packagePath": "java.lang",
     "modelKey": "StringBuilder",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "SCALAR"
     },
@@ -1065,13 +1076,14 @@
   },
   "StringLowerCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "SimpleValueFromEoCall",
     "expose": "WEB",
     "description": "For setting lower value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringLowerCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1079,7 +1091,7 @@
   },
   "StringReplaceCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "toReplace",
       "replaceBy"
@@ -1089,7 +1101,8 @@
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringReplaceCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1097,13 +1110,14 @@
   },
   "StringUpperCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "SimpleValueFromEoCall",
     "expose": "WEB",
     "description": "For setting upper value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringUpperCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1111,13 +1125,14 @@
   },
   "StringUpperFirstCharCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "SimpleValueFromEoCall",
     "expose": "WEB",
     "description": "For setting upper value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringUpperFirstCharCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1125,7 +1140,7 @@
   },
   "TemplateCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "content"
     ],
@@ -1134,7 +1149,8 @@
     "description": "Executes a template content. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1142,7 +1158,7 @@
   },
   "TemplateResourceCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "keepCall"
     ],
@@ -1151,7 +1167,8 @@
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -1159,7 +1176,7 @@
   },
   "ValueCall": {
     "module": "elastic-objects",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "value"
     ],
@@ -1168,43 +1185,10 @@
     "description": "For setting values to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "ValueCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ViewFieldParams": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "fieldKeys": [
-      "viewKey",
-      "inputKey"
-    ],
-    "expose": "INFO",
-    "description": "Params controlling the behavior the view of an elastic field including input.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ViewFieldParams",
-    "eoParams": {
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ViewParams": {
-    "module": "elastic-objects",
-    "subModule": "main",
-    "fieldKeys": [
-      "viewKey",
-      "inputKey"
-    ],
-    "expose": "INFO",
-    "description": "Params controlling the behavior of the view of an elastic object.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ViewParams",
-    "eoParams": {
-      "create": false,
-      "shapeType": "CONFIG"
     },
     "author": "Werner Diwischek"
   }

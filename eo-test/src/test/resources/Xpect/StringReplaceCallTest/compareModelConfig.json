@@ -20,13 +20,14 @@
       "8": "logLevel",
       "9": "duration"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "elastic-objects"
+    },
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
     "author": "Werner Diwischek",
     "naturalId": "StringReplaceCall"

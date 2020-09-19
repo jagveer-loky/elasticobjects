@@ -9,11 +9,11 @@
     "(ArrayList)fieldKeys": {
       "0": "SubExampleClass.name"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "BEAN"
-    },
     "(Expose)expose": "INFO",
+    "properties": {
+      "shapeType": "BEAN",
+      "create": true
+    },
     "naturalId": "SubExampleClass"
   },
   "(LogLevel)_logLevel": "WARN"

@@ -5,9 +5,10 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 
 /**
  * Created by werner.diwischek on 11.03.18.
@@ -24,7 +25,7 @@ public class StringReplaceCallTest {
         EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(ProviderRootTestScope.EO_CONFIGS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new StringReplaceCall("\\.", "/").execute(eo.getEo(ModelConfig.PACKAGE_PATH));
+        String content = new StringReplaceCall("\\.", "/").execute(eo.getEo(PACKAGE_PATH));
         Assertions.assertThat(content).isEqualTo("org/fluentcodes/projects/elasticobjects/calls/values");
     }
 
@@ -33,7 +34,7 @@ public class StringReplaceCallTest {
         EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(ProviderRootTestScope.EO_CONFIGS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new TemplateCall("* $[(StringReplaceCall) targetPath=\"" + CallImpl.AS_STRING + "\" toReplace=\"\\.\" replaceBy=\"/\" /] *").execute(eo.getEo(ModelConfig.PACKAGE_PATH));
+        String content = new TemplateCall("* $[(StringReplaceCall) targetPath=\"" + CallImpl.AS_STRING + "\" toReplace=\"\\.\" replaceBy=\"/\" /] *").execute(eo.getEo(PACKAGE_PATH));
         Assertions.assertThat(content).isEqualTo("* org/fluentcodes/projects/elasticobjects/calls/values *");
     }
 }

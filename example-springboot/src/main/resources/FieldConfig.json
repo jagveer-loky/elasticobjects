@@ -1,13 +1,14 @@
 {
   "greeting": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "modelKeys": "String",
     "description": "The field value for TheGreetingCall example. ",
     "expose": "INFO",
     "fieldKey": "greeting",
-    "dbFieldParams": {
-      "length": 15
+    "length": 15,
+    "properties": {
+      "classPath": "src.main.resources"
     }
   }
 }

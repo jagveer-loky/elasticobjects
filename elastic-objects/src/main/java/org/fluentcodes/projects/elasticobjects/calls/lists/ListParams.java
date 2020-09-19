@@ -58,17 +58,12 @@ public class ListParams {
         this.filter = ScalarConverter.toString(attributes.get(FILTER_RAW));
     }
 
-    /**
-     * Sets the values for the parameter with local values if not set.
-     *
-     * @param listParamsDefault
-     */
-    public void merge(ListParams listParamsDefault) {
-        this.setRowHead(listParamsDefault.getRowHead());
-        this.setRowStart(listParamsDefault.getRowStart());
-        this.setLength(listParamsDefault.getLength());
-        this.setRowEnd(listParamsDefault.getRowEnd());
-        listParamsDefault.prepare();
+    public void merge(Map<String, Object> properties) {
+        this.setRowHead(properties.get(ROW_HEAD));
+        this.setRowStart(properties.get(ROW_START));
+        this.setLength(properties.get(LENGTH));
+        this.setRowEnd(properties.get(ROW_END));
+        prepare();
     }
 
     public boolean filter(EO toFilter) {

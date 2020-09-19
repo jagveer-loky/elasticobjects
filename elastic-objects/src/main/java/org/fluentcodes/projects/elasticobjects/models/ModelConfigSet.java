@@ -10,17 +10,18 @@ import java.util.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigSet extends ModelConfig implements ModelInterface {
+public class ModelConfigSet extends ModelConfig {
     private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
 
     public ModelConfigSet(EOConfigsCache provider, Map map) {
         super(provider, map);
     }
 
-    @Override
+    /*@Override
     public String getTable() {
         return null;
     }
+     */
 
     @Override
     public ModelInterface getFieldModel(final String fieldName)  {

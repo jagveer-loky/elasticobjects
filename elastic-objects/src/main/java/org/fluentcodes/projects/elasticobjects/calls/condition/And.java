@@ -55,10 +55,11 @@ public class And {
             String value = matcher.group(3).replaceAll("[\\s]*$", "");
             switch (operator) {
                 case Condition.EQ:
-                    conditions.add(new Eq(key, value));
-                    break;
                 case Condition.EQUALS:
                     conditions.add(new Eq(key, value));
+                    break;
+                case Condition.NE:
+                    conditions.add(new Ne(key, value));
                     break;
                 case Condition.LIKE:
                     conditions.add(new Like(key, value));

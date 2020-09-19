@@ -15,13 +15,14 @@
       "2": "name",
       "3": "testString"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "BEAN"
-    },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN",
+      "module": "eo-test"
+    },
     "author": "Werner Diwischek",
     "naturalId": "SubTest"
   },

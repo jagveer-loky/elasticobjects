@@ -1,87 +1,111 @@
 {
   "ContentExample": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExample.json",
     "description": "Calls templates.",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ContentExampleData": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleData.json",
     "description": "Simple data for the content templates.",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ContentExampleDynamic": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleDynamic.tpl",
     "description": "A template or ContentExample using the template field for rendering with a template",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ContentExampleElement1": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleElement1.tpl",
     "description": "A template for an entry fo ContentExample",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ContentExampleElement2": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleElement2.tpl",
     "description": "A template for an entry fo ContentExample",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ContentExampleStatic": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleStatic.tpl",
     "description": "A template  ContentExample with condition",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ContentExampleStaticCondition": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleStaticCondition.tpl",
     "description": "A template  ContentExample with condition",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ContentExampleStaticKeep": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleStaticKeep.tpl",
     "description": "A template  ContentExample with condition",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "FileTest.txt": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/file-simple",
     "fileName": "FileTest.txt",
@@ -91,21 +115,27 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
+    },
+    "properties": {
+      "classPath": "src.test.resources"
     }
   },
   "FileTestCached.txt": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/file-simple",
     "fileName": "FileTest.txt",
     "description": "Local file with cache set true.",
     "expose": "NONE",
-    "cached": "true"
+    "cached": "true",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "ListSimple.json": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "input/calls/list-simple",
     "fileName": "ListSimple.json",
@@ -115,44 +145,54 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
+    },
+    "properties": {
+      "classPath": "src.test.resources"
     }
   },
   "target.csv": {
     "configModelKey": "ScsConfig",
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "$[@TMP]",
     "fileName": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
     "expose": "NONE",
     "cached": "false",
-    "listParams": {
-      "rowHead": 0
-    },
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
+    },
+    "properties": {
+      "classPath": "src.test.resources",
+      "rowHead": 0
     }
   },
   "target.json": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "$[@TMP]",
     "fileName": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "expose": "NONE",
-    "cached": "false"
+    "cached": "false",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   },
   "target.txt": {
     "module": "eo-test",
-    "subModule": "test",
+    "moduleScope": "test",
     "hostKey": "localhost",
     "filePath": "$[@TMP]",
     "fileName": "target.txt",
     "description": "Target file definition",
     "expose": "NONE",
-    "cached": "false"
+    "cached": "false",
+    "properties": {
+      "classPath": "src.test.resources"
+    }
   }
 }

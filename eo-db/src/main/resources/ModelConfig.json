@@ -1,7 +1,7 @@
 {
   "DbConfig": {
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "schema",
       "driver",
@@ -14,7 +14,8 @@
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -22,13 +23,14 @@
   },
   "DbQueryCall": {
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ListReadCall",
     "expose": "INFO",
     "description": "Executes a stored sql query.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbQueryCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -36,7 +38,7 @@
   },
   "DbQueryConfig": {
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "dbKey",
       "modelKey",
@@ -47,7 +49,8 @@
     "description": "Execute sql statement via jdbc connection. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbQueryConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -55,13 +58,14 @@
   },
   "DbSqlCall": {
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "CallResource",
     "expose": "INFO",
     "description": "A execution method for  {@link DbSqlConfig}",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },
@@ -69,7 +73,7 @@
   },
   "DbSqlConfig": {
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "dbKey",
       "sqlList"
@@ -79,20 +83,23 @@
     "description": "Execute sql statements via jdbc connection. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
     "author": "Werner Diwischek"
   },
   "DbTypes": {
+    "configModelKey": "ModelConfigScalar",
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "expose": "INFO",
     "description": "Enum with different shapetypes like ORACLE or H2",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbTypes",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "ENUM"
     },

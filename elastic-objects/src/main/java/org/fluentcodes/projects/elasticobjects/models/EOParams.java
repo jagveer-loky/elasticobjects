@@ -8,11 +8,6 @@ import java.util.Map;
  * Created by werner.diwischek on 19.02.18.
  */
 public class EOParams {
-    public static final String ATTRIBUTE_LIST = "attributeList";
-    public static final String DEFAULT_IMPLEMENTATION = "defaultImplementation";
-    public static final String MODEL_CONFIG_KEY = "modelConfigKey";
-    public static final String SHAPE_TYPE = "shapeType";
-    public static final String CREATE = "create";
     private final Boolean create;
     private final ShapeTypes shapeType;
     private final String defaultImplementation;
@@ -24,10 +19,10 @@ public class EOParams {
             defaultImplementation = null;
             return;
         }
-        this.defaultImplementation = (String) map.get(DEFAULT_IMPLEMENTATION);
-        this.create = map.containsKey(CREATE) && map.get(CREATE)!=null ? (Boolean) map.get(CREATE): true;
+        this.defaultImplementation = (String) map.get(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION);
+        this.create = map.containsKey(PropertiesModelAccessor.CREATE) && map.get(PropertiesModelAccessor.CREATE)!=null ? (Boolean) map.get(PropertiesModelAccessor.CREATE): true;
         try {
-            String shapeTypeAsString = (String) map.get(SHAPE_TYPE);
+            String shapeTypeAsString = (String) map.get(PropertiesModelAccessor.SHAPE_TYPE);
             if (shapeTypeAsString == null || shapeTypeAsString.isEmpty()) {
                 this.shapeType = ShapeTypes.BEAN;
             } else {
@@ -35,7 +30,7 @@ public class EOParams {
             }
         }
         catch (Exception e) {
-            throw new EoInternalException("Problem setting shapeType " + map.get(SHAPE_TYPE));
+            throw new EoInternalException("Problem setting shapeType " + map.get(PropertiesModelAccessor.SHAPE_TYPE));
         }
     }
 

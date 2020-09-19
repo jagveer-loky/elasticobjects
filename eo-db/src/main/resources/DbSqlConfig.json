@@ -2,22 +2,26 @@
   "h2:mem:basic:BasicTest": {
     "configModelKey": "DbQueryConfig",
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "description": "Query for BasicTest",
     "expose": "INFO",
-    "dbKey": "h2:mem:basic",
-    "sql": "Select * from BasicTest",
-    "modelKey": "BasicTest",
-    "listParams": {
-      "rowHead": 0
-    }
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "BasicTest"
+    },
+    "sql": "Select * from BasicTest"
   },
   "h2:mem:basic:Create": {
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "description": "Basic H2 creating tables",
     "expose": "INFO",
-    "dbKey": "h2:mem:basic",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": ""
+    },
     "sqlList": [
       "drop table BasicTest if exists",
       "drop table SubTest if exists",
@@ -37,14 +41,14 @@
   "h2:mem:basic:SubTest": {
     "configModelKey": "DbQueryConfig",
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "description": "Query for SubTest",
     "expose": "INFO",
-    "dbKey": "h2:mem:basic",
-    "sql": "Select * from SubTest",
-    "modelKey": "SubTest",
-    "listParams": {
-      "rowHead": 0
-    }
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "SubTest"
+    },
+    "sql": "Select * from SubTest"
   }
 }

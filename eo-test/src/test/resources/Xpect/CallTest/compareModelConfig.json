@@ -23,13 +23,14 @@
       "6": "logLevel",
       "7": "duration"
     },
-    "eoParams": {
-      "create": false,
-      "(ShapeTypes)shapeType": "INTERFACE"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE",
+      "module": "elastic-objects"
+    },
     "description": "Basic interface for calls ",
     "author": "Werner Diwischek",
     "naturalId": "Call"

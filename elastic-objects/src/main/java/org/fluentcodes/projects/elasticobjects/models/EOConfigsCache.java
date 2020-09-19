@@ -227,13 +227,13 @@ public class EOConfigsCache {
         if (fieldConfig == null || fieldKey.isEmpty()) {
             throw new EoException("No fieldKey provided for " + fieldKey + " and source=" + source);
         }
-        DBFieldParams dbFieldParams = fieldConfig.getDbFieldParams();
+        /*DBFieldParams dbFieldParams = fieldConfig.getDbFieldParams();
         if (dbFieldParams != null) {
             Object configDefaultValue = dbFieldParams.getDefaultValue();
             if (configDefaultValue != null && defaultValue == null) {
                 defaultValue = configDefaultValue;
             }
-        }
+        }*/
         if (source == null && defaultValue == null) {
             return null;
         }

@@ -13,16 +13,21 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         $[configuration/0/description|>No Description provided!]
         </p>
         <h4>Github</h4>
-        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[configuration/0/module|>elastic-objects]/src/$[configuration/0/submodule|>main]/resources/$[configType].json">&equiv;$[configType].json</a></div>
+        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[configuration/0/module|>elastic-objects]/src/$[configuration/0/moduleScope|>main]/resources/$[configType].json">&equiv;$[configType].json</a></div>
 
         $[(TemplateCall)configuration/0 condition="/configType eq FileConfig"]
             <div><a href="https://github.com/fluentcodes/elasticobjects/tree/master/$[module|>example-springboot]/input/$[filePath]/$[fileName]">&equiv;$[fileName]</a></div>
         $[/]
 
         $[(TemplateCall). condition="/configType eq ModelConfig" sourcePath="configuration/0"]
-            <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|>elastic-objects]/src/main/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey].java">&equiv;$[modelKey].java</a></div>
-            <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|>elastic-objects]/src/test/java/$[(StringReplaceCall) sourcePath="packagePath" inTemplate="true" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
-            <h4>Fields</h4>
+            <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|>elastic-objects]/src/main/java/$[(StringReplaceCall)asString sourcePath="packagePath"  toReplace="\." replaceBy="/" /]/$[modelKey].java">&equiv;$[modelKey].java</a></div>
+            $[(TemplateCall). condition="module eq elastic-objects"]
+                <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
+            $[/]
+            $[(TemplateCall). condition="module ne elastic-objects"]
+                 <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|>elastic-objects]/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
+            $[/]
+        <h4>Fields</h4>
             $[(TemplateCall)fieldKeys/* ]
                 <div><a href="/config/FieldConfig/$[_value]">&ocir;$[_value]</a></div>
             $[/]

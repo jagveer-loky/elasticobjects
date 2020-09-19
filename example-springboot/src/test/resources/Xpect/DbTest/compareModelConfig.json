@@ -16,13 +16,14 @@
       "8": "logLevel",
       "9": "duration"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "eo-db",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-db",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "eo-db"
+    },
     "description": "Executes a stored sql query.",
     "author": "Werner Diwischek",
     "naturalId": "DbQueryCall"

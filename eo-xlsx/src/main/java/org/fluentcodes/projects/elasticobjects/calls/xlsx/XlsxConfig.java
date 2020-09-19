@@ -3,10 +3,9 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListConfigInterface;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
+import org.fluentcodes.projects.elasticobjects.calls.lists.PropertiesListAccessor;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -14,34 +13,17 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.*;
 import java.net.URL;
-import java.util.*;
-
-import static org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface.LIST_PARAMS;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Werner on 30.10.2016.
  */
-public class XlsxConfig extends FileConfig implements ListConfigInterface {
-    private static final String SHEET_NAME = "sheetName";
-    private final String sheetName;
-    private final ListParams listParams;
-
+public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
     public XlsxConfig(final EOConfigsCache configsCache, final Map map) {
         super(configsCache, map);
-        this.sheetName = (String) map.get(SHEET_NAME);
-        this.listParams = map.containsKey(LIST_PARAMS) ? new ListParams((Map)map.get(LIST_PARAMS)) : new ListParams();
-    }
-
-    @Override
-    public ListParams getListParams() {
-        return listParams;
-    }
-
-    /**
-     * A name for the sheet selected.
-     */
-    public String getSheetName() {
-        return this.sheetName;
     }
 
     public Sheet getSheet()  {
@@ -63,7 +45,7 @@ public class XlsxConfig extends FileConfig implements ListConfigInterface {
         List result = new ArrayList<>();
         Sheet sheet = getSheet();
         if (sheet == null) {
-            throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + sheetName + "' is undefined.");
+            throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + getSheetName() + "' is undefined.");
         }
         List rowEntry;
         int i = -1;
@@ -82,22 +64,20 @@ public class XlsxConfig extends FileConfig implements ListConfigInterface {
                 return result;
             }
             try {
-                addRowEntry(result, rowEntry, params);
+                addRowEntry(getConfigsCache(), result, rowEntry, params);
             }
             catch (Exception e) {
-                throw new EoInternalException("Problem with row " + i + ": " + rowEntry);
+                throw new EoInternalException("Problem with row " + i + ": " + rowEntry + "", e);
             }
         }
 
-        if (sheet != null) {
-            try {
-                sheet.getWorkbook().close();
-            } catch (IOException e) {
-                sheet = null;
-                throw new EoException(e);
-            }
+        try {
+            sheet.getWorkbook().close();
+        } catch (IOException e) {
             sheet = null;
+            throw new EoException(e);
         }
+        sheet = null;
         return result;
     }
 

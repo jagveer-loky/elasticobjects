@@ -1,0 +1,33 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ConfigImpl",
+    "superKey": "ModelImpl",
+    "interfaces": "Config",
+    "(ArrayList)fieldKeys": {
+      "0": "scope",
+      "1": "expose",
+      "2": "module",
+      "3": "moduleScope",
+      "4": "properties",
+      "5": "id",
+      "6": "description",
+      "7": "naturalId",
+      "8": "creationDate",
+      "9": "author"
+    },
+    "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG",
+      "module": "elastic-objects"
+    },
+    "description": "Basic cache as super object for other cached items. ",
+    "author": "Werner Diwischek",
+    "naturalId": "ConfigImpl"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

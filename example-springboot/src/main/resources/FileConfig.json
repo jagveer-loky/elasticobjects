@@ -2,23 +2,24 @@
   "BasicTest.xlsx:test": {
     "configModelKey": "XlsxConfig",
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "lists",
     "fileName": "BasicTest.xlsx",
     "description": "A sample xml file with 3x3 entries and a header which could be mapped to BasicTest.",
     "expose": "INFO",
     "cached": "false",
-    "listParams": {
-      "rowHead": 0
-    },
     "rolePermissions": {
       "read": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0
     }
   },
   "ConfigsCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "ConfigsCall.html",
@@ -27,11 +28,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ConfigsNavigation.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "ConfigsNavigation.html",
@@ -40,11 +44,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ConfigsPage.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "ConfigsPage.html",
@@ -53,11 +60,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ConfigsStartPage.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "ConfigsStartPage.html",
@@ -66,11 +76,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ContentPage.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "ContentPage.html",
@@ -79,11 +92,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "DbCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "DbCall.html",
@@ -92,11 +108,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ExamplesPage.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "ExamplesPage.html",
@@ -105,11 +124,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ExamplesStart.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "ExamplesStart.html",
@@ -118,11 +140,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ExcelCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "ExcelCall.html",
@@ -131,11 +156,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "FieldConfig.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/configs",
     "fileName": "FieldConfig.html",
@@ -144,11 +172,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "FileCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "FileCall.html",
@@ -157,11 +188,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "FileConfig.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/configs",
     "fileName": "FileConfig.html",
@@ -170,11 +204,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "Footer.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "Footer.html",
@@ -183,11 +220,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "Header.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "Header.html",
@@ -196,11 +236,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "Home.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "Home.html",
@@ -209,11 +252,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "Impressum.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "Impressum.html",
@@ -222,11 +268,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "index.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "Home.html",
@@ -235,11 +284,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "Index.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "Home.html",
@@ -248,11 +300,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "JsonCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "JsonCall.html",
@@ -261,11 +316,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "LeanCode.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "LeanCode.html",
@@ -274,11 +332,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "LeanServices.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "LeanServices.html",
@@ -287,11 +348,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "list.json": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "json",
     "fileName": "list.json",
@@ -300,11 +364,14 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ListCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "ListCall.html",
@@ -313,11 +380,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "LowCode.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "LowCode.html",
@@ -326,11 +396,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "map.json": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "json",
     "fileName": "map.json",
@@ -339,11 +412,14 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "ModelConfig.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/configs",
     "fileName": "ModelConfig.html",
@@ -352,11 +428,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "NoCode.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "NoCode.html",
@@ -365,24 +444,30 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "Planned.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
     "fileName": "Planned.html",
-    "description": "Plans for 0.4.0-SNAPSHOT.",
+    "description": "Plans for 0.3.0.",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "public.txt": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "files",
     "fileName": "public.txt",
@@ -391,11 +476,14 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "secret.txt": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "files",
     "fileName": "secret.txt",
@@ -404,11 +492,14 @@
     "cached": "false",
     "rolePermissions": {
       "read": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "Svg.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
     "fileName": "Svg.html",
@@ -417,11 +508,14 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "TemplateCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "TemplateCall.html",
@@ -430,11 +524,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "TemplateConfig.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/configs",
     "fileName": "TemplateConfig.html",
@@ -443,11 +540,14 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "TheGreetingCall.html": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
     "fileName": "TheGreetingCall.html",
@@ -456,16 +556,22 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
     }
   },
   "withoutPermissions-public.txt": {
     "module": "example-springboot",
-    "subModule": "main",
+    "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "files",
     "fileName": "public.txt",
     "description": "Public example with no permissions.",
     "expose": "INFO",
-    "cached": "false"
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
   }
 }

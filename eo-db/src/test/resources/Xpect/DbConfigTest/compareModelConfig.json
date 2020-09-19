@@ -24,23 +24,25 @@
       "9": "password",
       "10": "configModelKey",
       "11": "rolePermissions",
-      "12": "module",
-      "13": "subModule",
-      "14": "scope",
-      "15": "expose",
-      "16": "id",
-      "17": "description",
-      "18": "naturalId",
-      "19": "creationDate",
-      "20": "author"
+      "12": "scope",
+      "13": "expose",
+      "14": "module",
+      "15": "moduleScope",
+      "16": "properties",
+      "17": "id",
+      "18": "description",
+      "19": "naturalId",
+      "20": "creationDate",
+      "21": "author"
     },
-    "eoParams": {
-      "create": false,
-      "(ShapeTypes)shapeType": "CONFIG"
-    },
-    "module": "eo-db",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-db",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG",
+      "module": "eo-db"
+    },
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "author": "Werner Diwischek",
     "naturalId": "DbConfig"

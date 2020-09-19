@@ -1,13 +1,14 @@
 {
   "sheetName": {
     "module": "eo-xlsx",
-    "subModule": "main",
+    "moduleScope": "main",
     "modelKeys": "String",
     "description": "A name for the sheet selected.",
     "expose": "INFO",
     "fieldKey": "sheetName",
-    "dbFieldParams": {
-      "length": 64
+    "length": 64,
+    "properties": {
+      "classPath": "src.main.resources"
     }
   }
 }

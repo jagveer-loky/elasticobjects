@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
 /**
  * Created by werner.diwischek on 03.12.16.
  */
-public class ScsReadCall extends ListReadCall implements ListInterface{
+public class ScsReadCall extends ListReadCall {
     private static final Logger LOG = LogManager.getLogger(ScsReadCall.class);
 
     public ScsReadCall()  {
