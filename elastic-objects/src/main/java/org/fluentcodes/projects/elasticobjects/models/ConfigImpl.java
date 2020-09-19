@@ -2,12 +2,10 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Werner on 10.10.2016.
@@ -53,7 +51,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
                 properties = new LinkedHashMap();
             }
             properties.put(MODULE, module);
-            this.properties = new LinkedHashMap(properties);
+            this.properties = new UnmodifiableMap(new LinkedHashMap(properties));
         }
         catch (Exception e) {
             throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));

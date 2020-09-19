@@ -128,7 +128,6 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(ModelConfig.MODEL_KEY, "LinkedHashMap");
         addConfigByMap(map);
 
-
         // list
         map.put(Model.NATURAL_ID, "List");
         map.put(ModelConfig.MODEL_KEY, "List");
@@ -137,7 +136,6 @@ public class EOConfigMapModels extends EOConfigMap {
         properties.put(PropertiesModelAccessor.SHAPE_TYPE, "LIST");
         properties.put(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION, "ArrayList");
         addConfigByMap(map);
-
 
         map.put(Model.NATURAL_ID, "ArrayList");
         map.put(ModelConfig.MODEL_KEY, "ArrayList");
@@ -194,6 +192,21 @@ public class EOConfigMapModels extends EOConfigMap {
 
         map.put(Model.NATURAL_ID, "JSONSerializationType");
         map.put(ModelConfig.MODEL_KEY, "JSONSerializationType");
+        addConfigByMap(map);
+
+        map.put(Model.NATURAL_ID, "UnmodifiableMap");
+        map.put(ModelConfig.MODEL_KEY, "UnmodifiableMap");
+        map.put(CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
+        addConfigByMap(map);
+
+        map.put(Model.NATURAL_ID, "UnmodifiableCollection");
+        map.put(ModelConfig.MODEL_KEY, "UnmodifiableCollection");
+        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
+
+        map.put(Model.NATURAL_ID, "UnmodifiableList");
+        map.put(ModelConfig.MODEL_KEY, "UnmodifiableList");
+        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
+
         addConfigByMap(map);
     }
 }
