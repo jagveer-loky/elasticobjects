@@ -15,47 +15,37 @@ import java.util.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public abstract class ModelConfig extends ConfigImpl implements ModelInterface, JavaPropertiesAccessor {
+public abstract class ModelConfig extends ConfigImpl implements PropertiesModelAccessor {
     public static final String MODEL_KEY = "modelKey";
     public static final String FIELD_KEYS = "fieldKeys";
-    public static final String VIEW_PARAMS = "viewParams";
     public static final String EO_PARAMS = "eoParams";
     public static final String JSON_TYPE = "jsonType";
-    public static final String JSON_FORMAT = "jsonFormat";
-
-    public static final String PATH = "path";
-    public static final String PACKAGE_GROUP = "packageGroup";
-    public static final String PACKAGE_PATH = "packagePath";
     public static final String INTERFACES = "interfaces";
     public static final String DB_PARAMS = "dbParams";
-    public static final String CUSTOM_PARAMS = "customParams";
     public static final String SUPER_KEY = "superKey";
+    public static final String PACKAGE_PATH = "packagePath";
 
     private static final Logger LOG = LogManager.getLogger(ModelConfig.class);
 
     private final String modelKey;
-    private final String jsonType;
-    private final DBParams dbParams;
-    private final EOParams eoParams;
-    private final ViewParams viewParams;
-    private final Map customParams;
-    private final List<String> localFieldKeys;
-    private final List<String> fieldKeys;
     private final String packagePath;
-    private final String packageGroup;
     private final String superKey;
     private final String interfaces;
+
+    private Class modelClass;
+    private ModelInterface superModel;
+
+    private final List<String> localFieldKeys;
+
+    //resolved
+    private final List<String> fieldKeys;
     private final Map<String, FieldConfig> fieldCacheMap;
     private final Map<String, ModelInterface> importClasses;
     private final Map<String, ModelInterface> interfacesMap;
-    private Class modelClass;
-    private ModelInterface superModel;
 
     public ModelConfig(EOConfigsCache configsCache, Map map) {
         super(configsCache, map);
         modelKey = (String) map.get(MODEL_KEY);
-        jsonType = (String) map.get(JSON_TYPE);
-        packageGroup = (String) map.get(PACKAGE_GROUP);
         packagePath = (String) map.get(PACKAGE_PATH);
         superKey = (String) map.get(SUPER_KEY);
         interfaces = (String) map.get(INTERFACES);
@@ -75,16 +65,8 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         } else {
             fieldKeys = new ArrayList<>();
         }
-        this.localFieldKeys = new ArrayList(fieldKeys);
-        try {
-            dbParams = new DBParams(map.get(DB_PARAMS));
-            eoParams = new EOParams((Map)map.get(EO_PARAMS));
-            viewParams = new ViewParams(map.get(VIEW_PARAMS));
-            customParams = (Map) map.get(CUSTOM_PARAMS);
-        }
-        catch(Exception e) {
-            throw new EoException("Problem with setting '" + getNaturalId() + "': " + e.getMessage());
-        }
+        this.localFieldKeys = new ArrayList<>(fieldKeys);
+        // resolved
         this.fieldCacheMap = new LinkedHashMap<>();
         this.interfacesMap = new LinkedHashMap<>();
         this.importClasses = new LinkedHashMap<>();
@@ -108,12 +90,11 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         }
         modelMap.put(MODEL_KEY, modelKey);
         modelMap.put(NATURAL_ID, modelKey);
-        final Package inPackage = modelClass.getPackage();
-        modelMap.put(PACKAGE_PATH, inPackage.getName());
+        modelMap.put(PACKAGE_PATH, modelClass.getPackage().getName());
 
-        final Map<String, Object> eoParams = new HashMap<>();
-        eoParams.put(EOParams.CREATE, true);
-        modelMap.put("eoParams", eoParams);
+        final Map<String, Object> properties = new HashMap<>();
+        properties.put(PropertiesModelAccessor.CREATE, true);
+        modelMap.put(PROPERTIES, properties);
 
         final Field[] fields = modelClass.getDeclaredFields();
         final List<String> fieldKeys = new ArrayList();
@@ -131,10 +112,9 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
             fieldMap.put(fieldKey, field);
         }
         if (fieldKeys.isEmpty()) {
-            eoParams.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR);
-            eoParams.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
+            properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.SCALAR);
         } else {
-            eoParams.put(EOParams.SHAPE_TYPE, ShapeTypes.BEAN.name());
+            properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.BEAN.name());
         }
         modelMap.put(FIELD_KEYS, fieldKeys);
         configsCache.addModel(modelMap);
@@ -158,30 +138,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         return this.modelKey;
     }
     //<call keep="JAVA" templateKey="CacheGetter.tpl" }
-
-    @Override
-    public EOParams getEoParams() {
-        return eoParams;
-    }
-
-    public boolean hasEoParams() {
-        return eoParams!=null;
-    }
-
-    @Override
-    public DBParams getDbParams() {
-        return dbParams;
-    }
-
-    @Override
-    public ViewParams getViewParams() {
-        return viewParams;
-    }
-
-    @Override
-    public Map getCustomParams() {
-        return customParams;
-    }
 
     @Override
     public boolean hasKey(Path path) {
@@ -220,18 +176,8 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         }
     }
 
-    /**
-     * Table definitions with pojo.
-     */
     public String getPackagePath() {
         return this.packagePath;
-    }
-
-    /**
-     * Defines to which group a model belong e.g. asset/config/actions
-     */
-    public String getPackageGroup() {
-        return this.packageGroup;
     }
 
     /**
@@ -288,6 +234,10 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         if (getModelKey() == null) {
             throw new EoException("No modelkey defined. No model class could be derived!");
         }
+        String packagePath = getPackagePath();
+        if (packagePath == null) {
+            throw new EoException("No packagePath for " + modelKey + "defined.");
+        }
         try {
             if (getConfigsCache().getScope() != Scope.CREATE) {
                 this.modelClass = (Class.forName(packagePath + "." + modelKey));
@@ -320,7 +270,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
             interfacesMap.put(interfaceEntry, getConfigsCache().findModel(interfaceEntry));
         }
     }
-
+    /*
     public Map<String, Object> getNaturalValues(Object object) {
         Map<String, Object> where = new HashMap<String, Object>();
         if (object == null) {
@@ -336,6 +286,8 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         return where;
     }
 
+     */
+
     public Class getFieldClass(String fieldName) {
         if (!this.isObject()) {
             return Object.class;
@@ -347,9 +299,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         if (getConfigsCache().getScope() == Scope.CREATE && getShapeType() == ShapeTypes.INTERFACE) {
             return;
         }
-        /*if (modelKey.equals("DbQueryConfig")||modelKey.equals("ConfigResourcesImpl")) {
-            System.out.println();
-        }*/
         for (String key : interfacesMap.keySet()) {
             ((ModelConfig) interfacesMap.get(key)).setFieldKeys(this.fieldKeys);
         }
@@ -412,76 +361,13 @@ public abstract class ModelConfig extends ConfigImpl implements ModelInterface, 
         setFieldKeys();
     }
 
-    /**
-     * Table definitions with pojo.
-     */
-    public ShapeTypes getShapeType() {
-        if (eoParams == null) {
-            return ShapeTypes.NONE;
-        }
-        if (eoParams.getShapeType() == null) {
-            return ShapeTypes.NONE;
-        }
-        return eoParams.getShapeType();
-    }
-
     public boolean isToSerialize() {
         return getShapeType() == ShapeTypes.SCALAR_SERIALIZED;
     }
 
-    /**
-     * A default Implementation if defined
-     */
-    public String getDefaultImplementation() {
-        if (eoParams == null) {
-            return null;
-        }
-        return eoParams.getDefaultImplementation();
-    }
-
-    /**
-     * The id key for a table
-     */
-    public String getIdKey() {
-        if (dbParams == null) {
-            return null;
-        }
-        return dbParams.getIdKey();
-    }
-
-    /**
-     * The natural keys of a table entry.
-     */
-    public List<String> getNaturalKeys() {
-        if (dbParams == null) {
-            return null;
-        }
-        return dbParams.getNaturalKeys();
-    }
-
-    /**
-     * Table definitions with pojo.
-     */
-    public String getTable() {
-        if (dbParams == null) {
-            return null;
-        }
-        return dbParams.getTable();
-    }
-
-    public Object getId(Object object) {
+    /*public Object getId(Object object) {
         return this.get(getIdKey(), object);
-    }
-
-    /**
-     * sets a Flag for using hibernate annotations when bean is created.
-     */
-    public boolean isHibernateAnnotations() {
-        if (dbParams == null) {
-            return false;
-        }
-        return dbParams.isHibernateAnnotations();
-    }
+    }*/
 
     public boolean equals(ModelInterface modelCache) {
         if (modelKey == null) {

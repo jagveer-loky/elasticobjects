@@ -28,24 +28,13 @@ public class EO_STATIC {
 
     public static final String F_UPPER_ID_KEY = "upper.ID";
 
-    public static final String F_JOIN = "join";
-    public static final String F_HIBERNATE_ANNOTATIONS = "hibernateAnnotations";
-    public static final String F_NOT_NULL = "notNull";
-    public static final String F_UNIQUE = "unique";
     public static final String F_INPUT_KEY = "inputKey";
-    public static final String F_HIBERNATE = "hibernate";
-    public static final String F_TABLE = "table";
     public static final String F_UPPER_ID = "ID";
     public static final String F_VIEW_KEY = "viewKey";
-    public static final String F_NATURAL_KEYS = "naturalKeys";
-    public static final String F_ID_KEY = "idKey";
     public static final String F_NAME = "name";
-    public static final String F_JOIN_INVERSE = "joinInverse";
-    public static final String F_FIELD_NAME = "fieldName";
     public static final String F_EXPANDED = "expanded";
     public static final String F_AND = "and";
     public static final String F_PATH_PATTERN = "pathPattern";
-    public static final String F_MAP_KEY = "mapKey";
 
 
     public static final String J_MODULE_CONFIG_JSON = "ModuleConfig.json";

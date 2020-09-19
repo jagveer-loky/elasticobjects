@@ -1,0 +1,74 @@
+<h3>17.9.2020</h3>
+
+<p>Yesterday I've published the version 0.3.0 
+    with the first generated json configurations from 
+    some streamlined excel. </p>
+<p>
+    With 0.3.0 the different configuration types e.g. for database access or Excel sheets 
+    are removed introducing a configModelKey as a field. So one just have 
+    the following configurations:
+</p>
+<ul>
+
+        <li>ModelConfig</li>
+        <li>FieldConfig</li>
+        <li>HostConfig</li>
+        <li>FileConfig</li>
+        <li>DbSqlConfig</li>
+</ul>
+
+<p>With 0.4.0 the the structure of the configuration with different immutable 
+    sub classes will be stream lined. This is some kind of over modelling but originally 
+    comes from the idea to make the configuration immutable. 
+</p>
+<p>
+    Another reason was to divide the properties to some kind of purpose. Length was 
+    for example is a property used in database. But one can also use it in the set methods of
+    the field. So a clean division is not generally given. 
+</p>
+    <p>Since there is no general valid 
+    purpose of the properties, I will put it into one property map beside 
+    those properties which are helpful for editing with filters. 
+</p>
+<p>
+    Another reason is that when generating configurations or classes it depends 
+    on the architectur you need additional properties. This could be e.g. 
+    endpoints for the web interface or some xml names. So a general purpose generator 
+    could not have some kind of fixed properties. It must be adaptable to 
+    the target framework/programming language. 
+</p>
+<p>
+    This general filter purpose fields will be e.g. module. I think length i
+    also a useful general valid information for filtering directly.
+</p>
+
+<p>
+    There are some nice feature with Java 8 and default methods to get the property 
+values with get/set methods. 
+</p>
+<p>
+    With the move to the properties map I wanted to use some immutable 
+    maps and lists since its configurations which should not be changed by 
+    some mistake. 
+</p>
+
+<p>Unfortunately the java8 unmodifiable List and Map in Colletions have some side effects, that all lists/map will have the same value.
+    strange behaviour where the package path property is the same for all models with a collapse of all. 
+    I couldn't get deep into. It would be a topic of the sandbox. </p>
+
+<p>I took a look in the guava library with its immutable map and lists,
+even it's general purpose huge with about 2,8 MB which would extend the size 
+of the example-spring jar file even more. </p>
+<p>
+    But to use "ImmutableMap" the rather simple map/list models have to 
+    be extended since Guava use an implementation from the scratch.
+</p>
+<p>Actually I don't want to move to java9, where immutable maps 
+are provided out of the box. Since it's a library all users have to move to java8. 
+    I go back from Java 11 to java 8 since the deployment to google cloud 
+    complains that only java 8 will supported. 
+</p>
+<p>
+    So I decided continue with the simple LinkedHashMap in 0.4.0. Think there will 
+    be hopefully a simple solution to avoid accidentally changing configurations.   
+</p>

@@ -5,11 +5,11 @@ import java.util.List;
 /**
  * Created by Werner on 10.10.2016.
  */
-public interface Config extends Model {
+public interface Config extends PropertiesConfigAccessor, Model {
     void resolve() ;
     String getKey();
     String getModule();
-    String getSubModule();
+    String getModuleScope();
     List<Scope> getScope();
     EOConfigsCache getConfigsCache();
     Expose getExpose();

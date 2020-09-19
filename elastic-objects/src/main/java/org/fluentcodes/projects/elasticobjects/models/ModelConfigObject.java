@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
@@ -17,7 +18,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigObject extends ModelConfig implements ModelInterface {
+public class ModelConfigObject extends ModelConfig {
     private static final Logger LOG = LogManager.getLogger(ModelConfigObject.class);
     public static final String CONFIG_MODEL_KEY = "ModelConfigObject";
     private final Map<String, Method> getterMap;
@@ -278,7 +279,11 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
                     //throw new EoException("Problem getting model of field " + fieldName);
                     continue;
                 }
-                if ("java.lang".equals(type.getPackagePath())) {
+                String packagePath = type.getPackagePath();
+                if (packagePath == null) {
+                    throw new EoInternalException("Problem find packagePathe for type "+  type.getModelKey());
+                }
+                if ("java.lang".equals(packagePath)) {
 
                 } else if (this.getPackagePath().equals(type.getPackagePath())) {
 
@@ -287,7 +292,8 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
                         getImportClasses().put(type.getModelKey(), fieldConfig.getModelConfig());
                     }
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 throw new EoException("Problem resolving field with name '" + fieldKey + "' defined within model '" + getModelKey() + "': Probably no field definition is provided.", e);
             }
 
@@ -365,18 +371,15 @@ public class ModelConfigObject extends ModelConfig implements ModelInterface {
         return getModelKey().equals(modelCache.getModelKey());
     }
     public boolean isCall() {
-        return  getEoParams().getShapeType() == ShapeTypes.CALL_BEAN;
+        return  getShapeType() == ShapeTypes.CALL_BEAN;
     }
 
     public boolean isInterface() {
-        return getEoParams().getShapeType() == ShapeTypes.INTERFACE;
+        return getShapeType() == ShapeTypes.INTERFACE;
     }
     @Override
     public boolean isCreate() {
-        if (!hasEoParams()) {
-            return true;
-        }
-        return getEoParams().isCreate();
+        return getCreate();
     }
     @Override
     public boolean isObject() {

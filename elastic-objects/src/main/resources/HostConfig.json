@@ -1,18 +1,22 @@
 {
   "local": {
     "module": "elastic-objects",
-    "subModule": "main",
-    "protocol": "file:",
-    "hostName": "localhost",
+    "moduleScope": "main",
     "description": "local host with key 'local'",
-    "expose": "NONE"
+    "expose": "NONE",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "localhost"
+    }
   },
   "localhost": {
     "module": "elastic-objects",
-    "subModule": "main",
-    "protocol": "file:",
-    "hostName": "localhost",
+    "moduleScope": "main",
     "description": "local host with key 'localhost'",
-    "expose": "INFO"
+    "expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "localhost"
+    }
   }
 }

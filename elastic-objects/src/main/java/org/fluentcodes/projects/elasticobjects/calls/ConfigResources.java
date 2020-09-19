@@ -1,13 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.PropertiesConfigAccessor;
 
 import java.util.List;
 
 /**
  * Created by Werner on 10.10.2016.
  */
-public interface ConfigResources {
+public interface ConfigResources extends PropertiesConfigAccessor {
 
     EOConfigsCache getConfigsCache();
     RolePermissions getRolePermissions();

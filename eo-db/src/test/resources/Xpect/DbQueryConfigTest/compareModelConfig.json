@@ -14,23 +14,25 @@
       "1": "modelKey",
       "2": "sql",
       "3": "rolePermissions",
-      "4": "module",
-      "5": "subModule",
-      "6": "scope",
-      "7": "expose",
-      "8": "id",
-      "9": "description",
-      "10": "naturalId",
-      "11": "creationDate",
-      "12": "author"
+      "4": "scope",
+      "5": "expose",
+      "6": "module",
+      "7": "moduleScope",
+      "8": "properties",
+      "9": "id",
+      "10": "description",
+      "11": "naturalId",
+      "12": "creationDate",
+      "13": "author"
     },
-    "eoParams": {
-      "create": false,
-      "(ShapeTypes)shapeType": "CONFIG"
-    },
-    "module": "eo-db",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-db",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG",
+      "module": "eo-db"
+    },
     "description": "Execute sql statement via jdbc connection. ",
     "author": "Werner Diwischek",
     "naturalId": "DbQueryConfig"

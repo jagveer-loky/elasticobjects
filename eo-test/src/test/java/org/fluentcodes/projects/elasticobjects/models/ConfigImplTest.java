@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +18,6 @@ public class ConfigImplTest {
 
     @Test
     public void assertModelCache()  {
-        
         ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(M_CONFIG_IMPL);
         model.resolve();
         Assert.assertEquals(ShapeTypes.CONFIG, model.getShapeType());
@@ -24,4 +25,13 @@ public class ConfigImplTest {
         Assert.assertFalse(model.isScalar());
     }
 
+    @Test
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(ConfigImpl.class);
+    }
+
+    @Test
+    public void compareModelConfig()  {
+        ConfigModelChecks.compare(ConfigImpl.class);
+    }
 }

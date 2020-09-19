@@ -1,17 +1,18 @@
 {
   "XlsxConfig": {
     "module": "eo-xlsx",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "sheetName"
     ],
-    "interfaces": "ListConfigInterface",
+    "interfaces": "PropertiesListAccessor",
     "superKey": "FileConfig",
     "expose": "INFO",
     "description": "The cache class for excel access. Contains the file cache.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxConfig",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -19,13 +20,14 @@
   },
   "XlsxReadCall": {
     "module": "eo-xlsx",
-    "subModule": "main",
+    "moduleScope": "main",
     "superKey": "ListReadCall",
     "expose": "INFO",
     "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxReadCall",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },

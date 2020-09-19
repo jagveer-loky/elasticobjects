@@ -109,7 +109,7 @@ public class ConfigOpenApiCall extends CallImpl {
                 if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getFilterModule()))) {
                     continue;
                 }
-                if (hasFilterSubModule() && (configEntry.getSubModule() == null || !configEntry.getSubModule().equals(this.getFilterSubModule()))) {
+                if (hasFilterSubModule() && (configEntry.getConfigsCache() == null || !configEntry.getConfigsCache().equals(this.getFilterSubModule()))) {
                     continue;
                 }
             } catch (Exception e) {

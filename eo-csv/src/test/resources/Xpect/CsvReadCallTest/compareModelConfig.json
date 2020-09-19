@@ -16,13 +16,14 @@
       "8": "logLevel",
       "9": "duration"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "eo-csv",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-csv",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "eo-csv"
+    },
     "description": "Defines read call for a csv action depending on one link CsvConfig. ",
     "author": "Werner Diwischek",
     "naturalId": "CsvReadCall"

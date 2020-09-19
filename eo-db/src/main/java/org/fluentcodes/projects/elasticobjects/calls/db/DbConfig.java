@@ -3,80 +3,28 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.tools.xpect.IOString;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.HOST_KEY;
-
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbConfig extends HostConfig {
+public class DbConfig extends HostConfig implements PropertiesDbAccessor{
     public static final String DB_KEY = "dbKey";
-    public static final String SCHEMA = "schema";
-    public static final String DRIVER = "driver";
-    public static final String JNDI = "jndi";
-    public static final String DB_TYPE = "dbType";
-    public static final String EXTENSION = "extension";
     private static transient final Logger LOG = LogManager.getLogger(DbConfig.class);
-
-    private final String schema;
-    private final String driver;
-    private final String jndi;
-    private final DbTypes dbType;
-    private final String extension;
     private Connection connection;
 
     public DbConfig(final EOConfigsCache provider, final Map map)  {
         super(provider, map);
-        schema = (String) map.get(SCHEMA);
-        driver = (String) map.get(DRIVER);
-        jndi = (String) map.get(JNDI);
-        extension = (String) map.get(EXTENSION);
-        dbType = map.containsKey(DB_TYPE) ? DbTypes.valueOf((String) map.get(DB_TYPE)): DbTypes.UNDEFINED;
-    }
-
-    /**
-     * The database schema used for persisting. {@link HostConfig}
-     */
-    public String getSchema() {
-        return this.schema;
-    }
-
-    public String getExtension() {
-        return extension;
-    }
-
-    /**
-     * Mainly the schema
-     */
-    public String getDriver() {
-        return this.driver;
-    }
-
-    /**
-     * Mainly the schema
-     */
-    public String getJndi() {
-        return this.jndi;
-    }
-
-    /**
-     * Mainly the schema
-     */
-    public DbTypes getDbType() {
-        return this.dbType;
     }
 
     public boolean read(EO eo) {
@@ -94,7 +42,7 @@ public class DbConfig extends HostConfig {
             stmt = this.getConnection().createStatement();
             return stmt.execute(sql);
         } catch (Exception e) {
-            throw new EoException("Problem in " + getUrlPath() + " to execute " + sql ,e);
+            throw new EoInternalException("Problem in " + getUrlPath() + " to execute " + sql ,e);
         } finally {
             if (stmt != null) {
                 try {
@@ -110,16 +58,17 @@ public class DbConfig extends HostConfig {
         if (this.connection != null) {
             return this.connection;
         }
-        if (dbType == null) {
-            throw new EoException("No driver is addList for '" + getKey() + "'.");
+        if (!hasDbType()) {
+            throw new EoException("No dbType defined, so no driver could be set '" + getKey() + "'.");
         }
 
-        if (dbType.getDriver() == null) {
+        if (getDbType().getDriver() == null) {
             throw new EoException("No driver is addList for '" + getKey() + "'.");
         }
-        Class.forName(dbType.getDriver());
-        System.out.println(getUrlPath());
-        connection = DriverManager.getConnection(getUrlPath(), getUser(), getPassword());
+        Class.forName(getDbType().getDriver());
+        String url = getUrlPath();
+        System.out.println(url);
+        connection = DriverManager.getConnection(url, getUser(), getPassword());
         return connection;
     }
 
@@ -135,26 +84,22 @@ public class DbConfig extends HostConfig {
         connection = null;
     }
 
-    public boolean hasExtension() {
-        return extension != null && !extension.isEmpty();
-    }
-
-    public boolean hasSchema() {
-        return schema != null && !schema.isEmpty();
-    }
-
     public String getUrlPath()  {
         StringBuffer urlPath = new StringBuffer();
         if (hasProtocol()) {
             urlPath.append(getProtocol());
         }
+        if (hasHostName()) {
+            urlPath.append(":");
+            urlPath.append(getHostName());
+        }
         if (hasSchema()) {
             urlPath.append(":");
-            urlPath.append(schema);
+            urlPath.append(getSchema());
         }
         if (hasExtension()) {
             urlPath.append( ";");
-            urlPath.append(extension);
+            urlPath.append(getExtension());
         }
         return urlPath.toString();
     }

@@ -8,34 +8,35 @@
       "1": "rowDelimiter"
     },
     "superKey": "FileConfig",
-    "interfaces": "ListConfigInterface",
+    "interfaces": "PropertiesListAccessor",
     "(ArrayList)fieldKeys": {
       "0": "fieldDelimiter",
       "1": "rowDelimiter",
-      "2": "listParams",
+      "2": "properties",
       "3": "configModelKey",
       "4": "fileName",
       "5": "filePath",
       "6": "hostKey",
       "7": "cached",
       "8": "rolePermissions",
-      "9": "module",
-      "10": "subModule",
-      "11": "scope",
-      "12": "expose",
+      "9": "scope",
+      "10": "expose",
+      "11": "module",
+      "12": "moduleScope",
       "13": "id",
       "14": "description",
       "15": "naturalId",
       "16": "creationDate",
       "17": "author"
     },
-    "eoParams": {
-      "create": false,
-      "(ShapeTypes)shapeType": "CONFIG"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG",
+      "module": "elastic-objects"
+    },
     "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "ScsConfig"

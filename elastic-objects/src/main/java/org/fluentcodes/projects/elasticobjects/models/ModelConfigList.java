@@ -20,11 +20,6 @@ public class ModelConfigList extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public String getTable() {
-        return null;
-    }
-
-    @Override
     public ModelInterface getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }

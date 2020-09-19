@@ -14,13 +14,14 @@
       "6": "logLevel",
       "7": "duration"
     },
-    "eoParams": {
-      "create": false,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CALL_BEAN",
+      "module": "elastic-objects"
+    },
     "description": "Basic implementation for calls. ",
     "author": "Werner Diwischek",
     "naturalId": "CallImpl"

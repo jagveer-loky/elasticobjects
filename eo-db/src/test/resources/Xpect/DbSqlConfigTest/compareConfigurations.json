@@ -2,26 +2,19 @@
   "_rootmodel": "ArrayList",
   "0": {
     "dbKey": "h2:mem:basic",
-    "modelKey": "BasicTest",
     "sql": "Select * from BasicTest",
-    "module": "eo-db",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-db",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "BasicTest",
+      "module": "eo-db"
+    },
     "description": "Query for BasicTest",
     "naturalId": "h2:mem:basic:BasicTest"
   },
   "1": {
-    "dbKey": "h2:mem:basic",
-    "(ArrayList)sqlList": {
-      "0": "drop table BasicTest if exists"
-    },
-    "module": "eo-db",
-    "subModule": "test",
-    "(Expose)expose": "INFO",
-    "description": "Basic H2 dropping BasicTest table",
-    "naturalId": "h2:mem:basic:BasicTestDrop"
-  },
-  "2": {
     "dbKey": "h2:mem:basic",
     "(ArrayList)sqlList": {
       "0": "drop table BasicTest if exists",
@@ -38,19 +31,28 @@
       "11": "insert into BasicTest (testString,testInt,testBoolean) values ('value2',2, false)",
       "12": "insert into BasicTest (testString,testInt,testBoolean) values ('value3',3, true)"
     },
-    "module": "eo-db",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-db",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "",
+      "module": "eo-db"
+    },
     "description": "Basic H2 creating tables",
     "naturalId": "h2:mem:basic:Create"
   },
-  "3": {
+  "2": {
     "dbKey": "h2:mem:basic",
-    "modelKey": "SubTest",
     "sql": "Select * from SubTest",
-    "module": "eo-db",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-db",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "SubTest",
+      "module": "eo-db"
+    },
     "description": "Query for SubTest",
     "naturalId": "h2:mem:basic:SubTest"
   },
