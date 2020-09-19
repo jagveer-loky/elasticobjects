@@ -17,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
 /**
  * Created 10.6.2018
  */
-public class ConfigCallTest {
+public class ConfigCallCheck {
 
     @Test
     public void call_ModelConfig_configFilter_ConfigCall__execute__xpected() {

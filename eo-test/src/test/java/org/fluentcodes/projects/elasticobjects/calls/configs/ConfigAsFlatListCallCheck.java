@@ -11,7 +11,7 @@ import org.junit.Test;
 /**
  * Created 8.9.2020
  */
-public class ConfigAsFlatListCallTest {
+public class ConfigAsFlatListCallCheck {
 
     @Test
     public void createByModelConfig()  {

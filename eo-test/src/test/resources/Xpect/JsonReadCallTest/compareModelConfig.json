@@ -23,13 +23,14 @@
       "10": "logLevel",
       "11": "duration"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "elastic-objects"
+    },
     "description": "Calls with configuration {@link JsonConfig} to read a file write its content to EO on targetPath.",
     "author": "Werner Diwischek",
     "naturalId": "JsonReadCall"

@@ -75,7 +75,7 @@ public class ConfigCall extends ConfigKeysCall {
                 if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getFilterModule()))) {
                     continue;
                 }
-                if (hasFilterSubModule() && (configEntry.getSubModule() == null || !configEntry.getSubModule().equals(this.getFilterSubModule()))) {
+                if (hasFilterSubModule() && (configEntry.getModuleScope() == null || !configEntry.getModuleScope().equals(this.getFilterSubModule()))) {
                     continue;
                 }
             } catch (Exception e) {

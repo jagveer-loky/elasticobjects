@@ -11,11 +11,11 @@
       "0": "SuperExampleClass.id",
       "1": "SuperExampleClass.subClass"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "BEAN"
-    },
     "(Expose)expose": "INFO",
+    "properties": {
+      "shapeType": "BEAN",
+      "create": true
+    },
     "naturalId": "SuperExampleClass"
   },
   "(LogLevel)_logLevel": "WARN"

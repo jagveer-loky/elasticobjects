@@ -19,13 +19,14 @@
       "8": "logLevel",
       "9": "duration"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "CALL_BEAN"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "elastic-objects"
+    },
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "author": "Werner Diwischek",
     "naturalId": "TemplateResourceCall"

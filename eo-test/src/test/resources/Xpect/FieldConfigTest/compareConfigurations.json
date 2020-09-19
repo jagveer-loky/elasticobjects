@@ -3,20 +3,18 @@
   "0": {
     "fieldKey": "attributeList",
     "modelKeys": "ArrayList,String",
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Definition of available attributes for an Action.",
     "naturalId": "attributeList"
   },
   "1": {
     "fieldKey": "author",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "Model",
       "1": "Config",
@@ -37,9 +35,12 @@
       "16": "ModelConfigScalar",
       "17": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The autor of something e,g. a class.",
     "naturalId": "author"
   },
@@ -49,9 +50,12 @@
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "description": "A BasicTest field.",
     "naturalId": "basicTest"
   },
@@ -62,32 +66,45 @@
       "0": "FileConfig",
       "1": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "If true will cache the readed file within the cache object. ",
     "naturalId": "cached"
   },
   "4": {
+    "fieldKey": "packagePath",
+    "modelKeys": "String",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
+    "description": "Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ",
+    "naturalId": "classPath"
+  },
+  "5": {
     "fieldKey": "colKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
       "0": "ListParams"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The key list for mapping values in a value list. ",
     "naturalId": "colKeys"
   },
-  "5": {
+  "6": {
     "fieldKey": "condition",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 1000
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -113,39 +130,35 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A condition for calls. ",
     "naturalId": "condition"
   },
-  "6": {
+  "7": {
     "fieldKey": "configFilter",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
     "(ArrayList)modelList": {
       "0": "ConfigOpenApiCall",
       "1": "ConfigKeysCall",
       "2": "ConfigCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Key for filter configuration",
     "naturalId": "configFilter"
   },
-  "7": {
+  "8": {
     "fieldKey": "configKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
     "(ArrayList)modelList": {
       "0": "CallResource",
       "1": "FileWriteCall",
@@ -156,86 +169,78 @@
       "6": "ScsReadCall",
       "7": "ListWriteCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Key for configuration  {@link ConfigConfig}",
     "naturalId": "configKey"
   },
-  "8": {
+  "9": {
     "fieldKey": "configModelKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "HostConfig",
       "1": "FileConfig",
       "2": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The model of the configuration to determine type.",
     "naturalId": "configModelKey"
   },
-  "9": {
+  "10": {
     "fieldKey": "configType",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
     "(ArrayList)modelList": {
       "0": "ConfigKeysCall",
       "1": "ConfigCall",
       "2": "ConfigAsFlatListCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Key for configuration type.",
     "naturalId": "configType"
   },
-  "10": {
+  "11": {
     "fieldKey": "content",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 10000
-    },
     "(ArrayList)modelList": {
       "0": "TemplateCall",
       "1": "JsonReadCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A content.",
     "naturalId": "content"
   },
-  "11": {
+  "12": {
     "fieldKey": "create",
     "modelKeys": "Boolean",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
-    "(ArrayList)modelList": {
-      "0": "EOParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "If true will create a Java class.",
     "naturalId": "create"
   },
-  "12": {
+  "13": {
     "fieldKey": "creationDate",
     "modelKeys": "Date",
     "(ArrayList)modelList": {
@@ -258,115 +263,44 @@
       "16": "ModelConfigScalar",
       "17": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Used to define the creation of an item.",
     "naturalId": "creationDate"
   },
-  "13": {
-    "fieldKey": "customFieldParams",
-    "modelKeys": "HashMap",
-    "(ArrayList)modelList": {
-      "0": "FieldConfig"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Custom Parameters stored by fields elastic objects. ",
-    "naturalId": "customFieldParams"
-  },
   "14": {
-    "fieldKey": "customParams",
-    "modelKeys": "HashMap",
-    "(ArrayList)modelList": {
-      "0": "ModelInterface",
-      "1": "ModelConfig",
-      "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Custom Parameters stored by models elastic objects. ",
-    "naturalId": "customParams"
-  },
-  "15": {
-    "fieldKey": "dbFieldParams",
-    "modelKeys": "DBFieldParams",
-    "(ArrayList)modelList": {
-      "0": "FieldConfig"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Parameters for persisting perspective. ",
-    "naturalId": "dbFieldParams"
-  },
-  "16": {
-    "fieldKey": "dbParams",
-    "modelKeys": "DBParams",
-    "(ArrayList)modelList": {
-      "0": "ModelInterface",
-      "1": "ModelConfig",
-      "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Parameters for persisting perspective. ",
-    "naturalId": "dbParams"
-  },
-  "17": {
     "fieldKey": "defaultImplementation",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "EOParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "defaultImplementation"
   },
-  "18": {
+  "15": {
     "fieldKey": "delete",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "RolePermissions"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "String representation of RolePermission delete permissions",
     "naturalId": "delete"
   },
-  "19": {
+  "16": {
     "fieldKey": "description",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 512
-    },
     "(ArrayList)modelList": {
       "0": "Model",
       "1": "Config",
@@ -387,13 +321,16 @@
       "16": "ModelConfigScalar",
       "17": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A description of the model used by every model extending BaseClassImpl. ",
     "naturalId": "description"
   },
-  "20": {
+  "17": {
     "fieldKey": "duration",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -421,72 +358,45 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The duration of a call.",
     "naturalId": "duration"
   },
-  "21": {
+  "18": {
     "fieldKey": "entries",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
       "0": "Path"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "entries"
   },
-  "22": {
-    "fieldKey": "eoFieldParams",
-    "modelKeys": "EOFieldParams",
-    "(ArrayList)modelList": {
-      "0": "FieldConfig"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Parameters used by elastic objects. ",
-    "naturalId": "eoFieldParams"
-  },
-  "23": {
-    "fieldKey": "eoParams",
-    "modelKeys": "EOParams",
-    "(ArrayList)modelList": {
-      "0": "ModelInterface",
-      "1": "ModelConfig",
-      "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Parameters used by elastic objects. ",
-    "naturalId": "eoParams"
-  },
-  "24": {
+  "19": {
     "fieldKey": "execute",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "RolePermissions"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "String representation of RolePermission execute permissions",
     "naturalId": "execute"
   },
-  "25": {
+  "20": {
     "fieldKey": "expose",
     "modelKeys": "Expose",
     "(ArrayList)modelList": {
@@ -510,58 +420,53 @@
       "17": "ModelConfigScalar",
       "18": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "expose"
   },
-  "26": {
+  "21": {
     "fieldKey": "fieldDelimiter",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 4
-    },
     "(ArrayList)modelList": {
       "0": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A delimiter for fields used for csv files. ",
     "naturalId": "fieldDelimiter"
   },
-  "27": {
+  "22": {
     "fieldKey": "value",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "FieldExampleClass"
     },
     "(Expose)expose": "INFO",
     "naturalId": "FieldExampleClass.value"
   },
-  "28": {
+  "23": {
     "fieldKey": "fieldKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "fieldKey"
   },
-  "29": {
+  "24": {
     "fieldKey": "fieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -574,200 +479,173 @@
       "6": "ModelConfigScalar",
       "7": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A list of field keys for the model configuration. ",
     "naturalId": "fieldKeys"
   },
-  "30": {
+  "25": {
     "fieldKey": "fieldName",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A name for different purposes depending on the model.",
     "naturalId": "fieldName"
   },
-  "31": {
+  "26": {
     "fieldKey": "fileKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A key for file objects.",
     "naturalId": "fileKey"
   },
-  "32": {
+  "27": {
     "fieldKey": "fileName",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "FileConfig",
       "1": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "fileName"
   },
-  "33": {
+  "28": {
     "fieldKey": "filePath",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 512
-    },
     "(ArrayList)modelList": {
       "0": "FileConfig",
       "1": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "filePath"
   },
-  "34": {
+  "29": {
     "fieldKey": "filter",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 512
-    },
     "(ArrayList)modelList": {
       "0": "ListParams"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Filter for List entries.",
     "naturalId": "filter"
   },
-  "35": {
+  "30": {
     "fieldKey": "filterModule",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
     "(ArrayList)modelList": {
       "0": "ConfigOpenApiCall",
       "1": "ConfigCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Filter for modules in  {@link ConfigAction}",
     "naturalId": "filterModule"
   },
-  "36": {
+  "31": {
     "fieldKey": "filterSubModule",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
     "(ArrayList)modelList": {
       "0": "ConfigOpenApiCall",
       "1": "ConfigCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Filter for subModules in  {@link ConfigAction}",
     "naturalId": "filterSubModule"
   },
-  "37": {
+  "32": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 16
-    },
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "hibernate"
   },
-  "38": {
+  "33": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
-    "(ArrayList)modelList": {
-      "0": "DBParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "39": {
+  "34": {
     "fieldKey": "hostKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "FileConfig",
       "1": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A key for host objects.",
     "naturalId": "hostKey"
   },
-  "40": {
+  "35": {
     "fieldKey": "hostName",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "41": {
+  "36": {
     "fieldKey": "id",
     "modelKeys": "Long",
-    "dbFieldParams": {
-      "unique": true,
-      "notNull": true
-    },
     "(ArrayList)modelList": {
       "0": "Model",
       "1": "Config",
@@ -790,67 +668,59 @@
       "18": "ModelConfigScalar",
       "19": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "unique": true,
+      "notNull": true,
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "42": {
+  "37": {
     "fieldKey": "idKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "DBParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "43": {
+  "38": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "JsonReadCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "44": {
+  "39": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "ViewParams",
-      "1": "ViewFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "45": {
+  "40": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "ModelInterface",
       "1": "ModelConfig",
@@ -861,114 +731,113 @@
       "6": "ModelConfigScalar",
       "7": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "46": {
+  "41": {
+    "fieldKey": "javaProperties",
+    "modelKeys": "Map",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
+    "description": "A map of properties used in configs and calls.",
+    "naturalId": "javaProperties"
+  },
+  "42": {
     "fieldKey": "join",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "47": {
+  "43": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "48": {
+  "44": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
       "0": "TemplateResourceCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "keepCall"
   },
-  "49": {
+  "45": {
     "fieldKey": "key",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "50": {
+  "46": {
     "fieldKey": "length",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "DBFieldParams",
-      "1": "ListParams"
+      "0": "ListParams"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "51": {
+  "47": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "ListInterface",
-      "1": "ListConfigInterface",
-      "2": "ListReadCall",
-      "3": "ScsReadCall",
-      "4": "ListWriteCall",
-      "5": "ScsConfig"
+      "1": "ListReadCall",
+      "2": "ScsReadCall",
+      "3": "ListWriteCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Filter for the readings within {@link ListAction}.",
     "naturalId": "listParams"
   },
-  "52": {
+  "48": {
     "fieldKey": "localCondition",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 1000
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -994,13 +863,16 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A condition for calls. ",
     "naturalId": "localCondition"
   },
-  "53": {
+  "49": {
     "fieldKey": "localFieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1013,19 +885,22 @@
       "6": "ModelConfigScalar",
       "7": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A list of field as proivided by the model configuration. ",
     "naturalId": "localFieldKeys"
   },
-  "54": {
+  "50": {
     "fieldKey": "log",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
     "naturalId": "log"
   },
-  "55": {
+  "51": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
     "(ArrayList)modelList": {
@@ -1053,50 +928,41 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "logLevel"
   },
-  "56": {
+  "52": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "57": {
+  "53": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The model name for the cache object {@link Config}.",
     "naturalId": "modelConfigKey"
   },
-  "58": {
+  "54": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "ModelInterface",
       "1": "ModelConfig",
@@ -1107,50 +973,49 @@
       "6": "ModelConfigScalar",
       "7": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The model name for the bean/action object {@link Bean}.",
     "naturalId": "modelKey"
   },
-  "59": {
+  "55": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "FieldConfig",
       "1": "Models"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "60": {
+  "56": {
     "fieldKey": "modelList",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A list of naturalIds of models for FieldConfig.",
     "naturalId": "modelList"
   },
-  "61": {
+  "57": {
     "fieldKey": "models",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 512
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -1176,20 +1041,18 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "62": {
+  "58": {
     "fieldKey": "module",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
@@ -1208,65 +1071,96 @@
       "14": "ModelConfigScalar",
       "15": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "63": {
+  "59": {
+    "fieldKey": "module",
+    "modelKeys": "String",
+    "(ArrayList)modelList": {
+      "0": "Config",
+      "1": "ConfigImpl",
+      "2": "FieldConfig",
+      "3": "ConfigResourcesImpl",
+      "4": "ModelInterface",
+      "5": "ModelConfig",
+      "6": "ModelConfigSet",
+      "7": "ModelConfigList",
+      "8": "ModelConfigMap",
+      "9": "ConfigAsFlatListCall",
+      "10": "ModelConfigNone",
+      "11": "HostConfig",
+      "12": "FileConfig",
+      "13": "ScsConfig",
+      "14": "ModelConfigScalar",
+      "15": "ModelConfigObject"
+    },
+    "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
+    "description": "Defines scope of the configuration with module, eg 'test' or 'main' ",
+    "naturalId": "moduleScope"
+  },
+  "60": {
     "fieldKey": "name",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "SubTest"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "64": {
+  "61": {
     "modelKeys": "String",
-    "dbFieldParams": {
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
       "unique": true,
       "notNull": true,
-      "length": 80
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "NONE",
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "naturalId": "naturalId"
   },
-  "65": {
+  "62": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
-    "(ArrayList)modelList": {
-      "0": "DBParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "naturalKeys"
   },
-  "66": {
+  "63": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "notNull"
   },
-  "67": {
+  "64": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1294,43 +1188,29 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "overwrite"
   },
-  "68": {
+  "65": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 12
-    },
-    "(ArrayList)modelList": {
-      "0": "ModelInterface",
-      "1": "ModelConfig",
-      "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "69": {
+  "66": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 124
-    },
     "(ArrayList)modelList": {
       "0": "ModelInterface",
       "1": "ModelConfig",
@@ -1341,106 +1221,135 @@
       "6": "ModelConfigScalar",
       "7": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "packagePath"
   },
-  "70": {
+  "67": {
     "fieldKey": "password",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 15
-    },
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "71": {
+  "68": {
     "fieldKey": "create",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "RolePermissions"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "72": {
+  "69": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "port"
   },
-  "73": {
+  "70": {
+    "fieldKey": "properties",
+    "modelKeys": "HashMap",
+    "(ArrayList)modelList": {
+      "0": "Config",
+      "1": "ConfigImpl",
+      "2": "FieldConfig",
+      "3": "ConfigResourcesImpl",
+      "4": "PropertiesAccessor",
+      "5": "PropertiesConfigAccessor",
+      "6": "ModelInterface",
+      "7": "ModelConfig",
+      "8": "ModelConfigSet",
+      "9": "ModelConfigList",
+      "10": "ModelConfigMap",
+      "11": "PropertiesListAccessor",
+      "12": "ConfigAsFlatListCall",
+      "13": "ModelConfigNone",
+      "14": "HostConfig",
+      "15": "FileConfig",
+      "16": "ScsConfig",
+      "17": "ModelConfigScalar",
+      "18": "ModelConfigObject"
+    },
+    "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
+    "description": "Properties for configurations.",
+    "naturalId": "properties"
+  },
+  "71": {
     "fieldKey": "protocol",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 8
-    },
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "protocol"
   },
-  "74": {
+  "72": {
     "fieldKey": "read",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "RolePermissions"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "75": {
+  "73": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 5
-    },
     "(ArrayList)modelList": {
       "0": "StringReplaceCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "replaceBy"
   },
-  "76": {
+  "74": {
     "fieldKey": "rolePermissions",
     "modelKeys": "RolePermissions",
     "(ArrayList)modelList": {
@@ -1450,62 +1359,72 @@
       "3": "FileConfig",
       "4": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "rolePermissions"
   },
-  "77": {
+  "75": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 4
-    },
     "(ArrayList)modelList": {
       "0": "ScsConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "78": {
+  "76": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "ListParams"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "rowEnd"
   },
-  "79": {
+  "77": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "ListParams"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "rowHead"
   },
-  "80": {
+  "78": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "ListParams"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "rowStart"
   },
-  "81": {
+  "79": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
     "(ArrayList)modelList": {
@@ -1526,60 +1445,59 @@
       "14": "ModelConfigScalar",
       "15": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "82": {
+  "80": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
     "(ArrayList)modelList": {
       "0": "JsonReadCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "83": {
+  "81": {
     "fieldKey": "serialized",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 2056
-    },
     "(ArrayList)modelList": {
       "0": "PathPattern"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "84": {
+  "82": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
-    "(ArrayList)modelList": {
-      "0": "EOParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "shapeType"
   },
-  "85": {
+  "83": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -1605,127 +1523,90 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A sourcePath where EO offers it's input value when the execution starts.",
     "naturalId": "sourcePath"
   },
-  "86": {
+  "84": {
     "fieldKey": "name",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "SubExampleClass"
     },
     "(Expose)expose": "INFO",
     "naturalId": "SubExampleClass.name"
   },
-  "87": {
-    "fieldKey": "subModule",
-    "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 64
-    },
-    "(ArrayList)modelList": {
-      "0": "Config",
-      "1": "ConfigImpl",
-      "2": "FieldConfig",
-      "3": "ConfigResourcesImpl",
-      "4": "ModelInterface",
-      "5": "ModelConfig",
-      "6": "ModelConfigSet",
-      "7": "ModelConfigList",
-      "8": "ModelConfigMap",
-      "9": "ConfigAsFlatListCall",
-      "10": "ModelConfigNone",
-      "11": "HostConfig",
-      "12": "FileConfig",
-      "13": "ScsConfig",
-      "14": "ModelConfigScalar",
-      "15": "ModelConfigObject"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "WEB",
-    "description": "Defines the target  sub module like 'main' or 'test'. ",
-    "naturalId": "subModule"
-  },
-  "88": {
+  "85": {
     "fieldKey": "subTest",
     "modelKeys": "SubTest",
     "(ArrayList)modelList": {
       "0": "SubTest",
       "1": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "subTest"
   },
-  "89": {
+  "86": {
     "fieldKey": "subTestList",
     "modelKeys": "ArrayList,SubTest",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "description": "A generic parametrized example List with {@link SubTest}",
     "naturalId": "subTestList"
   },
-  "90": {
+  "87": {
     "fieldKey": "subTestMap",
     "modelKeys": "HashMap,SubTest",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "description": "A generic parametrized example Map with {@link SubTest}",
     "naturalId": "subTestMap"
   },
-  "91": {
+  "88": {
     "fieldKey": "id",
     "modelKeys": "Long",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.id"
   },
-  "92": {
+  "89": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false
-    },
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "93": {
+  "90": {
     "fieldKey": "superKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "ModelInterface",
       "1": "ModelConfig",
@@ -1736,38 +1617,30 @@
       "6": "ModelConfigScalar",
       "7": "ModelConfigObject"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "94": {
+  "91": {
     "fieldKey": "table",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams",
-      "1": "DBParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
     "naturalId": "table"
   },
-  "95": {
+  "92": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
@@ -1793,266 +1666,250 @@
       "21": "StringReplaceCall",
       "22": "SinusValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.",
     "naturalId": "targetPath"
   },
-  "96": {
+  "93": {
     "fieldKey": "testBoolean",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "testBoolean"
   },
-  "97": {
+  "94": {
     "fieldKey": "testDate",
     "modelKeys": "Date",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "testDate"
   },
-  "98": {
+  "95": {
     "fieldKey": "testDouble",
     "modelKeys": "Double",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "testDouble"
   },
-  "99": {
+  "96": {
     "fieldKey": "testFloat",
     "modelKeys": "Float",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "testFloat"
   },
-  "100": {
+  "97": {
     "fieldKey": "testInt",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "testInt"
   },
-  "101": {
+  "98": {
     "fieldKey": "testLong",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "testLong"
   },
-  "102": {
+  "99": {
     "fieldKey": "testObject",
     "modelKeys": "Object",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "description": "A test object thing. ",
     "naturalId": "testObject"
   },
-  "103": {
+  "100": {
     "fieldKey": "testString",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 20
-    },
     "(ArrayList)modelList": {
       "0": "SubTest",
       "1": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "description": "Just a small test string used in test models. ",
     "naturalId": "testString"
   },
-  "104": {
+  "101": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 5
-    },
     "(ArrayList)modelList": {
       "0": "StringReplaceCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "toReplace"
   },
-  "105": {
+  "102": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
-    "(ArrayList)modelList": {
-      "0": "DBFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "unique"
   },
-  "106": {
+  "103": {
     "fieldKey": "untypedList",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "untypedList"
   },
-  "107": {
+  "104": {
     "fieldKey": "untypedMap",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
       "0": "BasicTest"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "naturalId": "untypedMap"
   },
-  "108": {
+  "105": {
     "fieldKey": "ID",
     "modelKeys": "Long",
-    "dbFieldParams": {
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
       "fieldName": "ID",
       "unique": true,
-      "notNull": true
+      "notNull": true,
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "NONE",
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "109": {
+  "106": {
     "fieldKey": "user",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 50
-    },
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "user"
   },
-  "110": {
+  "107": {
     "fieldKey": "value",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 20000
-    },
     "(ArrayList)modelList": {
       "0": "ValueCall"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "naturalId": "value"
   },
-  "111": {
-    "fieldKey": "viewFieldParams",
-    "modelKeys": "ViewFieldParams",
-    "(ArrayList)modelList": {
-      "0": "FieldConfig"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Parameters used to define views. ",
-    "naturalId": "viewFieldParams"
-  },
-  "112": {
+  "108": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 80
-    },
-    "(ArrayList)modelList": {
-      "0": "ViewParams",
-      "1": "ViewFieldParams"
-    },
+    "(Expose)expose": "NONE",
     "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "113": {
-    "fieldKey": "viewParams",
-    "modelKeys": "ViewParams",
-    "(ArrayList)modelList": {
-      "0": "ModelInterface",
-      "1": "ModelConfig",
-      "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
-    "(Expose)expose": "INFO",
-    "description": "Parameters used to define views. ",
-    "naturalId": "viewParams"
-  },
-  "114": {
+  "109": {
     "fieldKey": "write",
     "modelKeys": "String",
-    "dbFieldParams": {
-      "unique": false,
-      "notNull": false,
-      "length": 256
-    },
     "(ArrayList)modelList": {
       "0": "RolePermissions"
     },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
     "description": "String representation of RolePermission write permissions",
     "naturalId": "write"
   },

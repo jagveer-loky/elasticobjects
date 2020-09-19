@@ -27,7 +27,7 @@
   "24": "JsonReadCall",
   "25": "JSONSerializationType",
   "26": "KeepCalls",
-  "27": "ListConfigInterface",
+  "27": "PropertiesListAccessor",
   "28": "ListInterface",
   "29": "ListParams",
   "30": "ListReadCall",

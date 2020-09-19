@@ -4,12 +4,13 @@ import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
 
 /**
  * Created by Werner on 13.07.2020.
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
-public abstract class CallImpl implements Call {
+public abstract class CallImpl extends ModelImpl implements Call {
     public static final String AS_STRING = "_asString";
     private String sourcePath;
     private String targetPath;

@@ -1,7 +1,7 @@
 {
   "BasicTest": {
     "module": "eo-test",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "id",
       "basicTest",
@@ -23,7 +23,8 @@
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
     "modelKey": "BasicTest",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -31,7 +32,7 @@
   },
   "SubTest": {
     "module": "eo-test",
-    "subModule": "main",
+    "moduleScope": "main",
     "fieldKeys": [
       "id",
       "subTest",
@@ -41,7 +42,8 @@
     "expose": "WEB",
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
     "modelKey": "SubTest",
-    "eoParams": {
+    "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },

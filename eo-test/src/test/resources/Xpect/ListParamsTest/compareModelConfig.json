@@ -19,13 +19,14 @@
       "4": "filter",
       "5": "colKeys"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "BEAN"
-    },
-    "module": "elastic-objects",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "elastic-objects",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN",
+      "module": "elastic-objects"
+    },
     "description": "Defines the parameter like rowStart, rowEnd and length.",
     "author": "Werner Diwischek",
     "naturalId": "ListParams"

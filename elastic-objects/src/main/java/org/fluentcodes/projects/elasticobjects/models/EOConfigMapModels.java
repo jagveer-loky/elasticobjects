@@ -9,8 +9,9 @@ import org.fluentcodes.tools.xpect.IOString;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.CONFIG_MODEL_KEY;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.*;
 import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 
 /**
  * @Author Werner Diwischek
@@ -106,20 +107,20 @@ public class EOConfigMapModels extends EOConfigMap {
     }
 
     protected void addBasicConfigs()  {
+        Map<String, Object> properties = new HashMap<>();
+        properties.put(PropertiesModelAccessor.SHAPE_TYPE, "MAP");
+        properties.put(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
+
+
         Map<String, Object> map = new HashMap<>();
-
-
+        map.put(PACKAGE_PATH, "java.util");
         // map
         map.put(Model.NATURAL_ID, "Map");
         map.put(ModelConfig.MODEL_KEY, "Map");
-        map.put(ModelConfig.PACKAGE_PATH, "java.util");
         map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
         map.put(CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
 
-        Map<String, Object> eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, "MAP");
-        eoParamsMap.put(EOParams.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
+        map.put(PROPERTIES, properties);
         addConfigByMap(map);
 
 
@@ -129,17 +130,12 @@ public class EOConfigMapModels extends EOConfigMap {
 
 
         // list
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "List");
         map.put(ModelConfig.MODEL_KEY, "List");
-        map.put(ModelConfig.PACKAGE_PATH, "java.util");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
         map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
 
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, "LIST");
-        eoParamsMap.put(EOParams.DEFAULT_IMPLEMENTATION, "ArrayList");
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
+        properties.put(PropertiesModelAccessor.SHAPE_TYPE, "LIST");
+        properties.put(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION, "ArrayList");
         addConfigByMap(map);
 
 
@@ -148,17 +144,16 @@ public class EOConfigMapModels extends EOConfigMap {
         addConfigByMap(map);
 
 
+        properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.SCALAR.name());
+        properties.put(PropertiesModelAccessor.CREATE, false);
+
+        map.put(PACKAGE_PATH, "java.lang");
         // scalar
-        map = new HashMap<>();
         map.put(Model.NATURAL_ID, "Integer");
+        map.put(PACKAGE_PATH, "java.lang");
         map.put(ModelConfig.MODEL_KEY, "Integer");
-        map.put(ModelConfig.PACKAGE_PATH, "java.lang");
         map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
         map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
-
-        eoParamsMap = new HashMap<>();
-        eoParamsMap.put(EOParams.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        map.put(ModelConfig.EO_PARAMS, eoParamsMap);
         addConfigByMap(map);
 
         map.put(Model.NATURAL_ID, "Long");
@@ -181,20 +176,24 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(ModelConfig.MODEL_KEY, "Boolean");
         addConfigByMap(map);
 
+        map.put(PACKAGE_PATH, "java.util");
         map.put(Model.NATURAL_ID, "Date");
         map.put(ModelConfig.MODEL_KEY, "Date");
-        map.put(ModelConfig.PACKAGE_PATH, "java.util");
         addConfigByMap(map);
 
+        //
+        properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.ENUM.name());
+        properties.put(PropertiesModelAccessor.CREATE, false);
+        properties.put(CLASS_PATH, "src/main/java");
+
+        map.put(PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         map.put(Model.NATURAL_ID, "LogLevel");
         map.put(ModelConfig.MODEL_KEY, "LogLevel");
-        map.put(ModelConfig.PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         map.put(ConfigImpl.EXPOSE, Expose.INFO.name());
         addConfigByMap(map);
 
         map.put(Model.NATURAL_ID, "JSONSerializationType");
         map.put(ModelConfig.MODEL_KEY, "JSONSerializationType");
-        map.put(ModelConfig.PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         addConfigByMap(map);
     }
 }

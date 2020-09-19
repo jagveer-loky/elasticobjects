@@ -37,13 +37,14 @@
       "13": "testDouble",
       "14": "testObject"
     },
-    "eoParams": {
-      "create": true,
-      "(ShapeTypes)shapeType": "BEAN"
-    },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "WEB",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN",
+      "module": "eo-test"
+    },
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
     "author": "Werner Diwischek",
     "naturalId": "BasicTest"

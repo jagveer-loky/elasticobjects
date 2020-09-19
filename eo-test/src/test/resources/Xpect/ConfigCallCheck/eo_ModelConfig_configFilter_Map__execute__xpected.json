@@ -1,0 +1,67 @@
+{
+  "0": {
+    "packagePath": "java.util",
+    "modelKey": "HashMap",
+    "(Expose)expose": "NONE",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "MAP",
+      "module": "elastic-objects"
+    },
+    "author": "java",
+    "naturalId": "HashMap"
+  },
+  "1": {
+    "packagePath": "java.util",
+    "modelKey": "LinkedHashMap",
+    "(Expose)expose": "NONE",
+    "properties": {
+      "shapeType": "MAP",
+      "defaultImplementation": "LinkedHashMap"
+    },
+    "naturalId": "LinkedHashMap"
+  },
+  "2": {
+    "packagePath": "java.util",
+    "modelKey": "Map",
+    "(Expose)expose": "NONE",
+    "properties": {
+      "shapeType": "MAP",
+      "defaultImplementation": "LinkedHashMap"
+    },
+    "naturalId": "Map"
+  },
+  "3": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelConfigMap",
+    "superKey": "ModelConfig",
+    "(ArrayList)fieldKeys": {
+      "0": "packagePath",
+      "1": "modelKey",
+      "2": "localFieldKeys",
+      "3": "superKey",
+      "4": "interfaces",
+      "5": "fieldKeys",
+      "6": "scope",
+      "7": "expose",
+      "8": "properties",
+      "9": "id",
+      "10": "description",
+      "11": "naturalId",
+      "12": "creationDate",
+      "13": "author"
+    },
+    "(Expose)expose": "NONE",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG",
+      "module": "elastic-objects"
+    },
+    "description": "Map class wrapper for for create, get and set.",
+    "author": "Werner Diwischek",
+    "naturalId": "ModelConfigMap"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

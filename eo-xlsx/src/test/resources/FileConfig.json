@@ -1,26 +1,40 @@
 {
   "ListSimple.xlsx:test": {
-    "module": "eo-xlsx",
-    "subModule": "test",
     "configModelKey": "XlsxConfig",
-    "fileName": "ListSimple.xlsx",
-    "sheetName": "test",
-    "description": "A sample xlsx file with 2*2 values and a head as a source.",
+    "module": "eo-xlsx",
+    "moduleScope": "test",
+    "hostKey": "localhost",
     "filePath": "input/xlsx",
-    "listParams": {
-      "rowHead": 0
+    "fileName": "ListSimple.xlsx",
+    "description": "A sample xlsx file with 2*2 values and a head as a source.",
+    "expose": "NONE",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "properties": {
+      "classPath": "src.test.resources",
+      "rowHead": 0,
+      "sheetName": "test"
     }
   },
   "target.xlsx": {
-    "module": "actions-xlsx",
-    "subModule": "test",
     "configModelKey": "XlsxConfig",
+    "module": "eo-xlsx",
+    "moduleScope": "test",
+    "hostKey": "localhost",
+    "filePath": "$[@TMP]",
     "fileName": "target.xlsx",
     "description": "A sample target xlsx file with tmp placeholder.",
-    "filePath": "$[TMP]",
-    "naturalId": "target.xlsx",
-    "xlsxKey": "target.xlsx",
-    "listParams": {
+    "expose": "NONE",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "properties": {
+      "classPath": "src.test.resources",
       "rowHead": 0
     }
   }

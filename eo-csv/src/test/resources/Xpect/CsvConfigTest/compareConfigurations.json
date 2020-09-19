@@ -3,10 +3,12 @@
   "0": {
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
-    "(ListParams)listParams": {
+    "properties": {
+      "classPath": "src.main.resources",
       "rowHead": 0,
       "rowStart": 1,
-      "rowEnd": 4
+      "rowEnd": 4,
+      "module": "eo-test"
     },
     "configModelKey": "ScsConfig",
     "fileName": "BasicTest.csv",
@@ -17,9 +19,8 @@
       "read": "guest",
       "write": "admin"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-test",
     "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest.",
     "naturalId": "BasicTest.csv"
   },
@@ -32,19 +33,24 @@
       "read": "guest",
       "write": "admin"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "INFO",
+    "module": "eo-test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
     "description": "Simple data for the BasicTest.",
     "naturalId": "BasicTest.json"
   },
   "2": {
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
-    "(ListParams)listParams": {
+    "properties": {
+      "classPath": "src.main.resources",
       "rowHead": 0,
       "rowStart": 1,
-      "rowEnd": 3
+      "rowEnd": 3,
+      "module": "eo-test"
     },
     "configModelKey": "ScsConfig",
     "fileName": "ListSimple.csv",
@@ -55,9 +61,8 @@
       "read": "guest",
       "write": "admin"
     },
-    "module": "eo-test",
-    "subModule": "main",
     "(Expose)expose": "NONE",
+    "module": "eo-test",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
   },
