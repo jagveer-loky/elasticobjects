@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
+import org.fluentcodes.projects.elasticobjects.UnmodifiableList;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -65,7 +66,7 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
         } else {
             fieldKeys = new ArrayList<>();
         }
-        this.localFieldKeys = new ArrayList<>(fieldKeys);
+        this.localFieldKeys = new UnmodifiableList<>(new ArrayList<>(fieldKeys));
         // resolved
         this.fieldCacheMap = new LinkedHashMap<>();
         this.interfacesMap = new LinkedHashMap<>();

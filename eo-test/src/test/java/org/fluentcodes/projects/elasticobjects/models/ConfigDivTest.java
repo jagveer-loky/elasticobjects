@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,8 +10,7 @@ import org.junit.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MAP;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_STRING;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
@@ -19,6 +19,18 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class ConfigDivTest {
 
     private static final Logger LOG = LogManager.getLogger(ConfigDivTest.class);
+
+    @Test
+    public void changeLocalFieldKeys()  {
+        ModelConfigObject model = (ModelConfigObject)ProviderRootTestScope.EO_CONFIGS.findModel(Config.class);
+        Map map = model.getProperties();
+        Assertions
+                .assertThatThrownBy(
+                        () -> {
+                            model.getLocalFieldKeys().add("newValue");
+                        })
+                .isInstanceOf(UnsupportedOperationException.class);
+    }
 
     @Test
     public void testMap()  {

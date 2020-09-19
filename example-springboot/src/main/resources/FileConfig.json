@@ -17,6 +17,22 @@
       "rowHead": 0
     }
   },
+  "Blog.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "Blog.html",
+    "description": "The actual blog entry.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "ConfigsCall.html": {
     "module": "example-springboot",
     "moduleScope": "main",
