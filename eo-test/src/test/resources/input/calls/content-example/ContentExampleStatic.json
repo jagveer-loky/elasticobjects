@@ -7,6 +7,6 @@
   },
   "(TemplateResourceCall)2": {
     "sourcePath": "data/*",
-    "configKey":"ContentExampleElement1"
+    "templateKey":"ContentExampleElement1"
   }
 }

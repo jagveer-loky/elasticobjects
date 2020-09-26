@@ -118,9 +118,9 @@
     "fieldKeys": [
       "scope",
       "expose",
+      "properties",
       "module",
-      "moduleScope",
-      "properties"
+      "moduleScope"
     ],
     "superKey": "Model",
     "expose": "INFO",
@@ -535,53 +535,6 @@
     },
     "author": "java"
   },
-  "PropertiesListAccessor": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "PropertiesConfigAccessor",
-    "expose": "INFO",
-    "description": "Defines default common methods for List configuration",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "PropertiesListAccessor",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
-  "PropertiesConfigAccessor": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "PropertiesAccessor",
-    "expose": "INFO",
-    "description": "Defines default common methods for List configuration",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "PropertiesConfigAccessor",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
-  "PropertiesAccessor": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "properties"
-    ],
-    "expose": "INFO",
-    "description": "Root interface for properties access. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "PropertiesAccessor",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
   "ListInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -901,6 +854,89 @@
     },
     "author": "Werner Diwischek"
   },
+  "PropertiesAccessor": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "properties"
+    ],
+    "expose": "INFO",
+    "description": "Root interface for properties access. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "PropertiesAccessor",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "PropertiesConfigAccessor": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "PropertiesAccessor",
+    "expose": "INFO",
+    "description": "Defines default common methods for List configuration",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "PropertiesConfigAccessor",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "PropertiesListAccessor": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "PropertiesConfigAccessor",
+    "expose": "INFO",
+    "description": "Defines default common methods for List configuration",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "PropertiesListAccessor",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "PropertiesTemplateResourceAccessor": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "directive",
+      "endDirective",
+      "templateKey",
+      "keepCall"
+    ],
+    "superKey": "PropertiesAccessor",
+    "expose": "INFO",
+    "description": "Defines the property values valid for TemplateResourceCall ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "modelKey": "PropertiesTemplateResourceAccessor",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "PropertiesTemplateResourceStoreAccessor": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "PropertiesTemplateResourceAccessor",
+    "expose": "INFO",
+    "description": "Defines the property values valid for TemplateResourceStoreCall ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "modelKey": "PropertiesTemplateResourceStoreAccessor",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
   "RolePermissions": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1108,6 +1144,36 @@
     },
     "author": "Werner Diwischek"
   },
+  "StringReplaceWhiteSpaceCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Replaces white space with underscore.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "StringReplaceWhiteSpaceCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "StringReplaceWithHtmlCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Replaces white space with underscore.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "StringReplaceWithHtmlCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "StringUpperCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1162,11 +1228,31 @@
     "fieldKeys": [
       "keepCall"
     ],
-    "superKey": "FileReadCall",
+    "interfaces": "PropertiesTemplateResourceAccessor",
+    "superKey": "TemplateCall",
     "expose": "WEB",
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "TemplateResourceStoreCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "targetFile"
+    ],
+    "interfaces": "PropertiesTemplateResourceAccessor",
+    "superKey": "TemplateResourceCall",
+    "expose": "WEB",
+    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "modelKey": "TemplateResourceStoreCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

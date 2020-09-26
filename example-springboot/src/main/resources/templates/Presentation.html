@@ -1,0 +1,16 @@
+$[(TemplateResourceCall). templateKey="PresentationHeader.html"/]
+<header class="entry-header">
+    <div id="rootNav">
+        <ul>
+            $[(TemplateCall). sourcePath="/data/*" ]
+            <li><a href="$[(StringReplaceWhiteSpaceCall)head targetPath="asString" /].html">$[head]</a></li>
+            $[/]
+        </ul>
+    </div>
+</header>
+    <div class="entry-content" id="entry-content">
+        <h3>$[head]</h3>
+        <p>$[content]</p>
+       <hr/>
+     </div>
+$[(TemplateResourceCall). templateKey="PresentationFooter.html"/]

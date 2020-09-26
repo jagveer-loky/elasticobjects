@@ -26,9 +26,9 @@
       "11": "rolePermissions",
       "12": "scope",
       "13": "expose",
-      "14": "module",
-      "15": "moduleScope",
-      "16": "properties",
+      "14": "properties",
+      "15": "module",
+      "16": "moduleScope",
       "17": "id",
       "18": "description",
       "19": "naturalId",
@@ -36,13 +36,13 @@
       "21": "author"
     },
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG",
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "author": "Werner Diwischek",
     "naturalId": "DbConfig"

@@ -97,6 +97,44 @@
       "classPath": "src.main.resources"
     }
   },
+  "content.xlsx": {
+    "configModelKey": "XlsxConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "static",
+    "fileName": "content.xlsx",
+    "description": "The content for example-springboot.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0,
+      "sheetName": "intro"
+    }
+  },
+  "content.xlsx:faq": {
+    "configModelKey": "XlsxConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "static",
+    "fileName": "content.xlsx",
+    "description": "The faq content for example-springboot.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0,
+      "sheetName": "faq"
+    }
+  },
   "ContentPage.html": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -121,6 +159,22 @@
     "fileName": "DbCall.html",
     "description": "Some small post examples for Db access.",
     "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "DbSqlConfig.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/configs",
+    "fileName": "DbSqlConfig.html",
+    "description": "Entry content for DbSqlConfig pages.",
+    "expose": "NONE",
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
@@ -172,6 +226,22 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "Faq.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "Faq.html",
+    "description": "Template for faq",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
     },
     "properties": {
       "classPath": "src.main.resources"
@@ -241,6 +311,22 @@
       "classPath": "src.main.resources"
     }
   },
+  "FooterStatic.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "FooterStatic.html",
+    "description": "Footer for static pages. ",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "Header.html": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -252,6 +338,22 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "HeaderStatic.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "HeaderStatic.html",
+    "description": "Header for static pages. ",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
     },
     "properties": {
       "classPath": "src.main.resources"
@@ -481,6 +583,54 @@
       "classPath": "src.main.resources"
     }
   },
+  "Presentation.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "Presentation.html",
+    "description": "Template for presentation",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "PresentationFooter.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "PresentationFooter.html",
+    "description": "Template footer for presentation.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "PresentationHeader.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "PresentationHeader.html",
+    "description": "Template Header for presentation.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "public.txt": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -537,22 +687,6 @@
     "fileName": "TemplateCall.html",
     "description": "Some small post template examples.",
     "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "TemplateConfig.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/configs",
-    "fileName": "TemplateConfig.html",
-    "description": "Entry content for TemplateConfig.",
-    "expose": "NONE",
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"

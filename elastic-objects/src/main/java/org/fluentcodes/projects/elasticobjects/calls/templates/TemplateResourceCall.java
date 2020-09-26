@@ -6,81 +6,47 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * Created by werner.diwischek on 26.08.20.
  */
-public class TemplateResourceCall extends TemplateCall {
+public class TemplateResourceCall extends TemplateCall implements PropertiesTemplateResourceAccessor{
     private static final transient Logger LOG = LogManager.getLogger(TemplateResourceCall.class);
-    private String configKey;
-    private KeepCalls keepCall;
-    private String directive;
-    private String endDirective;
-
+    private Map<String, Object> properties;
     public TemplateResourceCall() {
         super();
+        properties = new LinkedHashMap<>();
     }
 
     public TemplateResourceCall(String configKey) {
-        super();
-        this.configKey = configKey;
+        this();
+        setTemplateKey(configKey);
     }
 
-    public String getConfigKey() {
-        return configKey;
+    @Override
+    public Map<String, Object> getProperties() {
+        return properties;
     }
 
-    public TemplateResourceCall setConfigKey(String configKey) {
-        this.configKey = configKey;
-
-        return this;
-    }
-
-    public KeepCalls getKeepCall() {
-        return keepCall;
-    }
-
-    public void setKeepCall(KeepCalls keepCall) {
-        if (this.keepCall != null) {
-            return;
-        }
-        this.keepCall = keepCall;
-    }
-
-    public String getDirective() {
-        return directive;
-    }
-
-    public void setDirective(String directive) {
-        this.directive = directive;
-    }
-
-    public String getEndDirective() {
-        return endDirective;
-    }
-
-    public void setEndDirective(String endDirective) {
-        this.endDirective = endDirective;
+    public void setProperties(Map<String, Object> properties) {
+        this.properties = properties;
     }
 
     public String prepend() {
-        if (directive==null) {
-            return "";
-        }
-        return directive;
+        return getDirective();
     }
     public String postPend() {
-        if (endDirective==null) {
-            return "";
-        }
-        return endDirective;
+        return getEndDirective();
     }
 
     public String execute(EO eo)  {
-        String replacedConfig = new ParserEoReplace(configKey).parse(eo);
-        FileConfig config = eo.getConfigsCache().findFile(replacedConfig);
+        String fileConfigKey = new ParserEoReplace(getTemplateKey()).parse(eo);
+        FileConfig config = eo.getConfigsCache().findFile(fileConfigKey);
         if (config.hasPermissions(PermissionType.EXECUTE, eo.getRoles())) {
             super.setContent((String) config.read());
-            return (String)super.execute(eo);
+            return super.execute(eo);
         }
         else {
             return "No permission to execute '" + config.getNaturalId() + "' with roles '" + eo.getRoles() + "'.";

@@ -33,6 +33,18 @@
       "classPath": "src.main.resources"
     }
   },
+  "classPath": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ",
+    "expose": "WEB",
+    "fieldKey": "packagePath",
+    "length": 64,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "colKeys": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -139,17 +151,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "properties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "HashMap",
-    "description": "Properties for configurations.",
-    "expose": "WEB",
-    "fieldKey": "properties",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "defaultImplementation": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -185,6 +186,18 @@
       "classPath": "src.main.resources"
     }
   },
+  "directive": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A content inclueded before template.",
+    "expose": "WEB",
+    "fieldKey": "directive",
+    "length": 500,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "duration": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -192,6 +205,18 @@
     "description": "The duration of a call.",
     "expose": "WEB",
     "fieldKey": "duration",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "endDirective": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A content inclueded after template.",
+    "expose": "WEB",
+    "fieldKey": "endDirective",
+    "length": 500,
     "properties": {
       "classPath": "src.main.resources"
     }
@@ -258,17 +283,6 @@
     "description": "A list of field keys for the model configuration. ",
     "expose": "INFO",
     "fieldKey": "fieldKeys",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "localFieldKeys": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "ArrayList,String",
-    "description": "A list of field as proivided by the model configuration. ",
-    "expose": "WEB",
-    "fieldKey": "localFieldKeys",
     "properties": {
       "classPath": "src.main.resources"
     }
@@ -461,6 +475,17 @@
       "classPath": "src.main.resources"
     }
   },
+  "javaProperties": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Map",
+    "description": "A map of properties used in configs and calls.",
+    "expose": "INFO",
+    "fieldKey": "javaProperties",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "join": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -489,6 +514,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "KeepCalls",
+    "description": "Will use an existing  result file beforehand as template. ",
     "expose": "WEB",
     "fieldKey": "keepCall",
     "properties": {
@@ -538,6 +564,17 @@
     "expose": "WEB",
     "fieldKey": "localCondition",
     "length": 1000,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "localFieldKeys": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "ArrayList,String",
+    "description": "A list of field as proivided by the model configuration. ",
+    "expose": "WEB",
+    "fieldKey": "localFieldKeys",
     "properties": {
       "classPath": "src.main.resources"
     }
@@ -639,9 +676,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "Defines scope of the configuration with module, eg 'test' or 'main' ",
+    "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
     "expose": "WEB",
-    "fieldKey": "module",
+    "fieldKey": "moduleScope",
     "length": 10,
     "properties": {
       "classPath": "src.main.resources"
@@ -755,6 +792,17 @@
     "modelKeys": "Integer",
     "expose": "INFO",
     "fieldKey": "port",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "properties": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Map",
+    "description": "Properties for configurations.",
+    "expose": "WEB",
+    "fieldKey": "properties",
     "properties": {
       "classPath": "src.main.resources"
     }
@@ -901,18 +949,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "classPath": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ",
-    "expose": "WEB",
-    "fieldKey": "packagePath",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "superKey": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -937,6 +973,18 @@
       "classPath": "src.main.resources"
     }
   },
+  "targetFile": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "expose": "WEB",
+    "fieldKey": "targetFile",
+    "length": 80,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "targetPath": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -944,6 +992,18 @@
     "description": "A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.",
     "expose": "WEB",
     "fieldKey": "targetPath",
+    "length": 80,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "templateKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The templateKey used to get the file content in templateResourceCall",
+    "expose": "WEB",
+    "fieldKey": "templateKey",
     "length": 80,
     "properties": {
       "classPath": "src.main.resources"
@@ -1026,17 +1086,6 @@
     "expose": "NONE",
     "fieldKey": "write",
     "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "javaProperties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Map",
-    "description": "A map of properties used in configs and calls.",
-    "expose": "INFO",
-    "fieldKey": "javaProperties",
     "properties": {
       "classPath": "src.main.resources"
     }

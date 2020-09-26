@@ -19,13 +19,13 @@
       "8": "duration"
     },
     "(Expose)expose": "WEB",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "For setting values to EO.",
     "author": "Werner Diwischek",
     "naturalId": "ValueCall"

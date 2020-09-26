@@ -19,10 +19,7 @@ import java.util.*;
 public abstract class ModelConfig extends ConfigImpl implements PropertiesModelAccessor {
     public static final String MODEL_KEY = "modelKey";
     public static final String FIELD_KEYS = "fieldKeys";
-    public static final String EO_PARAMS = "eoParams";
-    public static final String JSON_TYPE = "jsonType";
     public static final String INTERFACES = "interfaces";
-    public static final String DB_PARAMS = "dbParams";
     public static final String SUPER_KEY = "superKey";
     public static final String PACKAGE_PATH = "packagePath";
 

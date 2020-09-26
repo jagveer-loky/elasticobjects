@@ -16,13 +16,13 @@
       "8": "duration"
     },
     "(Expose)expose": "WEB",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Defines a file read access. ",
     "author": "Werner Diwischek",
     "naturalId": "FileReadCall"

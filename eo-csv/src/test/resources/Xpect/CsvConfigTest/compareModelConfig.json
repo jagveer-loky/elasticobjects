@@ -30,13 +30,13 @@
       "17": "author"
     },
     "(Expose)expose": "INFO",
-    "module": "eo-csv",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG",
       "module": "eo-csv"
     },
+    "module": "eo-csv",
     "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
     "author": "Werner Diwischek",
     "naturalId": "CsvConfig"

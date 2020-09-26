@@ -30,13 +30,13 @@
       "17": "author"
     },
     "(Expose)expose": "INFO",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "ScsConfig"

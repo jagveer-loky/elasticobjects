@@ -19,13 +19,13 @@
       "8": "duration"
     },
     "(Expose)expose": "INFO",
-    "module": "example-springboot",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
       "module": "example-springboot"
     },
+    "module": "example-springboot",
     "description": "An example for a simple call with a field.",
     "author": "Werner Diwischek",
     "naturalId": "TheGreetingCall"

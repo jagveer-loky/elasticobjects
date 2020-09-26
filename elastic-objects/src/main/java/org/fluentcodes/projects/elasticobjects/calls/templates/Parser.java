@@ -204,7 +204,7 @@ public abstract class Parser {
             callObject = (Call) eoForMapAttributesToCall.get();
         }
         if (callObject instanceof TemplateResourceCall) {
-            if (((TemplateResourceCall)callObject).getKeepCall()!=null) {
+            if (((TemplateResourceCall)callObject).hasKeepCall()) {
                 KeepCalls keepCall = ((TemplateResourceCall)callObject).getKeepCall();
                 String directiveWithComment = keepCall.createDirective(callDirective);
                 ((TemplateResourceCall)callObject).setDirective(directiveWithComment);

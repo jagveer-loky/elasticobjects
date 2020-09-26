@@ -3,10 +3,10 @@
   "0": {
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "local H2 with a temp file",
     "naturalId": "h2:file"
   },
@@ -19,7 +19,6 @@
     "user": "sa",
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "classPath": "src.main.resources",
       "schema": "file:basic",
@@ -31,16 +30,17 @@
       "user": "sa",
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Local H2 in file persisted for the test resources.",
     "naturalId": "h2:file:basic"
   },
   "2": {
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "local H2 which exists just in memory",
     "naturalId": "h2:mem"
   },
@@ -55,7 +55,6 @@
     "password": "",
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "classPath": "src.main.resources",
       "schema": "mem:basic",
@@ -68,80 +67,81 @@
       "password": "",
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Local H2 in memory for the test resources.",
     "naturalId": "h2:mem:basic"
   },
   "4": {
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
     "naturalId": "hsql:fileTest"
   },
   "5": {
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "local HSQL which exists just in memory",
     "naturalId": "hsql:mem"
   },
   "6": {
     "hostName": "localhost",
     "(Expose)expose": "NONE",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.resources",
       "hostName": "localhost",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
   "7": {
     "hostName": "localhost",
     "(Expose)expose": "INFO",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.resources",
       "hostName": "localhost",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   },
   "8": {
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Core Schema",
     "naturalId": "localMySql:core"
   },
   "9": {
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Test Schema",
     "naturalId": "localMySql:test"
   },
   "10": {
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Oracle Schem",
     "naturalId": "localOracle:XE"
   },

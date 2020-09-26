@@ -19,7 +19,9 @@ import java.util.regex.Pattern;
 
 public class ParserEoReplace extends Parser {
     private static final Logger LOG = LogManager.getLogger(ParserEoReplace.class);
-    private static final Pattern varPattern = Pattern.compile("eo->([^\\.]*)(\\.)");
+    private static final String CLOSE_TAG = "eo->/.";
+    private static final String END_SEQUENCE = "/.";
+    private static final Pattern varPattern = Pattern.compile("eo->(.*?)(/*\\.)");
     public ParserEoReplace(final String template) {
         super(template);
     }

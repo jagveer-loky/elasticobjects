@@ -20,10 +20,10 @@ import org.junit.Test;
 public class TemplateContentExampleTest {
     public static final String JSON_CONFIG_KEY = "ContentExampleStatic";
     public static final String DATA_JSON_CONFIG_KEY = "ContentExampleData";
-    public static final String STATIC_TEMPLATE_CONFIG_KEY = "ContentExampleStatic";
-    public static final String TEMPLATE_STATIC_KEEP_CONFIG_KEY = "ContentExampleStaticKeep";
-    public static final String TEMPLATE_STATIC_CONDITION_CONFIG_KEY = "ContentExampleStaticCondition";
-    public static final String DYNAMIC_TEMPLATE_CONFIG_KEY = "ContentExampleDynamic";
+    public static final String STATIC_TPL = "ContentExampleStatic";
+    public static final String STATIC_KEEP_TPL = "ContentExampleStaticKeep";
+    public static final String STATIC_CONDITION_TPL = "ContentExampleStaticCondition";
+    public static final String DYNAMIC_TPL = "ContentExampleDynamic";
     public static final String T_CONTENT_OR_EXAMPLE = "ContentOrExample";
     private static final Logger LOG = LogManager.getLogger(TemplateContentExampleTest.class);
     private static final String H1 = "<h1>";
@@ -73,7 +73,7 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void givenEoJsonStatic_whenExecuteEo_thenExpected()  {
+    public void eo_StaticJson__execute_xpected()  {
         EO eo = TestProviderJsonCalls.CONTENT_EXAMPLE_STATIC_JSON.getEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -83,37 +83,37 @@ public class TemplateContentExampleTest {
 
     @Ignore
     @Test
-    public void givenCallTemplateResourceStatic_whenExecute_thenXpected()  {
+    public void call_StaticTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final TemplateResourceCall call = new TemplateResourceCall()
-                .setConfigKey(STATIC_TEMPLATE_CONFIG_KEY);
+        final TemplateResourceCall call = new TemplateResourceCall();
+        call.setTemplateKey(STATIC_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }
 
     @Test
-    public void givenCallTemplateResourceStaticKeep_whenExecute_thenXpected()  {
+    public void call__StaticKeepTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final TemplateResourceCall call = new TemplateResourceCall()
-                .setConfigKey(TEMPLATE_STATIC_KEEP_CONFIG_KEY);
+        final TemplateResourceCall call = new TemplateResourceCall();
+        call.setTemplateKey(STATIC_KEEP_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }
 
     @Test
-    public void callTemplateResource_staticCondition__execute__xpected()  {
+    public void call_StaticConditionTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final TemplateResourceCall call = new TemplateResourceCall()
-                .setConfigKey(TEMPLATE_STATIC_CONDITION_CONFIG_KEY);
+        final TemplateResourceCall call = new TemplateResourceCall();
+        call.setTemplateKey(STATIC_CONDITION_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }
 
     @Test
-    public void givenCallJsonDynamic_whenExecuteEo_thenXpected()  {
+    public void eo_JsonDynamic__execute__xpected()  {
         EO eo = TestProviderJsonCalls.CONTENT_EXAMPLE_DYNAMIC_JSON.getEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -122,11 +122,11 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void givenCallTemplateResourceDynamic_whenExecute_thenXpected()  {
+    public void call_DynamicTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final TemplateResourceCall call = new TemplateResourceCall()
-                .setConfigKey(DYNAMIC_TEMPLATE_CONFIG_KEY);
+        final TemplateResourceCall call = new TemplateResourceCall();
+        call.setTemplateKey(DYNAMIC_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }
