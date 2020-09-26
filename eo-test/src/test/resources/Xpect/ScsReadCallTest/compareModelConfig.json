@@ -17,13 +17,13 @@
       "9": "duration"
     },
     "(Expose)expose": "WEB",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Defines a primitive csv file read operation. ",
     "author": "Werner Diwischek",
     "naturalId": "ScsReadCall"

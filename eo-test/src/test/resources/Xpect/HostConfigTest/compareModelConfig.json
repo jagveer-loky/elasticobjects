@@ -22,9 +22,9 @@
       "6": "rolePermissions",
       "7": "scope",
       "8": "expose",
-      "9": "module",
-      "10": "moduleScope",
-      "11": "properties",
+      "9": "properties",
+      "10": "module",
+      "11": "moduleScope",
       "12": "id",
       "13": "description",
       "14": "naturalId",
@@ -32,13 +32,13 @@
       "16": "author"
     },
     "(Expose)expose": "INFO",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Basic host definition for file or db cache. ",
     "naturalId": "HostConfig"
   },

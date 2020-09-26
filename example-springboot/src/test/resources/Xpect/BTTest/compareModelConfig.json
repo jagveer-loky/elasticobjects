@@ -38,13 +38,13 @@
       "14": "testObject"
     },
     "(Expose)expose": "WEB",
-    "module": "eo-test",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN",
       "module": "eo-test"
     },
+    "module": "eo-test",
     "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
     "author": "Werner Diwischek",
     "naturalId": "BasicTest"

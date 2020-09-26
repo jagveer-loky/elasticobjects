@@ -149,18 +149,17 @@ public class Path {
             target = eo.getRoot();
         }
         for (PathElement element: entries) {
-                if (element.isBack()) {
-                    target = target.getParent();
+            if (element.isBack()) {
+                target = target.getParent();
+            }
+            else if (element.isSame()) { }
+            else {
+                if (((EoChild)target).hasEo(element)) {
+                    target = target.getEo(element);
                 }
-                else if (element.isSame()) { }
                 else {
-                    if (((EoChild)target).hasEo(element)) {
-                        target = target.getEo(element);
-                    }
-                    else {
-                        throw new EoException("Could not move to path '" + this.toString() + "' because key '" + element.toString() + "' does not exist on '" + target.getPathAsString() + "'." );
-                    }
-
+                    throw new EoException("Could not move to path '" + this.toString() + "' because key '" + element.toString() + "' does not exist on '" + target.getPathAsString() + "'." );
+                }
             }
         }
         return target;

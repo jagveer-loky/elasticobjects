@@ -20,9 +20,9 @@
       "5": "rolePermissions",
       "6": "scope",
       "7": "expose",
-      "8": "module",
-      "9": "moduleScope",
-      "10": "properties",
+      "8": "properties",
+      "9": "module",
+      "10": "moduleScope",
       "11": "id",
       "12": "description",
       "13": "naturalId",
@@ -30,13 +30,13 @@
       "15": "author"
     },
     "(Expose)expose": "INFO",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Immutable EO file configuration will be initialized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "FileConfig"

@@ -5,15 +5,29 @@
 
 <h3>EO - Elastic Objects</h3>
 <p>
-    Elastic Objects is a wrapper for java objects like Java 8 Optional. The wrapper knows
+    Elastic Objects is a generic wrapper for java native objects.</p>
+<p>
+    It's similar to Java 8 Optional but knows
 </p>
 <ul>
     <li>the wrapper of the parent object,</li>
-    <li>all wrappers for the child objects with fieldName and </li>
-    <li>the type.</li>
+    <li>all wrappers for the child objects by fieldName and </li>
+    <li>the type rules.</li>
 </ul>
 <p>
     Combining these wrappers one can access, create or change java objects via path.
+</p>
+<p>
+    Since EO is generic,
+    one can define calls with a simple generic method
+</p>
+<li>execute(EO eo).</li>
+<p>
+These calls could be combined in any order.
+</p>
+<p>
+    With a JSON serialization/deserialization adding type to a fieldName, one can loosely transfer complex
+    objects and trigger calls from a client.
 </p>
 
 <h4>At a glance</h4>

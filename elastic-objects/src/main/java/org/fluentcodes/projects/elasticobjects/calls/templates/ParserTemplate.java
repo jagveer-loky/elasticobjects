@@ -19,6 +19,8 @@ import java.util.regex.Pattern;
 
 public class ParserTemplate extends Parser{
     private static final Logger LOG = LogManager.getLogger(ParserTemplate.class);
+    private static final String CLOSE_TAG = "$[/]";
+    private static final String END_SEQUENCE = "/]";
     private static final Pattern varPattern = Pattern.compile("\\$\\[(.*?)(/*\\])");
     
     public ParserTemplate(final String template) {

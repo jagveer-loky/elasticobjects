@@ -34,11 +34,11 @@
       "write": "admin"
     },
     "(Expose)expose": "INFO",
-    "module": "eo-test",
     "properties": {
       "classPath": "src.main.resources",
       "module": "eo-test"
     },
+    "module": "eo-test",
     "description": "Simple data for the BasicTest.",
     "naturalId": "BasicTest.json"
   },

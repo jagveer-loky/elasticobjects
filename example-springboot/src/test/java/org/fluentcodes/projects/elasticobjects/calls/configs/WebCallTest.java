@@ -19,7 +19,7 @@ public class WebCallTest {
     @Test
     public void givenFooterHtml_whenExecute_thenLoaded() {
         EO eo = ProviderRootTestScope.createEo();
-        eo.addCall(new TemplateResourceCall("Footer.html"));
+        eo.addCall(new TemplateResourceCall("FooterStatic.html"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         new XpectString().compareAsString((String)eo.get("_template"));

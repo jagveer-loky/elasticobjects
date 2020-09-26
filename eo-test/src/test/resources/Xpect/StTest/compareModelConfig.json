@@ -16,13 +16,13 @@
       "3": "testString"
     },
     "(Expose)expose": "WEB",
-    "module": "eo-test",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN",
       "module": "eo-test"
     },
+    "module": "eo-test",
     "author": "Werner Diwischek",
     "naturalId": "SubTest"
   },

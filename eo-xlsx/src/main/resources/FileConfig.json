@@ -1,0 +1,16 @@
+{
+  "BasicTest.xlsx": {
+    "configModelKey": "XlsxConfig",
+    "module": "eo-xlsx",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "lists",
+    "fileName": "BasicTest.xlsx",
+    "description": "A sample xlsx file separated file with 3x3 entries and a header which could be mapped to BasicTest.",
+    "expose": "INFO",
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  }
+}

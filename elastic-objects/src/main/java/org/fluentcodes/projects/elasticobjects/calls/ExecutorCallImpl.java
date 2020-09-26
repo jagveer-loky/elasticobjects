@@ -27,13 +27,12 @@ public class ExecutorCallImpl implements ExecutorCall {
             return "Already executed within " + call.getDuration() + " ms. ";
         }
 
-        EO source = eo;
-        if (!call.filter(source)) {
-            return null;
-        }
         Path sourcePath = new Path(eo.getPathAsString(), call.getSourcePath());
-        boolean isFilter = sourcePath.isFilter();
         EO sourceParent = sourcePath.moveToParent(eo);
+        boolean isFilter = sourcePath.isFilter();
+        if (!call.filter(sourceParent)) {
+            return "";
+        }
         List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
         // get targetParent
         String targetPath = call.getTargetPath();

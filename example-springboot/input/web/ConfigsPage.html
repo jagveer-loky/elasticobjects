@@ -1,9 +1,9 @@
 $[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected." expose="INFO" /]
 $[(ConfigOpenApiCall)openApi configFilter="eo->configSelected."/]
-$[(TemplateResourceCall). configKey="Header.html"/]
+$[(TemplateResourceCall). templateKey="Header.html"/]
     <header class="entry-header">
         <div id="rootNav">
-            $[(TemplateResourceCall). configKey="ConfigsNavigation.html"/]
+            $[(TemplateResourceCall). templateKey="ConfigsNavigation.html"/]
         </div>
     </header>
 
@@ -71,4 +71,4 @@ $[(TemplateResourceCall). configKey="Header.html"/]
         </form>
        <hr/>
      </div>
-$[(TemplateResourceCall). configKey="Footer.html"/]
+$[(TemplateResourceCall). templateKey="Footer.html"/]

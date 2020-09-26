@@ -4,13 +4,13 @@
     "dbKey": "h2:mem:basic",
     "sql": "Select * from BasicTest",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
       "modelKey": "BasicTest",
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Query for BasicTest",
     "naturalId": "h2:mem:basic:BasicTest"
   },
@@ -32,13 +32,13 @@
       "12": "insert into BasicTest (testString,testInt,testBoolean) values ('value3',3, true)"
     },
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
       "modelKey": "",
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Basic H2 creating tables",
     "naturalId": "h2:mem:basic:Create"
   },
@@ -46,13 +46,13 @@
     "dbKey": "h2:mem:basic",
     "sql": "Select * from SubTest",
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
       "modelKey": "SubTest",
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "Query for SubTest",
     "naturalId": "h2:mem:basic:SubTest"
   },

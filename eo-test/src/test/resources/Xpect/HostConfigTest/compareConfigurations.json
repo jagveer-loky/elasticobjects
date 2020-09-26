@@ -3,24 +3,24 @@
   "0": {
     "hostName": "localhost",
     "(Expose)expose": "NONE",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.resources",
       "hostName": "localhost",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
   "1": {
     "hostName": "localhost",
     "(Expose)expose": "INFO",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.resources",
       "hostName": "localhost",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   },

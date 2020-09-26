@@ -16,13 +16,13 @@
       "8": "duration"
     },
     "(Expose)expose": "INFO",
-    "module": "eo-db",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
       "module": "eo-db"
     },
+    "module": "eo-db",
     "description": "A execution method for  {@link DbSqlConfig}",
     "author": "Werner Diwischek",
     "naturalId": "DbSqlCall"

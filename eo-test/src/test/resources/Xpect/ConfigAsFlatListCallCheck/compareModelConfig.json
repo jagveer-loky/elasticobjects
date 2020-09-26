@@ -11,9 +11,9 @@
       "0": "configType",
       "1": "scope",
       "2": "expose",
-      "3": "module",
-      "4": "moduleScope",
-      "5": "properties",
+      "3": "properties",
+      "4": "module",
+      "5": "moduleScope",
       "6": "id",
       "7": "description",
       "8": "naturalId",
@@ -21,13 +21,13 @@
       "10": "author"
     },
     "(Expose)expose": "WEB",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Creates a string as list file.",
     "author": "Werner Diwischek",
     "naturalId": "ConfigAsFlatListCall"

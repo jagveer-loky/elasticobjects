@@ -4,6 +4,12 @@ textarea {
     text-overflow: ellipsis;
     background-color: rgb(230, 230, 230);
     font: 330 12.6px Courier, Monaco, monospace;
+    padding-top:7px;
+    margin-left:20px;
+    margin-top:20px;
+    margin-bottom:30px;
+    width:90%;
+    height:40px;
 }
 button, input[type="button"], input[type="submit"] {
     background-color: rgb(200, 180, 180);

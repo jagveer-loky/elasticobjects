@@ -6,27 +6,32 @@
     "(ArrayList)localFieldKeys": {
       "0": "keepCall"
     },
-    "superKey": "FileReadCall",
+    "superKey": "TemplateCall",
+    "interfaces": "PropertiesTemplateResourceAccessor",
     "(ArrayList)fieldKeys": {
       "0": "keepCall",
-      "1": "configKey",
-      "2": "sourcePath",
-      "3": "targetPath",
-      "4": "models",
-      "5": "condition",
-      "6": "localCondition",
-      "7": "overwrite",
-      "8": "logLevel",
-      "9": "duration"
+      "1": "directive",
+      "2": "endDirective",
+      "3": "templateKey",
+      "4": "properties",
+      "5": "content",
+      "6": "sourcePath",
+      "7": "targetPath",
+      "8": "models",
+      "9": "condition",
+      "10": "localCondition",
+      "11": "overwrite",
+      "12": "logLevel",
+      "13": "duration"
     },
     "(Expose)expose": "WEB",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "author": "Werner Diwischek",
     "naturalId": "TemplateResourceCall"

@@ -4,13 +4,13 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "KeepCalls",
     "(Expose)expose": "INFO",
-    "module": "elastic-objects",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "ENUM",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
     "description": "Enum for templates to keep the template directives in the template result as a comment. ",
     "author": "Werner Diwischek",
     "naturalId": "KeepCalls"
