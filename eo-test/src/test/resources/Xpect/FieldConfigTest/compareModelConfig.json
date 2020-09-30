@@ -32,6 +32,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "FieldConfig"

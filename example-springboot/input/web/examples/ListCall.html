@@ -1,6 +1,6 @@
 <h3>List Calls</h3>
 <p>With the <a href="/config/ModelConfig/ScsReadCall">&ocir;ScsReadCall</a> one can read simple character separated files. It just split for a certain delimiter.</p>
-<p>In the following examples the <a href="/config/FileConfig/BasicTest.csv">&ocir;BasicTest.csv file</a> with <a href="/config/FileConfig/BasicTest.csv">&ocir;properties</a>
+<p>In the following examples the <a href="/config/FileConfig/AnObject.csv">&ocir;AnObject.csv file</a> with <a href="/config/FileConfig/AnObject.csv">&ocir;properties</a>
     is used.
 </p>
 <h4>Simple Call</h4>
@@ -10,7 +10,7 @@
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
    "(ScsReadCall)values":{
-       "configKey":"BasicTest.csv"
+       "configKey":"AnObject.csv"
    },
    "_serializationType":"STANDARD"
 }</textarea>
@@ -27,7 +27,7 @@
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
    "(ScsReadCall)values":{
-       "configKey":"BasicTest.csv",
+       "configKey":"AnObject.csv",
         "rowHead":-1,
         "rowStart":0,
         "rowEnd":2
@@ -46,9 +46,9 @@
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
-   "(List,BasicTest)values":{},
+   "(List,AnObject)values":{},
    "(ScsReadCall).":{
-       "configKey":"BasicTest.csv",
+       "configKey":"AnObject.csv",
        "targetPath":"values"
    }
 }</textarea>

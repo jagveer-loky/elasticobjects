@@ -1,28 +1,28 @@
 {
-  "BasicTest": {
+  "AnObject": {
     "module": "eo-test",
     "moduleScope": "main",
     "fieldKeys": [
       "id",
-      "basicTest",
-      "subTest",
-      "subTestList",
-      "subTestMap",
-      "untypedList",
-      "untypedMap",
-      "testInt",
-      "testString",
-      "testLong",
-      "testDate",
-      "testBoolean",
-      "testFloat",
-      "testDouble",
-      "testObject"
+      "myAnObject",
+      "myASubObject",
+      "myASubObjectList",
+      "myASubObjectMap",
+      "myList",
+      "myMap",
+      "myInt",
+      "myString",
+      "myLong",
+      "myDate",
+      "myBoolean",
+      "myFloat",
+      "myDouble",
+      "myObject"
     ],
     "expose": "WEB",
-    "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
+    "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
-    "modelKey": "BasicTest",
+    "modelKey": "AnObject",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -30,18 +30,18 @@
     },
     "author": "Werner Diwischek"
   },
-  "SubTest": {
+  "ASubObject": {
     "module": "eo-test",
     "moduleScope": "main",
     "fieldKeys": [
       "id",
-      "subTest",
+      "myASubObject",
       "name",
-      "testString"
+      "myString"
     ],
     "expose": "WEB",
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
-    "modelKey": "SubTest",
+    "modelKey": "ASubObject",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

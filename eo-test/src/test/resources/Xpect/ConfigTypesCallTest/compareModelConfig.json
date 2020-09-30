@@ -22,6 +22,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "For getting a list of keys for a configuration types.",
     "author": "Werner Diwischek",
     "naturalId": "ConfigTypesCall"

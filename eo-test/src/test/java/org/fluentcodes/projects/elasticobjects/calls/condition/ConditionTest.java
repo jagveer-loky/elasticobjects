@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.condition;
 
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ public class ConditionTest {
         if (matcher.find()) {
             int i = matcher.groupCount();
             Assert.assertEquals(3, i);
-            Assert.assertEquals("testString", matcher.group(1));
+            Assert.assertEquals(AnObject.MY_STRING, matcher.group(1));
             Assert.assertEquals(Condition.EQ, matcher.group(2));
             Assert.assertEquals("test", matcher.group(3));
         }
@@ -27,22 +28,22 @@ public class ConditionTest {
 
     @Test
     public void simple() {
-        ConditionTest.patternTest("testString eq test");
+        ConditionTest.patternTest(AnObject.MY_STRING + " eq test");
     }
 
     @Test
     public void simpleLeadingSpace() {
-        ConditionTest.patternTest(" testString eq test");
+        ConditionTest.patternTest(" " + AnObject.MY_STRING + " eq test");
     }
 
     @Test
     public void simpleMultipleSpacesBeforeOperator() {
-        ConditionTest.patternTest("testString   eq test");
+        ConditionTest.patternTest(AnObject.MY_STRING + "   eq test");
     }
 
     @Test
     public void simpleMultipleSpacesAfterOperator() {
-        ConditionTest.patternTest("testString eq     test");
+        ConditionTest.patternTest(AnObject.MY_STRING + " eq     test");
     }
 
 

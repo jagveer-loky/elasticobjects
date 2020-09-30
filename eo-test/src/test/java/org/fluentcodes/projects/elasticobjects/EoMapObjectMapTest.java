@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.junit.Test;
 
@@ -29,9 +29,9 @@ public class EoMapObjectMapTest {
     @Test
     public void givenDev_whenMapMapWithString_thenValueIsSet()  {
         final EO eo = ProviderRootDevScope.createEo();
-        eo.mapObject(TestProviderBtJson.STRING.createMapDev());
+        eo.mapObject(TestProviderAnObjectJson.STRING.createMapDev());
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.get(AnObject.MY_STRING)).isEqualTo(S_STRING);
     }
 }
 

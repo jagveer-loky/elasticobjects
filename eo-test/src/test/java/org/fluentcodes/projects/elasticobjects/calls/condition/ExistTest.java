@@ -2,7 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Test;
 
@@ -11,8 +12,8 @@ import java.util.List;
 public class ExistTest {
     @Test
     public void testString__filter_eoString__true()  {
-        Exists exists = new Exists("testString");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        Exists exists = new Exists(AnObject.MY_STRING);
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( exists.filter(eo)).isTrue();
     }
@@ -20,7 +21,7 @@ public class ExistTest {
     @Test
     public void key__filter_eoString__false()  {
         Exists exists = new Exists("key");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( exists.filter(eo)).isFalse();
     }

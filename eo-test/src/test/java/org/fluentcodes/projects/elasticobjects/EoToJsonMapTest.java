@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -56,7 +56,7 @@ public class EoToJsonMapTest {
 
     @Test
     public void withStringScalar()  {
-        final EO eo = TestProviderBtJson.STRING.createEoTest();
+        final EO eo = TestProviderAnObjectJson.STRING.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -66,7 +66,7 @@ public class EoToJsonMapTest {
     @Test
     public void withIntegerScalar()  {
         
-        final EO eo = TestProviderBtJson.INT.createEoTest();
+        final EO eo = TestProviderAnObjectJson.INT.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -86,7 +86,7 @@ public class EoToJsonMapTest {
     @Test
     public void withFloatScalar()  {
         
-        final EO eo = TestProviderBtJson.FLOAT.createEoTest();
+        final EO eo = TestProviderAnObjectJson.FLOAT.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -96,7 +96,7 @@ public class EoToJsonMapTest {
     @Test
     public void withDoubleScalar()  {
         
-        final EO eo = TestProviderBtJson.DOUBLE.createEoTest();
+        final EO eo = TestProviderAnObjectJson.DOUBLE.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -106,7 +106,7 @@ public class EoToJsonMapTest {
     @Test
     public void withDateScalar()  {
         
-        final EO eo = TestProviderBtJson.DATE.createEoTest();
+        final EO eo = TestProviderAnObjectJson.DATE.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -116,7 +116,7 @@ public class EoToJsonMapTest {
     @Test
     public void withBooleanScalar()  {
         
-        final EO eo = TestProviderBtJson.BOOLEAN.createEoTest();
+        final EO eo = TestProviderAnObjectJson.BOOLEAN.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -125,7 +125,7 @@ public class EoToJsonMapTest {
 
     @Test
     public void withIndentScalar()  {
-        EO eo = TestProviderBtJson.SMALL_TYPED.createEoTest();
+        EO eo = TestProviderAnObjectJson.SMALL_TYPED.createEoTest();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .setSerializationType(JSONSerializationType.SCALAR)
@@ -192,12 +192,12 @@ public class EoToJsonMapTest {
     @Test
     public void givenMapString_withJsonMapString_ok()  {
         final EO eoEmpty = ProviderRootTestScope.createEo();
-        final String jsnString = TestProviderBtJson.STRING.content();
+        final String jsnString = TestProviderAnObjectJson.STRING.content();
         eoEmpty
                 .mapObject(jsnString);
-        Assert.assertEquals(S_STRING, eoEmpty.get(BasicTest.TEST_STRING));
+        Assert.assertEquals(S_STRING, eoEmpty.get(AnObject.MY_STRING));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(String.class, eoEmpty.getEo(BasicTest.TEST_STRING).getModelClass());
+        Assert.assertEquals(String.class, eoEmpty.getEo(AnObject.MY_STRING).getModelClass());
     }
 
     /**
@@ -208,11 +208,11 @@ public class EoToJsonMapTest {
     @Test
     public void givenMapEmpty_withJsonMapBoolean_ok()  {
         final EO eoEmpty = ProviderRootTestScope.createEo();
-        final String jsonBoolean = TestProviderBtJson.BOOLEAN.content();
+        final String jsonBoolean = TestProviderAnObjectJson.BOOLEAN.content();
         eoEmpty
                 .mapObject(jsonBoolean);
-        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(BasicTest.TEST_BOOLEAN));
+        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(AnObject.MY_BOOLEAN));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(Boolean.class, eoEmpty.getEo(BasicTest.TEST_BOOLEAN).getModelClass());
+        Assert.assertEquals(Boolean.class, eoEmpty.getEo(AnObject.MY_BOOLEAN).getModelClass());
     }
 }

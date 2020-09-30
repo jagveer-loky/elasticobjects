@@ -28,8 +28,8 @@ public class FileConfigTest {
     // Failed in mvn
     @Ignore
     @Test
-    public void ConfigKey_BasicTestCsv__compare__xpected()  {
-        ConfigChecks.compareConfiguration(FileConfig.class, "BasicTest.csv");
+    public void anObjectCsv__compare__xpected()  {
+        ConfigChecks.compareConfiguration(FileConfig.class, "AnObject.csv");
     }
 
 

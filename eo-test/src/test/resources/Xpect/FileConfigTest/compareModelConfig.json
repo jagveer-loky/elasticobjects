@@ -37,6 +37,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Immutable EO file configuration will be initialized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "FileConfig"

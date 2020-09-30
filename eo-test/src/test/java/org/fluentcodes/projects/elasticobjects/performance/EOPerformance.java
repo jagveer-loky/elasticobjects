@@ -8,8 +8,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.IOJsonGson;
 import org.fluentcodes.tools.xpect.IOJsonJackson;
@@ -29,12 +29,12 @@ public class EOPerformance {
     private static final String MAP_JSON = createExampleMapString(50);
     private static final List LIST = createExampleList(50);
     private static final String LIST_JSON = createExampleListString(50);
-    private static final BasicTest EMPTY = TestProviderBtJson.EMPTY.createBt();
-    private static final String EMPTY_JSON = TestProviderBtJson.EMPTY.content();
-    private static final BasicTest SMALL = TestProviderBtJson.SMALL.createBt();
-    private static final String SMALL_JSON = TestProviderBtJson.SMALL.content();
-    private static final BasicTest ALL = TestProviderBtJson.ALL.createBt();
-    private static final String ALL_JSON = TestProviderBtJson.ALL.content();
+    private static final AnObject EMPTY = TestProviderAnObjectJson.EMPTY.createBt();
+    private static final String EMPTY_JSON = TestProviderAnObjectJson.EMPTY.content();
+    private static final AnObject SMALL = TestProviderAnObjectJson.SMALL.createBt();
+    private static final String SMALL_JSON = TestProviderAnObjectJson.SMALL.content();
+    private static final AnObject ALL = TestProviderAnObjectJson.ALL.createBt();
+    private static final String ALL_JSON = TestProviderAnObjectJson.ALL.content();
     @Test
     public void root() throws Exception {
         StringBuilder result = new StringBuilder();
@@ -42,9 +42,9 @@ public class EOPerformance {
 
         result.append(runPerformanceStep("Map", MAP_JSON, MAP, LinkedHashMap.class));
         result.append(runPerformanceStep("List", LIST_JSON, LIST, ArrayList.class));
-        result.append(runPerformanceStep("Empty", EMPTY_JSON, EMPTY, BasicTest.class));
-        result.append(runPerformanceStep("Small", SMALL_JSON, SMALL, BasicTest.class));
-        result.append(runPerformanceStep("All", ALL_JSON, ALL, BasicTest.class));
+        result.append(runPerformanceStep("Empty", EMPTY_JSON, EMPTY, AnObject.class));
+        result.append(runPerformanceStep("Small", SMALL_JSON, SMALL, AnObject.class));
+        result.append(runPerformanceStep("All", ALL_JSON, ALL, AnObject.class));
         System.out.println(result);
         new IOString()
                 .setFileName("src/test/resources/performance-" + new Date().toString() + ".info")
@@ -146,7 +146,7 @@ public class EOPerformance {
     private long createIOJsonJackson(String json)  {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            BasicTest basicTest = (BasicTest) new IOJsonJackson<BasicTest>().setMappingClass(BasicTest.class).asObject(json);
+            AnObject anObject = (AnObject) new IOJsonJackson<AnObject>().setMappingClass(AnObject.class).asObject(json);
         }
         return System.currentTimeMillis() - start;
     }
@@ -178,7 +178,7 @@ public class EOPerformance {
     private long createIOJsonGson(String json)  {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            BasicTest basicTest = (BasicTest) new IOJsonGson<BasicTest>().setMappingClass(BasicTest.class).asObject(json);
+            AnObject anObject = (AnObject) new IOJsonGson<AnObject>().setMappingClass(AnObject.class).asObject(json);
         }
         return System.currentTimeMillis() - start;
     }

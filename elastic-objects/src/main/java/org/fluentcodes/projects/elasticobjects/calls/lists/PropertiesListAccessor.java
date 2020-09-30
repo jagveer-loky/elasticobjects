@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.PropertiesConfigAccessor;
 
@@ -36,7 +35,7 @@ public interface PropertiesListAccessor extends PropertiesConfigAccessor {
                 eo.set(row, targetPath, Integer.valueOf(i).toString());
             }
         }
-        if (targetPath.equals(CallImpl.AS_STRING)) {
+        if (targetPath.equals(CallImpl.TARGET_AS_STRING)) {
             return "TODO asString";
         }
         return "";

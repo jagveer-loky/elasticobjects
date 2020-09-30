@@ -2,7 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,16 +21,16 @@ public class AndTest {
     //static final Pattern ifPattern = Pattern.compile("(key).*");
     @Test
     public void eq_testString_string__createQuery__expected() {
-        And and = new And(new Eq("testString", "test"));
+        And and = new And(new Eq(AnObject.MY_STRING, "test"));
         Assertions
                 .assertThat(and.getCondition(0).getKey())
-                .isEqualTo("testString");
+                .isEqualTo(AnObject.MY_STRING);
         Assertions
                 .assertThat(and.getCondition(0).getValue())
                 .isEqualTo("test");
         Assertions
                 .assertThat(and.getCondition(0).createQuery(new HashMap<>()))
-                .isEqualTo("testString=:testString_0 ");
+                .isEqualTo("" + AnObject.MY_STRING + "=:" + AnObject.MY_STRING + "_0 ");
         Assert.assertEquals(S_STRING, and.getCondition(0).getValue());
     }
 
@@ -51,16 +52,16 @@ public class AndTest {
 
     @Test
     public void eq_testString_test__filter_eoString__true()  {
-        And and = new And(new Eq("testString", "test"));
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        And and = new And(new Eq(AnObject.MY_STRING, "test"));
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( and.filter(eo)).isTrue();
     }
 
     @Test
     public void eq_testString_test__filter_eoString__false()  {
-        And and = new And(new Eq("testString", "testOther"));
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        And and = new And(new Eq(AnObject.MY_STRING, "testOther"));
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( and.filter(eo)).isFalse();
     }

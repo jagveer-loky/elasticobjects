@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
@@ -121,27 +121,27 @@ public class ScsReadCallTest {
     }
 
     @Test
-    public void eo_BasicTestCsv_level0_List_BasicTest__execute__setListMap()  {
-        final ScsReadCall call = new ScsReadCall("BasicTest.csv");
+    public void eo__configKey_AnObjectCsv__execute__listMap()  {
+        final ScsReadCall call = new ScsReadCall("AnObject.csv");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("0").get("testString")).isEqualTo("value1");
+        Assertions.assertThat(eo.getEo("0").get(AnObject.MY_STRING)).isEqualTo("value1");
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(LinkedHashMap.class);
     }
 
     @Test
-    public void eo_BasicTestCsv_level0_List_BasicTest__execute__setObjectValues()  {
-        final ScsReadCall call = new ScsReadCall("BasicTest.csv");
-        call.setTargetPath("(List,BasicTest)level0");
+    public void eo__configKey_AnObjectCsv_targetPath_level0_List_AnObject__execute__$()  {
+        final ScsReadCall call = new ScsReadCall(AnObject.class.getSimpleName() + ".csv");
+        call.setTargetPath("(List," + AnObject.class.getSimpleName() + ")level0");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("level0/0").get("testString")).isEqualTo("value1");
-        Assertions.assertThat(eo.getEo("level0/0").getModelClass()).isEqualTo(BasicTest.class);
+        Assertions.assertThat(eo.getEo("level0/0").get(AnObject.MY_STRING)).isEqualTo("value1");
+        Assertions.assertThat(eo.getEo("level0/0").getModelClass()).isEqualTo(AnObject.class);
     }
 }

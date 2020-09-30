@@ -38,6 +38,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Table definitions with pojo.",
     "author": "Werner Diwischek",
     "naturalId": "ModelInterface"

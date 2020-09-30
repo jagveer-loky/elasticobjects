@@ -4,7 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Like;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Test;
@@ -17,16 +18,16 @@ public class LikeTest {
 
     @Test
     public void testString_string__filter_eoString__true()  {
-        Like like = new Like("testString", "test");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        Like like = new Like(AnObject.MY_STRING, "test");
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( like.filter(eo)).isTrue();
     }
 
     @Test
     public void testString_stringOther__filter_eoString__false()  {
-        Like like = new Like("testString", "stringOther");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        Like like = new Like(AnObject.MY_STRING, "stringOther");
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( like.filter(eo)).isFalse();
      }

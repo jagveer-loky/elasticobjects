@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.assets.ASubObject;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -68,10 +70,10 @@ public class ModelConfigTest {
     @Test
     public void checkDependentModels()  {
         // Check if basic Models are available
-        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(M_BASIC_TEST);
-        Assert.assertEquals(M_BASIC_TEST, model.getModelKey());
-        model = ProviderRootTestScope.EO_CONFIGS.findModel(M_SUB_TEST);
-        Assert.assertEquals(M_SUB_TEST, model.getModelKey());
+        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
+        Assert.assertEquals(AnObject.class.getSimpleName(), model.getModelKey());
+        model = ProviderRootTestScope.EO_CONFIGS.findModel(ASubObject.class);
+        Assert.assertEquals(ASubObject.class.getSimpleName(), model.getModelKey());
     }
 
     @Test

@@ -1,12 +1,12 @@
 {
-  "BasicTest.csv": {
+  "AnObject.csv": {
     "configModelKey": "ScsConfig",
     "module": "eo-test",
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "input/assets/bt",
-    "fileName": "BasicTest.csv",
-    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest.",
+    "fileName": "AnObject.csv",
+    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to AnObject.",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
@@ -20,13 +20,13 @@
       "rowEnd": 4
     }
   },
-  "BasicTest.json": {
+  "AnObject.json": {
     "module": "eo-test",
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "input/assets/bt",
-    "fileName": "BasicTest.json",
-    "description": "Simple data for the BasicTest.",
+    "fileName": "AnObject.json",
+    "description": "Simple data for the AnObject.",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {

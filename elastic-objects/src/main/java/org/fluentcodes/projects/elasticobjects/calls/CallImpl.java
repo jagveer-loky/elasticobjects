@@ -11,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
 public abstract class CallImpl extends ModelImpl implements Call {
-    public static final String AS_STRING = "_asString";
+    public static final String TARGET_AS_STRING = "_asString";
     private String sourcePath;
     private String targetPath;
     private String models;
@@ -67,7 +67,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
 
     @Override
     public Boolean getInTemplate() {
-        return AS_STRING.equals(targetPath);
+        return TARGET_AS_STRING.equals(targetPath);
     }
 
     @Override
@@ -77,7 +77,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
 
     public void setInTemplate(Boolean inTemplate) {
         if (inTemplate) {
-            this.targetPath = AS_STRING;
+            this.targetPath = TARGET_AS_STRING;
         }
         else {
             this.targetPath = null;
@@ -195,7 +195,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
 
     @Override
     public boolean isMapToTargetEo() {
-        return !hasTargetPath() || getTargetPath().equals(AS_STRING);
+        return !hasTargetPath() || getTargetPath().equals(TARGET_AS_STRING);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -12,21 +12,21 @@ public class EoCloneTest {
     @Ignore
     @Test
     public void test()  {
-        final EO eo = ProviderRootTestScope.createEo(BasicTest.class);
+        final EO eo = ProviderRootTestScope.createEo(AnObject.class);
 
-        final BasicTest BT1 = new BasicTest();
-        BT1.setTestString( "value");
-        eo.mapObject(BT1);
+        final AnObject anObject1 = new AnObject();
+        anObject1.setMyString( "value");
+        eo.mapObject(anObject1);
 
-        assertEquals("value", eo.get("testString"));
+        assertEquals("value", eo.get(AnObject.MY_STRING));
 
-        assertEquals(BasicTest.class, eo.getModelClass());
-        Assert.assertNotEquals(BT1, eo.get());
-        Assert.assertTrue(BT1 == BT1);
+        assertEquals(AnObject.class, eo.getModelClass());
+        Assert.assertNotEquals(anObject1, eo.get());
+        Assert.assertTrue(anObject1 == anObject1);
         Assert.assertTrue(eo.get() == eo.get());
 
-        final EO eo2 = ProviderRootTestScope.createEo(BasicTest.class);
-        eo2.mapObject(BT1);
-        Assert.assertEquals(BT1, eo2.get());
+        final EO eo2 = ProviderRootTestScope.createEo(AnObject.class);
+        eo2.mapObject(anObject1);
+        Assert.assertEquals(anObject1, eo2.get());
     }
 }

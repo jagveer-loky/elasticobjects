@@ -6,7 +6,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 public class DbQueryIOTest {
     /*
     @Test
-    public void queryBasicTest()  {
+    public void queryAnObject()  {
 
         DbQueryConfig dbQueryConfig = (DbQueryConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(DbQueryConfig.class, DQ_H2_MEM_BASIC_BASIC_TEST);
         Assert.assertNotNull(dbQueryConfig);

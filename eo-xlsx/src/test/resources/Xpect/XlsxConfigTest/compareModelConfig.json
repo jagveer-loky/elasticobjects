@@ -35,6 +35,7 @@
       "module": "eo-xlsx"
     },
     "module": "eo-xlsx",
+    "moduleScope": "main",
     "description": "The cache class for excel access. Contains the file cache.",
     "author": "Werner Diwischek",
     "naturalId": "XlsxConfig"

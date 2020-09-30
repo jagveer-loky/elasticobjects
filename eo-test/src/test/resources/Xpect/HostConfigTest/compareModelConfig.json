@@ -39,6 +39,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Basic host definition for file or db cache. ",
     "naturalId": "HostConfig"
   },

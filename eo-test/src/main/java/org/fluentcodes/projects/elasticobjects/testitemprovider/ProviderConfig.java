@@ -5,8 +5,10 @@ import org.fluentcodes.projects.elasticobjects.models.*;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_EXPANDED;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.addMap;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S1;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DATE;
 
 public class ProviderConfig {
     public static void createConfig(Map<String, Object> map) {

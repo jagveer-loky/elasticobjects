@@ -49,6 +49,9 @@ public abstract class Parser {
     public String getTemplate() {
         return template;
     }
+    public boolean hasTemplate() {
+        return template!=null && !template.isEmpty();
+    }
 
     public int getEnd() {
         return end;

@@ -26,6 +26,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Executes a template content. ",
     "author": "Werner Diwischek",
     "naturalId": "TemplateCall"

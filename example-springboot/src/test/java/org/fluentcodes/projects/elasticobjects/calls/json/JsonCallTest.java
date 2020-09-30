@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.json;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.files.JsonReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -29,12 +29,12 @@ public class JsonCallTest {
     @Test
     public void givenMapJsonOnXYZ_whenExecuteCall_thenXYZHasContent()  {
         EO eo = ProviderRootTestScope.createEo();
-        eo.setEmpty("(BasicTest)xyz");
+        eo.setEmpty("(AnObject)xyz");
         eo.addCall(new JsonReadCall("map.json").setTargetPath("xyz"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat((String)eo.get("xyz/testString")).isEqualTo("value");
-        Assertions.assertThat(eo.getEo("xyz").getModelClass()).isEqualTo(BasicTest.class);
+        Assertions.assertThat((String)eo.get("xyz/myString")).isEqualTo("value");
+        Assertions.assertThat(eo.getEo("xyz").getModelClass()).isEqualTo(AnObject.class);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class JsonCallTest {
         eo.addCall(new JsonReadCall("map.json").setTargetPath("x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat((String)eo.get("x/y/z/testString")).isEqualTo("value");
+        Assertions.assertThat((String)eo.get("x/y/z/myString")).isEqualTo("value");
         Assertions.assertThat(eo.getEo("x/y/z").getModelClass()).isEqualTo(Map.class);
     }
 

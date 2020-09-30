@@ -18,7 +18,7 @@ public interface Condition {
     String LIKE = "like";
     String NE = "ne";
     //static final Pattern ifPattern = Pattern.compile("[\\s]*(.*?)[\\s]+(eq|ne|equals|le|ge|notEquals|like|notLike|in)[\\s]+(.*?)[\\s]*");
-    Pattern ifPattern = Pattern.compile("[\\s]*([^\\s]*?)[\\s]+(eq\\s+|ne\\s+|equals\\s+|ex|nex|le\\s+|ge\\s+|notEquals\\s+|like\\s+|notLike\\s+|match\\s+|in\\s+)(.*)");
+    Pattern ifPattern = Pattern.compile("[\\s]*([^\\s]*?)[\\s]+(eq\\s+|ne\\s+|equals\\s+|ex|nex|le\\s+|ge\\s+|notEquals\\s+|like\\s+|notLike\\s+|match\\s+|contains\\s+|in\\s+)(.*)");
 
     boolean compare(Object object);
 

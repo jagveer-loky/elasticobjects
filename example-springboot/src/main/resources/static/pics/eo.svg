@@ -27,8 +27,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="361.51576"
-     inkscape:cy="865.01689"
+     inkscape:cx="177.23004"
+     inkscape:cy="776.40566"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,6 +53,16 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:1;fill:#fbfcfe;fill-opacity:1;fill-rule:nonzero;stroke:#1f65d7;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect12045"
+       width="128.5119"
+       height="122.84226"
+       x="35.529758"
+       y="2.1785715"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       ry="0" />
     <image
        y="6.6953883"
        x="47.076935"
@@ -1004,12 +1014,5 @@ iLsGwjn/waNehIaGxr0PLwhIswuj2WJmrc1Mn4F0XGZk76uUaEABPl2m/kSF+hMOAsswtAXjcHH9
        width="102.39375"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
-    <rect
-       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#1f65d7;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect12045"
-       width="143.25298"
-       height="123.22024"
-       x="32.883926"
-       y="1.8005952" />
   </g>
 </svg>

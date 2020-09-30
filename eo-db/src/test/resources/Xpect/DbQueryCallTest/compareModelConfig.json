@@ -24,6 +24,7 @@
       "module": "eo-db"
     },
     "module": "eo-db",
+    "moduleScope": "main",
     "description": "Executes a stored sql query.",
     "author": "Werner Diwischek",
     "naturalId": "DbQueryCall"

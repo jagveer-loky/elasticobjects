@@ -4,7 +4,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.tools.xpect.XpectEo;
@@ -93,10 +93,10 @@ public class EoMapObjectListJsonTest {
     }
 
     @Test
-    public void givenDevListStringEmpty_whenMapBTBoolean_thenFirstListElementSetWithString()  {
+    public void givenDevListStringEmpty_whenMapanObjectBoolean_thenFirstListElementSetWithString()  {
         EO root = ProviderRootDevScope.createEo(List.class, String.class);
         root
-                .mapObject(TestProviderBtJson.BOOLEAN.content());
+                .mapObject(TestProviderAnObjectJson.BOOLEAN.content());
         Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(root.get(S0)).isEqualTo(S_BOOLEAN.toString());
     }
@@ -104,7 +104,7 @@ public class EoMapObjectListJsonTest {
     @Test
     public void givenDevList_whenMapJsonBoolean_thenFirstListElementSetWithBoolean()  {
         final EO root = ProviderRootDevScope.createEo(List.class);
-        root.mapObject(TestProviderBtJson.BOOLEAN.content());
+        root.mapObject(TestProviderAnObjectJson.BOOLEAN.content());
         Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(root.get(S0)).isEqualTo(S_BOOLEAN);
     }

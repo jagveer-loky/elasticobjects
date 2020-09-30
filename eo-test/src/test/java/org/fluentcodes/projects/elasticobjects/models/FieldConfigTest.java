@@ -1,8 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.*;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.ConfigChecks;
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -120,8 +122,8 @@ public class FieldConfigTest {
      */
     @Test
     public void assertTestObject()  {
-        FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(BasicTest.TEST_OBJECT);
-        Assert.assertEquals(BasicTest.TEST_OBJECT, field.getFieldKey());
+        FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(AnObject.MY_OBJECT);
+        Assert.assertEquals(AnObject.MY_OBJECT, field.getFieldKey());
         Assert.assertEquals(false, field.getUnique());
         Assert.assertEquals(false, field.getNotNull());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());

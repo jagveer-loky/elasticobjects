@@ -6,57 +6,99 @@
 <h3>EO - Elastic Objects</h3>
 <p>
     Elastic Objects is a generic wrapper for java native objects.</p>
+<img src="/pics/eoModel.svg" width="200" style="margin:20px;"/>
 <p>
-    It's similar to Java 8 Optional but knows
+    Like a Java 8 Optional it contains an object. But it knows
 </p>
 <ul>
-    <li>the wrapper of the parent object,</li>
-    <li>all wrappers for the child objects by fieldName and </li>
-    <li>the type rules.</li>
+    <li>the EO wrapper of the parent object,</li>
+    <li>all EO wrappers for the child objects by fieldName and </li>
+    <li>its type rules(Model configuration).</li>
 </ul>
 <p>
-    Combining these wrappers one can access, create or change java objects via path.
+    When an object is not a scalar value each member will be wrapped by EO recursive.
+</p>
+<img src="/pics/eoTree.svg" width="200" style="margin:20px;"/>
+<p>
+A value could be get and set type safe by a path.
+</p>
+<textarea style="height:100px">EO eoChild = eo.set(anObject, "a/b/c");
+EO child = eo.getEo("a/b/c");
+AnObject anObject1 = child.get();
+AnObject anObject2 = eoChild.get();
+AnObject anObject3 = eo.get("a/b/c");
+</textarea>
+<p>
+    EO is a tiny generic skin wrapped around the object tree skeleton. It offer access methods in a path style
+    and embed typed objects in an arbitrary map.
+</p>
+
+<h4>Model Configuration</h4>
+<p>To hide the differences between different tree type objects
+    <a href="configs/ModelConfig.html">model configurations</a>
+    are loaded and provided in a cache object.
+</p>
+<img src="/pics/eoModelConfig.svg" width="200" style="margin:20px;"/>
+<p>The EOConfigsCache object loads all ModelConfig.json,
+    Models.json and FieldConfig.json files from the classpath.
+
 </p>
 <p>
-    Since EO is generic,
-    one can define calls with a simple generic method
+    Every EoRoot object needs a configuration cache when initialized.
 </p>
-<li>execute(EO eo).</li>
+<textarea style="height:100px">EOConfigsCache configCache = new EOConfigsCache();
+EO eoRoot = new EoRoot(configCache);
+EO eoRootWithObject = new EoRoot(configCache, anObject);</textarea>
+
+<img src="/pics/eoRoot.svg" width="200" style="margin:20px;"/>
+
 <p>
-These calls could be combined in any order.
+The cache will be usually initialized one time as static or as a (injected) singelton.
+</p>
+<h4>Calls</h4>
+<p>
+    Calls are beans with an execute method with EO as input parameter. It returns an object.
 </p>
 <p>
-    With a JSON serialization/deserialization adding type to a fieldName, one can loosely transfer complex
+Its field <i>sourcePath</i> defines the location of input values within the EO object. </p>
+<p>
+    The field <i>targetPath</i> defines the location, where the result will be mapped to the EO object.
+</p>
+<img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
+
+<p>Like every other typed object a call can be put anywhere in an EO tree. </p>
+<p>In a java-environment one can create calls and execute them directly:</p>
+<textarea style="height:80px;">Call call = new SinusValueCall()
+    .setSourcePath("source");
+EO eo = new EORoot(configCache,"{\"source"\:1}");
+Double result = call.execute(eo);
+</textarea>
+
+
+<h4>Template Call</h4>
+<p>There is the possiblity to parse a text content for embedded calls in a recursive way. </p>
+
+<img src="/pics/eoTemplateCall.svg" width="200" style="margin:20px;"/>
+
+
+
+<h4>Typed JSON (De)serialization</h4>
+<p>
+    With a special JSON serialization/deserialization adding type to a fieldName,
+    one can loosely transfer complex
     objects and trigger calls from a client.
 </p>
 
-<h4>At a glance</h4>
-<h5>Java</h5>
 <p>
-    In a java application one could
-    create a typed object with a simple path modifier (<a href="/configs/ModelConfig/BasicTest">BasicTest</a>) before the name.
-    The <a href="/configs/ModelConfig/BasicTest">BasicTest</a> object
-    then has the value "test" in <a href="/configs/FieldConfig/testString">testString</a>.
+    In the following example using the
+    <a href="config/ModelConfig/SinusValueCall">SinusValueCall</a> as JSON:
 </p>
-<p>
-<textarea>
-eo.set("test","(BasicTest)myObject/testString");
-Assertions.assertThat(eo.get("myObject/testString").isEqualTo("value");
-Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.class");
-</textarea>
-</p>
-<p>
-    You will find a lot code like this in the github module
-    <a href="https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects">&equiv;eo-test</a>.
-    Since no applicationserver is used for object mapping, the 500 tests are finished in about a second.
-</p>
-<h5>Typed JSON (De)serialization</h5>
-<p>When EO serialize the object it creates by default a typed JSON representation
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:90px">{
-    "(BasicTest)myObject": {
-        "testString":"value"
-    }
+   "(Double)source": 1,
+   "(SinusValueCall)target":{
+   "sourcePath":"/source"
+   }
 }
 </textarea>
     <input type="submit" value="post"/>
@@ -68,72 +110,8 @@ Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.
     will map the JSON String to EO. At the end JSON will be generated as the response.</p>
 <p>You can change the values of the example to see that it works.
 </p>
-<p>
-    This web interface uses a simple mapping method:
-    <textarea>
-eo.mapObject(jsonString);
-Assertions.assertThat(eo.get("myObject/testString").isEqualTo("value");
-Assertions.assertThat(eo.getEo("myObject").getModelClass()).isEqualTo(BasicTest.class");
-    </textarea>
-</p>
-
-<p>This works in a java application or the small generic web interface used to create this site. </p>
-
-
-<h5>Functional JSON</h5>
-<p>Beyond the passive pojos you can define "Calls". These pojos with an execute method extends the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java">&equiv;Call</a>
-    interface.</p>
-
-<p>
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/SinusValueCall.java">&equiv;SinusValueCall</a>
-     compute the sinus from the source value:
-<form action="/eo-form" method="post">
-     <textarea name="eo">{
-  "(Double)source":1,
-  "(SinusValueCall)target": {
-    "sourcePath": "/source"
-  }
-}</textarea>
-    <input type="submit" value="post"/>
-</form>
-</p>
-<p>
-    As with every post example you can run the example and change the value inside the text-area.
-</p>
-<h5>Synopsis</h5>
-<p>
-    A client is free to combine available values and calls. The only restriction is, that a configuration is
-    defined on the server.
-</p>
-<p>
-    On the server side one can add resources only by configurations. New Functionality can be implemented in pure Java
-    and configurations.
-</p>
-<p>
-    One generic interface offer all of the servers functionality to the client.
-</p>
-<p>
-    Adding type and functional directives into JSON is only a small change with simple rules.
-    This small change simplifies building and architecture of service oriented
-applications. But it enlarge application scope far beyond some disabled database operations.
-</p>
-
-<h5>Type and Calls</h5>
-<p>
-    From a pattern perspective ElasticObjects implements a simple path pragma in Java,
-    which determine type, structure and execution.
-</p>
-<p>
-    It's JSON serializing mechanism allows to trigger
-    the same remote e.g. via http.
-</p>
-<p>
-    The template call allows to compose the calls in a hierarchical way.
-</p>
 
 <h4>Spring Boot Demo</h4>
-
 <p>
     This site itself is a demo for this principle: A small spring boot application together
     with Elastic Objects and some <a href="config/TemplateConfig.html">TemplateConfigurations</a>.
@@ -169,7 +147,7 @@ applications. But it enlarge application scope far beyond some disabled database
             <textarea name="eo" style="height:150px">{
    "selectedItem": "Home.html",
    "(TemplateResourceCall)call": {
-      "configKey":"ContentPage.html"
+      "templateKey":"ContentPage.html"
    },
    "asTemplate":true
 }</textarea>

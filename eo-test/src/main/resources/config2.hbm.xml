@@ -4,33 +4,33 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="org.clearcodes.projects.elasticobjects.assets">
 
-    <class name="org.fluentcodes.projects.elasticobjects.assets.BasicTest" table="BasicTest">
+    <class name="org.fluentcodes.projects.elasticobjects.assets.AnObject" table="AnObject">
 
         <id name="id" length="8">
             <generator class="native"/>
         </id>
-        <many-to-one name="basicTest" length="10"/>
-        <many-to-one name="subTest" length="10"/>
+        <many-to-one name="myAnObject" length="10"/>
+        <many-to-one name="myASubObject" length="10"/>
 
 
-        <property name="testInt" length="10"/>
-        <property name="testString" length="20"/>
-        <property name="testLong" length="10"/>
-        <property name="testDate" length="10"/>
-        <property name="testBoolean" length="10"/>
-        <property name="testFloat" length="10"/>
-        <property name="testDouble" length="10"/>
+        <property name="myInt" length="10"/>
+        <property name="myString" length="20"/>
+        <property name="myLong" length="10"/>
+        <property name="myDate" length="10"/>
+        <property name="myBoolean" length="10"/>
+        <property name="myFloat" length="10"/>
+        <property name="myDouble" length="10"/>
         <many-to-one name="testObject" length="10"/>
     </class>
 
-    <class name="org.fluentcodes.projects.elasticobjects.assets.SubTest" table="SubTest">
+    <class name="org.fluentcodes.projects.elasticobjects.assets.ASubObject" table="SubTest">
 
         <id name="id" length="8">
             <generator class="native"/>
         </id>
-        <many-to-one name="subTest" length="10"/>
+        <many-to-one name="myASubObject" length="10"/>
         <property name="name" length="80"/>
-        <property name="testString" length="20"/>
+        <property name="myString" length="20"/>
     </class>
 
 </hibernate-mapping>

@@ -1,44 +1,44 @@
 {
-    "testString": "test",
-    "(Integer)testInt": 1,
-    "testLong": 2,
-    "(Float)testFloat": 1.1,
-    "(Double)testDouble": 2.2,
-    "(Date)testDate": 1465280215000,
-    "(Boolean)testBoolean": true,
-    "(SubTest)subTest": {
+    "myString": "test",
+    "(Integer)myInt": 1,
+    "myLong": 2,
+    "(Float)myFloat": 1.1,
+    "(Double)myDouble": 2.2,
+    "(Date)myDate": 1465280215000,
+    "(Boolean)myBoolean": true,
+    "(ASubObject)myASubObject": {
       "name": "testOther",
-      "testString": "test"
+      "myString": "test"
     },
-    "(BasicTest)basicTest": {
-      "testInt": 1,
-      "testString": "test",
-      "testLong": 2,
-      "testDate": 1465280215000,
-      "testBoolean": true,
-      "testFloat": 1.1,
-      "testDouble": 2.2
+    "(AnObject)myAnObject": {
+      "myInt": 1,
+      "myString": "test",
+      "myLong": 2,
+      "myDate": 1465280215000,
+      "myBoolean": true,
+      "myFloat": 1.1,
+      "myDouble": 2.2
     },
-    "(ArrayList)untypedList": {
+    "(ArrayList)myList": {
       "0": "test",
       "(Integer)1": 1
     },
-    "untypedMap": {
-      "testString": "test",
-      "(Integer)testInt": 1
+    "myMap": {
+      "myString": "test",
+      "(Integer)myInt": 1
     },
-    "subTestMap": {
-      "(SubTest)key0": {
+    "myASubObjectMap": {
+      "(ASubObject)key0": {
         "name": "testOther",
-        "testString": "test"
+        "myString": "test"
       },
-      "(SubTest)key1": {
+      "(ASubObject)key1": {
         "name": "testOther",
-        "testString": "test"
+        "myString": "test"
       },
-      "(SubTest)key2": {
+      "(ASubObject)key2": {
         "name": "testOther",
-        "testString": "test"
+        "myString": "test"
       }
     }
 }

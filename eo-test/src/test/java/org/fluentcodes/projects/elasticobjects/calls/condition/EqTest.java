@@ -4,7 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,16 +18,16 @@ public class EqTest {
 
     @Test
     public void testString_test__filter_eoString__true() {
-        Eq eq = new Eq("testString", "test");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        Eq eq = new Eq(AnObject.MY_STRING, "test");
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat(eq.filter(eo)).isTrue();
     }
 
     @Test
     public void testString_test__filter_eoString__false() {
-        Eq eq = new Eq("testString", "testOther");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        Eq eq = new Eq(AnObject.MY_STRING, "testOther");
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat(eq.filter(eo)).isFalse();
     }
@@ -57,10 +58,10 @@ public class EqTest {
 
     @Test
     public void testString_test__createQuery__expected() {
-        Eq eq = new Eq("testString", "test");
-        Assert.assertEquals("testString", eq.getKey());
+        Eq eq = new Eq(AnObject.MY_STRING, "test");
+        Assert.assertEquals(AnObject.MY_STRING, eq.getKey());
         Assert.assertEquals("test", eq.getValue());
-        Assert.assertEquals("testString=:testString_0 ", eq.createQuery(new HashMap<>()));
+        Assert.assertEquals(AnObject.MY_STRING + "=:" + AnObject.MY_STRING + "_0 ", eq.createQuery(new HashMap<>()));
     }
 
 }

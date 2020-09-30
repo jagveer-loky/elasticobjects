@@ -9,9 +9,6 @@ public class TEO_STATIC {
 
     public static final String PATH_INPUT = "input/";
 
-    public static final String M_BASIC_TEST = "BasicTest";
-    public static final String M_SUB_TEST = "SubTest";
-
     public static final String S_VALUE11 = "value11";
     public static final String S_VALUE12 = "value12";
     public static final String S_VALUE21 = "value21";

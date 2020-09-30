@@ -26,6 +26,7 @@
       "module": "example-springboot"
     },
     "module": "example-springboot",
+    "moduleScope": "main",
     "description": "An example for a simple call with a field.",
     "author": "Werner Diwischek",
     "naturalId": "TheGreetingCall"

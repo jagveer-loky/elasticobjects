@@ -2,7 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Test;
 
@@ -12,8 +13,8 @@ import java.util.List;
 public class NotExistTest {
     @Test
     public void testString__filter_eoString__false()  {
-        NotExists notExists = new NotExists("testString");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        NotExists notExists = new NotExists(AnObject.MY_STRING);
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( notExists.filter(eo)).isFalse();
     }
@@ -21,7 +22,7 @@ public class NotExistTest {
     @Test
     public void key__filter_eoString__true()  {
         NotExists notExists = new NotExists("key");
-        EO eo = TestProviderBtJson.STRING.createEoDev();
+        EO eo = TestProviderAnObjectJson.STRING.createEoDev();
 
         Assertions.assertThat( notExists.filter(eo)).isTrue();
     }

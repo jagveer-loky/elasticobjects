@@ -11,7 +11,7 @@
       "module": "eo-test"
     },
     "configModelKey": "ScsConfig",
-    "fileName": "BasicTest.csv",
+    "fileName": "AnObject.csv",
     "filePath": "input/assets/bt",
     "hostKey": "localhost",
     "cached": false,
@@ -21,11 +21,12 @@
     },
     "(Expose)expose": "INFO",
     "module": "eo-test",
-    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to BasicTest.",
-    "naturalId": "BasicTest.csv"
+    "moduleScope": "main",
+    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to AnObject.",
+    "naturalId": "AnObject.csv"
   },
   "1": {
-    "fileName": "BasicTest.json",
+    "fileName": "AnObject.json",
     "filePath": "input/assets/bt",
     "hostKey": "localhost",
     "cached": false,
@@ -39,8 +40,9 @@
       "module": "eo-test"
     },
     "module": "eo-test",
-    "description": "Simple data for the BasicTest.",
-    "naturalId": "BasicTest.json"
+    "moduleScope": "main",
+    "description": "Simple data for the AnObject.",
+    "naturalId": "AnObject.json"
   },
   "2": {
     "fieldDelimiter": ";",
@@ -63,6 +65,7 @@
     },
     "(Expose)expose": "NONE",
     "module": "eo-test",
+    "moduleScope": "main",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
   },

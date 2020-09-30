@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -30,10 +31,10 @@ public class ParserTemplateTest {
     @Test
     public void givenSimpleTemplateAndEoTestPath_whenReplace_thenReplaced () {
         EO eo = ProviderRootTestScope.createEo();
-        eo.set("testString", "testPath");
+        eo.set(AnObject.MY_STRING, "testPath");
         String replace = "-$[testPath]-";
         String result = new ParserTemplate(replace).parse(eo);
-        Assertions.assertThat(result).isEqualTo("-testString-");
+        Assertions.assertThat(result).isEqualTo("-" + AnObject.MY_STRING + "-");
     }
 
     @Test
@@ -46,21 +47,21 @@ public class ParserTemplateTest {
     @Test
     public void givenSimpleCallTemplateAndEoTestPath_whenReplace_thenReplaced () {
         final EO eo = ProviderRootTestScope.createEo();
-        eo.set("testString", "testPath");
+        eo.set(AnObject.MY_STRING, "testPath");
         final String replace = "-$[(TemplateCall)testPath]+$[_value]+$[/]-";
         String result = new ParserTemplate(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).isEqualTo("-+testString+-");
+        Assertions.assertThat(result).isEqualTo("-+" + AnObject.MY_STRING + "+-");
     }
 
     @Test
     public void givenSimpleTemplateCallWithPlaceHolderAndEoTestPath_whenReplace_thenReplaced () {
         final EO eo = ProviderRootTestScope.createEo();
-        eo.set("testString", "testPath");
+        eo.set(AnObject.MY_STRING, "testPath");
         final String replace = "-$[&testPath]+$[_value]+$[/]-";
         String result = new ParserTemplate(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).isEqualTo("-+testString+-");
+        Assertions.assertThat(result).isEqualTo("-+" + AnObject.MY_STRING + "+-");
     }
 
     @Test

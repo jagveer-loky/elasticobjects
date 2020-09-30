@@ -41,16 +41,14 @@ public class ModelImpl implements Model {
             throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));
         }
     }
-
-    //<call keep="JAVA" templateKey="BeanSetter.tpl">
-
-    /**
+   /**
      * The id with a autonumbering
      */
+    @Override
     public Long getId() {
         return this.id;
     }
-
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
@@ -58,13 +56,14 @@ public class ModelImpl implements Model {
     /**
      * A description of the model used by every model extending BaseClassImpl.
      */
+    @Override
     public String getDescription() {
         return this.description;
     }
     public boolean hasDescription() {
         return description!=null && !description.isEmpty();
     }
-
+    @Override
     public void setDescription(String description) {
         this.description = description;
     }
@@ -72,21 +71,28 @@ public class ModelImpl implements Model {
     /**
      * The naturalKey for all config {@link ConfigImpl}
      */
+    @Override
     public String getNaturalId() {
         return this.naturalId;
     }
 
-    public void setNaturalId(String naturalId) {
+    @Override
+    public ModelImpl setNaturalId(String naturalId) {
         this.naturalId = naturalId;
+        return this;
+    }
+    public boolean hasNaturalId() {
+        return naturalId !=null && ! naturalId.isEmpty();
     }
 
     /**
      * Used to define the creation of an item.
      */
+    @Override
     public Date getCreationDate() {
         return this.creationDate;
     }
-
+    @Override
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
@@ -101,7 +107,7 @@ public class ModelImpl implements Model {
         this.author = author;
     }
 
-
+    @Override
     public void setCreationDate() {
         this.creationDate = new Date();
     }
