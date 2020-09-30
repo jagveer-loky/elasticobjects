@@ -9,6 +9,8 @@
       "shapeType": "MAP",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
+    "moduleScope": "main",
     "author": "java",
     "naturalId": "HashMap"
   },
@@ -46,11 +48,13 @@
       "6": "scope",
       "7": "expose",
       "8": "properties",
-      "9": "id",
-      "10": "description",
-      "11": "naturalId",
-      "12": "creationDate",
-      "13": "author"
+      "9": "module",
+      "10": "moduleScope",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "(Expose)expose": "NONE",
     "properties": {
@@ -59,9 +63,23 @@
       "shapeType": "CONFIG",
       "module": "elastic-objects"
     },
+    "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Map class wrapper for for create, get and set.",
     "author": "Werner Diwischek",
     "naturalId": "ModelConfigMap"
+  },
+  "4": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects",
+    "modelKey": "UnmodifiableMap",
+    "(Expose)expose": "INFO",
+    "properties": {
+      "shapeType": "ENUM",
+      "defaultImplementation": "ArrayList",
+      "classPath": "src/main/java",
+      "create": false
+    },
+    "naturalId": "UnmodifiableMap"
   },
   "(LogLevel)_logLevel": "WARN"
 }

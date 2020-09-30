@@ -9,6 +9,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
@@ -21,6 +22,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   },

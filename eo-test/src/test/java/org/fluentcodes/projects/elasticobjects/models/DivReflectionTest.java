@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class DivReflectionTest {
     private static final String METHOD_SET_TEST = "setTest";
-    private static final String METHOD_SET_TEST_OBJECT = "setTestObject";
+    private static final String METHOD_SET_MY_OBJECT = "setMyObject";
 
     @Test
     public void callObjectClass() {
@@ -43,15 +43,15 @@ public class DivReflectionTest {
 
 
     @Test
-    public void callBasicTestTestObject() throws Exception {
-        BasicTest object = new BasicTest();
+    public void AnObject__setMyObject_with_reflection__$() throws Exception {
+        AnObject object = new AnObject();
 
-        object.setTestObject(S1);
-        Assert.assertEquals(S1, object.getTestObject());
+        object.setMyObject(S1);
+        Assert.assertEquals(S1, object.getMyObject());
 
-        Method setter = BasicTest.class.getMethod(METHOD_SET_TEST_OBJECT, Object.class);
+        Method setter = AnObject.class.getMethod(METHOD_SET_MY_OBJECT, Object.class);
         setter.invoke(object, S_STRING);
-        Assert.assertEquals(S_STRING, object.getTestObject());
+        Assert.assertEquals(S_STRING, object.getMyObject());
     }
 
     private class ObjectClass {

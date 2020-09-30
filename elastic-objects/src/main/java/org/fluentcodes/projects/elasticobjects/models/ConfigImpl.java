@@ -13,7 +13,7 @@ import java.util.*;
 public abstract class ConfigImpl extends ModelImpl implements Config {
     public static final String CONFIG_MODEL_KEY = "configModelKey";
     public static final String MODULE = "module";
-    public static final String MODULE_SCOPE = " moduleScope";
+    public static final String MODULE_SCOPE = "moduleScope";
     private static final String SCOPE = "scope";
     public static final String EXPOSE = "expose";
     public static final String PROPERTIES = "properties";

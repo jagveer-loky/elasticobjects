@@ -9,11 +9,10 @@
       "classPath": "src.main.resources",
       "schema": "file:basic",
       "dbType": "H2",
-      "extensionx": "DATABASE_TO_UPPER=false;",
+      "extension": "DATABASE_TO_UPPER=false;",
       "driver": "org.h2.Driver",
       "protocol": "jdbc",
-      "hostName": "h2",
-      "user": "sa"
+      "hostName": "h2"
     }
   },
   "h2:mem:basic": {
@@ -29,9 +28,7 @@
       "extension": "DATABASE_TO_UPPER=false;",
       "driver": "org.h2.Driver",
       "protocol": "jdbc",
-      "hostName": "h2",
-      "user": "sa",
-      "password": ""
+      "hostName": "h2"
     }
   }
 }

@@ -18,13 +18,11 @@ import org.junit.Test;
  * Created by Werner on 22.03.2017.
  */
 public class TemplateContentExampleTest {
-    public static final String JSON_CONFIG_KEY = "ContentExampleStatic";
-    public static final String DATA_JSON_CONFIG_KEY = "ContentExampleData";
+    public static final String CONFIG_KEY_JSON = "ContentExampleData";
     public static final String STATIC_TPL = "ContentExampleStatic";
     public static final String STATIC_KEEP_TPL = "ContentExampleStaticKeep";
     public static final String STATIC_CONDITION_TPL = "ContentExampleStaticCondition";
     public static final String DYNAMIC_TPL = "ContentExampleDynamic";
-    public static final String T_CONTENT_OR_EXAMPLE = "ContentOrExample";
     private static final Logger LOG = LogManager.getLogger(TemplateContentExampleTest.class);
     private static final String H1 = "<h1>";
     private static final String H2 = "<h2>";
@@ -32,9 +30,9 @@ public class TemplateContentExampleTest {
 
 
     @Test
-    public void givenCallJsonData_whenExecute_thenExpected()  {
+    public void call_ConfigKeyJson__execute__xpected()  {
         EO eo = ProviderRootTestScope.createEo();
-        final JsonReadCall call = new JsonReadCall(DATA_JSON_CONFIG_KEY);
+        final JsonReadCall call = new JsonReadCall(CONFIG_KEY_JSON);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -43,8 +41,8 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void givenEoData_whenExecuteEo_thenExpected()  {
-        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA.getEoTest();
+    public void eo_DataJson__execute__xpected()  {
+        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEoTest();
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.setSerializationType(JSONSerializationType.STANDARD);
         Assertions.assertThat(eo.getLog().isEmpty());
@@ -52,22 +50,22 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void givenEoData_whenParseTemplate_thenReplaced()  {
-        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA.getEoTest();
+    public void eo_DataJson__parse_Template__replaced()  {
+        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEoTest();
         String value = new ParserTemplate("-$[0/header/]-").parse(eo);
         Assertions.assertThat(value).isEqualTo("-header1-");
     }
 
     @Test
-    public void givenEoData_whenParseTemplateWrongPathRelativePath_thenNotReplaced()  {
-        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA.getEoTest();
+    public void eo_DataJson__parse_Template_WrongPathRelativePath__notReplaced()  {
+        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEoTest();
         String value = new ParserTemplate("-$[0/header/]-").parse(eo.getEo("1"));
         Assertions.assertThat(value).isEqualTo("-!!Could not move to path '0/header' because key '0' does not exist on '/1'.!!-");
     }
 
     @Test
-    public void givenEoData_whenParseTemplateWrongPathAbsolutePath_thenReplaced()  {
-        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA.getEoTest();
+    public void eo_DataJson__parse_template_absolutePath__replaced()  {
+        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEoTest();
         String value = new ParserTemplate("-$[/0/header/]-").parse(eo.getEo("1"));
         Assertions.assertThat(value).isEqualTo("-header1-");
     }
@@ -93,7 +91,7 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void call__StaticKeepTpl__execute__xpected()  {
+    public void call_StaticKeepTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall();
@@ -113,7 +111,7 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void eo_JsonDynamic__execute__xpected()  {
+    public void eo_DynamicJson__execute__xpected()  {
         EO eo = TestProviderJsonCalls.CONTENT_EXAMPLE_DYNAMIC_JSON.getEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -124,7 +122,6 @@ public class TemplateContentExampleTest {
     @Test
     public void call_DynamicTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
-
         final TemplateResourceCall call = new TemplateResourceCall();
         call.setTemplateKey(DYNAMIC_TPL);
         final String result = call.execute(eo);

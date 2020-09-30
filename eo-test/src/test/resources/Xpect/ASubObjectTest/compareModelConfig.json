@@ -1,0 +1,31 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "modelKey": "ASubObject",
+    "(ArrayList)localFieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "name",
+      "3": "myString"
+    },
+    "(ArrayList)fieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "name",
+      "3": "myString"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "author": "Werner Diwischek",
+    "naturalId": "ASubObject"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

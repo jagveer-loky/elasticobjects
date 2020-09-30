@@ -1,0 +1,26 @@
+{
+  "(LogLevel)_logLevel": "WARN",
+  "(List,Double)source": {
+    "(Double)0": 1,
+    "(Double)1": 2,
+    "(Double)2": 3
+  },
+  "(List)_calls": {
+    "(SinusValueCall)0": {
+      "sourcePath": "/source/*",
+      "targetPath": "/target",
+      "duration": 0
+    },
+    "(TemplateCall)1": {
+      "sourcePath": "/source/*",
+      "content": "sin($[_value]) = $[/target/_parent]\n",
+      "duration": 0
+    }
+  },
+  "target": {
+    "(Double)0": 0.8414709848078965,
+    "(Double)1": 0.9092974268256817,
+    "(Double)2": 0.1411200080598672
+  },
+  "_template": "sin(1.0) = 0.8414709848078965\nsin(2.0) = 0.9092974268256817\nsin(3.0) = 0.1411200080598672\n"
+}

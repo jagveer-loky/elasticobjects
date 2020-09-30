@@ -1,7 +1,7 @@
 {
   "h2:mem:basic": {
     "hibernateKey": "h2:mem:basic",
-    "models": "BasicTest,SubTest",
+    "models": "AnObject,SubTest",
     "configFile": "config.hbm.xml",
     "auto": "create",
     "showSql": true,
@@ -17,7 +17,7 @@
   },
   "h2:file:basic": {
     "hibernateKey": "h2:file:basic",
-    "models": "BasicTest,SubTest",
+    "models": "AnObject,SubTest",
     "configFile": "config.hbm.xml",
     "auto": "create",
     "properties": {

@@ -27,6 +27,9 @@ public class ParserEoReplace extends Parser {
     }
 
     public String parse(final EO eo) {
+        if (!hasTemplate()) {
+            return "";
+        }
         if (!getTemplate().contains("eo->")) {
             LOG.debug("no placeholder $[ found  : " + getTemplate());
             return getTemplate();

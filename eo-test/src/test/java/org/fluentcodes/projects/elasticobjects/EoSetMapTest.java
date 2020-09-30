@@ -3,8 +3,8 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -65,10 +65,10 @@ public class EoSetMapTest {
     @Test
     public void givenMapEmpty_whenSetJsonSmall_ok()  {
         final EO eoEmpty = ProviderRootDevScope.createEo();
-        eoEmpty.set(TestProviderBtJson.SMALL.content(), S_LEVEL0);
+        eoEmpty.set(TestProviderAnObjectJson.SMALL.content(), S_LEVEL0);
         Assertions.assertThat(eoEmpty.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
-        Assertions.assertThat(eoEmpty.get(S_LEVEL0, BasicTest.TEST_INTEGER)).isEqualTo(S_INTEGER);
-        Assertions.assertThat(eoEmpty.get(S_LEVEL0, BasicTest.TEST_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eoEmpty.get(S_LEVEL0, AnObject.MY_INTEGER)).isEqualTo(S_INTEGER);
+        Assertions.assertThat(eoEmpty.get(S_LEVEL0, AnObject.MY_STRING)).isEqualTo(S_STRING);
     }
 }
 

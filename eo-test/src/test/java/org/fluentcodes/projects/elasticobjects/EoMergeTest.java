@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -13,21 +13,21 @@ public class EoMergeTest {
     public void test()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final BasicTest BT1 = new BasicTest();
-        BT1.setTestString( "value");
+        final AnObject anObject1 = new AnObject();
+        anObject1.setMyString( "value");
 
-        final BasicTest BT2 = new BasicTest();
-        BT2.setTestFloat( 1.1F);
+        final AnObject anObject2 = new AnObject();
+        anObject2.setMyFloat( 1.1F);
 
-        eo.mapObject(BT1);
-        eo.mapObject(BT2);
+        eo.mapObject(anObject1);
+        eo.mapObject(anObject2);
 
-        assertEquals("value", eo.get("testString"));
-        assertEquals(1.1F, eo.get("testFloat"));
-        assertEquals(1.1F, BT1.getTestFloat());
+        assertEquals("value", eo.get(AnObject.MY_STRING));
+        assertEquals(1.1F, eo.get(AnObject.MY_FLOAT));
+        assertEquals(1.1F, anObject1.getMyFloat());
 
-        assertEquals(BasicTest.class, eo.getModelClass());
-        assertEquals(BasicTest.class, eo.get().getClass());
+        assertEquals(AnObject.class, eo.getModelClass());
+        assertEquals(AnObject.class, eo.get().getClass());
 
     }
 }

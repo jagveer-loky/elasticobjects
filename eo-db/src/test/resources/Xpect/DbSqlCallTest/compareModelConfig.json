@@ -23,6 +23,7 @@
       "module": "eo-db"
     },
     "module": "eo-db",
+    "moduleScope": "main",
     "description": "A execution method for  {@link DbSqlConfig}",
     "author": "Werner Diwischek",
     "naturalId": "DbSqlCall"

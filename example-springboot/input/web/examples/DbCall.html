@@ -2,10 +2,10 @@
 <p>With the <a href="/config/ModelConfig/DbQueryCall">&ocir;DbQueryCall</a> one run queries
     on the serverside adding the result to EO.
 </p>
-<p>In the following examples the <a href="/config/DbSqlConfig/h2:mem:basic:BasicTest">&ocir;h2:mem:basic:BasicTest</a>
+<p>In the following examples the <a href="/config/DbSqlConfig/h2:mem:basic:AnObject">&ocir;h2:mem:basic:AnObject</a>
     is used.
 </p>
-<p>It's just a query for the BasicTest table which will be initialized by
+<p>It's just a query for the AnObject table which will be initialized by
     <a href="/config/DbSqlConfig/h2:mem:basic:Create">&ocir;h2:mem:basic:Create</a>
     when the
     <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java">&equiv;spring boot container</a>
@@ -24,7 +24,7 @@
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
    "(DbQueryCall)xyz":{
-       "configKey":"h2:mem:basic:BasicTest"
+       "configKey":"h2:mem:basic:AnObject"
    },
    "_serializationType":"STANDARD"
 }</textarea>
@@ -42,7 +42,7 @@
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
    "(DbQueryCall)abc":{
-       "configKey":"h2:mem:basic:BasicTest",
+       "configKey":"h2:mem:basic:AnObject",
         "rowHead":-1,
         "rowStart":0,
         "rowEnd":2
@@ -55,13 +55,13 @@
 <h4>Mapping to Class</h4>
 <p>
     This example will map the query result to the
-    <a href="/config/ModelConfig/BasicTest">&ocir;BasicTest</a> class on "values".
+    <a href="/config/ModelConfig/AnObject">&ocir;AnObject</a> class on "values".
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
-   "(List,BasicTest)values":{},
+   "(List,AnObject)values":{},
    "(DbQueryCall).":{
-       "configKey":"h2:mem:basic:BasicTest",
+       "configKey":"h2:mem:basic:AnObject",
        "targetPath":"values"
    }
 }</textarea>

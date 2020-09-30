@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -57,13 +57,13 @@ public class FileReadCallTest {
     @Test
     public void eo_SourceTxt_targetPath_test_role_Guest__execute__content_set()  {
         final Call call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_TXT)
-                .setTargetPath(BasicTest.TEST_STRING);
+                .setTargetPath(AnObject.MY_STRING);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get(BasicTest.TEST_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.get(AnObject.MY_STRING)).isEqualTo(S_STRING);
     }
 
     @Test

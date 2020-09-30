@@ -31,6 +31,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Calls with configuration {@link JsonConfig} to read a file write its content to EO on targetPath.",
     "author": "Werner Diwischek",
     "naturalId": "JsonReadCall"

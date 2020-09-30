@@ -10,7 +10,8 @@ import org.junit.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MAP;
+import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_STRING;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**

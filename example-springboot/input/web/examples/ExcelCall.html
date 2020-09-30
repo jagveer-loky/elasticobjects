@@ -2,8 +2,8 @@
 <p>With the <a href="/config/ModelConfig/XlsxReadCall">&ocir;XlsxReadCall</a> one can read Excel files.
  </p>
 <p>In the following examples the
-    <a href="/config/FileConfig/BasicTest.xlsx">&ocir;BasicTest.xlsx</a>
-    file with <a href="/config/FileConfig/BasicTest.xlsx:test">&ocir;properties</a>
+    <a href="/config/FileConfig/AnObject.xlsx">&ocir;AnObject.xlsx</a>
+    file with <a href="/config/FileConfig/AnObject.xlsx:test">&ocir;properties</a>
     is used.
 </p>
 <h4>Simple Call</h4>
@@ -13,7 +13,7 @@
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
    "(XlsxReadCall)values":{
-       "configKey":"BasicTest.xlsx:test"
+       "configKey":"AnObject.xlsx:test"
    },
    "_serializationType":"STANDARD"
 }</textarea>
@@ -30,7 +30,7 @@
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
    "(XlsxReadCall)values":{
-       "configKey":"BasicTest.xlsx:test",
+       "configKey":"AnObject.xlsx:test",
         "rowHead":-1,
         "rowStart":0,
         "rowEnd":2
@@ -50,9 +50,9 @@
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
-   "(List,BasicTest)values":{},
+   "(List,AnObject)values":{},
    "(XlsxReadCall).":{
-       "configKey":"BasicTest.xlsx:test",
+       "configKey":"AnObject.xlsx:test",
        "targetPath":"values"
    }
 }</textarea>

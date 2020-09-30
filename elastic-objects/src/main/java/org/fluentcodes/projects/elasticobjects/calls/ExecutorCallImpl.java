@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
@@ -26,8 +27,8 @@ public class ExecutorCallImpl implements ExecutorCall {
             eo.warn("Already executed within " + call.getDuration() + " ms. ");
             return "Already executed within " + call.getDuration() + " ms. ";
         }
-
-        Path sourcePath = new Path(eo.getPathAsString(), call.getSourcePath());
+        String sourcePathString = new ParserEoReplace(call.getSourcePath()).parse(eo);
+        Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
         EO sourceParent = sourcePath.moveToParent(eo);
         boolean isFilter = sourcePath.isFilter();
         if (!call.filter(sourceParent)) {

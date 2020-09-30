@@ -9,6 +9,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Definition of available attributes for an Action.",
     "naturalId": "attributeList"
   },
@@ -41,25 +42,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The autor of something e,g. a class.",
     "naturalId": "author"
   },
   "2": {
-    "fieldKey": "basicTest",
-    "modelKeys": "BasicTest",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "description": "A BasicTest field.",
-    "naturalId": "basicTest"
-  },
-  "3": {
     "fieldKey": "cached",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -72,10 +59,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "If true will cache the readed file within the cache object. ",
     "naturalId": "cached"
   },
-  "4": {
+  "3": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -84,10 +72,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ",
     "naturalId": "classPath"
   },
-  "5": {
+  "4": {
     "fieldKey": "colKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -99,10 +88,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The key list for mapping values in a value list. ",
     "naturalId": "colKeys"
   },
-  "6": {
+  "5": {
     "fieldKey": "condition",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -139,10 +129,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A condition for calls. ",
     "naturalId": "condition"
   },
-  "7": {
+  "6": {
     "fieldKey": "configFilter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -156,10 +147,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Key for filter configuration",
     "naturalId": "configFilter"
   },
-  "8": {
+  "7": {
     "fieldKey": "configKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -177,10 +169,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Key for configuration  {@link ConfigConfig}",
     "naturalId": "configKey"
   },
-  "9": {
+  "8": {
     "fieldKey": "configModelKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -194,10 +187,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The model of the configuration to determine type.",
     "naturalId": "configModelKey"
   },
-  "10": {
+  "9": {
     "fieldKey": "configType",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -211,10 +205,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Key for configuration type.",
     "naturalId": "configType"
   },
-  "11": {
+  "10": {
     "fieldKey": "content",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -229,10 +224,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A content.",
     "naturalId": "content"
   },
-  "12": {
+  "11": {
     "fieldKey": "create",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -241,10 +237,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "If true will create a Java class.",
     "naturalId": "create"
   },
-  "13": {
+  "12": {
     "fieldKey": "creationDate",
     "modelKeys": "Date",
     "(ArrayList)modelList": {
@@ -273,10 +270,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Used to define the creation of an item.",
     "naturalId": "creationDate"
   },
-  "14": {
+  "13": {
     "fieldKey": "defaultImplementation",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -285,9 +283,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "defaultImplementation"
   },
-  "15": {
+  "14": {
     "fieldKey": "delete",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -299,10 +298,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "String representation of RolePermission delete permissions",
     "naturalId": "delete"
   },
-  "16": {
+  "15": {
     "fieldKey": "description",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -331,10 +331,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A description of the model used by every model extending BaseClassImpl. ",
     "naturalId": "description"
   },
-  "17": {
+  "16": {
     "fieldKey": "directive",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -349,10 +350,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A content inclueded before template.",
     "naturalId": "directive"
   },
-  "18": {
+  "17": {
     "fieldKey": "duration",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -389,10 +391,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The duration of a call.",
     "naturalId": "duration"
   },
-  "19": {
+  "18": {
     "fieldKey": "endDirective",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -407,10 +410,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A content inclueded after template.",
     "naturalId": "endDirective"
   },
-  "20": {
+  "19": {
     "fieldKey": "entries",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
@@ -422,9 +426,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "entries"
   },
-  "21": {
+  "20": {
     "fieldKey": "execute",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -436,10 +441,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "String representation of RolePermission execute permissions",
     "naturalId": "execute"
   },
-  "22": {
+  "21": {
     "fieldKey": "expose",
     "modelKeys": "Expose",
     "(ArrayList)modelList": {
@@ -469,9 +475,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "expose"
   },
-  "23": {
+  "22": {
     "fieldKey": "fieldDelimiter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -483,10 +490,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A delimiter for fields used for csv files. ",
     "naturalId": "fieldDelimiter"
   },
-  "24": {
+  "23": {
     "fieldKey": "value",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -495,7 +503,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "FieldExampleClass.value"
   },
-  "25": {
+  "24": {
     "fieldKey": "fieldKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -507,9 +515,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "fieldKey"
   },
-  "26": {
+  "25": {
     "fieldKey": "fieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -528,10 +537,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A list of field keys for the model configuration. ",
     "naturalId": "fieldKeys"
   },
-  "27": {
+  "26": {
     "fieldKey": "fieldName",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -540,10 +550,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A name for different purposes depending on the model.",
     "naturalId": "fieldName"
   },
-  "28": {
+  "27": {
     "fieldKey": "fileKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -552,10 +563,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A key for file objects.",
     "naturalId": "fileKey"
   },
-  "29": {
+  "28": {
     "fieldKey": "fileName",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -568,9 +580,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "fileName"
   },
-  "30": {
+  "29": {
     "fieldKey": "filePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -583,9 +596,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "filePath"
   },
-  "31": {
+  "30": {
     "fieldKey": "filter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -597,10 +611,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Filter for List entries.",
     "naturalId": "filter"
   },
-  "32": {
+  "31": {
     "fieldKey": "filterModule",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -613,10 +628,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Filter for modules in  {@link ConfigAction}",
     "naturalId": "filterModule"
   },
-  "33": {
+  "32": {
     "fieldKey": "filterSubModule",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -629,10 +645,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Filter for subModules in  {@link ConfigAction}",
     "naturalId": "filterSubModule"
   },
-  "34": {
+  "33": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -641,9 +658,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "hibernate"
   },
-  "35": {
+  "34": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -652,10 +670,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "36": {
+  "35": {
     "fieldKey": "hostKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -668,10 +687,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A key for host objects.",
     "naturalId": "hostKey"
   },
-  "37": {
+  "36": {
     "fieldKey": "hostName",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -683,14 +703,15 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "38": {
+  "37": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
-      "0": "SubTest",
+      "0": "ASubObject",
       "1": "Model",
       "2": "Config",
       "3": "ModelInterface",
@@ -705,10 +726,10 @@
       "12": "ScsConfig",
       "13": "ModelConfigObject",
       "14": "FieldConfig",
-      "15": "ModelConfigList",
-      "16": "ConfigAsFlatListCall",
-      "17": "ModelConfigNone",
-      "18": "BasicTest",
+      "15": "AnObject",
+      "16": "ModelConfigList",
+      "17": "ConfigAsFlatListCall",
+      "18": "ModelConfigNone",
       "19": "ModelConfigScalar"
     },
     "(Expose)expose": "WEB",
@@ -719,10 +740,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "39": {
+  "38": {
     "fieldKey": "idKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -731,10 +753,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "40": {
+  "39": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -746,10 +769,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "41": {
+  "40": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -758,10 +782,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "42": {
+  "41": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -780,10 +805,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "43": {
+  "42": {
     "fieldKey": "javaProperties",
     "modelKeys": "Map",
     "(Expose)expose": "NONE",
@@ -792,10 +818,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A map of properties used in configs and calls.",
     "naturalId": "javaProperties"
   },
-  "44": {
+  "43": {
     "fieldKey": "join",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -804,10 +831,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "45": {
+  "44": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -816,10 +844,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "46": {
+  "45": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
@@ -834,10 +863,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Will use an existing  result file beforehand as template. ",
     "naturalId": "keepCall"
   },
-  "47": {
+  "46": {
     "fieldKey": "key",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -846,10 +876,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "48": {
+  "47": {
     "fieldKey": "length",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -861,10 +892,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "49": {
+  "48": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
     "(ArrayList)modelList": {
@@ -879,10 +911,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Filter for the readings within {@link ListAction}.",
     "naturalId": "listParams"
   },
-  "50": {
+  "49": {
     "fieldKey": "localCondition",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -919,10 +952,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A condition for calls. ",
     "naturalId": "localCondition"
   },
-  "51": {
+  "50": {
     "fieldKey": "localFieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -941,16 +975,17 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A list of field as proivided by the model configuration. ",
     "naturalId": "localFieldKeys"
   },
-  "52": {
+  "51": {
     "fieldKey": "log",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
     "naturalId": "log"
   },
-  "53": {
+  "52": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
     "(ArrayList)modelList": {
@@ -987,9 +1022,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "logLevel"
   },
-  "54": {
+  "53": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -998,10 +1034,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "55": {
+  "54": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -1010,10 +1047,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The model name for the cache object {@link Config}.",
     "naturalId": "modelConfigKey"
   },
-  "56": {
+  "55": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1032,10 +1070,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The model name for the bean/action object {@link Bean}.",
     "naturalId": "modelKey"
   },
-  "57": {
+  "56": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1048,10 +1087,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "58": {
+  "57": {
     "fieldKey": "modelList",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1063,10 +1103,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A list of naturalIds of models for FieldConfig.",
     "naturalId": "modelList"
   },
-  "59": {
+  "58": {
     "fieldKey": "models",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1103,10 +1144,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "60": {
+  "59": {
     "fieldKey": "module",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1133,10 +1175,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "61": {
+  "60": {
     "fieldKey": "moduleScope",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1163,14 +1206,241 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
     "naturalId": "moduleScope"
   },
+  "61": {
+    "fieldKey": "myAnObject",
+    "modelKeys": "AnObject",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "A AnObject field.",
+    "naturalId": "myAnObject"
+  },
   "62": {
+    "fieldKey": "myASubObject",
+    "modelKeys": "ASubObject",
+    "(ArrayList)modelList": {
+      "0": "ASubObject",
+      "1": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myASubObject",
+    "naturalId": "myASubObject"
+  },
+  "63": {
+    "fieldKey": "myASubObjectList",
+    "modelKeys": "ArrayList,ASubObject",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "A generic parametrized example List with {@link ASubObject}",
+    "naturalId": "myASubObjectList"
+  },
+  "64": {
+    "fieldKey": "myASubObjectMap",
+    "modelKeys": "HashMap,ASubObject",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "A generic parametrized example Map with {@link ASubObject}",
+    "naturalId": "myASubObjectMap"
+  },
+  "65": {
+    "fieldKey": "myBoolean",
+    "modelKeys": "Boolean",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myBoolean",
+    "naturalId": "myBoolean"
+  },
+  "66": {
+    "fieldKey": "myDate",
+    "modelKeys": "Date",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myDate",
+    "naturalId": "myDate"
+  },
+  "67": {
+    "fieldKey": "myDouble",
+    "modelKeys": "Double",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myDouble",
+    "naturalId": "myDouble"
+  },
+  "68": {
+    "fieldKey": "myFloat",
+    "modelKeys": "Float",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myFloat",
+    "naturalId": "myFloat"
+  },
+  "69": {
+    "fieldKey": "myInt",
+    "modelKeys": "Integer",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myInt",
+    "naturalId": "myInt"
+  },
+  "70": {
+    "fieldKey": "myList",
+    "modelKeys": "ArrayList",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myList",
+    "naturalId": "myList"
+  },
+  "71": {
+    "fieldKey": "myLong",
+    "modelKeys": "Long",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myLong",
+    "naturalId": "myLong"
+  },
+  "72": {
+    "fieldKey": "myMap",
+    "modelKeys": "HashMap",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "myMap",
+    "naturalId": "myMap"
+  },
+  "73": {
+    "fieldKey": "myObject",
+    "modelKeys": "Object",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "A test object thing. ",
+    "naturalId": "myObject"
+  },
+  "74": {
+    "fieldKey": "myString",
+    "modelKeys": "String",
+    "(ArrayList)modelList": {
+      "0": "ASubObject",
+      "1": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "eo-test"
+    },
+    "module": "eo-test",
+    "moduleScope": "main",
+    "description": "Just a small test string used in test models. ",
+    "naturalId": "myString"
+  },
+  "75": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "SubTest"
+      "0": "ASubObject"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1178,10 +1448,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "63": {
+  "76": {
     "modelKeys": "String",
     "(Expose)expose": "NONE",
     "properties": {
@@ -1191,10 +1462,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "naturalId": "naturalId"
   },
-  "64": {
+  "77": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
     "(Expose)expose": "NONE",
@@ -1203,9 +1475,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "naturalKeys"
   },
-  "65": {
+  "78": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -1214,9 +1487,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "notNull"
   },
-  "66": {
+  "79": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1253,9 +1527,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "overwrite"
   },
-  "67": {
+  "80": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -1264,10 +1539,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "68": {
+  "81": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1286,9 +1562,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "packagePath"
   },
-  "69": {
+  "82": {
     "fieldKey": "password",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1300,10 +1577,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "70": {
+  "83": {
     "fieldKey": "create",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1315,10 +1593,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "71": {
+  "84": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1330,9 +1609,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "port"
   },
-  "72": {
+  "85": {
     "fieldKey": "properties",
     "modelKeys": "Map",
     "(ArrayList)modelList": {
@@ -1366,10 +1646,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Properties for configurations.",
     "naturalId": "properties"
   },
-  "73": {
+  "86": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1381,9 +1662,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "protocol"
   },
-  "74": {
+  "87": {
     "fieldKey": "read",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1395,10 +1677,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "75": {
+  "88": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1410,9 +1693,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "replaceBy"
   },
-  "76": {
+  "89": {
     "fieldKey": "rolePermissions",
     "modelKeys": "RolePermissions",
     "(ArrayList)modelList": {
@@ -1428,9 +1712,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "rolePermissions"
   },
-  "77": {
+  "90": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1442,10 +1727,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "78": {
+  "91": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1457,9 +1743,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "rowEnd"
   },
-  "79": {
+  "92": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1471,9 +1758,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "rowHead"
   },
-  "80": {
+  "93": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1485,9 +1773,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "rowStart"
   },
-  "81": {
+  "94": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
     "(ArrayList)modelList": {
@@ -1514,10 +1803,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "82": {
+  "95": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
     "(ArrayList)modelList": {
@@ -1529,10 +1819,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "83": {
+  "96": {
     "fieldKey": "serialized",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1544,10 +1835,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "84": {
+  "97": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
     "(Expose)expose": "NONE",
@@ -1556,9 +1848,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "shapeType"
   },
-  "85": {
+  "98": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1595,10 +1888,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A sourcePath where EO offers it's input value when the execution starts.",
     "naturalId": "sourcePath"
   },
-  "86": {
+  "99": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1607,52 +1901,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SubExampleClass.name"
   },
-  "87": {
-    "fieldKey": "subTest",
-    "modelKeys": "SubTest",
-    "(ArrayList)modelList": {
-      "0": "SubTest",
-      "1": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "subTest"
-  },
-  "88": {
-    "fieldKey": "subTestList",
-    "modelKeys": "ArrayList,SubTest",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "description": "A generic parametrized example List with {@link SubTest}",
-    "naturalId": "subTestList"
-  },
-  "89": {
-    "fieldKey": "subTestMap",
-    "modelKeys": "HashMap,SubTest",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "description": "A generic parametrized example Map with {@link SubTest}",
-    "naturalId": "subTestMap"
-  },
-  "90": {
+  "100": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -1661,7 +1910,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.id"
   },
-  "91": {
+  "101": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
     "(ArrayList)modelList": {
@@ -1670,7 +1919,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "92": {
+  "102": {
     "fieldKey": "superKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1689,10 +1938,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "93": {
+  "103": {
     "fieldKey": "table",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -1701,10 +1951,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
     "naturalId": "table"
   },
-  "94": {
+  "104": {
     "fieldKey": "targetFile",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1716,10 +1967,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A target for persisting template results in TemplateResourceStoreCall. ",
     "naturalId": "targetFile"
   },
-  "95": {
+  "105": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1756,10 +2008,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.",
     "naturalId": "targetPath"
   },
-  "96": {
+  "106": {
     "fieldKey": "templateKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1774,125 +2027,11 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "The templateKey used to get the file content in templateResourceCall",
     "naturalId": "templateKey"
   },
-  "97": {
-    "fieldKey": "testBoolean",
-    "modelKeys": "Boolean",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "testBoolean"
-  },
-  "98": {
-    "fieldKey": "testDate",
-    "modelKeys": "Date",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "testDate"
-  },
-  "99": {
-    "fieldKey": "testDouble",
-    "modelKeys": "Double",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "testDouble"
-  },
-  "100": {
-    "fieldKey": "testFloat",
-    "modelKeys": "Float",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "testFloat"
-  },
-  "101": {
-    "fieldKey": "testInt",
-    "modelKeys": "Integer",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "testInt"
-  },
-  "102": {
-    "fieldKey": "testLong",
-    "modelKeys": "Long",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "testLong"
-  },
-  "103": {
-    "fieldKey": "testObject",
-    "modelKeys": "Object",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "description": "A test object thing. ",
-    "naturalId": "testObject"
-  },
-  "104": {
-    "fieldKey": "testString",
-    "modelKeys": "String",
-    "(ArrayList)modelList": {
-      "0": "SubTest",
-      "1": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "description": "Just a small test string used in test models. ",
-    "naturalId": "testString"
-  },
-  "105": {
+  "107": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1904,9 +2043,10 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "toReplace"
   },
-  "106": {
+  "108": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -1915,35 +2055,8 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "unique"
-  },
-  "107": {
-    "fieldKey": "untypedList",
-    "modelKeys": "ArrayList",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "untypedList"
-  },
-  "108": {
-    "fieldKey": "untypedMap",
-    "modelKeys": "HashMap",
-    "(ArrayList)modelList": {
-      "0": "BasicTest"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "eo-test"
-    },
-    "module": "eo-test",
-    "naturalId": "untypedMap"
   },
   "109": {
     "fieldKey": "ID",
@@ -1957,6 +2070,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
@@ -1972,6 +2086,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "user"
   },
   "111": {
@@ -1986,6 +2101,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "naturalId": "value"
   },
   "112": {
@@ -1997,6 +2113,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
@@ -2012,6 +2129,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "String representation of RolePermission write permissions",
     "naturalId": "write"
   },

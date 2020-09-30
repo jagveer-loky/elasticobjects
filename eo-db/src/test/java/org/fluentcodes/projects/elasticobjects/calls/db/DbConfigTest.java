@@ -95,18 +95,18 @@ public class DbConfigTest {
 
     @Ignore
     @Test
-    public void DropBasicTest()  {
+    public void DropAnObject()  {
 
         init();
         DbIO dbIO = new DbIO(H2_DB);
-        boolean executionFlag = dbIO.execute("Drop Table BasicTest");
+        boolean executionFlag = dbIO.execute("Drop Table AnObject");
         try {
             dbIO = new DbIO(H2_DB);
-            List<Map<String, Object>> result = dbIO.readListMap("Select * from  BasicTest");
-            Assert.fail("BasicTest should be dropped!");
+            List<Map<String, Object>> result = dbIO.readListMap("Select * from  AnObject");
+            Assert.fail("AnObject should be dropped!");
         } catch (Exception e) {
             LOG.info("Exception thrown since table is dropped: " + e.getMessage());
-            Assert.assertTrue(e.getMessage().contains("Table \"BasicTest\" not found"));
+            Assert.assertTrue(e.getMessage().contains("Table \"AnObject\" not found"));
         }
         H2_DB.closeConnection();
     }
@@ -116,7 +116,7 @@ public class DbConfigTest {
 
         init();
         DbIO dbIO = new DbIO(H2_DB);
-        List<Map<String, Object>> result = dbIO.readListMap("Select * from  BasicTest");
+        List<Map<String, Object>> result = dbIO.readListMap("Select * from  AnObject");
         Assert.assertTrue(result.size() > 0);
         //AssertEO.compare(TestObjectProvider.EO_CONFIGS_CACHE, result);
         H2_DB.closeConnection();

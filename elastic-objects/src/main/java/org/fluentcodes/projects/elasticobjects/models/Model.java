@@ -26,7 +26,7 @@ public interface Model {
 
     String getNaturalId();
 
-    void setNaturalId(String naturalId);
+    Model setNaturalId(String naturalId);
 
     Date getCreationDate();
 

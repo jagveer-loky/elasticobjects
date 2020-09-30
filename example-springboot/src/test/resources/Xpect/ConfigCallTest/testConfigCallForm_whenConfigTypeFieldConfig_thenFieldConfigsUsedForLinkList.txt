@@ -164,7 +164,7 @@
     "configType": "ModelConfig",
     "configSelected": "Scope",
     "(TemplateResourceCall)call": {
-        "configKey":"ConfigsPage.html"
+        "templateKey":"ConfigsPage.html"
     }
 }</textarea>
             <input type="submit" value="post"/>

@@ -1,16 +1,16 @@
 {
-  "h2:file:basic:BasicTest": {
-    "hibernateModelKey": "h2:file:basic:BasicTest",
+  "h2:file:basic:AnObject": {
+    "hibernateModelKey": "h2:file:basic:AnObject",
     "hibernateKey": "h2:file:basic",
-    "modelKey": "BasicTest",
+    "modelKey": "AnObject",
     "properties": {
     },
     "rolePermissions": {
     },
     "module": "eo-test",
     "subModule": "main",
-    "description": "Basic H2 Test with BasicTest table",
-    "naturalId": "h2:file:basic:BasicTest"
+    "description": "Basic H2 Test with AnObject table",
+    "naturalId": "h2:file:basic:AnObject"
   },
   "h2:file:basic:SubTest": {
     "hibernateModelKey": "h2:file:basic:SubTest",
@@ -25,18 +25,18 @@
     "description": "Basic H2 Test with SubTest table",
     "naturalId": "h2:file:basic:SubTest"
   },
-  "h2:mem:basic:BasicTest": {
-    "hibernateModelKey": "h2:mem:basic:BasicTest",
+  "h2:mem:basic:AnObject": {
+    "hibernateModelKey": "h2:mem:basic:AnObject",
     "hibernateKey": "h2:mem:basic",
-    "modelKey": "BasicTest",
+    "modelKey": "AnObject",
     "properties": {
     },
     "rolePermissions": {
     },
     "module": "eo-test",
     "subModule": "main",
-    "description": "Basic H2 in Memory Test with BasicTest Table",
-    "naturalId": "h2:mem:basic:BasicTest"
+    "description": "Basic H2 in Memory Test with AnObject Table",
+    "naturalId": "h2:mem:basic:AnObject"
   },
   "h2:mem:basic:SubTest": {
     "hibernateModelKey": "h2:mem:basic:SubTest",

@@ -22,6 +22,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "For setting upper value to EO.",
     "author": "Werner Diwischek",
     "naturalId": "StringUpperCall"

@@ -2,12 +2,12 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum ProviderMapJson {
     SIMPLE_INSERT_WITH_PATH("{\"key0\": \"test\", \"level0\": {\"key0\": \"testOther\"}}"),
@@ -44,11 +44,11 @@ public enum ProviderMapJson {
     }
 
     public EO createBtEo() {
-        EO eo =  ProviderRootTestScope.createEoWithClasses(BasicTest.class).mapObject(content);
+        EO eo =  ProviderRootTestScope.createEoWithClasses(AnObject.class).mapObject(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
-    public BasicTest createBt() {
-        return (BasicTest) createBtEo().get();
+    public AnObject createBt() {
+        return (AnObject) createBtEo().get();
     }
 }

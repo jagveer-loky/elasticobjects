@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -14,17 +14,17 @@ public class EoCompareDifferentTest {
     @Test
     public void test()  {
         final Map map = new HashMap();
-        map.put("testString", "value");
+        map.put(AnObject.MY_STRING, "value");
         final EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(map);
 
-        BasicTest BT = new BasicTest();
-        BT.setTestString("value2");
+        AnObject anObject = new AnObject();
+        anObject.setMyString("value2");
         final EO eo2 = ProviderRootTestScope.createEo();
-        eo2.mapObject(BT);
+        eo2.mapObject(anObject);
 
         StringBuilder diff = new StringBuilder();
         eo.compare(diff, eo2);
-        Assert.assertEquals("/testString = value: != value2\n", diff.toString());
+        Assert.assertEquals("/" + AnObject.MY_STRING + " = value: != value2\n", diff.toString());
     }
 }

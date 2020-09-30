@@ -1,5 +1,5 @@
 {
-  "testString": "value",
-  "testBoolean": false,
-  "testInt": 1
+  "myString": "value",
+  "myBoolean": false,
+  "myInt": 1
 }

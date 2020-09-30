@@ -8,7 +8,7 @@ import org.fluentcodes.tools.xpect.IOString;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum TestProviderJson {
-    CONTENT_EXAMPLE_DATA(PATH_INPUT + "calls/content-example/ContentExampleData.json"),
+    CONTENT_EXAMPLE_DATA_JSON(PATH_INPUT + "calls/content-example/ContentExampleData.json"),
     FOR_EMBEDDED_TEST(PATH_INPUT + "calls/embedded/ForEmbeddedTest.json"),
     MAP_SMALL_WITH_KEY("{\"key0\": \"test\", \"key1\": 1}"),
     MAP_SMALL_WITH_KEY_AND_LIST("{\"key0\": \"test\", \"list\": [\"test\", 1]}"),

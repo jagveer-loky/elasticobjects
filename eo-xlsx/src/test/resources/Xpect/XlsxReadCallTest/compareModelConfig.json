@@ -24,6 +24,7 @@
       "module": "eo-xlsx"
     },
     "module": "eo-xlsx",
+    "moduleScope": "main",
     "description": "The action containing a XlsxCache object with method like read or write an Excel sheet.",
     "author": "Werner Diwischek",
     "naturalId": "XlsxReadCall"

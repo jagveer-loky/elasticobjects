@@ -1,146 +1,155 @@
 {
-  "basicTest": {
+  "myAnObject": {
     "module": "eo-test",
     "moduleScope": "main",
-    "modelKeys": "BasicTest",
-    "description": "A BasicTest field.",
+    "modelKeys": "AnObject",
+    "description": "A AnObject field.",
     "expose": "WEB",
-    "fieldKey": "basicTest",
+    "fieldKey": "myAnObject",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "subTest": {
+  "myASubObject": {
     "module": "eo-test",
     "moduleScope": "main",
-    "modelKeys": "SubTest",
+    "modelKeys": "ASubObject",
+    "description": "myASubObject",
     "expose": "WEB",
-    "fieldKey": "subTest",
+    "fieldKey": "myASubObject",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "subTestList": {
+  "myASubObjectList": {
     "module": "eo-test",
     "moduleScope": "main",
-    "modelKeys": "ArrayList,SubTest",
-    "description": "A generic parametrized example List with {@link SubTest}",
+    "modelKeys": "ArrayList,ASubObject",
+    "description": "A generic parametrized example List with {@link ASubObject}",
     "expose": "WEB",
-    "fieldKey": "subTestList",
+    "fieldKey": "myASubObjectList",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "subTestMap": {
+  "myASubObjectMap": {
     "module": "eo-test",
     "moduleScope": "main",
-    "modelKeys": "HashMap,SubTest",
-    "description": "A generic parametrized example Map with {@link SubTest}",
+    "modelKeys": "HashMap,ASubObject",
+    "description": "A generic parametrized example Map with {@link ASubObject}",
     "expose": "WEB",
-    "fieldKey": "subTestMap",
+    "fieldKey": "myASubObjectMap",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testBoolean": {
+  "myBoolean": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "Boolean",
+    "description": "myBoolean",
     "expose": "WEB",
-    "fieldKey": "testBoolean",
+    "fieldKey": "myBoolean",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testDate": {
+  "myDate": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "Date",
+    "description": "myDate",
     "expose": "WEB",
-    "fieldKey": "testDate",
+    "fieldKey": "myDate",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testDouble": {
+  "myDouble": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "Double",
+    "description": "myDouble",
     "expose": "WEB",
-    "fieldKey": "testDouble",
+    "fieldKey": "myDouble",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testFloat": {
+  "myFloat": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "Float",
+    "description": "myFloat",
     "expose": "WEB",
-    "fieldKey": "testFloat",
+    "fieldKey": "myFloat",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testInt": {
+  "myInt": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "Integer",
+    "description": "myInt",
     "expose": "WEB",
-    "fieldKey": "testInt",
+    "fieldKey": "myInt",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testLong": {
+  "myLong": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "Long",
+    "description": "myLong",
     "expose": "WEB",
-    "fieldKey": "testLong",
+    "fieldKey": "myLong",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testObject": {
+  "myObject": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "Object",
     "description": "A test object thing. ",
     "expose": "WEB",
-    "fieldKey": "testObject",
+    "fieldKey": "myObject",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "testString": {
+  "myString": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "Just a small test string used in test models. ",
     "expose": "WEB",
-    "fieldKey": "testString",
+    "fieldKey": "myString",
     "length": 20,
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "untypedList": {
+  "myList": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "ArrayList",
+    "description": "myList",
     "expose": "WEB",
-    "fieldKey": "untypedList",
+    "fieldKey": "myList",
     "properties": {
       "classPath": "src.main.resources"
     }
   },
-  "untypedMap": {
+  "myMap": {
     "module": "eo-test",
     "moduleScope": "main",
     "modelKeys": "HashMap",
+    "description": "myMap",
     "expose": "WEB",
-    "fieldKey": "untypedMap",
+    "fieldKey": "myMap",
     "properties": {
       "classPath": "src.main.resources"
     }

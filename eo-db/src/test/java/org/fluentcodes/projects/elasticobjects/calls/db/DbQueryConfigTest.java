@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class DbQueryConfigTest {
     protected static final String DB_QUERY_SUB_TEST = "h2:mem:basic:SubTest";
-    protected static final String DB_QUERY_BASIC_TEST = "h2:mem:basic:BasicTest";
+    protected static final String DB_QUERY_BASIC_TEST = "h2:mem:basic:AnObject";
     @Test
     public void createByModelConfig_throwsException()  {
         ConfigModelChecks.createThrowsException(DbQueryConfig.class);

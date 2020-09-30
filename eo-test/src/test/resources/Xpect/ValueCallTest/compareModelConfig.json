@@ -26,6 +26,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "For setting values to EO.",
     "author": "Werner Diwischek",
     "naturalId": "ValueCall"

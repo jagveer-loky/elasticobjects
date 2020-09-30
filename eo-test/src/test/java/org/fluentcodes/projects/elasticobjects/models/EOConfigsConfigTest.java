@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.SubTest;
+import org.fluentcodes.projects.elasticobjects.assets.ASubObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -41,7 +41,7 @@ public class EOConfigsConfigTest {
 
     @Test
     public void checkConfigsCacheWithST()  {
-        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(SubTest.class);
+        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(ASubObject.class);
         model.resolve();
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }

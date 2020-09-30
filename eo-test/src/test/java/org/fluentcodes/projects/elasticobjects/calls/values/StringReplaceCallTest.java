@@ -34,7 +34,7 @@ public class StringReplaceCallTest {
         EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(ProviderRootTestScope.EO_CONFIGS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new TemplateCall("* $[(StringReplaceCall) targetPath=\"" + CallImpl.AS_STRING + "\" toReplace=\"\\.\" replaceBy=\"/\" /] *").execute(eo.getEo(PACKAGE_PATH));
+        String content = new TemplateCall("* $[(StringReplaceCall) targetPath=\"" + CallImpl.TARGET_AS_STRING + "\" toReplace=\"\\.\" replaceBy=\"/\" /] *").execute(eo.getEo(PACKAGE_PATH));
         Assertions.assertThat(content).isEqualTo("* org/fluentcodes/projects/elasticobjects/calls/values *");
     }
 }

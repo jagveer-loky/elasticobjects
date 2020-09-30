@@ -41,7 +41,7 @@ public class StringUpperFirstCharCallTest {
     @Test
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
         EO eo = ProviderRootTestScope.createEo();
-        final String template = "^$[(ValueCall)level0 value=\"test\"/] - $[(StringUpperFirstCharCall)level0 targetPath=\"" + CallImpl.AS_STRING + "\"/] $";
+        final String template = "^$[(ValueCall)level0 value=\"test\"/] - $[(StringUpperFirstCharCall)level0 targetPath=\"" + CallImpl.TARGET_AS_STRING + "\"/] $";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

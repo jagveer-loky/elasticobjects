@@ -11,9 +11,9 @@ import org.junit.Test;
  * Created by Werner on 17.8.2020.
  */
 public class DbSqlCallTest {
-    private final static String DROP = "h2:mem:basic:BasicTestDrop";
+    private final static String DROP = "h2:mem:basic:AnObjectDrop";
     private final static String CREATE = "h2:mem:basic:Create";
-    public static final String DQ_H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:BasicTest";
+    public static final String DQ_H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:AnObject";
     @Test
     public void createByModelConfig()  {
         ConfigModelChecks.create(DbSqlCall.class);
@@ -30,7 +30,7 @@ public class DbSqlCallTest {
     }
 
     @Test
-    public void queryBasicTest()  {
+    public void queryAnObject()  {
         DbSqlCall call = new DbSqlCall(CREATE);
         Assert.assertNotNull(call);
         EO eo = ProviderRootTestScope.createEo();

@@ -1,13 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.List;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum ProviderListJson {
     JSON_EMPTY("[]"),

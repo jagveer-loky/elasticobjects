@@ -14,23 +14,23 @@
     "schema": "file:basic",
     "driver": "org.h2.Driver",
     "(DbTypes)dbType": "H2",
+    "extension": "DATABASE_TO_UPPER=false;",
     "protocol": "jdbc",
     "hostName": "h2",
-    "user": "sa",
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
     "properties": {
       "classPath": "src.main.resources",
       "schema": "file:basic",
       "dbType": "H2",
-      "extensionx": "DATABASE_TO_UPPER=false;",
+      "extension": "DATABASE_TO_UPPER=false;",
       "driver": "org.h2.Driver",
       "protocol": "jdbc",
       "hostName": "h2",
-      "user": "sa",
       "module": "eo-db"
     },
     "module": "eo-db",
+    "moduleScope": "main",
     "description": "Local H2 in file persisted for the test resources.",
     "naturalId": "h2:file:basic"
   },
@@ -51,8 +51,6 @@
     "extension": "DATABASE_TO_UPPER=false;",
     "protocol": "jdbc",
     "hostName": "h2",
-    "user": "sa",
-    "password": "",
     "configModelKey": "DbConfig",
     "(Expose)expose": "INFO",
     "properties": {
@@ -63,11 +61,10 @@
       "driver": "org.h2.Driver",
       "protocol": "jdbc",
       "hostName": "h2",
-      "user": "sa",
-      "password": "",
       "module": "eo-db"
     },
     "module": "eo-db",
+    "moduleScope": "main",
     "description": "Local H2 in memory for the test resources.",
     "naturalId": "h2:mem:basic"
   },
@@ -100,6 +97,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
@@ -112,6 +110,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   },

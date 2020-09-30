@@ -8,9 +8,6 @@ import org.fluentcodes.tools.xpect.IOString;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum TestProviderCallTemplate {
-
-    //SIMPLE_INSERT_WITH_PATH(PATH_INPUT_TEMPLATE + "SimpleInsertWithPath"),
-    //DEEP_PATH_VALUE(PATH_INPUT_TEMPLATE + "SimpleInsertWithPath"),
     CALL_SINUS_ARRAY(PATH_INPUT + "calls/call-sinus/CallSinusArray.tpl"),
     ;
 

@@ -43,6 +43,7 @@
       "module": "eo-db"
     },
     "module": "eo-db",
+    "moduleScope": "main",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "author": "Werner Diwischek",
     "naturalId": "DbConfig"

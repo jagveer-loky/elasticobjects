@@ -37,6 +37,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
     "author": "Werner Diwischek",
     "naturalId": "ScsConfig"

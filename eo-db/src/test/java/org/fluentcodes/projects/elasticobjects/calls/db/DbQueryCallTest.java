@@ -11,9 +11,9 @@ import org.junit.Test;
  * Created by Werner on 28.1.2018.
  */
 public class DbQueryCallTest {
-    public static final String H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:BasicTest";
+    public static final String H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:AnObject";
     public static final String H2_MEM_BASIC_SUB_TEST = "h2:mem:basic:SubTest";
-    public static final String H2_MEM_BASIC_TEST_DROP = "h2:mem:basic:BasicTestDrop";
+    public static final String H2_MEM_BASIC_TEST_DROP = "h2:mem:basic:AnObjectDrop";
     public static final String H2_MEM_BASIC_CREATE = "h2:mem:basic:Create";
 
 
@@ -35,7 +35,7 @@ public class DbQueryCallTest {
     // TODO make some reasonable tests afterwards
     @Ignore
     @Test
-    public void queryBasicTest()  {
+    public void queryAnObject()  {
         DbQueryCall call = new DbQueryCall(H2_MEM_BASIC_BASIC_TEST);
         Assert.assertNotNull(call);
         EO eo = ProviderRootTestScope.createEo();

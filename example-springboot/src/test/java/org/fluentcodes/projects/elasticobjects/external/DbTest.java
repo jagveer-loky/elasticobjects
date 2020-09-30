@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.external;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbQueryCall;
 import org.junit.Test;
 

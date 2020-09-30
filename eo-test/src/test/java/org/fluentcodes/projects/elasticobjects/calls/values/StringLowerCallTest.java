@@ -42,7 +42,7 @@ public class StringLowerCallTest {
     @Test
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
         EO eo = ProviderRootTestScope.createEo();
-        final String template = "^$[(ValueCall)level0 value=\"tEsT\"/] - $[(StringLowerCall)level0 targetPath=\"" + CallImpl.AS_STRING + "\"/] $";
+        final String template = "^$[(ValueCall)level0 value=\"tEsT\"/] - $[(StringLowerCall)level0 targetPath=\"" + CallImpl.TARGET_AS_STRING + "\"/] $";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

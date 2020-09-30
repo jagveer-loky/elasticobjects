@@ -23,6 +23,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Defines a file write access. ",
     "author": "Werner Diwischek",
     "naturalId": "FileWriteCall"

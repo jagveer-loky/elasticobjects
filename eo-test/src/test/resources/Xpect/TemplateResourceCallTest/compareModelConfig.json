@@ -32,6 +32,7 @@
       "module": "elastic-objects"
     },
     "module": "elastic-objects",
+    "moduleScope": "main",
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "author": "Werner Diwischek",
     "naturalId": "TemplateResourceCall"

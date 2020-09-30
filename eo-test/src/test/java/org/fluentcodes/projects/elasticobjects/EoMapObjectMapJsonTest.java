@@ -3,8 +3,8 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderBtJson;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -31,11 +31,11 @@ public class EoMapObjectMapJsonTest {
         final EO eo = ProviderRootDevScope.createEo();
         final String jsonString = "{\n" +
                 "\t\"level0\":{\n" +
-                "\t\t\"testString\":\"value\"\n" +
+                "\t\t\"" + AnObject.MY_STRING + "\":\"value\"\n" +
                 "    }\n" +
                 "}";
         eo.mapObject(jsonString);
-        assertThat(eo.get("level0/testString")).isEqualTo("value");
+        assertThat(eo.get("level0/" + AnObject.MY_STRING)).isEqualTo("value");
         assertThat(eo.getEo("level0").getModelClass()).isEqualTo(Map.class);
     }
 
@@ -49,27 +49,27 @@ public class EoMapObjectMapJsonTest {
     @Test
     public void givenDev_whenMapStringValue_thenValuesSet()  {
         final EO eoEmpty = ProviderRootDevScope.createEo();
-        final String jsnString = TestProviderBtJson.STRING.content();
+        final String jsnString = TestProviderAnObjectJson.STRING.content();
         eoEmpty
                 .mapObject(jsnString);
-        Assert.assertEquals(S_STRING, eoEmpty.get(BasicTest.TEST_STRING));
+        Assert.assertEquals(S_STRING, eoEmpty.get(AnObject.MY_STRING));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(String.class, eoEmpty.getEo(BasicTest.TEST_STRING).getModelClass());
+        Assert.assertEquals(String.class, eoEmpty.getEo(AnObject.MY_STRING).getModelClass());
     }
 
     @Test
     public void givenDev_whenMapBooleanValue_thenValuesSet()  {
         final EO eoEmpty = ProviderRootTestScope.createEo();
-        final String jsonBoolean = TestProviderBtJson.BOOLEAN.content();
+        final String jsonBoolean = TestProviderAnObjectJson.BOOLEAN.content();
         eoEmpty
                 .mapObject(jsonBoolean);
-        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(BasicTest.TEST_BOOLEAN));
+        Assert.assertEquals(S_BOOLEAN, eoEmpty.get(AnObject.MY_BOOLEAN));
         Assert.assertEquals(Map.class, eoEmpty.getModelClass());
-        Assert.assertEquals(Boolean.class, eoEmpty.getEo(BasicTest.TEST_BOOLEAN).getModelClass());
+        Assert.assertEquals(Boolean.class, eoEmpty.getEo(AnObject.MY_BOOLEAN).getModelClass());
     }
 
     @Test
-    public void givenDev_whenJsonMap_thenValueSet()  {
+    public void scope_dev__int__$()  {
         final EO eo = ProviderRootDevScope.createEo();;
         eo.mapObject("{\"" + S_LEVEL0 + "\":1}");
         assertThat(eo.getLog()).isEmpty();
@@ -77,14 +77,14 @@ public class EoMapObjectMapJsonTest {
     }
 
     @Test
-    public void givenDev_whenOneValueEmbedded_thenValuesSet()  {
+    public void scope_dev__OneValueEmbedded__$()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.mapObject("{\"test1\":{\"test2\":\"testObject\"}}");
         assertThat(eo.get("test1/test2")).isEqualTo("testObject");
     }
 
     @Test
-        public void givenDev_whenTwoValues_thenValuesSet()  {
+        public void scope_dev__2Strings__$()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.mapObject("{\"test1\":\"testObject1\",\"test2\":\"testObject2\"}");
         assertThat(eo.get("test1")).isEqualTo("testObject1");
@@ -92,56 +92,56 @@ public class EoMapObjectMapJsonTest {
     }
 
     @Test
-    public void givenDev_whenFileFloat_thenValuesSet()  {
+    public void scope_dev__float__$()  {
         final EO eo = ProviderRootDevScope.createEo();;
-        eo.mapObject(TestProviderBtJson.FLOAT.content());
+        eo.mapObject(TestProviderAnObjectJson.FLOAT.content());
         assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
-        Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT, eo.get(BasicTest.TEST_FLOAT));
+        Assert.assertEquals(INFO_COMPARE_FAILS, SAMPLE_FLOAT, eo.get(AnObject.MY_FLOAT));
     }
 
     @Test
-    public void givenDev_whenSmall_thenValuesSet()  {
+    public void scope_dev__small__$()  {
         final EO eo = ProviderRootDevScope.createEo();;
-        eo.mapObject(TestProviderBtJson.SMALL.content());
+        eo.mapObject(TestProviderAnObjectJson.SMALL.content());
         assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(BasicTest.TEST_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(BasicTest.TEST_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(AnObject.MY_STRING));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INTEGER));
     }
 
     @Test
-    public void givenDev_whenFileAll_thenValuesSet()  {
+    public void scope_dev__all__$()  {
         final EO eo = ProviderRootDevScope.createEo();;
-        eo.mapObject(TestProviderBtJson.ALL.content());
+        eo.mapObject(TestProviderAnObjectJson.ALL.content());
         assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(BasicTest.TEST_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(BasicTest.TEST_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(AnObject.MY_STRING));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INTEGER));
         //AssertEO.compareJSON(eo);
     }
 
     @Test
-    public void testDouble()  {
-        EO eo = TestProviderBtJson.DOUBLE_TYPED.createEoTest();
+    public void scope_test__double_typed__$()  {
+        EO eo = TestProviderAnObjectJson.DOUBLE_TYPED.createEoTest();
         assertThat(eo.getLog()).isEmpty();
-        assertThat(eo.get(BasicTest.TEST_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
+        assertThat(eo.get(AnObject.MY_DOUBLE)).isEqualTo((SAMPLE_DOUBLE));
     }
 
     @Test
-    public void givenJsonFloatTypes_thenSetValue()  {
-        EO eo = TestProviderBtJson.FLOAT_TYPED.createEoTest();
+    public void scope_test__float_typed__$()  {
+        EO eo = TestProviderAnObjectJson.FLOAT_TYPED.createEoTest();
         assertThat(eo.getLog()).isEmpty();
-        assertThat(eo.get(BasicTest.TEST_FLOAT)).isEqualTo((SAMPLE_FLOAT));
+        assertThat(eo.get(AnObject.MY_FLOAT)).isEqualTo((SAMPLE_FLOAT));
     }
 
     @Test
-    public void testAll()  {
-        EO eo = TestProviderBtJson.ALL_TYPED.createEoTest();
+    public void scope_test__all_typed__$()  {
+        EO eo = TestProviderAnObjectJson.ALL_TYPED.createEoTest();
         assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(BasicTest.TEST_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(BasicTest.TEST_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(AnObject.MY_STRING));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INTEGER));
         //AssertEO.compareJSON(eo);
     }
 }

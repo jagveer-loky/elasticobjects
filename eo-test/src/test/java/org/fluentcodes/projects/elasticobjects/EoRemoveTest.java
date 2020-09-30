@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -26,22 +26,22 @@ public class EoRemoveTest {
      * @
      */
     @Test
-    public void givenBT_thenRemoved()  {
-        EO child = ProviderRootTestScope.createEo(new BasicTest())
-                .set(S_STRING, BasicTest.TEST_STRING);
+    public void givenAnObject_thenRemoved()  {
+        EO child = ProviderRootTestScope.createEo(new AnObject())
+                .set(S_STRING, AnObject.MY_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, (root).size());
 
-        root.remove(BasicTest.TEST_STRING);
+        root.remove(AnObject.MY_STRING);
         Assert.assertEquals(0, (root).size());
     }
 
     @Test
     public void givenBtEmpty_WhenRemove_thenExceptionThrown()  {
-        EO root = ProviderRootTestScope.createEo(BasicTest.class);
+        EO root = ProviderRootTestScope.createEo(AnObject.class);
         Assertions
-                .assertThatThrownBy(()->{root.remove(BasicTest.TEST_STRING);})
-                .hasMessage("Object value for testString is already null.");
+                .assertThatThrownBy(()->{root.remove(AnObject.MY_STRING);})
+                .hasMessage("Object value for " + AnObject.MY_STRING + " is already null.");
     }
 
     /**

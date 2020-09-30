@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.assets.BasicTest;
+import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -54,8 +54,8 @@ public class EoSetScalarTest {
     public void givenDevString_whenSetStringWithPath_thenExceptionThrown()  {
         final EO eo = ProviderRootDevScope.createEo(S_STRING);
         Assertions
-                .assertThatThrownBy(()->{eo.set(S_STRING_OTHER, BasicTest.TEST_STRING);})
-                .hasMessage("Could not create a field value with 'testString' for a scalar (String) parent on path '/'");
+                .assertThatThrownBy(()->{eo.set(S_STRING_OTHER, AnObject.MY_STRING);})
+                .hasMessage("Could not create a field value with 'myString' for a scalar (String) parent on path '/'");
     }
 
     @Test
