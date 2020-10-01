@@ -43,13 +43,13 @@
     "module": "eo-test",
     "subModule": "main",
     "(Expose)expose": "WEB",
-    "description": "Model class with different types of fields including generic collections, maps and {@link SubTest} objects.",
+    "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
     "author": "Werner Diwischek",
     "naturalId": "BasicTest"
   },
   "1": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
-    "modelKey": "SubTest",
+    "modelKey": "ASubObject",
     "(ArrayList)localFieldKeys": {
       "0": "id",
       "1": "subTest",
@@ -70,7 +70,7 @@
     "subModule": "main",
     "(Expose)expose": "WEB",
     "author": "Werner Diwischek",
-    "naturalId": "SubTest"
+    "naturalId": "ASubObject"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -39,7 +39,9 @@ AnObject anObject3 = eo.get("a/b/c");
     are loaded and provided in a cache object.
 </p>
 <img src="/pics/eoModelConfig.svg" width="200" style="margin:20px;"/>
-<p>The EOConfigsCache object loads all ModelConfig.json,
+<p>The cache object
+    $[(GithubLinkCall)eo|models|EOConfigsCache.java configType="NONE" /]
+    loads all ModelConfig.json,
     Models.json and FieldConfig.json files from the classpath.
 
 </p>
@@ -91,7 +93,7 @@ Double result = call.execute(eo);
 
 <p>
     In the following example using the
-    <a href="config/ModelConfig/SinusValueCall">SinusValueCall</a> as JSON:
+    $[(ConfigLinkCall)SinusValueCall /] in json JSON:
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:90px">{
@@ -103,10 +105,10 @@ Double result = call.execute(eo);
 </textarea>
     <input type="submit" value="post"/>
 </form>
-</p>
+<p>It uses the path "source" as input value and store the result of sin(1) in "target".</p>
 <p>
     When you click on the "post" button, the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java#L54">&equiv;generic web interface</a>
+    generic web interface $[(GithubLinkCall)spring|web|WebEo.java configType="NONE" /]
     will map the JSON String to EO. At the end JSON will be generated as the response.</p>
 <p>You can change the values of the example to see that it works.
 </p>
@@ -114,25 +116,25 @@ Double result = call.execute(eo);
 <h4>Spring Boot Demo</h4>
 <p>
     This site itself is a demo for this principle: A small spring boot application together
-    with Elastic Objects and some <a href="config/TemplateConfig.html">TemplateConfigurations</a>.
+    with Elastic Objects and some <a href="configs/FileConfig.html">TemplateConfigurations</a>.
 </p>
 <p>
     The page you see with an "ordinary" web-url triggers the spring boot method
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java#L44">&equiv;WeEoGet.createRootPage</a>
+    $[(GithubLinkCall)spring|web|WebEoGet.java configType="NONE" /].createRootPage
     with the MVC request mapping "/{selectedItem:.+}.html".
 </p>
 <p>
     This method creates at server side a new EO object with selectedItem="Home.html" and
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/989f10d794111b55c20921fb072bb1d18d1cfae1/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java#L10">&equiv;TemplateResourceCall</a>
+    $[(GithubLinkCall)TemplateResourceCall /]
     and the template name
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">&equiv;ContentPage.html</a>.
+    $[(ConfigLinkCall)ContentPage.html configType="FileConfig" /].
 
 </p>
 <p>
     When the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html" style="border:none;text-decoration:none;">&equiv;ContentPage.html template</a>
+    $[(ConfigLinkCall)ContentPage.html configType="FileConfig" /] template
      is parsed, it will load
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/docs/Home.html">&equiv;Home.html</a>.
+    $[(ConfigLinkCall)Home.html configType="FileConfig" /].
     So this is what you read.
 </p>
 <h5>The post version</h5>

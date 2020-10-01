@@ -6,13 +6,14 @@ config calls are created.</p>
 
 
  <ul>
-     <li><a href="/config/ModelConfig/ConfigTypes">&ocir;ConfigTypes</a>: Lists the keys of available configuration types</li>
-     <li><a href="/config/ModelConfig/ConfigKeysCall">&ocir;ConfigKeysCall</a>: Lists all naturalIds for a given "configType" matching "configFilter"</li>
-     <li><a href="/config/ModelConfig/ConfigCall">&ocir;ConfigCall</a>: Lists complete configurations for a given "configType" matching "configFilter"</li>
+     <li>$[(ConfigLinkCall)ConfigTypesCall /]: Lists the keys of available configuration types</li>
+     <li>$[(ConfigLinkCall)ConfigKeysCall /]: Lists all naturalIds for a given "configType" matching "configFilter"</li>
+     <li>$[(ConfigLinkCall)ConfigCall /]: Lists complete configurations for a given "configType" matching "configFilter"</li>
 
  </ul>
 <p> Since these calls just deliver loaded configurations from the configuration cache, no other informations like permission restriction
-    are needed. The configuration calls are plain value calls like the <a href="/examples/TheGreetingCall.html">TheGreetingCall</a> with a model config without configuration by its own.
+    are needed. The configuration calls are plain value calls like the
+    <a href="/examples/TheGreetingCall.html">TheGreetingCall</a> with a model config without configuration by its own.
 </p>
 <p>
     On every configuration page calls are executed to get informations about the loaded configurations.

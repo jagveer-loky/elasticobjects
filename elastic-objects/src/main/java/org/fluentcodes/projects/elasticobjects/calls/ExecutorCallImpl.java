@@ -28,6 +28,9 @@ public class ExecutorCallImpl implements ExecutorCall {
             return "Already executed within " + call.getDuration() + " ms. ";
         }
         String sourcePathString = new ParserEoReplace(call.getSourcePath()).parse(eo);
+        if (call.getClass().getSimpleName().equals("GithubLinkCall")) {
+            System.out.println("x");
+        }
         Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
         EO sourceParent = sourcePath.moveToParent(eo);
         boolean isFilter = sourcePath.isFilter();

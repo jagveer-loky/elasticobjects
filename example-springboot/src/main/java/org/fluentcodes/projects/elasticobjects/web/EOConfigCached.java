@@ -26,10 +26,6 @@ public class EOConfigCached {
     @Bean
     public EOConfigsCache createProvider() throws Exception {
         EOConfigsCache provider = new EOConfigsCache(Scope.valueOf(scope), true);
-        provider.getKeys(HostConfig.class);
-        provider.getKeys(FileConfig.class);
-        provider.getKeys(ScsConfig.class);
-        //FileUtil.writeFile("src/main/resources/static/eoConfigurations.json", provider.toString());
         return provider;
     }
 }

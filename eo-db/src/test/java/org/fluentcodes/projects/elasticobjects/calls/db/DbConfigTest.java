@@ -37,7 +37,7 @@ public class DbConfigTest {
     }
 
     /*private static final DbConfig H2_DB = DbProvider.findDbCache(DB_H2_MEM_BASIC);
-    private static final ModelInterface SUB_TEST = TestObjectProvider.findModel(SubTest.class);
+    private static final ModelInterface SUB_TEST = TestObjectProvider.findModel(ASubObject.class);
     private static boolean initFlag = false;
 
     private static boolean init()  {

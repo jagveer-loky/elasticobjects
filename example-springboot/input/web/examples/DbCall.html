@@ -1,19 +1,21 @@
 <h3>Db Calls</h3>
-<p>With the <a href="/config/ModelConfig/DbQueryCall">&ocir;DbQueryCall</a> one run queries
+<p>With the $[(ConfigLinkCall)DbQueryCall /] one run queries
     on the serverside adding the result to EO.
 </p>
-<p>In the following examples the <a href="/config/DbSqlConfig/h2:mem:basic:AnObject">&ocir;h2:mem:basic:AnObject</a>
+<p>In the following examples the
+    $[(ConfigLinkCall)h2:mem:basic:AnObject configType="DbSqlConfig" /]
     is used.
 </p>
-<p>It's just a query for the AnObject table which will be initialized by
-    <a href="/config/DbSqlConfig/h2:mem:basic:Create">&ocir;h2:mem:basic:Create</a>
-    when the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java">&equiv;spring boot container</a>
-    starts.
+<p>It's just a query for the $[(ConfigLinkCall)AnObject /] table which will be initialized by
+    $[(ConfigLinkCall)h2:mem:basic:Create configType="DbSqlConfig" /]
+    when the spring boot container is started by
+    $[(GithubLinkCall)spring||Start.java configType="NONE"/].
 </p>
-<p>This is an in memory example which will be flushed whenever the server restarts. There are two other configurations involved:</p>
+<p>This is an in memory example which will be flushed whenever the server restarts.
+    There are two other configurations involved:</p>
 <ul>
-    <li><a href="/config/HostConfig/h2:mem:basic">&ocir;Database Configuration</a></li>
+    <li>The Database Configuration $[(ConfigLinkCall)h2:mem:basic configType="HostConfig" /]</li>
+    <li>The Sql init sequence $[(ConfigLinkCall)h2:mem:basic:Create configType="DbSqlConfig" /]</li>
 </ul>
 
 
@@ -55,7 +57,7 @@
 <h4>Mapping to Class</h4>
 <p>
     This example will map the query result to the
-    <a href="/config/ModelConfig/AnObject">&ocir;AnObject</a> class on "values".
+    $[(ConfigLinkCall)h2:mem:basic:AnObject configType="DbSqlConfig"/] class on "values".
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{

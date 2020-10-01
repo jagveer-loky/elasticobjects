@@ -2247,7 +2247,7 @@
   },
   "119": {
     "fieldKey": "subTest",
-    "modelKeys": "SubTest",
+    "modelKeys": "ASubObject",
     "dbFieldParams": {
       "fieldName": "subTest",
       "unique": false,
@@ -2266,7 +2266,7 @@
   },
   "120": {
     "fieldKey": "subTestList",
-    "modelKeys": "ArrayList,SubTest",
+    "modelKeys": "ArrayList,ASubObject",
     "dbFieldParams": {
     },
     "(EOFieldParams)eoFieldParams": {
@@ -2278,12 +2278,12 @@
     "(ArrayList)scope": {
     },
     "key": "subTestList",
-    "description": "A generic parametrized example List with {@link SubTest}",
+    "description": "A generic parametrized example List with {@link ASubObject}",
     "naturalId": "subTestList"
   },
   "121": {
     "fieldKey": "subTestMap",
-    "modelKeys": "HashMap,SubTest",
+    "modelKeys": "HashMap,ASubObject",
     "dbFieldParams": {
     },
     "(EOFieldParams)eoFieldParams": {
@@ -2295,7 +2295,7 @@
     "(ArrayList)scope": {
     },
     "key": "subTestMap",
-    "description": "A generic parametrized example Map with {@link SubTest}",
+    "description": "A generic parametrized example Map with {@link ASubObject}",
     "naturalId": "subTestMap"
   },
   "122": {

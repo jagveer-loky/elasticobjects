@@ -5,14 +5,32 @@
 </p>
 
 <p>
-    All Files named <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/FileConfig.json">&equiv;FileConfig.json</a> will be loaded.
-    will be loaded from the classpath into the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java">&equiv;cache</a>
-    the first time a file call will be initiated.
+    All Files named
+    $[(GithubLinkCall)spring-resources||FileConfig.json configType="NONE" /]
+    will be loaded from the classpath into the configuration cache
+    $[(GithubLinkCall)eo|models|EOConfigsCache.java configType="NONE" /].
+</p>
+
+<p>In the spring boot example
+    this is initialized by $[(GithubLinkCall)spring|web|EOConfigCached.java configType="NONE" /].
 </p>
 
 <p>
-    The only FileConfig used here is the
-    <a href="http://localhost:8080/config/FileConfig/Svg.html">&ocir;Svg.html</a>
-    defining the responsive menue collapsing.
+    Depending on the ConfigCacheKey different configuration classes with different methods will be stored.
 </p>
+
+<ul>
+    <li>$[(GithubLinkCall)FileConfig /]</li>
+    <li>$[(GithubLinkCall)ScsConfig /]</li>
+    <li>$[(GithubLinkCall)XlsxConfig /]</li>
+</ul>
+
+<p>The configuration methods will be used by the different file calls. </p>
+<ul>
+    <li>$[(GithubLinkCall)FileReadCall /]</li>
+    <li>$[(GithubLinkCall)FileWriteCall /]</li>
+    <li>$[(GithubLinkCall)ScsReadCall /]</li>
+    <li>$[(GithubLinkCall)JsonReadCall /]</li>
+    <li>$[(GithubLinkCall)TemplateResourceCall /]</li>
+    <li>$[(GithubLinkCall)XlsxReadCall /]</li>
+</ul>

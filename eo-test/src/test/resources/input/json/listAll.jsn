@@ -24,7 +24,7 @@
       "testFloat": 1.1,
       "testDouble": 2.2
     },
-    "(SubTest)10": {
+    "(ASubObject)10": {
       "name": "testOther",
       "testString": "test"
     }

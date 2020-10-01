@@ -87,9 +87,9 @@
 "sourcePath";"String";"A sourcePath where EO offers it's input value when the execution starts.";"elastic-objects";"main";"sourcePath";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 80}";"{}";"";
 "SubExampleClass.name";"String";"";"";"";"name";"";"{  ""unique"": false,  ""notNull"": false}";"{}";"";
 "subModule";"String";"Defines the target  sub module like 'main' or 'test'. ";"elastic-objects";"main";"subModule";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 64}";"{}";"";
-"subTest";"SubTest";"";"eo-test";"main";"subTest";"";"";"{}";"";
-"subTestList";"ArrayList,SubTest";"A generic parametrized example List with {@link SubTest}";"eo-test";"main";"subTestList";"";"";"{}";"";
-"subTestMap";"HashMap,SubTest";"A generic parametrized example Map with {@link SubTest}";"eo-test";"main";"subTestMap";"";"";"{}";"";
+"subTest";"ASubObject";"";"eo-test";"main";"subTest";"";"";"{}";"";
+"subTestList";"ArrayList,ASubObject";"A generic parametrized example List with {@link ASubObject}";"eo-test";"main";"subTestList";"";"";"{}";"";
+"subTestMap";"HashMap,ASubObject";"A generic parametrized example Map with {@link ASubObject}";"eo-test";"main";"subTestMap";"";"";"{}";"";
 "SuperExampleClass.id";"Long";"";"";"";"id";"";"{  ""unique"": false,  ""notNull"": false}";"{}";"";
 "SuperExampleClass.subClass";"FieldExampleClass";"";"";"";"subClass";"";"{  ""unique"": false,  ""notNull"": false}";"{}";"";
 "superKey";"String";"A key for the super class of a class.";"elastic-objects";"main";"superKey";"";"{  ""unique"": false,  ""notNull"": false,  ""length"": 256}";"{}";"";

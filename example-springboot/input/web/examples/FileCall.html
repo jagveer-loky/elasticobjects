@@ -8,8 +8,8 @@
  </p>
 
  <ul>
-     <li><a href="/config/FileConfig/secret.txt">&ocir;public.txt</a></li>
-     <li><a href="/config/FileConfig/secret.txt">&ocir;secret.txt</a></li>
+     <li>$[(ConfigLinkCall)public.txt configType="FileConfig" /]</li>
+     <li>$[(ConfigLinkCall)secret.txt configType="FileConfig" /]</li>
  </ul>
 
 
@@ -35,7 +35,8 @@ If you click, you will see the content is set to  "xyz" since
  this call.
 </p>
  <p>
-All values in the curly brackets of "xyz" will be mapped to the field values of <a href="/config/ModelConfig/TheGreetingCall">&ocir;TheGreetingCall</a>.
+All values in the curly brackets of "xyz" will be mapped to the field values of
+     $[(ConfigLinkCall)TheGreetingCall /].
  </p>
 
 <h4>secret.txt</h4>

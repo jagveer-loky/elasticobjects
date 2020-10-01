@@ -4,27 +4,29 @@
     The spring boot configuration is minimal with only two classes defining the endpoints:
 </p>
 <ul>
-    <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java">&equiv;Generic post endpoints</a> to generate EO template call on the client side</li>
-    <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java">&equiv;Get endpoints</a> creating EO template call on the serverside by path variables.</li>
+    <li>Generic post endpoints
+        $[(GithubLinkCall)spring|web|WebEo.java configType="NONE" /] to generate EO template call on the client side</li>
+    <li>Get endpoints
+        $[(GithubLinkCall)spring|web|WebEoGet.java configType="NONE" /] creating EO template call on the serverside by path variables.</li>
 </ul>
 
 <p>
     Basically the demo is pure html, with dedicated urls for each page with
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEoGet.java">&equiv;WebEoGet.java</a>.
+    $[(GithubLinkCall)spring|web|WebEo.java configType="NONE" /].
     Only three main templates are actually defined:
 </p>
 
 <ul>
-    <li><a href="/config/FileConfig/ContentPage.html">&ocir;ContentPage.html</a></li>
-    <li><a href="/config/FileConfig/ExamplesPage.html">&ocir;ExamplesPage.html</a></li>
-    <li><a href="/config/FileConfig/ConfigsPage.html">&ocir;ConfigsPage.html</a></li>
+    <li>$[(ConfigLinkCall)ContentPage.html configType="FileConfig" /]</li>
+    <li>$[(ConfigLinkCall)ExamplesPage.html configType="FileConfig" /]</li>
+    <li><$[(ConfigLinkCall)ConfigsPage.html configType="FileConfig" /]</li>
 </ul>
 
 <p>
     The layout origins from
     a wordpress theme with all its responsive magic. It's hidden in
-    the <a href="http://localhost:8080/config/FileConfig/Header.html">&ocir;Header.html</a> and
-    <a href="http://localhost:8080/config/FileConfig/Footer.html">&ocir;Footer.html</a>.
-    The <a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ContentPage.html">&equiv;content page template</a>
+    the $[(ConfigLinkCall)Header.html configType="FileConfig" /] and
+    $[(ConfigLinkCall)Footer.html configType="FileConfig" /].
+    So the content page template $[(ConfigLinkCall)ContentPage.html configType="FileConfig" /]
     could be rather small.
 </p>

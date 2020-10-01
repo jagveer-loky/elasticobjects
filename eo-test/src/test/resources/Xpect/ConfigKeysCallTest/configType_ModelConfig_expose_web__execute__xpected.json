@@ -17,7 +17,7 @@
   "14": "StringReplaceCall",
   "15": "StringUpperCall",
   "16": "StringUpperFirstCharCall",
-  "17": "SubTest",
+  "17": "ASubObject",
   "18": "TemplateCall",
   "19": "TemplateResourceCall",
   "20": "ValueCall",

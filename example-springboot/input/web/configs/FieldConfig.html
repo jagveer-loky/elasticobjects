@@ -1,24 +1,29 @@
 <h3>&ocir;FieldConfig</h3>
 <p>
-    The field configurations loaded in the cache together with
-    <a href="/config/ModelConfigs.html">&ocir;ModelConfigs.html</a>
-    hold all necessary information about the type of a field.
+    The field configurations provide all necessary informations about the type of a field
 </p>
 
 <p>
-    When the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java">&equiv;cache</a>
-    is initialized any File in the classpath named
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/resources/FieldConfig.json">&equiv;FieldConfig.json</a> will be loaded.
+    Any $[(GithubLinkCall)eo-resources||FieldConfig.json configType="NONE" /] file
+    from the  classpath is loaded together with the
+    <a href="/configs/ModelConfig.html">&ocir;model configurations</a>
+    into the configuration cache
+    $[(GithubLinkCall)eo|models|EOConfigsCache.java configType="NONE" /].
+</p>
+
+<p>In the spring boot example
+this is initialized by $[(GithubLinkCall)spring|web|EOConfigCached.java configType="NONE" /].
 </p>
 
 <p>
-    The separation of field and  <a href="/config/ModelConfigs.html">&ocir;model</a> configurations
+    The separation of field and
+    <a href="/configs/ModelConfig.html">&ocir;model configurations</a>
     allow to avoid
     annoying, misleading and error prone definitions of fields for each model with the same name.
 </p>
+
 <p>
-    When the model is initialize via
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/resources/Models.json">&equiv;Models.json</a> class names the fields will be
-    initialized via [modelName].[fieldName].
+    When the model is initialized via
+    $[(GithubLinkCall)eo-test-resources||Models.json configType="NONE" /]  class names, the fields will be
+    added as [className].[fieldName].
 </p>

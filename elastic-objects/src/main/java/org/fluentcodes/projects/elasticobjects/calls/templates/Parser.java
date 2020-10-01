@@ -125,7 +125,7 @@ public abstract class Parser {
                 value = ScalarConverter.toString(makeCall(pathOrKey, finish, eo));
             } catch (Exception e) {
                 eo.debug(e.getMessage());
-                value = "!!" + e.getMessage() + "!!";
+                value = "!! Exception occured execute call '" + pathOrKey + "'with message: " + e.getMessage() + "!!";
             }
         }
         else if (eo != null && pathOrKey.startsWith("_")) {

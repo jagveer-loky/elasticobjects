@@ -1,19 +1,24 @@
 <h3>&ocir;ModelConfig</h3>
 
 <p>
-    The model configurations are for
-    accessing, setting or creating objects via EO.
+    The model configurations offer methods for
+    accessing, setting or creating java objects via EO.
 </p>
 
 <p>
-    When the
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigsCache.java">&equiv;cache</a>
+    When the cache object
+    $[(GithubLinkCall)eo|models|EOConfigsCache.java configType="NONE" /]
     is initialized any File in the classpath named
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/resources/ModelConfig.json">&equiv;ModelConfig.json</a> will be loaded.
+    $[(GithubLinkCall)eo-resources||ModelConfig.json configType="NONE" /] will be loaded.
 </p>
+
+<p>In the spring boot example
+    this is initialized by $[(GithubLinkCall)spring|web|EOConfigCached.java configType="NONE" /].
+</p>
+
 <p>Each entry contains information about </p>
 <ul>
-    <li><a href="/config/FieldConfig.html">&ocir;Field names</a></li>
+    <li><a href="/configs/FieldConfig.html">&ocir;Field names</a></li>
     <li>Object access</li>
     <li>Class generation</li>
     <li>Database constraints</li>
@@ -21,13 +26,13 @@
 
 <p>
     The cache then contains
-    <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/EOConfigMapModels.java">&equiv;model map</a> with
+    $[(GithubLinkCall)EOConfigMapModels /] model map with
     entries of the following types:
     <ul>
-        <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfigScalar.java">&equiv;ModelConfigScalar</a></li>
-        <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfigList.java">&equiv;ModelConfigList</a></li>
-        <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfigMap.java">&equiv;ModelConfigMap</a></li>
-        <li><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/ModelConfigObject.java">&equiv;ModelConfigObject</a></li>
+        <li>$[(GithubLinkCall)ModelConfigScalar /]</li>
+        <li>$[(GithubLinkCall)ModelConfigList /]</li>
+        <li>$[(GithubLinkCall)ModelConfigMap /]</li>
+        <li>$[(GithubLinkCall)ModelConfigObject /]</li>
     </ul>
 </p>
 
