@@ -22,7 +22,7 @@ public class DbQueryIOTest {
     }
 
     @Test
-    public void querySubTest()  {
+    public void queryASubObject()  {
 
         DbQueryConfig dbQueryConfig = (DbQueryConfig) TestObjectProvider.EO_CONFIGS_CACHE.find(DbQueryConfig.class, DQ_H2_MEM_BASIC_SUB_TEST);
         Assert.assertNotNull(dbQueryConfig);

@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class DbQueryCallTest {
     public static final String H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:AnObject";
-    public static final String H2_MEM_BASIC_SUB_TEST = "h2:mem:basic:SubTest";
+    public static final String H2_MEM_BASIC_SUB_TEST = "h2:mem:basic:ASubObject";
     public static final String H2_MEM_BASIC_TEST_DROP = "h2:mem:basic:AnObjectDrop";
     public static final String H2_MEM_BASIC_CREATE = "h2:mem:basic:Create";
 

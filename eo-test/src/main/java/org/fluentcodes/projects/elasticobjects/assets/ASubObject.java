@@ -6,7 +6,7 @@ package org.fluentcodes.projects.elasticobjects.assets;
 
 public class ASubObject {
     private Long id;
-    private ASubObject subTest;
+    private ASubObject myASubObject;
     private String name;
     private String myString;
 //</call>
@@ -27,12 +27,12 @@ public class ASubObject {
     /**
      *
      */
-    public ASubObject getSubTest() {
-        return this.subTest;
+    public ASubObject getMyASubObject() {
+        return this.myASubObject;
     }
 
-    public void setSubTest(ASubObject subTest) {
-        this.subTest = subTest;
+    public void setMyASubObject(ASubObject subTest) {
+        this.myASubObject = subTest;
     }
 
     /**

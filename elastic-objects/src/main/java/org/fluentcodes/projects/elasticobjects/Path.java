@@ -98,6 +98,9 @@ public class Path {
         }
         List<PathElement> entryList = new ArrayList<>();
         for (String pathElement: pathEntries) {
+            if (pathElement == null || pathElement.isEmpty()) {
+                continue;
+            }
             this.addPaths(pathElement.split(Path.DELIMITER), entryList);
         }
         this.entries = new PathElement[entryList.size()];

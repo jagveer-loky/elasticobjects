@@ -16,5 +16,43 @@
       "shapeType": "CALL_BEAN"
     },
     "author": "Werner Diwischek"
+  },
+  "GithubLinkCall": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "configKey",
+      "configType"
+    ],
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "INFO",
+    "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "GithubLinkCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ConfigLinkCall": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "configKey",
+      "configType"
+    ],
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "INFO",
+    "description": "Create a link to a config page and if its FileConfig or ModelConfig to the github source.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "ConfigLinkCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
   }
 }

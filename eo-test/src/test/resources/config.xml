@@ -24,7 +24,7 @@
 
     </class>
 
-    <class name="org.fluentcodes.projects.elasticobjects.assets.ASubObject" table="SubTest">
+    <class name="org.fluentcodes.projects.elasticobjects.assets.ASubObject" table="ASubObject">
 
         <id name="id" column="id" type="long" length="8">
             <generator class="native"/>

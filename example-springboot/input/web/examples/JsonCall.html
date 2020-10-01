@@ -9,14 +9,14 @@
 <p>
     One can give a remote user access to a json file which content will automatically parsed,
     when defining an configurations entry in
-    <a href="configs/FileConfig.html">&ocir;FileConfig.json</a>.
+    <a href="/configs/FileConfig.html">&ocir;FileConfig.json</a>.
 </p>
  <p>Here some examples of reading file content to EO with the following two files:
  </p>
 
  <ul>
-     <li><a href="/config/FileConfig/list.json">&ocir;list.json</a></li>
-     <li><a href="/config/FileConfig/map.json">&ocir;map.json</a></li>
+     <li>$[(ConfigLinkCall)list.json configType="FileConfig" /]</li>
+     <li>$[(ConfigLinkCall)map.json configType="FileConfig" /]</li>
  </ul>
 
 
@@ -34,7 +34,7 @@
     <input type="submit" value="post"/>
 </form>
  <p>
-If you click, you will see the values of <a href="/config/FileConfig/map.json">&ocir;map.json</a> is set to "x/y/z" since
+If you click, you will see the values of $[(ConfigLinkCall)map.json configType="FileConfig" /] is set to "x/y/z" since
      your role "guest" with the generic interface is in the read permissions.
  </p>
 <p>

@@ -86,10 +86,6 @@
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
                                 <a href="/faq/What_is_Elastic_Objects_.html">FAQ</a>
                             </li>
-                            <li id="menu-item-4"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/presentation/EO___Beyond_Method_Calling_APIs.html">Intro</a>
-                            </li>
                             <li> - </li>
                             <li id="menu-item-5"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
