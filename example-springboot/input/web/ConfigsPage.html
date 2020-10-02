@@ -1,6 +1,6 @@
 $[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected." expose="INFO" /]
 $[(ConfigOpenApiCall)openApi configFilter="eo->configSelected."/]
-$[(TemplateResourceCall). templateKey="Header.html"/]
+$[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
     <header class="entry-header">
         <div id="rootNav">
             $[(TemplateResourceCall). templateKey="ConfigsNavigation.html"/]
@@ -8,7 +8,7 @@ $[(TemplateResourceCall). templateKey="Header.html"/]
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h3>&ocir;$[configuration/0/naturalId]</h3>
+        <h3>&ocir; $[configType] - $[configuration/0/naturalId]</h3>
         <p>
         $[configuration/0/description|>No Description provided!]
         </p>
@@ -53,11 +53,17 @@ $[(TemplateResourceCall). templateKey="Header.html"/]
 
         <h4>Configuration</h4>
         <textarea style="height:250px">$[(JsonAsStringCall)configuration/0 /]</textarea>
+     </div>
 
-        <h4>This Page Post Version</h4>
-        The page calls with url can also created by the client side with the generic post end point.
-        <form action="/eo-form" method="post">
-            <textarea name="eo">{
+    <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
+        <h5>This Page Elements</h5>
+        <table>
+            <tr><td>Page-Template:</td><td>$[(GithubLinkCall)sp-input|web|ConfigsPage.html configType="NONE" /]</td></tr>
+            <tr><td>Header:</td><td>$[(GithubLinkCall)sp-input|web|Header.html configType="NONE" /]</td></tr>
+            <tr><td>Footer:</td><td>$[(GithubLinkCall)sp-input|web|Footer.html configType="NONE" /]</td></tr>
+            <tr><td colspan="2">Postversion of this page:
+                <form action="/eo-form" method="post">
+            <textarea name="eo" style="height:120px">{
     "asTemplate":true,
     "configFilter": "$[configFilter]",
     "configType": "$[configType]",
@@ -66,8 +72,11 @@ $[(TemplateResourceCall). templateKey="Header.html"/]
         "templateKey":"ConfigsPage.html"
     }
 }</textarea>
-            <input type="submit" value="post"/>
-        </form>
-       <hr/>
-     </div>
-$[(TemplateResourceCall). templateKey="Footer.html"/]
+                    <input type="submit" value="post"/>
+                </form>
+            </td>
+            </tr>
+        </table>
+    </div>
+
+$[(TemplateResourceCall).  configKey="WEB" fileName="Footer.html"/]

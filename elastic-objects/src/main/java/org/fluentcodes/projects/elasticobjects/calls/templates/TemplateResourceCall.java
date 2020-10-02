@@ -4,7 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -42,14 +45,34 @@ public class TemplateResourceCall extends TemplateCall implements PropertiesTemp
     }
 
     public String execute(EO eo)  {
-        String fileConfigKey = new ParserEoReplace(getTemplateKey()).parse(eo);
-        FileConfig config = eo.getConfigsCache().findFile(fileConfigKey);
-        if (config.hasPermissions(PermissionType.EXECUTE, eo.getRoles())) {
-            super.setContent((String) config.read());
-            return super.execute(eo);
+        if (hasFileName()) { // directory config
+            if (!(hasConfigKey())) {
+                throw new EoException("Problem that TemplateResourceCall with fileName '" + getFileName() + "' expects a configKey value.");
+            }
+            String fileName = new ParserEoReplace(getFileName()).parse(eo);
+            FileConfig config = eo.getConfigsCache().findFile(getConfigKey());
+            if (!(config instanceof DirectoryConfig)) {
+                throw new EoException("Problem that TemplateResourceCall with fileName '" + fileName + "' expects a DirectoryConfig as configuration but is '" + config.getClass().getSimpleName() + "' for configKey '" + getConfigKey() + "'.");
+            }
+            if (config.hasPermissions(PermissionType.EXECUTE, eo.getRoles())) {
+                super.setContent((String)((DirectoryConfig)config).read(fileName));
+                return super.execute(eo);
+            } else {
+                return "No permission to execute '" + config.getNaturalId() + "' with roles '" + eo.getRoles() + "'.";
+            }
         }
-        else {
-            return "No permission to execute '" + config.getNaturalId() + "' with roles '" + eo.getRoles() + "'.";
+        else { // file config
+            if (hasTemplateKey() && !hasConfigKey()) {
+                setConfigKey(getTemplateKey());
+            }
+            String fileConfigKey = new ParserEoReplace(getConfigKey()).parse(eo);
+            FileConfig config = eo.getConfigsCache().findFile(fileConfigKey);
+            if (config.hasPermissions(PermissionType.EXECUTE, eo.getRoles())) {
+                super.setContent((String) config.read());
+                return super.execute(eo);
+            } else {
+                return "No permission to execute '" + config.getNaturalId() + "' with roles '" + eo.getRoles() + "'.";
+            }
         }
     }
 

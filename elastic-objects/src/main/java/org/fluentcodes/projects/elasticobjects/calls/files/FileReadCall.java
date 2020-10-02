@@ -1,6 +1,4 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
-
-
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallResource;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;

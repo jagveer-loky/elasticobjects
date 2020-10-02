@@ -22,7 +22,8 @@
     "moduleScope": "main",
     "fieldKeys": [
       "configKey",
-      "configType"
+      "configType",
+      "noGithub"
     ],
     "superKey": "SimpleValueFromEoCall",
     "expose": "INFO",
@@ -39,11 +40,7 @@
   "ConfigLinkCall": {
     "module": "example-springboot",
     "moduleScope": "main",
-    "fieldKeys": [
-      "configKey",
-      "configType"
-    ],
-    "superKey": "SimpleValueFromEoCall",
+    "superKey": "GithubLinkCall",
     "expose": "INFO",
     "description": "Create a link to a config page and if its FileConfig or ModelConfig to the github source.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",

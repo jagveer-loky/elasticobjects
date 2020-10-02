@@ -41,8 +41,7 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
         this.hostCache = (HostConfig)provider.find(HostConfig.class, hostKey);
     }
 
-    @Override
-    public boolean hasCachedContent() {
+    protected boolean hasCachedContent() {
         return cachedContent != null && !cachedContent.isEmpty();
     }
     @Override

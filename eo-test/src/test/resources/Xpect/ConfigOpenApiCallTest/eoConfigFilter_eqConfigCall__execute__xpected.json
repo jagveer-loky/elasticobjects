@@ -22,6 +22,7 @@
             "type": "string"
           },
           "expose": {
+            "description": "expose",
             "type": "string",
             "(ArrayList)enum": {
               "(Expose)0": "WEB",
@@ -51,9 +52,11 @@
             "type": "string"
           },
           "overwrite": {
+            "description": "overwrite",
             "type": "boolean"
           },
           "logLevel": {
+            "description": "logLevel",
             "type": "string",
             "(ArrayList)enum": {
               "(LogLevel)0": "DEBUG",

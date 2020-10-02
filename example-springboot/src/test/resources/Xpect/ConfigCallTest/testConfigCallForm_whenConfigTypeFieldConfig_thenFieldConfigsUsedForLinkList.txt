@@ -135,7 +135,7 @@
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h3>&ocir;!!Could not move to path 'configuration/0/naturalId' because key '0' does not exist on '/configuration'.!!</h3>
+        <h3>&ocir; ModelConfig - !!Could not move to path 'configuration/0/naturalId' because key '0' does not exist on '/configuration'.!!</h3>
         <p>
         No Description provided!
         </p>
@@ -149,11 +149,17 @@
 
         <h4>Configuration</h4>
         <textarea style="height:250px"></textarea>
+     </div>
 
-        <h4>This Page Post Version</h4>
-        The page calls with url can also created by the client side with the generic post end point.
-        <form action="/eo-form" method="post">
-            <textarea name="eo">{
+    <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
+        <h5>This Page Elements</h5>
+        <table>
+            <tr><td>Page-Template:</td><td>!! Exception occured execute call '(GithubLinkCall)sp-input|web|ConfigsPage.html configType="NONE" 'with message: No setter defined for GithubLinkCall.noGithub but essential for object instance var access. !!</td></tr>
+            <tr><td>Header:</td><td>!! Exception occured execute call '(GithubLinkCall)sp-input|web|Header.html configType="NONE" 'with message: No setter defined for GithubLinkCall.noGithub but essential for object instance var access. !!</td></tr>
+            <tr><td>Footer:</td><td>!! Exception occured execute call '(GithubLinkCall)sp-input|web|Footer.html configType="NONE" 'with message: No setter defined for GithubLinkCall.noGithub but essential for object instance var access. !!</td></tr>
+            <tr><td colspan="2">Postversion of this page:
+                <form action="/eo-form" method="post">
+            <textarea name="eo" style="height:120px">{
     "asTemplate":true,
     "configFilter": "Scope",
     "configType": "ModelConfig",
@@ -162,10 +168,13 @@
         "templateKey":"ConfigsPage.html"
     }
 }</textarea>
-            <input type="submit" value="post"/>
-        </form>
-       <hr/>
-     </div>
+                    <input type="submit" value="post"/>
+                </form>
+            </td>
+            </tr>
+        </table>
+    </div>
+
 
 </article>
 </main>
