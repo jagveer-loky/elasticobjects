@@ -13,7 +13,6 @@ public interface FileConfigInterface extends ConfigResources {
     void write(Object content);
     Boolean isCached();
 
-    boolean hasCachedContent();
     String getCachedContent();
     void setCachedContent(String cachedContent);
 

@@ -1,20 +1,42 @@
-$[(TemplateResourceCall). templateKey="Header.html"/]
+$[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
     <header class="entry-header">
         <div id="rootNav">
             <ul>
-                <li><a href="TheGreetingCall.html">TheGreetingCall</a></li>
-                <li><a href="FileCall.html">FileCall</a></li>
-                <li><a href="TemplateCall.html">TemplateCall</a></li>
-                <li><a href="JsonCall.html">JsonCall</a></li>
-                <li><a href="ConfigsCall.html">ConfigsCall</a></li>
-                <li><a href="ListCall.html">ListCall</a></li>
-                <li><a href="ExcelCall.html">ExcelCall</a></li>
-                <li><a href="DbCall.html">DbCall</a></li>
+                <li><a href="/examples/TheGreetingCall.html">TheGreetingCall</a></li>
+                <li><a href="/examples/FileCall.html">FileCall</a></li>
+                <li><a href="/examples/TemplateCall.html">TemplateCall</a></li>
+                <li><a href="/examples/JsonCall.html">JsonCall</a></li>
+                <li><a href="/examples/ConfigsCall.html">ConfigsCall</a></li>
+                <li><a href="/examples/ListCall.html">ListCall</a></li>
+                <li><a href="/examples/ExcelCall.html">ExcelCall</a></li>
+                <li><a href="/examples/DbCall.html">DbCall</a></li>
             </ul>
         </div>
     </header>
     <div class="entry-content" id="entry-content">
-        $[(TemplateResourceCall). templateKey="eo->selectedItem." targetPath="_asString" /]
-       <hr/>
+        $[(TemplateResourceCall). fileName="eo->selectedItem." targetPath="_asString" configKey="WEB_EXAMPLES"/]
      </div>
-$[(TemplateResourceCall). templateKey="Footer.html"/]
+<div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
+    <h5>This Page Elements</h5>
+    <table>
+        <tr><td>Page-Template:</td><td>$[(ConfigLinkCall)ExamplesPage.html configType="FileConfig" /]</td></tr>
+        <tr><td>Header:</td><td>$[(GithubLinkCall)sp-input|web|Header.html configType="NONE" /]</td></tr>
+        <tr><td>Content-Directory:</td><td> $[(ConfigLinkCall)WEB_EXAMPLES configType="FileConfig"/]</td></tr>
+        <tr><td>Content:</td><td>$[(GithubLinkCall)sp-input|web.examples|eo->selectedItem. configType="NONE"/]</td></tr>
+        <tr><td>Footer:</td><td>$[(GithubLinkCall)sp-input|web|Footer.html configType="NONE" /]</td></tr>
+        <tr><td colspan="2">Postversion of this page:
+            <form action="/eo-form" method="post">
+                        <textarea name="eo" style="height:120px;">{
+   "asTemplate":true,
+   "selectedItem": "$[selectedItem]",
+   "(TemplateResourceCall)call": {
+        "configKey":"ExamplesPage.html"
+   }
+}</textarea>
+                <input type="submit" value="post" style="font-size:14px"/>
+            </form>
+        </td>
+        </tr>
+    </table>
+</div>
+$[(TemplateResourceCall). configKey="WEB"  fileName="Footer.html"/]

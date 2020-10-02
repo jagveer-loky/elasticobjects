@@ -274,6 +274,39 @@
     },
     "author": "Werner Diwischek"
   },
+  "DirectoryConfig": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "FileConfig",
+    "expose": "INFO",
+    "description": "Immutable EO directory configuration will use the fileName as a match pattern for a call. Implement read and write operation with cache option.  ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "DirectoryConfig",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DirectoryReadCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "fileName"
+    ],
+    "superKey": "FileReadCall",
+    "expose": "WEB",
+    "description": "Defines a file read for a directory. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "DirectoryReadCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "Eq": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -380,7 +413,7 @@
     ],
     "superKey": "ConfigResourcesImpl",
     "expose": "INFO",
-    "description": "Immutable EO file configuration will be initialized by internal builder using map values.",
+    "description": "Immutable EO file configuration allow read or write access to a specific file. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileConfig",
     "properties": {
@@ -908,7 +941,9 @@
       "directive",
       "endDirective",
       "templateKey",
-      "keepCall"
+      "keepCall",
+      "fileName",
+      "configKey"
     ],
     "superKey": "PropertiesAccessor",
     "expose": "INFO",
@@ -1231,7 +1266,7 @@
     "interfaces": "PropertiesTemplateResourceAccessor",
     "superKey": "TemplateCall",
     "expose": "WEB",
-    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "description": "Parses the content of a FileConfig or DirectoryConfig configuration. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
     "properties": {

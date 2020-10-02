@@ -258,13 +258,13 @@ public abstract class Parser {
         for (String attribute: attributesList) {
             String[] keyValue = attribute.split("=\"");
             if (keyValue.length == 2) {
-                attributes.put(keyValue[0], keyValue[1].replaceAll("\"$",""));
+                attributes.put(keyValue[0].replaceAll("\\s",""), keyValue[1].replaceAll("\"$",""));
             }
             if (keyValue.length == 1) {
                 if (keyValue[0].isEmpty()|| keyValue[0].matches("^[\\s]+$")) {
                     continue;
                 }
-                attributes.put(keyValue[0], "true");
+                attributes.put(keyValue[0].replaceAll("\\s",""), "true");
             }
             if (keyValue.length > 2) {
                 throw new EoException("Wrong attribute! " + attribute);

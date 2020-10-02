@@ -10,5 +10,16 @@
     "properties": {
       "classPath": "src.main.resources"
     }
+  },
+  "noGithub": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Create no github link if true. ",
+    "expose": "INFO",
+    "fieldKey": "noGithub",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
   }
 }

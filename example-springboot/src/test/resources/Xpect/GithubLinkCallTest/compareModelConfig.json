@@ -5,20 +5,22 @@
     "modelKey": "GithubLinkCall",
     "(ArrayList)localFieldKeys": {
       "0": "configKey",
-      "1": "configType"
+      "1": "configType",
+      "2": "noGithub"
     },
     "superKey": "SimpleValueFromEoCall",
     "(ArrayList)fieldKeys": {
       "0": "configKey",
       "1": "configType",
-      "2": "sourcePath",
-      "3": "targetPath",
-      "4": "models",
-      "5": "condition",
-      "6": "localCondition",
-      "7": "overwrite",
-      "8": "logLevel",
-      "9": "duration"
+      "2": "noGithub",
+      "3": "sourcePath",
+      "4": "targetPath",
+      "5": "models",
+      "6": "condition",
+      "7": "localCondition",
+      "8": "overwrite",
+      "9": "logLevel",
+      "10": "duration"
     },
     "(Expose)expose": "INFO",
     "properties": {

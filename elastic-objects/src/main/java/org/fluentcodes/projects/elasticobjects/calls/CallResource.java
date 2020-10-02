@@ -15,6 +15,8 @@ import java.util.List;
  */
 public abstract class CallResource extends CallImpl {
     private static final Logger LOG = LogManager.getLogger(CallResource.class);
+    public static final String CONFIG_KEY = "configKey";
+    public static final String PERMISSIONS = "permissions";
     private Config config;
     private String configKey;
     private PermissionType permissions;

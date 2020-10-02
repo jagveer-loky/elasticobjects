@@ -33,22 +33,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "ConfigsCall.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "ConfigsCall.html",
-    "description": "Some small post examples for the configuration calls.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "ConfigsNavigation.html": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -151,22 +135,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "DbCall.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "DbCall.html",
-    "description": "Some small post examples for Db access.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "DbSqlConfig.html": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -199,38 +167,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "ExamplesStart.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "ExamplesStart.html",
-    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "ExcelCall.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "ExcelCall.html",
-    "description": "Some small post examples for files in Excel format.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "Faq.html": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -254,22 +190,6 @@
     "filePath": "web/configs",
     "fileName": "FieldConfig.html",
     "description": "Entry content for FieldConfig.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "FileCall.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "FileCall.html",
-    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
@@ -391,86 +311,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "index.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "Home.html",
-    "description": "The home content with the default url.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "Index.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "Home.html",
-    "description": "The home content with a different url.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "JsonCall.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "JsonCall.html",
-    "description": "Some small post examples for files in json format.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "LeanCode.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "LeanCode.html",
-    "description": "Lean code development.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "LeanServices.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "LeanServices.html",
-    "description": "The concept of a lean service architecture.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "list.json": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -482,38 +322,6 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "ListCall.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "ListCall.html",
-    "description": "Some small post examples for files in list format.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "LowCode.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "LowCode.html",
-    "description": "Low code development.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
     },
     "properties": {
       "classPath": "src.main.resources"
@@ -542,38 +350,6 @@
     "filePath": "web/configs",
     "fileName": "ModelConfig.html",
     "description": "Entry content for ModelConfig.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "NoCode.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "NoCode.html",
-    "description": "No code development.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "Planned.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "Planned.html",
-    "description": "Plans for 0.3.0.",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
@@ -679,13 +455,14 @@
       "classPath": "src.main.resources"
     }
   },
-  "TemplateCall.html": {
+  "WEB": {
+    "configModelKey": "DirectoryConfig",
     "module": "example-springboot",
     "moduleScope": "main",
     "hostKey": "localhost",
-    "filePath": "web/examples",
-    "fileName": "TemplateCall.html",
-    "description": "Some small post template examples.",
+    "filePath": "web",
+    "fileName": ".*.html",
+    "description": "Directory access for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
@@ -695,13 +472,48 @@
       "classPath": "src.main.resources"
     }
   },
-  "TheGreetingCall.html": {
+  "WEB_CONFIGS": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/configs",
+    "fileName": ".*.html",
+    "description": "Directory access for web/configs for fileNames matching *.html",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "WEB_DOCS": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": ".*.html",
+    "description": "Directory access for web/docs for fileNames matching *.html",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "WEB_EXAMPLES": {
+    "configModelKey": "DirectoryConfig",
     "module": "example-springboot",
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
-    "fileName": "TheGreetingCall.html",
-    "description": "Some really simple basic examples with the generic Web-Interface and post forms with an textarea for create json.",
+    "fileName": ".*.html",
+    "description": "Directory access for web/examples for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {

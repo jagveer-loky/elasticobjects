@@ -1,12 +1,35 @@
-$[(TemplateResourceCall). templateKey="Header.html"/]
+$[(TemplateResourceCall).  configKey="WEB" fileName="Header.html"/]
     <header class="entry-header">
         <div id="rootNav">
-            $[(TemplateResourceCall). templateKey="ConfigsNavigation.html"/]
+            $[(TemplateResourceCall).  configKey="WEB"  fileName="ConfigsNavigation.html"/]
         </div>
     </header>
 
     <div class="entry-content" id="entry-content">
-        $[(TemplateResourceCall). templateKey="eo->selectedItem."/]
-       <hr/>
+        $[(TemplateResourceCall). fileName="eo->selectedItem." configKey="WEB_CONFIGS"/]
      </div>
-$[(TemplateResourceCall). templateKey="Footer.html"/]
+    <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
+        <h5>This Page Elements</h5>
+        <table>
+            <tr><td>Page-Template:</td><td>$[(GithubLinkCall)sp-input|web|ConfigsStartPage.html configType="NONE" /]</td></tr>
+            <tr><td>Header:</td><td>$[(GithubLinkCall)sp-input|web|Header.html configType="NONE" /]</td></tr>
+            <tr><td>Content-Directory:</td><td> $[(ConfigLinkCall)WEB_CONFIGS configType="FileConfig"/]</td></tr>
+            <tr><td>Content:</td><td>$[(GithubLinkCall)sp-input|web.configs|eo->selectedItem. configType="NONE"/]</td></tr>
+            <tr><td>Footer:</td><td>$[(GithubLinkCall)sp-input|web|Footer.html configType="NONE" /]</td></tr>
+            <tr><td colspan="2">Postversion of this page:
+                    <form action="/eo-form" method="post">
+                        <textarea name="eo" style="height:120px;">{
+   "asTemplate":true,
+   "configFilter": "$[configFilter]",
+   "selectedItem": "$[selectedItem]",
+   "(TemplateResourceCall)call": {
+        "templateKey":"ConfigsStartPage.html"
+   }
+}</textarea>
+                        <input type="submit" value="post" style="font-size:14px"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+$[(TemplateResourceCall). configKey="WEB" fileName="Footer.html"/]

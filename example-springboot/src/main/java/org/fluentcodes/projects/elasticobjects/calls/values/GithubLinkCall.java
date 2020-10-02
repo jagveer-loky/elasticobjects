@@ -18,6 +18,7 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
     private Config config;
     private boolean configured = true;
     private boolean noLabel = false;
+    private boolean noGithub = false;
 
     public GithubLinkCall() {
         super();
@@ -75,6 +76,9 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
             }
             else if (pathAndKey[0].equals("spring-resources")) {
                 builder.append("example-springboot/src/main/resources/");
+            }
+            else if (pathAndKey[0].equals("sp-input")) {
+                builder.append("example-springboot/input/");
             }
             else if (pathAndKey[0].equals("eo")) {
                 builder.append("elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/");
@@ -156,6 +160,14 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
     @Override
     public void setPathByTemplate(final Path path) {
         this.configKey = path.getFirstEntry();
+    }
+
+    public boolean isNoGithub() {
+        return noGithub;
+    }
+
+    public void setNoGithub(boolean noGithub) {
+        this.noGithub = noGithub;
     }
 
     protected Class getConfigClass() {

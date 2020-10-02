@@ -1,17 +1,15 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
-import org.fluentcodes.projects.elasticobjects.*;
-import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.tools.xpect.IOString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * Created by werner.diwischek on 11.12.17.
@@ -35,6 +33,7 @@ public class WebEoGet {
         eo.set(configType, "configType");
         eo.set(configSelected, "configSelected");
         eo.addCall(new TemplateResourceCall("ConfigsPage.html"));
+        eo.setRoles(Arrays.asList(WebEo.getRoles()));
         try {
             eo.execute();
         }
@@ -48,6 +47,7 @@ public class WebEoGet {
     @ResponseBody
     public String createRootPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
+        eo.setRoles(Arrays.asList(WebEo.getRoles()));
         eo.set(selectedItem + ".html", "selectedItem");
         //eo.set("[]", "navigationItem");
         eo.addCall(new TemplateResourceCall("ContentPage.html"));
@@ -65,6 +65,7 @@ public class WebEoGet {
     @ResponseBody
     public String createExamplesPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
+        eo.setRoles(Arrays.asList(WebEo.getRoles()));
         eo.set(selectedItem, "selectedItem");
         EO child = eo.setEmpty("navigationItem");
         //child.set("/docs/Eo","EO");
@@ -85,6 +86,7 @@ public class WebEoGet {
     @ResponseBody
     public String createConfigStartPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
+        eo.setRoles(Arrays.asList(WebEo.getRoles()));
         eo.set(selectedItem + ".html", "selectedItem");
         eo.set(".*", "configFilter");
         eo.set(selectedItem, "configType");
