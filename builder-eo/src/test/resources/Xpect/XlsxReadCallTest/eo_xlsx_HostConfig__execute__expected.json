@@ -1,0 +1,67 @@
+{
+  "(LogLevel)_logLevel": "WARN",
+  "(List)_calls": {
+    "(XlsxReadCall)0": {
+      "configKey": "eo.xlsx:HostConfig",
+      "targetPath": "/listdata/eo->module./eo->subModule./eo->naturalId.",
+      "overwrite": false,
+      "inTemplate": false,
+      "duration": 89
+    }
+  },
+  "listdata": {
+    "eo-db": {
+      "main": {
+        "h2:file:basic": {
+          "naturalId": "h2:file:basic",
+          "configModelKey": "DbConfig",
+          "module": "eo-db",
+          "subModule": "main",
+          "hostName": "h2:mem",
+          "description": "Local H2 in file persisted for the test resources.",
+          "expose": "INFO",
+          "schema": "file:basic",
+          "driver": "org.h2.Driver",
+          "dbType": "H2",
+          "extension": "DATABASE_TO_UPPER=false;"
+        },
+        "h2:mem:basic": {
+          "naturalId": "h2:mem:basic",
+          "configModelKey": "DbConfig",
+          "module": "eo-db",
+          "subModule": "main",
+          "protocol": "jdbc:h2",
+          "hostName": "h2",
+          "description": "Local H2 in memory for the test resources.",
+          "expose": "INFO",
+          "schema": "mem:basic",
+          "driver": "org.h2.Driver",
+          "dbType": "H2",
+          "extension": "DATABASE_TO_UPPER=false;"
+        }
+      }
+    },
+    "elastic-objects": {
+      "main": {
+        "local": {
+          "naturalId": "local",
+          "module": "elastic-objects",
+          "subModule": "main",
+          "protocol": "file:",
+          "hostName": "localhost",
+          "description": "local host with key 'local'",
+          "expose": "NONE"
+        },
+        "localhost": {
+          "naturalId": "localhost",
+          "module": "elastic-objects",
+          "subModule": "main",
+          "protocol": "file:",
+          "hostName": "localhost",
+          "description": "local host with key 'localhost'",
+          "expose": "INFO"
+        }
+      }
+    }
+  }
+}
