@@ -6,13 +6,13 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>example-springboot</artifactId>
     <packaging>jar</packaging>
-    <version>0.4.0</version>
+    <version>0.5.0-SNAPSHO</version>
     <name>EO example spring boot</name>
     <url>http://www.elasticobjects.com</url>
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-root</artifactId>
-        <version>0.4.0</version>
+        <version>0.5.0-SNAPSHO</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <properties>
@@ -31,17 +31,17 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-test</artifactId>
-            <version>0.4.0</version>
+            <version>0.5.0-SNAPSHO</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-xlsx</artifactId>
-            <version>0.4.0</version>
+            <version>0.5.0-SNAPSHO</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-db</artifactId>
-            <version>0.4.0</version>
+            <version>0.5.0-SNAPSHO</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
