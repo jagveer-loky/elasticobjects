@@ -38,7 +38,7 @@ public class FileConfigTest {
         ConfigChecks.resolveConfigurations(FileConfig.class);
     }
 
-    // Failed with maven. Check within 0.4.0
+    // Failed with maven. Check within 0.5.0-SNAPSHO
     @Ignore
     @Test
     public void compareConfigurations()  {

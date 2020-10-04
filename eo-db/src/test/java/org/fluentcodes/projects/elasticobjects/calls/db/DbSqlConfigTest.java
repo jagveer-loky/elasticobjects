@@ -14,7 +14,7 @@ public class DbSqlConfigTest {
         ConfigModelChecks.createThrowsException(DbSqlConfig.class);
     }
 
-    // TODO check within 0.4.0 for mvn test fails.
+    // TODO check within 0.5.0-SNAPSHO for mvn test fails.
     @Ignore
     @Test
     public void compareModelConfig()  {
