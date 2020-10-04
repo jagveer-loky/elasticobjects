@@ -1,0 +1,116 @@
+package org.fluentcodes.projects.elasticobjects.models;
+// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+//$[/]
+
+/**
+ * Basic cache as super object for other cached items. 
+ * Created by Werner Diwischek on 29.9.2020.
+ */
+public class ConfigImpl extends ModelImpl implements Config  {
+
+// $[(TemplateResourceCall)fieldKeysStripped/* configKey="ALLStaticNames.tpl" keepCall="JAVA"]
+   public static final String EXPOSE = "expose"; 
+   public static final String PROPERTIES = "properties"; 
+   public static final String SCOPE = "scope"; 
+   public static final String MODULE = "module"; 
+   public static final String MODULE_SCOPE = "moduleScope"; 
+//$[/]
+
+// $[(TemplateResourceCall)fieldKeysStripped/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"]
+   private  Expose expose; 
+   private final Map properties; 
+   private final List<Scope> scope; 
+   private final String module; 
+   private final String moduleScope; 
+//$[/]
+
+public ConfigImpl() {final Map inputMap) {
+// $[(TemplateResourceCall)fieldKeysStripped/* configKey="CONFIGConstructor.tpl" keepCall="JAVA"]
+   this.expose = (Expose) inputMap.get(EXPOSE);
+
+   this.properties = (Map) inputMap.get(PROPERTIES);
+
+   this.scope = (List<Scope>) inputMap.get(SCOPE);
+
+   this.module = (String) inputMap.get(MODULE);
+
+   this.moduleScope = (String) inputMap.get(MODULE_SCOPE);
+
+//$[/]
+}
+// $[(TemplateResourceCall)fieldKeysStripped/* configKey="ALLSetter.tpl" keepCall="JAVA"]
+    /**
+    expose
+    */
+    
+    @Override
+    public final ConfigImpl setExpose(Expose expose) {
+        this.expose = expose;
+        return this;
+    }
+    @Override
+    public final Expose getExpose () {
+            return this.expose;
+    }
+    @Override
+    public boolean hasExpose () {
+        return expose != null ;
+    }
+
+    /**
+    Properties for configurations.
+    */
+    
+    @Override
+    public final Map getProperties () {
+            return this.properties;
+    }
+    @Override
+    public boolean hasProperties () {
+        return properties != null  && !properties.isEmpty();
+    }
+
+    /**
+    A scope for the cache value.
+    */
+    
+    @Override
+    public final List<Scope> getScope () {
+            return this.scope;
+    }
+    @Override
+    public boolean hasScope () {
+        return scope != null  && !scope.isEmpty();
+    }
+
+    /**
+    Defines a target module where generating occurs. 
+    */
+    
+    @Override
+    public final String getModule () {
+            return this.module;
+    }
+    @Override
+    public boolean hasModule () {
+        return module != null  && !module.isEmpty();
+    }
+
+    /**
+    Defines scope of the configuration within module, eg 'test' or 'main' .
+    */
+    
+    @Override
+    public final String getModuleScope () {
+            return this.moduleScope;
+    }
+    @Override
+    public boolean hasModuleScope () {
+        return moduleScope != null  && !moduleScope.isEmpty();
+    }
+
+//$[/]
+}

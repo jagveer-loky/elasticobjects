@@ -7,7 +7,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.CallResource.CONFIG_
 import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfig.FILE_NAME;
 
 public interface PropertiesTemplateResourceAccessor extends PropertiesAccessor {
-    public String DIRECTIVE = "directive";
+    public String START_DIRECTIVE = "startDirective";
     public String END_DIRECTIVE = "endDirective";
     public String TEMPLATE_KEY = "templateKey";
     public String KEEP_CALL = "keepCall";
@@ -58,16 +58,16 @@ public interface PropertiesTemplateResourceAccessor extends PropertiesAccessor {
     }
 
     default boolean hasDirective() {
-        return getProperties()!=null && getProperties().containsKey(DIRECTIVE) && getProperties().get(DIRECTIVE)!=null;
+        return getProperties()!=null && getProperties().containsKey(START_DIRECTIVE) && getProperties().get(START_DIRECTIVE)!=null;
     }
 
-    default String getDirective() {
-        return hasDirective() ? (String) getProperties().get(DIRECTIVE) : "";
+    default String getStartDirective() {
+        return hasDirective() ? (String) getProperties().get(START_DIRECTIVE) : "";
     }
 
-    default void setDirective(final String value) {
+    default void setStartDirective(final String value) {
         if (hasProperties()) {
-            getProperties().put(DIRECTIVE, value);
+            getProperties().put(START_DIRECTIVE, value);
         }
     }
     

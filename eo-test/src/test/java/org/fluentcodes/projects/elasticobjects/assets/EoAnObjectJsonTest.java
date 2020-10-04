@@ -45,7 +45,7 @@ public class EoAnObjectJsonTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(AnObject.class);
         Assertions.assertThat(eo.get(MY_STRING)).isEqualTo((S_STRING));
-        Assertions.assertThat(eo.get(MY_INTEGER)).isEqualTo((S_INTEGER));
+        Assertions.assertThat(eo.get(MY_INT)).isEqualTo((S_INTEGER));
     }
 
     @Test
@@ -54,6 +54,6 @@ public class EoAnObjectJsonTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, AnObject.class, eo.getModelClass());
         Assertions.assertThat(eo.get(MY_STRING)).isEqualTo((S_STRING));
-        Assertions.assertThat(eo.get(MY_INTEGER)).isEqualTo((S_INTEGER));
+        Assertions.assertThat(eo.get(MY_INT)).isEqualTo((S_INTEGER));
     }
 }

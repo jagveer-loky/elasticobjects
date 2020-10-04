@@ -8,7 +8,6 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  */
 public class StringReplaceWhiteSpaceCall extends SimpleValueFromEoCall {
 
-
     @Override
     public String execute(final EO eo) {
         super.check(eo);

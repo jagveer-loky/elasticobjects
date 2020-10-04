@@ -1,30 +1,37 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-
+// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.java" keepCall="JAVA" ]
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+//$[/]
+import java.util.LinkedHashMap;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-
-import java.util.*;
 
 /**
  * Created by Werner on 10.10.2016.
  */
 public abstract class ConfigImpl extends ModelImpl implements Config {
     public static final String CONFIG_MODEL_KEY = "configModelKey";
-    public static final String MODULE = "module";
-    public static final String MODULE_SCOPE = "moduleScope";
-    private static final String SCOPE = "scope";
+// $[(TemplateResourceCall)fieldKeys/* configKey="ALLStaticNames.java" keepCall="JAVA"]
+    public static final String SCOPE = "scope";
     public static final String EXPOSE = "expose";
     public static final String PROPERTIES = "properties";
+    public static final String MODULE = "module";
+    public static final String MODULE_SCOPE = "moduleScope";
+//$[/]
 
-    private final Map properties;
-    private final EOConfigsCache configsCache;
-    private final String configModelKey;
-    private final String module;
-    private final String moduleScope;
+// $[(TemplateResourceCall)fieldKeys/* configKey="CONFIGInstanceVars.tpl" keepCall="JAVA"]
     private final List<Scope> scope;
     private Expose expose;
+    private final Map properties;
+    private final String module;
+    private final String moduleScope;
+//$[/]
+    private final EOConfigsCache configsCache;
+    private final String configModelKey;
     private boolean resolved = false;
 
     public ConfigImpl(EOConfigsCache configsCache, Map map) {
@@ -58,26 +65,9 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         }
     }
 
-    public Map getProperties() {
-        return properties;
-    }
-
-    public String getModule() {
-        return module;
-    }
-
-    public String getModuleScope() {
-        return moduleScope;
-    }
-
     @Override
     public String getKey() {
         return getNaturalId();
-    }
-
-    @Override
-    public Expose getExpose() {
-        return expose;
     }
 
 
@@ -89,6 +79,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     public void setExpose(Expose expose) {
         this.expose = expose;
     }
+
     @Override
     public boolean hasExpose() {
         return expose != null && expose != Expose.NONE;
@@ -104,13 +95,6 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
 
     public void resolve()  {
         this.resolved = true;
-    }
-
-    /**
-     * A scope for the config value.
-     */
-    public List<Scope> getScope() {
-        return this.scope;
     }
 
     public boolean hasScope(final Scope scope) {
@@ -150,9 +134,64 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
             return "{}";
         }
         try {
-            return new EOToJSON().setStartIndent(1).toJSON(getConfigsCache(), this);
+            return new EOToJSON().toJSON(getConfigsCache(), this);
         } catch (Exception e) {
             return e.getMessage();
         }
     }
+
+// $[(TemplateResourceCall)fieldKeys/* configKey="CONFIGSetter.tpl" keepCall="JAVA"]
+    /**
+     A scope for the cache value.
+     */
+    @Override
+    public final List<Scope> getScope () {
+        return this.scope;
+    }
+
+    /**
+     expose
+     */
+    @Override
+    public final Expose getExpose () {
+        return this.expose;
+    }
+
+    /**
+     Properties for configurations.
+     */
+    @Override
+    public final Map getProperties () {
+        return this.properties;
+    }
+    @Override
+    public boolean hasProperties () {
+        return properties != null  && !properties.isEmpty();
+    }
+
+    /**
+     Defines a target module where generating occurs.
+     */
+    @Override
+    public final String getModule () {
+        return this.module;
+    }
+    @Override
+    public boolean hasModule () {
+        return module != null  && !module.isEmpty();
+    }
+
+    /**
+     Defines scope of the configuration within module, eg 'test' or 'main' .
+     */
+    @Override
+    public final String getModuleScope () {
+        return this.moduleScope;
+    }
+    @Override
+    public boolean hasModuleScope () {
+        return moduleScope != null  && !moduleScope.isEmpty();
+    }
+
+//$[/]
 }

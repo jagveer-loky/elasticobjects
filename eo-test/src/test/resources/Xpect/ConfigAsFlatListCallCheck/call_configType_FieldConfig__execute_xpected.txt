@@ -15,7 +15,6 @@
 "defaultImplementation";"String";"defaultImplementation";"elastic-objects";"";"defaultImplementation";"";"";"";"";
 "delete";"String";"String representation of RolePermission delete permissions";"elastic-objects";"";"delete";"";"";"";"";
 "description";"String";"A description of the model used by every model extending BaseClassImpl. ";"elastic-objects";"";"description";"";"";"";"";
-"directive";"String";"A content inclueded before template.";"elastic-objects";"";"directive";"";"";"";"";
 "duration";"Long";"The duration of a call.";"elastic-objects";"";"duration";"";"";"";"";
 "endDirective";"String";"A content inclueded after template.";"elastic-objects";"";"endDirective";"";"";"";"";
 "entries";"ArrayList";"entries";"elastic-objects";"";"entries";"";"";"";"";
@@ -98,6 +97,7 @@
 "serialized";"String";"The serialized field for @{link pathPattern}.";"elastic-objects";"";"serialized";"";"";"";"";
 "shapeType";"ShapeTypes";"shapeType";"elastic-objects";"";"shapeType";"";"";"";"";
 "sourcePath";"String";"A sourcePath where EO offers it's input value when the execution starts.";"elastic-objects";"";"sourcePath";"";"";"";"";
+"startDirective";"String";"A content included before template.";"elastic-objects";"";"startDirective";"";"";"";"";
 "SubExampleClass.name";"String";"";"";"";"name";"";"";"";"";
 "SuperExampleClass.id";"Long";"";"";"";"id";"";"";"";"";
 "SuperExampleClass.subClass";"FieldExampleClass";"";"";"";"subClass";"";"";"";"";

@@ -38,6 +38,7 @@ public interface EO {
 
     EO mapObject(Object source);
 
+    boolean hasEo(String path);
     int sizeEo();
     int size();
     Set<String> keys();

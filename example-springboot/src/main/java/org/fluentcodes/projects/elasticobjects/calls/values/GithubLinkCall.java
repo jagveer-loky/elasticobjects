@@ -18,7 +18,7 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
     private Config config;
     private boolean configured = true;
     private boolean noLabel = false;
-    private boolean noGithub = false;
+    private Boolean noGithub = false;
 
     public GithubLinkCall() {
         super();
@@ -162,14 +162,18 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
         this.configKey = path.getFirstEntry();
     }
 
-    public boolean isNoGithub() {
+    public Boolean isNoGithub() {
         return noGithub;
     }
-
+    public Boolean getNoGithub() {
+        return noGithub;
+    }
+    public void setNoGithub(Boolean noGithub) {
+        this.noGithub = noGithub;
+    }
     public void setNoGithub(boolean noGithub) {
         this.noGithub = noGithub;
     }
-
     protected Class getConfigClass() {
         return configClass;
     }

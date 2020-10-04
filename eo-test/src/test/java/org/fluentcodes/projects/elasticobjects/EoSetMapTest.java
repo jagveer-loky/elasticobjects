@@ -67,7 +67,7 @@ public class EoSetMapTest {
         final EO eoEmpty = ProviderRootDevScope.createEo();
         eoEmpty.set(TestProviderAnObjectJson.SMALL.content(), S_LEVEL0);
         Assertions.assertThat(eoEmpty.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
-        Assertions.assertThat(eoEmpty.get(S_LEVEL0, AnObject.MY_INTEGER)).isEqualTo(S_INTEGER);
+        Assertions.assertThat(eoEmpty.get(S_LEVEL0, AnObject.MY_INT)).isEqualTo(S_INTEGER);
         Assertions.assertThat(eoEmpty.get(S_LEVEL0, AnObject.MY_STRING)).isEqualTo(S_STRING);
     }
 }

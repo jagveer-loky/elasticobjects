@@ -9,6 +9,7 @@ public interface Config extends PropertiesConfigAccessor, Model {
     void resolve() ;
     String getKey();
     String getModule();
+    boolean hasModuleScope ();
     String getModuleScope();
     List<Scope> getScope();
     EOConfigsCache getConfigsCache();

@@ -207,11 +207,13 @@ public abstract class Parser {
             callObject = (Call) eoForMapAttributesToCall.get();
         }
         if (callObject instanceof TemplateResourceCall) {
-            if (((TemplateResourceCall)callObject).hasKeepCall()) {
-                KeepCalls keepCall = ((TemplateResourceCall)callObject).getKeepCall();
-                String directiveWithComment = keepCall.createDirective(callDirective);
-                ((TemplateResourceCall)callObject).setDirective(directiveWithComment);
-                ((TemplateResourceCall)callObject).setEndDirective(keepCall.createDirective("/"));
+            TemplateResourceCall resourceCall = (TemplateResourceCall)callObject;
+            if (resourceCall.hasKeepCall()) {
+                KeepCalls keepCall = resourceCall.getKeepCall();
+                resourceCall
+                        .setStartDirective(keepCall.createStartDirective(callDirective));
+                resourceCall
+                        .setEndDirective(keepCall.createEndDirective());
             }
         }
         Object value = new ExecutorCallImpl().execute(eo, (Call) callObject);

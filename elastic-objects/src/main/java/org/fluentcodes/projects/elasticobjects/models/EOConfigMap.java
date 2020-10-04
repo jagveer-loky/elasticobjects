@@ -71,7 +71,12 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
                     .readStringList();
             for (String config : configs) {
                 EO eo = new EoRoot(configsCache, Map.class);
-                eo.mapObject(config);
+                try {
+                    eo.mapObject(config);
+                }
+                catch (Exception e) {
+                    throw new EoException("Problem lading '"+ configClass.getSimpleName() + "' " + ": " + e.getMessage() + " " + config);
+                }
                 addConfigMap((Map) eo.get());
             }
         }

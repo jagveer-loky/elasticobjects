@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
@@ -38,7 +37,7 @@ public class TemplateResourceCall extends TemplateCall implements PropertiesTemp
     }
 
     public String prepend() {
-        return getDirective();
+        return getStartDirective();
     }
     public String postPend() {
         return getEndDirective();

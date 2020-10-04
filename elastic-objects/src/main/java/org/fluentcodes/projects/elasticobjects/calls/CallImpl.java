@@ -12,15 +12,29 @@ import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
  */
 public abstract class CallImpl extends ModelImpl implements Call {
     public static final String TARGET_AS_STRING = "_asString";
+    
+// $[(TemplateResourceCall)fieldKeys/* templateKey="BEANStaticNames.java" keepCall="JAVA"]
+    public static final String SOURCE_PATH = "sourcePath";
+    public static final String TARGET_PATH = "targetPath";
+    public static final String MODELS = "models";
+    public static final String CONDITION = "condition";
+    public static final String LOCAL_CONDITION = "localCondition";
+    public static final String OVERWRITE = "overwrite";
+    public static final String LOG_LEVEL = "logLevel";
+    public static final String DURATION = "duration";
+//$[/]
+
+// $[(TemplateResourceCall)fieldKeys/* templateKey="BEANInstanceVars.tpl" keepCall="JAVA"]
     private String sourcePath;
     private String targetPath;
     private String models;
-    private boolean overwrite;
-    private LogLevel logLevel;
-    private Long duration;
     private String condition;
     private String localCondition;
-
+    private Boolean overwrite;
+    private LogLevel logLevel;
+    private Long duration;
+//$[/]
+    
     public CallImpl() {
     }
 
@@ -85,66 +99,11 @@ public abstract class CallImpl extends ModelImpl implements Call {
     }
 
     @Override
-    public boolean hasModels() {
-        return models!=null && !models.isEmpty();
-    }
-
-    @Override
-    public String[] getModelsAsArray() {
-        if (!hasModels()) {
-            return new String[0];
-        }
-        return models.split(",");
-    }
-
-    @Override
-    public String getModels() {
-        return models;
-    }
-
-    @Override
-    public Call setModels(String models) {
-        this.models = models;
-        return this;
-    }
-
-    @Override
-    public String getCondition() {
-        return condition;
-    }
-
-    @Override
-    public Call setCondition(String condition) {
-        this.condition = condition;
-        return this;
-    }
-
-    @Override
-    public boolean hasCondition() {
-        return condition!=null && !condition.isEmpty();
-    }
-
-    @Override
     public boolean filter(EO eo) {
         if (!hasCondition()) {
             return true;
         }
         return new Or(new ParserEoReplace(condition).parse(eo)).filter(eo);
-    }
-
-    @Override
-    public String getLocalCondition() {
-        return localCondition;
-    }
-
-    @Override
-    public void setLocalCondition(String localCondition) {
-        this.localCondition = localCondition;
-    }
-
-    @Override
-    public boolean hasLocalCondition() {
-        return localCondition!=null && !localCondition.isEmpty();
     }
 
     @Override
@@ -163,68 +122,150 @@ public abstract class CallImpl extends ModelImpl implements Call {
     }
 
     @Override
-    public boolean hasSourcePath() {
-        return sourcePath!=null && !sourcePath.isEmpty();
-    }
-
-    @Override
-    public String getSourcePath() {
-        return sourcePath;
-    }
-
-    @Override
-    public Call setSourcePath(String sourcePath) {
-        this.sourcePath = sourcePath;
-        return this;
-    }
-
-    @Override
     public void setPathByTemplate(final Path templatePath) {
         this.targetPath = templatePath.directory(false);
-    }
-
-    @Override
-    public boolean hasTargetPath() {
-        return targetPath!=null && !targetPath.isEmpty();
-    }
-
-    @Override
-    public String getTargetPath() {
-        return targetPath;
-    }
-
-    @Override
-    public boolean isMapToTargetEo() {
-        return !hasTargetPath() || getTargetPath().equals(TARGET_AS_STRING);
-    }
-
-    @Override
-    public Call setTargetPath(String targetPath) {
-        this.targetPath = targetPath;
-        return this;
     }
 
     public Boolean isOverwrite() {
         return overwrite;
     }
 
-    public void setOverwrite(Boolean overwrite) {
+    // $[(TemplateResourceCall)fieldKeys/* templateKey="BEANSetter.tpl" keepCall="JAVA"]
+    /**
+     A sourcePath where EO offers it's input value when the execution starts.
+     */
+    @Override
+    public final CallImpl setSourcePath(String sourcePath) {
+        this.sourcePath = sourcePath;
+        return this;
+    }
+    @Override
+    public final String getSourcePath () {
+        return this.sourcePath;
+    }
+    @Override
+    public boolean hasSourcePath () {
+        return sourcePath != null  && !sourcePath.isEmpty();
+    }
+
+    /**
+     A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.
+     */
+    @Override
+    public final CallImpl setTargetPath(String targetPath) {
+        this.targetPath = targetPath;
+        return this;
+    }
+    @Override
+    public final String getTargetPath () {
+        return this.targetPath;
+    }
+    @Override
+    public boolean hasTargetPath () {
+        return targetPath != null  && !targetPath.isEmpty();
+    }
+
+    /**
+     A string representation for a list of model keys.
+     */
+    @Override
+    public final CallImpl setModels(String models) {
+        this.models = models;
+        return this;
+    }
+    @Override
+    public final String getModels () {
+        return this.models;
+    }
+    @Override
+    public boolean hasModels () {
+        return models != null  && !models.isEmpty();
+    }
+
+    /**
+     A condition for calls. 
+     */
+    @Override
+    public final CallImpl setCondition(String condition) {
+        this.condition = condition;
+        return this;
+    }
+    @Override
+    public final String getCondition () {
+        return this.condition;
+    }
+    @Override
+    public boolean hasCondition () {
+        return condition != null  && !condition.isEmpty();
+    }
+
+    /**
+     A condition for calls. 
+     */
+    @Override
+    public final CallImpl setLocalCondition(String localCondition) {
+        this.localCondition = localCondition;
+        return this;
+    }
+    @Override
+    public final String getLocalCondition () {
+        return this.localCondition;
+    }
+    @Override
+    public boolean hasLocalCondition () {
+        return localCondition != null  && !localCondition.isEmpty();
+    }
+
+    /**
+     overwrite
+     */
+    @Override
+    public final CallImpl setOverwrite(Boolean overwrite) {
         this.overwrite = overwrite;
+        return this;
+    }
+    @Override
+    public final Boolean getOverwrite () {
+        return this.overwrite;
+    }
+    @Override
+    public boolean hasOverwrite () {
+        return overwrite != null ;
     }
 
-    public LogLevel getLogLevel() {
-        return logLevel;
-    }
-
-    public void setLogLevel(LogLevel logLevel) {
+    /**
+     logLevel
+     */
+    @Override
+    public final CallImpl setLogLevel(LogLevel logLevel) {
         this.logLevel = logLevel;
+        return this;
+    }
+    @Override
+    public final LogLevel getLogLevel () {
+        return this.logLevel;
+    }
+    @Override
+    public boolean hasLogLevel () {
+        return logLevel != null ;
     }
 
-    public Long getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Long duration) {
+    /**
+     The duration of a call.
+     */
+    @Override
+    public final CallImpl setDuration(Long duration) {
         this.duration = duration;
+        return this;
     }
+    @Override
+    public final Long getDuration () {
+        return this.duration;
+    }
+    @Override
+    public boolean hasDuration () {
+        return duration != null ;
+    }
+
+//$[/]
 }

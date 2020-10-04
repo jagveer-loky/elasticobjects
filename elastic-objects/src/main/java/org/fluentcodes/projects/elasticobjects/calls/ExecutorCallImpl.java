@@ -8,6 +8,8 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
 
+import static org.fluentcodes.projects.elasticobjects.calls.CallImpl.TARGET_AS_STRING;
+
 /**
  * Class for call executions.
  *
@@ -51,7 +53,7 @@ public class ExecutorCallImpl implements ExecutorCall {
         templateResult.append(call.prepend());
         long startTime = System.currentTimeMillis();
         if (PathElement.SAME.equals(call.getTargetPath())) {
-            call.setInTemplate(true);
+            call.setTargetPath(TARGET_AS_STRING);
         }
         for (String entry : loopPaths) {
             EO sourceEntry = sourceParent.getEo(entry);
