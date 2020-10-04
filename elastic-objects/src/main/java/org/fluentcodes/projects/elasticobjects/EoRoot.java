@@ -83,6 +83,16 @@ public class EoRoot extends EoChild {
     }
 
     @Override
+    public EoRoot getRoot() {
+        return this;
+    }
+
+    @Override
+    public boolean isRoot() {
+        return true;
+    }
+
+    @Override
     public boolean hasRoles() {
         return roles != null && !roles.isEmpty();
     }

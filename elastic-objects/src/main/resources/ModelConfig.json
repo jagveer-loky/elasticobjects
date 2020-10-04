@@ -938,7 +938,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "directive",
+      "startDirective",
       "endDirective",
       "templateKey",
       "keepCall",

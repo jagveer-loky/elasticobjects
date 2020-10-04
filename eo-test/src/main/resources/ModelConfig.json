@@ -40,6 +40,7 @@
       "myString"
     ],
     "expose": "WEB",
+    "description": "A sub object as an example.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
     "modelKey": "ASubObject",
     "properties": {

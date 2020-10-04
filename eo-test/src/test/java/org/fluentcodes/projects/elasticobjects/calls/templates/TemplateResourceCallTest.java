@@ -27,9 +27,9 @@ public class TemplateResourceCallTest {
         Assertions.assertThat(modelConfig).isNotNull();
         TemplateResourceCall templateResourceCall = new TemplateResourceCall();
 
-        modelConfig.set(PropertiesTemplateResourceAccessor.DIRECTIVE, templateResourceCall, "test");
-        Assertions.assertThat(templateResourceCall.getDirective()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.DIRECTIVE, templateResourceCall)).isEqualTo("test");
+        modelConfig.set(PropertiesTemplateResourceAccessor.START_DIRECTIVE, templateResourceCall, "test");
+        Assertions.assertThat(templateResourceCall.getStartDirective()).isEqualTo("test");
+        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.START_DIRECTIVE, templateResourceCall)).isEqualTo("test");
     }
 
     @Test

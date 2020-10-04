@@ -187,13 +187,13 @@
       "classPath": "src.main.resources"
     }
   },
-  "directive": {
+  "startDirective": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "A content inclueded before template.",
+    "description": "A content included before template.",
     "expose": "WEB",
-    "fieldKey": "directive",
+    "fieldKey": "startDirective",
     "length": 500,
     "properties": {
       "classPath": "src.main.resources"

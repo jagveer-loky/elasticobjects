@@ -43,12 +43,12 @@ public class EoMapObjectAnObjectTest {
     }
 
     @Test
-    public void givenAnObjectString_whenMapJsonInt_thenValuesSet()  {
+    public void AnObjectString__mapJsonInt__thenValuesSet()  {
         final EO eo = TestProviderAnObjectJson.STRING.createBtEo();
         eo.mapObject(TestProviderAnObjectJson.INT.createMapTest());
         assertThat(eo.getModelClass()).isEqualTo(AnObject.class);
         assertThat(eo.get(AnObject.MY_STRING)).isEqualTo(S_STRING);
-        assertThat(eo.get(AnObject.MY_INTEGER)).isEqualTo(S_INTEGER);
+        assertThat(eo.get(AnObject.MY_INT)).isEqualTo(S_INTEGER);
     }
 
 }

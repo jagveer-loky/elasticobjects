@@ -107,7 +107,7 @@ public class EoMapObjectMapJsonTest {
         assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(AnObject.MY_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INT));
     }
 
     @Test
@@ -117,7 +117,7 @@ public class EoMapObjectMapJsonTest {
         assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(AnObject.MY_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INT));
         //AssertEO.compareJSON(eo);
     }
 
@@ -141,7 +141,7 @@ public class EoMapObjectMapJsonTest {
         assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(INFO_COMPARE_FAILS, Map.class, eo.getModelClass());
         Assert.assertEquals(INFO_COMPARE_FAILS, S_STRING, eo.get(AnObject.MY_STRING));
-        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INTEGER));
+        Assert.assertEquals(INFO_COMPARE_FAILS, S_INTEGER, eo.get(AnObject.MY_INT));
         //AssertEO.compareJSON(eo);
     }
 }

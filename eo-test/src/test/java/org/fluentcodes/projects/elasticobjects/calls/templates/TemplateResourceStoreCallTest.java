@@ -36,14 +36,14 @@ public class TemplateResourceStoreCallTest {
     }
 
     @Test
-    public void __setDirective__accessOk() {
+    public void __setStartDirective__accessOk() {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
-        modelConfig.set(PropertiesTemplateResourceAccessor.DIRECTIVE, call, "test");
-        Assertions.assertThat(call.getDirective()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.DIRECTIVE, call)).isEqualTo("test");
+        modelConfig.set(PropertiesTemplateResourceAccessor.START_DIRECTIVE, call, "test");
+        Assertions.assertThat(call.getStartDirective()).isEqualTo("test");
+        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.START_DIRECTIVE, call)).isEqualTo("test");
     }
 
     @Test

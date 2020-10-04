@@ -10,6 +10,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,9 +32,12 @@ public class ModelConfigObject extends ModelConfig {
     }
 
     protected static Method findSetter(Field field) {
+        if ((field.getModifiers() & Modifier.FINAL) == Modifier.FINAL) {
+            return null;
+        }
         Class fieldType = field.getType();
         Class modelClass = field.getDeclaringClass();
-        try{
+        try {
             return modelClass.getMethod(setter(field.getName()), fieldType);
         } catch (Exception e) {
             try {
@@ -344,6 +348,20 @@ public class ModelConfigObject extends ModelConfig {
             Method method = myClass.getMethod(methodString, typeClass);
             return method;
         } catch (Exception e) {
+            if (typeClass.getName().matches("java.util..*List")) {
+                try {
+                    return myClass.getMethod(methodString, List.class);
+                } catch (Exception e1) {
+                    return findSetMethod(myClass.getSuperclass(), methodString, typeClass);
+                }
+            }
+            else if (typeClass.getName().matches("java.util..*Map")) {
+                try {
+                    return myClass.getMethod(methodString, Map.class);
+                } catch (Exception e1) {
+                    return findSetMethod(myClass.getSuperclass(), methodString, typeClass);
+                }
+            }
             return findSetMethod(myClass.getSuperclass(), methodString, typeClass);
         }
     }

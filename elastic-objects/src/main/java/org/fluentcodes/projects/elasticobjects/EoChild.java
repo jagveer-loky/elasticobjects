@@ -127,6 +127,7 @@ public class EoChild implements EO {
         return hasEo(path.getFirstPathElement());
     }
 
+    @Override
     public boolean hasEo(final String key) {
         return eoMap!=null && eoMap.containsKey(key);
     }
@@ -314,7 +315,10 @@ public class EoChild implements EO {
             }
             pathElement.resolve(this, childValue);
             child = new EoChild(pathElement);
-            child.mapObject(childValue);
+            //if (!child.isEmpty()) {
+                child.mapObject(childValue);
+            //}
+
         }
         return this;
     }
@@ -508,15 +512,12 @@ public class EoChild implements EO {
 
     @Override
     public EoRoot getRoot() {
-        if (!isRoot()) {
-            return getParentEo().getRoot();
-        }
-        return (EoRoot) this;
+        return getParentEo().getRoot();
     }
 
     @Override
     public boolean isRoot() {
-        return this instanceof EoRoot;
+        return false;
     }
 
     @Override
@@ -722,8 +723,6 @@ public class EoChild implements EO {
     public boolean isCheckObjectReplication() {
         return getRoot().isCheckObjectReplication();
     }
-
-
 
     public void setCheckObjectReplication(boolean checkObjectReplication) {
         getRoot().setCheckObjectReplication(checkObjectReplication);

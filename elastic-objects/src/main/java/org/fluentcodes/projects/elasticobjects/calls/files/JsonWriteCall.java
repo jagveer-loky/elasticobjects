@@ -7,7 +7,6 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
  * Created by werner.diwischek on 10.07.2020
  */
 public class JsonWriteCall extends FileWriteCall {
-
     private JSONSerializationType serializationType;
     private Integer indent;
     private String content;
@@ -33,8 +32,6 @@ public class JsonWriteCall extends FileWriteCall {
     public void setSerializationType(JSONSerializationType serializationType) {
         this.serializationType = serializationType;
     }
-
-
 
     public Integer getIndent() {
         return indent;

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 public enum KeepCalls {
     HTML("<!--", "-->"),
-    JAVA("\n//", " "),
+    JAVA("\n//", ""),
     NONE("", "");
     private String startComment;
     private String endComment;
@@ -12,7 +12,10 @@ public enum KeepCalls {
         this.endComment = endComment;
     }
 
-    public String createDirective(final String directive) {
-        return startComment + "$[" + directive + "]" + endComment;
+    public String createStartDirective(final String directive) {
+        return "$[" + directive + "]" + endComment;
+    }
+    public String createEndDirective() {
+        return startComment + "$[/]";
     }
 }

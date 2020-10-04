@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class ConfigCallTest {
     @Test
-    public void testConfigCallForm_whenConfigTypeFieldConfig_thenFieldConfigsUsedForLinkList() {
+    public void testConfigCallForm__configTypeFieldConfig__fieldConfigsUsedForLinkList() {
         EO eo = ProviderRootTestScope.createEo();
         eo.set("Scope", "configSelected");
         eo.set("ModelConfig", "configType");

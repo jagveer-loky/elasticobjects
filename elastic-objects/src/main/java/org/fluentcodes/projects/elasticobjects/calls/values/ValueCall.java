@@ -20,7 +20,11 @@ public class ValueCall extends CallImpl {
     @Override
     public String execute(final EO eo) {
         super.check(eo);
-        return super.createReturnString(eo, value);
+        //Object value = eo.get();
+        if (hasTargetPath()) {
+            eo.set(this.value, getTargetPath());
+        }
+        return super.createReturnString(eo, value.toString());
     }
 
     public String getValue() {

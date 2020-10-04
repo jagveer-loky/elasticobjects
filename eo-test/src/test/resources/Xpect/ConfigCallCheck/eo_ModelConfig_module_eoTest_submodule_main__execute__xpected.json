@@ -73,6 +73,7 @@
     },
     "module": "eo-test",
     "moduleScope": "main",
+    "description": "A sub object as an example.",
     "author": "Werner Diwischek",
     "naturalId": "ASubObject"
   },

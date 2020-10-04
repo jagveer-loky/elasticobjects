@@ -10,7 +10,7 @@
     "interfaces": "PropertiesTemplateResourceAccessor",
     "(ArrayList)fieldKeys": {
       "0": "keepCall",
-      "1": "directive",
+      "1": "startDirective",
       "2": "endDirective",
       "3": "templateKey",
       "4": "fileName",

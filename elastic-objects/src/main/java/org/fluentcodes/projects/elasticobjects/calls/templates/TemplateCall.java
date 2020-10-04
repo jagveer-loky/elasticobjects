@@ -35,7 +35,9 @@ public class TemplateCall extends CallImpl {
     public boolean hasContent() {
         return content != null && !content.isEmpty();
     }
-
+    public boolean isContentActive() {
+        return hasContent() && content.contains("$[");
+    }
     public String getContent() {
         return content;
     }
@@ -50,6 +52,11 @@ public class TemplateCall extends CallImpl {
         if (!hasContent()) {
             return "";
         }
+        if (!isContentActive()) {
+            LOG.info("No active element in template");
+            return content;
+        }
+
         return new ParserTemplate(content).parse(eo);
     }
 }

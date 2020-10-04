@@ -1,190 +1,279 @@
 package org.fluentcodes.projects.elasticobjects.assets;
 
+//
+//
+//
+//$[(TemplateResourceCall)javaImport/* templateKey="ALLImport.java" keepCall="JAVA" ] 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Date;
+//$[/]    
 
 /**
  * Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.
- * Created by Werner Diwischek on 09.10.2016.
+ * Created by Werner Diwischek on 29.9.2020.
  */
 
-public class AnObject {
-    public static final String MY_STRING = "myString";
-    public static final String MY_DATE = "myDate";
-    public static final String MY_BOOLEAN = "myBoolean";
-    public static final String MY_INTEGER = "myInt";
-    public static final String MY_DOUBLE = "myDouble";
-    public static final String MY_FLOAT = "myFloat";
-    public static final String MY_LONG = "myLong";
-    public static final String MY_OBJECT = "myObject";
-    public static final String MY_LIST = "myList";
-    public static final String MY_MAP = "myMap";
-    public static final String MY_A_SUB_OBJECT_MAP = "myASubObjectMap";
-    public static final String MY_A_SUB_OBJECT_LIST = "myASubObjectList";
-    public static final String MY_A_SUB_OBJECT = "myASubObject";
+public class AnObject   {
 
-    private Long id;
-    private AnObject myAnObject;
-    private ASubObject myASubObject;
-    private ArrayList<ASubObject> myASubObjectList;
-    private HashMap<String, ASubObject> myASubObjectMap;
-    private ArrayList myList;
-    private HashMap myMap;
-    private Integer myInt;
-    private String myString;
-    private Long myLong;
-    private Date myDate;
-    private Boolean myBoolean;
-    private Float myFloat;
-    private Double myDouble;
-    private Object myObject;
+//
+//
+//
+//$[(TemplateResourceCall)fieldKeys/* templateKey="BEANStaticNames.java" keepCall="JAVA"] 
+   public static final String ID = "id"; 
+   public static final String MY_AN_OBJECT = "myAnObject"; 
+   public static final String MY_ASUB_OBJECT = "myASubObject"; 
+   public static final String MY_ASUB_OBJECT_LIST = "myASubObjectList"; 
+   public static final String MY_ASUB_OBJECT_MAP = "myASubObjectMap"; 
+   public static final String MY_LIST = "myList"; 
+   public static final String MY_MAP = "myMap"; 
+   public static final String MY_INT = "myInt"; 
+   public static final String MY_STRING = "myString"; 
+   public static final String MY_LONG = "myLong"; 
+   public static final String MY_DATE = "myDate"; 
+   public static final String MY_BOOLEAN = "myBoolean"; 
+   public static final String MY_FLOAT = "myFloat"; 
+   public static final String MY_DOUBLE = "myDouble"; 
+   public static final String MY_OBJECT = "myObject"; 
+//$[/]    
 
-    /**
-     * The id with a autonumbering
-     */
-    public Long getId() {
-        return this.id;
+//
+//
+//
+//$[(TemplateResourceCall)fieldKeys/* templateKey="BEANInstanceVars.tpl" keepCall="JAVA"] 
+   private Long id; 
+   private AnObject myAnObject; 
+   private ASubObject myASubObject; 
+   private List<ASubObject> myASubObjectList; 
+   private Map<String, ASubObject> myASubObjectMap; 
+   private ArrayList myList; 
+   private HashMap myMap; 
+   private Integer myInt; 
+   private String myString; 
+   private Long myLong; 
+   private Date myDate; 
+   private Boolean myBoolean; 
+   private Float myFloat; 
+   private Double myDouble; 
+   private Object myObject; 
+//$[/]    
+
+    public final Boolean isMyBoolean () {
+        return this.myBoolean;
     }
-
-    public void setId(Long id) {
+//$[(TemplateResourceCall)fieldKeys/* templateKey="BEANSetter.tpl" keepCall="JAVA"] 
+    /**
+    The id with a autonumbering
+    */
+    public final AnObject setId(Long id) {
         this.id = id;
+        return this;
+    }
+    public final Long getId () {
+            return this.id;
+    }
+    public boolean hasId () {
+        return id != null ;
     }
 
-
-    public AnObject getMyAnObject() {
-        return this.myAnObject;
-    }
-
-    public void setMyAnObject(AnObject myAnObject) {
+    /**
+    A AnObject field.
+    */
+    public final AnObject setMyAnObject(AnObject myAnObject) {
         this.myAnObject = myAnObject;
+        return this;
+    }
+    public final AnObject getMyAnObject () {
+            return this.myAnObject;
+    }
+    public boolean hasMyAnObject () {
+        return myAnObject != null ;
     }
 
-
-    public ASubObject getMyASubObject() {
-        return this.myASubObject;
-    }
-
-    public void setMyASubObject(ASubObject myASubObject) {
+    /**
+    myASubObject
+    */
+    public final AnObject setMyASubObject(ASubObject myASubObject) {
         this.myASubObject = myASubObject;
+        return this;
+    }
+    public final ASubObject getMyASubObject () {
+            return this.myASubObject;
+    }
+    public boolean hasMyASubObject () {
+        return myASubObject != null ;
     }
 
     /**
-     * A generic parametrized example List with {@link ASubObject}
-     */
-    public ArrayList<ASubObject> getMyASubObjectList() {
-        return this.myASubObjectList;
-    }
-
-    public void setMyASubObjectList(ArrayList<ASubObject> myASubObjectList) {
+    A generic parametrized example List with {@link ASubObject}
+    */
+    public final AnObject setMyASubObjectList(List<ASubObject> myASubObjectList) {
         this.myASubObjectList = myASubObjectList;
+        return this;
+    }
+    public final List<ASubObject> getMyASubObjectList () {
+            return this.myASubObjectList;
+    }
+    public boolean hasMyASubObjectList () {
+        return myASubObjectList != null  && !myASubObjectList.isEmpty();
     }
 
     /**
-     * A generic parametrized example Map with {@link ASubObject}
-     */
-    public HashMap<String, ASubObject> getMyASubObjectMap() {
-        return this.myASubObjectMap;
-    }
-
-    public void setMyASubObjectMap(HashMap<String, ASubObject> myASubObjectMap) {
+    A generic parametrized example Map with {@link ASubObject}
+    */
+    public final AnObject setMyASubObjectMap(Map<String, ASubObject> myASubObjectMap) {
         this.myASubObjectMap = myASubObjectMap;
+        return this;
     }
-
-
-    public ArrayList getMyList() {
-        return this.myList;
+    public final Map<String, ASubObject> getMyASubObjectMap () {
+            return this.myASubObjectMap;
     }
-
-    public void setMyList(ArrayList myList) {
-        this.myList = myList;
-    }
-
-
-    public HashMap getMyMap() {
-        return this.myMap;
-    }
-
-    public void setMyMap(HashMap myMap) {
-        this.myMap = myMap;
-    }
-
-
-    public Integer getMyInt() {
-        return this.myInt;
-    }
-
-    public void setMyInt(Integer myInt) {
-        this.myInt = myInt;
+    public boolean hasMyASubObjectMap () {
+            return myASubObjectMap != null  && !myASubObjectMap.isEmpty();
     }
 
     /**
-     * Just a small test string used in test models.
-     */
-    public String getMyString() {
-        return this.myString;
+    myList
+    */
+    public final AnObject setMyList(ArrayList myList) {
+        this.myList = myList;
+        return this;
+    }
+    public final ArrayList getMyList () {
+            return this.myList;
+    }
+    public boolean hasMyList () {
+        return myList != null  && !myList.isEmpty();
     }
 
-    public AnObject setMyString(String myString) {
+    /**
+    myMap
+    */
+    public final AnObject setMyMap(HashMap myMap) {
+        this.myMap = myMap;
+        return this;
+    }
+    public final HashMap getMyMap () {
+            return this.myMap;
+    }
+    public boolean hasMyMap () {
+        return myMap != null  && !myMap.isEmpty();
+    }
+
+    /**
+    myInt
+    */
+    public final AnObject setMyInt(Integer myInt) {
+        this.myInt = myInt;
+        return this;
+    }
+    public final Integer getMyInt () {
+            return this.myInt;
+    }
+    public boolean hasMyInt () {
+        return myInt != null ;
+    }
+
+    /**
+    Just a small test string used in test models. 
+    */
+    public final AnObject setMyString(String myString) {
         this.myString = myString;
         return this;
     }
-
-
-    public Long getMyLong() {
-        return this.myLong;
+    public final String getMyString () {
+            return this.myString;
     }
-
-    public void setMyLong(Long myLong) {
-        this.myLong = myLong;
-    }
-
-
-    public Date getMyDate() {
-        return this.myDate;
-    }
-
-    public void setMyDate(Date myDate) {
-        this.myDate = myDate;
-    }
-
-
-    public Boolean isMyBoolean() {
-        return this.myBoolean;
-    }
-
-    public void setMyBoolean(Boolean myBoolean) {
-        this.myBoolean = myBoolean;
-    }
-
-
-    public Float getMyFloat() {
-        return this.myFloat;
-    }
-
-    public void setMyFloat(Float myFloat) {
-        this.myFloat = myFloat;
-    }
-
-
-    public Double getMyDouble() {
-        return this.myDouble;
-    }
-
-    public void setMyDouble(Double myDouble) {
-        this.myDouble = myDouble;
+    public boolean hasMyString () {
+        return myString != null  && !myString.isEmpty();
     }
 
     /**
-     * A test object thing.
-     */
-    public Object getMyObject() {
-        return this.myObject;
+    myLong
+    */
+    public final AnObject setMyLong(Long myLong) {
+        this.myLong = myLong;
+        return this;
+    }
+    public final Long getMyLong () {
+            return this.myLong;
+    }
+    public boolean hasMyLong () {
+        return myLong != null ;
     }
 
-    public void setMyObject(Object myObject) {
-        this.myObject = myObject;
+    /**
+    myDate
+    */
+    public final AnObject setMyDate(Date myDate) {
+        this.myDate = myDate;
+        return this;
     }
-    //</call>
+    public final Date getMyDate () {
+            return this.myDate;
+    }
+    public boolean hasMyDate () {
+        return myDate != null ;
+    }
+
+    /**
+    myBoolean
+    */
+    public final AnObject setMyBoolean(Boolean myBoolean) {
+        this.myBoolean = myBoolean;
+        return this;
+    }
+    public final Boolean getMyBoolean () {
+            return this.myBoolean;
+    }
+    public boolean hasMyBoolean () {
+        return myBoolean != null ;
+    }
+
+    /**
+    myFloat
+    */
+    public final AnObject setMyFloat(Float myFloat) {
+        this.myFloat = myFloat;
+        return this;
+    }
+    public final Float getMyFloat () {
+            return this.myFloat;
+    }
+    public boolean hasMyFloat () {
+        return myFloat != null ;
+    }
+
+    /**
+    myDouble
+    */
+    public final AnObject setMyDouble(Double myDouble) {
+        this.myDouble = myDouble;
+        return this;
+    }
+    public final Double getMyDouble () {
+            return this.myDouble;
+    }
+    public boolean hasMyDouble () {
+        return myDouble != null ;
+    }
+
+    /**
+    A test object thing. 
+    */
+    public final AnObject setMyObject(Object myObject) {
+        this.myObject = myObject;
+        return this;
+    }
+    public final Object getMyObject () {
+            return this.myObject;
+    }
+    public boolean hasMyObject () {
+        return myObject != null ;
+    }
+
+//$[/]    
 
 }
