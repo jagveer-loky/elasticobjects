@@ -2,28 +2,30 @@ $[(TemplateResourceCall). configKey="WEB" fileName="Header.html"/]
 <header class="entry-header">
     <div id="rootNav">
         <ul>
-            <li><a href="LeanServices.html">Lean Services</a></li>
-            <li><a href="LeanCode.html">Lean Code</a></li>
-            <li><a href="LowCode.html">Low Code</a></li>
-            <li><a href="NoCode.html">No Code</a></li>
-            <li><a href="Planned.html">Planned</a></li>
-            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="/LeanServices.html">Lean Services</a></li>
+            <li><a href="/LeanCode.html">Lean Code</a></li>
+            <li><a href="/LowCode.html">Low Code</a></li>
+            <li><a href="/NoCode.html">No Code</a></li>
+            <li><a href="/Planned.html">Planned</a></li>
             <li><a href="/presentation/EO___Beyond_Method_Calling_APIs.html">Intro</a></li>
         </ul>
     </div>
 </header>
     <div class="entry-content" id="entry-content">
         $[(TemplateResourceCall). fileName="eo->selectedItem." configKey="WEB_DOCS"/]
-       <hr/>
      </div>
+
 <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
+    <a name="postPage" > </a>
     <h5>This Page Elements</h5>
     <table>
+        <tr><td>Get Method:</td><td>$[(GithubLinkCall)SP|web|WebEoGet.java configType="NONE" /]</td></tr>
+        <tr><td>Post Method:</td><td>$[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]</td></tr>
         <tr><td>Page-Template:</td><td>$[(ConfigLinkCall)ContentPage.html configType="FileConfig" /]</td></tr>
-        <tr><td>Header:</td><td>$[(GithubLinkCall)sp-input|web|Header.html configType="NONE" /]</td></tr>
+        <tr><td>Header:</td><td>$[(GithubLinkCall)SPI|web|Header.html configType="NONE" /]</td></tr>
         <tr><td>Content-Directory:</td><td> $[(ConfigLinkCall)WEB_DOCS configType="FileConfig"/]</td></tr>
-        <tr><td>Content:</td><td>$[(GithubLinkCall)sp-input|web.docs|eo->selectedItem. configType="NONE"/]</td></tr>
-        <tr><td>Footer:</td><td>$[(GithubLinkCall)sp-input|web|Footer.html configType="NONE" /]</td></tr>
+        <tr><td>Content:</td><td>$[(GithubLinkCall)SPI|web.docs|eo->selectedItem. configType="NONE"/]</td></tr>
+        <tr><td>Footer:</td><td>$[(GithubLinkCall)SPI|web|Footer.html configType="NONE" /]</td></tr>
         <tr><td colspan="2">Postversion of this page:
             <form action="/eo-form" method="post">
                         <textarea name="eo" style="height:120px;">{

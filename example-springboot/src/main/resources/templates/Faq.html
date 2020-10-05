@@ -11,6 +11,14 @@ $[(TemplateResourceCall). templateKey="HeaderStatic.html"/]
     <div class="entry-content" id="entry-content">
         <h3>$[head]</h3>
         <p>$[(StringReplaceWithHtmlCall)content targetPath="asString" /]</p>
-       <hr/>
      </div>
+    <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
+        <h5>Elements for Generating FAQ Pages</h5>
+        <table>
+            <tr><td>Page-Template:</td><td>$[(ConfigLinkCall)Faq.html configType="FileConfig" /]</td></tr>
+            <tr><td>Header:</td><td>$[(ConfigLinkCall)PresentationHeader.html configType="FileConfig" /]</td></tr>
+            <tr><td>Content:</td><td> $[(ConfigLinkCall)content.xlsx:faq configType="FileConfig"/]</td></tr>
+            <tr><td>Footer:</td><td>$[(ConfigLinkCall)PresentationFooter.html configType="FileConfig" /]</td></tr>
+        </table>
+    </div>
 $[(TemplateResourceCall). templateKey="FooterStatic.html"/]

@@ -1,0 +1,38 @@
+$[(TemplateResourceCall). configKey="WEB" fileName="Header.html"/]
+<header class="entry-header">
+    <div id="rootNav">
+        <ul>
+            <li><a href="/blog/BlogV0.4.0.html">V0.4.0</a></li>
+        </ul>
+    </div>
+</header>
+    <div class="entry-content" id="entry-content">
+        $[(TemplateResourceCall). fileName="eo->selectedItem." configKey="WEB_BLOG"/]
+       <hr/>
+     </div>
+    <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
+        <h5>This Page Elements</h5>
+        <table>
+            <tr><td>Get Method:</td><td>$[(GithubLinkCall)SP|web|WebEoGet.java configType="NONE" /]</td></tr>
+            <tr><td>Post Method:</td><td>$[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]</td></tr>
+            <tr><td>Page-Template:</td><td>$[(ConfigLinkCall)BlogPage.html configType="FileConfig" /]</td></tr>
+            <tr><td>Header:</td><td>$[(GithubLinkCall)SPI|web|Header.html configType="NONE" /]</td></tr>
+            <tr><td>Content-Directory:</td><td> $[(ConfigLinkCall)WEB_BLOG configType="FileConfig"/]</td></tr>
+            <tr><td>Content:</td><td>$[(GithubLinkCall)SPI|web.docs|eo->selectedItem. configType="NONE"/]</td></tr>
+            <tr><td>Footer:</td><td>$[(GithubLinkCall)SPI|web|Footer.html configType="NONE" /]</td></tr>
+            <tr><td colspan="2">Postversion of this page:
+                <form action="/eo-form" method="post">
+                            <textarea name="eo" style="height:120px;">{
+       "asTemplate":true,
+       "selectedItem": "$[selectedItem]",
+       "(TemplateResourceCall)call": {
+            "configKey":"BlogPage.html"
+       }
+    }</textarea>
+                    <input type="submit" value="post" style="font-size:14px"/>
+                </form>
+            </td>
+            </tr>
+        </table>
+    </div>
+$[(TemplateResourceCall). configKey="WEB"  fileName="Footer.html"/]

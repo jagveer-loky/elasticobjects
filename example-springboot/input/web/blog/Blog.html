@@ -1,0 +1,81 @@
+<h5>The log for V0.5.0.</h5>
+<p>
+    <b>
+    Target of this version is to streamline code generation from the excel file $[(GithubLinkCall)BEOR||eo.xls configType="NONE" /] and finally
+        move the builder libraries into a separate github project.
+    </b>
+</p>
+
+<p align="right"><i>5.10.2020</i></p>
+<p>
+    Yesterday the version 0.5.0-SNAPSHOT is started. The builder is now again part of the elastic-objects github project in
+    Github.
+</p>
+<p>
+    The creation of code was the original intention starting elastic-objects.
+</p>
+<p>The different configuration files like
+    $[(GithubLinkCall)EOR||ModelConfig.json configType="NONE" /]
+    are now completely generated.</p>
+<p>
+    The java code is actually experimental. Here the target file is itself a template.
+    </p>
+<p>If the target file exists,
+    it will be used as template instead of the standard template e.g. $[(GithubLinkCall)BR|templates.java.bean|BEANCreate.tpl configType="NONE" /].
+    The advantage is that one can add individual code to a generated class. It just has <b>generated parts</b>.
+</p>
+<p>
+    The following java classes are now prepared this way:
+    <ul>
+    <li>$[(GithubLinkCall)EO|calls|Call.java configType="NONE" /] as example for $[(GithubLinkCall)BR|templates.java.interface|INTERFACECreate.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)EO|calls|CallImpl.java configType="NONE" /] as example for $[(GithubLinkCall)BR|templates.java.interface|BEANCreate.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)EO|calls|CallImpl.java configType="NONE" /] as example for $[(GithubLinkCall)BR|templates.java.interface|CONFIGCreate.tpl configType="NONE" /]</li>
+</ul>
+</p>
+
+
+<h6>Creation code</h6>
+<p>The builder contains two create calls:
+<ul>
+    <li>$[(GithubLinkCall)B|calls.configs|EoJsonCreateCall.java configType="NONE" /] create json configuration files</li>
+    <li>$[(GithubLinkCall)B|calls.configs|JavaCreateCall.java configType="NONE" /] create java files</li>
+</ul>
+</p>
+<p>
+    These calls prepare the raw values loaded from $[(GithubLinkCall)BEOR||eo.xls configType="NONE" /] with
+    some special values needed by the templates. $[(GithubLinkCall)B|calls.configs|JavaCreateCall.java configType="NONE" /]
+    for example set values in fields for <i>final</i> or <i>overwrite</i>.
+</p>
+<p>To trigger the creation there are two classes:
+    <ul>
+    <li>$[(GithubLinkCall)BEOT|calls|EoJsonCreateStart.java configType="NONE" /] create json configuration files</li>
+    <li>$[(GithubLinkCall)BEOT|calls|EoJavaCreateStart.java configType="NONE" /] create java files</li>
+</ul>
+</p>
+<p>Two static helpers load the data in different tree structure before the call will be executed:
+<ul>
+    <li>$[(GithubLinkCall)BEO|calls|EoJsonCreate.java configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)BEO|calls|EoJavaCreate.java configType="NONE" /]</li>
+</ul>
+They could be replaced by some templates itself later.
+</p>
+<p>The json creation part just use the sorting logic when loading
+    $[(GithubLinkCall)BEOR||eo.xlsx configType="NONE" /]. </p>
+
+<h6>Java Templates</h6>
+<p>The java creation starts with the loading of a template depending on the <i>shapeType</i> value in ModelConfig sheet.
+There are tree templates provided:
+    <ul>
+    <li>$[(GithubLinkCall)BR|templates.java.bean|BEANCreate.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)BR|templates.java.config|CONFIGCreate.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)BR|templates.java.interface|INTERFACECreate.tpl configType="NONE" /]</li>
+</ul>
+</p>
+<p>
+    There are some common parts:
+    <ul>
+    <li>$[(GithubLinkCall)BR|templates.java|ALLImport.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)BR|templates.java|ALLInstanceVars.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)BR|templates.java|ALLSetter.tpl configType="NONE" /]</li>
+</ul>
+</p>

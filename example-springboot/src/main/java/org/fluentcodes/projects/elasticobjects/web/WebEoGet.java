@@ -64,14 +64,17 @@ public class WebEoGet {
     @RequestMapping(value = "/examples/{selectedItem:.+}", method = RequestMethod.GET)
     @ResponseBody
     public String createExamplesPage(@PathVariable String selectedItem) {
+        return templatePageCall("ExamplesPage.html", selectedItem);
+    }
+
+    private String templatePageCall(final String pageTemplate, final String selectedItem) {
         EO eo = new EoRoot(cache);
         eo.setRoles(Arrays.asList(WebEo.getRoles()));
         eo.set(selectedItem, "selectedItem");
         EO child = eo.setEmpty("navigationItem");
-        //child.set("/docs/Eo","EO");
-        eo.addCall(new TemplateResourceCall("ExamplesPage.html"));
+        eo.addCall(new TemplateResourceCall(pageTemplate));
         try {
-        eo.execute();
+            eo.execute();
         }
         catch (Exception e) {
             return e.getMessage();
@@ -80,6 +83,12 @@ public class WebEoGet {
             return eo.getLog();
         }
         return (String) eo.get(PathElement.TEMPLATE);
+    }
+
+    @RequestMapping(value = "/blog/{selectedItem:.+}", method = RequestMethod.GET)
+    @ResponseBody
+    public String createBlogPage(@PathVariable String selectedItem) {
+        return templatePageCall("BlogPage.html", selectedItem);
     }
 
     @RequestMapping(value = "/configs/{selectedItem:.+}.html", method = RequestMethod.GET)

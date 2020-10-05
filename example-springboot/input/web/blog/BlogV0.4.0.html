@@ -1,10 +1,34 @@
-<h5>The log for V0.5.0-SNAPSHO.</h5>
+<h5>The log for V0.4.0.</h5>
 <p>
     <b>
-    Target of this version is to consolidate the configurations and to generate different sources
-        from the excel file <a href="eo.xlsx">eo.xlsx</a> again.
-</b></p>
-
+    Target of this version was to consolidate the configurations and to generate different sources
+        from the excel file $[(GithubLinkCall)BEOR||eo.xls configType="NONE" /] again.
+    </b>
+</p>
+<p align="right"><i>1.10.2020</i>
+<p>
+    To simplify the lengthy links to
+    <a href="https://github.com/fluentcodes/elasticobjects">&equiv;Github</a> there are now two new helper calls
+    for the springboot demo:
+    <ul>
+    <li>$[(GithubLinkCall)SP|calls.values|ConfigLinkCall.java configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)SP|calls.values|GithubLinkCall.java configType="NONE" /]</li>
+</ul>
+</p>
+<p>
+    One just have to embed 	&#36;[(GithubLinkCall)SP|calls.values|GithubLinkCall.java configType="NONE" /] in the code to create the last link.
+The first entry defines a module path as defined in
+$[(GithubLinkCall)SP|calls.values|Modules.java configType="NONE" /], the second the path within and the last
+entry is code file.
+</p>
+<p>
+    The $[(GithubLinkCall)SP|calls.values|ConfigLinkCall.java configType="NONE" /] will create a link to a
+    configuration together with a github link.
+</p>
+<p>
+    &#36;[(ConfigLinkCall)GithubLinkCall configType="ModelConfig" /] will create the direct
+    link to github and a internal link to the config page of this site: $[(ConfigLinkCall)GithubLinkCall configType="ModelConfig" /]
+</p>
 <p align="right"><i>19.9.2020</i>
 </p>
 <p>The configurations contains now one unmodifiable properties map. All tests are working.
@@ -23,7 +47,7 @@ The unmodifable version of map and list is added to the initial ModelConfig.
 </p>
 <p>Yesterday I've published the version 0.3.0 
     with the first generated json configurations from 
-    the streamlined excel file <a href="eo.xlsx">eo.xlsx</a>.
+    the streamlined excel file $[(GithubLinkCall)BEOR||eo.xlsx configType="NONE" /].
 </p>
 
 <p>
@@ -40,7 +64,7 @@ The unmodifable version of map and list is added to the initial ModelConfig.
         <li>DbSqlConfig</li>
 </ul>
 
-<p>With 0.5.0-SNAPSHO the the structure of the configuration with different immutable
+<p>With 0.5.0-SNAPSHOT the the structure of the configuration with different immutable
     sub classes will be stream lined. This is some kind of over modelling but originally 
     comes from the idea to make the configuration immutable. 
 </p>
