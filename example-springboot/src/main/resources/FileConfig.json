@@ -17,13 +17,13 @@
       "rowHead": 0
     }
   },
-  "Blog.html": {
+  "BlogPage.html": {
     "module": "example-springboot",
     "moduleScope": "main",
     "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "Blog.html",
-    "description": "The actual blog entry.",
+    "filePath": "web",
+    "fileName": "BlogPage.html",
+    "description": "The show Blog content from directory input/blog.",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
@@ -127,22 +127,6 @@
     "fileName": "ContentPage.html",
     "description": "The content template loading a content template file in the content part without navigation.",
     "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "DbSqlConfig.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/configs",
-    "fileName": "DbSqlConfig.html",
-    "description": "Entry content for DbSqlConfig pages.",
-    "expose": "NONE",
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
@@ -274,38 +258,6 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "admin"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "Home.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "Home.html",
-    "description": "The home content.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "Impressum.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/docs",
-    "fileName": "Impressum.html",
-    "description": "The impressum content.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
     },
     "properties": {
       "classPath": "src.main.resources"
@@ -463,6 +415,23 @@
     "filePath": "web",
     "fileName": ".*.html",
     "description": "Directory access for fileNames matching *.html",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "WEB_BLOG": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/blog",
+    "fileName": ".*.html",
+    "description": "Directory access for web/blog for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {

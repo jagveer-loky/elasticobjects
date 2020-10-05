@@ -5,8 +5,50 @@
 
 <h3>EO - Elastic Objects</h3>
 <p>
+Service oriented architecture today is usually some typed RPC calls bound to urls by
+    an application server framework. <b>Type</b> and <b>functionality</b> mapping is stuck in a procedural concept
+    from the IT stone age and fat web application frameworks.
+</p>
+<h4>Concept</h4>
+<p>
+    The idea of Elastic Objects is to embed <b>type</b> informations in a JSON tree or a path. This type
+    information triggers a
+    typed object instantiation within an untyped map or list on the target system. A special type with a
+    generic execution method offers <b>functionality</b>.
+</p>
+<p>
+    The following pseudo code would call an execute method in the <b>ACall</b> instance,
+    which uses the <b>AnObject</b> object provided in <i>value</i> and store the result in <i>target</i>.
+
+    <textarea style="height:100px">
+{
+    "(AnObject)input":{...},
+    "(ACall)target:{"sourcePath":"input"}
+}
+    </textarea>
+</p>
+<p>
+    As a client one is free to combine data and calls in the object tree structure and send
+    this object through one generic endpoint.
+</p>
+<p>
+    And on the server side one can offer any functionality. Since the generic endpoint
+    is not concerned doing something,
+    there is a much better test coverage without application server framework.
+</p>
+<h4>Examples</h4>
+<p>
+    You find here some working editable <a href="/examples/ExamplesStart.html">examples</a>.
+    This site itself is build by some templates. At the <a href="#postPage">end of
+    each page</a> you find the JSON code to create the same page with a post from your browser.
+</p>
+
+<h4>Implementation</h4>
+
+<p>
     Elastic Objects is a generic wrapper for java native objects.</p>
 <img src="/pics/eoModel.svg" width="200" style="margin:20px;"/>
+
 <p>
     Like a Java 8 Optional it contains an object. But it knows
 </p>
@@ -40,7 +82,7 @@ AnObject anObject3 = eo.get("a/b/c");
 </p>
 <img src="/pics/eoModelConfig.svg" width="200" style="margin:20px;"/>
 <p>The cache object
-    $[(GithubLinkCall)eo|models|EOConfigsCache.java configType="NONE" /]
+    $[(GithubLinkCall)EO|models|EOConfigsCache.java configType="NONE" /]
     loads all ModelConfig.json,
     Models.json and FieldConfig.json files from the classpath.
 
@@ -108,7 +150,7 @@ Double result = call.execute(eo);
 <p>It uses the path "source" as input value and store the result of sin(1) in "target".</p>
 <p>
     When you click on the "post" button, the
-    generic web interface $[(GithubLinkCall)spring|web|WebEo.java configType="NONE" /]
+    generic web interface $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]
     will map the JSON String to EO. At the end JSON will be generated as the response.</p>
 <p>You can change the values of the example to see that it works.
 </p>
@@ -120,7 +162,7 @@ Double result = call.execute(eo);
 </p>
 <p>
     The page you see with an "ordinary" web-url triggers the spring boot method
-    $[(GithubLinkCall)spring|web|WebEoGet.java configType="NONE" /].createRootPage
+    $[(GithubLinkCall)SP|web|WebEoGet.java configType="NONE" /].createRootPage
     with the MVC request mapping "/{selectedItem:.+}.html".
 </p>
 <p>

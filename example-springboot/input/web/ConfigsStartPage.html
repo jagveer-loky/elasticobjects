@@ -11,11 +11,13 @@ $[(TemplateResourceCall).  configKey="WEB" fileName="Header.html"/]
     <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
         <h5>This Page Elements</h5>
         <table>
-            <tr><td>Page-Template:</td><td>$[(GithubLinkCall)sp-input|web|ConfigsStartPage.html configType="NONE" /]</td></tr>
-            <tr><td>Header:</td><td>$[(GithubLinkCall)sp-input|web|Header.html configType="NONE" /]</td></tr>
+            <tr><td>Get Method:</td><td>$[(GithubLinkCall)SP|web|WebEoGet.java configType="NONE" /]</td></tr>
+            <tr><td>Post Method:</td><td>$[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]</td></tr>
+            <tr><td>Page-Template:</td><td>$[(GithubLinkCall)SPI|web|ConfigsStartPage.html configType="NONE" /]</td></tr>
+            <tr><td>Header:</td><td>$[(GithubLinkCall)SPI|web|Header.html configType="NONE" /]</td></tr>
             <tr><td>Content-Directory:</td><td> $[(ConfigLinkCall)WEB_CONFIGS configType="FileConfig"/]</td></tr>
-            <tr><td>Content:</td><td>$[(GithubLinkCall)sp-input|web.configs|eo->selectedItem. configType="NONE"/]</td></tr>
-            <tr><td>Footer:</td><td>$[(GithubLinkCall)sp-input|web|Footer.html configType="NONE" /]</td></tr>
+            <tr><td>Content:</td><td>$[(GithubLinkCall)SPI|web.configs|eo->selectedItem. configType="NONE"/]</td></tr>
+            <tr><td>Footer:</td><td>$[(GithubLinkCall)SPI|web|Footer.html configType="NONE" /]</td></tr>
             <tr><td colspan="2">Postversion of this page:
                     <form action="/eo-form" method="post">
                         <textarea name="eo" style="height:120px;">{

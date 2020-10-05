@@ -68,30 +68,7 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
             if (pathAndKey.length!=3) {
                 throw new EoException("A non configured github link call should has a delimiter '|' like 'filePath|fileName' but is '" + configKey + "'");
             }
-            if (pathAndKey[0].equals("spring")) {
-                builder.append("example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/");
-            }
-            else if (pathAndKey[0].equals("spring-test")) {
-                builder.append("example-springboot/src/test/java/org/fluentcodes/projects/elasticobjects/");
-            }
-            else if (pathAndKey[0].equals("spring-resources")) {
-                builder.append("example-springboot/src/main/resources/");
-            }
-            else if (pathAndKey[0].equals("sp-input")) {
-                builder.append("example-springboot/input/");
-            }
-            else if (pathAndKey[0].equals("eo")) {
-                builder.append("elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/");
-            }
-            else if (pathAndKey[0].equals("eo-resources")) {
-                builder.append("elastic-objects/src/main/resources/");
-            }
-            else if (pathAndKey[0].equals("eo-xlsx-test")) {
-                builder.append("eo-xlsx/src/test/java/org/fluentcodes/projects/elasticobjects/");
-            }
-            else if (pathAndKey[0].equals("eo-test-resources")) {
-                builder.append("eo-test/src/test/resources/");
-            }
+            builder.append(Modules.findDirectory(pathAndKey[0]));
             builder.append(pathAndKey[1].replaceAll("\\.", "/"));
             builder.append("/");
             builder.append(pathAndKey[2]);
