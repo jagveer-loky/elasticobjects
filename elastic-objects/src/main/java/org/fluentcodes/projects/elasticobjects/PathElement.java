@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.ArrayList;
@@ -467,7 +467,7 @@ public class PathElement {
         this.value = this.models.create();
     }
 
-    public ModelInterface getModel() {
+    public ModelConfigInterface getModel() {
         return this.models.getModel();
     }
 

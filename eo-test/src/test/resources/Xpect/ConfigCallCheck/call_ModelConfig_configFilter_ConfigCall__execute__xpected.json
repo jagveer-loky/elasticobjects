@@ -18,10 +18,12 @@
       "6": "targetPath",
       "7": "models",
       "8": "condition",
-      "9": "localCondition",
+      "9": "startCondition",
       "10": "overwrite",
       "11": "logLevel",
-      "12": "duration"
+      "12": "duration",
+      "13": "prepend",
+      "14": "postpend"
     },
     "(Expose)expose": "WEB",
     "properties": {

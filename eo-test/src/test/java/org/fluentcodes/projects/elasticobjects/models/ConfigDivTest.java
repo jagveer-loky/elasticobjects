@@ -36,7 +36,7 @@ public class ConfigDivTest {
     @Test
     public void testMap()  {
         
-        ModelInterface mapModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_MAP);
+        ModelConfigInterface mapModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_MAP);
         Assert.assertEquals(M_MAP, mapModel.getModelKey());
         Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());
@@ -50,7 +50,7 @@ public class ConfigDivTest {
     @Test
     public void testString()  {
         
-        ModelInterface scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_STRING);
+        ModelConfigInterface scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_STRING);
         Assert.assertEquals(M_STRING, scalarModel.getModelKey());
         Assert.assertTrue(scalarModel.isScalar());
 

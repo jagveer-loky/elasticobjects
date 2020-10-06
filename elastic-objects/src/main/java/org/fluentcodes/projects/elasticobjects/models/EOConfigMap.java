@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 
 /**
  * Created by Werner on 19.8.2020.
@@ -110,8 +110,8 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
             throw new EoInternalException("NaturalId '" + naturalId + "' already exist in " + this.configClass.getSimpleName());
         }
         String modelKey =
-                map.containsKey(ConfigImpl.CONFIG_MODEL_KEY) && map.get(ConfigImpl.CONFIG_MODEL_KEY) !=null && !((String)map.get(ConfigImpl.CONFIG_MODEL_KEY)).isEmpty()
-                        ? (String) map.get(ConfigImpl.CONFIG_MODEL_KEY)
+                map.containsKey(Config.CONFIG_MODEL_KEY) && map.get(Config.CONFIG_MODEL_KEY) !=null && !((String)map.get(Config.CONFIG_MODEL_KEY)).isEmpty()
+                        ? (String) map.get(Config.CONFIG_MODEL_KEY)
                         : configClass.getSimpleName();
         ModelConfig configurationModel = getConfigsCache().findModel(modelKey);
         try {

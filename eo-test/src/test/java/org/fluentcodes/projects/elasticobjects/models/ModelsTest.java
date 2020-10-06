@@ -16,8 +16,8 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MODEL_INTERFAC
  */
 public class ModelsTest {
     @Test
-    public void withModelInterface()  {
-        Models models = new Models(ProviderRootTestScope.EO_CONFIGS, M_MODEL_INTERFACE);
+    public void withModelConfigInterface()  {
+        Models models = new Models(ProviderRootTestScope.EO_CONFIGS, ModelConfig.class.getSimpleName());
         Assert.assertTrue(models.hasModel());
         Assert.assertFalse(models.hasChildModel());
         Assert.assertFalse(models.isEmpty());

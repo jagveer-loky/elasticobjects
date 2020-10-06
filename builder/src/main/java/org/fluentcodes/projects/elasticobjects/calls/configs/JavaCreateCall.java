@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.tools.xpect.IOString;
@@ -13,8 +14,8 @@ import org.fluentcodes.tools.xpect.IOString;
 import java.io.File;
 import java.util.*;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.MODULE;
-import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.MODULE_SCOPE;
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.MODEL_KEYS;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.*;
 
@@ -66,7 +67,7 @@ public class JavaCreateCall extends CreateCall {
             }
             final String modelKey = (String)eoModel.get(MODEL_KEY);
             final String modelPackagePath = (String)eoModel.get(PACKAGE_PATH);
-            final String modelType = (String)eoModel.get(PROPERTIES, SHAPE_TYPE);
+            final String modelType = (String)eoModel.get(Config.PROPERTIES, SHAPE_TYPE);
             if (modelType == null || modelType.isEmpty()) {
                 continue;
             }

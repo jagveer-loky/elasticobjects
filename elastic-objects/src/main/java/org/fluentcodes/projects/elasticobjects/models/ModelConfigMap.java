@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigMap extends ModelConfig implements ModelInterface {
+public class ModelConfigMap extends ModelConfig implements ModelConfigInterface {
     public static final String CONFIG_MODEL_KEY = "ModelConfigMap";
 
     public ModelConfigMap(EOConfigsCache provider, Map map) {
@@ -15,7 +15,7 @@ public class ModelConfigMap extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public ModelInterface getFieldModel(final String fieldName)  {
+    public ModelConfigInterface getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }
 

@@ -15,7 +15,7 @@ public class TemplateCall extends CallImpl {
     private String content;
 
     public TemplateCall() {
-        super.setInTemplate(true);
+        super.setTargetPath(TARGET_AS_STRING);
     }
 
     public TemplateCall(final String content) {

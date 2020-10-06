@@ -65,7 +65,7 @@ public class EoJsonCreateCall extends CreateCall {
                         throw new EoInternalException("Could not found natural Id in config " + eo.toString());
                     }
                     if (ModelConfig.class.getSimpleName().equals(getConfigType())) {
-                        FieldHelper fields = new FieldHelper(configurationMap.get(FIELD_KEYS), "jsonIgnore");
+                        FieldHelper fields = new FieldHelper(configurationMap.get(FIELD_KEYS), "jsonIgnore", "override");
                             configurationMap.put(FIELD_KEYS, fields.getFieldKeys());
                     }
                     configurationMap.remove(NATURAL_ID);

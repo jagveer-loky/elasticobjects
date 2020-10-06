@@ -10,8 +10,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
-import org.fluentcodes.projects.elasticobjects.models.PropertiesAccessor;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -23,7 +22,6 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_AND;
 import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_PATH_PATTERN;
-import static org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface.LIST_PARAMS;
 
 
 /**
@@ -37,7 +35,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesList
     private final And and;
     private final String sql;
 
-    private ModelInterface modelCache;
+    private ModelConfigInterface modelCache;
     private DbConfig dbConfig;
     private List<String> metaDataNames;
     private List<String> metaDataTypes;
@@ -157,7 +155,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesList
     }
 
     /**
-     * The model name for the bean/actions object {@link ModelInterface}.
+     * The model name for the bean/actions object {@link ModelConfigInterface}.
      */
     public String getModelKey() {
         return this.modelKey;
@@ -166,7 +164,7 @@ public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesList
     /**
      * A modelCache value
      */
-    public ModelInterface getModelCache()  {
+    public ModelConfigInterface getModelCache()  {
         if (this.modelCache == null) {
             if (this.getConfigsCache() == null) {
                 throw new EoException("Config could not be initialized with a null provider for 'modelCache' - 'modelKey''!");

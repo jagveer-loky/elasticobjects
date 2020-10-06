@@ -1,41 +1,41 @@
 package org.fluentcodes.projects.elasticobjects.calls;
-
-import org.fluentcodes.projects.elasticobjects.*;
+// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
+import org.fluentcodes.projects.elasticobjects.LogLevel;
+//$[/]
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelImpl;
+import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
 
 /**
  * Created by Werner on 13.07.2020.
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
-public abstract class CallImpl extends ModelImpl implements Call {
-    public static final String TARGET_AS_STRING = "_asString";
-    
-// $[(TemplateResourceCall)fieldKeys/* templateKey="BEANStaticNames.java" keepCall="JAVA"]
-    public static final String SOURCE_PATH = "sourcePath";
-    public static final String TARGET_PATH = "targetPath";
-    public static final String MODELS = "models";
-    public static final String CONDITION = "condition";
-    public static final String LOCAL_CONDITION = "localCondition";
-    public static final String OVERWRITE = "overwrite";
-    public static final String LOG_LEVEL = "logLevel";
-    public static final String DURATION = "duration";
+public abstract class CallImpl extends BaseImpl implements Call {
+
+    // $[(TemplateResourceCall)fieldKeys/* templateKey="ALLStaticNames.java" keepCall="JAVA"]
 //$[/]
 
-// $[(TemplateResourceCall)fieldKeys/* templateKey="BEANInstanceVars.tpl" keepCall="JAVA"]
+// $[(TemplateResourceCall)fieldKeys/* templateKey="ALLInstanceVars.tpl" keepCall="JAVA"]
     private String sourcePath;
     private String targetPath;
     private String models;
+    private String startCondition;
     private String condition;
-    private String localCondition;
     private Boolean overwrite;
     private LogLevel logLevel;
     private Long duration;
+    private String prepend;
+    private String postpend;
 //$[/]
-    
+
     public CallImpl() {
+        prepend = "";
+        postpend = "";
     }
 
     public void check(final EO eo) {
@@ -47,11 +47,37 @@ public abstract class CallImpl extends ModelImpl implements Call {
         }
     }
 
+
+
+    /**
+     * Evaluates the startCondition field  at the beginning of ExecutorCall.
+     * @param eo the current wrapper in the loop.
+     * @return
+     */
+    protected boolean evalStartCondition(EO eo) {
+        if (!hasStartCondition()) {
+            return true;
+        }
+        return new Or(new ParserEoReplace(getStartCondition()).parse(eo)).filter(eo);
+    }
+
+    /**
+     * Evaluates the condition field within ExecutorCall.
+     * @param eo the current wrapper in the loop.
+     * @return
+     */
+    protected boolean evalCondition(EO eo) {
+        if (!hasCondition()) {
+            return true;
+        }
+        return new Or(new ParserEoReplace(getCondition()).parse(eo)).filter(eo);
+    }
+
     protected Object createReturnScalar(EO eo, Object result) {
         if (!hasTargetPath()) {
             return result;
         }
-        if (isInTemplate()) {
+        if (isTargetAsString()) {
             return result.toString();
         }
         eo.set(result, targetPath);
@@ -62,7 +88,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
         if (!hasTargetPath()) {
             return result;
         }
-        if (isInTemplate()) {
+        if (isTargetAsString()) {
             return new EOToJSON()
                     .setSerializationType(JSONSerializationType.STANDARD)
                     .toJSON(eo.getConfigsCache(), result);
@@ -72,52 +98,10 @@ public abstract class CallImpl extends ModelImpl implements Call {
     }
 
     protected String createReturnString(EO eo, String result) {
-        if (!hasTargetPath() || isInTemplate()) {
+        if (!hasTargetPath() || isTargetAsString()) {
             return result;
         }
         eo.set(result, targetPath);
-        return "";
-    }
-
-    @Override
-    public Boolean getInTemplate() {
-        return TARGET_AS_STRING.equals(targetPath);
-    }
-
-    @Override
-    public Boolean isInTemplate() {
-        return getInTemplate();
-    }
-
-    public void setInTemplate(Boolean inTemplate) {
-        if (inTemplate) {
-            this.targetPath = TARGET_AS_STRING;
-        }
-        else {
-            this.targetPath = null;
-        }
-    }
-
-    @Override
-    public boolean filter(EO eo) {
-        if (!hasCondition()) {
-            return true;
-        }
-        return new Or(new ParserEoReplace(condition).parse(eo)).filter(eo);
-    }
-
-    @Override
-    public boolean localFilter(EO eo) {
-        if (!hasLocalCondition()) {
-            return true;
-        }
-        return new Or(new ParserEoReplace(localCondition).parse(eo)).filter(eo);
-    }
-
-    public String prepend() {
-        return "";
-    }
-    public String postPend() {
         return "";
     }
 
@@ -130,10 +114,11 @@ public abstract class CallImpl extends ModelImpl implements Call {
         return overwrite;
     }
 
-    // $[(TemplateResourceCall)fieldKeys/* templateKey="BEANSetter.tpl" keepCall="JAVA"]
+    // $[(TemplateResourceCall)fieldKeys/* templateKey="AllSetter.tpl" keepCall="JAVA"]
     /**
      A sourcePath where EO offers it's input value when the execution starts.
      */
+
     @Override
     public final CallImpl setSourcePath(String sourcePath) {
         this.sourcePath = sourcePath;
@@ -151,6 +136,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
     /**
      A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.
      */
+
     @Override
     public final CallImpl setTargetPath(String targetPath) {
         this.targetPath = targetPath;
@@ -168,6 +154,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
     /**
      A string representation for a list of model keys.
      */
+
     @Override
     public final CallImpl setModels(String models) {
         this.models = models;
@@ -183,8 +170,9 @@ public abstract class CallImpl extends ModelImpl implements Call {
     }
 
     /**
-     A condition for calls. 
+     A condition for calls.
      */
+
     @Override
     public final CallImpl setCondition(String condition) {
         this.condition = condition;
@@ -200,25 +188,27 @@ public abstract class CallImpl extends ModelImpl implements Call {
     }
 
     /**
-     A condition for calls. 
+     A condition for calls.
      */
+
     @Override
-    public final CallImpl setLocalCondition(String localCondition) {
-        this.localCondition = localCondition;
+    public final CallImpl setStartCondition(String startCondition) {
+        this.startCondition = startCondition;
         return this;
     }
     @Override
-    public final String getLocalCondition () {
-        return this.localCondition;
+    public final String getStartCondition () {
+        return this.startCondition;
     }
     @Override
-    public boolean hasLocalCondition () {
-        return localCondition != null  && !localCondition.isEmpty();
+    public boolean hasStartCondition () {
+        return startCondition != null  && !startCondition.isEmpty();
     }
 
     /**
      overwrite
      */
+
     @Override
     public final CallImpl setOverwrite(Boolean overwrite) {
         this.overwrite = overwrite;
@@ -236,6 +226,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
     /**
      logLevel
      */
+
     @Override
     public final CallImpl setLogLevel(LogLevel logLevel) {
         this.logLevel = logLevel;
@@ -253,6 +244,7 @@ public abstract class CallImpl extends ModelImpl implements Call {
     /**
      The duration of a call.
      */
+
     @Override
     public final CallImpl setDuration(Long duration) {
         this.duration = duration;
@@ -265,6 +257,42 @@ public abstract class CallImpl extends ModelImpl implements Call {
     @Override
     public boolean hasDuration () {
         return duration != null ;
+    }
+
+    /**
+     prepend String when executed by ExecutorCallImpl
+     */
+
+    @Override
+    public final CallImpl setPrepend(String prepend) {
+        this.prepend = prepend;
+        return this;
+    }
+    @Override
+    public final String getPrepend () {
+        return this.prepend;
+    }
+    @Override
+    public boolean hasPrepend () {
+        return prepend != null  && !prepend.isEmpty();
+    }
+
+    /**
+     postpend String when executed by ExecutorCallImpl
+     */
+
+    @Override
+    public final CallImpl setPostpend(String postpend) {
+        this.postpend = postpend;
+        return this;
+    }
+    @Override
+    public final String getPostpend () {
+        return this.postpend;
+    }
+    @Override
+    public boolean hasPostpend () {
+        return postpend != null  && !postpend.isEmpty();
     }
 
 //$[/]

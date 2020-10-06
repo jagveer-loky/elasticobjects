@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
+import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.models.*;
 
 import java.util.HashMap;
@@ -13,10 +14,10 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DATE;
 public class ProviderConfig {
     public static void createConfig(Map<String, Object> map) {
         try {
-            addMap(map, Model.ID, 1L,
-                    Model.CREATION_DATE, SAMPLE_DATE,
-                    Model.DESCRIPTION, Model.DESCRIPTION,
-                    Model.NATURAL_ID, Model.NATURAL_ID,
+            addMap(map, Base.ID, 1L,
+                    Base.CREATION_DATE, SAMPLE_DATE,
+                    Base.DESCRIPTION, Base.DESCRIPTION,
+                    Base.NATURAL_ID, Base.NATURAL_ID,
                     F_EXPANDED, S1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -27,7 +28,7 @@ public class ProviderConfig {
         Map<String, Object> map = new HashMap<>();
         map.put(ModelConfig.MODEL_KEY, ModelConfig.MODEL_KEY);
         map.put(ModelConfig.FIELD_KEYS, null);
-        map.put(Model.AUTHOR, Model.AUTHOR);
+        map.put(Base.AUTHOR, Base.AUTHOR);
         map.put(ModelConfig.SUPER_KEY, ModelConfig.SUPER_KEY);
         map.put(ModelConfig.INTERFACES, ModelConfig.INTERFACES);
         createConfig(map);

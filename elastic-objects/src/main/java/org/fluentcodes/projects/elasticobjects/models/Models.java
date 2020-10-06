@@ -15,10 +15,10 @@ import java.util.*;
  * @since 20.05.16.
  */
 public class Models {
-    private final ModelInterface[] models;
+    private final ModelConfigInterface[] models;
     private final boolean hasChildModel;
 
-    private Models(final ModelInterface... models) {
+    private Models(final ModelConfigInterface... models) {
         this.models = models;
         hasChildModel = models.length > 1;
     }
@@ -30,7 +30,7 @@ public class Models {
 
     public Models(final EOConfigsCache cache, final String... modelKeysIn)  {
         String[] modelKeys = strip(modelKeysIn);
-        this.models = new ModelInterface[modelKeys.length];
+        this.models = new ModelConfigInterface[modelKeys.length];
         for (int i=0; i < modelKeysIn.length; i++) {
             models[i] = cache.findModel(modelKeysIn[i]);
         }
@@ -134,10 +134,10 @@ public class Models {
         return null;
     }
 
-    public List<ModelInterface> getModels() {
-        List<ModelInterface> models = new ArrayList<>();
+    public List<ModelConfigInterface> getModels() {
+        List<ModelConfigInterface> models = new ArrayList<>();
 
-        for (ModelInterface model : this.models) {
+        for (ModelConfigInterface model : this.models) {
             models.add(model);
         }
         return models;
@@ -183,7 +183,7 @@ public class Models {
         return getModel().getModelClass();
     }
 
-    public ModelInterface getModel() {
+    public ModelConfigInterface getModel() {
         return models[0];
     }
     public boolean hasChildModel() {
@@ -194,7 +194,7 @@ public class Models {
         return isMap() && !hasChildModel() && (getModelClass() == Map.class || getModelClass() == LinkedHashMap.class);
     }
 
-    public ModelInterface getChildModel() {
+    public ModelConfigInterface getChildModel() {
         if (!hasChildModel()) {
             return null;
         }
@@ -205,7 +205,7 @@ public class Models {
         return this.models.length;
     }
 
-    public ModelInterface get(int i) {
+    public ModelConfigInterface get(int i) {
         if (i>size()-1) {
             throw new EoException("Index out of bounds " + i + ">" + size());
         }

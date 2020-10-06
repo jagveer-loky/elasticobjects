@@ -35,10 +35,12 @@
       "targetPath",
       "models",
       "condition",
-      "localCondition",
+      "startCondition",
       "overwrite",
       "logLevel",
-      "duration"
+      "duration",
+      "prepend",
+      "postpend"
     ],
     "expose": "INFO",
     "description": "Basic interface for calls ",
@@ -122,7 +124,7 @@
       "module",
       "moduleScope"
     ],
-    "superKey": "Model",
+    "superKey": "Base",
     "expose": "INFO",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -175,7 +177,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "interfaces": "Config",
-    "superKey": "ModelImpl",
+    "superKey": "BaseImpl",
     "expose": "INFO",
     "description": "Basic cache as super object for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -329,36 +331,6 @@
     "description": "Facade execution ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ExecutorCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ExecutorCallImpl": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "interfaces": "ExecutorCall",
-    "superKey": "ExecutorCall",
-    "expose": "NONE",
-    "description": "Facade execution ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "ExecutorCallImpl",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "OBJECT"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ExecutorCallList": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "expose": "NONE",
-    "description": "For a list of executors",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "ExecutorCallList",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -643,7 +615,7 @@
     },
     "author": "Werner Diwischek"
   },
-  "Model": {
+  "Base": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
@@ -655,8 +627,8 @@
     ],
     "expose": "INFO",
     "description": "Basic bean as super interface for other cached items. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "Model",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
+    "modelKey": "Base",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -667,7 +639,7 @@
   "ModelConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "ModelInterface",
+    "interfaces": "ModelConfigInterface",
     "superKey": "ConfigImpl",
     "expose": "INFO",
     "description": "Table definitions with pojo.",
@@ -770,14 +742,14 @@
     },
     "author": "Werner Diwischek"
   },
-  "ModelImpl": {
+  "BaseImpl": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "Model",
+    "interfaces": "Base",
     "expose": "INFO",
     "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
+    "modelKey": "BaseImpl",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -785,7 +757,7 @@
     },
     "author": "Werner Diwischek"
   },
-  "ModelInterface": {
+  "ModelConfigInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
@@ -800,7 +772,7 @@
     "expose": "INFO",
     "description": "Table definitions with pojo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelInterface",
+    "modelKey": "ModelConfigInterface",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -938,8 +910,6 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "startDirective",
-      "endDirective",
       "templateKey",
       "keepCall",
       "fileName",

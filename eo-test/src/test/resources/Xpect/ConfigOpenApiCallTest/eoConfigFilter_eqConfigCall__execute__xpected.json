@@ -47,7 +47,7 @@
             "description": "A condition for calls. ",
             "type": "string"
           },
-          "localCondition": {
+          "startCondition": {
             "description": "A condition for calls. ",
             "type": "string"
           },
@@ -72,6 +72,14 @@
             "description": "The duration of a call.",
             "type": "integer",
             "format": "int62"
+          },
+          "prepend": {
+            "description": "prepend String when executed by ExecutorCallImpl",
+            "type": "string"
+          },
+          "postpend": {
+            "description": "postpend String when executed by ExecutorCallImpl",
+            "type": "string"
           }
         }
       }

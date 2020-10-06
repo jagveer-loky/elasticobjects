@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
+import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -75,7 +76,7 @@ public class FieldConfigTest {
 
     @Test
     public void findFieldConfigInModelCache()  {
-        final ModelInterface fieldModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
+        final ModelConfigInterface fieldModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldConfig.class.getSimpleName());
         Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
         Assert.assertEquals(FieldConfig.class, fieldModel.getModelClass());
     }
@@ -84,7 +85,7 @@ public class FieldConfigTest {
     @Ignore
     @Test
     public void getId()  {
-        final FieldConfig idConfig = ProviderRootTestScope.EO_CONFIGS.findField(Model.ID);
+        final FieldConfig idConfig = ProviderRootTestScope.EO_CONFIGS.findField(Base.ID);
         Assert.assertEquals(Long.class, idConfig.getModelConfig().getModelClass());
     }
 
@@ -92,8 +93,8 @@ public class FieldConfigTest {
 
     @Test
     public void assertId()  {
-        FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(Model.ID);
-        Assert.assertEquals(Model.ID, field.getFieldKey());
+        FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(Base.ID);
+        Assert.assertEquals(Base.ID, field.getFieldKey());
         Assert.assertEquals(S_BOOLEAN, field.getUnique());
         Assert.assertEquals(S_BOOLEAN, field.getNotNull());
         Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());

@@ -4,7 +4,7 @@
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "templates/java/bean",
-    "fileName": "CALL_BEANCreate.tpl",
+    "fileName": "BEANCreate.tpl",
     "expose": "INFO",
     "cached": "false",
     "properties": {

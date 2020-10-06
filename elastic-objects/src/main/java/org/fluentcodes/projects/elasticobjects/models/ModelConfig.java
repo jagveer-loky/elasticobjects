@@ -31,15 +31,15 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
     private final String interfaces;
 
     private Class modelClass;
-    private ModelInterface superModel;
+    private ModelConfigInterface superModel;
 
     private final List<String> localFieldKeys;
 
     //resolved
     private final List<String> fieldKeys;
     private final Map<String, FieldConfig> fieldCacheMap;
-    private final Map<String, ModelInterface> importClasses;
-    private final Map<String, ModelInterface> interfacesMap;
+    private final Map<String, ModelConfigInterface> importClasses;
+    private final Map<String, ModelConfigInterface> interfacesMap;
 
     public ModelConfig(EOConfigsCache configsCache, Map map) {
         super(configsCache, map);
@@ -200,12 +200,12 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
         return modelClass;
     }
 
-    public Map<String, ModelInterface> getImportClasses() {
+    public Map<String, ModelConfigInterface> getImportClasses() {
         resolve();
         return importClasses;
     }
 
-    public ModelInterface getImportClasses(final String fieldName) {
+    public ModelConfigInterface getImportClasses(final String fieldName) {
         resolve();
         return this.importClasses.get(fieldName);
     }
@@ -246,7 +246,7 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
         }
     }
 
-    public ModelInterface getSuperModel()  {
+    public ModelConfigInterface getSuperModel()  {
         resolve();
         return superModel;
     }
@@ -255,7 +255,7 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
         if (superKey == null || superKey.isEmpty()) {
             return;
         }
-        ModelInterface model = getConfigsCache().findModel(superKey);
+        ModelConfigInterface model = getConfigsCache().findModel(superKey);
         this.superModel = model;
     }
 
@@ -367,7 +367,7 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
         return this.get(getIdKey(), object);
     }*/
 
-    public boolean equals(ModelInterface modelCache) {
+    public boolean equals(ModelConfigInterface modelCache) {
         if (modelKey == null) {
             return false;
         }

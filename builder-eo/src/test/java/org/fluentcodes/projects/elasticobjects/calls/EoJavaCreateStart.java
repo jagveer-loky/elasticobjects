@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.assets.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.configs.EoJavaCreate;
 import org.fluentcodes.projects.elasticobjects.calls.configs.Moduls;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
 import org.junit.Test;
 
@@ -24,13 +25,7 @@ public class EoJavaCreateStart {
     }
 
     @Test
-    public void naturalIdCallImpl__execute__logEmpty() {
-        EO eo = EoJavaCreate.EXECUTE(Moduls.EO.getName(), "main", CallImpl.class.getSimpleName());
-        Assertions.assertThat(eo.getLog()).isEmpty();
-    }
-
-    @Test
-    public void naturalIdConfigImpl__execute__logEmpty() {
+    public void __execute__logEmpty() {
         EO eo = EoJavaCreate.EXECUTE(Moduls.EO.getName(), "main", ConfigImpl.class.getSimpleName());
         Assertions.assertThat(eo.getLog()).isEmpty();
     }

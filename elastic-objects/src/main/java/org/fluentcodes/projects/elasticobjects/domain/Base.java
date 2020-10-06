@@ -1,11 +1,11 @@
-package org.fluentcodes.projects.elasticobjects.models;
+package org.fluentcodes.projects.elasticobjects.domain;
 
 import java.util.Date;
 
 /**
  * Created by Werner on 10.10.2017.
  */
-public interface Model {
+public interface Base {
 
     String AUTHOR = "author";
     String CREATION_DATE = "creationDate";
@@ -13,8 +13,6 @@ public interface Model {
     String ID = "id";
     String MODIFICATION_DATE = "modificationDate";
     String NATURAL_ID = "naturalId";
-;
-    //<call keep="JAVA" templateKey="InterfacesBeanSetter.tpl">
 
     Long getId();
 
@@ -26,13 +24,11 @@ public interface Model {
 
     String getNaturalId();
 
-    Model setNaturalId(String naturalId);
+    Base setNaturalId(String naturalId);
 
     Date getCreationDate();
 
     void setCreationDate(Date creationDate);
-
-
     Date getModificationDate();
 
     void setCreationDate();

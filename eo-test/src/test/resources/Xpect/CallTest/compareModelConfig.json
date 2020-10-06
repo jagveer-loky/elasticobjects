@@ -8,20 +8,24 @@
       "1": "targetPath",
       "2": "models",
       "3": "condition",
-      "4": "localCondition",
+      "4": "startCondition",
       "5": "overwrite",
       "6": "logLevel",
-      "7": "duration"
+      "7": "duration",
+      "8": "prepend",
+      "9": "postpend"
     },
     "(ArrayList)fieldKeys": {
       "0": "sourcePath",
       "1": "targetPath",
       "2": "models",
       "3": "condition",
-      "4": "localCondition",
+      "4": "startCondition",
       "5": "overwrite",
       "6": "logLevel",
-      "7": "duration"
+      "7": "duration",
+      "8": "prepend",
+      "9": "postpend"
     },
     "(Expose)expose": "INFO",
     "properties": {

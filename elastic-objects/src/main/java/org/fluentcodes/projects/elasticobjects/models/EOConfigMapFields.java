@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.lang.reflect.Constructor;
@@ -9,8 +10,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.EXPOSE;
-import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.models.Config.EXPOSE;
+import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 
 /**
  * Created by Werner on 10.10.2016.
@@ -26,7 +27,7 @@ public class EOConfigMapFields extends EOConfigMap {
     protected void addBasicConfigs() {
         Map<String, Object> map = new HashMap<>();
         Map<String, Object> eoParamsMap = new HashMap<>();
-        map.put(Model.NATURAL_ID, "log");
+        map.put(Base.NATURAL_ID, "log");
         map.put(FieldConfig.FIELD_KEY, "log");
         map.put(FieldConfig.MODEL_KEYS, "String");
         addConfigByMap(map);

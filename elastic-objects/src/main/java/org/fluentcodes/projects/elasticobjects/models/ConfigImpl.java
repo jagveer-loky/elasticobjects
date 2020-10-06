@@ -1,9 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.java" keepCall="JAVA" ]
+// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
 //$[/]
 import java.util.LinkedHashMap;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
@@ -13,19 +14,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 /**
  * Created by Werner on 10.10.2016.
  */
-public abstract class ConfigImpl extends ModelImpl implements Config {
-    public static final String CONFIG_MODEL_KEY = "configModelKey";
-// $[(TemplateResourceCall)fieldKeys/* configKey="ALLStaticNames.java" keepCall="JAVA"]
-    public static final String SCOPE = "scope";
-    public static final String EXPOSE = "expose";
-    public static final String PROPERTIES = "properties";
-    public static final String MODULE = "module";
-    public static final String MODULE_SCOPE = "moduleScope";
-//$[/]
-
-// $[(TemplateResourceCall)fieldKeys/* configKey="CONFIGInstanceVars.tpl" keepCall="JAVA"]
+public abstract class ConfigImpl extends BaseImpl implements Config {
+ // $[(TemplateResourceCall)fieldKeys/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"]
     private final List<Scope> scope;
-    private Expose expose;
+    private  Expose expose;
     private final Map properties;
     private final String module;
     private final String moduleScope;
@@ -70,19 +62,8 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         return getNaturalId();
     }
 
-
     public String getConfigModelKey() {
         return configModelKey;
-    }
-
-    @Override
-    public void setExpose(Expose expose) {
-        this.expose = expose;
-    }
-
-    @Override
-    public boolean hasExpose() {
-        return expose != null && expose != Expose.NONE;
     }
 
     protected boolean isResolved() {
@@ -140,26 +121,42 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
         }
     }
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="CONFIGSetter.tpl" keepCall="JAVA"]
+// $[(TemplateResourceCall)fieldKeys/* configKey="ALLSetter.tpl" keepCall="JAVA"]
     /**
      A scope for the cache value.
      */
+
     @Override
     public final List<Scope> getScope () {
         return this.scope;
+    }
+    @Override
+    public boolean hasScope () {
+        return scope != null  && !scope.isEmpty();
     }
 
     /**
      expose
      */
+
+    @Override
+    public final ConfigImpl setExpose(Expose expose) {
+        this.expose = expose;
+        return this;
+    }
     @Override
     public final Expose getExpose () {
         return this.expose;
+    }
+    @Override
+    public boolean hasExpose () {
+        return expose != null ;
     }
 
     /**
      Properties for configurations.
      */
+
     @Override
     public final Map getProperties () {
         return this.properties;
@@ -172,6 +169,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     /**
      Defines a target module where generating occurs.
      */
+
     @Override
     public final String getModule () {
         return this.module;
@@ -184,6 +182,7 @@ public abstract class ConfigImpl extends ModelImpl implements Config {
     /**
      Defines scope of the configuration within module, eg 'test' or 'main' .
      */
+
     @Override
     public final String getModuleScope () {
         return this.moduleScope;

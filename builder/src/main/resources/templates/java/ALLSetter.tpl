@@ -1,8 +1,8 @@
-$[(TemplateCall)/FieldConfig/eo->_value. ]
+$[(TemplateCall)/FieldConfig/eo->_parent. ]
     /**
     $[description]
     */
-    $[(TemplateCall). localCondition="javaGenFieldFinal ne final"]
+    $[(TemplateCall). condition="javaGenFieldFinal ne final"]
     $[javaGenFieldOverride]
     public final $[/modelKey] set$[(StringUpperFirstCharCall)fieldKey /]($[javaGenFieldType] $[fieldKey]) {
         this.$[fieldKey] = $[fieldKey];
@@ -14,6 +14,6 @@ $[(TemplateCall)/FieldConfig/eo->_value. ]
     }
     $[javaGenFieldOverride]
     public boolean has$[(StringUpperFirstCharCall)fieldKey /] () {
-        return $[fieldKey] != null $[(TemplateCall). localCondition="javaGenFieldType eq String || javaGenFieldType like Map || javaGenFieldType like List" ] && !$[fieldKey].isEmpty()$[/];
+        return $[fieldKey] != null $[(TemplateCall). condition="javaGenFieldType eq String || javaGenFieldType like Map || javaGenFieldType like List" ] && !$[fieldKey].isEmpty()$[/];
     }
 $[/]

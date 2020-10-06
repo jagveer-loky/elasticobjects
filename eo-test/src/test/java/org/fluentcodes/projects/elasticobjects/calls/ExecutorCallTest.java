@@ -13,10 +13,8 @@ import org.junit.Test;
  * Created by Werner on 9.7.2017.
  */
 public class ExecutorCallTest {
-    private static final Logger LOG = LogManager.getLogger(ExecutorCallTest.class);
-
     @Test
-    public void givenModel_whenCreate_thenThrowsException()  {
+    public void modelConfig__create__exception()  {
         final ModelConfig model = ProviderRootTestScope
                 .EO_CONFIGS
                 .findModel(ExecutorCall.class);
@@ -28,6 +26,4 @@ public class ExecutorCallTest {
                 .hasMessageContaining("Could not create empty instance from model for 'ExecutorCall'");
         Assertions.assertThat(model.getFieldKeys()).isEmpty();
     }
-
-
 }

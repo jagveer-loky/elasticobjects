@@ -1,5 +1,5 @@
 package $[packagePath];
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.java" keepCall="JAVA" /]
+// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" /]
 
 /**
  * $[description]
@@ -7,7 +7,7 @@ package $[packagePath];
  */
 public interface $[modelKey]$[javaGenExtend]$[javaGenImplement] {
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACEStaticNames.java" keepCall="JAVA"/]
+// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACEStaticNames.tpl" keepCall="JAVA"/]
 
 // $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACESetter.tpl" keepCall="JAVA"/]
 }

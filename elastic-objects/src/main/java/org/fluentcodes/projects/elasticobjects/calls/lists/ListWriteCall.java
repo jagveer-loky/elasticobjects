@@ -7,9 +7,7 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.CallResource;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.models.Model;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.domain.Base;
 
 import java.util.*;
 
@@ -118,7 +116,7 @@ public class ListWriteCall extends CallResource implements ListInterface {
         Map<String, Integer> keyPosition = new LinkedHashMap<>();
         boolean externalKey = true;
         if (keys == null || keys.isEmpty()) {
-            keyPosition.put(Model.NATURAL_ID, 0);
+            keyPosition.put(Base.NATURAL_ID, 0);
             externalKey = false;
         }
         else {

@@ -6,7 +6,7 @@ public class FieldHelper {
     private final Map<String,Map<String, Object>> fieldModifier;
     private final List<String> fieldKeys;
 
-    protected FieldHelper(Object raw, String ignoreKey) {
+    protected FieldHelper(Object raw, String... ignoreKeys) {
         if (raw == null) {
             fieldModifier = null;
             fieldKeys = null;
@@ -27,10 +27,16 @@ public class FieldHelper {
         } else if ((raw instanceof Map) && !((Map) raw).isEmpty()) {
             fieldModifier.putAll((Map<String, Map<String, Object>>) raw);
             for (String key : fieldModifier.keySet()) {
-                if (fieldModifier.get(key).containsKey(ignoreKey)) {
-                    continue;
+                boolean skip = false;
+                for (String ignoreKey:ignoreKeys) {
+                    if (fieldModifier.get(key).containsKey(ignoreKey)) {
+                        skip =true;
+                        break;
+                    }
                 }
-                fieldKeys.add(key);
+                if (!skip) {
+                    fieldKeys.add(key);
+                }
             }
         }
     }

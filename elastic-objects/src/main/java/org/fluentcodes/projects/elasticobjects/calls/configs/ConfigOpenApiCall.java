@@ -156,7 +156,7 @@ public class ConfigOpenApiCall extends CallImpl {
             else if (fieldModels.isList()) {
                 EO array = field.set("array", "$ref");
                 if (fieldModels.hasChildModel()) {
-                    ModelInterface childModel = fieldModels.getChildModel();
+                    ModelConfigInterface childModel = fieldModels.getChildModel();
                     array.setEmpty("items");
                     if (childModel.isScalar()) {
                         array.set(JsonTypes.getType(childModel.getModelClass()), "type");
