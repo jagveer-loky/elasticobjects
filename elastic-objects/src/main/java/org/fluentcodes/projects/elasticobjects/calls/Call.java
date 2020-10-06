@@ -1,5 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
-// $[(TemplateResourceCall)javaGenImport/* templateKey="ALLImport.tpl" keepCall="JAVA" ]
+// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 //$[/]
 import org.fluentcodes.projects.elasticobjects.EO;

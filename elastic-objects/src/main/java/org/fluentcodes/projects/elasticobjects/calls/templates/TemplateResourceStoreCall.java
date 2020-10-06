@@ -12,8 +12,8 @@ public class TemplateResourceStoreCall extends TemplateResourceCall implements P
         super();
     }
 
-    public TemplateResourceStoreCall(String templateKey) {
-        super(templateKey);
+    public TemplateResourceStoreCall(String configKey) {
+        super(configKey);
     }
 
     public String execute(EO eo)  {

@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.AnObject;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
+import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
+import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Assert;
 import org.junit.Test;

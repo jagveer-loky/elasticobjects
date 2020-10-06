@@ -1,6 +1,6 @@
 {
   "0": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "AnObject",
     "(ArrayList)localFieldKeys": {
       "0": "id",
@@ -50,7 +50,7 @@
     "naturalId": "AnObject"
   },
   "1": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "ASubObject",
     "(ArrayList)localFieldKeys": {
       "0": "id",

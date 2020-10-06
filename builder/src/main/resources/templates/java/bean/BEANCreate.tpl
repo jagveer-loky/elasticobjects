@@ -7,9 +7,9 @@ package $[packagePath];
  */
 public class $[modelKey]$[javaGenExtend]$[javaGenImplement]  {
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="ALLStaticNames.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLStaticNames.tpl" keepCall="JAVA"/]
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"/]
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="ALLSetter.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLSetter.tpl" keepCall="JAVA"/]
 }

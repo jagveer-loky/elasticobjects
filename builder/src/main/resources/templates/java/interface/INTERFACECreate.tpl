@@ -7,7 +7,7 @@ package $[packagePath];
  */
 public interface $[modelKey]$[javaGenExtend]$[javaGenImplement] {
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACEStaticNames.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="INTERFACEStaticNames.tpl" keepCall="JAVA"/]
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACESetter.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="INTERFACESetter.tpl" keepCall="JAVA"/]
 }

@@ -36,16 +36,6 @@ public class TemplateResourceStoreCallTest {
     }
 
     @Test
-    public void __setTemplateKey__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
-        TemplateResourceStoreCall call = new TemplateResourceStoreCall();
-
-        modelConfig.set(PropertiesTemplateResourceAccessor.TEMPLATE_KEY, call, "test");
-        Assertions.assertThat(call.getTemplateKey()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.TEMPLATE_KEY, call)).isEqualTo("test");
-    }
-
-    @Test
     public void __setKeepCall__accessOk() {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();

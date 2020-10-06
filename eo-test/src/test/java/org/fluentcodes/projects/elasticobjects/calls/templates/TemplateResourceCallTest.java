@@ -21,17 +21,6 @@ public class TemplateResourceCallTest {
         ConfigModelChecks.create(TemplateResourceCall.class);
     }
 
-
-    @Test
-    public void __setTemplateKey__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceCall.class.getSimpleName());
-        TemplateResourceCall templateResourceCall = new TemplateResourceCall();
-
-        modelConfig.set(PropertiesTemplateResourceAccessor.TEMPLATE_KEY, templateResourceCall, "test");
-        Assertions.assertThat(templateResourceCall.getTemplateKey()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.TEMPLATE_KEY, templateResourceCall)).isEqualTo("test");
-    }
-
     @Test
     public void __setKeepCall__accessOk() {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceCall.class.getSimpleName());

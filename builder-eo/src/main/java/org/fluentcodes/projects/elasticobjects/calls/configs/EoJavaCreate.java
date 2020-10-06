@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateJavaCall;
 import org.fluentcodes.projects.elasticobjects.calls.xlsx.XlsxReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
@@ -20,7 +21,7 @@ public class EoJavaCreate {
         if (eo.getEo(ModelConfig.class.getSimpleName()).isEmpty()) {
             throw new EoException("Empty modelConfig entries for module='" + module + "' moduleScope='" + moduleScope + "' filter='" + filter + "'.");
         }
-        JavaCreateCall call = new JavaCreateCall();
+        GenerateJavaCall call = new GenerateJavaCall();
         call.setBuildPath("..");
         call.setFileEnding("javax");
         call.setModule(module);

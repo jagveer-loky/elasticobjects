@@ -544,7 +544,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "listParams"
+      "listParams",
+      "rowHead",  "rowStart",  "rowEnd",  "length",  "filter", "colKeys"
     ],
     "expose": "INFO",
     "description": "Defines default access values for ListParams",
@@ -586,6 +587,7 @@
       "listParams"
     ],
     "superKey": "CallResource",
+    "interfaces": "ListInterface",
     "expose": "INFO",
     "description": "Defines the parameter listParams.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -910,7 +912,6 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "templateKey",
       "keepCall",
       "fileName",
       "configKey"

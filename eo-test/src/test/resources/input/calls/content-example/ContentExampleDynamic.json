@@ -3,10 +3,10 @@
     "configKey":"ContentExampleData"
   },
   "(TemplateCall)1": {
-    "content":"Start of content with a templateKey as variable: "
+    "content":"Start of content with a configKey as variable: "
   },
   "(TemplateResourceCall)2": {
     "sourcePath": "data/*",
-    "templateKey":"eo->template."
+    "configKey":"eo->template."
   }
 }
