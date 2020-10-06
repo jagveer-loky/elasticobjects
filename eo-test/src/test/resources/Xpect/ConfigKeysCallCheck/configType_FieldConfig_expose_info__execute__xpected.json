@@ -77,9 +77,8 @@
   "74": "superKey",
   "75": "targetFile",
   "76": "targetPath",
-  "77": "templateKey",
-  "78": "toReplace",
-  "79": "user",
-  "80": "value",
+  "77": "toReplace",
+  "78": "user",
+  "79": "value",
   "(LogLevel)_logLevel": "WARN"
 }

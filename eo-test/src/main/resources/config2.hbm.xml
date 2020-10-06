@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="org.clearcodes.projects.elasticobjects.assets">
 
-    <class name="org.fluentcodes.projects.elasticobjects.assets.AnObject" table="AnObject">
+    <class name="org.fluentcodes.projects.elasticobjects.domain.test.AnObject" table="AnObject">
 
         <id name="id" length="8">
             <generator class="native"/>
@@ -23,7 +23,7 @@
         <many-to-one name="testObject" length="10"/>
     </class>
 
-    <class name="org.fluentcodes.projects.elasticobjects.assets.ASubObject" table="ASubObject">
+    <class name="org.fluentcodes.projects.elasticobjects.domain.test.ASubObject" table="ASubObject">
 
         <id name="id" length="8">
             <generator class="native"/>

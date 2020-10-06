@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;

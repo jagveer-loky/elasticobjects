@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.assets.AnObject;
-import org.fluentcodes.projects.elasticobjects.assets.TestProviderAnObjectJson;
+import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
+import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;

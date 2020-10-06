@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateJsonConfigCall;
 import org.fluentcodes.projects.elasticobjects.calls.xlsx.XlsxReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
@@ -12,7 +13,7 @@ public class EoJsonCreate {
 
     public static EO EXECUTE(final String configType, final String module) {
         EO eo = READ(configType, module);
-        EoJsonCreateCall call = new EoJsonCreateCall(configType);
+        GenerateJsonConfigCall call = new GenerateJsonConfigCall(configType);
         call.setBuildPath("..");
         call.setFileEnding("json");
         if (module != null) {

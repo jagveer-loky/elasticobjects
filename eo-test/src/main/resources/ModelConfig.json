@@ -21,7 +21,7 @@
     ],
     "expose": "WEB",
     "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "AnObject",
     "properties": {
       "classPath": "src.main.java",
@@ -41,7 +41,7 @@
     ],
     "expose": "WEB",
     "description": "A sub object as an example.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.assets",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "ASubObject",
     "properties": {
       "classPath": "src.main.java",

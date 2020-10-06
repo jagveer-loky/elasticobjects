@@ -1,4 +1,4 @@
-$[(TemplateCall)/FieldConfig/eo->_parent. ]
+$[(TemplateCall)/FieldConfig/eo->_value. ]
     /**
     $[description]
     */

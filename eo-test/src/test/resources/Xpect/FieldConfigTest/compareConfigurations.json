@@ -82,9 +82,12 @@
     "fieldKey": "colKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
-      "0": "ListParams"
+      "0": "ListParams",
+      "1": "ListInterface",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects"
@@ -604,9 +607,12 @@
     "fieldKey": "filter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "ListParams"
+      "0": "ListParams",
+      "1": "ListInterface",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects"
@@ -888,9 +894,12 @@
     "fieldKey": "length",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams"
+      "0": "ListParams",
+      "1": "ListInterface",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects"
@@ -1798,9 +1807,12 @@
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams"
+      "0": "ListParams",
+      "1": "ListInterface",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects"
@@ -1814,9 +1826,12 @@
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams"
+      "0": "ListParams",
+      "1": "ListInterface",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects"
@@ -1830,9 +1845,12 @@
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams"
+      "0": "ListParams",
+      "1": "ListInterface",
+      "2": "ListReadCall",
+      "3": "ScsReadCall"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects"
@@ -2138,25 +2156,6 @@
     "naturalId": "targetPath"
   },
   "108": {
-    "fieldKey": "templateKey",
-    "modelKeys": "String",
-    "(ArrayList)modelList": {
-      "0": "PropertiesTemplateResourceAccessor",
-      "1": "PropertiesTemplateResourceStoreAccessor",
-      "2": "TemplateResourceCall",
-      "3": "TemplateResourceStoreCall"
-    },
-    "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects"
-    },
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "description": "The templateKey used to get the file content in templateResourceCall",
-    "naturalId": "templateKey"
-  },
-  "109": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2172,7 +2171,7 @@
     "description": "toReplace",
     "naturalId": "toReplace"
   },
-  "110": {
+  "109": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -2185,7 +2184,7 @@
     "description": "unique",
     "naturalId": "unique"
   },
-  "111": {
+  "110": {
     "fieldKey": "ID",
     "modelKeys": "Long",
     "(Expose)expose": "NONE",
@@ -2201,7 +2200,7 @@
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "112": {
+  "111": {
     "fieldKey": "user",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2217,7 +2216,7 @@
     "description": "user",
     "naturalId": "user"
   },
-  "113": {
+  "112": {
     "fieldKey": "value",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2233,7 +2232,7 @@
     "description": "value",
     "naturalId": "value"
   },
-  "114": {
+  "113": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -2246,7 +2245,7 @@
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "115": {
+  "114": {
     "fieldKey": "write",
     "modelKeys": "String",
     "(ArrayList)modelList": {

@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.assets.ASubObject;
+import org.fluentcodes.projects.elasticobjects.domain.test.ASubObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;

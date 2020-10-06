@@ -17,10 +17,10 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
  */
 public abstract class CallImpl extends BaseImpl implements Call {
 
-    // $[(TemplateResourceCall)fieldKeys/* templateKey="ALLStaticNames.java" keepCall="JAVA"]
+    // $[(TemplateResourceCall)fieldKeys/* configKey="ALLStaticNames.java" keepCall="JAVA"]
 //$[/]
 
-// $[(TemplateResourceCall)fieldKeys/* templateKey="ALLInstanceVars.tpl" keepCall="JAVA"]
+// $[(TemplateResourceCall)fieldKeys/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"]
     private String sourcePath;
     private String targetPath;
     private String models;
@@ -114,7 +114,7 @@ public abstract class CallImpl extends BaseImpl implements Call {
         return overwrite;
     }
 
-    // $[(TemplateResourceCall)fieldKeys/* templateKey="AllSetter.tpl" keepCall="JAVA"]
+    // $[(TemplateResourceCall)fieldKeys/* configKey="AllSetter.tpl" keepCall="JAVA"]
     /**
      A sourcePath where EO offers it's input value when the execution starts.
      */

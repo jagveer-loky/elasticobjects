@@ -135,7 +135,7 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
     public String getModelKey() {
         return this.modelKey;
     }
-    //<call keep="JAVA" templateKey="CacheGetter.tpl" }
+    //<call keep="JAVA" configKey="CacheGetter.tpl" }
 
     @Override
     public boolean hasKey(Path path) {

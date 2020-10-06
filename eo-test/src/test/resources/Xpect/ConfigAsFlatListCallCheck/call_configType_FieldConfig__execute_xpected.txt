@@ -107,7 +107,6 @@
 "table";"String";"The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.";"elastic-objects";"";"table";"";"";"";"";
 "targetFile";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
 "targetPath";"String";"A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.";"elastic-objects";"";"targetPath";"";"";"";"";
-"templateKey";"String";"The templateKey used to get the file content in templateResourceCall";"elastic-objects";"";"templateKey";"";"";"";"";
 "toReplace";"String";"toReplace";"elastic-objects";"";"toReplace";"";"";"";"";
 "unique";"Boolean";"unique";"elastic-objects";"";"unique";"";"";"";"";
 "upper.ID";"Long";"Alias for id with uppercase.";"elastic-objects";"";"ID";"";"";"";"";

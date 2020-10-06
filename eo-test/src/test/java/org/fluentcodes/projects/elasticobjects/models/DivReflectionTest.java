@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.assets.AnObject;
+import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.junit.Assert;
 import org.junit.Test;
 
