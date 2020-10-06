@@ -68,7 +68,7 @@ public class ModelConfigObject extends ModelConfig {
         return null;
     }
     @Override
-    public ModelInterface getFieldModel(final String fieldName)  {
+    public ModelConfigInterface getFieldModel(final String fieldName)  {
         resolve();
         return getFieldConfig(fieldName).getModelConfig();
     }
@@ -77,7 +77,7 @@ public class ModelConfigObject extends ModelConfig {
         return getFieldConfig(fieldName).getModels();
     }
 
-    public ModelInterface getFieldChild(final String fieldName)  {
+    public ModelConfigInterface getFieldChild(final String fieldName)  {
         return getFieldConfig(fieldName).getChildModel();
     }
 
@@ -241,7 +241,7 @@ public class ModelConfigObject extends ModelConfig {
                 throw new EoException(e);
             }
         } else {
-            ModelInterface implementation = getConfigsCache().findModel(getDefaultImplementation());
+            ModelConfigInterface implementation = getConfigsCache().findModel(getDefaultImplementation());
             try {
                 return implementation.getModelClass().newInstance();
             } catch (Exception e) {
@@ -260,7 +260,7 @@ public class ModelConfigObject extends ModelConfig {
             return;
         }
         for (String fieldKey : getFieldKeys()) {
-            ModelInterface type;
+            ModelConfigInterface type;
             String fieldName;
             try {
                 FieldConfig fieldConfig = null;

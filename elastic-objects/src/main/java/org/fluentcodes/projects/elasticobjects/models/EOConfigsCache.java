@@ -180,7 +180,7 @@ public class EOConfigsCache {
         return (FileConfig) find(FileConfig.class, key);
     }
 
-    public ModelInterface findModel(final Object modelValue)  {
+    public ModelConfigInterface findModel(final Object modelValue)  {
         if (modelValue == null) {
             throw new EoException("null model value");
         }

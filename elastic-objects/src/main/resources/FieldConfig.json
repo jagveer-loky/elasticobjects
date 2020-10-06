@@ -563,13 +563,13 @@
       "classPath": "src.main.resources"
     }
   },
-  "localCondition": {
+  "startCondition": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A condition for calls. ",
     "expose": "WEB",
-    "fieldKey": "localCondition",
+    "fieldKey": "startCondition",
     "length": 1000,
     "properties": {
       "classPath": "src.main.resources"
@@ -805,6 +805,30 @@
     "description": "port",
     "expose": "INFO",
     "fieldKey": "port",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "postpend": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "postpend String when executed by ExecutorCallImpl",
+    "expose": "INFO",
+    "fieldKey": "postpend",
+    "length": 256,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "prepend": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "prepend String when executed by ExecutorCallImpl",
+    "expose": "INFO",
+    "fieldKey": "prepend",
+    "length": 256,
     "properties": {
       "classPath": "src.main.resources"
     }

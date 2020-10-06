@@ -5,8 +5,8 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.models.Model;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.domain.Base;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -56,7 +56,7 @@ public class EoChild implements EO {
         if (value == null) {
             return;
         }
-        ModelInterface valueModel = getConfigsCache().findModel(value);
+        ModelConfigInterface valueModel = getConfigsCache().findModel(value);
         if (valueModel.isScalar()) {
             if (isScalar()) {
                 setValueChecked(value);
@@ -251,7 +251,7 @@ public class EoChild implements EO {
         if (value == null) {
             return this;
         }
-        ModelInterface valueModel = getConfigsCache().findModel(value);
+        ModelConfigInterface valueModel = getConfigsCache().findModel(value);
         if (valueModel.isScalar()) {
             if (isScalar()) {
                 setValueChecked(value);
@@ -264,7 +264,7 @@ public class EoChild implements EO {
                         return this;
                     }
                     value = getModel().create();
-                    getModel().set(Model.ID, value, id);
+                    getModel().set(Base.ID, value, id);
                     valueModel = getModel();
                 }
                 else if (!((value instanceof String) && JSONToEO.jsonPattern.matcher((String)value).find())) {
@@ -730,7 +730,7 @@ public class EoChild implements EO {
     public Models getModels() {
         return pathElement.getModels();
     }
-    public ModelInterface getModel() {
+    public ModelConfigInterface getModel() {
         return getModels().getModel();
     }
     public Models getChildModels(PathElement pathElement) {

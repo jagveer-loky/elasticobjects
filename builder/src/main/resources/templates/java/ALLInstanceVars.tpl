@@ -1,2 +1,2 @@
-$[(TemplateCall)/FieldConfig/eo->_value. ]
+$[(TemplateCall)/FieldConfig/eo->_parent. ]
    private $[javaGenFieldFinal] $[javaGenFieldType] $[fieldKey]; $[/]

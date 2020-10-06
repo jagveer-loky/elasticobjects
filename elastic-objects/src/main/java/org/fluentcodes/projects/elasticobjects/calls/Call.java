@@ -1,95 +1,106 @@
 package org.fluentcodes.projects.elasticobjects.calls;
-// $[(TemplateResourceCall)javaGenImport/* templateKey="ALLImport.java" keepCall="JAVA" ]
+// $[(TemplateResourceCall)javaGenImport/* templateKey="ALLImport.tpl" keepCall="JAVA" ]
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 //$[/]
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 
 /**
  * Basic interface for calls 
  * Created by Werner Diwischek on 29.9.2020.
  */
 public interface Call   {
-
-// $[(TemplateResourceCall)fieldKeys/* templateKey="INTERFACEStaticNames.java" keepCall="JAVA"]
-   static final String SOURCE_PATH = "sourcePath"; 
-   static final String TARGET_PATH = "targetPath"; 
-   static final String MODELS = "models"; 
-   static final String CONDITION = "condition"; 
-   static final String LOCAL_CONDITION = "localCondition"; 
-   static final String OVERWRITE = "overwrite"; 
-   static final String LOG_LEVEL = "logLevel"; 
-   static final String DURATION = "duration"; 
+    String TARGET_AS_STRING = "_asString";
+    // $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACEStaticNames.tpl" keepCall="JAVA"]
+    static final String SOURCE_PATH = "sourcePath";
+    static final String TARGET_PATH = "targetPath";
+    static final String MODELS = "models";
+    static final String CONDITION = "condition";
+    static final String START_CONDITION = "startCondition";
+    static final String OVERWRITE = "overwrite";
+    static final String LOG_LEVEL = "logLevel";
+    static final String DURATION = "duration";
+    static final String PREPEND = "prepend";
+    static final String POSTPEND = "postpend";
 //$[/]
-
     Object execute(final EO eo);
-
     void setPathByTemplate(final Path templatePath);
-    void setInTemplate(Boolean inTemplate);
-    Boolean getInTemplate();
-    Boolean isInTemplate();
-    boolean filter(EO eo);
-    boolean localFilter(EO eo);
+    default boolean isTargetAsString() {
+        return TARGET_AS_STRING.equals(getTargetPath());
+    }
 
-    String prepend();
-    String postPend();
+// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACESetter.tpl" keepCall="JAVA"]
+    /**
+     A sourcePath where EO offers it's input value when the execution starts.
+     */
+    String getSourcePath();
+    Call setSourcePath (String sourcePath);
+    boolean hasSourcePath();
 
-// $[(TemplateResourceCall)fieldKeys/* templateKey="INTERFACESetter.tpl" keepCall="JAVA"]
-  /**
-  A sourcePath where EO offers it's input value when the execution starts.
-  */
-  String getSourcePath();
-  Call setSourcePath (String sourcePath);
-  boolean hasSourcePath();
+    /**
+     A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.
+     */
+    String getTargetPath();
+    Call setTargetPath (String targetPath);
+    boolean hasTargetPath();
 
-  /**
-  A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.
-  */
-  String getTargetPath();
-  Call setTargetPath (String targetPath);
-  boolean hasTargetPath();
+    /**
+     A string representation for a list of model keys.
+     */
+    String getModels();
+    Call setModels (String models);
+    boolean hasModels();
 
-  /**
-  A string representation for a list of model keys.
-  */
-  String getModels();
-  Call setModels (String models);
-  boolean hasModels();
+    /**
+     A condition for calls.
+     */
+    String getCondition();
+    Call setCondition (String condition);
+    boolean hasCondition();
 
-  /**
-  A condition for calls. 
-  */
-  String getCondition();
-  Call setCondition (String condition);
-  boolean hasCondition();
+    /**
+     A condition for calls.
+     */
+    String getStartCondition();
+    Call setStartCondition (String startCondition);
+    boolean hasStartCondition();
 
-  /**
-  A condition for calls. 
-  */
-  String getLocalCondition();
-  Call setLocalCondition (String localCondition);
-  boolean hasLocalCondition();
+    /**
+     overwrite
+     */
+    Boolean getOverwrite();
+    Call setOverwrite (Boolean overwrite);
+    boolean hasOverwrite();
 
-  /**
-  overwrite
-  */
-  Boolean getOverwrite();
-  Call setOverwrite (Boolean overwrite);
-  boolean hasOverwrite();
+    /**
+     logLevel
+     */
+    LogLevel getLogLevel();
+    Call setLogLevel (LogLevel logLevel);
+    boolean hasLogLevel();
 
-  /**
-  logLevel
-  */
-  LogLevel getLogLevel();
-  Call setLogLevel (LogLevel logLevel);
-  boolean hasLogLevel();
+    /**
+     The duration of a call.
+     */
+    Long getDuration();
+    Call setDuration (Long duration);
+    boolean hasDuration();
 
-  /**
-  The duration of a call.
-  */
-  Long getDuration();
-  Call setDuration (Long duration);
-  boolean hasDuration();
+    /**
+     prepend String when executed by ExecutorCallImpl
+     */
+    String getPrepend();
+    Call setPrepend (String prepend);
+    boolean hasPrepend();
+
+    /**
+     postpend String when executed by ExecutorCallImpl
+     */
+    String getPostpend();
+    Call setPostpend (String postpend);
+    boolean hasPostpend();
 
 //$[/]
 }

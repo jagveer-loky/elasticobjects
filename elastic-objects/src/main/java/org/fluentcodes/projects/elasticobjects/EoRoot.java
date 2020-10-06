@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.calls.ExecutorCallList;
+import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.List;
@@ -99,7 +99,7 @@ public class EoRoot extends EoChild {
 
     @Override
     public boolean execute() {
-        String result = new ExecutorCallList().execute(this) ;
+        String result = ExecutorCall.executeEo(this) ;
         return true;
     }
 }

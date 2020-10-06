@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.util.LinkedHashMap;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.PROPERTIES;
+import static org.fluentcodes.projects.elasticobjects.models.Config.PROPERTIES;
 
 /**
  * Created 21.9.2020
@@ -33,27 +33,6 @@ public class TemplateResourceStoreCallTest {
         modelConfig.set(PropertiesTemplateResourceStoreAccessor.TARGET_FILE, call, "test");
         Assertions.assertThat(call.getTargetFile()).isEqualTo("test");
         Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceStoreAccessor.TARGET_FILE, call)).isEqualTo("test");
-    }
-
-    @Test
-    public void __setStartDirective__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
-        
-        TemplateResourceStoreCall call = new TemplateResourceStoreCall();
-
-        modelConfig.set(PropertiesTemplateResourceAccessor.START_DIRECTIVE, call, "test");
-        Assertions.assertThat(call.getStartDirective()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.START_DIRECTIVE, call)).isEqualTo("test");
-    }
-
-    @Test
-    public void __setEndDirective__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
-        TemplateResourceStoreCall call = new TemplateResourceStoreCall();
-
-        modelConfig.set(PropertiesTemplateResourceAccessor.END_DIRECTIVE, call, "test");
-        Assertions.assertThat(call.getEndDirective()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.END_DIRECTIVE, call)).isEqualTo("test");
     }
 
     @Test

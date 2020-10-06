@@ -27,7 +27,7 @@ public class EoJsonCreateStart {
 
     @Test
     public void call_ModelConfig__execute__true() {
-        EoJsonCreate.EXECUTE(ModelConfig.class.getSimpleName(), Moduls.EO_TEST.getName());
+        EoJsonCreate.EXECUTE(ModelConfig.class.getSimpleName(), Moduls.EO.getName());
     }
 
     @Test

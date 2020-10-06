@@ -16,7 +16,7 @@ public class ModelConfigScalar extends ModelConfig {
     }
 
     @Override
-    public ModelInterface getFieldModel(final String fieldName)  {
+    public ModelConfigInterface getFieldModel(final String fieldName)  {
         throw new EoException("Could not get sub field model because no field defined for scalar models: " + fieldName);
     }
 

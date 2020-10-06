@@ -12,7 +12,7 @@ import org.fluentcodes.projects.elasticobjects.Path;
 public class JsonAsStringCall extends SimpleValueFromEoCall{
     private static final Logger LOG = LogManager.getLogger(JsonAsStringCall.class);
     public JsonAsStringCall() {
-        setInTemplate(true);
+        setTargetPath(TARGET_AS_STRING);
     }
     @Override
     public String execute(final EO eo) {

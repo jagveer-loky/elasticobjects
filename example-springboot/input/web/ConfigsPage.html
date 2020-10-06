@@ -15,36 +15,36 @@ $[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
         <h4>Github</h4>
         <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[configuration/0/module|>elastic-objects]/src/$[configuration/0/moduleScope|>main]/resources/$[configType].json">&equiv;$[configType].json</a></div>
 
-        $[(TemplateCall)configuration/0 condition="/configType eq FileConfig"]
+        $[(TemplateCall)configuration/0 startCondition="/configType eq FileConfig"]
             <div>$[(GithubLinkCall)eo->naturalId. configType="FileConfig" /]</div>
         $[/]
-        $[(TemplateCall). condition="/configType eq ModelConfig" sourcePath="configuration/0"]
+        $[(TemplateCall). startCondition="/configType eq ModelConfig" sourcePath="configuration/0"]
             <div>$[(GithubLinkCall)eo->modelKey. /]</div>
-            $[(TemplateCall). condition="module eq elastic-objects"]
+            $[(TemplateCall). startCondition="module eq elastic-objects"]
                 <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
             $[/]
-            $[(TemplateCall). condition="module ne elastic-objects"]
+            $[(TemplateCall). startCondition="module ne elastic-objects"]
                  <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|>elastic-objects]/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
             $[/]
         <h4>Fields</h4>
             $[(TemplateCall)fieldKeys/* ]
                 <div><a href="/config/FieldConfig/$[_value]">&ocir;$[_value]</a></div>
             $[/]
-            $[(TemplateCall). condition="superKey ex"]
+            $[(TemplateCall). startCondition="superKey ex"]
             <h4>Super Class</h4>
             <a href="/config/ModelConfig/$[superKey]">&ocir;$[superKey]</a>
             $[/]
-            $[(TemplateCall). condition="interfaces ex"]
+            $[(TemplateCall). startCondition="interfaces ex"]
             <h4>Interface</h4>
             <a href="/config/ModelConfig/$[interfaces]">&ocir;$[interfaces]</a>
             $[/]
-            $[(TemplateCall). condition="expose ex"]
+            $[(TemplateCall). startCondition="expose ex"]
             <h4>OpenApi</h4>
             <textarea style="height:200px">$[(JsonAsStringCall)/openApi /]</textarea>
             $[/]
         $[/]
 
-        $[(TemplateCall). condition="configType eq FieldConfig" ]
+        $[(TemplateCall). startCondition="configType eq FieldConfig" ]
         <h4>Models</h4>
             $[(TemplateCall)configuration/0/modelList/* ]
             <div><a href="/config/ModelConfig/$[_value]">&ocir;$[_value]</a></div>

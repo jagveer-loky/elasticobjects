@@ -21,26 +21,6 @@ public class TemplateResourceCallTest {
         ConfigModelChecks.create(TemplateResourceCall.class);
     }
 
-    @Test
-    public void __setDirective__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceCall.class.getSimpleName());
-        Assertions.assertThat(modelConfig).isNotNull();
-        TemplateResourceCall templateResourceCall = new TemplateResourceCall();
-
-        modelConfig.set(PropertiesTemplateResourceAccessor.START_DIRECTIVE, templateResourceCall, "test");
-        Assertions.assertThat(templateResourceCall.getStartDirective()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.START_DIRECTIVE, templateResourceCall)).isEqualTo("test");
-    }
-
-    @Test
-    public void __setEndDirective__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceCall.class.getSimpleName());
-        TemplateResourceCall templateResourceCall = new TemplateResourceCall();
-
-        modelConfig.set(PropertiesTemplateResourceAccessor.END_DIRECTIVE, templateResourceCall, "test");
-        Assertions.assertThat(templateResourceCall.getEndDirective()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.END_DIRECTIVE, templateResourceCall)).isEqualTo("test");
-    }
 
     @Test
     public void __setTemplateKey__accessOk() {

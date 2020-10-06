@@ -24,7 +24,7 @@ public class ModelConfigSet extends ModelConfig {
      */
 
     @Override
-    public ModelInterface getFieldModel(final String fieldName)  {
+    public ModelConfigInterface getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }
     @Override

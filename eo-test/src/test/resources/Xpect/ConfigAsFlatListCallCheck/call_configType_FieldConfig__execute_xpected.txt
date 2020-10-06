@@ -47,7 +47,6 @@
 "key";"String";"A generic key.";"elastic-objects";"";"key";"";"";"";"";
 "length";"Integer";"Length of a field.";"elastic-objects";"";"length";"";"";"";"";
 "listParams";"ListParams";"Filter for the readings within {@link ListAction}.";"elastic-objects";"";"listParams";"";"";"";"";
-"localCondition";"String";"A condition for calls. ";"elastic-objects";"";"localCondition";"";"";"";"";
 "localFieldKeys";"ArrayList,String";"A list of field as proivided by the model configuration. ";"elastic-objects";"";"localFieldKeys";"";"";"";"";
 "log";"String";"";"";"";"log";"";"";"";"";
 "logLevel";"LogLevel";"logLevel";"elastic-objects";"";"logLevel";"";"";"";"";
@@ -83,6 +82,8 @@
 "password";"String";"The password instance var.";"elastic-objects";"";"password";"";"";"";"";
 "Permissions.create";"String";"String representation of RolePermission create permissions";"elastic-objects";"";"create";"";"";"";"";
 "port";"Integer";"port";"elastic-objects";"";"port";"";"";"";"";
+"postpend";"String";"postpend String when executed by ExecutorCallImpl";"elastic-objects";"";"postpend";"";"";"";"";
+"prepend";"String";"prepend String when executed by ExecutorCallImpl";"elastic-objects";"";"prepend";"";"";"";"";
 "properties";"Map";"Properties for configurations.";"elastic-objects";"";"properties";"";"";"";"";
 "protocol";"String";"protocol";"elastic-objects";"";"protocol";"";"";"";"";
 "read";"String";"String representation of RolePermission read permissions";"elastic-objects";"";"read";"";"";"";"";
@@ -97,6 +98,7 @@
 "serialized";"String";"The serialized field for @{link pathPattern}.";"elastic-objects";"";"serialized";"";"";"";"";
 "shapeType";"ShapeTypes";"shapeType";"elastic-objects";"";"shapeType";"";"";"";"";
 "sourcePath";"String";"A sourcePath where EO offers it's input value when the execution starts.";"elastic-objects";"";"sourcePath";"";"";"";"";
+"startCondition";"String";"A condition for calls. ";"elastic-objects";"";"startCondition";"";"";"";"";
 "startDirective";"String";"A content included before template.";"elastic-objects";"";"startDirective";"";"";"";"";
 "SubExampleClass.name";"String";"";"";"";"name";"";"";"";"";
 "SuperExampleClass.id";"Long";"";"";"";"id";"";"";"";"";

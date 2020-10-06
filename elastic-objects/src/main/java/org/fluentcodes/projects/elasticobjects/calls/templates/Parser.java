@@ -14,7 +14,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.ExecutorCallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.values.ValueCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -37,6 +37,8 @@ public abstract class Parser {
     private static final String ENV_CHAR = "%";
     private static final String CLOSE_TAG = "$[/]";
     private static final String END_SEQUENCE = "/]";
+    private static final String PARENT = "_parent";
+    private static final String VALUE = "_value";
     private static final Map<String, String> SYSTEM = populateSystem();
     private final String template;
     private Matcher match;
@@ -130,8 +132,8 @@ public abstract class Parser {
         }
         else if (eo != null && pathOrKey.startsWith("_")) {
             value = pathOrKey
-                    .replaceAll("_value", eo.get().toString())
-                    .replaceAll("_parent", eo.getParentKey());
+                    .replaceAll(VALUE, eo.get().toString())
+                    .replaceAll(PARENT, eo.getParentKey());
         }
 
         else if (pathOrKey.startsWith(SYSTEM_CHAR)) {
@@ -145,8 +147,8 @@ public abstract class Parser {
         else if (eo != null){
                 try {
                     pathOrKey = pathOrKey
-                            .replaceAll("_value", eo.get().toString())
-                            .replaceAll("_parent", eo.getParentKey());
+                            .replaceAll(VALUE, eo.get().toString())
+                            .replaceAll(PARENT, eo.getParentKey());
                     value = ScalarConverter.toString(eo.get(pathOrKey));
                 } catch (Exception e) {
                     if (value == null) {
@@ -211,12 +213,12 @@ public abstract class Parser {
             if (resourceCall.hasKeepCall()) {
                 KeepCalls keepCall = resourceCall.getKeepCall();
                 resourceCall
-                        .setStartDirective(keepCall.createStartDirective(callDirective));
+                        .setPrepend(keepCall.createStartDirective(callDirective));
                 resourceCall
-                        .setEndDirective(keepCall.createEndDirective());
+                        .setPostpend(keepCall.createEndDirective());
             }
         }
-        Object value = new ExecutorCallImpl().execute(eo, (Call) callObject);
+        Object value = ExecutorCall.execute(eo, (Call) callObject);
         if (value == null) {
             return "";
         }

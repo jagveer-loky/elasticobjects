@@ -36,13 +36,6 @@ public class TemplateResourceCall extends TemplateCall implements PropertiesTemp
         this.properties = properties;
     }
 
-    public String prepend() {
-        return getStartDirective();
-    }
-    public String postPend() {
-        return getEndDirective();
-    }
-
     public String execute(EO eo)  {
         if (hasFileName()) { // directory config
             if (!(hasConfigKey())) {

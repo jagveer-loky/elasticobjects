@@ -3,7 +3,7 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ConfigImpl",
-    "superKey": "ModelImpl",
+    "superKey": "BaseImpl",
     "interfaces": "Config",
     "(ArrayList)fieldKeys": {
       "0": "scope",

@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -41,7 +41,7 @@ public class StringUpperCallTest {
     @Test
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
         EO eo = ProviderRootTestScope.createEo();
-        final String template = "^$[(ValueCall)level0 value=\"test\"/] - $[(StringUpperCall)level0 targetPath=\"" + CallImpl.TARGET_AS_STRING + "\"/] $";
+        final String template = "^$[(ValueCall)level0 value=\"test\"/] - $[(StringUpperCall)level0 targetPath=\"" + Call.TARGET_AS_STRING + "\"/] $";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

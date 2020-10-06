@@ -3,10 +3,9 @@ package org.fluentcodes.projects.elasticobjects;
 import com.lexicalscope.jewel.cli.CliFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 
@@ -61,8 +60,8 @@ public class Creator {
     private static final List<String> getModelKeysFromModule(String module)  {
         List<String> modelKeys = new ArrayList<>();
 
-        for (String modelKey: EO_CONFIGS_CACHE.getConfigKeys(ModelInterface.class)) {
-            ModelInterface model = EO_CONFIGS_CACHE.findModel(modelKey);
+        for (String modelKey: EO_CONFIGS_CACHE.getConfigKeys(ModelConfigInterface.class)) {
+            ModelConfigInterface model = EO_CONFIGS_CACHE.findModel(modelKey);
             String modelModule = model.getModule();
             if (module.equals(modelModule)) {
                 modelKeys.add(model.getModelKey());

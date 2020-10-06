@@ -2,7 +2,7 @@
   "_rootmodel": "ArrayList",
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelInterface",
+    "modelKey": "ModelConfigInterface",
     "(ArrayList)localFieldKeys": {
       "0": "packagePath",
       "1": "modelKey",
@@ -41,7 +41,7 @@
     "moduleScope": "main",
     "description": "Table definitions with pojo.",
     "author": "Werner Diwischek",
-    "naturalId": "ModelInterface"
+    "naturalId": "ModelConfigInterface"
   },
   "(LogLevel)_logLevel": "WARN"
 }

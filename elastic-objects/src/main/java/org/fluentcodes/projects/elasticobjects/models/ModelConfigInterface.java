@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public interface ModelInterface extends Config {
+public interface ModelConfigInterface extends Config {
     String getModelKey();
     //EOParams getEoParams();
     //DBParams getDbParams();
@@ -28,9 +28,9 @@ public interface ModelInterface extends Config {
     String getPackagePath();
     //String getTable();
     Map<String, FieldConfig> getFieldCacheMap() ;
-    Map<String, ModelInterface> getImportClasses() ;
+    Map<String, ModelConfigInterface> getImportClasses() ;
     Class getModelClass() ;
-    ModelInterface getSuperModel() ;
+    ModelConfigInterface getSuperModel() ;
     //Map<String, Object> getNaturalValues(Object object) ;
     //Object getId(Object object) ;
 
@@ -43,7 +43,7 @@ public interface ModelInterface extends Config {
      */
     FieldConfig getFieldConfig(final String fieldName) ;
     boolean hasFieldConfig(final String fieldName);
-    ModelInterface getFieldModel(final String fieldName) ;
+    ModelConfigInterface getFieldModel(final String fieldName) ;
     Class getFieldClass(final String fieldName) ;
     Set<String> keys(Object object) ;
     Map getKeyValues(Object object, PathPattern pathPattern) ;
@@ -94,7 +94,7 @@ public interface ModelInterface extends Config {
 
     Object create();
 
-    boolean equals(ModelInterface modelCache);
+    boolean equals(ModelConfigInterface modelCache);
 
     boolean hasModel();
 

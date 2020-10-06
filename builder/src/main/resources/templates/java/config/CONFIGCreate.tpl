@@ -7,12 +7,12 @@ package $[packagePath];
  */
 public class $[modelKey] $[javaGenExtend] $[javaGenImplement]  {
 
-// $[(TemplateResourceCall)fieldKeysStripped/* configKey="ALLStaticNames.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)fieldKeys/* configKey="ALLStaticNames.tpl" keepCall="JAVA"/]
 
-// $[(TemplateResourceCall)fieldKeysStripped/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)fieldKeys/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"/]
 
 public $[modelKey]() {final Map inputMap) {
-// $[(TemplateResourceCall)fieldKeysStripped/* configKey="CONFIGConstructor.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)fieldKeys/* configKey="CONFIGConstructor.tpl" keepCall="JAVA"/]
 }
-// $[(TemplateResourceCall)fieldKeysStripped/* configKey="ALLSetter.tpl" keepCall="JAVA"/]
+// $[(TemplateResourceCall)fieldKeys/* configKey="ALLSetter.tpl" keepCall="JAVA"/]
 }

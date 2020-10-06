@@ -1,9 +1,11 @@
-package org.fluentcodes.projects.elasticobjects.models;
+package org.fluentcodes.projects.elasticobjects.domain;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.Date;
 import java.util.Map;
@@ -12,8 +14,8 @@ import java.util.Map;
  * Created by Werner on 14.12.2017.
  * A basic model used by ordinary beans
  */
-public class ModelImpl implements Model {
-    private static final Logger LOG = LogManager.getLogger(ModelImpl.class);
+public class BaseImpl implements Base {
+    private static final Logger LOG = LogManager.getLogger(BaseImpl.class);
 
     private Long id;
     private String description;
@@ -26,9 +28,9 @@ public class ModelImpl implements Model {
     /**
      * Just an empty constructor since basic
      */
-    public ModelImpl() {
+    public BaseImpl() {
     }
-    public ModelImpl(Map map) {
+    public BaseImpl(Map map) {
         try {
             this.id = (Long) map.get(ID);
             this.naturalId = (String) map.get(NATURAL_ID);
@@ -77,7 +79,7 @@ public class ModelImpl implements Model {
     }
 
     @Override
-    public ModelImpl setNaturalId(String naturalId) {
+    public BaseImpl setNaturalId(String naturalId) {
         this.naturalId = naturalId;
         return this;
     }

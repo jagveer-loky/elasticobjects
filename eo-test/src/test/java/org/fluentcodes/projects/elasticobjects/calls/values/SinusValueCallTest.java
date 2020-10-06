@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -190,7 +189,7 @@ public class SinusValueCallTest {
     @Test
     public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced()  {
         TemplateCall call = new TemplateCall();
-        call.setContent("sin($[testKey]) = $[(SinusValueCall)testKey targetPath=\"" + CallImpl.TARGET_AS_STRING + "\"/]");
+        call.setContent("sin($[testKey]) = $[(SinusValueCall)testKey targetPath=\"" + Call.TARGET_AS_STRING + "\"/]");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.set(2, "testKey");
@@ -225,7 +224,7 @@ public class SinusValueCallTest {
     public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(2, "value");
-        String result = new ParserTemplate("-$[(SinusValueCall)value targetPath=\"" + CallImpl.TARGET_AS_STRING + "\"/]-").parse(eo);
+        String result = new ParserTemplate("-$[(SinusValueCall)value targetPath=\"" + Call.TARGET_AS_STRING + "\"/]-").parse(eo);
         Assertions.assertThat(result).isEqualTo("-0.9092974268256817-");
         Assertions.assertThat(eo.get("value")).isEqualTo(2); // was integer before.
     }

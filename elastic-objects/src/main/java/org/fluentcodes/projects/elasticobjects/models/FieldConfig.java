@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.PathPattern;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -123,11 +122,11 @@ public class FieldConfig extends ConfigImpl implements PropertiesFieldAccessor {
         return getModels().getModel().getModelKey();
     }
 
-    public ModelInterface getModelConfig()  {
+    public ModelConfigInterface getModelConfig()  {
         return getModels().getModel();
     }
 
-    public ModelInterface getChildModel()  {
+    public ModelConfigInterface getChildModel()  {
         return getModels().getChildModel();
     }
 }

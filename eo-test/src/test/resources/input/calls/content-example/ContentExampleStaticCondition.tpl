@@ -1,3 +1,3 @@
 $[(JsonReadCall)data configKey="ContentExampleData"/]
 Start of content with a templateKey:
-$[(TemplateResourceCall). templateKey="ContentExampleElement1" sourcePath="data/*" localCondition="header eq header3 || header eq header2"/]
+$[(TemplateResourceCall)data/* configKey="ContentExampleElement1" condition="header eq header2" /]

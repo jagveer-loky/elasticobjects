@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.tools.xpect.IOString;
@@ -10,7 +11,7 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.*;
-import static org.fluentcodes.projects.elasticobjects.models.Model.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 
 /**
@@ -74,9 +75,9 @@ public class EOConfigMapModels extends EOConfigMap {
             throw new EoInternalException("NaturalId " + naturalId + " already exists FileConfig.");
         }
         Class configurationClass = ModelConfigObject.class;
-        final String configModelKey = (String)map.get(CONFIG_MODEL_KEY);
+        final String configModelKey = (String)map.get(Config.CONFIG_MODEL_KEY);
         if (configModelKey !=null && !configModelKey.isEmpty()) {
-            switch ((String) map.get(CONFIG_MODEL_KEY)) {
+            switch ((String) map.get(Config.CONFIG_MODEL_KEY)) {
                 case ModelConfigMap.CONFIG_MODEL_KEY:
                     configurationClass = ModelConfigMap.class;
                     break;
@@ -115,29 +116,29 @@ public class EOConfigMapModels extends EOConfigMap {
         Map<String, Object> map = new HashMap<>();
         map.put(PACKAGE_PATH, "java.util");
         // map
-        map.put(Model.NATURAL_ID, "Map");
+        map.put(Base.NATURAL_ID, "Map");
         map.put(ModelConfig.MODEL_KEY, "Map");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
+        map.put(Config.EXPOSE, Expose.NONE.name());
+        map.put(Config.CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
 
-        map.put(PROPERTIES, properties);
+        map.put(Config.PROPERTIES, properties);
         addConfigByMap(map);
 
 
-        map.put(Model.NATURAL_ID, "LinkedHashMap");
+        map.put(Base.NATURAL_ID, "LinkedHashMap");
         map.put(ModelConfig.MODEL_KEY, "LinkedHashMap");
         addConfigByMap(map);
 
         // list
-        map.put(Model.NATURAL_ID, "List");
+        map.put(Base.NATURAL_ID, "List");
         map.put(ModelConfig.MODEL_KEY, "List");
-        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
+        map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
 
         properties.put(PropertiesModelAccessor.SHAPE_TYPE, "LIST");
         properties.put(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION, "ArrayList");
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "ArrayList");
+        map.put(Base.NATURAL_ID, "ArrayList");
         map.put(ModelConfig.MODEL_KEY, "ArrayList");
         addConfigByMap(map);
 
@@ -147,35 +148,35 @@ public class EOConfigMapModels extends EOConfigMap {
 
         map.put(PACKAGE_PATH, "java.lang");
         // scalar
-        map.put(Model.NATURAL_ID, "Integer");
+        map.put(Base.NATURAL_ID, "Integer");
         map.put(PACKAGE_PATH, "java.lang");
         map.put(ModelConfig.MODEL_KEY, "Integer");
-        map.put(ConfigImpl.EXPOSE, Expose.NONE.name());
-        map.put(CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
+        map.put(Config.EXPOSE, Expose.NONE.name());
+        map.put(Config.CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "Long");
+        map.put(Base.NATURAL_ID, "Long");
         map.put(ModelConfig.MODEL_KEY, "Long");
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "String");
+        map.put(Base.NATURAL_ID, "String");
         map.put(ModelConfig.MODEL_KEY, "String");
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "Double");
+        map.put(Base.NATURAL_ID, "Double");
         map.put(ModelConfig.MODEL_KEY, "Double");
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "Float");
+        map.put(Base.NATURAL_ID, "Float");
         map.put(ModelConfig.MODEL_KEY, "Float");
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "Boolean");
+        map.put(Base.NATURAL_ID, "Boolean");
         map.put(ModelConfig.MODEL_KEY, "Boolean");
         addConfigByMap(map);
 
         map.put(PACKAGE_PATH, "java.util");
-        map.put(Model.NATURAL_ID, "Date");
+        map.put(Base.NATURAL_ID, "Date");
         map.put(ModelConfig.MODEL_KEY, "Date");
         addConfigByMap(map);
 
@@ -185,27 +186,27 @@ public class EOConfigMapModels extends EOConfigMap {
         properties.put(CLASS_PATH, "src/main/java");
 
         map.put(PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
-        map.put(Model.NATURAL_ID, "LogLevel");
+        map.put(Base.NATURAL_ID, "LogLevel");
         map.put(ModelConfig.MODEL_KEY, "LogLevel");
-        map.put(ConfigImpl.EXPOSE, Expose.INFO.name());
+        map.put(Config.EXPOSE, Expose.INFO.name());
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "JSONSerializationType");
+        map.put(Base.NATURAL_ID, "JSONSerializationType");
         map.put(ModelConfig.MODEL_KEY, "JSONSerializationType");
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "UnmodifiableMap");
+        map.put(Base.NATURAL_ID, "UnmodifiableMap");
         map.put(ModelConfig.MODEL_KEY, "UnmodifiableMap");
-        map.put(CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
+        map.put(Config.CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
         addConfigByMap(map);
 
-        map.put(Model.NATURAL_ID, "UnmodifiableCollection");
+        map.put(Base.NATURAL_ID, "UnmodifiableCollection");
         map.put(ModelConfig.MODEL_KEY, "UnmodifiableCollection");
-        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
+        map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
 
-        map.put(Model.NATURAL_ID, "UnmodifiableList");
+        map.put(Base.NATURAL_ID, "UnmodifiableList");
         map.put(ModelConfig.MODEL_KEY, "UnmodifiableList");
-        map.put(CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
+        map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
 
         addConfigByMap(map);
     }

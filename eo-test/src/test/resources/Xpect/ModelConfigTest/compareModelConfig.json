@@ -4,7 +4,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfig",
     "superKey": "ConfigImpl",
-    "interfaces": "ModelInterface",
+    "interfaces": "ModelConfigInterface",
     "(ArrayList)fieldKeys": {
       "0": "packagePath",
       "1": "modelKey",

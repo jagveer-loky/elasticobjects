@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import static org.fluentcodes.projects.elasticobjects.models.PropertiesFieldAccessor.TABLE;
 
-public interface PropertiesModelAccessor extends PropertiesConfigAccessor, ModelInterface{
+public interface PropertiesModelAccessor extends PropertiesConfigAccessor, ModelConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
     String SHAPE_TYPE = "shapeType";
     String CREATE = "create";

@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigList extends ModelConfig implements ModelInterface {
+public class ModelConfigList extends ModelConfig implements ModelConfigInterface {
     private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
     public static final String CONFIG_MODEL_KEY = "ModelConfigList";
 
@@ -20,7 +20,7 @@ public class ModelConfigList extends ModelConfig implements ModelInterface {
     }
 
     @Override
-    public ModelInterface getFieldModel(final String fieldName)  {
+    public ModelConfigInterface getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }
 

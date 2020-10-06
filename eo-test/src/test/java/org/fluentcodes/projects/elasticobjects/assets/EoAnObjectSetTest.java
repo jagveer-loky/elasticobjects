@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -27,10 +27,10 @@ public class EoAnObjectSetTest {
 
     @Test
     public void fromEoConfigsCache()  {
-        ModelInterface cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfigInterface cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
         Assert.assertNotNull(cache.getFieldConfig(AnObject.MY_STRING));
         Assert.assertEquals(AnObject.MY_STRING, cache.getFieldConfig(AnObject.MY_STRING).getFieldKey());
-        ModelInterface aSubObject = cache.getFieldModel(AnObject.MY_ASUB_OBJECT);
+        ModelConfigInterface aSubObject = cache.getFieldModel(AnObject.MY_ASUB_OBJECT);
         Assert.assertEquals(ASubObject.class.getSimpleName(), aSubObject.getModelKey());
         Assert.assertEquals(AnObject.MY_STRING, aSubObject.getFieldConfig(AnObject.MY_STRING).getFieldKey());
     }
@@ -80,13 +80,13 @@ public class EoAnObjectSetTest {
 
     @Test
     public void givenModelFromString_notNull()  {
-        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
+        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
         Assertions.assertThat(model).isNotNull();
     }
 
     @Test
     public void givenModelFromClass_createAndSetModelFieldsWith_noError()  {
-        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertFalse(model.isMap());
@@ -120,7 +120,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void assertAnObjectFieldTest()  {
-        ModelInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
 
         FieldConfig field = model.getFieldConfig(AnObject.MY_STRING);
         Assert.assertEquals(String.class, field.getModelClass());
@@ -132,7 +132,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void getFields()  {
-        ModelInterface cache = ProviderRootTestScope.findModel(AnObject.class);
+        ModelConfigInterface cache = ProviderRootTestScope.findModel(AnObject.class);
         Assert.assertEquals(AnObject.class.getSimpleName(), cache.getModelKey());
         AnObject anObject = (AnObject) cache.create();
         cache.set(AnObject.MY_STRING, anObject, S_STRING);

@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.MODULE;
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
 
 public interface PropertiesConfigAccessor extends PropertiesAccessor {
     String CLASS_PATH = "classPath";
@@ -26,11 +24,5 @@ public interface PropertiesConfigAccessor extends PropertiesAccessor {
 
     default String getModule() {
         return hasProperties()?(String)getProperties().get(MODULE):null;
-    }
-
-    default void setModule(final String value) {
-        if (hasProperties()) {
-            getProperties().put(value, MODULE);
-        }
     }
 }
