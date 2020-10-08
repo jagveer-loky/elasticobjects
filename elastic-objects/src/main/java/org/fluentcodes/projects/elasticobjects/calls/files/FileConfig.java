@@ -115,21 +115,11 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
             return getCachedContent();
         }
         URL url = createUrl();
-        String content = null;
-        try {
-            if (url.toString().startsWith("file:")) {
-                content = new IOString().setFileName(url.getFile()).read();
-            } else {
-                throw new EoException("Only local files are implemented!");
-            }
-            if (isCached()) {
-                setCachedContent(content);
-            }
-            return content;
+        String content = FileReadCall.read(getFilePath(), getFileName());
+        if (isCached()) {
+            setCachedContent(content);
         }
-        catch (Exception e) {
-            throw new EoException(e);
-        }
+        return content;
     }
 
     /**
@@ -161,6 +151,10 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
     @Override
     public boolean hasFileName() {
         return fileName != null && !fileName.isEmpty();
+    }
+
+    public boolean hasFilePath() {
+        return filePath != null && !filePath.isEmpty();
     }
 
     /**

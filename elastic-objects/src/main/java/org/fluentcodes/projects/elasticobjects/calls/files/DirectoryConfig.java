@@ -1,22 +1,17 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Enumeration;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.HOST_KEY;
 
 /**
  * Created by Werner on 2.10.2020.
@@ -47,7 +42,7 @@ public class DirectoryConfig extends FileConfig {
         if (!fileName.matches(getFileName())) {
             throw new EoException("fileName in call for read '"+ fileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
         }
-        String content = new IOString().setFileName(getFilePath() + Path.DELIMITER + fileName).read();
+        String content = FileReadCall.read(getFilePath(), fileName);
         if (isCached()) {
             if (cachedContent == null) {
                 cachedContent = new HashMap<>();
@@ -56,6 +51,8 @@ public class DirectoryConfig extends FileConfig {
         }
         return content;
     }
+
+
 
     /**
      * Write the file direct without the usage of

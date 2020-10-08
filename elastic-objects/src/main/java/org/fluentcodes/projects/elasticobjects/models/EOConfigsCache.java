@@ -102,7 +102,7 @@ public class EOConfigsCache {
             throw new EoException("Cacheclass is null for finder!");
         }
         if (configKey == null || configKey.isEmpty()) {
-            throw new EoException("assetKey is empty for finder '" + configClass.getSimpleName() + "'!");
+            throw new EoException("configKey is empty for finder '" + configClass.getSimpleName() + "'!");
         }
         Object config = getConfigMap(configClass).find(configKey);
         if (config == null) {

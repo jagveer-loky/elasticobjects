@@ -19,10 +19,10 @@ import java.util.regex.Pattern;
 
 public class ParserTemplate extends Parser{
     private static final Logger LOG = LogManager.getLogger(ParserTemplate.class);
-    private static final String CLOSE_TAG = "$[/]";
-    private static final String END_SEQUENCE = "/]";
     private static final Pattern varPattern = Pattern.compile("\\$\\[(.*?)(/*\\])");
-    
+    public static final String END_SEQUENCE = "/]";
+    public static final String START_SEQUENCE = "$[";
+    protected static final String CLOSE_TAG = START_SEQUENCE + END_SEQUENCE;
     public ParserTemplate(final String template) {
         super(template);
     }
@@ -32,10 +32,11 @@ public class ParserTemplate extends Parser{
     }
 
     public String parse(final EO eo) {
-        if (!getTemplate().contains("$[")) {
-            LOG.debug("no placeholder $[ found  : " + getTemplate());
+        if (!getTemplate().contains(START_SEQUENCE)) {
+            LOG.debug("no placeholder " + START_SEQUENCE + " found  : " + getTemplate());
             return getTemplate();
         }
         return super.parse(eo, varPattern);
     }
+
 }

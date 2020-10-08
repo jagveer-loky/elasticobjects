@@ -3,6 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -37,8 +39,38 @@ public abstract class CallResource extends CallImpl {
     }
 
     protected void init(final EO eo)  {
-        resolve(eo.getConfigsCache());
+        resolve(eo);
         hasPermissions(eo.getRoles());
+    }
+
+    protected CallResource resolve(EO eo) {
+        if (config!=null) {
+            return this;
+        }
+        if (configKey.contains(ParserTemplate.START_SEQUENCE)) {
+            configKey = new ParserTemplate(configKey).parse(eo);
+        }
+        else if (configKey.contains(ParserEoReplace.START_SEQUENCE)) {
+            configKey = new ParserEoReplace(configKey).parse(eo);
+        }
+        return resolve(eo.getConfigsCache());
+    }
+
+    protected static String replace(final String value, EO eo) {
+        if (value == null) {
+            return value;
+        }
+        if (value.contains(ParserTemplate.START_SEQUENCE)) {
+            return new ParserTemplate(value).parse(eo);
+        }
+        if (value.contains(ParserEoReplace.START_SEQUENCE)) {
+            return new ParserEoReplace(value).parse(eo);
+        }
+        return value;
+    }
+
+    protected static String replace(final String value) {
+        return replace(value, (EO)null);
     }
 
     public CallResource resolve(EOConfigsCache cache) {

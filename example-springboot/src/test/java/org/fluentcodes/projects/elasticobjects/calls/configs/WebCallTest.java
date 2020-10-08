@@ -11,15 +11,7 @@ public class WebCallTest {
     @Test
     public void givenHeaderHtml_whenExecute_thenLoaded() {
         EO eo = ProviderRootTestScope.createEo();
-        eo.addCall(new TemplateResourceCall("Header.html"));
-        eo.execute();
-        Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectString().compareAsString((String)eo.get("_template"));
-    }
-    @Test
-    public void givenFooterHtml_whenExecute_thenLoaded() {
-        EO eo = ProviderRootTestScope.createEo();
-        eo.addCall(new TemplateResourceCall("FooterStatic.html"));
+        eo.addCall(new TemplateResourceCall("WEB").setFileName("Header.html"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         new XpectString().compareAsString((String)eo.get("_template"));

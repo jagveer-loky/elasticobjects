@@ -33,14 +33,14 @@ public class FileReadCallTest {
     @Test
     public void call_FileTestCachedTxt__execute__content_returned()  {
         final FileReadCall call = new FileReadCall().setConfigKey(FILE_TEST_CACHED_TXT);
-        final String content = call.execute(ProviderRootTestScope.createEo());
+        final String content = (String) call.execute(ProviderRootTestScope.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
     public void call_SourceTxt__execute__content_returned()  {
         final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_TXT);
-        final String content = call.execute(ProviderRootTestScope.createEo());
+        final String content = (String) call.execute(ProviderRootTestScope.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 

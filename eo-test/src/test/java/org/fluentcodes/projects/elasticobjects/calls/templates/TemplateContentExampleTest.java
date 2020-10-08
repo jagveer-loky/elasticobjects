@@ -84,8 +84,7 @@ public class TemplateContentExampleTest {
     public void call_StaticTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final TemplateResourceCall call = new TemplateResourceCall();
-        call.setTemplateKey(STATIC_TPL);
+        final TemplateResourceCall call = new TemplateResourceCall(STATIC_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }
@@ -104,8 +103,7 @@ public class TemplateContentExampleTest {
     public void call_StaticConditionTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final TemplateResourceCall call = new TemplateResourceCall();
-        call.setTemplateKey(STATIC_CONDITION_TPL);
+        final TemplateResourceCall call = new TemplateResourceCall(STATIC_CONDITION_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }
@@ -122,8 +120,7 @@ public class TemplateContentExampleTest {
     @Test
     public void call_DynamicTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
-        final TemplateResourceCall call = new TemplateResourceCall();
-        call.setTemplateKey(DYNAMIC_TPL);
+        final TemplateResourceCall call = new TemplateResourceCall(DYNAMIC_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }

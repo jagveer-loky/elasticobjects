@@ -5,6 +5,7 @@
     "hostKey": "localhost",
     "filePath": "templates/java/bean",
     "fileName": "BEANCreate.tpl",
+    "description": "Used for BEANCreate.tpl for generation CALL_BEAN shape.",
     "expose": "INFO",
     "cached": "false",
     "properties": {
@@ -100,6 +101,101 @@
     "cached": "true",
     "properties": {
       "classPath": "src.main.resources"
+    }
+  },
+  "data.xlsx": {
+    "configModelKey": "XlsxConfig",
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "classpath",
+    "fileName": "data.xlsx",
+    "description": "The sheet with models/fields cache definition for data definitions.",
+    "expose": "INFO",
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0
+    }
+  },
+  "eo.xlsx:DbSqlConfig": {
+    "configModelKey": "XlsxConfig",
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": ".",
+    "fileName": "eo.xlsx",
+    "description": "Json configurations for DbSqlConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0,
+      "sheetName": "DbSqlConfig"
+    }
+  },
+  "eo.xlsx:FieldConfig": {
+    "configModelKey": "XlsxConfig",
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": ".",
+    "fileName": "eo.xlsx",
+    "description": "Json configurations for FieldConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0,
+      "sheetName": "FieldConfig"
+    }
+  },
+  "eo.xlsx:FileConfig": {
+    "configModelKey": "XlsxConfig",
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": ".",
+    "fileName": "eo.xlsx",
+    "description": "Json configurations for FileConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0,
+      "sheetName": "FileConfig"
+    }
+  },
+  "eo.xlsx:HostConfig": {
+    "configModelKey": "XlsxConfig",
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": ".",
+    "fileName": "eo.xlsx",
+    "description": "Json configurations for HostConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0,
+      "sheetName": "HostConfig"
+    }
+  },
+  "eo.xlsx:ModelConfig": {
+    "configModelKey": "XlsxConfig",
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": ".",
+    "fileName": "eo.xlsx",
+    "description": "Json configurations for  ModelConfig.",
+    "expose": "INFO",
+    "cached": "false",
+    "properties": {
+      "classPath": "src.main.resources",
+      "rowHead": 0,
+      "sheetName": "ModelConfig"
     }
   },
   "Hibernate.xml.tpl": {

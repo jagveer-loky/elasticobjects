@@ -91,7 +91,7 @@ public class GenerateJavaCall extends GenerateCall {
             }
             else {
                 FileReadCall call = new FileReadCall(modelType + "Create.tpl");
-                templateCall.setContent(call.execute(eo));
+                templateCall.setContent((String)call.execute(eo));
             }
             if (!templateCall.isContentActive()) {
                 feedback.append("Content is not active for '" + modelKey + "'");
