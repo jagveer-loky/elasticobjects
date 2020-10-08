@@ -21,7 +21,7 @@ $[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
         $[(TemplateCall). startCondition="/configType eq ModelConfig" sourcePath="configuration/0"]
             <div>$[(GithubLinkCall)eo->modelKey. /]</div>
             $[(TemplateCall). startCondition="module eq elastic-objects"]
-                <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
+                <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
             $[/]
             $[(TemplateCall). startCondition="module ne elastic-objects"]
                  <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|>elastic-objects]/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>

@@ -36,7 +36,7 @@
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-            <artifactId>eo-test</artifactId>
+            <artifactId>elastic-objects-test</artifactId>
             <version>0.5.0-SNAPSHO</version>
             <scope>test</scope>
         </dependency>

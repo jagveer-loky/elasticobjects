@@ -1,5 +1,4 @@
 {
-  "_rootmodel": "ArrayList",
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "AnObject",
@@ -49,6 +48,34 @@
     "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
     "author": "Werner Diwischek",
     "naturalId": "AnObject"
+  },
+  "1": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+    "modelKey": "ASubObject",
+    "(ArrayList)localFieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "name",
+      "3": "myString"
+    },
+    "(ArrayList)fieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "name",
+      "3": "myString"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "A sub object as an example.",
+    "author": "Werner Diwischek",
+    "naturalId": "ASubObject"
   },
   "(LogLevel)_logLevel": "WARN"
 }

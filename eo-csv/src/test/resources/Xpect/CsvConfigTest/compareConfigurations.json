@@ -8,7 +8,7 @@
       "rowHead": 0,
       "rowStart": 1,
       "rowEnd": 4,
-      "module": "eo-test"
+      "module": "elastic-objects-test"
     },
     "configModelKey": "ScsConfig",
     "fileName": "AnObject.csv",
@@ -20,7 +20,7 @@
       "write": "admin"
     },
     "(Expose)expose": "INFO",
-    "module": "eo-test",
+    "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A sample character separated file with 3x3 entries and a header which could be mapped to AnObject.",
     "naturalId": "AnObject.csv"
@@ -37,9 +37,9 @@
     "(Expose)expose": "INFO",
     "properties": {
       "classPath": "src.main.resources",
-      "module": "eo-test"
+      "module": "elastic-objects-test"
     },
-    "module": "eo-test",
+    "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "Simple data for the AnObject.",
     "naturalId": "AnObject.json"
@@ -52,7 +52,7 @@
       "rowHead": 0,
       "rowStart": 1,
       "rowEnd": 3,
-      "module": "eo-test"
+      "module": "elastic-objects-test"
     },
     "configModelKey": "ScsConfig",
     "fileName": "ListSimple.csv",
@@ -64,7 +64,7 @@
       "write": "admin"
     },
     "(Expose)expose": "NONE",
-    "module": "eo-test",
+    "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"

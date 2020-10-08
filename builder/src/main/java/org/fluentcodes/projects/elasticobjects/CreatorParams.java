@@ -15,7 +15,7 @@ public interface CreatorParams {
     @Option(shortName = "e", defaultValue = "JavaControl.tpl")
     String getExecute();
 
-    @Option(shortName = "m", defaultValue = "builder-eo")
+    @Option(shortName = "m", defaultValue = "builder")
     String getModule();
 
     @Option(shortName = "s", defaultValue = "test")

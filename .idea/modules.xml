@@ -4,12 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/builder/builder.iml" filepath="$PROJECT_DIR$/builder/builder.iml" />
       <module fileurl="file://$PROJECT_DIR$/elastic-objects/elastic-objects.iml" filepath="$PROJECT_DIR$/elastic-objects/elastic-objects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elastic-objects-test/elastic-objects-test.iml" filepath="$PROJECT_DIR$/elastic-objects-test/elastic-objects-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo.iml" filepath="$PROJECT_DIR$/eo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/builder-eo/eo-builder.iml" filepath="$PROJECT_DIR$/builder-eo/eo-builder.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo-csv/eo-csv.iml" filepath="$PROJECT_DIR$/eo-csv/eo-csv.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo-db/eo-db.iml" filepath="$PROJECT_DIR$/eo-db/eo-db.iml" />
-      <module fileurl="file://$PROJECT_DIR$/eo-test/eo-test.iml" filepath="$PROJECT_DIR$/eo-test/eo-test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/eo-test/eo-test-resources.iml" filepath="$PROJECT_DIR$/eo-test/eo-test-resources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elastic-objects-test/eo-test-resources.iml" filepath="$PROJECT_DIR$/elastic-objects-test/eo-test-resources.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo-xlsx/eo-xlsx.iml" filepath="$PROJECT_DIR$/eo-xlsx/eo-xlsx.iml" />
       <module fileurl="file://$PROJECT_DIR$/example-springboot/example-springboot.iml" filepath="$PROJECT_DIR$/example-springboot/example-springboot.iml" />
       <module fileurl="file://$PROJECT_DIR$/eo-xpect/xpect-eo.iml" filepath="$PROJECT_DIR$/eo-xpect/xpect-eo.iml" />
