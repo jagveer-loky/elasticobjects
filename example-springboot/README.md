@@ -1,3 +1,4 @@
+[![Open Source Helpers](https://www.codetriage.com/fluentcodes/elasticobjects/badges/users.svg)](https://www.codetriage.com/fluentcodes/elasticobjects)
 # Spring Boot Example
 
 Target of this module is to create a runable spring boot web application with the help of templates. A running copy you find in [elasticobjects.org](elasticobjects.org). The pages were a copy of a wordpress page.
