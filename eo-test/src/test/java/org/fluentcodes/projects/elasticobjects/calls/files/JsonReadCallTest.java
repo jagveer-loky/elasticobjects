@@ -32,7 +32,7 @@ public class JsonReadCallTest {
     @Test
     public void givenCallWithModuleConfig_whenExecuteCall_thenReturnContent()  {
         final JsonReadCall call = new JsonReadCall(J_MODULE_CONFIG_JSON);
-        String content = call.execute(ProviderRootTestScope.createEo());
+        String content = (String)call.execute(ProviderRootTestScope.createEo());
         Assertions.assertThat(content).contains("\"srcDir\": \"src/main/java\",\n");
     }
 
@@ -63,7 +63,7 @@ public class JsonReadCallTest {
         final JsonReadCall call = new JsonReadCall(LIST_SIMPLE_JSON);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
-        String content = call.execute(eo);
+        String content = (String)call.execute(eo);
         Assertions.assertThat(content).isEqualTo("[\n" +
                 "  {\n" +
                 "    \"key1\": \"value11\",\n" +

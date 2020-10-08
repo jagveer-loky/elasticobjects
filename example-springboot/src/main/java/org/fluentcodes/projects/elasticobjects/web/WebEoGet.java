@@ -23,6 +23,49 @@ public class WebEoGet {
     @Autowired
     private EOConfigsCache cache;
 
+    @RequestMapping(value = "/{selectedItem:.+}.html", method = RequestMethod.GET)
+    @ResponseBody
+    public String createRootPage(@PathVariable String selectedItem) {
+        return createPage("docs", selectedItem + ".html");
+    }
+
+    @RequestMapping(value = "/examples/{selectedItem:.+}", method = RequestMethod.GET)
+    @ResponseBody
+    public String createExamplesPage(@PathVariable String selectedItem) {
+        return createPage("examples", selectedItem);
+    }
+
+    @RequestMapping(value = "/blog/{selectedItem:.+}", method = RequestMethod.GET)
+    @ResponseBody
+    public String createBlogPage(@PathVariable String selectedItem) {
+        return createPage("blog", selectedItem);
+    }
+
+    @RequestMapping(value = "/faq/{selectedItem:.+}", method = RequestMethod.GET)
+    @ResponseBody
+    public String createFaqPage(@PathVariable String selectedItem) {
+        return createPage("faq", selectedItem);
+    }
+
+    private String createPage(final String contentDirectory, final String selectedItem) {
+        EO eo = new EoRoot(cache);
+        eo.setRoles(Arrays.asList(WebEo.getRoles()));
+        eo.set(selectedItem, "selectedItem");
+        eo.set(contentDirectory, "contentDirectory");
+        eo.addCall(new TemplateResourceCall("ContentPage.html"));
+        try {
+            eo.execute();
+        }
+        catch (Exception e) {
+            return e.getMessage();
+        }
+        if (eo.hasErrors()) {
+            return eo.getLog();
+        }
+        return (String) eo.get(PathElement.TEMPLATE);
+    }
+
+
     //https://stackoverflow.com/questions/16332092/spring-mvc-pathvariable-with-dot-is-getting-truncated
     @RequestMapping(value = "/config/{configType}/{configSelected:.+}", method = RequestMethod.GET)
     @ResponseBody
@@ -41,54 +84,6 @@ public class WebEoGet {
             return e.getMessage();
         }
         return (String) eo.get(PathElement.TEMPLATE);
-    }
-
-    @RequestMapping(value = "/{selectedItem:.+}.html", method = RequestMethod.GET)
-    @ResponseBody
-    public String createRootPage(@PathVariable String selectedItem) {
-        EO eo = new EoRoot(cache);
-        eo.setRoles(Arrays.asList(WebEo.getRoles()));
-        eo.set(selectedItem + ".html", "selectedItem");
-        //eo.set("[]", "navigationItem");
-        eo.addCall(new TemplateResourceCall("ContentPage.html"));
-        try {
-            eo.execute();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            return e.getMessage();
-        }
-        return (String) eo.get(PathElement.TEMPLATE);
-    }
-
-    @RequestMapping(value = "/examples/{selectedItem:.+}", method = RequestMethod.GET)
-    @ResponseBody
-    public String createExamplesPage(@PathVariable String selectedItem) {
-        return templatePageCall("ExamplesPage.html", selectedItem);
-    }
-
-    private String templatePageCall(final String pageTemplate, final String selectedItem) {
-        EO eo = new EoRoot(cache);
-        eo.setRoles(Arrays.asList(WebEo.getRoles()));
-        eo.set(selectedItem, "selectedItem");
-        EO child = eo.setEmpty("navigationItem");
-        eo.addCall(new TemplateResourceCall(pageTemplate));
-        try {
-            eo.execute();
-        }
-        catch (Exception e) {
-            return e.getMessage();
-        }
-        if (eo.hasErrors()) {
-            return eo.getLog();
-        }
-        return (String) eo.get(PathElement.TEMPLATE);
-    }
-
-    @RequestMapping(value = "/blog/{selectedItem:.+}", method = RequestMethod.GET)
-    @ResponseBody
-    public String createBlogPage(@PathVariable String selectedItem) {
-        return templatePageCall("BlogPage.html", selectedItem);
     }
 
     @RequestMapping(value = "/configs/{selectedItem:.+}.html", method = RequestMethod.GET)

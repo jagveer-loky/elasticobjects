@@ -10,10 +10,11 @@ Service oriented architecture today is usually some typed RPC calls bound to url
     from the IT stone age and fat web application frameworks.
 </p>
 <h4>Concept</h4>
+<h4>Rich message Concept</h4>
 <p>
-    The idea of Elastic Objects is to embed <b>type</b> informations in a JSON tree or a path. This type
-    information triggers a
-    typed object instantiation within an untyped map or list on the target system. A special type with a
+    The idea of Elastic Objects is a JSON message with embedded <b>type</b> information
+    passed by on generic url. The type
+    information trigger an typed object instantiation on the server. A special type with a
     generic execution method offers <b>functionality</b>.
 </p>
 <p>
@@ -176,7 +177,7 @@ Double result = call.execute(eo);
     When the
     $[(ConfigLinkCall)ContentPage.html configType="FileConfig" /] template
      is parsed, it will load
-    $[(ConfigLinkCall)Home.html configType="FileConfig" /].
+    $[(GithubLinkCall)SP|web|Home.html configType="NONE" /].
     So this is what you read.
 </p>
 <h5>The post version</h5>
@@ -190,6 +191,7 @@ Double result = call.execute(eo);
 <form action="/eo-form" method="post">
             <textarea name="eo" style="height:150px">{
    "selectedItem": "Home.html",
+   "contentDirectory":"docs",
    "(TemplateResourceCall)call": {
       "configKey":"ContentPage.html"
    },

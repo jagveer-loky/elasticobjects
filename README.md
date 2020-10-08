@@ -11,46 +11,43 @@
 > -- <cite>Martin Fowler</cite>
 
 # Elastic Objects
-Computer communication today means some kind of typed method invocation
-and fixed method functionality bound to an url. Typically with every
-call one trigger one functionality and one object mapping.
+<p>
+Service oriented architecture today is usually some typed RPC calls bound to urls by
+    an application server framework. <b>Type</b> and <b>functionality</b> mapping
+    is stuck in a procedural concept
+    from the IT stone age and fat web application frameworks.
+</p>
+<h4>Rich message Concept</h4>
+<p>
+    The idea of Elastic Objects is to embed <b>type</b> information in a JSON message
+    passed by on generic url. The type
+    information trigger an typed object instantiation on the server. A special type with a
+    generic execution method offers <b>functionality</b>.
+</p>
+<p>
+    The following pseudo code would call an execute method in the <b>ACall</b> instance,
+    which uses the <b>AnObject</b> object provided in <i>input</i> and store the result in <i>target</i>.
 
-The concept of EO is different: It offers a generic object where you can
-add so many typed parts and functionality as you need. And every message
-is send over one endpoint.
-
-Type and Functionality are beans. The types with an execution method
-named  **Calls**.
-
-Some working editable examples you can find on
-[elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html)
-which itself is build by one generic spring boot endpoint and EO.
-
-A simple example which do not work here, since Github cut forms from
-markdown:
-
-    <form action="http://www.elasticobjects.org/eo-form" method="post">
-         <textarea name="eo">{
-      "(Double)source":1,
-      "(SinusValueCall)target": {
-        "sourcePath": "/source"
-      }
-    }</textarea>
-      <input type="submit" value="post"/>
-    </form>
-
-You could edit
-* the value of source
-* the fieldName of target
-* the value of sourcePath and the corresponding fieldName
-
-The core library is rather small but allows a rich message
-communication even within existing solutions.
-
-* any combination of functionality allowed in a message
-* any arbitrary information could placed in a message
-* minimal coupling to an application server
-* No annotation magic, pure java
+    <textarea style="height:100px">
+{
+    "(AnObject)input":{...},
+    "(ACall)target:{"sourcePath":"input"}
+}
+    </textarea>
+</p>
+<p>
+    As a client one is free to combine data and calls in the object tree structure and send
+    this object through one generic endpoint.
+</p>
+<p>
+    And on the server side one can offer any functionality. Since the generic endpoint
+    is not concerned doing something,
+    there is a much better test coverage without application server framework.
+</p>
+## www.elasticobjects.org
+A detailed documentation you will find
+[elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).
+This documentation is build by one generic spring boot endpoint and EO.
 
 ### Modules
 Actually three modules are deployed to [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
@@ -61,7 +58,7 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>elastic-objects</artifactId>
-        <version>0.2.1</version>
+        <version>0.4.0</version>
     </dependency>
 ```
 
@@ -85,7 +82,7 @@ are the sources for the spring boot web example on
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-csv</artifactId>
-        <version>0.2.1</version>
+        <version>0.4.0</version>
     </dependency>
     
     <div align="right" style="font-size:10px">
@@ -104,13 +101,19 @@ is provide the execution of some sql configurations as list or as query.
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-xlsx</artifactId>
-        <version>0.2.1</version>
+        <version>0.4.0</version>
     </dependency>
+
+#### builder
+[builder](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations  
+for generating sources like java classes or json configuration by a simple Excel file.
 
 <div align="right" style="font-size:10px">
 <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-xlsx">
 <font size="1">mvn repository</font>
 </a></div>
+
+
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 

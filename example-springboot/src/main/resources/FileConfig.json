@@ -17,22 +17,6 @@
       "rowHead": 0
     }
   },
-  "BlogPage.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web",
-    "fileName": "BlogPage.html",
-    "description": "The show Blog content from directory input/blog.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "ConfigsNavigation.html": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -135,134 +119,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "ExamplesPage.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web",
-    "fileName": "ExamplesPage.html",
-    "description": "The examples template loading an examples template file in the content part together with navigation.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "Faq.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "templates",
-    "fileName": "Faq.html",
-    "description": "Template for faq",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "admin"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "FieldConfig.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/configs",
-    "fileName": "FieldConfig.html",
-    "description": "Entry content for FieldConfig.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "FileConfig.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/configs",
-    "fileName": "FileConfig.html",
-    "description": "Entry content for FileConfig.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "Footer.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web",
-    "fileName": "Footer.html",
-    "description": "The Wordpress footer part",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "FooterStatic.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "templates",
-    "fileName": "FooterStatic.html",
-    "description": "Footer for static pages. ",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "admin"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "Header.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web",
-    "fileName": "Header.html",
-    "description": "The Wordpress header part",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "HeaderStatic.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "templates",
-    "fileName": "HeaderStatic.html",
-    "description": "Header for static pages. ",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "admin"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "list.json": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -290,22 +146,6 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "ModelConfig.html": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/configs",
-    "fileName": "ModelConfig.html",
-    "description": "Entry content for ModelConfig.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
     },
     "properties": {
       "classPath": "src.main.resources"
@@ -424,23 +264,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "WEB_BLOG": {
-    "configModelKey": "DirectoryConfig",
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/blog",
-    "fileName": ".*.html",
-    "description": "Directory access for web/blog for fileNames matching *.html",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "WEB_CONFIGS": {
     "configModelKey": "DirectoryConfig",
     "module": "example-springboot",
@@ -458,7 +281,7 @@
       "classPath": "src.main.resources"
     }
   },
-  "WEB_DOCS": {
+  "docs": {
     "configModelKey": "DirectoryConfig",
     "module": "example-springboot",
     "moduleScope": "main",
@@ -475,7 +298,7 @@
       "classPath": "src.main.resources"
     }
   },
-  "WEB_EXAMPLES": {
+  "examples": {
     "configModelKey": "DirectoryConfig",
     "module": "example-springboot",
     "moduleScope": "main",
@@ -483,6 +306,40 @@
     "filePath": "web/examples",
     "fileName": ".*.html",
     "description": "Directory access for web/examples for fileNames matching *.html",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "faq": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/faq",
+    "fileName": ".*.html",
+    "description": "Directory access for web/faq for fileNames matching *.html",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "blog": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/blog",
+    "fileName": ".*.html",
+    "description": "Directory access for web/blog for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {

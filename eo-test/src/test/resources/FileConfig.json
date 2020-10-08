@@ -194,5 +194,21 @@
     "properties": {
       "classPath": "src.test.resources"
     }
+  },
+  "XPECT_TEST": {
+    "module": "eo-test",
+    "moduleScope": "test",
+    "hostKey": "localhost",
+    "filePath": "Xpect",
+    "fileName": "AnObjectTest",
+    "description": "Test directory for DirectoryListReadCall",
+    "expose": "NONE",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
   }
 }

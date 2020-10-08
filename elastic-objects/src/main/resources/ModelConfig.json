@@ -309,6 +309,21 @@
     },
     "author": "Werner Diwischek"
   },
+  "DirectoryListReadCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "FileReadCall",
+    "expose": "WEB",
+    "description": "Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. \nOffers also general access methods like read(String filePath, String fileName) for java access. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "DirectoryListReadCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "Eq": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -413,6 +428,7 @@
   "FileWriteCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "fileKeys": ["classPath"],
     "superKey": "CallResource",
     "expose": "WEB",
     "description": "Defines a file write access. ",
@@ -545,7 +561,12 @@
     "moduleScope": "main",
     "fieldKeys": [
       "listParams",
-      "rowHead",  "rowStart",  "rowEnd",  "length",  "filter", "colKeys"
+      "rowHead",
+      "rowStart",
+      "rowEnd",
+      "length",
+      "filter",
+      "colKeys"
     ],
     "expose": "INFO",
     "description": "Defines default access values for ListParams",
@@ -586,8 +607,8 @@
     "fieldKeys": [
       "listParams"
     ],
-    "superKey": "CallResource",
     "interfaces": "ListInterface",
+    "superKey": "CallResource",
     "expose": "INFO",
     "description": "Defines the parameter listParams.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -908,41 +929,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "PropertiesTemplateResourceAccessor": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "keepCall",
-      "fileName",
-      "configKey"
-    ],
-    "superKey": "PropertiesAccessor",
-    "expose": "INFO",
-    "description": "Defines the property values valid for TemplateResourceCall ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
-    "modelKey": "PropertiesTemplateResourceAccessor",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
-  "PropertiesTemplateResourceStoreAccessor": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "PropertiesTemplateResourceAccessor",
-    "expose": "INFO",
-    "description": "Defines the property values valid for TemplateResourceStoreCall ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
-    "modelKey": "PropertiesTemplateResourceStoreAccessor",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
   "RolePermissions": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1232,9 +1218,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "keepCall"
+      "keepCall","configKey","fileName"
     ],
-    "interfaces": "PropertiesTemplateResourceAccessor",
     "superKey": "TemplateCall",
     "expose": "WEB",
     "description": "Parses the content of a FileConfig or DirectoryConfig configuration. ",
@@ -1253,7 +1238,6 @@
     "fieldKeys": [
       "targetFile"
     ],
-    "interfaces": "PropertiesTemplateResourceAccessor",
     "superKey": "TemplateResourceCall",
     "expose": "WEB",
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",

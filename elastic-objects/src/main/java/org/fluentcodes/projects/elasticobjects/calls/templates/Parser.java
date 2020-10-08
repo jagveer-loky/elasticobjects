@@ -35,8 +35,6 @@ public abstract class Parser {
     private static final String VALUE_CALL_CHAR = "#";
     private static final String SYSTEM_CHAR = "@";
     private static final String ENV_CHAR = "%";
-    private static final String CLOSE_TAG = "$[/]";
-    private static final String END_SEQUENCE = "/]";
     private static final String PARENT = "_parent";
     private static final String VALUE = "_value";
     private static final Map<String, String> SYSTEM = populateSystem();
@@ -234,11 +232,11 @@ public abstract class Parser {
             String found = match.group(1);
             String foundEnd = match.group(2);
             String foundAll = match.group();
-            if (foundAll.equals(CLOSE_TAG)) {
+            if (foundAll.equals(ParserTemplate.CLOSE_TAG)) {
                 hierarchy--;
             }
             else if (found.startsWith(VALUE_CALL_CHAR) || found.startsWith(TEMPLATE_CALL_CHAR) || found.startsWith("(")) {
-                if (!foundEnd.equals(END_SEQUENCE)) {
+                if (!foundEnd.equals(ParserTemplate.END_SEQUENCE)) {
                     hierarchy++;
                 }
             }

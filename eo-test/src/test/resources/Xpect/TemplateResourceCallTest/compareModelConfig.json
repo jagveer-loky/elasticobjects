@@ -4,26 +4,26 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
     "(ArrayList)localFieldKeys": {
-      "0": "keepCall"
+      "0": "keepCall",
+      "1": "configKey",
+      "2": "fileName"
     },
     "superKey": "TemplateCall",
-    "interfaces": "PropertiesTemplateResourceAccessor",
     "(ArrayList)fieldKeys": {
       "0": "keepCall",
-      "1": "fileName",
-      "2": "configKey",
-      "3": "properties",
-      "4": "content",
-      "5": "sourcePath",
-      "6": "targetPath",
-      "7": "models",
-      "8": "condition",
-      "9": "startCondition",
-      "10": "overwrite",
-      "11": "logLevel",
-      "12": "duration",
-      "13": "prepend",
-      "14": "postpend"
+      "1": "configKey",
+      "2": "fileName",
+      "3": "content",
+      "4": "sourcePath",
+      "5": "targetPath",
+      "6": "models",
+      "7": "condition",
+      "8": "startCondition",
+      "9": "overwrite",
+      "10": "logLevel",
+      "11": "duration",
+      "12": "prepend",
+      "13": "postpend"
     },
     "(Expose)expose": "WEB",
     "properties": {

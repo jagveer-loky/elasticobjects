@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.util.LinkedHashMap;
 
+import static org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall.KEEP_CALL;
 import static org.fluentcodes.projects.elasticobjects.models.Config.PROPERTIES;
 
 /**
@@ -30,9 +31,9 @@ public class TemplateResourceStoreCallTest {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
-        modelConfig.set(PropertiesTemplateResourceStoreAccessor.TARGET_FILE, call, "test");
+        modelConfig.set(TemplateResourceStoreCall.TARGET_FILE, call, "test");
         Assertions.assertThat(call.getTargetFile()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceStoreAccessor.TARGET_FILE, call)).isEqualTo("test");
+        Assertions.assertThat(modelConfig.get(TemplateResourceStoreCall.TARGET_FILE, call)).isEqualTo("test");
     }
 
     @Test
@@ -40,18 +41,8 @@ public class TemplateResourceStoreCallTest {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
-        modelConfig.set(PropertiesTemplateResourceAccessor.KEEP_CALL, call, "JAVA");
+        modelConfig.set(KEEP_CALL, call, "JAVA");
         Assertions.assertThat(call.getKeepCall()).isEqualTo(KeepCalls.JAVA);
-        Assertions.assertThat(modelConfig.get(PropertiesTemplateResourceAccessor.KEEP_CALL, call)).isEqualTo(KeepCalls.JAVA);
-    }
-
-    @Test
-    public void __setProperties__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
-        TemplateResourceStoreCall call = new TemplateResourceStoreCall();
-
-        modelConfig.set(PROPERTIES, call, new LinkedHashMap<>());
-        Assertions.assertThat(call.getProperties()).isNotNull();
-        Assertions.assertThat(modelConfig.get(PROPERTIES,call)).isNotNull();
+        Assertions.assertThat(modelConfig.get(KEEP_CALL, call)).isEqualTo(KeepCalls.JAVA);
     }
 }

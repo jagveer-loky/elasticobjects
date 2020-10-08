@@ -14,7 +14,7 @@ public class FileCallTest {
     public void givenPublicTxt_whenExecuteCall_thenContentIsRead()  {
         EO eo = ProviderRootTestScope.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new FileReadCall("public.txt").execute(eo);
+        String content = (String) new FileReadCall("public.txt").execute(eo);
         Assertions.assertThat(content).isEqualTo("Everyone can see this content!");
     }
 

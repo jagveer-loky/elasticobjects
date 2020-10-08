@@ -19,19 +19,24 @@ import java.util.regex.Pattern;
 
 public class ParserEoReplace extends Parser {
     private static final Logger LOG = LogManager.getLogger(ParserEoReplace.class);
-    private static final String CLOSE_TAG = "eo->/.";
+    public static final String START_SEQUENCE = "eo->";
     private static final String END_SEQUENCE = "/.";
+    private static final String CLOSE_TAG = START_SEQUENCE + END_SEQUENCE;
     private static final Pattern varPattern = Pattern.compile("eo->(.*?)(/*\\.)");
     public ParserEoReplace(final String template) {
         super(template);
+    }
+
+    public String parse() {
+        return this.parse((EO)null);
     }
 
     public String parse(final EO eo) {
         if (!hasTemplate()) {
             return "";
         }
-        if (!getTemplate().contains("eo->")) {
-            LOG.debug("no placeholder $[ found  : " + getTemplate());
+        if (!getTemplate().contains(START_SEQUENCE)) {
+            LOG.debug("no placeholder " + START_SEQUENCE + " found  : " + getTemplate());
             return getTemplate();
         }
         return super.parse(eo, varPattern);

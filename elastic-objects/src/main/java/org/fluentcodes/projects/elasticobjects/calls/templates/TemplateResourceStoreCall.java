@@ -6,8 +6,9 @@ import org.fluentcodes.tools.xpect.IOString;
 /**
  * Created by werner.diwischek on 21.9.20.
  */
-public class TemplateResourceStoreCall extends TemplateResourceCall implements PropertiesTemplateResourceStoreAccessor {
-
+public class TemplateResourceStoreCall extends TemplateResourceCall {
+    public static final String TARGET_FILE = "targetFile";
+    private String targetFile;
     public TemplateResourceStoreCall() {
         super();
     }
@@ -22,5 +23,13 @@ public class TemplateResourceStoreCall extends TemplateResourceCall implements P
         new IOString().setFileName(targetFile).write(content);
         System.out.println("Created " + targetFile);
         return "";
+    }
+
+    public String getTargetFile() {
+        return targetFile;
+    }
+
+    public void setTargetFile(String targetFile) {
+        this.targetFile = targetFile;
     }
 }

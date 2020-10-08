@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.tools.xpect.IORuntimeException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.lang.reflect.Constructor;
@@ -19,6 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE
  * @since 12.10.2018.
  */
 public class EOConfigMapModels extends EOConfigMap {
+    private final static String MODELS_JSON = "Models.json";
     private Set<String> callSet = new TreeSet<>();
 
     public EOConfigMapModels(final EOConfigsCache eoConfigsCache)  {
@@ -46,23 +48,29 @@ public class EOConfigMapModels extends EOConfigMap {
     }
 
     protected void addJsonClassNames()  {
-        String providerSource = "Models.json";
-        List<String> classNameJsons = new IOString()
-                .setFileName(providerSource)
-                .readStringList();
-        for (String classNameJson : classNameJsons) {
-            EO eo = new EoRoot(getConfigsCache(), classNameJson);
-            List classNames = (List) eo.get();
-            if (classNames == null) {
-                continue;
-            }
-            for (Object className: classNames) {
-                if ("List".equals(className)) {
+        String providerSource = MODELS_JSON;
+        try {
+            List<String> classNameJsons = new IOString()
+                    .setFileName(providerSource)
+                    .readStringList();
+
+            for (String classNameJson : classNameJsons) {
+                EO eo = new EoRoot(getConfigsCache(), classNameJson);
+                List classNames = (List) eo.get();
+                if (classNames == null) {
                     continue;
                 }
-                ModelConfig modelConfig = ModelConfig.addByClassName(getConfigsCache(), (String) className);
-                super.addConfig(modelConfig);
+                for (Object className: classNames) {
+                    if ("List".equals(className)) {
+                        continue;
+                    }
+                    ModelConfig modelConfig = ModelConfig.addByClassName(getConfigsCache(), (String) className);
+                    super.addConfig(modelConfig);
+                }
             }
+        }
+        catch (IORuntimeException e) {
+            LOG.debug("Could not find " + MODELS_JSON + " files.");
         }
     }
 

@@ -21,7 +21,7 @@ public class JsonCallTest {
         EO eo = ProviderRootTestScope.createEo();
 
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new JsonReadCall("map.json").execute(eo);
+        String content = (String)new JsonReadCall("map.json").execute(eo);
         Assertions.assertThat(content).isNotEmpty();
     }
 
