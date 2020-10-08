@@ -11,7 +11,7 @@
     <url>http://www.elasticobjects.com</url>
     <modules>
         <module>elastic-objects</module>
-        <module>eo-test</module>
+        <module>elastic-objects-test</module>
         <module>eo-csv</module>
         <module>eo-xlsx</module>
         <module>eo-db</module>
@@ -20,7 +20,6 @@
         <module>example-springboot</module>
 
         <module>builder</module>
-        <module>builder-eo</module>
     </modules>
     <licenses>
       <license>

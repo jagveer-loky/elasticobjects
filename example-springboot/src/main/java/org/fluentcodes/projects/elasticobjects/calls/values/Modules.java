@@ -14,10 +14,10 @@ public enum Modules {
     BT("builder/src/test/java/org/fluentcodes/projects/elasticobjects/"),
     BTR("builder/src/test/resources/"),
 
-    BEO("builder-eo/src/main/java/org/fluentcodes/projects/elasticobjects/"),
-    BEOR("builder-eo/src/main/resources/"),
-    BEOT("builder-eo/src/test/java/org/fluentcodes/projects/elasticobjects/"),
-    BEOTR("builder-eo/src/test/resources/"),
+    BEO("builder/src/main/java/org/fluentcodes/projects/elasticobjects/"),
+    BEOR("builder/src/main/resources/"),
+    BEOT("builder/src/test/java/org/fluentcodes/projects/elasticobjects/"),
+    BEOTR("builder/src/test/resources/"),
 
     EO("elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/"),
     EOR("elastic-objects/src/main/resources/"),
@@ -27,10 +27,10 @@ public enum Modules {
     EOXT("eo-xlsx/src/test/java/org/fluentcodes/projects/elasticobjects/"),
     EOXTR("eo-xlsx/src/test/resources/"),
 
-    EOT("eo-test/src/main/java/org/fluentcodes/projects/elasticobjects/"),
-    EOTR("eo-test/src/main/resources/"),
-    EOTT("eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/"),
-    EOTTR("eo-test/src/test/resources/");
+    EOT("elastic-objects-test/src/main/java/org/fluentcodes/projects/elasticobjects/"),
+    EOTR("elastic-objects-test/src/main/resources/"),
+    EOTT("elastic-objects-test/src/test/java/org/fluentcodes/projects/elasticobjects/"),
+    EOTTR("elastic-objects-test/src/test/resources/");
 
    private String dir;
    private String directory;

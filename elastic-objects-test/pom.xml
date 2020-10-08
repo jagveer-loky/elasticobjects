@@ -4,18 +4,20 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-    <artifactId>eo-xlsx</artifactId>
+    <artifactId>elastic-objects-test</artifactId>
     <packaging>jar</packaging>
     <version>0.5.0-SNAPSHO</version>
-    <name>EO - Elastic objects Xlsx calls</name>
-    <description>Xlsx calls for Elastic Objects</description>
+    <name>EO - Elastic Objects Tests and Test Resource</name>
+    <description>Package for testing Elastic Objects</description>
     <url>http://www.elasticobjects.com</url>
+
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-root</artifactId>
         <version>0.5.0-SNAPSHO</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
     <dependencies>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
@@ -23,37 +25,33 @@
             <version>0.5.0-SNAPSHO</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.15</version>
+            <groupId>org.fluentcodes.tools</groupId>
+            <artifactId>xpect-eo</artifactId>
+            <version>0.7.1</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>3.15</version>
+            <groupId>org.fluentcodes.tools</groupId>
+            <artifactId>xpect-jackson</artifactId>
+            <version>0.7.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-            <artifactId>elastic-objects-test</artifactId>
-            <version>0.5.0-SNAPSHO</version>
+            <groupId>org.fluentcodes.tools</groupId>
+            <artifactId>xpect-gson</artifactId>
+            <version>0.7.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.16.1</version>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-        </plugins>
-    </build>
 </project>

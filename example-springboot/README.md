@@ -16,7 +16,7 @@ Or with windows use ";" instead of ":" as separator
 #### Useed Modules
 It uses configurations from the modules
 * [elasticobjects](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects/src/main/resources)
-* [eo-test](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test/src/main/resources)
+* [elastic-objects-test](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects-test/src/main/resources)
 
 The starting point is the  
 [Start class](https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/Start.java).

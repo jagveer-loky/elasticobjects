@@ -67,8 +67,8 @@ The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-obj
 <font size="1">mvn repository</font>
 </a></div>
 
-#### eo-test
-The objectives [eo-test](https://github.com/fluentcodes/elasticobjects/tree/master/eo-test) is providing all tests for elastic-object module together with a main package providing test helper and test objects to other modules.
+#### elastic-objects-test
+The objectives [elastic-objects-test](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects-test) is providing all tests for elastic-object module together with a main package providing test helper and test objects to other modules.
 
 #### examples-springboot
 [examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/examples-springboot)
@@ -120,7 +120,7 @@ for generating sources like java classes or json configuration by a simple Excel
 ### Status
 After a break of more than one year due to project work the java version is now in a state I would see as "fit to the concept". It's basic mechanism works direct and with minimal implementation flourish.
 
-A simple [performance test](https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/eo-test/src/test/resources/performance-Sun%20Aug%2016%2010:05:28%20CEST%202020.info) with [EOPerformance.java](https://github.com/fluentcodes/elasticobjects/blob/master/eo-test/src/test/java/org/fluentcodes/projects/elasticobjects/performance/EOPerformance.java) compare serialization and deserialization speed with
+A simple [performance test](https://github.com/fluentcodes/elasticobjects/blob/fdab76ad2e593e4a4e5cf012986cc7852d6dfd8c/elastic-objects-test/src/test/resources/performance-Sun%20Aug%2016%2010:05:28%20CEST%202020.info) with [EOPerformance.java](https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/test/java/org/fluentcodes/projects/elasticobjects/performance/EOPerformance.java) compare serialization and deserialization speed with
 * [Jackson](https://github.com/FasterXML/jackson) and
 * [Gson](https://github.com/google/gson)
 

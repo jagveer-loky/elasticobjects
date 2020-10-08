@@ -1,0 +1,230 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "fieldKey": "myAnObject",
+    "modelKeys": "AnObject",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "A AnObject field.",
+    "naturalId": "myAnObject"
+  },
+  "1": {
+    "fieldKey": "myASubObject",
+    "modelKeys": "ASubObject",
+    "(ArrayList)modelList": {
+      "0": "AnObject",
+      "1": "ASubObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myASubObject",
+    "naturalId": "myASubObject"
+  },
+  "2": {
+    "fieldKey": "myASubObjectList",
+    "modelKeys": "ArrayList,ASubObject",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "A generic parametrized example List with {@link ASubObject}",
+    "naturalId": "myASubObjectList"
+  },
+  "3": {
+    "fieldKey": "myASubObjectMap",
+    "modelKeys": "HashMap,ASubObject",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "A generic parametrized example Map with {@link ASubObject}",
+    "naturalId": "myASubObjectMap"
+  },
+  "4": {
+    "fieldKey": "myBoolean",
+    "modelKeys": "Boolean",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myBoolean",
+    "naturalId": "myBoolean"
+  },
+  "5": {
+    "fieldKey": "myDate",
+    "modelKeys": "Date",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myDate",
+    "naturalId": "myDate"
+  },
+  "6": {
+    "fieldKey": "myDouble",
+    "modelKeys": "Double",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myDouble",
+    "naturalId": "myDouble"
+  },
+  "7": {
+    "fieldKey": "myFloat",
+    "modelKeys": "Float",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myFloat",
+    "naturalId": "myFloat"
+  },
+  "8": {
+    "fieldKey": "myInt",
+    "modelKeys": "Integer",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myInt",
+    "naturalId": "myInt"
+  },
+  "9": {
+    "fieldKey": "myList",
+    "modelKeys": "ArrayList",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myList",
+    "naturalId": "myList"
+  },
+  "10": {
+    "fieldKey": "myLong",
+    "modelKeys": "Long",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myLong",
+    "naturalId": "myLong"
+  },
+  "11": {
+    "fieldKey": "myMap",
+    "modelKeys": "HashMap",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "myMap",
+    "naturalId": "myMap"
+  },
+  "12": {
+    "fieldKey": "myObject",
+    "modelKeys": "Object",
+    "(ArrayList)modelList": {
+      "0": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "A test object thing. ",
+    "naturalId": "myObject"
+  },
+  "13": {
+    "fieldKey": "myString",
+    "modelKeys": "String",
+    "(ArrayList)modelList": {
+      "0": "ASubObject",
+      "1": "AnObject"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects-test"
+    },
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "Just a small test string used in test models. ",
+    "naturalId": "myString"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}
