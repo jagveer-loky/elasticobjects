@@ -1,3 +1,4 @@
+[![Open Source Helpers](https://www.codetriage.com/fluentcodes/elasticobjects/badges/users.svg)](https://www.codetriage.com/fluentcodes/elasticobjects)
 <div align="right" clear="left">
 <a name="page"/>
 <font size="2">
