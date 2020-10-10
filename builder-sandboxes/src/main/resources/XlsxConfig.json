@@ -1,0 +1,12 @@
+{
+  "git.xlsx:Manuell": {
+    "listParams": {
+      "rowHead": "0"
+    },
+    "listRowMapper": {
+      "modelKeys": "Map,Map"
+    },
+    "xlsxKey": "git.xlsx:Manuell",
+    "description": "Based on the git man pages the resources for the sandbox-git project."
+  }
+}

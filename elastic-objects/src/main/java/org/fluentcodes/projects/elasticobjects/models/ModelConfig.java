@@ -301,10 +301,8 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
             ((ModelConfig) interfacesMap.get(key)).setFieldKeys(this.fieldKeys);
         }
 
-        if (getConfigsCache().getScope() != Scope.CREATE) {
-            if (superModel != null) {
-                ((ModelConfig) superModel).setFieldKeys(this.fieldKeys);
-            }
+        if (superModel != null) {
+            ((ModelConfig) superModel).setFieldKeys(this.fieldKeys);
         }
     }
 

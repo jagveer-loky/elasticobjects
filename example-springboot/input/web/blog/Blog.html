@@ -1,11 +1,27 @@
 <h5>The log for V0.5.0.</h5>
 <p>
     <b>
-    Target of this version is to streamline code generation from the excel file $[(GithubLinkCall)BEOR||eo.xls configType="NONE" /] and finally
+    Target of this version is to streamline code generation from the excel file $[(GithubLinkCall)BR||eo.xls configType="NONE" /] and finally
         move the builder libraries into a separate github project.
     </b>
 </p>
+<p align="right"><i>8.10.2020</i></p>
+<p>
+    When editing the content of this site I had two solutions:
+    <ul>
+    <li>Generate the static htm content from $[(GithubLinkCall)SPR||content.xlsx configType="NONE" /]</li>
+    <li>Add a file configuration entry in $[(GithubLinkCall)SP||FileConfig.json configType="NONE" /]  to read content from the classpath.</li>
+</ul>
+</p>
 
+<p>This approaches were not so nice since Excel is not good for bigger text parts. On the other hand
+adding each content to the file configuration is error prone.</p>
+
+<p>So I made a new call $[(ConfigLinkCall)DirectoryListReadCall configType="ModelConfig"/] for reading file content
+    in directories. This is then used $[(ConfigLinkCall)FaqNavCall configType="ModelConfig"/] to create a link list.
+A generate test will then create the $[(ConfigLinkCall)faq configType="FileConfig" /] file in input/web directories like
+    $[(GithubLinkCall)SP|web.faq|_Nav.html configType="NONE" /] </p>
+<
 <p align="right"><i>5.10.2020</i></p>
 <p>
     Yesterday the version 0.5.0-SNAPSHOT is started. The builder is now again part of the elastic-objects github project in
@@ -29,7 +45,7 @@
     <ul>
     <li>$[(GithubLinkCall)EO|calls|Call.java configType="NONE" /] as example for $[(GithubLinkCall)BR|templates.java.interface|INTERFACECreate.tpl configType="NONE" /]</li>
     <li>$[(GithubLinkCall)EO|calls|CallImpl.java configType="NONE" /] as example for $[(GithubLinkCall)BR|templates.java.interface|BEANCreate.tpl configType="NONE" /]</li>
-    <li>$[(GithubLinkCall)EO|calls|CallImpl.java configType="NONE" /] as example for $[(GithubLinkCall)BR|templates.java.interface|CONFIGCreate.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)EO|models|ConfigImpl.java configType="NONE" /] as example for $[(GithubLinkCall)BR|templates.java.interface|CONFIGCreate.tpl configType="NONE" /]</li>
 </ul>
 </p>
 
@@ -42,25 +58,25 @@
 </ul>
 </p>
 <p>
-    These calls prepare the raw values loaded from $[(GithubLinkCall)BEOR||eo.xls configType="NONE" /] with
+    These calls prepare the raw values loaded from $[(GithubLinkCall)BR||eo.xls configType="NONE" /] with
     some special values needed by the templates. $[(GithubLinkCall)B|calls.configs|JavaCreateCall.java configType="NONE" /]
     for example set values in fields for <i>final</i> or <i>overwrite</i>.
 </p>
 <p>To trigger the creation there are two classes:
     <ul>
-    <li>$[(GithubLinkCall)BEOT|calls|EoJsonCreateStart.java configType="NONE" /] create json configuration files</li>
-    <li>$[(GithubLinkCall)BEOT|calls|EoJavaCreateStart.java configType="NONE" /] create java files</li>
+    <li>$[(GithubLinkCall)BT|calls|EoJsonCreateStart.java configType="NONE" /] create json configuration files</li>
+    <li>$[(GithubLinkCall)BT|calls|EoJavaCreateStart.java configType="NONE" /] create java files</li>
 </ul>
 </p>
 <p>Two static helpers load the data in different tree structure before the call will be executed:
 <ul>
-    <li>$[(GithubLinkCall)BEO|calls|EoJsonCreate.java configType="NONE" /]</li>
-    <li>$[(GithubLinkCall)BEO|calls|EoJavaCreate.java configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)B|calls.generate|EoJsonCreate.java configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)B|calls.generate|EoJavaCreate.java configType="NONE" /]</li>
 </ul>
 They could be replaced by some templates itself later.
 </p>
 <p>The json creation part just use the sorting logic when loading
-    $[(GithubLinkCall)BEOR||eo.xlsx configType="NONE" /]. </p>
+    $[(GithubLinkCall)BR||eo.xlsx configType="NONE" /]. </p>
 
 <h6>Java Templates</h6>
 <p>The java creation starts with the loading of a template depending on the <i>shapeType</i> value in ModelConfig sheet.

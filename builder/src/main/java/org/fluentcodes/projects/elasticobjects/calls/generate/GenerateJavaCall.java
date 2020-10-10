@@ -39,6 +39,9 @@ public class GenerateJavaCall extends GenerateCall {
 
     @Override
     public Object execute(EO eo) {
+        if (!hasOverwrite()) {
+            setOverwrite(true);
+        }
         StringBuilder feedback = new StringBuilder();
         if (eo.isEmpty()) {
             throw new EoException("Eo for generating json configuration files is empty! " + eo.getPathAsString());
@@ -46,6 +49,7 @@ public class GenerateJavaCall extends GenerateCall {
         if (!hasBuildPath()) {
             throw new EoInternalException("No build path set so nothing will generated");
         }
+        init(eo);
         int counter = 1;
         for (final String naturalId: eo.keys()) {
             EO eoModel = eo.getEo(naturalId);

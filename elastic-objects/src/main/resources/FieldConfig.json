@@ -39,7 +39,7 @@
     "modelKeys": "String",
     "description": "Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ",
     "expose": "WEB",
-    "fieldKey": "packagePath",
+    "fieldKey": "classPath",
     "length": 64,
     "properties": {
       "classPath": "src.main.resources"
@@ -711,6 +711,7 @@
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "expose": "NONE",
     "length": 80,
+    "fieldKey": "naturalId",
     "properties": {
       "unique": true,
       "notNull": true,

@@ -30,7 +30,7 @@ public class DbQueryCall extends ListReadCall {
 
     @Override
     public Object execute(EO eo) {
-        resolve(eo.getConfigsCache());
+        init(eo);
         return getDbQueryConfig().read(eo, this);
     }
 

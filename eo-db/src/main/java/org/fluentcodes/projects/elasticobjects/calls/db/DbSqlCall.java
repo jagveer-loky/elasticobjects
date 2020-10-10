@@ -29,10 +29,11 @@ public class DbSqlCall extends  CallResource{
     }
 
     public Boolean execute(EO eo)  {
-        resolve(eo.getConfigsCache());
+
         if (eo == null) {
             throw new EoException("Null or empty EO. But checkConfig needs values to be readed from the db!");
         }
+        init(eo);
         return getDbSqlConfig().execute();
     }
 }

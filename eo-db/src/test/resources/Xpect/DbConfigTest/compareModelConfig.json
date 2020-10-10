@@ -45,8 +45,8 @@
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
-    "author": "Werner Diwischek",
-    "naturalId": "DbConfig"
+    "naturalId": "DbConfig",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -35,7 +35,7 @@ public class CsvReadCall extends ListReadCall {
     }
 
     public Object execute(EO eo) {
-        resolve(eo.getConfigsCache());
+        init(eo);
         super.execute(eo);
         return getCsvConfig().read(eo, this);
     }

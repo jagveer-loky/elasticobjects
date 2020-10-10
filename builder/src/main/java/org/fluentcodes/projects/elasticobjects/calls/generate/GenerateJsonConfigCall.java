@@ -5,23 +5,28 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.generate.helper.FieldHelper;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.tools.xpect.IOString;
 
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
 public class GenerateJsonConfigCall extends GenerateCall {
+    public static final String CONFIG_TYPE = "configType";
+    private String configType;
 
     public GenerateJsonConfigCall() {
         super();
     }
     public GenerateJsonConfigCall(final String configType) {
-        super(configType);
+        super();
+        this.configType = configType;
     }
 
     @Override
@@ -36,7 +41,8 @@ public class GenerateJsonConfigCall extends GenerateCall {
         if (!hasBuildPath()) {
             throw new EoInternalException("No build path set so nothing will generated");
         }
-
+        init(eo);
+        this.configType = Parser.replace(configType, eo);
         for (String module: eo.keys()) {
             if ("basic".equals(module)) {
                 continue;
@@ -85,7 +91,12 @@ public class GenerateJsonConfigCall extends GenerateCall {
                         .toJSON(eo.getConfigsCache(), result);
                 if (hasFileEnding()) {
                     feedback.append("Written configuration to  '" + targetPath + "'\n");
-                    new IOString().setFileName(targetPath).write(jsonConfig);
+                    try {
+                        new IOString().setFileName(targetPath).write(jsonConfig);
+                    }
+                    catch (Exception e) {
+                        System.out.println(new File(targetPath).getAbsoluteFile());
+                    }
                 }
                 else {
                     feedback.append("Configuration not persisted to  '" + targetPath + "' due to missing file ending\n");
@@ -95,4 +106,19 @@ public class GenerateJsonConfigCall extends GenerateCall {
         }
         return feedback;
     }
+
+    public GenerateJsonConfigCall setConfigType(String configType) {
+        this.configType = configType;
+        return this;
+    }
+
+    public String getConfigType() {
+        return configType;
+    }
+
+    public boolean hasConfigType() {
+        return configType!=null && !configType.isEmpty();
+    }
+
+
 }

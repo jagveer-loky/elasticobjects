@@ -20,7 +20,12 @@
       "8": "logLevel",
       "9": "duration",
       "10": "prepend",
-      "11": "postpend"
+      "11": "postpend",
+      "12": "id",
+      "13": "description",
+      "14": "naturalId",
+      "15": "creationDate",
+      "16": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -32,8 +37,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
-    "author": "Werner Diwischek",
-    "naturalId": "StringReplaceCall"
+    "naturalId": "StringReplaceCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

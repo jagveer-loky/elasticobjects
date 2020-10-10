@@ -61,9 +61,6 @@ public class ExecutorCall {
         }
         for (String entry : loopPaths) {
             EO sourceEntry = sourceParent.getEo(entry);
-            if (!((CallImpl)call).evalCondition(sourceEntry)) {
-                continue;
-            }
             if (isFilter) {
                 call.setTargetPath(targetPath + Path.DELIMITER + entry);
             }

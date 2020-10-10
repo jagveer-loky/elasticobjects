@@ -29,8 +29,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
-    "author": "Werner Diwischek",
-    "naturalId": "ListParams"
+    "naturalId": "ListParams",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

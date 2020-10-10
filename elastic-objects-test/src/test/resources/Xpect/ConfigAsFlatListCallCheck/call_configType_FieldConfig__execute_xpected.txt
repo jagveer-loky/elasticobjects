@@ -2,7 +2,7 @@
 "attributeList";"ArrayList,String";"Definition of available attributes for an Action.";"elastic-objects";"";"attributeList";"";"";"";"";
 "author";"String";"The autor of something e,g. a class.";"elastic-objects";"";"author";"";"";"";"";
 "cached";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"cached";"";"";"";"";
-"classPath";"String";"Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ";"elastic-objects";"";"packagePath";"";"";"";"";
+"classPath";"String";"Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ";"elastic-objects";"";"classPath";"";"";"";"";
 "colKeys";"ArrayList,String";"The key list for mapping values in a value list. ";"elastic-objects";"";"colKeys";"";"";"";"";
 "condition";"String";"A condition for calls. ";"elastic-objects";"";"condition";"";"";"";"";
 "configFilter";"String";"Key for filter configuration";"elastic-objects";"";"configFilter";"";"";"";"";
@@ -73,7 +73,7 @@
 "myObject";"Object";"A test object thing. ";"elastic-objects-test";"";"myObject";"";"";"";"";
 "myString";"String";"Just a small test string used in test models. ";"elastic-objects-test";"";"myString";"";"";"";"";
 "name";"String";"The name field of a class. ";"elastic-objects";"";"name";"";"";"";"";
-"naturalId";"String";"The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}";"elastic-objects";"";"";"";"";"";"";
+"naturalId";"String";"The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}";"elastic-objects";"";"naturalId";"";"";"";"";
 "naturalKeys";"ArrayList,String";"naturalKeys";"elastic-objects";"";"naturalKeys";"";"";"";"";
 "notNull";"Boolean";"notNull";"elastic-objects";"";"notNull";"";"";"";"";
 "overwrite";"Boolean";"overwrite";"elastic-objects";"";"overwrite";"";"";"";"";

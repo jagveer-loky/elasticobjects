@@ -46,8 +46,8 @@
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
-    "author": "Werner Diwischek",
-    "naturalId": "AnObject"
+    "naturalId": "AnObject",
+    "author": "Werner Diwischek"
   },
   "1": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
@@ -74,8 +74,8 @@
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A sub object as an example.",
-    "author": "Werner Diwischek",
-    "naturalId": "ASubObject"
+    "naturalId": "ASubObject",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

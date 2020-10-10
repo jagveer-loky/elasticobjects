@@ -1,0 +1,9 @@
+{insert
+  call="XlsxAction.read(git.xlsx:Manuell)"
+  mapPath="$[page]/$[order]"
+  doMap="false"
+  filter="4 match $[filter] && 1 nex "
+/>
+<call execute="ExecutorValuesMisc.set(adapter,'/.config/type','md')" />
+<call execute="ExecutorValuesMisc.set(adapter,'/.config/executor','ExecutorMD')" />
+<call path="*" targetFile="../../sandbox-git/sandbox-git.wiki/$[currentKey].md" templateKey="page.md"/>

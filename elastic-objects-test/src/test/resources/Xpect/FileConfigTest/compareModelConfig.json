@@ -39,8 +39,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Immutable EO file configuration allow read or write access to a specific file. ",
-    "author": "Werner Diwischek",
-    "naturalId": "FileConfig"
+    "naturalId": "FileConfig",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

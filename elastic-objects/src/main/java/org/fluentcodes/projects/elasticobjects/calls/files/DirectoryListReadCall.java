@@ -26,7 +26,7 @@ public class DirectoryListReadCall extends FileReadCall{
     @Override
     public Object execute(final EO eo)  {
         init(eo);
-        List<String> result = listFiles(eo.getConfigsCache());
+        List<String> result = listFiles();
         return createReturnType(eo, result);
     }
 
@@ -36,8 +36,7 @@ public class DirectoryListReadCall extends FileReadCall{
     }
 
 
-    public List<String> listFiles(EOConfigsCache cache)  {
-        resolve(cache);
+    public List<String> listFiles()  {
         if (!hasConfig()) {
             throw new EoException("No config defined for configKey " + getConfigKey());
         }

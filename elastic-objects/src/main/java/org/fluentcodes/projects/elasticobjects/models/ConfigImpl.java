@@ -4,6 +4,10 @@ package org.fluentcodes.projects.elasticobjects.models;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
 //$[/]
 import java.util.LinkedHashMap;
@@ -104,9 +108,13 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
             return "{}";
         }
         try {
-            return new EOToJSON().toJSON(getConfigsCache(), this);
+            EO eoMap = new EoRoot(getConfigsCache());
+            eoMap.mapObject(this);
+            return new EOToJSON()
+                    .setSerializationType(JSONSerializationType.STANDARD)
+                    .toJSON(eoMap);
         } catch (Exception e) {
-            return e.getMessage();
+            return "Exception serializing configuration! " + e.getMessage();
         }
     }
 

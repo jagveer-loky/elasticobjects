@@ -38,7 +38,7 @@ public class ListReadCall extends CallResource implements ListInterface {
     }
 
     @Override
-    public ListReadCall resolve(EOConfigsCache cache) {
+    public ListReadCall resolve(EO cache) {
         super.resolve(cache);
         if (listParams==null) {
             listParams = new ListParams();

@@ -33,8 +33,9 @@ public class FileWriteCall extends CallResource {
 
     @Override
     public String execute(final EO eo)  {
-        init(eo);
-        hasPermissions(eo.getRoles());
+        if (!init(eo)) {
+            return null;
+        }
         String content = null;
         if (eo.isScalar()) {
             content = eo.get().toString();
@@ -42,12 +43,11 @@ public class FileWriteCall extends CallResource {
         else {
             content = new EOToJSON().toJSON(eo);
         }
-        write(eo.getConfigsCache(), content);
+        write(content);
         return content;
     }
 
-    public void write(EOConfigsCache configsCache, Object content)  {
-        resolve(configsCache);
+    public void write(Object content)  {
         String url = getFileConfig().createUrl().getFile();
         if (hasClassPath()) {
             url = getClassPath() + Path.DELIMITER + url;

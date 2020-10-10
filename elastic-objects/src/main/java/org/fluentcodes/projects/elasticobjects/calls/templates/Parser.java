@@ -15,7 +15,6 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.values.ValueCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
@@ -44,6 +43,19 @@ public abstract class Parser {
 
     public Parser(final String template) {
         this.template = template;
+    }
+
+    public static String replace(final String value, EO eo) {
+        if (value == null) {
+            return value;
+        }
+        if (value.contains(ParserTemplate.START_SEQUENCE)) {
+            return new ParserTemplate(value).parse(eo);
+        }
+        if (value.contains(ParserEoReplace.START_SEQUENCE)) {
+            return new ParserEoReplace(value).parse(eo);
+        }
+        return value;
     }
 
     public String getTemplate() {
@@ -171,8 +183,8 @@ public abstract class Parser {
                 throw new EoException(e.getMessage() + ": " + callDirective);
             }
         }
-        String[] callsAndAttributes = callDirective.split("\" +");
-        String callPathCore = callsAndAttributes[0].replaceAll(" .*","");
+        String[] callsAndAttributes = callDirective.split("\"[\\s\\n\\r]+");
+        String callPathCore = callsAndAttributes[0].replaceAll("[\\s\\n\\r]+.*","");
         Map<String, String> attributes = extractAttributes(callsAndAttributes);
         Path path = new Path(callPathCore);
         if (!path.hasModel()) {
@@ -199,12 +211,9 @@ public abstract class Parser {
         }
 
         if (!attributes.isEmpty()) {
-             if (attributes.keySet().contains("configKey") && attributes.get("configKey").contains("eo->") && (callObject instanceof FileReadCall)) {
-                 attributes.put("configKey", new ParserEoReplace(attributes.get("configKey")).parse(eo));
-             }
             EO eoForMapAttributesToCall = new EoRoot(eo.getConfigsCache(), callObject);
             eoForMapAttributesToCall.mapObject(attributes);
-            callObject = (Call) eoForMapAttributesToCall.get();
+            callObject = eoForMapAttributesToCall.get();
         }
         if (callObject instanceof TemplateResourceCall) {
             TemplateResourceCall resourceCall = (TemplateResourceCall)callObject;
@@ -252,12 +261,12 @@ public abstract class Parser {
 
     private static final Map<String, String> extractAttributes(final String[] attributesList) {
         Map<String, String> attributes = new LinkedHashMap<>();
-        if (attributesList.length == 1 && !attributesList[0].contains(" ")) {
-            return attributes;
-        }
-        attributesList[0] = attributesList[0].replaceAll("^[^ ]* ","");
+        attributesList[0] = attributesList[0].replaceAll("^[^ ]*[\\s\\n\\r]+","");
 
         for (String attribute: attributesList) {
+            if (attribute.startsWith("(")) {
+                continue;
+            }
             String[] keyValue = attribute.split("=\"");
             if (keyValue.length == 2) {
                 attributes.put(keyValue[0].replaceAll("\\s",""), keyValue[1].replaceAll("\"$",""));

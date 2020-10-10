@@ -52,6 +52,9 @@ public class TemplateCall extends CallImpl {
         if (!hasContent()) {
             return "";
         }
+        if (!init(eo)) {
+            return "";
+        }
         if (!isContentActive()) {
             LOG.info("No active element in template");
             return content;

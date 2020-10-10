@@ -1,0 +1,62 @@
+{
+  "commerce.xlsx:Model": {
+    "rowHead": "0",
+    "xlsxKey": "commerce.xlsx:Model",
+    "description": "The model definitions for the example project.",
+    "modelKey": "ModelBean"
+  },
+  "commerce.xlsx:Field": {
+    "rowHead": "0",
+    "xlsxKey": "commerce.xlsx:Field",
+    "description": "The field definitions for the example project.",
+    "modelKey": "FieldBean"
+  },
+  "data.xlsx:Category": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:Category",
+    "description": "The data definitions for the example project.",
+    "modelKey": "Category"
+  },
+  "data.xlsx:Address": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:Address",
+    "description": "The address initial definitions for the example project.",
+    "modelKey": "Address"
+  },
+  "data.xlsx:Customer": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:Customer",
+    "description": "The Customer initial definitions for the example project.",
+    "modelKey": "Customer"
+  },
+  "data.xlsx:Product": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:Product",
+    "description": "The Product initial definitions for the example project.",
+    "modelKey": "Product"
+  },
+  "data.xlsx:Property": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:Property",
+    "description": "The Property initial definitions for the example project.",
+    "modelKey": "Property"
+  },
+  "data.xlsx:PropertyType": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:PropertyType",
+    "description": "The PropertyType initial definitions for the example project.",
+    "modelKey": "PropertyType"
+  },
+  "data.xlsx:ProductOrder": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:ProductOrder",
+    "description": "The Order initial definitions for the example project.",
+    "modelKey": "ProductOrder"
+  },
+  "data.xlsx:LineItem": {
+    "rowHead": "0",
+    "xlsxKey": "data.xlsx:LineItem",
+    "description": "The LineItem initial definitions for the example project.",
+    "modelKey": "LineItem"
+  }
+}
