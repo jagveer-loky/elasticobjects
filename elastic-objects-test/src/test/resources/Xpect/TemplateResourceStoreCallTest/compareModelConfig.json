@@ -22,7 +22,12 @@
       "11": "logLevel",
       "12": "duration",
       "13": "prepend",
-      "14": "postpend"
+      "14": "postpend",
+      "15": "id",
+      "16": "description",
+      "17": "naturalId",
+      "18": "creationDate",
+      "19": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -34,8 +39,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
-    "author": "Werner Diwischek",
-    "naturalId": "TemplateResourceStoreCall"
+    "naturalId": "TemplateResourceStoreCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

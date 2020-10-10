@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.PropertiesConfigAccessor;
@@ -28,7 +29,7 @@ public interface PropertiesListAccessor extends PropertiesConfigAccessor {
         for (int i = 0; i< filteredResult.size(); i++) {
             Object row = filteredResult.get(i);
             if (isMapped) {
-                String target = new ParserEoReplace(targetPath).parse(new EoRoot(eo.getConfigsCache(), row));
+                String target = Parser.replace(targetPath,new EoRoot(eo.getConfigsCache(), row));
                 eo.set(row, target);
             }
             else {

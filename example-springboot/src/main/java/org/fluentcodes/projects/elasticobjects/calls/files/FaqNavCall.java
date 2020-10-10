@@ -36,7 +36,8 @@ public class FaqNavCall extends DirectoryListReadCall {
         }
         builder.append("</ul>");
         FileWriteCall call = new FileWriteCall("FaqNav.html");
-        call.write(eo.getConfigsCache(), builder.toString());
+        call.init(eo);
+        call.write(builder.toString());
         return builder.toString();
     }
 }

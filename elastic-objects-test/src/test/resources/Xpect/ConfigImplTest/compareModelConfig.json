@@ -27,8 +27,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Basic cache as super object for other cached items. ",
-    "author": "Werner Diwischek",
-    "naturalId": "ConfigImpl"
+    "naturalId": "ConfigImpl",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

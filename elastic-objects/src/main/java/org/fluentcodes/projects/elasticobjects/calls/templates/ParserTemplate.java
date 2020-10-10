@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 public class ParserTemplate extends Parser{
     private static final Logger LOG = LogManager.getLogger(ParserTemplate.class);
-    private static final Pattern varPattern = Pattern.compile("\\$\\[(.*?)(/*\\])");
+    private static final Pattern varPattern = Pattern.compile("\\$\\[(.*?)(/*\\])", Pattern.DOTALL);
     public static final String END_SEQUENCE = "/]";
     public static final String START_SEQUENCE = "$[";
     protected static final String CLOSE_TAG = START_SEQUENCE + END_SEQUENCE;

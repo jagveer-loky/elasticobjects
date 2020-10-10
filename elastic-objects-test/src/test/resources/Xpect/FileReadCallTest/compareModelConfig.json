@@ -15,7 +15,12 @@
       "7": "logLevel",
       "8": "duration",
       "9": "prepend",
-      "10": "postpend"
+      "10": "postpend",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -27,8 +32,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines a file read access. ",
-    "author": "Werner Diwischek",
-    "naturalId": "FileReadCall"
+    "naturalId": "FileReadCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

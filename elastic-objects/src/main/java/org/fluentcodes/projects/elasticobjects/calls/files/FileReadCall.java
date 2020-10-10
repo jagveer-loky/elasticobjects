@@ -35,7 +35,9 @@ public class FileReadCall extends CallResource{
 
     @Override
     public Object execute(final EO eo)  {
-        init(eo);
+        if (!init(eo)) {
+            return null;
+        }
         String result = (String) getFileConfig().read();
         return createReturnString(eo, result);
     }

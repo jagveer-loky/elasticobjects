@@ -45,7 +45,9 @@ public class DirectoryReadCall extends FileReadCall{
 
     @Override
     public String execute(final EO eo)  {
-        init(eo);
+        if (!init(eo)) {
+            return "";
+        }
         if (!hasFileName()) {
             throw new EoException("No fileName is set for DirectoryReadCall with config '" + getConfigKey() + "'.");
         }

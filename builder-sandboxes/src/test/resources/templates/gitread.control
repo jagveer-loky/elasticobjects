@@ -1,0 +1,14 @@
+{insert
+call="XlsxAction.read(git.xlsx:Manuell)"
+or="3 eq $[filter]"
+rowStart="3"
+rowEnd="10"
+mapPath="$[page]/$[order]"
+doMap="false"/>
+
+{insert
+call="XlsxAction.read(git.xlsx:Manuell)"
+or="3 eq rebase"
+mapPath="$[page]/$[order]"
+doMap="false"/>
+

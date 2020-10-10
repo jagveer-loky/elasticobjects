@@ -26,8 +26,7 @@ public class XlsxReadCall extends ListReadCall {
     }
 
     public Object execute(EO eo) {
-        resolve(eo.getConfigsCache());
-        hasPermissions(eo.getRoles());
+        init(eo);
         return ((XlsxConfig)getConfig()).read(eo, this);
     }
 }

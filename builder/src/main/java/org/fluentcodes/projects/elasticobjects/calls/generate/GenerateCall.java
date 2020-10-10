@@ -1,22 +1,31 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 
 public abstract class GenerateCall extends CallImpl {
+    public static String BUILD_PATH = "buildPath";
     private String buildPath;
-    private String configType;
     private String module;
     private String moduleScope;
-    private String classPath;
     private String fileEnding;
+    private String classPath;
 
     public GenerateCall() {
         super();
     }
-    public GenerateCall(final String configType) {
-        super();
-        this.configType = configType;
+
+    @Override
+    protected boolean init(final EO eo) {
+        this.buildPath = Parser.replace(buildPath, eo);
+        this.module = Parser.replace(module,eo);
+        this.moduleScope = Parser.replace(moduleScope, eo);
+        this.fileEnding = Parser.replace(fileEnding, eo);
+        this.classPath = Parser.replace(classPath, eo);
+        return true;
     }
+
     public String getBuildPath() {
         return buildPath;
     }
@@ -29,19 +38,6 @@ public abstract class GenerateCall extends CallImpl {
         return buildPath!=null && !buildPath.isEmpty();
     }
 
-    public String getConfigType() {
-        return configType;
-    }
-
-    public boolean hasConfigType() {
-        return configType!=null && !configType.isEmpty();
-    }
-
-    public GenerateCall setConfigType(String configType) {
-        this.configType = configType;
-        return this;
-    }
-
     public String getModule() {
         return module;
     }
@@ -52,19 +48,6 @@ public abstract class GenerateCall extends CallImpl {
     }
     public boolean hasModule() {
         return module!=null && !module.isEmpty();
-    }
-
-    public String getClassPath() {
-        return classPath;
-    }
-
-    public GenerateCall setClassPath(String classPath) {
-        this.classPath = classPath;
-        return this;
-    }
-
-    public boolean hasClassPath() {
-        return classPath !=null && !classPath.isEmpty();
     }
 
     public String getModuleScope() {
@@ -90,5 +73,18 @@ public abstract class GenerateCall extends CallImpl {
 
     public boolean hasFileEnding() {
         return fileEnding!=null && !fileEnding.isEmpty();
+    }
+
+    public String getClassPath() {
+        return classPath;
+    }
+
+    public GenerateCall setClassPath(String classPath) {
+        this.classPath = classPath;
+        return this;
+    }
+
+    public boolean hasClassPath() {
+        return classPath !=null && !classPath.isEmpty();
     }
 }

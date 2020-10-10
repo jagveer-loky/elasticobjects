@@ -22,7 +22,12 @@
       "14": "logLevel",
       "15": "duration",
       "16": "prepend",
-      "17": "postpend"
+      "17": "postpend",
+      "18": "id",
+      "19": "description",
+      "20": "naturalId",
+      "21": "creationDate",
+      "22": "author"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -34,8 +39,8 @@
     "module": "eo-csv",
     "moduleScope": "main",
     "description": "Defines read call for a csv action depending on one link CsvConfig. ",
-    "author": "Werner Diwischek",
-    "naturalId": "CsvReadCall"
+    "naturalId": "CsvReadCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

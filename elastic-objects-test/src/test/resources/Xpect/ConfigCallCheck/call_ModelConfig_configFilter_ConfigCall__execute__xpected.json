@@ -23,7 +23,12 @@
       "11": "logLevel",
       "12": "duration",
       "13": "prepend",
-      "14": "postpend"
+      "14": "postpend",
+      "15": "id",
+      "16": "description",
+      "17": "naturalId",
+      "18": "creationDate",
+      "19": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -35,8 +40,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "For getting a map of configurations for a specific configuration type.",
-    "author": "Werner Diwischek",
-    "naturalId": "ConfigCall"
+    "naturalId": "ConfigCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

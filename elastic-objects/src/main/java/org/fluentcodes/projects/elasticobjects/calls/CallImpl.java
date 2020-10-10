@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
@@ -47,7 +48,9 @@ public abstract class CallImpl extends BaseImpl implements Call {
         }
     }
 
-
+    protected boolean init(final EO eo)  {
+        return evalCondition(eo);
+    }
 
     /**
      * Evaluates the startCondition field  at the beginning of ExecutorCall.
@@ -70,7 +73,7 @@ public abstract class CallImpl extends BaseImpl implements Call {
         if (!hasCondition()) {
             return true;
         }
-        return new Or(new ParserEoReplace(getCondition()).parse(eo)).filter(eo);
+        return new Or(Parser.replace(getCondition(), eo)).filter(eo);
     }
 
     protected Object createReturnScalar(EO eo, Object result) {

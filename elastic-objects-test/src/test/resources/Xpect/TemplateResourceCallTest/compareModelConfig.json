@@ -23,7 +23,12 @@
       "10": "logLevel",
       "11": "duration",
       "12": "prepend",
-      "13": "postpend"
+      "13": "postpend",
+      "14": "id",
+      "15": "description",
+      "16": "naturalId",
+      "17": "creationDate",
+      "18": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -35,8 +40,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Parses the content of a FileConfig or DirectoryConfig configuration. ",
-    "author": "Werner Diwischek",
-    "naturalId": "TemplateResourceCall"
+    "naturalId": "TemplateResourceCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

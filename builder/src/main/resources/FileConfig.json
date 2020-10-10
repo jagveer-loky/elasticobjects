@@ -1,4 +1,36 @@
 {
+  "JavaBuilder.tpl": {
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates/java",
+    "fileName": "JavaBuilder.tpl",
+    "description": "Control directive to load ModelConfig and FieldConfig data and call GenerateJavaCall",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "superadmin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "JsonBuilder.tpl": {
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates/json",
+    "fileName": "JsonBuilder.tpl",
+    "description": "Control directive to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "superadmin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "CALL_BEANCreate.tpl": {
     "module": "builder",
     "moduleScope": "main",

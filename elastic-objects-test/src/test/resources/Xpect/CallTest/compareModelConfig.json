@@ -37,8 +37,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Basic interface for calls ",
-    "author": "Werner Diwischek",
-    "naturalId": "Call"
+    "naturalId": "Call",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

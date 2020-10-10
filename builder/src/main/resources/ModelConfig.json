@@ -1,0 +1,57 @@
+{
+  "GenerateCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "buildPath",
+      "module",
+      "moduleScope",
+      "fileEnding",
+      "classPath"
+    ],
+    "superKey": "CallImpl",
+    "expose": "NONE",
+    "description": "Abstract super class for generating code.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "GenerateJavaCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "GenerateCall",
+    "expose": "NONE",
+    "description": "Call for generation java code from ModelConfig and FieldConfig sheet.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateJavaCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "GenerateJsonConfigCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "configType"
+    ],
+    "superKey": "GenerateCall",
+    "expose": "NONE",
+    "description": "Call for generation json configurations from the sheet.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateJsonConfigCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  }
+}

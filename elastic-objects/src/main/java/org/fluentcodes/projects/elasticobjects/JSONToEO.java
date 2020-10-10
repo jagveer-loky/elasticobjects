@@ -24,9 +24,9 @@ import java.util.regex.Pattern;
  */
 public class JSONToEO {
     //http://stackoverflow.com/questions/3651725/match-multiline-text-using-regular-expression
-    public static final Pattern jsonPattern = Pattern.compile("^[\\s]*[\\{\\[]");
-    public static final Pattern jsonMapPattern = Pattern.compile("^[\\s]*[\\{]");
-    public static final Pattern jsonListPattern = Pattern.compile("^[\\s]*[\\[]");
+    public static final Pattern jsonPattern = Pattern.compile("^[\\{\\[]");
+    public static final Pattern jsonMapPattern = Pattern.compile("^\\{");
+    public static final Pattern jsonListPattern = Pattern.compile("^\\[");
     private static final Logger LOG = LogManager.getLogger(JSONToEO.class);
     private EOConfigsCache provider;
     private long character;

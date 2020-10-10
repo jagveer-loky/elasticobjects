@@ -15,7 +15,12 @@
       "7": "logLevel",
       "8": "duration",
       "9": "prepend",
-      "10": "postpend"
+      "10": "postpend",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -27,8 +32,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. \nOffers also general access methods like read(String filePath, String fileName) for java access. ",
-    "author": "Werner Diwischek",
-    "naturalId": "DirectoryListReadCall"
+    "naturalId": "DirectoryListReadCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

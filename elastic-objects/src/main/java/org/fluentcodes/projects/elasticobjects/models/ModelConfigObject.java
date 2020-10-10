@@ -260,79 +260,63 @@ public class ModelConfigObject extends ModelConfig {
             return;
         }
         for (String fieldKey : getFieldKeys()) {
-            ModelConfigInterface type;
+            ModelConfigInterface fieldType;
             String fieldName;
-            try {
-                FieldConfig fieldConfig = null;
-                try {
-                    fieldConfig = getConfigsCache().findField(fieldKey);
-                }
-                catch (EoException e) {
-                    getConfigsCache().findField(fieldKey);
-                    throw e;
-                }
-                fieldName = fieldConfig.getFieldKey();
-                if (fieldName == null) {
-                    //throw new EoException("Null fieldName?! " + fieldName);
-                    continue;
-                }
-                fieldConfig.addModel(this);
-                getFieldCacheMap().put(fieldName, fieldConfig);
-                type = fieldConfig.getModelConfig();
-                if (type == null) {
-                    //throw new EoException("Problem getting model of field " + fieldName);
-                    continue;
-                }
-                String packagePath = type.getPackagePath();
-                if (packagePath == null) {
-                    throw new EoInternalException("Problem find packagePathe for type "+  type.getModelKey());
-                }
-                if ("java.lang".equals(packagePath)) {
+            FieldConfig fieldConfig = getConfigsCache().findField(fieldKey);
+            fieldName = fieldConfig.getFieldKey();
+            if (fieldName == null) {
+                throw new EoException("Null fieldName?! " + fieldName);
+            }
+            fieldConfig.addModel(this);
+            getFieldCacheMap().put(fieldName, fieldConfig);
+            fieldType = fieldConfig.getModelConfig();
+            if (fieldType == null) {
+                throw new EoException("Problem getting model of field " + fieldName);
+            }
+            String packagePath = fieldType.getPackagePath();
+            if (packagePath == null) {
+                throw new EoInternalException("Problem find packagePathe for type "+  fieldType.getModelKey());
+            }
+            if ("java.lang".equals(packagePath)) {
 
-                } else if (this.getPackagePath().equals(type.getPackagePath())) {
+            } else if (this.getPackagePath().equals(fieldType.getPackagePath())) {
 
-                } else {
-                    if (getImportClasses(type.getModelKey()) == null) {
-                        getImportClasses().put(type.getModelKey(), fieldConfig.getModelConfig());
-                    }
+            } else {
+                if (getImportClasses(fieldType.getModelKey()) == null) {
+                    getImportClasses().put(fieldType.getModelKey(), fieldConfig.getModelConfig());
                 }
             }
-            catch (Exception e) {
-                throw new EoException("Problem resolving field with name '" + fieldKey + "' defined within model '" + getModelKey() + "': Probably no field definition is provided.", e);
-            }
 
-            // If scope is for creating a bean from template, the class will be created by this.
-            if (getConfigsCache().getScope() == Scope.CREATE) {
-                continue;
-            }
             if (ShapeTypes.INTERFACE == this.getShapeType()) {  // no getter/setter
                 continue;
             }
 
-            Class typeClass = type.getModelClass();
-            String baseName = StringUpperFirstCharCall.upperFirstCharacter(fieldName);
-            try {
-                Method setterField = findSetMethod(getModelClass(), setter(fieldName), typeClass);
-                setterMap.put(fieldName, setterField);
-            } catch (Exception e) {
+            Class fieldTypeClass = fieldType.getModelClass();
+            String fieldNameUpper = StringUpperFirstCharCall.upperFirstCharacter(fieldName);
+            if (this.getShapeType() != ShapeTypes.CONFIG) {
                 try {
-                    Method setterField = findSetMethod(getModelClass(), setter(fieldName), Object.class);
+                    Method setterField = findSetMethod(getModelClass(), setter(fieldName), fieldTypeClass);
                     setterMap.put(fieldName, setterField);
-                } catch (Exception e1) {
-                    //LOG.debug("Could not resolve getter for add " + baseName + ": " + e1.getMessage());
+                } catch (Exception e) {
+                    try {
+                        Method setterField = findSetMethod(getModelClass(), setter(fieldName), Object.class);
+                        setterMap.put(fieldName, setterField);
+                    } catch (Exception e1) {
+                        LOG.debug("Could not resolve getter for add " + fieldNameUpper + ": " + e1.getMessage());
+                    }
                 }
             }
 
             try {
                 Method getterField;
-                if (typeClass.equals(Boolean.class)) {
-                    getterField = findGetMethod(getModelClass(), "is" + baseName);
+                if (fieldTypeClass.equals(Boolean.class)) {
+                    getterField = findGetMethod(getModelClass(), "is" + fieldNameUpper);
                 } else {
                     getterField = findGetMethod(getModelClass(), getter(fieldName));
                 }
                 getterMap.put(fieldName, getterField);
             } catch (Exception e) {
-                //LOG.debug("Could not resolve getter for find" + baseName + ": " + e.getMessage());
+                    LOG.debug("Could not resolve getter for find" + fieldNameUpper + ": " + e.getMessage());
             }
         }
     }

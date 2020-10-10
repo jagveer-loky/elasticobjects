@@ -22,7 +22,12 @@
       "14": "logLevel",
       "15": "duration",
       "16": "prepend",
-      "17": "postpend"
+      "17": "postpend",
+      "18": "id",
+      "19": "description",
+      "20": "naturalId",
+      "21": "creationDate",
+      "22": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -34,8 +39,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines a primitive csv file read operation. ",
-    "author": "Werner Diwischek",
-    "naturalId": "ScsReadCall"
+    "naturalId": "ScsReadCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

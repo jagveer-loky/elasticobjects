@@ -3,27 +3,24 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "JsonReadCall",
-    "(ArrayList)localFieldKeys": {
-      "0": "content",
-      "1": "indent",
-      "2": "serializationType"
-    },
     "superKey": "FileReadCall",
     "(ArrayList)fieldKeys": {
-      "0": "content",
-      "1": "indent",
-      "2": "serializationType",
-      "3": "configKey",
-      "4": "sourcePath",
-      "5": "targetPath",
-      "6": "models",
-      "7": "condition",
-      "8": "startCondition",
-      "9": "overwrite",
-      "10": "logLevel",
-      "11": "duration",
-      "12": "prepend",
-      "13": "postpend"
+      "0": "configKey",
+      "1": "sourcePath",
+      "2": "targetPath",
+      "3": "models",
+      "4": "condition",
+      "5": "startCondition",
+      "6": "overwrite",
+      "7": "logLevel",
+      "8": "duration",
+      "9": "prepend",
+      "10": "postpend",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -35,8 +32,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Calls with configuration {@link JsonConfig} to read a file write its content to EO on targetPath.",
-    "author": "Werner Diwischek",
-    "naturalId": "JsonReadCall"
+    "naturalId": "JsonReadCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

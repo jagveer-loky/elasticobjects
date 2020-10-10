@@ -23,18 +23,20 @@ public class TemplateResourceCall extends TemplateCall {
     }
 
     public String execute(EO eo)  {
+        if (!init(eo)) {
+            return "";
+        }
+        final String configKey = Parser.replace(getConfigKey(),eo);
         if (hasFileName()) { // directory config
             if (!(hasConfigKey())) {
                 throw new EoException("Problem that TemplateResourceCall with fileName '" + getFileName() + "' expects a configKey value.");
             }
-            final String fileName = new ParserEoReplace(getFileName()).parse(eo);
-            final String configKey = new ParserEoReplace(getConfigKey()).parse(eo);
+            final String fileName = Parser.replace(getFileName(),eo);
             super.setContent(new DirectoryReadCall(configKey)
                     .setFileName(fileName)
                     .execute(eo));
         }
         else { // file config
-            final String configKey = new ParserEoReplace(getConfigKey()).parse(eo);
             super.setContent((String)new FileReadCall(configKey).execute(eo));
         }
         return super.execute(eo);

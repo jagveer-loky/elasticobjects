@@ -80,6 +80,28 @@
           "postpend": {
             "description": "postpend String when executed by ExecutorCallImpl",
             "type": "string"
+          },
+          "id": {
+            "description": "The id with a autonumbering",
+            "type": "integer",
+            "format": "int62"
+          },
+          "description": {
+            "description": "A description of the model used by every model extending BaseClassImpl. ",
+            "type": "string"
+          },
+          "naturalId": {
+            "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
+            "type": "string"
+          },
+          "creationDate": {
+            "description": "Used to define the creation of an item.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "author": {
+            "description": "The autor of something e,g. a class.",
+            "type": "string"
           }
         }
       }

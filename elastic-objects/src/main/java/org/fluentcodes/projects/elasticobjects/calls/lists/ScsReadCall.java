@@ -26,8 +26,7 @@ public class ScsReadCall extends ListReadCall {
 
     @Override
     public Object execute(EO eo) {
-        resolve(eo.getConfigsCache());
-        hasPermissions(eo.getRoles());
+        init(eo);
         ((ScsConfig)getConfig()).read(eo, this);
         return null;
     }

@@ -16,7 +16,12 @@
       "8": "logLevel",
       "9": "duration",
       "10": "prepend",
-      "11": "postpend"
+      "11": "postpend",
+      "12": "id",
+      "13": "description",
+      "14": "naturalId",
+      "15": "creationDate",
+      "16": "author"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -28,8 +33,8 @@
     "module": "eo-csv",
     "moduleScope": "main",
     "description": "Defines write call for a csv action depending on one link CsvConfig. ",
-    "author": "Werner Diwischek",
-    "naturalId": "CsvWriteCall"
+    "naturalId": "CsvWriteCall",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

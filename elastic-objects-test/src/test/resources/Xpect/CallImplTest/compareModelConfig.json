@@ -3,6 +3,7 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallImpl",
+    "superKey": "BaseImpl",
     "interfaces": "Call",
     "(ArrayList)fieldKeys": {
       "0": "sourcePath",
@@ -14,7 +15,12 @@
       "6": "logLevel",
       "7": "duration",
       "8": "prepend",
-      "9": "postpend"
+      "9": "postpend",
+      "10": "id",
+      "11": "description",
+      "12": "naturalId",
+      "13": "creationDate",
+      "14": "author"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -26,8 +32,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Basic implementation for calls. ",
-    "author": "Werner Diwischek",
-    "naturalId": "CallImpl"
+    "naturalId": "CallImpl",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }

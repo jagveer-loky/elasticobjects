@@ -35,8 +35,8 @@
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Execute sql statement via jdbc connection. ",
-    "author": "Werner Diwischek",
-    "naturalId": "DbQueryConfig"
+    "naturalId": "DbQueryConfig",
+    "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"
 }
