@@ -1,3 +1,33 @@
 
-        <h3>What is a call?</h3>
-        <p>A <a href="/config/ModelConfig/Call">Call</a> is just a special pojo extending <a href="/config/ModelConfig/CallImpl">CallImpl</a> with a generic execute method with EO as input.  <br/><br/>The attribute <i>sourcePath</i> defines the location of the input value. The attribute <i>targetPath</i> defines the output location.<br/><br/>There are two conditions to be set. The attribute <i>condition</i> is evaluated on the actual element. The attribute <i>localCondition</i> will be evaluated within <i>sourcePath</i> location.<br/><br/>If the attribute <i>duration</i> is set, when the call is executed. It's just informal. If set, it the call will not be executed.<br/><br/>There are no restriction, what could be implemented in an execution method. There are some really simple examples like the <a href="/config/ModelConfig/SinusValueCall">SinusValueCall</a>.<br/><br/>The call works in a java application context when implemented. If a model configuration is defined, then the call can also be executed from a EO execute method.</p>
+<h3>What is a call?</h3>
+  <p>A
+$[(ConfigLinkCall)Call /] is just a special pojo extending
+$[(ConfigLinkCall)CallImpl /]
+with a generic execute method with EO as input.
+  </p>
+<img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
+<p>
+The attribute
+        $[(ConfigLinkCall)sourcePath configType="FieldConfig" /]
+        defines the location of the input value. The attribute
+        $[(ConfigLinkCall)targetPath configType="FieldConfig" /]
+        defines the output location.
+</p>
+<p>There are two conditions to be set. The attribute
+        $[(ConfigLinkCall)startCondition configType="FieldConfig" /]
+        is evaluated on the actual element.
+The attribute
+        $[(ConfigLinkCall)condition configType="FieldConfig" /]
+        will be evaluated within
+        $[(ConfigLinkCall)sourcePath configType="FieldConfig" /] location.
+</p>
+<p>If the attribute
+        $[(ConfigLinkCall)duration configType="FieldConfig" /]
+        is set, when the call is executed.
+        It's just informal. If set, it the call will not be executed.
+</p>
+<p>There are no restriction, what could be implemented in an execution method.
+        There are some really simple examples like the $[(ConfigLinkCall)SinusValueCall /].</p>
+<p>The call works in a java application context when implemented.
+        If a model configuration is defined, then the call can also be executed from a EO execute method.
+</p>

@@ -1,0 +1,32 @@
+<h3>Why JSON Serialization not using Type Attribute?</h3>
+<p>
+    There are other format extension for JSON like
+    <a href="https://de.wikipedia.org/wiki/JSON-LD">JSON-LD</a>.
+    They use an attribute "@type": "Person".
+</p>
+<p>
+    When deserializing the JSON formatted String the disadvantage is that one don't know the
+    type until the attribute will be interpreted. There is a back reference from a field to the object.
+</p>
+        <p>Furthermore there is no possibility to use the <a href="TypedPath.html">typed path</a> in the java methods.
+        </p>
+<p>So the JSON equivalent  similar to the method eo.set("value", "a/(AnObject)b/myString")
+    setting $[(ConfigLinkCall)AnObject /] type is:</p>
+<textarea style="height:100px;">{
+    "a": {
+        "(AnObject)b": {
+            "myString":"value
+        }
+    }
+}</textarea>
+<p>
+There is one exception: The root element has a "_rootmodel" type attribute to avoid a root wrapping of the JSON.
+</p>
+
+<p>An excellent overview about different json extensions for types is
+    <a href="https://tech.signavio.com/2017/json-type-information">
+        6 bad ways to add type information to JSON</a>.
+</p>
+
+
+
