@@ -17,7 +17,6 @@ import java.util.Map;
  */
 
 public class EoRootListTest {
-    private static final Logger LOG = LogManager.getLogger(EoRootListTest.class);
 
     @Test
     public void givenDev_whenNewWithArrayListValue_thenMap()  {

@@ -18,7 +18,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created by Werner on 23.05.2016.
  */
 public class EoRemoveTest {
-    private static final Logger LOG = LogManager.getLogger(EoRemoveTest.class);
 
     /**
      * Test for the remove method, which is depending on the object

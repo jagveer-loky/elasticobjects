@@ -10,7 +10,6 @@ import org.apache.logging.log4j.Logger;
  */
 
 public class JSONToEOCallsTest {
-    private static final Logger LOG = LogManager.getLogger(JSONToEOCallsTest.class);
     private static final String SCS_CALL_SOURCE = "ScsCallSource";
     private static final String SCS_CALL_SOURCE_PATH = "ScsCallSourcePath";
     private static final String SCS_CALL_SOURCE_JOINED = "ScsCallSourceJoined";

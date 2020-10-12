@@ -9,7 +9,6 @@ import org.junit.Test;
  * Created by Werner on 7.8.2020.
  */
 public class ModelConfigInterfaceTest {
-    private static final Logger LOG = LogManager.getLogger(ModelConfigInterfaceTest.class);
 
     @Test
     public void createByModelConfig_throwsException()  {

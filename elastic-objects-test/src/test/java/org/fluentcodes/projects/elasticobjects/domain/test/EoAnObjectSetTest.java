@@ -23,7 +23,6 @@ import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_OB
  * Created by Werner on 04.11.2016.
  */
 public class EoAnObjectSetTest {
-    private static final Logger LOG = LogManager.getLogger(EoAnObjectSetTest.class);
 
     @Test
     public void fromEoConfigsCache()  {

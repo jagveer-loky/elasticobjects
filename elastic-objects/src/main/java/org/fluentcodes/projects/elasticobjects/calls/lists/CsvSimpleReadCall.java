@@ -15,7 +15,6 @@ import java.util.List;
  * Created by werner.diwischek on 03.12.16.
  */
 public class CsvSimpleReadCall extends ListReadCall {
-    private static final Logger LOG = LogManager.getLogger(CsvSimpleReadCall.class);
 
     public CsvSimpleReadCall()  {
         super();

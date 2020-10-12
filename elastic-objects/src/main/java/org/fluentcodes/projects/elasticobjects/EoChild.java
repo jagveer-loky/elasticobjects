@@ -15,7 +15,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class EoChild implements EO {
-    private static final Logger LOG = LogManager.getLogger(EoChild.class);
     private static final List<Class> DEFAULT_CLASSES = Arrays.asList(new Class[] {Map.class, LinkedHashMap.class, String.class, Boolean.class, Integer.class});
     private PathElement pathElement;
     private Map<String, EO> eoMap;

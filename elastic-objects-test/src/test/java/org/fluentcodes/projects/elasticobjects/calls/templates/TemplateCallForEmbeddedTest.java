@@ -12,7 +12,6 @@ import org.junit.Test;
  * Created by Werner on 22.03.2017.
  */
 public class TemplateCallForEmbeddedTest {
-    private static final Logger LOG = LogManager.getLogger(TemplateCallForEmbeddedTest.class);
     private static EO initEo() {
         return TestProviderJson.FOR_EMBEDDED_TEST.getEoTest();
     }

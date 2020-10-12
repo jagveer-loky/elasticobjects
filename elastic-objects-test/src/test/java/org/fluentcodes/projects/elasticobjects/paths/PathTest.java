@@ -12,7 +12,6 @@ import org.junit.Test;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class PathTest {
-    private static final Logger LOG = LogManager.getLogger(PathTest.class);
 
     @Test
     public void constructorStringEmpty() {

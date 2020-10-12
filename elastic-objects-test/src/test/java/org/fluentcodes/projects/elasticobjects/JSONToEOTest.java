@@ -18,8 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 
 public class JSONToEOTest {
-    private static final Logger LOG = LogManager.getLogger(JSONToEOTest.class);
-
+    private static final Logger LOG = LogManager.getLogger(JSONToEOTest .class);
     @Test
     public void dot__patternMatcher() {
         Assertions.assertThat(JSONToEO.jsonPattern.matcher(".").find()).isFalse();

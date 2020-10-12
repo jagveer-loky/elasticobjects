@@ -15,8 +15,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 
 public class PathPatternTest {
-    private static final Logger LOG = LogManager.getLogger(PathPatternTest.class);
-
 
     public PathPattern createPathPatternExample()  {
         

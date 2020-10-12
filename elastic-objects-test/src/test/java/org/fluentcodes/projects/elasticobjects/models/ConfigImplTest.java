@@ -13,7 +13,6 @@ import java.util.Map;
  * Created by Werner on 13.4.2017.
  */
 public class ConfigImplTest {
-    private static final Logger LOG = LogManager.getLogger(ConfigImplTest.class);
 
     @Test
     public void changeProperties()  {

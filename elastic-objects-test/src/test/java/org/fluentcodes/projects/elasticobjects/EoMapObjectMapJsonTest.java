@@ -21,7 +21,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 
 public class EoMapObjectMapJsonTest {
-    private static final Logger LOG = LogManager.getLogger(EoMapObjectMapJsonTest.class);
 
     /**
      * Wiki example

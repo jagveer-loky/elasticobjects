@@ -15,7 +15,6 @@ import java.util.Map;
  * A basic model used by ordinary beans
  */
 public class BaseImpl implements Base {
-    private static final Logger LOG = LogManager.getLogger(BaseImpl.class);
 
     private Long id;
     private String description;

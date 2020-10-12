@@ -20,7 +20,6 @@ import java.util.*;
  */
 public class DbConfig extends HostConfig implements PropertiesDbAccessor{
     public static final String DB_KEY = "dbKey";
-    private static transient final Logger LOG = LogManager.getLogger(DbConfig.class);
     private Connection connection;
 
     public DbConfig(final EOConfigsCache provider, final Map map)  {

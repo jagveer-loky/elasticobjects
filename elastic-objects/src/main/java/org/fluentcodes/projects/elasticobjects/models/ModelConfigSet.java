@@ -11,7 +11,7 @@ import java.util.*;
  * Created by Werner on 09.10.2016.
  */
 public class ModelConfigSet extends ModelConfig {
-    private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
+    private static final Logger LOG = LogManager.getLogger(ModelConfigSet.class);
 
     public ModelConfigSet(EOConfigsCache provider, Map map) {
         super(provider, map);

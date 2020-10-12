@@ -11,7 +11,6 @@ import org.junit.Test;
  * Created by Werner on 6.6.2018.
  */
 public class EOCompareTest {
-    private static final Logger LOG = LogManager.getLogger(EOCompareTest.class);
 
     @Test
     public void simpleEquals()  {

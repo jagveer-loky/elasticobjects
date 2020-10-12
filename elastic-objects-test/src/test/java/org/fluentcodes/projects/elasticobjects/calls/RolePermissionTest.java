@@ -14,7 +14,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created by Werner on 11.10.2016.
  */
 public class RolePermissionTest {
-    private static final Logger LOG = LogManager.getLogger(RolePermissionTest.class);
 
     @Test
     public void testRoles()  {

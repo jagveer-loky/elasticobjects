@@ -9,7 +9,6 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 public class ProviderRootDevScope {
     public static final EOConfigsCache EO_CONFIGS = new EOConfigsCache(Scope.DEV);
-    private static final Logger LOG = LogManager.getLogger(ProviderRootDevScope.class);
 
     public static final EoRoot createEo(Class... classes)  {
         return new EoRoot(EO_CONFIGS, classes);

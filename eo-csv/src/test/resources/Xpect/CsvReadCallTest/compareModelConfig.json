@@ -3,7 +3,7 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvReadCall",
-    "superKey": "ListReadCall",
+    "superKey": "CsvSimpleReadCall",
     "(ArrayList)fieldKeys": {
       "0": "listParams",
       "1": "rowHead",

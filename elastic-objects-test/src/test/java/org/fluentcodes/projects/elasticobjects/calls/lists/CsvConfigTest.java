@@ -11,7 +11,6 @@ import org.junit.Test;
  * Created by Werner on 11.10.2016.
  */
 public class CsvConfigTest {
-    private static final Logger LOG = LogManager.getLogger(CsvConfigTest.class);
 
     @Test
     public void createByModelConfig_throwsException()  {

@@ -15,7 +15,6 @@ import java.util.List;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class EoSetListTest {
-    private static final Logger LOG = LogManager.getLogger(EoSetListTest.class);
 
     @Test
     public void givenListEmpty_withJsonListSmall_ok()  {

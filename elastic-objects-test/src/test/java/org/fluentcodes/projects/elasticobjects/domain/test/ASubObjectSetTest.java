@@ -9,7 +9,6 @@ import org.junit.Test;
  * Created by Werner on 9.7.2017.
  */
 public class ASubObjectSetTest {
-    private static final Logger LOG = LogManager.getLogger(ASubObjectSetTest.class);
 
     @Test
     public void givenBean_whenSetTestString_thenOk() {

@@ -14,7 +14,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created by Werner on 22.03.2017.
  */
 public class EOKeysTest {
-    private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
     @Test
     public void keyPath()  {

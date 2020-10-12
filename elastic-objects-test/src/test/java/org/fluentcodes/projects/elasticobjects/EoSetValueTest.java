@@ -17,7 +17,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
  */
 
 public class EoSetValueTest {
-    private static final Logger LOG = LogManager.getLogger(EoSetValueTest.class);
 
     @Test
     public void givenDev_whenSetNull_thenNothingChanged()  {

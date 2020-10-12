@@ -17,7 +17,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created by Werner on 11.07.2020.
  */
 public class EoOverwriteTest {
-    private static final Logger LOG = LogManager.getLogger(EoOverwriteTest.class);
 
     @Test
     public void givenAnObject_whenOverwriteWithMap_isMap()  {
