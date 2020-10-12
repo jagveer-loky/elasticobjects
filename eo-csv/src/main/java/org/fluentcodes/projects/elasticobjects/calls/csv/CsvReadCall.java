@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -20,9 +21,7 @@ import java.util.List;
 /**
  * Created by werner.diwischek on 03.12.16.
  */
-public class CsvReadCall extends ListReadCall {
-    private static final Logger LOG = LogManager.getLogger(CsvReadCall.class);
-
+public class CsvReadCall extends CsvSimpleReadCall {
     public CsvReadCall()  {
         super();
     }
@@ -36,19 +35,7 @@ public class CsvReadCall extends ListReadCall {
         return FileConfig.class;
     }
 
-    public Object execute(EO eo) {
-        init(eo);
-        getListParams().merge(getConfig().getProperties());
-        return read(eo, readRaw(eo));
-    }
-
-    protected CsvConfig getCsvConfig() {
-        if (getConfig() instanceof CsvConfig) {
-            return (CsvConfig) getConfig();
-        }
-        throw new EoException("Could not cast to 'CsvConfig': " + getConfig().getClass().getSimpleName());
-    }
-    
+    @Override
     public List readRaw(final EO eo) {
         URL url = getCsvConfig().findUrl();
         //System.out.println("CSV " + url.toString());
