@@ -187,18 +187,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "startDirective": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A content included before template.",
-    "expose": "WEB",
-    "fieldKey": "startDirective",
-    "length": 500,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "duration": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -299,6 +287,18 @@
     "expose": "INFO",
     "fieldKey": "fieldName",
     "length": 80,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "fileEnding": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "It's used to specify the file ending in different context. ",
+    "expose": "INFO",
+    "fieldKey": "fileEnding",
+    "length": 16,
     "properties": {
       "classPath": "src.main.resources"
     }
@@ -563,18 +563,6 @@
       "classPath": "src.main.resources"
     }
   },
-  "startCondition": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A condition for calls. ",
-    "expose": "WEB",
-    "fieldKey": "startCondition",
-    "length": 1000,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
   "localFieldKeys": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -710,8 +698,8 @@
     "modelKeys": "String",
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "expose": "NONE",
-    "length": 80,
     "fieldKey": "naturalId",
+    "length": 80,
     "properties": {
       "unique": true,
       "notNull": true,
@@ -990,6 +978,30 @@
     "expose": "WEB",
     "fieldKey": "sourcePath",
     "length": 80,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "startCondition": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A condition for calls. ",
+    "expose": "WEB",
+    "fieldKey": "startCondition",
+    "length": 1000,
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "startDirective": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A content included before template.",
+    "expose": "WEB",
+    "fieldKey": "startDirective",
+    "length": 500,
     "properties": {
       "classPath": "src.main.resources"
     }

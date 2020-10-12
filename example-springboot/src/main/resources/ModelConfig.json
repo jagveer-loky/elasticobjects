@@ -14,25 +14,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "FaqNavCall": {
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "configKey",
-      "configType"
-    ],
-    "superKey": "SimpleValueFromEoCall",
-    "expose": "INFO",
-    "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "FaqNavCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
   "GithubLinkCall": {
     "module": "example-springboot",
     "moduleScope": "main",

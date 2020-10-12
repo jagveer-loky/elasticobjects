@@ -1,0 +1,44 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "GithubLinkCall",
+    "(ArrayList)localFieldKeys": {
+      "0": "configKey",
+      "1": "configType"
+    },
+    "superKey": "SimpleValueFromEoCall",
+    "(ArrayList)fieldKeys": {
+      "0": "configKey",
+      "1": "configType",
+      "2": "sourcePath",
+      "3": "targetPath",
+      "4": "models",
+      "5": "condition",
+      "6": "startCondition",
+      "7": "overwrite",
+      "8": "logLevel",
+      "9": "duration",
+      "10": "prepend",
+      "11": "postpend",
+      "12": "id",
+      "13": "description",
+      "14": "naturalId",
+      "15": "creationDate",
+      "16": "author"
+    },
+    "(Expose)expose": "INFO",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "example-springboot"
+    },
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
+    "naturalId": "GithubLinkCall",
+    "author": "Werner Diwischek"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

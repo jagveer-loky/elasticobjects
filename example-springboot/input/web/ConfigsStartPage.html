@@ -6,7 +6,7 @@ $[(TemplateResourceCall).  configKey="WEB" fileName="Header.html"/]
     </header>
 
     <div class="entry-content" id="entry-content">
-        $[(TemplateResourceCall). fileName="eo->selectedItem." configKey="WEB_CONFIGS"/]
+        $[(TemplateResourceCall). fileName="eo->selectedItem." configKey="configs"/]
      </div>
     <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
         <h5>This Page Elements</h5>
@@ -15,7 +15,7 @@ $[(TemplateResourceCall).  configKey="WEB" fileName="Header.html"/]
             <tr><td>Post Method:</td><td>$[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]</td></tr>
             <tr><td>Page-Template:</td><td>$[(GithubLinkCall)SPI|web|ConfigsStartPage.html configType="NONE" /]</td></tr>
             <tr><td>Header:</td><td>$[(GithubLinkCall)SPI|web|Header.html configType="NONE" /]</td></tr>
-            <tr><td>Content-Directory:</td><td> $[(ConfigLinkCall)WEB_CONFIGS configType="FileConfig"/]</td></tr>
+            <tr><td>Content-Directory:</td><td> $[(ConfigLinkCall)configs configType="FileConfig"/]</td></tr>
             <tr><td>Content:</td><td>$[(GithubLinkCall)SPI|web.configs|eo->selectedItem. configType="NONE"/]</td></tr>
             <tr><td>Footer:</td><td>$[(GithubLinkCall)SPI|web|Footer.html configType="NONE" /]</td></tr>
             <tr><td colspan="2">Postversion of this page:

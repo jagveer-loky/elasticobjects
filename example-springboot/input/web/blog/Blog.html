@@ -6,22 +6,30 @@
     </b>
 </p>
 <p align="right"><i>8.10.2020</i></p>
+<h5>Content from directory</h5>
 <p>
     When editing the content of this site I had two solutions:
     <ul>
     <li>Generate the static htm content from $[(GithubLinkCall)SPR||content.xlsx configType="NONE" /]</li>
-    <li>Add a file configuration entry in $[(GithubLinkCall)SP||FileConfig.json configType="NONE" /]  to read content from the classpath.</li>
+    <li>Add a file configuration entry in $[(GithubLinkCall)SPR||FileConfig.json configType="NONE" /]  to read content from the classpath.</li>
 </ul>
 </p>
 
 <p>This approaches were not so nice since Excel is not good for bigger text parts. On the other hand
 adding each content to the file configuration is error prone.</p>
 
-<p>So I made a new call $[(ConfigLinkCall)DirectoryListReadCall configType="ModelConfig"/] for reading file content
-    in directories. This is then used $[(ConfigLinkCall)FaqNavCall configType="ModelConfig"/] to create a link list.
-A generate test will then create the $[(ConfigLinkCall)faq configType="FileConfig" /] file in input/web directories like
-    $[(GithubLinkCall)SP|web.faq|_Nav.html configType="NONE" /] </p>
-<
+<p>To resolve the problem I use now an directory approach with two generic calls:
+    <ul>
+    <li>$[(ConfigLinkCall)DirectoryListReadCall configType="ModelConfig"/] creates a list of files in a directory.</li>
+    <li>$[(ConfigLinkCall)DirectoryMapReadCall configType="ModelConfig"/]  create a link text from the file name by removing underscores or file ending.
+    </ul>
+    </p>.
+<p>These two generic calls are the base for creating the navigation files like
+    $[(ConfigLinkCall)faq_Nav.html configType="FileConfig"/].
+    They use the templates
+    $[(ConfigLinkCall)Nav.tpl configType="FileConfig"/] and
+    $[(ConfigLinkCall)NavElement.tpl configType="FileConfig"/].
+</p>
 <p align="right"><i>5.10.2020</i></p>
 <p>
     Yesterday the version 0.5.0-SNAPSHOT is started. The builder is now again part of the elastic-objects github project in
@@ -51,10 +59,10 @@ A generate test will then create the $[(ConfigLinkCall)faq configType="FileConfi
 
 
 <h6>Creation code</h6>
-<p>The builder contains two create calls:
+<p>The builder contains two create calls extending the super class $[(GithubLinkCall)B|calls.generate|GenerateCall.java configType="NONE" /]:
 <ul>
-    <li>$[(GithubLinkCall)B|calls.configs|EoJsonCreateCall.java configType="NONE" /] create json configuration files</li>
-    <li>$[(GithubLinkCall)B|calls.configs|JavaCreateCall.java configType="NONE" /] create java files</li>
+    <li>$[(GithubLinkCall)B|calls.generate|GenerateJavaCall.java configType="NONE" /] create json configuration files</li>
+    <li>$[(GithubLinkCall)B|calls.generate|GenerateJsonConfigCall.java configType="NONE" /] create java files</li>
 </ul>
 </p>
 <p>
@@ -62,21 +70,28 @@ A generate test will then create the $[(ConfigLinkCall)faq configType="FileConfi
     some special values needed by the templates. $[(GithubLinkCall)B|calls.configs|JavaCreateCall.java configType="NONE" /]
     for example set values in fields for <i>final</i> or <i>overwrite</i>.
 </p>
-<p>To trigger the creation there are two classes:
-    <ul>
-    <li>$[(GithubLinkCall)BT|calls|EoJsonCreateStart.java configType="NONE" /] create json configuration files</li>
-    <li>$[(GithubLinkCall)BT|calls|EoJavaCreateStart.java configType="NONE" /] create java files</li>
+<p>To trigger the creation there is a main generic builder with param class which will use the key for the
+control template to select the type of generation process.
+<ul>
+    <li>$[(GithubLinkCall)B||Builder.java configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)B||BuilderParams.java configType="NONE" /]</li>
 </ul>
 </p>
-<p>Two static helpers load the data in different tree structure before the call will be executed:
+<p>Two control templates are use for preload the data in different tree structure before the call will be executed:
 <ul>
-    <li>$[(GithubLinkCall)B|calls.generate|EoJsonCreate.java configType="NONE" /]</li>
-    <li>$[(GithubLinkCall)B|calls.generate|EoJavaCreate.java configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)BR|templates.java|JavaBuilder.tpl configType="NONE" /]</li>
+    <li>$[(GithubLinkCall)BR|templates.json|JsonBuilder.tpl configType="NONE" /]</li>
 </ul>
-They could be replaced by some templates itself later.
+</p>
+<p>There are two test for the control templates
+<ul>
+    <li>$[(GithubLinkCall)BT|calls.generate|GenerateJavaCallTest.java configType="NONE" /] create java files</li>
+    <li>$[(GithubLinkCall)BT|calls.generate|GenerateJsonConfigCallTest.java configType="NONE" /] create json configuration files</li>
+</ul>
 </p>
 <p>The json creation part just use the sorting logic when loading
     $[(GithubLinkCall)BR||eo.xlsx configType="NONE" /]. </p>
+
 
 <h6>Java Templates</h6>
 <p>The java creation starts with the loading of a template depending on the <i>shapeType</i> value in ModelConfig sheet.

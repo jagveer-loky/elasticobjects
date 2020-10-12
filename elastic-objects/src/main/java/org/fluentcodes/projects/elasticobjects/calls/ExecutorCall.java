@@ -75,7 +75,7 @@ public class ExecutorCall {
                 if (call.isTargetAsString()) {
                     templateResult.append(e.getMessage());
                 }
-                continue;
+                throw e;
             }
         }
         templateResult.append(call.getPostpend());

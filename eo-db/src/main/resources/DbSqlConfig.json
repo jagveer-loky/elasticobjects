@@ -10,7 +10,10 @@
       "dbKey": "h2:mem:basic",
       "modelKey": "AnObject"
     },
-    "sql": "Select * from AnObject"
+    "sql": "Select * from AnObject",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   },
   "h2:mem:basic:Create": {
     "module": "eo-db",
@@ -36,7 +39,10 @@
       "insert into AnObject (myString,myInt,myBoolean) values ('value1',1, true)",
       "insert into AnObject (myString,myInt,myBoolean) values ('value2',2, false)",
       "insert into AnObject (myString,myInt,myBoolean) values ('value3',3, true)"
-    ]
+    ],
+    "rolePermissions": {
+      "execute": "admin"
+    }
   },
   "h2:mem:basic:ASubObject": {
     "configModelKey": "DbQueryConfig",
@@ -49,6 +55,9 @@
       "dbKey": "h2:mem:basic",
       "modelKey": "ASubObject"
     },
-    "sql": "Select * from ASubObject"
+    "sql": "Select * from ASubObject",
+    "rolePermissions": {
+      "execute": "guest"
+    }
   }
 }

@@ -18,51 +18,52 @@
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Base",
-      "1": "Config",
-      "2": "BaseImpl",
-      "3": "ConfigImpl",
-      "4": "FieldConfig",
-      "5": "CallImpl",
-      "6": "ValueCall",
-      "7": "CallResource",
-      "8": "FileReadCall",
-      "9": "DirectoryListReadCall",
-      "10": "SimpleValueFromEoCall",
-      "11": "StringUpperCall",
-      "12": "TemplateCall",
-      "13": "StringReplaceWhiteSpaceCall",
-      "14": "JsonAsStringCall",
-      "15": "ConfigResourcesImpl",
-      "16": "FileWriteCall",
-      "17": "StringUpperFirstCharCall",
-      "18": "FileConfig",
-      "19": "DirectoryConfig",
-      "20": "DirectoryReadCall",
-      "21": "ModelConfigInterface",
-      "22": "ModelConfig",
-      "23": "ModelConfigSet",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ModelConfigList",
-      "27": "ModelConfigMap",
-      "28": "ConfigKeysCall",
-      "29": "ConfigCall",
-      "30": "TemplateResourceCall",
-      "31": "ConfigAsFlatListCall",
-      "32": "ConfigTypesCall",
-      "33": "StringReplaceWithHtmlCall",
-      "34": "ModelConfigNone",
-      "35": "JsonReadCall",
-      "36": "ListReadCall",
-      "37": "ScsReadCall",
-      "38": "HostConfig",
-      "39": "ListWriteCall",
-      "40": "StringReplaceCall",
-      "41": "ScsConfig",
-      "42": "TemplateResourceStoreCall",
-      "43": "ModelConfigScalar",
-      "44": "ModelConfigObject",
-      "45": "SinusValueCall"
+      "1": "BaseImpl",
+      "2": "CallImpl",
+      "3": "CallResource",
+      "4": "FileReadCall",
+      "5": "DirectoryListReadCall",
+      "6": "SimpleValueFromEoCall",
+      "7": "JsonAsStringCall",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "Config",
+      "11": "ConfigImpl",
+      "12": "ConfigResourcesImpl",
+      "13": "FileConfig",
+      "14": "DirectoryConfig",
+      "15": "DirectoryReadCall",
+      "16": "ModelConfigInterface",
+      "17": "ModelConfig",
+      "18": "ModelConfigSet",
+      "19": "ModelConfigMap",
+      "20": "TemplateCall",
+      "21": "TemplateResourceCall",
+      "22": "ConfigKeysCall",
+      "23": "ConfigTypesCall",
+      "24": "JsonReadCall",
+      "25": "ListReadCall",
+      "26": "ScsReadCall",
+      "27": "HostConfig",
+      "28": "ScsConfig",
+      "29": "ModelConfigObject",
+      "30": "FieldConfig",
+      "31": "ValueCall",
+      "32": "StringUpperCall",
+      "33": "StringReplaceWhiteSpaceCall",
+      "34": "StringLowerCall",
+      "35": "ConfigOpenApiCall",
+      "36": "ModelConfigList",
+      "37": "ConfigCall",
+      "38": "ConfigAsFlatListCall",
+      "39": "StringReplaceWithHtmlCall",
+      "40": "ModelConfigNone",
+      "41": "DirectoryMapReadCall",
+      "42": "ListWriteCall",
+      "43": "StringReplaceCall",
+      "44": "TemplateResourceStoreCall",
+      "45": "ModelConfigScalar",
+      "46": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -112,8 +113,8 @@
     "fieldKey": "colKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListInterface",
+      "0": "ListInterface",
+      "1": "ListParams",
       "2": "ListReadCall",
       "3": "ScsReadCall"
     },
@@ -133,33 +134,34 @@
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -175,8 +177,8 @@
     "fieldKey": "configFilter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "ConfigOpenApiCall",
-      "1": "ConfigKeysCall",
+      "0": "ConfigKeysCall",
+      "1": "ConfigOpenApiCall",
       "2": "ConfigCall"
     },
     "(Expose)expose": "WEB",
@@ -202,8 +204,9 @@
       "6": "JsonReadCall",
       "7": "ListReadCall",
       "8": "ScsReadCall",
-      "9": "ListWriteCall",
-      "10": "TemplateResourceStoreCall"
+      "9": "DirectoryMapReadCall",
+      "10": "ListWriteCall",
+      "11": "TemplateResourceStoreCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -288,51 +291,52 @@
     "modelKeys": "Date",
     "(ArrayList)modelList": {
       "0": "Base",
-      "1": "Config",
-      "2": "BaseImpl",
-      "3": "ConfigImpl",
-      "4": "FieldConfig",
-      "5": "CallImpl",
-      "6": "ValueCall",
-      "7": "CallResource",
-      "8": "FileReadCall",
-      "9": "DirectoryListReadCall",
-      "10": "SimpleValueFromEoCall",
-      "11": "StringUpperCall",
-      "12": "TemplateCall",
-      "13": "StringReplaceWhiteSpaceCall",
-      "14": "JsonAsStringCall",
-      "15": "ConfigResourcesImpl",
-      "16": "FileWriteCall",
-      "17": "StringUpperFirstCharCall",
-      "18": "FileConfig",
-      "19": "DirectoryConfig",
-      "20": "DirectoryReadCall",
-      "21": "ModelConfigInterface",
-      "22": "ModelConfig",
-      "23": "ModelConfigSet",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ModelConfigList",
-      "27": "ModelConfigMap",
-      "28": "ConfigKeysCall",
-      "29": "ConfigCall",
-      "30": "TemplateResourceCall",
-      "31": "ConfigAsFlatListCall",
-      "32": "ConfigTypesCall",
-      "33": "StringReplaceWithHtmlCall",
-      "34": "ModelConfigNone",
-      "35": "JsonReadCall",
-      "36": "ListReadCall",
-      "37": "ScsReadCall",
-      "38": "HostConfig",
-      "39": "ListWriteCall",
-      "40": "StringReplaceCall",
-      "41": "ScsConfig",
-      "42": "TemplateResourceStoreCall",
-      "43": "ModelConfigScalar",
-      "44": "ModelConfigObject",
-      "45": "SinusValueCall"
+      "1": "BaseImpl",
+      "2": "CallImpl",
+      "3": "CallResource",
+      "4": "FileReadCall",
+      "5": "DirectoryListReadCall",
+      "6": "SimpleValueFromEoCall",
+      "7": "JsonAsStringCall",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "Config",
+      "11": "ConfigImpl",
+      "12": "ConfigResourcesImpl",
+      "13": "FileConfig",
+      "14": "DirectoryConfig",
+      "15": "DirectoryReadCall",
+      "16": "ModelConfigInterface",
+      "17": "ModelConfig",
+      "18": "ModelConfigSet",
+      "19": "ModelConfigMap",
+      "20": "TemplateCall",
+      "21": "TemplateResourceCall",
+      "22": "ConfigKeysCall",
+      "23": "ConfigTypesCall",
+      "24": "JsonReadCall",
+      "25": "ListReadCall",
+      "26": "ScsReadCall",
+      "27": "HostConfig",
+      "28": "ScsConfig",
+      "29": "ModelConfigObject",
+      "30": "FieldConfig",
+      "31": "ValueCall",
+      "32": "StringUpperCall",
+      "33": "StringReplaceWhiteSpaceCall",
+      "34": "StringLowerCall",
+      "35": "ConfigOpenApiCall",
+      "36": "ModelConfigList",
+      "37": "ConfigCall",
+      "38": "ConfigAsFlatListCall",
+      "39": "StringReplaceWithHtmlCall",
+      "40": "ModelConfigNone",
+      "41": "DirectoryMapReadCall",
+      "42": "ListWriteCall",
+      "43": "StringReplaceCall",
+      "44": "TemplateResourceStoreCall",
+      "45": "ModelConfigScalar",
+      "46": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -378,51 +382,52 @@
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Base",
-      "1": "Config",
-      "2": "BaseImpl",
-      "3": "ConfigImpl",
-      "4": "FieldConfig",
-      "5": "CallImpl",
-      "6": "ValueCall",
-      "7": "CallResource",
-      "8": "FileReadCall",
-      "9": "DirectoryListReadCall",
-      "10": "SimpleValueFromEoCall",
-      "11": "StringUpperCall",
-      "12": "TemplateCall",
-      "13": "StringReplaceWhiteSpaceCall",
-      "14": "JsonAsStringCall",
-      "15": "ConfigResourcesImpl",
-      "16": "FileWriteCall",
-      "17": "StringUpperFirstCharCall",
-      "18": "FileConfig",
-      "19": "DirectoryConfig",
-      "20": "DirectoryReadCall",
-      "21": "ModelConfigInterface",
-      "22": "ModelConfig",
-      "23": "ModelConfigSet",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ModelConfigList",
-      "27": "ModelConfigMap",
-      "28": "ConfigKeysCall",
-      "29": "ConfigCall",
-      "30": "TemplateResourceCall",
-      "31": "ConfigAsFlatListCall",
-      "32": "ConfigTypesCall",
-      "33": "StringReplaceWithHtmlCall",
-      "34": "ModelConfigNone",
-      "35": "JsonReadCall",
-      "36": "ListReadCall",
-      "37": "ScsReadCall",
-      "38": "HostConfig",
-      "39": "ListWriteCall",
-      "40": "StringReplaceCall",
-      "41": "ScsConfig",
-      "42": "TemplateResourceStoreCall",
-      "43": "ModelConfigScalar",
-      "44": "ModelConfigObject",
-      "45": "SinusValueCall"
+      "1": "BaseImpl",
+      "2": "CallImpl",
+      "3": "CallResource",
+      "4": "FileReadCall",
+      "5": "DirectoryListReadCall",
+      "6": "SimpleValueFromEoCall",
+      "7": "JsonAsStringCall",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "Config",
+      "11": "ConfigImpl",
+      "12": "ConfigResourcesImpl",
+      "13": "FileConfig",
+      "14": "DirectoryConfig",
+      "15": "DirectoryReadCall",
+      "16": "ModelConfigInterface",
+      "17": "ModelConfig",
+      "18": "ModelConfigSet",
+      "19": "ModelConfigMap",
+      "20": "TemplateCall",
+      "21": "TemplateResourceCall",
+      "22": "ConfigKeysCall",
+      "23": "ConfigTypesCall",
+      "24": "JsonReadCall",
+      "25": "ListReadCall",
+      "26": "ScsReadCall",
+      "27": "HostConfig",
+      "28": "ScsConfig",
+      "29": "ModelConfigObject",
+      "30": "FieldConfig",
+      "31": "ValueCall",
+      "32": "StringUpperCall",
+      "33": "StringReplaceWhiteSpaceCall",
+      "34": "StringLowerCall",
+      "35": "ConfigOpenApiCall",
+      "36": "ModelConfigList",
+      "37": "ConfigCall",
+      "38": "ConfigAsFlatListCall",
+      "39": "StringReplaceWithHtmlCall",
+      "40": "ModelConfigNone",
+      "41": "DirectoryMapReadCall",
+      "42": "ListWriteCall",
+      "43": "StringReplaceCall",
+      "44": "TemplateResourceStoreCall",
+      "45": "ModelConfigScalar",
+      "46": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -440,33 +445,34 @@
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -526,23 +532,23 @@
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "FieldConfig",
-      "3": "ConfigResourcesImpl",
-      "4": "FileConfig",
-      "5": "DirectoryConfig",
-      "6": "ModelConfigInterface",
-      "7": "ModelConfig",
-      "8": "ModelConfigSet",
-      "9": "ConfigOpenApiCall",
-      "10": "ModelConfigList",
-      "11": "ModelConfigMap",
-      "12": "ConfigKeysCall",
-      "13": "ConfigCall",
-      "14": "ModelConfigNone",
-      "15": "HostConfig",
-      "16": "ScsConfig",
-      "17": "ModelConfigScalar",
-      "18": "ModelConfigObject"
+      "2": "ConfigResourcesImpl",
+      "3": "FileConfig",
+      "4": "DirectoryConfig",
+      "5": "ModelConfigInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigMap",
+      "9": "ConfigKeysCall",
+      "10": "HostConfig",
+      "11": "ScsConfig",
+      "12": "ModelConfigObject",
+      "13": "FieldConfig",
+      "14": "ConfigOpenApiCall",
+      "15": "ModelConfigList",
+      "16": "ConfigCall",
+      "17": "ModelConfigNone",
+      "18": "ModelConfigScalar"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -602,11 +608,11 @@
       "0": "ModelConfigInterface",
       "1": "ModelConfig",
       "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigList",
+      "6": "ModelConfigNone",
+      "7": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -632,6 +638,22 @@
     "naturalId": "fieldName"
   },
   "26": {
+    "fieldKey": "fileEnding",
+    "modelKeys": "String",
+    "(ArrayList)modelList": {
+      "0": "DirectoryMapReadCall"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "description": "It's used to specify the file ending in different context. ",
+    "naturalId": "fileEnding"
+  },
+  "27": {
     "fieldKey": "fileKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -644,7 +666,7 @@
     "description": "A key for file objects.",
     "naturalId": "fileKey"
   },
-  "27": {
+  "28": {
     "fieldKey": "fileName",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -665,7 +687,7 @@
     "description": "fileName",
     "naturalId": "fileName"
   },
-  "28": {
+  "29": {
     "fieldKey": "filePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -683,12 +705,12 @@
     "description": "filePath",
     "naturalId": "filePath"
   },
-  "29": {
+  "30": {
     "fieldKey": "filter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListInterface",
+      "0": "ListInterface",
+      "1": "ListParams",
       "2": "ListReadCall",
       "3": "ScsReadCall"
     },
@@ -702,7 +724,7 @@
     "description": "Filter for List entries.",
     "naturalId": "filter"
   },
-  "30": {
+  "31": {
     "fieldKey": "filterModule",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -719,7 +741,7 @@
     "description": "Filter for modules in  {@link ConfigAction}",
     "naturalId": "filterModule"
   },
-  "31": {
+  "32": {
     "fieldKey": "filterSubModule",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -736,7 +758,7 @@
     "description": "Filter for subModules in  {@link ConfigAction}",
     "naturalId": "filterSubModule"
   },
-  "32": {
+  "33": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -749,7 +771,7 @@
     "description": "hibernate",
     "naturalId": "hibernate"
   },
-  "33": {
+  "34": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -762,7 +784,7 @@
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "34": {
+  "35": {
     "fieldKey": "hostKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -780,7 +802,7 @@
     "description": "A key for host objects.",
     "naturalId": "hostKey"
   },
-  "35": {
+  "36": {
     "fieldKey": "hostName",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -796,58 +818,59 @@
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "36": {
+  "37": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
       "0": "Base",
-      "1": "Config",
-      "2": "BaseImpl",
-      "3": "ConfigImpl",
-      "4": "FieldConfig",
-      "5": "CallImpl",
-      "6": "ValueCall",
-      "7": "CallResource",
-      "8": "FileReadCall",
-      "9": "DirectoryListReadCall",
-      "10": "SimpleValueFromEoCall",
-      "11": "StringUpperCall",
-      "12": "TemplateCall",
-      "13": "AnObject",
-      "14": "ASubObject",
-      "15": "StringReplaceWhiteSpaceCall",
-      "16": "JsonAsStringCall",
-      "17": "ConfigResourcesImpl",
-      "18": "FileWriteCall",
-      "19": "StringUpperFirstCharCall",
-      "20": "FileConfig",
-      "21": "DirectoryConfig",
-      "22": "DirectoryReadCall",
-      "23": "ModelConfigInterface",
-      "24": "ModelConfig",
-      "25": "ModelConfigSet",
-      "26": "StringLowerCall",
-      "27": "ConfigOpenApiCall",
-      "28": "ModelConfigList",
-      "29": "ModelConfigMap",
-      "30": "ConfigKeysCall",
-      "31": "ConfigCall",
-      "32": "TemplateResourceCall",
-      "33": "ConfigAsFlatListCall",
-      "34": "ConfigTypesCall",
-      "35": "StringReplaceWithHtmlCall",
-      "36": "ModelConfigNone",
-      "37": "JsonReadCall",
-      "38": "ListReadCall",
-      "39": "ScsReadCall",
-      "40": "HostConfig",
-      "41": "ListWriteCall",
-      "42": "StringReplaceCall",
-      "43": "ScsConfig",
-      "44": "TemplateResourceStoreCall",
-      "45": "ModelConfigScalar",
-      "46": "ModelConfigObject",
-      "47": "SinusValueCall"
+      "1": "BaseImpl",
+      "2": "CallImpl",
+      "3": "CallResource",
+      "4": "FileReadCall",
+      "5": "DirectoryListReadCall",
+      "6": "ASubObject",
+      "7": "SimpleValueFromEoCall",
+      "8": "JsonAsStringCall",
+      "9": "FileWriteCall",
+      "10": "StringUpperFirstCharCall",
+      "11": "Config",
+      "12": "ConfigImpl",
+      "13": "ConfigResourcesImpl",
+      "14": "FileConfig",
+      "15": "DirectoryConfig",
+      "16": "DirectoryReadCall",
+      "17": "ModelConfigInterface",
+      "18": "ModelConfig",
+      "19": "ModelConfigSet",
+      "20": "ModelConfigMap",
+      "21": "TemplateCall",
+      "22": "TemplateResourceCall",
+      "23": "ConfigKeysCall",
+      "24": "ConfigTypesCall",
+      "25": "JsonReadCall",
+      "26": "ListReadCall",
+      "27": "ScsReadCall",
+      "28": "HostConfig",
+      "29": "ScsConfig",
+      "30": "ModelConfigObject",
+      "31": "FieldConfig",
+      "32": "ValueCall",
+      "33": "StringUpperCall",
+      "34": "AnObject",
+      "35": "StringReplaceWhiteSpaceCall",
+      "36": "StringLowerCall",
+      "37": "ConfigOpenApiCall",
+      "38": "ModelConfigList",
+      "39": "ConfigCall",
+      "40": "ConfigAsFlatListCall",
+      "41": "StringReplaceWithHtmlCall",
+      "42": "ModelConfigNone",
+      "43": "DirectoryMapReadCall",
+      "44": "ListWriteCall",
+      "45": "StringReplaceCall",
+      "46": "TemplateResourceStoreCall",
+      "47": "ModelConfigScalar",
+      "48": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -861,7 +884,7 @@
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "37": {
+  "38": {
     "fieldKey": "idKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -874,7 +897,7 @@
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "38": {
+  "39": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "(Expose)expose": "NONE",
@@ -887,7 +910,7 @@
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "39": {
+  "40": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -900,18 +923,18 @@
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "40": {
+  "41": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "ModelConfigInterface",
       "1": "ModelConfig",
       "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigList",
+      "6": "ModelConfigNone",
+      "7": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -923,7 +946,7 @@
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "41": {
+  "42": {
     "fieldKey": "javaProperties",
     "modelKeys": "Map",
     "(Expose)expose": "NONE",
@@ -936,7 +959,7 @@
     "description": "A map of properties used in configs and calls.",
     "naturalId": "javaProperties"
   },
-  "42": {
+  "43": {
     "fieldKey": "join",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -949,7 +972,7 @@
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "43": {
+  "44": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -962,7 +985,7 @@
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "44": {
+  "45": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
@@ -979,7 +1002,7 @@
     "description": "Will use an existing  result file beforehand as template. ",
     "naturalId": "keepCall"
   },
-  "45": {
+  "46": {
     "fieldKey": "key",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -992,12 +1015,12 @@
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "46": {
+  "47": {
     "fieldKey": "length",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListInterface",
+      "0": "ListInterface",
+      "1": "ListParams",
       "2": "ListReadCall",
       "3": "ScsReadCall"
     },
@@ -1011,7 +1034,7 @@
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "47": {
+  "48": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
     "(ArrayList)modelList": {
@@ -1030,18 +1053,18 @@
     "description": "Filter for the readings within {@link ListAction}.",
     "naturalId": "listParams"
   },
-  "48": {
+  "49": {
     "fieldKey": "localFieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
       "0": "ModelConfigInterface",
       "1": "ModelConfig",
       "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigList",
+      "6": "ModelConfigNone",
+      "7": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -1053,45 +1076,46 @@
     "description": "A list of field as proivided by the model configuration. ",
     "naturalId": "localFieldKeys"
   },
-  "49": {
+  "50": {
     "fieldKey": "log",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
     "naturalId": "log"
   },
-  "50": {
+  "51": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1103,7 +1127,7 @@
     "description": "logLevel",
     "naturalId": "logLevel"
   },
-  "51": {
+  "52": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -1116,7 +1140,7 @@
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "52": {
+  "53": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -1129,18 +1153,18 @@
     "description": "The model name for the cache object {@link Config}.",
     "naturalId": "modelConfigKey"
   },
-  "53": {
+  "54": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "ModelConfigInterface",
       "1": "ModelConfig",
       "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigList",
+      "6": "ModelConfigNone",
+      "7": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -1152,7 +1176,7 @@
     "description": "The model name for the bean/action object {@link Bean}.",
     "naturalId": "modelKey"
   },
-  "54": {
+  "55": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1168,7 +1192,7 @@
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "55": {
+  "56": {
     "fieldKey": "modelList",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1184,39 +1208,40 @@
     "description": "A list of naturalIds of models for FieldConfig.",
     "naturalId": "modelList"
   },
-  "56": {
+  "57": {
     "fieldKey": "models",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1228,26 +1253,26 @@
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "57": {
+  "58": {
     "fieldKey": "module",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "FieldConfig",
-      "3": "ConfigResourcesImpl",
-      "4": "FileConfig",
-      "5": "DirectoryConfig",
-      "6": "ModelConfigInterface",
-      "7": "ModelConfig",
-      "8": "ModelConfigSet",
-      "9": "ModelConfigList",
-      "10": "ModelConfigMap",
-      "11": "ModelConfigNone",
-      "12": "HostConfig",
-      "13": "ScsConfig",
-      "14": "ModelConfigScalar",
-      "15": "ModelConfigObject"
+      "2": "ConfigResourcesImpl",
+      "3": "FileConfig",
+      "4": "DirectoryConfig",
+      "5": "ModelConfigInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigMap",
+      "9": "HostConfig",
+      "10": "ScsConfig",
+      "11": "ModelConfigObject",
+      "12": "FieldConfig",
+      "13": "ModelConfigList",
+      "14": "ModelConfigNone",
+      "15": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -1259,26 +1284,26 @@
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "58": {
+  "59": {
     "fieldKey": "moduleScope",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "FieldConfig",
-      "3": "ConfigResourcesImpl",
-      "4": "FileConfig",
-      "5": "DirectoryConfig",
-      "6": "ModelConfigInterface",
-      "7": "ModelConfig",
-      "8": "ModelConfigSet",
-      "9": "ModelConfigList",
-      "10": "ModelConfigMap",
-      "11": "ModelConfigNone",
-      "12": "HostConfig",
-      "13": "ScsConfig",
-      "14": "ModelConfigScalar",
-      "15": "ModelConfigObject"
+      "2": "ConfigResourcesImpl",
+      "3": "FileConfig",
+      "4": "DirectoryConfig",
+      "5": "ModelConfigInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigMap",
+      "9": "HostConfig",
+      "10": "ScsConfig",
+      "11": "ModelConfigObject",
+      "12": "FieldConfig",
+      "13": "ModelConfigList",
+      "14": "ModelConfigNone",
+      "15": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -1290,7 +1315,7 @@
     "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
     "naturalId": "moduleScope"
   },
-  "59": {
+  "60": {
     "fieldKey": "myAnObject",
     "modelKeys": "AnObject",
     "(ArrayList)modelList": {
@@ -1306,12 +1331,12 @@
     "description": "A AnObject field.",
     "naturalId": "myAnObject"
   },
-  "60": {
+  "61": {
     "fieldKey": "myASubObject",
     "modelKeys": "ASubObject",
     "(ArrayList)modelList": {
-      "0": "AnObject",
-      "1": "ASubObject"
+      "0": "ASubObject",
+      "1": "AnObject"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1323,7 +1348,7 @@
     "description": "myASubObject",
     "naturalId": "myASubObject"
   },
-  "61": {
+  "62": {
     "fieldKey": "myASubObjectList",
     "modelKeys": "ArrayList,ASubObject",
     "(ArrayList)modelList": {
@@ -1339,7 +1364,7 @@
     "description": "A generic parametrized example List with {@link ASubObject}",
     "naturalId": "myASubObjectList"
   },
-  "62": {
+  "63": {
     "fieldKey": "myASubObjectMap",
     "modelKeys": "HashMap,ASubObject",
     "(ArrayList)modelList": {
@@ -1355,7 +1380,7 @@
     "description": "A generic parametrized example Map with {@link ASubObject}",
     "naturalId": "myASubObjectMap"
   },
-  "63": {
+  "64": {
     "fieldKey": "myBoolean",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1371,7 +1396,7 @@
     "description": "myBoolean",
     "naturalId": "myBoolean"
   },
-  "64": {
+  "65": {
     "fieldKey": "myDate",
     "modelKeys": "Date",
     "(ArrayList)modelList": {
@@ -1387,7 +1412,7 @@
     "description": "myDate",
     "naturalId": "myDate"
   },
-  "65": {
+  "66": {
     "fieldKey": "myDouble",
     "modelKeys": "Double",
     "(ArrayList)modelList": {
@@ -1403,7 +1428,7 @@
     "description": "myDouble",
     "naturalId": "myDouble"
   },
-  "66": {
+  "67": {
     "fieldKey": "myFloat",
     "modelKeys": "Float",
     "(ArrayList)modelList": {
@@ -1419,7 +1444,7 @@
     "description": "myFloat",
     "naturalId": "myFloat"
   },
-  "67": {
+  "68": {
     "fieldKey": "myInt",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1435,7 +1460,7 @@
     "description": "myInt",
     "naturalId": "myInt"
   },
-  "68": {
+  "69": {
     "fieldKey": "myList",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
@@ -1451,7 +1476,7 @@
     "description": "myList",
     "naturalId": "myList"
   },
-  "69": {
+  "70": {
     "fieldKey": "myLong",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -1467,7 +1492,7 @@
     "description": "myLong",
     "naturalId": "myLong"
   },
-  "70": {
+  "71": {
     "fieldKey": "myMap",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
@@ -1483,7 +1508,7 @@
     "description": "myMap",
     "naturalId": "myMap"
   },
-  "71": {
+  "72": {
     "fieldKey": "myObject",
     "modelKeys": "Object",
     "(ArrayList)modelList": {
@@ -1499,7 +1524,7 @@
     "description": "A test object thing. ",
     "naturalId": "myObject"
   },
-  "72": {
+  "73": {
     "fieldKey": "myString",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1516,7 +1541,7 @@
     "description": "Just a small test string used in test models. ",
     "naturalId": "myString"
   },
-  "73": {
+  "74": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1532,56 +1557,57 @@
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "74": {
+  "75": {
     "fieldKey": "naturalId",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Base",
-      "1": "Config",
-      "2": "BaseImpl",
-      "3": "ConfigImpl",
-      "4": "FieldConfig",
-      "5": "CallImpl",
-      "6": "ValueCall",
-      "7": "CallResource",
-      "8": "FileReadCall",
-      "9": "DirectoryListReadCall",
-      "10": "SimpleValueFromEoCall",
-      "11": "StringUpperCall",
-      "12": "TemplateCall",
-      "13": "StringReplaceWhiteSpaceCall",
-      "14": "JsonAsStringCall",
-      "15": "ConfigResourcesImpl",
-      "16": "FileWriteCall",
-      "17": "StringUpperFirstCharCall",
-      "18": "FileConfig",
-      "19": "DirectoryConfig",
-      "20": "DirectoryReadCall",
-      "21": "ModelConfigInterface",
-      "22": "ModelConfig",
-      "23": "ModelConfigSet",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ModelConfigList",
-      "27": "ModelConfigMap",
-      "28": "ConfigKeysCall",
-      "29": "ConfigCall",
-      "30": "TemplateResourceCall",
-      "31": "ConfigAsFlatListCall",
-      "32": "ConfigTypesCall",
-      "33": "StringReplaceWithHtmlCall",
-      "34": "ModelConfigNone",
-      "35": "JsonReadCall",
-      "36": "ListReadCall",
-      "37": "ScsReadCall",
-      "38": "HostConfig",
-      "39": "ListWriteCall",
-      "40": "StringReplaceCall",
-      "41": "ScsConfig",
-      "42": "TemplateResourceStoreCall",
-      "43": "ModelConfigScalar",
-      "44": "ModelConfigObject",
-      "45": "SinusValueCall"
+      "1": "BaseImpl",
+      "2": "CallImpl",
+      "3": "CallResource",
+      "4": "FileReadCall",
+      "5": "DirectoryListReadCall",
+      "6": "SimpleValueFromEoCall",
+      "7": "JsonAsStringCall",
+      "8": "FileWriteCall",
+      "9": "StringUpperFirstCharCall",
+      "10": "Config",
+      "11": "ConfigImpl",
+      "12": "ConfigResourcesImpl",
+      "13": "FileConfig",
+      "14": "DirectoryConfig",
+      "15": "DirectoryReadCall",
+      "16": "ModelConfigInterface",
+      "17": "ModelConfig",
+      "18": "ModelConfigSet",
+      "19": "ModelConfigMap",
+      "20": "TemplateCall",
+      "21": "TemplateResourceCall",
+      "22": "ConfigKeysCall",
+      "23": "ConfigTypesCall",
+      "24": "JsonReadCall",
+      "25": "ListReadCall",
+      "26": "ScsReadCall",
+      "27": "HostConfig",
+      "28": "ScsConfig",
+      "29": "ModelConfigObject",
+      "30": "FieldConfig",
+      "31": "ValueCall",
+      "32": "StringUpperCall",
+      "33": "StringReplaceWhiteSpaceCall",
+      "34": "StringLowerCall",
+      "35": "ConfigOpenApiCall",
+      "36": "ModelConfigList",
+      "37": "ConfigCall",
+      "38": "ConfigAsFlatListCall",
+      "39": "StringReplaceWithHtmlCall",
+      "40": "ModelConfigNone",
+      "41": "DirectoryMapReadCall",
+      "42": "ListWriteCall",
+      "43": "StringReplaceCall",
+      "44": "TemplateResourceStoreCall",
+      "45": "ModelConfigScalar",
+      "46": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1595,7 +1621,7 @@
     "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
     "naturalId": "naturalId"
   },
-  "75": {
+  "76": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
     "(Expose)expose": "NONE",
@@ -1608,7 +1634,7 @@
     "description": "naturalKeys",
     "naturalId": "naturalKeys"
   },
-  "76": {
+  "77": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -1621,39 +1647,40 @@
     "description": "notNull",
     "naturalId": "notNull"
   },
-  "77": {
+  "78": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1665,7 +1692,7 @@
     "description": "overwrite",
     "naturalId": "overwrite"
   },
-  "78": {
+  "79": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -1678,18 +1705,18 @@
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "79": {
+  "80": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "ModelConfigInterface",
       "1": "ModelConfig",
       "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigList",
+      "6": "ModelConfigNone",
+      "7": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -1701,7 +1728,7 @@
     "description": "packagePath",
     "naturalId": "packagePath"
   },
-  "80": {
+  "81": {
     "fieldKey": "password",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1717,7 +1744,7 @@
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "81": {
+  "82": {
     "fieldKey": "create",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1733,7 +1760,7 @@
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "82": {
+  "83": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1749,39 +1776,40 @@
     "description": "port",
     "naturalId": "port"
   },
-  "83": {
+  "84": {
     "fieldKey": "postpend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1793,39 +1821,40 @@
     "description": "postpend String when executed by ExecutorCallImpl",
     "naturalId": "postpend"
   },
-  "84": {
+  "85": {
     "fieldKey": "prepend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1837,29 +1866,29 @@
     "description": "prepend String when executed by ExecutorCallImpl",
     "naturalId": "prepend"
   },
-  "85": {
+  "86": {
     "fieldKey": "properties",
     "modelKeys": "Map",
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "FieldConfig",
-      "3": "ConfigResourcesImpl",
-      "4": "FileConfig",
-      "5": "DirectoryConfig",
-      "6": "PropertiesAccessor",
-      "7": "PropertiesConfigAccessor",
-      "8": "ModelConfigInterface",
-      "9": "ModelConfig",
-      "10": "ModelConfigSet",
-      "11": "ModelConfigList",
-      "12": "ModelConfigMap",
-      "13": "PropertiesListAccessor",
-      "14": "ModelConfigNone",
-      "15": "HostConfig",
-      "16": "ScsConfig",
-      "17": "ModelConfigScalar",
-      "18": "ModelConfigObject"
+      "2": "ConfigResourcesImpl",
+      "3": "FileConfig",
+      "4": "DirectoryConfig",
+      "5": "PropertiesAccessor",
+      "6": "PropertiesConfigAccessor",
+      "7": "ModelConfigInterface",
+      "8": "ModelConfig",
+      "9": "ModelConfigSet",
+      "10": "ModelConfigMap",
+      "11": "PropertiesListAccessor",
+      "12": "HostConfig",
+      "13": "ScsConfig",
+      "14": "ModelConfigObject",
+      "15": "FieldConfig",
+      "16": "ModelConfigList",
+      "17": "ModelConfigNone",
+      "18": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -1871,7 +1900,7 @@
     "description": "Properties for configurations.",
     "naturalId": "properties"
   },
-  "86": {
+  "87": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1887,7 +1916,7 @@
     "description": "protocol",
     "naturalId": "protocol"
   },
-  "87": {
+  "88": {
     "fieldKey": "read",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1903,11 +1932,12 @@
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "88": {
+  "89": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "StringReplaceCall"
+      "0": "DirectoryMapReadCall",
+      "1": "StringReplaceCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1919,7 +1949,7 @@
     "description": "replaceBy",
     "naturalId": "replaceBy"
   },
-  "89": {
+  "90": {
     "fieldKey": "rolePermissions",
     "modelKeys": "RolePermissions",
     "(ArrayList)modelList": {
@@ -1940,7 +1970,7 @@
     "description": "rolePermissions",
     "naturalId": "rolePermissions"
   },
-  "90": {
+  "91": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1956,12 +1986,12 @@
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "91": {
+  "92": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListInterface",
+      "0": "ListInterface",
+      "1": "ListParams",
       "2": "ListReadCall",
       "3": "ScsReadCall"
     },
@@ -1975,12 +2005,12 @@
     "description": "rowEnd",
     "naturalId": "rowEnd"
   },
-  "92": {
+  "93": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListInterface",
+      "0": "ListInterface",
+      "1": "ListParams",
       "2": "ListReadCall",
       "3": "ScsReadCall"
     },
@@ -1994,12 +2024,12 @@
     "description": "rowHead",
     "naturalId": "rowHead"
   },
-  "93": {
+  "94": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
-      "0": "ListParams",
-      "1": "ListInterface",
+      "0": "ListInterface",
+      "1": "ListParams",
       "2": "ListReadCall",
       "3": "ScsReadCall"
     },
@@ -2013,26 +2043,26 @@
     "description": "rowStart",
     "naturalId": "rowStart"
   },
-  "94": {
+  "95": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "FieldConfig",
-      "3": "ConfigResourcesImpl",
-      "4": "FileConfig",
-      "5": "DirectoryConfig",
-      "6": "ModelConfigInterface",
-      "7": "ModelConfig",
-      "8": "ModelConfigSet",
-      "9": "ModelConfigList",
-      "10": "ModelConfigMap",
-      "11": "ModelConfigNone",
-      "12": "HostConfig",
-      "13": "ScsConfig",
-      "14": "ModelConfigScalar",
-      "15": "ModelConfigObject"
+      "2": "ConfigResourcesImpl",
+      "3": "FileConfig",
+      "4": "DirectoryConfig",
+      "5": "ModelConfigInterface",
+      "6": "ModelConfig",
+      "7": "ModelConfigSet",
+      "8": "ModelConfigMap",
+      "9": "HostConfig",
+      "10": "ScsConfig",
+      "11": "ModelConfigObject",
+      "12": "FieldConfig",
+      "13": "ModelConfigList",
+      "14": "ModelConfigNone",
+      "15": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -2044,7 +2074,7 @@
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "95": {
+  "96": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
     "(Expose)expose": "NONE",
@@ -2057,7 +2087,7 @@
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "96": {
+  "97": {
     "fieldKey": "serialized",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2073,7 +2103,7 @@
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "97": {
+  "98": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
     "(Expose)expose": "NONE",
@@ -2086,39 +2116,40 @@
     "description": "shapeType",
     "naturalId": "shapeType"
   },
-  "98": {
+  "99": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -2130,39 +2161,40 @@
     "description": "A sourcePath where EO offers it's input value when the execution starts.",
     "naturalId": "sourcePath"
   },
-  "99": {
+  "100": {
     "fieldKey": "startCondition",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -2174,7 +2206,7 @@
     "description": "A condition for calls. ",
     "naturalId": "startCondition"
   },
-  "100": {
+  "101": {
     "fieldKey": "startDirective",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -2187,7 +2219,7 @@
     "description": "A content included before template.",
     "naturalId": "startDirective"
   },
-  "101": {
+  "102": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2196,7 +2228,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SubExampleClass.name"
   },
-  "102": {
+  "103": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -2205,7 +2237,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.id"
   },
-  "103": {
+  "104": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
     "(ArrayList)modelList": {
@@ -2214,18 +2246,18 @@
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "104": {
+  "105": {
     "fieldKey": "superKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "ModelConfigInterface",
       "1": "ModelConfig",
       "2": "ModelConfigSet",
-      "3": "ModelConfigList",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigNone",
-      "6": "ModelConfigScalar",
-      "7": "ModelConfigObject"
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigList",
+      "6": "ModelConfigNone",
+      "7": "ModelConfigScalar"
     },
     "(Expose)expose": "INFO",
     "properties": {
@@ -2237,7 +2269,7 @@
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "105": {
+  "106": {
     "fieldKey": "table",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -2250,7 +2282,7 @@
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
     "naturalId": "table"
   },
-  "106": {
+  "107": {
     "fieldKey": "targetFile",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2266,39 +2298,40 @@
     "description": "A target for persisting template results in TemplateResourceStoreCall. ",
     "naturalId": "targetFile"
   },
-  "107": {
+  "108": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "Call",
       "1": "CallImpl",
-      "2": "ValueCall",
-      "3": "CallResource",
-      "4": "FileReadCall",
-      "5": "DirectoryListReadCall",
-      "6": "SimpleValueFromEoCall",
-      "7": "StringUpperCall",
-      "8": "TemplateCall",
-      "9": "StringReplaceWhiteSpaceCall",
-      "10": "JsonAsStringCall",
-      "11": "FileWriteCall",
-      "12": "StringUpperFirstCharCall",
-      "13": "DirectoryReadCall",
-      "14": "StringLowerCall",
-      "15": "ConfigOpenApiCall",
-      "16": "ConfigKeysCall",
-      "17": "ConfigCall",
-      "18": "TemplateResourceCall",
-      "19": "ConfigAsFlatListCall",
-      "20": "ConfigTypesCall",
-      "21": "StringReplaceWithHtmlCall",
-      "22": "JsonReadCall",
-      "23": "ListReadCall",
-      "24": "ScsReadCall",
-      "25": "ListWriteCall",
-      "26": "StringReplaceCall",
-      "27": "TemplateResourceStoreCall",
-      "28": "SinusValueCall"
+      "2": "CallResource",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "SimpleValueFromEoCall",
+      "6": "JsonAsStringCall",
+      "7": "FileWriteCall",
+      "8": "StringUpperFirstCharCall",
+      "9": "DirectoryReadCall",
+      "10": "TemplateCall",
+      "11": "TemplateResourceCall",
+      "12": "ConfigKeysCall",
+      "13": "ConfigTypesCall",
+      "14": "JsonReadCall",
+      "15": "ListReadCall",
+      "16": "ScsReadCall",
+      "17": "ValueCall",
+      "18": "StringUpperCall",
+      "19": "StringReplaceWhiteSpaceCall",
+      "20": "StringLowerCall",
+      "21": "ConfigOpenApiCall",
+      "22": "ConfigCall",
+      "23": "ConfigAsFlatListCall",
+      "24": "StringReplaceWithHtmlCall",
+      "25": "DirectoryMapReadCall",
+      "26": "ListWriteCall",
+      "27": "StringReplaceCall",
+      "28": "TemplateResourceStoreCall",
+      "29": "SinusValueCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -2310,11 +2343,12 @@
     "description": "A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.",
     "naturalId": "targetPath"
   },
-  "108": {
+  "109": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "StringReplaceCall"
+      "0": "DirectoryMapReadCall",
+      "1": "StringReplaceCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -2326,7 +2360,7 @@
     "description": "toReplace",
     "naturalId": "toReplace"
   },
-  "109": {
+  "110": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
     "(Expose)expose": "NONE",
@@ -2339,7 +2373,7 @@
     "description": "unique",
     "naturalId": "unique"
   },
-  "110": {
+  "111": {
     "fieldKey": "ID",
     "modelKeys": "Long",
     "(Expose)expose": "NONE",
@@ -2355,7 +2389,7 @@
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "111": {
+  "112": {
     "fieldKey": "user",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2371,7 +2405,7 @@
     "description": "user",
     "naturalId": "user"
   },
-  "112": {
+  "113": {
     "fieldKey": "value",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2387,7 +2421,7 @@
     "description": "value",
     "naturalId": "value"
   },
-  "113": {
+  "114": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
     "(Expose)expose": "NONE",
@@ -2400,7 +2434,7 @@
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "114": {
+  "115": {
     "fieldKey": "write",
     "modelKeys": "String",
     "(ArrayList)modelList": {

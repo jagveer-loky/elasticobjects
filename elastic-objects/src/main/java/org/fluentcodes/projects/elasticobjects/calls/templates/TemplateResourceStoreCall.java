@@ -21,8 +21,7 @@ public class TemplateResourceStoreCall extends TemplateResourceCall {
         String content = super.execute(eo);
         String targetFile = new ParserEoReplace(getTargetFile()).parse(eo);
         new IOString().setFileName(targetFile).write(content);
-        System.out.println("Created " + targetFile);
-        return "";
+        return "Created " + targetFile;
     }
 
     public String getTargetFile() {

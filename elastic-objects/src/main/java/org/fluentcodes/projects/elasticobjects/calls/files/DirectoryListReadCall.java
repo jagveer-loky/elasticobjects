@@ -16,6 +16,7 @@ import java.util.List;
  * Created by werner.diwischek on 2.10.2020.
  */
 public class DirectoryListReadCall extends FileReadCall{
+    private Boolean absolute = false;
     public DirectoryListReadCall() {
         super();
     }
@@ -46,11 +47,11 @@ public class DirectoryListReadCall extends FileReadCall{
         if (!getFileConfig().hasFileName()) {
             throw new EoException("No fileName in config defined for configKey " + getConfigKey());
         }
-        return listFiles(getFileConfig().getFilePath(), getFileConfig().getFileName());
+        return listFiles(getFileConfig().getFilePath(), getFileConfig().getFileName(), absolute);
     }
 
     // https://stackabuse.com/java-list-files-in-a-directory/
-    public List<String> listFiles(final String filePath, final String filter)  {
+    public List<String> listFiles(final String filePath, final String filter, final boolean isAbsolute)  {
         if (filePath==null || filePath.isEmpty()) {
             throw new EoException("No filePath defined");
         }
@@ -65,12 +66,12 @@ public class DirectoryListReadCall extends FileReadCall{
             }
             directory = new File(urlList.get(0).getFile());
         }
-
+        String directoryName = isAbsolute ? directory.getAbsolutePath() + Path.DELIMITER: directory.getName() + Path.DELIMITER;
         final String[] fileNames = directory.list();
         List<String> fileNameList = new ArrayList<>();
         for(final String fileName:fileNames) {
             if (fileName.matches(filter)) {
-                fileNameList.add(directory.getAbsolutePath() + Path.DELIMITER + fileName);
+                fileNameList.add(directoryName + fileName);
             }
         }
         if (fileNames.length>0 && fileNameList.isEmpty()) {
@@ -91,5 +92,16 @@ public class DirectoryListReadCall extends FileReadCall{
             throw new EoException("Null matching file in classpath for '" + fileName + "'.");
         }
         return urlList;
+    }
+
+    public Boolean getAbsolute() {
+        return absolute;
+    }
+    public Boolean isAbsolute() {
+        return absolute;
+    }
+
+    public void setAbsolute(Boolean absolute) {
+        this.absolute = absolute;
     }
 }
