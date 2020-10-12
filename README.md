@@ -1,13 +1,20 @@
 [![Open Source Helpers](https://www.codetriage.com/fluentcodes/elasticobjects/badges/users.svg)](https://www.codetriage.com/fluentcodes/elasticobjects)
 
-> A detailed documentation with interactive examples you find [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).  
-> The documentation is build via generic spring boot endpoint and EO template calls.
-> <cite>The documentation is build via one generic spring boot endpoint and EO template calls.</cite>
+> A detailed documentation with interactive examples you find at [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).
+
+> <cite>This documentation is build via one generic spring boot endpoint and EO template calls.</cite>
 
 
 # Elastic Objects
 <p>
-Elastic Objects is an object wrapper around the skeleton of a hierarchical Java object. It offers
+Elastic Objects is an object wrapper around the skeleton of a hierarchical Java object.
+</p>
+
+    AnObject anObject = new AnObject();
+    anObject.setMyString("value");
+    EoRoot eoRoot = new EoRoot(anObject);
+<p>
+It offers
 <b>path</b>
 methods to create, set or access objects.
 </p>
@@ -30,13 +37,14 @@ methods to create, set or access objects.
     {
         "a":{
             "(AnObject)b":{
-                 "myString":"value
+                 "myString":"value"
             }
         }
     }
 </p>
 <p>
-    In a service application a client is free to combine any typed data in a JSON message via a generic endpoint.
+    In a service application a client is free to combine any typed data in a JSON message
+    by one generic endpoint.
 </p>
 
     {
