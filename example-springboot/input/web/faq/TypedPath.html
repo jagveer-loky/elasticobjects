@@ -1,0 +1,22 @@
+
+        <h3>What is a Typed Path?</h3>
+<p>
+In the setter one can embed a type directive. This creates a typed object, when a
+        configuration in $[(GithubLinkCall)EOR||ModelConfig.json configType="NONE"/] is defined.
+</p>
+
+<textarea style="height:100px;">EO eoRoot = new EoRoot(configCache, anObject);
+eoRoot.set("value", "a/(AnObject)b/myString");
+Assertions.assertThat(eoRoot.getEo("a/b").getModelClass())
+   .isEqualTo(AnObject.class);
+</textarea>
+
+<p>
+Here a
+$[(ConfigLinkCall)AnObject /]
+        is created in "a/b" and within this the field value
+$[(ConfigLinkCall)myString configType="FieldConfig"/]
+is set.
+</p>
+
+

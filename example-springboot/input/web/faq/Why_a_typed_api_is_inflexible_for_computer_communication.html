@@ -1,0 +1,25 @@
+<h3>Why a typed api is not good for computer communication?</h3>
+<p>
+        The typed <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> approach ties
+        data and functionality together to a certain implementation and an url.
+</p>
+<p>
+        Compared with human language this
+        combination are simple sentences.
+        For communication between client and server this means a fixed set of sentences available.
+        If the client need something new or a modification this means a new endpoint with new configurations
+        in a contract first world.
+</p>
+<p><a href="https://en.wikipedia.org/wiki/GraphQL">GraphQL</a> send
+special messages through one generic endpoint.
+        Those messages with its schemed rules are better adapted to database queries.
+        The client decides how he combine things within these rules without changing the server side. </p>
+<p>
+        The concept of elastic objects is an enriched json as message. A simple
+        type directive defines type and functionality. The combination of data and functionality is free.
+        The functionality could be anything the server implements, e.g.
+        $[(ConfigLinkCall)SinusValueCall /]  or
+        $[(ConfigLinkCall)TemplateCall /]
+        or a
+        $[(ConfigLinkCall)DbQueryCall /].
+</p>
