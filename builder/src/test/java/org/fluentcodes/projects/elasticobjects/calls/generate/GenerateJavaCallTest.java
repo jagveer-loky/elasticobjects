@@ -41,17 +41,4 @@ public class GenerateJavaCallTest {
     public void compareModelConfig()  {
         ConfigModelChecks.compare(GenerateJavaCall.class);
     }
-
-    @Test
-    public void callTemplateResourceCall_JavaBuilderTpl__execute__logEmpty() {
-        TemplateResourceCall call = new TemplateResourceCall("JavaBuilder.tpl");
-        EO eo = ProviderRootTestScope.createEo();
-        eo.set(Moduls.EO_TEST.getName(), MODULE);
-        eo.set("main", MODULE_SCOPE);
-        eo.set(AnObject.class.getSimpleName() , NATURAL_ID);
-        eo.set("..", BUILD_PATH);
-        String result = call.execute(eo);
-        Assertions.assertThat(result).contains("Written configuration to");
-        Assertions.assertThat(eo.getLog()).isEmpty();
-    }
 }

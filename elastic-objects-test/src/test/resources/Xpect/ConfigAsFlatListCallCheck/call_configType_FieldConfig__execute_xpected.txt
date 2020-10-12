@@ -25,6 +25,7 @@
 "fieldKey";"String";"fieldKey";"elastic-objects";"";"fieldKey";"";"";"";"";
 "fieldKeys";"ArrayList,String";"A list of field keys for the model configuration. ";"elastic-objects";"";"fieldKeys";"";"";"";"";
 "fieldName";"String";"A name for different purposes depending on the model.";"elastic-objects";"";"fieldName";"";"";"";"";
+"fileEnding";"String";"It's used to specify the file ending in different context. ";"elastic-objects";"";"fileEnding";"";"";"";"";
 "fileKey";"String";"A key for file objects.";"elastic-objects";"";"fileKey";"";"";"";"";
 "fileName";"String";"fileName";"elastic-objects";"";"fileName";"";"";"";"";
 "filePath";"String";"filePath";"elastic-objects";"";"filePath";"";"";"";"";

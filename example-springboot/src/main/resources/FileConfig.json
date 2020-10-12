@@ -84,25 +84,6 @@
       "sheetName": "intro"
     }
   },
-  "content.xlsx:faq": {
-    "configModelKey": "XlsxConfig",
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "static",
-    "fileName": "content.xlsx",
-    "description": "The faq content for example-springboot.",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "read": "admin"
-    },
-    "properties": {
-      "classPath": "src.main.resources",
-      "rowHead": 0,
-      "sheetName": "faq"
-    }
-  },
   "ContentPage.html": {
     "module": "example-springboot",
     "moduleScope": "main",
@@ -110,6 +91,87 @@
     "filePath": "web",
     "fileName": "ContentPage.html",
     "description": "The content template loading a content template file in the content part without navigation.",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "blog_Nav.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/blog",
+    "fileName": "_Nav.html",
+    "description": "From the \"blog\" directory file content generated navigation file for the left hand link list. ",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "faq_Nav.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/faq",
+    "fileName": "_Nav.html",
+    "description": "From the \"faq\" directory file content generated navigation file for the left hand link list. ",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "docs_Nav.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/docs",
+    "fileName": "_Nav.html",
+    "description": "From the \"docs\" directory file content generated navigation file for the left hand link list. ",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "examples_Nav.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/examples",
+    "fileName": "_Nav.html",
+    "description": "From the \"examples\" directory file content generated navigation file for the left hand link list. ",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "faq": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/faq",
+    "fileName": ".*.html",
+    "description": "Directory access for web/faq for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
@@ -146,6 +208,38 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "Nav.tpl": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "Nav.tpl",
+    "description": "Create a \"_Nav.html\" file with links to the files from the directory content .",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "NavElement.tpl": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "NavElement.tpl",
+    "description": "Create the links of \"_Nav.html\" from the directory content .",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "admin"
     },
     "properties": {
       "classPath": "src.main.resources"
@@ -264,14 +358,31 @@
       "classPath": "src.main.resources"
     }
   },
-  "WEB_CONFIGS": {
+  "configs": {
     "configModelKey": "DirectoryConfig",
     "module": "example-springboot",
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/configs",
-    "fileName": ".*.html",
+    "fileName": "^[^_].*.html",
     "description": "Directory access for web/configs for fileNames matching *.html",
+    "expose": "INFO",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "blog": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/blog",
+    "fileName": "^[^_].*.html",
+    "description": "Directory access for web/blog for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {
@@ -287,7 +398,7 @@
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/docs",
-    "fileName": ".*.html",
+    "fileName": "^[^_].*.html",
     "description": "Directory access for web/docs for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
@@ -304,42 +415,8 @@
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web/examples",
-    "fileName": ".*.html",
+    "fileName": "^[^_].*.html",
     "description": "Directory access for web/examples for fileNames matching *.html",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "faq": {
-    "configModelKey": "DirectoryConfig",
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/faq",
-    "fileName": ".*.html",
-    "description": "Directory access for web/faq for fileNames matching *.html",
-    "expose": "INFO",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "blog": {
-    "configModelKey": "DirectoryConfig",
-    "module": "example-springboot",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "web/blog",
-    "fileName": ".*.html",
-    "description": "Directory access for web/blog for fileNames matching *.html",
     "expose": "INFO",
     "cached": "false",
     "rolePermissions": {

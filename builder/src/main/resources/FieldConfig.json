@@ -9,17 +9,5 @@
     "properties": {
       "classPath": "src.main.resources"
     }
-  },
-  "fileEnding": {
-    "module": "builder",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "For the builder it's used to create a file with a special ending to control results with an exisiting file.",
-    "expose": "INFO",
-    "fieldKey": "fileEnding",
-    "length": 512,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
   }
 }

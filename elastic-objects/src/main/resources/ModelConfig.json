@@ -27,6 +27,42 @@
     },
     "author": "java"
   },
+  "Base": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "id",
+      "description",
+      "naturalId",
+      "creationDate",
+      "author"
+    ],
+    "expose": "INFO",
+    "description": "Basic bean as super interface for other cached items. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
+    "modelKey": "Base",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "BaseImpl": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "interfaces": "Base",
+    "expose": "INFO",
+    "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
+    "modelKey": "BaseImpl",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "Call": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -57,11 +93,11 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "interfaces": "Call",
+    "superKey": "BaseImpl",
     "expose": "INFO",
     "description": "Basic implementation for calls. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallImpl",
-    "superKey": "BaseImpl",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -292,6 +328,41 @@
     },
     "author": "Werner Diwischek"
   },
+  "DirectoryListReadCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "FileReadCall",
+    "expose": "WEB",
+    "description": "Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. \nOffers also general access methods like read(String filePath, String fileName) for java access. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "DirectoryListReadCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DirectoryMapReadCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "toReplace",
+      "replaceBy",
+      "fileEnding"
+    ],
+    "superKey": "DirectoryListReadCall",
+    "expose": "WEB",
+    "description": "Read a list from a directory. The file names will replace <i>toReplace (default \"_\")</i> by <i>replaceBy (default \"\")</i> and <i>fileEnding(default \".html\")</i> will be removed. \n",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "DirectoryMapReadCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "DirectoryReadCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -303,21 +374,6 @@
     "description": "Defines a file read for a directory. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "DirectoryReadCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "DirectoryListReadCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "FileReadCall",
-    "expose": "WEB",
-    "description": "Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. \nOffers also general access methods like read(String filePath, String fileName) for java access. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "DirectoryListReadCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -636,27 +692,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "Base": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "id",
-      "description",
-      "naturalId",
-      "creationDate",
-      "author"
-    ],
-    "expose": "INFO",
-    "description": "Basic bean as super interface for other cached items. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
-    "modelKey": "Base",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
   "ModelConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -670,6 +705,29 @@
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ModelConfigInterface": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "packagePath",
+      "modelKey",
+      "localFieldKeys",
+      "superKey",
+      "interfaces",
+      "fieldKeys"
+    ],
+    "superKey": "Config",
+    "expose": "INFO",
+    "description": "Table definitions with pojo.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelConfigInterface",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -763,48 +821,10 @@
     },
     "author": "Werner Diwischek"
   },
-  "BaseImpl": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "interfaces": "Base",
-    "expose": "INFO",
-    "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
-    "modelKey": "BaseImpl",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ModelConfigInterface": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "packagePath",
-      "modelKey",
-      "localFieldKeys",
-      "superKey",
-      "interfaces",
-      "fieldKeys"
-    ],
-    "superKey": "Config",
-    "expose": "INFO",
-    "description": "Table definitions with pojo.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelConfigInterface",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
   "Models": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "A list of models to specify model configs for a path.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Models",
@@ -836,6 +856,20 @@
     "description": "A list of {@ And}.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Or",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "SCALAR_SERIALIZED"
+    },
+    "author": "Werner Diwischek"
+  },
+  "Path": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "description": "A path with useful methonds. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects",
+    "modelKey": "Path",
     "properties": {
       "classPath": "src.main.java",
       "create": false,

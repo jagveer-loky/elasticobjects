@@ -3,6 +3,9 @@
   "0": {
     "dbKey": "h2:mem:basic",
     "sql": "Select * from AnObject",
+    "rolePermissions": {
+      "execute": "guest"
+    },
     "(Expose)expose": "INFO",
     "properties": {
       "classPath": "src/main/resources",
@@ -18,6 +21,9 @@
   "1": {
     "dbKey": "h2:mem:basic",
     "sql": "Select * from ASubObject",
+    "rolePermissions": {
+      "execute": "guest"
+    },
     "(Expose)expose": "INFO",
     "properties": {
       "classPath": "src/main/resources",
@@ -46,6 +52,9 @@
       "10": "insert into AnObject (myString,myInt,myBoolean) values ('value1',1, true)",
       "11": "insert into AnObject (myString,myInt,myBoolean) values ('value2',2, false)",
       "12": "insert into AnObject (myString,myInt,myBoolean) values ('value3',3, true)"
+    },
+    "rolePermissions": {
+      "execute": "admin"
     },
     "(Expose)expose": "INFO",
     "properties": {

@@ -7,8 +7,12 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * Created by Werner on 26.08.2020.
  */
 public class StringReplaceCall extends SimpleValueFromEoCall{
+    public static final String TO_REPLACE = "toReplace";
+    public static final String REPLACE_BY = "replaceBy";
+
     private String toReplace;
     private String replaceBy;
+
     public StringReplaceCall() {
         super();
     }
