@@ -1,21 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleWriteCall;
 
 /**
  * Created by werner.diwischek on 03.12.16.
  */
-public class CsvWriteCall extends ListWriteCall {
-    private static final Logger LOG = LogManager.getLogger(CsvWriteCall.class);
-
+public class CsvWriteCall extends CsvSimpleWriteCall {
     public CsvWriteCall()  {
         super();
-    }
-
-    public CsvConfig getCsvConfig() {
-        return ((CsvConfig) getConfig());
     }
 }

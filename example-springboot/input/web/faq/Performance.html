@@ -1,0 +1,47 @@
+<h4>Performance</h4>
+<p>
+    A simple performance test with
+    $[(GithubLinkCall)EOTTR||performance-Mon%20Aug%2031%2008:49:57%20CEST%202020.info configType="NONE"/]
+    with
+    $[(GithubLinkCall)EOTT|performance|EOPerformance.java configType="NONE"/]
+    compare serialization and deserialization speed:
+</p>
+<ul>
+   <li><a href="https://github.com/FasterXML/jackson">Jackson</a> and
+    <li><a href="https://github.com/google/gson">Gson</a>
+</ul>
+
+<table>
+    <tr>
+        <th>Tool</th><th>toJson</th><th>fromJson</th>
+    </tr>
+    <tr>
+    <td>EO</td><td>1829 ms</td><td>478 ms</td>
+    </tr>
+    <tr>
+        <td>EO direct</td>602 ms<td></td><td></td>
+    </tr>
+    <tr>
+        <td>Jackson</td><td>118 ms</td><td>132 ms</td>
+    </tr>
+    <tr>
+        <td>Gson</td><td>183 ms</td><td>111 ms</td>
+    </tr>
+</table>
+
+<p>
+    Serialization with
+$[(GithubLinkCall)EO||EOToJSON.java configType="NONE"/] is about 10 times slower.
+Deserialization with
+$[(GithubLinkCall)EO||JSONToEO.java configType="NONE"/]
+about 5 times.
+</p>
+<p>
+    Performance had not the priority until now. The slowness in serialization is due to the fact,
+    that that an
+    object has to be wrapped by EO before serializing.
+</p>
+<p>
+    Since EO allows more than just simple type mapping I suppose it will never reach the performance
+    of the other frameworks.
+</p>
