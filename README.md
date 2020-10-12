@@ -1,12 +1,9 @@
 [![Open Source Helpers](https://www.codetriage.com/fluentcodes/elasticobjects/badges/users.svg)](https://www.codetriage.com/fluentcodes/elasticobjects)
 
->... while you're programming, you are learning. It's often the case that it can take a year of programming on a project before you understand what the best design approach should have been ...
->
-> -- <cite>Martin Fowler</cite>
+> A detailed documentation with interactive examples you find [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).  
+> The documentation is build via generic spring boot endpoint and EO template calls.
+> <cite>The documentation is build via one generic spring boot endpoint and EO template calls.</cite>
 
-A detailed documentation with interactive examples you find
-[elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).
-The documentation is build via generic spring boot endpoint and EO template calls.
 
 # Elastic Objects
 <p>
@@ -29,24 +26,27 @@ methods to create, set or access objects.
 <p>
    And JSON serialization and deserialization uses the same pattern:
 </p>
-   {
-       "a":{
-           "(AnObject)b":{
-               "myString":"value
-           }
-       }
-   }
+
+    {
+        "a":{
+            "(AnObject)b":{
+                 "myString":"value
+            }
+        }
+    }
 </p>
 <p>
     In a service application a client is free to combine any typed data in a JSON message via a generic endpoint.
 </p>
+
     {
         "(AnObject)input":{...},
         "(ACall)target:{"sourcePath":"input"}
     }
+
 <p>
-   Call allow to add functionality with in the same pattern, since calls are just beans with a
-generic execute method.
+   Calls allow to add functionality with in the same pattern, since calls are just beans with a
+generic execute method with EO as input.
 </p>
 
 ### Modules
