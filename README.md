@@ -7,7 +7,8 @@
 
 # Elastic Objects
 <p>
-Elastic Objects is an object wrapper around the skeleton of a hierarchical Java object.
+Elastic Objects is an object wrapper around the skeleton of an hierarchical Java object, here its
+<a href="elasticobjects.org/config/AnObject">AnObject</a>.
 </p>
 
     AnObject anObject = new AnObject();
@@ -19,13 +20,13 @@ It offers
 methods to create, set or access objects.
 </p>
 
-    eoRoot.set(otherObject, "a/b/c");
+    eoRoot.set(anObject, "a/b/c");
     AnObject anObject2 = eoRoot.get("a/b/c");
     EO eoChild = eoRoot.getEo("a/b/c");
     AnObject anObject3 = eoChild.get();
 
 <p>
-    The path could be typed paths:
+    The path could be a typed path:
 </p>
 
     eoRoot.set("value", "a/(AnObject)b/myString");
@@ -53,7 +54,8 @@ methods to create, set or access objects.
     }
 
 <p>
-   Calls allow to add functionality with in the same pattern, since calls are just beans with a
+   <a href="elasticobjects.org/config/Call">Calls</a> allow to add functionality with in the same pattern,
+   since calls are just beans with a
 generic execute method with EO as input.
 </p>
 

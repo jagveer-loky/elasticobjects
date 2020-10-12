@@ -13,7 +13,6 @@ import org.junit.Test;
  * @since 22.03.2017.
  */
 public class TemplateCallSimpleTest {
-    private static final Logger LOG = LogManager.getLogger(TemplateCallSimpleTest.class);
 
     @Test
     public void givenCallWithContentWithStringPlaceholder_whenExecuteCall_thenPlaceHolderIsReplaced()  {

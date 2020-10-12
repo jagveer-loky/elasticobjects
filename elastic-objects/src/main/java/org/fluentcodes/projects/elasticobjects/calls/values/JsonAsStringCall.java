@@ -10,7 +10,6 @@ import org.fluentcodes.projects.elasticobjects.Path;
  * Created by Werner on 3.08.2020.
  */
 public class JsonAsStringCall extends SimpleValueFromEoCall{
-    private static final Logger LOG = LogManager.getLogger(JsonAsStringCall.class);
     public JsonAsStringCall() {
         setTargetPath(TARGET_AS_STRING);
     }

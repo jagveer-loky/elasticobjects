@@ -20,7 +20,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 
 public class EoSetMapTest {
-    private static final Logger LOG = LogManager.getLogger(EoSetMapTest.class);
 
     @Test
     public void givenDev_whenSetNullWithLevel0_thenEmptyMapIsSet()  {

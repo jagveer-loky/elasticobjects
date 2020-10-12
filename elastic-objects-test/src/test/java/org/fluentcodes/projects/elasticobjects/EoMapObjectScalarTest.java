@@ -19,7 +19,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 
 public class EoMapObjectScalarTest {
-    private static final Logger LOG = LogManager.getLogger(EoMapObjectScalarTest.class);
 
     @Test
     public void givenDev_whenMapNull_thenNothingChanged()  {

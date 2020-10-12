@@ -10,7 +10,6 @@ import org.junit.Test;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class PathCreateChildPathTest {
-    private static final Logger LOG = LogManager.getLogger(PathCreateChildPathTest.class);
 
     @Test
     public void given3Elements_then2Elements() {

@@ -13,7 +13,6 @@ import java.util.Map;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class ModelShapeTypesTest {
-    private static final Logger LOG = LogManager.getLogger(ModelShapeTypesTest.class);
 
     @Test
     public void testTypeClasses()  {

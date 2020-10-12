@@ -9,7 +9,6 @@ import org.junit.Test;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
 
 public class EOGetTest {
-    private static final Logger LOG = LogManager.getLogger(EOGetTest.class);
 
     @Test
     public void devEmpty__get_path__exception_thrown()  {

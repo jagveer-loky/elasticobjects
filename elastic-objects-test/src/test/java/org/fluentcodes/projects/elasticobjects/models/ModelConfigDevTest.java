@@ -12,13 +12,11 @@ import java.util.TreeSet;
  * Created by Werner on 11.10.2016.
  */
 public class ModelConfigDevTest {
-    private static final Logger LOG = LogManager.getLogger(ModelConfigDevTest.class);
     @Test
     public void check() {
         EOConfigsCache cache = ProviderRootDevScope.EO_CONFIGS;
         TreeSet<String> keys = new TreeSet<>(cache.getConfigKeys(ModelConfig.class));
         for (String key: keys) {
-            LOG.info("Check " + key);
             ModelConfig model = cache.findModel(key);
             Assertions.assertThat(model).isNotNull();
             model.resolve();

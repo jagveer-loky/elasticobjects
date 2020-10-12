@@ -10,7 +10,6 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  * Created by Werner on 13.07.2020.
  */
 public class SinusValueCall extends SimpleValueFromEoCall{
-    private static final Logger LOG = LogManager.getLogger(SinusValueCall.class);
     @Override
     public Object execute(final EO eo) {
         super.check(eo);

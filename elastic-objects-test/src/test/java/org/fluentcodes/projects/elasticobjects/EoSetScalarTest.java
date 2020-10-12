@@ -16,7 +16,6 @@ import static junit.framework.TestCase.assertEquals;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class EoSetScalarTest {
-    private static final Logger LOG = LogManager.getLogger(EoSetScalarTest.class);
 
     /**
      * Basic wiki example

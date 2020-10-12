@@ -13,7 +13,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 
 public class EoSetEmptyTest {
-    private static final Logger LOG = LogManager.getLogger(EoSetEmptyTest.class);
 
     @Test
     public void givenDev_whenSetEmptyWithLevel0_thenIsMapClass()  {

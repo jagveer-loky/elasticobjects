@@ -14,7 +14,6 @@ import java.util.List;
 
 
 public class LikeTest {
-    private static final Logger LOG = LogManager.getLogger(LikeTest.class);
 
     @Test
     public void testString_string__filter_eoString__true()  {

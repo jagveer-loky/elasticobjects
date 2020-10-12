@@ -23,7 +23,6 @@ public class TemplateContentExampleTest {
     public static final String STATIC_KEEP_TPL = "ContentExampleStaticKeep";
     public static final String STATIC_CONDITION_TPL = "ContentExampleStaticCondition";
     public static final String DYNAMIC_TPL = "ContentExampleDynamic";
-    private static final Logger LOG = LogManager.getLogger(TemplateContentExampleTest.class);
     private static final String H1 = "<h1>";
     private static final String H2 = "<h2>";
 

@@ -10,7 +10,6 @@ import org.junit.Test;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 public class PathGetFirstEntryTest {
-    private static final Logger LOG = LogManager.getLogger(PathGetFirstEntryTest.class);
 
     @Test
     public void givenPathWith3PathElements_whenFirstEntry_thenFirstPathElement() {

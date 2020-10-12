@@ -18,7 +18,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
  */
 
 public class EoMapObjectAnObjectTest {
-    private static final Logger LOG = LogManager.getLogger(EoMapObjectAnObjectTest.class);
 
     /**
      * Basic Wiki Example

@@ -1,15 +1,20 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_COMPARE_FAILS;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_INT;
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_STRING;
 
 /**
  * @author Werner Diwischek
@@ -17,7 +22,6 @@ import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.*;
  */
 
 public class EoAnObjectJsonTest {
-    private static final Logger LOG = LogManager.getLogger(EoAnObjectJsonTest.class);
 
     @Test
     public void testDouble()  {

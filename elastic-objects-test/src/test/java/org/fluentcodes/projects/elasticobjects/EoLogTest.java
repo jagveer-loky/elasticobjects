@@ -13,7 +13,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  * Created by werner.diwischek on 12.12.17.
  */
 public class EoLogTest {
-    private static final Logger LOG = LogManager.getLogger(EOKeysTest.class);
 
     @Test
     public void givenDev_thenLogLevelWarn()  {

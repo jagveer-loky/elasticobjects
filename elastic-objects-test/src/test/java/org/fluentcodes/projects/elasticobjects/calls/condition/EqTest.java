@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class EqTest {
-    private static final Logger LOG = LogManager.getLogger(EqTest.class);
 
     @Test
     public void testString_test__filter_eoString__true() {

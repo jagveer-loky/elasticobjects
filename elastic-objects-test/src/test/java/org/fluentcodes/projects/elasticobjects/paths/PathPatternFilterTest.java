@@ -15,7 +15,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class PathPatternFilterTest {
     private static final String TEST3 = "test3";
     public static final List<String> values = Arrays.asList(S_STRING, S_STRING_OTHER, TEST3);
-    private static final Logger LOG = LogManager.getLogger(PathPatternFilterTest.class);
 
     @Test
     public void filterListTest() {

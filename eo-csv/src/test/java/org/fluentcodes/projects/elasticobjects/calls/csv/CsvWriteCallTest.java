@@ -10,7 +10,7 @@ import org.junit.Test;
  * Created by Werner on 08.10.2016.
  */
 public class CsvWriteCallTest {
-    private static final Logger LOG = LogManager.getLogger(CsvWriteCallTest.class);
+
     @Test
     public void createByModelConfig()  {
         ConfigModelChecks.create(CsvWriteCall.class);

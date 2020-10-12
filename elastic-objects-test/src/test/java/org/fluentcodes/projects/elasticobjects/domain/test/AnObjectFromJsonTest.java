@@ -16,7 +16,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 
 public class AnObjectFromJsonTest {
-    private static final Logger LOG = LogManager.getLogger(AnObjectFromJsonTest.class);
 
     @Test
     public void givenJsonTypedDouble_thenDouble()  {

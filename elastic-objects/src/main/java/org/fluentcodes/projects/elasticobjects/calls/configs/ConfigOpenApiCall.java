@@ -18,7 +18,6 @@ import java.util.Set;
  * Created by werner.diwischek on 10.6.2018
  */
 public class ConfigOpenApiCall extends CallImpl {
-    private static final Logger LOG = LogManager.getLogger(ConfigOpenApiCall.class);
     private String filterModule;
     private String filterSubModule;
     private String configFilter = ".*";

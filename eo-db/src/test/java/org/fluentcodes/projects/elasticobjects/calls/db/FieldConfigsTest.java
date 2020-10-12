@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
  * Created by werner.diwischek on 09.12.17.
  */
 public class FieldConfigsTest {
-    private static final Logger LOG = LogManager.getLogger(FieldConfigsTest.class);
 /*
     @Test
     public void findConfigInCache()  {

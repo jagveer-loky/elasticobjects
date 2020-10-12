@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
  * Created by Werner on 14.07.2020.
  */
 public class ConfigTypeKeyListCall extends CallImpl{
-    private static final Logger LOG = LogManager.getLogger(ConfigTypeKeyListCall.class);
     private String configFilter;
 
     @Override

@@ -21,7 +21,6 @@ import java.util.Set;
  */
 public class ModelConfigObject extends ModelConfig {
     private static final Logger LOG = LogManager.getLogger(ModelConfigObject.class);
-    public static final String CONFIG_MODEL_KEY = "ModelConfigObject";
     private final Map<String, Method> getterMap;
     private final Map<String, Method> setterMap;
 

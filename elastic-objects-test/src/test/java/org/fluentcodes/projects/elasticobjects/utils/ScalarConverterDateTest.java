@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.util.Date;
 
 public class ScalarConverterDateTest {
-    private static final Logger log = LogManager.getLogger(ScalarConverterDateTest.class);
 
     @Test
     public void transformDate()  {

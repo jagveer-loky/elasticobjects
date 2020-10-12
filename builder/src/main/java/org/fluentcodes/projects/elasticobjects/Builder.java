@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.Moduls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
+import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
@@ -28,8 +29,8 @@ import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE
  * https://stackoverflow.com/questions/1200054/java-library-for-parsing-command-line-parameters
  */
 public class Builder {
-    public static final EOConfigsCache EO_CONFIGS_CACHE = new EOConfigsCache(Scope.TEST);
     private static final Logger LOG = LogManager.getLogger(Builder.class);
+    public static final EOConfigsCache EO_CONFIGS_CACHE = new EOConfigsCache(Scope.TEST);
 
     public static void main(String[] args)  {
         long start = System.currentTimeMillis();

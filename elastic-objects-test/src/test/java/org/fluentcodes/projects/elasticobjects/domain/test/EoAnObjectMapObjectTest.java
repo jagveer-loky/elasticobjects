@@ -15,7 +15,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
  * Created by Werner on 04.11.2016.
  */
 public class EoAnObjectMapObjectTest {
-    private static final Logger LOG = LogManager.getLogger(EoAnObjectMapObjectTest.class);
 
     /**
      * Wiki example

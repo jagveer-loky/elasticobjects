@@ -21,7 +21,6 @@ import java.util.*;
 
 @Ignore
 public class EOPerformance {
-    private static final Logger LOG = LogManager.getLogger(EOPerformance.class);
     private static final int maxRoot = 10000;
     private static final ObjectMapper JACKSON_MAPPER = new ObjectMapper();
     private static final Gson GSON_MAPPER = new GsonBuilder().setPrettyPrinting().create();
