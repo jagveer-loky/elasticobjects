@@ -10,7 +10,7 @@
       "rowEnd": 4,
       "module": "elastic-objects-test"
     },
-    "configModelKey": "ScsConfig",
+    "configModelKey": "CsvConfig",
     "fileName": "AnObject.csv",
     "filePath": "input/assets/bt",
     "hostKey": "localhost",
@@ -54,7 +54,7 @@
       "rowEnd": 3,
       "module": "elastic-objects-test"
     },
-    "configModelKey": "ScsConfig",
+    "configModelKey": "CsvConfig",
     "fileName": "ListSimple.csv",
     "filePath": "input/calls/list-simple",
     "hostKey": "localhost",

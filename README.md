@@ -109,13 +109,6 @@ is provide the execution of some sql configurations as list or as query.
 [builder](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations  
 for generating sources like java classes or json configuration by a simple Excel file.
 
-<div align="right" style="font-size:10px">
-<a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/eo-xlsx">
-<font size="1">mvn repository</font>
-</a></div>
-
-
-
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
 
 ### Status

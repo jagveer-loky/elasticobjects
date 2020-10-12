@@ -11,7 +11,7 @@ public class ListTest {
 
     @Test
     public void givenEoAnObjectCsvWithModels_whenExecuteEo_thenAnObjectForRow()  {
-        final Call call = new ScsReadCall()
+        final Call call = new CsvSimpleReadCall()
                 .setConfigKey("AnObject.csv")
                 .setTargetPath("(List,AnObject)level0");
         EO eo = ProviderRootTestScope.createEo();

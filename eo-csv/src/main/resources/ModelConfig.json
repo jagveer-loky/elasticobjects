@@ -1,24 +1,4 @@
 {
-  "CsvConfig": {
-    "module": "eo-csv",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "fieldDelimiter",
-      "rowDelimiter"
-    ],
-    "interfaces": "PropertiesListAccessor",
-    "superKey": "FileConfig",
-    "expose": "INFO",
-    "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
-    "modelKey": "CsvConfig",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
   "CsvReadCall": {
     "module": "eo-csv",
     "moduleScope": "main",

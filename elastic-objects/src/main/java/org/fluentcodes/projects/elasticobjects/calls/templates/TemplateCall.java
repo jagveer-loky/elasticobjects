@@ -56,7 +56,7 @@ public class TemplateCall extends CallImpl {
             return "";
         }
         if (!isContentActive()) {
-            LOG.info("No active element in template");
+            LOG.debug("No active element in template");
             return content;
         }
 
