@@ -1,6 +1,6 @@
 {
   "AnObject.csv": {
-    "configModelKey": "ScsConfig",
+    "configModelKey": "CsvConfig",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "hostKey": "localhost",
@@ -38,7 +38,7 @@
     }
   },
   "ListSimple.csv": {
-    "configModelKey": "ScsConfig",
+    "configModelKey": "CsvConfig",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "hostKey": "localhost",

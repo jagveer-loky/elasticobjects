@@ -1,27 +1,18 @@
-package org.fluentcodes.projects.elasticobjects.calls.csv;
+package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import au.com.bytecode.opencsv.CSVReader;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.lists.*;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface.LIST_PARAMS;
-import static org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig.FIELD_DELIMITER;
-import static org.fluentcodes.projects.elasticobjects.calls.lists.ScsConfig.ROW_DELIMITER;
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public class CsvConfig extends FileConfig implements PropertiesListAccessor {
+public class CsvConfig extends FileConfig {
+    public static final String FIELD_DELIMITER = "fieldDelimiter";
+    public static final String ROW_DELIMITER = "rowDelimiter";
     private final String fieldDelimiter;
     private final String rowDelimiter;
 
@@ -29,6 +20,14 @@ public class CsvConfig extends FileConfig implements PropertiesListAccessor {
         super(configsCache, map);
         this.fieldDelimiter = map.containsKey(FIELD_DELIMITER) ? (String) map.get(FIELD_DELIMITER) : ";";
         this.rowDelimiter = map.containsKey(ROW_DELIMITER) ? (String) map.get(ROW_DELIMITER) : "\n";
+    }
+
+    public List readRaw(ListParams params) {
+        throw new EoException("Deprecated");
+    }
+
+    public Object read(CsvSimpleReadCall readCall) {
+        throw new EoException("Deprecated");
     }
 
     /**
@@ -43,58 +42,6 @@ public class CsvConfig extends FileConfig implements PropertiesListAccessor {
      */
     public String getRowDelimiter() {
         return this.rowDelimiter;
-    }
-
-    @Override
-    public List readRaw(ListParams params) {
-        resolve();
-        URL url = findUrl();
-        //System.out.println("CSV " + url.toString());
-        CSVReader reader = null;
-        try {
-            reader = new CSVReader(new InputStreamReader(url.openStream()), getFieldDelimiter().charAt(0));
-        } catch (IOException e) {
-            throw new EoException(e);
-        }
-        List result = new ArrayList<>();
-// https://stackoverflow.com/questions/10264054/assign-variable-in-java-while-loop-conditional
-        try {
-            String[] row = null;
-            int i = 0;
-            while ((row = reader.readNext()) !=null) {
-                i++;
-                if (row == null || row.length == 0) {
-                    continue;
-                }
-                if (params.isRowHead(i)) {
-                    if (!params.hasColKeys()) {
-                        params.setColKeys(Arrays.asList(row));
-                    }
-                    continue;
-                }
-                if (!params.isRowStart(i)) {
-                    continue;
-                }
-                if (!params.isRowEnd(i)) {
-                    return result;
-                }
-                List rowEntry = Arrays.asList(row);
-                addRowEntry(getConfigsCache(), result, rowEntry, params);
-            }
-        }
-        catch (IOException e) {
-            throw new EoException(e);
-        }
-        if (reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                reader = null;
-                throw new EoException(e);
-            }
-            reader = null;
-        }
-        return result;
     }
 
     public void write(List rows)  {

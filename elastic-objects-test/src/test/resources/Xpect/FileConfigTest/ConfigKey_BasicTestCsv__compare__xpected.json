@@ -8,7 +8,7 @@
       "rowStart": 1,
       "rowEnd": 4
     },
-    "configModelKey": "ScsConfig",
+    "configModelKey": "CsvConfig",
     "fileName": "BasicTest.csv",
     "filePath": "input/assets/bt",
     "hostKey": "localhost",

@@ -2,7 +2,7 @@
   "_rootmodel": "ArrayList",
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ScsReadCall",
+    "modelKey": "CsvSimpleReadCall",
     "superKey": "ListReadCall",
     "(ArrayList)fieldKeys": {
       "0": "listParams",
@@ -39,7 +39,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines a primitive csv file read operation. ",
-    "naturalId": "ScsReadCall",
+    "naturalId": "CsvSimpleReadCall",
     "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"

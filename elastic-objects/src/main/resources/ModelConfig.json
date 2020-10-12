@@ -313,6 +313,25 @@
     },
     "author": "Werner Diwischek"
   },
+  "CsvConfig": {
+    "module": "eo-csv",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "fieldDelimiter",
+      "rowDelimiter"
+    ],
+    "superKey": "FileConfig",
+    "expose": "INFO",
+    "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "CsvConfig",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
   "DirectoryConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -926,21 +945,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "PropertiesListAccessor": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "PropertiesConfigAccessor",
-    "expose": "INFO",
-    "description": "Defines default common methods for List configuration",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "PropertiesListAccessor",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
   "RolePermissions": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -977,34 +981,14 @@
     },
     "author": "Werner Diwischek"
   },
-  "ScsConfig": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "fieldDelimiter",
-      "rowDelimiter"
-    ],
-    "interfaces": "PropertiesListAccessor",
-    "superKey": "FileConfig",
-    "expose": "INFO",
-    "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ScsConfig",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ScsReadCall": {
+  "CsvSimpleReadCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "superKey": "ListReadCall",
     "expose": "WEB",
     "description": "Defines a primitive csv file read operation. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ScsReadCall",
+    "modelKey": "CsvSimpleReadCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

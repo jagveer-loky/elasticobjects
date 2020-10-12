@@ -151,7 +151,7 @@
     }
   },
   "target.csv": {
-    "configModelKey": "ScsConfig",
+    "configModelKey": "CsvConfig",
     "module": "elastic-objects-test",
     "moduleScope": "test",
     "hostKey": "localhost",

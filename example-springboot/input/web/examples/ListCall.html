@@ -1,6 +1,6 @@
 <h3>List Calls</h3>
 <p>With the
-    $[(ConfigLinkCall)ScsReadCall /]
+    $[(ConfigLinkCall)CsvSimpleReadCall /]
     one can read simple character separated files. It just split for a certain delimiter.</p>
 <p>In the following examples the file
     $[(ConfigLinkCall)AnObject.csv configType="FileConfig" /]
@@ -12,7 +12,7 @@
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
-   "(ScsReadCall)values":{
+   "(CsvSimpleReadCall)values":{
        "configKey":"AnObject.csv"
    },
    "_serializationType":"STANDARD"
@@ -29,7 +29,7 @@
 </p>
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
-   "(ScsReadCall)values":{
+   "(CsvSimpleReadCall)values":{
        "configKey":"AnObject.csv",
         "rowHead":-1,
         "rowStart":0,
@@ -50,7 +50,7 @@
 <form action="/eo-form" method="post">
     <textarea name="eo" style="height:120px">{
    "(List,AnObject)values":{},
-   "(ScsReadCall).":{
+   "(CsvSimpleReadCall).":{
        "configKey":"AnObject.csv",
        "targetPath":"values"
    }

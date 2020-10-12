@@ -5,9 +5,8 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
-import org.fluentcodes.projects.elasticobjects.calls.lists.PropertiesListAccessor;
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -38,47 +37,12 @@ public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
     public boolean hasNoSheetName() {
         return getSheetName() == null || getSheetName().isEmpty();
     }
-
-
     public List readRaw(ListParams params) {
-        resolve();
-        List result = new ArrayList<>();
-        Sheet sheet = getSheet();
-        if (sheet == null) {
-            throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + getSheetName() + "' is undefined.");
-        }
-        List rowEntry;
-        int i = -1;
-        while((rowEntry = getRowAsList(sheet.getRow(i+1))) != null) {
-            i++;
-            if (params.isRowHead(i)) {
-                if (!params.hasColKeys()) {
-                    params.setColKeys(rowEntry);
-                }
-                continue;
-            }
-            if (!params.isRowStart(i)) {
-                continue;
-            }
-            if (!params.isRowEnd(i)) {
-                return result;
-            }
-            try {
-                addRowEntry(getConfigsCache(), result, rowEntry, params);
-            }
-            catch (Exception e) {
-                throw new EoInternalException("Problem with row " + i + ": " + rowEntry + "", e);
-            }
-        }
+        throw new EoException("Deprecated");
+    }
 
-        try {
-            sheet.getWorkbook().close();
-        } catch (IOException e) {
-            sheet = null;
-            throw new EoException(e);
-        }
-        sheet = null;
-        return result;
+    public Object read(CsvSimpleReadCall readCall) {
+        throw new EoException("Deprecated");
     }
 
     public Workbook readWorkbook()  {
@@ -103,7 +67,7 @@ public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
         }
     }
 
-    private List getRowAsList(Row row) {
+    protected List getRowAsList(Row row) {
         if (row == null) {
             return null;
         }

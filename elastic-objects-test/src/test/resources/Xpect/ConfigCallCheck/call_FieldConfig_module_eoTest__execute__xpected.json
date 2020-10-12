@@ -20,8 +20,8 @@
     "fieldKey": "myASubObject",
     "modelKeys": "ASubObject",
     "(ArrayList)modelList": {
-      "0": "ASubObject",
-      "1": "AnObject"
+      "0": "AnObject",
+      "1": "ASubObject"
     },
     "(Expose)expose": "WEB",
     "properties": {

@@ -2,25 +2,24 @@
   "_rootmodel": "ArrayList",
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ScsConfig",
+    "modelKey": "CsvConfig",
     "(ArrayList)localFieldKeys": {
       "0": "fieldDelimiter",
       "1": "rowDelimiter"
     },
     "superKey": "FileConfig",
-    "interfaces": "PropertiesListAccessor",
     "(ArrayList)fieldKeys": {
       "0": "fieldDelimiter",
       "1": "rowDelimiter",
-      "2": "properties",
-      "3": "configModelKey",
-      "4": "fileName",
-      "5": "filePath",
-      "6": "hostKey",
-      "7": "cached",
-      "8": "rolePermissions",
-      "9": "scope",
-      "10": "expose",
+      "2": "configModelKey",
+      "3": "fileName",
+      "4": "filePath",
+      "5": "hostKey",
+      "6": "cached",
+      "7": "rolePermissions",
+      "8": "scope",
+      "9": "expose",
+      "10": "properties",
       "11": "module",
       "12": "moduleScope",
       "13": "id",
@@ -34,12 +33,12 @@
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG",
-      "module": "elastic-objects"
+      "module": "eo-csv"
     },
-    "module": "elastic-objects",
+    "module": "eo-csv",
     "moduleScope": "main",
-    "description": "Immutable EO configuration for simple comma separated files will be initalized by internal builder using map values.",
-    "naturalId": "ScsConfig",
+    "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
+    "naturalId": "CsvConfig",
     "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"

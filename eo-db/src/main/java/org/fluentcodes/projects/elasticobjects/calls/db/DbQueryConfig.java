@@ -5,8 +5,8 @@ import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.condition.And;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Condition;
-import org.fluentcodes.projects.elasticobjects.calls.lists.PropertiesListAccessor;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -27,7 +27,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_PATH_PATTERN;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesListAccessor, PropertiesDbSqlAccessor {
+public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesDbSqlAccessor {
 
     public static final String SQL = "sql";
     private final String modelKey;
@@ -56,58 +56,33 @@ public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesList
         this.dbConfig = (DbConfig) getConfigsCache().find(HostConfig.class, getDbKey());
     }
 
-    @Override
-    public List readRaw(ListParams params) {
-        resolve();
-        List result = new ArrayList<>();
-        Statement statement = null;
-        ResultSet resultSet = null;
-        try {
-            statement = getDbConfig().getConnection().createStatement();
-            resultSet = statement.executeQuery(getSql());
-            initMetaData(resultSet.getMetaData());
-            if (!params.hasColKeys()) {
-                params.setColKeys(metaDataNames);
-            }
-
-            List rowEntry = null;
-            int i = -1;
-            while ((rowEntry = createRow(resultSet)) !=null) {
-                i++;
-                if (!params.isRowStart(i)) {
-                    continue;
-                }
-                if (!params.isRowEnd(i)) {
-                    return result;
-                }
-                addRowEntry(getConfigsCache(), result, rowEntry, params);
-            }
-        }
-        catch (Exception e) {
-            if (resultSet!=null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException throwables) {
-                    throw new EoException(e);
-                }
-                resultSet = null;
-            }
-            if (statement!=null) {
-                try {
-                    statement.close();
-                } catch (SQLException throwables) {
-                    throw new EoException(e);
-                }
-                statement = null;
-            }
-            throw new EoException(e);
-        }
-        return result;
+    public List<String> getMetaDataNames() {
+        return metaDataNames;
     }
 
-    private void initMetaData(ResultSetMetaData metaData) throws SQLException {
+    public Statement getStatement() {
+        resolve();
+        try {
+            return getDbConfig().getConnection().createStatement();
+        }
+        catch (Exception e) {
+            throw new EoException("Problem creating statement for " + getConfigModelKey() + ": " + e.getMessage());
+        }
+    }
+
+
+
+    public List readRaw(ListParams params) {
+        throw new EoException("Deprecated");
+    }
+
+    public Object read(CsvSimpleReadCall readCall) {
+        throw new EoException("Deprecated");
+    }
+
+    protected List<String> initMetaData(ResultSetMetaData metaData) throws SQLException {
         if (metaDataNames!=null) {
-            return;
+            return metaDataNames;
         }
         this.metaDataNames = new ArrayList<>();
         this.metaDataTypes = new ArrayList<>();
@@ -115,10 +90,10 @@ public class DbQueryConfig extends ConfigResourcesImpl implements PropertiesList
             metaDataTypes.add(metaData.getColumnTypeName(i));
             metaDataNames.add(metaData.getColumnName(i));
         }
-
+        return metaDataNames;
     }
 
-    private List createRow(final ResultSet resultSet) throws SQLException {
+    protected List createRow(final ResultSet resultSet) throws SQLException {
         resultSet.next();
         if (resultSet.isAfterLast()) {
             return null;
