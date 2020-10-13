@@ -6,21 +6,21 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo-xlsx</artifactId>
     <packaging>jar</packaging>
-    <version>0.5.0-SNAPSHO</version>
+    <version>0.5.0</version>
     <name>EO - Elastic objects Xlsx calls</name>
     <description>Xlsx calls for Elastic Objects</description>
     <url>http://www.elasticobjects.com</url>
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-root</artifactId>
-        <version>0.5.0-SNAPSHO</version>
+        <version>0.5.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <dependencies>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects</artifactId>
-            <version>0.5.0-SNAPSHO</version>
+            <version>0.5.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects-test</artifactId>
-            <version>0.5.0-SNAPSHO</version>
+            <version>0.5.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
