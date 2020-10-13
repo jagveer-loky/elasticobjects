@@ -1126,7 +1126,7 @@ td:last-child {
 --------------------------------------------------------------*/
 
 a {
-	color: #A22;
+	color: #1f65d7;
 	text-decoration: none;
 	border:none;
 }
@@ -1373,7 +1373,7 @@ a:hover .nav-title,
 /* Menu toggle */
 
 .menu-toggle {
-	background-color: transparent;
+	background-color: red;
 	border: 0;
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -1382,6 +1382,7 @@ a:hover .nav-title,
 	font-size: 14px;
 	font-size: 0.875rem;
 	font-weight: 800;
+	font-color: black;
 	line-height: 1.5;
 	margin: 1px auto 2px;
 	padding: 1em;
@@ -1400,7 +1401,7 @@ a:hover .nav-title,
 
 .menu-toggle:hover,
 .menu-toggle:focus {
-	background-color: transparent;
+	background-color: green;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
@@ -1411,6 +1412,7 @@ a:hover .nav-title,
 
 .menu-toggle .icon {
 	margin-right: 0.5em;
+	border: 1px
 	top: -2px;
 }
 
@@ -3099,6 +3101,8 @@ p > object:only-child {
 
 .no-svg .svg-fallback {
 	display: inline-block;
+	border: 1px;
+	background-color: #333333
 }
 
 .no-svg .dropdown-toggle {

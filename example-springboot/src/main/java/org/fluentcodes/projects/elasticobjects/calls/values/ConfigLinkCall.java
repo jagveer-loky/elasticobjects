@@ -29,7 +29,7 @@ public class ConfigLinkCall extends GithubLinkCall {
         builder.append(getConfigType());
         builder.append("/");
         builder.append(getConfigKey());
-        builder.append("\">&ocir;");
+        builder.append("\">&equiv;");
         builder.append(getConfigKey());
         builder.append("</a>\n");
         return builder.toString();

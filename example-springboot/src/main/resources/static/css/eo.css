@@ -11,6 +11,9 @@ textarea {
     width:90%;
     height:40px;
 }
+ul {
+    list-style:none;
+}
 #entry-content {
     padding:18px 12px 18px 25px;
     border-width:1px;
