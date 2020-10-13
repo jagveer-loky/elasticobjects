@@ -27,6 +27,11 @@ public enum Modules {
     EOXT("eo-xlsx/src/test/java/org/fluentcodes/projects/elasticobjects/"),
     EOXTR("eo-xlsx/src/test/resources/"),
 
+    EODB("eo-db/src/main/java/org/fluentcodes/projects/elasticobjects/"),
+    EODBR("eo-db/src/main/resources/"),
+    EODBT("eo-db/src/test/java/org/fluentcodes/projects/elasticobjects/"),
+    EODBTR("eo-db/src/test/resources/"),
+
     EOT("elastic-objects-test/src/main/java/org/fluentcodes/projects/elasticobjects/"),
     EOTR("elastic-objects-test/src/main/resources/"),
     EOTT("elastic-objects-test/src/test/java/org/fluentcodes/projects/elasticobjects/"),

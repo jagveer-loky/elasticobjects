@@ -106,6 +106,7 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
                 builder.append(((FileConfig) config).getFileName());
             }
         }
+        builder.append("\">");
         builder.append(GITHUB_PIC);
         if (!noLabel) {
             builder.append(config.getNaturalId());

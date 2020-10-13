@@ -1,14 +1,13 @@
 [![Open Source Helpers](https://www.codetriage.com/fluentcodes/elasticobjects/badges/users.svg)](https://www.codetriage.com/fluentcodes/elasticobjects)
 
-> A detailed documentation with interactive examples you find at [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).
-
-> <cite>This documentation is build via one generic spring boot endpoint and EO template calls.</cite>
+> A detailed documentation with interactive examples you find at [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html). The website is an example by itself
+and build by one generic spring boot endpoint and EO template calls.
 
 
 # Elastic Objects
 <p>
-Elastic Objects is an object wrapper around the skeleton of an hierarchical Java object, here its
-<a href="elasticobjects.org/config/AnObject">AnObject</a>.
+Elastic Objects is an object wrapper around the skeleton of hierarchical Java objects.
+<a href="elasticobjects.org/config/AnObject">AnObject</a> is a real test class for this and that....
 </p>
 
     AnObject anObject = new AnObject();
