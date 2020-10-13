@@ -12,6 +12,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
  * Created by Werner on 30.9.2020.
  */
 public class GithubLinkCall extends SimpleValueFromEoCall {
+    private static final String GITHUB_PIC = " <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>";
     private String configType;
     private Class configClass;
     private String configKey;
@@ -61,7 +62,7 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
             return "";
         }
 
-        builder.append("\n<a href=\"https://github.com/fluentcodes/elasticobjects/blob/master/");
+        builder.append("\n<nobreak><a target=\"github\" href=\"https://github.com/fluentcodes/elasticobjects/blob/master/");
 
         if (!configured) {
             String[] pathAndKey = configKey.split("\\|");
@@ -72,9 +73,10 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
             builder.append(pathAndKey[1].replaceAll("\\.", "/"));
             builder.append("/");
             builder.append(pathAndKey[2]);
-            builder.append("\">&equiv;");
+            builder.append("\">");
+            builder.append(GITHUB_PIC);
             builder.append(pathAndKey[2]);
-            builder.append("</a>");
+            builder.append("</a></nobreak>");
             return builder.toString();
         }
         this.config = (Config) eo.getConfigsCache().find(configClass, configKey);
@@ -104,11 +106,11 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
                 builder.append(((FileConfig) config).getFileName());
             }
         }
-        builder.append("\">&equiv;");
+        builder.append(GITHUB_PIC);
         if (!noLabel) {
             builder.append(config.getNaturalId());
         }
-        builder.append("</a>");
+        builder.append("</a></nobreak>");
         return builder.toString();
     }
 

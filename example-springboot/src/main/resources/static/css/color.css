@@ -441,7 +441,12 @@ body.colors-custom,
 .colors-custom .menu-scroll-down,
 .colors-custom .menu-scroll-down:hover,
 .colors-custom .menu-scroll-down:focus {
-    background-color: transparent;
+    background-color: #1f65d766;
+    border-color: #1f65d7ff
+    border-width:1px;
+    border-radius:10px;
+    border-style:ridge;
+    border:1px
 }
 
 .colors-custom .widget .tagcloud a,

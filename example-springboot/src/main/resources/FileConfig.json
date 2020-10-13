@@ -325,15 +325,15 @@
       "classPath": "src.main.resources"
     }
   },
-  "Svg.html": {
+  "Responsive.svg": {
     "module": "example-springboot",
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "web",
-    "fileName": "Svg.html",
+    "fileName": "Responsive.svg",
     "description": "The svg part of the page for responsiveness.",
     "expose": "INFO",
-    "cached": "false",
+    "cached": "true",
     "rolePermissions": {
       "read": "guest"
     },
