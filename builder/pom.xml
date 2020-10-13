@@ -6,13 +6,13 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>builder</artifactId>
     <packaging>jar</packaging>
-    <version>0.5.0</version>
+    <version>0.6.0-SNAPSHOT</version>
     <name>EO builder root</name>
     <url>http://www.elasticobjects.com</url>
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-root</artifactId>
-        <version>0.5.0</version>
+        <version>0.6.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <properties>
@@ -31,17 +31,17 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects-test</artifactId>
-            <version>0.5.0</version>
+            <version>0.6.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-xlsx</artifactId>
-            <version>0.5.0</version>
+            <version>0.6.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-db</artifactId>
-            <version>0.5.0</version>
+            <version>0.6.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.lexicalscope.jewelcli</groupId>
