@@ -30,7 +30,7 @@ public class XlsxConfigTest {
         ConfigChecks.resolveConfigurations(FileConfig.class);
     }
 
-    // TODO check maven problems within 0.5.0-SNAPSHO
+    // TODO check maven problems within 0.5.0
     @Ignore
     @Test
     public void compareConfigurations()  {

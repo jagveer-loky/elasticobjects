@@ -78,37 +78,23 @@
                         <ul id="top-menu" class="menu">
                             <li id="menu-item-1"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/Home.html">Home</a>
+                                <a href="/Home.html">&ocir; Home</a>
                             </li>
                             <li id="menu-item-2"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/examples/ExamplesStart.html">Examples</a>
+                                <a href="/examples/ExamplesStart.html">&ocir; Examples</a>
                             </li>
                             <li id="menu-item-3"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/faq/What_is_Elastic_Objects_.html">FAQ</a>
+                                <a href="/faq/What_is_Elastic_Objects_.html">&ocir; FAQ</a>
                             </li>
                             <li id="menu-item-4"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="/blog/Blog.html">Blog</a>
+                                <a href="/blog/Blog.html">&ocir; Blog</a>
                             </li>
-                            <li> - </li>
                             <li id="menu-item-5"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="https://github.com/fluentcodes/elasticobjects">&equiv;Github</a>
-                            </li>
-                            <li> - </li>
-                            <li id="menu-item-6"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62">
-                                <a href="/configs/ModelConfig.html">&equiv;ModelConfig</a>
-                            </li>
-                            <li id="menu-item-7"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="/configs/FieldConfig.html">&equiv;FieldConfig</a>
-                            </li>
-                            <li id="menu-item-8"
-                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                                <a href="/configs/FileConfig.html">&equiv;FileConfig</a>
+                                <a href="https://github.com/fluentcodes/elasticobjects"><img src="/pics/github.png" height="12" width="12" style="margin:0px 4px 0px 6px;"/>Github</a>
                             </li>
                         </ul>
                     </div>
@@ -139,7 +125,7 @@
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h3>&ocir; ModelConfig - !!Could not move to path 'configuration/0/naturalId' because key '0' does not exist on '/configuration'.!!</h3>
+        <h3>&equiv; ModelConfig - !!Could not move to path 'configuration/0/naturalId' because key '0' does not exist on '/configuration'.!!</h3>
         <p>
         No Description provided!
         </p>
@@ -159,11 +145,11 @@
         <h5>This Page Elements</h5>
         <table>
             <tr><td>Page-Template:</td><td>
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ConfigsPage.html">&equiv;ConfigsPage.html</a></td></tr>
+<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/ConfigsPage.html"> <img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>ConfigsPage.html</a></nobreak></td></tr>
             <tr><td>Header:</td><td>
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Header.html">&equiv;Header.html</a></td></tr>
+<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Header.html"> <img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>Header.html</a></nobreak></td></tr>
             <tr><td>Footer:</td><td>
-<a href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Footer.html">&equiv;Footer.html</a></td></tr>
+<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Footer.html"> <img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>Footer.html</a></nobreak></td></tr>
             <tr><td colspan="2">Postversion of this page:
                 <form action="/eo-form" method="post">
             <textarea name="eo" style="height:120px">{
@@ -190,30 +176,19 @@
 </div>
 
 <footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="wrap">
-        <aside class="widget-area" role="complementary" aria-label="Footer">
-            <div class="widget-column footer-widget-1">
-                <section id="text-2" class="widget widget_text">
-                </section>
-            </div>
-            <div class="widget-column footer-widget-1">
-                <section id="text-3" class="widget widget_text">
-                    <div class="textwidget">
-                            <a href="/Impressum.html">Impressum</a>
-                    </div>
-                    <div class="textwidget">
-                             <a href="https://www.fluentcodes.com/">Fluent Codes</a>
-                    </div>
-                    <div class="textwidget">
-                        <a href="https://www.linkedin.com/in/werner-diwischek/">LinkedIn</a>
-                    </div>
-                    <div class="textwidget">
-                        <a href="https://www.xing.com/profile/Werner_Diwischek/cv">Xing</a>
-                    </div>
-                </section>
-            </div>
-        </aside><!-- .widget-area -->
-    </div><!-- .wrap -->
+        <div style="font-color:#1f65d7ff;font-size:0.8rem;margin-top:5px;margin-left:30%;">
+                <a href="/configs/ModelConfig.html" style="padding-left:15px;">&equiv;ModelConfig</a>
+                <a href="/configs/FieldConfig.html" style="padding-left:15px;">&equiv;FieldConfig</a>
+                <a href="/configs/FileConfig.html" style="padding-left:15px;">&equiv;FileConfig</a>
+                <a href="/configs/HostConfig.html" style="padding-left:15px;">&equiv;HostConfig</a>
+        </div>
+        <div style="font-color:#1f65d7ff;font-size:0.8rem;margin-top:5px;margin-left:30%;">
+            <a href="/Impressum.html" style="padding-left:15px;">Impressum</a>
+            <a href="https://www.fluentcodes.com/" style="padding-left:15px;">Fluent Codes</a>
+            <a href="https://www.linkedin.com/in/werner-diwischek/" style="padding-left:15px;">LinkedIn</a>
+            <a href="https://www.xing.com/profile/Werner_Diwischek/cv" style="padding-left:15px;">Xing</a>
+        </div>
+    </div>
 </footer><!-- #colophon -->
 </div><!-- .site-content-contain -->
 </div><!-- #page -->
