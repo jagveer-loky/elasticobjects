@@ -1,29 +1,34 @@
 <h3>Template Calls</h3>
 <p>Templates are just files with special placeholders, which could be parsed. </p>
-<h4>This page</h4>
+<h5>A Combined Template</h5>
 <p>
-    You can create this page directly with this browser call:
+The following example sends directly a template string to the "eo-template" endpoint at
+    $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]:
 </p>
 <p>
-<form action="/eo-form" method="post" target="example">
-            <textarea name="eo" style="height:210px">{
-   "selectedItem": "TemplateCall.html",
-   "(TemplateResourceCall)call": {
-      "configKey":"ExamplesPage.html"
-   },
-   "asTemplate":true
-}</textarea>
+<form action="/eo-template" method="post" target="example">
+    <textarea name="template" style="height:210px">
+<h1>An Example Template</h1>
+
+<h2>CSV</h2>
+&#36;[(CsvSimpleReadCall)data/csv configKey="AnObject.csv" /]
+&#36;[(TemplateResourceCall)data/csv configKey="table.tpl" /]
+
+<h2>Excel</h2>
+&#36;[(XlsxReadCall)data/xlsx configKey="AnObject.xlsx:test" /]
+&#36;[(TemplateResourceCall)data/xlsx configKey="table.tpl" /]
+
+<h2>DB</h2>
+&#36;[(DbQueryCall)data/db configKey="h2:mem:basic:AnObject" /]
+&#36;[(TemplateResourceCall)data/db configKey="table.tpl" /]
+</textarea>
     <input type="submit" value="post"/>
 </form>
 </p>
 
-<p>Here the [(ConfigLinkCall)ExamplesPage.html configType="FileConfig" /] will be loaded and
-when interpreted the [(ConfigLinkCall)TemplateCall /]
-</p>
-
-<h4>Simple Template</h4>
+<h5>Simple Template</h5>
 <p>
-    With d on can directly send some content to the
+    One can directly send some content to the
     server. Since it's a field, this is rather restriced.
 </p>
 <p>
@@ -38,7 +43,7 @@ when interpreted the [(ConfigLinkCall)TemplateCall /]
     <input type="submit" value="post"/>
 </form>
 </p>
-<h4>File access</h4>
+<h5>File access</h5>
 <p>
     One can also embed calls in the template. Each call will have it's own permissions, it will be executed or give an error message.
 </p>

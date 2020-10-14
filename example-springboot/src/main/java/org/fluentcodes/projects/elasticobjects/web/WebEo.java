@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
 import org.fluentcodes.projects.elasticobjects.*;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -85,6 +86,42 @@ public class WebEo {
             final String result = new EOToJSON()
                     .setStartIndent(1)
                     .toJSON(eo);
+            return result;
+        } catch (Exception e) {
+            return "Unexpected Exception occured. Please contact Elastic Objects support! " + e.getMessage();
+        }
+    }
+
+    @RequestMapping(value = "/eo-template", method = RequestMethod.POST)
+    public String eoPostTemplate(
+            @RequestParam(value = "template", required = true) final String template,
+            @RequestParam(value = "logLevel", required = false, defaultValue = "WARN") final String logLevelAsString
+    ) {
+        if (template == null) {
+            return "No 'template' is set!";
+        }
+        if (template.isEmpty()) {
+            return "'template' is empty!";
+        }
+
+        final String[] roles = getRoles();
+        final LogLevel logLevel = getLevel(logLevelAsString);
+
+        try {
+            final EO eo = new EoRoot(this.configsCache)
+                    .setLogLevel(logLevel);
+
+            eo.setRoles(Arrays.asList(roles));
+            try {
+                eo.execute();
+            }
+            catch (Exception e) {
+                return e.getMessage();
+            }
+            TemplateCall call = new TemplateCall();
+            call.setContent(template.replaceAll("&#36;", "$"));
+            String result = call.execute(eo);
+            eo.debug("'/eo-template' is executed ");
             return result;
         } catch (Exception e) {
             return "Unexpected Exception occured. Please contact Elastic Objects support! " + e.getMessage();
