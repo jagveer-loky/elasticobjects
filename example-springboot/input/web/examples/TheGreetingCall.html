@@ -15,14 +15,12 @@
  </p>
 
  <p>
-     To integrate the call into Eo one has to specify
+     To integrate the call into Eo and offer it for services one has to add
  </p>
 
  <ul>
-     <li>a ModelConfig entry for
-         $[(ConfigLinkCall)TheGreetingCall /] and </li>
-     <li>a FieldConfig entry for
-         $[(ConfigLinkCall)greeing configType="FieldConfig" /]</li>
+     <li>$[(ConfigLinkCall)TheGreetingCall /] to $[(GithubLinkCall)SPR||ModelConfig.json configType="NONE" /]</li>
+     <li>$[(ConfigLinkCall)greeting configType="FieldConfig" /] to $[(GithubLinkCall)SPR||FieldConfig.json configType="NONE" /]</li>
  </ul>
 
  <p>The
@@ -44,7 +42,7 @@
  <p>
  In the following example a path "xyz" will be specified of type "TheGreetingCall".
  </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(TheGreetingCall)/xyz":{},
         "_serializationType":"STANDARD"
@@ -66,7 +64,7 @@ All values in the curly brackets of "xyz" will be mapped to the field values of
      If we want to change the value we should set the name value to EO and then we set the sourcePath
      to the fieldName "abc"
  </p>
- <form action="/eo-form" method="post">
+ <form action="/eo-form" method="post" target="example">
     <textarea name="eo"  style="height:210px">{
         "abc":"Guru",
         "(TheGreetingCall)/xyz":{
@@ -85,7 +83,7 @@ All values in the curly brackets of "xyz" will be mapped to the field values of
  <p>
      If the source is a list, automatically a list of calls will be done. "sourcePath" containing "*" triggers a loop for all names.
  </p>
- <form action="/eo-form" method="post">
+ <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:210px">{
         "abc":["Guru", "Motherfucker", "Saint"],
         "(TheGreetingCall)/xyz":{

@@ -15,10 +15,11 @@ $[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
         <tr><td>Page-Template:</td><td>$[(ConfigLinkCall)ContentPage.html configType="FileConfig" /]</td></tr>
         <tr><td>Header:</td><td>$[(GithubLinkCall)SPI|web|Header.html configType="NONE" /]</td></tr>
         <tr><td>Content-Directory:</td><td><a href="/config/FileConfig/$[contentDirectory]">&ocir;$[contentDirectory]</a></td></tr>
+        <tr><td>Navigation:</td><td>$[(ConfigLinkCall)eo->contentDirectory._Nav.html configType="FileConfig"/]</td></tr>
         <tr><td>Content:</td><td>$[(GithubLinkCall)SPI|web.eo->contentDirectory.|eo->selectedItem. configType="NONE"/]</td></tr>
         <tr><td>Footer:</td><td>$[(GithubLinkCall)SPI|web|Footer.html configType="NONE" /]</td></tr>
         <tr><td colspan="2">Postversion of this page:
-            <form action="/eo-form" method="post">
+            <form action="/eo-form" method="post" target="example">
                         <textarea name="eo" style="height:120px;">{
    "asTemplate":true,
    "selectedItem": "$[selectedItem]",

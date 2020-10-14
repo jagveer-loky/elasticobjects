@@ -68,6 +68,19 @@ public class DbTest {
     }
 
     @Test
+    public void eo_DbQuery_with_tableTpl____3() {
+        EO eo = ProviderRootTestScope.createEo("{\n" +
+                "   \"(DbQueryCall)xyz\":{\n" +
+                "       \"configKey\":\"h2:mem:basic:AnObject\"\n" +
+                "   },\n" +
+                "   \"(TemplateResourceCall)_asTemplate\":{\"configKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
+                "   \"asTemplate\":true\n" +
+                "}");
+        eo.execute();
+        Assertions.assertThat(eo.getEo("xyz").size()).isEqualTo(3);
+    }
+
+    @Test
     public void compareModelConfig()  {
         ConfigModelChecks.compare(DbQueryCall.class);
     }

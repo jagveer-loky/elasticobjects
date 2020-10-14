@@ -138,7 +138,7 @@ Double result = call.execute(eo);
     In the following example using the
     $[(ConfigLinkCall)SinusValueCall /] in json JSON:
 </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:90px">{
    "(Double)source": 1,
    "(SinusValueCall)target":{
@@ -188,7 +188,7 @@ Double result = call.execute(eo);
     In the following example with JSON from the client side render the same result:
  </p>
 <p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
             <textarea name="eo" style="height:150px">{
    "selectedItem": "Home.html",
    "contentDirectory":"docs",

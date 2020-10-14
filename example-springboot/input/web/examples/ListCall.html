@@ -6,11 +6,23 @@
     $[(ConfigLinkCall)AnObject.csv configType="FileConfig" /]
     is used as data source.
 </p>
-<h4>Simple Call</h4>
+<h5>The result in a table</h5>
+$[(CsvSimpleReadCall)xyz configKey="AnObject.csv" /]
+$[(TemplateResourceCall)xyz configKey="table.tpl" /]
+
+The table that you see beforehand is created by the following template sequence within the
+$[(GithubLinkCall)SPI|web.examples|ListCall.html configType="NONE" /] content:
+<textarea>&#36;[(CsvSimpleReadCall)xyz configKey="AnObject.csv" /]
+&#36;[(TemplateResourceCall)xyz configKey="table.tpl" /]
+</textarea>
+In the <a href="#post4">last example</a> you can see the post version of these calls.
+$[(ConfigLinkCall)AnObject /] is a test class.
+
+<h5>Simple Call</h5>
 <p>
     In the following example will read the file as a list of maps.
 </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(CsvSimpleReadCall)values":{
        "configKey":"AnObject.csv"
@@ -23,11 +35,12 @@
     Since the csv configuration defines "rowHead" with 0, the value entries will be mapped as a list of map.
 </p>
 
-<h4>Setting Parameters</h4>
+
+<h5>Setting Parameters</h5>
 <p>
     In the following example will read the file as a list of lists.
 </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(CsvSimpleReadCall)values":{
        "configKey":"AnObject.csv",
@@ -43,11 +56,12 @@
     The header row entry in  the csv configuration will ignored, the first value entry together with the header row will mapped as list of list.
 </p>
 
-<h4>Mapping to Class</h4>
+
+<h5>Mapping to Class</h5>
 <p>
-    In the following example will map the values to an object.
+    In the following example will map the values to $[(ConfigLinkCall)AnObject /].
 </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(List,AnObject)values":{},
    "(CsvSimpleReadCall).":{
@@ -57,5 +71,26 @@
 }</textarea>
     <input type="submit" value="post"/>
 </form>
+
+<a name="post4" >
+    <h5>With a template</h5></a>
 <p>
+    The following example will use a
+    $[(ConfigLinkCall)TemplateCall/] and
+    $[(ConfigLinkCall)table.tpl configType="FileConfig"/]
+    to render the query result in a table.
 </p>
+<form action="/eo-form" method="post" target="example">
+    <textarea name="eo" style="height:120px">{
+   "(CsvSimpleReadCall)xyz":{
+       "configKey":"AnObject.csv"
+   },
+   "(TemplateResourceCall)_asString":{
+        "configKey":"table.tpl",
+        "sourcePath":"xyz"
+   },
+   "asTemplate":true
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+

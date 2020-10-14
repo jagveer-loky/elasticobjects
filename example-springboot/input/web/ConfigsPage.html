@@ -62,7 +62,7 @@ $[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
             <tr><td>Header:</td><td>$[(GithubLinkCall)SPI|web|Header.html configType="NONE" /]</td></tr>
             <tr><td>Footer:</td><td>$[(GithubLinkCall)SPI|web|Footer.html configType="NONE" /]</td></tr>
             <tr><td colspan="2">Postversion of this page:
-                <form action="/eo-form" method="post">
+                <form action="/eo-form" method="post" target="example">
             <textarea name="eo" style="height:120px">{
     "asTemplate":true,
     "configFilter": "$[configFilter]",

@@ -17,7 +17,7 @@
  <p>
  In the following example a path "xyz" will be specified of type "FileReadCall".
  </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(FileReadCall)xyz":{
             "configKey":"public.txt"
@@ -45,7 +45,7 @@ All values in the curly brackets of "xyz" will be mapped to the field values of
     "FileReadCall" with a "configKey" with value "secret.txt"
     where the permissions for "read" is "admin.
 </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(FileReadCall)xyz":{
             "configKey":"secret.txt"
@@ -64,7 +64,7 @@ All values in the curly brackets of "xyz" will be mapped to the field values of
     The example file public.txt there is another configuration without any
     permission. If you call this configuration by the generic interface, you
     would have no permissions.
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(FileReadCall)xyz":{
             "configKey":"withoutPermissions-public.txt"

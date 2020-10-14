@@ -151,7 +151,7 @@
             <tr><td>Footer:</td><td>
 <nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Footer.html"> <img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>Footer.html</a></nobreak></td></tr>
             <tr><td colspan="2">Postversion of this page:
-                <form action="/eo-form" method="post">
+                <form action="/eo-form" method="post" target="example">
             <textarea name="eo" style="height:120px">{
     "asTemplate":true,
     "configFilter": "Scope",
