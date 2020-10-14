@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -14,7 +15,6 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 public class GithubLinkCall extends SimpleValueFromEoCall {
     private static final String GITHUB_PIC = " <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>";
     private String configType;
-    private Class configClass;
     private String configKey;
     private Config config;
     private boolean configured = true;
@@ -39,7 +39,7 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
         if (!hasConfigKey()) {
             throw new EoException("No key is set. Could not find value");
         }
-        this.configKey = new ParserEoReplace(this.configKey).parse(eo);
+        this.configKey = Parser.replace(this.configKey, eo);
         Class configClass = null;
         if (!hasConfigType() || configType.equals("ModelConfig")) {
             configClass = ModelConfig.class;
@@ -153,9 +153,6 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
     }
     public void setNoGithub(boolean noGithub) {
         this.noGithub = noGithub;
-    }
-    protected Class getConfigClass() {
-        return configClass;
     }
 
     protected Config getConfig() {
