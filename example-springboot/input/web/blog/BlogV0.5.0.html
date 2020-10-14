@@ -1,8 +1,8 @@
 <h5>The log for V0.5.0.</h5>
 <p>
     <b>
-    Target of this version is to streamline code generation from the excel file $[(GithubLinkCall)BR||eo.xls configType="NONE" /] and finally
-        move the builder libraries into a separate github project.
+    Target of this version is to streamline code generation from the excel file $[(GithubLinkCall)BR||eo.xls configType="NONE" /] to
+        one builder library. The example 'build project' will be provided in a separate project later.
     </b>
 </p>
 <p align="right"><i>8.10.2020</i></p>
@@ -10,13 +10,16 @@
 <p>
     When editing the content of this site I had two solutions:
     <ul>
-    <li>Generate the static htm content from $[(GithubLinkCall)SPR||content.xlsx configType="NONE" /]</li>
-    <li>Add a file configuration entry in $[(GithubLinkCall)SPR||FileConfig.json configType="NONE" /]  to read content from the classpath.</li>
+    <li>$[(GithubLinkCall)SPR||content.xlsx configType="NONE" /] for generating static htm content from an Excel sheet</li>
+    <li>$[(GithubLinkCall)SPR||FileConfig.json configType="NONE" /] use a file configuration entry to read content from the classpath.</li>
 </ul>
 </p>
 
-<p>This approaches were not so nice since Excel is not good for bigger text parts. On the other hand
-adding each content to the file configuration is error prone.</p>
+<p>This approaches were not so fancy when editing: </p>
+    <ul>
+        <li>&odash;Excel is not good for bigger text parts</li>
+        <li>&odash;Adding each content file to the file configuration bloat the file configuration, is error prone and needs a restart of the server.</li>
+    </ul>
 
 <p>To resolve the problem I use now an directory approach with two generic calls:
     <ul>

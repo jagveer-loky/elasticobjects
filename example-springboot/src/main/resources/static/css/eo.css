@@ -11,6 +11,9 @@ textarea {
     width:90%;
     height:40px;
 }
+tbody {
+    font-size:12px;
+}
 ul {
     list-style:none;
 }

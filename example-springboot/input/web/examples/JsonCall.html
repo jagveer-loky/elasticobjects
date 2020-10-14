@@ -24,7 +24,7 @@
  <p>
  In the following example a path "x/y/z" will be specified of type "JsonReadCall".
  </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(JsonReadCall)x/y/z":{
             "configKey":"map.json"
@@ -46,7 +46,7 @@ If you click, you will see the values of $[(ConfigLinkCall)map.json configType="
 <p>
     In the following example a path "xyz" will be specified of type "JsonReadCall" with the targetPath.
 </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(AnObject)xyz":{},
         "(JsonReadCall).":{
@@ -65,7 +65,7 @@ If you click, you will see the values of $[(ConfigLinkCall)map.json configType="
 <p>
     In the following example a path "x/y/z" will set with the json content.
 </p>
-<form action="/eo-form" method="post">
+<form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(JsonReadCall)x/y/z":{"configKey":"list.json"},
         "_serializationType":"STANDARD"

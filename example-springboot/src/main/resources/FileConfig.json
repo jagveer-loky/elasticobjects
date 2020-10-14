@@ -293,6 +293,22 @@
       "classPath": "src.main.resources"
     }
   },
+  "table.tpl": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates",
+    "fileName": "table.tpl",
+    "description": "Generic table template .",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "public.txt": {
     "module": "example-springboot",
     "moduleScope": "main",
