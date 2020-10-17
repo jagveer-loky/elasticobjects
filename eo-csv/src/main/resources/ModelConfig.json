@@ -2,8 +2,8 @@
   "CsvReadCall": {
     "module": "eo-csv",
     "moduleScope": "main",
-    "superKey": "CsvSimpleReadCall",
-    "expose": "INFO",
+    "superKey": "ListReadCall",
+    "expose": "WEB",
     "description": "Defines read call for a csv action depending on one link CsvConfig. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvReadCall",
@@ -17,8 +17,8 @@
   "CsvWriteCall": {
     "module": "eo-csv",
     "moduleScope": "main",
-    "superKey": "CsvSimpleReadCall",
-    "expose": "INFO",
+    "superKey": "ListWriteCall",
+    "expose": "WEB",
     "description": "Defines write call for a csv action depending on one link CsvConfig. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvWriteCall",

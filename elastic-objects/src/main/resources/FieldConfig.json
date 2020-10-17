@@ -27,7 +27,7 @@
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "If true will cache the readed file within the cache object. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "cached",
     "properties": {
       "classPath": "src.main.resources"
@@ -50,7 +50,7 @@
     "moduleScope": "main",
     "modelKeys": "ArrayList,String",
     "description": "The key list for mapping values in a value list. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "colKeys",
     "properties": {
       "classPath": "src.main.resources"
@@ -97,7 +97,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The model of the configuration to determine type.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "configModelKey",
     "length": 80,
     "properties": {
@@ -133,7 +133,7 @@
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "If true will create a Java class.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "create",
     "length": 256,
     "properties": {
@@ -156,7 +156,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "defaultImplementation",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "defaultImplementation",
     "length": 80,
     "properties": {
@@ -249,7 +249,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A delimiter for fields used for csv files. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "fieldDelimiter",
     "length": 4,
     "properties": {
@@ -261,7 +261,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "fieldKey",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "fieldKey",
     "length": 80,
     "properties": {
@@ -273,7 +273,7 @@
     "moduleScope": "main",
     "modelKeys": "ArrayList,String",
     "description": "A list of field keys for the model configuration. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "fieldKeys",
     "properties": {
       "classPath": "src.main.resources"
@@ -284,7 +284,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A name for different purposes depending on the model.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "fieldName",
     "length": 80,
     "properties": {
@@ -296,7 +296,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "It's used to specify the file ending in different context. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "fileEnding",
     "length": 16,
     "properties": {
@@ -308,7 +308,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A key for file objects.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "fileKey",
     "length": 80,
     "properties": {
@@ -320,7 +320,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "fileName",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "fileName",
     "length": 80,
     "properties": {
@@ -332,7 +332,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "filePath",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "filePath",
     "length": 512,
     "properties": {
@@ -380,7 +380,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "hibernate",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "hibernate",
     "length": 16,
     "properties": {
@@ -392,7 +392,7 @@
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "hibernateAnnotations",
     "properties": {
       "classPath": "src.main.resources"
@@ -403,7 +403,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A key for host objects.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "hostKey",
     "length": 80,
     "properties": {
@@ -415,7 +415,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A name for host objects.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "hostName",
     "length": 80,
     "properties": {
@@ -440,7 +440,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The id key defined in modelsList",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "idKey",
     "length": 80,
     "properties": {
@@ -463,7 +463,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A key for a input view.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "inputKey",
     "length": 80,
     "properties": {
@@ -475,7 +475,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A comma separeted list of interface keys. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "interfaces",
     "length": 256,
     "properties": {
@@ -487,7 +487,7 @@
     "moduleScope": "main",
     "modelKeys": "Map",
     "description": "A map of properties used in configs and calls.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "javaProperties",
     "properties": {
       "classPath": "src.main.resources"
@@ -498,7 +498,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A reference key to a id field for joining.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "join",
     "length": 80,
     "properties": {
@@ -510,7 +510,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A self reference key to a id field on a glue n-m table.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "joinInverse",
     "length": 80,
     "properties": {
@@ -556,7 +556,7 @@
     "moduleScope": "main",
     "modelKeys": "ListParams",
     "description": "Filter for the readings within {@link ListAction}.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "listParams",
     "length": 80,
     "properties": {
@@ -590,7 +590,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The field used as a key for joined maps. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "mapKey",
     "length": 80,
     "properties": {
@@ -614,7 +614,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The model name for the bean/action object {@link Bean}.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "modelKey",
     "length": 80,
     "properties": {
@@ -626,7 +626,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A string representation for a list of modelsConfig.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "modelKeys",
     "length": 256,
     "properties": {
@@ -638,7 +638,7 @@
     "moduleScope": "main",
     "modelKeys": "ArrayList,String",
     "description": "A list of naturalIds of models for FieldConfig.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "modelList",
     "properties": {
       "classPath": "src.main.resources"
@@ -711,7 +711,7 @@
     "moduleScope": "main",
     "modelKeys": "ArrayList,String",
     "description": "naturalKeys",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "naturalKeys",
     "properties": {
       "classPath": "src.main.resources"
@@ -722,7 +722,7 @@
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "notNull",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "notNull",
     "properties": {
       "classPath": "src.main.resources"
@@ -744,7 +744,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "Defines to which group a model belong e.g. asset/cache/action",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "packageGroup",
     "length": 12,
     "properties": {
@@ -756,7 +756,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "packagePath",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "packagePath",
     "length": 124,
     "properties": {
@@ -768,7 +768,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The password instance var.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "password",
     "length": 15,
     "properties": {
@@ -792,7 +792,7 @@
     "moduleScope": "main",
     "modelKeys": "Integer",
     "description": "port",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "port",
     "properties": {
       "classPath": "src.main.resources"
@@ -803,7 +803,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "postpend String when executed by ExecutorCallImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "postpend",
     "length": 256,
     "properties": {
@@ -815,7 +815,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "prepend String when executed by ExecutorCallImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "prepend",
     "length": 256,
     "properties": {
@@ -838,7 +838,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "protocol",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "protocol",
     "length": 8,
     "properties": {
@@ -874,7 +874,7 @@
     "moduleScope": "main",
     "modelKeys": "RolePermissions",
     "description": "rolePermissions",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "rolePermissions",
     "properties": {
       "classPath": "src.main.resources"
@@ -885,7 +885,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A delimiter for rows used for csv files.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "rowDelimiter",
     "length": 4,
     "properties": {
@@ -964,7 +964,7 @@
     "moduleScope": "main",
     "modelKeys": "ShapeTypes",
     "description": "shapeType",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "shapeType",
     "properties": {
       "classPath": "src.main.resources"
@@ -1011,7 +1011,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A key for the super class of a class.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "superKey",
     "length": 256,
     "properties": {
@@ -1023,7 +1023,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "table",
     "length": 80,
     "properties": {
@@ -1071,7 +1071,7 @@
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "unique",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "unique",
     "properties": {
       "classPath": "src.main.resources"
@@ -1096,7 +1096,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "user",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "user",
     "length": 50,
     "properties": {
@@ -1120,7 +1120,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A key for a view.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "viewKey",
     "length": 80,
     "properties": {

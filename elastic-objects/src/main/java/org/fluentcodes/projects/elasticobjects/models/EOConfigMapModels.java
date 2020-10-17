@@ -196,7 +196,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
         map.put(Base.NATURAL_ID, "LogLevel");
         map.put(ModelConfig.MODEL_KEY, "LogLevel");
-        map.put(Config.EXPOSE, Expose.INFO.name());
+        map.put(Config.EXPOSE, Expose.NONE.name());
         addConfigByMap(map);
 
         map.put(Base.NATURAL_ID, "JSONSerializationType");

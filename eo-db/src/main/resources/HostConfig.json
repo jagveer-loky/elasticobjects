@@ -4,7 +4,7 @@
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Local H2 in file persisted for the test resources.",
-    "expose": "INFO",
+    "expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "schema": "file:basic",
@@ -20,7 +20,7 @@
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Local H2 in memory for the test resources.",
-    "expose": "INFO",
+    "expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "schema": "mem:basic",

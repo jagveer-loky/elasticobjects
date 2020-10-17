@@ -72,7 +72,7 @@
   "4": {
     "packagePath": "org.fluentcodes.projects.elasticobjects",
     "modelKey": "UnmodifiableMap",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "properties": {
       "shapeType": "ENUM",
       "defaultImplementation": "ArrayList",

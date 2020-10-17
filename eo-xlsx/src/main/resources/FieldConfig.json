@@ -4,7 +4,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A name for the sheet selected.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "sheetName",
     "length": 64,
     "properties": {

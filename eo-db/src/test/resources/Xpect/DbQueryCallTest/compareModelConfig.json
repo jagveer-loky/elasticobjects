@@ -29,7 +29,7 @@
       "21": "creationDate",
       "22": "author"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -38,7 +38,7 @@
     },
     "module": "eo-db",
     "moduleScope": "main",
-    "description": "Executes a stored sql query.",
+    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
     "naturalId": "DbQueryCall",
     "author": "Werner Diwischek"
   },

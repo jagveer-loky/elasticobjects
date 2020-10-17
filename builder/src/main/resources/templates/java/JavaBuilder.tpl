@@ -4,8 +4,8 @@ $[(XlsxReadCall)/FieldConfig/eo->naturalId.
     configKey="eo.xlsx:FieldConfig" /]
 $[(GenerateJavaCall).
     sourcePath="ModelConfig"
-    module="eo->module."
-    moduleScope="eo->moduleScope."
-    naturalId="eo->naturalId."
-    buildPath="eo->buildPath."
+    module="eo->module|>*."
+    moduleScope="eo->moduleScope|>*."
+    naturalId="eo->naturalId|>*."
+    buildPath="eo->buildPath|>*."
     fileEnding="javax" /]

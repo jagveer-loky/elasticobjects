@@ -25,7 +25,7 @@
       "12": "creationDate",
       "13": "author"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "properties": {
       "classPath": "src.main.java",
       "create": false,

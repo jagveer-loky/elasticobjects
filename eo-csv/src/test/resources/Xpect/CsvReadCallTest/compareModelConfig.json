@@ -3,7 +3,7 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvReadCall",
-    "superKey": "CsvSimpleReadCall",
+    "superKey": "ListReadCall",
     "(ArrayList)fieldKeys": {
       "0": "listParams",
       "1": "rowHead",
@@ -29,7 +29,7 @@
       "21": "creationDate",
       "22": "author"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

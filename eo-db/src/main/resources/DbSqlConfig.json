@@ -4,7 +4,7 @@
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Query for AnObject",
-    "expose": "INFO",
+    "expose": "WEB",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
@@ -12,14 +12,14 @@
     },
     "sql": "Select * from AnObject",
     "rolePermissions": {
-      "execute": "guest"
+      "read": "guest"
     }
   },
   "h2:mem:basic:Create": {
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Basic H2 creating tables",
-    "expose": "INFO",
+    "expose": "WEB",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
@@ -49,7 +49,7 @@
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Query for ASubObject",
-    "expose": "INFO",
+    "expose": "WEB",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
@@ -57,7 +57,7 @@
     },
     "sql": "Select * from ASubObject",
     "rolePermissions": {
-      "execute": "guest"
+      "read": "guest"
     }
   }
 }

@@ -10,7 +10,7 @@
       "extension"
     ],
     "superKey": "HostConfig",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbConfig",
@@ -25,8 +25,8 @@
     "module": "eo-db",
     "moduleScope": "main",
     "superKey": "ListReadCall",
-    "expose": "INFO",
-    "description": "Executes a stored sql query.",
+    "expose": "WEB",
+    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbQueryCall",
     "properties": {
@@ -45,7 +45,7 @@
       "sql"
     ],
     "superKey": "ConfigResourcesImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Execute sql statement via jdbc connection. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbQueryConfig",
@@ -60,8 +60,8 @@
     "module": "eo-db",
     "moduleScope": "main",
     "superKey": "CallResource",
-    "expose": "INFO",
-    "description": "A execution method for  {@link DbSqlConfig}",
+    "expose": "WEB",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlCall",
     "properties": {
@@ -79,7 +79,7 @@
       "sqlList"
     ],
     "superKey": "ConfigResourcesImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Execute sql statements via jdbc connection. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlConfig",
@@ -94,7 +94,7 @@
     "configModelKey": "ModelConfigScalar",
     "module": "eo-db",
     "moduleScope": "main",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Enum with different shapetypes like ORACLE or H2",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbTypes",

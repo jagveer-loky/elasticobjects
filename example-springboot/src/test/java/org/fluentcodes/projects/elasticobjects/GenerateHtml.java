@@ -20,17 +20,6 @@ public class GenerateHtml {
         eo.execute();
     }
 
-    @Test
-    public void createFaq() {
-        EO eo = READ_XLSX(XLSX_FILE + ":faq");
-        TemplateResourceStoreCall call = new TemplateResourceStoreCall("Faq.html");
-        //call.setLocalCondition("head like Why EO called");
-        call.setSourcePath("/data/*");
-        call.setTargetFile("src/main/resources/static/faq/eo->(StringReplaceWhiteSpaceCall)head targetPath=\"asString\"/..html");
-        eo.addCall(call);
-        eo.execute();
-    }
-
     public static EO READ_XLSX(final String xlsxFile) {
         XlsxReadCall call = new XlsxReadCall(xlsxFile);
         //call.setFilter("head like Get");

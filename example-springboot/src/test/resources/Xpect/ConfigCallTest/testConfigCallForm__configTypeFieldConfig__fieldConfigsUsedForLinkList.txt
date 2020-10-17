@@ -55,7 +55,7 @@
                     <div class="site-branding-text">
                         <p class="site-title"><a href="/Home.html"
                                                  rel="home">EO - Elastic Objects</a></p>
-                        <p class="site-description">Application by (Remote) Bean Call</p>
+                        <p class="site-description">A Typed Path to Build Solutions</p>
                     </div><!-- .site-branding-text -->
                 </div><!-- .wrap -->
             </div><!-- .site-branding -->
@@ -125,20 +125,45 @@
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h3>&equiv; ModelConfig - !!Could not move to path 'configuration/0/naturalId' because key '0' does not exist on '/configuration'.!!</h3>
+        <h3>&equiv; ModelConfig - Scope</h3>
         <p>
-        No Description provided!
+        Enum with different Scopes to environment specific caches.
         </p>
         <h4>Github</h4>
-        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/resources/ModelConfig.json">&equiv;ModelConfig.json</a></div>
+        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/resources/ModelConfig.json" target="github"><img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;" />ModelConfig.json</a></div>
 
         
+        
+            <div>
+<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/models/Scope.java"> <img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>Scope</a></nobreak></div>
+            
+            
+        <h4>Fields</h4>
+            
+            
+            
+            
         
 
         
 
         <h4>Configuration</h4>
-        <textarea style="height:250px"></textarea>
+        <textarea style="height:250px">{
+  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "modelKey": "Scope",
+  "(Expose)expose": "NONE",
+  "properties": {
+    "classPath": "src.main.java",
+    "create": false,
+    "shapeType": "SCALAR",
+    "module": "elastic-objects"
+  },
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "description": "Enum with different Scopes to environment specific caches.",
+  "naturalId": "Scope",
+  "author": "Werner Diwischek"
+}</textarea>
      </div>
 
     <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">

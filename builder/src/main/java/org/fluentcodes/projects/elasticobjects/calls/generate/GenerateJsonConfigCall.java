@@ -15,6 +15,7 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
 public class GenerateJsonConfigCall extends GenerateCall {
@@ -51,7 +52,7 @@ public class GenerateJsonConfigCall extends GenerateCall {
             if (child.isEmpty()) {
                 continue;
             }
-            if (hasModule() && !module.equals(getModule())) {
+            if (hasModule() && !getModule().equals("*") && !module.matches(getModule())) {
                 feedback.append("Skip module '" + module + "'\n");
                 continue;
             }
