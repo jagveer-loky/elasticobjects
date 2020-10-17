@@ -90,7 +90,6 @@ To demonstrate the possibilities, here an combined example:
  and store it under the path "_asTemplate"</li>
 </ul>
 When you press the button, the /eo-form endpoint of
-
 <nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a></nobreak> will be called using the typed JSON as input.
 
     {
@@ -119,9 +118,7 @@ If you remove the "asTemplate" value the result will be the JSON returned from t
 <h5>A Real Template Example</h5>
 
 <p>
-    In
-
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a></nobreak> has another endpoint "eo-template". Here
+    In <a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a> has another endpoint "eo-template". Here
     one can send template content directly.
 </p>
 
@@ -325,7 +322,7 @@ and is rather small with a jar size of approximately 270 KB. It already includes
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>elastic-objects</artifactId>
-        <version>0.4.0</version>
+        <version>0.5.0</version>
     </dependency>
 ```
 
@@ -349,7 +346,7 @@ are the sources for the spring boot web example on
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-csv</artifactId>
-        <version>0.4.0</version>
+        <version>0.5.0</version>
     </dependency>
     
     <div align="right" style="font-size:10px">
@@ -368,7 +365,7 @@ is provide the execution of some sql configurations as list or as query.
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-xlsx</artifactId>
-        <version>0.4.0</version>
+        <version>0.5.0</version>
     </dependency>
 
 #### builder
