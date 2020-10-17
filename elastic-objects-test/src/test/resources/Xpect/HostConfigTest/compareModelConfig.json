@@ -31,7 +31,7 @@
       "15": "creationDate",
       "16": "author"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "properties": {
       "classPath": "src.main.java",
       "create": false,

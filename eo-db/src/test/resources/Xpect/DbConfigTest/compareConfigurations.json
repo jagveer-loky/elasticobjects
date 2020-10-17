@@ -18,7 +18,7 @@
     "protocol": "jdbc",
     "hostName": "h2",
     "configModelKey": "DbConfig",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "schema": "file:basic",
@@ -52,7 +52,7 @@
     "protocol": "jdbc",
     "hostName": "h2",
     "configModelKey": "DbConfig",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "schema": "mem:basic",

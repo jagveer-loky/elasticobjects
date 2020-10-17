@@ -98,6 +98,17 @@
       "classPath": "src.main.resources"
     }
   },
+  "myList": {
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "modelKeys": "ArrayList",
+    "description": "myList",
+    "expose": "WEB",
+    "fieldKey": "myList",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "myLong": {
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -105,6 +116,17 @@
     "description": "myLong",
     "expose": "WEB",
     "fieldKey": "myLong",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
+  "myMap": {
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "modelKeys": "HashMap",
+    "description": "myMap",
+    "expose": "WEB",
+    "fieldKey": "myMap",
     "properties": {
       "classPath": "src.main.resources"
     }
@@ -128,28 +150,6 @@
     "expose": "WEB",
     "fieldKey": "myString",
     "length": 20,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "myList": {
-    "module": "elastic-objects-test",
-    "moduleScope": "main",
-    "modelKeys": "ArrayList",
-    "description": "myList",
-    "expose": "WEB",
-    "fieldKey": "myList",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "myMap": {
-    "module": "elastic-objects-test",
-    "moduleScope": "main",
-    "modelKeys": "HashMap",
-    "description": "myMap",
-    "expose": "WEB",
-    "fieldKey": "myMap",
     "properties": {
       "classPath": "src.main.resources"
     }

@@ -9,10 +9,9 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
+      "read": "guest"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "rowHead": 0,
@@ -31,10 +30,9 @@
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
-      "read": "guest",
-      "write": "admin"
+      "read": "guest"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects-test"

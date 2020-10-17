@@ -37,7 +37,7 @@
       "creationDate",
       "author"
     ],
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Basic bean as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
     "modelKey": "Base",
@@ -52,7 +52,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "interfaces": "Base",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
     "modelKey": "BaseImpl",
@@ -78,7 +78,7 @@
       "prepend",
       "postpend"
     ],
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Basic interface for calls ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "Call",
@@ -94,7 +94,7 @@
     "moduleScope": "main",
     "interfaces": "Call",
     "superKey": "BaseImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Basic implementation for calls. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallImpl",
@@ -112,7 +112,7 @@
       "configKey"
     ],
     "superKey": "CallImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Super class for class using ResourceConfigs with permission rights. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallResource",
@@ -140,7 +140,7 @@
   "Condition": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "expose": "CREATE",
+    "expose": "NONE",
     "description": "Interface for conditions, mainly a key value pair with some methods serving as filter expressions. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Condition",
@@ -162,7 +162,7 @@
       "moduleScope"
     ],
     "superKey": "Base",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Config",
@@ -215,7 +215,7 @@
     "moduleScope": "main",
     "interfaces": "Config",
     "superKey": "BaseImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Basic cache as super object for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ConfigImpl",
@@ -273,7 +273,7 @@
     "fieldKeys": [
       "rolePermissions"
     ],
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Interface with permissions methods ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ConfigResources",
@@ -288,7 +288,7 @@
     "moduleScope": "main",
     "interfaces": "ConfigResources",
     "superKey": "ConfigImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Abstract implementation for resources with permissions methods ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "ConfigResourcesImpl",
@@ -314,15 +314,15 @@
     "author": "Werner Diwischek"
   },
   "CsvConfig": {
-    "module": "eo-csv",
+    "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
       "fieldDelimiter",
       "rowDelimiter"
     ],
     "superKey": "FileConfig",
-    "expose": "INFO",
-    "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
+    "expose": "NONE",
+    "description": "Configuration for csv files with fieldDelimiter and rowDelimiter fields. Will be used by CsvSimpleReadCall and CsvSimpleWriteCall in base package. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "CsvConfig",
     "properties": {
@@ -332,11 +332,41 @@
     },
     "author": "Werner Diwischek"
   },
+  "CsvSimpleReadCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "ListReadCall",
+    "expose": "WEB",
+    "description": "Defines a primitive csv file read operation. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "CsvSimpleReadCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "CsvSimpleWriteCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "ListReadCall",
+    "expose": "WEB",
+    "description": "Defines a primitive csv file write operation. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "modelKey": "CsvSimpleWriteCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "DirectoryConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "superKey": "FileConfig",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Immutable EO directory configuration will use the fileName as a match pattern for a call. Implement read and write operation with cache option.  ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "DirectoryConfig",
@@ -404,7 +434,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "interfaces": "Condition",
-    "expose": "CREATE",
+    "expose": "NONE",
     "description": "Equality check for objects.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.condition",
     "modelKey": "Eq",
@@ -453,7 +483,7 @@
       "modelList"
     ],
     "superKey": "ConfigImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Immutabel EO field configuration will be initalized by internal builder using map values.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "FieldConfig",
@@ -475,7 +505,7 @@
       "cached"
     ],
     "superKey": "ConfigResourcesImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Immutable EO file configuration allow read or write access to a specific file. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileConfig",
@@ -545,7 +575,7 @@
       "configModelKey"
     ],
     "superKey": "ConfigResourcesImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Basic host definition for file or db cache. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "HostConfig",
@@ -589,7 +619,7 @@
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Enum for templates to keep the template directives in the template result as a comment. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "KeepCalls",
@@ -641,7 +671,7 @@
       "filter",
       "colKeys"
     ],
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Defines default access values for ListParams",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListInterface",
@@ -663,7 +693,7 @@
       "filter",
       "colKeys"
     ],
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListParams",
@@ -682,7 +712,7 @@
     ],
     "interfaces": "ListInterface",
     "superKey": "CallResource",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Defines the parameter listParams.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListReadCall",
@@ -700,8 +730,8 @@
       "listParams"
     ],
     "superKey": "CallResource",
-    "expose": "INFO",
-    "description": "Defines the parameter like listMapper.",
+    "expose": "NONE",
+    "description": "...",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "modelKey": "ListWriteCall",
     "properties": {
@@ -716,7 +746,7 @@
     "moduleScope": "main",
     "interfaces": "ModelConfigInterface",
     "superKey": "ConfigImpl",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Table definitions with pojo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfig",
@@ -739,7 +769,7 @@
       "fieldKeys"
     ],
     "superKey": "Config",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Table definitions with pojo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigInterface",
@@ -919,7 +949,7 @@
     "fieldKeys": [
       "properties"
     ],
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Root interface for properties access. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "PropertiesAccessor",
@@ -934,7 +964,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "superKey": "PropertiesAccessor",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Defines default common methods for List configuration",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "PropertiesConfigAccessor",
@@ -981,21 +1011,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "CsvSimpleReadCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "ListReadCall",
-    "expose": "WEB",
-    "description": "Defines a primitive csv file read operation. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "CsvSimpleReadCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
   "Set": {
     "configModelKey": "ModelConfigSet",
     "module": "elastic-objects",
@@ -1015,7 +1030,7 @@
     "configModelKey": "ModelConfigScalar",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "expose": "INFO",
+    "expose": "NONE",
     "description": "Enum with different shapetypes like SCALAR or BEAN. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ShapeTypes",

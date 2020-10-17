@@ -4,9 +4,9 @@
     "dbKey": "h2:mem:basic",
     "sql": "Select * from AnObject",
     "rolePermissions": {
-      "execute": "guest"
+      "read": "guest"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
@@ -20,11 +20,31 @@
   },
   "1": {
     "dbKey": "h2:mem:basic",
+    "(ArrayList)sqlList": {
+      "0": "drop table AnObject if exists"
+    },
+    "rolePermissions": {
+      "execute": "admin"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "AnObject",
+      "module": "eo-db"
+    },
+    "module": "eo-db",
+    "moduleScope": "test",
+    "description": "Basic H2 dropping AnObject table",
+    "naturalId": "h2:mem:basic:AnObjectDrop"
+  },
+  "2": {
+    "dbKey": "h2:mem:basic",
     "sql": "Select * from ASubObject",
     "rolePermissions": {
-      "execute": "guest"
+      "read": "guest"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
@@ -36,7 +56,7 @@
     "description": "Query for ASubObject",
     "naturalId": "h2:mem:basic:ASubObject"
   },
-  "2": {
+  "3": {
     "dbKey": "h2:mem:basic",
     "(ArrayList)sqlList": {
       "0": "drop table AnObject if exists",
@@ -56,7 +76,7 @@
     "rolePermissions": {
       "execute": "admin"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",

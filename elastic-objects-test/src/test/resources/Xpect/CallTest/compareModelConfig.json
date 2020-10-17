@@ -27,7 +27,7 @@
       "8": "prepend",
       "9": "postpend"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "properties": {
       "classPath": "src.main.java",
       "create": false,

@@ -4,237 +4,203 @@
 </blockquote>
 
 <h3>EO - Elastic Objects</h3>
+
 <p>
 Service oriented architecture today is usually some typed RPC calls bound to urls by
-    an application server framework. <b>Type</b> and <b>functionality</b> mapping is stuck in a procedural concept
+    an application server framework. <b>Type</b> and <b>functionality</b> mapping is stuck
+    in a procedural concept
     from the IT stone age and fat web application frameworks.
 </p>
-<h4>Concept</h4>
-<h4>Rich message Concept</h4>
-<p>
-    The idea of Elastic Objects is a JSON message with embedded <b>type</b> information
-    passed by on generic url. The type
-    information trigger an typed object instantiation on the server. A special type with a
-    generic execution method offers <b>functionality</b>.
-</p>
-<p>
-    The following pseudo code would call an execute method in the <b>ACall</b> instance,
-    which uses the <b>AnObject</b> object provided in <i>input</i> and store the result in <i>target</i>.
 
-    <textarea style="height:100px">
-{
-    "(AnObject)input":{...},
-    "(ACall)target:{"sourcePath":"input"}
-}
-    </textarea>
-</p>
-<p>
-    As a client one is free to combine data and calls in the object tree structure and send
-    this object through one generic endpoint.
-</p>
-<p>
-    And on the server side one can offer any functionality. Since the generic endpoint
-    is not concerned doing something,
-    there is a much better test coverage without application server framework.
-</p>
-<h4>Examples</h4>
-<p>
-    You find here some working editable <a href="/examples/ExamplesStart.html">examples</a>.
-    This site itself is build by some templates. At the <a href="#postPage">end of
-    each page</a> you find the JSON code to create the same page with a post from your browser.
-</p>
 
-<h4>Implementation</h4>
-
+<h5>Elastic Objects</h5>
 <p>
-    Elastic Objects is a generic wrapper for java native objects.</p>
-<img src="/pics/eoModel.svg" width="200" style="margin:20px;"/>
-
-<p>
-    Like a Java 8 Optional it contains an object. But it knows
-</p>
-<ul>
-    <li>the EO wrapper of the parent object,</li>
-    <li>all EO wrappers for the child objects by fieldName and </li>
-    <li>its type rules(Model configuration).</li>
-</ul>
-<p>
-    When an object is not a scalar value each member will be wrapped by EO recursive.
+    Elastic Objects is a generic object wrapper skin
+    with <b>typed</b> path methods to an java object skeleton.
+    Typed objects are embedded in a untyped map structure.
 </p>
 <img src="/pics/eoTree.svg" width="200" style="margin:20px;"/>
-<p>
-A value could be get and set type safe by a path.
+<h5>Model Configurations</h5>
+    For the access to the embedded java objects EO
+    is provided by preloaded <a href="/configs/ModelConfig.html">model configurations</a> in JSON.
 </p>
-<textarea style="height:100px">EO eoChild = eo.set(anObject, "a/b/c");
-EO child = eo.getEo("a/b/c");
-AnObject anObject1 = child.get();
-AnObject anObject2 = eoChild.get();
-AnObject anObject3 = eo.get("a/b/c");
-</textarea>
-<p>
-    EO is a tiny generic skin wrapped around the object tree skeleton. It offer access methods in a path style
-    and embed typed objects in an arbitrary map.
-</p>
+<img src="/pics/eoModel.svg" width="200" style="margin:20px;"/>
 
-<h4>Model Configuration</h4>
-<p>To hide the differences between different tree type objects
-    <a href="configs/ModelConfig.html">model configurations</a>
-    are loaded and provided in a cache object.
-</p>
-<img src="/pics/eoModelConfig.svg" width="200" style="margin:20px;"/>
-<p>The cache object
-    $[(GithubLinkCall)EO|models|EOConfigsCache.java configType="NONE" /]
-    loads all ModelConfig.json,
-    Models.json and FieldConfig.json files from the classpath.
+<h5>Call Types</h5>
+<p>A special $[(ConfigLinkCall)Call /] bean with a
+    generic execution method offers <b>functionality</b>. Its has the following important fields: </p>
 
-</p>
-<p>
-    Every EoRoot object needs a configuration cache when initialized.
-</p>
-<textarea style="height:100px">EOConfigsCache configCache = new EOConfigsCache();
-EO eoRoot = new EoRoot(configCache);
-EO eoRootWithObject = new EoRoot(configCache, anObject);</textarea>
-
-<img src="/pics/eoRoot.svg" width="200" style="margin:20px;"/>
-
-<p>
-The cache will be usually initialized one time as static or as a (injected) singelton.
-</p>
-<h4>Calls</h4>
-<p>
-    Calls are beans with an execute method with EO as input parameter. It returns an object.
-</p>
-<p>
-Its field <i>sourcePath</i> defines the location of input values within the EO object. </p>
-<p>
-    The field <i>targetPath</i> defines the location, where the result will be mapped to the EO object.
-</p>
+<ul>
+    <li>$[(ConfigLinkCall)sourcePath configType="FieldConfig"/] for the location of the input</li>
+    <li>$[(ConfigLinkCall)targetPath configType="FieldConfig"/] for storing the output</li>
+    <li>$[(ConfigLinkCall)condition configType="FieldConfig"/]</li>
+</ul>
 <img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
 
-<p>Like every other typed object a call can be put anywhere in an EO tree. </p>
-<p>In a java-environment one can create calls and execute them directly:</p>
-<textarea style="height:80px;">Call call = new SinusValueCall()
-    .setSourcePath("source");
-EO eo = new EORoot(configCache,"{\"source"\:1}");
-Double result = call.execute(eo);
-</textarea>
-
-
-<h4>Template Call</h4>
-<p>There is the possiblity to parse a text content for embedded calls in a recursive way. </p>
-
-<img src="/pics/eoTemplateCall.svg" width="200" style="margin:20px;"/>
-
-
-
-<h4>Typed JSON (De)serialization</h4>
-<p>
-    With a special JSON serialization/deserialization adding type to a fieldName,
-    one can loosely transfer complex
-    objects and trigger calls from a client.
+<h5>Rich message Concept</h5>
+<p>The corresponding JSON message with embedded type information
+    allows a service architecture by one generic url. This type information
+    trigger a typed object instantiation on the server.
 </p>
 
 <p>
-    In the following example using the
-    $[(ConfigLinkCall)SinusValueCall /] in json JSON:
+    As a client one is free to combine data and calls in a JSON tree structure
+    and the message send over one generic server endpoint.
 </p>
+
+
+<h5>Pseudo JSON Example</h5>
+
+<p>
+    The following pseudo code would call an execute method in the <b>ACall</b> instance,
+    which uses the <b>AnObject</b> object provided in <i>input</i> path
+    and store the result in <i>target</i> path.
+
+    <textarea style="height:100px">{
+    "(AnObject)input":{...},
+    "(ACall)target:{"sourcePath":"input"}
+}</textarea>
+</p>
+
+<h5>A Real JSON Example</h5>
+To demonstrate the possibilities, here an combined example:
+<ul>
+    <li>$[(ConfigLinkCall)CsvSimpleReadCall /] reads $[(ConfigLinkCall)AnObject.csv configType="FileConfig" /] and store it under the path "/data/csv"</li>
+    <li>$[(ConfigLinkCall)TemplateResourceCall /] use /data/csv as input $[(ConfigLinkCall)table.tpl configType="FileConfig" /] and store it under the path "_asTemplate"</li>
+</ul>
+When you press the button, the /eo-form endpoint of
+$[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /] will be called using the typed JSON as input.
 <form action="/eo-form" method="post" target="example">
-    <textarea name="eo" style="height:90px">{
-   "(Double)source": 1,
-   "(SinusValueCall)target":{
-   "sourcePath":"/source"
-   }
-}
-</textarea>
-    <input type="submit" value="post"/>
-</form>
-<p>It uses the path "source" as input value and store the result of sin(1) in "target".</p>
-<p>
-    When you click on the "post" button, the
-    generic web interface $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]
-    will map the JSON String to EO. At the end JSON will be generated as the response.</p>
-<p>You can change the values of the example to see that it works.
-</p>
-
-<h4>Spring Boot Demo</h4>
-<p>
-    This site itself is a demo for this principle: A small spring boot application together
-    with Elastic Objects and some <a href="configs/FileConfig.html">TemplateConfigurations</a>.
-</p>
-<p>
-    The page you see with an "ordinary" web-url triggers the spring boot method
-    $[(GithubLinkCall)SP|web|WebEoGet.java configType="NONE" /].createRootPage
-    with the MVC request mapping "/{selectedItem:.+}.html".
-</p>
-<p>
-    This method creates at server side a new EO object with selectedItem="Home.html" and
-    $[(GithubLinkCall)TemplateResourceCall /]
-    and the template name
-    $[(ConfigLinkCall)ContentPage.html configType="FileConfig" /].
-
-</p>
-<p>
-    When the
-    $[(ConfigLinkCall)ContentPage.html configType="FileConfig" /] template
-     is parsed, it will load
-    $[(GithubLinkCall)SP|web|Home.html configType="NONE" /].
-    So this is what you read.
-</p>
-<h5>The post version</h5>
-<p>
-   Every page with an url ending ".html" creates the EO object on server side.
-</p>
-<p>
-    In the following example with JSON from the client side render the same result:
- </p>
-<p>
-<form action="/eo-form" method="post" target="example">
-            <textarea name="eo" style="height:150px">{
-   "selectedItem": "Home.html",
-   "contentDirectory":"docs",
-   "(TemplateResourceCall)call": {
-      "configKey":"ContentPage.html"
-   },
-   "asTemplate":true
+    <textarea name="eo" style="height:210px">{
+    "data": {
+        "(CsvSimpleReadCall)csv":{
+             "configKey"="AnObject.csv"
+        },
+        "(TemplateResourceCall)abc":{
+            "configKey":"table.tpl",
+            "sourcePath":"/data/csv",
+            "targetPath":"/_asTemplate"
+        }
+    },
+    "asTemplate":true
 }</textarea>
     <input type="submit" value="post"/>
 </form>
+<p>
+If you remove the "asTemplate" value the result will be the JSON returned from the server.
+</p>
+<p>The $[(ConfigLinkCall)TemplateResourceCall /] is part of the core module.
+    Templates are just files with certain placeholders .
+</p>
+
+<h5>A Real Template Example</h5>
+
+<p>
+    In
+    $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /] has another endpoint "eo-template". Here
+    one can send template content directly.
 </p>
 
 <p>
-    The result is the same beside the url is not so "nice".
-    But it demonstrates the flexibility to send EO objects to the server.
-    If you remove the "asTemplate" value
-    you will get the "raw" JSON response.
+    In the following example all data read example calls are integrated in
+    an editable template storing values in different paths:
 </p>
 
-<h4>Further Content</h4>
-<p>
-    The other pages have two topics
-</p>
 <ul>
-    <li><a href="/examples/ExampleStart.html">Examples</a></li>
-    <li>Different Configurations.</li>
+    <li>$[(ConfigLinkCall)CsvSimpleReadCall /] with $[(ConfigLinkCall)AnObject.csv configType="FileConfig" /]</li>
+    <li>$[(ConfigLinkCall)XlsxReadCall /] with $[(ConfigLinkCall)AnObject.xlsx:test configType="FileConfig" /]</li>
+    <li>$[(ConfigLinkCall)DbQueryCall /] with $[(GithubLinkCall)EODBR||DbSqlConfig.json configType="NONE" /]</li>
 </ul>
-<h5>Examples</h5>
-<p>The most pages are about getting data from the server</p>
-<ul>
-    <li><a href="/examples/FileCall.html">FileCall</a></li>
-    <li><a href="/examples/JsonCall.html">JsonCall</a></li>
-    <li><a href="/examples/CsvCall.html">CsvCall</a></li>
-    <li><a href="/examples/XlsxCall.html">XlsxCall</a></li>
-    <li><a href="/examples/DbCall.html">DbCall</a></li>
-</ul>
-
 <p>
-    They have their own configurations e.g. with permission restrictions.
+    After each reading the $[(ConfigLinkCall)AnObject /] example data a $[(ConfigLinkCall)TemplateResourceCall /] will render this
+    data with $[(ConfigLinkCall)table.tpl configType="FileConfig" /] again.
+</p>
+<form action="/eo-template" method="post" target="example">
+    <textarea name="template" style="height:210px">
+<h1>An Example Template</h1>
+
+<h2>CSV</h2>
+&#36;[(CsvSimpleReadCall)data/csv configKey="AnObject.csv" /]
+&#36;[(TemplateResourceCall)data/csv configKey="table.tpl" /]
+
+<h2>Excel</h2>
+&#36;[(XlsxReadCall)data/xlsx configKey="AnObject.xlsx:test" /]
+&#36;[(TemplateResourceCall)data/xlsx configKey="table.tpl" /]
+
+<h2>DB</h2>
+&#36;[(DbQueryCall)data/db configKey="h2:mem:basic:AnObject" /]
+&#36;[(TemplateResourceCall)data/db configKey="table.tpl" /]
+</textarea>
+    <input type="submit" value="post"/>
+</form>
+
+<h5>Demo Applications </h5>
+
+<p>Beneath the <a href="/configs/ModelConfig.html">model configurations page</a> you find the available
+    calls.</p>
+
+<p>Some like $[(ConfigLinkCall)ConfigLinkCall /] are special for this web site,
+    which is a demo by itself.</p>
+
+<p>Another demo is $[(GithubLinkCall)B||Builder.java configType="NONE"/]. It generates
+    json configurations and java classes from an
+    Excelsheet $[(GithubLinkCall)BR||eo.xlsx configType="NONE"/] with templates and calls.
+</p>
+
+<p>The calls are build for the requirements of these two demo applications. But calls are
+    easy to extend as
+described in <a href="/examples/TheGreetingCall.html">TheGreetingCall.html</a>
 </p>
 
 <p>
-    <a href="/examples/TemplateCall.html">Templates</a> offer the possibility to embed the calls in an arbitrary text
-in a hierarchical way.
+    The "configured calls" like $[(ConfigLinkCall)FileReadCall /] use their own configuration.
+    The values used here you can see in <a href="/configs/FileConfig.html">file</a> and
+    <a href="/configs/DbSqlConfig.html">sql</a> configurations.
+</p>
+
+<h5>Other Examples</h5>
+
+<p>
+    Under <a href="/examples/ExamplesStart.html">examples</a>
+    you find other working editable cases.
+</p>
+<p>
+    Under the $[(GithubLinkCall)EOTT||. configType="NONE" /]elastic-objects-test you find a lot of tests.
+    Here other potential applications scenarios like
+    <ul>
+    <li>convert</li>
+    <li>merge</li>
+    <li>compare</li>
+</ul>
+native java objects are tested.
+
+</p>
+
+<h5>Conclusion</h5>
+<p>
+    The concept behind EO with typed JSON boosts the possibilities to create applications
+to another level, even if its just a tiny extension. I miss something like this when I has to
+work in micro services projects.
 </p>
 
 <p>
-    Finally and first there is an example creating an own call with <a href="/examples/TheGreetingCall.html">TheGreetingCall</a>.
+    The implementation for EO started some year ago creating source code with Excelsheets as data base and
+    templates.
+
+</p>
+<p> I restarted work on EO this july, when a project was finished. It made
+    good progress. With version 0.6.0
+    it's not finished, but core parts are working proper and stable.
+</p>
+
+<p>
+    In November another project starts and I will have lesser time.
+</p>
+<p>
+    So I will focus on the code generation part with new templates in other programming languages and
+    a separate demo application.
+</p>
+<p>
+    With about 270 KByte its small enough to be integrated it in an application where it's appropriated. Other tool libraries like guava
+    has more than 2MByte.
 </p>

@@ -1,4 +1,4 @@
-$[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected." expose="INFO" /]
+$[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected." expose="NONE" /]
 $[(ConfigOpenApiCall)openApi configFilter="eo->configSelected."/]
 $[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
     <header class="entry-header">
@@ -13,7 +13,7 @@ $[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
         $[configuration/0/description|>No Description provided!]
         </p>
         <h4>Github</h4>
-        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[configuration/0/module|>elastic-objects]/src/$[configuration/0/moduleScope|>main]/resources/$[configType].json">&equiv;$[configType].json</a></div>
+        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[configuration/0/module|>elastic-objects]/src/$[configuration/0/moduleScope|>main]/resources/$[configType].json" target="github"><img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;" />$[configType].json</a></div>
 
         $[(TemplateCall)configuration/0 startCondition="/configType eq FileConfig"]
             <div>$[(GithubLinkCall)eo->naturalId. configType="FileConfig" /]</div>

@@ -3,7 +3,7 @@
     "module": "example-springboot",
     "moduleScope": "main",
     "superKey": "GithubLinkCall",
-    "expose": "INFO",
+    "expose": "WEB",
     "description": "Create a link to a config page and if its FileConfig or ModelConfig to the github source.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "ConfigLinkCall",
@@ -22,7 +22,7 @@
       "configType"
     ],
     "superKey": "SimpleValueFromEoCall",
-    "expose": "INFO",
+    "expose": "WEB",
     "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "GithubLinkCall",
@@ -40,7 +40,7 @@
       "greeting"
     ],
     "superKey": "SimpleValueFromEoCall",
-    "expose": "INFO",
+    "expose": "WEB",
     "description": "An example for a simple call with a field.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "TheGreetingCall",

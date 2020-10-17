@@ -119,12 +119,18 @@ public abstract class Parser {
     }
 
     private String replace(final EO eo, String pathOrKey, final String finish) {
-        String value = null;
-        if (pathOrKey.contains("|")) {
+        if (pathOrKey==null||pathOrKey.isEmpty()) {
+            return "";
+        }
+        String defaultValue = null;
+        if (pathOrKey.contains("|>")) {
             String[] pathAndDefault = pathOrKey.split("\\|>");
+            pathOrKey = pathAndDefault[0];
             if (pathAndDefault.length == 2) {
-                value = pathAndDefault[1];
-                pathOrKey = pathAndDefault[0];
+                defaultValue = pathAndDefault[1];
+            }
+            else {
+                defaultValue="";
             }
         }
         pathOrKey = pathOrKey
@@ -134,24 +140,24 @@ public abstract class Parser {
 
         if (eo != null && pathOrKey.startsWith("(")) {
             try {
-                value = ScalarConverter.toString(makeCall(pathOrKey, finish, eo));
+                defaultValue = ScalarConverter.toString(makeCall(pathOrKey, finish, eo));
             } catch (Exception e) {
                 eo.debug(e.getMessage());
-                value = "!! Exception occured execute call '" + pathOrKey + "'with message: " + e.getMessage() + "!!";
+                defaultValue = "!! Exception occured execute call '" + pathOrKey + "'with message: " + e.getMessage() + "!!";
             }
         }
         else if (eo != null && pathOrKey.startsWith("_")) {
-            value = pathOrKey
+            defaultValue = pathOrKey
                     .replaceAll(VALUE, eo.get().toString())
                     .replaceAll(PARENT, eo.getParentKey());
         }
 
         else if (pathOrKey.startsWith(SYSTEM_CHAR)) {
-            value = getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
+            defaultValue = getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
         }
 
         else if (pathOrKey.startsWith(ENV_CHAR)) {
-            value = System.getenv(pathOrKey.replaceAll(ENV_CHAR, ""));
+            defaultValue = System.getenv(pathOrKey.replaceAll(ENV_CHAR, ""));
         }
 
         else if (eo != null){
@@ -159,18 +165,18 @@ public abstract class Parser {
                     pathOrKey = pathOrKey
                             .replaceAll(VALUE, eo.get().toString())
                             .replaceAll(PARENT, eo.getParentKey());
-                    value = ScalarConverter.toString(eo.get(pathOrKey));
+                    defaultValue = ScalarConverter.toString(eo.get(pathOrKey));
                 } catch (Exception e) {
-                    if (value == null) {
+                    if (defaultValue == null) {
                         eo.debug(e.getMessage());
-                        value = "!!" + e.getMessage() + "!!";
+                        defaultValue = "!!" + e.getMessage() + "!!";
                     }
                 }
         }
         else {
-            value = "!!Could not find path '" + pathOrKey + "'!!";
+            defaultValue = "!!Could not find path '" + pathOrKey + "'!!";
         }
-        return value;
+        return defaultValue;
     }
 
     protected Object makeCall(final String callDirective, String finish,  final EO eo) {

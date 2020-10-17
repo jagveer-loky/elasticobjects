@@ -28,16 +28,16 @@
       "16": "creationDate",
       "17": "author"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG",
-      "module": "eo-csv"
+      "module": "elastic-objects"
     },
-    "module": "eo-csv",
+    "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Defines the configuration for a csv content stored in a final config object delivered by the file config cache.\"",
+    "description": "Configuration for csv files with fieldDelimiter and rowDelimiter fields. Will be used by CsvSimpleReadCall and CsvSimpleWriteCall in base package. ",
     "naturalId": "CsvConfig",
     "author": "Werner Diwischek"
   },

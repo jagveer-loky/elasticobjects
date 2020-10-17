@@ -15,7 +15,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The key finding a cache {@Link DbCache} entry.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "dbKey",
     "length": 80,
     "properties": {
@@ -29,7 +29,7 @@
     "moduleScope": "main",
     "modelKeys": "DbTypes",
     "description": "The type of the db as Enumeration providing informations like the driver.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "dbType",
     "properties": {
       "classPath": "src.main.resources"
@@ -39,7 +39,8 @@
     "module": "eo-db",
     "moduleScope": "main",
     "modelKeys": "String",
-    "expose": "INFO",
+    "description": "driver",
+    "expose": "NONE",
     "fieldKey": "driver",
     "length": 80,
     "properties": {
@@ -51,7 +52,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "An extension for database initialization. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "extension",
     "length": 1024,
     "properties": {
@@ -63,7 +64,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The jndi lookup for a hibernate session factory. ",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "jndi",
     "length": 80,
     "properties": {
@@ -75,7 +76,7 @@
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The database schema used for persisting. {@link HostCache}",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "schema",
     "length": 80,
     "properties": {
@@ -86,7 +87,8 @@
     "module": "eo-db",
     "moduleScope": "main",
     "modelKeys": "String",
-    "expose": "INFO",
+    "description": "sql",
+    "expose": "NONE",
     "fieldKey": "sql",
     "length": 2048,
     "properties": {
@@ -98,7 +100,7 @@
     "moduleScope": "main",
     "modelKeys": "ArrayList,String",
     "description": "A list of sql strings to be executed within {@Link HibernateSqlCache} or {@Link DbSqlCache}.",
-    "expose": "INFO",
+    "expose": "NONE",
     "fieldKey": "sqlList",
     "properties": {
       "classPath": "src.main.resources"

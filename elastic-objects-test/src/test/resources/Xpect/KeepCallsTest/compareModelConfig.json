@@ -3,7 +3,7 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "KeepCalls",
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "NONE",
     "properties": {
       "classPath": "src.main.java",
       "create": false,

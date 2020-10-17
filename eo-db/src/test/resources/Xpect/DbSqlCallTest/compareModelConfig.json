@@ -22,7 +22,7 @@
       "14": "creationDate",
       "15": "author"
     },
-    "(Expose)expose": "INFO",
+    "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -31,7 +31,7 @@
     },
     "module": "eo-db",
     "moduleScope": "main",
-    "description": "A execution method for  {@link DbSqlConfig}",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
     "naturalId": "DbSqlCall",
     "author": "Werner Diwischek"
   },

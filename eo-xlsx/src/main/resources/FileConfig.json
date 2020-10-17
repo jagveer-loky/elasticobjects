@@ -1,13 +1,13 @@
 {
-  "BasicTest.xlsx": {
+  "AnObject.xlsx": {
     "configModelKey": "XlsxConfig",
     "module": "eo-xlsx",
     "moduleScope": "main",
     "hostKey": "localhost",
-    "filePath": "lists",
-    "fileName": "BasicTest.xlsx",
-    "description": "A sample xlsx file separated file with 3x3 entries and a header which could be mapped to BasicTest.",
-    "expose": "INFO",
+    "filePath": "data/lists",
+    "fileName": "AnObject.xlsx",
+    "description": "A sample xlsx file separated file with 3x3 entries and a header which could be mapped to AnObject.",
+    "expose": "WEB",
     "cached": "false",
     "properties": {
       "classPath": "src.main.resources"
