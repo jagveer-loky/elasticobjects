@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.Expose;
@@ -47,11 +47,11 @@ public class ConfigKeysCall extends CallImpl{
         if (configType == null && configClass == null) {
             throw new EoException("Problem no config type defined.");
         }
-        if (configType.startsWith("eo->")) {
-            configType = new ParserEoReplace(configType).parse(eo);
+        if (ParserSqareBracket.containsStartSequence(configType)) {
+            configType = new ParserSqareBracket(configType).parse(eo);
         }
-        if (configFilter.startsWith("eo->")) {
-            configFilter = new ParserEoReplace(configFilter).parse(eo);
+        if (ParserSqareBracket.containsStartSequence(configFilter)) {
+            configFilter = new ParserSqareBracket(configFilter).parse(eo);
         }
         if (configClass == null) {
             ModelConfig configTypeConfig = eo.getConfigsCache().findModel(configType);

@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.web;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.Start;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,34 +16,34 @@ import java.util.Arrays;
  * Created by werner.diwischek on 11.12.17.
  */
 
-@RestController
+//@RestController
 public class WebEoGet {
     //http://www.baeldung.com/spring-value-defaults
-    @Value("${elasticobjects.scope:QS}")
+    //@Value("${elasticobjects.scope:QS}")
     String scope;
-    @Autowired
-    private EOConfigsCache cache;
+    //@Autowired
+    private EOConfigsCache cache = Start.configsCache;
 
-    @RequestMapping(value = "/{selectedItem:.+}.html", method = RequestMethod.GET)
-    @ResponseBody
+    //@RequestMapping(value = "/{selectedItem:.+}.html", method = RequestMethod.GET)
+    //@ResponseBody
     public String createRootPage(@PathVariable String selectedItem) {
         return createPage("docs", selectedItem + ".html");
     }
 
-    @RequestMapping(value = "/examples/{selectedItem:.+}", method = RequestMethod.GET)
-    @ResponseBody
+    //@RequestMapping(value = "/examples/{selectedItem:.+}", method = RequestMethod.GET)
+    //@ResponseBody
     public String createExamplesPage(@PathVariable String selectedItem) {
         return createPage("examples", selectedItem);
     }
 
-    @RequestMapping(value = "/blog/{selectedItem:.+}", method = RequestMethod.GET)
-    @ResponseBody
+    //@RequestMapping(value = "/blog/{selectedItem:.+}", method = RequestMethod.GET)
+    //@ResponseBody
     public String createBlogPage(@PathVariable String selectedItem) {
         return createPage("blog", selectedItem);
     }
 
-    @RequestMapping(value = "/faq/{selectedItem:.+}", method = RequestMethod.GET)
-    @ResponseBody
+    //@RequestMapping(value = "/faq/{selectedItem:.+}", method = RequestMethod.GET)
+    //@ResponseBody
     public String createFaqPage(@PathVariable String selectedItem) {
         return createPage("faq", selectedItem);
     }
@@ -67,8 +68,8 @@ public class WebEoGet {
 
 
     //https://stackoverflow.com/questions/16332092/spring-mvc-pathvariable-with-dot-is-getting-truncated
-    @RequestMapping(value = "/config/{configType}/{configSelected:.+}", method = RequestMethod.GET)
-    @ResponseBody
+    //@RequestMapping(value = "/config/{configType}/{configSelected:.+}", method = RequestMethod.GET)
+    //@ResponseBody
     public String get(@PathVariable String configType, @PathVariable String configSelected, @RequestParam(required = false, defaultValue = ".*") String configFilter) {
         EO eo = new EoRoot(cache);
         eo.set(configType + " - " + configSelected, "selectedItem");
@@ -86,8 +87,8 @@ public class WebEoGet {
         return (String) eo.get(PathElement.TEMPLATE);
     }
 
-    @RequestMapping(value = "/configs/{selectedItem:.+}.html", method = RequestMethod.GET)
-    @ResponseBody
+    //@RequestMapping(value = "/configs/{selectedItem:.+}.html", method = RequestMethod.GET)
+    //@ResponseBody
     public String createConfigStartPage(@PathVariable String selectedItem) {
         EO eo = new EoRoot(cache);
         eo.setRoles(Arrays.asList(WebEo.getRoles()));

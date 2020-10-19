@@ -15,7 +15,6 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
 public class GenerateJsonConfigCall extends GenerateCall {
@@ -43,7 +42,7 @@ public class GenerateJsonConfigCall extends GenerateCall {
             throw new EoInternalException("No build path set so nothing will generated");
         }
         init(eo);
-        this.configType = Parser.replace(configType, eo);
+        this.configType = Parser.replacePathValues(configType, eo);
         for (String module: eo.keys()) {
             if ("basic".equals(module)) {
                 continue;

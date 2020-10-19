@@ -36,7 +36,7 @@
             "type": "string"
           },
           "targetPath": {
-            "description": "A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.",
+            "description": "A targetPath where the result of the execution will be mapped. Any combination of placeholder. Could be set.",
             "type": "string"
           },
           "models": {

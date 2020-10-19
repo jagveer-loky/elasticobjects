@@ -1,21 +1,23 @@
 <h3>Excel Calls</h3>
-<p>With the $[(ConfigLinkCall)XlsxReadCall /] one can read Excel files.
+<p>With the
+    ==>{ConfigLinkCall->ModelConfig, XlsxReadCall }. one can read Excel files.
  </p>
 <p>In the following examples the
-    file $[(ConfigLinkCall)AnObject.xlsx:test configType="FileConfig" /]
+    file
+    ==>{ConfigLinkCall->FileConfig, AnObject.xlsx:test}.
     is used.
 </p>
 <h5>The result in a table</h5>
-$[(XlsxReadCall)xyz configKey="AnObject.xlsx:test" /]
-$[(TemplateResourceCall)xyz configKey="table.tpl" /]
+ ==>{XlsxReadCall->AnObject.xlsx:test, xyz}.
+ ==>{"(TemplateResourceCall)table.tpl, xyz }.
 
 The table that you see beforehand is created by the following template sequence within the
-$[(GithubLinkCall)SPI|web.examples|ExcelCall.html configType="NONE" /] content:
-<textarea>&#36;[(XlsxReadCall)xyz configKey="AnObject.xlsx:test" /]
-&#36;[(TemplateResourceCall)xyz configKey="table.tpl" /]
+ ==>{GithubLinkCall->NONE, SPI|web.examples|ExcelCall.html}. content:
+<textarea>&#36;[(XlsxReadCall)xyz configKey="AnObject.xlsx:test" }.
+&#36;[(TemplateResourceCall)xyz configKey="table.tpl" }.
 </textarea>
 In the <a href="#post4">last example</a> you can see the post version of these calls.
-$[(ConfigLinkCall)AnObject /] is a test class.
+ ==>{ConfigLinkCall->ModelConfig, AnObject }. is a test class.
 
 <h5>Simple Call</h5>
 <p>
@@ -57,7 +59,8 @@ $[(ConfigLinkCall)AnObject /] is a test class.
 
 <h5>Mapping to Class</h5>
 <p>
-    In the following example will map the values to $[(ConfigLinkCall)AnObject /].
+    In the following example will map the values to
+    ==>{ConfigLinkCall->ModelConfig, AnObject }..
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -75,8 +78,8 @@ $[(ConfigLinkCall)AnObject /] is a test class.
     <h5>With a template</h5></a>
 <p>
     The following example will use a
-    $[(ConfigLinkCall)TemplateCall/] and
-    $[(ConfigLinkCall)table.tpl configType="FileConfig"/]
+     ==>{ConfigLinkCall->ModelConfig, TemplateCall}. and
+     ==>{ConfigLinkCall->FileConfig, table.tpl}.
     to render the query result in a table.
 </p>
 <form action="/eo-form" method="post" target="example">

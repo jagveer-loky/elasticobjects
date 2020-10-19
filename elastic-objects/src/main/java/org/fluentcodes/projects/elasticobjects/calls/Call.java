@@ -1,11 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls;
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-//$[/]
+//|{}.
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 
 /**
  * Basic interface for calls 
@@ -13,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
  */
 public interface Call   {
     String TARGET_AS_STRING = "_asString";
-    // $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACEStaticNames.tpl" keepCall="JAVA"]
+    //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACEStaticNames.tpl", "keepCall":"JAVA"}}|
     static final String SOURCE_PATH = "sourcePath";
     static final String TARGET_PATH = "targetPath";
     static final String MODELS = "models";
@@ -24,14 +22,23 @@ public interface Call   {
     static final String DURATION = "duration";
     static final String PREPEND = "prepend";
     static final String POSTPEND = "postpend";
-//$[/]
+
+
+//|{}.
+
+    default void initTargetPath(final Path targetPathFromCallPath) {
+        if (!hasTargetPath()) {
+            setTargetPath(targetPathFromCallPath.directory());
+        }
+    }
+
     Object execute(final EO eo);
-    void setPathByTemplate(final Path templatePath);
+    void setByString(final String values);
     default boolean isTargetAsString() {
         return TARGET_AS_STRING.equals(getTargetPath());
     }
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACESetter.tpl" keepCall="JAVA"]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACESetter.tpl", "keepCall":"JAVA"}}|
     /**
      A sourcePath where EO offers it's input value when the execution starts.
      */
@@ -40,7 +47,7 @@ public interface Call   {
     boolean hasSourcePath();
 
     /**
-     A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.
+     A targetPath where the result of the execution will be mapped. Any combination of $(placeholder. Could be set.
      */
     String getTargetPath();
     Call setTargetPath (String targetPath);
@@ -102,5 +109,5 @@ public interface Call   {
     Call setPostpend (String postpend);
     boolean hasPostpend();
 
-//$[/]
+//|{}.
 }

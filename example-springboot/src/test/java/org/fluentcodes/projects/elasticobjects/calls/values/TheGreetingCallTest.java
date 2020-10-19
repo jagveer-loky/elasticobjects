@@ -66,7 +66,7 @@ public class TheGreetingCallTest {
     public void givenTemplate_whenExecuteTemplate_thenDefaultReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new TemplateCall("* $[(TheGreetingCall). targetPath=\"asString\" /] *").execute(eo);
+        String content = new TemplateCall("* ==>{TheGreetingCall)->}. *").execute(eo);
         Assertions.assertThat(content).isEqualTo("* Hi Stranger! *");
     }
 

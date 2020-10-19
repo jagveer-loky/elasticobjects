@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
@@ -17,35 +15,40 @@ public class TemplateCallForEmbeddedTest {
     }
 
     @Test
-    public void givenLevel0_ok()  {
+    public void call_sourcePath_level0__execute__replaced()  {
         final TemplateCall call = new TemplateCall(
-                "path='$[path]' " +
-                        "--> $[&level0]..path='$[../path]', path='$[path]'" +
-                        "$[/]");
+                "path='=>{path}.' " +
+                        "-->  ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level0\"}" +
+                        "}|" +
+                        " ..path='=>{../path}.', path='=>{path}.'" +
+                        "=>{}.");
         final String result = call.execute(initEo());
         Assertions.assertThat(result).isEqualTo("path='value0' --> ..path='value0', path='value1'");
     }
 
-    @Ignore
-    // TODO should run with path refactoring!!
     @Test
-    public void givenLStar_ok()  {
+    public void call_sourcePath_lstar__execute__replaced()  {
         final TemplateCall call = new TemplateCall(
-                        "--> $[&l*]..path='$[../path]', path='$[path]'" +
-                        "$[/]");
+                        "-->  ===>{\"(TemplateCall).\":{" +
+                                "\"sourcePath\":\"l*\"}" +
+                                "}|" +
+                                " ..path='=>{../path}.', path='=>{path}.'" +
+                        "=>{}.");
         final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("--> ..path='value0', path='value1'");
     }
 
-    // TODO check the reason for the bloated result!
-    //Expected :"--> ..path='value0', path='!!Could not move to path 'path' because key 'path' does not exist on '/path'.!!'..path='value0', path='value1'"
-    //Actual   :"--> ..path='value0', path='!!Could not move to path 'path' because key 'path' does not exist on '/_logLevel'.!!'..path='value0', path='!!Could not move to path 'path' because key 'path' does not exist on '/path'.!!'..path='value0', path='value1'"
+    // TODO
     @Ignore
     @Test
-    public void givenStar_thenProblemGettingPathValueFromStringEo()  {
+    public void call_sourcePath_star__execute__replaced()  {
         final TemplateCall call = new TemplateCall(
-                "--> $[&*]..path='$[../path]', path='$[path]'" +
-                        "$[/]");
+                "-->  ===>{(TemplateCall).\":{" +
+                        "\"sourcePath\":\"*\"}" +
+                        "}|" +
+                        " ..path='=>{../path}.', path='=>{path}.'" +
+                        "=>{}.");
         final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions
                 .assertThat(result)
@@ -53,48 +56,65 @@ public class TemplateCallForEmbeddedTest {
     }
 
     @Test
-    public void givenLevel0Level1_ok()  {
+    public void call_sourcePath_level0level1_placeholders__execute__replaced()  {
         final TemplateCall call = new TemplateCall(
-                "path='$[path]' " +
-                        "--> $[&level0/level1]../path='$[../path]', path='$[path]'" +
-                        "$[/]");
+                "path='=>{path}.' " +
+                        "-->  ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level0/level1\"}" +
+                        "}| ../path='=>{../path}.', path='=>{path}.'" +
+                        "=>{}.");
         final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("path='value0' --> ../path='value1', path='value2'");
     }
 
     @Test
-    public void givenLevel1InLevel0_ok()  {
+    public void call_sourcePath_level0_level1_placeholders__execute__replaced()  {
         final TemplateCall call = new TemplateCall(
-                "path='$[path]' " +
-                        "--> $[&level0] " +
-                        "--> $[&level1]../path='$[../path]', path='$[path]'" +
-                        "$[/]" +
-                        "$[/]");
+                "path='=>{path}.' " +
+                        "-->  ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level0\"}" +
+                        "}| " +
+                        "-->  ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level1\"}" +
+                        "}|" +
+                        " ../path='=>{../path}.', path='=>{path}.'" +
+                        "=>{}." +
+                        "=>{}.");
         final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
-        Assertions.assertThat(result).isEqualTo("path='value0' -->  --> ../path='value1', path='value2'");
+        Assertions.assertThat(result).isEqualTo("path='value0' --> --> ../path='value1', path='value2'");
     }
 
     @Test
-    public void givenLevel0Level1Level2_ok()  {
+    public void call_sourcePath_level0level1level3_placeholders__execute__replaced()  {
         final TemplateCall call = new TemplateCall(
-                "path='$[path]' " +
-                        "--> $[&level0/level1/level2]../path='$[../path]', path='$[path]'" +
-                        "$[/]");
+                "path='=>{path}.' " +
+                        "--> ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level0/level1/level2\"}" +
+                        "}|" +
+                        " ../path='=>{../path}.', path='=>{path}.'" +
+                        "=>{}.");
         final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
         Assertions.assertThat(result).isEqualTo("path='value0' --> ../path='value2', path='value3'");
     }
 
     @Test
-    public void givenLevel2InLevel1InLevel0_ok()  {
+    public void call_sourcePath_level0_level1_level3_placeholders__execute__replaced()  {
         final TemplateCall call = new TemplateCall(
-                "path='$[path]' " +
-                        "--> $[&level0] " +
-                        "--> $[&level1] " +
-                        "--> $[&level2]../path='$[../path]', path='$[path]'" +
-                        "$[/]" +
-                        "$[/]" +
-                        "$[/]");
+                "path='=>{path}.' " +
+                        "--> ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level0\"}" +
+                        "}|" +
+                        " --> ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level1\"}" +
+                        "}|" +
+                        " --> ===>{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"level2\"}" +
+                        "}|" +
+                        " ../path='=>{../path}.', path='=>{path}.'" +
+                        "=>{}." +
+                        "=>{}." +
+                        "=>{}.");
         final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
-        Assertions.assertThat(result).isEqualTo("path='value0' -->  -->  --> ../path='value2', path='value3'");
+        Assertions.assertThat(result).isEqualTo("path='value0' --> --> --> ../path='value2', path='value3'");
     }
 }

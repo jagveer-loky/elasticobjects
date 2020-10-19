@@ -11,6 +11,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  * Refactored by werner.diwischek on 27.7.2020.
  */
 public class TemplateCall extends CallImpl {
+    public final static String CONTENT = "content";
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
     private String content;
 
@@ -22,6 +23,7 @@ public class TemplateCall extends CallImpl {
         this();
         this.content = content;
     }
+
 
     public TemplateCall setContent(String entry) {
         if (entry == null) {
@@ -35,17 +37,15 @@ public class TemplateCall extends CallImpl {
     public boolean hasContent() {
         return content != null && !content.isEmpty();
     }
+
     public boolean isContentActive() {
-        return hasContent() && content.contains("$[");
+        return hasContent() && ParserCurlyBracket.containsStartSequence(content);
     }
+
     public String getContent() {
         return content;
     }
 
-    @Override
-    public void setPathByTemplate(final Path path) {
-        setSourcePath(path.directory(false));
-    }
     /**
      */
     public String execute(EO eo)  {
@@ -55,11 +55,10 @@ public class TemplateCall extends CallImpl {
         if (!init(eo)) {
             return "";
         }
-        if (!isContentActive()) {
-            LOG.debug("No active element in template");
-            return content;
-        }
-
-        return new ParserTemplate(content).parse(eo);
+        return new ParserCurlyBracket(content).parse(eo);
+    }
+    public TemplateCall setTargetPath(String x) {
+        super.setTargetPath(x);
+        return this;
     }
 }

@@ -6,9 +6,12 @@ config calls are created.</p>
 
 
  <ul>
-     <li>$[(ConfigLinkCall)ConfigTypesCall /]: Lists the keys of available configuration types</li>
-     <li>$[(ConfigLinkCall)ConfigKeysCall /]: Lists all naturalIds for a given "configType" matching "configFilter"</li>
-     <li>$[(ConfigLinkCall)ConfigCall /]: Lists complete configurations for a given "configType" matching "configFilter"</li>
+     <li>
+         ==>{ConfigLinkCall->ModelConfig, ConfigTypesCall }.: Lists the keys of available configuration types</li>
+     <li>
+         ==>{ConfigLinkCall->ModelConfig, ConfigKeysCall }.: Lists all naturalIds for a given "configType" matching "configFilter"</li>
+     <li>
+         ==>{ConfigLinkCall->ModelConfig, ConfigCall }.: Lists complete configurations for a given "configType" matching "configFilter"</li>
 
  </ul>
 <p> Since these calls just deliver loaded configurations from the configuration cache, no other informations like permission restriction

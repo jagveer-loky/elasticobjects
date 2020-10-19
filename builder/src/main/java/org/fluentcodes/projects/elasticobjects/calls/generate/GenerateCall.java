@@ -18,11 +18,11 @@ public abstract class GenerateCall extends CallImpl {
 
     @Override
     protected boolean init(final EO eo) {
-        this.buildPath = Parser.replace(buildPath, eo);
-        this.module = Parser.replace(module,eo);
-        this.moduleScope = Parser.replace(moduleScope, eo);
-        this.fileEnding = Parser.replace(fileEnding, eo);
-        this.classPath = Parser.replace(classPath, eo);
+        this.buildPath = Parser.replacePathValues(buildPath, eo);
+        this.module = Parser.replacePathValues(module,eo);
+        this.moduleScope = Parser.replacePathValues(moduleScope, eo);
+        this.fileEnding = Parser.replacePathValues(fileEnding, eo);
+        this.classPath = Parser.replacePathValues(classPath, eo);
         return true;
     }
 

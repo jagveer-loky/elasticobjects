@@ -25,8 +25,9 @@
   "22": "StringUpperCall",
   "23": "StringUpperFirstCharCall",
   "24": "TemplateCall",
-  "25": "TemplateResourceCall",
-  "26": "TemplateResourceStoreCall",
-  "27": "ValueCall",
+  "25": "TemplateDirResourceCall",
+  "26": "TemplateResourceCall",
+  "27": "TemplateResourceStoreCall",
+  "28": "ValueCall",
   "(LogLevel)_logLevel": "WARN"
 }

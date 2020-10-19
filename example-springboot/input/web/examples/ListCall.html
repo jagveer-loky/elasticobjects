@@ -1,22 +1,22 @@
 <h3>List Calls</h3>
 <p>With the
-    $[(ConfigLinkCall)CsvSimpleReadCall /]
+     ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall }.
     one can read simple character separated files. It just split for a certain delimiter.</p>
 <p>In the following examples the file
-    $[(ConfigLinkCall)AnObject.csv configType="FileConfig" /]
+     ==>{ConfigLinkCall->FileConfig, AnObject.csv}.
     is used as data source.
 </p>
 <h5>The result in a table</h5>
-$[(CsvSimpleReadCall)xyz configKey="AnObject.csv" /]
-$[(TemplateResourceCall)xyz configKey="table.tpl" /]
+ ==>{ CsvSimpleReadCall->AnObject.csv, xyz}.
+ ==>{TemplateResourceCall->table.tpl, xyz}.
 
 The table that you see beforehand is created by the following template sequence within the
-$[(GithubLinkCall)SPI|web.examples|ListCall.html configType="NONE" /] content:
-<textarea>&#36;[(CsvSimpleReadCall)xyz configKey="AnObject.csv" /]
-&#36;[(TemplateResourceCall)xyz configKey="table.tpl" /]
+ ==>{GithubLinkCall->NONE, SPI|web.examples|ListCall.html}. content:
+<textarea>&#36;[(CsvSimpleReadCall)xyz configKey="AnObject.csv" }.
+&#36;[(TemplateResourceCall)xyz configKey="table.tpl" }.
 </textarea>
 In the <a href="#post4">last example</a> you can see the post version of these calls.
-$[(ConfigLinkCall)AnObject /] is a test class.
+ ==>{ConfigLinkCall->ModelConfig, AnObject }. is a test class.
 
 <h5>Simple Call</h5>
 <p>
@@ -59,7 +59,8 @@ $[(ConfigLinkCall)AnObject /] is a test class.
 
 <h5>Mapping to Class</h5>
 <p>
-    In the following example will map the values to $[(ConfigLinkCall)AnObject /].
+    In the following example will map the values to
+    ==>{ConfigLinkCall->ModelConfig, AnObject }..
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -76,8 +77,8 @@ $[(ConfigLinkCall)AnObject /] is a test class.
     <h5>With a template</h5></a>
 <p>
     The following example will use a
-    $[(ConfigLinkCall)TemplateCall/] and
-    $[(ConfigLinkCall)table.tpl configType="FileConfig"/]
+     ==>{ConfigLinkCall->ModelConfig, TemplateCall}. and
+     ==>{ConfigLinkCall->FileConfig, table.tpl}.
     to render the query result in a table.
 </p>
 <form action="/eo-form" method="post" target="example">

@@ -122,7 +122,7 @@ public class PathTest {
 
     @Test
     public void hasPlaceHolder() {
-        Path path = new Path(Path.ofs(S_LEVEL0, "$[test]"));
+        Path path = new Path(Path.ofs(S_LEVEL0, "[test]"));
         Assert.assertTrue(path.hasPlaceHolder());
         path = new Path(Path.ofs(S_LEVEL0));
         Assert.assertFalse(path.hasPlaceHolder());
