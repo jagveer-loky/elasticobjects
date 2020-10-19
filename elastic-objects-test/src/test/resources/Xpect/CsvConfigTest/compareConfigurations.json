@@ -245,7 +245,7 @@
     "rowDelimiter": "\n",
     "configModelKey": "CsvConfig",
     "fileName": "target.csv",
-    "filePath": "$[@TMP]",
+    "filePath": "=>{@TMP}.",
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
@@ -265,7 +265,7 @@
   },
   "15": {
     "fileName": "target.json",
-    "filePath": "$[@TMP]",
+    "filePath": "=>{@TMP}.",
     "hostKey": "localhost",
     "cached": false,
     "(Expose)expose": "NONE",
@@ -280,7 +280,7 @@
   },
   "16": {
     "fileName": "target.txt",
-    "filePath": "$[@TMP]",
+    "filePath": "=>{@TMP}.",
     "hostKey": "localhost",
     "cached": false,
     "(Expose)expose": "NONE",

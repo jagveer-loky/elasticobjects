@@ -23,7 +23,7 @@ public class FileWriteCall extends CallResource {
     }
 
     public FileWriteCall(final String configKey) {
-        super(PermissionType.READ);
+        super(PermissionType.WRITE);
         setConfigKey(configKey);
     }
 

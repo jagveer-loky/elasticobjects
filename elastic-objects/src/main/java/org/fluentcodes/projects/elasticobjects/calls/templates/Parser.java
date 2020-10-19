@@ -12,19 +12,21 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.calls.values.ValueCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Models;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall.CONTENT;
 
 
 public abstract class Parser {
@@ -45,15 +47,35 @@ public abstract class Parser {
         this.template = template;
     }
 
-    public static String replace(final String value, EO eo) {
+    protected static final Pattern CREATE_VAR_PATTERN(final String start, final String stop) {
+        final String pattern = "\n*[\t ]*([=]{0,2})=>" + start + "(.*?)(" + stop + "[\\.\\|])";
+        return Pattern.compile(pattern, Pattern.DOTALL);
+    }
+    protected static final String CREATE_END_SEQUENCE(final String stop) {
+        return stop + ".";
+    }
+
+    protected static final String CREATE_CONTINUE_SEQUENCE (final String stop) {
+        return stop + "|";
+    }
+
+    protected static final String CREATE_START_SEQUENCE (final String start) {
+        return "=>" + start;
+    }
+
+    protected static final String CREATE_CLOSE_SEQUENCE(final String start, final String stop) {
+        return "=>" + start + stop + ".";
+    }
+
+    public static String replacePathValues(final String value, EO eo) {
         if (value == null) {
             return value;
         }
-        if (value.contains(ParserTemplate.START_SEQUENCE)) {
-            return new ParserTemplate(value).parse(eo);
+        if (ParserCurlyBracket.containsStartSequence(value)) {
+            return new ParserCurlyBracket(value).parse(eo);
         }
-        if (value.contains(ParserEoReplace.START_SEQUENCE)) {
-            return new ParserEoReplace(value).parse(eo);
+        if (ParserSqareBracket.containsStartSequence(value)) {
+            return new ParserSqareBracket(value).parse(eo);
         }
         return value;
     }
@@ -83,25 +105,25 @@ public abstract class Parser {
         return result;
     }
 
-    public String parse(Pattern varPattern) {
-        return parse(null, varPattern);
+    public String parse() {
+        return parse(null);
     }
 
 
     /**
-     * Replaces ${param}br/>
+     * Replaces $=>param}. br/>
      * changing the static final varPattern you can use the var you prefer
-     * varPattern = Pattern.compile("${}(.*?)]"); would look for $param
+     * varPattern = Pattern.compile(" ===>{(.*?)}. "); would look for $param
      *
      * @param eo
      * @return
      */
 
-    public String parse(final EO eo, Pattern varPattern) {
-        if (template == null || template.isEmpty()) {
-            return "";
+    public String parse(final EO eo) {
+        if (!hasStartSequence(template)) {
+            return template == null ? "": template;
         }
-        this.match = varPattern.matcher(template);
+        this.match = getVarPattern().matcher(template);
         StringBuffer result = new StringBuffer();
         String parseString = template;
         end = 0;
@@ -110,18 +132,27 @@ public abstract class Parser {
             result.append(parseString.substring(end, findStart));
             end = match.end();
             String value = match.group();
-            String pathOrKey = match.group(1);
-            String finish = match.group(2);
-            result.append(replace(eo,pathOrKey,finish));
+            String callIndicator = match.group(1);
+            String pathOrKey = match.group(2);
+            String finish = match.group(3);
+            if (callIndicator == null || callIndicator.isEmpty()) {
+                result.append(replacePathValues(eo, pathOrKey));
+            }
+            else if (callIndicator.equals("=")) { // setCall
+                result.append(callWithValues(eo, pathOrKey, finish));
+            }
+            else if (callIndicator.equals("==")){ // json
+                result.append(callWithJson(eo, pathOrKey, finish));
+            }
+            else {
+
+            }
         }
         result.append(parseString.substring(end, parseString.length()));
         return result.toString();
     }
 
-    private String replace(final EO eo, String pathOrKey, final String finish) {
-        if (pathOrKey==null||pathOrKey.isEmpty()) {
-            return "";
-        }
+    private String replacePathValues(final EO eo, String pathOrKey) {
         String defaultValue = null;
         if (pathOrKey.contains("|>")) {
             String[] pathAndDefault = pathOrKey.split("\\|>");
@@ -133,20 +164,8 @@ public abstract class Parser {
                 defaultValue="";
             }
         }
-        pathOrKey = pathOrKey
-                //.replaceAll("\\\\", "/")
-                .replaceAll(TEMPLATE_CALL_MATCH,"(TemplateCall)")
-                .replaceAll(VALUE_CALL_MATCH ,"(ValueCall)");
 
-        if (eo != null && pathOrKey.startsWith("(")) {
-            try {
-                defaultValue = ScalarConverter.toString(makeCall(pathOrKey, finish, eo));
-            } catch (Exception e) {
-                eo.debug(e.getMessage());
-                defaultValue = "!! Exception occured execute call '" + pathOrKey + "'with message: " + e.getMessage() + "!!";
-            }
-        }
-        else if (eo != null && pathOrKey.startsWith("_")) {
+        if (eo != null && pathOrKey.startsWith("_")) {
             defaultValue = pathOrKey
                     .replaceAll(VALUE, eo.get().toString())
                     .replaceAll(PARENT, eo.getParentKey());
@@ -155,7 +174,6 @@ public abstract class Parser {
         else if (pathOrKey.startsWith(SYSTEM_CHAR)) {
             defaultValue = getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
         }
-
         else if (pathOrKey.startsWith(ENV_CHAR)) {
             defaultValue = System.getenv(pathOrKey.replaceAll(ENV_CHAR, ""));
         }
@@ -179,9 +197,46 @@ public abstract class Parser {
         return defaultValue;
     }
 
-    protected Object makeCall(final String callDirective, String finish,  final EO eo) {
-        String content = "";
-        if (!finish.startsWith(Path.DELIMITER)) {
+    protected Object callWithValues(final EO eo, final String callDirective, String finish) {
+        String[] methodAndInput = callDirective.split("->");
+        ModelConfig model = eo.getConfigsCache().findModel(methodAndInput[0]);
+        Call call = (Call)model.create();
+        call.setByString(methodAndInput[1]);
+        if (!isEndSequence(finish)) {
+            try {
+                String content = findContent();
+                if (content!=null && !content.isEmpty()) {
+                    if ((call instanceof TemplateCall)) {
+                        ((TemplateCall) call).setContent(content);
+                    }
+                    else if ((call instanceof ValueCall)) {
+                        ((ValueCall) call).setValue(content);
+                    }
+                }
+            }
+            catch(EoException e) {
+                throw new EoException(e.getMessage() + ": " + callDirective);
+            }
+        }
+
+        Object value = ExecutorCall.execute(eo, call);
+        if (value == null) {
+            return "";
+        }
+        return value.toString();
+    }
+
+    protected Object callWithJson(final EO eo, final String callDirective, String finish) {
+        EO eoCall = new EoRoot(eo.getConfigsCache(), "{" + callDirective + "}");
+        if (eoCall.getCallKeys().isEmpty()) {
+            if (!isEndSequence(finish)) {
+                throw new EoException("No call type but no end tag");
+            }
+            eo.mapObject(eoCall.get());
+            return "";
+        }
+        String content = null;
+        if (!isEndSequence(finish)) {
             try {
                 content = findContent();
             }
@@ -189,49 +244,28 @@ public abstract class Parser {
                 throw new EoException(e.getMessage() + ": " + callDirective);
             }
         }
-        String[] callsAndAttributes = callDirective.split("\"[\\s\\n\\r]+");
-        String callPathCore = callsAndAttributes[0].replaceAll("[\\s\\n\\r]+.*","");
-        Map<String, String> attributes = extractAttributes(callsAndAttributes);
-        Path path = new Path(callPathCore);
-        if (!path.hasModel()) {
-            throw new EoException("Could not find call in path " + callPathCore);
-        }
-
-        Models models = new Models(eo.getConfigsCache(), path.getModels());
-        Object callObject = models.create();
-        if (!(callObject instanceof Call)) {
-            throw new EoException("Object is not instance of call but " + callObject.getClass().getSimpleName() + "!");
-        }
-
-        ((Call)callObject).setPathByTemplate(path);
-        if (!content.isEmpty()) {
-            if (callObject instanceof TemplateCall) {
-                ((TemplateCall)callObject).setContent(content);
+        Object call = eoCall.get(PathElement.CALLS, "0");
+        if (call instanceof TemplateCall) {
+            if (content!=null && !content.isEmpty()) {
+                 eoCall.set(content, PathElement.CALLS, "0", CONTENT);
             }
-            else if (callObject instanceof ValueCall) {
-                ((ValueCall)callObject).setValue(content);
-            }
-            else {
-                throw new EoException("Template has a content but meaning is only for TemplateCall or ValueCall. The call is '" + callObject.getClass().getSimpleName() + "'");
+            if (call instanceof TemplateResourceCall) {
+                TemplateResourceCall resourceCall = (TemplateResourceCall) call;
+                if (resourceCall.hasKeepCall()) {
+                    KeepCalls keepCall = resourceCall.getKeepCall();
+                    resourceCall
+                            .setPrepend(keepCall.createStartDirective("==" + getStartSequence() + callDirective + getContinueSequence()));
+                    resourceCall
+                            .setPostpend(keepCall.getStartComment() + getCloseSequence());
+                }
             }
         }
-
-        if (!attributes.isEmpty()) {
-            EO eoForMapAttributesToCall = new EoRoot(eo.getConfigsCache(), callObject);
-            eoForMapAttributesToCall.mapObject(attributes);
-            callObject = eoForMapAttributesToCall.get();
-        }
-        if (callObject instanceof TemplateResourceCall) {
-            TemplateResourceCall resourceCall = (TemplateResourceCall)callObject;
-            if (resourceCall.hasKeepCall()) {
-                KeepCalls keepCall = resourceCall.getKeepCall();
-                resourceCall
-                        .setPrepend(keepCall.createStartDirective(callDirective));
-                resourceCall
-                        .setPostpend(keepCall.createEndDirective());
+        else if (call instanceof ValueCall) {
+            if (content!=null && !content.isEmpty()) {
+                eoCall.set(content, PathElement.CALLS, "0", ValueCall.VALUE);
             }
         }
-        Object value = ExecutorCall.execute(eo, (Call) callObject);
+        Object value = ExecutorCall.execute(eo, (Call) call);
         if (value == null) {
             return "";
         }
@@ -244,16 +278,14 @@ public abstract class Parser {
         while (match.find()) {
             content.append(template.substring(end, match.start()));
             end = match.end();
-            String found = match.group(1);
-            String foundEnd = match.group(2);
+            String found = match.group(2);
+            String foundEnd = match.group(3);
             String foundAll = match.group();
-            if (foundAll.equals(ParserTemplate.CLOSE_TAG)) {
+            if (isCloseSequence(foundAll)) {
                 hierarchy--;
             }
-            else if (found.startsWith(VALUE_CALL_CHAR) || found.startsWith(TEMPLATE_CALL_CHAR) || found.startsWith("(")) {
-                if (!foundEnd.equals(ParserTemplate.END_SEQUENCE)) {
+            else if (!isEndSequence(foundEnd)) {
                     hierarchy++;
-                }
             }
 
             if (hierarchy == 0) {
@@ -263,31 +295,6 @@ public abstract class Parser {
             }
         }
         throw new EoException("Could not find closing tag for parseString");
-    }
-
-    private static final Map<String, String> extractAttributes(final String[] attributesList) {
-        Map<String, String> attributes = new LinkedHashMap<>();
-        attributesList[0] = attributesList[0].replaceAll("^[^ ]*[\\s\\n\\r]+","");
-
-        for (String attribute: attributesList) {
-            if (attribute.startsWith("(")) {
-                continue;
-            }
-            String[] keyValue = attribute.split("=\"");
-            if (keyValue.length == 2) {
-                attributes.put(keyValue[0].replaceAll("\\s",""), keyValue[1].replaceAll("\"$",""));
-            }
-            if (keyValue.length == 1) {
-                if (keyValue[0].isEmpty()|| keyValue[0].matches("^[\\s]+$")) {
-                    continue;
-                }
-                attributes.put(keyValue[0].replaceAll("\\s",""), "true");
-            }
-            if (keyValue.length > 2) {
-                throw new EoException("Wrong attribute! " + attribute);
-            }
-        }
-        return attributes;
     }
 
     public static final String getSystemValue(String key) {
@@ -305,6 +312,39 @@ public abstract class Parser {
         }
         return null;
     }
+
+    public boolean isCloseSequence(final String toParse) {
+        return toParse != null && !toParse.isEmpty() && toParse.equals(getCloseSequence());
+    }
+
+    protected String getCloseSequence() {
+        throw new EoInternalException("Should be overwritten");
+    }
+
+    protected Pattern getVarPattern() {
+        throw new EoInternalException("Should be overwritten");
+    }
+
+    public boolean hasStartSequence(final String toParse) {
+        return toParse != null && !toParse.isEmpty() && toParse.contains(getStartSequence());
+    }
+
+    protected String getStartSequence() {
+        throw new EoInternalException("Should be overwritten");
+    }
+
+    protected String getEndSequence() {
+        throw new EoInternalException("Should be overwritten");
+    }
+
+    protected String getContinueSequence() {
+        throw new EoInternalException("Should be overwritten");
+    }
+
+    private boolean isEndSequence(final String toParse) {
+        return toParse != null && !toParse.isEmpty() && toParse.equals(getEndSequence());
+    }
+
     @Override
     public String toString() {
         return template;

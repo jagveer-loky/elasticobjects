@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -58,7 +58,7 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
         if (hostPath == null || hostPath.isEmpty()) {
             return filePath + "/" + fileName;
         }
-        return new ParserTemplate(hostPath + "" + filePath + "/" + fileName).parse();
+        return new ParserCurlyBracket(hostPath + "" + filePath + "/" + fileName).parse();
     }
 
     @Override
@@ -87,7 +87,7 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
         URL url = createUrl();
         String urlString = getUrlPath();
         try {
-            String replaceUrl = new ParserTemplate(urlString).parse();
+            String replaceUrl = new ParserCurlyBracket(urlString).parse();
             return new URL(replaceUrl);
         } catch (MalformedURLException e) {
             throw new EoException(e);
@@ -103,7 +103,7 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
         }
         String urlString = getUrlPath();
         try {
-            String replaceUrl = new ParserTemplate(urlString).parse();
+            String replaceUrl = new ParserCurlyBracket(urlString).parse();
             return new URL(replaceUrl);
         } catch (MalformedURLException e) {
             throw new EoException(e);

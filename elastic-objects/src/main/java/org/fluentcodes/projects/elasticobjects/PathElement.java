@@ -271,9 +271,8 @@ public class PathElement {
         }
         createValue(valueModels, value);
         if (this.value instanceof Call) {
-            String path = parentEo.getPathAsString() + Path.DELIMITER + key;
-            if (!path.contains(CALLS)) {
-                ((Call)this.value).setTargetPath(path);
+            if (!parentEo.getPath().isCallDirectory()) {
+                ((Call)this.value).initTargetPath(parentEo.getPath().add(key));
             }
             EO calls = ((EoChild)parentEo).getCallsEo();
             this.key = Integer.valueOf(calls.size()).toString();
@@ -436,6 +435,10 @@ public class PathElement {
 
     public boolean isCall() {
         return this.models.isCall();
+    }
+
+    protected boolean isCallDirectory() {
+        return CALLS.equals(this.key);
     }
 
     public boolean isBack() {

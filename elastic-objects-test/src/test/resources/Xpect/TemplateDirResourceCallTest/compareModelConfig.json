@@ -2,13 +2,13 @@
   "_rootmodel": "ArrayList",
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
-    "modelKey": "TemplateResourceStoreCall",
+    "modelKey": "TemplateDirResourceCall",
     "(ArrayList)localFieldKeys": {
-      "0": "targetFile"
+      "0": "fileName"
     },
     "superKey": "TemplateResourceCall",
     "(ArrayList)fieldKeys": {
-      "0": "targetFile",
+      "0": "fileName",
       "1": "keepCall",
       "2": "configKey",
       "3": "content",
@@ -37,8 +37,8 @@
     },
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
-    "naturalId": "TemplateResourceStoreCall",
+    "description": "Parses the content of a FileConfig or DirectoryConfig configuration. ",
+    "naturalId": "TemplateDirResourceCall",
     "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"

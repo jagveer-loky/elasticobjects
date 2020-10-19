@@ -79,7 +79,7 @@
   "8": {
     "fileName": "target.csv",
     "fileKey": "target.csv",
-    "filePath": "$[TMP]/elastic-objects",
+    "filePath": "=>{TMP]/elastic-objects",
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {
@@ -88,7 +88,7 @@
   "9": {
     "fileName": "target.txt",
     "fileKey": "target.txt",
-    "filePath": "$[TMP]/elastic-objects",
+    "filePath": "=>{TMP]/elastic-objects",
     "hostKey": "localhost",
     "cached": false,
     "rolePermissions": {

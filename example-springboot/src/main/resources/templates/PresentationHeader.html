@@ -2,7 +2,7 @@
 <html lang="en-US" class="js svg background-fixed">
 <head>
 
-    <title>EO $[selectedItem]</title>
+    <title>EO =>{selectedItem]</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -83,15 +83,15 @@
                     <div class="menu-main-container">
                         <ul id="top-menu" class="menu" style="width:100%">
                             <li id="menu-item-1">
-                                $[(TemplateCall). condition="prev ex"]
-                                <input value="<" type="button" onclick="document.location.href='$[(StringReplaceWhiteSpaceCall)prev targetPath="asString"/].html'" />
-                                $[/]
+                                 ===>{"(TemplateCall)." : {"condition" : "prev ex"}}.
+                                <input value="<" type="button" onclick="document.location.href=' ==>{StringReplaceWhiteSpaceCall->prev}..html'" />
+                                =>{}.
                             </li>
                             <li style="width:80%"></li>
                             <li id="menu-item-2">
-                                $[(TemplateCall). condition="next ex"]
-                                <input value=">" type="button" onclick="document.location.href='$[(StringReplaceWhiteSpaceCall)next targetPath="asString"/].html'"/>
-                                $[/]
+                                 ===>{"(TemplateCall)." : {"condition" : "next ex"}}.
+                                <input value=">" type="button" onclick="document.location.href=' ==>{StringReplaceWhiteSpaceCall->next}..html'"/>
+                                =>{}.
                             </li>
                         </ul>
                     </div>

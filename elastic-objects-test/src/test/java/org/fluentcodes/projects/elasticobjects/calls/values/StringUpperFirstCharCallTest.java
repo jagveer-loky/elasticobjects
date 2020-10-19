@@ -39,13 +39,20 @@ public class StringUpperFirstCharCallTest {
     }
     
     @Test
-    public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
+    public void call_TemplateCall_level0_test__execute__Test()  {
         EO eo = ProviderRootTestScope.createEo();
-        final String template = "^$[(ValueCall)level0 value=\"test\"/] - $[(StringUpperFirstCharCall)level0 targetPath=\"" + Call.TARGET_AS_STRING + "\"/] $";
+        final String template = "START" +
+                "===>{\"level0\":\"test\"}." +
+                " - \n" +
+                "===>{\"(StringUpperFirstCharCall).\":{" +
+                "\"sourcePath\":\"level0\", " +
+                "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
+                "}." +
+                " END";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).isEqualTo("^ - Test $");
+        Assertions.assertThat(result).isEqualTo("START - Test END");
     }
 
     @Test

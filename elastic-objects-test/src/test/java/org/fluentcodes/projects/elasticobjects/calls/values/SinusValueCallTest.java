@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserTemplate;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
@@ -47,7 +47,7 @@ public class SinusValueCallTest {
         final EO eo = ProviderRootTestScope.createEo();
         final String jsonString = "{\n" +
                 "  \"(Double)source\":1,\n" +
-                "  \"(SinusValueCall)target\": {\n" +
+                "  \"(SinusValueCall)/target\": {\n" +
                 "    \"sourcePath\": \"/source\"\n" +
                 "  }\n" +
                 "}";
@@ -77,7 +77,7 @@ public class SinusValueCallTest {
     @Ignore
     @Test
     public void givenCallSinusValue_thenInputValueIsReplaced() {
-        EO eo = TestProviderJsonCalls.CALL_SINUS_VALUE.createMapEo();
+        EO eo = TestProviderJsonCalls.CALL_SINUS_VALUE_JSON.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
         Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
@@ -152,16 +152,17 @@ public class SinusValueCallTest {
 
     @Test
     public void givenEoArrayWithSourceAndTargetFromFile_whenExecute_hasSinusValueInTarget() {
-        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY.createMapEo();
+        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_JSON.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
     }
-
+    //TODO later
+    @Ignore
     @Test
     public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
         EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapEo();
-        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_ON_TARGET_PATH.createMapEo();
+        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_ON_TARGET_PATH_JSON.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
@@ -189,7 +190,11 @@ public class SinusValueCallTest {
     @Test
     public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced()  {
         TemplateCall call = new TemplateCall();
-        call.setContent("sin($[testKey]) = $[(SinusValueCall)testKey targetPath=\"" + Call.TARGET_AS_STRING + "\"/]");
+        call.setContent("sin(=>{testKey}.) = \n" +
+                "===>{\"(SinusValueCall).\":{" +
+                "\"sourcePath\":\"testKey\", " +
+                "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
+                "}.");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.set(2, "testKey");
@@ -201,8 +206,8 @@ public class SinusValueCallTest {
 
 
     @Test
-    public void givenEoWithContentWithSinusCallPlaceholderJson_whenExecuteEo_thenPlaceHolderIsReplaced()  {
-        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY.getEo();
+    public void eo_CallSinusArrayTemplateJson__execute__3times()  {
+        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_TEMPLATE_JSON.getEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("_template")).isEqualTo(
@@ -215,7 +220,11 @@ public class SinusValueCallTest {
     public void givenEo_whenReplaceString_thenPlaceHolderIsReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(2, "value");
-        String result = new ParserTemplate("-$[(SinusValueCall)value/]-").parse(eo);
+        String result = new ParserCurlyBracket("-" +
+                " ===>{\"(SinusValueCall).\":{" +
+                "\"sourcePath\":\"value\"}" +
+                "}." +
+                "-").parse(eo);
         Assertions.assertThat(result).isEqualTo("--");
         Assertions.assertThat(eo.get("value")).isEqualTo(0); // was integer before.
     }
@@ -224,7 +233,12 @@ public class SinusValueCallTest {
     public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(2, "value");
-        String result = new ParserTemplate("-$[(SinusValueCall)value targetPath=\"" + Call.TARGET_AS_STRING + "\"/]-").parse(eo);
+        String result = new ParserCurlyBracket("-" +
+                " ===>{\"(SinusValueCall).\":{" +
+                "\"sourcePath\":\"value\", " +
+                "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
+                "}." +
+                "-").parse(eo);
         Assertions.assertThat(result).isEqualTo("-0.9092974268256817-");
         Assertions.assertThat(eo.get("value")).isEqualTo(2); // was integer before.
     }

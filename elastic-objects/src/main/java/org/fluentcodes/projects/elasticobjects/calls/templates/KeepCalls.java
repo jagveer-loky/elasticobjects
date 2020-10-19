@@ -13,9 +13,9 @@ public enum KeepCalls {
     }
 
     public String createStartDirective(final String directive) {
-        return "$[" + directive + "]" + endComment;
+        return directive + endComment;
     }
-    public String createEndDirective() {
-        return startComment + "$[/]";
+    public String getStartComment() {
+        return startComment;
     }
 }

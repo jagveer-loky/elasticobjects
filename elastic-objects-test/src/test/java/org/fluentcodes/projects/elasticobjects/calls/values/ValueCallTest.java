@@ -107,9 +107,13 @@ public class ValueCallTest {
     }
 
     @Test
-    public void givenTemplateWithValueCallJsonList_whenExecute_thenEoIsMap()  {
+    public void call_TemplateCall_level0_content__execute__level0_1()  {
         EO eo = ProviderRootTestScope.createEo();
-        final String template = "$[(ValueCall)level0][1,2]$[/]";
+        final String template = " ===>{\"(ValueCall).\":{" +
+                "\"targetPath\":\"level0\"}" +
+                "}|" +
+                "[1,2]" +
+                "=>{}.";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -119,7 +123,11 @@ public class ValueCallTest {
     @Test
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
         EO eo = ProviderRootTestScope.createEo();
-        final String template = "$[(ValueCall)level0]{\"level1\",\"test\"}$[/]";
+        final String template = " ===>{\"(ValueCall).\":{" +
+                "\"targetPath\":\"level0\"}" +
+                "}|" +
+                "{\"level1\",\"test\"}" +
+                "=>{}.";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -129,7 +137,11 @@ public class ValueCallTest {
     @Test
     public void givenTemplateWithValueCallJsonMapAndLongerPath_whenExecute_thenEoIsMap()  {
         EO eo = ProviderRootTestScope.createEo();
-        final String template = "$[(ValueCall)level0/level1/level2]{\"level3\",\"test\"}$[/]";
+        final String template = " ===>{\"(ValueCall).\":{" +
+                "\"targetPath\":\"level0/level1/level2\"}" +
+                "}|" +
+                "{\"level3\",\"test\"}" +
+                "=>{}.";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

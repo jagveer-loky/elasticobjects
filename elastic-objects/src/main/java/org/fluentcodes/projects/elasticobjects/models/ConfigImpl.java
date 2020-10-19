@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
-//$[/]
+//|{}.
 import java.util.LinkedHashMap;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
@@ -19,13 +19,13 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
  * Created by Werner on 10.10.2016.
  */
 public abstract class ConfigImpl extends BaseImpl implements Config {
- // $[(TemplateResourceCall)fieldKeys/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"]
+ //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLInstanceVars.tpl", "keepCall":"JAVA"}}|
     private final List<Scope> scope;
     private  Expose expose;
     private final Map properties;
     private final String module;
     private final String moduleScope;
-//$[/]
+//|{}.
     private final EOConfigsCache configsCache;
     private final String configModelKey;
     private boolean resolved = false;
@@ -129,7 +129,7 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         }
     }
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="ALLSetter.tpl" keepCall="JAVA"]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLSetter.tpl", "keepCall":"JAVA"}}|
     /**
      A scope for the cache value.
      */
@@ -200,5 +200,5 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         return moduleScope != null  && !moduleScope.isEmpty();
     }
 
-//$[/]
+//|{}.
 }

@@ -8,9 +8,10 @@ import org.fluentcodes.tools.xpect.IOString;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
 public enum TestProviderJsonCalls {
-    CALL_SINUS_ARRAY(PATH_INPUT + "calls/call-sinus/CallSinusArray.json"),
-    CALL_SINUS_VALUE(PATH_INPUT + "calls/call-sinus/CallSinusValue.tjson"),
-    CALL_SINUS_ARRAY_ON_TARGET_PATH(PATH_INPUT + "calls/call-sinus/CallSinusArrayOnTargetPath.tjson"),
+    CALL_SINUS_ARRAY_JSON(PATH_INPUT + "calls/call-sinus/CallSinusArray.json"),
+    CALL_SINUS_VALUE_JSON(PATH_INPUT + "calls/call-sinus/CallSinusValue.json"),
+    CALL_SINUS_ARRAY_TEMPLATE_JSON(PATH_INPUT + "calls/call-sinus/CallSinusArrayTemplate.json"),
+    CALL_SINUS_ARRAY_ON_TARGET_PATH_JSON(PATH_INPUT + "calls/call-sinus/CallSinusArrayOnTargetPath.json"),
     CONTENT_EXAMPLE_STATIC_JSON(PATH_INPUT + "calls/content-example/ContentExampleStatic.json"),
     CONTENT_EXAMPLE_DYNAMIC_JSON(PATH_INPUT + "calls/content-example/ContentExampleDynamic.json");
 

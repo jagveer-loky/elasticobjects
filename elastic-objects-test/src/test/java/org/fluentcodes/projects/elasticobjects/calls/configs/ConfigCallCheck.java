@@ -50,7 +50,7 @@ public class ConfigCallCheck {
         final EO eo = ProviderRootTestScope.createEo();
         final Call call = new ConfigCall(FieldConfig.class)
                 .setConfigFilter("length")
-                .setStartCondition("length eq eo->0/modelKey.");
+                .setStartCondition("length eq $(0/modelKey)$");
         List result = (List) call.execute(eo);
         Assertions.assertThat(result.size()).isEqualTo(1);
     }

@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -33,13 +32,35 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
         this.configKey = configKey;
         this.configType = configType;
     }
+
+    public void setByString(final String values) {
+        if (values == null||values.isEmpty()) {
+            throw new EoException("Set by empty input values");
+        }
+        String[] array = values.split(", ");
+        if (array.length>0) {
+            if (array[0].replaceAll("\\s","").isEmpty()) {
+                configType = ModelConfig.class.getSimpleName();
+            }
+            else {
+                configType = array[0];
+            }
+        }
+        if (array.length>1) {
+            configKey = array[1];
+        }
+        if (array.length>2) {
+            throw new EoException("Short form should have form '<configType>,<configKey>' with length 2 but has size " + array.length + ": '" + values + "'." );
+        }
+    }
+
     @Override
     public String execute(final EO eo) {
         super.check(eo);
         if (!hasConfigKey()) {
             throw new EoException("No key is set. Could not find value");
         }
-        this.configKey = Parser.replace(this.configKey, eo);
+        this.configKey = Parser.replacePathValues(this.configKey, eo);
         Class configClass = null;
         if (!hasConfigType() || configType.equals("ModelConfig")) {
             configClass = ModelConfig.class;
@@ -135,11 +156,6 @@ public class GithubLinkCall extends SimpleValueFromEoCall {
 
     public void setConfigKey(String configKey) {
         this.configKey = configKey;
-    }
-
-    @Override
-    public void setPathByTemplate(final Path path) {
-        this.configKey = path.getFirstEntry();
     }
 
     public Boolean isNoGithub() {

@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -47,13 +45,13 @@ public abstract class CallResource extends CallImpl {
         if (config!=null) {
             return this;
         }
-        this.configKey = Parser.replace(this.configKey, eo);
+        this.configKey = Parser.replacePathValues(this.configKey, eo);
         this.config = (Config) eo.getConfigsCache().find(getConfigClass(), getConfigKey());
         return this;
     }
 
     protected static String replace(final String value) {
-        return Parser.replace(value, (EO)null);
+        return Parser.replacePathValues(value, (EO)null);
     }
 
     public String getConfigKey() {

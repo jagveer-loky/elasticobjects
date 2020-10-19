@@ -11,7 +11,8 @@
         <p>Furthermore there is no possibility to use the <a href="TypedPath.html">typed path</a> in the java methods.
         </p>
 <p>So the JSON equivalent  similar to the method eo.set("value", "a/(AnObject)b/myString")
-    setting $[(ConfigLinkCall)AnObject /] type is:</p>
+    setting
+    ==>{ConfigLinkCall->ModelConfig, AnObject }. type is:</p>
 <textarea style="height:100px;">{
     "a": {
         "(AnObject)b": {

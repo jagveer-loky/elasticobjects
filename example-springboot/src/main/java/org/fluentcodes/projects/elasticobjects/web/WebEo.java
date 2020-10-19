@@ -16,11 +16,11 @@ import java.util.Arrays;
  * Created by werner.diwischek on 11.12.17.
  */
 
-@RestController
+//@RestController
 public class WebEo {
 
-    @Autowired
-    private EOConfigsCache configsCache;
+    //@Autowired
+    private EOConfigsCache configsCache = Start.configsCache;
 
     private static final LogLevel getLevel(final String logLevelAsString) {
         if (logLevelAsString == null || logLevelAsString.isEmpty()) {
@@ -46,13 +46,13 @@ public class WebEo {
     // https://stackoverflow.com/questions/36520314/accessing-httpsession-in-a-controlleradvice-in-a-springboot-application
     // https://stackoverflow.com/questions/49670209/can-spring-map-post-parameters-by-a-way-other-than-requestbody
 
-    @RequestMapping(value = "/eo", method = RequestMethod.POST)
+    //@RequestMapping(value = "/eo", method = RequestMethod.POST)
     public String eoPost(@RequestBody String body) {
         return eoPostForm(body, LogLevel.WARN.name());
     }
 
 
-    @RequestMapping(value = "/eo-form", method = RequestMethod.POST)
+    //@RequestMapping(value = "/eo-form", method = RequestMethod.POST)
     public String eoPostForm(
             @RequestParam(value = "eo", required = true) final String eoAsString,
             @RequestParam(value = "logLevel", required = false, defaultValue = "WARN") final String logLevelAsString
@@ -92,7 +92,7 @@ public class WebEo {
         }
     }
 
-    @RequestMapping(value = "/eo-template", method = RequestMethod.POST)
+    //@RequestMapping(value = "/eo-template", method = RequestMethod.POST)
     public String eoPostTemplate(
             @RequestParam(value = "template", required = true) final String template,
             @RequestParam(value = "logLevel", required = false, defaultValue = "WARN") final String logLevelAsString

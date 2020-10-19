@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class ExecutorCall {
             eo.warn("Already executed within " + call.getDuration() + " ms. ");
             return "Already executed within " + call.getDuration() + " ms. ";
         }
-        String sourcePathString = new ParserEoReplace(call.getSourcePath()).parse(eo);
+        String sourcePathString = new ParserSqareBracket(call.getSourcePath()).parse(eo);
         Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
         EO sourceParent = sourcePath.moveToParent(eo);
         boolean isFilter = sourcePath.isFilter();
@@ -39,6 +39,9 @@ public class ExecutorCall {
             return "";
         }
         List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
+        if (loopPaths.isEmpty()) {
+            throw new EoException("Could not find loopPaths for '" + sourcePathString + "'.");
+        }
         // get targetParent
         String targetPath;
         if (call.hasTargetPath()) {
@@ -61,6 +64,7 @@ public class ExecutorCall {
         }
         for (String entry : loopPaths) {
             EO sourceEntry = sourceParent.getEo(entry);
+
             if (isFilter) {
                 call.setTargetPath(targetPath + Path.DELIMITER + entry);
             }

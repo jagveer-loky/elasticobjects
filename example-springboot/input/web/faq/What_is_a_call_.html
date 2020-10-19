@@ -1,32 +1,33 @@
 <h3>What is a call?</h3>
   <p>A
-$[(ConfigLinkCall)Call /] is just a special pojo extending
-$[(ConfigLinkCall)CallImpl /]
+ ==>{ConfigLinkCall->ModelConfig, Call }. is just a special pojo extending
+ ==>{ConfigLinkCall->ModelConfig, CallImpl }.
 with a generic execute method with EO as input.
   </p>
 <img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
 <p>
 The attribute
-        $[(ConfigLinkCall)sourcePath configType="FieldConfig" /]
+         ==>{ConfigLinkCall->FieldConfig, sourcePath}.
         defines the location of the input value. The attribute
-        $[(ConfigLinkCall)targetPath configType="FieldConfig" /]
+         ==>{ConfigLinkCall->FieldConfig, targetPath}.
         defines the output location.
 </p>
 <p>There are two conditions to be set. The attribute
-        $[(ConfigLinkCall)startCondition configType="FieldConfig" /]
+         ==>{ConfigLinkCall->FieldConfig, startCondition}.
         is evaluated on the actual element.
 The attribute
-        $[(ConfigLinkCall)condition configType="FieldConfig" /]
+         ==>{ConfigLinkCall->FieldConfig, condition}.
         will be evaluated within
-        $[(ConfigLinkCall)sourcePath configType="FieldConfig" /] location.
+         ==>{ConfigLinkCall->FieldConfig, sourcePath}. location.
 </p>
 <p>If the attribute
-        $[(ConfigLinkCall)duration configType="FieldConfig" /]
+         ==>{ConfigLinkCall->FieldConfig, duration}.
         is set, when the call is executed.
         It's just informal. If set, it the call will not be executed.
 </p>
 <p>There are no restriction, what could be implemented in an execution method.
-        There are some really simple examples like the $[(ConfigLinkCall)SinusValueCall /].</p>
+        There are some really simple examples like the
+    ==>{ConfigLinkCall->ModelConfig, SinusValueCall }..</p>
 <p>The call works in a java application context when implemented.
         If a model configuration is defined, then the call can also be executed from a EO execute method.
 </p>
