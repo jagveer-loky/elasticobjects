@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-//|{}.
+//=>{}.
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
@@ -20,7 +20,7 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
 public abstract class CallImpl extends BaseImpl implements Call {
 
     //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLStaticNames.tpl", "keepCall":"JAVA"}}|
-//|{}.
+//=>{}.
 
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLInstanceVars.tpl", "keepCall":"JAVA"}}|
     private String sourcePath;
@@ -33,7 +33,7 @@ public abstract class CallImpl extends BaseImpl implements Call {
     private Long duration;
     private String prepend;
     private String postpend;
-//|{}.
+//=>{}.
 
     public CallImpl() {
         prepend = "";
@@ -325,5 +325,5 @@ public abstract class CallImpl extends BaseImpl implements Call {
         return postpend != null  && !postpend.isEmpty();
     }
 
-//|{}.
+//=>{}.
 }

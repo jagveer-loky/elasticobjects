@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
-//|{}.
+//=>{}.
 import java.util.LinkedHashMap;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
@@ -25,7 +25,7 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
     private final Map properties;
     private final String module;
     private final String moduleScope;
-//|{}.
+//=>{}.
     private final EOConfigsCache configsCache;
     private final String configModelKey;
     private boolean resolved = false;
@@ -200,5 +200,5 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         return moduleScope != null  && !moduleScope.isEmpty();
     }
 
-//|{}.
+//=>{}.
 }

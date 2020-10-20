@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-//|{}.
+//=>{}.
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 
@@ -24,7 +24,7 @@ public interface Call   {
     static final String POSTPEND = "postpend";
 
 
-//|{}.
+//=>{}.
 
     default void initTargetPath(final Path targetPathFromCallPath) {
         if (!hasTargetPath()) {
@@ -109,5 +109,5 @@ public interface Call   {
     Call setPostpend (String postpend);
     boolean hasPostpend();
 
-//|{}.
+//=>{}.
 }

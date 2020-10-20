@@ -37,7 +37,6 @@ public class TemplateCall extends CallImpl {
     public boolean hasContent() {
         return content != null && !content.isEmpty();
     }
-
     public boolean isContentActive() {
         return hasContent() && ParserCurlyBracket.containsStartSequence(content);
     }

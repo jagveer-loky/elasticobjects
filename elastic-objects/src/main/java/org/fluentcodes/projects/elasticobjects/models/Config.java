@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
-//|{}.
+//=>{}.
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 
 /**
@@ -19,7 +19,7 @@ public interface Config extends PropertiesConfigAccessor, Base {
     String PROPERTIES = "properties";
     String MODULE = "module";
     String MODULE_SCOPE = "moduleScope";
-//|{}.
+//=>{}.
 
     void resolve() ;
     String getKey();
@@ -60,6 +60,6 @@ public interface Config extends PropertiesConfigAccessor, Base {
     String getModuleScope();
     boolean hasModuleScope();
 
-//|{}.
+//=>{}.
 
 }
