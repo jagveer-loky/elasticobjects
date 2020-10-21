@@ -86,6 +86,7 @@ public interface EO {
 
     boolean execute();
 
+    List<String> getLogList();
     String getLog();
     LogLevel getLogLevel();
     EO setLogLevel(LogLevel logLevel);

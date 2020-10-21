@@ -40,6 +40,7 @@ public abstract class CallImpl extends BaseImpl implements Call {
         postpend = "";
     }
 
+    @Override
     public void setByString(final String values) {
         if (values == null||values.isEmpty()) {
             throw new EoException("Set by empty input values");

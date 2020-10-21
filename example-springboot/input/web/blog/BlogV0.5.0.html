@@ -27,9 +27,9 @@
 <p>To resolve the problem I use now an directory approach with two generic calls:
     <ul>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, DirectoryListReadCall", "configType":"ModelConfig"}. creates a list of files in a directory.</li>
+        ==>{ConfigLinkCall->ModelConfig, DirectoryListReadCall}. creates a list of files in a directory.</li>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, DirectoryMapReadCall", "configType":"ModelConfig"}. create a link text from the file name by removing underscores or file ending.
+        ==>{ConfigLinkCall->ModelConfig, DirectoryMapReadCall}. create a link text from the file name by removing underscores or file ending.
     </ul>
     </p>.
 <p>These two generic calls are the base for creating the navigation files like
@@ -75,49 +75,49 @@
 
 <h6>Creation code</h6>
 <p>The builder contains two create calls extending the super class
-    ==>{GithubLinkCall->NONE, B|calls.generate|GenerateCall.java }.:
+    ==>{GithubLinkCall->NONE, B|calls.generate|GenerateCall.java}.:
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, B|calls.generate|GenerateJavaCall.java }. create json configuration files</li>
+ ==>{GithubLinkCall->NONE, B|calls.generate|GenerateJavaCall.java}. create json configuration files</li>
     <li>
- ==>{GithubLinkCall->NONE, B|calls.generate|GenerateJsonConfigCall.java }. create java files</li>
+ ==>{GithubLinkCall->NONE, B|calls.generate|GenerateJsonConfigCall.java}. create java files</li>
 </ul>
 </p>
 <p>
     These calls prepare the raw values loaded from
- ==>{GithubLinkCall->NONE, BR||eo.xls }. with
+ ==>{GithubLinkCall->NONE, BR||eo.xls}. with
     some special values needed by the templates.
- ==>{GithubLinkCall->NONE, B|calls.configs|JavaCreateCall.java }.
+ ==>{GithubLinkCall->NONE, B|calls.configs|JavaCreateCall.java}.
     for example set values in fields for <i>final</i> or <i>overwrite</i>.
 </p>
 <p>To trigger the creation there is a main generic builder with param class which will use the key for the
 control template to select the type of generation process.
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, B||Builder.java }.</li>
+ ==>{GithubLinkCall->NONE, B||Builder.java}.</li>
     <li>
- ==>{GithubLinkCall->NONE, B||BuilderParams.java }.</li>
+ ==>{GithubLinkCall->NONE, B||BuilderParams.java}.</li>
 </ul>
 </p>
 <p>Two control templates are use for preload the data in different tree structure before the call will be executed:
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|JavaBuilder.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.java|JavaBuilder.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.json|JsonBuilder.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.json|JsonBuilder.tpl}.</li>
 </ul>
 </p>
 <p>There are two test for the control templates
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, BT|calls.generate|GenerateJavaCallTest.java }. create java files</li>
+ ==>{GithubLinkCall->NONE, BT|calls.generate|GenerateJavaCallTest.java}. create java files</li>
     <li>
- ==>{GithubLinkCall->NONE, BT|calls.generate|GenerateJsonConfigCallTest.java }. create json configuration files</li>
+ ==>{GithubLinkCall->NONE, BT|calls.generate|GenerateJsonConfigCallTest.java}. create json configuration files</li>
 </ul>
 </p>
 <p>The json creation part just use the sorting logic when loading
 
- ==>{GithubLinkCall->NONE, BR||eo.xlsx }.. </p>
+ ==>{GithubLinkCall->NONE, BR||eo.xlsx}.. </p>
 
 
 <h6>Java Templates</h6>
@@ -125,21 +125,21 @@ control template to select the type of generation process.
 There are tree templates provided:
     <ul>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java.bean|BEANCreate.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.java.bean|BEANCreate.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java.config|CONFIGCreate.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.java.config|CONFIGCreate.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java.interface|INTERFACECreate.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.java.interface|INTERFACECreate.tpl}.</li>
 </ul>
 </p>
 <p>
     There are some common parts:
     <ul>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|ALLImport.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.java|ALLImport.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|ALLInstanceVars.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.java|ALLInstanceVars.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|ALLSetter.tpl }.</li>
+ ==>{GithubLinkCall->NONE, BR|templates.java|ALLSetter.tpl}.</li>
 </ul>
 </p>

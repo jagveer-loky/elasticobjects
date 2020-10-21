@@ -37,6 +37,33 @@ public class ConfigOpenApiCall extends CallImpl {
         this.configFilter = configFilter;
     }
 
+    public void setByString(final String values) {
+        if (values == null||values.isEmpty()) {
+            throw new EoException("Set by empty input values");
+        }
+        String[] array = values.split(", ");
+        if (array.length>4) {
+            throw new EoException("Short form should have form '<configType>[,<naturalId>][,<expose>][,<targetPath>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+        }
+        setByString(array);
+    }
+
+    protected void setByString(final String[] array) {
+        if (array == null||array.length == 0) {
+            throw new EoException("Set by empty input values");
+        }
+        if (array.length>0) {
+            setConfigFilter(array[0]);
+        }
+        if (array.length>1) {
+            setTargetPath(array[1]);
+        }
+        if (array.length>2) {
+            setExpose(Expose.valueOf(array[2]));
+        }
+
+    }
+
     public boolean hasFilterModule() {
         return filterModule != null && !filterModule.isEmpty();
     }

@@ -1,36 +1,36 @@
- ==>{TemplateDirResourceCall-> configKey="WEB"  fileName="Header.html"}.
+ ==>{TemplateDirResourceCall->WEB, Header.html}.
 <header class="entry-header">
         <div id="rootNav">
-             ==>{TemplateResourceCall-> =>[/contentDirectory]._Nav.html"}.
+             ==>{TemplateResourceCall-> =>[/contentDirectory]._Nav.html}.
         </div>
     </header>
     <div class="entry-content" id="entry-content">
-         ==>{TemplateDirResourceCall-> =>[/contentDirectory]. ,  =>[selectedItem]. }.
+         ==>{TemplateDirResourceCall-> =>[/contentDirectory]., =>[selectedItem].}.
      </div>
 <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
-    <h5>This Page Elements</h5>
+    <h5><a href="/faq/ApplicationsElasticObjectsOrg.html">This Page</a> Elements</h5>
     <table>
         <tr><td>Get Method:</td><td>
-            ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java }.</td></tr>
+            ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}.</td></tr>
         <tr><td>Post Method:</td><td>
- ==>{GithubLinkCall->NONE, SP|web|WebEo.java }.</td></tr>
+ ==>{GithubLinkCall->NONE, SP|web|WebEo.java}.</td></tr>
         <tr><td>Page-Template:</td><td>
             ==>{ConfigLinkCall->FileConfig, ContentPage.html}.</td></tr>
         <tr><td>Header:</td><td>
- ==>{GithubLinkCall->NONE, SPI|web|Header.html }.</td></tr>
-        <tr><td>Content-Directory:</td><td><a href="/config/FileConfig/=>{contentDirectory]">&ocir;=>{contentDirectory]</a></td></tr>
+ ==>{GithubLinkCall->NONE, SPI|web|Header.html}.</td></tr>
+        <tr><td>Content-Directory:</td><td><a href="/config/FileConfig/=>{contentDirectory}.">&ocir;=>{contentDirectory}.</a></td></tr>
         <tr><td>Navigation:</td><td>
             ==>{ConfigLinkCall->FileConfig, =>[contentDirectory]._Nav.html}.</td></tr>
         <tr><td>Content:</td><td>
- ==>{GithubLinkCall->NONE, SPI|web.=>[contentDirectory].|=>(selectedItem).}.</td></tr>
+ ==>{GithubLinkCall->NONE, SPI|web.=>[contentDirectory].|=>[selectedItem].}.</td></tr>
         <tr><td>Footer:</td><td>
- ==>{GithubLinkCall->NONE, SPI|web|Footer.html }.</td></tr>
+ ==>{GithubLinkCall->NONE, SPI|web|Footer.html}.</td></tr>
         <tr><td colspan="2">Postversion of this page:
             <form action="/eo-form" method="post" target="example">
                         <textarea name="eo" style="height:120px;">{
    "asTemplate":true,
-   "selectedItem": "=>{selectedItem]",
-   "contentDirectory":"=>{contentDirectory]",
+   "selectedItem": "=>{selectedItem}.",
+   "contentDirectory":"=>{contentDirectory}.",
    "(TemplateResourceCall)call": {
         "configKey":"ContentPage.html"
    }

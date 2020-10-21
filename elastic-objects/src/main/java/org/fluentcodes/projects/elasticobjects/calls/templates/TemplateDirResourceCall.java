@@ -7,18 +7,20 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /**
- * Created by werner.diwischek on 26.08.20.
+ * Created by werner.diwischek on 10.10.20.
  */
 public class TemplateDirResourceCall extends TemplateResourceCall {
     private String fileName;
     public TemplateDirResourceCall() {
         super();
     }
-
-    public TemplateDirResourceCall(String configKey) {
+    public TemplateDirResourceCall(final String configKey) {
         super(configKey);
     }
-
+    public TemplateDirResourceCall(final String configKey, final String fileName) {
+        super(configKey);
+        this.fileName = fileName;
+    }
     @Override
     public void setByString(final String values) {
         if (values == null||values.isEmpty()) {
@@ -68,10 +70,11 @@ public class TemplateDirResourceCall extends TemplateResourceCall {
         }// directory config
 
         final String fileName = Parser.replacePathValues(getFileName(),eo);
-        super.setContent(new DirectoryReadCall(configKey)
+        String result = new TemplateCall(new DirectoryReadCall(configKey)
                 .setFileName(fileName)
-                .execute(eo));
-        return super.execute(eo);
+                .execute(eo))
+        .execute(eo);
+        return result;
     }
 
     public boolean hasFileName() {

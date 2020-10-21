@@ -7,11 +7,11 @@ config calls are created.</p>
 
  <ul>
      <li>
-         ==>{ConfigLinkCall->ModelConfig, ConfigTypesCall }.: Lists the keys of available configuration types</li>
+         ==>{ConfigLinkCall->ModelConfig, ConfigTypesCall}.: Lists the keys of available configuration types</li>
      <li>
-         ==>{ConfigLinkCall->ModelConfig, ConfigKeysCall }.: Lists all naturalIds for a given "configType" matching "configFilter"</li>
+         ==>{ConfigLinkCall->ModelConfig, ConfigKeysCall}.: Lists all naturalIds for a given "configType" matching "configFilter"</li>
      <li>
-         ==>{ConfigLinkCall->ModelConfig, ConfigCall }.: Lists complete configurations for a given "configType" matching "configFilter"</li>
+         ==>{ConfigLinkCall->ModelConfig, ConfigCall}.: Lists complete configurations for a given "configType" matching "configFilter"</li>
 
  </ul>
 <p> Since these calls just deliver loaded configurations from the configuration cache, no other informations like permission restriction
@@ -24,10 +24,12 @@ config calls are created.</p>
 
  <h4>ConfigKeysCall</h4>
 <p>
-    ConfigKeysCall returns the "naturalId" of matching configurations.
+    ==>{ConfigLinkCall->ModelConfig, ConfigKeysCall}. returns the "naturalId" of matching configurations.
 </p>
  <p>
- In the following example all ModelConfig keys will be listed matching "Config.*Call".
+ In the following example all ModelConfig keys will be listed matching
+     ==>{ConfigLinkCall->FieldConfig, configFilter}.
+     "Config.*Call".
  </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -40,15 +42,18 @@ config calls are created.</p>
     <input type="submit" value="post"/>
 </form>
  <p>
-"configType" must be set with a existing configuration class.
+     ==>{ConfigLinkCall->FieldConfig, ConfigType}. must be set with a existing configuration class.
 </p>
 
 <h4>ConfigCall</h4>
 <p>
-    ConfigCall returns the complete configurations.
+    ==>{ConfigLinkCall->ModelConfig, ConfigCall}. returns the complete configurations.
 </p>
 <p>
-    In the following example all ModelConfig configurations will be listed matching "Config.*Call".
+    In the following example all ModelConfig configurations will be listed
+    matching the
+    ==>{ConfigLinkCall->FieldConfig, configFilter}.
+    "Config.*Call".
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -65,7 +70,8 @@ config calls are created.</p>
 
 <h4>ConfigTypesCall</h4>
 <p>
-    In the following example all ConfigType keys will be listed.
+    With
+    ==>{ConfigLinkCall->ModelConfig, ConfigTypesCall}. all available configType keys will be listed.
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{

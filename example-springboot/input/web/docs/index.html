@@ -135,16 +135,16 @@ If you remove the "asTemplate" value the result will be the JSON returned from t
 <h1>An Example Template</h1>
 
 <h2>CSV</h2>
-&#36;[(CsvSimpleReadCall)data/csv configKey="AnObject.csv" }.
-&#36;[(TemplateResourceCall)data/csv configKey="table.tpl" }.
+&#36;[(CsvSimpleReadCall)data/csv configKey="AnObject.csv"}.
+&#36;[(TemplateResourceCall)data/csv configKey="table.tpl"}.
 
 <h2>Excel</h2>
-&#36;[(XlsxReadCall)data/xlsx configKey="AnObject.xlsx:test" }.
-&#36;[(TemplateResourceCall)data/xlsx configKey="table.tpl" }.
+&#36;[(XlsxReadCall)data/xlsx configKey="AnObject.xlsx:test"}.
+&#36;[(TemplateResourceCall)data/xlsx configKey="table.tpl"}.
 
 <h2>DB</h2>
-&#36;[(DbQueryCall)data/db configKey="h2:mem:basic:AnObject" }.
-&#36;[(TemplateResourceCall)data/db configKey="table.tpl" }.
+&#36;[(DbQueryCall)data/db configKey="h2:mem:basic:AnObject"}.
+&#36;[(TemplateResourceCall)data/db configKey="table.tpl"}.
 </textarea>
     <input type="submit" value="post"/>
 </form>
@@ -155,7 +155,7 @@ If you remove the "asTemplate" value the result will be the JSON returned from t
     calls.</p>
 
 <p>Some like
-    ==>{ConfigLinkCall->ModelConfig, ConfigLinkCall}. are special for this web site,
+    = =>{ConfigLinkCall->ModelConfig, ConfigLinkCall}. are special for this web site,
     which is a demo by itself.</p>
 
 <p>Another demo is

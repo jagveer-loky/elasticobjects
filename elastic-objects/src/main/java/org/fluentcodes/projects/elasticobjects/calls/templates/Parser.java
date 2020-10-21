@@ -186,7 +186,7 @@ public abstract class Parser {
                     defaultValue = ScalarConverter.toString(eo.get(pathOrKey));
                 } catch (Exception e) {
                     if (defaultValue == null) {
-                        eo.debug(e.getMessage());
+                        eo.error(e.getMessage());
                         defaultValue = "!!" + e.getMessage() + "!!";
                     }
                 }
@@ -314,7 +314,7 @@ public abstract class Parser {
     }
 
     public boolean isCloseSequence(final String toParse) {
-        return toParse != null && !toParse.isEmpty() && toParse.equals(getCloseSequence());
+        return toParse != null && !toParse.isEmpty() && toParse.endsWith(getCloseSequence());
     }
 
     protected String getCloseSequence() {
