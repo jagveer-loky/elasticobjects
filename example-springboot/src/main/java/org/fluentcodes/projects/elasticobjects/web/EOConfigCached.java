@@ -10,20 +10,19 @@ import org.springframework.context.annotation.Configuration;
  * Created by werner.diwischek on 11.12.17.
  */
 
-//@Configuration
+@Configuration
 public class EOConfigCached {
-    /**
     @Value("${elasticobjects.scope:QS}")
     String scope;
-*/
+
     /**
      * Initialize the configs cache object with the json config files in the classpath.
      * @return An initaliazed ConfigsCache object
      * @throws Exception on misconfiguration of the json config files in the classpath.
      */
-    /*@Bean
+    @Bean
     public EOConfigsCache createProvider() throws Exception {
         EOConfigsCache provider = new EOConfigsCache(Scope.valueOf(scope), true);
         return provider;
-    }*/
+    }
 }

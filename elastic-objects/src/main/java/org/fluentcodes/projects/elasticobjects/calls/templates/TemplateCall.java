@@ -3,8 +3,9 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 /**
@@ -22,6 +23,35 @@ public class TemplateCall extends CallImpl {
     public TemplateCall(final String content) {
         this();
         this.content = content;
+    }
+
+    @Override
+    public void setByString(final String values) {
+        if (values == null||values.isEmpty()) {
+            throw new EoException("Set by empty input values");
+        }
+        String[] array = values.split(", ");
+        if (array.length>3) {
+            throw new EoException("Short form should have form '<sourcePath>[,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+        }
+        setByString(array);
+    }
+
+    protected void setByString(final String[] array) {
+        if (array == null||array.length == 0) {
+            throw new EoException("Set by empty input values");
+        }
+        if (array.length>0) {
+            if (array[0].replaceAll("\\s","").isEmpty()) {
+                setSourcePath(PathElement.SAME);
+            }
+            else {
+                setSourcePath(array[0]);
+            }
+        }
+        if (array.length>1) {
+            setCondition(array[1]);
+        }
     }
 
 

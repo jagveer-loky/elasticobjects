@@ -40,7 +40,7 @@ public class ExecutorCall {
         }
         List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
         if (loopPaths.isEmpty()) {
-            throw new EoException("Could not find loopPaths for '" + sourcePathString + "'.");
+            throw new EoException("Could not find loopPaths in '" + call.getClass().getSimpleName() + "' for '" + sourcePathString + "' in '" + eo.getPathAsString() + ".");
         }
         // get targetParent
         String targetPath;
@@ -74,12 +74,16 @@ public class ExecutorCall {
             try {
                 templateResult.append(call.execute(sourceEntry));
             }
-            catch(EoException e) {
-                eo.error(e.getMessage());
-                if (call.isTargetAsString()) {
-                    templateResult.append(e.getMessage());
+            catch (EoException e) {
+                StringBuilder message = new StringBuilder("In '" + call.getClass().getSimpleName() + "' ");
+                if (call instanceof CallResource) {
+                    message.append(" and configKey '"+ ((CallResource)call).getConfigKey() + "");
                 }
-                throw e;
+                message.append(": " + e.getMessage());
+                if (call.isTargetAsString()) {
+                    templateResult.append(message);
+                }
+                throw new EoException( message.toString());
             }
         }
         templateResult.append(call.getPostpend());
@@ -100,24 +104,24 @@ public class ExecutorCall {
         StringBuilder stringResult = new StringBuilder();
         int counter = 0;
         for (String key : eo.getCallKeys()) {
+            long startTime = System.currentTimeMillis();
+            EO callEo = eo.getCallEo(key);
+            if (callEo == null) {
+                continue;
+            }
+            Call call =  (Call)callEo.get();
             try {
-                long startTime = System.currentTimeMillis();
-                EO callEo = eo.getCallEo(key);
-                if (callEo == null) {
-                    continue;
-                }
-                Call call =  (Call)callEo.get();
                 stringResult.append(execute(eo, call));
                 Long duration = System.currentTimeMillis() - startTime;
                 call.setDuration(duration);
                 callEo.set(duration, DURATION);
             } catch (Exception e) {
-                eo.error("Problem executing call for " + counter + ": " + e.getMessage());
+                eo.error("Problem executing call '" + call.getClass().getSimpleName() + "' for " + counter + ": " + e.getMessage());
             }
             counter++;
         }
         if (stringResult.length()>0) {
-            eo.set(stringResult.toString(), "_template");
+            eo.set(stringResult.toString(), PathElement.TEMPLATE);
         }
         return stringResult.toString();
     }

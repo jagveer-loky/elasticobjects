@@ -4,10 +4,12 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbQueryCall;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbSqlCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -73,11 +75,13 @@ public class DbTest {
                 "   \"(DbQueryCall)xyz\":{\n" +
                 "       \"configKey\":\"h2:mem:basic:AnObject\"\n" +
                 "   },\n" +
-                "   \"(TemplateResourceCall)_asTemplate\":{\"configKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
+                "   \"(TemplateResourceCall).\":{\"configKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
                 "   \"asTemplate\":true\n" +
                 "}");
         eo.execute();
+        Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo("xyz").size()).isEqualTo(3);
+        new XpectString().compareAsString((String) eo.get(PathElement.TEMPLATE));
     }
 
     @Test

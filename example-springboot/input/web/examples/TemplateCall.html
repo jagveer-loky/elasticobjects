@@ -1,9 +1,18 @@
 <h3>Template Calls</h3>
 <p>Templates are just files with special placeholders, which could be parsed. </p>
+<p>
+    Basically a template will parsed for three types of pattern:
+
+</p>
+<ul>
+    <li><b>===&gt;{JSON_CONTENT}.</b>: Any combination of json.</li>
+    <li><b>==&gt;{CALL->VAR1, VAR2, .. VARN}.</b>: Will generate one call and execute it. The paramerters are dependent of the type of call</li>
+    <li><b>=&gt{PATH}</b>: The variable of the path will included.</li>
+</ul>
 <h5>A Combined Template</h5>
 <p>
 The following example sends directly a template string to the "eo-template" endpoint at
-     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}.:
+     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. :
 </p>
 <p>
 <form action="/eo-template" method="post" target="example">
@@ -11,16 +20,16 @@ The following example sends directly a template string to the "eo-template" endp
 <h1>An Example Template</h1>
 
 <h2>CSV</h2>
-&#36;[(CsvSimpleReadCall)data/csv configKey="AnObject.csv" }.
-&#36;[(TemplateResourceCall)data/csv configKey="table.tpl" }.
+==&gt;{CsvSimpleReadCall->AnObject.csv, data/csv}.
+==&gt;{TemplateResourceCall->table.tpl, data/csv}.
 
 <h2>Excel</h2>
-&#36;[(XlsxReadCall)data/xlsx configKey="AnObject.xlsx:test" }.
-&#36;[(TemplateResourceCall)data/xlsx configKey="table.tpl" }.
+==&gt;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+==&gt;{TemplateResourceCall->table.tpl, data/xlsx}.
 
 <h2>DB</h2>
-&#36;[(DbQueryCall)data/db configKey="h2:mem:basic:AnObject" }.
-&#36;[(TemplateResourceCall)data/db configKey="table.tpl" }.
+==&gt;{DbQueryCall->h2:mem:basic:AnObject, data/db}.
+==&gt;{TemplateResourceCall->table.tpl, data/db}.
 </textarea>
     <input type="submit" value="post"/>
 </form>
@@ -36,7 +45,7 @@ The following example sends directly a template string to the "eo-template" endp
             <textarea name="eo" style="height:210px">{
    "selectedItem": "TemplateCall.html",
    "(TemplateCall)call": {
-      "content":"A simple call accessing '=>{selectedItem]' "
+      "content":"A simple call accessing '=&gt;{selectedItem}.' "
    },
    "asTemplate":true
 }</textarea>
@@ -53,9 +62,9 @@ The following example sends directly a template string to the "eo-template" endp
             <textarea name="eo" style="height:210px">{
    "selectedItem": "TemplateCall.html",
    "(TemplateCall)call": {
-      "content":"Content of public.txt: ' ==>{FileReadCall->public.txt}. '  -- Content of secret.txt: ' ==>{FileReadCall->secret.txt}. ' "
-   },
-   "asTemplate":true
+
+      "content":"Content of public.txt: ' ==&gt;{FileReadCall->public.txt, public}. '  -- Content of secret.txt: ' ==&gt;{FileReadCall->secret.txt, secret}. ' "
+   }
 }</textarea>
     <input type="submit" value="post"/>
 </form>

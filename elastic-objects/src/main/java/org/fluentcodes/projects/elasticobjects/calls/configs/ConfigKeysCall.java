@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -39,6 +40,35 @@ public class ConfigKeysCall extends CallImpl{
     public ConfigKeysCall(final Class<? extends Config> configClass, final String configFilter) {
         this(configClass);
         this.configFilter = configFilter;
+    }
+
+    public void setByString(final String values) {
+        if (values == null||values.isEmpty()) {
+            throw new EoException("Set by empty input values");
+        }
+        String[] array = values.split(", ");
+        if (array.length>4) {
+            throw new EoException("Short form should have form '<configType>[,<naturalId>][,<expose>][,<targetPath>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+        }
+        setByString(array);
+    }
+
+    protected void setByString(final String[] array) {
+        if (array == null||array.length == 0) {
+            throw new EoException("Set by empty input values");
+        }
+        if (array.length>0) {
+            setConfigType(array[0]);
+        }
+        if (array.length>1) {
+            setConfigFilter(array[1]);
+        }
+        if (array.length>2) {
+            setExpose(Expose.valueOf(array[2]));
+        }
+        if (array.length>3) {
+            setTargetPath(array[3]);
+        }
     }
 
     @Override

@@ -16,11 +16,11 @@ import java.util.Arrays;
  * Created by werner.diwischek on 11.12.17.
  */
 
-//@RestController
+@RestController
 public class WebEo {
 
-    //@Autowired
-    private EOConfigsCache configsCache = Start.configsCache;
+    @Autowired
+    private EOConfigsCache configsCache;
 
     private static final LogLevel getLevel(final String logLevelAsString) {
         if (logLevelAsString == null || logLevelAsString.isEmpty()) {
@@ -34,25 +34,25 @@ public class WebEo {
     }
 
     protected static final String[] getRoles() {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        /**HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
         if (session.getAttribute("roles") != null) {
             return (String[]) session.getAttribute("roles");
-        }
+        }*/
         String[] roles = new String[]{"guest"};
-        session.setAttribute("roles", roles);
+        //session.setAttribute("roles", roles);
         return roles;
     }
     // https://stackoverflow.com/questions/36520314/accessing-httpsession-in-a-controlleradvice-in-a-springboot-application
     // https://stackoverflow.com/questions/49670209/can-spring-map-post-parameters-by-a-way-other-than-requestbody
 
-    //@RequestMapping(value = "/eo", method = RequestMethod.POST)
+    @RequestMapping(value = "/eo", method = RequestMethod.POST)
     public String eoPost(@RequestBody String body) {
         return eoPostForm(body, LogLevel.WARN.name());
     }
 
 
-    //@RequestMapping(value = "/eo-form", method = RequestMethod.POST)
+    @RequestMapping(value = "/eo-form", method = RequestMethod.POST)
     public String eoPostForm(
             @RequestParam(value = "eo", required = true) final String eoAsString,
             @RequestParam(value = "logLevel", required = false, defaultValue = "WARN") final String logLevelAsString
@@ -75,9 +75,12 @@ public class WebEo {
             eo.setRoles(Arrays.asList(roles));
             try {
                 eo.execute();
+                if (!eo.getLogList().isEmpty()) {
+                    return "Error occured: " + eo.getLog();
+                }
             }
             catch (Exception e) {
-                return e.getMessage();
+                return "Exception occured: " + e.getMessage();
             }
             eo.debug("'/eo-form' is executed ");
             if (((EoChild)eo).hasEo("asTemplate")) {
@@ -92,7 +95,7 @@ public class WebEo {
         }
     }
 
-    //@RequestMapping(value = "/eo-template", method = RequestMethod.POST)
+    @RequestMapping(value = "/eo-template", method = RequestMethod.POST)
     public String eoPostTemplate(
             @RequestParam(value = "template", required = true) final String template,
             @RequestParam(value = "logLevel", required = false, defaultValue = "WARN") final String logLevelAsString
@@ -114,12 +117,15 @@ public class WebEo {
             eo.setRoles(Arrays.asList(roles));
             try {
                 eo.execute();
+                if (!eo.getLogList().isEmpty()) {
+                    return "Error occured: " + eo.getLog();
+                }
             }
             catch (Exception e) {
-                return e.getMessage();
+                return "Exception occured: " + e.getMessage();
             }
             TemplateCall call = new TemplateCall();
-            call.setContent(template.replaceAll("&#36;", "$"));
+            call.setContent(template.replaceAll("&gt;", ">"));
             String result = call.execute(eo);
             eo.debug("'/eo-template' is executed ");
             return result;

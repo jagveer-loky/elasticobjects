@@ -1,6 +1,6 @@
 <h3>Excel Calls</h3>
 <p>With the
-    ==>{ConfigLinkCall->ModelConfig, XlsxReadCall }. one can read Excel files.
+    ==>{ConfigLinkCall->ModelConfig, XlsxReadCall}. one can read Excel files.
  </p>
 <p>In the following examples the
     file
@@ -9,15 +9,16 @@
 </p>
 <h5>The result in a table</h5>
  ==>{XlsxReadCall->AnObject.xlsx:test, xyz}.
- ==>{"(TemplateResourceCall)table.tpl, xyz }.
+ ==>{TemplateResourceCall->table.tpl, xyz}.
 
-The table that you see beforehand is created by the following template sequence within the
+The table that you see beforehand is created by the following template sequence with
+ ==>{ConfigLinkCall->FileConfig, table.tpl}. within the
  ==>{GithubLinkCall->NONE, SPI|web.examples|ExcelCall.html}. content:
-<textarea>&#36;[(XlsxReadCall)xyz configKey="AnObject.xlsx:test" }.
-&#36;[(TemplateResourceCall)xyz configKey="table.tpl" }.
+<textarea>==&gt;{XlsxReadCall->AnObject.xlsx:test, xyz}.
+==&gt;{TemplateResourceCall->table.tpl, xyz}.
 </textarea>
 In the <a href="#post4">last example</a> you can see the post version of these calls.
- ==>{ConfigLinkCall->ModelConfig, AnObject }. is a test class.
+ ==>{ConfigLinkCall->ModelConfig, AnObject}. is a test class.
 
 <h5>Simple Call</h5>
 <p>
@@ -60,7 +61,7 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 <h5>Mapping to Class</h5>
 <p>
     In the following example will map the values to
-    ==>{ConfigLinkCall->ModelConfig, AnObject }..
+    ==>{ConfigLinkCall->ModelConfig, AnObject}..
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{

@@ -610,15 +610,19 @@ public class EoChild implements EO {
     }
 
     @Override
+    public List<String> getLogList() {
+        if (!hasEo(PathElement.LOGS)) {
+            return new ArrayList<>();
+        }
+        return (List<String>)getLogEo().get();
+     }
+
+    @Override
     public String getLog() {
         if (!hasEo(PathElement.LOGS)) {
             return "";
         }
-        List<String> logs = (List<String>)getLogEo().get();
-        if (logs == null|| logs.isEmpty()) {
-            return "";
-        }
-        return logs.stream().collect(Collectors.joining("\n"));
+        return getLogList().stream().collect(Collectors.joining("\n"));
     }
 
 
