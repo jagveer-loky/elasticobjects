@@ -15,8 +15,10 @@
  </p>
 
  <ul>
-     <li>$[(ConfigLinkCall)list.json configType="FileConfig" /]</li>
-     <li>$[(ConfigLinkCall)map.json configType="FileConfig" /]</li>
+     <li>
+         ==>{ConfigLinkCall->FileConfig, list.json}.</li>
+     <li>
+         ==>{ConfigLinkCall->FileConfig, map.json}.</li>
  </ul>
 
 
@@ -34,7 +36,8 @@
     <input type="submit" value="post"/>
 </form>
  <p>
-If you click, you will see the values of $[(ConfigLinkCall)map.json configType="FileConfig" /] is set to "x/y/z" since
+If you click, you will see the values of
+     ==>{ConfigLinkCall->FileConfig, map.json}. is set to "x/y/z" since
      your role "guest" with the generic interface is in the read permissions.
  </p>
 <p>

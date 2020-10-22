@@ -6,13 +6,15 @@
 
 <p>
     All Files named
-    $[(GithubLinkCall)SPR||FileConfig.json configType="NONE" /]
+     ==>{GithubLinkCall->NONE, SPR||FileConfig.json}.
     will be loaded from the classpath into the configuration cache
-    $[(GithubLinkCall)EO|models|EOConfigsCache.java configType="NONE" /].
+
+ ==>{GithubLinkCall->NONE, EO|models|EOConfigsCache.java}..
 </p>
 
 <p>In the spring boot example
-    this is initialized by $[(GithubLinkCall)SP|web|EOConfigCached.java configType="NONE" /].
+    this is initialized by
+ ==>{GithubLinkCall->NONE, SP|web|EOConfigCached.java}..
 </p>
 
 <p>
@@ -20,17 +22,26 @@
 </p>
 
 <ul>
-    <li>$[(GithubLinkCall)FileConfig /]</li>
-    <li>$[(GithubLinkCall)CsvConfig /]</li>
-    <li>$[(GithubLinkCall)XlsxConfig /]</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, FileConfig}.</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, CsvConfig}.</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, XlsxConfig}.</li>
 </ul>
 
 <p>The configuration methods will be used by the different file calls. </p>
 <ul>
-    <li>$[(GithubLinkCall)FileReadCall /]</li>
-    <li>$[(GithubLinkCall)FileWriteCall /]</li>
-    <li>$[(GithubLinkCall)CsvSimpleReadCall /]</li>
-    <li>$[(GithubLinkCall)JsonReadCall /]</li>
-    <li>$[(GithubLinkCall)TemplateResourceCall /]</li>
-    <li>$[(GithubLinkCall)XlsxReadCall /]</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, FileReadCall}.</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, FileWriteCall}.</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, CsvSimpleReadCall}.</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, JsonReadCall}.</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, TemplateResourceCall}.</li>
+    <li>
+ ==>{GithubLinkCall->ModelConfig, XlsxReadCall}.</li>
 </ul>

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
-//$[/]
+//  ===>{"(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" }|
+//=>{}.
 
 /**
  * A sub object as an example.
@@ -8,17 +8,17 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
  */
 public class ASubObject   {
 
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLStaticNames.tpl" keepCall="JAVA"]
-//$[/]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":javaGenFieldKeysStripped/*","configKey":"ALLStaticNames.tpl","keepCall":"JAVA"}|
+//=>{}.
 
-    // $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"]
+    //  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenFieldKeysStripped/*", "configKey", "ALLInstanceVars.tpl", "keepCall":"JAVA"}}|
     private  Long id;
     private  ASubObject myASubObject;
     private  String name;
     private  String myString;
-//$[/]
+//=>{}.
 
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLSetter.tpl" keepCall="JAVA"]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenFieldKeysStripped/*", "configKey":"ALLSetter.tpl", "keepCall":"JAVA"}}|
     /**
      The id with a autonumbering
      */
@@ -91,5 +91,5 @@ public class ASubObject   {
         return myString != null  && !myString.isEmpty();
     }
 
-//$[/]
+//=>{}.
 }

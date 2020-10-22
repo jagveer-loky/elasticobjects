@@ -106,10 +106,12 @@ public class ConfigKeysCallCheck {
     public void givenEoWithTemplate_whenExecuteEo_thenTemplateResultContainsConfigKeyListCall()  {
         final TemplateCall call = new TemplateCall();
         final String template = "Load model configuration key list: " +
-                "$[(ConfigKeysCall)fieldKey\" " +
-                "configType=\"ModelConfig\" " +
-                "configFilter=\"ConfigKeysCall\" " +
-                "inTemplate=\"true\"/]";
+                "\" ===>{\"(ConfigKeysCall).\":{" +
+                "\"targetPath\":\"fieldKey\", " +
+                "\"configType\":\"ModelConfig\", " +
+                "\"configFilter\":\"ConfigKeysCall\", " +
+                "\"inTemplate\":\"true\"}" +
+                "}.";
         call.setContent(template);
 
         EO eo = ProviderRootTestScope.createEo();

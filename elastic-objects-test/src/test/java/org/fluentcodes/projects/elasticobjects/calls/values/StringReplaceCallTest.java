@@ -30,11 +30,18 @@ public class StringReplaceCallTest {
     }
 
     @Test
-    public void givenModelConfigPackagePath_whenExecuteTemplate_thenDotsAreReplaced()  {
+    public void call_TemplateCall_eo_StringReplaceCall_packagePath__execute__dotsAreReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.mapObject(ProviderRootTestScope.EO_CONFIGS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new TemplateCall("* $[(StringReplaceCall) targetPath=\"" + Call.TARGET_AS_STRING + "\" toReplace=\"\\.\" replaceBy=\"/\" /] *").execute(eo.getEo(PACKAGE_PATH));
+        String content = new TemplateCall("* \n" +
+                "===>{\"(StringReplaceCall).\":{" +
+                "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\", " +
+                "\"toReplace\"=\"\\\\.\", " +
+                "\"replaceBy\"=\"/\" }" +
+                "}." +
+                " *")
+                .execute(eo.getEo(PACKAGE_PATH));
         Assertions.assertThat(content).isEqualTo("* org/fluentcodes/projects/elasticobjects/calls/values *");
     }
 }

@@ -1,10 +1,15 @@
-$[(XlsxReadCall)/data/eo->module./eo->moduleScope./eo->naturalId.
-    configKey="eo.xlsx:eo->/configType."
-    filter="module eq eo->/module."/]
-$[(GenerateJsonConfigCall).
-    sourcePath="/data"
-    module="eo->/module."
-    moduleScope="eo->/moduleScope."
-    configType="eo->/configType."
-    buildPath="eo->/buildPath."
-    fileEnding="json" /]
+===>{"(XlsxReadCall).": {
+    "targetPath": "/data/=>[module]./=>[moduleScope]./=>[naturalId].",
+    "configKey": "eo.xlsx:=>[/configType].",
+    "filter": "module eq =>[/module]."
+    }
+}.
+===>{"(GenerateJsonConfigCall).": {
+    "sourcePath": "/data",
+    "module": "=>[/module].",
+    "moduleScope": "=>[/moduleScope].",
+    "configType": "=>[/configType].",
+    "buildPath": "=>[/buildPath].",
+    "fileEnding": "json"
+    }
+}.

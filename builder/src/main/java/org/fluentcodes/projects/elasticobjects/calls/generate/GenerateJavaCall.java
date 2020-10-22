@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.generate.helper.JavaImportHelper;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -42,6 +43,7 @@ public class GenerateJavaCall extends GenerateCall {
         if (!hasOverwrite()) {
             setOverwrite(true);
         }
+        eo.set(new Date().toString(), "/date");
         StringBuilder feedback = new StringBuilder();
         if (eo.isEmpty()) {
             throw new EoException("Eo for generating json configuration files is empty! " + eo.getPathAsString());
@@ -50,6 +52,7 @@ public class GenerateJavaCall extends GenerateCall {
             throw new EoInternalException("No build path set so nothing will generated");
         }
         init(eo);
+        this.setNaturalId(ParserSqareBracket.replacePathValues(getNaturalId(), eo));
         int counter = 1;
         for (final String naturalId: eo.keys()) {
             EO eoModel = eo.getEo(naturalId);

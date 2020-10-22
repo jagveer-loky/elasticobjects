@@ -1,14 +1,15 @@
 package org.fluentcodes.projects.elasticobjects.calls;
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-//$[/]
+//=>{}.
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
 
@@ -18,10 +19,10 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
  */
 public abstract class CallImpl extends BaseImpl implements Call {
 
-    // $[(TemplateResourceCall)fieldKeys/* configKey="ALLStaticNames.java" keepCall="JAVA"]
-//$[/]
+    //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLStaticNames.tpl", "keepCall":"JAVA"}}|
+//=>{}.
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLInstanceVars.tpl", "keepCall":"JAVA"}}|
     private String sourcePath;
     private String targetPath;
     private String models;
@@ -32,11 +33,43 @@ public abstract class CallImpl extends BaseImpl implements Call {
     private Long duration;
     private String prepend;
     private String postpend;
-//$[/]
+//=>{}.
 
     public CallImpl() {
         prepend = "";
         postpend = "";
+    }
+
+    @Override
+    public void setByString(final String values) {
+        if (values == null||values.isEmpty()) {
+            throw new EoException("Set by empty input values");
+        }
+        String[] array = values.split(", ");
+        if (array.length>3) {
+            throw new EoException("Short form should have form '<sourcePath>[,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+        }
+        setByString(array);
+    }
+
+    protected void setByString(final String[] array) {
+        if (array == null||array.length == 0) {
+            throw new EoException("Set by empty input values");
+        }
+        if (array.length>0) {
+            if (array[0].replaceAll("\\s","").isEmpty()) {
+                setSourcePath(PathElement.SAME);
+            }
+            else {
+                setSourcePath(array[0]);
+            }
+        }
+        if (array.length>1) {
+            targetPath = array[1];
+        }
+        if (array.length>2) {
+            condition = array[2];
+        }
     }
 
     public void check(final EO eo) {
@@ -61,7 +94,7 @@ public abstract class CallImpl extends BaseImpl implements Call {
         if (!hasStartCondition()) {
             return true;
         }
-        return new Or(new ParserEoReplace(getStartCondition()).parse(eo)).filter(eo);
+        return new Or(new ParserSqareBracket(getStartCondition()).parse(eo)).filter(eo);
     }
 
     /**
@@ -73,7 +106,7 @@ public abstract class CallImpl extends BaseImpl implements Call {
         if (!hasCondition()) {
             return true;
         }
-        return new Or(Parser.replace(getCondition(), eo)).filter(eo);
+        return new Or(Parser.replacePathValues(getCondition(), eo)).filter(eo);
     }
 
     protected Object createReturnScalar(EO eo, Object result) {
@@ -108,16 +141,11 @@ public abstract class CallImpl extends BaseImpl implements Call {
         return "";
     }
 
-    @Override
-    public void setPathByTemplate(final Path templatePath) {
-        this.targetPath = templatePath.directory(false);
-    }
-
     public Boolean isOverwrite() {
         return overwrite;
     }
 
-    // $[(TemplateResourceCall)fieldKeys/* configKey="AllSetter.tpl" keepCall="JAVA"]
+    //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLSetter.tpl", "keepCall":"JAVA"}}|
     /**
      A sourcePath where EO offers it's input value when the execution starts.
      */
@@ -137,11 +165,11 @@ public abstract class CallImpl extends BaseImpl implements Call {
     }
 
     /**
-     A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.
+     A targetPath where the result of the execution will be mapped. Any combination of $(placeholder. Could be set.
      */
 
     @Override
-    public final CallImpl setTargetPath(String targetPath) {
+    public CallImpl setTargetPath(String targetPath) {
         this.targetPath = targetPath;
         return this;
     }
@@ -298,5 +326,5 @@ public abstract class CallImpl extends BaseImpl implements Call {
         return postpend != null  && !postpend.isEmpty();
     }
 
-//$[/]
+//=>{}.
 }

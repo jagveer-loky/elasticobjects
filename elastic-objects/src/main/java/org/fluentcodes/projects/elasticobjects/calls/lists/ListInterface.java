@@ -4,6 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.List;
@@ -127,14 +128,14 @@ public interface ListInterface {
             return "";
         }
         String targetPath = getTargetPath();
-        boolean isMapped = targetPath.contains("eo->");
+        boolean isMapped = ParserSqareBracket.containsStartSequence(targetPath);
         if (!isMapped) {
             eo.setEmpty(targetPath);
         }
         for (int i = 0; i< filteredResult.size(); i++) {
             Object row = filteredResult.get(i);
             if (isMapped) {
-                String target = Parser.replace(targetPath,new EoRoot(eo.getConfigsCache(), row));
+                String target = Parser.replacePathValues(targetPath,new EoRoot(eo.getConfigsCache(), row));
                 eo.set(row, target);
             }
             else {

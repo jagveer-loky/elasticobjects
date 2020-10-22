@@ -18,8 +18,8 @@ special messages through one generic endpoint.
         The concept of elastic objects is an enriched json as message. A simple
         type directive defines type and functionality. The combination of data and functionality is free.
         The functionality could be anything the server implements, e.g.
-        $[(ConfigLinkCall)SinusValueCall /]  or
-        $[(ConfigLinkCall)TemplateCall /]
+         ==>{ConfigLinkCall->ModelConfig, SinusValueCall}. or
+         ==>{ConfigLinkCall->ModelConfig, TemplateCall}.
         or a
-        $[(ConfigLinkCall)DbQueryCall /].
+         ==>{ConfigLinkCall->ModelConfig, DbQueryCall}..
 </p>

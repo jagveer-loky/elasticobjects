@@ -1,2 +1,2 @@
-$[(DirectoryMapReadCall)data configKey="eo->/directory."/]
-$[(TemplateResourceStoreCall). targetFile="input/web/eo->/directory./_Nav.html" configKey="NavElement.tpl"/]
+ ==>{DirectoryMapReadCall-> =>[/directory]. , data}.
+ ==>{TemplateResourceStoreCall->NavElement.tpl, input/web/ =>[/directory]. /_Nav.html}.

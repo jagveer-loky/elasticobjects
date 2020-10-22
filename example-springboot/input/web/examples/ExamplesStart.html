@@ -1,6 +1,6 @@
  <h3>Examples</h3>
  <p>The examples are for the generic end point <b>eo-form</b> in
- $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]
+  ==>{GithubLinkCall->NONE, SP|web|WebEo.java}.
  using just plain html form with an editable text field.
  </p>
  <p>
@@ -28,12 +28,12 @@
 
  <h4>Special fields</h4>
  <p>Those "informational" fields without object mapping are defined static in
-     $[(GithubLinkCall)EO|web|PathElement.java configType="NONE" /]PathElement.java">
+      ==>{GithubLinkCall->NONE, EO|web|PathElement.java}.PathElement.java">
  and used by Elastic Objects internally.
  </p>
  <p>
      The generic webserver interface
-     $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /]
+      ==>{GithubLinkCall->NONE, SP|web|WebEo.java}.
      defined here has no
  </p>
      <ul>
@@ -113,12 +113,12 @@
  <h4>Functionality</h4>
  <p>
      All models that implements the
-     $[(ConfigLinkCall)Call /] interface
+      ==>{ConfigLinkCall->ModelConfig, Call}. interface
      will be set to the <i>_call</i> list and could be exectuted.
  </p>
  <p>
      The implementation could be rather trivial as in the example with
-     $[(ConfigLinkCall)SinusValueCall /].
+      ==>{ConfigLinkCall->ModelConfig, SinusValueCall}..
  </p>
  <p>
      The following example will read the value from source and set the target value with the computed sinus.
@@ -127,34 +127,30 @@
  <form action="/eo-form" method="post" target="example">
      <textarea name="eo">{
   "(Double)source":1,
-  "(SinusValueCall)target": {
+  "(SinusValueCall)/target": {
     "sourcePath": "/source"
   }
 }</textarea>
      <input type="submit" value="post"/>
  </form>
 
+
  <h4>Templates</h4>
+
+
 <p>
-    A special call is $[(ConfigLinkCall)TemplateResourceCall /]. The file content will be replaced by values or the result of other function calls.
+    A special call is
+    ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}..
+    The file content will be replaced by values or the result of other function calls.
 </p>
  <p>
-     Every page you find here will interpreted by the template and partly include a generic post call for it.
+     Every page will be created by get and RequestMapping
+     ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}.
+     or post by
+     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}..
+ </p>
 
- </p>
  <p>
-     The following code will "rerender" this page by a post call:
- </p>
- <form action="/eo-form" method="post" target="example">
-     <textarea name="eo">{
-         "asTemplate":true,
-         "navigationItem":{},
-         "selectedItem":"ExamplesStart.html",
-         "(TemplateResourceCall)call": {
-                "configKey":"ExamplesPage.html"
-         }
-}</textarea>
-     <input type="submit" value="post"/>
- </form>
- <p>Without the asTemplate parameter the json will be returned. But this is not very readable. </p>
+     At the bottom of each page you fid a post version sending the json via browser.
+     Without the asTemplate parameter the json will be returned. Of course it's readable. </p>
 

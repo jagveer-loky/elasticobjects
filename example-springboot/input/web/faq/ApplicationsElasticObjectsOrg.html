@@ -2,7 +2,7 @@
 
 <p>The url of this page is <b>/faq/ApplicationElasticObjectsOrg.html</b>. This looks static.
       But it's dynamic with a spring boot mvc web end point defined in
-      $[(GithubLinkCall)SP|web|WebEoGet.java configType="NONE"/].
+       ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}..
   </p>
 <p>
     By the RequestMapping "/examples/{selectedItem:.+}" the createFaqPage method is triggered
@@ -13,14 +13,14 @@
 <p>
     Core parameter when
     execute EO is the call
-    $[(GithubLinkCall)TemplateResourceCall /] with the template
-    $[(GithubLinkCall)SPI|web|ContentPage.html configType="NONE"/] for rendering.
+     ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. with the template
+     ==>{GithubLinkCall->NONE, SPI|web|ContentPage.html}. for rendering.
 </p>
 
 <img src="/pics/applicationbuilderorg.svg" width="90%"/>
 <p>
     The same EO object can be send by the generic interface
-    $[(GithubLinkCall)SP|web|WebEo.java configType="NONE"/] by a post method. At the end of each page
+     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. by a post method. At the end of each page
     the code and the used elements/configuration for this are under "This Page Elements".
 </p>
 

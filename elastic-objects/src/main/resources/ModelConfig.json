@@ -1225,17 +1225,34 @@
     },
     "author": "Werner Diwischek"
   },
+  "TemplateDirResourceCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "fileName"
+    ],
+    "superKey": "TemplateResourceCall",
+    "expose": "WEB",
+    "description": "Parses the content of a DirectoryConfig configuration. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "modelKey": "TemplateDirResourceCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "TemplateResourceCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
       "keepCall",
-      "configKey",
-      "fileName"
+      "configKey"
     ],
     "superKey": "TemplateCall",
     "expose": "WEB",
-    "description": "Parses the content of a FileConfig or DirectoryConfig configuration. ",
+    "description": "Parses the content of a FileConfig configuration. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
     "properties": {

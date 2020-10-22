@@ -1,15 +1,18 @@
-$[(TemplateResourceCall). configKey="PresentationHeader.html"/]
+ ==>{TemplateResourceCall->PresentationHeader.html}.
 <header class="entry-header">
     <div id="rootNav">
         <ul>
-            $[(TemplateCall). sourcePath="/data/*" ]
-            <li><a href="$[(StringReplaceWhiteSpaceCall)head targetPath="asString" /].html">$[head]</a></li>
-            $[/]
+             ===>{"(TemplateCall).":{
+            "sourcePath":"/data/*"
+            }
+            }.
+            <li><a href=" ==>{StringReplaceWhiteSpaceCall->head}. .html">=>{head}. </a></li>
+            =>{}.
         </ul>
     </div>
 </header>
     <div class="entry-content" id="entry-content">
-        <h3>$[head]</h3>
-        <p>$[content]</p>
+        <h3>=>{head}.</h3>
+        <p>=>{content}.</p>
      </div>
-$[(TemplateResourceCall). configKey="PresentationFooter.html"/]
+ ==>{TemplateResourceCall->PresentationFooter.html}.

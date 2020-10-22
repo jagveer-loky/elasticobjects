@@ -1,11 +1,11 @@
-$[(ConfigKeysCall)configurationList configType="eo->configType." configFilter="eo->configFilter." expose="WEB"/]
+ ==>{ConfigKeysCall->=>[configType]., =>[configFilter]., WEB, configurationList}.
 
-<input type="text" value="$[configFilter]" onchange="
+<input type="text" value="=>{configFilter}." onchange="
             var newLocation = window.location + 'x';
             document.location.href = newLocation.replace(/=.*/, '=' + this.value);
             "/>
 <ul>
-    $[(TemplateCall)/configurationList/* ]
-    <div><a href="/config/$[/configType]/$[_value]?configFilter=$[/configFilter]">&equiv;$[_value]</a></div>
-    $[/]
+     ==>{TemplateCall->/configurationList/*}|
+    <li><a href="/config/=>{/configType}./=>{_value}.?configFilter=>{/configFilter}.">&equiv;=>{_value}.</a></li>
+    =>{}.
 </ul>

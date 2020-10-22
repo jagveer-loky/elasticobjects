@@ -1,2 +1,4 @@
-$[(TemplateCall)/FieldConfig/eo->_value. condition="javaGenFieldOverride nex "]
-   public static final String $[(StringUpperCall)fieldKey/] = "$[fieldKey]"; $[/]
+==>{TemplateCall->/FieldConfig/=>[_value]., javaGenFieldOverride ex}|
+   public static final String \
+   ==>{StringUpperCall->fieldKey}. = "=>{fieldKey}.";
+=>{}.

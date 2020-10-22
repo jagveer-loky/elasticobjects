@@ -1046,7 +1046,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "A targetPath where the result of the execution will be mapped. Any combination of eo->placeholder. Could be set.",
+    "description": "A targetPath where the result of the execution will be mapped. Any combination of \"$(path)$\"  could be set as value.",
     "expose": "WEB",
     "fieldKey": "targetPath",
     "length": 80,

@@ -3,13 +3,13 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 //
 //
 //
-//$[(TemplateResourceCall)javaImport/* configKey="ALLImport.java" keepCall="JAVA" ]
+// ===>{"(TemplateResourceCall).":{"sourcePath":"javaImport/*", "configKey":"ALLImport.java", "keepCall":"JAVA" }}|
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Date;
-//$[/]    
+//=>{}.
 
 /**
  * Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.
@@ -21,7 +21,7 @@ public class AnObject   {
 //
 //
 //
-//$[(TemplateResourceCall)fieldKeys/* configKey="BEANStaticNames.java" keepCall="JAVA"]
+// ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"BEANStaticNames.java","keepCall":"JAVA"}|
    public static final String ID = "id"; 
    public static final String MY_AN_OBJECT = "myAnObject"; 
    public static final String MY_ASUB_OBJECT = "myASubObject"; 
@@ -37,12 +37,12 @@ public class AnObject   {
    public static final String MY_FLOAT = "myFloat"; 
    public static final String MY_DOUBLE = "myDouble"; 
    public static final String MY_OBJECT = "myObject"; 
-//$[/]    
+//=>{}.
 
 //
 //
 //
-//$[(TemplateResourceCall)fieldKeys/* configKey="BEANInstanceVars.tpl" keepCall="JAVA"]
+// ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"BEANInstanceVars.tpl", "keepCall":"JAVA"}}|
    private Long id; 
    private AnObject myAnObject; 
    private ASubObject myASubObject; 
@@ -58,12 +58,12 @@ public class AnObject   {
    private Float myFloat; 
    private Double myDouble; 
    private Object myObject; 
-//$[/]    
+//=>{}.
 
     public final Boolean isMyBoolean () {
         return this.myBoolean;
     }
-//$[(TemplateResourceCall)fieldKeys/* configKey="BEANSetter.tpl" keepCall="JAVA"]
+// ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"BEANSetter.tpl", "keepCall":"JAVA"}|
     /**
     The id with a autonumbering
     */
@@ -274,6 +274,6 @@ public class AnObject   {
         return myObject != null ;
     }
 
-//$[/]    
+//=>{}.
 
 }

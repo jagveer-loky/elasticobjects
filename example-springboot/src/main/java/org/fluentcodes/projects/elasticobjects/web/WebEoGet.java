@@ -20,8 +20,12 @@ public class WebEoGet {
     //http://www.baeldung.com/spring-value-defaults
     @Value("${elasticobjects.scope:QS}")
     String scope;
+
+    EOConfigsCache cache;
     @Autowired
-    private EOConfigsCache cache;
+    public WebEoGet(EOConfigsCache cache) {
+        this.cache = cache;
+    }
 
     @RequestMapping(value = "/{selectedItem:.+}.html", method = RequestMethod.GET)
     @ResponseBody
@@ -69,7 +73,7 @@ public class WebEoGet {
     //https://stackoverflow.com/questions/16332092/spring-mvc-pathvariable-with-dot-is-getting-truncated
     @RequestMapping(value = "/config/{configType}/{configSelected:.+}", method = RequestMethod.GET)
     @ResponseBody
-    public String get(@PathVariable String configType, @PathVariable String configSelected, @RequestParam(required = false, defaultValue = ".*") String configFilter) {
+    public String createConfigPage(@PathVariable String configType, @PathVariable String configSelected, @RequestParam(required = false, defaultValue = ".*") String configFilter) {
         EO eo = new EoRoot(cache);
         eo.set(configType + " - " + configSelected, "selectedItem");
         eo.set(configFilter, "configFilter");
@@ -79,9 +83,12 @@ public class WebEoGet {
         eo.setRoles(Arrays.asList(WebEo.getRoles()));
         try {
             eo.execute();
+            if (eo.hasErrors()) {
+                return "Errors occured: " + eo.getLog();
+            }
         }
         catch (Exception e) {
-            return e.getMessage();
+            return "Exception thrown: " + e.getMessage();
         }
         return (String) eo.get(PathElement.TEMPLATE);
     }
@@ -96,10 +103,13 @@ public class WebEoGet {
         eo.set(selectedItem, "configType");
         eo.addCall(new TemplateResourceCall("ConfigsStartPage.html"));
         try {
-        eo.execute();
+            eo.execute();
+            if (eo.hasErrors()) {
+                return "Errors occured: " + eo.getLog();
+            }
         }
         catch (Exception e) {
-            return e.getMessage();
+            return "Exception thrown: " + e.getMessage();
         }
         return (String) eo.get(PathElement.TEMPLATE);
     }

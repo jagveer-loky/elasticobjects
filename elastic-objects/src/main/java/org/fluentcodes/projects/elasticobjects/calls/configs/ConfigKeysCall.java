@@ -1,8 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserEoReplace;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.Expose;
@@ -41,17 +42,46 @@ public class ConfigKeysCall extends CallImpl{
         this.configFilter = configFilter;
     }
 
+    public void setByString(final String values) {
+        if (values == null||values.isEmpty()) {
+            throw new EoException("Set by empty input values");
+        }
+        String[] array = values.split(", ");
+        if (array.length>4) {
+            throw new EoException("Short form should have form '<configType>[,<naturalId>][,<expose>][,<targetPath>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+        }
+        setByString(array);
+    }
+
+    protected void setByString(final String[] array) {
+        if (array == null||array.length == 0) {
+            throw new EoException("Set by empty input values");
+        }
+        if (array.length>0) {
+            setConfigType(array[0]);
+        }
+        if (array.length>1) {
+            setConfigFilter(array[1]);
+        }
+        if (array.length>2) {
+            setExpose(Expose.valueOf(array[2]));
+        }
+        if (array.length>3) {
+            setTargetPath(array[3]);
+        }
+    }
+
     @Override
     public Object execute(final EO eo) {
         super.check(eo);
         if (configType == null && configClass == null) {
             throw new EoException("Problem no config type defined.");
         }
-        if (configType.startsWith("eo->")) {
-            configType = new ParserEoReplace(configType).parse(eo);
+        if (ParserSqareBracket.containsStartSequence(configType)) {
+            configType = new ParserSqareBracket(configType).parse(eo);
         }
-        if (configFilter.startsWith("eo->")) {
-            configFilter = new ParserEoReplace(configFilter).parse(eo);
+        if (ParserSqareBracket.containsStartSequence(configFilter)) {
+            configFilter = new ParserSqareBracket(configFilter).parse(eo);
         }
         if (configClass == null) {
             ModelConfig configTypeConfig = eo.getConfigsCache().findModel(configType);

@@ -28,8 +28,9 @@
   "25": "SubExampleClass",
   "26": "SuperExampleClass",
   "27": "TemplateCall",
-  "28": "TemplateResourceCall",
-  "29": "TemplateResourceStoreCall",
-  "30": "ValueCall",
+  "28": "TemplateDirResourceCall",
+  "29": "TemplateResourceCall",
+  "30": "TemplateResourceStoreCall",
+  "31": "ValueCall",
   "(LogLevel)_logLevel": "WARN"
 }

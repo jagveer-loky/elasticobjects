@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.ArrayList;
@@ -17,15 +18,18 @@ public class Path {
     private boolean absolute = false;
 
     public Path(Path path, String... pathEntries) {
-        List<PathElement> entries = new ArrayList<>();
+        List<PathElement> entryList = new ArrayList<>();
         if (!path.isEmpty()) {
-            entries.addAll(path.getEntries());
+            entryList.addAll(path.getEntries());
         }
         absolute = path.isAbsolute();
         for (String pathElement: pathEntries) {
-            this.addPaths(pathElement.split(Path.DELIMITER), entries);
+            this.addPaths(pathElement.split(Path.DELIMITER), entryList);
         }
-        this.entries = (PathElement[])entries.toArray();
+        this.entries = new PathElement[entryList.size()];
+        for (int i=0; i<entryList.size(); i++) {
+            this.entries[i] = entryList.get(i);
+        }
     }
 
     public Path(PathElement... pathElements) {
@@ -341,6 +345,30 @@ public class Path {
             throw new EoException("No entry in path");
         }
         return entries[entries.length-1];
+    }
+
+    public Path add(String... keys) {
+        try {
+            if (isEmpty()) {
+                return new Path(keys);
+            }
+            else {
+                return new Path(this, keys);
+            }
+        }
+        catch (Exception e) {
+            throw new EoInternalException(e);
+        }
+    }
+
+    protected boolean isCallDirectory() {
+        if (isEmpty()) {
+            return false;
+        }
+        if (size()==1 && entries[0].isCallDirectory()) {
+            return true;
+        }
+        return false;
     }
 
 

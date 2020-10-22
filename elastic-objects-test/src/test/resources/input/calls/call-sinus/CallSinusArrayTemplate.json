@@ -1,4 +1,4 @@
-<{
+{
    "(List,Double)source": {
      "0": 1,
      "1": 2,
@@ -10,8 +10,8 @@
        "targetPath": "/target"
      },
      "(TemplateCall)1": {
-        "sourcePath": "/source/*"
+        "sourcePath": "/source/*",
+       "content": "sin(=>{_value}.) = \n=>{/target/_parent}.\n"
      }
    }
- }>
- sin($[_value]) = $[/target/_parent]
+ }
