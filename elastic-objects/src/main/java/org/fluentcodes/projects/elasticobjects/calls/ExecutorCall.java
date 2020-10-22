@@ -31,6 +31,9 @@ public class ExecutorCall {
             eo.warn("Already executed within " + call.getDuration() + " ms. ");
             return "Already executed within " + call.getDuration() + " ms. ";
         }
+        if (!call.hasSourcePath()) {
+            call.setSourcePath(PathElement.SAME);
+        }
         String sourcePathString = new ParserSqareBracket(call.getSourcePath()).parse(eo);
         Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
         EO sourceParent = sourcePath.moveToParent(eo);

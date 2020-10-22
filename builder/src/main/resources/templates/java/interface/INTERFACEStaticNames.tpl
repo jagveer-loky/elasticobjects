@@ -1,2 +1,4 @@
-$[(TemplateCall)/FieldConfig/eo->_value. ]
-   String $[(StringUpperCall)fieldKey/] = "$[fieldKey]"; $[/]
+==>{TemplateCall->/FieldConfig/=>[_value].}|
+   String
+   ==>{StringUpperCall->fieldKey}. = "=>{fieldKey}.";
+=>{}.

@@ -37,7 +37,7 @@
     },
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Parses the content of a FileConfig or DirectoryConfig configuration. ",
+    "description": "Parses the content of a FileConfig configuration. ",
     "naturalId": "TemplateResourceCall",
     "author": "Werner Diwischek"
   },

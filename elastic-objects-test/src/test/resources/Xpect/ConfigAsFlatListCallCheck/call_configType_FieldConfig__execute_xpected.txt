@@ -107,7 +107,7 @@
 "superKey";"String";"A key for the super class of a class.";"elastic-objects";"";"superKey";"";"";"";"";
 "table";"String";"The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.";"elastic-objects";"";"table";"";"";"";"";
 "targetFile";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
-"targetPath";"String";"A targetPath where the result of the execution will be mapped. Any combination of placeholder. Could be set.";"elastic-objects";"";"targetPath";"";"";"";"";
+"targetPath";"String";"A targetPath where the result of the execution will be mapped. Any combination of ""$(path)$""  could be set as value.";"elastic-objects";"";"targetPath";"";"";"";"";
 "toReplace";"String";"toReplace";"elastic-objects";"";"toReplace";"";"";"";"";
 "unique";"Boolean";"unique";"elastic-objects";"";"unique";"";"";"";"";
 "upper.ID";"Long";"Alias for id with uppercase.";"elastic-objects";"";"ID";"";"";"";"";

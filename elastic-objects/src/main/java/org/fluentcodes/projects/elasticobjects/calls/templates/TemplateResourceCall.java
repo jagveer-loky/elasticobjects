@@ -38,13 +38,10 @@ public class TemplateResourceCall extends TemplateCall {
             setSourcePath( array[1]);
         }
         if (array.length>2) {
-            setTargetPath( array[2]);
+            setKeepCall(KeepCalls.valueOf(array[2]));
         }
         if (array.length>3) {
             setCondition( array[3]);
-        }
-        if (array.length>4) {
-            setKeepCall(KeepCalls.valueOf(array[4]));
         }
         if (!hasSourcePath()) {
             setSourcePath(PathElement.SAME);

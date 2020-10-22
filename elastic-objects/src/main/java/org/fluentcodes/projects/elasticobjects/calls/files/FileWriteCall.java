@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.CallResource;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -43,12 +44,15 @@ public class FileWriteCall extends CallResource {
         else {
             content = new EOToJSON().toJSON(eo);
         }
-        write(content);
+        this.write(eo, content);
         return content;
     }
 
-    public void write(Object content)  {
+    public void write(EO eo, Object content)  {
         String url = getFileConfig().createUrl().getFile();
+        if (ParserSqareBracket.containsStartSequence(url)) {
+            url = new ParserSqareBracket(url).parse(eo);
+        }
         if (hasClassPath()) {
             url = getClassPath() + Path.DELIMITER + url;
         }

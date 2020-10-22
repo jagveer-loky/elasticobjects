@@ -1,11 +1,11 @@
-$[(XlsxReadCall)/ModelConfig/eo->naturalId.
-    configKey="eo.xlsx:ModelConfig" /]
-$[(XlsxReadCall)/FieldConfig/eo->naturalId.
-    configKey="eo.xlsx:FieldConfig" /]
-$[(GenerateJavaCall).
-    sourcePath="ModelConfig"
-    module="eo->module|>*."
-    moduleScope="eo->moduleScope|>*."
-    naturalId="eo->naturalId|>*."
-    buildPath="eo->buildPath|>*."
-    fileEnding="javax" /]
+==>{XlsxReadCall->eo.xlsx:ModelConfig, /ModelConfig/=>[naturalId].}.
+==>{XlsxReadCall->eo.xlsx:FieldConfig, /FieldConfig/=>[naturalId].}.
+===>{"(GenerateJavaCall).": {
+    "sourcePath": "ModelConfig",
+    "module": "=>[/module|>*].",
+    "moduleScope": "=>[/moduleScope|>*].",
+    "naturalId": "=>[/naturalId|>*].",
+    "buildPath": "=>[/buildPath|>*].",
+    "fileEnding": "javax"
+    }
+}.

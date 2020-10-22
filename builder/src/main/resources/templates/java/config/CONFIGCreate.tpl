@@ -1,18 +1,32 @@
-package $[packagePath];
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" /]
+package
+=>{packagePath}.;
+//
+==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}.
 
 /**
- * $[description]
- * Created by $[author] on 29.9.2020.
+ *
+ =>{description}.
+ * Created by
+ =>{author}. on 29.9.2020.
  */
-public class $[modelKey] $[javaGenExtend] $[javaGenImplement]  {
+public class =>{modelKey}.
+=>{javaGenExtend}.
+=>{javaGenImplement}. {
 
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLStaticNames.tpl" keepCall="JAVA"/]
+//
+==>{TemplateResourceCall->ALLStaticNames.tpl, javaGenFieldKeysStripped/*, JAVA}.
 
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLInstanceVars.tpl" keepCall="JAVA"/]
+//
+==>{TemplateResourceCall->ALLInstanceVars.tpl, javaGenFieldKeysStripped/*, JAVA}.
 
-public $[modelKey]() {final Map inputMap) {
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="CONFIGConstructor.tpl" keepCall="JAVA"/]
+public
+=>{modelKey}.() {final Map inputMap) {
+//
+==>{TemplateResourceCall->CONFIGConstructor.tpl, javaGenFieldKeysStripped/*, JAVA"}.
 }
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="ALLSetter.tpl" keepCall="JAVA"/]
+
+//
+==>{TemplateResourceCall->ALLSetter.tpl, javaGenFieldKeysStripped/*, JAVA}.
 }
+}
+

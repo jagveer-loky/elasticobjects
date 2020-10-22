@@ -136,4 +136,83 @@ public class ParserCurlyBracketTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).isEqualTo("Value: 2");
     }
+
+    @Test
+    public void array_TemplateCall_content_trailing_space__parse__123 () {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"data\":[1,2,3]}." +
+                "==>{TemplateCall->/data/*}|=>{_value}. =>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains("123");
+    }
+
+    @Test
+    public void array_123_TemplateCall_content_trailing_space_newline__parse__1_2_3_ () {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"data\":[1,2,3]}." +
+                "==>{TemplateCall->/data/*}|=>{_value}. \n=>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains("1 2 3 ");
+    }
+
+    @Test
+    public void array_123_TemplateCall_content_trailing_space_backslash_newline__parse__1_2_3_ () {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"data\":[1,2,3]}." +
+                "==>{TemplateCall->/data/*}|=>{_value}. \\\n=>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains("1 2 3 ");
+    }
+
+    @Test
+    public void array_TemplateCall_content_start_space_new_line__parse___1_2_3() {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"data\":[1,2,3]}." +
+                "==>{TemplateCall->/data/*}| \n=>{_value}.=>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains(" 1 2 3");
+    }
+
+    @Test
+    public void array_TemplateCall_content_start_space_backslash_newline__parse___1_2_3() {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"data\":[1,2,3]}." +
+                "==>{TemplateCall->/data/*}| \\\n=>{_value}. =>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains(" 1 2 3");
+    }
+
+    @Test
+    public void array_TemplateCall_content_start_space__parse__123() {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"data\":[1,2,3]}." +
+                "==>{TemplateCall->/data/*}| =>{_value}.=>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains("123");
+    }
+
+    @Test
+    public void array_TemplateCall_content_start_a_space__parse__123() {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"data\":[1,2,3]}." +
+                "==>{TemplateCall->/data/*}| a=>{_value}.=>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains(" a1 a2 a3");
+    }
+
+
 }

@@ -1,8 +1,13 @@
-$[(TemplateCall)/FieldConfig/eo->_value. ]
+==>{TemplateCall->/FieldConfig/=>[_value].}|
   /**
-  $[description]
+  =>{description}.
   */
-  $[javaGenFieldType] get$[(StringUpperFirstCharCall)fieldKey /]();
-  $[/modelKey] set$[(StringUpperFirstCharCall)fieldKey /] ($[javaGenFieldType] $[fieldKey]);
-  boolean has$[(StringUpperFirstCharCall)fieldKey /]();
-$[/]
+  =>{javaGenFieldType}. get
+  ==>{StringUpperFirstCharCall->fieldKey}.();
+  =>{/modelKey}. set
+  ==>{StringUpperFirstCharCall->fieldKey}. (
+  =>{javaGenFieldType}.
+  =>{fieldKey}.);
+  boolean has
+  ==>{StringUpperFirstCharCall->fieldKey}. ();
+=>{}.

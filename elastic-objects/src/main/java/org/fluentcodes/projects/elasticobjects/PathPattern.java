@@ -112,6 +112,9 @@ public class PathPattern {
             return result;
         }
         for (String pathPattern : firstPath) {
+            if (pathPattern == null) {
+                throw new EoException("Null pathPattern");
+            }
             pathPattern = pathPattern.replace("*", ".*");
             pathPattern = pathPattern.replace("+", ".*");
             for (Object fieldObject : fields) {
