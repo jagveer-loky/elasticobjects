@@ -1,13 +1,22 @@
-package $[packagePath];
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" /]
+package
+=>{packagePath}.;
+//
+==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}.
 
 /**
- * $[description]
- * Created by $[author] on 29.9.2020.
+ *
+ =>{description}.
+ * Created by
+ =>{author}. on 29.9.2020.
  */
-public interface $[modelKey]$[javaGenExtend]$[javaGenImplement] {
+public interface =>{modelKey}.
+=>{javaGenExtend}.
+=>{javaGenImplement}. {
 
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="INTERFACEStaticNames.tpl" keepCall="JAVA"/]
+//
+==>{TemplateResourceCall->INTERFACESStaticNames.tpl, javaGenFieldKeysStripped/*, JAVA}.
 
-// $[(TemplateResourceCall)javaGenFieldKeysStripped/* configKey="INTERFACESetter.tpl" keepCall="JAVA"/]
+//
+==>{TemplateResourceCall->INTERFACESSetter.tpl, javaGenFieldKeysStripped/*, JAVA}.
+}
 }

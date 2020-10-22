@@ -1,9 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -32,6 +33,26 @@ public abstract class CallResource extends CallImpl {
         this.configKey = configKey;
     }
 
+    @Override
+    public void setByString(final String values) {
+        if (values == null||values.isEmpty()) {
+            throw new EoException("Set by empty input values");
+        }
+        String[] array = values.split(", ");
+        if (array.length>5) {
+            throw new EoException("Short form should have form '<configKey>[, <sourcePath>][,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+        }
+        if (array.length>0) {
+            configKey = array[0];
+        }
+        if (array.length>1) {
+            setTargetPath( array[1]);
+        }
+        if (array.length>2) {
+            setCondition( array[2]);
+        }
+    }
+
     public boolean hasPermissions(final List<String> roles) {
         return ((ConfigResourcesImpl)getConfig()).getRolePermissions().hasPermissions(permissions, roles);
     }
@@ -47,13 +68,13 @@ public abstract class CallResource extends CallImpl {
         if (config!=null) {
             return this;
         }
-        this.configKey = Parser.replace(this.configKey, eo);
+        this.configKey = Parser.replacePathValues(this.configKey, eo);
         this.config = (Config) eo.getConfigsCache().find(getConfigClass(), getConfigKey());
         return this;
     }
 
     protected static String replace(final String value) {
-        return Parser.replace(value, (EO)null);
+        return Parser.replacePathValues(value, (EO)null);
     }
 
     public String getConfigKey() {

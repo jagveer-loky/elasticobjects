@@ -37,6 +37,7 @@
     "StringUpperCall",
     "AnObject",
     "StringReplaceWhiteSpaceCall",
+    "TemplateDirResourceCall",
     "StringLowerCall",
     "ConfigOpenApiCall",
     "ModelConfigList",

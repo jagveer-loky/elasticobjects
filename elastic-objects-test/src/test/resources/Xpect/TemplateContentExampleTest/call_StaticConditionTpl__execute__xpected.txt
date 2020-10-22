@@ -1,6 +1,5 @@
 
 Start of content with a configKey:
-
 <h1>header2</h1>
 <b>summary2</b>
 <p>content2</p>

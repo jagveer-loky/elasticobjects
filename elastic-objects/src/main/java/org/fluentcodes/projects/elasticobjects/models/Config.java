@@ -1,11 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-// $[(TemplateResourceCall)javaGenImport/* configKey="ALLImport.tpl" keepCall="JAVA" ]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
-//$[/]
+//=>{}.
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 
 /**
@@ -13,13 +13,13 @@ import org.fluentcodes.projects.elasticobjects.domain.Base;
  */
 public interface Config extends PropertiesConfigAccessor, Base {
     String CONFIG_MODEL_KEY = "configModelKey";
-// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACEStaticNames.tpl" keepCall="JAVA"]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACEStaticNames.tpl", "keepCall":"JAVA"}}|
     String SCOPE = "scope";
     String EXPOSE = "expose";
     String PROPERTIES = "properties";
     String MODULE = "module";
     String MODULE_SCOPE = "moduleScope";
-//$[/]
+//=>{}.
 
     void resolve() ;
     String getKey();
@@ -27,7 +27,7 @@ public interface Config extends PropertiesConfigAccessor, Base {
     String getConfigModelKey();
     boolean hasScope(final Scope scope);
 
-// $[(TemplateResourceCall)fieldKeys/* configKey="INTERFACESetter.tpl" keepCall="JAVA"]
+//  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACESetter.tpl", "keepCall":"JAVA"}}|
     /**
      A scope for the cache value.
      */
@@ -60,6 +60,6 @@ public interface Config extends PropertiesConfigAccessor, Base {
     String getModuleScope();
     boolean hasModuleScope();
 
-//$[/]
+//=>{}.
 
 }

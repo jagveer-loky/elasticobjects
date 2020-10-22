@@ -25,6 +25,7 @@ public class Start {
         SpringApplication.run(Start.class, args);
     }
 
+
     @PostConstruct
     public void init() {
         LOG.info("Init Database");

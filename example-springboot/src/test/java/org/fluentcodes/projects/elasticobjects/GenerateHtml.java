@@ -15,7 +15,7 @@ public class GenerateHtml {
         TemplateResourceStoreCall call = new TemplateResourceStoreCall("Presentation.html");
         //call.setLocalCondition("head like Get an");
         call.setSourcePath("/data/*");
-        call.setTargetFile("src/main/resources/static/presentation/eo->(StringReplaceWhiteSpaceCall)head targetPath=\"asString\"/..html");
+        call.setTargetFile("src/main/resources/static/presentation/==>[StringReplaceWhiteSpaceCall->head]..html");
         eo.addCall(call);
         eo.execute();
     }
@@ -23,7 +23,7 @@ public class GenerateHtml {
     public static EO READ_XLSX(final String xlsxFile) {
         XlsxReadCall call = new XlsxReadCall(xlsxFile);
         //call.setFilter("head like Get");
-        call.setTargetPath(String.join(Path.DELIMITER,new String[]{ DATA, "eo->head."}));
+        call.setTargetPath(String.join(Path.DELIMITER,new String[]{ DATA, "=>[head]."}));
         EO eo = ProviderRootTestScope.createEo();
         call.execute(eo);
 

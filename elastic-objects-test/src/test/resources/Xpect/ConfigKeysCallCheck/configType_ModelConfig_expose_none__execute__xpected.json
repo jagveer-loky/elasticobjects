@@ -92,10 +92,11 @@
   "89": "SubExampleClass",
   "90": "SuperExampleClass",
   "91": "TemplateCall",
-  "92": "TemplateResourceCall",
-  "93": "TemplateResourceStoreCall",
-  "94": "UnmodifiableList",
-  "95": "UnmodifiableMap",
-  "96": "ValueCall",
+  "92": "TemplateDirResourceCall",
+  "93": "TemplateResourceCall",
+  "94": "TemplateResourceStoreCall",
+  "95": "UnmodifiableList",
+  "96": "UnmodifiableMap",
+  "97": "ValueCall",
   "(LogLevel)_logLevel": "WARN"
 }

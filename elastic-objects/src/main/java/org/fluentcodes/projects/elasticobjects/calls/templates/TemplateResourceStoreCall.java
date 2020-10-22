@@ -19,7 +19,7 @@ public class TemplateResourceStoreCall extends TemplateResourceCall {
 
     public String execute(EO eo)  {
         String content = super.execute(eo);
-        String targetFile = new ParserEoReplace(getTargetFile()).parse(eo);
+        String targetFile = new ParserSqareBracket(getTargetFile()).parse(eo);
         new IOString().setFileName(targetFile).write(content);
         return "Created " + targetFile;
     }

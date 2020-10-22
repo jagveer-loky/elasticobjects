@@ -1,73 +1,133 @@
-$[(ConfigCall)configuration configType="eo->configType." configFilter="eo->configSelected." expose="NONE" /]
-$[(ConfigOpenApiCall)openApi configFilter="eo->configSelected."/]
-$[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
+ ==>{ConfigCall->=>[configType]., =>[configSelected]., NONE, configuration}.
+ ==>{ConfigOpenApiCall->=>[configSelected]., openApi}.
+ ==>{TemplateDirResourceCall->WEB, Header.html}.
     <header class="entry-header">
         <div id="rootNav">
-            $[(TemplateResourceCall). configKey="ConfigsNavigation.html"/]
+            ==>{TemplateResourceCall->ConfigsNavigation.html}.
         </div>
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h3>&equiv; $[configType] - $[configuration/0/naturalId]</h3>
+        <h3>&equiv; =>{configType}. - =>{configuration/0/naturalId}. </h3>
         <p>
-        $[configuration/0/description|>No Description provided!]
+        =>{configuration/0/description|>No Description provided!}.
         </p>
+
+
         <h4>Github</h4>
-        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[configuration/0/module|>elastic-objects]/src/$[configuration/0/moduleScope|>main]/resources/$[configType].json" target="github"><img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;" />$[configType].json</a></div>
+        <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/
+        =>{configuration/0/module|>elastic-objects}./src/
+        =>{configuration/0/moduleScope|>main}./resources/
+        =>{configType}..json" target="github"><img src="/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;" />
+            =>{configType}..json</a></div>
 
-        $[(TemplateCall)configuration/0 startCondition="/configType eq FileConfig"]
-            <div>$[(GithubLinkCall)eo->naturalId. configType="FileConfig" /]</div>
-        $[/]
-        $[(TemplateCall). startCondition="/configType eq ModelConfig" sourcePath="configuration/0"]
-            <div>$[(GithubLinkCall)eo->modelKey. /]</div>
-            $[(TemplateCall). startCondition="module eq elastic-objects"]
-                <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
-            $[/]
-            $[(TemplateCall). startCondition="module ne elastic-objects"]
-                 <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/$[module|>elastic-objects]/src/test/java/$[(StringReplaceCall)asString sourcePath="packagePath" toReplace="\." replaceBy="/" /]/$[modelKey]Test.java">&equiv;$[modelKey]Test.java</a></div>
-            $[/]
-        <h4>Fields</h4>
-            $[(TemplateCall)fieldKeys/* ]
-                <div><a href="/config/FieldConfig/$[_value]">&equiv;$[_value]</a></div>
-            $[/]
-            $[(TemplateCall). startCondition="superKey ex"]
+
+
+        <!-- FileConfig -->
+
+         ===>{"(TemplateCall).":{
+              "startCondition":"/configType eq FileConfig",
+              "sourcePath":"configuration/0"}}|
+            <div>
+                ==>{GithubLinkCall->FieldConfig, naturalId}.</div>
+         =>{}.
+
+
+
+        <!-- ModelConfig -->
+
+         ===>{"(TemplateCall).":{
+              "startCondition":"/configType eq ModelConfig",
+              "sourcePath":"configuration/0"}}|
+
+             <div>
+             ==>{GithubLinkCall->ModelConfig, =>[modelKey].}.
+             </div>
+
+             <!-- Test Link -->
+
+             ==>{TemplateCall->, module eq elastic-objects}|
+                  <div>
+                      <a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/test/java/
+                  ===>{"(StringReplaceCall).":{
+                      "sourcePath":"packagePath",
+                      "targetPath":"asString",
+                      "toReplace":"\\.",
+                      "replaceBy":"/"}}./
+                      =>{modelKey}.Test.java">&equiv;
+                      =>{modelKey}.Test.java</a></div>
+             =>{}.
+
+             ==>{TemplateCall->, module ne elastic-objects}|
+                   <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/=>{module|>elastic-objects}./src/test/java/
+                   ===>{"(StringReplaceCall).": {
+                        "sourcePath":"packagePath",
+                        "toReplace":"\\.",
+                        "replaceBy":"/" }}./
+                       =>{modelKey}.Test.java">&equiv;
+                       =>{modelKey}.Test.java</a></div>
+             =>{}.
+
+            ==>{TemplateCall->, superKey ex}|
             <h4>Super Class</h4>
-            <a href="/config/ModelConfig/$[superKey]">&equiv;$[superKey]</a>
-            $[/]
-            $[(TemplateCall). startCondition="interfaces ex"]
-            <h4>Interface</h4>
-            <a href="/config/ModelConfig/$[interfaces]">&equiv;$[interfaces]</a>
-            $[/]
-            $[(TemplateCall). startCondition="expose ex"]
-            <h4>OpenApi</h4>
-            <textarea style="height:200px">$[(JsonAsStringCall)/openApi /]</textarea>
-            $[/]
-        $[/]
+            <a href="/config/ModelConfig/=>{superKey}.">&equiv;
+                =>{superKey}.</a>
+            =>{}.
 
-        $[(TemplateCall). startCondition="configType eq FieldConfig" ]
-        <h4>Models</h4>
-            $[(TemplateCall)configuration/0/modelList/* ]
-            <div><a href="/config/ModelConfig/$[_value]">&equiv;$[_value]</a></div>
-            $[/]
-        $[/]
+            ==>{TemplateCall->, interfaces ex}|
+            <h4>Interface</h4>
+            <a href="/config/ModelConfig/=>{interfaces}.">&equiv;
+                =>{interfaces}.</a>
+            =>{}.
+
+             <h4>Fields</h4>
+
+             ==>{TemplateCall->fieldKeys/*}|
+                      <div><a href="/config/FieldConfig/=>{_value}.">&equiv;
+                          =>{_value}.</a></div>
+             =>{}.
+
+             ==>{TemplateCall->, expose ex"}|
+                  <h4>OpenApi</h4>
+                  <textarea style="height:200px">
+                      ==>{JsonAsStringCall->/openApi}. </textarea>
+             =>{}.
+         =>{}.
+
+
+
+        <!-- FieldConfig -->
+
+         ===>{"(TemplateCall)." : {
+              "startCondition" : "configType eq FieldConfig"}}|
+              <h4>Models</h4>
+              ===>{"(TemplateCall).":{
+                   "sourcePath":"configuration/0/modelList/*"}}|
+                   <div><a href="/config/ModelConfig/=>{_value}.">&equiv;=>{_value}.</a></div>
+              =>{}.
+         =>{}.
 
         <h4>Configuration</h4>
-        <textarea style="height:250px">$[(JsonAsStringCall)configuration/0 /]</textarea>
+        <textarea style="height:250px"> ==>{JsonAsStringCall->configuration/0}. </textarea>
      </div>
 
     <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">
-        <h5>This Page Elements</h5>
+        <h5><a href="/faq/ApplicationsElasticObjectsOrg.html">This Page</a> Elements</h5>
         <table>
-            <tr><td>Page-Template:</td><td>$[(GithubLinkCall)SPI|web|ConfigsPage.html configType="NONE" /]</td></tr>
-            <tr><td>Header:</td><td>$[(GithubLinkCall)SPI|web|Header.html configType="NONE" /]</td></tr>
-            <tr><td>Footer:</td><td>$[(GithubLinkCall)SPI|web|Footer.html configType="NONE" /]</td></tr>
+            <tr><td>Page-Template:</td><td>
+                ==>{GithubLinkCall->NONE, SPI|web|ConfigsPage.html}.</td></tr>
+            <tr><td>Header:</td><td>
+                ==>{GithubLinkCall->NONE, SPI|web|Header.html}.</td></tr>
+            <tr><td>Footer:</td><td>
+                ==>{GithubLinkCall->NONE, SPI|web|Footer.html}.</td></tr>
             <tr><td colspan="2">Postversion of this page:
                 <form action="/eo-form" method="post" target="example">
             <textarea name="eo" style="height:120px">{
     "asTemplate":true,
-    "configFilter": "$[configFilter]",
-    "configType": "$[configType]",
-    "configSelected": "$[configSelected]",
+    "configFilter": "=>{configFilter}.",
+    "configType": "=>{configType}.",
+    "configSelected": "=>{configSelected}.",
+    "selectedItem": "=>{configType}. =>{configSelected}.",
     "(TemplateResourceCall)call": {
         "configKey":"ConfigsPage.html"
     }
@@ -79,4 +139,4 @@ $[(TemplateResourceCall). configKey="WEB"  fileName="Header.html"/]
         </table>
     </div>
 
-$[(TemplateResourceCall).  configKey="WEB" fileName="Footer.html"/]
+ ==>{TemplateDirResourceCall->WEB, Footer.html}.

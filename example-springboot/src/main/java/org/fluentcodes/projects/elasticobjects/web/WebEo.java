@@ -34,13 +34,13 @@ public class WebEo {
     }
 
     protected static final String[] getRoles() {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        /**HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         HttpSession session = request.getSession(true);
         if (session.getAttribute("roles") != null) {
             return (String[]) session.getAttribute("roles");
-        }
+        }*/
         String[] roles = new String[]{"guest"};
-        session.setAttribute("roles", roles);
+        //session.setAttribute("roles", roles);
         return roles;
     }
     // https://stackoverflow.com/questions/36520314/accessing-httpsession-in-a-controlleradvice-in-a-springboot-application
@@ -75,9 +75,12 @@ public class WebEo {
             eo.setRoles(Arrays.asList(roles));
             try {
                 eo.execute();
+                if (!eo.getLogList().isEmpty()) {
+                    return "Error occured: " + eo.getLog();
+                }
             }
             catch (Exception e) {
-                return e.getMessage();
+                return "Exception occured: " + e.getMessage();
             }
             eo.debug("'/eo-form' is executed ");
             if (((EoChild)eo).hasEo("asTemplate")) {
@@ -114,12 +117,15 @@ public class WebEo {
             eo.setRoles(Arrays.asList(roles));
             try {
                 eo.execute();
+                if (!eo.getLogList().isEmpty()) {
+                    return "Error occured: " + eo.getLog();
+                }
             }
             catch (Exception e) {
-                return e.getMessage();
+                return "Exception occured: " + e.getMessage();
             }
             TemplateCall call = new TemplateCall();
-            call.setContent(template.replaceAll("&#36;", "$"));
+            call.setContent(template.replaceAll("&gt;", ">"));
             String result = call.execute(eo);
             eo.debug("'/eo-template' is executed ");
             return result;

@@ -5,28 +5,33 @@
 </p>
 <ul>
     <li>Generic post endpoints
-        $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /] to generate EO template call on the client side</li>
+         ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. to generate EO template call on the client side</li>
     <li>Get endpoints
-        $[(GithubLinkCall)SP|web|WebEoGet.java configType="NONE" /] creating EO template call on the serverside by path variables.</li>
+         ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}. creating EO template call on the serverside by path variables.</li>
 </ul>
 
 <p>
     Basically the demo is pure html, with dedicated urls for each page with
-    $[(GithubLinkCall)SP|web|WebEo.java configType="NONE" /].
+     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}..
     Only three main templates are actually defined:
 </p>
 
 <ul>
-    <li>$[(ConfigLinkCall)ContentPage.html configType="FileConfig" /]</li>
-    <li>$[(ConfigLinkCall)ExamplesPage.html configType="FileConfig" /]</li>
-    <li><$[(ConfigLinkCall)ConfigsPage.html configType="FileConfig" /]</li>
+    <li>
+        ==>{ConfigLinkCall->FileConfig, ContentPage.html}.</li>
+    <li>
+        ==>{ConfigLinkCall->FileConfig, ExamplesPage.html}.</li>
+    <li>
+        ==>{ConfigLinkCall->FileConfig, ConfigsPage.html}.</li>
 </ul>
 
 <p>
     The layout origins from
     a wordpress theme with all its responsive magic. It's hidden in
-    the $[(ConfigLinkCall)Header.html configType="FileConfig" /] and
-    $[(ConfigLinkCall)Footer.html configType="FileConfig" /].
-    So the content page template $[(ConfigLinkCall)ContentPage.html configType="FileConfig" /]
+    the
+    ==>{ConfigLinkCall->FileConfig, Header.html}. and
+     ==>{ConfigLinkCall->FileConfig, Footer.html}..
+    So the content page template
+    ==>{ConfigLinkCall->FileConfig, ContentPage.html}.
     could be rather small.
 </p>

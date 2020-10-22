@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 
 public abstract class GenerateCall extends CallImpl {
     public static String BUILD_PATH = "buildPath";
@@ -18,11 +19,11 @@ public abstract class GenerateCall extends CallImpl {
 
     @Override
     protected boolean init(final EO eo) {
-        this.buildPath = Parser.replace(buildPath, eo);
-        this.module = Parser.replace(module,eo);
-        this.moduleScope = Parser.replace(moduleScope, eo);
-        this.fileEnding = Parser.replace(fileEnding, eo);
-        this.classPath = Parser.replace(classPath, eo);
+        this.buildPath = ParserSqareBracket.replacePathValues(buildPath, eo);
+        this.module = ParserSqareBracket.replacePathValues(module,eo);
+        this.moduleScope = ParserSqareBracket.replacePathValues(moduleScope, eo);
+        this.fileEnding = ParserSqareBracket.replacePathValues(fileEnding, eo);
+        this.classPath = ParserSqareBracket.replacePathValues(classPath, eo);
         return true;
     }
 
