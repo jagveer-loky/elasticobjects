@@ -42,13 +42,14 @@ public abstract class Parser {
     private final String template;
     private Matcher match;
     private int end;
+    private static final Pattern NEW_LINE_REMOVE = Pattern.compile("\\\\\n$", Pattern.DOTALL);
 
     public Parser(final String template) {
         this.template = template;
     }
 
     protected static final Pattern CREATE_VAR_PATTERN(final String start, final String stop) {
-        final String pattern = "\n*[\t ]*([=]{0,2})=>" + start + "(.*?)(" + stop + "[\\.\\|])";
+        final String pattern = "[\t ]*([=]{0,2})=>" + start + "(.*?)(" + stop + "[\\.\\|])";
         return Pattern.compile(pattern, Pattern.DOTALL);
     }
     protected static final String CREATE_END_SEQUENCE(final String stop) {
@@ -128,10 +129,11 @@ public abstract class Parser {
         String parseString = template;
         end = 0;
         while (match.find()) {
-            int findStart = match.start();
-            result.append(parseString.substring(end, findStart));
+            int start = match.start();
+            String before = chomp(template.substring(end, start));
+            result.append(before);
             end = match.end();
-            String value = match.group();
+            String matchAll = match.group();
             String callIndicator = match.group(1);
             String pathOrKey = match.group(2);
             String finish = match.group(3);
@@ -208,6 +210,16 @@ public abstract class Parser {
                 if (content!=null && !content.isEmpty()) {
                     if ((call instanceof TemplateCall)) {
                         ((TemplateCall) call).setContent(content);
+                        if (call instanceof TemplateResourceCall) {
+                            TemplateResourceCall resourceCall = (TemplateResourceCall) call;
+                            if (resourceCall.hasKeepCall()) {
+                                KeepCalls keepCall = resourceCall.getKeepCall();
+                                resourceCall
+                                        .setPrepend(keepCall.createStartDirective("=" + getStartSequence() + callDirective + getContinueSequence()));
+                                resourceCall
+                                        .setPostpend(keepCall.getStartComment() + getCloseSequence());
+                            }
+                        }
                     }
                     else if ((call instanceof ValueCall)) {
                         ((ValueCall) call).setValue(content);
@@ -272,11 +284,22 @@ public abstract class Parser {
         return value.toString();
     }
 
+    private String chomp(final String prepend) {
+        if (NEW_LINE_REMOVE.matcher(prepend).find()) {
+            return prepend.substring(0, prepend.length()-2);
+        }
+        else if (prepend.endsWith("\n")) {
+            return prepend.substring(0, prepend.length()-1);
+        }
+        return prepend;
+    }
+
     private String findContent() {
         StringBuilder content = new StringBuilder();
         int hierarchy = 1;
         while (match.find()) {
-            content.append(template.substring(end, match.start()));
+            int start = match.start();
+            content.append(template.substring(end, start));
             end = match.end();
             String found = match.group(2);
             String foundEnd = match.group(3);
@@ -287,9 +310,8 @@ public abstract class Parser {
             else if (!isEndSequence(foundEnd)) {
                     hierarchy++;
             }
-
             if (hierarchy == 0) {
-                return content.toString();
+                return chomp(content.toString());  // replace backslash+newline or newline from content due to closing tag
             } else {
                 content.append(foundAll);
             }

@@ -79,7 +79,7 @@ public class TemplateCall extends CallImpl {
      */
     public String execute(EO eo)  {
         if (!hasContent()) {
-            return "";
+            throw new EoException("No content for template?!");
         }
         if (!init(eo)) {
             return "";

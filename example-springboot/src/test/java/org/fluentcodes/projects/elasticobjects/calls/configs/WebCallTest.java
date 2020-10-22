@@ -10,8 +10,9 @@ import org.junit.Test;
 
 public class WebCallTest {
     @Test
-    public void givenHeaderHtml_whenExecute_thenLoaded() {
+    public void eo_TemplateDirResourceCall_HeaderHtml__execute__xpected() {
         EO eo = ProviderRootTestScope.createEo();
+        eo.set("test", "selectedItem");
         eo.addCall(new TemplateDirResourceCall("WEB").setFileName("Header.html"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

@@ -1,2 +1,3 @@
-
-import $[/ModelConfig/_value/packagePath].$[_value];
+import \
+=>{/ModelConfig/_value/packagePath}..
+=>{_value}.;

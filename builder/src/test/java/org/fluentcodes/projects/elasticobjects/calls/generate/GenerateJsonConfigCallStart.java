@@ -29,7 +29,7 @@ public class GenerateJsonConfigCallStart {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(".*", MODULE);
         eo.set("main", MODULE_SCOPE);
-        eo.set(FieldConfig.class.getSimpleName() , CONFIG_TYPE);
+        eo.set(FileConfig.class.getSimpleName() , CONFIG_TYPE);
         eo.set("..", BUILD_PATH);
         String result = call.execute(eo);
         System.out.println(result);

@@ -2379,7 +2379,7 @@
     },
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "A targetPath where the result of the execution will be mapped. Any combination of placeholder. Could be set.",
+    "description": "A targetPath where the result of the execution will be mapped. Any combination of \"$(path)$\"  could be set as value.",
     "naturalId": "targetPath"
   },
   "109": {

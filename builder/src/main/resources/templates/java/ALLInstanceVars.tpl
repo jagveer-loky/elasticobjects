@@ -1,2 +1,6 @@
-$[(TemplateCall)/FieldConfig/eo->_value. ]
-   private $[javaGenFieldFinal] $[javaGenFieldType] $[fieldKey]; $[/]
+==>{TemplateCall->/FieldConfig/=>[_value].}|
+   private \
+   =>{javaGenFieldFinal}. \
+   =>{javaGenFieldType}. \
+   =>{fieldKey}.;
+=>{}.
