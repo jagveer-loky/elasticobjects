@@ -7,32 +7,33 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
  * Add value to eo.
  * Created by Werner on 02.08.2020.
  */
+
 public class ValueCall extends CallImpl {
-    public static final String VALUE = "value";
-    private String value;
+    public static final String CONTENT = "content";
+    private String content;
     public ValueCall() {
     }
 
-    public ValueCall(final String value) {
+    public ValueCall(final String content) {
         this();
-        this.value = value;
+        this.content = content;
     }
     @Override
     public String execute(final EO eo) {
         super.check(eo);
         //Object value = eo.get();
         if (hasTargetPath()) {
-            eo.set(this.value, getTargetPath());
+            eo.set(this.content, getTargetPath());
         }
-        return super.createReturnString(eo, value.toString());
+        return super.createReturnString(eo, content.toString());
     }
 
-    public String getValue() {
-        return value;
+    public String getContent() {
+        return content;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setContent(String content) {
+        this.content = content;
     }
 
 }

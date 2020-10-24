@@ -1289,7 +1289,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "value"
+      "content"
     ],
     "superKey": "CallImpl",
     "expose": "WEB",

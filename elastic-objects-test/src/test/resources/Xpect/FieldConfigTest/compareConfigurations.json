@@ -271,8 +271,9 @@
       "0": "FileWriteCall",
       "1": "TemplateCall",
       "2": "TemplateResourceCall",
-      "3": "TemplateDirResourceCall",
-      "4": "TemplateResourceStoreCall"
+      "3": "ValueCall",
+      "4": "TemplateDirResourceCall",
+      "5": "TemplateResourceStoreCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -2448,10 +2449,7 @@
   "113": {
     "fieldKey": "value",
     "modelKeys": "String",
-    "(ArrayList)modelList": {
-      "0": "ValueCall"
-    },
-    "(Expose)expose": "WEB",
+    "(Expose)expose": "NONE",
     "properties": {
       "classPath": "src.main.resources",
       "module": "elastic-objects"

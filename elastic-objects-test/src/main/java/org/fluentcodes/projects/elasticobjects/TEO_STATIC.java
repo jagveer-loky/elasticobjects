@@ -15,21 +15,8 @@ public class TEO_STATIC {
     public static final String S_VALUE22 = "value22";
     public static final String CON_COMMA = ",";
 
-    public static final String INFO_EXPECTED_EXCEPTION = "Expected Exception: ";
-    public static final String INFO_EXPECTED_EXCEPTION_FAILS = "Expected Exception was not thrown";
-    public static final String INFO_EXPECTED_NO_EXCEPTION = "An Exception should be thrown! ";
-
-    public static final String INFO_LOG_EMPTY_FAILS = "Log not empty but expected empty! ";
-    public static final String INFO_LOG_NOT_EMPTY_FAILS = "Log empty but expected NOT empty! ";
-
-    public static final String INFO_NOT_NULL_FAILS = "Value is null! ";
-
-    public static final String INFO_COMPARE_FAILS = "Result compare fails! ";
-
     public static final String S0 = "0";
     public static final String S1 = "1";
-    public static final String S2 = "2";
-    public static final String S3 = "3";
 
     public static final String S_DATE_STRING = "Tue Jun 07 08:16:55 CEST 2016";
     public static final Date SAMPLE_DATE = ScalarConverter.toDate(S_DATE_STRING);

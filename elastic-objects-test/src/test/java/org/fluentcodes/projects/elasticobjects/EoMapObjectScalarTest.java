@@ -64,7 +64,7 @@ public class EoMapObjectScalarTest {
         final EO root = ProviderRootDevScope.createEo(List.class);
         root.mapObject(S_BOOLEAN);
         Assertions.assertThat(root.getLog()).isNotEmpty();
-        Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, root.getLog().isEmpty());
+        Assertions.assertThat(root.getLog()).isNotEmpty();
     }
 
     @Test

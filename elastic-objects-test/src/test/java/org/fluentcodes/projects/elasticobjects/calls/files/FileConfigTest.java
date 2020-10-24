@@ -1,13 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_FAILS;
 
 /**
  * Created by Werner on 12.10.2016.
@@ -46,10 +44,10 @@ public class FileConfigTest {
     }
 
     @Test
-    public void givenTestScope_whenFindFileContent_thenFound()  {
+    public void testScope__findFileConfig_FileTestTxt__found()  {
         FileConfig config = ProviderRootTestScope.EO_CONFIGS.findFile(FILE_TEST_TXT);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, config);
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, config.getDescription());
+        Assertions.assertThat(config).isNotNull();
+        Assertions.assertThat(config.getDescription()).isNotNull();
     }
 
 }

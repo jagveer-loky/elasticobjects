@@ -1,6 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,28 +20,24 @@ public class DivReflectionTest {
 
     @Test
     public void callObjectClass() {
-        ObjectClass object = new ObjectClass();
+        TestObjectClass object = new TestObjectClass();
         object.setTest(S_STRING);
         Assert.assertEquals(S_STRING, object.getTest());
     }
 
     @Test
     public void callObjectSetter()  throws Exception{
-        ObjectClass object = new ObjectClass();
-        Method setter = ObjectClass.class.getMethod(METHOD_SET_TEST, Object.class);
+        TestObjectClass object = new TestObjectClass();
+        Method setter = TestObjectClass.class.getMethod(METHOD_SET_TEST, Object.class);
         setter.invoke(object, S_STRING);
         Assert.assertEquals(S_STRING, object.getTest());
     }
 
     @Test
-    public void callObjectSetterNull() {
-        ObjectClass object = new ObjectClass();
-        try {
-            Method setter = ObjectClass.class.getMethod(METHOD_SET_TEST, null);
-            Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        } catch (Exception e) {
-            System.out.println(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void testObjectClass__getMethodsetTest__exception() {
+        Assertions.assertThatThrownBy(()->{
+            TestObjectClass.class.getMethod(METHOD_SET_TEST, null);})
+                .isInstanceOf(NoSuchMethodException.class);
     }
 
 
@@ -54,7 +53,7 @@ public class DivReflectionTest {
         Assert.assertEquals(S_STRING, object.getMyObject());
     }
 
-    private class ObjectClass {
+    private class TestObjectClass {
         private Object test;
 
         public Object getTest() {

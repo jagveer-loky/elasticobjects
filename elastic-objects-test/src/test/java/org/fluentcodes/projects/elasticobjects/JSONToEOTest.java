@@ -49,13 +49,9 @@ public class JSONToEOTest {
     }
 
     @Test
-    public void testNewLine2EscapedArray() {
-        try {
-            ProviderRootTestScope.createEo("[\"\\\n\"]");
-            Assert.fail("Illegal escape");
-        } catch (Exception e) {
-            Assert.assertTrue(e.getMessage().contains("Illegal escape"));
-        }
+    public void list2EscapedArray____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"\\\n\"]");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
@@ -65,54 +61,33 @@ public class JSONToEOTest {
     }
 
     @Test
-    public void MapWithValueAndNoEndQuote_fails() {
-        try {
-            ProviderRootTestScope.createEo("{\"k\":\"v}");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with bad json v!");
-        } catch (Exception e) {
-            LOG.info(e.getMessage());
-            Assert.assertTrue("Unexpected Exception message: " + e.getMessage(),
-                    e.getMessage().contains("Unterminated string cause of an escaped carriage return"));
-        }
+    public void value_NoEndQuote____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k\":\"v}");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void exceptionMap_Value_NoStartQuote() {
-        try {
-            ProviderRootTestScope.createEo("{\"k\":v\"}");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with bad json v missing start quote!");
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void value_NoStartQuote____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k\":v\"}");})
+        .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void exceptionMap_NoColon() {
-        try {
-            ProviderRootTestScope.createEo("{\"k:\"v\"}");
-            ProviderRootTestScope.createEo("{\"k\",\"v\"}");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon after map k!");
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void value_NoColon____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k:\"v\"}");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void givenKeyNoEndQuote_thenExceptionThrown() {
-        Assertions
-                .assertThatThrownBy(()->{
-                    ProviderRootTestScope.createEo("{\"k:\"v\"}");})
-                .isInstanceOf(EoException.class)
-                .hasMessage("Unterminated string cause of an escaped carriage return in a character: 'k:'.");
+    public void key_NoEndQuote____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k:\"v\"}");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void givenNoStartQuote_thenExceptionThrown() {
-        Assertions
-                .assertThatThrownBy(()->{
-                    ProviderRootTestScope.createEo("{k\":\"v\"}");})
-                .isInstanceOf(EoException.class)
-                .hasMessage("Expected colon not found but ':': mapObject: 4: {k\":====v\"}");
+    public void key_NoStartQuote____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{k\":\"v\"}");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
@@ -125,64 +100,39 @@ public class JSONToEOTest {
     }
 
     @Test
-    public void exceptionList_NoEndColon() {
-        try {
-            ProviderRootTestScope.createEo("[\"v]");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon within list!");
-        } catch (Exception e) {
-            Assert.assertTrue("Unexpected Exception message: " + e.getMessage(),
-                    e.getMessage().contains("Unterminated string cause of an escaped carriage return in a character"));
-        }
+    public void list_NoEndQuote____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v]");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void exceptionList_NoStartColon() {
-        try {
-            ProviderRootTestScope.createEo("[v\"]");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon within list!");
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void list_NoStartQuote____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[v\"]");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void givenListWithStringWithNoColon_ThenExceptionThrown() {
-        Assertions
-                .assertThatThrownBy(()->{
-                    ProviderRootDevScope.createEo("[test]");})
-                .isInstanceOf(EoException.class)
-                .hasMessage("Could not transform non quoted value 'test'.");
+    public void list_NoQuote____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[test]");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void exceptionList_NoClosingBracket() {
-        try {
-            ProviderRootDevScope.createEo("[\"v\"");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon within list!");
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void list_NoClosingBracket____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v\"");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void exceptionList_NoSeparatedValues() {
-        try {
-            ProviderRootDevScope.createEo("[\"v\":2]");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with missing colon within list!");
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void list_colon____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v\":2]");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void ListWithFurtherValue_fails() {
-        try {
-            ProviderRootDevScope
-                    .createEo("[\"v\"],\"k\"");
-            Assert.fail(INFO_EXPECTED_NO_EXCEPTION + "with further values after closing list!");
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void list_furtherValues____exception() {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v\"],\"k\"");})
+                .isInstanceOf(EoException.class);
     }
 
     @Test

@@ -3,22 +3,14 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.List;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_UPPER_ID;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_UPPER_ID_KEY;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_FAILS;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_BOOLEAN;
 
 /**
@@ -66,7 +58,7 @@ public class FieldConfigTest {
         Assert.assertEquals(Base.ID, fieldConfig.getFieldKey());
         Assert.assertEquals(S_BOOLEAN, fieldConfig.getUnique());
         Assert.assertEquals(S_BOOLEAN, fieldConfig.getNotNull());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, fieldConfig.getDescription());
+        Assertions.assertThat(fieldConfig.getDescription()).isNotNull();
         Assert.assertEquals(Long.class, fieldConfig.getModelConfig().getModelClass());
         Assert.assertEquals(Long.class, fieldConfig.getModelClass());
         String toString = fieldConfig.toString();

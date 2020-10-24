@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
@@ -10,8 +9,6 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevS
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_NOT_NULL_FAILS;
 
 public class AnObjectTest {
 
@@ -32,12 +29,12 @@ public class AnObjectTest {
     }
 
     @Test
-    public void TEST__findField_myObject__$()  {
+    public void scopeTest__findFieldConfig_myObject__found()  {
         FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(AnObject.MY_OBJECT);
         Assert.assertEquals(AnObject.MY_OBJECT, field.getFieldKey());
         Assert.assertEquals(false, field.getUnique());
         Assert.assertEquals(false, field.getNotNull());
-        Assert.assertNotNull(INFO_NOT_NULL_FAILS, field.getDescription());
+        Assertions.assertThat(field.getDescription()).isNotNull();
         Assert.assertEquals(Object.class, field.getModelClass());
     }
 

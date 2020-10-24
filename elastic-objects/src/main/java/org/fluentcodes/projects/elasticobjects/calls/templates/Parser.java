@@ -14,12 +14,12 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.calls.values.ValueCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -207,33 +207,26 @@ public abstract class Parser {
 
     protected Object callWithValues(final EO eo, final String callDirective, String finish) {
         String[] methodAndInput = callDirective.split("->");
-        ModelConfig model = eo.getConfigsCache().findModel(methodAndInput[0]);
-        Call call = (Call)model.create();
+        ModelConfig callModel = eo.getConfigsCache().findModel(methodAndInput[0]);
+        Call call = (Call)callModel.create();
         call.setByString(methodAndInput[1]);
         if (!isEndSequence(finish)) {
-            try {
-                String content = findContent();
-                if (content!=null && !content.isEmpty()) {
-                    if ((call instanceof TemplateCall)) {
-                        ((TemplateCall) call).setContent(content);
-                        if (call instanceof TemplateResourceCall) {
-                            TemplateResourceCall resourceCall = (TemplateResourceCall) call;
-                            if (resourceCall.hasKeepCall()) {
-                                KeepCalls keepCall = resourceCall.getKeepCall();
-                                resourceCall
-                                        .setPrepend(keepCall.createStartDirective("=" + getStartSequence() + callDirective + getContinueSequence()));
-                                resourceCall
-                                        .setPostpend(keepCall.getStartComment() + getCloseSequence());
-                            }
-                        }
-                    }
-                    else if ((call instanceof ValueCall)) {
-                        ((ValueCall) call).setValue(content);
-                    }
-                }
+            String content = findContent();
+            if (call instanceof CallContent)  {
+                ((CallContent)call).setContent(content);
             }
-            catch(EoException e) {
-                throw new EoException(e.getMessage() + ": " + callDirective);
+            else {
+                throw new EoException("Problem setting content with implementing CallContent: '" + call.getClass().getSimpleName() + "'.");
+            }
+        }
+        if (call instanceof TemplateResourceCall) {
+            TemplateResourceCall resourceCall = (TemplateResourceCall) call;
+            if (resourceCall.hasKeepCall()) {
+                KeepCalls keepCall = resourceCall.getKeepCall();
+                resourceCall
+                        .setPrepend(keepCall.createStartDirective("=" + getStartSequence() + callDirective + getContinueSequence()));
+                resourceCall
+                        .setPostpend(keepCall.getStartComment() + getCloseSequence());
             }
         }
 
@@ -263,26 +256,20 @@ public abstract class Parser {
             }
         }
         Object call = eoCall.get(PathElement.CALLS, "0");
-        if (call instanceof TemplateCall) {
-            if (content!=null && !content.isEmpty()) {
-                 eoCall.set(content, PathElement.CALLS, "0", CONTENT);
-            }
-            if (call instanceof TemplateResourceCall) {
-                TemplateResourceCall resourceCall = (TemplateResourceCall) call;
-                if (resourceCall.hasKeepCall()) {
-                    KeepCalls keepCall = resourceCall.getKeepCall();
-                    resourceCall
-                            .setPrepend(keepCall.createStartDirective("==" + getStartSequence() + callDirective + getContinueSequence()));
-                    resourceCall
-                            .setPostpend(keepCall.getStartComment() + getCloseSequence());
-                }
+        if (content!=null && !content.isEmpty()) {
+            eoCall.set(content, PathElement.CALLS, "0", CONTENT);
+        }
+        if (call instanceof TemplateResourceCall) {
+            TemplateResourceCall resourceCall = (TemplateResourceCall) call;
+            if (resourceCall.hasKeepCall()) {
+                KeepCalls keepCall = resourceCall.getKeepCall();
+                resourceCall
+                        .setPrepend(keepCall.createStartDirective("==" + getStartSequence() + callDirective + getContinueSequence()));
+                resourceCall
+                        .setPostpend(keepCall.getStartComment() + getCloseSequence());
             }
         }
-        else if (call instanceof ValueCall) {
-            if (content!=null && !content.isEmpty()) {
-                eoCall.set(content, PathElement.CALLS, "0", ValueCall.VALUE);
-            }
-        }
+
         Object value = ExecutorCall.execute(eo, (Call) call);
         if (value == null) {
             return "";
