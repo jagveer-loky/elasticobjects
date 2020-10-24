@@ -276,6 +276,7 @@ public class JSONToEO {
 
     private String debug() {
         int position = new Long(index).intValue();
+        int positionNext = position + 1;
         int max = position + 20;
         int min = position - 20;
         if (min<0) {
@@ -284,6 +285,12 @@ public class JSONToEO {
         if (max>json.length()) {
             max = json.length();
         }
+        if (position>max) {
+            position = max;
+        }
+        if (positionNext>max) {
+            positionNext = max;
+        }
         return (Thread.currentThread().getStackTrace()[2].getMethodName()
                 + ": "
                 + index + ": "
@@ -291,7 +298,7 @@ public class JSONToEO {
                 "=="
                 + json.substring(position, position) +
                 "=="
-                + json.substring(position + 1, max));
+                + json.substring(positionNext, max));
     }
 
     public EO mapObject(EO eoCurrent)  {

@@ -11,7 +11,11 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL1;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL2;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL3;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * Tests for {@link SinusValueCall}
@@ -42,21 +46,21 @@ public class ValueCallTest {
     public void givenModelCreate_whenSetValue_thenValueIsSet()  {
         final ModelConfig model = ProviderRootTestScope.findModel(ValueCall.class);
         final ValueCall call = (ValueCall)model.create();
-        model.set(ValueCall.VALUE, call, S_STRING);
-        Assertions.assertThat(model.get(ValueCall.VALUE, call)).isEqualTo(S_STRING);
+        model.set(ValueCall.CONTENT, call, S_STRING);
+        Assertions.assertThat(model.get(ValueCall.CONTENT, call)).isEqualTo(S_STRING);
     }
 
     @Test
     public void givenModels_thenChildValueTypeIsString()  {
         final EO eo = ProviderRootTestScope.createEo();
         final Models models = new Models(eo.getConfigsCache(), ValueCall.class);
-        Models childModels = models.getChildModels(eo, new PathElement(ValueCall.VALUE));
+        Models childModels = models.getChildModels(eo, new PathElement(ValueCall.CONTENT));
         Assertions.assertThat(childModels.isScalar()).isTrue();
         Assertions.assertThat(childModels.getModelClass()).isEqualTo(String.class);
     }
 
     @Test
-    public void givenCallString_whenExecuteDirect_thenReturnValueIsEqualToValue()  {
+    public void call_String__execute__return_String()  {
         final ValueCall call = new ValueCall(S_STRING);
         EO eo = ProviderRootTestScope.createEo();
         Assertions.assertThat(call.execute(eo)).isEqualTo(S_STRING);

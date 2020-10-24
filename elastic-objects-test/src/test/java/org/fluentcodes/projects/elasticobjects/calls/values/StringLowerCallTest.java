@@ -43,9 +43,8 @@ public class StringLowerCallTest {
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
         EO eo = ProviderRootTestScope.createEo();
         final String template = "^" +
-                "===>{\"(ValueCall).\":{" +
-                "\"targetPath\":\"level0\"," +
-                "\"value\":\"tEsT\"}}." +
+                "===>{" +
+                "\"level0\":\"tEsT\"}." +
                 " - \n" +
                 "===>{\"(StringLowerCall).\":{" +
                 "\"sourcePath\":\"level0\"," +

@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -48,26 +49,17 @@ public class ConfigDivTest {
     }
 
     @Test
-    public void testString()  {
-        
+    public void scalarModel__setKeyValue__exception()  {
         ModelConfigInterface scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_STRING);
         Assert.assertEquals(M_STRING, scalarModel.getModelKey());
         Assert.assertTrue(scalarModel.isScalar());
 
         String scalar = (String) scalarModel.create();
         Assert.assertNull(scalar);
-        try {
-            scalarModel.set(S_TEST_STRING, scalar, S_STRING);
-            throw new Exception(INFO_EXPECTED_EXCEPTION_FAILS);
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
-        try {
-            Assert.assertEquals(S_STRING, scalarModel.get(S_TEST_STRING, scalar));
-            throw new Exception(INFO_EXPECTED_EXCEPTION_FAILS);
-        } catch (Exception e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+        Assertions.assertThatThrownBy(()->{scalarModel.set(S_TEST_STRING, scalar, S_STRING);})
+                .isInstanceOf(EoException.class);
+        Assertions.assertThatThrownBy(()->{scalarModel.get(S_TEST_STRING, scalar);})
+                .isInstanceOf(EoException.class);
     }
 
 }

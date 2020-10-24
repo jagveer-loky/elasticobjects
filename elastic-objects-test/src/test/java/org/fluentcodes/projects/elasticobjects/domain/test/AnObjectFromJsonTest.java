@@ -1,14 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * @author Werner Diwischek
@@ -38,7 +38,7 @@ public class AnObjectFromJsonTest {
     }
 
     @Test
-    public void AnObjectSmall____$()  {
+    public void scopeTest__small__xpected()  {
         EO eo = TestProviderAnObjectJson.SMALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(AnObject.class);
@@ -47,19 +47,19 @@ public class AnObjectFromJsonTest {
     }
 
     @Test
-    public void givenAllUnTyped_thenNoLog()  {
+    public void scopeTest__all__expected()  {
         EO eo = TestProviderAnObjectJson.ALL.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assert.assertEquals(INFO_COMPARE_FAILS, AnObject.class, eo.getModelClass());
+        Assertions.assertThat(eo.getModelClass()).isEqualTo(AnObject.class);
         Assertions.assertThat(eo.get(AnObject.MY_STRING)).isEqualTo((S_STRING));
         Assertions.assertThat(eo.get(AnObject.MY_INT)).isEqualTo((S_INTEGER));
     }
 
     @Test
-    public void scope_dev__ASubObjectJson__thenNoLog()  {
+    public void scopeDev__SubObjectJson__thenNoLog()  {
         EO eo = TestProviderAnObjectJson.SUB_TEST.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assert.assertEquals(INFO_COMPARE_FAILS, AnObject.class, eo.getModelClass());
+        Assertions.assertThat(eo.getModelClass()).isEqualTo(AnObject.class);
         Assertions.assertThat(eo.get(AnObject.MY_ASUB_OBJECT, AnObject.MY_STRING)).isEqualTo((S_STRING));
     }
 }

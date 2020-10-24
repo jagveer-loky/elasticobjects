@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -10,8 +11,7 @@ import java.util.List;
 /**
  * Created by werner.diwischek on 03.12.16.
  */
-public class CsvSimpleWriteCall extends ListWriteCall {
-
+public class CsvSimpleWriteCall extends ListWriteCall  {
     public CsvSimpleWriteCall()  {
         super();
     }
@@ -63,5 +63,7 @@ public class CsvSimpleWriteCall extends ListWriteCall {
         FileWriteCall call = new FileWriteCall(getConfigKey(), buffer.toString());
         call.execute(eo);
     }
+
+
 
 }

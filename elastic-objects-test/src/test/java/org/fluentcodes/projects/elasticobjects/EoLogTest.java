@@ -39,14 +39,14 @@ public class EoLogTest {
     public void error_WarnAdapter()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.error(S_MESSAGE);
-        Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eo.getLog().isEmpty());
+        Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
     public void warnWithException_WarnAdapter()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.warn(S_MESSAGE, new Exception(S_STRING));
-        Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eo.getLog().isEmpty());
+        Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
 
@@ -54,21 +54,21 @@ public class EoLogTest {
     public void warn_WarnAdapter()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.warn(S_MESSAGE);
-        Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS, eo.getLog().isEmpty());
+        Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
     public void info_WarnAdapter()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.info(S_MESSAGE);
-        Assert.assertTrue(INFO_LOG_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
+        Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
     public void debug_WarnAdapter()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.debug(S_MESSAGE);
-        Assert.assertTrue(INFO_LOG_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
+        Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
@@ -78,7 +78,7 @@ public class EoLogTest {
                 .setEmpty(S_LEVEL0);
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
         eoChild.warn(S_MESSAGE);
-        Assert.assertFalse(INFO_LOG_NOT_EMPTY_FAILS + eo.getLog(), eo.getLog().isEmpty());
+        Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test

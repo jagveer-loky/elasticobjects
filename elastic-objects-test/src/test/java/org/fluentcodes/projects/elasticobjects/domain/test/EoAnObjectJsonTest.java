@@ -3,10 +3,8 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.INFO_COMPARE_FAILS;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
@@ -56,7 +54,7 @@ public class EoAnObjectJsonTest {
     public void testAll()  {
         EO eo = TestProviderAnObjectJson.ALL_TYPED.createBtEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assert.assertEquals(INFO_COMPARE_FAILS, AnObject.class, eo.getModelClass());
+        Assertions.assertThat(eo.getModelClass()).isEqualTo(AnObject.class);
         Assertions.assertThat(eo.get(MY_STRING)).isEqualTo((S_STRING));
         Assertions.assertThat(eo.get(MY_INT)).isEqualTo((S_INTEGER));
     }

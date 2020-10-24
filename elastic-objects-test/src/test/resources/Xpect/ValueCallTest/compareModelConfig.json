@@ -4,11 +4,11 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "ValueCall",
     "(ArrayList)localFieldKeys": {
-      "0": "value"
+      "0": "content"
     },
     "superKey": "CallImpl",
     "(ArrayList)fieldKeys": {
-      "0": "value",
+      "0": "content",
       "1": "sourcePath",
       "2": "targetPath",
       "3": "models",

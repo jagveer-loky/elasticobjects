@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.ResourceWriteCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -11,7 +12,7 @@ import org.fluentcodes.tools.xpect.IOString;
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileWriteCall extends ResourceWriteCall {
+public class FileWriteCall extends ResourceWriteCall implements CallContent {
     private String classPath;
     private String content;
     public FileWriteCall() {
@@ -34,8 +35,9 @@ public class FileWriteCall extends ResourceWriteCall {
         return content;
     }
 
-    public void setContent(String content) {
+    public FileWriteCall setContent(String content) {
         this.content = content;
+        return this;
     }
 
     public FileConfig getFileConfig()  {

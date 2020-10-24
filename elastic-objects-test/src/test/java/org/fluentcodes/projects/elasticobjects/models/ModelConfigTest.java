@@ -58,13 +58,9 @@ public class ModelConfigTest {
     }
 
     @Test
-    public void givenTest_whenFindModelNotInChache_thenExceptionThrown()  {
-        try {
-            ProviderRootTestScope.EO_CONFIGS.findModel(SAMPLE_KEY_UNKNOW);
-            Assert.fail(INFO_EXPECTED_EXCEPTION_FAILS);
-        } catch (EoException e) {
-            LOG.info(INFO_EXPECTED_EXCEPTION + e.getMessage());
-        }
+    public void scopeTest__findModel_Unknown__exception()  {
+        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.EO_CONFIGS.findModel(SAMPLE_KEY_UNKNOW);})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
