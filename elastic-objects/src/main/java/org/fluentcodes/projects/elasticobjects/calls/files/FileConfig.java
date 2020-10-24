@@ -109,33 +109,6 @@ public class FileConfig extends ConfigResourcesImpl implements FileConfigInterfa
             throw new EoException(e);
         }
     }
-    @Override
-    public Object read()  {
-        if (hasCachedContent()) {
-            return getCachedContent();
-        }
-        URL url = createUrl();
-        String content = FileReadCall.read(getFilePath(), getFileName());
-        if (isCached()) {
-            setCachedContent(content);
-        }
-        return content;
-    }
-
-    /**
-     * Write the file direct without the usage of
-     *
-     * @param content
-     * @
-     */
-    @Override
-    public void write(Object content)  {
-        if (isCached()) {
-            throw new EoException("A fileCached file could not persisted!");
-        }
-        URL url = createUrl();
-        new IOString().setFileName(url.getFile()).write((String)content);
-    }
 
     /**
      * File cached

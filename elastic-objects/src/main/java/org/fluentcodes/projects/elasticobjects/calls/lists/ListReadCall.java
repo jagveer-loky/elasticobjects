@@ -3,9 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.CallResource;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 /**
  * Base for list type calls.
@@ -13,7 +12,7 @@ import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
  * @since 18.12.17.
  */
 
-public class ListReadCall extends CallResource implements ListInterface {
+public class ListReadCall extends ResourceCall implements ListInterface {
     private ListParams listParams;
     public ListReadCall() {
         super(PermissionType.READ);

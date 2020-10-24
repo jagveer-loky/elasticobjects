@@ -59,7 +59,7 @@
   "DbSqlCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "superKey": "CallResource",
+    "superKey": "ResourceCall",
     "expose": "WEB",
     "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",

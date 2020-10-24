@@ -271,7 +271,7 @@
     "hostKey": "localhost",
     "filePath": "templates/json",
     "fileName": "JsonBuilder.tpl",
-    "description": "Control directive to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall",
+    "description": "Control directives to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall.",
     "expose": "WEB",
     "cached": "false",
     "rolePermissions": {

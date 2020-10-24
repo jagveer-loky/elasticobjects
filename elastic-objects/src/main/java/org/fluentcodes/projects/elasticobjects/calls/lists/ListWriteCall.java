@@ -4,8 +4,9 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.calls.CallResource;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceWriteCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 
@@ -17,11 +18,11 @@ import java.util.*;
  * @since 10.7.2020.
  */
 
-public class ListWriteCall extends CallResource implements ListInterface {
+public abstract class ListWriteCall extends ResourceWriteCall implements ListInterface {
     private ListParams listParams;
 
     public ListWriteCall() {
-        super(PermissionType.WRITE);
+        super();
     }
 
     public ListParams getListParams() {
@@ -32,16 +33,20 @@ public class ListWriteCall extends CallResource implements ListInterface {
         if (eo.isEoEmpty()) {
             throw new EoException("Empty adapter -- nothing to write for " + eo.getPath());
         }
-        List toWrite = toList(eo, null);
+        List toWrite = toList(eo);
         try {
-            //((ListIOInterface) getListConfig().createIO()).write(toWrite);
+            write(eo, toWrite);
         } catch (Exception e) {
             throw new EoException(e);
         }
         return true;
     }
 
-    public List toList(EO adapter, Map externalAttributes) {
+    public void write(EO eo, List toWrite) {
+        throw new EoException("Should be overwritten");
+    }
+
+    public List toList(EO adapter) {
         List toWrite = new ArrayList();
         if (adapter.isEoEmpty()) {
             adapter.warn("Empty adapter -- nothing to write for " + adapter.getPath());

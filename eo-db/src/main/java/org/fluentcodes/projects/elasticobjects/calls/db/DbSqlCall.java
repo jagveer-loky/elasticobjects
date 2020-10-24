@@ -1,8 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallResource;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -11,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbSqlCall extends  CallResource{
+public class DbSqlCall extends ResourceCall {
     public DbSqlCall()  {
         super(PermissionType.EXECUTE);
     }

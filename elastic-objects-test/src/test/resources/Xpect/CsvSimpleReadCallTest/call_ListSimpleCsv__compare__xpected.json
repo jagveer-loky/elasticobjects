@@ -1,0 +1,28 @@
+{
+  "_rootmodel": "List",
+  "(LogLevel)_logLevel": "WARN",
+  "0": {
+    "key1": "value11",
+    "key2": "value12"
+  },
+  "1": {
+    "key1": "value21",
+    "key2": "value22"
+  },
+  "(List)_calls": {
+    "(CsvSimpleReadCall)0": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3,
+      "length": -1,
+      "colKeys": {
+        "0": "key1",
+        "1": "key2"
+      },
+      "configKey": "ListSimple.csv",
+      "targetPath": "(List).",
+      "prepend": "",
+      "postpend": ""
+    }
+  }
+}

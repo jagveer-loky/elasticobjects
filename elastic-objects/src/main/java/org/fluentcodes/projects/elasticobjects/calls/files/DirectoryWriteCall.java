@@ -1,29 +1,20 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.ResourceReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.tools.xpect.IORuntimeException;
-import org.fluentcodes.tools.xpect.IOString;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by werner.diwischek on 2.10.2020.
  */
-public class DirectoryReadCall extends ResourceReadCall {
+public class DirectoryWriteCall extends FileWriteCall {
     private String fileName;
-    public DirectoryReadCall() {
+    public DirectoryWriteCall() {
         super();
     }
 
-    public DirectoryReadCall(final String configKey) {
+    public DirectoryWriteCall(final String configKey) {
         super(configKey);
     }
 
@@ -39,7 +30,7 @@ public class DirectoryReadCall extends ResourceReadCall {
         return fileName;
     }
 
-    public DirectoryReadCall setFileName(String fileName) {
+    public DirectoryWriteCall setFileName(String fileName) {
         this.fileName = fileName;
         return this;
     }
@@ -49,26 +40,22 @@ public class DirectoryReadCall extends ResourceReadCall {
         if (!init(eo)) {
             return "";
         }
-        String result = read(eo);
-        return createReturnString(eo, result);
+        write(eo);
+        return "";
     }
 
-    public String read(final EO eo)  {
+    public void write(final EO eo)  {
         if (!hasFileName()) {
-            throw new EoException("No fileName provided for DirectoryConfig read.");
+            throw new EoException("No fileName is set for " + this.getClass().getSimpleName() + " with config '" + getConfigKey() + "'.");
         }
-
         if (!fileName.matches(getDirectoryConfig().getFileName())) {
             throw new EoException("fileName in call for read '"+ fileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
         }
-        if (getDirectoryConfig().hasCachedContent(fileName)) {
-            return getDirectoryConfig().getCachedContent(fileName);
+        String url = getDirectoryConfig().getFilePath() + "/" + fileName;
+        if (ParserSqareBracket.containsStartSequence(url)) {
+            url = new ParserSqareBracket(url).parse(eo);
         }
-        String content = FileReadCall.read(eo, getDirectoryConfig().getFilePath() + "/" + fileName);
-        if (getDirectoryConfig().isCached()) {
-            getDirectoryConfig().setCachedContent(fileName, content);
-        }
-        return content;
+        FileWriteCall.write(url, getContent());
     }
 
     @Override

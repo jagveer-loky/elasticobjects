@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.json;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.calls.files.JsonReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class JsonCallTest {
         EO eo = ProviderRootTestScope.createEo();
 
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = (String)new JsonReadCall("map.json").execute(eo);
+        String content = (String)new FileReadCall("map.json").execute(eo);
         Assertions.assertThat(content).isNotEmpty();
     }
 
@@ -30,7 +30,7 @@ public class JsonCallTest {
     public void givenMapJsonOnXYZ_whenExecuteCall_thenXYZHasContent()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.setEmpty("(AnObject)xyz");
-        eo.addCall(new JsonReadCall("map.json").setTargetPath("xyz"));
+        eo.addCall(new FileReadCall("map.json").setTargetPath("xyz"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("xyz/myString")).isEqualTo("value");
@@ -41,7 +41,7 @@ public class JsonCallTest {
     public void givenListJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.setEmpty("x/y/(List)z");
-        eo.addCall(new JsonReadCall("list.json").setTargetPath("x/y/z"));
+        eo.addCall(new FileReadCall("list.json").setTargetPath("x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("x/y/z/1")).isEqualTo("test");
@@ -52,7 +52,7 @@ public class JsonCallTest {
     public void givenMapJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.setEmpty("x/y/z");
-        eo.addCall(new JsonReadCall("map.json").setTargetPath("x/y/z"));
+        eo.addCall(new FileReadCall("map.json").setTargetPath("x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("x/y/z/myString")).isEqualTo("value");

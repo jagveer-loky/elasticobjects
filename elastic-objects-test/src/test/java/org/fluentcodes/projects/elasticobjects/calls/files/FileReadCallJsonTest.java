@@ -16,29 +16,21 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 /**
  * Created 12.6.2018
  */
-public class JsonReadCallTest {
-    private static String LIST_SIMPLE_JSON = "ListSimple.json";
-    @Test
-    public void compareModelConfig()  {
-        ConfigModelChecks.compare(JsonReadCall.class);
-    }
+public class FileReadCallJsonTest {
+    private final static String LIST_SIMPLE_JSON = "ListSimple.json";
 
-    @Test
-    public void createByModelConfig()  {
-        ConfigModelChecks.create(JsonReadCall.class);
-    }
 
     @Ignore
     @Test
     public void givenCallWithModuleConfig_whenExecuteCall_thenReturnContent()  {
-        final JsonReadCall call = new JsonReadCall(J_MODULE_CONFIG_JSON);
+        final FileReadCall call = new FileReadCall(J_MODULE_CONFIG_JSON);
         String content = (String)call.execute(ProviderRootTestScope.createEo());
         Assertions.assertThat(content).contains("\"srcDir\": \"src/main/java\",\n");
     }
 
     @Test
     public void givenCallRoleGuestAndFileTmp_whenExecuteCall_thenThrowException()  {
-        final JsonReadCall call = new JsonReadCall(JsonWriteCallTest.FILE_TMP_JSON);
+        final FileReadCall call = new FileReadCall(JsonWriteCallTest.FILE_TMP_JSON);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         Assertions
@@ -49,7 +41,7 @@ public class JsonReadCallTest {
 
     @Test
     public void givenCallRoleAnonymAndFileSource_whenExecuteCall_thenThrowException()  {
-        final JsonReadCall call = new JsonReadCall(LIST_SIMPLE_JSON);
+        final FileReadCall call = new FileReadCall(LIST_SIMPLE_JSON);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_ANONYM);
         Assertions
@@ -60,7 +52,7 @@ public class JsonReadCallTest {
 
     @Test
     public void givenCallRoleGuestAndFileSource_whenExecuteCall_ok()  {
-        final JsonReadCall call = new JsonReadCall(LIST_SIMPLE_JSON);
+        final FileReadCall call = new FileReadCall(LIST_SIMPLE_JSON);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         String content = (String)call.execute(eo);
@@ -80,7 +72,7 @@ public class JsonReadCallTest {
 
     @Test
     public void givenEoRoleGuestAndFileSource_whenExecute_thenValuesAreMapped()  {
-        final JsonReadCall call = new JsonReadCall(LIST_SIMPLE_JSON);
+        final FileReadCall call = new FileReadCall(LIST_SIMPLE_JSON);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
@@ -92,7 +84,7 @@ public class JsonReadCallTest {
 
     @Test
     public void eo__configKey_AnObjectJson_targetPath_level0_models_List_AnObject__execute__$()  {
-        final Call call = new JsonReadCall()
+        final Call call = new FileReadCall()
                 .setConfigKey("AnObject.json")
                 .setTargetPath("(List," + AnObject.class.getSimpleName() + ")level0");
         EO eo = ProviderRootTestScope.createEo();
