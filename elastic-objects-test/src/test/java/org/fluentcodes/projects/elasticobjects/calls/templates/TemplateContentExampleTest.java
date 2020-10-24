@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.calls.files.JsonReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
@@ -29,7 +29,7 @@ public class TemplateContentExampleTest {
     @Test
     public void call_ConfigKeyJson__execute__xpected()  {
         EO eo = ProviderRootTestScope.createEo();
-        final JsonReadCall call = new JsonReadCall(CONFIG_KEY_JSON);
+        final FileReadCall call = new FileReadCall(CONFIG_KEY_JSON);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

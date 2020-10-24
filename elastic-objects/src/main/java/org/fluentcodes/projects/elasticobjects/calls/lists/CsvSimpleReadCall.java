@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
@@ -43,7 +44,7 @@ public class CsvSimpleReadCall extends ListReadCall {
     }
 
     public List readRaw(final EO eo) {
-        String content = (String) getCsvConfig().read();
+        String content = (String) new FileReadCall(getConfigKey()).execute(eo);
         if (content == null|| content.isEmpty()) {
             return new ArrayList<>();
         }

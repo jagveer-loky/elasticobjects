@@ -25,7 +25,7 @@ public class JsonWriteCallTest {
         eo.set(S_VALUE22, S1,S_KEY2);
         eo.setRoles(R_SUPER_ADMIN);
         String result = callWrite.execute(eo);
-        final JsonReadCall callRead = new JsonReadCall(FILE_TMP_JSON);
+        final FileReadCall callRead = new FileReadCall(FILE_TMP_JSON);
         String readed = (String) callRead.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).isEqualTo(readed);

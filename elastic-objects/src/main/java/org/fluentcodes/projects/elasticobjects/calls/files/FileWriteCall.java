@@ -2,30 +2,40 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.CallResource;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceWriteCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.tools.xpect.IOString;
-
-import java.net.URL;
 
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileWriteCall extends CallResource {
+public class FileWriteCall extends ResourceWriteCall {
     private String classPath;
+    private String content;
     public FileWriteCall() {
-        super(PermissionType.WRITE);
+        super();
     }
 
     public FileWriteCall(final String configKey) {
-        super(PermissionType.WRITE);
-        setConfigKey(configKey);
+        super(configKey);
+    }
+    public FileWriteCall(final String configKey, final String content) {
+        super(configKey);
+        setContent(content);
+    }
+
+    public boolean hasContent() {
+        return content != null && !content.isEmpty();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public FileConfig getFileConfig()  {
@@ -37,18 +47,18 @@ public class FileWriteCall extends CallResource {
         if (!init(eo)) {
             return null;
         }
-        String content = null;
-        if (eo.isScalar()) {
-            content = eo.get().toString();
-        }
-        else {
-            content = new EOToJSON().toJSON(eo);
-        }
-        this.write(eo, content);
+        this.write(eo);
         return content;
     }
 
-    public void write(EO eo, Object content)  {
+    public void write(EO eo)  {
+        if (!hasContent()) {
+            if (eo.isScalar()) {
+                content = eo.get().toString();
+            } else {
+                content = eo.toString();
+            }
+        }
         String url = getFileConfig().createUrl().getFile();
         if (ParserSqareBracket.containsStartSequence(url)) {
             url = new ParserSqareBracket(url).parse(eo);

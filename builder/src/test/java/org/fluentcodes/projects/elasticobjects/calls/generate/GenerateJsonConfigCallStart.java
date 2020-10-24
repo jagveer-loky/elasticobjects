@@ -12,6 +12,8 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+
 import static org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall.BUILD_PATH;
 import static org.fluentcodes.projects.elasticobjects.calls.generate.GenerateJsonConfigCall.CONFIG_TYPE;
 import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
@@ -29,7 +31,7 @@ public class GenerateJsonConfigCallStart {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(".*", MODULE);
         eo.set("main", MODULE_SCOPE);
-        eo.set(FileConfig.class.getSimpleName() , CONFIG_TYPE);
+        eo.set(ModelConfig.class.getSimpleName() , CONFIG_TYPE);
         eo.set("..", BUILD_PATH);
         String result = call.execute(eo);
         System.out.println(result);

@@ -138,7 +138,7 @@ public abstract class Parser {
             String pathOrKey = match.group(2);
             String finish = match.group(3);
             if (callIndicator == null || callIndicator.isEmpty()) {
-                result.append(replacePathValues(eo, pathOrKey));
+                result.append(replacePathValuesWithDefault(eo, pathOrKey));
             }
             else if (callIndicator.equals("=")) { // setCall
                 result.append(callWithValues(eo, pathOrKey, finish));
@@ -147,56 +147,62 @@ public abstract class Parser {
                 result.append(callWithJson(eo, pathOrKey, finish));
             }
             else {
-
+                eo.error("!!Callindication should be =>, ==> or ===> but found '" + matchAll + "'!!");
+                result.append("!!Callindication should be =>, ==> or ===> but found '" + matchAll + "'!!");
             }
         }
         result.append(parseString.substring(end, parseString.length()));
         return result.toString();
     }
 
-    private String replacePathValues(final EO eo, String pathOrKey) {
-        String defaultValue = null;
-        if (pathOrKey.contains("|>")) {
+    private String replacePathValuesWithDefault(final EO eo, String pathOrKey) {
+        String defaultValue = getDefault(pathOrKey);
+        try {
+            return replacePathValues(eo, pathOrKey);
+        }
+        catch (Exception e) {
+            if (!defaultValue.isEmpty()) {
+                return defaultValue;
+            }
+            if (eo != null) {
+                eo.error(e.getMessage());
+            }
+            return "!!" + e.getMessage() + "!!";
+        }
+    }
+
+    private String getDefault(String pathOrKey) {
             String[] pathAndDefault = pathOrKey.split("\\|>");
-            pathOrKey = pathAndDefault[0];
             if (pathAndDefault.length == 2) {
-                defaultValue = pathAndDefault[1];
+                return pathAndDefault[1];
             }
-            else {
-                defaultValue="";
+            if (pathAndDefault.length == 1) {
+                return "";
             }
-        }
+            throw new EoException("Problem setting default values with " + pathAndDefault.length + " splitter set: '" + pathAndDefault.length + "'");
+    }
 
-        if (eo != null && pathOrKey.startsWith("_")) {
-            defaultValue = pathOrKey
-                    .replaceAll(VALUE, eo.get().toString())
-                    .replaceAll(PARENT, eo.getParentKey());
+    private String replacePathValues(final EO eo, String pathOrKey) {
+        if (pathOrKey.startsWith(SYSTEM_CHAR)) {
+            return getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
         }
+        if (pathOrKey.startsWith(ENV_CHAR)) {
+            return System.getenv(pathOrKey.replaceAll(ENV_CHAR, ""));
+        }
+        if (eo == null) {
+            throw new EoException("Null eo wrapper defined to get '" + pathOrKey + "'");
+        }
+        if (pathOrKey.equals(VALUE)) {
+            return eo.get().toString();
+        }
+        if (pathOrKey.equals(PARENT)) {
+            return eo.getParentKey();
+        }
+        pathOrKey = pathOrKey
+                .replaceAll(PARENT, eo.getParentKey())
+                .replaceAll(PARENT, eo.getParentKey());
 
-        else if (pathOrKey.startsWith(SYSTEM_CHAR)) {
-            defaultValue = getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
-        }
-        else if (pathOrKey.startsWith(ENV_CHAR)) {
-            defaultValue = System.getenv(pathOrKey.replaceAll(ENV_CHAR, ""));
-        }
-
-        else if (eo != null){
-                try {
-                    pathOrKey = pathOrKey
-                            .replaceAll(VALUE, eo.get().toString())
-                            .replaceAll(PARENT, eo.getParentKey());
-                    defaultValue = ScalarConverter.toString(eo.get(pathOrKey));
-                } catch (Exception e) {
-                    if (defaultValue == null) {
-                        eo.error(e.getMessage());
-                        defaultValue = "!!" + e.getMessage() + "!!";
-                    }
-                }
-        }
-        else {
-            defaultValue = "!!Could not find path '" + pathOrKey + "'!!";
-        }
-        return defaultValue;
+        return eo.getEo(pathOrKey).toString();
     }
 
     protected Object callWithValues(final EO eo, final String callDirective, String finish) {

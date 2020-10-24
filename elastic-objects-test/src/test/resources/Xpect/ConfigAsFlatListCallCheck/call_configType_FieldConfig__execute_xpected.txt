@@ -107,7 +107,7 @@
 "superKey";"String";"A key for the super class of a class.";"elastic-objects";"";"superKey";"";"";"";"";
 "table";"String";"The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.";"elastic-objects";"";"table";"";"";"";"";
 "targetFile";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
-"targetPath";"String";"A targetPath where the result of the execution will be mapped. Any combination of ""$(path)$""  could be set as value.";"elastic-objects";"";"targetPath";"";"";"";"";
+"targetPath";"String";"A targetPath where the result of the execution will be mapped. If value is ""_asString"" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.";"elastic-objects";"";"targetPath";"";"";"";"";
 "toReplace";"String";"toReplace";"elastic-objects";"";"toReplace";"";"";"";"";
 "unique";"Boolean";"unique";"elastic-objects";"";"unique";"";"";"";"";
 "upper.ID";"Long";"Alias for id with uppercase.";"elastic-objects";"";"ID";"";"";"";"";

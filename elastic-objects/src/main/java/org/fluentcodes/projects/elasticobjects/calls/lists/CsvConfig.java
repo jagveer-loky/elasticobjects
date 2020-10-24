@@ -44,38 +44,4 @@ public class CsvConfig extends FileConfig {
         return this.rowDelimiter;
     }
 
-    public void write(List rows)  {
-        resolve();
-        if (rows == null || rows.isEmpty()) {
-            throw new EoException("Strange - no list values - nothing to write! Will return without doing anything.");
-        }
-        StringBuilder buffer = new StringBuilder();
-        for (Object row : rows) {
-            if (row == null) {
-                buffer.append(getRowDelimiter());
-                continue;
-            }
-            if (!(row instanceof List)) {
-                buffer.append(getRowDelimiter());
-                continue;
-            }
-            List rowList = (List) row;
-            if (rowList.isEmpty()) {
-                buffer.append(getRowDelimiter());
-                continue;
-            }
-            for (int i = 0; i < rowList.size(); i++) {
-                Object entry = rowList.get(i);
-                if (entry == null) {
-                    buffer.append(getFieldDelimiter());
-                }
-                buffer.append(entry.toString());
-                if (i + 1 < rowList.size()) {
-                    buffer.append(getFieldDelimiter());
-                }
-            }
-            buffer.append(getRowDelimiter());
-        }
-        super.write(buffer.toString());
-    }
 }

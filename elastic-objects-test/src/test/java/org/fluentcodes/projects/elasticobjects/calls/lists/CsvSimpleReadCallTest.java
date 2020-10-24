@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
 import java.util.LinkedHashMap;
@@ -29,6 +30,15 @@ public class CsvSimpleReadCallTest {
     @Test
     public void compareModelConfig()  {
         ConfigModelChecks.compare(CsvSimpleReadCall.class);
+    }
+
+    @Test
+    public void call_ListSimpleCsv__compare__xpected()  {
+        final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
+        EO eo = ProviderRootTestScope.createEo();
+        call.execute(eo);
+        eo.addCall(call);
+        new XpectEo().compareAsString(eo);
     }
 
     @Test

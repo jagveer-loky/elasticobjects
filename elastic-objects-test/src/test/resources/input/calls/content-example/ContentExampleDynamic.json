@@ -1,5 +1,5 @@
 {
-  "(JsonReadCall)data": {
+  "(FileReadCall)data": {
     "configKey":"ContentExampleData"
   },
   "(TemplateCall)1": {

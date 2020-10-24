@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleWriteCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListWriteCall;
 
 import java.util.Arrays;
@@ -45,7 +46,7 @@ public class ConfigAsFlatListCall extends CallImpl {
     public String execute(EO eo)  {
         List resultAsListMap = (List) new ConfigCall()
                 .setConfigType(configType).execute(eo);
-        return new ListWriteCall()
+        return new CsvSimpleWriteCall()
                 .asString(eo, resultAsListMap, keys);
     }
 

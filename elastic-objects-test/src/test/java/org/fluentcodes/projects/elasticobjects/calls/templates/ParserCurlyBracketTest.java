@@ -32,7 +32,7 @@ public class ParserCurlyBracketTest {
         String replace = "=>{TMP}.";
         String result = new ParserCurlyBracket(replace).parse();
         Assert.assertNotNull(result);
-        Assertions.assertThat(result).isEqualTo("!!Could not find path 'TMP'!!");
+        Assertions.assertThat(result).isEqualTo("!!Null eo wrapper defined to get 'TMP'!!");
     }
 
     @Test
@@ -56,7 +56,7 @@ public class ParserCurlyBracketTest {
     public void placeHolder_testPath_noEo__parse__exception_in_template () {
         String replace = "-=>{testPath}.-";
         String result = new ParserCurlyBracket(replace).parse();
-        Assertions.assertThat(result).isEqualTo("-!!Could not find path 'testPath'!!-");
+        Assertions.assertThat(result).isEqualTo("-!!Null eo wrapper defined to get 'testPath'!!-");
     }
 
     @Test
@@ -212,6 +212,28 @@ public class ParserCurlyBracketTest {
         String result = new ParserCurlyBracket(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).contains(" a1 a2 a3");
+    }
+
+    @Test
+    public void TemplateCall_parent__parse__val2a() {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"val1\":{\"a\":\"1\"},\"val2\":{\"a\":\"2\"}}." +
+                "==>{TemplateCall->/val1/a}| val2/a = \n =>{/val2/_parent}.  =>{}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains(" val2/a = 2");
+    }
+
+    @Test
+    public void eo_TemplateCall_val1_hash__parse__toStringUsed() {
+        final EO eo = ProviderRootTestScope.createEo();
+        final String replace = "" +
+                "===>{\"val1\":{\"a\":\"1\"}}." +
+                "=>{val1}.";
+        String result = new ParserCurlyBracket(replace).parse(eo);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).isEqualTo("{\n  \"a\": \"1\"\n}");
     }
 
 

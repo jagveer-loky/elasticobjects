@@ -9,8 +9,6 @@ import java.net.URL;
  * Created by Werner on 09.10.2016.
  */
 public interface FileConfigInterface extends ConfigResources {
-    Object read();
-    void write(Object content);
     Boolean isCached();
 
     String getCachedContent();

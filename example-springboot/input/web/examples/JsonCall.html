@@ -24,11 +24,11 @@
 
  <h4>map.json</h4>
  <p>
- In the following example a path "x/y/z" will be specified of type "JsonReadCall".
+ In the following example a path "x/y/z" will be specified of type "FileReadCall".
  </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
-        "(JsonReadCall)x/y/z":{
+        "(FileReadCall)x/y/z":{
             "configKey":"map.json"
         },
         "_serializationType":"STANDARD"
@@ -47,12 +47,12 @@ If you click, you will see the values of
 
 <h4>map.json as Object</h4>
 <p>
-    In the following example a path "xyz" will be specified of type "JsonReadCall" with the targetPath.
+    In the following example a path "xyz" will be specified of type "FileReadCall" with the targetPath.
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(AnObject)xyz":{},
-        "(JsonReadCall).":{
+        "(FileReadCall).":{
             "configKey":"map.json",
             "targetPath":"xyz"
         },
@@ -70,7 +70,7 @@ If you click, you will see the values of
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
-        "(JsonReadCall)x/y/z":{"configKey":"list.json"},
+        "(FileReadCall)x/y/z":{"configKey":"list.json"},
         "_serializationType":"STANDARD"
 }</textarea>
     <input type="submit" value="post"/>

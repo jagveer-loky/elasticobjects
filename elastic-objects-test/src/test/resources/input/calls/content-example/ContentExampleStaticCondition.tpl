@@ -1,4 +1,4 @@
- ===>{"(JsonReadCall).":{
+ ===>{"(FileReadCall).":{
     "targetPath":"data",
     "configKey":"ContentExampleData"}
 }.

@@ -1,9 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlCall",
-    "superKey": "ResourceCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "FileReadCall",
+    "superKey": "CallResource",
     "(ArrayList)fieldKeys": {
       "0": "configKey",
       "1": "sourcePath",
@@ -27,12 +27,12 @@
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN",
-      "module": "eo-db"
+      "module": "elastic-objects"
     },
-    "module": "eo-db",
+    "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Executes a list of sql statements within DbSqlConfig.",
-    "naturalId": "DbSqlCall",
+    "description": "Defines a file read access. ",
+    "naturalId": "FileReadCall",
     "author": "Werner Diwischek"
   },
   "(LogLevel)_logLevel": "WARN"

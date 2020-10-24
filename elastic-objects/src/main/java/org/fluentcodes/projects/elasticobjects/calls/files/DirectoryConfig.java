@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
+import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -21,38 +22,28 @@ public class DirectoryConfig extends FileConfig {
 
     public DirectoryConfig(final EOConfigsCache provider, Map map) {
         super(provider, map);
-    }
-
-    @Override
-    protected boolean hasCachedContent() {
-        return cachedContent!=null && cachedContent.isEmpty();
-    }
-
-    private boolean hasCachedContent(final String fileName) {
-        return hasCachedContent() && cachedContent.containsKey(fileName);
-    }
-
-    public Object read(final String fileName)  {
-        if (fileName==null || fileName.isEmpty()) {
-            throw new EoException("No fileName provided for DirectoryConfig read.");
-        }
-        if (hasCachedContent(fileName)) {
-            return cachedContent.get(fileName);
-        }
-        if (!fileName.matches(getFileName())) {
-            throw new EoException("fileName in call for read '"+ fileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
-        }
-        String content = FileReadCall.read(getFilePath(), fileName);
         if (isCached()) {
-            if (cachedContent == null) {
-                cachedContent = new HashMap<>();
-            }
-            cachedContent.put(fileName, content);
+            cachedContent = new HashMap<>();
         }
-        return content;
     }
 
+    public boolean hasCachedContent(final String fileName) {
+        return cachedContent !=null && cachedContent.containsKey(fileName);
+    }
 
+    public String getCachedContent(final String fileName) {
+        if (!isCached()) {
+            return null;
+        }
+        return cachedContent.get(fileName);
+    }
+
+    public void setCachedContent( final String fileName, final String content) {
+        if (!isCached()) {
+            return;
+        }
+        this.cachedContent.put(fileName, content);
+    }
 
     /**
      * Write the file direct without the usage of
@@ -60,11 +51,5 @@ public class DirectoryConfig extends FileConfig {
      * @param content
      * @
      */
-    public void write(Object content)  {
-        if (isCached()) {
-            throw new EoException("A fileCached file could not persisted!");
-        }
-        URL url = createUrl();
-        new IOString().setFileName(url.getFile()).write((String)content);
-    }
+
 }

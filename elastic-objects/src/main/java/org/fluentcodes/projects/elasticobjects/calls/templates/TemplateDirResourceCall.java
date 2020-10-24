@@ -64,12 +64,12 @@ public class TemplateDirResourceCall extends TemplateResourceCall {
         if (!(hasConfigKey())) {
             throw new EoException("Problem that TemplateResourceCall with fileName '" + getFileName() + "' expects a configKey value.");
         }
-        final String configKey = Parser.replacePathValues(getConfigKey(),eo);
+        final String configKey = ParserSqareBracket.replacePathValues(getConfigKey(),eo);
         if (!hasFileName()) {
             throw new EoException("No fileName defined for '" + configKey + "'");
         }// directory config
 
-        final String fileName = Parser.replacePathValues(getFileName(),eo);
+        final String fileName = ParserSqareBracket.replacePathValues(getFileName(),eo);
         String result = new TemplateCall(new DirectoryReadCall(configKey)
                 .setFileName(fileName)
                 .execute(eo))

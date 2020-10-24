@@ -1,26 +1,24 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.CallResource;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.tools.xpect.IOBytes;
 import org.fluentcodes.tools.xpect.IOString;
 
-import java.util.HashMap;
-
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileReadCall extends CallResource{
+public class FileReadCall extends ResourceReadCall {
 
     public FileReadCall() {
-        super(PermissionType.READ);
+        super();
     }
 
     public FileReadCall(final String configKey) {
-        super(PermissionType.READ);
+        super();
         setConfigKey(configKey);
     }
 
@@ -38,38 +36,25 @@ public class FileReadCall extends CallResource{
         if (!init(eo)) {
             return null;
         }
-        String result = (String) getFileConfig().read();
+        if (getFileConfig().hasCachedContent()) {
+            return getFileConfig().getCachedContent();
+        }
+        String filePath = getFileConfig().getFilePath() + "/" + getFileConfig().getFileName();
+        String result = read(eo, filePath);
+        if (getFileConfig().isCached()) {
+            getFileConfig().setCachedContent(result);
+        }
         return createReturnString(eo, result);
+    }
+
+    public static String read(final EO eo, String filePath)  {
+        filePath = ParserSqareBracket.replacePathValues(filePath, eo);
+        return new IOString().setFileName(filePath).read();
     }
 
     @Override
     public Class<? extends Config> getConfigClass()  {
         return FileConfig.class;
-    }
-
-    public String read()  {
-        if (!hasConfig()) {
-            throw new EoException("No config defined for configKey " + getConfigKey());
-        }
-        if (!getFileConfig().hasFilePath()) {
-            throw new EoException("No filePath in config defined for configKey " + getConfigKey());
-        }
-        if (!getFileConfig().hasFileName()) {
-            throw new EoException("No fileName in config defined for configKey " + getConfigKey());
-        }
-        return (String)getFileConfig().read();
-    }
-
-    public static String read(final String filePath, final String fileName)  {
-        if (filePath==null || filePath.isEmpty()) {
-            throw new EoException("No fileName provided for DirectoryConfig read.");
-        }
-        if (fileName==null || fileName.isEmpty()) {
-            throw new EoException("No fileName provided for DirectoryConfig read.");
-        }
-        String fileAndPath = replace(filePath + Path.DELIMITER + fileName);
-
-        return new IOString().setFileName(fileAndPath).read();
     }
 
     public static byte[] readBinary(final String filePath, final String fileName)  {

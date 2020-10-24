@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -15,20 +13,20 @@ import java.util.List;
  * Created by Werner on 10.10.2016.
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
-public abstract class CallResource extends CallImpl {
+public abstract class ResourceCall extends CallImpl {
     public static final String CONFIG_KEY = "configKey";
     public static final String PERMISSIONS = "permissions";
     private Config config;
     private String configKey;
     private PermissionType permissions;
 
-    public CallResource() {
+    public ResourceCall() {
     }
-    public CallResource(PermissionType permissionType) {
+    public ResourceCall(PermissionType permissionType) {
         this.permissions = permissionType;
     }
 
-    public CallResource(PermissionType permissionType, final String configKey) {
+    public ResourceCall(PermissionType permissionType, final String configKey) {
         this.permissions = permissionType;
         this.configKey = configKey;
     }
@@ -64,7 +62,7 @@ public abstract class CallResource extends CallImpl {
         return super.init(eo);
     }
 
-    protected CallResource resolve(EO eo) {
+    protected ResourceCall resolve(EO eo) {
         if (config!=null) {
             return this;
         }
@@ -81,7 +79,7 @@ public abstract class CallResource extends CallImpl {
         return configKey;
     }
 
-    public CallResource setConfigKey(String configKey) {
+    public ResourceCall setConfigKey(String configKey) {
         this.configKey = configKey;
         return this;
     }

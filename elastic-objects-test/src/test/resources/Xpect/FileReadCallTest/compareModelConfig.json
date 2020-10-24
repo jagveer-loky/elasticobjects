@@ -3,7 +3,7 @@
   "0": {
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileReadCall",
-    "superKey": "CallResource",
+    "superKey": "ResourceReadCall",
     "(ArrayList)fieldKeys": {
       "0": "configKey",
       "1": "sourcePath",

@@ -105,7 +105,7 @@
     },
     "author": "Werner Diwischek"
   },
-  "CallResource": {
+  "ResourceCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
@@ -115,7 +115,43 @@
     "expose": "NONE",
     "description": "Super class for class using ResourceConfigs with permission rights. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "CallResource",
+    "modelKey": "ResourceCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ResourceReadCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "configKey"
+    ],
+    "superKey": "ResourceCall",
+    "expose": "NONE",
+    "description": "Super class for class using ResourceConfigs with permission rights. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "ResourceReadCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ResourceWriteCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "configKey"
+    ],
+    "superKey": "ResourceCall",
+    "expose": "NONE",
+    "description": "Super class for class using ResourceConfigs with permission rights. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "ResourceWriteCall",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -519,7 +555,7 @@
   "FileReadCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "CallResource",
+    "superKey": "ResourceReadCall",
     "expose": "WEB",
     "description": "Defines a file read access. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
@@ -535,9 +571,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "classPath"
+      "classPath",
+      "content"
     ],
-    "superKey": "CallResource",
+    "superKey": "ResourceWriteCall",
     "expose": "WEB",
     "description": "Defines a file write access. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
@@ -584,36 +621,6 @@
       "create": false,
       "shapeType": "CONFIG"
     }
-  },
-  "JsonAsStringCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
-    "expose": "WEB",
-    "description": "For setting the string representation of eo.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
-    "modelKey": "JsonAsStringCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "JsonReadCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "FileReadCall",
-    "expose": "WEB",
-    "description": "Calls with configuration {@link JsonConfig} to read a file write its content to EO on targetPath.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "JsonReadCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
   },
   "KeepCalls": {
     "configModelKey": "ModelConfigScalar",
@@ -663,7 +670,6 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "listParams",
       "rowHead",
       "rowStart",
       "rowEnd",
@@ -708,10 +714,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "listParams"
     ],
     "interfaces": "ListInterface",
-    "superKey": "CallResource",
+    "superKey": "ResourceReadCall",
     "expose": "NONE",
     "description": "Defines the parameter listParams.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -727,9 +732,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "listParams"
     ],
-    "superKey": "CallResource",
+    "superKey": "ResourceWriteCall",
+    "interfaces": "ListInterface",
     "expose": "NONE",
     "description": "...",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
