@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -35,6 +36,7 @@ public class TemplateDirResourceCallHeaderTest {
         Assertions.assertThat((String)eo.get(PathElement.TEMPLATE)).isNotEmpty();
      }
 
+     @Ignore
     @Test
     public void role_guest_no_selectedItem__execute__hasError() {
         EO eo = ProviderRootTestScope.createEo();
