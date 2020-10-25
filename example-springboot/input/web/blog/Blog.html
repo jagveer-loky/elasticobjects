@@ -1,8 +1,46 @@
 <h5>The log for V0.6.0.</h5>
 <p>
-    <b>Target of this version is to extend the calls and configuratons for database access.
+    <b>Target of this version is to extend the calls and configurations for database access.
         Actually they just execute static configurations in
      ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</b>
+</p>
+<p align="right"><i>24.10.2020</i></p>
+<p>
+    Another point of the discussion was the embedding directives in the <a href="/examples/TemplateCall.html">Templates</a>.
+</p>
+<p>Here I used some attribute pattern parsing $[path] for paths
+    or $[(call)path key1="value1" key2="value2"... keyN="valueN"] for calls.</p>
+<p>
+    But one just have to integrate JSON in
+    some arbitrary text.
+    Since we use JSON I put some curly brackets around. </p>
+<p>
+    The end pattern is a dot outside the bracket. If the markup has content, it will set by a pipe.
+</p>
+<p>
+    To emphasize the directive I put a [=][=]=> before. Every whitespace before this pattern will be ignored,
+    to make the template more readable.
+</p>
+<p>
+    A path value now will be set by =&gt;{path}.
+</p>
+<p>
+    A JSON part will be embedded by
+    ===&gt;{JSON}. or
+    ===&gt;{JSON}|content=>{}.,
+    where content could be set for calls implementing
+    ==>{GithubLinkCall->ModelConfig, CallContent}.
+</p>
+<p>Here any combination of typed json could be set. If several calls are within, the content will set to the last call will set to</p>
+<p>
+    As a short version of the JSON with one call there is the possibility to use the pattern
+    ==&gt;{Call->value1, value2, ..., valueN}. and
+    ==&gt;{Call->value1, value2, ..., valueN}| ..content..=&gt;{}. for calls with content.
+</p>
+<p>
+    This shorthand version is similar to the attribute version and simplify the usage for simple calls like
+    the often used ==>{ConfigLinkCall->ModelConfig, CallContent}.:
+    <textarea>==&gt;{GithubLinkCall->ModelConfig, CallLoop}.</textarea>
 </p>
 <p align="right"><i>15.10.2020</i></p>
 <p>

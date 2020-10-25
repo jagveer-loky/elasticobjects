@@ -137,7 +137,7 @@ public abstract class Parser {
             String callSequence = match.group(2);
             String finish = match.group(3);
             String defaultValue = getDefault(callSequence);
-            callSequence = callSequence.replaceAll("|>.*", "");
+            callSequence = callSequence.replaceAll("\\|>.*", "");
             try {
                 if (callIndicator == null || callIndicator.isEmpty()) {
                     result.append(replacePathValues(eo, callSequence));
@@ -152,7 +152,7 @@ public abstract class Parser {
             }
             catch (EoException e) {
                 if (eo != null) {
-                    eo.error(e.getMessage());
+                    eo.info(e.getMessage());
                 }
                 if (defaultValue!=null) {
                     result.append(defaultValue);
