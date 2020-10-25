@@ -6,7 +6,7 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo-csv</artifactId>
     <packaging>jar</packaging>
-    <version>0.6.0</version>
+    <version>0.7.0-SNAPSHOT</version>
     <name>EO - Elastic objects CSV calls</name>
     <description>CSV calls for Elastic Objects</description>
     <url>http://www.elasticobjects.com</url>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-root</artifactId>
-        <version>0.6.0</version>
+        <version>0.7.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>net.sf.opencsv</groupId>
@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects-test</artifactId>
-            <version>0.6.0</version>
+            <version>0.7.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>

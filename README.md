@@ -241,7 +241,7 @@ work in micro services projects.
 
 </p>
 <p> I restarted work on EO this july, when a project was finished. It made
-    good progress. With version 0.6.0
+    good progress. With version 0.7.0-SNAPSHOT
     it's not finished, but core parts are working proper and stable.
 </p>
 

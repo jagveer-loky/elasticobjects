@@ -3,16 +3,16 @@
 
 Target of this module is to create a runable spring boot web application with the help of templates. A running copy you find in [elasticobjects.org](elasticobjects.org). The pages were a copy of a wordpress page.
 
-The input files are not part of the fat jar to avoid the annoying build process when changing a semicolon. So to start the application one not just use "java -jar example-springboot/target/example-springboot-0.6.0.jar"
+The input files are not part of the fat jar to avoid the annoying build process when changing a semicolon. So to start the application one not just use "java -jar example-springboot/target/example-springboot-0.7.0-SNAPSHOT.jar"
 
 #### Start
 Instead with linux you have to start with
 
-   java -cp example-springboot/target/example-springboot-0.6.0.jar:example-springboot/input/ org.springframework.boot.loader.PropertiesLauncher
+   java -cp example-springboot/target/example-springboot-0.7.0-SNAPSHOT.jar:example-springboot/input/ org.springframework.boot.loader.PropertiesLauncher
 
 Or with windows use ";" instead of ":" as separator
 
-   java -cp example-springboot/target/example-springboot-0.6.0.jar;example-springboot/input/ org.springframework.boot.loader.PropertiesLauncher
+   java -cp example-springboot/target/example-springboot-0.7.0-SNAPSHOT.jar;example-springboot/input/ org.springframework.boot.loader.PropertiesLauncher
 
 #### Useed Modules
 It uses configurations from the modules
