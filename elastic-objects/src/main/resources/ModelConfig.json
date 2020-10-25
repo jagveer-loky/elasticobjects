@@ -89,6 +89,23 @@
     },
     "author": "Werner Diwischek"
   },
+  "CallContent": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "content"
+    ],
+    "expose": "NONE",
+    "description": "Super class for class using ResourceConfigs with permission rights. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "CallContent",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
   "CallImpl": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -111,6 +128,7 @@
     "fieldKeys": [
       "configKey"
     ],
+    "interfaces": "CallKeep",
     "superKey": "CallImpl",
     "expose": "NONE",
     "description": "Super class for class using ResourceConfigs with permission rights. ",
@@ -156,6 +174,23 @@
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "CallKeep": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "keepCall"
+    ],
+    "expose": "NONE",
+    "description": "Super class for class using ResourceConfigs with permission rights. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "CallKeep",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -571,10 +606,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "classPath",
-      "content"
+      "classPath"
     ],
     "superKey": "ResourceWriteCall",
+    "interfaces": "CallContent",
     "expose": "WEB",
     "description": "Defines a file write access. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
@@ -1219,6 +1254,7 @@
       "content"
     ],
     "superKey": "CallImpl",
+    "interfaces": "CallContent",
     "expose": "WEB",
     "description": "Executes a template content. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
@@ -1252,10 +1288,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "keepCall",
       "configKey"
     ],
     "superKey": "TemplateCall",
+    "interfaces": "CallKeep",
     "expose": "WEB",
     "description": "Parses the content of a FileConfig configuration. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
@@ -1289,9 +1325,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "content"
     ],
     "superKey": "CallImpl",
+    "interfaces": "CallContent",
     "expose": "WEB",
     "description": "For setting values to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",

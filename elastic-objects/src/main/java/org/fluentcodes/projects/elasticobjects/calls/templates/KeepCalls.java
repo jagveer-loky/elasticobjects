@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 public enum KeepCalls {
     HTML("<!--", "-->"),
-    JAVA("\n//", ""),
+    JAVA("\n/*", "*/"),
     NONE("", "");
     private String startComment;
     private String endComment;
@@ -17,5 +17,8 @@ public enum KeepCalls {
     }
     public String getStartComment() {
         return startComment;
+    }
+    public String getEndComment() {
+        return endComment;
     }
 }

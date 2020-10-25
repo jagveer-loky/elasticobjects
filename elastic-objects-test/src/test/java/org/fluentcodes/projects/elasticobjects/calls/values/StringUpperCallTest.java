@@ -45,7 +45,7 @@ public class StringUpperCallTest {
                 "===>{\"level0\":\"test\"}. - \n" +
                 "===>{\"(StringUpperCall)\":{" +
                 "\"sourcePath\":\"level0\", " +
-                "\"targetPath\"=\"" + Call.TARGET_AS_STRING + "\"}" +
+                "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}." +
                 " END";
         final TemplateCall call = new TemplateCall(template);
@@ -53,6 +53,8 @@ public class StringUpperCallTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).isEqualTo("START - TEST END");
     }
+
+
 
     @Test
     public void givenStringUpper_whenUpper_thenUpperCase() {
