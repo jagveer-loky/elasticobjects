@@ -42,7 +42,7 @@ public class ConfigKeysCall extends CallImpl{
         this.configFilter = configFilter;
     }
 
-    public void setByString(final String values) {
+    public void setByParameter(final String values) {
         if (values == null||values.isEmpty()) {
             throw new EoException("Set by empty input values");
         }

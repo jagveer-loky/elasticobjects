@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
@@ -131,7 +132,7 @@ public class CsvSimpleReadCallTest {
     }
 
     @Test
-    public void eo__configKey_AnObjectCsv__execute__listMap()  {
+    public void eo_configKey_AnObjectCsv__execute__listMap()  {
         final CsvSimpleReadCall call = new CsvSimpleReadCall("AnObject.csv");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
@@ -143,7 +144,7 @@ public class CsvSimpleReadCallTest {
     }
 
     @Test
-    public void eo__configKey_AnObjectCsv_targetPath_level0_List_AnObject__execute__$()  {
+    public void eo_configKey_AnObjectCsv_targetPath_level0_List_AnObject__execute__$()  {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(AnObject.class.getSimpleName() + ".csv");
         call.setTargetPath("(List," + AnObject.class.getSimpleName() + ")level0");
         EO eo = ProviderRootTestScope.createEo();
@@ -153,5 +154,26 @@ public class CsvSimpleReadCallTest {
                 .isEmpty();
         Assertions.assertThat(eo.getEo("level0/0").get(AnObject.MY_STRING)).isEqualTo("value1");
         Assertions.assertThat(eo.getEo("level0/0").getModelClass()).isEqualTo(AnObject.class);
+    }
+
+    @Test
+    public void TemplateCall_AnObjectCsv_Parameter__execute__$()  {
+        final TemplateCall call = new TemplateCall("START -\n==>{CsvSimpleReadCall->AnObject.csv, xyz}. - END");
+        EO eo = ProviderRootTestScope.createEo();
+        call.execute(eo);
+        Assertions.assertThat(eo.getLog())
+                .isEmpty();
+        Assertions.assertThat(eo.getEo("xyz/0").get(AnObject.MY_STRING)).isEqualTo("value1");
+    }
+
+    @Test
+    public void TemplateCall_AnObjectCsv_Json__execute__$()  {
+        final TemplateCall call = new TemplateCall("START -\n===>{\"(CsvSimpleReadCall)xyz\":{" +
+                "\"configKey\":\"AnObject.csv\"}}. - END");
+        EO eo = ProviderRootTestScope.createEo();
+        call.execute(eo);
+        Assertions.assertThat(eo.getLog())
+                .isEmpty();
+        Assertions.assertThat(eo.getEo("xyz/0").get(AnObject.MY_STRING)).isEqualTo("value1");
     }
 }

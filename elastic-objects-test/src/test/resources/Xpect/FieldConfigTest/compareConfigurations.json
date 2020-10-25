@@ -268,12 +268,13 @@
     "fieldKey": "content",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "FileWriteCall",
-      "1": "TemplateCall",
-      "2": "TemplateResourceCall",
-      "3": "ValueCall",
-      "4": "TemplateDirResourceCall",
-      "5": "TemplateResourceStoreCall"
+      "0": "CallContent",
+      "1": "FileWriteCall",
+      "2": "TemplateCall",
+      "3": "TemplateResourceCall",
+      "4": "ValueCall",
+      "5": "TemplateDirResourceCall",
+      "6": "TemplateResourceStoreCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -1010,9 +1011,22 @@
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
-      "0": "TemplateResourceCall",
-      "1": "TemplateDirResourceCall",
-      "2": "TemplateResourceStoreCall"
+      "0": "CallKeep",
+      "1": "ResourceCall",
+      "2": "ResourceReadCall",
+      "3": "FileReadCall",
+      "4": "DirectoryListReadCall",
+      "5": "ResourceWriteCall",
+      "6": "FileWriteCall",
+      "7": "DirectoryReadCall",
+      "8": "TemplateResourceCall",
+      "9": "ListReadCall",
+      "10": "TemplateDirResourceCall",
+      "11": "DirectoryMapReadCall",
+      "12": "CsvSimpleReadCall",
+      "13": "ListWriteCall",
+      "14": "CsvSimpleWriteCall",
+      "15": "TemplateResourceStoreCall"
     },
     "(Expose)expose": "WEB",
     "properties": {

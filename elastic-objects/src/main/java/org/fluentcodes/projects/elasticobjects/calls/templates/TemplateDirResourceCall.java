@@ -22,7 +22,7 @@ public class TemplateDirResourceCall extends TemplateResourceCall {
         this.fileName = fileName;
     }
     @Override
-    public void setByString(final String values) {
+    public void setByParameter(final String values) {
         if (values == null||values.isEmpty()) {
             throw new EoException("Set by empty input values");
         }

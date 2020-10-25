@@ -9,8 +9,8 @@
     "superKey": "TemplateResourceCall",
     "(ArrayList)fieldKeys": {
       "0": "fileName",
-      "1": "keepCall",
-      "2": "configKey",
+      "1": "configKey",
+      "2": "keepCall",
       "3": "content",
       "4": "sourcePath",
       "5": "targetPath",

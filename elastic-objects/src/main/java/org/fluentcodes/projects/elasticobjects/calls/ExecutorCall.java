@@ -43,7 +43,8 @@ public class ExecutorCall {
         }
         List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
         if (loopPaths.isEmpty()) {
-            throw new EoException("Could not find loopPaths in '" + call.getClass().getSimpleName() + "' for '" + sourcePathString + "' in '" + eo.getPathAsString() + ".");
+            //System.out.println("x");
+            throw new EoException("Could not find child entries for '" + call.getClass().getSimpleName() + "' for '" + sourcePathString + "' in '" + eo.getPathAsString() + ".");
         }
         // get targetParent
         String targetPath;

@@ -119,6 +119,7 @@ public class FileReadCallTest {
         Assert.assertEquals(FileReadCall.class, eo.getEo("_calls", "0").getModelClass());
         Assert.assertEquals(FILE_TEST_TXT, eo.get("_calls", "0", "configKey"));
         eo.execute();
+
     }
 
 }

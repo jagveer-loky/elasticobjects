@@ -4,13 +4,13 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
     "(ArrayList)localFieldKeys": {
-      "0": "keepCall",
-      "1": "configKey"
+      "0": "configKey"
     },
     "superKey": "TemplateCall",
+    "interfaces": "CallKeep",
     "(ArrayList)fieldKeys": {
-      "0": "keepCall",
-      "1": "configKey",
+      "0": "configKey",
+      "1": "keepCall",
       "2": "content",
       "3": "sourcePath",
       "4": "targetPath",

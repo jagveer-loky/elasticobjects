@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -13,11 +14,12 @@ import java.util.List;
  * Created by Werner on 10.10.2016.
  * Elementary call with mapping configuration keys to configuration via constructor.
  */
-public abstract class ResourceCall extends CallImpl {
+public abstract class ResourceCall extends CallImpl implements CallKeep {
     public static final String CONFIG_KEY = "configKey";
     public static final String PERMISSIONS = "permissions";
     private Config config;
     private String configKey;
+    private KeepCalls keepCall;
     private PermissionType permissions;
 
     public ResourceCall() {
@@ -29,26 +31,6 @@ public abstract class ResourceCall extends CallImpl {
     public ResourceCall(PermissionType permissionType, final String configKey) {
         this.permissions = permissionType;
         this.configKey = configKey;
-    }
-
-    @Override
-    public void setByString(final String values) {
-        if (values == null||values.isEmpty()) {
-            throw new EoException("Set by empty input values");
-        }
-        String[] array = values.split(", ");
-        if (array.length>5) {
-            throw new EoException("Short form should have form '<configKey>[, <sourcePath>][,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
-        }
-        if (array.length>0) {
-            configKey = array[0];
-        }
-        if (array.length>1) {
-            setTargetPath( array[1]);
-        }
-        if (array.length>2) {
-            setCondition( array[2]);
-        }
     }
 
     public boolean hasPermissions(final List<String> roles) {
@@ -105,4 +87,18 @@ public abstract class ResourceCall extends CallImpl {
     public boolean hasConfig() {
         return !(config == null);
     }
+
+
+    public boolean hasKeepCall() {
+        return keepCall !=null  && keepCall != KeepCalls.NONE;
+    }
+
+    public KeepCalls getKeepCall() {
+        return keepCall;
+    }
+
+    public void setKeepCall(KeepCalls keepCalls) {
+        this.keepCall = keepCalls;
+    }
+
 }

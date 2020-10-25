@@ -1,0 +1,5 @@
+START - /*===>{
+"(FileReadCall)":{"configKey":"FileTest.txt", "targetPath":"level0"},
+"(FileReadCall)":{"configKey":"FileTest.txt", "targetPath":"_asString", "prepend":"\n", "keepCall":"JAVA"}}|*/
+test
+/*=>{}.*/ - END

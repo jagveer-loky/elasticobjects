@@ -6,10 +6,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
-import java.util.LinkedHashMap;
-
-import static org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall.KEEP_CALL;
-import static org.fluentcodes.projects.elasticobjects.models.Config.PROPERTIES;
+import static org.fluentcodes.projects.elasticobjects.calls.CallKeep.KEEP_CALL;
 
 /**
  * Created 21.9.2020

@@ -33,7 +33,7 @@ public interface Call   {
     }
 
     Object execute(final EO eo);
-    void setByString(final String values);
+    void setByParameter(final String values);
     default boolean isTargetAsString() {
         return TARGET_AS_STRING.equals(getTargetPath());
     }
