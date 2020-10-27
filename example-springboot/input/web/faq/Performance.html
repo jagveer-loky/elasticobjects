@@ -4,12 +4,9 @@
      ==>{GithubLinkCall->NONE, EOTTR||performance-Mon%20Aug%2031%2008:49:57%20CEST%202020.info}.
     with
      ==>{GithubLinkCall->NONE, EOTT|performance|EOPerformance.java}.
-    compare serialization and deserialization speed:
-</p>
-<ul>
-   <li><a href="https://github.com/FasterXML/jackson">Jackson</a> and
-    <li><a href="https://github.com/google/gson">Gson</a>
-</ul>
+    compare serialization and deserialization speed with
+    <a href="https://github.com/FasterXML/jackson">Jackson</a> and
+    <a href="https://github.com/google/gson">Gson</a>:
 
 <table>
     <tr>
@@ -19,7 +16,7 @@
     <td>EO</td><td>1829 ms</td><td>478 ms</td>
     </tr>
     <tr>
-        <td>EO direct</td>602 ms<td></td><td></td>
+        <td>EO direct</td><td>602 ms</td><td>470 ms</td>
     </tr>
     <tr>
         <td>Jackson</td><td>118 ms</td><td>132 ms</td>
@@ -45,3 +42,4 @@ about 5 times.
     Since EO allows more than just simple type mapping I suppose it will never reach the performance
     of the other frameworks.
 </p>
+<p>Compared with Jackson also untyped object trees can be deserialized. </p>

@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,11 +29,51 @@ public class ParserCurlyBracketTest {
     }
 
     @Test
-    public void givenTmpWithoutSystemPrefix_thenReplaced() {
+    public void tmp__parse__error() {
         String replace = "=>{TMP}.";
         String result = new ParserCurlyBracket(replace).parse();
         Assert.assertNotNull(result);
         Assertions.assertThat(result).isEqualTo("!!Null eo wrapper defined to get 'TMP'!!");
+    }
+
+    @Test
+    public void tmp_default__parse__default() {
+        String replace = "=>{TMP|>TEST}.";
+        String result = new ParserCurlyBracket(replace).parse();
+        Assert.assertNotNull(result);
+        Assertions.assertThat(result).isEqualTo("TEST");
+    }
+
+    @Test
+    public void call_not_exist_default__parse__default() {
+        String replace = "==>{NO_CALL->|>TEST}.";
+        String result = new ParserCurlyBracket(replace).parse(ProviderRootDevScope.createEo());
+        Assert.assertNotNull(result);
+        Assertions.assertThat(result).isEqualTo("TEST");
+    }
+
+    @Test
+    public void call_not_exist_default__parse_without_eo__default() {
+        String replace = "==>{NO_CALL->|>TEST}.";
+        String result = new ParserCurlyBracket(replace).parse();
+        Assert.assertNotNull(result);
+        Assertions.assertThat(result).isEqualTo("TEST");
+    }
+
+    @Test
+    public void call_json_not_exist_default__parse__default() {
+        String replace = "===>{\"(NO_CALL)\":{} |>TEST}.";
+        String result = new ParserCurlyBracket(replace).parse(ProviderRootDevScope.createEo());
+        Assert.assertNotNull(result);
+        Assertions.assertThat(result).isEqualTo("TEST");
+    }
+
+    @Test
+    public void call_json_not_exist_default__parse_without_eo__default() {
+        String replace = "==>{NO_CALL->|>TEST}.";
+        String result = new ParserCurlyBracket(replace).parse();
+        Assert.assertNotNull(result);
+        Assertions.assertThat(result).isEqualTo("TEST");
     }
 
     @Test

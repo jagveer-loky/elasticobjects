@@ -28,7 +28,7 @@
 
  <h4>Special fields</h4>
  <p>Those "informational" fields without object mapping are defined static in
-      ==>{GithubLinkCall->NONE, EO|web|PathElement.java}.PathElement.java">
+      ==>{GithubLinkCall->NONE, EO||PathElement.java}.
  and used by Elastic Objects internally.
  </p>
  <p>
@@ -41,10 +41,15 @@
          <li>functional meaning</li>
          <li>or error handling.</li>
  </ul>
- <p>It just
-     deliver the posted string value to Elastic Objects.
-     These fields replace these functionalities often provided by an application framework
-     with communication protocols like REST or SOAP.
+ <p>The method eoPostForm just
+     has a JSON string message as input. With this message this method creates a new EO object.</p>
+ <p>
+     Any type information within this JSON message is used by
+     ==>{GithubLinkCall->NONE, EO||JSONToEO}. to instantiate typed objects.
+ </p>
+ <p>
+     Any ==>{GithubLinkCall->ModelConfig, Call}. type will be added to a "_call" list.
+     At the end ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. will execute this list.
  </p>
  <p>
      One advantage is that one can write tests without starting any application server thing. Further more
