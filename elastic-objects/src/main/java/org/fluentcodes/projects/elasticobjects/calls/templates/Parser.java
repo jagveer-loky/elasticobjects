@@ -202,11 +202,18 @@ public abstract class Parser {
     }
 
     protected Object callParameter(final EO eo, final String callDirective, String finish) {
+        if (eo == null) {
+            throw new EoException("Null eo, so could not execute call '" + callDirective + "'.");
+        }
+        if (eo.getConfigsCache() == null) {
+            throw new EoException("Null eo configCache, so could not execute call '" + callDirective + "'.");
+        }
         String[] methodAndInput = callDirective.split("->");
         ModelConfig callModel = eo.getConfigsCache().findModel(methodAndInput[0]);
         Call call = (Call)callModel.create();
-        call.setByParameter(methodAndInput[1]);
-
+        if (methodAndInput.length>1){
+            call.setByParameter(methodAndInput[1]);
+        }
         if (!isEndSequence(finish)) {
             String content = findContent();
             if (call instanceof CallContent)  {

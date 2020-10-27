@@ -1,4 +1,4 @@
-<h5>The log for V0.7.0-SNAPSHOT.</h5>
+<h5>The log for V0.6.0</h5>
 <p>
     <b>Target of this version was the refactoring the template directives and cleanup of the calls. </b>
 </p>
@@ -7,22 +7,25 @@
     Another point of the discussion last week was how the
     directives are embedded in <a href="/examples/TemplateCall.html">Templates</a>.
 </p>
-<p>Here I used some attribute pattern parsing <textarea>$[path]</textarea> for paths
-    or
+<p>Here I used <textarea>$[path]</textarea> for path values
+    and some attribute pattern parsing
     <textarea>$[(call)path key1="value1" key2="value2"... keyN="valueN"/]</textarea> for calls.</p>
+
+
 <h6>New Markups</h6>
 <p>
     The task is to integrate typed JSON in
-    some arbitrary text with character combination for start and end which has low probability to
+    some arbitrary text with a character combination for start and stop which has low probability to
     clash with existing programming code.
     Since it's content core is typed JSON I put curly brackets around. </p>
 <p>
-    The end pattern is a dot outside the bracket. If the markup has content, it will set by a pipe.
+    The end pattern is a dot outside the bracket. If the markup has a content, it will set by a pipe.
 </p>
+
 <p>
     To emphasize the directive type I put a [=][=]=> before. Every space and tab
-    before this pattern and after a new line will be ignored,
-    to make the template more readable.
+    before this pattern and after a new line will be ignored. This makes
+   the template more readable.
 </p>
 <p>
     A path value now will be set by
@@ -35,8 +38,12 @@
     The content could be set for calls implementing
     ==>{GithubLinkCall->ModelConfig, CallContent}.
 </p>
-<p>Here any combination of typed json could be set. If several calls are within, the content will set to the last call will set to</p>
+<p>Here any combination of typed json could be set. If several calls are within,
+    the content will set to the last call.</p>
+
+
 <h6>Shorthand version</h6>
+
 <p>
     As a short version of the JSON with one call there is the possibility to use the pattern
     <textarea>==&gt;{Call->value1, value2, ..., valueN}.</textarea>
