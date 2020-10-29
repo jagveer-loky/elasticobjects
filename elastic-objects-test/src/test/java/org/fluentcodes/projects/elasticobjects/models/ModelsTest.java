@@ -9,8 +9,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MODEL_INTERFACE;
-
 /**
  * Created by werner.diwischek on 06.01.18.
  */

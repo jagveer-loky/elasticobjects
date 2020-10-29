@@ -179,6 +179,9 @@ public class EOConfigsCache {
     public FileConfig findFile(final String key)  {
         return (FileConfig) find(FileConfig.class, key);
     }
+    public HostConfig findHost(final String key)  {
+        return (HostConfig) find(HostConfig.class, key);
+    }
 
     public ModelConfigInterface findModel(final Object modelValue)  {
         if (modelValue == null) {

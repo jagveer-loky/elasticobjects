@@ -10,7 +10,7 @@ import org.junit.Test;
 /**
  * Created by Werner on 28.1.2018.
  */
-public class DbQueryCallTest {
+public class DbSqlReadCallTest {
     public static final String H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:AnObject";
     public static final String H2_MEM_BASIC_SUB_TEST = "h2:mem:basic:ASubObject";
     public static final String H2_MEM_BASIC_TEST_DROP = "h2:mem:basic:AnObjectDrop";
@@ -19,24 +19,24 @@ public class DbQueryCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(DbQueryCall.class);
+        ConfigModelChecks.create(DbSqlReadCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbQueryCall.class);
+        ConfigModelChecks.compare(DbSqlReadCall.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(DbQueryCall.class);
+        ConfigModelChecks.resolve(DbSqlReadCall.class);
     }
 
     // TODO make some reasonable tests afterwards
     @Ignore
     @Test
     public void queryAnObject()  {
-        DbQueryCall call = new DbQueryCall(H2_MEM_BASIC_BASIC_TEST);
+        DbSqlReadCall call = new DbSqlReadCall(H2_MEM_BASIC_BASIC_TEST);
         Assert.assertNotNull(call);
         EO eo = ProviderRootTestScope.createEo();
         call.execute(eo);

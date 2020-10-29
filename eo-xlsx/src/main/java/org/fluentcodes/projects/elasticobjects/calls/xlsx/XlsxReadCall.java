@@ -4,9 +4,7 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -37,7 +35,7 @@ public class XlsxReadCall extends ListReadCall {
     public Object execute(EO eo) {
         init(eo);
         getListParams().merge(getConfig().getProperties());
-        return read(eo, readRaw(eo));
+        return mapEo(eo, readRaw(eo));
     }
 
     protected XlsxConfig getXlsxConfig() {
@@ -70,7 +68,7 @@ public class XlsxReadCall extends ListReadCall {
                 return result;
             }
             try {
-                addRowEntry(eo.getConfigsCache(), result, rowEntry, getListParams());
+                getListParams().addRowEntry(eo.getConfigsCache(), result, rowEntry);
             }
             catch (Exception e) {
                 throw new EoInternalException("Problem with row " + i + ": " + rowEntry + "", e);

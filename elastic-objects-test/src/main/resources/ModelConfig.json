@@ -4,6 +4,7 @@
     "moduleScope": "main",
     "fieldKeys": [
       "id",
+      "naturalId",
       "myAnObject",
       "myASubObject",
       "myASubObjectList",
