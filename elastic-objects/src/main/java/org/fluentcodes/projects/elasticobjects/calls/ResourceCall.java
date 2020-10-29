@@ -40,7 +40,9 @@ public abstract class ResourceCall extends CallImpl implements CallKeep {
     @Override
     public boolean init(final EO eo)  {
         resolve(eo);
-        hasPermissions(eo.getRoles());
+        if (config instanceof ConfigResourcesImpl) {
+            hasPermissions(eo.getRoles());
+        }
         return super.init(eo);
     }
 
@@ -59,6 +61,10 @@ public abstract class ResourceCall extends CallImpl implements CallKeep {
 
     public String getConfigKey() {
         return configKey;
+    }
+
+    public boolean hasConfigKey() {
+        return configKey!=null && !configKey.isEmpty();
     }
 
     public ResourceCall setConfigKey(String configKey) {

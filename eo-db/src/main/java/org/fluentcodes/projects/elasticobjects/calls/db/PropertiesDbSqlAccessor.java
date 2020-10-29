@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 import org.fluentcodes.projects.elasticobjects.models.PropertiesAccessor;
 
 public interface PropertiesDbSqlAccessor extends PropertiesAccessor {
-    String DB_KEY = "dbKey";
+    final static String DB_KEY = "dbKey";
 
 
     default boolean hasDbKey() {

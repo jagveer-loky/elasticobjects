@@ -100,7 +100,6 @@ public class FieldConfig extends ConfigImpl implements PropertiesFieldAccessor {
         return this.fieldKey;
     }
 
-    //<call keep="JAVA" configKey="CacheGetter.tpl" }
     public Models getModels() {
         resolve();
         return models;

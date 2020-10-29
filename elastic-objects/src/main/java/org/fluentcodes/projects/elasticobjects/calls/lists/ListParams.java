@@ -2,14 +2,18 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 
 /**
  * A bean class for containing the following values:
@@ -38,7 +42,6 @@ public class ListParams {
     private Map<String, Integer> colKeysMap;
 
     public ListParams() {
-
     }
 
     public ListParams(Map attributes) {
@@ -59,11 +62,27 @@ public class ListParams {
     }
 
     public void merge(Map<String, Object> properties) {
+        if (properties == null) {
+            prepare();
+            return;
+        }
         this.setRowHead(properties.get(ROW_HEAD));
         this.setRowStart(properties.get(ROW_START));
         this.setLength(properties.get(LENGTH));
         this.setRowEnd(properties.get(ROW_END));
         prepare();
+    }
+
+    public void initDb() {
+        if (!hasRowHead()) {
+            setRowHead(0);
+        }
+        if (!hasRowStart()) {
+            setRowStart(0);
+        }
+        if (!hasRowEnd()) {
+            setRowEnd(100);
+        }
     }
 
     public boolean filter(EO toFilter) {
@@ -133,11 +152,11 @@ public class ListParams {
     }
 
     public ListParams setRowHead(Object rowHead) {
-        if (this.rowHead != null) {
+        if (rowHead == null) {
             return this;
         }
-        if (rowHead == null) {
-            rowHead = -1;
+        if (this.rowHead != null) {
+            return this;
         }
         Integer value = null;
         try {
@@ -285,7 +304,7 @@ public class ListParams {
 
     public void prepare() {
         if (rowHead == null) {
-            rowHead = -1;
+            return;
         }
         if (rowStart == null || rowStart <= rowHead) {
             rowStart = rowHead + 1;
@@ -322,6 +341,23 @@ public class ListParams {
 
     public boolean hasColKeys() {
         return colKeys!=null && !colKeys.isEmpty();
+    }
+
+    public void addRowEntry(EOConfigsCache configsCache, List result, List rowEntry) {
+        if (hasColKeys()) {
+            Map<String,Object> rowMap = createMapFromRow(rowEntry);
+            if (filter(new EoRoot(configsCache, rowMap))) {
+                result.add(rowMap);
+            }
+            else {
+                System.out.println("Skipped " + rowMap.get(NATURAL_ID));
+            }
+        }
+        else {
+            if (filter(new EoRoot(configsCache, rowEntry))) {
+                result.add(rowEntry);
+            }
+        }
     }
 
 }

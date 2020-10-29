@@ -43,7 +43,8 @@ public class AnObject   {
 //
 //
 // ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"BEANInstanceVars.tpl", "keepCall":"JAVA"}}|
-   private Long id; 
+   private Long id;
+   private String naturalId;
    private AnObject myAnObject; 
    private ASubObject myASubObject; 
    private List<ASubObject> myASubObjectList; 
@@ -64,6 +65,16 @@ public class AnObject   {
         return this.myBoolean;
     }
 // ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"BEANSetter.tpl", "keepCall":"JAVA"}|
+
+
+    public String getNaturalId() {
+        return naturalId;
+    }
+
+    public void setNaturalId(String naturalId) {
+        this.naturalId = naturalId;
+    }
+
     /**
     The id with a autonumbering
     */

@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
@@ -33,7 +31,7 @@ public class CsvSimpleReadCall extends ListReadCall {
     public Object execute(EO eo) {
         init(eo);
         getListParams().merge(getConfig().getProperties());
-        return read(eo, readRaw(eo));
+        return mapEo(eo, readRaw(eo));
     }
 
     protected CsvConfig getCsvConfig() {
@@ -76,7 +74,7 @@ public class CsvSimpleReadCall extends ListReadCall {
             }
             String[] fields = row.split(getCsvConfig().getFieldDelimiter());
             List rowEntry = Arrays.asList(fields);
-            addRowEntry(eo.getConfigsCache(), result, rowEntry, getListParams());
+            getListParams().addRowEntry(eo.getConfigsCache(), result, rowEntry);
         }
         return result;
     }

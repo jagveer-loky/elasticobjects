@@ -10,31 +10,31 @@ import org.junit.Test;
 /**
  * Created by Werner on 17.8.2020.
  */
-public class DbSqlCallTest {
+public class DbSqlExecuteCallTest {
     private final static String DROP = "h2:mem:basic:AnObjectDrop";
     private final static String CREATE = "h2:mem:basic:Create";
     public static final String DQ_H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:AnObject";
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(DbSqlCall.class);
+        ConfigModelChecks.create(DbSqlExecuteCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbSqlCall.class);
+        ConfigModelChecks.compare(DbSqlExecuteCall.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(DbSqlCall.class);
+        ConfigModelChecks.resolve(DbSqlExecuteCall.class);
     }
 
     @Test
     public void queryAnObject()  {
-        DbSqlCall call = new DbSqlCall(CREATE);
+        DbSqlExecuteCall call = new DbSqlExecuteCall(DbConfig.H2_BASIC, CREATE);
         Assert.assertNotNull(call);
         EO eo = ProviderRootTestScope.createEo();
-        Object result = call.execute(eo);
+        call.execute(eo);
     }
 }
 

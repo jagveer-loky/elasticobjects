@@ -20,6 +20,7 @@ import java.util.*;
  */
 public class DbConfig extends HostConfig implements PropertiesDbAccessor{
     public static final String DB_KEY = "dbKey";
+    public static final String H2_BASIC = "h2:mem:basic";
     private Connection connection;
 
     public DbConfig(final EOConfigsCache provider, final Map map)  {
@@ -53,22 +54,25 @@ public class DbConfig extends HostConfig implements PropertiesDbAccessor{
         }
     }
 
-    public Connection getConnection() throws ClassNotFoundException, SQLException, IOException {
+    public Connection getConnection() {
         if (this.connection != null) {
             return this.connection;
         }
         if (!hasDbType()) {
             throw new EoException("No dbType defined, so no driver could be set '" + getKey() + "'.");
         }
-
         if (getDbType().getDriver() == null) {
             throw new EoException("No driver is addList for '" + getKey() + "'.");
         }
-        Class.forName(getDbType().getDriver());
-        String url = getUrlPath();
-        System.out.println(url);
-        connection = DriverManager.getConnection(url, getUser(), getPassword());
-        return connection;
+        try {
+            Class.forName(getDbType().getDriver());
+            String url = getUrlPath();
+            connection = DriverManager.getConnection(url, getUser(), getPassword());
+            return connection;
+        }
+        catch (ClassNotFoundException|SQLException e) {
+            throw new EoException(e);
+        }
     }
 
     public void closeConnection()  {

@@ -1,0 +1,14 @@
+.git/
+.idea/
+.gradle/
+build/
+*.iml
+*.log
+*/build/
+*/.idea/
+target/*
+out/*
+*.idea/
+eo-db-hibernate/
+builder-sandboxes/
+builder-projects/
