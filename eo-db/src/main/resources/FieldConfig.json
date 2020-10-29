@@ -83,14 +83,14 @@
       "classPath": "src.main.resources"
     }
   },
-  "sql": {
+  "sqlKey": {
     "module": "eo-db",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "sql",
+    "description": "sqlKey",
     "expose": "NONE",
     "fieldKey": "sql",
-    "length": 2048,
+    "length": 124,
     "properties": {
       "classPath": "src.main.resources"
     }

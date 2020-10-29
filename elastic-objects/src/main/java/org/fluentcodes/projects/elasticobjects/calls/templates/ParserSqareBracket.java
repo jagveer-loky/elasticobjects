@@ -37,7 +37,8 @@ public class ParserSqareBracket extends Parser {
     }
 
     public static boolean containsStartSequence(final String toParse) {
-        return toParse != null && !toParse.isEmpty() && toParse.contains(START_SEQUENCE);
+
+        return (!(toParse == null || toParse.isEmpty())) && toParse.contains(START_SEQUENCE);
     }
 
     @Override

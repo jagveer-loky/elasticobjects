@@ -122,47 +122,27 @@ public interface ListInterface {
         return getListParams().createMapFromRow(row);
     }
 
-    default String read(EO eo, List filteredResult) {
-        ListParams params = getListParams();
+    default String mapEo(EO eo, List filteredResult) {
         if (filteredResult.isEmpty())  {
             return "";
         }
         String targetPath = getTargetPath();
         boolean isMapped = ParserSqareBracket.containsStartSequence(targetPath);
         if (!isMapped) {
-            eo.setEmpty(targetPath);
+            eo.set(filteredResult, targetPath);
         }
-        for (int i = 0; i< filteredResult.size(); i++) {
-            Object row = filteredResult.get(i);
-            if (isMapped) {
-                String target = Parser.replacePathValues(targetPath,new EoRoot(eo.getConfigsCache(), row));
-                eo.set(row, target);
-            }
-            else {
-                eo.set(row, targetPath, Integer.valueOf(i).toString());
+        else {
+            for (int i = 0; i < filteredResult.size(); i++) {
+                Object row = filteredResult.get(i);
+                if (isMapped) {
+                    String target = Parser.replacePathValues(targetPath, new EoRoot(eo.getConfigsCache(), row));
+                    eo.set(row, target);
+                }
             }
         }
-        if (targetPath.equals(Call.TARGET_AS_STRING)) {
+        if (targetPath!=null && targetPath.equals(Call.TARGET_AS_STRING)) {
             return "TODO asString";
         }
         return "";
     }
-
-    default void addRowEntry(EOConfigsCache configsCache, List result, List rowEntry, ListParams params) {
-        if (params.hasColKeys()) {
-            Map<String,Object> rowMap = params.createMapFromRow(rowEntry);
-            if (params.filter(new EoRoot(configsCache, rowMap))) {
-                result.add(rowMap);
-            }
-            else {
-                System.out.println("Skipped " + rowMap.get(NATURAL_ID));
-            }
-        }
-        else {
-            if (params.filter(new EoRoot(configsCache, rowEntry))) {
-                result.add(rowEntry);
-            }
-        }
-    }
-
 }

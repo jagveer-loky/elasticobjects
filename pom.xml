@@ -15,6 +15,7 @@
         <module>eo-csv</module>
         <module>eo-xlsx</module>
         <module>eo-db</module>
+        <!--module>eo-db-hibernate</module-->
         <module>eo-xpect</module>
         <module>example-springboot</module>
         <module>builder</module>
