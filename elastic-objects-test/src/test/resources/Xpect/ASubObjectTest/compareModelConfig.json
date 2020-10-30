@@ -5,15 +5,17 @@
     "modelKey": "ASubObject",
     "(ArrayList)localFieldKeys": {
       "0": "id",
-      "1": "myASubObject",
-      "2": "name",
-      "3": "myString"
+      "1": "naturalId",
+      "2": "myASubObject",
+      "3": "name",
+      "4": "myString"
     },
     "(ArrayList)fieldKeys": {
       "0": "id",
-      "1": "myASubObject",
-      "2": "name",
-      "3": "myString"
+      "1": "naturalId",
+      "2": "myASubObject",
+      "3": "name",
+      "4": "myString"
     },
     "(Expose)expose": "WEB",
     "properties": {

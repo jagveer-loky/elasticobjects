@@ -1,6 +1,6 @@
 <h3>Db Calls</h3>
 <p>With the
-    ==>{ConfigLinkCall->ModelConfig, DbQueryCall}. one run queries
+    ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. one run queries
     on the serverside adding the result to EO.
 </p>
 <p>In the following examples the
@@ -23,13 +23,13 @@
 </ul>
 
 <h5>The query result in a table</h5>
- ==>{DbQueryCall->h2:mem:basic:AnObject, xyz}.
+ ==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.
  ==>{TemplateResourceCall->table.tpl, xyz}.
 
 The table that you see beforehand is created by the following template sequence with
  ==>{ConfigLinkCall->FileConfig, table.tpl}. within the
  ==>{GithubLinkCall->NONE, SPI|web.examples|DbCall.html}. content:
-<textarea>==&gt;{DbQueryCall->h2:mem:basic:AnObject, xyz}.
+<textarea>==&gt;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.
 ==&gt;{TemplateResourceCall->table.tpl, xyz}.
 </textarea>
 In the <a href="#post4">last example</a> you can see the post version of these calls.
@@ -41,8 +41,9 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
-   "(DbQueryCall)xyz":{
-       "configKey":"h2:mem:basic:AnObject"
+   "(DbSqlReadCall)xyz":{
+        "sqlKey":"h2:mem:basic:AnObject",
+       "configKey":"h2:mem:basic"
    },
    "_serializationType":"STANDARD"
 }</textarea>
@@ -59,8 +60,9 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
-   "(DbQueryCall)abc":{
-       "configKey":"h2:mem:basic:AnObject",
+   "(DbSqlReadCall)abc":{
+        "sqlKey":"h2:mem:basic:AnObject",
+       "configKey":"h2:mem:basic",
         "rowHead":-1,
         "rowStart":0,
         "rowEnd":2
@@ -78,8 +80,9 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(List,AnObject)values":{},
-   "(DbQueryCall).":{
-       "configKey":"h2:mem:basic:AnObject",
+   "(DbSqlReadCall).":{
+        "sqlKey":"h2:mem:basic:AnObject",
+       "configKey":"h2:mem:basic",
        "targetPath":"values"
    }
 }</textarea>
@@ -96,8 +99,9 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
-   "(DbQueryCall)xyz":{
-       "configKey":"h2:mem:basic:AnObject"
+   "(DbSqlReadCall)xyz":{
+        "sqlKey":"h2:mem:basic:AnObject",
+       "configKey":"h2:mem:basic"
    },
    "(TemplateResourceCall)_asString":{
         "configKey":"table.tpl",

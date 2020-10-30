@@ -31,7 +31,7 @@ public class Start {
         LOG.info("Init Database");
         System.out.println("Init Database");
         EO eo = new EoRoot(configsCache);
-        Call call = new DbSqlExecuteCall("h2:mem:basic:Create");
+        Call call = new DbSqlExecuteCall("h2:mem:basic", "h2:mem:basic:Create");
         call.execute(eo);
     }
 }

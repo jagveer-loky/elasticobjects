@@ -14,35 +14,37 @@ import org.junit.Test;
 
 
 public class DbTest {
+    private static final String DB_DEFAULT = "h2:mem:basic";
+    private static final String DB_TABLE = "h2:mem:basic:AnObject";
     @Before
     public void init() {
         EO eo = ProviderRootTestScope.createEo();
-        Call call = new DbSqlExecuteCall("h2:mem:basic:Create");
+        Call call = new DbSqlExecuteCall(DB_DEFAULT,"h2:mem:basic:Create");
         call.execute(eo);
     }
 
     @Test
     public void call_DbQuery_AnObject__execute__3() {
-        DbSqlReadCall dbQueryCall = new DbSqlReadCall("h2:mem:basic:AnObject");
-        Assertions.assertThat(dbQueryCall).isNotNull();
+        DbSqlReadCall call = new DbSqlReadCall(DB_DEFAULT,DB_TABLE);
+        Assertions.assertThat(call).isNotNull();
         EO eo = ProviderRootTestScope.createEo();
-        dbQueryCall.execute(eo);
+        call.execute(eo);
         Assertions.assertThat(eo.size()).isEqualTo(3);
     }
 
     @Test
     public void eo_DbQuery_AnObject__execute__3() {
-        DbSqlReadCall dbQueryCall = new DbSqlReadCall("h2:mem:basic:AnObject");
-        Assertions.assertThat(dbQueryCall).isNotNull();
+        DbSqlReadCall call = new DbSqlReadCall(DB_DEFAULT,DB_TABLE);
+        Assertions.assertThat(call).isNotNull();
         EO eo = ProviderRootTestScope.createEo();
-        eo.addCall(dbQueryCall);
+        eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.size()).isEqualTo(3);
     }
 
     @Test
     public void eo_DbQuery_AnObject_rowHead_1_rowStart_0_rowEnd_2__execute__2() {
-        DbSqlReadCall call = new DbSqlReadCall("h2:mem:basic:AnObject");
+        DbSqlReadCall call = new DbSqlReadCall(DB_DEFAULT,DB_TABLE);
         call.setRowHead(-1);
         call.setRowEnd(2);
         call.setRowStart(0);
@@ -56,8 +58,9 @@ public class DbTest {
     @Test
     public void eo_DbQuery_AnObject_rowHead_1_rowStart_0_rowEnd_2_json__execute__2() {
         EO eo = ProviderRootTestScope.createEo("{\n" +
-                "   \"(DbQueryCall)abc\":{\n" +
-                "       \"configKey\":\"h2:mem:basic:AnObject\",\n" +
+                "   \"(DbSqlReadCall)abc\":{\n" +
+                "       \"configKey\":\"h2:mem:basic\",\n" +
+                "       \"sqlKey\":\"h2:mem:basic:AnObject\",\n" +
                 "        \"rowHead\":-1,\n" +
                 "        \"rowStart\":0,\n" +
                 "        \"rowEnd\":2\n" +
@@ -71,8 +74,9 @@ public class DbTest {
     @Test
     public void eo_DbQuery_with_tableTpl____3() {
         EO eo = ProviderRootTestScope.createEo("{\n" +
-                "   \"(DbQueryCall)xyz\":{\n" +
-                "       \"configKey\":\"h2:mem:basic:AnObject\"\n" +
+                "   \"(DbSqlReadCall)xyz\":{\n" +
+                "       \"configKey\":\"h2:mem:basic\",\n" +
+                "       \"sqlKey\":\"h2:mem:basic:AnObject\"\n" +
                 "   },\n" +
                 "   \"(TemplateResourceCall).\":{\"configKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
                 "   \"asTemplate\":true\n" +

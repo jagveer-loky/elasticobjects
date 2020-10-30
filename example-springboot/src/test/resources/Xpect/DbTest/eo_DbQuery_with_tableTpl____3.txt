@@ -5,6 +5,7 @@
       <th>myASubObject </th>
       <th>myInt </th>
       <th>myString </th>
+      <th>naturalId </th>
       <th>myLong </th>
       <th>myBoolean </th>
       <th>myFloat </th></tr>
@@ -14,6 +15,7 @@
       <td>0 </td>
       <td>1 </td>
       <td>value1 </td>
+      <td>key1 </td>
       <td>0 </td>
       <td>true </td>
       <td>0.0 </td> </tr>
@@ -23,6 +25,7 @@
       <td>0 </td>
       <td>2 </td>
       <td>value2 </td>
+      <td>key2 </td>
       <td>0 </td>
       <td>false </td>
       <td>0.0 </td> </tr>
@@ -32,6 +35,7 @@
       <td>0 </td>
       <td>3 </td>
       <td>value3 </td>
+      <td>key3 </td>
       <td>0 </td>
       <td>true </td>
       <td>0.0 </td> </tr>

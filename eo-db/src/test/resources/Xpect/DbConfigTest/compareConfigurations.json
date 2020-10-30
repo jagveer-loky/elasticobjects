@@ -18,6 +18,9 @@
     "protocol": "jdbc",
     "hostName": "h2",
     "configModelKey": "DbConfig",
+    "rolePermissions": {
+      "read": "guest"
+    },
     "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",
@@ -52,6 +55,9 @@
     "protocol": "jdbc",
     "hostName": "h2",
     "configModelKey": "DbConfig",
+    "rolePermissions": {
+      "read": "guest"
+    },
     "(Expose)expose": "WEB",
     "properties": {
       "classPath": "src.main.resources",

@@ -1,0 +1,48 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbModelReadCall",
+    "superKey": "DbModelCall",
+    "interfaces": "ListInterface",
+    "(ArrayList)fieldKeys": {
+      "0": "rowHead",
+      "1": "rowStart",
+      "2": "rowEnd",
+      "3": "length",
+      "4": "filter",
+      "5": "colKeys",
+      "6": "sqlKey",
+      "7": "configKey",
+      "8": "keepCall",
+      "9": "sourcePath",
+      "10": "targetPath",
+      "11": "models",
+      "12": "condition",
+      "13": "startCondition",
+      "14": "overwrite",
+      "15": "logLevel",
+      "16": "duration",
+      "17": "prepend",
+      "18": "postpend",
+      "19": "id",
+      "20": "description",
+      "21": "naturalId",
+      "22": "creationDate",
+      "23": "author"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "eo-db"
+    },
+    "module": "eo-db",
+    "moduleScope": "main",
+    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "naturalId": "DbModelReadCall",
+    "author": "Werner Diwischek"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

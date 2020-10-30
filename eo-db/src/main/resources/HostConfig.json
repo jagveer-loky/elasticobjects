@@ -13,6 +13,9 @@
       "driver": "org.h2.Driver",
       "protocol": "jdbc",
       "hostName": "h2"
+    },
+    "rolePermissions": {
+      "read": "guest"
     }
   },
   "h2:mem:basic": {
@@ -29,6 +32,9 @@
       "driver": "org.h2.Driver",
       "protocol": "jdbc",
       "hostName": "h2"
+    },
+    "rolePermissions": {
+      "read": "guest"
     }
   }
 }

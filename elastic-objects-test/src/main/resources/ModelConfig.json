@@ -36,6 +36,7 @@
     "moduleScope": "main",
     "fieldKeys": [
       "id",
+      "naturalId",
       "myASubObject",
       "name",
       "myString"

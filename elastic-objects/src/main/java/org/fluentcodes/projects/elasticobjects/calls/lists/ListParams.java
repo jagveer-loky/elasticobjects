@@ -43,6 +43,13 @@ public class ListParams {
 
     public ListParams() {
     }
+    public ListParams(boolean dbFlag) {
+        if (dbFlag) {
+            rowHead = 0;
+            rowStart = 0;
+            rowEnd = 200;
+        }
+    }
 
     public ListParams(Map attributes) {
 

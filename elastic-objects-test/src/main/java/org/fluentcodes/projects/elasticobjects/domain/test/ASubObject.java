@@ -16,6 +16,7 @@ public class ASubObject   {
     private  ASubObject myASubObject;
     private  String name;
     private  String myString;
+    private String naturalId;
 //=>{}.
 
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenFieldKeysStripped/*", "configKey":"ALLSetter.tpl", "keepCall":"JAVA"}}|
@@ -35,6 +36,14 @@ public class ASubObject   {
 
     public boolean hasId () {
         return id != null ;
+    }
+
+    public String getNaturalId() {
+        return naturalId;
+    }
+
+    public void setNaturalId(String naturalId) {
+        this.naturalId = naturalId;
     }
 
     /**

@@ -21,14 +21,29 @@ public class DbModelWriteCallAnObjectTest {
     }
 
     @Test
-    public void call_DbQuery_AnObject__execute__3() {
-        DbModelWriteCall dbQueryCall = new DbModelWriteCall(H2_BASIC, AnObject.class.getSimpleName());
+    public void call_AnObject_1L_value1New__execute__updated() {
+        DbModelWriteCall dbQueryCall = new DbModelWriteCall(H2_BASIC);
         Assertions.assertThat(dbQueryCall).isNotNull();
         dbQueryCall.setTargetPath("/result/values");
         EO eo = ProviderRootTestScope.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1New");
         anObject.setId(1L);
+        EO child = eo.set(anObject, "test");
+        dbQueryCall.execute(child);
+        Assertions.assertThat(eo.getEo("/result/values").size()).isEqualTo(1);
+        new XpectEo<>().compareAsString(eo);
+    }
+
+    @Test
+    public void call_AnObject_4L_value4__execute__inserted() {
+        DbModelWriteCall dbQueryCall = new DbModelWriteCall(H2_BASIC);
+        Assertions.assertThat(dbQueryCall).isNotNull();
+        dbQueryCall.setTargetPath("/result/values");
+        EO eo = ProviderRootTestScope.createEo();
+        AnObject anObject = new AnObject();
+        anObject.setMyString("value4");
+        anObject.setId(4L);
         EO child = eo.set(anObject, "test");
         dbQueryCall.execute(child);
         Assertions.assertThat(eo.getEo("/result/values").size()).isEqualTo(1);

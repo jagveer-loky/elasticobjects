@@ -12,10 +12,6 @@ import org.junit.Test;
  */
 public class DbSqlReadCallTest {
     public static final String H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:AnObject";
-    public static final String H2_MEM_BASIC_SUB_TEST = "h2:mem:basic:ASubObject";
-    public static final String H2_MEM_BASIC_TEST_DROP = "h2:mem:basic:AnObjectDrop";
-    public static final String H2_MEM_BASIC_CREATE = "h2:mem:basic:Create";
-
 
     @Test
     public void createByModelConfig()  {
@@ -30,16 +26,6 @@ public class DbSqlReadCallTest {
     @Test
     public void resolveModelConfig()  {
         ConfigModelChecks.resolve(DbSqlReadCall.class);
-    }
-
-    // TODO make some reasonable tests afterwards
-    @Ignore
-    @Test
-    public void queryAnObject()  {
-        DbSqlReadCall call = new DbSqlReadCall(H2_MEM_BASIC_BASIC_TEST);
-        Assert.assertNotNull(call);
-        EO eo = ProviderRootTestScope.createEo();
-        call.execute(eo);
     }
 }
 

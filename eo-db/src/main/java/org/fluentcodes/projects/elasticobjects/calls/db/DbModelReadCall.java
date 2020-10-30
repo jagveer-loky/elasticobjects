@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
+import org.fluentcodes.projects.elasticobjects.calls.db.statements.PreparedStatementValues;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -21,9 +23,6 @@ public class DbModelReadCall extends DbModelCall implements ListInterface {
     }
     public DbModelReadCall(final String hostConfigKey)  {
         super(PermissionType.READ, hostConfigKey);
-    }
-    public DbModelReadCall(final String hostConfigKey, final String modelKey)  {
-        super(PermissionType.READ, hostConfigKey, modelKey);
     }
 
     @Override
@@ -47,10 +46,8 @@ public class DbModelReadCall extends DbModelCall implements ListInterface {
         if (!model.isObject()) {
             throw new EoException("No model is provided in path '" + eo.getPathAsString() + "");
         }
-        PreparedStatementValues preparedStatementValues = new PreparedStatementValues()
-                .createSelect(model.getModelKey(), eo.getKeyValues());
-
-        return preparedStatementValues.read(
+        return FindStatement.of(eo)
+                .read(
                 getDbConfig().getConnection(),
                 eo.getConfigsCache(),
                 getListParams());
