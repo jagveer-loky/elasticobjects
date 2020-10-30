@@ -37,6 +37,10 @@ public abstract class ResourceCall extends CallImpl implements CallKeep {
         return ((ConfigResourcesImpl)getConfig()).getRolePermissions().hasPermissions(permissions, roles);
     }
 
+    public PermissionType getPermissions() {
+        return permissions;
+    }
+
     @Override
     public boolean init(final EO eo)  {
         resolve(eo);

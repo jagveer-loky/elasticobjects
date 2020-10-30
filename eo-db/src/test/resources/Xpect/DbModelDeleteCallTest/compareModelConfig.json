@@ -1,0 +1,41 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbModelDeleteCall",
+    "superKey": "DbModelCall",
+    "(ArrayList)fieldKeys": {
+      "0": "sqlKey",
+      "1": "configKey",
+      "2": "keepCall",
+      "3": "sourcePath",
+      "4": "targetPath",
+      "5": "models",
+      "6": "condition",
+      "7": "startCondition",
+      "8": "overwrite",
+      "9": "logLevel",
+      "10": "duration",
+      "11": "prepend",
+      "12": "postpend",
+      "13": "id",
+      "14": "description",
+      "15": "naturalId",
+      "16": "creationDate",
+      "17": "author"
+    },
+    "(Expose)expose": "WEB",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN",
+      "module": "eo-db"
+    },
+    "module": "eo-db",
+    "moduleScope": "main",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
+    "naturalId": "DbModelDeleteCall",
+    "author": "Werner Diwischek"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

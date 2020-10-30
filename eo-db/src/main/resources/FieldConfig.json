@@ -89,7 +89,7 @@
     "modelKeys": "String",
     "description": "sqlKey",
     "expose": "NONE",
-    "fieldKey": "sql",
+    "fieldKey": "sqlKey",
     "length": 124,
     "properties": {
       "classPath": "src.main.resources"

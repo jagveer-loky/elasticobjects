@@ -120,7 +120,7 @@ If you remove the "asTemplate" value the result will be the JSON returned from t
         ==>{ConfigLinkCall->ModelConfig, XlsxReadCall}. with
         ==>{ConfigLinkCall->FileConfig, AnObject.xlsx:test}.</li>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, DbQueryCall}. with
+        ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. with
         ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</li>
 </ul>
 <p>
@@ -143,7 +143,7 @@ If you remove the "asTemplate" value the result will be the JSON returned from t
 &#36;[(TemplateResourceCall)data/xlsx configKey="table.tpl"}.
 
 <h2>DB</h2>
-&#36;[(DbQueryCall)data/db configKey="h2:mem:basic:AnObject"}.
+&#36;[(DbSqlReadCall)data/db configKey="h2:mem:basic:AnObject"}.
 &#36;[(TemplateResourceCall)data/db configKey="table.tpl"}.
 </textarea>
     <input type="submit" value="post"/>

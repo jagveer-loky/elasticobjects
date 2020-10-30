@@ -13,7 +13,6 @@ import org.junit.Test;
 public class DbSqlExecuteCallTest {
     private final static String DROP = "h2:mem:basic:AnObjectDrop";
     private final static String CREATE = "h2:mem:basic:Create";
-    public static final String DQ_H2_MEM_BASIC_BASIC_TEST = "h2:mem:basic:AnObject";
     @Test
     public void createByModelConfig()  {
         ConfigModelChecks.create(DbSqlExecuteCall.class);

@@ -22,7 +22,7 @@ public class DbModelReadCallAnObjectTest {
 
     @Test
     public void call_DbQuery_AnObject__execute__3() {
-        DbModelReadCall dbQueryCall = new DbModelReadCall(H2_BASIC, AnObject.class.getSimpleName());
+        DbModelReadCall dbQueryCall = new DbModelReadCall(H2_BASIC);
         dbQueryCall.setTargetPath("/result/values");
         Assertions.assertThat(dbQueryCall).isNotNull();
         EO eo = ProviderRootTestScope.createEo();

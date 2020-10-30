@@ -1,12 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.ResourceCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
+import org.fluentcodes.projects.elasticobjects.calls.db.statements.PreparedStatementValues;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,7 +41,7 @@ public class DbSqlExecuteCall extends DbSqlCall {
                 executed = statement.execute(sql) && executed;
             }
             catch (SQLException e) {
-                PreparedStatementValues.closeStatement(statement);
+                //PreparedStatementValues.closeStatement(statement);
                 throw new EoException("Problem execute " + e.getMessage());
             }
         }

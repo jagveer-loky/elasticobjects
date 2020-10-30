@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -31,6 +32,7 @@ public class ListParamsTest {
         Assert.assertEquals(new Integer(4), bean.checkRowStart().getRowStart());
     }
 
+    @Ignore
     @Test
     public void checkObjectSetRowStart() {
         ListParams params = new ListParams();
@@ -48,6 +50,7 @@ public class ListParamsTest {
         Assert.assertEquals(new Integer(10), params.getRowEnd());
     }
 
+    @Ignore
     @Test
     public void checkObjectSetLength() {
         ListParams params = new ListParams();

@@ -2,6 +2,10 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
+import org.fluentcodes.projects.elasticobjects.calls.db.statements.InsertStatement;
+import org.fluentcodes.projects.elasticobjects.calls.db.statements.PreparedStatementValues;
+import org.fluentcodes.projects.elasticobjects.calls.db.statements.UpdateStatement;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
@@ -22,9 +26,6 @@ public class DbModelWriteCall extends DbModelCall {
     public DbModelWriteCall(final String hostConfigKey)  {
         super(PermissionType.WRITE, hostConfigKey);
     }
-    public DbModelWriteCall(final String hostConfigKey, final String modelKey)  {
-        super(PermissionType.WRITE, hostConfigKey, modelKey);
-    }
 
     @Override
     public Object execute(EO eo) {
@@ -37,25 +38,22 @@ public class DbModelWriteCall extends DbModelCall {
         if (!model.isObject()) {
             throw new EoException("No model is provided in path '" + eo.getPathAsString() + "");
         }
-        PreparedStatementValues preparedStatementValues = new PreparedStatementValues();
-        Map<String, Object> keyValues = eo.getKeyValues();
         int updateCount = 0;
-        if (preparedStatementValues.find(getDbConfig().getConnection(), model.getModelKey(), keyValues) == 1) {
-            updateCount =  new PreparedStatementValues()
-                    .update(getDbConfig().getConnection(), model.getModelKey(), keyValues);
+        if (FindStatement.ofId(eo).execute(getDbConfig().getConnection()) == 1) {
+            updateCount =  UpdateStatement
+                    .of(eo)
+                    .execute(getDbConfig().getConnection());
         }
         else {
-            updateCount =  new PreparedStatementValues()
-                    .insert(getDbConfig().getConnection(), model.getModelKey(), keyValues);
+            updateCount =  InsertStatement
+                    .of(eo)
+                    .execute(getDbConfig().getConnection());
         }
         if (hasTargetPath()) {
-            List result = new PreparedStatementValues()
-                    .createSelect(model.getModelKey(), eo.getKeyValues())
-                    .read(
+            List result = FindStatement.of(eo)
+                    .readFirst(
                     getDbConfig().getConnection(),
-                    eo.getConfigsCache(),
-                    new ListParams()
-                    .setRowHead(0).setRowStart(0).setRowEnd(1));
+                    eo.getConfigsCache());
             eo.set(result, getTargetPath());
         }
         return updateCount;

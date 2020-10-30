@@ -45,7 +45,6 @@
     "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelCall",
-    "fieldKeys": ["modelKey"],
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -77,6 +76,21 @@
     "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelWriteCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbModelDeleteCall": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "superKey": "DbModelCall",
+    "expose": "WEB",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbModelDeleteCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
