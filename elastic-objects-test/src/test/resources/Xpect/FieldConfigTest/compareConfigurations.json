@@ -26,7 +26,7 @@
       "6": "DirectoryListReadCall",
       "7": "Config",
       "8": "ConfigImpl",
-      "9": "ConfigResourcesImpl",
+      "9": "ResourceConfig",
       "10": "FileConfig",
       "11": "CsvConfig",
       "12": "ResourceWriteCall",
@@ -269,12 +269,14 @@
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "CallContent",
-      "1": "FileWriteCall",
-      "2": "TemplateCall",
-      "3": "TemplateResourceCall",
-      "4": "ValueCall",
-      "5": "TemplateDirResourceCall",
-      "6": "TemplateResourceStoreCall"
+      "1": "ResourceWriteCall",
+      "2": "FileWriteCall",
+      "3": "TemplateCall",
+      "4": "TemplateResourceCall",
+      "5": "ValueCall",
+      "6": "TemplateDirResourceCall",
+      "7": "ListWriteCall",
+      "8": "TemplateResourceStoreCall"
     },
     "(Expose)expose": "WEB",
     "properties": {
@@ -312,7 +314,7 @@
       "6": "DirectoryListReadCall",
       "7": "Config",
       "8": "ConfigImpl",
-      "9": "ConfigResourcesImpl",
+      "9": "ResourceConfig",
       "10": "FileConfig",
       "11": "CsvConfig",
       "12": "ResourceWriteCall",
@@ -380,7 +382,7 @@
     "fieldKey": "delete",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "RolePermissions"
+      "0": "PermissionRole"
     },
     "(Expose)expose": "NONE",
     "properties": {
@@ -405,7 +407,7 @@
       "6": "DirectoryListReadCall",
       "7": "Config",
       "8": "ConfigImpl",
-      "9": "ConfigResourcesImpl",
+      "9": "ResourceConfig",
       "10": "FileConfig",
       "11": "CsvConfig",
       "12": "ResourceWriteCall",
@@ -533,7 +535,7 @@
     "fieldKey": "execute",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "RolePermissions"
+      "0": "PermissionRole"
     },
     "(Expose)expose": "NONE",
     "properties": {
@@ -551,7 +553,7 @@
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "ConfigResourcesImpl",
+      "2": "ResourceConfig",
       "3": "FileConfig",
       "4": "CsvConfig",
       "5": "DirectoryConfig",
@@ -852,7 +854,7 @@
       "7": "ASubObject",
       "8": "Config",
       "9": "ConfigImpl",
-      "10": "ConfigResourcesImpl",
+      "10": "ResourceConfig",
       "11": "FileConfig",
       "12": "CsvConfig",
       "13": "ResourceWriteCall",
@@ -1295,7 +1297,7 @@
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "ConfigResourcesImpl",
+      "2": "ResourceConfig",
       "3": "FileConfig",
       "4": "CsvConfig",
       "5": "DirectoryConfig",
@@ -1326,7 +1328,7 @@
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "ConfigResourcesImpl",
+      "2": "ResourceConfig",
       "3": "FileConfig",
       "4": "CsvConfig",
       "5": "DirectoryConfig",
@@ -1607,7 +1609,7 @@
       "7": "ASubObject",
       "8": "Config",
       "9": "ConfigImpl",
-      "10": "ConfigResourcesImpl",
+      "10": "ResourceConfig",
       "11": "FileConfig",
       "12": "CsvConfig",
       "13": "ResourceWriteCall",
@@ -1787,10 +1789,31 @@
     "naturalId": "password"
   },
   "82": {
+    "fieldKey": "permissionRole",
+    "modelKeys": "PermissionRole",
+    "(ArrayList)modelList": {
+      "0": "ResourceProperties",
+      "1": "ResourceConfig",
+      "2": "FileConfig",
+      "3": "CsvConfig",
+      "4": "DirectoryConfig",
+      "5": "HostConfig"
+    },
+    "(Expose)expose": "NONE",
+    "properties": {
+      "classPath": "src.main.resources",
+      "module": "elastic-objects"
+    },
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+    "naturalId": "permissionRole"
+  },
+  "83": {
     "fieldKey": "create",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "RolePermissions"
+      "0": "PermissionRole"
     },
     "(Expose)expose": "NONE",
     "properties": {
@@ -1802,7 +1825,7 @@
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "83": {
+  "84": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1818,7 +1841,7 @@
     "description": "port",
     "naturalId": "port"
   },
-  "84": {
+  "85": {
     "fieldKey": "postpend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1865,7 +1888,7 @@
     "description": "postpend String when executed by ExecutorCallImpl",
     "naturalId": "postpend"
   },
-  "85": {
+  "86": {
     "fieldKey": "prepend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1912,25 +1935,25 @@
     "description": "prepend String when executed by ExecutorCallImpl",
     "naturalId": "prepend"
   },
-  "86": {
+  "87": {
     "fieldKey": "properties",
     "modelKeys": "Map",
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "ConfigResourcesImpl",
+      "2": "ResourceConfig",
       "3": "FileConfig",
       "4": "CsvConfig",
       "5": "DirectoryConfig",
-      "6": "PropertiesAccessor",
-      "7": "PropertiesConfigAccessor",
-      "8": "ModelConfigInterface",
-      "9": "ModelConfig",
-      "10": "ModelConfigSet",
-      "11": "ModelConfigMap",
-      "12": "HostConfig",
-      "13": "ModelConfigObject",
-      "14": "FieldConfig",
+      "6": "ModelConfigInterface",
+      "7": "ModelConfig",
+      "8": "ModelConfigSet",
+      "9": "ModelConfigMap",
+      "10": "HostConfig",
+      "11": "ModelConfigObject",
+      "12": "FieldConfig",
+      "13": "Properties",
+      "14": "ModuleProperties",
       "15": "ModelConfigList",
       "16": "ModelConfigNone",
       "17": "ModelConfigScalar"
@@ -1945,7 +1968,7 @@
     "description": "Properties for configurations.",
     "naturalId": "properties"
   },
-  "87": {
+  "88": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1961,11 +1984,11 @@
     "description": "protocol",
     "naturalId": "protocol"
   },
-  "88": {
+  "89": {
     "fieldKey": "read",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "RolePermissions"
+      "0": "PermissionRole"
     },
     "(Expose)expose": "NONE",
     "properties": {
@@ -1977,7 +2000,7 @@
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "89": {
+  "90": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1993,27 +2016,6 @@
     "moduleScope": "main",
     "description": "replaceBy",
     "naturalId": "replaceBy"
-  },
-  "90": {
-    "fieldKey": "rolePermissions",
-    "modelKeys": "RolePermissions",
-    "(ArrayList)modelList": {
-      "0": "ConfigResources",
-      "1": "ConfigResourcesImpl",
-      "2": "FileConfig",
-      "3": "CsvConfig",
-      "4": "DirectoryConfig",
-      "5": "HostConfig"
-    },
-    "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects"
-    },
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "description": "rolePermissions",
-    "naturalId": "rolePermissions"
   },
   "91": {
     "fieldKey": "rowDelimiter",
@@ -2100,7 +2102,7 @@
     "(ArrayList)modelList": {
       "0": "Config",
       "1": "ConfigImpl",
-      "2": "ConfigResourcesImpl",
+      "2": "ResourceConfig",
       "3": "FileConfig",
       "4": "CsvConfig",
       "5": "DirectoryConfig",
@@ -2492,7 +2494,7 @@
     "fieldKey": "write",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "RolePermissions"
+      "0": "PermissionRole"
     },
     "(Expose)expose": "NONE",
     "properties": {

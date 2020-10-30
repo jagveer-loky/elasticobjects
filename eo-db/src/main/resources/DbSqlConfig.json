@@ -1,6 +1,5 @@
 {
   "h2:mem:basic:AnObject": {
-    "configModelKey": "DbSqlConfig",
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Query for AnObject",
@@ -10,8 +9,9 @@
       "dbKey": "h2:mem:basic",
       "modelKey": "AnObject"
     },
-    "rowHead": 0,
-    "sqlList": ["Select * from AnObject"],
+    "sqlList": [
+      "Select * from AnObject"
+    ],
     "rolePermissions": {
       "read": "guest"
     }
@@ -46,7 +46,6 @@
     }
   },
   "h2:mem:basic:ASubObject": {
-    "configModelKey": "DbSqlConfig",
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Query for ASubObject",
@@ -54,12 +53,11 @@
     "properties": {
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
-      "modelKey": "ASubObject",
-      "rowHead": 0,
-      "rowStart": 1,
-      "rowEnd": 4
+      "modelKey": "ASubObject"
     },
-    "sqlList": ["Select * from ASubObject"],
+    "sqlList": [
+      "Select * from ASubObject"
+    ],
     "rolePermissions": {
       "read": "guest"
     }

@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -34,7 +33,7 @@ public abstract class ResourceCall extends CallImpl implements CallKeep {
     }
 
     public boolean hasPermissions(final List<String> roles) {
-        return ((ConfigResourcesImpl)getConfig()).getRolePermissions().hasPermissions(permissions, roles);
+        return ((ResourceConfig)getConfig()).getPermissionRole().hasPermissions(permissions, roles);
     }
 
     public PermissionType getPermissions() {
@@ -44,7 +43,7 @@ public abstract class ResourceCall extends CallImpl implements CallKeep {
     @Override
     public boolean init(final EO eo)  {
         resolve(eo);
-        if (config instanceof ConfigResourcesImpl) {
+        if (config instanceof ResourceConfig) {
             hasPermissions(eo.getRoles());
         }
         return super.init(eo);

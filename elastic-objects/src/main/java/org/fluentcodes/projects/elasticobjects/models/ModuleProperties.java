@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
 
-public interface PropertiesConfigAccessor extends PropertiesAccessor {
+public interface ModuleProperties extends Properties {
     String CLASS_PATH = "classPath";
     default boolean hasClassPath() {
         return getClassPath()!=null && !getClassPath().isEmpty();

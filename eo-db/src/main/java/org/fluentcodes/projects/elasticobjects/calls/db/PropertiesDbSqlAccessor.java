@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.models.PropertiesAccessor;
+import org.fluentcodes.projects.elasticobjects.models.Properties;
 
-public interface PropertiesDbSqlAccessor extends PropertiesAccessor {
+public interface PropertiesDbSqlAccessor extends Properties {
     final static String DB_KEY = "dbKey";
 
 

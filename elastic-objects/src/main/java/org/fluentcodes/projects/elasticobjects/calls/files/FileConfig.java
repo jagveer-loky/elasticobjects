@@ -1,12 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceConfig;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
-import org.fluentcodes.tools.xpect.IOString;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -19,7 +18,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.HOST_KEY;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class FileConfig extends ConfigResourcesImpl implements FileConfigInterface {
+public class FileConfig extends ResourceConfig implements FileConfigInterface {
     public static final String FILE_NAME = "fileName";
     public static final String FILE_PATH = "filePath";
     public static final String CACHED = "cached";

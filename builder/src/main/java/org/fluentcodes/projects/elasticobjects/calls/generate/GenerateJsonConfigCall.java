@@ -52,7 +52,7 @@ public class GenerateJsonConfigCall extends GenerateCall {
                 continue;
             }
             if (hasModule() && !getModule().equals("*") && !module.matches(getModule())) {
-                feedback.append("Skip module '" + module + "'\n");
+                feedback.append("Skip module '" + module + "' with filter module '" + getModule() + "'\n");
                 continue;
             }
             for (String moduleScope: child.keys()) {

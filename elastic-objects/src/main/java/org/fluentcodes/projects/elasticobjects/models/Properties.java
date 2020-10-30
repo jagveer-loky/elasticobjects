@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.domain.Base;
 
 import java.util.Map;
 
-public interface PropertiesAccessor extends Base {
+public interface Properties extends Base {
 
     Map getProperties();
     default boolean hasProperties() {

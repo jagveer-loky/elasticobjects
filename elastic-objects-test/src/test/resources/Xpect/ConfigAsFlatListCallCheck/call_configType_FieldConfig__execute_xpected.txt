@@ -81,6 +81,7 @@
 "packageGroup";"String";"Defines to which group a model belong e.g. asset/cache/action";"elastic-objects";"";"packageGroup";"";"";"";"";
 "packagePath";"String";"packagePath";"elastic-objects";"";"packagePath";"";"";"";"";
 "password";"String";"The password instance var.";"elastic-objects";"";"password";"";"";"";"";
+"permissionRole";"PermissionRole";"Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ";"elastic-objects";"";"permissionRole";"";"";"";"";
 "Permissions.create";"String";"String representation of RolePermission create permissions";"elastic-objects";"";"create";"";"";"";"";
 "port";"Integer";"port";"elastic-objects";"";"port";"";"";"";"";
 "postpend";"String";"postpend String when executed by ExecutorCallImpl";"elastic-objects";"";"postpend";"";"";"";"";
@@ -89,7 +90,6 @@
 "protocol";"String";"protocol";"elastic-objects";"";"protocol";"";"";"";"";
 "read";"String";"String representation of RolePermission read permissions";"elastic-objects";"";"read";"";"";"";"";
 "replaceBy";"String";"replaceBy";"elastic-objects";"";"replaceBy";"";"";"";"";
-"rolePermissions";"RolePermissions";"rolePermissions";"elastic-objects";"";"rolePermissions";"";"";"";"";
 "rowDelimiter";"String";"A delimiter for rows used for csv files.";"elastic-objects";"";"rowDelimiter";"";"";"";"";
 "rowEnd";"Integer";"rowEnd";"elastic-objects";"";"rowEnd";"";"";"";"";
 "rowHead";"Integer";"rowHead";"elastic-objects";"";"rowHead";"";"";"";"";

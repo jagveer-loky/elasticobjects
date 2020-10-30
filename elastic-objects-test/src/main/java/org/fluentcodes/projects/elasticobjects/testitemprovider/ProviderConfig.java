@@ -37,18 +37,18 @@ public class ProviderConfig {
 
     public static Map<String, Object> createEoParams() {
         Map<String, Object> map = new HashMap();
-        map.put(PropertiesModelAccessor.CREATE, true);
-        map.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.MAP.name());
-        map.put(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION, PropertiesModelAccessor.DEFAULT_IMPLEMENTATION);
+        map.put(ModelProperties.CREATE, true);
+        map.put(ModelProperties.SHAPE_TYPE, ShapeTypes.MAP.name());
+        map.put(ModelProperties.DEFAULT_IMPLEMENTATION, ModelProperties.DEFAULT_IMPLEMENTATION);
         return map;
     }
 
     public static Map<String, Object> createDbParams() {
         Map<String, Object> map = new HashMap();
-        map.put(PropertiesFieldAccessor.TABLE, PropertiesFieldAccessor.TABLE);
-        map.put(PropertiesModelAccessor.ID_KEY, PropertiesModelAccessor.ID_KEY);
-        map.put(PropertiesModelAccessor.NATURAL_KEYS, PropertiesModelAccessor.NATURAL_KEYS);
-        map.put(PropertiesModelAccessor.HIBERNATE_ANNOTATIONS, S1);
+        map.put(FieldProperties.TABLE, FieldProperties.TABLE);
+        map.put(ModelProperties.ID_KEY, ModelProperties.ID_KEY);
+        map.put(ModelProperties.NATURAL_KEYS, ModelProperties.NATURAL_KEYS);
+        map.put(ModelProperties.HIBERNATE_ANNOTATIONS, S1);
         return map;
     }
 }

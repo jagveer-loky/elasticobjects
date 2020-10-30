@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbSqlConfig extends ConfigResourcesImpl implements PropertiesDbSqlAccessor {
+public class DbSqlConfig extends ResourceConfig implements PropertiesDbSqlAccessor {
     public static final String SQL_LIST = "sqlList";
     private final List<String> sqlList;
     private DbConfig sqlConfig;

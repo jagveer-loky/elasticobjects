@@ -5,7 +5,7 @@
     "(ArrayList)sqlList": {
       "0": "Select * from AnObject"
     },
-    "rolePermissions": {
+    "permissionRole": {
       "read": "guest"
     },
     "(Expose)expose": "WEB",
@@ -25,7 +25,7 @@
     "(ArrayList)sqlList": {
       "0": "drop table AnObject if exists"
     },
-    "rolePermissions": {
+    "permissionRole": {
       "execute": "admin"
     },
     "(Expose)expose": "WEB",
@@ -45,7 +45,7 @@
     "(ArrayList)sqlList": {
       "0": "Select * from ASubObject"
     },
-    "rolePermissions": {
+    "permissionRole": {
       "read": "guest"
     },
     "(Expose)expose": "WEB",
@@ -53,9 +53,6 @@
       "classPath": "src/main/resources",
       "dbKey": "h2:mem:basic",
       "modelKey": "ASubObject",
-      "rowHead": 0,
-      "rowStart": 1,
-      "rowEnd": 4,
       "module": "eo-db"
     },
     "module": "eo-db",
@@ -80,7 +77,7 @@
       "11": "insert into AnObject (naturalId, myString,myInt,myBoolean) values ('key2', 'value2',2, false)",
       "12": "insert into AnObject (naturalId, myString,myInt,myBoolean) values ('key3', 'value3',3, true)"
     },
-    "rolePermissions": {
+    "permissionRole": {
       "execute": "admin"
     },
     "(Expose)expose": "WEB",

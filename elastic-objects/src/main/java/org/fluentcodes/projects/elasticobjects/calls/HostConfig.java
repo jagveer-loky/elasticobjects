@@ -2,14 +2,13 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public class HostConfig extends ConfigResourcesImpl implements PropertiesHostAccessor {
+public class HostConfig extends ResourceConfig implements HostProperties {
     public static final String LOCALHOST = "localhost";
     public static final String HOST_KEY = "hostKey";
 

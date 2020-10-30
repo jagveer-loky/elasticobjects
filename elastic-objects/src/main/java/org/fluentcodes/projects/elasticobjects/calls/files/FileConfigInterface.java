@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResources;
+import org.fluentcodes.projects.elasticobjects.calls.ResourceProperties;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 
 import java.net.URL;
@@ -8,7 +8,7 @@ import java.net.URL;
 /**
  * Created by Werner on 09.10.2016.
  */
-public interface FileConfigInterface extends ConfigResources {
+public interface FileConfigInterface extends ResourceProperties {
     Boolean isCached();
 
     String getCachedContent();

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-public interface PropertiesHostAccessor  extends ConfigResources {
+public interface HostProperties extends ResourceProperties {
 
     String PORT = "port";
     String PROTOCOL = "protocol";

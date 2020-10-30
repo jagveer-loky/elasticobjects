@@ -12,7 +12,7 @@
     "ASubObject",
     "Config",
     "ConfigImpl",
-    "ConfigResourcesImpl",
+    "ResourceConfig",
     "FileConfig",
     "CsvConfig",
     "ResourceWriteCall",

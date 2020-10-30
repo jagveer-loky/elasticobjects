@@ -10,14 +10,14 @@
       "3": "hostKey",
       "4": "cached"
     },
-    "superKey": "ConfigResourcesImpl",
+    "superKey": "ResourceConfig",
     "(ArrayList)fieldKeys": {
       "0": "configModelKey",
       "1": "fileName",
       "2": "filePath",
       "3": "hostKey",
       "4": "cached",
-      "5": "rolePermissions",
+      "5": "permissionRole",
       "6": "scope",
       "7": "expose",
       "8": "properties",

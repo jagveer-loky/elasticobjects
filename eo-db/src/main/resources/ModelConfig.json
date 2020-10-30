@@ -1,4 +1,19 @@
 {
+  "DbCall": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "superKey": "ResourceCall",
+    "expose": "WEB",
+    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "DbConfig": {
     "module": "eo-db",
     "moduleScope": "main",
@@ -21,15 +36,14 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbCall": {
+  "DbModelCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "superKey": "ResourceCall",
+    "superKey": "DbCall",
     "expose": "WEB",
-    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbCall",
-    "fieldKeys": ["sqlKey"],
+    "modelKey": "DbModelCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -37,14 +51,14 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbModelCall": {
+  "DbModelDeleteCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "superKey": "DbCall",
+    "superKey": "DbModelCall",
     "expose": "WEB",
-    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "description": "Remove an entry from database by creating a delete sql from entry in sourcePath.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbModelCall",
+    "modelKey": "DbModelDeleteCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -55,10 +69,10 @@
   "DbModelReadCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "superKey": "DbModelCall",
     "interfaces": "ListInterface",
+    "superKey": "DbModelCall",
     "expose": "WEB",
-    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "description": "Read an entry in database by creating a select sql from entry in sourcePath.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelReadCall",
     "properties": {
@@ -73,24 +87,9 @@
     "moduleScope": "main",
     "superKey": "DbModelCall",
     "expose": "WEB",
-    "description": "Executes a list of sql statements within DbSqlConfig.",
+    "description": "Write an entry in database by creating a insert or update sql from entry in sourcePath.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelWriteCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "DbModelDeleteCall": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "superKey": "DbModelCall",
-    "expose": "WEB",
-    "description": "Executes a list of sql statements within DbSqlConfig.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbModelDeleteCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -101,12 +100,14 @@
   "DbSqlCall": {
     "module": "eo-db",
     "moduleScope": "main",
+    "fieldKeys": [
+      "sqlKey"
+    ],
     "superKey": "DbCall",
     "expose": "WEB",
-    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlCall",
-    "fieldKeys": ["sqlKey"],
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -114,19 +115,22 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbSqlReadCall": {
+  "DbSqlConfig": {
     "module": "eo-db",
     "moduleScope": "main",
-    "superKey": "DbSqlCall",
-    "interfaces": "ListInterface",
-    "expose": "WEB",
-    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "fieldKeys": [
+      "dbKey",
+      "sqlList"
+    ],
+    "superKey": "ResourceConfig",
+    "expose": "NONE",
+    "description": "Execute sql statements via jdbc connection. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlReadCall",
+    "modelKey": "DbSqlConfig",
     "properties": {
       "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": false,
+      "shapeType": "CONFIG"
     },
     "author": "Werner Diwischek"
   },
@@ -145,22 +149,19 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbSqlConfig": {
+  "DbSqlReadCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "fieldKeys": [
-      "dbKey",
-      "sqlList"
-    ],
-    "superKey": "ConfigResourcesImpl",
-    "expose": "NONE",
-    "description": "Execute sql statements via jdbc connection. ",
+    "interfaces": "ListInterface",
+    "superKey": "DbSqlCall",
+    "expose": "WEB",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlConfig",
+    "modelKey": "DbSqlReadCall",
     "properties": {
       "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
+      "create": true,
+      "shapeType": "CALL_BEAN"
     },
     "author": "Werner Diwischek"
   },

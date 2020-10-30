@@ -1,9 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.PropertiesAccessor;
+import org.fluentcodes.projects.elasticobjects.models.Properties;
 
-public interface PropertiesDbAccessor extends PropertiesAccessor {
+public interface PropertiesDbAccessor extends Properties {
     String SCHEMA = "schema";
     String DRIVER = "driver";
     String JNDI = "jndi";

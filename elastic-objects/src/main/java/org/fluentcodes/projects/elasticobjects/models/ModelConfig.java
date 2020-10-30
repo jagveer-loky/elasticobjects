@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public abstract class ModelConfig extends ConfigImpl implements PropertiesModelAccessor {
+public abstract class ModelConfig extends ConfigImpl implements ModelProperties {
     public static final String MODEL_KEY = "modelKey";
     public static final String FIELD_KEYS = "fieldKeys";
     public static final String INTERFACES = "interfaces";
@@ -91,7 +91,7 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
         modelMap.put(PACKAGE_PATH, modelClass.getPackage().getName());
 
         final Map<String, Object> properties = new HashMap<>();
-        properties.put(PropertiesModelAccessor.CREATE, true);
+        properties.put(ModelProperties.CREATE, true);
         modelMap.put(PROPERTIES, properties);
 
         final Field[] fields = modelClass.getDeclaredFields();
@@ -110,9 +110,9 @@ public abstract class ModelConfig extends ConfigImpl implements PropertiesModelA
             fieldMap.put(fieldKey, field);
         }
         if (fieldKeys.isEmpty()) {
-            properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.SCALAR);
+            properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.SCALAR);
         } else {
-            properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.BEAN.name());
+            properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.BEAN.name());
         }
         modelMap.put(FIELD_KEYS, fieldKeys);
         configsCache.addModel(modelMap);

@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.PropertiesModelAccessor;
+import org.fluentcodes.projects.elasticobjects.models.ModelProperties;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Werner on 12.10.2016.
  */
-public class RolePermissions {
+public class PermissionRole {
     public static final String NOTHING = "nothing";
     public static final String GUEST = "guest";
     public static final String ANONYM = "anonym";
@@ -31,10 +31,10 @@ public class RolePermissions {
     private List<String> executeList;
     private List<String> readList;
 
-    public RolePermissions() {
+    public PermissionRole() {
     }
 
-    public RolePermissions(RolePermissions rolePermissions) {
+    public PermissionRole(PermissionRole rolePermissions) {
         this.read = rolePermissions.getRead();
         this.write = rolePermissions.getWrite();
         this.create = rolePermissions.getCreate();
@@ -43,13 +43,13 @@ public class RolePermissions {
         resolve();
     }
 
-    public RolePermissions(Map rolePermissions) {
+    public PermissionRole(Map rolePermissions) {
         if (rolePermissions == null) {
             return;
         }
         this.read = (String) rolePermissions.get(READ);
         this.write = (String) rolePermissions.get(WRITE);
-        this.create = (String) rolePermissions.get(PropertiesModelAccessor.CREATE);
+        this.create = (String) rolePermissions.get(ModelProperties.CREATE);
         this.delete = (String) rolePermissions.get(DELETE);
         this.execute = (String) rolePermissions.get(EXECUTE);
         resolve();
@@ -73,7 +73,7 @@ public class RolePermissions {
         this.executeList = createRoleList(execute);
     }
 
-    public void add(RolePermissions permissions) {
+    public void add(PermissionRole permissions) {
         resolve();
         add(this.readList, permissions.getReadList());
         this.read = String.join(",", this.readList);

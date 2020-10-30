@@ -3,9 +3,9 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import static org.fluentcodes.projects.elasticobjects.models.PropertiesFieldAccessor.TABLE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldProperties.TABLE;
 
-public interface PropertiesModelAccessor extends PropertiesConfigAccessor, ModelConfigInterface {
+public interface ModelProperties extends ModuleProperties, ModelConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
     String SHAPE_TYPE = "shapeType";
     String CREATE = "create";

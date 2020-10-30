@@ -117,8 +117,8 @@ public class EOConfigMapModels extends EOConfigMap {
 
     protected void addBasicConfigs()  {
         Map<String, Object> properties = new HashMap<>();
-        properties.put(PropertiesModelAccessor.SHAPE_TYPE, "MAP");
-        properties.put(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
+        properties.put(ModelProperties.SHAPE_TYPE, "MAP");
+        properties.put(ModelProperties.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
 
 
         Map<String, Object> map = new HashMap<>();
@@ -142,8 +142,8 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(ModelConfig.MODEL_KEY, "List");
         map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
 
-        properties.put(PropertiesModelAccessor.SHAPE_TYPE, "LIST");
-        properties.put(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION, "ArrayList");
+        properties.put(ModelProperties.SHAPE_TYPE, "LIST");
+        properties.put(ModelProperties.DEFAULT_IMPLEMENTATION, "ArrayList");
         addConfigByMap(map);
 
         map.put(Base.NATURAL_ID, "ArrayList");
@@ -151,8 +151,8 @@ public class EOConfigMapModels extends EOConfigMap {
         addConfigByMap(map);
 
 
-        properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        properties.put(PropertiesModelAccessor.CREATE, false);
+        properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.SCALAR.name());
+        properties.put(ModelProperties.CREATE, false);
 
         map.put(PACKAGE_PATH, "java.lang");
         // scalar
@@ -189,8 +189,8 @@ public class EOConfigMapModels extends EOConfigMap {
         addConfigByMap(map);
 
         //
-        properties.put(PropertiesModelAccessor.SHAPE_TYPE, ShapeTypes.ENUM.name());
-        properties.put(PropertiesModelAccessor.CREATE, false);
+        properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.ENUM.name());
+        properties.put(ModelProperties.CREATE, false);
         properties.put(CLASS_PATH, "src/main/java");
 
         map.put(PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");

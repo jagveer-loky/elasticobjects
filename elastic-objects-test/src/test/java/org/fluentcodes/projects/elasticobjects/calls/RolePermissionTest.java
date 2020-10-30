@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,7 +16,7 @@ public class RolePermissionTest {
     @Test
     public void testRoles()  {
         
-        RolePermissions rolePermissions = new RolePermissions();
+        PermissionRole rolePermissions = new PermissionRole();
         rolePermissions.setRead(R_TEST_ROLE_READ);
         rolePermissions.setWrite(R_TEST_ROLE_WRITE);
         rolePermissions.setCreate(R_TEST_ROLE_CREATE);
@@ -39,7 +37,7 @@ public class RolePermissionTest {
         Assert.assertEquals(PermissionType.DELETE, permission);
         permission = rolePermissions.getPermissions(Arrays.asList(R_TEST_ROLE_EXECUTE));
         Assert.assertEquals(PermissionType.EXECUTE, permission);
-        permission = rolePermissions.getPermissions(Arrays.asList(RolePermissions.SUPERADMIN));
+        permission = rolePermissions.getPermissions(Arrays.asList(PermissionRole.SUPERADMIN));
         Assert.assertEquals(PermissionType.EXECUTE, permission);
     }
 

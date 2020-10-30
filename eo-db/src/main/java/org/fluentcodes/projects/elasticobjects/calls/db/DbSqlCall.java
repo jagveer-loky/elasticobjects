@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.ConfigResourcesImpl;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
@@ -33,7 +32,7 @@ public abstract class DbSqlCall extends DbCall  {
         }
         super.init(eo);
         this.sqlConfig = (DbSqlConfig) eo.getConfigsCache().find(DbSqlConfig.class, sqlKey);
-        sqlConfig.getRolePermissions().hasPermissions(getPermissions(), eo.getRoles());
+        sqlConfig.getPermissionRole().hasPermissions(getPermissions(), eo.getRoles());
         return true;
     }
 

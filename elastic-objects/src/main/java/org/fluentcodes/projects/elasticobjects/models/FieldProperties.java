@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-public interface PropertiesFieldAccessor extends PropertiesConfigAccessor{
+public interface FieldProperties extends ModuleProperties {
     String DEFAULT_VALUE = "defaultValue";
     String NOT_NULL = "notNull";
     String UNIQUE = "unique";

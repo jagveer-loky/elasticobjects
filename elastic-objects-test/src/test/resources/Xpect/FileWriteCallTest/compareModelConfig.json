@@ -4,7 +4,8 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileWriteCall",
     "(ArrayList)localFieldKeys": {
-      "0": "classPath"
+      "0": "classPath",
+      "1": "content"
     },
     "superKey": "ResourceWriteCall",
     "interfaces": "CallContent",
@@ -38,7 +39,7 @@
     },
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Defines a file write access. ",
+    "description": "Write content or serialized eo to a file. ",
     "naturalId": "FileWriteCall",
     "author": "Werner Diwischek"
   },

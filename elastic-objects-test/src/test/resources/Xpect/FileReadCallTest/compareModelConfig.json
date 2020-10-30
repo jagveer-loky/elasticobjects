@@ -32,7 +32,7 @@
     },
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Defines a file read access. ",
+    "description": "Read content of a file. Put it to targetPath in in when targetPath not equals \"_asString\".",
     "naturalId": "FileReadCall",
     "author": "Werner Diwischek"
   },

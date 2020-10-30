@@ -40,7 +40,7 @@
     },
     "module": "eo-db",
     "moduleScope": "main",
-    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
+    "description": "Executes a list of sql statements within DbSqlConfig.",
     "naturalId": "DbSqlReadCall",
     "author": "Werner Diwischek"
   },

@@ -1,17 +1,16 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 //=>{}.
-import org.fluentcodes.projects.elasticobjects.domain.Base;
+
 
 /**
  * Created by Werner on 10.10.2016.
  */
-public interface Config extends PropertiesConfigAccessor, Base {
+public interface Config extends ModuleProperties, Base {
     String CONFIG_MODEL_KEY = "configModelKey";
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACEStaticNames.tpl", "keepCall":"JAVA"}}|
     String SCOPE = "scope";

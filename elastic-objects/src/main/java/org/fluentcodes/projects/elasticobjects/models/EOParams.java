@@ -19,10 +19,10 @@ public class EOParams {
             defaultImplementation = null;
             return;
         }
-        this.defaultImplementation = (String) map.get(PropertiesModelAccessor.DEFAULT_IMPLEMENTATION);
-        this.create = map.containsKey(PropertiesModelAccessor.CREATE) && map.get(PropertiesModelAccessor.CREATE)!=null ? (Boolean) map.get(PropertiesModelAccessor.CREATE): true;
+        this.defaultImplementation = (String) map.get(ModelProperties.DEFAULT_IMPLEMENTATION);
+        this.create = map.containsKey(ModelProperties.CREATE) && map.get(ModelProperties.CREATE)!=null ? (Boolean) map.get(ModelProperties.CREATE): true;
         try {
-            String shapeTypeAsString = (String) map.get(PropertiesModelAccessor.SHAPE_TYPE);
+            String shapeTypeAsString = (String) map.get(ModelProperties.SHAPE_TYPE);
             if (shapeTypeAsString == null || shapeTypeAsString.isEmpty()) {
                 this.shapeType = ShapeTypes.BEAN;
             } else {
@@ -30,7 +30,7 @@ public class EOParams {
             }
         }
         catch (Exception e) {
-            throw new EoInternalException("Problem setting shapeType " + map.get(PropertiesModelAccessor.SHAPE_TYPE));
+            throw new EoInternalException("Problem setting shapeType " + map.get(ModelProperties.SHAPE_TYPE));
         }
     }
 

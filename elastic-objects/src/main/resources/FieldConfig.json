@@ -775,6 +775,17 @@
       "classPath": "src.main.resources"
     }
   },
+  "permissionRole": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "PermissionRole",
+    "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+    "expose": "NONE",
+    "fieldKey": "permissionRole",
+    "properties": {
+      "classPath": "src.main.resources"
+    }
+  },
   "Permissions.create": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -865,17 +876,6 @@
     "expose": "WEB",
     "fieldKey": "replaceBy",
     "length": 5,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
-  },
-  "rolePermissions": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "RolePermissions",
-    "description": "rolePermissions",
-    "expose": "NONE",
-    "fieldKey": "rolePermissions",
     "properties": {
       "classPath": "src.main.resources"
     }

@@ -18,7 +18,7 @@
     "protocol": "jdbc",
     "hostName": "h2",
     "configModelKey": "DbConfig",
-    "rolePermissions": {
+    "permissionRole": {
       "read": "guest"
     },
     "(Expose)expose": "WEB",
@@ -55,7 +55,7 @@
     "protocol": "jdbc",
     "hostName": "h2",
     "configModelKey": "DbConfig",
-    "rolePermissions": {
+    "permissionRole": {
       "read": "guest"
     },
     "(Expose)expose": "WEB",

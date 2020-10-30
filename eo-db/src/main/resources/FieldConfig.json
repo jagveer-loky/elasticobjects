@@ -87,10 +87,10 @@
     "module": "eo-db",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "sqlKey",
+    "description": "The key to select a configuration from DbSqlConfig within DbSqlCall.",
     "expose": "NONE",
     "fieldKey": "sqlKey",
-    "length": 124,
+    "length": 128,
     "properties": {
       "classPath": "src.main.resources"
     }
