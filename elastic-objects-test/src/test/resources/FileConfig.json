@@ -7,10 +7,7 @@
     "fileName": "ContentExample.json",
     "description": "Calls templates.",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ContentExampleData": {
     "module": "elastic-objects-test",
@@ -20,10 +17,7 @@
     "fileName": "ContentExampleData.json",
     "description": "Simple data for the content templates.",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ContentExampleDynamic": {
     "module": "elastic-objects-test",
@@ -33,10 +27,7 @@
     "fileName": "ContentExampleDynamic.tpl",
     "description": "A template or ContentExample using the template field for rendering with a template",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ContentExampleElement1": {
     "module": "elastic-objects-test",
@@ -46,10 +37,7 @@
     "fileName": "ContentExampleElement1.tpl",
     "description": "A template for an entry fo ContentExample",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ContentExampleElement2": {
     "module": "elastic-objects-test",
@@ -59,10 +47,7 @@
     "fileName": "ContentExampleElement2.tpl",
     "description": "A template for an entry fo ContentExample",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ContentExampleStatic": {
     "module": "elastic-objects-test",
@@ -72,10 +57,7 @@
     "fileName": "ContentExampleStatic.tpl",
     "description": "A template  ContentExample with condition",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ContentExampleStaticCondition": {
     "module": "elastic-objects-test",
@@ -85,10 +67,7 @@
     "fileName": "ContentExampleStaticCondition.tpl",
     "description": "A template  ContentExample with condition",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ContentExampleStaticKeep": {
     "module": "elastic-objects-test",
@@ -98,10 +77,7 @@
     "fileName": "ContentExampleStaticKeep.tpl",
     "description": "A template  ContentExample with condition",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "FileTest.txt": {
     "module": "elastic-objects-test",
@@ -115,9 +91,6 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    },
-    "properties": {
-      "classPath": "src.test.resources"
     }
   },
   "FileTestCached.txt": {
@@ -128,10 +101,7 @@
     "fileName": "FileTest.txt",
     "description": "Local file with cache set true.",
     "expose": "NONE",
-    "cached": "true",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "true"
   },
   "ListSimple.json": {
     "module": "elastic-objects-test",
@@ -145,9 +115,6 @@
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
-    },
-    "properties": {
-      "classPath": "src.test.resources"
     }
   },
   "target.csv": {
@@ -165,7 +132,6 @@
       "write": "admin"
     },
     "properties": {
-      "classPath": "src.test.resources",
       "rowHead": 0
     }
   },
@@ -177,10 +143,7 @@
     "fileName": "target.json",
     "description": "A sample target json file with tmp placeholder.",
     "expose": "NONE",
-    "cached": "false",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "false"
   },
   "target.txt": {
     "module": "elastic-objects-test",
@@ -190,10 +153,7 @@
     "fileName": "target.txt",
     "description": "Target file definition",
     "expose": "NONE",
-    "cached": "false",
-    "properties": {
-      "classPath": "src.test.resources"
-    }
+    "cached": "false"
   },
   "XPECT_TEST": {
     "module": "elastic-objects-test",
@@ -206,9 +166,6 @@
     "cached": "false",
     "rolePermissions": {
       "execute": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
     }
   }
 }

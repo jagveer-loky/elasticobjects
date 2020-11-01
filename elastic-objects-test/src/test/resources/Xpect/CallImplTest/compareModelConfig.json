@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "create": false,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallImpl",
     "superKey": "BaseImpl",
@@ -23,12 +26,6 @@
       "14": "author"
     },
     "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CALL_BEAN",
-      "module": "elastic-objects"
-    },
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Basic implementation for calls. ",

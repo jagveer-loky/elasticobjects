@@ -14,7 +14,7 @@ public class ModelConfigScalarTest {
 
     @Test
     public void assertString()  {
-        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(String.class);
+        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(String.class);
         Assert.assertEquals(String.class, model.getModelClass());
         Assert.assertEquals(ShapeTypes.SCALAR, model.getShapeType());
         Assert.assertTrue(model.hasModel());

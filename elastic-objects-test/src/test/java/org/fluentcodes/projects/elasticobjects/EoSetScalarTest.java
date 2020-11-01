@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.junit.Assert;
 import org.junit.Test;
@@ -54,7 +55,7 @@ public class EoSetScalarTest {
         final EO eo = ProviderRootDevScope.createEo(S_STRING);
         Assertions
                 .assertThatThrownBy(()->{eo.set(S_STRING_OTHER, AnObject.MY_STRING);})
-                .hasMessage("Could not create a field value with 'myString' for a scalar (String) parent on path '/'");
+                .isInstanceOf(EoException.class);
     }
 
     @Test

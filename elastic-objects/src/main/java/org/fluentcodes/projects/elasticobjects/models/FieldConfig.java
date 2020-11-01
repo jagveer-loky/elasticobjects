@@ -83,11 +83,6 @@ public class FieldConfig extends ConfigImpl implements FieldProperties {
         this.models = new Models(getConfigsCache(), modelKeys.split(","));
     }
 
-    @Override
-    public String getKey() {
-        return fieldKey;
-    }
-
     public Integer getLength() {
         return length;
     }

@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.domain.Base;
 /**
  * Created by Werner on 10.10.2016.
  */
-public interface Config extends ModuleProperties, Base {
+public interface Config extends Base {
     String CONFIG_MODEL_KEY = "configModelKey";
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACEStaticNames.tpl", "keepCall":"JAVA"}}|
     String SCOPE = "scope";
@@ -19,12 +19,28 @@ public interface Config extends ModuleProperties, Base {
     String MODULE = "module";
     String MODULE_SCOPE = "moduleScope";
 //=>{}.
-
     void resolve() ;
-    String getKey();
     EOConfigsCache getConfigsCache();
     String getConfigModelKey();
-    boolean hasScope(final Scope scope);
+
+    default boolean hasScope(final Scope scope) {
+        if (scope == Scope.ALL) {
+            return true;
+        }
+        if (getScope() == null) {
+            return true;
+        } else if (getScope().isEmpty()) {
+            return true;
+        }
+        if (getScope().contains(scope)) {
+            return true;
+        }
+        return false;
+    }
+
+    default boolean hasProperties() {
+        return getProperties()!=null && !getProperties().isEmpty();
+    }
 
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACESetter.tpl", "keepCall":"JAVA"}}|
     /**
@@ -45,7 +61,6 @@ public interface Config extends ModuleProperties, Base {
      Properties for configurations.
      */
     Map getProperties();
-    boolean hasProperties();
 
     /**
      Defines a target module where generating occurs.
@@ -60,5 +75,4 @@ public interface Config extends ModuleProperties, Base {
     boolean hasModuleScope();
 
 //=>{}.
-
 }

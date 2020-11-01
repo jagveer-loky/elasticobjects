@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CONFIG",
+    "create": false,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxConfig",
     "(ArrayList)localFieldKeys": {
@@ -17,22 +20,15 @@
       "6": "permissionRole",
       "7": "scope",
       "8": "expose",
-      "9": "properties",
-      "10": "module",
-      "11": "moduleScope",
-      "12": "id",
-      "13": "description",
-      "14": "naturalId",
-      "15": "creationDate",
-      "16": "author"
+      "9": "module",
+      "10": "moduleScope",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG",
-      "module": "eo-xlsx"
-    },
     "module": "eo-xlsx",
     "moduleScope": "main",
     "description": "The cache class for excel access. Contains the file cache.",

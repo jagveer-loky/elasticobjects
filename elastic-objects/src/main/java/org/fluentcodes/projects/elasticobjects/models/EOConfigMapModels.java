@@ -14,6 +14,7 @@ import java.util.*;
 import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.*;
 import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
+import static org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties.CLASS_PATH;
 
 /**
  * @Author Werner Diwischek
@@ -117,8 +118,8 @@ public class EOConfigMapModels extends EOConfigMap {
 
     protected void addBasicConfigs()  {
         Map<String, Object> properties = new HashMap<>();
-        properties.put(ModelProperties.SHAPE_TYPE, "MAP");
-        properties.put(ModelProperties.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
+        properties.put(ModelConfigProperties.SHAPE_TYPE, "MAP");
+        properties.put(ModelConfigProperties.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
 
 
         Map<String, Object> map = new HashMap<>();
@@ -142,8 +143,8 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(ModelConfig.MODEL_KEY, "List");
         map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
 
-        properties.put(ModelProperties.SHAPE_TYPE, "LIST");
-        properties.put(ModelProperties.DEFAULT_IMPLEMENTATION, "ArrayList");
+        properties.put(ModelConfigProperties.SHAPE_TYPE, "LIST");
+        properties.put(ModelConfigProperties.DEFAULT_IMPLEMENTATION, "ArrayList");
         addConfigByMap(map);
 
         map.put(Base.NATURAL_ID, "ArrayList");
@@ -151,8 +152,8 @@ public class EOConfigMapModels extends EOConfigMap {
         addConfigByMap(map);
 
 
-        properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        properties.put(ModelProperties.CREATE, false);
+        properties.put(ModelConfigProperties.SHAPE_TYPE, ShapeTypes.SCALAR.name());
+        properties.put(ModelConfigProperties.CREATE, false);
 
         map.put(PACKAGE_PATH, "java.lang");
         // scalar
@@ -189,8 +190,8 @@ public class EOConfigMapModels extends EOConfigMap {
         addConfigByMap(map);
 
         //
-        properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.ENUM.name());
-        properties.put(ModelProperties.CREATE, false);
+        properties.put(ModelConfigProperties.SHAPE_TYPE, ShapeTypes.ENUM.name());
+        properties.put(ModelConfigProperties.CREATE, false);
         properties.put(CLASS_PATH, "src/main/java");
 
         map.put(PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");

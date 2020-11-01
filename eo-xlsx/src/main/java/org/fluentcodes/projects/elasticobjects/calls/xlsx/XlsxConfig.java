@@ -48,7 +48,7 @@ public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
     public Workbook readWorkbook()  {
         URL url = findUrl();
         if (url == null) {
-            throw new EoException("Could not load url from " + getKey());
+            throw new EoException("Could not load url from " + getNaturalId());
         }
         InputStream inp = null;
         try {

@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "create": true,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxReadCall",
     "superKey": "ListReadCall",
@@ -30,12 +33,6 @@
       "22": "author"
     },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN",
-      "module": "eo-xlsx"
-    },
     "module": "eo-xlsx",
     "moduleScope": "main",
     "description": "Executes a call  for the file and sheet defined in XlsxConfig configuration.",

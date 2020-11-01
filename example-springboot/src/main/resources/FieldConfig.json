@@ -6,10 +6,7 @@
     "description": "The field value for TheGreetingCall example. ",
     "expose": "NONE",
     "fieldKey": "greeting",
-    "length": 15,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 15
   },
   "noGithub": {
     "module": "example-springboot",
@@ -17,9 +14,6 @@
     "modelKeys": "Boolean",
     "description": "noGithub",
     "expose": "NONE",
-    "fieldKey": "noGithub",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "noGithub"
   }
 }

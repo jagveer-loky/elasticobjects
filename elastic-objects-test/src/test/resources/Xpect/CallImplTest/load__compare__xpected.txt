@@ -1,0 +1,32 @@
+{
+  "shapeType": "CALL_BEAN",
+  "create": false,
+  "classPath": "src.main.java",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+  "modelKey": "CallImpl",
+  "superKey": "BaseImpl",
+  "interfaces": "Call",
+  "fieldKeys": [
+    "sourcePath",
+    "targetPath",
+    "models",
+    "condition",
+    "startCondition",
+    "overwrite",
+    "logLevel",
+    "duration",
+    "prepend",
+    "postpend",
+    "id",
+    "description",
+    "naturalId",
+    "creationDate",
+    "author"
+  ],
+  "expose": "NONE",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "description": "Basic implementation for calls. ",
+  "naturalId": "CallImpl",
+  "author": "Werner Diwischek"
+}

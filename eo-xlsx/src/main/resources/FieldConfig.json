@@ -6,9 +6,6 @@
     "description": "A name for the sheet selected.",
     "expose": "NONE",
     "fieldKey": "sheetName",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   }
 }

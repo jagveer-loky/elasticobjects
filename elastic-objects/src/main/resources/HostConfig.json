@@ -3,9 +3,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "local host with key 'local'",
-    "expose": "NONE",
+    "expose": "WEB",
     "properties": {
-      "classPath": "src.main.resources",
       "hostName": "localhost"
     }
   },
@@ -13,9 +12,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "local host with key 'localhost'",
-    "expose": "INFO",
+    "expose": "WEB",
     "properties": {
-      "classPath": "src.main.resources",
       "hostName": "localhost"
     }
   }

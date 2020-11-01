@@ -14,7 +14,6 @@
       "write": "admin"
     },
     "properties": {
-      "classPath": "src.test.resources",
       "rowHead": 0,
       "sheetName": "test"
     }
@@ -34,7 +33,6 @@
       "write": "admin"
     },
     "properties": {
-      "classPath": "src.test.resources",
       "rowHead": 0
     }
   }

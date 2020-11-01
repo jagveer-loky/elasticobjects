@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "create": true,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "DirectoryListReadCall",
     "superKey": "FileReadCall",
@@ -24,12 +27,6 @@
       "16": "author"
     },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN",
-      "module": "elastic-objects"
-    },
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. \nOffers also general access methods like read(String filePath, String fileName) for java access. ",

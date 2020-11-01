@@ -1,0 +1,12 @@
+{
+  "port": 21,
+  "protocol": "ftp",
+  "hostName": "dummyftp",
+  "user": "dummy",
+  "password": "########",
+  "expose": "NONE",
+  "module": "elastic-objects-test",
+  "moduleScope": "test",
+  "description": "A connection to elastic objects",
+  "naturalId": "dummyftp"
+}

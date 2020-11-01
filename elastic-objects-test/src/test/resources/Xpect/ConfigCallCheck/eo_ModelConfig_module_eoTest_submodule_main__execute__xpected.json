@@ -1,5 +1,8 @@
 {
   "0": {
+    "(ShapeTypes)shapeType": "BEAN",
+    "create": true,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "AnObject",
     "(ArrayList)localFieldKeys": {
@@ -39,12 +42,6 @@
       "15": "myObject"
     },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
@@ -52,6 +49,9 @@
     "author": "Werner Diwischek"
   },
   "1": {
+    "(ShapeTypes)shapeType": "BEAN",
+    "create": true,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "ASubObject",
     "(ArrayList)localFieldKeys": {
@@ -69,12 +69,6 @@
       "4": "myString"
     },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A sub object as an example.",

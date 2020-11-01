@@ -5,60 +5,42 @@
     "(ArrayList)sqlList": {
       "0": "Select * from AnObject"
     },
-    "permissionRole": {
-      "read": "guest"
-    },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": "AnObject",
-      "module": "eo-db"
-    },
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Query for AnObject",
-    "naturalId": "h2:mem:basic:AnObject"
+    "naturalId": "h2:mem:basic:AnObject",
+    "permissionRole": {
+      "read": "guest"
+    }
   },
   "1": {
     "dbKey": "h2:mem:basic",
     "(ArrayList)sqlList": {
       "0": "drop table AnObject if exists"
     },
-    "permissionRole": {
-      "execute": "admin"
-    },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": "AnObject",
-      "module": "eo-db"
-    },
     "module": "eo-db",
     "moduleScope": "test",
     "description": "Basic H2 dropping AnObject table",
-    "naturalId": "h2:mem:basic:AnObjectDrop"
+    "naturalId": "h2:mem:basic:AnObjectDrop",
+    "permissionRole": {
+      "execute": "admin"
+    }
   },
   "2": {
     "dbKey": "h2:mem:basic",
     "(ArrayList)sqlList": {
       "0": "Select * from ASubObject"
     },
-    "permissionRole": {
-      "read": "guest"
-    },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": "ASubObject",
-      "module": "eo-db"
-    },
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Query for ASubObject",
-    "naturalId": "h2:mem:basic:ASubObject"
+    "naturalId": "h2:mem:basic:ASubObject",
+    "permissionRole": {
+      "read": "guest"
+    }
   },
   "3": {
     "dbKey": "h2:mem:basic",
@@ -77,20 +59,14 @@
       "11": "insert into AnObject (naturalId, myString,myInt,myBoolean) values ('key2', 'value2',2, false)",
       "12": "insert into AnObject (naturalId, myString,myInt,myBoolean) values ('key3', 'value3',3, true)"
     },
-    "permissionRole": {
-      "execute": "admin"
-    },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": "",
-      "module": "eo-db"
-    },
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Basic H2 creating tables",
-    "naturalId": "h2:mem:basic:Create"
+    "naturalId": "h2:mem:basic:Create",
+    "permissionRole": {
+      "execute": "admin"
+    }
   },
   "(LogLevel)_logLevel": "WARN"
 }

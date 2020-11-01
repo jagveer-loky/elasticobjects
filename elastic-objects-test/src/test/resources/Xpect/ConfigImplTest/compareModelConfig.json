@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CONFIG",
+    "create": false,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ConfigImpl",
     "superKey": "BaseImpl",
@@ -8,22 +11,15 @@
     "(ArrayList)fieldKeys": {
       "0": "scope",
       "1": "expose",
-      "2": "properties",
-      "3": "module",
-      "4": "moduleScope",
-      "5": "id",
-      "6": "description",
-      "7": "naturalId",
-      "8": "creationDate",
-      "9": "author"
+      "2": "module",
+      "3": "moduleScope",
+      "4": "id",
+      "5": "description",
+      "6": "naturalId",
+      "7": "creationDate",
+      "8": "author"
     },
     "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG",
-      "module": "elastic-objects"
-    },
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Basic cache as super object for other cached items. ",

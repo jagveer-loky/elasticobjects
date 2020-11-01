@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CONFIG",
+    "create": false,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "HostConfig",
     "(ArrayList)localFieldKeys": {
@@ -12,6 +15,7 @@
       "5": "configModelKey"
     },
     "superKey": "ResourceConfig",
+    "interfaces": "HostProperties",
     "(ArrayList)fieldKeys": {
       "0": "port",
       "1": "protocol",
@@ -22,22 +26,15 @@
       "6": "permissionRole",
       "7": "scope",
       "8": "expose",
-      "9": "properties",
-      "10": "module",
-      "11": "moduleScope",
-      "12": "id",
-      "13": "description",
-      "14": "naturalId",
-      "15": "creationDate",
-      "16": "author"
+      "9": "module",
+      "10": "moduleScope",
+      "11": "id",
+      "12": "description",
+      "13": "naturalId",
+      "14": "creationDate",
+      "15": "author"
     },
     "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG",
-      "module": "elastic-objects"
-    },
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Basic host definition for file or db cache. ",

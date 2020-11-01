@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "create": true,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvReadCall",
     "superKey": "ListReadCall",
@@ -30,12 +33,6 @@
       "22": "author"
     },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN",
-      "module": "eo-csv"
-    },
     "module": "eo-csv",
     "moduleScope": "main",
     "description": "Defines read call for a csv action depending on one link CsvConfig. ",

@@ -3,15 +3,11 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldProperties.TABLE;
-
-public interface ModelProperties extends ModuleProperties, ModelConfigInterface {
+public interface ModelConfigProperties extends ModelConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
     String SHAPE_TYPE = "shapeType";
     String CREATE = "create";
-    String HIBERNATE_ANNOTATIONS = "hibernateAnnotations";
-    String ID_KEY = "idKey";
-    String NATURAL_KEYS = "naturalKeys";
+    String CLASS_PATH = "classPath";
 
     default boolean hasCreate() {
         return getCreate()!=null;
@@ -19,12 +15,6 @@ public interface ModelProperties extends ModuleProperties, ModelConfigInterface 
 
     default Boolean getCreate() {
         return hasProperties()? (Boolean) ScalarConverter.toBoolean(getProperties().get(CREATE)) : null;
-    }
-
-    default void setCreate(final String value) {
-        if (hasProperties()) {
-            getProperties().put(ModelConfig.CREATE, value);
-        }
     }
 
     default boolean hasShapeType() {
@@ -47,12 +37,6 @@ public interface ModelProperties extends ModuleProperties, ModelConfigInterface 
         throw new EoException("Could not map " + getProperties().get(SHAPE_TYPE) + " " + getProperties().get(SHAPE_TYPE).getClass());
     }
 
-    default void setShapeType(final String packagePath) {
-        if (hasProperties()) {
-            getProperties().put(ModelConfig.PACKAGE_PATH, packagePath);
-        }
-    }
-
     default boolean hasDefaultImplementation() {
         return getDefaultImplementation()!=null && !getDefaultImplementation().isEmpty();
     }
@@ -61,24 +45,11 @@ public interface ModelProperties extends ModuleProperties, ModelConfigInterface 
         return hasProperties() ? (String) getProperties().get(DEFAULT_IMPLEMENTATION) : null;
     }
 
-    default void setDefaultImplementation(final String value) {
-        if (hasProperties()) {
-            getProperties().put(ModelConfig.DEFAULT_IMPLEMENTATION, value);
-        }
+    default boolean hasClassPath() {
+        return getClassPath()!=null && !getClassPath().isEmpty();
     }
-
-    default boolean hasTable() {
-        return getTable()!=null && !getTable().isEmpty();
-    }
-
-    default String getTable() {
-        return hasProperties() ? (String) getProperties().get(TABLE) : null;
-    }
-
-    default void setTable(final String value) {
-        if (hasProperties()) {
-            getProperties().put(TABLE, value);
-        }
+    default String getClassPath() {
+        return hasProperties()?(String)getProperties().get(CLASS_PATH):null;
     }
 
 

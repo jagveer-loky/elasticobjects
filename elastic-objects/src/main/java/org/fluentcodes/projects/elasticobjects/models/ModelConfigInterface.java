@@ -13,26 +13,16 @@ import java.util.Set;
  */
 public interface ModelConfigInterface extends Config {
     String getModelKey();
-    //EOParams getEoParams();
-    //DBParams getDbParams();
-    //Map getPropertiesModel();
     List<String> getFieldKeys();
+
     Set<String> getFieldNames();
-    ShapeTypes getShapeType();
     boolean isToSerialize();
     String getSuperKey();
-    String getInterfaces();
-    String getDefaultImplementation();
-    //String getIdKey();
-    //boolean isHibernateAnnotations();
     String getPackagePath();
-    //String getTable();
     Map<String, FieldConfig> getFieldCacheMap() ;
     Map<String, ModelConfigInterface> getImportClasses() ;
     Class getModelClass() ;
     ModelConfigInterface getSuperModel() ;
-    //Map<String, Object> getNaturalValues(Object object) ;
-    //Object getId(Object object) ;
 
     /**
      * Gets the Field with fieldName.
@@ -115,7 +105,4 @@ public interface ModelConfigInterface extends Config {
     default boolean isContainer() {
         return isMap() || isObject() || isList();
     }
-
-    String toJSON(final JSONSerializationType serializationType, final Object object) ;
-
 }

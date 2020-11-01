@@ -13,7 +13,6 @@
       "read": "guest"
     },
     "properties": {
-      "classPath": "src.main.resources",
       "rowHead": 0,
       "rowStart": 1,
       "rowEnd": 4
@@ -30,9 +29,6 @@
     "cached": "false",
     "rolePermissions": {
       "read": "guest"
-    },
-    "properties": {
-      "classPath": "src.main.resources"
     }
   },
   "ListSimple.csv": {
@@ -50,7 +46,6 @@
       "write": "admin"
     },
     "properties": {
-      "classPath": "src.main.resources",
       "rowHead": 0,
       "rowStart": 1,
       "rowEnd": 3

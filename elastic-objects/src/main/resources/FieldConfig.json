@@ -5,10 +5,7 @@
     "modelKeys": "ArrayList,String",
     "description": "Definition of available attributes for an Action.",
     "expose": "NONE",
-    "fieldKey": "attributeList",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "attributeList"
   },
   "author": {
     "module": "elastic-objects",
@@ -17,10 +14,7 @@
     "description": "The autor of something e,g. a class.",
     "expose": "WEB",
     "fieldKey": "author",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "cached": {
     "module": "elastic-objects",
@@ -28,10 +22,7 @@
     "modelKeys": "Boolean",
     "description": "If true will cache the readed file within the cache object. ",
     "expose": "NONE",
-    "fieldKey": "cached",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "cached"
   },
   "classPath": {
     "module": "elastic-objects",
@@ -40,10 +31,7 @@
     "description": "Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ",
     "expose": "WEB",
     "fieldKey": "classPath",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   },
   "colKeys": {
     "module": "elastic-objects",
@@ -51,10 +39,7 @@
     "modelKeys": "ArrayList,String",
     "description": "The key list for mapping values in a value list. ",
     "expose": "NONE",
-    "fieldKey": "colKeys",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "colKeys"
   },
   "condition": {
     "module": "elastic-objects",
@@ -63,10 +48,7 @@
     "description": "A condition for calls. ",
     "expose": "WEB",
     "fieldKey": "condition",
-    "length": 1000,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 1000
   },
   "configFilter": {
     "module": "elastic-objects",
@@ -75,10 +57,7 @@
     "description": "Key for filter configuration",
     "expose": "WEB",
     "fieldKey": "configFilter",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   },
   "configKey": {
     "module": "elastic-objects",
@@ -87,10 +66,7 @@
     "description": "Key for configuration  {@link ConfigConfig}",
     "expose": "WEB",
     "fieldKey": "configKey",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   },
   "configModelKey": {
     "module": "elastic-objects",
@@ -99,10 +75,7 @@
     "description": "The model of the configuration to determine type.",
     "expose": "NONE",
     "fieldKey": "configModelKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "configType": {
     "module": "elastic-objects",
@@ -111,10 +84,7 @@
     "description": "Key for configuration type.",
     "expose": "WEB",
     "fieldKey": "configType",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   },
   "content": {
     "module": "elastic-objects",
@@ -123,10 +93,7 @@
     "description": "A content.",
     "expose": "WEB",
     "fieldKey": "content",
-    "length": 10000,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 10000
   },
   "create": {
     "module": "elastic-objects",
@@ -135,10 +102,7 @@
     "description": "If true will create a Java class.",
     "expose": "NONE",
     "fieldKey": "create",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "creationDate": {
     "module": "elastic-objects",
@@ -146,10 +110,7 @@
     "modelKeys": "Date",
     "description": "Used to define the creation of an item.",
     "expose": "WEB",
-    "fieldKey": "creationDate",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "creationDate"
   },
   "defaultImplementation": {
     "module": "elastic-objects",
@@ -158,10 +119,7 @@
     "description": "defaultImplementation",
     "expose": "NONE",
     "fieldKey": "defaultImplementation",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "delete": {
     "module": "elastic-objects",
@@ -170,10 +128,7 @@
     "description": "String representation of RolePermission delete permissions",
     "expose": "NONE",
     "fieldKey": "delete",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "description": {
     "module": "elastic-objects",
@@ -182,10 +137,7 @@
     "description": "A description of the model used by every model extending BaseClassImpl. ",
     "expose": "WEB",
     "fieldKey": "description",
-    "length": 512,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 512
   },
   "duration": {
     "module": "elastic-objects",
@@ -193,10 +145,7 @@
     "modelKeys": "Long",
     "description": "The duration of a call.",
     "expose": "WEB",
-    "fieldKey": "duration",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "duration"
   },
   "endDirective": {
     "module": "elastic-objects",
@@ -205,10 +154,7 @@
     "description": "A content inclueded after template.",
     "expose": "WEB",
     "fieldKey": "endDirective",
-    "length": 500,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 500
   },
   "entries": {
     "module": "elastic-objects",
@@ -216,10 +162,7 @@
     "modelKeys": "ArrayList",
     "description": "entries",
     "expose": "NONE",
-    "fieldKey": "entries",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "entries"
   },
   "execute": {
     "module": "elastic-objects",
@@ -228,10 +171,7 @@
     "description": "String representation of RolePermission execute permissions",
     "expose": "NONE",
     "fieldKey": "execute",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "expose": {
     "module": "elastic-objects",
@@ -239,10 +179,7 @@
     "modelKeys": "Expose",
     "description": "expose",
     "expose": "WEB",
-    "fieldKey": "expose",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "expose"
   },
   "fieldDelimiter": {
     "module": "elastic-objects",
@@ -251,10 +188,7 @@
     "description": "A delimiter for fields used for csv files. ",
     "expose": "NONE",
     "fieldKey": "fieldDelimiter",
-    "length": 4,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 4
   },
   "fieldKey": {
     "module": "elastic-objects",
@@ -263,10 +197,7 @@
     "description": "fieldKey",
     "expose": "NONE",
     "fieldKey": "fieldKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "fieldKeys": {
     "module": "elastic-objects",
@@ -274,10 +205,7 @@
     "modelKeys": "ArrayList,String",
     "description": "A list of field keys for the model configuration. ",
     "expose": "NONE",
-    "fieldKey": "fieldKeys",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "fieldKeys"
   },
   "fieldName": {
     "module": "elastic-objects",
@@ -286,10 +214,7 @@
     "description": "A name for different purposes depending on the model.",
     "expose": "NONE",
     "fieldKey": "fieldName",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "fileEnding": {
     "module": "elastic-objects",
@@ -298,10 +223,7 @@
     "description": "It's used to specify the file ending in different context. ",
     "expose": "NONE",
     "fieldKey": "fileEnding",
-    "length": 16,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 16
   },
   "fileKey": {
     "module": "elastic-objects",
@@ -310,10 +232,7 @@
     "description": "A key for file objects.",
     "expose": "NONE",
     "fieldKey": "fileKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "fileName": {
     "module": "elastic-objects",
@@ -322,10 +241,7 @@
     "description": "fileName",
     "expose": "NONE",
     "fieldKey": "fileName",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "filePath": {
     "module": "elastic-objects",
@@ -334,10 +250,7 @@
     "description": "filePath",
     "expose": "NONE",
     "fieldKey": "filePath",
-    "length": 512,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 512
   },
   "filter": {
     "module": "elastic-objects",
@@ -346,10 +259,7 @@
     "description": "Filter for List entries.",
     "expose": "WEB",
     "fieldKey": "filter",
-    "length": 512,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 512
   },
   "filterModule": {
     "module": "elastic-objects",
@@ -358,10 +268,7 @@
     "description": "Filter for modules in  {@link ConfigAction}",
     "expose": "WEB",
     "fieldKey": "filterModule",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   },
   "filterSubModule": {
     "module": "elastic-objects",
@@ -370,10 +277,7 @@
     "description": "Filter for subModules in  {@link ConfigAction}",
     "expose": "WEB",
     "fieldKey": "filterSubModule",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   },
   "hibernate": {
     "module": "elastic-objects",
@@ -382,10 +286,7 @@
     "description": "hibernate",
     "expose": "NONE",
     "fieldKey": "hibernate",
-    "length": 16,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 16
   },
   "hibernateAnnotations": {
     "module": "elastic-objects",
@@ -393,10 +294,7 @@
     "modelKeys": "Boolean",
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "expose": "NONE",
-    "fieldKey": "hibernateAnnotations",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "hibernateAnnotations"
   },
   "hostKey": {
     "module": "elastic-objects",
@@ -405,10 +303,7 @@
     "description": "A key for host objects.",
     "expose": "NONE",
     "fieldKey": "hostKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "hostName": {
     "module": "elastic-objects",
@@ -417,10 +312,7 @@
     "description": "A name for host objects.",
     "expose": "NONE",
     "fieldKey": "hostName",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "id": {
     "module": "elastic-objects",
@@ -431,8 +323,7 @@
     "fieldKey": "id",
     "properties": {
       "unique": true,
-      "notNull": true,
-      "classPath": "src.main.resources"
+      "notNull": true
     }
   },
   "idKey": {
@@ -442,10 +333,7 @@
     "description": "The id key defined in modelsList",
     "expose": "NONE",
     "fieldKey": "idKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "indent": {
     "module": "elastic-objects",
@@ -453,10 +341,7 @@
     "modelKeys": "Integer",
     "description": "The number of indent for serialization level.",
     "expose": "WEB",
-    "fieldKey": "indent",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "indent"
   },
   "inputKey": {
     "module": "elastic-objects",
@@ -465,10 +350,7 @@
     "description": "A key for a input view.",
     "expose": "NONE",
     "fieldKey": "inputKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "interfaces": {
     "module": "elastic-objects",
@@ -477,10 +359,7 @@
     "description": "A comma separeted list of interface keys. ",
     "expose": "NONE",
     "fieldKey": "interfaces",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "javaProperties": {
     "module": "elastic-objects",
@@ -488,10 +367,7 @@
     "modelKeys": "Map",
     "description": "A map of properties used in configs and calls.",
     "expose": "NONE",
-    "fieldKey": "javaProperties",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "javaProperties"
   },
   "join": {
     "module": "elastic-objects",
@@ -500,10 +376,7 @@
     "description": "A reference key to a id field for joining.",
     "expose": "NONE",
     "fieldKey": "join",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "joinInverse": {
     "module": "elastic-objects",
@@ -512,10 +385,7 @@
     "description": "A self reference key to a id field on a glue n-m table.",
     "expose": "NONE",
     "fieldKey": "joinInverse",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "keepCall": {
     "module": "elastic-objects",
@@ -523,10 +393,7 @@
     "modelKeys": "KeepCalls",
     "description": "Will use an existing  result file beforehand as template. ",
     "expose": "WEB",
-    "fieldKey": "keepCall",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "keepCall"
   },
   "key": {
     "module": "elastic-objects",
@@ -535,10 +402,7 @@
     "description": "A generic key.",
     "expose": "WEB",
     "fieldKey": "key",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "length": {
     "module": "elastic-objects",
@@ -546,10 +410,7 @@
     "modelKeys": "Integer",
     "description": "Length of a field.",
     "expose": "WEB",
-    "fieldKey": "length",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "length"
   },
   "listParams": {
     "module": "elastic-objects",
@@ -558,10 +419,7 @@
     "description": "Filter for the readings within {@link ListAction}.",
     "expose": "NONE",
     "fieldKey": "listParams",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "localFieldKeys": {
     "module": "elastic-objects",
@@ -569,10 +427,7 @@
     "modelKeys": "ArrayList,String",
     "description": "A list of field as proivided by the model configuration. ",
     "expose": "WEB",
-    "fieldKey": "localFieldKeys",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "localFieldKeys"
   },
   "logLevel": {
     "module": "elastic-objects",
@@ -580,10 +435,7 @@
     "modelKeys": "LogLevel",
     "description": "logLevel",
     "expose": "WEB",
-    "fieldKey": "logLevel",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "logLevel"
   },
   "mapKey": {
     "module": "elastic-objects",
@@ -592,10 +444,7 @@
     "description": "The field used as a key for joined maps. ",
     "expose": "NONE",
     "fieldKey": "mapKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "modelConfigKey": {
     "module": "elastic-objects",
@@ -604,10 +453,7 @@
     "description": "The model name for the cache object {@link Config}.",
     "expose": "NONE",
     "fieldKey": "modelConfigKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "modelKey": {
     "module": "elastic-objects",
@@ -616,10 +462,7 @@
     "description": "The model name for the bean/action object {@link Bean}.",
     "expose": "NONE",
     "fieldKey": "modelKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "modelKeys": {
     "module": "elastic-objects",
@@ -628,10 +471,7 @@
     "description": "A string representation for a list of modelsConfig.",
     "expose": "NONE",
     "fieldKey": "modelKeys",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "modelList": {
     "module": "elastic-objects",
@@ -639,10 +479,7 @@
     "modelKeys": "ArrayList,String",
     "description": "A list of naturalIds of models for FieldConfig.",
     "expose": "NONE",
-    "fieldKey": "modelList",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "modelList"
   },
   "models": {
     "module": "elastic-objects",
@@ -651,10 +488,7 @@
     "description": "A string representation for a list of model keys.",
     "expose": "WEB",
     "fieldKey": "models",
-    "length": 512,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 512
   },
   "module": {
     "module": "elastic-objects",
@@ -663,10 +497,7 @@
     "description": "Defines a target module where generating occurs. ",
     "expose": "WEB",
     "fieldKey": "module",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "moduleScope": {
     "module": "elastic-objects",
@@ -675,10 +506,7 @@
     "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
     "expose": "WEB",
     "fieldKey": "moduleScope",
-    "length": 10,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 10
   },
   "name": {
     "module": "elastic-objects",
@@ -687,10 +515,7 @@
     "description": "The name field of a class. ",
     "expose": "WEB",
     "fieldKey": "name",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "naturalId": {
     "module": "elastic-objects",
@@ -702,8 +527,7 @@
     "length": 80,
     "properties": {
       "unique": true,
-      "notNull": true,
-      "classPath": "src.main.resources"
+      "notNull": true
     }
   },
   "naturalKeys": {
@@ -712,10 +536,7 @@
     "modelKeys": "ArrayList,String",
     "description": "naturalKeys",
     "expose": "NONE",
-    "fieldKey": "naturalKeys",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "naturalKeys"
   },
   "notNull": {
     "module": "elastic-objects",
@@ -723,10 +544,7 @@
     "modelKeys": "Boolean",
     "description": "notNull",
     "expose": "NONE",
-    "fieldKey": "notNull",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "notNull"
   },
   "overwrite": {
     "module": "elastic-objects",
@@ -734,10 +552,7 @@
     "modelKeys": "Boolean",
     "description": "overwrite",
     "expose": "WEB",
-    "fieldKey": "overwrite",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "overwrite"
   },
   "packageGroup": {
     "module": "elastic-objects",
@@ -746,10 +561,7 @@
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "expose": "NONE",
     "fieldKey": "packageGroup",
-    "length": 12,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 12
   },
   "packagePath": {
     "module": "elastic-objects",
@@ -758,10 +570,7 @@
     "description": "packagePath",
     "expose": "NONE",
     "fieldKey": "packagePath",
-    "length": 124,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 124
   },
   "password": {
     "module": "elastic-objects",
@@ -770,10 +579,7 @@
     "description": "The password instance var.",
     "expose": "NONE",
     "fieldKey": "password",
-    "length": 15,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 15
   },
   "permissionRole": {
     "module": "elastic-objects",
@@ -781,10 +587,7 @@
     "modelKeys": "PermissionRole",
     "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
     "expose": "NONE",
-    "fieldKey": "permissionRole",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "permissionRole"
   },
   "Permissions.create": {
     "module": "elastic-objects",
@@ -793,10 +596,7 @@
     "description": "String representation of RolePermission create permissions",
     "expose": "NONE",
     "fieldKey": "create",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "port": {
     "module": "elastic-objects",
@@ -804,10 +604,7 @@
     "modelKeys": "Integer",
     "description": "port",
     "expose": "NONE",
-    "fieldKey": "port",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "port"
   },
   "postpend": {
     "module": "elastic-objects",
@@ -816,10 +613,7 @@
     "description": "postpend String when executed by ExecutorCallImpl",
     "expose": "NONE",
     "fieldKey": "postpend",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "prepend": {
     "module": "elastic-objects",
@@ -828,10 +622,7 @@
     "description": "prepend String when executed by ExecutorCallImpl",
     "expose": "NONE",
     "fieldKey": "prepend",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "properties": {
     "module": "elastic-objects",
@@ -839,10 +630,7 @@
     "modelKeys": "Map",
     "description": "Properties for configurations.",
     "expose": "WEB",
-    "fieldKey": "properties",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "properties"
   },
   "protocol": {
     "module": "elastic-objects",
@@ -851,10 +639,7 @@
     "description": "protocol",
     "expose": "NONE",
     "fieldKey": "protocol",
-    "length": 8,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 8
   },
   "read": {
     "module": "elastic-objects",
@@ -863,10 +648,7 @@
     "description": "String representation of RolePermission read permissions",
     "expose": "NONE",
     "fieldKey": "read",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "replaceBy": {
     "module": "elastic-objects",
@@ -875,10 +657,7 @@
     "description": "replaceBy",
     "expose": "WEB",
     "fieldKey": "replaceBy",
-    "length": 5,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 5
   },
   "rowDelimiter": {
     "module": "elastic-objects",
@@ -887,10 +666,7 @@
     "description": "A delimiter for rows used for csv files.",
     "expose": "NONE",
     "fieldKey": "rowDelimiter",
-    "length": 4,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 4
   },
   "rowEnd": {
     "module": "elastic-objects",
@@ -898,10 +674,7 @@
     "modelKeys": "Integer",
     "description": "rowEnd",
     "expose": "WEB",
-    "fieldKey": "rowEnd",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "rowEnd"
   },
   "rowHead": {
     "module": "elastic-objects",
@@ -909,10 +682,7 @@
     "modelKeys": "Integer",
     "description": "rowHead",
     "expose": "WEB",
-    "fieldKey": "rowHead",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "rowHead"
   },
   "rowStart": {
     "module": "elastic-objects",
@@ -920,10 +690,7 @@
     "modelKeys": "Integer",
     "description": "rowStart",
     "expose": "WEB",
-    "fieldKey": "rowStart",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "rowStart"
   },
   "scope": {
     "module": "elastic-objects",
@@ -931,10 +698,7 @@
     "modelKeys": "ArrayList,Scope",
     "description": "A scope for the cache value.",
     "expose": "WEB",
-    "fieldKey": "scope",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "scope"
   },
   "serializationType": {
     "module": "elastic-objects",
@@ -942,10 +706,7 @@
     "modelKeys": "JSONSerializationType",
     "description": "The types of Serialization. ",
     "expose": "WEB",
-    "fieldKey": "serializationType",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "serializationType"
   },
   "serialized": {
     "module": "elastic-objects",
@@ -954,10 +715,7 @@
     "description": "The serialized field for @{link pathPattern}.",
     "expose": "NONE",
     "fieldKey": "serialized",
-    "length": 2056,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 2056
   },
   "shapeType": {
     "module": "elastic-objects",
@@ -965,10 +723,7 @@
     "modelKeys": "ShapeTypes",
     "description": "shapeType",
     "expose": "NONE",
-    "fieldKey": "shapeType",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "shapeType"
   },
   "sourcePath": {
     "module": "elastic-objects",
@@ -977,10 +732,7 @@
     "description": "A sourcePath where EO offers it's input value when the execution starts.",
     "expose": "WEB",
     "fieldKey": "sourcePath",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "startCondition": {
     "module": "elastic-objects",
@@ -989,10 +741,7 @@
     "description": "A condition for calls. ",
     "expose": "WEB",
     "fieldKey": "startCondition",
-    "length": 1000,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 1000
   },
   "startDirective": {
     "module": "elastic-objects",
@@ -1001,10 +750,7 @@
     "description": "A content included before template.",
     "expose": "WEB",
     "fieldKey": "startDirective",
-    "length": 500,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 500
   },
   "superKey": {
     "module": "elastic-objects",
@@ -1013,10 +759,7 @@
     "description": "A key for the super class of a class.",
     "expose": "NONE",
     "fieldKey": "superKey",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   },
   "table": {
     "module": "elastic-objects",
@@ -1025,10 +768,7 @@
     "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
     "expose": "NONE",
     "fieldKey": "table",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "targetFile": {
     "module": "elastic-objects",
@@ -1037,10 +777,7 @@
     "description": "A target for persisting template results in TemplateResourceStoreCall. ",
     "expose": "WEB",
     "fieldKey": "targetFile",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "targetPath": {
     "module": "elastic-objects",
@@ -1049,10 +786,7 @@
     "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
     "expose": "WEB",
     "fieldKey": "targetPath",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "toReplace": {
     "module": "elastic-objects",
@@ -1061,10 +795,7 @@
     "description": "toReplace",
     "expose": "WEB",
     "fieldKey": "toReplace",
-    "length": 5,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 5
   },
   "unique": {
     "module": "elastic-objects",
@@ -1072,10 +803,7 @@
     "modelKeys": "Boolean",
     "description": "unique",
     "expose": "NONE",
-    "fieldKey": "unique",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "unique"
   },
   "upper.ID": {
     "module": "elastic-objects",
@@ -1087,8 +815,7 @@
     "properties": {
       "fieldName": "ID",
       "unique": true,
-      "notNull": true,
-      "classPath": "src.main.resources"
+      "notNull": true
     }
   },
   "user": {
@@ -1098,10 +825,7 @@
     "description": "user",
     "expose": "NONE",
     "fieldKey": "user",
-    "length": 50,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 50
   },
   "value": {
     "module": "elastic-objects",
@@ -1110,10 +834,7 @@
     "description": "value",
     "expose": "WEB",
     "fieldKey": "value",
-    "length": 20000,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 20000
   },
   "viewKey": {
     "module": "elastic-objects",
@@ -1122,10 +843,7 @@
     "description": "A key for a view.",
     "expose": "NONE",
     "fieldKey": "viewKey",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "write": {
     "module": "elastic-objects",
@@ -1134,9 +852,6 @@
     "description": "String representation of RolePermission write permissions",
     "expose": "NONE",
     "fieldKey": "write",
-    "length": 256,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 256
   }
 }

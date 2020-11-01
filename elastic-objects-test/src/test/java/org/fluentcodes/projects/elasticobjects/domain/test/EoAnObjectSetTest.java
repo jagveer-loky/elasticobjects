@@ -1,10 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -85,7 +84,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void givenModelFromClass_createAndSetModelFieldsWith_noError()  {
-        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertFalse(model.isMap());

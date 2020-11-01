@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "create": true,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
     "modelKey": "GenerateJavaCall",
     "superKey": "GenerateCall",
@@ -27,12 +30,6 @@
       "19": "author"
     },
     "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN",
-      "module": "builder"
-    },
     "module": "builder",
     "moduleScope": "main",
     "description": "Call for generation java code from ModelConfig and FieldConfig sheet.",

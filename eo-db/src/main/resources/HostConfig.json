@@ -6,7 +6,6 @@
     "description": "Local H2 in file persisted for the test resources.",
     "expose": "WEB",
     "properties": {
-      "classPath": "src.main.resources",
       "schema": "file:basic",
       "dbType": "H2",
       "extension": "DATABASE_TO_UPPER=false;",
@@ -25,7 +24,6 @@
     "description": "Local H2 in memory for the test resources.",
     "expose": "WEB",
     "properties": {
-      "classPath": "src.main.resources",
       "schema": "mem:basic",
       "dbType": "H2",
       "extension": "DATABASE_TO_UPPER=false;",

@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CONFIG",
+    "create": false,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileConfig",
     "(ArrayList)localFieldKeys": {
@@ -20,22 +23,15 @@
       "5": "permissionRole",
       "6": "scope",
       "7": "expose",
-      "8": "properties",
-      "9": "module",
-      "10": "moduleScope",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
+      "8": "module",
+      "9": "moduleScope",
+      "10": "id",
+      "11": "description",
+      "12": "naturalId",
+      "13": "creationDate",
+      "14": "author"
     },
     "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG",
-      "module": "elastic-objects"
-    },
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Immutable EO file configuration allow read or write access to a specific file. ",

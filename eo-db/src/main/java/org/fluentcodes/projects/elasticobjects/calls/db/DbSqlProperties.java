@@ -1,10 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.models.Properties;
+import org.fluentcodes.projects.elasticobjects.models.Config;
 
-public interface PropertiesDbSqlAccessor extends Properties {
+public interface DbSqlProperties extends Config {
     final static String DB_KEY = "dbKey";
-
 
     default boolean hasDbKey() {
         return getDbKey()!=null && !getDbKey().isEmpty();

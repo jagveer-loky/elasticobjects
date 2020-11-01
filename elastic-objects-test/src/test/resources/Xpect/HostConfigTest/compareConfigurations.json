@@ -1,26 +1,47 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "hostName": "localhost",
+    "port": 21,
+    "protocol": "ftp",
+    "hostName": "dummyftp",
+    "user": "dummy",
+    "password": "########",
     "(Expose)expose": "NONE",
-    "properties": {
-      "classPath": "src.main.resources",
-      "hostName": "localhost",
-      "module": "elastic-objects"
-    },
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A connection to elastic objects",
+    "naturalId": "dummyftp"
+  },
+  "1": {
+    "user": "dummy",
+    "password": "########",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A connection to elastic objects",
+    "naturalId": "dummyftpurl"
+  },
+  "2": {
+    "port": 80,
+    "protocol": "http",
+    "hostName": "elasticobjects",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A connection to elastic objects",
+    "naturalId": "elasticobjects"
+  },
+  "3": {
+    "hostName": "localhost",
+    "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
-  "1": {
+  "4": {
     "hostName": "localhost",
-    "(Expose)expose": "INFO",
-    "properties": {
-      "classPath": "src.main.resources",
-      "hostName": "localhost",
-      "module": "elastic-objects"
-    },
+    "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "local host with key 'localhost'",

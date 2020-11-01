@@ -9,7 +9,7 @@ public class EoParamsTest {
     @Test
     public void initDbParams() {
         EOParams eoParams = new EOParams(ProviderConfig.createEoParams());
-        Assert.assertEquals(ModelProperties.DEFAULT_IMPLEMENTATION, eoParams.getDefaultImplementation());
+        Assert.assertEquals(ModelConfigProperties.DEFAULT_IMPLEMENTATION, eoParams.getDefaultImplementation());
         Assert.assertEquals(ShapeTypes.MAP, eoParams.getShapeType());
         Assert.assertTrue(eoParams.isCreate());
     }

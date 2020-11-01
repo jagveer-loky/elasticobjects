@@ -61,11 +61,6 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         }
     }
 
-    @Override
-    public String getKey() {
-        return getNaturalId();
-    }
-
     public String getConfigModelKey() {
         return configModelKey;
     }
@@ -82,20 +77,6 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         this.resolved = true;
     }
 
-    public boolean hasScope(final Scope scope) {
-        if (scope == Scope.ALL) {
-            return true;
-        }
-        if (this.scope == null) {
-            return true;
-        } else if (this.scope.isEmpty()) {
-            return true;
-        }
-        if (this.scope.contains(scope)) {
-            return true;
-        }
-        return false;
-    }
 
     public EOConfigsCache getConfigsCache() {
         return configsCache;

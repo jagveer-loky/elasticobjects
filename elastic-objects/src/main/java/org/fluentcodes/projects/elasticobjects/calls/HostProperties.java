@@ -1,12 +1,31 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-public interface HostProperties extends ResourceProperties {
+import org.fluentcodes.projects.elasticobjects.models.Config;
+
+public interface HostProperties extends Config {
 
     String PORT = "port";
     String PROTOCOL = "protocol";
     String PASSWORD = "password";
     String HOST_NAME = "hostName";
     String USER = "user";
+    String URL = "url";
+
+    String getUrlPath();
+
+    default boolean hasUrl() {
+        return getUrl()!=null && !getUrl().isEmpty();
+    }
+
+    default String getUrl() {
+        return hasProperties()?(String)getProperties().get(URL):null;
+    }
+
+    default void setUrl(final String value) {
+        if (hasProperties()) {
+            getProperties().put(value, URL);
+        }
+    }
 
     default boolean hasHostName() {
         return getHostName()!=null && !getHostName().isEmpty();
@@ -37,14 +56,14 @@ public interface HostProperties extends ResourceProperties {
     }
 
     default boolean hasPort() {
-        return getPort()!=null && !getPort().isEmpty();
+        return getPort()!=null;
     }
 
-    default String getPort() {
-        return hasProperties()?(String)getProperties().get(PORT):null;
+    default Integer getPort() {
+        return hasProperties()?(Integer)getProperties().get(PORT):null;
     }
 
-    default void setPort(final String value) {
+    default void setPort(final Integer value) {
         if (hasProperties()) {
             getProperties().put(value, PORT);
         }
@@ -69,6 +88,10 @@ public interface HostProperties extends ResourceProperties {
     }
 
     default String getPassword() {
+        return hasProperties() && getProperties().containsKey(PASSWORD) ? "########" : null;
+    }
+
+    default String getPasswordReal() {
         return hasProperties()?(String)getProperties().get(PASSWORD):null;
     }
 

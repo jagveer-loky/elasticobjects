@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbSqlConfig extends ResourceConfig implements PropertiesDbSqlAccessor {
+public class DbSqlConfig extends ResourceConfig implements DbSqlProperties {
     public static final String SQL_LIST = "sqlList";
     private final List<String> sqlList;
     private DbConfig sqlConfig;

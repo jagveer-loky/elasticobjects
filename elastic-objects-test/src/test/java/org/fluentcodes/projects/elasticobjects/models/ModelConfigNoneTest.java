@@ -11,7 +11,7 @@ public class ModelConfigNoneTest {
 
     @Test
     public void assertObject()  {
-        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(Object.class.getSimpleName());
+        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(Object.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.NONE, model.getShapeType());
         //Assert.assertFalse(model.hasModel());
         Assert.assertFalse(model.isMap());

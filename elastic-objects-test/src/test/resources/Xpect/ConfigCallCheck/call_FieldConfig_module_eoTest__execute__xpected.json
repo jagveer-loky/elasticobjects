@@ -6,11 +6,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A AnObject field.",
@@ -23,11 +21,9 @@
       "0": "ASubObject",
       "1": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myASubObject",
@@ -39,11 +35,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A generic parametrized example List with {@link ASubObject}",
@@ -55,11 +49,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A generic parametrized example Map with {@link ASubObject}",
@@ -71,11 +63,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myBoolean",
@@ -87,11 +77,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myDate",
@@ -103,11 +91,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myDouble",
@@ -119,11 +105,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myFloat",
@@ -135,11 +119,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myInt",
@@ -151,11 +133,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myList",
@@ -167,11 +147,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myLong",
@@ -183,11 +161,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myMap",
@@ -199,11 +175,9 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A test object thing. ",
@@ -216,11 +190,9 @@
       "0": "ASubObject",
       "1": "AnObject"
     },
+    "unique": false,
+    "notNull": false,
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.resources",
-      "module": "elastic-objects-test"
-    },
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "Just a small test string used in test models. ",

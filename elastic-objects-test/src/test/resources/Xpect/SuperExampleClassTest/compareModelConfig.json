@@ -1,6 +1,8 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "BEAN",
+    "create": true,
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "SuperExampleClass",
     "(ArrayList)localFieldKeys": {
@@ -12,10 +14,6 @@
       "1": "SuperExampleClass.subClass"
     },
     "(Expose)expose": "INFO",
-    "properties": {
-      "shapeType": "BEAN",
-      "create": true
-    },
     "naturalId": "SuperExampleClass"
   },
   "(LogLevel)_logLevel": "WARN"

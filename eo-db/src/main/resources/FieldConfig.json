@@ -5,10 +5,7 @@
     "modelKeys": "DbConfig",
     "description": "The cache embeded int {@link HibernateCache}.",
     "expose": "NONE",
-    "fieldKey": "dbConfig",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "dbConfig"
   },
   "dbKey": {
     "module": "eo-db",
@@ -20,8 +17,7 @@
     "length": 80,
     "properties": {
       "unique": true,
-      "notNull": true,
-      "classPath": "src.main.resources"
+      "notNull": true
     }
   },
   "dbType": {
@@ -30,10 +26,7 @@
     "modelKeys": "DbTypes",
     "description": "The type of the db as Enumeration providing informations like the driver.",
     "expose": "NONE",
-    "fieldKey": "dbType",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "dbType"
   },
   "driver": {
     "module": "eo-db",
@@ -42,10 +35,7 @@
     "description": "driver",
     "expose": "NONE",
     "fieldKey": "driver",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "extension": {
     "module": "eo-db",
@@ -54,10 +44,7 @@
     "description": "An extension for database initialization. ",
     "expose": "NONE",
     "fieldKey": "extension",
-    "length": 1024,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 1024
   },
   "jndi": {
     "module": "eo-db",
@@ -66,10 +53,7 @@
     "description": "The jndi lookup for a hibernate session factory. ",
     "expose": "NONE",
     "fieldKey": "jndi",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "schema": {
     "module": "eo-db",
@@ -78,10 +62,7 @@
     "description": "The database schema used for persisting. {@link HostCache}",
     "expose": "NONE",
     "fieldKey": "schema",
-    "length": 80,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 80
   },
   "sqlKey": {
     "module": "eo-db",
@@ -90,10 +71,7 @@
     "description": "The key to select a configuration from DbSqlConfig within DbSqlCall.",
     "expose": "NONE",
     "fieldKey": "sqlKey",
-    "length": 128,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 128
   },
   "sqlList": {
     "module": "eo-db",
@@ -101,9 +79,6 @@
     "modelKeys": "ArrayList,String",
     "description": "A list of sql strings to be executed within {@Link HibernateSqlCache} or {@Link DbSqlCache}.",
     "expose": "NONE",
-    "fieldKey": "sqlList",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "sqlList"
   }
 }

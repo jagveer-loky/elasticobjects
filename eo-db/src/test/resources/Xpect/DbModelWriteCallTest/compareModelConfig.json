@@ -1,6 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "create": true,
+    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelWriteCall",
     "superKey": "DbModelCall",
@@ -24,12 +27,6 @@
       "16": "author"
     },
     "(Expose)expose": "WEB",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN",
-      "module": "eo-db"
-    },
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Write an entry in database by creating a insert or update sql from entry in sourcePath.",

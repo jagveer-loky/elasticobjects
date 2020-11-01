@@ -83,10 +83,6 @@ public class UnmodifiableMap<K,V> implements Map<K,V>, Serializable {
         return m.hashCode();
     }
 
-    public String toString() {
-        return m.toString();
-    }
-
     // Override default methods in Map
     @Override
     @SuppressWarnings("unchecked")
@@ -146,5 +142,10 @@ public class UnmodifiableMap<K,V> implements Map<K,V>, Serializable {
     public V merge(K key, V value,
                    BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String toString() {
+        return new HashMap(this).toString();
     }
 }

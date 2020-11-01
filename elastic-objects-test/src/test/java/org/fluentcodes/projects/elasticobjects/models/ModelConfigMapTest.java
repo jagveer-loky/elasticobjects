@@ -26,7 +26,7 @@ public class ModelConfigMapTest {
     @Test
     public void assertMap()  {
         
-        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(M_MAP);
+        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(M_MAP);
         Assert.assertEquals(ShapeTypes.MAP, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isMap());

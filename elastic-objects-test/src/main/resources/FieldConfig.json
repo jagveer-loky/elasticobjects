@@ -5,10 +5,7 @@
     "modelKeys": "AnObject",
     "description": "A AnObject field.",
     "expose": "WEB",
-    "fieldKey": "myAnObject",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myAnObject"
   },
   "myASubObject": {
     "module": "elastic-objects-test",
@@ -16,10 +13,7 @@
     "modelKeys": "ASubObject",
     "description": "myASubObject",
     "expose": "WEB",
-    "fieldKey": "myASubObject",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myASubObject"
   },
   "myASubObjectList": {
     "module": "elastic-objects-test",
@@ -27,10 +21,7 @@
     "modelKeys": "ArrayList,ASubObject",
     "description": "A generic parametrized example List with {@link ASubObject}",
     "expose": "WEB",
-    "fieldKey": "myASubObjectList",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myASubObjectList"
   },
   "myASubObjectMap": {
     "module": "elastic-objects-test",
@@ -38,10 +29,7 @@
     "modelKeys": "HashMap,ASubObject",
     "description": "A generic parametrized example Map with {@link ASubObject}",
     "expose": "WEB",
-    "fieldKey": "myASubObjectMap",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myASubObjectMap"
   },
   "myBoolean": {
     "module": "elastic-objects-test",
@@ -49,10 +37,7 @@
     "modelKeys": "Boolean",
     "description": "myBoolean",
     "expose": "WEB",
-    "fieldKey": "myBoolean",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myBoolean"
   },
   "myDate": {
     "module": "elastic-objects-test",
@@ -60,10 +45,7 @@
     "modelKeys": "Date",
     "description": "myDate",
     "expose": "WEB",
-    "fieldKey": "myDate",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myDate"
   },
   "myDouble": {
     "module": "elastic-objects-test",
@@ -71,10 +53,7 @@
     "modelKeys": "Double",
     "description": "myDouble",
     "expose": "WEB",
-    "fieldKey": "myDouble",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myDouble"
   },
   "myFloat": {
     "module": "elastic-objects-test",
@@ -82,10 +61,7 @@
     "modelKeys": "Float",
     "description": "myFloat",
     "expose": "WEB",
-    "fieldKey": "myFloat",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myFloat"
   },
   "myInt": {
     "module": "elastic-objects-test",
@@ -93,10 +69,7 @@
     "modelKeys": "Integer",
     "description": "myInt",
     "expose": "WEB",
-    "fieldKey": "myInt",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myInt"
   },
   "myList": {
     "module": "elastic-objects-test",
@@ -104,10 +77,7 @@
     "modelKeys": "ArrayList",
     "description": "myList",
     "expose": "WEB",
-    "fieldKey": "myList",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myList"
   },
   "myLong": {
     "module": "elastic-objects-test",
@@ -115,10 +85,7 @@
     "modelKeys": "Long",
     "description": "myLong",
     "expose": "WEB",
-    "fieldKey": "myLong",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myLong"
   },
   "myMap": {
     "module": "elastic-objects-test",
@@ -126,10 +93,7 @@
     "modelKeys": "HashMap",
     "description": "myMap",
     "expose": "WEB",
-    "fieldKey": "myMap",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myMap"
   },
   "myObject": {
     "module": "elastic-objects-test",
@@ -137,10 +101,7 @@
     "modelKeys": "Object",
     "description": "A test object thing. ",
     "expose": "WEB",
-    "fieldKey": "myObject",
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "fieldKey": "myObject"
   },
   "myString": {
     "module": "elastic-objects-test",
@@ -149,9 +110,6 @@
     "description": "Just a small test string used in test models. ",
     "expose": "WEB",
     "fieldKey": "myString",
-    "length": 20,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 20
   }
 }

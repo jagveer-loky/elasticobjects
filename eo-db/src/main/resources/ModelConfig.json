@@ -24,6 +24,7 @@
       "dbType",
       "extension"
     ],
+    "interfaces": "DbProperties",
     "superKey": "HostConfig",
     "expose": "NONE",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
@@ -97,6 +98,21 @@
     },
     "author": "Werner Diwischek"
   },
+  "DbProperties": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "superKey": "Config",
+    "expose": "NONE",
+    "description": "Methods to get the properties schema from properties map.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
   "DbSqlCall": {
     "module": "eo-db",
     "moduleScope": "main",
@@ -122,6 +138,7 @@
       "dbKey",
       "sqlList"
     ],
+    "interfaces": "DbSqlProperties",
     "superKey": "ResourceConfig",
     "expose": "NONE",
     "description": "Execute sql statements via jdbc connection. ",
@@ -146,6 +163,21 @@
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbSqlProperties": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "superKey": "Config",
+    "expose": "NONE",
+    "description": "Methods to get the dbKey property from properties map.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbSqlProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },

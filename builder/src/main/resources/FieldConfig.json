@@ -5,9 +5,6 @@
     "modelKeys": "String",
     "expose": "WEB",
     "fieldKey": "buildPath",
-    "length": 64,
-    "properties": {
-      "classPath": "src.main.resources"
-    }
+    "length": 64
   }
 }

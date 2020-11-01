@@ -183,7 +183,7 @@ public class EOConfigsCache {
         return (HostConfig) find(HostConfig.class, key);
     }
 
-    public ModelConfigInterface findModel(final Object modelValue)  {
+    public ModelConfig findModel(final Object modelValue)  {
         if (modelValue == null) {
             throw new EoException("null model value");
         }

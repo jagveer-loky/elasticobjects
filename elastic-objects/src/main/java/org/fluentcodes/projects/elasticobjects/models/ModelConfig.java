@@ -2,12 +2,10 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableList;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -16,7 +14,7 @@ import java.util.*;
 /**
  * Created by Werner on 09.10.2016.
  */
-public abstract class ModelConfig extends ConfigImpl implements ModelProperties {
+public abstract class ModelConfig extends ConfigImpl implements ModelConfigProperties {
     public static final String MODEL_KEY = "modelKey";
     public static final String FIELD_KEYS = "fieldKeys";
     public static final String INTERFACES = "interfaces";
@@ -91,7 +89,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelProperties 
         modelMap.put(PACKAGE_PATH, modelClass.getPackage().getName());
 
         final Map<String, Object> properties = new HashMap<>();
-        properties.put(ModelProperties.CREATE, true);
+        properties.put(ModelConfigProperties.CREATE, true);
         modelMap.put(PROPERTIES, properties);
 
         final Field[] fields = modelClass.getDeclaredFields();
@@ -110,9 +108,9 @@ public abstract class ModelConfig extends ConfigImpl implements ModelProperties 
             fieldMap.put(fieldKey, field);
         }
         if (fieldKeys.isEmpty()) {
-            properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.SCALAR);
+            properties.put(ModelConfigProperties.SHAPE_TYPE, ShapeTypes.SCALAR);
         } else {
-            properties.put(ModelProperties.SHAPE_TYPE, ShapeTypes.BEAN.name());
+            properties.put(ModelConfigProperties.SHAPE_TYPE, ShapeTypes.BEAN.name());
         }
         modelMap.put(FIELD_KEYS, fieldKeys);
         configsCache.addModel(modelMap);
@@ -122,11 +120,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelProperties 
             }
         }
         return configsCache.findModel(modelKey);
-    }
-
-    @Override
-    public String getKey() {
-        return modelKey;
     }
 
     /**
@@ -237,9 +230,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelProperties 
             throw new EoException("No packagePath for " + modelKey + "defined.");
         }
         try {
-            if (getConfigsCache().getScope() != Scope.CREATE) {
-                this.modelClass = (Class.forName(packagePath + "." + modelKey));
-            }
+            this.modelClass = (Class.forName(packagePath + "." + modelKey));
         } catch (Exception e) {
             e.printStackTrace();
             throw new EoException("Could not resolve class with packagePath " + packagePath + " and modelKey " + modelKey, e);
@@ -373,35 +364,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelProperties 
             return false;
         }
         return modelKey.equals(modelCache.getModelKey());
-    }
-
-    @Override
-    public String toString() {
-        if (this == null) {
-            return "NULL";
-        }
-        if (this.modelKey == null) {
-            return "EMPTY";
-        }
-        return this.modelKey;
-    }
-
-    public String toJSON(final JSONSerializationType serializationType, final Object object) {
-        final StringBuffer content = new StringBuffer("");
-
-        String value = ScalarConverter.toString(object);
-        value = value.replaceAll("\n", "\\\\n");
-        if (serializationType == JSONSerializationType.SCALAR) {
-            if (modelClass != String.class) {
-                return "\"(" + modelKey + ")" + value + "\"";
-            }
-        }
-        content.append(value);
-        if (modelClass == String.class) {
-            return "\"" + content.toString() + "\"";
-        } else {
-            return content.toString();
-        }
     }
 
     @Override
