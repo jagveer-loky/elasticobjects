@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,15 +22,34 @@ public class DbModelDeleteCallAnObjectTest {
     @Test
     public void call_AnObject_3L__execute__deleted() {
         DbModelDeleteCall call = new DbModelDeleteCall(H2_BASIC);
-        call.setTargetPath("/result/values");
+        call.setTargetPath("/result");
         Assertions.assertThat(call).isNotNull();
         EO eo = ProviderRootTestScope.createEo();
         AnObject anObject = new AnObject();
         anObject.setId(3L);
         EO child = eo.set(anObject, "test");
         Object value = call.execute(child);
-        Assertions.assertThat(eo.getEo("/result/values").size()).isEqualTo(1);
-        new XpectEo<>().compareAsString(eo);
+        Assertions.assertThat(eo.getEo("/result").size()).isEqualTo(1);
+        Assertions.assertThat(eo.get("/result/0/myString")).isEqualTo("value3");
+        Assertions.assertThat(eo.get("/result/0/id")).isEqualTo(3L);
+    }
+
+    @Test
+    public void eo_AnObject_3L_guest__execute__hasLogs() {
+        AnObject anObject = new AnObject();
+        anObject.setId(3L);
+
+        EO eo = ProviderRootTestScope.createEo();
+        eo.set(anObject, "test");
+        eo.setRoles("guest");
+
+        DbModelDeleteCall call = new DbModelDeleteCall(H2_BASIC);
+        call.setTargetPath("/result");
+        call.setSourcePath("/test");
+
+        eo.addCall(call);
+        eo.execute();
+        Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
 }

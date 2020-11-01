@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "BEAN",
-    "create": true,
-    "classPath": "src.main.java",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "AnObject",
     "(ArrayList)localFieldKeys": {
@@ -47,7 +44,13 @@
     "moduleScope": "main",
     "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
     "naturalId": "AnObject",
-    "author": "Werner Diwischek"
+    "author": "Werner Diwischek",
+    "permissionRole": {
+      "read": "guest"
+    },
+    "(ShapeTypes)shapeType": "BEAN",
+    "create": true,
+    "classPath": "src.main.java"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -4,14 +4,11 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.InsertStatement;
-import org.fluentcodes.projects.elasticobjects.calls.db.statements.PreparedStatementValues;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.UpdateStatement;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Write model data from current eo to data base.

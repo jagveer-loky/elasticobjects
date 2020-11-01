@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
-import org.fluentcodes.projects.elasticobjects.calls.db.statements.PreparedStatementValues;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;

@@ -135,8 +135,10 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
     }
 
     protected void addConfig(final Config config) {
+        if (this.configMap.containsKey(config.getNaturalId())) {
+            throw new EoException("Natural id already set: '" + this.configClass.getSimpleName() + "' for " + config.getNaturalId());
+        }
         this.configMap.put(config.getNaturalId(), config);
-
         if (!configMap.containsKey(config.getNaturalId())) {
             throw new EoException("Could not set '" + this.configClass.getSimpleName() + "' for " + config.getNaturalId());
         }

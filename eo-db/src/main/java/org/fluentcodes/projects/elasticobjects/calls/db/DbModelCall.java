@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 
 /**
@@ -22,9 +22,10 @@ public abstract class DbModelCall extends DbCall  {
     @Override
     public boolean init (EO eo) {
         ModelConfigInterface modelConfig = eo.getModel();
-        if (!modelConfig.isObject()) {
-            throw new EoException("ModelConfig for " + modelConfig.getModelKey() + " is not an object!");
+        if (!(modelConfig instanceof ModelConfigDbObject)) {
+            throw new EoException("ModelConfig for " + modelConfig.getModelKey() + " is not an db object!");
         }
+        ((ModelConfigDbObject)modelConfig).hasPermissions(getPermissions(), eo.getRoles());
         super.init(eo);
         return true;
     }

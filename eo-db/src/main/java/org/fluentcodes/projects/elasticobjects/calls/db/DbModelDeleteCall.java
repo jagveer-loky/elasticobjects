@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.DeleteStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
-import org.fluentcodes.projects.elasticobjects.calls.db.statements.PreparedStatementValues;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
@@ -19,10 +18,10 @@ public class DbModelDeleteCall extends DbModelCall {
     private ListParams listParams;
 
     public DbModelDeleteCall()  {
-        super(PermissionType.READ);
+        super(PermissionType.DELETE);
     }
     public DbModelDeleteCall(final String hostConfigKey)  {
-        super(PermissionType.READ, hostConfigKey);
+        super(PermissionType.DELETE, hostConfigKey);
     }
 
     @Override

@@ -1,9 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-
 /**
  * Created by werner.diwischek on 09.12.17.
  */

@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbConfig;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbSqlExecuteCall;
-import org.fluentcodes.projects.elasticobjects.calls.db.DbSqlReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Before;

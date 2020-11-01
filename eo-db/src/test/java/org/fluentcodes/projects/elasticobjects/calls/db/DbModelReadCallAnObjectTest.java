@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,16 +21,37 @@ public class DbModelReadCallAnObjectTest {
 
     @Test
     public void call_DbQuery_AnObject__execute__3() {
-        DbModelReadCall dbQueryCall = new DbModelReadCall(H2_BASIC);
-        dbQueryCall.setTargetPath("/result/values");
-        Assertions.assertThat(dbQueryCall).isNotNull();
+        DbModelReadCall call = new DbModelReadCall(H2_BASIC);
+        call.setTargetPath("/result");
+        Assertions.assertThat(call).isNotNull();
         EO eo = ProviderRootTestScope.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1");
         EO child = eo.set(anObject, "test");
-        dbQueryCall.execute(child);
-        Assertions.assertThat(eo.getEo("/result/values").size()).isEqualTo(1);
-        new XpectEo<>().compareAsString(eo);
+        call.execute(child);
+        Assertions.assertThat(eo.getEo("/result").size()).isEqualTo(1);
+        Assertions.assertThat(eo.get("/result/0/myString")).isEqualTo("value1");
+        Assertions.assertThat(eo.get("/result/0/id")).isEqualTo(1L);
     }
+
+    @Test
+    public void eo_DbQuery_AnObject__execute__3() {
+        EO eo = ProviderRootTestScope.createEo();
+        AnObject anObject = new AnObject();
+        anObject.setMyString("value1");
+        EO child = eo.set(anObject, "test");
+
+        DbModelReadCall call = new DbModelReadCall(H2_BASIC);
+        call.setTargetPath("/result");
+        call.setSourcePath("/test");
+        eo.addCall(call);
+
+        eo.execute();
+        Assertions.assertThat(eo.getEo("/result").size()).isEqualTo(1);
+        Assertions.assertThat(eo.get("/result/0/myString")).isEqualTo("value1");
+        Assertions.assertThat(eo.get("/result/0/id")).isEqualTo(1L);
+    }
+
+
 
 }

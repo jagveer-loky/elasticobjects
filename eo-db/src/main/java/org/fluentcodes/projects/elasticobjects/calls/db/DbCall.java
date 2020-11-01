@@ -4,11 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.ResourceCall;
-import org.fluentcodes.projects.elasticobjects.calls.ResourceReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
 import org.fluentcodes.projects.elasticobjects.models.Config;
-
-import java.security.Permission;
 
 import static org.fluentcodes.projects.elasticobjects.calls.db.DbConfig.H2_BASIC;
 

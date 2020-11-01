@@ -66,7 +66,9 @@ public class EOConfigMapModels extends EOConfigMap {
                         continue;
                     }
                     ModelConfig modelConfig = ModelConfig.addByClassName(getConfigsCache(), (String) className);
-                    super.addConfig(modelConfig);
+                    if (!hasKey(modelConfig.getNaturalId())) {
+                        super.addConfig(modelConfig);
+                    }
                 }
             }
         }
@@ -80,27 +82,13 @@ public class EOConfigMapModels extends EOConfigMap {
         if (naturalId == null) {
             throw new EoInternalException("No naturalid provided for FileConfig");
         }
-        if (hasKey(naturalId)) {
-            throw new EoInternalException("NaturalId " + naturalId + " already exists FileConfig.");
-        }
         Class configurationClass = ModelConfigObject.class;
         final String configModelKey = (String)map.get(Config.CONFIG_MODEL_KEY);
-        if (configModelKey !=null && !configModelKey.isEmpty()) {
-            switch ((String) map.get(Config.CONFIG_MODEL_KEY)) {
-                case ModelConfigMap.CONFIG_MODEL_KEY:
-                    configurationClass = ModelConfigMap.class;
-                    break;
-                case ModelConfigList.CONFIG_MODEL_KEY:
-                    configurationClass = ModelConfigList.class;
-                    break;
-                case ModelConfigNone.CONFIG_MODEL_KEY:
-                    configurationClass = ModelConfigNone.class;
-                    break;
-                case ModelConfigScalar.CONFIG_MODEL_KEY:
-                    configurationClass = ModelConfigScalar.class;
-                    break;
-                default:
-                    break;
+        if (configModelKey !=null && !configModelKey.isEmpty() && !configModelKey.equals(configurationClass.getSimpleName())) {
+            try {
+                configurationClass = Class.forName("org.fluentcodes.projects.elasticobjects.models." + configModelKey);
+            } catch (ClassNotFoundException e) {
+                throw new EoException(e);
             }
         }
         try {
