@@ -241,7 +241,7 @@ work in micro services projects.
 
 </p>
 <p> I restarted work on EO this july, when a project was finished. It made
-    good progress. With version 0.7.0-SNAPSHOT
+    good progress. With version 0.7.0
     it's not finished, but core parts are working proper and stable.
 </p>
 
@@ -322,7 +322,7 @@ and is rather small with a jar size of approximately 270 KB. It already includes
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>elastic-objects</artifactId>
-        <version>0.5.0</version>
+        <version>0.6.0</version>
     </dependency>
 ```
 
@@ -346,7 +346,7 @@ are the sources for the spring boot web example on
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-csv</artifactId>
-        <version>0.5.0</version>
+        <version>0.6.0</version>
     </dependency>
     
     <div align="right" style="font-size:10px">
@@ -365,7 +365,7 @@ is provide the execution of some sql configurations as list or as query.
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-xlsx</artifactId>
-        <version>0.5.0</version>
+        <version>0.6.0</version>
     </dependency>
 
 #### builder
