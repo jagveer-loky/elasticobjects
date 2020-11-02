@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
@@ -120,7 +121,10 @@ public class ExecutorCall {
                 call.setDuration(duration);
                 callEo.set(duration, DURATION);
             } catch (Exception e) {
-                eo.error("Problem executing call '" + call.getClass().getSimpleName() + "' for " + counter + ": " + e.getMessage());
+                e.printStackTrace();
+                if (!call.hasLogLevel() || !call.getLogLevel().equals(LogLevel.NONE)) {
+                    eo.error("Problem executing call '" + call.getClass().getSimpleName() + "' for " + counter + ". call(" + call.getLogLevel() + "): " + e.getMessage());
+                }
             }
             counter++;
         }

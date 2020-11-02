@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 
 import java.util.List;
@@ -29,9 +28,6 @@ public class DbModelReadCall extends DbModelCall implements ListInterface {
     @Override
     public boolean init (EO eo) {
         super.init(eo);
-        if (!hasListParams()) {
-            this.listParams = new ListParams();
-        }
         listParams.initDb();
         return true;
     }
@@ -44,9 +40,6 @@ public class DbModelReadCall extends DbModelCall implements ListInterface {
     
     public List readRaw(final EO eo) {
         ModelConfigInterface model = eo.getModel();
-        if (!model.isObject()) {
-            throw new EoException("No model is provided in path '" + eo.getPathAsString() + "");
-        }
         return FindStatement.of(eo)
                 .read(
                 getDbConfig().getConnection(),

@@ -1,10 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.tools.xpect.IORuntimeException;
 
 /**
  * Created by werner.diwischek on 10.10.20.
@@ -70,11 +72,20 @@ public class TemplateDirResourceCall extends TemplateResourceCall {
         }// directory config
 
         final String fileName = ParserSqareBracket.replacePathValues(getFileName(),eo);
-        String result = new TemplateCall(new DirectoryReadCall(configKey)
-                .setFileName(fileName)
-                .execute(eo))
-        .execute(eo);
-        return result;
+        try {
+            String result = new TemplateCall((String)new DirectoryReadCall(configKey)
+                    .setFileName(fileName)
+                    .setLogLevel(getLogLevel())
+                    .execute(eo))
+                    .execute(eo);
+            return result;
+        }
+        catch (EoException|IORuntimeException e) {
+            if (hasLogLevel() && getLogLevel().equals(LogLevel.NONE)) {
+                return "";
+            }
+            throw e;
+        }
     }
 
     public boolean hasFileName() {

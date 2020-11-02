@@ -35,7 +35,7 @@ public class DbModelReadCallAnObjectTest {
     }
 
     @Test
-    public void eo_DbQuery_AnObject__execute__3() {
+    public void eo_DbQuery_AnObject__execute__1() {
         EO eo = ProviderRootTestScope.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1");
@@ -50,6 +50,24 @@ public class DbModelReadCallAnObjectTest {
         Assertions.assertThat(eo.getEo("/result").size()).isEqualTo(1);
         Assertions.assertThat(eo.get("/result/0/myString")).isEqualTo("value1");
         Assertions.assertThat(eo.get("/result/0/id")).isEqualTo(1L);
+    }
+
+    @Test
+    public void eo_sourcePath_abc_AnObject_id_1_targetPath_xyz__execute__1() {
+        EO eo = ProviderRootTestScope.createEo("{\n" +
+                "   \"(AnObject)abc\":{\n" +
+                "        \"id\":1\n" +
+                "   },\n" +
+                "   \"(DbModelReadCall)/xyz\":{\n" +
+                "       \"sourcePath\":\"abc\",\n" +
+                "       \"configKey\":\"h2:mem:basic\"\n" +
+                "   }\n" +
+                "}");
+
+        eo.execute();
+        Assertions.assertThat(eo.getEo("/xyz").size()).isEqualTo(1);
+        Assertions.assertThat(eo.get("/xyz/0/myString")).isEqualTo("value1");
+        Assertions.assertThat(eo.get("/xyz/0/id")).isEqualTo(1L);
     }
 
 

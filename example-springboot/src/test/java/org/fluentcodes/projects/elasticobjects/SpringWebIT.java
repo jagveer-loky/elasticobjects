@@ -36,6 +36,7 @@ public class SpringWebIT {
         String body = result.getBody();
         new XpectString().compareAsString(body);
     }
+
     @Test
     public void testSinusValueCall() {
         String json = ProviderJsonCalls.CALL_SINUS_ARRAY.content();
@@ -45,11 +46,40 @@ public class SpringWebIT {
         String body = result.getBody();
         new XpectString().compareAsString(body);
     }
-    // TODO so why in mvn does not work
-    @Ignore
+
     @Test
-    public void testConfigKeyCallModelConfig() {
-        String json = ProviderJsonCalls.CONFIG_KEYS_CALL_MODEL_CONFIG.content();
+    public void eo_TemplateDirResourceCall_examples_CallImplHtml_none__post__noLog() {
+        String json = "{\"(TemplateDirResourceCall).\":{\n" +
+                "                 \"configKey\":\"examples\",\n" +
+                "                 \"fileName\":\"CallImpl.html\",\n" +
+                "                 \"logLevel\":\"NONE\"\n" +
+                "                }\n" +
+                "            }";
+        String url = "http://localhost:" + port + "/eo";
+        ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
+        String body = result.getBody();
+        Assertions.assertThat(body).isNotEmpty();
+        EO eo = ProviderRootTestScope.createEo(body);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+    }
+
+    @Test
+    public void eo_TemplateDirResourceCall_examples_CallImplHtml__post__hasLog() {
+        String json = "{\"(TemplateDirResourceCall).\":{\n" +
+                "                 \"configKey\":\"examples\",\n" +
+                "                 \"fileName\":\"CallImpl.html\"\n" +
+                "                }\n" +
+                "            }";
+        String url = "http://localhost:" + port + "/eo";
+        ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
+        String body = result.getBody();
+        Assertions.assertThat(body).isNotEmpty();
+        Assertions.assertThat(body).contains("ERROR -");
+    }
+
+    @Test
+    public void eo_ConfigKeysCall_configKey_ModelConfig__post__keysNotEmpty() {
+        String json = ProviderJsonCalls.CONFIG_KEYS_CALL_MODEL_CONFIG.content();;
         String url = "http://localhost:" + port + "/eo";
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
@@ -57,6 +87,38 @@ public class SpringWebIT {
         EO eo = ProviderRootTestScope.createEo(body);
         Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
     }
+
+    @Test
+    public void examples_DbCallHtml__get__keysNotEmpty() {
+        String url = "http://localhost:" + port + "/examples/DbCall.html";
+        ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
+        String body = result.getBody();
+        Assertions.assertThat(body).isNotEmpty();
+        EO eo = ProviderRootTestScope.createEo(body);
+        Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
+    }
+
+    @Test
+    public void examples_DbModelReadCallHtml__get__keysNotEmpty() {
+        String url = "http://localhost:" + port + "/examples/DbModelReadCall.html";
+        ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
+        String body = result.getBody();
+        Assertions.assertThat(body).isNotEmpty();
+        EO eo = ProviderRootTestScope.createEo(body);
+        Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
+    }
+
+    @Test
+    public void examples_CallImplHtml__get__keysNotEmpty() {
+        String url = "http://localhost:" + port + "/examples/CallImpl.html";
+        ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
+        String body = result.getBody();
+        Assertions.assertThat(body).isNotEmpty();
+        Assertions.assertThat(body).contains("ERROR -");
+    }
+
+
+
     // TODO so why in mvn does not work
     @Ignore
     @Test

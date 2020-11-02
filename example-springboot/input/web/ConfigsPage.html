@@ -8,13 +8,13 @@
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h3>&equiv; =>{configType}. - =>{configuration/0/naturalId}. </h3>
+        <h4>&equiv; =>{configType}. - =>{configuration/0/naturalId}. </h4>
         <p>
         =>{/configuration/0/description|>No Description provided!}.
         </p>
 
 
-        <h4>Github</h4>
+        <h5>Github</h5>
         <div><a href="https://github.com/fluentcodes/elasticobjects/blob/master/
         =>{/configuration/0/module|>elastic-objects}./src/
         =>{/configuration/0/moduleScope|>main}./resources/
@@ -39,6 +39,7 @@
          ===>{"(TemplateCall).":{
               "startCondition":"/configType eq ModelConfig",
               "sourcePath":"configuration/0"}}|
+
 
              <div>
              ==>{GithubLinkCall->ModelConfig, =>[modelKey].}.
@@ -69,26 +70,33 @@
              =>{}.
 
             ==>{TemplateCall->, superKey ex}|
-            <h4>Super Class</h4>
+            <h5>Super Class</h5>
             <a href="/config/ModelConfig/=>{superKey}.">&equiv;
                 =>{superKey}.</a>
             =>{}.
 
             ==>{TemplateCall->, interfaces ex}|
-            <h4>Interface</h4>
+            <h5>Interface</h5>
             <a href="/config/ModelConfig/=>{interfaces}.">&equiv;
                 =>{interfaces}.</a>
             =>{}.
 
-             <h4>Fields</h4>
+        ===>{"(TemplateDirResourceCall).":{
+                 "configKey":"examples",
+                 "fileName":"=>[/configSelected]..html",
+                 "logLevel":"NONE"
+                }
+            }.
+
+             <h5>Fields</h5>
 
              ==>{TemplateCall->fieldKeys/*}|
                       <div><a href="/config/FieldConfig/=>{_value}.">&equiv;
                           =>{_value}.</a></div>
              =>{}.
 
-             ==>{TemplateCall->, expose ex"}|
-                  <h4>OpenApi</h4>
+             ==>{TemplateCall->, expose ex && /openApi ex"|> }|
+                  <h5>OpenApi</h5>
                   <textarea style="height:200px">
                       =>{/openApi}. </textarea>
              =>{}.
@@ -100,14 +108,14 @@
 
          ===>{"(TemplateCall)." : {
               "startCondition" : "configType eq FieldConfig"}}|
-              <h4>Models</h4>
+              <h5>Models</h5>
               ===>{"(TemplateCall).":{
                    "sourcePath":"configuration/0/modelList/*"}}|
                    <div><a href="/config/ModelConfig/=>{_value}.">&equiv;=>{_value}.</a></div>
               =>{}.
          =>{}.
 
-        <h4>Configuration</h4>
+        <h5>Configuration</h5>
         <textarea style="height:250px"> =>{configuration/0}. </textarea>
      </div>
 
