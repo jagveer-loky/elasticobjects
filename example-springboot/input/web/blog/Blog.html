@@ -1,46 +1,9 @@
-<h5>The log for V0.7.0.</h5>
+<h5>The log for V0.8.0.</h5>
 <p>
-    <b>Target of this version is to extend the calls and configurations for database access.
-        Actually they just execute static configurations in
-     ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</b>
+    <b>Target of this version to complete the java generation of the classes, so focus will on the builder module.</b>
 </p>
 <p align="right"><i>2.11.2020</i></p>
 
 <p>
-    The implementation of database objects with
-    ==>{ConfigLinkCall->ModelConfig, ModelConfigDbObject}. allows to define generic calls with objects.
-</p>
-<ul>
-    <li>==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. </li>
-    <li>==>{ConfigLinkCall->ModelConfig, DbModelWriteCall}. </li>
-    <li>==>{ConfigLinkCall->ModelConfig, DbModelDeleteCall}. </li>
-</ul>
-<p>
-    With this an object configuration could contain permissions or table name properties.
-</p>
-<p>
-    Furthermore sql configuration calls with
-    ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}. are refactored:
-<ul>
-    <li>==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. which could be parametrized</li>
-    <li>==>{ConfigLinkCall->ModelConfig, DbSqlExecuteCall}.</li>
-</ul>
-</p>
-<p>The database module
-    should show just the possibilities of the concept: One or several databases could be easily integrated
-    in a generic way. So it's more a "proof of concept" and has no library on
-    <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects">mvn central</a>.
-</p>
-<p>
-    What's missing is e.g. an object mapping for the request results or a generation of databases.
-    Such features could be integrated with a hibernate module that is in the pipeline.
-</p>
-<p>
-    But productiveness of any database module will need some pioneer projects to fix all potential problems.
-</p>
-
-<p align="right"><i>25.10.2020</i></p>
-<p>
-    Finished the templates and decides to publish it as <a href="BlogV0.6.0.html">0.6.0</a>, since a central component interface for
-    controlling. is changed.
+    Started 0.8.0.
 </p>
