@@ -1,5 +1,4 @@
  ==>{ConfigCall->=>[configType]., =>[configSelected]., NONE, configuration}.
- ==>{ConfigOpenApiCall->=>[configSelected]., openApi}.
  ==>{TemplateDirResourceCall->WEB, Header.html}.
     <header class="entry-header">
         <div id="rootNav">
@@ -8,7 +7,8 @@
     </header>
 
     <div class="entry-content" id="entry-content">
-        <h4>&equiv; =>{configType}. - =>{configuration/0/naturalId}. </h4>
+        <h4>&equiv; =>{configType}. - \
+            =>{configuration/0/naturalId}. </h4>
         <p>
         =>{/configuration/0/description|>No Description provided!}.
         </p>
@@ -93,12 +93,6 @@
              ==>{TemplateCall->fieldKeys/*}|
                       <div><a href="/config/FieldConfig/=>{_value}.">&equiv;
                           =>{_value}.</a></div>
-             =>{}.
-
-             ==>{TemplateCall->, expose ex && /openApi ex"|> }|
-                  <h5>OpenApi</h5>
-                  <textarea style="height:200px">
-                      =>{/openApi}. </textarea>
              =>{}.
          =>{}.
 

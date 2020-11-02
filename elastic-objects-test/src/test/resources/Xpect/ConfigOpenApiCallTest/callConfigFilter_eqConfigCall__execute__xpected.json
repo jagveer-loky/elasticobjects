@@ -59,13 +59,14 @@
             "description": "logLevel",
             "type": "string",
             "(ArrayList)enum": {
-              "(LogLevel)0": "DEBUG",
-              "(LogLevel)1": "INFO_TEST",
-              "(LogLevel)2": "INFO_QSU",
-              "(LogLevel)3": "INFO_PROD",
-              "(LogLevel)4": "INFO",
-              "(LogLevel)5": "WARN",
-              "(LogLevel)6": "ERROR"
+              "(LogLevel)0": "NONE",
+              "(LogLevel)1": "DEBUG",
+              "(LogLevel)2": "INFO_TEST",
+              "(LogLevel)3": "INFO_QSU",
+              "(LogLevel)4": "INFO_PROD",
+              "(LogLevel)5": "INFO",
+              "(LogLevel)6": "WARN",
+              "(LogLevel)7": "ERROR"
             }
           },
           "duration": {

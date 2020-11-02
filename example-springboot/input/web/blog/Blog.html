@@ -4,6 +4,40 @@
         Actually they just execute static configurations in
      ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</b>
 </p>
+<p align="right"><i>2.11.2020</i></p>
+<p>
+    Refactoring the sql configuration part with
+    <ul>
+    <li>==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. which could be parametrized</li>
+    <li>==>{ConfigLinkCall->ModelConfig, DbSqlExecuteCall}.</li>
+</ul>
+</p>
+<p>
+    The implementation of database objects with
+    ==>{ConfigLinkCall->ModelConfig, ModelConfigDbObject}. allows to define generic calls with objects.
+</p>
+<ul>
+    <li>==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. </li>
+    <li>==>{ConfigLinkCall->ModelConfig, DbModelWriteCall}. </li>
+    <li>==>{ConfigLinkCall->ModelConfig, DbModelDeleteCall}. </li>
+</ul>
+<p>
+    With this the model configuration could contain permissions or special table names like in
+    ==>{GithubLinkCall->NONE, EOTR||ModelConfig.json}.
+</p>
+<p>The database module
+    should show just the possibilities of the concept: One or several databases could be easily integrated
+    in a generic way. So it's more a "proof of concept" and has no library on
+    <a href="https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects">mvn central</a>.
+</p>
+<p>
+    What's missing is a object mapping for the request results or a generation of databases.
+    Such features could be integrated with a hibernate module that is in the pipeline.
+</p>
+<p>
+    But productiveness of any database module will need some real projects to fix all potential problems.
+</p>
+
 <p align="right"><i>25.10.2020</i></p>
 <p>
     Finished the templates and decides to publish it as <a href="BlogV0.7.0-SNAPSHOT.html">0.7.0-SNAPSHOT</a>, since a central component interface for
