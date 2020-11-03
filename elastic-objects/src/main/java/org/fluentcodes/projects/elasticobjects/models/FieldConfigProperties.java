@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 
-public interface FieldProperties extends ConfigProperties {
+public interface FieldConfigProperties extends ConfigProperties {
     String DEFAULT_VALUE = "defaultValue";
     String NOT_NULL = "notNull";
     String UNIQUE = "unique";
@@ -12,6 +12,8 @@ public interface FieldProperties extends ConfigProperties {
     String JOIN = "join";
     String HIBERNATE = "hibernate";
     String MAP_KEY = "mapKey";
+    String OVERRIDE = "override";
+    String FINAL = "final";
 
     default boolean hasUnique() {
         return getUnique() != null;

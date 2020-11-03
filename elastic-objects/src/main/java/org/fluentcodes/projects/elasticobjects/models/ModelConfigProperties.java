@@ -14,7 +14,7 @@ public interface ModelConfigProperties extends ModelConfigInterface {
     }
 
     default Boolean getCreate() {
-        return hasProperties()? (Boolean) ScalarConverter.toBoolean(getProperties().get(CREATE)) : null;
+        return hasProperties() && getProperties().containsKey(CREATE)? ScalarConverter.toBoolean(getProperties().get(CREATE)) : true;
     }
 
     default boolean hasShapeType() {

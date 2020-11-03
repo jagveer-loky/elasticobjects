@@ -1,6 +1,5 @@
-==>{TemplateCall->/FieldConfig/=>[_value].}|
+
    private \
-   =>{javaGenFieldFinal}. \
-   =>{javaGenFieldType}. \
+   ==>{JavaFieldFinalCall->final}. \
+   ==>{JavaFieldTypeCall->modelKeys}. \
    =>{fieldKey}.;
-=>{}.

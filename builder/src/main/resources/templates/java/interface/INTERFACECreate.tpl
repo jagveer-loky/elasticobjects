@@ -1,7 +1,6 @@
-package
+package \
 =>{packagePath}.;
-//
-==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}.
+/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}.*/
 
 /**
  *
@@ -9,14 +8,12 @@ package
  * Created by
  =>{author}. on 29.9.2020.
  */
-public interface =>{modelKey}.
-=>{javaGenExtend}.
-=>{javaGenImplement}. {
+public interface =>{modelKey}. \
+==>{JavaExtendsCall->superKey|>}. \
+==>{JavaImplementsCall->interfaces|>}. {
 
-//
-==>{TemplateResourceCall->INTERFACESStaticNames.tpl, javaGenFieldKeysStripped/*, JAVA}.
+/*==>{TemplateResourceCall->INTERFACEStaticNames.tpl, fieldMap/*, JAVA}.*/
 
-//
-==>{TemplateResourceCall->INTERFACESSetter.tpl, javaGenFieldKeysStripped/*, JAVA}.
-}
+/*==>{TemplateResourceCall->INTERFACESetter.tpl, fieldMap/*, JAVA}.*/
+
 }

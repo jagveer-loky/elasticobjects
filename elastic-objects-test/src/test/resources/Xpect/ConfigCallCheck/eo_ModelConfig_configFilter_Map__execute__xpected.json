@@ -65,6 +65,18 @@
     "author": "Werner Diwischek"
   },
   "4": {
+    "(ShapeTypes)shapeType": "MAP",
+    "create": true,
+    "classPath": "src.main.java",
+    "packagePath": "java.util",
+    "modelKey": "TreeMap",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "naturalId": "TreeMap",
+    "author": "java"
+  },
+  "5": {
     "(ShapeTypes)shapeType": "ENUM",
     "defaultImplementation": "ArrayList",
     "create": true,

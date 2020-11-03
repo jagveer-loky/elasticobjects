@@ -1,15 +1,15 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-//  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
-import java.util.Map;
+/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}|*/
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
+/*=>{}.*/
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
-//=>{}.
 import java.util.LinkedHashMap;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
@@ -19,13 +19,17 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
  * Created by Werner on 10.10.2016.
  */
 public abstract class ConfigImpl extends BaseImpl implements Config {
- //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLInstanceVars.tpl", "keepCall":"JAVA"}}|
-    private final List<Scope> scope;
+    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
+    /*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
     private  Expose expose;
-    private final Map properties;
-    private final String module;
-    private final String moduleScope;
-//=>{}.
+    private final  String module;
+    private final  String moduleScope;
+    private final  Map properties;
+    private final  List<Scope> scope;
+    /*=>{}.*/
+
     private final EOConfigsCache configsCache;
     private final String configModelKey;
     private boolean resolved = false;
@@ -110,49 +114,25 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         }
     }
 
-//  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"ALLSetter.tpl", "keepCall":"JAVA"}}|
-    /**
-     A scope for the cache value.
-     */
-
-    @Override
-    public final List<Scope> getScope () {
-        return this.scope;
-    }
-    @Override
-    public boolean hasScope () {
-        return scope != null  && !scope.isEmpty();
-    }
+    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}|*/
 
     /**
      expose
      */
-
     @Override
-    public final ConfigImpl setExpose(Expose expose) {
+    public ConfigImpl setExpose(Expose expose) {
         this.expose = expose;
         return this;
     }
+
     @Override
-    public final Expose getExpose () {
+    public Expose getExpose () {
         return this.expose;
     }
+
     @Override
     public boolean hasExpose () {
-        return expose != null ;
-    }
-
-    /**
-     Properties for configurations.
-     */
-
-    @Override
-    public final Map getProperties () {
-        return this.properties;
-    }
-    @Override
-    public boolean hasProperties () {
-        return properties != null  && !properties.isEmpty();
+        return expose!= null;
     }
 
     /**
@@ -160,12 +140,13 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
      */
 
     @Override
-    public final String getModule () {
+    public String getModule () {
         return this.module;
     }
+
     @Override
     public boolean hasModule () {
-        return module != null  && !module.isEmpty();
+        return module!= null && !module.isEmpty();
     }
 
     /**
@@ -173,13 +154,41 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
      */
 
     @Override
-    public final String getModuleScope () {
+    public String getModuleScope () {
         return this.moduleScope;
     }
+
     @Override
     public boolean hasModuleScope () {
-        return moduleScope != null  && !moduleScope.isEmpty();
+        return moduleScope!= null && !moduleScope.isEmpty();
     }
 
-//=>{}.
+    /**
+     Properties for configurations.
+     */
+
+    @Override
+    public Map getProperties () {
+        return this.properties;
+    }
+
+    @Override
+    public boolean hasProperties () {
+        return properties!= null && !properties.isEmpty();
+    }
+
+    /**
+     A scope for the cache value.
+     */
+
+    @Override
+    public List<Scope> getScope () {
+        return this.scope;
+    }
+
+    @Override
+    public boolean hasScope () {
+        return scope!= null && !scope.isEmpty();
+    }
+    /*=>{}.*/
 }

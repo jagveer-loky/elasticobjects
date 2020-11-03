@@ -1,7 +1,6 @@
-package
+package \
 =>{packagePath}.;
-//
-==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}.
+/* ==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA|>}.*/
 
 /**
  *
@@ -9,24 +8,19 @@ package
  * Created by
  =>{author}. on 29.9.2020.
  */
-public class =>{modelKey}.
-=>{javaGenExtend}.
-=>{javaGenImplement}. {
+public class =>{modelKey}.\
+==>{JavaExtendsCall->superKey|>}. \
+==>{JavaImplementsCall->interfaces|>}. {
 
-//
-==>{TemplateResourceCall->ALLStaticNames.tpl, javaGenFieldKeysStripped/*, JAVA}.
+/* ==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}.*/
 
-//
-==>{TemplateResourceCall->ALLInstanceVars.tpl, javaGenFieldKeysStripped/*, JAVA}.
+/* ==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}.*/
 
 public
 =>{modelKey}.() {final Map inputMap) {
-//
-==>{TemplateResourceCall->CONFIGConstructor.tpl, javaGenFieldKeysStripped/*, JAVA"}.
+/* ==>{TemplateResourceCall->CONFIGConstructor.tpl, fieldMap/*, JAVA}.*/
 }
 
-//
-==>{TemplateResourceCall->ALLSetter.tpl, javaGenFieldKeysStripped/*, JAVA}.
-}
+/* ==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}.*/
 }
 

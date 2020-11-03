@@ -14,7 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_NAME;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class FieldConfig extends ConfigImpl implements FieldProperties {
+public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
     public static final String FIELD_KEY = "fieldKey";
     public static final String MODEL_KEYS = "modelKeys";
     public static final String TO_SERIALIZE = "toSerialize";
@@ -103,6 +103,7 @@ public class FieldConfig extends ConfigImpl implements FieldProperties {
     public String getModelKeys() {
         return modelKeys;
     }
+
 
     public Class getModelClass()  {
         return getModelConfig().getModelClass();

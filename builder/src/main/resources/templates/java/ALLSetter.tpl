@@ -1,15 +1,16 @@
-==>{TemplateCall->/FieldConfig/=>[_value].}|
+
 
     /**
     \
     =>{description|> }.
     */\
-    ==>{TemplateCall->, javaGenFieldFinal ne final}|
-       =>{javaGenFieldOverride}.
-    public final \
+    ==>{TemplateCall->, final ne true}|
+    \
+    ==>{JavaFieldOverrideCall->override}.
+    public \
     =>{/modelKey}. set
        ==>{StringUpperFirstCharCall->fieldKey}.(
-       =>{javaGenFieldType}. \
+       ==>{JavaFieldTypeCall->modelKeys}. \
        =>{fieldKey}.) {
         this.
        =>{fieldKey}. = \
@@ -18,20 +19,20 @@
     }
     =>{}.
 
-    =>{javaGenFieldOverride}.
-    public final \
-    =>{javaGenFieldType}. get
+    \
+    ==>{JavaFieldOverrideCall->override}.
+    public \
+    ==>{JavaFieldTypeCall->modelKeys}. get
     ==>{StringUpperFirstCharCall->fieldKey}. () {
        return this.
     =>{fieldKey}.;
     }
 
-    =>{javaGenFieldOverride}.
+    \
+    ==>{JavaFieldOverrideCall->override}.
     public boolean has
     ==>{StringUpperFirstCharCall->fieldKey}. () {
         return \
     =>{fieldKey}.!= null
-    ==>{TemplateCall->., javaGenFieldType eq String || javaGenFieldType like Map || javaGenFieldType like List}| && !
-    =>{fieldKey}..isEmpty()=>{}.;
+    ==>{JavaFieldNotEmptyCall->modelKeys}.;
     }
-=>{}.

@@ -1,13 +1,16 @@
-==>{TemplateCall->/FieldConfig/=>[_value].}|
+
+
   /**
+  * \
   =>{description}.
   */
-  =>{javaGenFieldType}. get
+   \
+  ==>{JavaFieldTypeCall->modelKeys}. get
   ==>{StringUpperFirstCharCall->fieldKey}.();
+   \
   =>{/modelKey}. set
   ==>{StringUpperFirstCharCall->fieldKey}. (
-  =>{javaGenFieldType}.
+  ==>{JavaFieldTypeCall->modelKeys}. \
   =>{fieldKey}.);
-  boolean has
+   boolean has
   ==>{StringUpperFirstCharCall->fieldKey}. ();
-=>{}.

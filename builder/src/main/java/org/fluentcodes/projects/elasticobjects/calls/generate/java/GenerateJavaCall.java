@@ -1,10 +1,11 @@
-package org.fluentcodes.projects.elasticobjects.calls.generate;
+package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.generate.helper.FieldHelper;
-import org.fluentcodes.projects.elasticobjects.calls.generate.helper.JavaImportHelper;
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
+import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
+import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.JavaImportHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -19,21 +20,13 @@ import java.util.*;
 
 import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
 import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.MODEL_KEYS;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.*;
 
 public class GenerateJavaCall extends GenerateCall {
     private final static String JAVA_GEN_MODEL = "/modelKey";
-    private final static String JAVA_GEN_FIELD_TYPE = "javaGenFieldType";
-    private final static String JAVA_GEN_FIELD_OVERRIDE = "javaGenFieldOverride";
-    private final static String JAVA_GEN_FIELD_FINAL = "javaGenFieldFinal";
-    private final static String JAVA_GEN_EXTEND = "javaGenExtend";
-    private final static String JAVA_GEN_IMPLEMENTS = "javaGenImplement";
     private final static String JAVA_GEN_IMPORT = "javaGenImport";
-    private final static String JAVA_GEN_FIELD_KEYS_STRIPPED = "javaGenFieldKeysStripped";
-    public final static String OVERRIDE = "override";
-    public final static String FINAL = "final";
     public final static String GEN_IGNORE = "genIgnore";
+    public final static String FIELD_MAP = "fieldMap";
     public GenerateJavaCall() {
         super();
     }
@@ -68,7 +61,7 @@ public class GenerateJavaCall extends GenerateCall {
             }
             final String moduleScope = (String) eoModel.get(MODULE_SCOPE);
             //if (hasModuleScope() && !getModuleScope().equals(eoModel.get(MODULE_SCOPE))) {
-            if (hasModuleScope() && !getModuleScope().equals(moduleScope)) {
+            if (hasModuleScope() && !moduleScope.matches(getModuleScope())) {
                 continue;
             }
             if (hasNaturalId() && !getNaturalId().equals(naturalId)) {
@@ -110,54 +103,21 @@ public class GenerateJavaCall extends GenerateCall {
             //------------------------------------
             JavaImportHelper javaImport = new JavaImportHelper(modelPackagePath);
             // Enrich field entries with java stuff.
-            FieldHelper fields = new FieldHelper(eoModel.get(FIELD_KEYS), GEN_IGNORE);
-            eoModel.set(fields.getFieldKeys(), JAVA_GEN_FIELD_KEYS_STRIPPED);
-
-            for (String fieldKey : fields.getFieldKeys()) {
-                EO eoField = eo.getEo(Path.DELIMITER, FieldConfig.class.getSimpleName(), fieldKey);
-                if (eoField.isEmpty()) {
-                    continue;
-                }
-                Map<String,Object> modifiers = fields.get(fieldKey);
-                eoField.set(modifiers.containsKey(OVERRIDE) ? "@Override":"", JAVA_GEN_FIELD_OVERRIDE);
-                eoField.set(modifiers.containsKey(FINAL) ? "final":"", JAVA_GEN_FIELD_FINAL);
-                String fieldModelKeys = ((String) eoField.get(MODEL_KEYS));
-                String[] models = fieldModelKeys.split(",");
-                for (String model : models) {
-                    String fieldPackagePath = (String) eo.get(Path.DELIMITER, ModelConfig.class.getSimpleName(), model, PACKAGE_PATH);
-                    javaImport.check(fieldPackagePath, model);
-                }
-                if (models.length == 2) {
-                    if (models[0].endsWith("Map")) {
-                        eoField.set("Map<String, " + models[1] + ">", JAVA_GEN_FIELD_TYPE);
-                    }
-                    else if (models[0].endsWith("List")) {
-                        eoField.set("List<" + models[1] + ">", JAVA_GEN_FIELD_TYPE);
-                    }
-                    else {
-                        eoField.set(models[0], JAVA_GEN_FIELD_TYPE);
-                    }
-                }
-                else {
-                    eoField.set(fieldModelKeys, JAVA_GEN_FIELD_TYPE);
-                }
+            FieldHelper fieldMap = new FieldHelper(eoModel.get(FIELD_KEYS), GEN_IGNORE);
+            for (String fieldKey : fieldMap.getFieldKeys()) {
+                FieldConfig fieldConfig = eo.getConfigsCache().findField(fieldKey);
+                javaImport.check(fieldConfig.getModels());
+                fieldMap.merge(fieldKey, fieldConfig);
             }
-
+            eoModel.set(fieldMap.createValueMap(), FIELD_MAP);
             // enrich interfaces (imports)
             if (eoModel.hasEo(INTERFACES)) {
                 Object value = eoModel.get(INTERFACES);
-
                 List<String> interfaces = (value instanceof String) ? Arrays.asList(((String)value).split(",")) : (List<String>) value;
-                StringBuilder interfacePart = new StringBuilder("implements");
                 for (String interfaceKey : interfaces) {
                     String interfacePackagePath = (String) eo.get(Path.DELIMITER, ModelConfig.class.getSimpleName(), interfaceKey, PACKAGE_PATH);
                     javaImport.check(interfacePackagePath, interfaceKey);
-                    interfacePart.append(" " + interfaceKey + ",");
                 }
-                eoModel.set(interfacePart.toString().replaceAll(",$",""), JAVA_GEN_IMPLEMENTS);
-            }
-            else {
-                eoModel.set(" ", JAVA_GEN_IMPLEMENTS);
             }
 
             // super key
@@ -168,7 +128,6 @@ public class GenerateJavaCall extends GenerateCall {
                     if (eoSuper.hasEo(PACKAGE_PATH)) {
                         String superPackagePath = (String) eoSuper.get(PACKAGE_PATH);
                         javaImport.check(superPackagePath, superModelKey);
-                        eoModel.set("extends " + superModelKey, JAVA_GEN_EXTEND);
                     }
                     else {
                         throw new EoException("No packagePath for '" + superModelKey + "'.");
@@ -177,9 +136,6 @@ public class GenerateJavaCall extends GenerateCall {
                 catch (Exception e) {
                     throw new EoException("Problem resolving packagePath for '" + superModelKey + "': " + e.getMessage());
                 }
-            }
-            else {
-                eoModel.set("", JAVA_GEN_EXTEND);
             }
 
             eoModel.set(javaImport.getImportModels(), JAVA_GEN_IMPORT);

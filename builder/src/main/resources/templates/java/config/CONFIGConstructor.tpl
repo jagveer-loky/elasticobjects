@@ -1,3 +1,3 @@
-==>{TemplateCall->FieldConfig/=>[_value].}.
-   this.=>{fieldKey}. = (=>{javaGenFieldType}.) inputMap.get(==>{StringUpperCall->fieldKey}.);
-=>{}.
+   this.=>{fieldKey}. = (
+   ==>{JavaFieldTypeCall->modelKeys}.) inputMap.get(==>{StringUpperCall->fieldKey}.);
+

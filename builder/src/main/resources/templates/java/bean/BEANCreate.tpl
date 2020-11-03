@@ -1,6 +1,6 @@
 package \
 =>{packagePath}.;
-// ==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}.
+/* ==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA|>}.*/
 
 /**
  * Created
@@ -11,10 +11,12 @@ package \
  */
 public class \
 =>{modelKey}. \
-=>{javaGenExtend}. \
-=>{javaGenImplement}. {
+==>{JavaExtendsCall->superKey|>}. \
+==>{JavaImplementsCall->interfaces|>}. {
 
-// ==>{TemplateResourceCall->ALLStaticNames.tpl, javaGenFieldKeysStripped/*, JAVA}.
-// ==>{TemplateResourceCall->ALLInstanceVars.tpl, javaGenFieldKeysStripped/*, JAVA}.
-// ==>{TemplateResourceCall->ALLSetter.tpl, javaGenFieldKeysStripped/*, JAVA}.
+/* ==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}.*/
+
+/* ==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}.*/
+
+/* ==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}.*/
 }

@@ -607,6 +607,20 @@
     },
     "author": "java"
   },
+  "TreeMap": {
+    "configModelKey": "ModelConfigMap",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "packagePath": "java.util",
+    "modelKey": "TreeMap",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "MAP"
+    },
+    "author": "java"
+  },
   "HostConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",

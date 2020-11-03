@@ -4,7 +4,7 @@
     "(ShapeTypes)shapeType": "CALL_BEAN",
     "create": true,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "GenerateJavaCall",
     "superKey": "GenerateCall",
     "(ArrayList)fieldKeys": {

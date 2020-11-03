@@ -1,4 +1,3 @@
-==>{TemplateCall->/FieldConfig/=>[_value].}|
-   String
+
+   String \
    ==>{StringUpperCall->fieldKey}. = "=>{fieldKey}.";
-=>{}.

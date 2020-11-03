@@ -27,7 +27,7 @@
     "superKey": "GenerateCall",
     "expose": "NONE",
     "description": "Call for generation java code from ModelConfig and FieldConfig sheet.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "GenerateJavaCall",
     "properties": {
       "classPath": "src.main.java",
@@ -47,6 +47,96 @@
     "description": "Call for generation json configurations from the sheet.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
     "modelKey": "GenerateJsonConfigCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaExtendsCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Returns \"extends\" with superKey if superKey is not empty.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaExtendsCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaFieldFinalCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Returns \"final\" string when final value is true.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldFinalCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaFieldNotEmptyCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "If type of the field is map, string or array a check for is empty is returned. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldNotEmptyCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaFieldOverrideCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Returns  an \"@override\" annotation is override field value is true.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldOverrideCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaFieldTypeCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldTypeCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaImplementsCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Returns the \"implements \" statement from the interfaces field value.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaImplementsCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

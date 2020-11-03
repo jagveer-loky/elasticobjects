@@ -26,7 +26,7 @@ public class GenerateJsonConfigCallStart {
     public void callTemplateResourceCall_JsonBuilderTpl__execute__logEmpty() {
         TemplateResourceCall call = new TemplateResourceCall("JsonBuilder.tpl");
         EO eo = ProviderRootTestScope.createEo();
-        eo.set(Moduls.EO_TEST.getName(), MODULE);
+        eo.set(Moduls.BUILDER.getName(), MODULE);
         eo.set("main", MODULE_SCOPE);
         eo.set(ModelConfig.class.getSimpleName() , CONFIG_TYPE);
         eo.set("..", BUILD_PATH);

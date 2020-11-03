@@ -102,8 +102,9 @@
   "99": "TemplateDirResourceCall",
   "100": "TemplateResourceCall",
   "101": "TemplateResourceStoreCall",
-  "102": "UnmodifiableList",
-  "103": "UnmodifiableMap",
-  "104": "ValueCall",
+  "102": "TreeMap",
+  "103": "UnmodifiableList",
+  "104": "UnmodifiableMap",
+  "105": "ValueCall",
   "(LogLevel)_logLevel": "WARN"
 }

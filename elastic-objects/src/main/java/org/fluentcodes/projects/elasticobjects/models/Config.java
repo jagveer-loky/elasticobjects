@@ -10,12 +10,11 @@ import org.fluentcodes.projects.elasticobjects.domain.Base;
 /**
  * Created by Werner on 10.10.2016.
  */
-public interface Config extends Base {
+public interface Config extends ConfigProperties, Base {
     String CONFIG_MODEL_KEY = "configModelKey";
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACEStaticNames.tpl", "keepCall":"JAVA"}}|
     String SCOPE = "scope";
     String EXPOSE = "expose";
-    String PROPERTIES = "properties";
     String MODULE = "module";
     String MODULE_SCOPE = "moduleScope";
 //=>{}.

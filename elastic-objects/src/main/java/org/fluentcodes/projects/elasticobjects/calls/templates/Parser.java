@@ -142,9 +142,9 @@ public abstract class Parser {
                 if (callIndicator == null || callIndicator.isEmpty()) {
                     result.append(replacePathValues(eo, callSequence));
                 } else if (callIndicator.equals("=")) { // setCall
-                    result.append(callParameter(eo, callSequence, finish));
+                    result.append(callParameter(eo, callSequence, finish, defaultValue));
                 } else if (callIndicator.equals("==")) { // json
-                    result.append(callJson(eo, callSequence, finish));
+                    result.append(callJson(eo, callSequence, finish, defaultValue));
                 } else {
                     eo.error("!!Callindication should be =>, ==> or ===> but found '" + matchAll + "'!!");
                     result.append("!!Callindication should be =>, ==> or ===> but found '" + matchAll + "'!!");
@@ -168,14 +168,10 @@ public abstract class Parser {
 
 
     private String getDefault(String pathOrKey) {
-            String[] pathAndDefault = pathOrKey.split("\\|>");
-            if (pathAndDefault.length == 2) {
-                return pathAndDefault[1];
-            }
-            if (pathAndDefault.length == 1) {
-                return null;
-            }
-            throw new EoException("Problem setting default values with " + pathAndDefault.length + " splitter set: '" + pathAndDefault.length + "'");
+        if (!pathOrKey.contains("|>")) {
+            return null;
+        }
+        return pathOrKey.replaceAll(".*\\|>", "");
     }
 
     private String replacePathValues(final EO eo, String pathOrKey) {
@@ -201,7 +197,7 @@ public abstract class Parser {
         return eo.getEo(pathOrKey).toString();
     }
 
-    protected Object callParameter(final EO eo, final String callDirective, String finish) {
+    protected Object callParameter(final EO eo, final String callDirective, final String finish, final String defaultValue) {
         if (eo == null) {
             throw new EoException("Null eo, so could not execute call '" + callDirective + "'.");
         }
@@ -234,15 +230,26 @@ public abstract class Parser {
             postPend = ((CallKeep)call).getKeepStartSequence() +
                     getCloseSequence();
         }
-        Object value = ExecutorCall.execute(eo, call);
-        if (value!=null) {
-            returnResult.append(value.toString());
+        try {
+            Object value = ExecutorCall.execute(eo, call);
+            if (value!=null) {
+                returnResult.append(value.toString());
+            }
         }
+        catch (Exception e) {
+            if (defaultValue==null) {
+                returnResult.append(e.getMessage());
+            }
+            else {
+                returnResult.append(defaultValue);
+            }
+        }
+
         returnResult.append(postPend);
         return returnResult.toString();
     }
 
-    protected Object callJson(final EO eo, final String callDirective, String finish) {
+    protected Object callJson(final EO eo, final String callDirective, final String finish, final String defaultValue) {
         EO eoCall = new EoRoot(eo.getConfigsCache(), "{" + callDirective + "}");
         if (!eoCall.isEmpty()) {
             eo.mapObject(eoCall.get());
@@ -285,7 +292,17 @@ public abstract class Parser {
                     }
                 }
             }
-            returnResult.append(ExecutorCall.execute(eo, loopCall));
+            try {
+                returnResult.append(ExecutorCall.execute(eo, loopCall));
+            }
+            catch (Exception e) {
+                if (defaultValue == null) {
+                    returnResult.append(e.getMessage());
+                }
+                else {
+                    returnResult.append(defaultValue);
+                }
+            }
         }
         returnResult.append(postPend);
         return returnResult.toString();
