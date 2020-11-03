@@ -8,7 +8,6 @@ import org.junit.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MAP;
 
 /**
  * Created by Werner on 9.7.2017.
@@ -25,8 +24,7 @@ public class ModelConfigMapTest {
 
     @Test
     public void assertMap()  {
-        
-        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(M_MAP);
+        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(Map.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.MAP, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isMap());

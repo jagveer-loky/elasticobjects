@@ -4,9 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_STRING;
-
 /**
  * Created by Werner on 9.7.2017.
  */
@@ -20,8 +17,8 @@ public class ModelConfigScalarTest {
         Assert.assertTrue(model.hasModel());
         Assert.assertFalse(model.isObject());
         Assert.assertTrue(model.isScalar());
-        Assert.assertEquals(M_STRING, model.getNaturalId());
-        Assert.assertEquals(M_STRING, model.getModelKey());
+        Assert.assertEquals(String.class.getSimpleName(), model.getNaturalId());
+        Assert.assertEquals(String.class.getSimpleName(), model.getModelKey());
         Assertions.assertThat(model.create()).isNull();
     }
 

@@ -11,9 +11,8 @@ import org.junit.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_MAP;
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_STRING;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_TEST_STRING;
 
 /**
  * Created by Werner on 04.11.2016.
@@ -37,8 +36,8 @@ public class ConfigDivTest {
     @Test
     public void testMap()  {
         
-        ModelConfigInterface mapModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_MAP);
-        Assert.assertEquals(M_MAP, mapModel.getModelKey());
+        ModelConfigInterface mapModel = ProviderRootTestScope.EO_CONFIGS.findModel(Map.class.getSimpleName());
+        Assert.assertEquals(Map.class.getSimpleName(), mapModel.getModelKey());
         Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());
 
@@ -50,8 +49,8 @@ public class ConfigDivTest {
 
     @Test
     public void scalarModel__setKeyValue__exception()  {
-        ModelConfigInterface scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(M_STRING);
-        Assert.assertEquals(M_STRING, scalarModel.getModelKey());
+        ModelConfigInterface scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(String.class.getSimpleName());
+        Assert.assertEquals(String.class.getSimpleName(), scalarModel.getModelKey());
         Assert.assertTrue(scalarModel.isScalar());
 
         String scalar = (String) scalarModel.create();

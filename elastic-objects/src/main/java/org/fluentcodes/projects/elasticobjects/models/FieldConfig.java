@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.F_NAME;
-
 /**
  * Created by Werner on 09.10.2016.
  */
@@ -19,6 +16,7 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
     public static final String MODEL_KEYS = "modelKeys";
     public static final String TO_SERIALIZE = "toSerialize";
     public static final String LENGTH = "length";
+    public static final String NAME = "name";
     private final Boolean toSerialize;
     private final String fieldKey;
     private final String modelKeys;
@@ -68,7 +66,7 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
 
         map.put(FIELD_KEY, field.getName());
         map.put(NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
-        map.put(F_NAME, field.getName());
+        map.put(NAME, field.getName());
         map.put(MODEL_KEYS, typeClass.getSimpleName());
         FieldConfig config = new FieldConfig(configsCache, map);
         configsCache.add(FieldConfig.class, config);

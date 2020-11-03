@@ -6,13 +6,12 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModuleScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
 import java.util.List;
-
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.MAIN;
 
 /**
  * Created 10.6.2018
@@ -37,7 +36,7 @@ public class ConfigCallCheck {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(FieldConfig.class);
         call.setFilterModule("elastic-objects-test");
-        call.setFilterSubModule(MAIN);
+        call.setFilterSubModule(ModuleScope.MAIN.dir());
         List result = (List) call.execute(eo);
         new XpectEo.Builder<>()
                 .setType(JSONSerializationType.EO)
@@ -60,7 +59,7 @@ public class ConfigCallCheck {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(ModelConfig.class);
         call.setFilterModule("elastic-objects-test");
-        call.setFilterSubModule(MAIN);
+        call.setFilterSubModule(ModuleScope.MAIN.dir());
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

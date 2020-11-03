@@ -8,7 +8,6 @@ import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.domain.test.ASubObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -25,9 +24,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
  */
 public class ModelConfigTest {
     private static final Logger LOG = LogManager.getLogger(ModelConfigTest.class);
-    private static final Map<String, Object> MODEL_CONFIG_MAP = ProviderConfig.createModelConfigMap();
-    private static final String F_BUILD = "build";
-    private static final String M_BUILDER = "$Builder";
 
     @Test
     public void createByModelConfig_throwsException()  {

@@ -7,10 +7,8 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.J_MODULE_CONFIG_JSON;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 
 /**
@@ -19,14 +17,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class FileReadCallJsonTest {
     private final static String LIST_SIMPLE_JSON = "ListSimple.json";
 
-
-    @Ignore
-    @Test
-    public void givenCallWithModuleConfig_whenExecuteCall_thenReturnContent()  {
-        final FileReadCall call = new FileReadCall(J_MODULE_CONFIG_JSON);
-        String content = (String)call.execute(ProviderRootTestScope.createEo());
-        Assertions.assertThat(content).contains("\"srcDir\": \"src/main/java\",\n");
-    }
 
     @Test
     public void givenCallRoleGuestAndFileTmp_whenExecuteCall_thenThrowException()  {

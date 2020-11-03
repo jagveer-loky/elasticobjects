@@ -11,7 +11,6 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.EO_STATIC.M_STRING;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
@@ -54,7 +53,7 @@ public class EOConfigsConfigTest {
         model.resolve();
         EO adapter = ProviderRootTestScope.createEo(S_STRING);
         Assert.assertEquals(S_STRING, adapter.get());
-        Assert.assertEquals(M_STRING, adapter.getModelClass().getSimpleName());
+        Assert.assertEquals(String.class.getSimpleName(), adapter.getModelClass().getSimpleName());
     }
 
 
