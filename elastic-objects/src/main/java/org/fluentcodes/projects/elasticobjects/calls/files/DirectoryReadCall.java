@@ -57,7 +57,9 @@ public class DirectoryReadCall extends ResourceReadCall {
         if (!hasFileName()) {
             throw new EoException("No fileName provided for DirectoryConfig read.");
         }
-
+        if (fileName.contains("..")) {
+            throw new EoException("FileName in call for read '"+ fileName + "' has some backPropagation!");
+        }
         if (!fileName.matches(getDirectoryConfig().getFileName())) {
             throw new EoException("fileName in call for read '"+ fileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
         }

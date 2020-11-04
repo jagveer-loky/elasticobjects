@@ -1,12 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
-import org.fluentcodes.projects.elasticobjects.domain.test.ASubObject;
-import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
@@ -31,8 +27,8 @@ public class GenerateJavaCallStart {
         eo.set(ConfigImpl.class.getSimpleName() , NATURAL_ID);
         eo.set("..", BUILD_PATH);
         String result = call.execute(eo);
-        Assertions.assertThat(result).contains("Written configuration to");
         Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(result).contains("elastic-objects/src");
         System.out.println(result);
     }
 }

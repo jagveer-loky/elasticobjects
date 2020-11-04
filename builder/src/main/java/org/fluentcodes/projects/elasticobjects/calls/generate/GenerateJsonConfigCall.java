@@ -4,22 +4,32 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreKeepCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
 public class GenerateJsonConfigCall extends GenerateCall {
     public static final String CONFIG_TYPE = "configType";
+    public static final String TARGET_CONFIG = "ConfigResources";
     private String configType;
+    private FileConfig targetConfig;
 
     public GenerateJsonConfigCall() {
         super();
@@ -30,19 +40,25 @@ public class GenerateJsonConfigCall extends GenerateCall {
     }
 
     @Override
-    public Object execute(EO eo) {
-        StringBuilder feedback = new StringBuilder();
+    public boolean init(final EO eo) {
         if (eo.isEmpty()) {
             throw new EoException("Eo for generating json configuration files is empty! " + eo.getPathAsString());
         }
         if (!hasConfigType()) {
             throw new EoInternalException("No config type set");
         }
-        if (!hasBuildPath()) {
-            throw new EoInternalException("No build path set so nothing will generated");
-        }
+        targetConfig = eo.getConfigsCache().findFile(TARGET_CONFIG);
+        targetConfig.hasPermissions(PermissionType.WRITE, eo.getRoles());
+        return super.init(eo);
+    }
+
+    @Override
+    public Object execute(EO eo) {
         init(eo);
-        this.configType = Parser.replacePathValues(configType, eo);
+        StringBuilder feedback = new StringBuilder();
+        EO eoPath = ProviderRootTestScope.createEo();
+        this.configType = ParserSqareBracket.replacePathValues(configType, eo);
+        eoPath.set(configType, CONFIG_TYPE);
         for (String module: eo.keys()) {
             if ("basic".equals(module)) {
                 continue;
@@ -55,6 +71,7 @@ public class GenerateJsonConfigCall extends GenerateCall {
                 feedback.append("Skip module '" + module + "' with filter module '" + getModule() + "'\n");
                 continue;
             }
+            eoPath.set(module, MODULE);
             for (String moduleScope: child.keys()) {
                 if (child.isEmpty()) {
                     continue;
@@ -63,6 +80,7 @@ public class GenerateJsonConfigCall extends GenerateCall {
                     feedback.append("Skip subModule '" + getClassPath() + "'\n");
                     continue;
                 }
+                eoPath.set(moduleScope, MODULE_SCOPE);
                 Map result = new LinkedHashMap();
                 Map<String, Object> configurations = (Map<String, Object>)child.get(moduleScope);
                 for (String id: configurations.keySet()) {
@@ -78,30 +96,13 @@ public class GenerateJsonConfigCall extends GenerateCall {
                     configurationMap.remove(NATURAL_ID);
                     result.put(naturalId, configurationMap);
                 }
-
-                String targetPath = getBuildPath()
-                        + Path.DELIMITER + module
-                        + Path.DELIMITER + "src"
-                        + Path.DELIMITER + moduleScope
-                        + Path.DELIMITER + "resources"
-                        + Path.DELIMITER + getConfigType()
-                        + "." + getFileEnding();
                 String jsonConfig = new EOToJSON()
                         .setSerializationType(JSONSerializationType.STANDARD)
                         .toJSON(eo.getConfigsCache(), result);
-                if (hasFileEnding()) {
-                    feedback.append("Written configuration to  '" + targetPath + "'\n");
-                    try {
-                        new IOString().setFileName(targetPath).write(jsonConfig);
-                    }
-                    catch (Exception e) {
-                        System.out.println(new File(targetPath).getAbsoluteFile());
-                    }
-                }
-                else {
-                    feedback.append("Configuration not persisted to  '" + targetPath + "' due to missing file ending\n");
-                    eo.warn("No file ending is set, so no file is written to " + targetPath);
-                }
+                FileWriteCall call = new FileWriteCall(TARGET_CONFIG, jsonConfig);
+                call.setCompare(true);
+                feedback.append(call.execute(eoPath));
+                feedback.append("\n");
             }
         }
         return feedback;

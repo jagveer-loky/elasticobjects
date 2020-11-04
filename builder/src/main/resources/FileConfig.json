@@ -232,5 +232,31 @@
     "rolePermissions": {
       "execute": "superadmin"
     }
+  },
+  "JavaClasses": {
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "../=>[module]./src/=>[moduleScope]./java/==>[StringReplaceCall->packagePath, \\., /].",
+    "fileName": "=>[modelKey]..javax",
+    "description": "Control directives to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall.",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "superadmin"
+    }
+  },
+  "ConfigResources": {
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "../=>[module]./src/=>[moduleScope]./resources",
+    "fileName": "=>[configType]..json",
+    "description": "Control directives to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall.",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "superadmin"
+    }
   }
 }

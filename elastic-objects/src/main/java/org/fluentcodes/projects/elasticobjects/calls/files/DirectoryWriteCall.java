@@ -40,22 +40,26 @@ public class DirectoryWriteCall extends FileWriteCall {
         if (!init(eo)) {
             return "";
         }
-        write(eo);
-        return "";
+        return write(eo);
     }
 
-    public void write(final EO eo)  {
+    public String write(final EO eo)  {
         if (!hasFileName()) {
             throw new EoException("No fileName is set for " + this.getClass().getSimpleName() + " with config '" + getConfigKey() + "'.");
         }
-        if (!fileName.matches(getDirectoryConfig().getFileName())) {
-            throw new EoException("fileName in call for read '"+ fileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
+        if (fileName.contains("..")) {
+            throw new EoException("FileName in call for read '"+ fileName + "' has some backPropagation!");
         }
+        if (!fileName.matches(getDirectoryConfig().getFileName())) {
+            throw new EoException("FileName in call for read '"+ fileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
+        }
+
         String url = getDirectoryConfig().getFilePath() + "/" + fileName;
         if (ParserSqareBracket.containsStartSequence(url)) {
             url = new ParserSqareBracket(url).parse(eo);
         }
         FileWriteCall.write(url, getContent());
+        return "Written content with  length " + getContent().length() + " to file '" + url + "'" ;
     }
 
     @Override

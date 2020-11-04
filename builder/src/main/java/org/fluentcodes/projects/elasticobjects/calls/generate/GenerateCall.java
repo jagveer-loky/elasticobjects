@@ -5,6 +5,9 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
+import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
+
 public abstract class GenerateCall extends CallImpl {
     public static String BUILD_PATH = "buildPath";
     private String buildPath;
@@ -12,6 +15,9 @@ public abstract class GenerateCall extends CallImpl {
     private String moduleScope;
     private String fileEnding;
     private String classPath;
+
+    private String configKey;
+    private String targetFile;
 
     public GenerateCall() {
         super();
@@ -87,5 +93,24 @@ public abstract class GenerateCall extends CallImpl {
 
     public boolean hasClassPath() {
         return classPath !=null && !classPath.isEmpty();
+    }
+
+    protected boolean filter(EO eoModel) {
+        if (eoModel.isEmpty()) {
+            return false;
+        }
+        final String module = (String) eoModel.get(MODULE);
+        if ("basic".equals(module)) {
+            return false;
+        }
+        if (hasModule() && !getModule().equals(module)) {
+            return false;
+        }
+        final String moduleScope = (String) eoModel.get(MODULE_SCOPE);
+        //if (hasModuleScope() && !getModuleScope().equals(eoModel.get(MODULE_SCOPE))) {
+        if (hasModuleScope() && !moduleScope.matches(getModuleScope())) {
+            return false;
+        }
+        return true;
     }
 }

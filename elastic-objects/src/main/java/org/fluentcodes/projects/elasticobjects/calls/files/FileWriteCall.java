@@ -15,6 +15,7 @@ import org.fluentcodes.tools.xpect.IOString;
 public class FileWriteCall extends ResourceWriteCall implements CallContent {
     private String classPath;
     private String content;
+    private Boolean compare = false;
     public FileWriteCall() {
         super();
     }
@@ -47,13 +48,12 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
     @Override
     public String execute(final EO eo)  {
         if (!init(eo)) {
-            return null;
+            return "Problem with initialization!";
         }
-        this.write(eo);
-        return content;
+        return this.write(eo);
     }
 
-    public void write(EO eo)  {
+    public String write(EO eo)  {
         if (!hasContent()) {
             if (eo.isScalar()) {
                 content = eo.get().toString();
@@ -68,7 +68,11 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
         if (hasClassPath()) {
             url = getClassPath() + Path.DELIMITER + url;
         }
+        if (compare && getContent().equals(new FileReadCall(getConfigKey()).execute(eo))) {
+            return "Same content with  length " + getContent().length() + " in file '" + url + "'";
+        }
         write(url, content);
+        return "Written content with length " + getContent().length() + " to file '" + url + "'" ;
     }
 
     public static void write(String targetFile, Object content)  {
@@ -90,5 +94,13 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
 
     public void setClassPath(String classPath) {
         this.classPath = classPath;
+    }
+
+    public boolean isCompare() {
+        return compare;
+    }
+
+    public void setCompare(boolean compare) {
+        this.compare = compare;
     }
 }
