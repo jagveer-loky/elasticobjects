@@ -25,9 +25,9 @@ public class JavaImplementsCall extends SimpleValueFromEoCall {
             List<String> interfaces = (eo.get() instanceof String) ? Arrays.asList(((String)eo.get()).split(",")) : (List<String>) eo.get();
             StringBuilder interfacePart = new StringBuilder("implements");
             for (String interfaceKey : interfaces) {
-                interfacePart.append(" " + interfaceKey + ",");
+                interfacePart.append(" " + interfaceKey + ", ");
             }
-            return interfacePart.toString();
+            return interfacePart.toString().replaceAll(", $", "");
         }
         catch (Exception e) {
             throw new EoException(e.getMessage());

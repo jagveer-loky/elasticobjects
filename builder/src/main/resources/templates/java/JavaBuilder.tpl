@@ -3,7 +3,7 @@
     "sourcePath": "ModelConfig",
     "module": "=>[/module].",
     "moduleScope": "=>[/moduleScope].",
-    "naturalId": "=>[/naturalId].",
-    "buildPath": "=>[/buildPath].",
-    "fileEnding": "javax"}
+    "fileEnding": "=>[/fileEnding].",
+    "naturalId": "=>[/naturalId]."
+    }
 }.

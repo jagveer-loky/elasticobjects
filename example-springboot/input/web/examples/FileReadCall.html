@@ -1,0 +1,29 @@
+<h5>Accessing Files</h5>
+<p>
+    In the following example
+    the content of \
+    ==>{GithubLinkCall->NONE, SPI|data.files|public.txt}. is set to the
+    ==>{ConfigLinkCall->FieldConfig, targetPath}. xyz via
+    ==>{GithubLinkCall->ModelConfig, FileReadCall}..
+</p>
+<p>
+    The configKey refers to a configuration in
+    ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L302}.
+</p>
+<form action="/eo-form" method="post" target="example">
+    <textarea name="eo" style="height:120px">{
+        "(FileReadCall)xyz":{
+            "configKey":"public.txt"
+        },
+        "_serializationType":"STANDARD"
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+<p>
+    If you click, you will see the content is set to  "xyz" since
+    your role "guest" with the generic interface is in the read permissions.
+</p>
+<p>
+    If you remove "_serializationType" you can see the hidden fields used by EO, for example the duration of
+    this call.
+</p>

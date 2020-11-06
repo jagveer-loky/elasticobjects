@@ -28,9 +28,9 @@ public class TemplateResourceStoreCallTest {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
-        modelConfig.set(TemplateResourceStoreCall.TARGET_FILE, call, "test");
-        Assertions.assertThat(call.getTargetFile()).isEqualTo("test");
-        Assertions.assertThat(modelConfig.get(TemplateResourceStoreCall.TARGET_FILE, call)).isEqualTo("test");
+        modelConfig.set(TemplateResourceStoreCall.TARGET_FILE_CONFIG_KEY, call, "test");
+        Assertions.assertThat(call.getTargetFileConfigKey()).isEqualTo("test");
+        Assertions.assertThat(modelConfig.get(TemplateResourceStoreCall.TARGET_FILE_CONFIG_KEY, call)).isEqualTo("test");
     }
 
     @Test

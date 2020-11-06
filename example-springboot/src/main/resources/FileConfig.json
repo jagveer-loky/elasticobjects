@@ -154,6 +154,33 @@
       "execute": "guest"
     }
   },
+  "eo_Nav.html": {
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/eo",
+    "fileName": "_Nav.html",
+    "description": "From the \"docs\" directory file content generated navigation file for the left hand link list. ",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
+  "eo": {
+    "configModelKey": "DirectoryConfig",
+    "module": "example-springboot",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "web/eo",
+    "fileName": "^[^_].*.html",
+    "description": "Directory access for eo java examples for fileNames matching *.html",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "guest"
+    }
+  },
   "examples": {
     "configModelKey": "DirectoryConfig",
     "module": "example-springboot",

@@ -3,16 +3,31 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 
+/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
 /**
- * Created by werner.diwischek on 10.10.20.
+ * Parses the content loaded by {@link DirectoryReadCall}.
+ * This will use a FileConfig entry using {@link DirectoryConfig} instance. 
+ *
+ * @author Werner Diwischek
+ * @creationDate Sat Oct 10 00:00:00 CEST 2020
+ * @modificationDate Fri Nov 06 10:56:45 CET 2020
  */
-public class TemplateDirResourceCall extends TemplateResourceCall {
-    private String fileName;
+public class TemplateDirResourceCall extends TemplateResourceCall  {
+/*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+   public static final String FILE_NAME = "fileName";
+/*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+   private  String fileName;
+/*=>{}.*/
+
     public TemplateDirResourceCall() {
         super();
     }
@@ -33,7 +48,7 @@ public class TemplateDirResourceCall extends TemplateResourceCall {
             throw new EoException("Short form should have form '<configKey>[, <sourcePath>][,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
         }
         if (array.length>0) {
-            setConfigKey(array[0]);
+            setTemplateFileConfigKey(array[0]);
         }
         if (array.length>1) {
             this.fileName = array[1];
@@ -58,22 +73,22 @@ public class TemplateDirResourceCall extends TemplateResourceCall {
         }
     }
 
+    @Override
     public String execute(EO eo)  {
         if (!init(eo)) {
             return "";
         }
-
-        if (!(hasConfigKey())) {
+        if (!hasFileName()) {
+            throw new EoException("No fileName defined for '" + getTemplateFileConfigKey() + "'");
+        }
+        if (!(hasTemplateFileConfigKey())) {
             throw new EoException("Problem that TemplateResourceCall with fileName '" + getFileName() + "' expects a configKey value.");
         }
-        final String configKey = ParserSqareBracket.replacePathValues(getConfigKey(),eo);
-        if (!hasFileName()) {
-            throw new EoException("No fileName defined for '" + configKey + "'");
-        }// directory config
-
+        final String directoryKey = ParserSqareBracket.replacePathValues(getTemplateFileConfigKey(),eo);
         final String fileName = ParserSqareBracket.replacePathValues(getFileName(),eo);
+
         try {
-            String result = new TemplateCall((String)new DirectoryReadCall(configKey)
+            String result = new TemplateCall((String)new DirectoryReadCall(directoryKey)
                     .setFileName(fileName)
                     .setLogLevel(getLogLevel())
                     .execute(eo))
@@ -88,16 +103,21 @@ public class TemplateDirResourceCall extends TemplateResourceCall {
         }
     }
 
-    public boolean hasFileName() {
-        return fileName!=null  && !fileName.isEmpty();
-    }
-
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public TemplateDirResourceCall setFileName(final String value) {
-        this.fileName = value;
+    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /**
+    fileName
+    */
+    public TemplateDirResourceCall setFileName(String fileName) {
+        this.fileName = fileName;
         return this;
     }
+    
+    public String getFileName () {
+       return this.fileName;
+    }
+    
+    public boolean hasFileName () {
+        return fileName!= null && !fileName.isEmpty();
+    }
+/*=>{}.*/
 }

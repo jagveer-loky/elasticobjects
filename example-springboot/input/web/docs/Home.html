@@ -12,215 +12,98 @@ Service oriented architecture today is usually some typed RPC calls bound to url
     from the IT stone age and fat web application frameworks.
 </p>
 
-
-<h5>Elastic Objects</h5>
+<p>With GraphQL a service approach with a generic end point emerges. A client is free to
+    combine configurable request message to the service.
+    The message is a special GraphQL format returning
+    a JSON result. Schema informations have to be defined as well as the binding to some
+    server functionality.
+</p>
+<h5>Service Concept</h5>
 <p>
-    Elastic Objects is a generic object wrapper skin
-    with <b>typed</b> path methods to an java object skeleton.
-    Typed objects are embedded in a untyped map structure.
+    The concept of Elastic Objects uses a <b>"typed" JSON</b> for messages to instantiate pojos in
+    an arbitrary object hierarchy context. A special <b>"call" pojo</b> with a generic execute method offers
+    any functionality.
 </p>
-<img src="/pics/eoTree.svg" width="200" style="margin:20px;"/>
-<h5>Model Configurations</h5>
-    For the access to the embedded java objects EO
-    is provided by preloaded <a href="/configs/ModelConfig.html">model configurations</a> in JSON.
-</p>
-<img src="/pics/eoModel.svg" width="200" style="margin:20px;"/>
-
-<h5>Call Types</h5>
-<p>A special
-    ==>{ConfigLinkCall->ModelConfig, Call}. bean with a
-    generic execution method offers <b>functionality</b>. Its has the following important fields: </p>
-
+<img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
+<p>These calls uses
 <ul>
     <li> ==>{ConfigLinkCall->FieldConfig, sourcePath}. for the location of the input</li>
     <li> ==>{ConfigLinkCall->FieldConfig, targetPath}. for storing the output</li>
-    <li> ==>{ConfigLinkCall->FieldConfig, condition}. </li>
 </ul>
-<img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
-
-<h5>Rich message Concept</h5>
-<p>The corresponding JSON message with embedded type information
-    allows a service architecture by one generic url. This type information
-    trigger a typed object instantiation on the server.
+The returned message is the same as the incoming but "enriched" by the executed calls. The architecture is
+like a <b>shopping bag</b>, where the calls are the <b>shopping list items</b>.
 </p>
 
+
+==>{TemplateDirResourceCall->examples, SinusValueCall.html}.
+
+<h5>Simple Calls</h5>
 <p>
-    As a client one is free to combine data and calls in a JSON tree structure
-    and the message send over one generic server endpoint.
-</p>
-
-
-<h5>Pseudo JSON Example</h5>
-
-<p>
-    The following pseudo code would call an execute method in the <b>ACall</b> instance,
-    which uses the <b>AnObject</b> object provided in <i>input</i> path
-    and store the result in <i>target</i> path.
-
-    <textarea style="height:100px">{
-    "(AnObject)input":{...},
-    "(ACall)target:{"sourcePath":"input"}
-}</textarea>
-</p>
-
-<h5>A Real JSON Example</h5>
-To demonstrate the possibilities, here an combined example:
-<ul>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. reads
-        ==>{ConfigLinkCall->FileConfig, AnObject.csv}. and store it under the path "/data/csv"</li>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. use /data/csv as input
-        ==>{ConfigLinkCall->FileConfig, table.tpl}. and store it under the path "_asTemplate"</li>
-</ul>
-When you press the button, the /eo-form endpoint of
- ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. will be called using the typed JSON as input.
-<form action="/eo-form" method="post" target="example">
-    <textarea name="eo" style="height:210px">{
-    "data": {
-        "(CsvSimpleReadCall)csv":{
-             "configKey"="AnObject.csv"
-        },
-        "(TemplateResourceCall)abc":{
-            "configKey":"table.tpl",
-            "sourcePath":"/data/csv",
-            "targetPath":"/_asTemplate"
-        }
-    },
-    "asTemplate":true
-}</textarea>
-    <input type="submit" value="post"/>
-</form>
-<p>
-If you remove the "asTemplate" value the result will be the JSON returned from the server.
-</p>
-<p>The
-    ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. is part of the core module.
-    Templates are just files with certain placeholders .
-</p>
-
-<h5>A Real Template Example</h5>
-
-<p>
-    In
-     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. has another endpoint "eo-template". Here
-    one can send template content directly.
-</p>
-
-<p>
-    In the following example all data read example calls are integrated in
-    an editable template storing values in different paths:
-</p>
-
-<ul>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. with
-        ==>{ConfigLinkCall->FileConfig, AnObject.csv}.</li>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, XlsxReadCall}. with
-        ==>{ConfigLinkCall->FileConfig, AnObject.xlsx:test}.</li>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. with
-        ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</li>
-</ul>
-<p>
-    After each reading the
-    ==>{ConfigLinkCall->ModelConfig, AnObject}. example data a
-    ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. will render this
-    data with
-    ==>{ConfigLinkCall->FileConfig, table.tpl}. again.
-</p>
-<form action="/eo-template" method="post" target="example">
-    <textarea name="template" style="height:210px">
-<h1>An Example Template</h1>
-
-<h2>CSV</h2>
-&#36;[(CsvSimpleReadCall)data/csv configKey="AnObject.csv" }.
-&#36;[(TemplateResourceCall)data/csv configKey="table.tpl" }.
-
-<h2>Excel</h2>
-&#36;[(XlsxReadCall)data/xlsx configKey="AnObject.xlsx:test" }.
-&#36;[(TemplateResourceCall)data/xlsx configKey="table.tpl" }.
-
-<h2>DB</h2>
-&#36;[(DbSqlReadCall)data/db configKey="h2:mem:basic:AnObject" }.
-&#36;[(TemplateResourceCall)data/db configKey="table.tpl" }.
-</textarea>
-    <input type="submit" value="post"/>
-</form>
-
-<h5>Demo Applications </h5>
-
-<p>Beneath the <a href="/configs/ModelConfig.html">model configurations page</a> you find the available
-    calls.</p>
-
-<p>Some like
-    ==>{ConfigLinkCall->ModelConfig, ConfigLinkCall}. are special for this web site,
-    which is a demo by itself.</p>
-
-<p>Another demo is
-    ==>{GithubLinkCall->NONE, B||Builder.java}.. It generates
-    json configurations and java classes from an
-    Excelsheet
-    ==>{GithubLinkCall->NONE, BR||eo.xlsx}. with templates and calls.
-</p>
-
-<p>The calls are build for the requirements of these two demo applications. But calls are
-    easy to extend as
-described in <a href="/examples/TheGreetingCall.html">TheGreetingCall.html</a>
-</p>
-
-<p>
-    The "configured calls" like
-    ==>{ConfigLinkCall->ModelConfig, FileReadCall}. use their own configuration.
-    The values used here you can see in <a href="/configs/FileConfig.html">file</a> and
-    <a href="/configs/DbSqlConfig.html">sql</a> configurations.
-</p>
-
-<h5>Other Examples</h5>
-
-<p>
-    Under <a href="/examples/ExamplesStart.html">examples</a>
-    you find other working editable cases.
+    The implementation of a simple call is just straight forward. To offer it's functionality
+    to a service only an entry in the
+    ==>{GithubLinkCall->NONE, SPR||ModelConfig.json}. is necessary.
 </p>
 <p>
-    Under the
-    ==>{GithubLinkCall->NONE, EOTT||.}.elastic-objects-test you find a lot of tests.
-    Here other potential applications scenarios like
-    <ul>
-    <li>convert</li>
-    <li>merge</li>
-    <li>compare</li>
-</ul>
-native java objects are tested.
-
+    As examples you find here
+    ==>{ConfigLinkCall->ModelConfig, TheGreetingCall}. or more senseful the links used for this
+    website on ==>{ConfigLinkCall->ModelConfig, ConfigLinkCall}..
 </p>
+
+==>{TemplateDirResourceCall->examples, FileReadCall.html}.
+
+
+<h5>File Resources</h5>
+<p>The ==>{ConfigLinkCall->ModelConfig, FileReadCall}. example uses
+    ==>{ConfigLinkCall->ModelConfig, ResourceCall}..
+</p>
+<p>
+    To allow access to a file resource on the server one just has to add an entry in
+    ==>{GithubLinkCall->NONE, SPR||FileConfig.json}. in the classpath.
+</p>
+<p>Every offered file based resource call has an entry here. So you find in |
+    ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L2}. one to read
+    some Excel sheet.
+</p>
+
+
+==>{TemplateDirResourceCall->examples, XlsxReadCall.html}.
+
+
+==>{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
+
+
+==>{TemplateDirResourceCall->examples, TemplateCall.html}.
+
 
 <h5>Conclusion</h5>
 <p>
-    The concept behind EO with typed JSON boosts the possibilities to create applications
-to another level, even if its just a tiny extension. I miss something like this when I has to
-work in micro services projects.
+With a simple tiny typed JSON extension
+    one could build incredible flexible service architectures with a more object oriented approach.
+</p>
+<p>
+    I think that EO is a nice "Proof of Concept" in Java. To make a framework
+    I could waste endless time to check out
+    all possibilities, not mentioned other programming languages.
 </p>
 
 <p>
-    The implementation for EO started some year ago creating source code with Excelsheets as data base and
-    templates.
-
-</p>
-<p> I restarted work on EO this july, when a project was finished. It made
-    good progress. With version 0.7.0
-    it's not finished, but core parts are working proper and stable.
+    So I will put mor focus on the original
+    intention: The generation of code in
+    ==>{GithubLinkCall->NONE, B||Builder.java}.. by structured data like
+    ==>{GithubLinkCall->NONE, BR||eo.xlsx}. .
 </p>
 
+<p>I hope the examples show what is practicable possible
+    with a minimal standard extensions.
+I would love to work with a framework with such a concept.
+</p>
+
 <p>
-    In November another project starts and I will have lesser time.
+    But it's the opposite of Uncle Bob Martins quote at the beginning.
+    The framework configuration build the heart of the app
+    to eliminate differences in
+programming languages, application servers and frameworks.
 </p>
 <p>
-    So I will focus on the code generation part with new templates in other programming languages and
-    a separate demo application.
-</p>
-<p>
-    With about 270 KByte its small enough to be integrated it in an application where it's appropriated. Other tool libraries like guava
-    has more than 2MByte.
+    So it could inject type binding to untyped languages and improve types even to Java e.g. with length.
 </p>

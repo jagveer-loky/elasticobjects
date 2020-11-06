@@ -1,22 +1,10 @@
 package \
 =>{packagePath}.;
-/* ==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA|>}.*/
+/* ==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}.*/
 
-/**
- * Created
- =>{description}.
- * Created by \
- =>{author}. on \
- =>{/date}. .
- */
-public class \
-=>{modelKey}. \
-==>{JavaExtendsCall->superKey|>}. \
-==>{JavaImplementsCall->interfaces|>}. {
+/* ==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}.*/
 
-/* ==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}.*/
+/* ==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}.*/
 
-/* ==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}.*/
-
-/* ==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}.*/
+/* ==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}.*/
 }

@@ -51,8 +51,9 @@
   "48": "SubExampleClass.name",
   "49": "SuperExampleClass.id",
   "50": "SuperExampleClass.subClass",
-  "51": "targetFile",
+  "51": "targetFileConfigKey",
   "52": "targetPath",
-  "53": "toReplace",
+  "53": "templateFileConfigKey",
+  "54": "toReplace",
   "(LogLevel)_logLevel": "WARN"
 }

@@ -1,6 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
@@ -13,6 +15,7 @@ import org.fluentcodes.tools.xpect.IOString;
  * Created by werner.diwischek on 9.7.2020.
  */
 public class FileWriteCall extends ResourceWriteCall implements CallContent {
+    private static final Logger LOG = LogManager.getLogger(FileWriteCall.class);
     private String classPath;
     private String content;
     private Boolean compare = false;
@@ -61,18 +64,31 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
                 content = eo.toString();
             }
         }
-        String url = getFileConfig().createUrl().getFile();
-        if (ParserSqareBracket.containsStartSequence(url)) {
-            url = new ParserSqareBracket(url).parse(eo);
+        String targetFile = getFileConfig().createUrl().getFile();
+        if (ParserSqareBracket.containsStartSequence(targetFile)) {
+            targetFile = new ParserSqareBracket(targetFile).parse(eo);
         }
         if (hasClassPath()) {
-            url = getClassPath() + Path.DELIMITER + url;
+            targetFile = getClassPath() + Path.DELIMITER + targetFile;
         }
-        if (compare && getContent().equals(new FileReadCall(getConfigKey()).execute(eo))) {
-            return "Same content with  length " + getContent().length() + " in file '" + url + "'";
+        // compare with existing file to be overwritten.
+        if (compare) {
+            try {
+                String existing = ((String) new FileReadCall(getConfigKey()).execute(eo))
+                        .replaceAll("@.*Date.*", "");
+
+                String compare = getContent().replaceAll("@.*Date.*", "");
+                if (existing.equals(compare)) {
+                    return "Skip writing file '" + targetFile + "' with same content and length " + getContent().length() + ".";
+                }
+            }
+            catch (Exception e) {
+                LOG.debug(e);
+                eo.debug(e.getMessage());
+            }
         }
-        write(url, content);
-        return "Written content with length " + getContent().length() + " to file '" + url + "'" ;
+        write(targetFile, content);
+        return "Written content with length " + getContent().length() + " to file '" + targetFile + "'" ;
     }
 
     public static void write(String targetFile, Object content)  {
@@ -100,7 +116,8 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
         return compare;
     }
 
-    public void setCompare(boolean compare) {
+    public FileWriteCall setCompare(boolean compare) {
         this.compare = compare;
+        return this;
     }
 }

@@ -1,20 +1,34 @@
-<h3>Template Calls</h3>
-<p>Templates are just files with special placeholders, which could be parsed. </p>
-<p>
-    Basically a template will parsed for three types of pattern:
+<h5>Sending a Template</h5>
 
+<p>
+
+    ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. has the generic endpoint "eo-template". Here
+    one can send template content directly.
 </p>
+
+<p>
+    In the following example all data read example calls are integrated in
+    an editable template storing values in different paths:
+</p>
+
 <ul>
-    <li><b>===&gt;{JSON_CONTENT}.</b>: Any combination of json.</li>
-    <li><b>==&gt;{CALL->VAR1, VAR2, .. VARN}.</b>: Will generate one call and execute it. The paramerters are dependent of the type of call</li>
-    <li><b>=&gt{PATH}</b>: The variable of the path will included.</li>
+    <li>
+        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. with
+        ==>{ConfigLinkCall->FileConfig, AnObject.csv}.</li>
+    <li>
+        ==>{ConfigLinkCall->ModelConfig, XlsxReadCall}. with
+        ==>{ConfigLinkCall->FileConfig, AnObject.xlsx:test}.</li>
+    <li>
+        ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. with
+        ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</li>
 </ul>
-<h5>A Combined Template</h5>
 <p>
-The following example sends directly a template string to the "eo-template" endpoint at
-     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. :
+    After each reading the
+    ==>{ConfigLinkCall->ModelConfig, AnObject}. example data a
+    ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. will render this
+    data with
+    ==>{ConfigLinkCall->FileConfig, table.tpl}. again.
 </p>
-<p>
 <form action="/eo-template" method="post" target="example">
     <textarea name="template" style="height:210px">
 <h1>An Example Template</h1>
@@ -28,44 +42,8 @@ The following example sends directly a template string to the "eo-template" endp
 ==&gt;{TemplateResourceCall->table.tpl, data/xlsx}.
 
 <h2>DB</h2>
-==&gt;{DbSqlReadCall->h2:mem:basic:AnObject, data/db}.
+==&gt;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
 ==&gt;{TemplateResourceCall->table.tpl, data/db}.
 </textarea>
     <input type="submit" value="post"/>
 </form>
-</p>
-
-<h5>Simple Template</h5>
-<p>
-    One can directly send some content to the
-    server. Since it's a field, this is rather restriced.
-</p>
-<p>
-<form action="/eo-form" method="post" target="example">
-            <textarea name="eo" style="height:210px">{
-   "selectedItem": "TemplateCall.html",
-   "(TemplateCall)call": {
-      "content":"A simple call accessing '=&gt;{selectedItem}.' "
-   },
-   "asTemplate":true
-}</textarea>
-    <input type="submit" value="post"/>
-</form>
-</p>
-<h5>File access</h5>
-<p>
-    One can also embed calls in the template. Each call will have it's own permissions, it will be executed or give an error message.
-</p>
-
-<p>
-<form action="/eo-form" method="post" target="example">
-            <textarea name="eo" style="height:210px">{
-   "selectedItem": "TemplateCall.html",
-   "(TemplateCall)call": {
-
-      "content":"Content of public.txt: ' ==&gt;{FileReadCall->public.txt, public}. '  -- Content of secret.txt: ' ==&gt;{FileReadCall->secret.txt, secret}. ' "
-   }
-}</textarea>
-    <input type="submit" value="post"/>
-</form>
-</p>

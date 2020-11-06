@@ -7,12 +7,13 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceCall",
     "(ArrayList)localFieldKeys": {
-      "0": "configKey"
+      "0": "templateFileConfigKey",
+      "1": "keepCall"
     },
     "superKey": "TemplateCall",
     "interfaces": "CallKeep",
     "(ArrayList)fieldKeys": {
-      "0": "configKey",
+      "0": "templateFileConfigKey",
       "1": "keepCall",
       "2": "content",
       "3": "sourcePath",

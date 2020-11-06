@@ -106,8 +106,9 @@ public abstract class ResourceCall extends CallImpl implements CallKeep {
         return keepCall;
     }
 
-    public void setKeepCall(KeepCalls keepCalls) {
+    public ResourceCall setKeepCall(KeepCalls keepCalls) {
         this.keepCall = keepCalls;
+        return this;
     }
 
 }

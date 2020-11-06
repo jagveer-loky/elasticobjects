@@ -3,40 +3,49 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreKeepCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.fluentcodes.tools.xpect.IOString;
 
-import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
-import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
-public class GenerateJsonConfigCall extends GenerateCall {
-    public static final String CONFIG_TYPE = "configType";
-    public static final String TARGET_CONFIG = "ConfigResources";
-    private String configType;
-    private FileConfig targetConfig;
+/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
 
+/**
+ * Call for generation json configurations from the sheet.
+ * Created by Werner Diwischek at date Thu Nov 05 15:31:43 CET 2020.
+ */
+public class GenerateJsonConfigCall extends GenerateCall  {
+/*=>{}.*/
     public GenerateJsonConfigCall() {
         super();
     }
     public GenerateJsonConfigCall(final String configType) {
         super();
         this.configType = configType;
+    }
+    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+   public static final String CONFIG_TYPE = "configType";
+/*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+   private  String configType;
+/*=>{}.*/
+    private FileConfig targetConfig;
+
+
+
+    @Override
+    public String getTargetFileConfigKey() {
+        return "ConfigResources";
     }
 
     @Override
@@ -47,8 +56,6 @@ public class GenerateJsonConfigCall extends GenerateCall {
         if (!hasConfigType()) {
             throw new EoInternalException("No config type set");
         }
-        targetConfig = eo.getConfigsCache().findFile(TARGET_CONFIG);
-        targetConfig.hasPermissions(PermissionType.WRITE, eo.getRoles());
         return super.init(eo);
     }
 
@@ -76,10 +83,6 @@ public class GenerateJsonConfigCall extends GenerateCall {
                 if (child.isEmpty()) {
                     continue;
                 }
-                if (hasClassPath()) {
-                    feedback.append("Skip subModule '" + getClassPath() + "'\n");
-                    continue;
-                }
                 eoPath.set(moduleScope, MODULE_SCOPE);
                 Map result = new LinkedHashMap();
                 Map<String, Object> configurations = (Map<String, Object>)child.get(moduleScope);
@@ -99,7 +102,7 @@ public class GenerateJsonConfigCall extends GenerateCall {
                 String jsonConfig = new EOToJSON()
                         .setSerializationType(JSONSerializationType.STANDARD)
                         .toJSON(eo.getConfigsCache(), result);
-                FileWriteCall call = new FileWriteCall(TARGET_CONFIG, jsonConfig);
+                FileWriteCall call = new FileWriteCall(getTargetFileConfigKey(), jsonConfig);
                 call.setCompare(true);
                 feedback.append(call.execute(eoPath));
                 feedback.append("\n");
@@ -108,18 +111,26 @@ public class GenerateJsonConfigCall extends GenerateCall {
         return feedback;
     }
 
+    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+
+    /**
+    Key for configuration type.
+    */
+    
     public GenerateJsonConfigCall setConfigType(String configType) {
         this.configType = configType;
         return this;
     }
 
-    public String getConfigType() {
-        return configType;
+    
+    public String getConfigType () {
+       return this.configType;
     }
 
-    public boolean hasConfigType() {
-        return configType!=null && !configType.isEmpty();
+    
+    public boolean hasConfigType () {
+        return configType!= null && !configType.isEmpty();
     }
-
+/*=>{}.*/
 
 }

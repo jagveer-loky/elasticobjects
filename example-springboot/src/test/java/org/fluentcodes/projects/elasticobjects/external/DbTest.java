@@ -78,7 +78,7 @@ public class DbTest {
                 "       \"configKey\":\"h2:mem:basic\",\n" +
                 "       \"sqlKey\":\"h2:mem:basic:AnObject\"\n" +
                 "   },\n" +
-                "   \"(TemplateResourceCall).\":{\"configKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
+                "   \"(TemplateResourceCall).\":{\"templateFileConfigKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
                 "   \"asTemplate\":true\n" +
                 "}");
         eo.execute();

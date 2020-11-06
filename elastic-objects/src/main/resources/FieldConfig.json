@@ -770,6 +770,24 @@
     "fieldKey": "table",
     "length": 80
   },
+  "targetConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "expose": "WEB",
+    "fieldKey": "targetConfigKey",
+    "length": 80
+  },
+  "targetFileConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "expose": "WEB",
+    "fieldKey": "targetFileConfigKey",
+    "length": 80
+  },
   "targetFile": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -786,6 +804,15 @@
     "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
     "expose": "WEB",
     "fieldKey": "targetPath",
+    "length": 80
+  },
+  "templateFileConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "expose": "WEB",
+    "fieldKey": "templateFileConfigKey",
     "length": 80
   },
   "toReplace": {

@@ -18,7 +18,7 @@ public class TemplateDirResourceCallTest {
     @Test
     public void eo_examples_fileName_DbModelReadCallHtml__execute__noException() {
         EO eo = ProviderRootTestScope.createEo("{\"(TemplateDirResourceCall).\":{\n" +
-                "                 \"configKey\":\"examples\",\n" +
+                "                 \"templateFileConfigKey\":\"examples\",\n" +
                 "                 \"fileName\":\"DbModelReadCall.html\",\n" +
                 "                 \"logLevel\":\"NONE\"\n" +
                 "                }\n" +
@@ -31,7 +31,7 @@ public class TemplateDirResourceCallTest {
     @Test
     public void eo_examples_fileName_CallImplHtml_logLevel_none__execute__noLog() {
         EO eo = ProviderRootTestScope.createEo("{\"(TemplateDirResourceCall).\":{\n" +
-                "                 \"configKey\":\"examples\",\n" +
+                "                 \"templateFileConfigKey\":\"examples\",\n" +
                 "                 \"fileName\":\"CallImpl.html\",\n" +
                 "                 \"logLevel\":\"NONE\"\n" +
                 "                }\n" +
@@ -43,7 +43,7 @@ public class TemplateDirResourceCallTest {
     @Test
     public void eo_examples_fileName_CallImplHtml__execute__hasLog() {
         EO eo = ProviderRootTestScope.createEo("{\"(TemplateDirResourceCall).\":{\n" +
-                "                 \"configKey\":\"examples\",\n" +
+                "                 \"templateFileConfigKey\":\"examples\",\n" +
                 "                 \"fileName\":\"CallImpl.html\"\n" +
                 "                }\n" +
                 "            }");

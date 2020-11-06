@@ -7,7 +7,7 @@ public interface CallKeep {
 
     boolean hasKeepCall();
     KeepCalls getKeepCall();
-    void setKeepCall(KeepCalls keepCalls);
+    CallKeep setKeepCall(KeepCalls keepCalls);
     default String getKeepEndSequence() {
         if (!hasKeepCall()) {
             return "";

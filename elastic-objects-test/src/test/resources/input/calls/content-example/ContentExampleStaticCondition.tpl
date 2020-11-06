@@ -2,9 +2,9 @@
     "targetPath":"data",
     "configKey":"ContentExampleData"}
 }.
-Start of content with a configKey:
+Start of content with a templateFileConfigKey:
  ===>{"(TemplateResourceCall).":{
     "sourcePath":"data/*",
-    "configKey":"ContentExampleElement1",
+    "templateFileConfigKey":"ContentExampleElement1",
     "condition":"header eq header2"}
 }.

@@ -3,11 +3,9 @@
     "module": "builder",
     "moduleScope": "main",
     "fieldKeys": [
-      "buildPath",
       "module",
       "moduleScope",
-      "fileEnding",
-      "classPath"
+      "fileEnding"
     ],
     "superKey": "CallImpl",
     "expose": "NONE",
@@ -137,6 +135,21 @@
     "description": "Returns the \"implements \" statement from the interfaces field value.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "JavaImplementsCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaCommentCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "SimpleValueFromEoCall",
+    "expose": "WEB",
+    "description": "Returns the \"implements \" statement from the interfaces field value.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaCommentCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

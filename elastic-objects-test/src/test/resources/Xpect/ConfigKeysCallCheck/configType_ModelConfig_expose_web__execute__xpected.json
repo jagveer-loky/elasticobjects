@@ -26,6 +26,7 @@
   "23": "TemplateDirResourceCall",
   "24": "TemplateResourceCall",
   "25": "TemplateResourceStoreCall",
-  "26": "ValueCall",
+  "26": "TemplateResourceStoreKeepCall",
+  "27": "ValueCall",
   "(LogLevel)_logLevel": "WARN"
 }

@@ -15,7 +15,7 @@ public class GenerateHtml {
         TemplateResourceStoreCall call = new TemplateResourceStoreCall("Presentation.html");
         //call.setLocalCondition("head like Get an");
         call.setSourcePath("/data/*");
-        call.setTargetFile("src/main/resources/static/presentation/==>[StringReplaceWhiteSpaceCall->head]..html");
+        call.setTargetFileConfigKey("src/main/resources/static/presentation/==>[StringReplaceWhiteSpaceCall->head]..html");
         eo.addCall(call);
         eo.execute();
     }

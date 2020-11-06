@@ -106,8 +106,11 @@
 "SuperExampleClass.subClass";"FieldExampleClass";"";"";"";"subClass";"";"";"";"";
 "superKey";"String";"A key for the super class of a class.";"elastic-objects";"";"superKey";"";"";"";"";
 "table";"String";"The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.";"elastic-objects";"";"table";"";"";"";"";
+"targetConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetConfigKey";"";"";"";"";
 "targetFile";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
+"targetFileConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFileConfigKey";"";"";"";"";
 "targetPath";"String";"A targetPath where the result of the execution will be mapped. If value is ""_asString"" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.";"elastic-objects";"";"targetPath";"";"";"";"";
+"templateFileConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"templateFileConfigKey";"";"";"";"";
 "toReplace";"String";"toReplace";"elastic-objects";"";"toReplace";"";"";"";"";
 "unique";"Boolean";"unique";"elastic-objects";"";"unique";"";"";"";"";
 "upper.ID";"Long";"Alias for id with uppercase.";"elastic-objects";"";"ID";"";"";"";"";

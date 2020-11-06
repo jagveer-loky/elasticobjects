@@ -47,8 +47,9 @@
   "44": "rowStart",
   "45": "sourcePath",
   "46": "startCondition",
-  "47": "targetFile",
+  "47": "targetFileConfigKey",
   "48": "targetPath",
-  "49": "toReplace",
+  "49": "templateFileConfigKey",
+  "50": "toReplace",
   "(LogLevel)_logLevel": "WARN"
 }

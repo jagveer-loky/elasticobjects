@@ -1,109 +1,66 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
-import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;
+/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 
-public abstract class GenerateCall extends CallImpl {
-    public static String BUILD_PATH = "buildPath";
-    private String buildPath;
-    private String module;
-    private String moduleScope;
-    private String fileEnding;
-    private String classPath;
+/**
+ * Abstract super class for generating code.
+ * Created by Werner Diwischek at date Thu Nov 05 09:33:24 CET 2020.
+ */
+public abstract class GenerateCall extends CallImpl  {
+        /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+        public static final String FILE_ENDING = "fileEnding";
+        public static final String MODULE = "module";
+        public static final String MODULE_SCOPE = "moduleScope";
+        /*=>{}.*/
 
-    private String configKey;
-    private String targetFile;
+        /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+        private  String fileEnding;
+        private  String module;
+        private  String moduleScope;
+        /*=>{}.*/
 
+    private FileConfig targetFileConfig;
     public GenerateCall() {
         super();
     }
 
     @Override
     protected boolean init(final EO eo) {
-        this.buildPath = ParserSqareBracket.replacePathValues(buildPath, eo);
         this.module = ParserSqareBracket.replacePathValues(module,eo);
         this.moduleScope = ParserSqareBracket.replacePathValues(moduleScope, eo);
         this.fileEnding = ParserSqareBracket.replacePathValues(fileEnding, eo);
-        this.classPath = ParserSqareBracket.replacePathValues(classPath, eo);
+        targetFileConfig = eo.getConfigsCache().findFile(getTargetFileConfigKey());
+        targetFileConfig.hasPermissions(PermissionType.WRITE, eo.getRoles());
+        eo.set(getFileEnding(), Path.DELIMITER, FILE_ENDING);
         return true;
     }
 
-    public String getBuildPath() {
-        return buildPath;
+    public String getTargetFileConfigKey() {
+        throw new EoException("Should be overwritten by child classes.");
     }
 
-    public GenerateCall setBuildPath(String buildPath) {
-        this.buildPath = buildPath;
-        return this;
-    }
-    public boolean hasBuildPath() {
-        return buildPath!=null && !buildPath.isEmpty();
+    public FileConfig getTargetFileConfig() {
+        return targetFileConfig;
     }
 
-    public String getModule() {
-        return module;
-    }
-
-    public GenerateCall setModule(String module) {
-        this.module = module;
-        return this;
-    }
-    public boolean hasModule() {
-        return module!=null && !module.isEmpty();
-    }
-
-    public String getModuleScope() {
-        return moduleScope;
-    }
-
-    public GenerateCall setModuleScope(String moduleScope) {
-        this.moduleScope = moduleScope;
-        return this;
-    }
-
-    public boolean hasModuleScope() {
-        return moduleScope !=null && !moduleScope.isEmpty();
-    }
-
-    public String getFileEnding() {
-        return fileEnding;
-    }
-
-    public void setFileEnding(String fileEnding) {
-        this.fileEnding = fileEnding;
-    }
-
-    public boolean hasFileEnding() {
-        return fileEnding!=null && !fileEnding.isEmpty();
-    }
-
-    public String getClassPath() {
-        return classPath;
-    }
-
-    public GenerateCall setClassPath(String classPath) {
-        this.classPath = classPath;
-        return this;
-    }
-
-    public boolean hasClassPath() {
-        return classPath !=null && !classPath.isEmpty();
-    }
 
     protected boolean filter(EO eoModel) {
         if (eoModel.isEmpty()) {
             return false;
         }
-        final String module = (String) eoModel.get(MODULE);
-        if ("basic".equals(module)) {
+        final String modelModule = (String) eoModel.get(MODULE);
+        if ("basic".equals(modelModule)) {
             return false;
         }
-        if (hasModule() && !getModule().equals(module)) {
+        if (hasModule() && ! modelModule.matches(module)) {
             return false;
         }
         final String moduleScope = (String) eoModel.get(MODULE_SCOPE);
@@ -113,4 +70,63 @@ public abstract class GenerateCall extends CallImpl {
         }
         return true;
     }
+
+    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /**
+
+     */
+
+    public GenerateCall setFileEnding(String fileEnding) {
+        this.fileEnding = fileEnding;
+        return this;
+    }
+
+
+    public String getFileEnding () {
+        return this.fileEnding;
+    }
+
+
+    public boolean hasFileEnding () {
+        return fileEnding!= null && !fileEnding.isEmpty();
+    }
+
+    /**
+
+     */
+
+    public GenerateCall setModule(String module) {
+        this.module = module;
+        return this;
+    }
+
+
+    public String getModule () {
+        return this.module;
+    }
+
+
+    public boolean hasModule () {
+        return module!= null && !module.isEmpty();
+    }
+
+    /**
+
+     */
+
+    public GenerateCall setModuleScope(String moduleScope) {
+        this.moduleScope = moduleScope;
+        return this;
+    }
+
+
+    public String getModuleScope () {
+        return this.moduleScope;
+    }
+
+
+    public boolean hasModuleScope () {
+        return moduleScope!= null && !moduleScope.isEmpty();
+    }
+    /*=>{}.*/
 }

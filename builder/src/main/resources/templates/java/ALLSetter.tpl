@@ -1,11 +1,9 @@
 
-
     /**
     \
-    =>{description|> }.
+    ==>{JavaCommentCall->description}.
     */\
     ==>{TemplateCall->, final ne true}|
-    \
     ==>{JavaFieldOverrideCall->override}.
     public \
     =>{/modelKey}. set
@@ -18,7 +16,6 @@
         return this;
     }
     =>{}.
-
     \
     ==>{JavaFieldOverrideCall->override}.
     public \
@@ -27,7 +24,6 @@
        return this.
     =>{fieldKey}.;
     }
-
     \
     ==>{JavaFieldOverrideCall->override}.
     public boolean has

@@ -9,13 +9,25 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+
 /**
- * Refactored by werner.diwischek on 27.7.2020.
+ * Executes a template content. 
+ * Created by Werner Diwischek at date Thu Nov 05 22:26:46 CET 2020.
  */
 public class TemplateCall extends CallImpl implements CallContent {
-    public final static String CONTENT = "content";
+/*=>{}.*/
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
-    private String content;
+
+    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+   public static final String CONTENT = "content";
+/*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+   private  String content;
+/*=>{}.*/
 
     public TemplateCall() {
         super.setTargetPath(TARGET_AS_STRING);
@@ -55,27 +67,9 @@ public class TemplateCall extends CallImpl implements CallContent {
         }
     }
 
-
-    public TemplateCall setContent(String entry) {
-        if (entry == null) {
-            return this;
-        }
-        this.content = ScalarConverter.toString(entry);
-
-        return this;
-    }
-
-    public boolean hasContent() {
-        return content != null && !content.isEmpty();
-    }
     public boolean isContentActive() {
         return hasContent() && ParserCurlyBracket.containsStartSequence(content);
     }
-
-    public String getContent() {
-        return content;
-    }
-
     /**
      */
     public String execute(EO eo)  {
@@ -91,4 +85,22 @@ public class TemplateCall extends CallImpl implements CallContent {
         super.setTargetPath(x);
         return this;
     }
+    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /**
+    A content.
+    */
+    
+    public TemplateCall setContent(String content) {
+        this.content = content;
+        return this;
+    }
+    
+    public String getContent () {
+       return this.content;
+    }
+    
+    public boolean hasContent () {
+        return content!= null && !content.isEmpty();
+    }
+/*=>{}.*/
 }

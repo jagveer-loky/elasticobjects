@@ -33,6 +33,13 @@ public class WebEoGet {
         return createPage("docs", selectedItem + ".html");
     }
 
+    @RequestMapping(value = "/eo/{selectedItem:.+}", method = RequestMethod.GET)
+    @ResponseBody
+    public String createEoPage(@PathVariable String selectedItem) {
+        return createPage("eo", selectedItem);
+    }
+
+
     @RequestMapping(value = "/examples/{directory}/{selectedItem:.+}", method = RequestMethod.GET)
     @ResponseBody
     public String createExamplesPageWithDirectory(@PathVariable String directory, @PathVariable String selectedItem) {
@@ -44,6 +51,8 @@ public class WebEoGet {
     public String createExamplesPage(@PathVariable String selectedItem) {
         return createPage("examples", selectedItem);
     }
+
+
 
     @RequestMapping(value = "/blog/{selectedItem:.+}", method = RequestMethod.GET)
     @ResponseBody

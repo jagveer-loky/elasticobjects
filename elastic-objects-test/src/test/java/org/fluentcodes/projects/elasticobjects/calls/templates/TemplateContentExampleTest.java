@@ -91,7 +91,7 @@ public class TemplateContentExampleTest {
         final EO eo = ProviderRootTestScope.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall();
-        call.setConfigKey(STATIC_KEEP_TPL);
+        call.setTemplateFileConfigKey(STATIC_KEEP_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }

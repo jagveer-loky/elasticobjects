@@ -3,23 +3,35 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.CallKeep;
-import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.CallKeep;
 /**
- * Created by werner.diwischek on 26.08.20.
+ * Parses the content of a FileConfig configuration. 
+ * Created by Werner Diwischek at date Fri Nov 06 08:22:14 CET 2020.
  */
 public class TemplateResourceCall extends TemplateCall implements CallKeep {
-    private String configKey;
-    private KeepCalls keepCall;
+/*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+   public static final String KEEP_CALL = "keepCall";
+   public static final String TEMPLATE_FILE_CONFIG_KEY = "templateFileConfigKey";
+/*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+   private  KeepCalls keepCall;
+   private  String templateFileConfigKey;
+/*=>{}.*/
+
     public TemplateResourceCall() {
         super();
     }
 
-    public TemplateResourceCall(String configKey) {
+    public TemplateResourceCall(String templateFileConfigKey) {
         this();
-        this.configKey = configKey;
+        this.templateFileConfigKey = templateFileConfigKey;
     }
 
     @Override
@@ -32,7 +44,7 @@ public class TemplateResourceCall extends TemplateCall implements CallKeep {
             throw new EoException("Short form should have form '<configKey>[, <sourcePath>][,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'.");
         }
         if (array.length > 0) {
-            configKey = array[0];
+            templateFileConfigKey = array[0];
         }
         if (array.length > 1) {
             setSourcePath(array[1]);
@@ -55,32 +67,41 @@ public class TemplateResourceCall extends TemplateCall implements CallKeep {
         if (!init(eo)) {
             return "";
         }
-        final String configKey = Parser.replacePathValues(getConfigKey(), eo);
-        super.setContent((String) new FileReadCall(configKey).execute(eo));
+        final String templateKey = ParserSqareBracket.replacePathValues(getTemplateFileConfigKey(), eo);
+        super.setContent((String) new FileReadCall(templateKey).execute(eo));
         return super.execute(eo);
     }
 
-    public boolean hasConfigKey() {
-        return configKey != null && !configKey.isEmpty();
+    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /**
+    Will use an existing  result file beforehand as template. 
+    */
+    public TemplateResourceCall setKeepCall(KeepCalls keepCall) {
+        this.keepCall = keepCall;
+        return this;
     }
-
-    public String getConfigKey() {
-        return configKey;
+    
+    public KeepCalls getKeepCall () {
+       return this.keepCall;
     }
-
-    public void setConfigKey(String configKey) {
-        this.configKey = configKey;
+    
+    public boolean hasKeepCall () {
+        return keepCall!= null;
     }
-
-    public boolean hasKeepCall() {
-        return keepCall !=null  && keepCall != KeepCalls.NONE;
+    /**
+    A target for persisting template results in TemplateResourceStoreCall. 
+    */
+    public TemplateResourceCall setTemplateFileConfigKey(String templateFileConfigKey) {
+        this.templateFileConfigKey = templateFileConfigKey;
+        return this;
     }
-
-    public KeepCalls getKeepCall() {
-        return keepCall;
+    
+    public String getTemplateFileConfigKey () {
+       return this.templateFileConfigKey;
     }
-
-    public void setKeepCall(KeepCalls keepCalls) {
-        this.keepCall = keepCalls;
+    
+    public boolean hasTemplateFileConfigKey () {
+        return templateFileConfigKey!= null && !templateFileConfigKey.isEmpty();
     }
+/*=>{}.*/
 }

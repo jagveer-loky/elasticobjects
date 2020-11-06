@@ -30,11 +30,12 @@ public class JavaImportHelper {
         this.modelPackagePath = (String)eoModel.get(PACKAGE_PATH);
         importModels = new ArrayList<>();
         importSkipModels = new ArrayList<>();
-
-        Set<String> fields = eoModel.getEo(FIELD_MAP).keys();
-        for (String fieldKey : fields) {
-            FieldConfig fieldConfig = eoModel.getConfigsCache().findField(fieldKey);
-            check(fieldConfig.getModels());
+        if (eoModel.hasEo(FIELD_MAP)) {
+            Set<String> fields = eoModel.getEo(FIELD_MAP).keys();
+            for (String fieldKey : fields) {
+                FieldConfig fieldConfig = eoModel.getConfigsCache().findField(fieldKey);
+                check(fieldConfig.getModels());
+            }
         }
         // enrich interfaces (imports)
         if (eoModel.hasEo(INTERFACES)) {

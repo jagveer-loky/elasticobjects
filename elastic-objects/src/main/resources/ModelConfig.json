@@ -1398,7 +1398,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "configKey"
+      "templateFileConfigKey",
+      "keepCall"
     ],
     "interfaces": "CallKeep",
     "superKey": "TemplateCall",
@@ -1417,13 +1418,33 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "targetFile"
+      "targetFileConfigKey",
+      "templateFileConfigKey"
     ],
     "superKey": "TemplateResourceCall",
     "expose": "WEB",
     "description": "Executes a template configuration. Facade for the parsing method within the cache.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceStoreCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "TemplateResourceStoreKeepCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "targetFileConfigKey",
+      "templateFileConfigKey"
+    ],
+    "superKey": "TemplateCall",
+    "expose": "WEB",
+    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "modelKey": "TemplateResourceStoreKeepCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

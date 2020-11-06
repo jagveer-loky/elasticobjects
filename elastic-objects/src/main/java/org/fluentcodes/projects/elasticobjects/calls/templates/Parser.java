@@ -33,6 +33,7 @@ public abstract class Parser {
     private static final String VALUE_CALL_MATCH = "^#";
     private static final String TEMPLATE_CALL_CHAR = "&";
     private static final String VALUE_CALL_CHAR = "#";
+    private static final String DEFAULT_SEPARATOR = "|>";
     private static final String SYSTEM_CHAR = "@";
     private static final String ENV_CHAR = "%";
     private static final String PARENT = "_parent";
@@ -137,7 +138,7 @@ public abstract class Parser {
             String callSequence = match.group(2);
             String finish = match.group(3);
             String defaultValue = getDefault(callSequence);
-            callSequence = callSequence.replaceAll("\\|>.*", "");
+            callSequence = callSequence.replaceAll("\\" + DEFAULT_SEPARATOR + ".*", "");
             try {
                 if (callIndicator == null || callIndicator.isEmpty()) {
                     result.append(replacePathValues(eo, callSequence));
@@ -222,9 +223,11 @@ public abstract class Parser {
         StringBuffer returnResult = new StringBuffer();
         String postPend = "";
         if (call instanceof CallKeep && ((CallKeep)call).hasKeepCall()) {
+            final String defaultSequence = defaultValue!=null ? DEFAULT_SEPARATOR + defaultValue:"";
             returnResult.insert(0, "=" +
                     getStartSequence() +
                     callDirective +
+                    defaultSequence +
                     getContinueSequence() +
                     ((CallKeep)call).getKeepEndSequence() );
             postPend = ((CallKeep)call).getKeepStartSequence() +
@@ -273,9 +276,11 @@ public abstract class Parser {
             Call loopCall = (Call) eoCall.getCallEo(Integer.valueOf(i).toString()).get();
             if (i == callSet.size()-1) {
                 if (loopCall instanceof CallKeep && ((CallKeep)loopCall).hasKeepCall()) {
+                    final String defaultSequence = defaultValue!=null ? DEFAULT_SEPARATOR + defaultValue:"";
                     returnResult.insert(0, "==" +
                             getStartSequence() +
                             callDirective +
+                            defaultSequence +
                             getContinueSequence() +
                             ((CallKeep)loopCall).getKeepEndSequence() );
                     postPend = ((CallKeep)loopCall).getKeepStartSequence() +

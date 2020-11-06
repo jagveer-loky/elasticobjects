@@ -1,9 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.JavaImportHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
@@ -18,23 +16,34 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_K
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SHAPE_TYPE;
 
-public class GenerateJavaCall extends GenerateCall {
-    private final static String JAVA_GEN_MODEL = "/modelKey";
+/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA}|*/
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 
+/**
+ * Call for generation of java code from ModelConfig data. 
+ * FieldConfig will be loaded from ConfigsCache. 
+ * Created by Werner Diwischek at date Thu Nov 05 09:17:53 CET 2020.
+ */
+public class GenerateJavaCall extends GenerateCall  {
+/*=>{}.*/
+
+    private final static String JAVA_GEN_MODEL = "/modelKey";
     public final static String GEN_IGNORE = "genIgnore";
     public final static String FIELD_MAP = "fieldMap";
-    public final static String TARGET_CONFIG = "JavaClasses";
-    private FileConfig targetConfig;
+
+    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+/*=>{}.*/
+
+    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+/*=>{}.*/
+
     public GenerateJavaCall() {
         super();
     }
 
     @Override
-    protected boolean init(final EO eo) {
-        targetConfig = eo.getConfigsCache().findFile(TARGET_CONFIG);
-        targetConfig.hasPermissions(PermissionType.WRITE, eo.getRoles());
-        super.init(eo);
-        return true;
+    public String getTargetFileConfigKey() {
+        return "JavaClasses";
     }
 
     @Override
@@ -47,12 +56,14 @@ public class GenerateJavaCall extends GenerateCall {
         }
         eo.set(new Date().toString(), "/date");
         StringBuilder feedback = new StringBuilder();
-
         init(eo);
         this.setNaturalId(ParserSqareBracket.replacePathValues(getNaturalId(), eo));
         int counter = 1;
         for (final String naturalId: eo.keys()) {
             EO eoModel = eo.getEo(naturalId);
+            if (eoModel.isScalar()) {
+                continue;
+            }
             if (!filter(eoModel)) {
                 continue;
             }
@@ -66,25 +77,30 @@ public class GenerateJavaCall extends GenerateCall {
                 continue;
             }
             // Enrich model entry with java stuff.
-            FieldHelper fieldMap = new FieldHelper(eoModel.get(FIELD_KEYS), GEN_IGNORE);
-            for (String fieldKey : fieldMap.getFieldKeys()) {
-                FieldConfig fieldConfig = eo.getConfigsCache().findField(fieldKey);
-                fieldMap.merge(fieldKey, fieldConfig);
+            if (eoModel.hasEo(FIELD_KEYS)) {
+                FieldHelper fieldMap = new FieldHelper(eoModel.get(FIELD_KEYS), GEN_IGNORE);
+                for (String fieldKey : fieldMap.getFieldKeys()) {
+                    FieldConfig fieldConfig = eo.getConfigsCache().findField(fieldKey);
+                    fieldMap.merge(fieldKey, fieldConfig);
+                }
+                eoModel.set(fieldMap.createValueMap(), FIELD_MAP);
             }
-            eoModel.set(fieldMap.createValueMap(), FIELD_MAP);
 
             // set import list
             new JavaImportHelper(eoModel);
 
             // Now execute template template
-            TemplateResourceStoreKeepCall templateCall = new TemplateResourceStoreKeepCall(shapeType + "Create.tpl", TARGET_CONFIG);
+            TemplateResourceStoreKeepCall templateCall = new TemplateResourceStoreKeepCall(shapeType + "Create.tpl", getTargetFileConfigKey());
             String result = templateCall.execute(eoModel);
             feedback.append(result);
             counter++;
         }
         if (counter==1) {
-            throw new EoException("No java entry in ModelConfig found matching " + getModule() + " " + getModuleScope() + " " + getNaturalId());
+            throw new EoException("No java entry in ModelConfig found matching '" + getModule() + "', '" + getModuleScope() + "' and '" + getNaturalId() + "'.");
         }
         return feedback;
     }
+
+    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+/*=>{}.*/
 }

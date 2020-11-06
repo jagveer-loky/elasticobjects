@@ -8,8 +8,6 @@
     "sourcePath": "/data",
     "module": "=>[/module].",
     "moduleScope": "=>[/moduleScope].",
-    "configType": "=>[/configType].",
-    "buildPath": "=>[/buildPath].",
-    "fileEnding": "json"
+    "configType": "=>[/configType]."
     }
 }.
