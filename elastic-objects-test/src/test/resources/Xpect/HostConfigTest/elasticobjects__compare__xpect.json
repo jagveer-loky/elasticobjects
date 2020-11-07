@@ -1,9 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "hostName": "elasticobjects",
     "port": 80,
     "protocol": "http",
-    "hostName": "elasticobjects",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",

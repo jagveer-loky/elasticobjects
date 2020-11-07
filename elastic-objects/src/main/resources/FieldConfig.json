@@ -81,7 +81,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "Key for configuration type.",
+    "description": "Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.",
     "expose": "WEB",
     "fieldKey": "configType",
     "length": 64
@@ -90,7 +90,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "A content.",
+    "description": "A content for different calls. In a template context the content of the markup. ",
     "expose": "WEB",
     "fieldKey": "content",
     "length": 10000
@@ -238,7 +238,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "fileName",
+    "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
     "expose": "NONE",
     "fieldKey": "fileName",
     "length": 80
@@ -247,7 +247,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "filePath",
+    "description": "A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ",
     "expose": "NONE",
     "fieldKey": "filePath",
     "length": 512
@@ -774,9 +774,18 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
     "expose": "WEB",
     "fieldKey": "targetConfigKey",
+    "length": 80
+  },
+  "targetFile": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
+    "expose": "WEB",
+    "fieldKey": "targetFile",
     "length": 80
   },
   "targetFileConfigKey": {
@@ -786,15 +795,6 @@
     "description": "A target for persisting template results in TemplateResourceStoreCall. ",
     "expose": "WEB",
     "fieldKey": "targetFileConfigKey",
-    "length": 80
-  },
-  "targetFile": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
-    "expose": "WEB",
-    "fieldKey": "targetFile",
     "length": 80
   },
   "targetPath": {
@@ -810,7 +810,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
     "expose": "WEB",
     "fieldKey": "templateFileConfigKey",
     "length": 80

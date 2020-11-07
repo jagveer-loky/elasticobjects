@@ -15,8 +15,8 @@
     <file url="file://$PROJECT_DIR$/eo-db/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eo-xlsx/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eo-xlsx/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eo-xpect/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/example-springboot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/example-springboot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xpect-eo/src/main/java" charset="UTF-8" />
   </component>
 </project>

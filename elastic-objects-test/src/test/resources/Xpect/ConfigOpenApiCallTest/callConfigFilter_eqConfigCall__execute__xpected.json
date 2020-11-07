@@ -13,12 +13,12 @@
             "description": "Filter for subModules in  {@link ConfigAction}",
             "type": "string"
           },
-          "configType": {
-            "description": "Key for configuration type.",
-            "type": "string"
-          },
           "configFilter": {
             "description": "Key for filter configuration",
+            "type": "string"
+          },
+          "configType": {
+            "description": "Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.",
             "type": "string"
           },
           "expose": {
@@ -31,29 +31,14 @@
               "(Expose)3": "NONE"
             }
           },
-          "sourcePath": {
-            "description": "A sourcePath where EO offers it's input value when the execution starts.",
-            "type": "string"
-          },
-          "targetPath": {
-            "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
-            "type": "string"
-          },
-          "models": {
-            "description": "A string representation for a list of model keys.",
-            "type": "string"
-          },
           "condition": {
             "description": "A condition for calls. ",
             "type": "string"
           },
-          "startCondition": {
-            "description": "A condition for calls. ",
-            "type": "string"
-          },
-          "overwrite": {
-            "description": "overwrite",
-            "type": "boolean"
+          "duration": {
+            "description": "The duration of a call.",
+            "type": "integer",
+            "format": "int62"
           },
           "logLevel": {
             "description": "logLevel",
@@ -69,30 +54,36 @@
               "(LogLevel)7": "ERROR"
             }
           },
-          "duration": {
-            "description": "The duration of a call.",
-            "type": "integer",
-            "format": "int62"
-          },
-          "prepend": {
-            "description": "prepend String when executed by ExecutorCallImpl",
+          "models": {
+            "description": "A string representation for a list of model keys.",
             "type": "string"
+          },
+          "overwrite": {
+            "description": "overwrite",
+            "type": "boolean"
           },
           "postpend": {
             "description": "postpend String when executed by ExecutorCallImpl",
             "type": "string"
           },
-          "id": {
-            "description": "The id with a autonumbering",
-            "type": "integer",
-            "format": "int62"
-          },
-          "description": {
-            "description": "A description of the model used by every model extending BaseClassImpl. ",
+          "prepend": {
+            "description": "prepend String when executed by ExecutorCallImpl",
             "type": "string"
           },
-          "naturalId": {
-            "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
+          "sourcePath": {
+            "description": "A sourcePath where EO offers it's input value when the execution starts.",
+            "type": "string"
+          },
+          "startCondition": {
+            "description": "A condition for calls. ",
+            "type": "string"
+          },
+          "targetPath": {
+            "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
+            "type": "string"
+          },
+          "author": {
+            "description": "The autor of something e,g. a class.",
             "type": "string"
           },
           "creationDate": {
@@ -100,8 +91,17 @@
             "type": "string",
             "format": "date-time"
           },
-          "author": {
-            "description": "The autor of something e,g. a class.",
+          "description": {
+            "description": "A description of the model used by every model extending BaseClassImpl. ",
+            "type": "string"
+          },
+          "id": {
+            "description": "The id with a autonumbering",
+            "type": "integer",
+            "format": "int62"
+          },
+          "naturalId": {
+            "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
             "type": "string"
           }
         }

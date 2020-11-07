@@ -3,14 +3,14 @@
   "0": {
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
+    "rowEnd": 4,
     "rowHead": 0,
     "rowStart": 1,
-    "rowEnd": 4,
+    "cached": false,
     "configModelKey": "CsvConfig",
     "fileName": "AnObject.csv",
     "filePath": "input/assets/bt",
     "hostKey": "localhost",
-    "cached": false,
     "permissionRole": {
       "read": "guest"
     },
@@ -21,10 +21,10 @@
     "naturalId": "AnObject.csv"
   },
   "1": {
+    "cached": false,
     "fileName": "AnObject.json",
     "filePath": "input/assets/bt",
     "hostKey": "localhost",
-    "cached": false,
     "permissionRole": {
       "read": "guest"
     },
@@ -35,10 +35,10 @@
     "naturalId": "AnObject.json"
   },
   "2": {
+    "cached": false,
     "fileName": "ContentExample.json",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -46,10 +46,10 @@
     "naturalId": "ContentExample"
   },
   "3": {
+    "cached": false,
     "fileName": "ContentExampleData.json",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -57,10 +57,10 @@
     "naturalId": "ContentExampleData"
   },
   "4": {
+    "cached": false,
     "fileName": "ContentExampleDynamic.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -68,10 +68,10 @@
     "naturalId": "ContentExampleDynamic"
   },
   "5": {
+    "cached": false,
     "fileName": "ContentExampleElement1.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -79,10 +79,10 @@
     "naturalId": "ContentExampleElement1"
   },
   "6": {
+    "cached": false,
     "fileName": "ContentExampleElement2.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -90,10 +90,10 @@
     "naturalId": "ContentExampleElement2"
   },
   "7": {
+    "cached": false,
     "fileName": "ContentExampleStatic.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -101,10 +101,10 @@
     "naturalId": "ContentExampleStatic"
   },
   "8": {
+    "cached": false,
     "fileName": "ContentExampleStaticCondition.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -112,10 +112,10 @@
     "naturalId": "ContentExampleStaticCondition"
   },
   "9": {
+    "cached": false,
     "fileName": "ContentExampleStaticKeep.tpl",
     "filePath": "input/calls/content-example",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -123,10 +123,10 @@
     "naturalId": "ContentExampleStaticKeep"
   },
   "10": {
+    "cached": false,
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
-    "cached": false,
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -138,10 +138,10 @@
     "naturalId": "FileTest.txt"
   },
   "11": {
+    "cached": false,
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -151,14 +151,14 @@
   "12": {
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
+    "rowEnd": 3,
     "rowHead": 0,
     "rowStart": 1,
-    "rowEnd": 3,
+    "cached": false,
     "configModelKey": "CsvConfig",
     "fileName": "ListSimple.csv",
     "filePath": "input/calls/list-simple",
     "hostKey": "localhost",
-    "cached": false,
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -170,10 +170,10 @@
     "naturalId": "ListSimple.csv"
   },
   "13": {
+    "cached": false,
     "fileName": "ListSimple.json",
     "filePath": "input/calls/list-simple",
     "hostKey": "localhost",
-    "cached": false,
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -188,11 +188,11 @@
     "fieldDelimiter": ";",
     "rowDelimiter": "\n",
     "rowHead": 0,
+    "cached": false,
     "configModelKey": "CsvConfig",
     "fileName": "target.csv",
     "filePath": " =>[@TMP].",
     "hostKey": "localhost",
-    "cached": false,
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -204,10 +204,10 @@
     "naturalId": "target.csv"
   },
   "15": {
+    "cached": false,
     "fileName": "target.json",
     "filePath": " =>[@TMP].",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -215,10 +215,10 @@
     "naturalId": "target.json"
   },
   "16": {
+    "cached": false,
     "fileName": "target.txt",
     "filePath": " =>[@TMP].",
     "hostKey": "localhost",
-    "cached": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -226,10 +226,10 @@
     "naturalId": "target.txt"
   },
   "17": {
+    "cached": false,
     "fileName": "AnObjectTest",
     "filePath": "Xpect",
     "hostKey": "localhost",
-    "cached": false,
     "permissionRole": {
       "execute": "guest"
     },

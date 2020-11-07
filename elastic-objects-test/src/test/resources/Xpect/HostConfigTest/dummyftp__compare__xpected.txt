@@ -1,9 +1,9 @@
 {
+  "hostName": "dummyftp",
+  "password": "########",
   "port": 21,
   "protocol": "ftp",
-  "hostName": "dummyftp",
   "user": "dummy",
-  "password": "########",
   "expose": "NONE",
   "module": "elastic-objects-test",
   "moduleScope": "test",

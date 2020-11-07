@@ -1,34 +1,34 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-    "modelKey": "ASubObject",
-    "(ArrayList)localFieldKeys": {
-      "0": "id",
-      "1": "naturalId",
-      "2": "myASubObject",
-      "3": "name",
-      "4": "myString"
-    },
     "(ArrayList)fieldKeys": {
       "0": "id",
-      "1": "naturalId",
-      "2": "myASubObject",
+      "1": "myASubObject",
+      "2": "myString",
       "3": "name",
-      "4": "myString"
+      "4": "naturalId"
     },
+    "(ArrayList)localFieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "myString",
+      "3": "name",
+      "4": "naturalId"
+    },
+    "modelKey": "ASubObject",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "A sub object as an example.",
     "naturalId": "ASubObject",
-    "author": "Werner Diwischek",
     "permissionRole": {
       "read": "guest"
     },
-    "(ShapeTypes)shapeType": "BEAN",
+    "classPath": "src.main.java",
     "create": true,
-    "classPath": "src.main.java"
+    "(ShapeTypes)shapeType": "BEAN"
   },
   "(LogLevel)_logLevel": "WARN"
 }

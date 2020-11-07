@@ -18,11 +18,11 @@
     "module": "eo-db",
     "moduleScope": "main",
     "fieldKeys": [
-      "schema",
-      "driver",
-      "jndi",
       "dbType",
-      "extension"
+      "driver",
+      "extension",
+      "jndi",
+      "schema"
     ],
     "interfaces": "DbProperties",
     "superKey": "HostConfig",

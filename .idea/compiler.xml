@@ -27,6 +27,7 @@
       <module name="eo-csv" target="8" />
       <module name="eo-db" target="8" />
       <module name="eo-db (1)" target="1.5" />
+      <module name="eo-root" target="8" />
       <module name="eo-test-resources" target="11" />
       <module name="eo-xlsx" target="8" />
       <module name="example-springboot" target="8" />

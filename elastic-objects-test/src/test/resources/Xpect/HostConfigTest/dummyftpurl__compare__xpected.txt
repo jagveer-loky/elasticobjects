@@ -1,6 +1,6 @@
 {
-  "user": "dummy",
   "password": "########",
+  "user": "dummy",
   "expose": "NONE",
   "module": "elastic-objects-test",
   "moduleScope": "test",

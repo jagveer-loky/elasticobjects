@@ -27,7 +27,7 @@ public class GenerateJavaCallStart {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(".*", MODULE);
         eo.set(".*", MODULE_SCOPE);
-        eo.set("", FILE_ENDING);
+        eo.set("json", FILE_ENDING);
         eo.set(TemplateDirResourceCall.class.getSimpleName() , NATURAL_ID);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

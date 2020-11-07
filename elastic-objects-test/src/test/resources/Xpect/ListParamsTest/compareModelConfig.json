@@ -1,33 +1,33 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "BEAN",
-    "create": true,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ListParams",
-    "(ArrayList)localFieldKeys": {
-      "0": "rowHead",
-      "1": "rowStart",
-      "2": "rowEnd",
-      "3": "length",
-      "4": "filter",
-      "5": "colKeys"
-    },
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "(ArrayList)fieldKeys": {
-      "0": "rowHead",
-      "1": "rowStart",
-      "2": "rowEnd",
-      "3": "length",
-      "4": "filter",
-      "5": "colKeys"
+      "0": "colKeys",
+      "1": "filter",
+      "2": "length",
+      "3": "rowEnd",
+      "4": "rowHead",
+      "5": "rowStart"
     },
+    "(ArrayList)localFieldKeys": {
+      "0": "colKeys",
+      "1": "filter",
+      "2": "length",
+      "3": "rowEnd",
+      "4": "rowHead",
+      "5": "rowStart"
+    },
+    "modelKey": "ListParams",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
-    "naturalId": "ListParams",
-    "author": "Werner Diwischek"
+    "naturalId": "ListParams"
   },
   "(LogLevel)_logLevel": "WARN"
 }

@@ -1,25 +1,25 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "BEAN",
-    "create": true,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
-    "modelKey": "BaseImpl",
-    "interfaces": "Base",
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "(ArrayList)fieldKeys": {
-      "0": "id",
-      "1": "description",
-      "2": "naturalId",
-      "3": "creationDate",
-      "4": "author"
+      "0": "author",
+      "1": "creationDate",
+      "2": "description",
+      "3": "id",
+      "4": "naturalId"
     },
+    "interfaces": "Base",
+    "modelKey": "BaseImpl",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
-    "naturalId": "BaseImpl",
-    "author": "Werner Diwischek"
+    "naturalId": "BaseImpl"
   },
   "(LogLevel)_logLevel": "WARN"
 }

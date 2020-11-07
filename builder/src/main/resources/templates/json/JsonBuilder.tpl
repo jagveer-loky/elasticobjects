@@ -8,6 +8,7 @@
     "sourcePath": "/data",
     "module": "=>[/module].",
     "moduleScope": "=>[/moduleScope].",
-    "configType": "=>[/configType]."
+    "configType": "=>[/configType].",
+    "fileEnding": "=>[/fileEnding]."
     }
 }.

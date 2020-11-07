@@ -8,18 +8,18 @@
     "configModelKey": "DbConfig"
   },
   "1": {
-    "schema": "file:basic",
-    "driver": "org.h2.Driver",
     "(DbTypes)dbType": "H2",
+    "driver": "org.h2.Driver",
     "extension": "DATABASE_TO_UPPER=false;",
+    "schema": "file:basic",
     "(Expose)expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Local H2 in file persisted for the test resources.",
     "naturalId": "h2:file:basic",
-    "protocol": "jdbc",
-    "hostName": "h2",
     "configModelKey": "DbConfig",
+    "hostName": "h2",
+    "protocol": "jdbc",
     "permissionRole": {
       "read": "guest"
     }
@@ -32,18 +32,18 @@
     "configModelKey": "DbConfig"
   },
   "3": {
-    "schema": "mem:basic",
-    "driver": "org.h2.Driver",
     "(DbTypes)dbType": "H2",
+    "driver": "org.h2.Driver",
     "extension": "DATABASE_TO_UPPER=false;",
+    "schema": "mem:basic",
     "(Expose)expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
     "description": "Local H2 in memory for the test resources.",
     "naturalId": "h2:mem:basic",
-    "protocol": "jdbc",
-    "hostName": "h2",
     "configModelKey": "DbConfig",
+    "hostName": "h2",
+    "protocol": "jdbc",
     "permissionRole": {
       "read": "guest"
     }

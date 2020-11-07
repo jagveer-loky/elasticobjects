@@ -8,8 +8,8 @@
 "configFilter";"String";"Key for filter configuration";"elastic-objects";"";"configFilter";"";"";"";"";
 "configKey";"String";"Key for configuration  {@link ConfigConfig}";"elastic-objects";"";"configKey";"";"";"";"";
 "configModelKey";"String";"The model of the configuration to determine type.";"elastic-objects";"";"configModelKey";"";"";"";"";
-"configType";"String";"Key for configuration type.";"elastic-objects";"";"configType";"";"";"";"";
-"content";"String";"A content.";"elastic-objects";"";"content";"";"";"";"";
+"configType";"String";"Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.";"elastic-objects";"";"configType";"";"";"";"";
+"content";"String";"A content for different calls. In a template context the content of the markup. ";"elastic-objects";"";"content";"";"";"";"";
 "create";"Boolean";"If true will create a Java class.";"elastic-objects";"";"create";"";"";"";"";
 "creationDate";"Date";"Used to define the creation of an item.";"elastic-objects";"";"creationDate";"";"";"";"";
 "defaultImplementation";"String";"defaultImplementation";"elastic-objects";"";"defaultImplementation";"";"";"";"";
@@ -27,8 +27,8 @@
 "fieldName";"String";"A name for different purposes depending on the model.";"elastic-objects";"";"fieldName";"";"";"";"";
 "fileEnding";"String";"It's used to specify the file ending in different context. ";"elastic-objects";"";"fileEnding";"";"";"";"";
 "fileKey";"String";"A key for file objects.";"elastic-objects";"";"fileKey";"";"";"";"";
-"fileName";"String";"fileName";"elastic-objects";"";"fileName";"";"";"";"";
-"filePath";"String";"filePath";"elastic-objects";"";"filePath";"";"";"";"";
+"fileName";"String";"A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"fileName";"";"";"";"";
+"filePath";"String";"A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"filePath";"";"";"";"";
 "filter";"String";"Filter for List entries.";"elastic-objects";"";"filter";"";"";"";"";
 "filterModule";"String";"Filter for modules in  {@link ConfigAction}";"elastic-objects";"";"filterModule";"";"";"";"";
 "filterSubModule";"String";"Filter for subModules in  {@link ConfigAction}";"elastic-objects";"";"filterSubModule";"";"";"";"";
@@ -106,11 +106,11 @@
 "SuperExampleClass.subClass";"FieldExampleClass";"";"";"";"subClass";"";"";"";"";
 "superKey";"String";"A key for the super class of a class.";"elastic-objects";"";"superKey";"";"";"";"";
 "table";"String";"The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.";"elastic-objects";"";"table";"";"";"";"";
-"targetConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetConfigKey";"";"";"";"";
-"targetFile";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
+"targetConfigKey";"String";"The naturalId of a FileConfig entry with an embedded FileWriteCall. ";"elastic-objects";"";"targetConfigKey";"";"";"";"";
+"targetFile";"String";"The naturalId of a FileConfig entry with an embedded FileWriteCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
 "targetFileConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFileConfigKey";"";"";"";"";
 "targetPath";"String";"A targetPath where the result of the execution will be mapped. If value is ""_asString"" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.";"elastic-objects";"";"targetPath";"";"";"";"";
-"templateFileConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"templateFileConfigKey";"";"";"";"";
+"templateFileConfigKey";"String";"The field name for a ""naturalId"" in ""FileConfig"" whenever a file resource is used for a template processing. ";"elastic-objects";"";"templateFileConfigKey";"";"";"";"";
 "toReplace";"String";"toReplace";"elastic-objects";"";"toReplace";"";"";"";"";
 "unique";"Boolean";"unique";"elastic-objects";"";"unique";"";"";"";"";
 "upper.ID";"Long";"Alias for id with uppercase.";"elastic-objects";"";"ID";"";"";"";"";

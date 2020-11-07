@@ -100,7 +100,7 @@ public class EOConfigMapModels extends EOConfigMap {
             }
         }
         catch (Exception e) {
-            throw new EoInternalException("Problem with '" + naturalId + "'/'" + configurationClass.getSimpleName() + "' in ModelConfig", e);
+            throw new EoInternalException("Problem with model '" + naturalId + "' mapped to configuration config class '" + configurationClass.getSimpleName() + "' in ModelConfig", e);
         }
     }
 

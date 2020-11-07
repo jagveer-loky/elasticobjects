@@ -1,11 +1,11 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "hostName": "dummyftp",
+    "password": "########",
     "port": 21,
     "protocol": "ftp",
-    "hostName": "dummyftp",
     "user": "dummy",
-    "password": "########",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -13,8 +13,8 @@
     "naturalId": "dummyftp"
   },
   "1": {
-    "user": "dummy",
     "password": "########",
+    "user": "dummy",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -22,9 +22,9 @@
     "naturalId": "dummyftpurl"
   },
   "2": {
+    "hostName": "elasticobjects",
     "port": 80,
     "protocol": "http",
-    "hostName": "elasticobjects",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",

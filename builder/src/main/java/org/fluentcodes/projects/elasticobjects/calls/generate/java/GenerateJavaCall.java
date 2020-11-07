@@ -76,15 +76,10 @@ public class GenerateJavaCall extends GenerateCall  {
             if (shapeType == null || shapeType.isEmpty()) {
                 continue;
             }
+
             // Enrich model entry with java stuff.
-            if (eoModel.hasEo(FIELD_KEYS)) {
-                FieldHelper fieldMap = new FieldHelper(eoModel.get(FIELD_KEYS), GEN_IGNORE);
-                for (String fieldKey : fieldMap.getFieldKeys()) {
-                    FieldConfig fieldConfig = eo.getConfigsCache().findField(fieldKey);
-                    fieldMap.merge(fieldKey, fieldConfig);
-                }
-                eoModel.set(fieldMap.createValueMap(), FIELD_MAP);
-            }
+            FieldHelper fieldMap = new FieldHelper(eoModel);
+            eoModel.set(fieldMap.createValueMap(), FIELD_MAP);
 
             // set import list
             new JavaImportHelper(eoModel);

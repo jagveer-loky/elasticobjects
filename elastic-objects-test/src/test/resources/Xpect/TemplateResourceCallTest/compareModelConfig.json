@@ -1,43 +1,43 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "CALL_BEAN",
-    "create": true,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
-    "modelKey": "TemplateResourceCall",
-    "(ArrayList)localFieldKeys": {
-      "0": "templateFileConfigKey",
-      "1": "keepCall"
-    },
-    "superKey": "TemplateCall",
-    "interfaces": "CallKeep",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
-      "0": "templateFileConfigKey",
-      "1": "keepCall",
+      "0": "keepCall",
+      "1": "templateFileConfigKey",
       "2": "content",
-      "3": "sourcePath",
-      "4": "targetPath",
-      "5": "models",
-      "6": "condition",
-      "7": "startCondition",
-      "8": "overwrite",
-      "9": "logLevel",
-      "10": "duration",
-      "11": "prepend",
-      "12": "postpend",
-      "13": "id",
-      "14": "description",
-      "15": "naturalId",
-      "16": "creationDate",
-      "17": "author"
+      "3": "condition",
+      "4": "duration",
+      "5": "logLevel",
+      "6": "models",
+      "7": "overwrite",
+      "8": "postpend",
+      "9": "prepend",
+      "10": "sourcePath",
+      "11": "startCondition",
+      "12": "targetPath",
+      "13": "author",
+      "14": "creationDate",
+      "15": "description",
+      "16": "id",
+      "17": "naturalId"
     },
+    "interfaces": "CallKeep",
+    "(ArrayList)localFieldKeys": {
+      "0": "keepCall",
+      "1": "templateFileConfigKey"
+    },
+    "modelKey": "TemplateResourceCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "superKey": "TemplateCall",
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "Parses the content of a FileConfig configuration. ",
-    "naturalId": "TemplateResourceCall",
-    "author": "Werner Diwischek"
+    "naturalId": "TemplateResourceCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

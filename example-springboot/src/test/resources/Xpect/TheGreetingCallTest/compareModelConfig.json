@@ -1,39 +1,39 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "CALL_BEAN",
-    "create": true,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
-    "modelKey": "TheGreetingCall",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "(ArrayList)fieldKeys": {
+      "0": "greeting",
+      "1": "condition",
+      "2": "duration",
+      "3": "logLevel",
+      "4": "models",
+      "5": "overwrite",
+      "6": "postpend",
+      "7": "prepend",
+      "8": "sourcePath",
+      "9": "startCondition",
+      "10": "targetPath",
+      "11": "author",
+      "12": "creationDate",
+      "13": "description",
+      "14": "id",
+      "15": "naturalId"
+    },
     "(ArrayList)localFieldKeys": {
       "0": "greeting"
     },
+    "modelKey": "TheGreetingCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "superKey": "SimpleValueFromEoCall",
-    "(ArrayList)fieldKeys": {
-      "0": "greeting",
-      "1": "sourcePath",
-      "2": "targetPath",
-      "3": "models",
-      "4": "condition",
-      "5": "startCondition",
-      "6": "overwrite",
-      "7": "logLevel",
-      "8": "duration",
-      "9": "prepend",
-      "10": "postpend",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
-    },
     "(Expose)expose": "WEB",
     "module": "example-springboot",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "An example for a simple call with a field.",
-    "naturalId": "TheGreetingCall",
-    "author": "Werner Diwischek"
+    "naturalId": "TheGreetingCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

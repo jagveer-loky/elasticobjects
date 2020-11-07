@@ -3,9 +3,9 @@
     "module": "builder",
     "moduleScope": "main",
     "fieldKeys": [
+      "fileEnding",
       "module",
-      "moduleScope",
-      "fileEnding"
+      "moduleScope"
     ],
     "superKey": "CallImpl",
     "expose": "NONE",
@@ -24,7 +24,7 @@
     "moduleScope": "main",
     "superKey": "GenerateCall",
     "expose": "NONE",
-    "description": "Call for generation java code from ModelConfig and FieldConfig sheet.",
+    "description": "Call for generation of java code from ModelConfig data. \n * FieldConfig will be loaded from ConfigsCache. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "GenerateJavaCall",
     "properties": {
@@ -147,7 +147,7 @@
     "moduleScope": "main",
     "superKey": "SimpleValueFromEoCall",
     "expose": "WEB",
-    "description": "Returns the \"implements \" statement from the interfaces field value.",
+    "description": "Replaces new lines in description with a starting \" * \" for new line. \nForeach pattern @&gt;Class>[ .,] a comment link {@link &gt;Class>} will be generated. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "JavaCommentCall",
     "properties": {

@@ -11,18 +11,18 @@
   },
   "(List)_calls": {
     "(CsvSimpleReadCall)0": {
-      "rowHead": 0,
-      "rowStart": 1,
-      "rowEnd": 3,
-      "length": -1,
       "colKeys": {
         "0": "key1",
         "1": "key2"
       },
+      "length": -1,
+      "rowEnd": 3,
+      "rowHead": 0,
+      "rowStart": 1,
       "configKey": "ListSimple.csv",
-      "targetPath": "(List).",
+      "postpend": "",
       "prepend": "",
-      "postpend": ""
+      "targetPath": "(List)."
     }
   }
 }

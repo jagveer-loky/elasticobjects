@@ -31,11 +31,11 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "id",
-      "description",
-      "naturalId",
+      "author",
       "creationDate",
-      "author"
+      "description",
+      "id",
+      "naturalId"
     ],
     "expose": "NONE",
     "description": "Basic bean as super interface for other cached items. ",
@@ -67,16 +67,16 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "sourcePath",
-      "targetPath",
-      "models",
       "condition",
-      "startCondition",
-      "overwrite",
-      "logLevel",
       "duration",
+      "logLevel",
+      "models",
+      "overwrite",
+      "postpend",
       "prepend",
-      "postpend"
+      "sourcePath",
+      "startCondition",
+      "targetPath"
     ],
     "expose": "NONE",
     "description": "Basic interface for calls ",
@@ -171,10 +171,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "scope",
       "expose",
       "module",
-      "moduleScope"
+      "moduleScope",
+      "scope"
     ],
     "superKey": "Base",
     "expose": "NONE",
@@ -245,8 +245,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "configType",
       "configFilter",
+      "configType",
       "expose"
     ],
     "superKey": "CallImpl",
@@ -265,10 +265,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "filterModule",
-      "filterSubModule",
       "configFilter",
-      "expose"
+      "expose",
+      "filterModule",
+      "filterSubModule"
     ],
     "superKey": "CallImpl",
     "expose": "WEB",
@@ -335,12 +335,12 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "rowHead",
-      "rowStart",
-      "rowEnd",
-      "length",
+      "colKeys",
       "filter",
-      "colKeys"
+      "length",
+      "rowEnd",
+      "rowHead",
+      "rowStart"
     ],
     "expose": "NONE",
     "description": "Defines access to list properties in configurations.",
@@ -417,9 +417,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "toReplace",
+      "fileEnding",
       "replaceBy",
-      "fileEnding"
+      "toReplace"
     ],
     "superKey": "DirectoryListReadCall",
     "expose": "WEB",
@@ -520,9 +520,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "unique",
+      "fieldName",
       "notNull",
-      "fieldName"
+      "unique"
     ],
     "superKey": "Config",
     "expose": "NONE",
@@ -540,11 +540,11 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
+      "cached",
       "configModelKey",
       "fileName",
       "filePath",
-      "hostKey",
-      "cached"
+      "hostKey"
     ],
     "superKey": "ResourceConfig",
     "expose": "NONE",
@@ -625,12 +625,12 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
+      "configModelKey",
+      "hostName",
+      "password",
       "port",
       "protocol",
-      "hostName",
-      "user",
-      "password",
-      "configModelKey"
+      "user"
     ],
     "interfaces": "HostProperties",
     "superKey": "ResourceConfig",
@@ -707,12 +707,12 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "rowHead",
-      "rowStart",
-      "rowEnd",
-      "length",
+      "colKeys",
       "filter",
-      "colKeys"
+      "length",
+      "rowEnd",
+      "rowHead",
+      "rowStart"
     ],
     "expose": "NONE",
     "description": "Defines default access values for ListParams",
@@ -729,12 +729,12 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "rowHead",
-      "rowStart",
-      "rowEnd",
-      "length",
+      "colKeys",
       "filter",
-      "colKeys"
+      "length",
+      "rowEnd",
+      "rowHead",
+      "rowStart"
     ],
     "expose": "NONE",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
@@ -815,9 +815,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "table",
+      "idKey",
       "naturalKeys",
-      "idKey"
+      "table"
     ],
     "superKey": "ModelConfigInterface",
     "expose": "NONE",
@@ -835,12 +835,12 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "packagePath",
-      "modelKey",
-      "localFieldKeys",
-      "superKey",
+      "fieldKeys",
       "interfaces",
-      "fieldKeys"
+      "localFieldKeys",
+      "modelKey",
+      "packagePath",
+      "superKey"
     ],
     "superKey": "Config",
     "expose": "NONE",
@@ -918,10 +918,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "shapeType",
-      "defaultImplementation",
+      "classPath",
       "create",
-      "classPath"
+      "defaultImplementation",
+      "shapeType"
     ],
     "superKey": "ModelConfigInterface",
     "expose": "NONE",
@@ -1042,11 +1042,11 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "read",
-      "write",
       "Permissions.create",
       "delete",
-      "execute"
+      "execute",
+      "read",
+      "write"
     ],
     "expose": "NONE",
     "description": "Defines the roles ",
@@ -1282,8 +1282,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "toReplace",
-      "replaceBy"
+      "replaceBy",
+      "toReplace"
     ],
     "superKey": "SimpleValueFromEoCall",
     "expose": "WEB",
@@ -1384,7 +1384,7 @@
     ],
     "superKey": "TemplateResourceCall",
     "expose": "WEB",
-    "description": "Parses the content of a DirectoryConfig configuration. ",
+    "description": "Parses the content loaded by @DirectoryReadCall.\nThis will use a FileConfig entry using @DirectoryConfig instance. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateDirResourceCall",
     "properties": {
@@ -1398,8 +1398,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "templateFileConfigKey",
-      "keepCall"
+      "keepCall",
+      "templateFileConfigKey"
     ],
     "interfaces": "CallKeep",
     "superKey": "TemplateCall",
@@ -1423,7 +1423,7 @@
     ],
     "superKey": "TemplateResourceCall",
     "expose": "WEB",
-    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "description": "Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceStoreCall",
     "properties": {
@@ -1442,7 +1442,7 @@
     ],
     "superKey": "TemplateCall",
     "expose": "WEB",
-    "description": "Executes a template configuration. Facade for the parsing method within the cache.",
+    "description": "First try to read the target file with targetFileConfigKey and use it as template if exists. If not try to use templateFileConfigKey as template with FileReadCall. After processing a FileWriteCall wth the targetConfigKey is executed.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceStoreKeepCall",
     "properties": {

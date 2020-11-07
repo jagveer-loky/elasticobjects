@@ -3,8 +3,8 @@
   "0": {
     "fieldKey": "attributeList",
     "modelKeys": "ArrayList,String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -71,8 +71,8 @@
       "53": "ModelConfigScalar",
       "54": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -87,8 +87,8 @@
       "1": "CsvConfig",
       "2": "DirectoryConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -110,8 +110,8 @@
       "8": "ModelConfigNone",
       "9": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -131,8 +131,8 @@
       "6": "ListWriteCall",
       "7": "CsvSimpleWriteCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -177,8 +177,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -193,8 +193,8 @@
       "1": "ConfigOpenApiCall",
       "2": "ConfigCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -218,8 +218,8 @@
       "10": "ListWriteCall",
       "11": "CsvSimpleWriteCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -235,8 +235,8 @@
       "2": "DirectoryConfig",
       "3": "HostConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -251,12 +251,12 @@
       "1": "ConfigCall",
       "2": "ConfigAsFlatListCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Key for configuration type.",
+    "description": "Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.",
     "naturalId": "configType"
   },
   "10": {
@@ -274,12 +274,12 @@
       "8": "ListWriteCall",
       "9": "TemplateResourceStoreCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "A content.",
+    "description": "A content for different calls. In a template context the content of the markup. ",
     "naturalId": "content"
   },
   "11": {
@@ -296,8 +296,8 @@
       "7": "ModelConfigNone",
       "8": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -364,8 +364,8 @@
       "53": "ModelConfigScalar",
       "54": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -386,8 +386,8 @@
       "7": "ModelConfigNone",
       "8": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -400,8 +400,8 @@
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -468,8 +468,8 @@
       "53": "ModelConfigScalar",
       "54": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -514,8 +514,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -525,8 +525,8 @@
   "17": {
     "fieldKey": "endDirective",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -536,8 +536,8 @@
   "18": {
     "fieldKey": "entries",
     "modelKeys": "ArrayList",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -550,8 +550,8 @@
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -587,8 +587,8 @@
       "22": "ModelConfigNone",
       "23": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -602,8 +602,8 @@
       "0": "CsvProperties",
       "1": "CsvConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -616,8 +616,8 @@
     "(ArrayList)modelList": {
       "0": "FieldExampleClass"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "FieldExampleClass.value"
   },
@@ -627,8 +627,8 @@
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -651,8 +651,8 @@
       "9": "ModelConfigNone",
       "10": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -666,8 +666,8 @@
       "0": "FieldProperties",
       "1": "FieldConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -680,8 +680,8 @@
     "(ArrayList)modelList": {
       "0": "DirectoryMapReadCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -691,8 +691,8 @@
   "27": {
     "fieldKey": "fileKey",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -709,12 +709,12 @@
       "3": "DirectoryReadCall",
       "4": "TemplateDirResourceCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "fileName",
+    "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
     "naturalId": "fileName"
   },
   "29": {
@@ -725,12 +725,12 @@
       "1": "CsvConfig",
       "2": "DirectoryConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "filePath",
+    "description": "A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ",
     "naturalId": "filePath"
   },
   "30": {
@@ -746,8 +746,8 @@
       "6": "ListWriteCall",
       "7": "CsvSimpleWriteCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -761,8 +761,8 @@
       "0": "ConfigOpenApiCall",
       "1": "ConfigCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -776,8 +776,8 @@
       "0": "ConfigOpenApiCall",
       "1": "ConfigCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -787,8 +787,8 @@
   "33": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -798,8 +798,8 @@
   "34": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -814,8 +814,8 @@
       "1": "CsvConfig",
       "2": "DirectoryConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -828,8 +828,8 @@
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -898,8 +898,8 @@
       "55": "ModelConfigScalar",
       "56": "SinusValueCall"
     },
-    "unique": true,
     "notNull": true,
+    "unique": true,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -913,8 +913,8 @@
       "0": "ModelConfigDbProperties",
       "1": "ModelConfigDbObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -924,8 +924,8 @@
   "39": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -935,8 +935,8 @@
   "40": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -959,8 +959,8 @@
       "9": "ModelConfigNone",
       "10": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -970,8 +970,8 @@
   "42": {
     "fieldKey": "javaProperties",
     "modelKeys": "Map",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -981,8 +981,8 @@
   "43": {
     "fieldKey": "join",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -992,8 +992,8 @@
   "44": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1021,8 +1021,8 @@
       "14": "CsvSimpleWriteCall",
       "15": "TemplateResourceStoreCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1032,8 +1032,8 @@
   "46": {
     "fieldKey": "key",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1053,8 +1053,8 @@
       "6": "ListWriteCall",
       "7": "CsvSimpleWriteCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1064,8 +1064,8 @@
   "48": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1088,8 +1088,8 @@
       "9": "ModelConfigNone",
       "10": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1099,8 +1099,8 @@
   "50": {
     "fieldKey": "log",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "naturalId": "log"
   },
@@ -1142,8 +1142,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1153,8 +1153,8 @@
   "52": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1164,8 +1164,8 @@
   "53": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1188,8 +1188,8 @@
       "9": "ModelConfigNone",
       "10": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1202,8 +1202,8 @@
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1216,8 +1216,8 @@
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1262,8 +1262,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1296,8 +1296,8 @@
       "19": "ModelConfigNone",
       "20": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1330,8 +1330,8 @@
       "19": "ModelConfigNone",
       "20": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1344,8 +1344,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1359,8 +1359,8 @@
       "0": "ASubObject",
       "1": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1373,8 +1373,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1387,8 +1387,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1401,8 +1401,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1415,8 +1415,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1429,8 +1429,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1443,8 +1443,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1457,8 +1457,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1471,8 +1471,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1485,8 +1485,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1499,8 +1499,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1513,8 +1513,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1528,8 +1528,8 @@
       "0": "ASubObject",
       "1": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -1542,8 +1542,8 @@
     "(ArrayList)modelList": {
       "0": "ASubObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1612,8 +1612,8 @@
       "55": "ModelConfigScalar",
       "56": "SinusValueCall"
     },
-    "unique": true,
     "notNull": true,
+    "unique": true,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1627,8 +1627,8 @@
       "0": "ModelConfigDbProperties",
       "1": "ModelConfigDbObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1642,8 +1642,8 @@
       "0": "FieldProperties",
       "1": "FieldConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1688,8 +1688,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1699,8 +1699,8 @@
   "79": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1723,8 +1723,8 @@
       "9": "ModelConfigNone",
       "10": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1737,8 +1737,8 @@
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1758,8 +1758,8 @@
       "6": "HostConfig",
       "7": "ModelConfigDbObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1772,8 +1772,8 @@
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1786,8 +1786,8 @@
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1832,8 +1832,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1878,8 +1878,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1889,8 +1889,8 @@
   "87": {
     "fieldKey": "properties",
     "modelKeys": "Map",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1903,8 +1903,8 @@
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1917,8 +1917,8 @@
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1932,8 +1932,8 @@
       "0": "DirectoryMapReadCall",
       "1": "StringReplaceCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1947,8 +1947,8 @@
       "0": "CsvProperties",
       "1": "CsvConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1968,8 +1968,8 @@
       "6": "ListWriteCall",
       "7": "CsvSimpleWriteCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1989,8 +1989,8 @@
       "6": "ListWriteCall",
       "7": "CsvSimpleWriteCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2010,8 +2010,8 @@
       "6": "ListWriteCall",
       "7": "CsvSimpleWriteCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2044,8 +2044,8 @@
       "19": "ModelConfigNone",
       "20": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2055,8 +2055,8 @@
   "96": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2069,8 +2069,8 @@
     "(ArrayList)modelList": {
       "0": "PathPattern"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2091,8 +2091,8 @@
       "7": "ModelConfigNone",
       "8": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2137,8 +2137,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2183,8 +2183,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2194,8 +2194,8 @@
   "101": {
     "fieldKey": "startDirective",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2208,8 +2208,8 @@
     "(ArrayList)modelList": {
       "0": "SubExampleClass"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "SubExampleClass.name"
   },
@@ -2219,8 +2219,8 @@
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.id"
   },
@@ -2230,8 +2230,8 @@
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.subClass"
   },
@@ -2251,8 +2251,8 @@
       "9": "ModelConfigNone",
       "10": "ModelConfigScalar"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2266,8 +2266,8 @@
       "0": "ModelConfigDbProperties",
       "1": "ModelConfigDbObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2277,23 +2277,23 @@
   "107": {
     "fieldKey": "targetConfigKey",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
     "naturalId": "targetConfigKey"
   },
   "108": {
     "fieldKey": "targetFile",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
     "naturalId": "targetFile"
   },
   "109": {
@@ -2303,8 +2303,8 @@
       "0": "TemplateResourceStoreKeepCall",
       "1": "TemplateResourceStoreCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2349,8 +2349,8 @@
       "31": "TemplateResourceStoreCall",
       "32": "SinusValueCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2366,12 +2366,12 @@
       "2": "TemplateResourceStoreKeepCall",
       "3": "TemplateResourceStoreCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
     "naturalId": "templateFileConfigKey"
   },
   "112": {
@@ -2381,8 +2381,8 @@
       "0": "DirectoryMapReadCall",
       "1": "StringReplaceCall"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2396,8 +2396,8 @@
       "0": "FieldProperties",
       "1": "FieldConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2407,9 +2407,9 @@
   "114": {
     "fieldKey": "ID",
     "modelKeys": "Long",
-    "unique": true,
-    "notNull": true,
     "fieldName": "ID",
+    "notNull": true,
+    "unique": true,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2422,8 +2422,8 @@
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2433,8 +2433,8 @@
   "116": {
     "fieldKey": "value",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2444,8 +2444,8 @@
   "117": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -2458,8 +2458,8 @@
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",

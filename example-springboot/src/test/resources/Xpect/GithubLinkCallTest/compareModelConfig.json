@@ -1,41 +1,41 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "CALL_BEAN",
-    "create": true,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
-    "modelKey": "GithubLinkCall",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "(ArrayList)fieldKeys": {
+      "0": "configKey",
+      "1": "configType",
+      "2": "condition",
+      "3": "duration",
+      "4": "logLevel",
+      "5": "models",
+      "6": "overwrite",
+      "7": "postpend",
+      "8": "prepend",
+      "9": "sourcePath",
+      "10": "startCondition",
+      "11": "targetPath",
+      "12": "author",
+      "13": "creationDate",
+      "14": "description",
+      "15": "id",
+      "16": "naturalId"
+    },
     "(ArrayList)localFieldKeys": {
       "0": "configKey",
       "1": "configType"
     },
+    "modelKey": "GithubLinkCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "superKey": "SimpleValueFromEoCall",
-    "(ArrayList)fieldKeys": {
-      "0": "configKey",
-      "1": "configType",
-      "2": "sourcePath",
-      "3": "targetPath",
-      "4": "models",
-      "5": "condition",
-      "6": "startCondition",
-      "7": "overwrite",
-      "8": "logLevel",
-      "9": "duration",
-      "10": "prepend",
-      "11": "postpend",
-      "12": "id",
-      "13": "description",
-      "14": "naturalId",
-      "15": "creationDate",
-      "16": "author"
-    },
     "(Expose)expose": "WEB",
     "module": "example-springboot",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
-    "naturalId": "GithubLinkCall",
-    "author": "Werner Diwischek"
+    "naturalId": "GithubLinkCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

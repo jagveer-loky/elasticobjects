@@ -66,12 +66,13 @@ public class GenerateJsonConfigCall extends GenerateCall  {
         EO eoPath = ProviderRootTestScope.createEo();
         this.configType = ParserSqareBracket.replacePathValues(configType, eo);
         eoPath.set(configType, CONFIG_TYPE);
+        eoPath.set(getFileEnding(), FILE_ENDING);
         for (String module: eo.keys()) {
             if ("basic".equals(module)) {
                 continue;
             }
-            EO child = eo.getEo(module);
-            if (child.isEmpty()) {
+            EO eoModule = eo.getEo(module);
+            if (eoModule.isEmpty()) {
                 continue;
             }
             if (hasModule() && !getModule().equals("*") && !module.matches(getModule())) {
@@ -79,22 +80,24 @@ public class GenerateJsonConfigCall extends GenerateCall  {
                 continue;
             }
             eoPath.set(module, MODULE);
-            for (String moduleScope: child.keys()) {
-                if (child.isEmpty()) {
+            for (String moduleScope: eoModule.keys()) {
+                if (eoModule.isEmpty()) {
                     continue;
                 }
                 eoPath.set(moduleScope, MODULE_SCOPE);
                 Map result = new LinkedHashMap();
-                Map<String, Object> configurations = (Map<String, Object>)child.get(moduleScope);
+                EO eoModuleScope = eoModule.getEo(moduleScope);
+                Map<String, Object> configurations = (Map<String, Object>)eoModuleScope.get();
                 for (String id: configurations.keySet()) {
-                    Map configurationMap = (Map)configurations.get(id);
+                    EO eoConfiguration = eoModuleScope.getEo(id);
+                    Map configurationMap = (Map)eoConfiguration.get();
                     String naturalId = (String)configurationMap.get(NATURAL_ID);
                     if (naturalId == null || naturalId.isEmpty()) {
                         throw new EoInternalException("Could not found natural Id in config " + eo.toString());
                     }
                     if (ModelConfig.class.getSimpleName().equals(getConfigType())) {
-                        FieldHelper fields = new FieldHelper(configurationMap.get(FIELD_KEYS), "jsonIgnore", "override");
-                            configurationMap.put(FIELD_KEYS, fields.getFieldKeys());
+                        FieldHelper fieldMap = new FieldHelper(eoConfiguration);
+                        configurationMap.put(FIELD_KEYS, fieldMap.filterKeys());
                     }
                     configurationMap.remove(NATURAL_ID);
                     result.put(naturalId, configurationMap);

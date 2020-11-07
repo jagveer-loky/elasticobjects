@@ -1,40 +1,40 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "CALL_BEAN",
-    "create": true,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
-    "modelKey": "TemplateCall",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "(ArrayList)fieldKeys": {
+      "0": "content",
+      "1": "condition",
+      "2": "duration",
+      "3": "logLevel",
+      "4": "models",
+      "5": "overwrite",
+      "6": "postpend",
+      "7": "prepend",
+      "8": "sourcePath",
+      "9": "startCondition",
+      "10": "targetPath",
+      "11": "author",
+      "12": "creationDate",
+      "13": "description",
+      "14": "id",
+      "15": "naturalId"
+    },
+    "interfaces": "CallContent",
     "(ArrayList)localFieldKeys": {
       "0": "content"
     },
+    "modelKey": "TemplateCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "superKey": "CallImpl",
-    "interfaces": "CallContent",
-    "(ArrayList)fieldKeys": {
-      "0": "content",
-      "1": "sourcePath",
-      "2": "targetPath",
-      "3": "models",
-      "4": "condition",
-      "5": "startCondition",
-      "6": "overwrite",
-      "7": "logLevel",
-      "8": "duration",
-      "9": "prepend",
-      "10": "postpend",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
-    },
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "Executes a template content. ",
-    "naturalId": "TemplateCall",
-    "author": "Werner Diwischek"
+    "naturalId": "TemplateCall"
   },
   "(LogLevel)_logLevel": "WARN"
 }

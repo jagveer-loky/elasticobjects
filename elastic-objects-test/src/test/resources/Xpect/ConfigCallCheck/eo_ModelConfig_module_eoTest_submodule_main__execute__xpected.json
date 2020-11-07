@@ -1,85 +1,85 @@
 {
   "0": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-    "modelKey": "AnObject",
-    "(ArrayList)localFieldKeys": {
-      "0": "id",
-      "1": "naturalId",
-      "2": "myAnObject",
-      "3": "myASubObject",
-      "4": "myASubObjectList",
-      "5": "myASubObjectMap",
-      "6": "myList",
-      "7": "myMap",
-      "8": "myInt",
-      "9": "myString",
-      "10": "myLong",
-      "11": "myDate",
-      "12": "myBoolean",
-      "13": "myFloat",
-      "14": "myDouble",
-      "15": "myObject"
-    },
     "(ArrayList)fieldKeys": {
       "0": "id",
-      "1": "naturalId",
-      "2": "myAnObject",
-      "3": "myASubObject",
-      "4": "myASubObjectList",
-      "5": "myASubObjectMap",
-      "6": "myList",
-      "7": "myMap",
-      "8": "myInt",
-      "9": "myString",
-      "10": "myLong",
-      "11": "myDate",
-      "12": "myBoolean",
-      "13": "myFloat",
-      "14": "myDouble",
-      "15": "myObject"
+      "1": "myASubObject",
+      "2": "myASubObjectList",
+      "3": "myASubObjectMap",
+      "4": "myAnObject",
+      "5": "myBoolean",
+      "6": "myDate",
+      "7": "myDouble",
+      "8": "myFloat",
+      "9": "myInt",
+      "10": "myList",
+      "11": "myLong",
+      "12": "myMap",
+      "13": "myObject",
+      "14": "myString",
+      "15": "naturalId"
     },
+    "(ArrayList)localFieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "myASubObjectList",
+      "3": "myASubObjectMap",
+      "4": "myAnObject",
+      "5": "myBoolean",
+      "6": "myDate",
+      "7": "myDouble",
+      "8": "myFloat",
+      "9": "myInt",
+      "10": "myList",
+      "11": "myLong",
+      "12": "myMap",
+      "13": "myObject",
+      "14": "myString",
+      "15": "naturalId"
+    },
+    "modelKey": "AnObject",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
-    "naturalId": "AnObject",
     "author": "Werner Diwischek",
+    "description": "Model class with different types of fields including generic collections, maps and @link ASubObject objects.",
+    "naturalId": "AnObject",
     "permissionRole": {
       "read": "guest"
     },
-    "(ShapeTypes)shapeType": "BEAN",
+    "classPath": "src.main.java",
     "create": true,
-    "classPath": "src.main.java"
+    "(ShapeTypes)shapeType": "BEAN"
   },
   "1": {
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-    "modelKey": "ASubObject",
-    "(ArrayList)localFieldKeys": {
-      "0": "id",
-      "1": "naturalId",
-      "2": "myASubObject",
-      "3": "name",
-      "4": "myString"
-    },
     "(ArrayList)fieldKeys": {
       "0": "id",
-      "1": "naturalId",
-      "2": "myASubObject",
+      "1": "myASubObject",
+      "2": "myString",
       "3": "name",
-      "4": "myString"
+      "4": "naturalId"
     },
+    "(ArrayList)localFieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "myString",
+      "3": "name",
+      "4": "naturalId"
+    },
+    "modelKey": "ASubObject",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "A sub object as an example.",
     "naturalId": "ASubObject",
-    "author": "Werner Diwischek",
     "permissionRole": {
       "read": "guest"
     },
-    "(ShapeTypes)shapeType": "BEAN",
+    "classPath": "src.main.java",
     "create": true,
-    "classPath": "src.main.java"
+    "(ShapeTypes)shapeType": "BEAN"
   },
   "(LogLevel)_logLevel": "WARN"
 }

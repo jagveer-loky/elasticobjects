@@ -8,7 +8,8 @@ public enum Moduls {
     EO_DB("eo-db"),
     EO_TEST("elastic-objects-test"),
     EO_XLSX("eo-xlsx"),
-    SP("example-springboot");
+    SP("example-springboot"),
+    ALL(".*");
     private String name;
     Moduls(final String name) {
         this.name = name;

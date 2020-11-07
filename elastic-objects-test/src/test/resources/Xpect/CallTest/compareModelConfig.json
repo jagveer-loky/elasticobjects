@@ -1,41 +1,41 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "INTERFACE",
-    "create": false,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "Call",
-    "(ArrayList)localFieldKeys": {
-      "0": "sourcePath",
-      "1": "targetPath",
-      "2": "models",
-      "3": "condition",
-      "4": "startCondition",
-      "5": "overwrite",
-      "6": "logLevel",
-      "7": "duration",
-      "8": "prepend",
-      "9": "postpend"
-    },
+    "create": false,
+    "(ShapeTypes)shapeType": "INTERFACE",
     "(ArrayList)fieldKeys": {
-      "0": "sourcePath",
-      "1": "targetPath",
-      "2": "models",
-      "3": "condition",
-      "4": "startCondition",
-      "5": "overwrite",
-      "6": "logLevel",
-      "7": "duration",
-      "8": "prepend",
-      "9": "postpend"
+      "0": "condition",
+      "1": "duration",
+      "2": "logLevel",
+      "3": "models",
+      "4": "overwrite",
+      "5": "postpend",
+      "6": "prepend",
+      "7": "sourcePath",
+      "8": "startCondition",
+      "9": "targetPath"
     },
+    "(ArrayList)localFieldKeys": {
+      "0": "condition",
+      "1": "duration",
+      "2": "logLevel",
+      "3": "models",
+      "4": "overwrite",
+      "5": "postpend",
+      "6": "prepend",
+      "7": "sourcePath",
+      "8": "startCondition",
+      "9": "targetPath"
+    },
+    "modelKey": "Call",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "Basic interface for calls ",
-    "naturalId": "Call",
-    "author": "Werner Diwischek"
+    "naturalId": "Call"
   },
   "(LogLevel)_logLevel": "WARN"
 }

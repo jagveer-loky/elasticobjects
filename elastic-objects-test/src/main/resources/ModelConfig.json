@@ -5,24 +5,24 @@
     "moduleScope": "main",
     "fieldKeys": [
       "id",
-      "naturalId",
-      "myAnObject",
       "myASubObject",
       "myASubObjectList",
       "myASubObjectMap",
-      "myList",
-      "myMap",
-      "myInt",
-      "myString",
-      "myLong",
-      "myDate",
+      "myAnObject",
       "myBoolean",
-      "myFloat",
+      "myDate",
       "myDouble",
-      "myObject"
+      "myFloat",
+      "myInt",
+      "myList",
+      "myLong",
+      "myMap",
+      "myObject",
+      "myString",
+      "naturalId"
     ],
     "expose": "WEB",
-    "description": "Model class with different types of fields including generic collections, maps and {@link ASubObject} objects.",
+    "description": "Model class with different types of fields including generic collections, maps and @link ASubObject objects.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "AnObject",
     "properties": {
@@ -41,10 +41,10 @@
     "moduleScope": "main",
     "fieldKeys": [
       "id",
-      "naturalId",
       "myASubObject",
+      "myString",
       "name",
-      "myString"
+      "naturalId"
     ],
     "expose": "WEB",
     "description": "A sub object as an example.",

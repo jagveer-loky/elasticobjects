@@ -6,8 +6,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -21,8 +21,8 @@
       "0": "ASubObject",
       "1": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -35,8 +35,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -49,8 +49,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -63,8 +63,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -77,8 +77,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -91,8 +91,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -105,8 +105,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -119,8 +119,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -133,8 +133,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -147,8 +147,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -161,8 +161,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -175,8 +175,8 @@
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -190,8 +190,8 @@
       "0": "ASubObject",
       "1": "AnObject"
     },
-    "unique": false,
     "notNull": false,
+    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",

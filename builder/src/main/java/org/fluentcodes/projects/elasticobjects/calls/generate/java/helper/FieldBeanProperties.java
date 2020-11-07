@@ -90,9 +90,9 @@ public interface FieldBeanProperties extends FieldProperties {
     }
 
     default boolean hasOverride() {
-        return getOverride()!=null;
+        return getOverride()!=null&&getOverride();
     }
-    
+
     default Boolean getOverride () {
         return (Boolean) getProperties().get(OVERRIDE);
     }
@@ -117,6 +117,30 @@ public interface FieldBeanProperties extends FieldProperties {
         }
         getProperties().put(OVERRIDE, false );
     }
+
+    default boolean hasJsonIgnore() {
+        return getJsonIgnore()!=null && getJsonIgnore();
+    }
+    
+    default Boolean getJsonIgnore () {
+        return (Boolean) getProperties().get(OVERRIDE);
+    }
+
+    default void setJsonIgnore (String value) {
+        if (hasJsonIgnore()) {
+            return;
+        }
+        getProperties().put(OVERRIDE, "true".equals(value) );
+    }
+
+    default void setJsonIgnore (Boolean value) {
+        if (hasJsonIgnore()) {
+            return;
+        }
+        getProperties().put(OVERRIDE, value );
+    }
+
+
 
     default boolean hasDescription() {
         return getDescription()!=null && !getDescription().isEmpty();

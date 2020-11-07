@@ -1,39 +1,39 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ShapeTypes)shapeType": "CONFIG",
-    "create": false,
     "classPath": "src.main.java",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
-    "modelKey": "XlsxConfig",
+    "create": false,
+    "(ShapeTypes)shapeType": "CONFIG",
+    "(ArrayList)fieldKeys": {
+      "0": "sheetName",
+      "1": "cached",
+      "2": "configModelKey",
+      "3": "fileName",
+      "4": "filePath",
+      "5": "hostKey",
+      "6": "permissionRole",
+      "7": "expose",
+      "8": "module",
+      "9": "moduleScope",
+      "10": "scope",
+      "11": "author",
+      "12": "creationDate",
+      "13": "description",
+      "14": "id",
+      "15": "naturalId"
+    },
     "(ArrayList)localFieldKeys": {
       "0": "sheetName"
     },
+    "modelKey": "XlsxConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "superKey": "FileConfig",
-    "(ArrayList)fieldKeys": {
-      "0": "sheetName",
-      "1": "configModelKey",
-      "2": "fileName",
-      "3": "filePath",
-      "4": "hostKey",
-      "5": "cached",
-      "6": "permissionRole",
-      "7": "scope",
-      "8": "expose",
-      "9": "module",
-      "10": "moduleScope",
-      "11": "id",
-      "12": "description",
-      "13": "naturalId",
-      "14": "creationDate",
-      "15": "author"
-    },
     "(Expose)expose": "NONE",
     "module": "eo-xlsx",
     "moduleScope": "main",
+    "author": "Werner Diwischek",
     "description": "The cache class for excel access. Contains the file cache.",
-    "naturalId": "XlsxConfig",
-    "author": "Werner Diwischek"
+    "naturalId": "XlsxConfig"
   },
   "(LogLevel)_logLevel": "WARN"
 }
