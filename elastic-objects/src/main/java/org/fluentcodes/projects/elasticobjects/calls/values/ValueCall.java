@@ -3,13 +3,14 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 
 /**
  * Add value to eo.
  * Created by Werner on 02.08.2020.
  */
 
-public class ValueCall extends CallImpl implements CallContent {
+public class ValueCall extends CallImpl implements CallContent, SimpleCommand {
     public static final String CONTENT = "content";
     private String content;
     public ValueCall() {

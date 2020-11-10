@@ -40,6 +40,15 @@
             "type": "integer",
             "format": "int62"
           },
+          "keepCall": {
+            "description": "Will use an existing  result file beforehand as template. ",
+            "type": "string",
+            "(ArrayList)enum": {
+              "(KeepCalls)0": "HTML",
+              "(KeepCalls)1": "JAVA",
+              "(KeepCalls)2": "NONE"
+            }
+          },
           "logLevel": {
             "description": "logLevel",
             "type": "string",

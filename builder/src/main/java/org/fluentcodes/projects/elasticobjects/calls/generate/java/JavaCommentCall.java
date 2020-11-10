@@ -1,7 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.values.SimpleValueFromEoCall;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Werner on 6.11.2020.
  */
-public class JavaCommentCall extends SimpleValueFromEoCall {
+public class JavaCommentCall extends CallImpl implements SimpleCommand {
     private static final Pattern linkPattern = Pattern.compile("@([^\\s\\.,]*)([\\s\\.,])");
 
 

@@ -1,15 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
 import au.com.bytecode.opencsv.CSVReader;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,17 +27,14 @@ public class CsvReadCall extends CsvSimpleReadCall {
     }
 
     @Override
-    public Class<? extends Config> getConfigClass()  {
-        return FileConfig.class;
-    }
-
-    @Override
     public List readRaw(final EO eo) {
-        URL url = getCsvConfig().findUrl();
+        CsvConfig config = (CsvConfig) init(PermissionType.READ, eo);
+        getListParams().merge(config.getProperties());
+        URL url = config.findUrl();
         //System.out.println("CSV " + url.toString());
         CSVReader reader = null;
         try {
-            reader = new CSVReader(new InputStreamReader(url.openStream()), getCsvConfig().getFieldDelimiter().charAt(0));
+            reader = new CSVReader(new InputStreamReader(url.openStream()), config.getFieldDelimiter().charAt(0));
         } catch (IOException e) {
             throw new EoException(e);
         }

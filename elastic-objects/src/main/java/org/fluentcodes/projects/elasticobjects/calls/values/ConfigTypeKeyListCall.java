@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigTypeKeyListCall extends CallImpl{
+public class ConfigTypeKeyListCall extends CallImpl  implements SimpleCommand {
     private String configFilter;
 
     @Override

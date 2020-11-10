@@ -16,6 +16,21 @@ import org.junit.Test;
 public class TemplateDirResourceCallHeaderTest {
 
     @Test
+    public void call_fileName_HeaderHtml__execute__noException() {
+        EO eo = ProviderRootTestScope.createEo();
+        TemplateDirResourceCall call = new TemplateDirResourceCall("WEB","Header.html");
+        call.execute(eo);
+    }
+
+    @Test
+    public void call_fileName_empty__execute__exception() {
+        EO eo = ProviderRootTestScope.createEo();
+        TemplateDirResourceCall call = new TemplateDirResourceCall("WEB");
+        Assertions.assertThatThrownBy(()->{call.execute(eo);})
+        .isInstanceOf(EoException.class);
+    }
+
+    @Test
     public void no_role__execute__noException() {
         EO eo = ProviderRootTestScope.createEo();
         eo.set("problem", "selectedItem");

@@ -1,6 +1,6 @@
 ===>{"(XlsxReadCall).": {
     "targetPath": "/data/=>[module]./=>[moduleScope]./=>[naturalId].",
-    "configKey": "eo.xlsx:=>[/configType].",
+    "fileConfigKey": "eo.xlsx:=>[/configType].",
     "filter": "module eq =>[/module]."
     }
 }.

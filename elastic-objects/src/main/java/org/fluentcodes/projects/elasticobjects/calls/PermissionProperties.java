@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
@@ -20,7 +21,11 @@ public interface PermissionProperties extends Config {
         return getPermissionRole().getPermissions(roleKeys);
     }
 
-    default boolean hasPermissions(PermissionType permission, List<String> roleKeys)  {
-        return permission.value() <= getPermissionRole().getPermissions(roleKeys).value();
+    default boolean hasPermissions(PermissionType callPermission, List<String> roleKeys)  {
+        int rolePermission = getPermissionRole().getPermissions(roleKeys).value();
+        if (callPermission.value() > rolePermission) {
+            throw new EoException("No permissions for roles " + roleKeys + ": " + callPermission.name() + "(" + callPermission.value() + ")");
+        }
+        return true;
     }
 }

@@ -1,55 +1,39 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteCall;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., JAVA|>}|*/
 /**
  * Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.
  * Created by Werner Diwischek at date Fri Nov 06 08:23:14 CET 2020.
  */
-public class TemplateResourceStoreCall extends TemplateResourceCall  {
+public class TemplateResourceStoreCall extends FileReadWriteCall {
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
-   public static final String TARGET_FILE_CONFIG_KEY = "targetFileConfigKey";
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
-   private  String targetFileConfigKey;
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
 /*=>{}.*/
 
     public TemplateResourceStoreCall() {
         super();
+        setCompare(true);
     }
 
-    public TemplateResourceStoreCall(String configKey) {
-        super(configKey);
+    public TemplateResourceStoreCall(final String sourceFileConfigKey, final String targetFileConfigKey) {
+        super(sourceFileConfigKey, targetFileConfigKey);
+        setCompare(true);
     }
 
-    public String execute(EO eo)  {
-        String content = super.execute(eo);
-        String targetFile = new ParserSqareBracket(getTargetFileConfigKey()).parse(eo);
-        return new FileWriteCall(targetFile, content)
-                .setCompare(true)
-                .execute(eo);
+
+        public String execute(EO eo)  {
+        String template = read(eo);
+        String content = new TemplateCall(template).execute(eo);
+        return write(eo, content);
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
-    /**
-    A target for persisting template results in TemplateResourceStoreCall. 
-    */
-    public TemplateResourceStoreCall setTargetFileConfigKey(String targetFileConfigKey) {
-        this.targetFileConfigKey = targetFileConfigKey;
-        return this;
-    }
-    
-    public String getTargetFileConfigKey () {
-       return this.targetFileConfigKey;
-    }
-    
-    public boolean hasTargetFileConfigKey () {
-        return targetFileConfigKey!= null && !targetFileConfigKey.isEmpty();
-    }
-/*=>{}.*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+ /*=>{}.*/
 }

@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleWriteCall;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListWriteCall;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * Creates a flat list from configurations.
  * Created by werner.diwischek on 8.9.2020
  */
-public class ConfigAsFlatListCall extends CallImpl {
+public class ConfigAsFlatListCall extends CallImpl  implements SimpleCommand {
     private String configType;
     private List<String> keys;
     public ConfigAsFlatListCall() {

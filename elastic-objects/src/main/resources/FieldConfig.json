@@ -41,6 +41,14 @@
     "expose": "NONE",
     "fieldKey": "colKeys"
   },
+  "compare": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Trigger a compare before writing in @FileWriteCall",
+    "expose": "NONE",
+    "fieldKey": "compare"
+  },
   "condition": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -216,6 +224,15 @@
     "fieldKey": "fieldName",
     "length": 80
   },
+  "fileConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Defines the key for a file configuration @FileConfig where to read or write a file.",
+    "expose": "NONE",
+    "fieldKey": "fileConfigKey",
+    "length": 80
+  },
   "fileEnding": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -224,15 +241,6 @@
     "expose": "NONE",
     "fieldKey": "fileEnding",
     "length": 16
-  },
-  "fileKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A key for file objects.",
-    "expose": "NONE",
-    "fieldKey": "fileKey",
-    "length": 80
   },
   "fileName": {
     "module": "elastic-objects",
@@ -296,13 +304,13 @@
     "expose": "NONE",
     "fieldKey": "hibernateAnnotations"
   },
-  "hostKey": {
+  "hostConfigKey": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A key for host objects.",
     "expose": "NONE",
-    "fieldKey": "hostKey",
+    "fieldKey": "hostConfigKey",
     "length": 80
   },
   "hostName": {
@@ -724,6 +732,15 @@
     "description": "shapeType",
     "expose": "NONE",
     "fieldKey": "shapeType"
+  },
+  "sourceFileConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Defines the key for a file configuration @FileConfig where to read a file.",
+    "expose": "NONE",
+    "fieldKey": "sourceFileConfigKey",
+    "length": 80
   },
   "sourcePath": {
     "module": "elastic-objects",

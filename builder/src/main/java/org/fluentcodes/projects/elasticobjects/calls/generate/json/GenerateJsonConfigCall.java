@@ -1,10 +1,11 @@
-package org.fluentcodes.projects.elasticobjects.calls.generate;
+package org.fluentcodes.projects.elasticobjects.calls.generate.json;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -23,7 +24,7 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_K
  * Call for generation json configurations from the sheet.
  * Created by Werner Diwischek at date Thu Nov 05 15:31:43 CET 2020.
  */
-public class GenerateJsonConfigCall extends GenerateCall  {
+public class GenerateJsonConfigCall extends GenerateCall {
 /*=>{}.*/
     public GenerateJsonConfigCall() {
         super();

@@ -20,7 +20,8 @@
   "XlsxReadCall": {
     "module": "eo-xlsx",
     "moduleScope": "main",
-    "superKey": "ListReadCall",
+    "interfaces": "ListInterface",
+    "superKey": "FileReadCall",
     "expose": "WEB",
     "description": "Executes a call  for the file and sheet defined in XlsxConfig configuration.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",

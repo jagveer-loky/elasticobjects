@@ -69,6 +69,7 @@
     "fieldKeys": [
       "condition",
       "duration",
+      "keepCall",
       "logLevel",
       "models",
       "overwrite",
@@ -109,7 +110,7 @@
   "CallImpl": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "Call",
+    "interfaces": "SimpleCommand",
     "superKey": "BaseImpl",
     "expose": "NONE",
     "description": "Basic implementation for calls. ",
@@ -119,23 +120,6 @@
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "CallKeep": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "keepCall"
-    ],
-    "expose": "NONE",
-    "description": "Interface for call implementing keepCall attribute. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "CallKeep",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -225,6 +209,21 @@
     },
     "author": "Werner Diwischek"
   },
+  "ConfigDirectoryReadCommand": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "Call",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with  fileConfigKey, fileName, targetPath, condition and keepCall values. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "ConfigDirectoryReadCommand",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
   "ConfigImpl": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -249,6 +248,7 @@
       "configType",
       "expose"
     ],
+    "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For getting a list of keys for a specific configuration type.",
@@ -270,6 +270,7 @@
       "filterModule",
       "filterSubModule"
     ],
+    "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Creates an open api schema from model configuration.",
@@ -282,9 +283,40 @@
     },
     "author": "Werner Diwischek"
   },
+  "ConfigReadCommand": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "Call",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with  fileConfigKey, targetPath, condition and keepCall values. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "ConfigReadCommand",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ConfigReadWriteCommand": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "Call",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with  sourceFileConfigKey, targetFileConfigKey, condition and keepCall values. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "ConfigReadWriteCommand",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
   "ConfigTypesCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For getting a list of keys for a configuration types.",
@@ -294,6 +326,21 @@
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ConfigWriteCommand": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "Call",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with  fileConfigKey, sourcePath, condition and keepCall values. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "ConfigWriteCommand",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -331,32 +378,11 @@
     },
     "author": "Werner Diwischek"
   },
-  "ListProperties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "colKeys",
-      "filter",
-      "length",
-      "rowEnd",
-      "rowHead",
-      "rowStart"
-    ],
-    "expose": "NONE",
-    "description": "Defines access to list properties in configurations.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ListProperties",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
   "CsvSimpleReadCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "ListReadCall",
+    "interfaces": "ListInterface",
+    "superKey": "FileReadCall",
     "expose": "WEB",
     "description": "Defines a primitive csv file read operation. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -371,7 +397,7 @@
   "CsvSimpleWriteCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "ListReadCall",
+    "superKey": "FileWriteCall",
     "expose": "WEB",
     "description": "Defines a primitive csv file write operation. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -439,11 +465,30 @@
     "fieldKeys": [
       "fileName"
     ],
+    "interfaces": "ConfigDirectoryReadCommand",
     "superKey": "FileReadCall",
     "expose": "WEB",
-    "description": "Defines a file read for a directory. ",
+    "description": "Defines a file read operation for a directory configuration @DirectoryConfig specified by fileConfigKey. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "DirectoryReadCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DirectoryWriteCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "fileName"
+    ],
+    "superKey": "FileWriteCall",
+    "expose": "WEB",
+    "description": "Defines a file write operation for a directory configuration @DirectoryConfig specified by fileConfigKey. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "DirectoryWriteCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -536,6 +581,25 @@
     },
     "author": "Werner Diwischek"
   },
+  "FileCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "fileConfigKey"
+    ],
+    "interfaces": "CallContent",
+    "superKey": "HostCall",
+    "expose": "NONE",
+    "description": "Super class for file calls with one configuration key. Extends @HostCall. Provide an init method to resolve @FileConfig and @HostConfig",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "FileCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "FileConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -544,7 +608,7 @@
       "configModelKey",
       "fileName",
       "filePath",
-      "hostKey"
+      "hostConfigKey"
     ],
     "superKey": "ResourceConfig",
     "expose": "NONE",
@@ -561,7 +625,8 @@
   "FileReadCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "ResourceReadCall",
+    "interfaces": "ConfigReadCommand",
+    "superKey": "FileCall",
     "expose": "WEB",
     "description": "Read content of a file. Put it to targetPath in in when targetPath not equals \"_asString\".",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
@@ -573,15 +638,35 @@
     },
     "author": "Werner Diwischek"
   },
+  "FileReadWriteCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "sourceFileConfigKey",
+      "targetFileConfigKey"
+    ],
+    "interfaces": "ConfigReadWriteCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Read content of a file specified by sourceFileConfigKey referencing a FileConfig with this key. Afterwards it will store it to the file configuration with key targetFileConfigKey. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "FileReadWriteCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "FileWriteCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "classPath",
+      "compare",
       "content"
     ],
-    "interfaces": "CallContent",
-    "superKey": "ResourceWriteCall",
+    "interfaces": "ConfigWriteCommand,CallContent",
+    "superKey": "FileCall",
     "expose": "WEB",
     "description": "Write content or serialized eo to a file. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
@@ -607,19 +692,24 @@
     },
     "author": "java"
   },
-  "TreeMap": {
-    "configModelKey": "ModelConfigMap",
+  "HostCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "fieldKeys": [
+      "hostConfigKey"
+    ],
+    "interfaces": "Call",
+    "superKey": "CallImpl",
     "expose": "NONE",
-    "packagePath": "java.util",
-    "modelKey": "TreeMap",
+    "description": "Super class for file calls with a configuration key to resolve @HostConfig with init method. Extends @CallImpl. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "HostCall",
     "properties": {
       "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "MAP"
+      "create": false,
+      "shapeType": "CALL_BEAN"
     },
-    "author": "java"
+    "author": "Werner Diwischek"
   },
   "HostConfig": {
     "module": "elastic-objects",
@@ -656,6 +746,25 @@
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JsonWriteCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "indent",
+      "serializationType"
+    ],
+    "superKey": "FileWriteCall",
+    "expose": "WEB",
+    "description": "Serialize the value of the sourcePath as JSON and write it to a file",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "JsonWriteCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
     },
     "author": "Werner Diwischek"
   },
@@ -747,35 +856,25 @@
     },
     "author": "Werner Diwischek"
   },
-  "ListReadCall": {
+  "ListProperties": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "ListInterface",
-    "superKey": "ResourceReadCall",
+    "fieldKeys": [
+      "colKeys",
+      "filter",
+      "length",
+      "rowEnd",
+      "rowHead",
+      "rowStart"
+    ],
     "expose": "NONE",
-    "description": "Defines the parameter listParams.",
+    "description": "Defines access to list properties in configurations.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ListReadCall",
+    "modelKey": "ListProperties",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ListWriteCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "interfaces": "ListInterface",
-    "superKey": "ResourceWriteCall",
-    "expose": "NONE",
-    "description": "...",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "ListWriteCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CALL_BEAN"
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -1038,6 +1137,22 @@
     },
     "author": "Werner Diwischek"
   },
+  "PermissionProperties": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "permissionRole"
+    ],
+    "expose": "NONE",
+    "description": "Interface with permissions methods ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "modelKey": "PermissionProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    }
+  },
   "PermissionRole": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1059,25 +1174,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "ResourceCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "configKey"
-    ],
-    "interfaces": "CallKeep",
-    "superKey": "CallImpl",
-    "expose": "NONE",
-    "description": "Super class for class using ResourceConfigs with permission rights. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "ResourceCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
   "ResourceConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1092,59 +1188,6 @@
       "create": false,
       "shapeType": "CONFIG"
     }
-  },
-  "PermissionProperties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "permissionRole"
-    ],
-    "expose": "NONE",
-    "description": "Interface with permissions methods ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "PermissionProperties",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
-    }
-  },
-  "ResourceReadCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "configKey"
-    ],
-    "superKey": "ResourceCall",
-    "expose": "NONE",
-    "description": "Super class for class using ResourceConfigs with READ right. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "ResourceReadCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ResourceWriteCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "configKey"
-    ],
-    "interfaces": "CallContent",
-    "superKey": "ResourceCall",
-    "expose": "NONE",
-    "description": "Super class for class using ResourceConfigs with Write right. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "ResourceWriteCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
   },
   "Scope": {
     "configModelKey": "ModelConfigScalar",
@@ -1205,24 +1248,25 @@
     },
     "author": "java"
   },
-  "SimpleValueFromEoCall": {
+  "SimpleCommand": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "CallImpl",
-    "expose": "WEB",
-    "description": "For setting a value to EO.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
-    "modelKey": "SimpleValueFromEoCall",
+    "superKey": "Call",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with  sourcePath, targetPath and condition values.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "SimpleCommand",
     "properties": {
       "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
   "SinusValueCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For setting sinus value to EO.",
@@ -1266,7 +1310,8 @@
   "StringLowerCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For setting lower value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
@@ -1285,7 +1330,8 @@
       "replaceBy",
       "toReplace"
     ],
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
@@ -1300,7 +1346,8 @@
   "StringReplaceWhiteSpaceCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Replaces white space with underscore.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
@@ -1315,7 +1362,8 @@
   "StringReplaceWithHtmlCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Replaces white space with underscore.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
@@ -1330,7 +1378,8 @@
   "StringUpperCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For setting upper value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
@@ -1345,7 +1394,8 @@
   "StringUpperFirstCharCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For setting upper value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
@@ -1363,7 +1413,7 @@
     "fieldKeys": [
       "content"
     ],
-    "interfaces": "CallContent",
+    "interfaces": "CallContent,SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Executes a template content. ",
@@ -1379,10 +1429,7 @@
   "TemplateDirResourceCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": [
-      "fileName"
-    ],
-    "superKey": "TemplateResourceCall",
+    "superKey": "DirectoryReadCall",
     "expose": "WEB",
     "description": "Parses the content loaded by @DirectoryReadCall.\nThis will use a FileConfig entry using @DirectoryConfig instance. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
@@ -1397,12 +1444,7 @@
   "TemplateResourceCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": [
-      "keepCall",
-      "templateFileConfigKey"
-    ],
-    "interfaces": "CallKeep",
-    "superKey": "TemplateCall",
+    "superKey": "FileReadCall",
     "expose": "WEB",
     "description": "Parses the content of a FileConfig configuration. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
@@ -1417,11 +1459,7 @@
   "TemplateResourceStoreCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": [
-      "targetFileConfigKey",
-      "templateFileConfigKey"
-    ],
-    "superKey": "TemplateResourceCall",
+    "superKey": "FileReadWriteCall",
     "expose": "WEB",
     "description": "Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
@@ -1436,11 +1474,7 @@
   "TemplateResourceStoreKeepCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": [
-      "targetFileConfigKey",
-      "templateFileConfigKey"
-    ],
-    "superKey": "TemplateCall",
+    "superKey": "FileReadWriteCall",
     "expose": "WEB",
     "description": "First try to read the target file with targetFileConfigKey and use it as template if exists. If not try to use templateFileConfigKey as template with FileReadCall. After processing a FileWriteCall wth the targetConfigKey is executed.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
@@ -1452,10 +1486,24 @@
     },
     "author": "Werner Diwischek"
   },
+  "TreeMap": {
+    "configModelKey": "ModelConfigMap",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "packagePath": "java.util",
+    "modelKey": "TreeMap",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "MAP"
+    },
+    "author": "java"
+  },
   "ValueCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "CallContent",
+    "interfaces": "CallContent,SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For setting values to EO.",

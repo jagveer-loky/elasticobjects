@@ -4,6 +4,7 @@
 "cached";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"cached";"";"";"";"";
 "classPath";"String";"Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ";"elastic-objects";"";"classPath";"";"";"";"";
 "colKeys";"ArrayList,String";"The key list for mapping values in a value list. ";"elastic-objects";"";"colKeys";"";"";"";"";
+"compare";"Boolean";"Trigger a compare before writing in @FileWriteCall";"elastic-objects";"";"compare";"";"";"";"";
 "condition";"String";"A condition for calls. ";"elastic-objects";"";"condition";"";"";"";"";
 "configFilter";"String";"Key for filter configuration";"elastic-objects";"";"configFilter";"";"";"";"";
 "configKey";"String";"Key for configuration  {@link ConfigConfig}";"elastic-objects";"";"configKey";"";"";"";"";
@@ -25,8 +26,8 @@
 "fieldKey";"String";"fieldKey";"elastic-objects";"";"fieldKey";"";"";"";"";
 "fieldKeys";"ArrayList,String";"A list of field keys for the model configuration. ";"elastic-objects";"";"fieldKeys";"";"";"";"";
 "fieldName";"String";"A name for different purposes depending on the model.";"elastic-objects";"";"fieldName";"";"";"";"";
+"fileConfigKey";"String";"Defines the key for a file configuration @FileConfig where to read or write a file.";"elastic-objects";"";"fileConfigKey";"";"";"";"";
 "fileEnding";"String";"It's used to specify the file ending in different context. ";"elastic-objects";"";"fileEnding";"";"";"";"";
-"fileKey";"String";"A key for file objects.";"elastic-objects";"";"fileKey";"";"";"";"";
 "fileName";"String";"A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"fileName";"";"";"";"";
 "filePath";"String";"A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"filePath";"";"";"";"";
 "filter";"String";"Filter for List entries.";"elastic-objects";"";"filter";"";"";"";"";
@@ -34,7 +35,7 @@
 "filterSubModule";"String";"Filter for subModules in  {@link ConfigAction}";"elastic-objects";"";"filterSubModule";"";"";"";"";
 "hibernate";"String";"hibernate";"elastic-objects";"";"hibernate";"";"";"";"";
 "hibernateAnnotations";"Boolean";"sets a Flag for using hibernate annotations when bean is created. ";"elastic-objects";"";"hibernateAnnotations";"";"";"";"";
-"hostKey";"String";"A key for host objects.";"elastic-objects";"";"hostKey";"";"";"";"";
+"hostConfigKey";"String";"A key for host objects.";"elastic-objects";"";"hostConfigKey";"";"";"";"";
 "hostName";"String";"A name for host objects.";"elastic-objects";"";"hostName";"";"";"";"";
 "id";"Long";"The id with a autonumbering";"elastic-objects";"";"id";"";"";"";"";
 "idKey";"String";"The id key defined in modelsList";"elastic-objects";"";"idKey";"";"";"";"";
@@ -98,6 +99,7 @@
 "serializationType";"JSONSerializationType";"The types of Serialization. ";"elastic-objects";"";"serializationType";"";"";"";"";
 "serialized";"String";"The serialized field for @{link pathPattern}.";"elastic-objects";"";"serialized";"";"";"";"";
 "shapeType";"ShapeTypes";"shapeType";"elastic-objects";"";"shapeType";"";"";"";"";
+"sourceFileConfigKey";"String";"Defines the key for a file configuration @FileConfig where to read a file.";"elastic-objects";"";"sourceFileConfigKey";"";"";"";"";
 "sourcePath";"String";"A sourcePath where EO offers it's input value when the execution starts.";"elastic-objects";"";"sourcePath";"";"";"";"";
 "startCondition";"String";"A condition for calls. ";"elastic-objects";"";"startCondition";"";"";"";"";
 "startDirective";"String";"A content included before template.";"elastic-objects";"";"startDirective";"";"";"";"";

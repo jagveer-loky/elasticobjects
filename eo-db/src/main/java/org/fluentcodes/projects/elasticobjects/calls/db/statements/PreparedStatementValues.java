@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db.statements;
 
+import org.fluentcodes.projects.elasticobjects.calls.db.DbConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
@@ -7,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,7 +102,7 @@ public class PreparedStatementValues {
                 }
             }
             catch (Exception e) {
-                closeAll(preparedStatement, resultSet);
+                DbConfig.closeAll(preparedStatement, resultSet);
                 throw new EoException("Exception get resultSet for sql "  + statement.toString() + ": " + e.getMessage());
             }
         } catch (SQLException e) {
@@ -111,34 +111,6 @@ public class PreparedStatementValues {
 
     }
 
-    protected static final void closeStatement(Statement statement) {
-        if (statement == null) {
-            return;
-        }
-        try {
-            statement.close();
-        } catch (Exception e) {
-            statement = null;
-            new EoInternalException("Exception closing statement : " + e.getMessage());
-        }
-    }
-
-    protected static final void closeResultSet(ResultSet resultSet) {
-        if (resultSet == null) {
-            return;
-        }
-        try {
-            resultSet.close();
-        } catch (Exception e) {
-            resultSet = null;
-            throw new EoInternalException("Exception closing resultSet: " + e.getMessage());
-        }
-    }
-
-    protected static final void closeAll(Statement statement, ResultSet resultSet) {
-        closeResultSet(resultSet);
-        closeStatement(statement);
-    }
     protected enum SqlType {
         UPDATE, INSERT, FIND, DELETE, NONE;
     }

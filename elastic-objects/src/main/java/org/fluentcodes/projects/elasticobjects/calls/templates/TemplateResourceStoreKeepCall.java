@@ -1,12 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteCall;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., JAVA|>}|*/
 /**
  * First try to read the target file with targetFileConfigKey and use it as template if exists. If not try to use templateFileConfigKey as template with FileReadCall. After processing a FileWriteCall wth the targetConfigKey is executed.
  * Created by Werner Diwischek at date
@@ -14,77 +12,34 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
  * @modificationDate test
  * @author Werner Diwischek
  */
-public class TemplateResourceStoreKeepCall extends TemplateCall  {
+public class TemplateResourceStoreKeepCall extends FileReadWriteCall {
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
-   public static final String TARGET_FILE_CONFIG_KEY = "targetFileConfigKey";
-   public static final String TEMPLATE_FILE_CONFIG_KEY = "templateFileConfigKey";
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
-   private  String targetFileConfigKey;
-   private  String templateFileConfigKey;
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
 /*=>{}.*/
 
     public TemplateResourceStoreKeepCall(String fileConfigKeyTemplate, String targetConfig) {
-        super();
-        this.templateFileConfigKey = fileConfigKeyTemplate;
-        this.targetFileConfigKey = targetConfig;
+        super(fileConfigKeyTemplate, targetConfig);
     }
 
     public String execute(EO eo)  {
-        // pre-check for write permissions...
-        FileConfig targetConfig = eo.getConfigsCache().findFile(this.targetFileConfigKey);
-        targetConfig.hasPermissions(PermissionType.WRITE, eo.getRoles());
         try {
-            setContent((String) new FileReadCall(targetFileConfigKey).execute(eo));
+            final String template = (String)new FileReadCall(getTargetFileConfigKey()).execute(eo);
+            if (!ParserCurlyBracket.containsStartSequence(template)) {
+                final String message = "Skip parsing: '" + getTargetFileConfigKey() + "' has no curly start sequences, so nothing will be done!";
+                eo.debug(message);
+                return message;
+            }
+            return write(eo, new TemplateCall(template).execute(eo));
         }
         catch (Exception e) {
-            setContent((String) new FileReadCall(templateFileConfigKey).execute(eo));
+            return write(eo, new TemplateCall(read(eo)).execute(eo));
         }
-        if (!ParserCurlyBracket.containsStartSequence(getContent())) {
-            final String targetFileName = ParserSqareBracket.replacePathValues(targetConfig.getUrlPath(), eo);
-            final String message = "Skip parsing: '" + targetFileName + "' has no curly start sequences, so nothing will be done!";
-            eo.debug(message);
-            return message;
-        }
-        String parsedResult = super.execute(eo);
-        return new FileWriteCall(targetFileConfigKey, parsedResult)
-                .setCompare(true)
-                .execute(eo);
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
-    /**
-    A target for persisting template results in TemplateResourceStoreCall. 
-    */
-    public TemplateResourceStoreKeepCall setTargetFileConfigKey(String targetFileConfigKey) {
-        this.targetFileConfigKey = targetFileConfigKey;
-        return this;
-    }
-    
-    public String getTargetFileConfigKey () {
-       return this.targetFileConfigKey;
-    }
-    
-    public boolean hasTargetFileConfigKey () {
-        return targetFileConfigKey!= null && !targetFileConfigKey.isEmpty();
-    }
-    /**
-    A target for persisting template results in TemplateResourceStoreCall. 
-    */
-    public TemplateResourceStoreKeepCall setTemplateFileConfigKey(String templateFileConfigKey) {
-        this.templateFileConfigKey = templateFileConfigKey;
-        return this;
-    }
-    
-    public String getTemplateFileConfigKey () {
-       return this.templateFileConfigKey;
-    }
-    
-    public boolean hasTemplateFileConfigKey () {
-        return templateFileConfigKey!= null && !templateFileConfigKey.isEmpty();
-    }
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
 /*=>{}.*/
 }

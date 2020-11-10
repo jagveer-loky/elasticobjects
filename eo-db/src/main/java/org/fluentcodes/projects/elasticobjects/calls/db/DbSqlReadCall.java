@@ -18,33 +18,21 @@ public class DbSqlReadCall extends DbSqlCall implements ListInterface {
     private ListParams listParams;
 
     public DbSqlReadCall()  {
-        super(PermissionType.READ);
+        super();
         listParams = new ListParams();
     }
     public DbSqlReadCall(final String hostConfigKey)  {
-        super(PermissionType.READ, hostConfigKey);
+        super(hostConfigKey);
         listParams = new ListParams();
     }
     public DbSqlReadCall(final String hostConfigKey, final String sqlConfigKey)  {
-        super(PermissionType.READ, hostConfigKey, sqlConfigKey);
+        super(hostConfigKey, sqlConfigKey);
         listParams = new ListParams();
-    }
-
-    @Override
-    public boolean init (EO eo) {
-        super.init(eo);
-        if (!hasListParams()) {
-            this.listParams = new ListParams();
-        }
-        getListParams().merge(getSqlConfig().getProperties());
-        getListParams().initDb();
-        return true;
     }
 
     @Override
     public Object execute(EO eo) {
-        init(eo);
-        return mapEo(eo, readRaw(eo, getSqlConfig().getSql()));
+        return mapEo(eo, readRaw(eo));
     }
 
     @Override
@@ -57,7 +45,7 @@ public class DbSqlReadCall extends DbSqlCall implements ListInterface {
             throw new EoException("Short form should have form '<configKey>[,<targetPath>][,<condition>][,<keepCall>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
         }
         if (array.length>0) {
-            setConfigKey(array[0]);
+            setHostConfigKey(array[0]);
         }
         if (array.length>1) {
             setSqlKey(array[1]);
@@ -73,10 +61,12 @@ public class DbSqlReadCall extends DbSqlCall implements ListInterface {
         }
     }
 
-    public List readRaw(final EO eo, final String sql) {
-        return new FindStatement(sql, eo)
+    public List readRaw(final EO eo) {
+        DbSqlConfig config = init(PermissionType.READ, eo);
+        listParams.initDb();
+        return new FindStatement(config.getSql(), eo)
                 .read(
-                getDbConfig().getConnection(),
+                getConnection(),
                 eo.getConfigsCache(),
                 listParams);
     }

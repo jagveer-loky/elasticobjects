@@ -73,9 +73,8 @@ public class FileReadCallJsonTest {
     }
 
     @Test
-    public void eo__configKey_AnObjectJson_targetPath_level0_models_List_AnObject__execute__$()  {
-        final Call call = new FileReadCall()
-                .setConfigKey("AnObject.json")
+    public void eo__fileConfigKey_AnObjectJson_targetPath_level0_models_List_AnObject__execute__$()  {
+        final Call call = new FileReadCall("AnObject.json")
                 .setTargetPath("(List," + AnObject.class.getSimpleName() + ")level0");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);

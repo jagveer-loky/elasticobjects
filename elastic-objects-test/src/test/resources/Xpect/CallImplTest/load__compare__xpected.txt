@@ -5,6 +5,7 @@
   "fieldKeys": [
     "condition",
     "duration",
+    "keepCall",
     "logLevel",
     "models",
     "overwrite",
@@ -19,7 +20,7 @@
     "id",
     "naturalId"
   ],
-  "interfaces": "Call",
+  "interfaces": "SimpleCommand",
   "modelKey": "CallImpl",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
   "superKey": "BaseImpl",

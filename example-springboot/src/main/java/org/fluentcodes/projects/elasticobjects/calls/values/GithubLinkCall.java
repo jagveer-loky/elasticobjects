@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -10,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 /**
  * Created by Werner on 30.9.2020.
  */
-public class GithubLinkCall extends SimpleValueFromEoCall {
+public class GithubLinkCall extends CallImpl {
     private static final String GITHUB_PIC = " <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>";
     private String configType;
     private String configKey;

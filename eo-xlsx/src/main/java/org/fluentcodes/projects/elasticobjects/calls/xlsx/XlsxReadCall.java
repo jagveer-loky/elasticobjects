@@ -1,13 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
-
 import org.apache.poi.ss.usermodel.Sheet;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,43 +17,38 @@ import java.util.List;
  * Reads and writes Excelsheets.
  * Created by werner.diwischek on 18.12.17.
  */
-public class XlsxReadCall extends ListReadCall {
-
+public class XlsxReadCall extends FileReadCall implements ListInterface {
+    private ListParams listParams;
     public XlsxReadCall()  {
         super();
+        listParams = new ListParams();
     }
 
     public XlsxReadCall(final String configKey)  {
         super(configKey);
+        listParams = new ListParams();
     }
 
     @Override
-    public Class<? extends Config> getConfigClass()  {
-        return FileConfig.class;
+    public ListParams getListParams() {
+        return listParams;
     }
 
     public Object execute(EO eo) {
-        init(eo);
-        getListParams().merge(getConfig().getProperties());
         return mapEo(eo, readRaw(eo));
     }
 
-    protected XlsxConfig getXlsxConfig() {
-        if (getConfig() instanceof XlsxConfig) {
-            return (XlsxConfig) getConfig();
-        }
-        throw new EoException("Could not cast to 'CsvConfig': " + getConfig().getClass().getSimpleName());
-    }
-
     public List readRaw(final EO eo) {
+        XlsxConfig config = (XlsxConfig) init(PermissionType.READ, eo);
+        getListParams().merge(config.getProperties());
         List result = new ArrayList<>();
-        Sheet sheet = getXlsxConfig().getSheet();
+        Sheet sheet = config.getSheet();
         if (sheet == null) {
-            throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + getXlsxConfig().getSheetName() + "' is undefined.");
+            throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + config.getSheetName() + "' is undefined.");
         }
         List rowEntry;
         int i = -1;
-        while((rowEntry = getXlsxConfig().getRowAsList(sheet.getRow(i+1))) != null) {
+        while((rowEntry = config.getRowAsList(sheet.getRow(i+1))) != null) {
             i++;
             if (getListParams().isRowHead(i)) {
                 if (!getListParams().hasColKeys()) {

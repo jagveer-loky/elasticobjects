@@ -7,9 +7,12 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
 
@@ -33,6 +36,7 @@ public abstract class CallImpl extends BaseImpl implements Call {
     private Long duration;
     private String prepend;
     private String postpend;
+    private KeepCalls keepCall;
 //=>{}.
 
     public CallImpl() {
@@ -40,36 +44,20 @@ public abstract class CallImpl extends BaseImpl implements Call {
         postpend = "";
     }
 
-    @Override
-    public void setByParameter(final String values) {
-        if (values == null||values.isEmpty()) {
-            throw new EoException("Set by empty input values");
-        }
-        String[] array = values.split(", ");
-        if (array.length>3) {
-            throw new EoException("Short form should have form '<sourcePath>[,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
-        }
-        setByString(array);
+    /**
+     Will use an existing  result file beforehand as template.
+     */
+    public CallImpl setKeepCall(KeepCalls keepCall) {
+        this.keepCall = keepCall;
+        return this;
     }
 
-    protected void setByString(final String[] array) {
-        if (array == null||array.length == 0) {
-            throw new EoException("Set by empty input values");
-        }
-        if (array.length>0) {
-            if (array[0].replaceAll("\\s","").isEmpty()) {
-                setSourcePath(PathElement.SAME);
-            }
-            else {
-                setSourcePath(array[0]);
-            }
-        }
-        if (array.length>1) {
-            targetPath = array[1];
-        }
-        if (array.length>2) {
-            condition = array[2];
-        }
+    public KeepCalls getKeepCall () {
+        return this.keepCall;
+    }
+
+    public boolean hasKeepCall () {
+        return keepCall!= null;
     }
 
     public void check(final EO eo) {

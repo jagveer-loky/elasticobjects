@@ -3,8 +3,11 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 
@@ -17,15 +20,13 @@ import org.fluentcodes.tools.xpect.IORuntimeException;
  * @creationDate Sat Oct 10 00:00:00 CEST 2020
  * @modificationDate Fri Nov 06 10:56:45 CET 2020
  */
-public class TemplateDirResourceCall extends TemplateResourceCall  {
+public class TemplateDirResourceCall extends DirectoryReadCall {
 /*=>{}.*/
 
     /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
-   public static final String FILE_NAME = "fileName";
 /*=>{}.*/
 
     /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
-   private  String fileName;
 /*=>{}.*/
 
     public TemplateDirResourceCall() {
@@ -35,9 +36,9 @@ public class TemplateDirResourceCall extends TemplateResourceCall  {
         super(configKey);
     }
     public TemplateDirResourceCall(final String configKey, final String fileName) {
-        super(configKey);
-        this.fileName = fileName;
+        super(configKey, fileName);
     }
+
     @Override
     public void setByParameter(final String values) {
         if (values == null||values.isEmpty()) {
@@ -45,53 +46,30 @@ public class TemplateDirResourceCall extends TemplateResourceCall  {
         }
         String[] array = values.split(", ");
         if (array.length>5) {
-            throw new EoException("Short form should have form '<configKey>[, <sourcePath>][,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+            throw new EoException("Short form should have form '<configKey>[,<targetPath>][,<condition>][,<keepCall>]' with max length 4 but has size " + array.length + ": '" + values + "'." );
         }
         if (array.length>0) {
-            setTemplateFileConfigKey(array[0]);
+            setConfigKey(array[0]);
         }
         if (array.length>1) {
-            this.fileName = array[1];
+            setFileName(array[1]);
         }
         if (array.length>2) {
-            setSourcePath( array[2]);
-        }
-        if (array.length>3) {
             setTargetPath( array[2]);
         }
+        if (array.length>3) {
+            setCondition( array[3]);
+        }
         if (array.length>4) {
-            setCondition( array[4]);
-        }
-        if (array.length>5) {
-            setKeepCall(KeepCalls.valueOf(array[5]));
-        }
-        if (!hasSourcePath()) {
-            setSourcePath(PathElement.SAME);
-        }
-        if (!hasTargetPath()) {
-            setTargetPath(PathElement.TEMPLATE);
+            setKeepCall(KeepCalls.valueOf(array[4]));
         }
     }
 
     @Override
     public String execute(EO eo)  {
-        if (!init(eo)) {
-            return "";
-        }
-        if (!hasFileName()) {
-            throw new EoException("No fileName defined for '" + getTemplateFileConfigKey() + "'");
-        }
-        if (!(hasTemplateFileConfigKey())) {
-            throw new EoException("Problem that TemplateResourceCall with fileName '" + getFileName() + "' expects a configKey value.");
-        }
-        final String directoryKey = ParserSqareBracket.replacePathValues(getTemplateFileConfigKey(),eo);
-        final String fileName = ParserSqareBracket.replacePathValues(getFileName(),eo);
-
+        String content = super.read(eo);
         try {
-            String result = new TemplateCall((String)new DirectoryReadCall(directoryKey)
-                    .setFileName(fileName)
-                    .setLogLevel(getLogLevel())
-                    .execute(eo))
+            String result = new TemplateCall(content)
                     .execute(eo);
             return result;
         }
@@ -104,20 +82,5 @@ public class TemplateDirResourceCall extends TemplateResourceCall  {
     }
 
     /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
-    /**
-    fileName
-    */
-    public TemplateDirResourceCall setFileName(String fileName) {
-        this.fileName = fileName;
-        return this;
-    }
-    
-    public String getFileName () {
-       return this.fileName;
-    }
-    
-    public boolean hasFileName () {
-        return fileName!= null && !fileName.isEmpty();
-    }
 /*=>{}.*/
 }

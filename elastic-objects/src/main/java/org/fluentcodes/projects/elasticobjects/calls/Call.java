@@ -4,12 +4,13 @@ import org.fluentcodes.projects.elasticobjects.LogLevel;
 /*=>{}.*/
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 
 /**
  * Basic interface for calls 
  * Created by Werner Diwischek on 29.9.2020.
  */
-public interface Call   {
+public interface Call  {
     String TARGET_AS_STRING = "_asString";
 
     /*==>{TemplateResourceCall->INTERFACEStaticNames.tpl, fieldMap/*, JAVA}|*/
@@ -23,6 +24,7 @@ public interface Call   {
     String SOURCE_PATH = "sourcePath";
     String START_CONDITION = "startCondition";
     String TARGET_PATH = "targetPath";
+    String KEEP_CALL = "keepCall";
     /*=>{}.*/
 
     default void initTargetPath(final Path targetPathFromCallPath) {
@@ -35,6 +37,22 @@ public interface Call   {
     void setByParameter(final String values);
     default boolean isTargetAsString() {
         return TARGET_AS_STRING.equals(getTargetPath());
+    }
+
+    boolean hasKeepCall();
+    KeepCalls getKeepCall();
+    Call setKeepCall(KeepCalls keepCalls);
+    default String getKeepEndSequence() {
+        if (!hasKeepCall()) {
+            return "";
+        }
+        return getKeepCall().getEndComment();
+    }
+    default String getKeepStartSequence() {
+        if (!hasKeepCall()) {
+            return "";
+        }
+        return getKeepCall().getStartComment();
     }
 
     /*==>{TemplateResourceCall->INTERFACESetter.tpl, fieldMap/*, JAVA}|*/

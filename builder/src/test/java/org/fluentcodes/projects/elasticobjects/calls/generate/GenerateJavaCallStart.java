@@ -8,6 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceC
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreKeepCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall.FILE_ENDING;
@@ -20,7 +21,7 @@ import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE
  * @since 9.10.2020.
  */
 public class GenerateJavaCallStart {
-
+    @Ignore
     @Test
     public void callTemplateResourceCall_JavaBuilderTpl__execute__logEmpty() {
         TemplateResourceCall call = new TemplateResourceCall("JavaBuilder.tpl");

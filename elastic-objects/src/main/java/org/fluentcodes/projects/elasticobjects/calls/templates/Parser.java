@@ -14,7 +14,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
-import org.fluentcodes.projects.elasticobjects.calls.CallKeep;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -222,15 +221,15 @@ public abstract class Parser {
         }
         StringBuffer returnResult = new StringBuffer();
         String postPend = "";
-        if (call instanceof CallKeep && ((CallKeep)call).hasKeepCall()) {
+        if (call.hasKeepCall()) {
             final String defaultSequence = defaultValue!=null ? DEFAULT_SEPARATOR + defaultValue:"";
             returnResult.insert(0, "=" +
                     getStartSequence() +
                     callDirective +
                     defaultSequence +
                     getContinueSequence() +
-                    ((CallKeep)call).getKeepEndSequence() );
-            postPend = ((CallKeep)call).getKeepStartSequence() +
+                    call.getKeepEndSequence() );
+            postPend = call.getKeepStartSequence() +
                     getCloseSequence();
         }
         try {
@@ -275,15 +274,15 @@ public abstract class Parser {
         for (int i=0; i<callSet.size(); i++) {
             Call loopCall = (Call) eoCall.getCallEo(Integer.valueOf(i).toString()).get();
             if (i == callSet.size()-1) {
-                if (loopCall instanceof CallKeep && ((CallKeep)loopCall).hasKeepCall()) {
+                if (loopCall.hasKeepCall()) {
                     final String defaultSequence = defaultValue!=null ? DEFAULT_SEPARATOR + defaultValue:"";
                     returnResult.insert(0, "==" +
                             getStartSequence() +
                             callDirective +
                             defaultSequence +
                             getContinueSequence() +
-                            ((CallKeep)loopCall).getKeepEndSequence() );
-                    postPend = ((CallKeep)loopCall).getKeepStartSequence() +
+                            loopCall.getKeepEndSequence() );
+                    postPend = loopCall.getKeepStartSequence() +
                             getCloseSequence();
                 }
                 else {

@@ -90,8 +90,7 @@ public class TemplateContentExampleTest {
     public void call_StaticKeepTpl__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
 
-        final TemplateResourceCall call = new TemplateResourceCall();
-        call.setTemplateFileConfigKey(STATIC_KEEP_TPL);
+        final TemplateResourceCall call = new TemplateResourceCall(STATIC_KEEP_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);
     }

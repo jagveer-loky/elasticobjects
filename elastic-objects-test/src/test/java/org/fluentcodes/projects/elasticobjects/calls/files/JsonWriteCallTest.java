@@ -28,6 +28,6 @@ public class JsonWriteCallTest {
         final FileReadCall callRead = new FileReadCall(FILE_TMP_JSON);
         String readed = (String) callRead.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).contains("Written content with length 153 to file");
+        Assertions.assertThat(result).contains("Written content with length 120 to file");
     }
 }

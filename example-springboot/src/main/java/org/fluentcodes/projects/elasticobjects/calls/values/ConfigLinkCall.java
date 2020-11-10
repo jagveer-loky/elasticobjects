@@ -10,11 +10,11 @@ public class ConfigLinkCall extends GithubLinkCall {
     public ConfigLinkCall() {
         super();
     }
-    public ConfigLinkCall(final String configKey) {
-        this(configKey, "ModelConfig");
+    public ConfigLinkCall(final String fileConfigKey) {
+        this(fileConfigKey, "ModelConfig");
     }
-    public ConfigLinkCall(final String configKey, final String configType) {
-        super(configKey,configType);
+    public ConfigLinkCall(final String fileConfigKey, final String configType) {
+        super(fileConfigKey,configType);
     }
 
     @Override

@@ -22,7 +22,7 @@
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(FileReadCall)xyz":{
-            "configKey":"public.txt"
+            "fileConfigKey":"public.txt"
         },
         "_serializationType":"STANDARD"
 }</textarea>
@@ -44,13 +44,13 @@ All values in the curly brackets of "xyz" will be mapped to the field values of
 <h4>secret.txt</h4>
 <p>
     In the following example a path "xyz" will be specified of type
-    "FileReadCall" with a "configKey" with value "secret.txt"
+    "FileReadCall" with a "fileConfigKey" with value "secret.txt"
     where the permissions for "read" is "admin.
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(FileReadCall)xyz":{
-            "configKey":"secret.txt"
+            "fileConfigKey":"secret.txt"
         }
 }</textarea>
     <input type="submit" value="post"/>
@@ -68,7 +68,7 @@ All values in the curly brackets of "xyz" will be mapped to the field values of
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(FileReadCall)xyz":{
-            "configKey":"withoutPermissions-public.txt"
+            "fileConfigKey":"withoutPermissions-public.txt"
         }
 }</textarea>
     <input type="submit" value="post"/>

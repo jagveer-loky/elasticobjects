@@ -15,8 +15,8 @@ import java.util.Map;
 /**
  * Created by werner.diwischek on 10.10.2020.
  */
-public class DirectoryMapReadCall extends DirectoryListReadCall{
-    public final static String FILE_ENDING = "fileEnding";
+
+public class DirectoryMapReadCall extends DirectoryListReadCall {
     public final static String DEFAULT_TO_REPLACE = "_";
     public final static String DEFAULT_REPLACE_BY = " ";
     public final static String DEFAULT_FILE_ENDING = ".html";
@@ -42,8 +42,7 @@ public class DirectoryMapReadCall extends DirectoryListReadCall{
         final String usedReplaceBy = hasReplaceBy()? this.replaceBy: DEFAULT_REPLACE_BY;
         final String usedFileEnding = hasFileEnding()? this.fileEnding: DEFAULT_FILE_ENDING;
         Map<String, String> result= new LinkedHashMap<>();
-        DirectoryListReadCall call = new DirectoryListReadCall(getConfigKey());
-        List<String> directoryContent = (List<String>)call.execute(eo);
+        List<String> directoryContent = super.listFiles(eo);
         for (String key: directoryContent) {
             String value = key
                     .replaceAll(".*/", "")

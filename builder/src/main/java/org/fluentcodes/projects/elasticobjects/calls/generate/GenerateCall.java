@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.GenerateCommand;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -14,7 +15,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
  * Abstract super class for generating code.
  * Created by Werner Diwischek at date Thu Nov 05 09:33:24 CET 2020.
  */
-public abstract class GenerateCall extends CallImpl  {
+public abstract class GenerateCall extends CallImpl implements GenerateCommand {
         /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
         public static final String FILE_ENDING = "fileEnding";
         public static final String MODULE = "module";

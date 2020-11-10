@@ -81,9 +81,9 @@ public class ExecutorCall {
             }
             catch (EoException e) {
                 StringBuilder message = new StringBuilder("In '" + call.getClass().getSimpleName() + "' ");
-                if (call instanceof ResourceCall) {
+                /*if (call instanceof ResourceCall) {
                     message.append(" and configKey '"+ ((ResourceCall)call).getConfigKey() + "");
-                }
+                }*/
                 message.append(": " + e.getMessage());
                 if (call.isTargetAsString()) {
                     templateResult.append(message);

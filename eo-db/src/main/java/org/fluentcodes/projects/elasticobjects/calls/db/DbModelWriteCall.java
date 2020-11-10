@@ -2,11 +2,12 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.InsertStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.UpdateStatement;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 import java.util.List;
 
@@ -15,24 +16,24 @@ import java.util.List;
  * Created by werner.diwischek on 28.10.20.
  */
 
-public class DbModelWriteCall extends DbModelCall {
+public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand {
 
     public DbModelWriteCall()  {
-        super(PermissionType.WRITE);
+        super();
     }
+
     public DbModelWriteCall(final String hostConfigKey)  {
-        super(PermissionType.WRITE, hostConfigKey);
+        super(hostConfigKey);
     }
 
     @Override
     public Object execute(EO eo) {
-        init(eo);
         return save (eo);
     }
     
     public int save(final EO eo) {
-        ModelConfigInterface model = eo.getModel();
-        if (!model.isObject()) {
+        ModelConfigDbObject modelConfig = init(PermissionType.WRITE, eo);
+        if (!modelConfig.isObject()) {
             throw new EoException("No model is provided in path '" + eo.getPathAsString() + "");
         }
         int updateCount = 0;

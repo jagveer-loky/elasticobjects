@@ -11,13 +11,24 @@ import static org.fluentcodes.projects.elasticobjects.calls.ResourceConfig.ROLE_
  * Created by Werner on 01.11.2020.
  */
 public class ModelConfigDbObject extends ModelConfigObject implements ModelConfigDbProperties, PermissionProperties {
+    public final static String HOST_CONFIG_KEY = "hostConfigKey";
     private final PermissionRole permissionRole;
+    private final String hostConfigKey;
     public ModelConfigDbObject(EOConfigsCache configsCache, Map map) {
         super(configsCache, map);
         this.permissionRole = new PermissionRole((Map)map.get(ROLE_PERMISSIONS));
+        this.hostConfigKey = (String)map.get(HOST_CONFIG_KEY);
     }
 
     public PermissionRole getPermissionRole() {
         return permissionRole;
+    }
+
+    public String getHostConfigKey() {
+        return hostConfigKey;
+    }
+
+    public boolean hasHostConfigKey() {
+        return hostConfigKey!=null && !hostConfigKey.isEmpty();
     }
 }

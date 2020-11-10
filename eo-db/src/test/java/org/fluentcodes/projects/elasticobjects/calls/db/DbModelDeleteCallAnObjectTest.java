@@ -21,7 +21,7 @@ public class DbModelDeleteCallAnObjectTest {
 
     @Test
     public void call_AnObject_3L__execute__deleted() {
-        DbModelDeleteCall call = new DbModelDeleteCall(H2_BASIC);
+        DbModelDeleteCall call = new DbModelDeleteCall();
         call.setTargetPath("/result");
         Assertions.assertThat(call).isNotNull();
         EO eo = ProviderRootTestScope.createEo();

@@ -9,7 +9,7 @@
       "1": "configModelKey",
       "2": "fileName",
       "3": "filePath",
-      "4": "hostKey",
+      "4": "hostConfigKey",
       "5": "permissionRole",
       "6": "expose",
       "7": "module",
@@ -26,7 +26,7 @@
       "1": "configModelKey",
       "2": "fileName",
       "3": "filePath",
-      "4": "hostKey"
+      "4": "hostConfigKey"
     },
     "modelKey": "FileConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",

@@ -50,10 +50,10 @@ public class TemplateCallTest {
         final String template = "START - \n" +
                 "===>{" +
                 "\n\"(FileReadCall)\":{" +
-                "\"configKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
+                "\"fileConfigKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
                 "\"targetPath\":\"level0\"}," +
                 "\n\"(FileReadCall)\":{" +
-                "\"configKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
+                "\"fileConfigKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
                 "\"targetPath\":\"_asString\"}" +
                 "}." +
                 " - END";
@@ -70,10 +70,10 @@ public class TemplateCallTest {
         final String template = "START - /*\n" +
                 "===>{" +
                 "\n\"(FileReadCall)\":{" +
-                "\"configKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
+                "\"fileConfigKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
                 "\"targetPath\":\"level0\"}," +
                 "\n\"(FileReadCall)\":{" +
-                "\"configKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
+                "\"fileConfigKey\":\"" + FileReadCallTest.FILE_TEST_TXT + "\", " +
                 "\"targetPath\":\"_asString\", " +
                 "\"prepend\":\"\\n\", " +
                 "\"keepCall\":\"JAVA\"}" +

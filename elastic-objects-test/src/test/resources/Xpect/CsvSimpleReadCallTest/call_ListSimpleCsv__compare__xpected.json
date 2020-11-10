@@ -1,5 +1,4 @@
 {
-  "_rootmodel": "List",
   "(LogLevel)_logLevel": "WARN",
   "0": {
     "key1": "value11",
@@ -19,10 +18,10 @@
       "rowEnd": 3,
       "rowHead": 0,
       "rowStart": 1,
-      "configKey": "ListSimple.csv",
       "postpend": "",
       "prepend": "",
-      "targetPath": "(List)."
+      "fileConfigKey": "ListSimple.csv",
+      "hostConfigKey": "localhost"
     }
   }
 }

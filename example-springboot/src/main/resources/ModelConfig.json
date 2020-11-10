@@ -21,7 +21,7 @@
       "configKey",
       "configType"
     ],
-    "superKey": "SimpleValueFromEoCall",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
@@ -39,7 +39,8 @@
     "fieldKeys": [
       "greeting"
     ],
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "An example for a simple call with a field.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",

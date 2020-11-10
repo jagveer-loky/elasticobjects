@@ -1,39 +1,61 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+
+import java.sql.Connection;
 
 /**
  * Abstract class providing an sql config before executing.
  * Created by werner.diwischek on 29.10.20.
  */
-public abstract class DbSqlCall extends DbCall  {
+public abstract class DbSqlCall extends HostCall {
     private String sqlKey;
     private DbSqlConfig sqlConfig;
 
-    public DbSqlCall(PermissionType permission)  {
-        super(permission);
+    public DbSqlCall()  {
+        super();
     }
 
-    public DbSqlCall(PermissionType permission, final String hostConfigKey)  {
-        super(permission, hostConfigKey);
+    public DbSqlCall(final String hostConfigKey)  {
+        super(hostConfigKey);
     }
 
-    public DbSqlCall(PermissionType permission, final String hostConfigKey, final String sqlKey)  {
-        super(permission, hostConfigKey);
+    public DbSqlCall(final String hostConfigKey, final String sqlKey)  {
+        super(hostConfigKey);
         this.sqlKey = sqlKey;
     }
 
-    @Override
-    public boolean init (EO eo) {
+    public void setConfigKey(final String configKey) {
+        this.sqlKey = configKey;
+    }
+
+    protected DbSqlConfig init(final PermissionType permissionType, final EO eo) {
         if (!hasSqlKey()) {
-            throw new EoException("No sqlKey is set!");
+            throw new EoException("Empty key");
         }
-        super.init(eo);
-        this.sqlConfig = (DbSqlConfig) eo.getConfigsCache().find(DbSqlConfig.class, sqlKey);
-        sqlConfig.getPermissionRole().hasPermissions(getPermissions(), eo.getRoles());
-        return true;
+        sqlConfig = (DbSqlConfig)eo.getConfigsCache().find(DbSqlConfig.class, sqlKey);
+        sqlConfig.hasPermissions(permissionType, eo.getRoles());
+        if (!hasHostConfigKey()) {
+            if (sqlConfig.hasDbKey()) {
+                setHostConfigKey(sqlConfig.getDbKey());
+            }
+            else {
+                setHostConfigKey(DbConfig.H2_BASIC);
+            }
+        }
+        super.initHostConfig(permissionType, eo);
+        return sqlConfig;
+    }
+
+    public DbConfig getDbConfig () {
+        return (DbConfig) getHostConfig();
+    }
+
+    public Connection getConnection () {
+        return getDbConfig().getConnection();
     }
 
     public String getSqlKey() {

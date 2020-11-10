@@ -1,3 +1,3 @@
- ===>{"(FileReadCall).":{"targetPath":"data", "configKey":"ContentExampleData"}}.
-Start of content with a templateFileConfigKey:
- ===>{"(TemplateResourceCall).":{"templateFileConfigKey":"=>[template].", "sourcePath":"data/*"}}.
+ ===>{"(FileReadCall).":{"targetPath":"data", "fileConfigKey":"ContentExampleData"}}.
+Start of content with a fileConfigKey:
+ ===>{"(TemplateResourceCall).":{"fileConfigKey":"=>[template].", "sourcePath":"data/*"}}.

@@ -64,6 +64,9 @@
   },
   "6": {
     "hostName": "localhost",
+    "permissionRole": {
+      "read": "guest"
+    },
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -72,6 +75,9 @@
   },
   "7": {
     "hostName": "localhost",
+    "permissionRole": {
+      "read": "guest"
+    },
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",

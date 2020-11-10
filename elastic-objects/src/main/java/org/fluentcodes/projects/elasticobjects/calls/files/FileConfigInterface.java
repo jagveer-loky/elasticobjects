@@ -10,7 +10,8 @@ import java.net.URL;
  */
 public interface FileConfigInterface extends PermissionProperties {
     Boolean isCached();
-
+    String getFileName();
+    String getFilePath();
     String getCachedContent();
     void setCachedContent(String cachedContent);
 
@@ -19,10 +20,8 @@ public interface FileConfigInterface extends PermissionProperties {
     URL getUrl();
     URL createUrl();
 
-    String getFileName();
-    String getFilePath();
     boolean hasFileName();
-    String getHostKey();
+    String getHostConfigKey();
     HostConfig getHostConfig();
 
 }

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 22.08.2020.
  */
-public class ConfigTypesCall extends CallImpl {
+public class ConfigTypesCall extends CallImpl  implements SimpleCommand {
     private SortOrder sortOrder = SortOrder.ASC;
     private Class<? extends Config> configClass;
 

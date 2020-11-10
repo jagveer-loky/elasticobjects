@@ -6,6 +6,9 @@
     "expose": "WEB",
     "properties": {
       "hostName": "localhost"
+    },
+    "rolePermissions": {
+      "read": "guest"
     }
   },
   "localhost": {
@@ -15,6 +18,9 @@
     "expose": "WEB",
     "properties": {
       "hostName": "localhost"
+    },
+    "rolePermissions": {
+      "read": "guest"
     }
   }
 }

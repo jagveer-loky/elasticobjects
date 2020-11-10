@@ -156,6 +156,7 @@
     "cached": "false"
   },
   "XPECT_TEST": {
+    "configModelKey": "DirectoryConfig",
     "module": "elastic-objects-test",
     "moduleScope": "test",
     "hostKey": "localhost",

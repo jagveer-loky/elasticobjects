@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db.statements;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.db.DbConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -120,7 +121,7 @@ public class FindStatement extends PreparedStatementValues {
                 return readRaw(resultSet, configsCache, listParams);
             }
             catch (Exception e) {
-                closeAll(preparedStatement, resultSet);
+                DbConfig.closeAll(preparedStatement, resultSet);
                 throw new EoException("Exception get resultSet for sql "  + getStatement() + ": " + e.getMessage());
             }
         } catch (SQLException e) {

@@ -1,12 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /**
  * Created by Werner on 3.08.2020.
  */
-public class StringUpperFirstCharCall extends SimpleValueFromEoCall {
+public class StringUpperFirstCharCall extends CallImpl  implements SimpleCommand {
 
 
     @Override

@@ -7,6 +7,7 @@
       "module",
       "moduleScope"
     ],
+    "interfaces": "GenerateCommand",
     "superKey": "CallImpl",
     "expose": "NONE",
     "description": "Abstract super class for generating code.",
@@ -16,6 +17,20 @@
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "GenerateCommand": {
+    "module": "builder",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with  module, moduleScope and fileEnding values. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "GenerateCommand",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -43,8 +58,24 @@
     "superKey": "GenerateCall",
     "expose": "NONE",
     "description": "Call for generation json configurations from the sheet.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.json",
     "modelKey": "GenerateJsonConfigCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaCommentCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Replaces new lines in description with a starting \" * \" for new line. \nForeach pattern @&gt;Class>[ .,] a comment link {@link &gt;Class>} will be generated. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaCommentCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -55,7 +86,8 @@
   "JavaExtendsCall": {
     "module": "builder",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Returns \"extends\" with superKey if superKey is not empty.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
@@ -70,7 +102,8 @@
   "JavaFieldFinalCall": {
     "module": "builder",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Returns \"final\" string when final value is true.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
@@ -85,7 +118,8 @@
   "JavaFieldNotEmptyCall": {
     "module": "builder",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "If type of the field is map, string or array a check for is empty is returned. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
@@ -100,7 +134,8 @@
   "JavaFieldOverrideCall": {
     "module": "builder",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Returns  an \"@override\" annotation is override field value is true.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
@@ -115,7 +150,8 @@
   "JavaFieldTypeCall": {
     "module": "builder",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
@@ -130,26 +166,12 @@
   "JavaImplementsCall": {
     "module": "builder",
     "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
     "expose": "WEB",
     "description": "Returns the \"implements \" statement from the interfaces field value.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "JavaImplementsCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "JavaCommentCall": {
-    "module": "builder",
-    "moduleScope": "main",
-    "superKey": "SimpleValueFromEoCall",
-    "expose": "WEB",
-    "description": "Replaces new lines in description with a starting \" * \" for new line. \nForeach pattern @&gt;Class>[ .,] a comment link {@link &gt;Class>} will be generated. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
-    "modelKey": "JavaCommentCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

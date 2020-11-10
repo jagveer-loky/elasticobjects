@@ -2,12 +2,14 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /**
  * Created by Werner on 26.08.2020.
  */
-public class StringReplaceCall extends SimpleValueFromEoCall{
+public class StringReplaceCall extends CallImpl  implements SimpleCommand {
     public static final String TO_REPLACE = "toReplace";
     public static final String REPLACE_BY = "replaceBy";
 
@@ -30,7 +32,7 @@ public class StringReplaceCall extends SimpleValueFromEoCall{
         }
         String[] array = values.split(", ");
         if (array.length>3) {
-            throw new EoException("Short form should have form '<sourcePath>[,<targetPath>][,<condition>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
+            throw new EoException("Short form should have form '<sourcePath>[,<toReplace>][,<replaceBy>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
         }
         if (array.length>0) {
             setSourcePath(array[0]);

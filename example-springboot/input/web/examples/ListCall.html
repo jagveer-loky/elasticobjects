@@ -26,7 +26,7 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(CsvSimpleReadCall)values":{
-       "configKey":"AnObject.csv"
+       "fileConfigKey":"AnObject.csv"
    },
    "_serializationType":"STANDARD"
 }</textarea>
@@ -44,7 +44,7 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(CsvSimpleReadCall)values":{
-       "configKey":"AnObject.csv",
+       "fileConfigKey":"AnObject.csv",
         "rowHead":-1,
         "rowStart":0,
         "rowEnd":2
@@ -67,7 +67,7 @@ In the <a href="#post4">last example</a> you can see the post version of these c
     <textarea name="eo" style="height:120px">{
    "(List,AnObject)values":{},
    "(CsvSimpleReadCall).":{
-       "configKey":"AnObject.csv",
+       "fileConfigKey":"AnObject.csv",
        "targetPath":"values"
    }
 }</textarea>
@@ -85,10 +85,10 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(CsvSimpleReadCall)xyz":{
-       "configKey":"AnObject.csv"
+       "fileConfigKey":"AnObject.csv"
    },
    "(TemplateResourceCall)_asString":{
-        "templateFileConfigKey":"table.tpl",
+        "fileConfigKey":"table.tpl",
         "sourcePath":"xyz"
    },
    "asTemplate":true

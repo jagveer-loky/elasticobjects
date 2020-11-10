@@ -1,4 +1,17 @@
 {
+  "AllHeader.tpl": {
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "templates/java",
+    "fileName": "AllHeader.tpl",
+    "description": "Java header template for imports, comments, class declaration. ",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "read": "admin"
+    }
+  },
   "ALLImport.tpl": {
     "module": "builder",
     "moduleScope": "main",
@@ -38,19 +51,6 @@
     "description": "Creates static field names for external access.  ",
     "expose": "WEB",
     "cached": "true"
-  },
-  "AllHeader.tpl": {
-    "module": "builder",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "templates/java",
-    "fileName": "AllHeader.tpl",
-    "description": "Java header template for imports, comments, class declaration. ",
-    "expose": "WEB",
-    "cached": "false",
-    "rolePermissions": {
-      "read": "admin"
-    }
   },
   "BEANCreate.tpl": {
     "module": "builder",
@@ -102,6 +102,19 @@
     "cached": "true",
     "rolePermissions": {
       "read": "admin"
+    }
+  },
+  "ConfigResources": {
+    "module": "builder",
+    "moduleScope": "main",
+    "hostKey": "localhost",
+    "filePath": "../=>[module]./src/=>[moduleScope]./resources",
+    "fileName": "/=>[configType].=>[/fileEnding]..json",
+    "description": "Target file to generate json configuration.",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "write": "admin"
     }
   },
   "data.xlsx": {
@@ -248,19 +261,6 @@
       "execute": "superadmin"
     }
   },
-  "JsonBuilder.tpl": {
-    "module": "builder",
-    "moduleScope": "main",
-    "hostKey": "localhost",
-    "filePath": "templates/json",
-    "fileName": "JsonBuilder.tpl",
-    "description": "Control directives to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall.",
-    "expose": "WEB",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "superadmin"
-    }
-  },
   "JavaClasses": {
     "module": "builder",
     "moduleScope": "main",
@@ -274,17 +274,17 @@
       "write": "admin"
     }
   },
-  "ConfigResources": {
+  "JsonBuilder.tpl": {
     "module": "builder",
     "moduleScope": "main",
     "hostKey": "localhost",
-    "filePath": "../=>[module]./src/=>[moduleScope]./resources",
-    "fileName": "/=>[configType].=>[/fileEnding]..json",
-    "description": "Target file to generate json configuration.",
+    "filePath": "templates/json",
+    "fileName": "JsonBuilder.tpl",
+    "description": "Control directives to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall.",
     "expose": "WEB",
     "cached": "false",
     "rolePermissions": {
-      "write": "admin"
+      "execute": "superadmin"
     }
   }
 }

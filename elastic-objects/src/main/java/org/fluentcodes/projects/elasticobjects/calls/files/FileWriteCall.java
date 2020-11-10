@@ -4,31 +4,33 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
-import org.fluentcodes.projects.elasticobjects.calls.ResourceWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.tools.xpect.IOString;
 
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileWriteCall extends ResourceWriteCall implements CallContent {
+public class FileWriteCall extends FileCall implements ConfigWriteCommand, CallContent {
     private static final Logger LOG = LogManager.getLogger(FileWriteCall.class);
-    private String classPath;
     private String content;
-    private Boolean compare = false;
+    private Boolean compare;
+
     public FileWriteCall() {
         super();
+        compare = false;
     }
 
     public FileWriteCall(final String configKey) {
         super(configKey);
+        compare = false;
     }
     public FileWriteCall(final String configKey, final String content) {
         super(configKey);
         setContent(content);
+        compare = false;
     }
 
     public boolean hasContent() {
@@ -44,19 +46,13 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
         return this;
     }
 
-    public FileConfig getFileConfig()  {
-        return ((FileConfig) getConfig());
-    }
-
     @Override
     public String execute(final EO eo)  {
-        if (!init(eo)) {
-            return "Problem with initialization!";
-        }
         return this.write(eo);
     }
 
     public String write(EO eo)  {
+        FileConfig fileConfig = super.init(PermissionType.READ, eo);
         if (!hasContent()) {
             if (eo.isScalar()) {
                 content = eo.get().toString();
@@ -64,17 +60,14 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
                 content = eo.toString();
             }
         }
-        String targetFile = getFileConfig().createUrl().getFile();
+        String targetFile = fileConfig.createUrl().getFile();
         if (ParserSqareBracket.containsStartSequence(targetFile)) {
             targetFile = new ParserSqareBracket(targetFile).parse(eo);
-        }
-        if (hasClassPath()) {
-            targetFile = getClassPath() + Path.DELIMITER + targetFile;
         }
         // compare with existing file to be overwritten.
         if (compare) {
             try {
-                String existing = ((String) new FileReadCall(getConfigKey()).execute(eo))
+                String existing = ((String) new FileReadCall(getFileConfigKey()).execute(eo))
                         .replaceAll("@.*Date.*", "");
 
                 String compare = getContent().replaceAll("@.*Date.*", "");
@@ -95,24 +88,11 @@ public class FileWriteCall extends ResourceWriteCall implements CallContent {
         new IOString().setFileName(targetFile).write((String)content);
     }
 
-    @Override
-    public Class<? extends Config> getConfigClass()  {
-        return FileConfig.class;
-    }
-
-    public boolean hasClassPath() {
-        return classPath!=null && !classPath.isEmpty();
-    }
-
-    public String getClassPath() {
-        return classPath;
-    }
-
-    public void setClassPath(String classPath) {
-        this.classPath = classPath;
-    }
-
     public boolean isCompare() {
+        return compare!=null && compare;
+    }
+
+    public boolean getCompare() {
         return compare;
     }
 

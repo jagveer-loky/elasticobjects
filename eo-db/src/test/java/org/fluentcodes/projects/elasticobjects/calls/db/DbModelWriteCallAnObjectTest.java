@@ -21,7 +21,7 @@ public class DbModelWriteCallAnObjectTest {
 
     @Test
     public void call_AnObject_1L_value1New__execute__updated() {
-        DbModelWriteCall call = new DbModelWriteCall(H2_BASIC);
+        DbModelWriteCall call = new DbModelWriteCall();
         Assertions.assertThat(call).isNotNull();
         call.setTargetPath("/result");
         EO eo = ProviderRootTestScope.createEo();
@@ -44,7 +44,7 @@ public class DbModelWriteCallAnObjectTest {
         eo.set(anObject, "test");
         eo.setRoles("guest");
 
-        DbModelWriteCall call = new DbModelWriteCall(H2_BASIC);
+        DbModelWriteCall call = new DbModelWriteCall();
         call.setSourcePath("test");
         call.setTargetPath("/result");
         eo.addCall(call);
@@ -56,7 +56,7 @@ public class DbModelWriteCallAnObjectTest {
 
     @Test
     public void call_AnObject_4L_value4__execute__inserted() {
-        DbModelWriteCall call = new DbModelWriteCall(H2_BASIC);
+        DbModelWriteCall call = new DbModelWriteCall();
         Assertions.assertThat(call).isNotNull();
         call.setTargetPath("/result");
         EO eo = ProviderRootTestScope.createEo();

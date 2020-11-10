@@ -21,7 +21,7 @@ public class DbModelReadCallAnObjectTest {
 
     @Test
     public void call_DbQuery_AnObject__execute__3() {
-        DbModelReadCall call = new DbModelReadCall(H2_BASIC);
+        DbModelReadCall call = new DbModelReadCall();
         call.setTargetPath("/result");
         Assertions.assertThat(call).isNotNull();
         EO eo = ProviderRootTestScope.createEo();
@@ -41,7 +41,7 @@ public class DbModelReadCallAnObjectTest {
         anObject.setMyString("value1");
         EO child = eo.set(anObject, "test");
 
-        DbModelReadCall call = new DbModelReadCall(H2_BASIC);
+        DbModelReadCall call = new DbModelReadCall();
         call.setTargetPath("/result");
         call.setSourcePath("/test");
         eo.addCall(call);
@@ -60,7 +60,7 @@ public class DbModelReadCallAnObjectTest {
                 "   },\n" +
                 "   \"(DbModelReadCall)/xyz\":{\n" +
                 "       \"sourcePath\":\"abc\",\n" +
-                "       \"configKey\":\"h2:mem:basic\"\n" +
+                "       \"hostConfigKey\":\"h2:mem:basic\"\n" +
                 "   }\n" +
                 "}");
 

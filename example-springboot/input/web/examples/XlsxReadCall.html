@@ -7,7 +7,7 @@
     ==>{GithubLinkCall->ModelConfig, XlsxReadCall}..
 </p>
 <p>
-    The configKey refers to a configuration in
+    The fileConfigKey refers to a configuration in
     ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L2}.
     You're allowed to read the sheet, because
     your role "guest" is within the read permissions.
@@ -15,7 +15,7 @@
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(XlsxReadCall)values":{
-       "configKey":"AnObject.xlsx:test"
+       "fileConfigKey":"AnObject.xlsx:test"
    },
    "_serializationType":"STANDARD"
 }</textarea>

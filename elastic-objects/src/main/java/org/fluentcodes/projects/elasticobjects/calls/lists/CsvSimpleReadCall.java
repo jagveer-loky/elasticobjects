@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -13,46 +14,41 @@ import java.util.List;
 /**
  * Created by werner.diwischek on 03.12.16.
  */
-public class CsvSimpleReadCall extends ListReadCall {
-
+public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
+    private ListParams listParams;
     public CsvSimpleReadCall()  {
         super();
+        listParams = new ListParams();
     }
     public CsvSimpleReadCall(final String configKey)  {
         super(configKey);
+        listParams = new ListParams();
     }
 
     @Override
-    public Class<? extends Config> getConfigClass()  {
-        return FileConfig.class;
+    public ListParams getListParams() {
+        return listParams;
     }
 
     @Override
     public Object execute(EO eo) {
-        init(eo);
-        getListParams().merge(getConfig().getProperties());
         return mapEo(eo, readRaw(eo));
     }
 
-    protected CsvConfig getCsvConfig() {
-        if (getConfig() instanceof CsvConfig) {
-            return (CsvConfig) getConfig();
-        }
-        throw new EoException("Could not cast to 'CsvConfig': " + getConfig().getClass().getSimpleName());
-    }
-
     public List readRaw(final EO eo) {
-        String content = (String) new FileReadCall(getConfigKey()).execute(eo);
+        CsvConfig config = (CsvConfig) init(PermissionType.READ, eo);
+        getListParams().merge(config.getProperties());
+        String content = super.read(eo);
         if (content == null|| content.isEmpty()) {
             return new ArrayList<>();
         }
-        String[] rows = content.split(getCsvConfig().getRowDelimiter());
+        String[] rows = content.split(config.getRowDelimiter());
         List result = new ArrayList<>();
 
         if (getListParams().hasRowHead(rows.length)) {
             String header = rows[getListParams().getRowHead()];
             if (header!=null && !header.isEmpty()) {
-                String[] fields = header.split(getCsvConfig().getFieldDelimiter());
+                String[] fields = header.split(config.getFieldDelimiter());
                 if (!getListParams().hasColKeys()) {
                     getListParams().setColKeys(Arrays.asList(fields));
                 }
@@ -72,15 +68,10 @@ public class CsvSimpleReadCall extends ListReadCall {
             if (row == null|| row.isEmpty()) {
                 continue;
             }
-            String[] fields = row.split(getCsvConfig().getFieldDelimiter());
+            String[] fields = row.split(config.getFieldDelimiter());
             List rowEntry = Arrays.asList(fields);
             getListParams().addRowEntry(eo.getConfigsCache(), result, rowEntry);
         }
         return result;
     }
-
-
-
-
-
 }

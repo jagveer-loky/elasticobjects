@@ -52,8 +52,7 @@ public class CsvReadCallTest {
     @Ignore
     @Test
     public void givenEoWithListSimpleCsv_whenExecute_thenParameterSet()  {
-        final Call call = new CsvReadCall()
-                .setConfigKey(LIST_SIMPLE_CSV);
+        final Call call = new CsvReadCall(LIST_SIMPLE_CSV);
 
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);

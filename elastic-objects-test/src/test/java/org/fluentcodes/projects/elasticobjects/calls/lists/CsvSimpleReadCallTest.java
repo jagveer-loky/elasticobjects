@@ -9,6 +9,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +46,7 @@ public class CsvSimpleReadCallTest {
     @Test
     public void call_ListSimpleCsv__execute__set_2rows()  {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderRootTestScope.createEo(new ArrayList<>());
         call.execute(eo);
         List value =(List) eo.get();
         Assertions.assertThat(value).isNotEmpty();
@@ -132,7 +133,7 @@ public class CsvSimpleReadCallTest {
     }
 
     @Test
-    public void eo_configKey_AnObjectCsv__execute__listMap()  {
+    public void eo_fileConfigKey_AnObjectCsv__execute__listMap()  {
         final CsvSimpleReadCall call = new CsvSimpleReadCall("AnObject.csv");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
@@ -144,7 +145,7 @@ public class CsvSimpleReadCallTest {
     }
 
     @Test
-    public void eo_configKey_AnObjectCsv_targetPath_level0_List_AnObject__execute__$()  {
+    public void eo_fileConfigKey_AnObjectCsv_targetPath_level0_List_AnObject__execute__$()  {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(AnObject.class.getSimpleName() + ".csv");
         call.setTargetPath("(List," + AnObject.class.getSimpleName() + ")level0");
         EO eo = ProviderRootTestScope.createEo();
@@ -169,7 +170,7 @@ public class CsvSimpleReadCallTest {
     @Test
     public void TemplateCall_AnObjectCsv_Json__execute__$()  {
         final TemplateCall call = new TemplateCall("START -\n===>{\"(CsvSimpleReadCall)xyz\":{" +
-                "\"configKey\":\"AnObject.csv\"}}. - END");
+                "\"fileConfigKey\":\"AnObject.csv\"}}. - END");
         EO eo = ProviderRootTestScope.createEo();
         call.execute(eo);
         Assertions.assertThat(eo.getLog())

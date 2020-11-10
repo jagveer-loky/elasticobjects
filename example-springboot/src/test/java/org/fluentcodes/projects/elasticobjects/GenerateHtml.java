@@ -12,7 +12,8 @@ public class GenerateHtml {
     @Test
     public void createIntro() {
         EO eo = READ_XLSX(XLSX_FILE);
-        TemplateResourceStoreCall call = new TemplateResourceStoreCall("Presentation.html");
+        TemplateResourceStoreCall call = new TemplateResourceStoreCall();
+        call.setSourceFileConfigKey("Presentation.html");
         //call.setLocalCondition("head like Get an");
         call.setSourcePath("/data/*");
         call.setTargetFileConfigKey("src/main/resources/static/presentation/==>[StringReplaceWhiteSpaceCall->head]..html");

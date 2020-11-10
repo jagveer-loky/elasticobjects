@@ -7,7 +7,9 @@ import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Map;
 
 /**
@@ -19,6 +21,35 @@ public class DbConfig extends HostConfig implements DbProperties {
 
     public DbConfig(final EOConfigsCache provider, final Map map)  {
         super(provider, map);
+    }
+
+    public static final void closeStatement(Statement statement) {
+        if (statement == null) {
+            return;
+        }
+        try {
+            statement.close();
+        } catch (Exception e) {
+            statement = null;
+            new EoInternalException("Exception closing statement : " + e.getMessage());
+        }
+    }
+
+    public static final void closeResultSet(ResultSet resultSet) {
+        if (resultSet == null) {
+            return;
+        }
+        try {
+            resultSet.close();
+        } catch (Exception e) {
+            resultSet = null;
+            throw new EoInternalException("Exception closing resultSet: " + e.getMessage());
+        }
+    }
+
+    public static final void closeAll(Statement statement, ResultSet resultSet) {
+        closeResultSet(resultSet);
+        closeStatement(statement);
     }
 
     public Connection getConnection() {

@@ -1,4 +1,4 @@
-Start of content with a templateFileConfigKey as variable: 
+Start of content with a fileConfigKey as variable: 
 <h1>header1</h1>
 <b>summary1</b>
 <p>content1</p>

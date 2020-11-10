@@ -32,21 +32,21 @@ public class FileReadCallTest {
 
     @Test
     public void call_FileTestCachedTxt__execute__content_returned()  {
-        final FileReadCall call = new FileReadCall().setConfigKey(FILE_TEST_CACHED_TXT);
+        final FileReadCall call = new FileReadCall(FILE_TEST_CACHED_TXT);
         final String content = (String) call.execute(ProviderRootTestScope.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
     public void call_SourceTxt__execute__content_returned()  {
-        final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_TXT);
+        final FileReadCall call = new FileReadCall(FileConfigTest.FILE_TEST_TXT);
         final String content = (String) call.execute(ProviderRootTestScope.createEo());
         Assert.assertEquals(S_STRING, content);
     }
 
     @Test
     public void call_SourceTxt_role_Guest__execute__content_returned()  {
-        final Call call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_TXT);
+        final Call call = new FileReadCall(FileConfigTest.FILE_TEST_TXT);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
         String content = (String)call.execute(eo);
@@ -56,7 +56,7 @@ public class FileReadCallTest {
 
     @Test
     public void eo_SourceTxt_targetPath_test_role_Guest__execute__content_set()  {
-        final Call call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_TXT)
+        final Call call = new FileReadCall(FileConfigTest.FILE_TEST_TXT)
                 .setTargetPath(AnObject.MY_STRING);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_GUEST);
@@ -68,7 +68,7 @@ public class FileReadCallTest {
 
     @Test
     public void call_SourceTxt_role_Anonym__execute__exception_thrown()  {
-        final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_TXT);
+        final FileReadCall call = new FileReadCall(FileConfigTest.FILE_TEST_TXT);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_ANONYM);
         Assertions
@@ -79,7 +79,7 @@ public class FileReadCallTest {
 
     @Test
     public void eo_SourceTxt_role_Anonym__execute__has_log()  {
-        final FileReadCall call = new FileReadCall().setConfigKey(FileConfigTest.FILE_TEST_TXT);
+        final FileReadCall call = new FileReadCall(FileConfigTest.FILE_TEST_TXT);
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.setRoles(R_ANONYM);
@@ -110,14 +110,14 @@ public class FileReadCallTest {
                 "{" +
                 "\"(FileReadCall)call\":" +
                 "{" +
-                "\"configKey\":\"" + FILE_TEST_TXT + "\"" +
+                "\"fileConfigKey\":\"" + FILE_TEST_TXT + "\"" +
                 "}" +
                 "}" +
                 "}";
         EO eo = ProviderRootTestScope.createEo(json);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assert.assertEquals(FileReadCall.class, eo.getEo("_calls", "0").getModelClass());
-        Assert.assertEquals(FILE_TEST_TXT, eo.get("_calls", "0", "configKey"));
+        Assert.assertEquals(FILE_TEST_TXT, eo.get("_calls", "0", "fileConfigKey"));
         eo.execute();
 
     }

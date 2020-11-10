@@ -1,19 +1,4 @@
 {
-  "DbCall": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "superKey": "ResourceCall",
-    "expose": "WEB",
-    "description": "Executes an sql select statements within DbSqlConfig and store it to targetPath.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
   "DbConfig": {
     "module": "eo-db",
     "moduleScope": "main",
@@ -40,7 +25,7 @@
   "DbModelCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "superKey": "DbCall",
+    "superKey": "HostCall",
     "expose": "WEB",
     "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
@@ -119,7 +104,7 @@
     "fieldKeys": [
       "sqlKey"
     ],
-    "superKey": "DbCall",
+    "superKey": "HostCall",
     "expose": "WEB",
     "description": "Executes a list of sql statements within DbSqlConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",

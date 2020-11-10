@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.ResourceConfig;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
@@ -25,7 +27,7 @@ public class FileConfig extends ResourceConfig implements FileConfigInterface {
 
     private final String fileName;
     private final String filePath;
-    private final String hostKey;
+    private final String hostConfigKey;
     private final Boolean cached;
     private HostConfig hostCache;
 
@@ -36,8 +38,17 @@ public class FileConfig extends ResourceConfig implements FileConfigInterface {
         this.fileName = (String) map.get(FILE_NAME);
         this.filePath = (String) map.get(FILE_PATH);
         this.cached = map.containsKey(CACHED) ? ScalarConverter.toBoolean(CACHED) : false;
-        this.hostKey = map.containsKey(HOST_KEY) ? (String) map.get(HOST_KEY) : HostConfig.LOCALHOST;
-        this.hostCache = (HostConfig)provider.find(HostConfig.class, hostKey);
+        this.hostConfigKey = map.containsKey(HOST_KEY) ? (String) map.get(HOST_KEY) : HostConfig.LOCALHOST;
+        this.hostCache = (HostConfig)provider.find(HostConfig.class, hostConfigKey);
+    }
+
+    public static FileConfig checkFileConfig(String key, PermissionType permissionType, EO eo) {
+        if (key == null || key.isEmpty()) {
+            throw new EoException("Empty key");
+        }
+        FileConfig fileConfig = eo.getConfigsCache().findFile(key);
+        fileConfig.hasPermissions(permissionType, eo.getRoles());
+        return fileConfig;
     }
 
     protected boolean hasCachedContent() {
@@ -133,8 +144,12 @@ public class FileConfig extends ResourceConfig implements FileConfigInterface {
      * A key for host objects.
      */
     @Override
-    public String getHostKey() {
-        return this.hostKey;
+    public String getHostConfigKey() {
+        return this.hostConfigKey;
+    }
+
+    public boolean hasHostKey() {
+        return hostConfigKey !=null && !hostConfigKey.isEmpty();
     }
 
     /**
@@ -150,7 +165,7 @@ public class FileConfig extends ResourceConfig implements FileConfigInterface {
             if (this.getConfigsCache() == null) {
                 throw new EoException("Config could not be initialized with a null provider for 'hostCache' - 'hostKey''!");
             }
-            this.hostCache = (HostConfig) getConfigsCache().find(HostConfig.class, hostKey);
+            this.hostCache = (HostConfig) getConfigsCache().find(HostConfig.class, hostConfigKey);
         }
         return this.hostCache;
     }

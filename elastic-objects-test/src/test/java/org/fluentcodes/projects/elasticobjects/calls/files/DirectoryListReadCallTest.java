@@ -42,7 +42,7 @@ public class DirectoryListReadCallTest {
     }
 
     @Test
-    public void configKey_XPECT_TEST__read__notEmpty() {
+    public void fileConfigKey_XPECT_TEST__read__notEmpty() {
         DirectoryListReadCall call = new DirectoryListReadCall("XPECT_TEST");
         List<String> result = (List<String>)call.execute(ProviderRootTestScope.createEo());
         Assertions.assertThat(result.get(0)).contains("AnObjectTest");

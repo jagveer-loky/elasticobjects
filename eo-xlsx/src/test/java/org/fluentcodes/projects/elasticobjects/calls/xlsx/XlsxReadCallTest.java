@@ -9,6 +9,7 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,9 +36,8 @@ public class XlsxReadCallTest {
 
     @Test
     public void call_ListSimpleXlsx__execute__listReturned()  {
-        final Call call = new XlsxReadCall()
-                .setConfigKey(LIST_SIMPLE_XLSX);
-        EO eo = ProviderRootTestScope.createEo();
+        final Call call = new XlsxReadCall(LIST_SIMPLE_XLSX);
+        EO eo = ProviderRootTestScope.createEo(new ArrayList<>());
         call.execute(eo);
         List value = (List)eo.get();
                 Assertions.assertThat(value).isNotEmpty();
@@ -49,8 +49,7 @@ public class XlsxReadCallTest {
 
     @Test
     public void eo_ListSimpleXlx__execute__2rows()  {
-        final Call call = new XlsxReadCall()
-                .setConfigKey(LIST_SIMPLE_XLSX);
+        final Call call = new XlsxReadCall(LIST_SIMPLE_XLSX);
 
         EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
         eo.addCall(call);

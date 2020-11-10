@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.external;
+package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;

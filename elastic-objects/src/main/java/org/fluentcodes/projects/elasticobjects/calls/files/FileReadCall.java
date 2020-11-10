@@ -1,60 +1,50 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
+
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.ResourceReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.tools.xpect.IOBytes;
 import org.fluentcodes.tools.xpect.IOString;
 
 /**
  * Created by werner.diwischek on 9.7.2020.
  */
-public class FileReadCall extends ResourceReadCall {
-
+public class FileReadCall extends FileCall implements ConfigReadCommand {
     public FileReadCall() {
         super();
     }
 
-    public FileReadCall(final String configKey) {
-        super();
-        setConfigKey(configKey);
+    public FileReadCall(final String fileConfigKey) {
+        super(fileConfigKey);
     }
-
-    public FileReadCall setConfigKey(final String configKey) {
-        return (FileReadCall) super.setConfigKey(configKey);
-    }
-
-
-    public FileConfig getFileConfig()  {
-        return ((FileConfig) getConfig());
+    public FileReadCall(final String hostConfigKey, final String fileConfigKey) {
+        super(hostConfigKey, fileConfigKey);
     }
 
     @Override
     public Object execute(final EO eo)  {
-        if (!init(eo)) {
-            return null;
-        }
-        if (getFileConfig().hasCachedContent()) {
-            return getFileConfig().getCachedContent();
-        }
-        String filePath = getFileConfig().getFilePath() + "/" + getFileConfig().getFileName();
-        String result = read(eo, filePath);
-        if (getFileConfig().isCached()) {
-            getFileConfig().setCachedContent(result);
-        }
-        return createReturnString(eo, result);
+        return createReturnString(eo, read(eo));
     }
 
-    public static String read(final EO eo, String filePath)  {
+    public String read(final EO eo)  {
+        FileConfig fileConfig = super.init(PermissionType.READ, eo);
+        if (fileConfig.hasCachedContent()) {
+            return fileConfig.getCachedContent();
+        }
+        String filePath = fileConfig.getFilePath() + "/" + fileConfig.getFileName();
+        String result = read(eo, filePath);
+        if (fileConfig.isCached()) {
+            fileConfig.setCachedContent(result);
+        }
+        return result;
+    }
+
+    protected static String read(final EO eo, String filePath)  {
         filePath = ParserSqareBracket.replacePathValues(filePath, eo);
         return new IOString().setFileName(filePath).read();
-    }
-
-    @Override
-    public Class<? extends Config> getConfigClass()  {
-        return FileConfig.class;
     }
 
     public static byte[] readBinary(final String filePath, final String fileName)  {

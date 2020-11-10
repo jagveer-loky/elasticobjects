@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -26,28 +27,13 @@ public class DirectoryListReadCall extends FileReadCall{
 
     @Override
     public Object execute(final EO eo)  {
-        init(eo);
-        List<String> result = listFiles();
+        List<String> result = listFiles(eo);
         return createReturnType(eo, result);
     }
 
-    @Override
-    public Class<? extends Config> getConfigClass()  {
-        return FileConfig.class;
-    }
-
-
-    public List<String> listFiles()  {
-        if (!hasConfig()) {
-            throw new EoException("No config defined for configKey " + getConfigKey());
-        }
-        if (!getFileConfig().hasFilePath()) {
-            throw new EoException("No filePath in config defined for configKey " + getConfigKey());
-        }
-        if (!getFileConfig().hasFileName()) {
-            throw new EoException("No fileName in config defined for configKey " + getConfigKey());
-        }
-        return listFiles(getFileConfig().getFilePath(), getFileConfig().getFileName(), absolute);
+    public List<String> listFiles(EO eo)  {
+        DirectoryConfig config = (DirectoryConfig)init(PermissionType.READ, eo);
+        return listFiles(config.getFilePath(), config.getFileName(), absolute);
     }
 
     // https://stackabuse.com/java-list-files-in-a-directory/

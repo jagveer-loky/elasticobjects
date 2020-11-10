@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigKeysCall extends CallImpl{
+public class ConfigKeysCall extends CallImpl {
     private String configType;
     private String configFilter = ".*";
     private Expose expose = Expose.NONE;

@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.external;
+package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbSqlReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbSqlExecuteCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Before;
@@ -59,7 +60,7 @@ public class DbTest {
     public void eo_DbQuery_AnObject_rowHead_1_rowStart_0_rowEnd_2_json__execute__2() {
         EO eo = ProviderRootTestScope.createEo("{\n" +
                 "   \"(DbSqlReadCall)abc\":{\n" +
-                "       \"configKey\":\"h2:mem:basic\",\n" +
+                "       \"hostConfigKey\":\"h2:mem:basic\",\n" +
                 "       \"sqlKey\":\"h2:mem:basic:AnObject\",\n" +
                 "        \"rowHead\":-1,\n" +
                 "        \"rowStart\":0,\n" +
@@ -75,16 +76,29 @@ public class DbTest {
     public void eo_DbQuery_with_tableTpl____3() {
         EO eo = ProviderRootTestScope.createEo("{\n" +
                 "   \"(DbSqlReadCall)xyz\":{\n" +
-                "       \"configKey\":\"h2:mem:basic\",\n" +
+                "       \"hostConfigKey\":\"h2:mem:basic\",\n" +
                 "       \"sqlKey\":\"h2:mem:basic:AnObject\"\n" +
                 "   },\n" +
-                "   \"(TemplateResourceCall).\":{\"templateFileConfigKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
+                "   \"(TemplateResourceCall).\":{\"fileConfigKey\":\"table.tpl\", \"sourcePath\":\"xyz\"},\n" +
                 "   \"asTemplate\":true\n" +
                 "}");
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo("xyz").size()).isEqualTo(3);
         new XpectString().compareAsString((String) eo.get(PathElement.TEMPLATE));
+    }
+
+    @Test
+    public void template_h2MemBasicAnObject_tableTpl__execute__xpected()  {
+        final TemplateCall call = new TemplateCall("START " +
+                "==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.\n" +
+                "==>{TemplateResourceCall->table.tpl, xyz}." +
+                "END");
+        EO eo = ProviderRootTestScope.createEo();
+        String result = call.execute(eo);
+        Assertions.assertThat(eo.getLog())
+                .isEmpty();
+        new XpectString().compareAsString(result);
     }
 
     @Test

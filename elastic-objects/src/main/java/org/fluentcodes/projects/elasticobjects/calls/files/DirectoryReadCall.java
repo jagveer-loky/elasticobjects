@@ -1,23 +1,16 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.ResourceReadCall;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.tools.xpect.IORuntimeException;
-import org.fluentcodes.tools.xpect.IOString;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigDirectoryReadCommand;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.tools.xpect.IOString;
 
 /**
  * Created by werner.diwischek on 2.10.2020.
  */
-public class DirectoryReadCall extends ResourceReadCall {
+public class DirectoryReadCall extends FileReadCall {
     private String fileName;
     public DirectoryReadCall() {
         super();
@@ -27,8 +20,41 @@ public class DirectoryReadCall extends ResourceReadCall {
         super(configKey);
     }
 
-    public DirectoryConfig getDirectoryConfig()  {
-        return ((DirectoryConfig) getConfig());
+    public DirectoryReadCall(final String configKey, final String fileName) {
+        super(configKey);
+        this.fileName = fileName;
+    }
+
+
+    @Override
+    public String execute(final EO eo)  {
+        String result = read(eo);
+        return createReturnString(eo, result);
+    }
+
+    public String read(final EO eo)  {
+        if (!hasFileName()) {
+            throw new EoException("No fileName provided for DirectoryConfig read.");
+        }
+
+        DirectoryConfig config = (DirectoryConfig)init(PermissionType.READ, eo);
+        if (config.hasCachedContent(fileName)) {
+            return config.getCachedContent(fileName);
+        }
+        final String replaceFileName = ParserSqareBracket.replacePathValues(fileName, eo);
+        if (replaceFileName.contains("..")) {
+            throw new EoException("FileName in call for read '"+ replaceFileName + "' has some backPropagation!");
+        }
+        if (!replaceFileName.matches(config.getFileName())) {
+            throw new EoException("fileName in call for read '"+ replaceFileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
+        }
+
+        final String filePath = ParserSqareBracket.replacePathValues(config.getFilePath() + "/" + replaceFileName, eo);
+        final String content = new IOString().setFileName(filePath).read();
+        if (config.isCached()) {
+            config.setCachedContent(fileName, content);
+        }
+        return content;
     }
 
     public boolean hasFileName() {
@@ -42,40 +68,6 @@ public class DirectoryReadCall extends ResourceReadCall {
     public DirectoryReadCall setFileName(String fileName) {
         this.fileName = fileName;
         return this;
-    }
-
-    @Override
-    public String execute(final EO eo)  {
-        if (!init(eo)) {
-            return "";
-        }
-        String result = read(eo);
-        return createReturnString(eo, result);
-    }
-
-    public String read(final EO eo)  {
-        if (!hasFileName()) {
-            throw new EoException("No fileName provided for DirectoryConfig read.");
-        }
-        if (fileName.contains("..")) {
-            throw new EoException("FileName in call for read '"+ fileName + "' has some backPropagation!");
-        }
-        if (!fileName.matches(getDirectoryConfig().getFileName())) {
-            throw new EoException("fileName in call for read '"+ fileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
-        }
-        if (getDirectoryConfig().hasCachedContent(fileName)) {
-            return getDirectoryConfig().getCachedContent(fileName);
-        }
-        String content = FileReadCall.read(eo, getDirectoryConfig().getFilePath() + "/" + fileName);
-        if (getDirectoryConfig().isCached()) {
-            getDirectoryConfig().setCachedContent(fileName, content);
-        }
-        return content;
-    }
-
-    @Override
-    public Class<? extends Config> getConfigClass()  {
-        return FileConfig.class;
     }
 
 }

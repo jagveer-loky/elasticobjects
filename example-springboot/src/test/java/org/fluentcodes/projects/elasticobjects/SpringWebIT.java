@@ -44,13 +44,12 @@ public class SpringWebIT {
         String url = "http://localhost:" + port + "/eo";
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
-        new XpectString().compareAsString(body);
     }
 
     @Test
     public void eo_TemplateDirResourceCall_examples_CallImplHtml_none__post__noLog() {
         String json = "{\"(TemplateDirResourceCall).\":{\n" +
-                "                 \"configKey\":\"examples\",\n" +
+                "                 \"fileConfigKey\":\"examples\",\n" +
                 "                 \"fileName\":\"CallImpl.html\",\n" +
                 "                 \"logLevel\":\"NONE\"\n" +
                 "                }\n" +
@@ -66,7 +65,7 @@ public class SpringWebIT {
     @Test
     public void eo_TemplateDirResourceCall_examples_CallImplHtml__post__hasLog() {
         String json = "{\"(TemplateDirResourceCall).\":{\n" +
-                "                 \"configKey\":\"examples\",\n" +
+                "                 \"fileConfigKey\":\"examples\",\n" +
                 "                 \"fileName\":\"CallImpl.html\"\n" +
                 "                }\n" +
                 "            }";
@@ -94,8 +93,6 @@ public class SpringWebIT {
         ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
-        EO eo = ProviderRootTestScope.createEo(body);
-        Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
     }
 
     @Test
@@ -104,8 +101,6 @@ public class SpringWebIT {
         ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
-        EO eo = ProviderRootTestScope.createEo(body);
-        Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
     }
 
     @Test
@@ -114,13 +109,9 @@ public class SpringWebIT {
         ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
-        Assertions.assertThat(body).contains("ERROR -");
     }
 
-
-
     // TODO so why in mvn does not work
-    @Ignore
     @Test
     public void givenGetContent_whenImpressumHtml_thenContentBodyIsLoaded() {
         String url = "http://localhost:" + port + "/Impressum.html";

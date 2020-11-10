@@ -13,19 +13,14 @@ import java.util.Map;
  */
 public class DbSqlConfig extends ResourceConfig implements DbSqlProperties {
     public static final String SQL_LIST = "sqlList";
+    public static final String DEFAULT_HOST_CONFIG_KEY = "defaultHostConfigKey";
     private final List<String> sqlList;
-    private DbConfig sqlConfig;
+    private final String defaultHostConfigKey;
 
     public DbSqlConfig(final EOConfigsCache cache, final Map map)  {
         super(cache, map);
         sqlList = (List) map.get(SQL_LIST);
-    }
-
-    public void resolve()  {
-        if (isResolved()) {
-            return;
-        }
-        sqlConfig = (DbConfig) getConfigsCache().findHost(getDbKey());
+        defaultHostConfigKey = (String) map.get(DEFAULT_HOST_CONFIG_KEY);
     }
 
     public List<String> getSqlList() {

@@ -4,10 +4,8 @@ import com.lexicalscope.jewel.cli.CliFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.Moduls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
-import org.fluentcodes.projects.elasticobjects.models.ConfigImpl;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
@@ -15,11 +13,9 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.calls.generate.GenerateJsonConfigCall.CONFIG_TYPE;
+import static org.fluentcodes.projects.elasticobjects.calls.generate.json.GenerateJsonConfigCall.CONFIG_TYPE;
 import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE;
 import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE;

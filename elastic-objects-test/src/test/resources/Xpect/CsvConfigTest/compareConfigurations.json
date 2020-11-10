@@ -10,7 +10,7 @@
     "configModelKey": "CsvConfig",
     "fileName": "AnObject.csv",
     "filePath": "input/assets/bt",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "permissionRole": {
       "read": "guest"
     },
@@ -24,7 +24,7 @@
     "cached": false,
     "fileName": "AnObject.json",
     "filePath": "input/assets/bt",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "permissionRole": {
       "read": "guest"
     },
@@ -38,7 +38,7 @@
     "cached": false,
     "fileName": "ContentExample.json",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -49,7 +49,7 @@
     "cached": false,
     "fileName": "ContentExampleData.json",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -60,7 +60,7 @@
     "cached": false,
     "fileName": "ContentExampleDynamic.tpl",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -71,7 +71,7 @@
     "cached": false,
     "fileName": "ContentExampleElement1.tpl",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -82,7 +82,7 @@
     "cached": false,
     "fileName": "ContentExampleElement2.tpl",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -93,7 +93,7 @@
     "cached": false,
     "fileName": "ContentExampleStatic.tpl",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -104,7 +104,7 @@
     "cached": false,
     "fileName": "ContentExampleStaticCondition.tpl",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -115,7 +115,7 @@
     "cached": false,
     "fileName": "ContentExampleStaticKeep.tpl",
     "filePath": "input/calls/content-example",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -126,7 +126,7 @@
     "cached": false,
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -141,7 +141,7 @@
     "cached": false,
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -158,7 +158,7 @@
     "configModelKey": "CsvConfig",
     "fileName": "ListSimple.csv",
     "filePath": "input/calls/list-simple",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -173,7 +173,7 @@
     "cached": false,
     "fileName": "ListSimple.json",
     "filePath": "input/calls/list-simple",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -192,7 +192,7 @@
     "configModelKey": "CsvConfig",
     "fileName": "target.csv",
     "filePath": " =>[@TMP].",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "permissionRole": {
       "read": "guest",
       "write": "admin"
@@ -207,7 +207,7 @@
     "cached": false,
     "fileName": "target.json",
     "filePath": " =>[@TMP].",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -218,7 +218,7 @@
     "cached": false,
     "fileName": "target.txt",
     "filePath": " =>[@TMP].",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -227,9 +227,10 @@
   },
   "17": {
     "cached": false,
+    "configModelKey": "DirectoryConfig",
     "fileName": "AnObjectTest",
     "filePath": "Xpect",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "permissionRole": {
       "execute": "guest"
     },
