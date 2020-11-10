@@ -2,11 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateDirResourceCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryMapReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreKeepCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -28,8 +25,8 @@ public class GenerateJavaCallStart {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(".*", MODULE);
         eo.set(".*", MODULE_SCOPE);
-        eo.set("json", FILE_ENDING);
-        eo.set(TemplateDirResourceCall.class.getSimpleName() , NATURAL_ID);
+        eo.set("", FILE_ENDING);
+        eo.set(DirectoryMapReadCall.class.getSimpleName() , NATURAL_ID);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).contains("/java/org/");

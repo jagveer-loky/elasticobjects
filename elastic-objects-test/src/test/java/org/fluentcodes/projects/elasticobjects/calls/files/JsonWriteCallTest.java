@@ -15,7 +15,7 @@ public class JsonWriteCallTest {
     public static final String FILE_TMP_JSON = "target.json";
 
     @Test
-    public void writeReadTmpJsonSuperAdmin_ok()  {
+    public void call__Json__role_SuperAdmin__execute__logEmpty()  {
         final JsonWriteCall callWrite = new JsonWriteCall(FILE_TMP_JSON);
         EO eo = ProviderRootTestScope.createEo();
         eo.setRoles(R_SUPER_ADMIN);
@@ -25,9 +25,7 @@ public class JsonWriteCallTest {
         eo.set(S_VALUE22, S1,S_KEY2);
         eo.setRoles(R_SUPER_ADMIN);
         String result = callWrite.execute(eo);
-        final FileReadCall callRead = new FileReadCall(FILE_TMP_JSON);
-        String readed = (String) callRead.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).contains("Written content with length 120 to file");
+        Assertions.assertThat(result).contains("target.json");
     }
 }

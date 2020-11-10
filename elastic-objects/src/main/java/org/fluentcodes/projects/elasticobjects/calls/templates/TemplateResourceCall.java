@@ -1,11 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., JAVA|>}|*/
 /**
  * Parses the content of a FileConfig configuration. 
  * Created by Werner Diwischek at date Fri Nov 06 08:22:14 CET 2020.
@@ -13,10 +13,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class TemplateResourceCall extends FileReadCall {
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
 
     public TemplateResourceCall() {
@@ -53,11 +53,10 @@ public class TemplateResourceCall extends FileReadCall {
     }
 
     public String execute(EO eo) {
-
         String content = super.read(eo);
         return new TemplateCall(content).execute(eo);
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
 }

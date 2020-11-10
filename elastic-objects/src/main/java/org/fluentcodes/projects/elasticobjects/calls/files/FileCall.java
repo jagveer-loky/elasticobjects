@@ -1,17 +1,31 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
+import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 /**
- * Created by werner.diwischek on 8.11.2020.
+ * Super class for file calls with one configuration key. Extends {@link HostCall}. Provide an init method to resolve {@link FileConfig} and @HostConfig
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 15:53:00 CET 2020
  */
 public abstract class FileCall extends HostCall {
-    private String fileConfigKey;
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String FILE_CONFIG_KEY = "fileConfigKey";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String fileConfigKey;
+/*=>{}.*/
     private FileConfig fileConfig;
 
     public FileCall() {
@@ -50,19 +64,25 @@ public abstract class FileCall extends HostCall {
         return getHostConfig().getUrl() + fileConfig.getUrl();
     }
 
-    public String getFileConfigKey() {
-        return fileConfigKey;
-    }
-
-    public void setFileConfigKey(String fileConfigKey) {
-        this.fileConfigKey = fileConfigKey;
-    }
-
-    public boolean hasFileConfigKey() {
-        return fileConfigKey!=null && !fileConfigKey.isEmpty();
-    }
-
     public void setConfigKey(String fileConfigKey) {
         this.fileConfigKey = fileConfigKey;
     }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Defines the key for a file configuration {@link FileConfig} where to read or write a file.
+    */
+
+    public FileCall setFileConfigKey(String fileConfigKey) {
+        this.fileConfigKey = fileConfigKey;
+        return this;
+    }
+    
+    public String getFileConfigKey () {
+       return this.fileConfigKey;
+    }
+    
+    public boolean hasFileConfigKey () {
+        return fileConfigKey!= null && !fileConfigKey.isEmpty();
+    }
+/*=>{}.*/
 }

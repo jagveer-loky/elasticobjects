@@ -142,7 +142,7 @@ public abstract class Parser {
                 if (callIndicator == null || callIndicator.isEmpty()) {
                     result.append(replacePathValues(eo, callSequence));
                 } else if (callIndicator.equals("=")) { // setCall
-                    result.append(callParameter(eo, callSequence, finish, defaultValue));
+                    result.append(callCommand(eo, callSequence, finish, defaultValue));
                 } else if (callIndicator.equals("==")) { // json
                     result.append(callJson(eo, callSequence, finish, defaultValue));
                 } else {
@@ -197,7 +197,7 @@ public abstract class Parser {
         return eo.getEo(pathOrKey).toString();
     }
 
-    protected Object callParameter(final EO eo, final String callDirective, final String finish, final String defaultValue) {
+    protected Object callCommand(final EO eo, final String callDirective, final String finish, final String defaultValue) {
         if (eo == null) {
             throw new EoException("Null eo, so could not execute call '" + callDirective + "'.");
         }
@@ -205,18 +205,18 @@ public abstract class Parser {
             throw new EoException("Null eo configCache, so could not execute call '" + callDirective + "'.");
         }
         String[] methodAndInput = callDirective.split("->");
-        ModelConfig callModel = eo.getConfigsCache().findModel(methodAndInput[0]);
+        String parameters = methodAndInput.length==1?methodAndInput[0]:methodAndInput[1];
+        String callKey = methodAndInput.length==1?TemplateResourceCall.class.getSimpleName():methodAndInput[0];
+        ModelConfig callModel = eo.getConfigsCache().findModel(callKey);
         Call call = (Call)callModel.create();
-        if (methodAndInput.length>1){
-            call.setByParameter(methodAndInput[1]);
-        }
+        call.setByParameter(parameters);
         if (!isEndSequence(finish)) {
             String content = findContent();
             if (call instanceof CallContent)  {
                 ((CallContent)call).setContent(content);
             }
             else {
-                throw new EoException("Problem setting content with implementing CallContent: '" + call.getClass().getSimpleName() + "'.");
+                eo.debug("Setting content with implementing CallContent: '" + call.getClass().getSimpleName() + "'.");
             }
         }
         StringBuffer returnResult = new StringBuffer();

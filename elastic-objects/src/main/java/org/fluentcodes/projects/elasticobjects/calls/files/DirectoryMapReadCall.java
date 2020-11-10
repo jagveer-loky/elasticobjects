@@ -12,17 +12,32 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 /**
- * Created by werner.diwischek on 10.10.2020.
+ * Read a list from a directory. The file names will replace <i>toReplace (default "_")</i> by <i>replaceBy (default "")</i> and <i>fileEnding(default ".html")</i> will be removed. 
+ * 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 16:49:48 CET 2020
  */
-
-public class DirectoryMapReadCall extends DirectoryListReadCall {
+public class DirectoryMapReadCall extends DirectoryListReadCall  {
+/*=>{}.*/
     public final static String DEFAULT_TO_REPLACE = "_";
     public final static String DEFAULT_REPLACE_BY = " ";
     public final static String DEFAULT_FILE_ENDING = ".html";
-    private String toReplace;
-    private String replaceBy;
-    private String fileEnding;
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String FILE_ENDING = "fileEnding";
+   public static final String REPLACE_BY = "replaceBy";
+   public static final String TO_REPLACE = "toReplace";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String fileEnding;
+   private  String replaceBy;
+   private  String toReplace;
+/*=>{}.*/
 
     public DirectoryMapReadCall() {
         super();
@@ -53,36 +68,54 @@ public class DirectoryMapReadCall extends DirectoryListReadCall {
         return result;
     }
 
-    public boolean hasToReplace() {
-        return toReplace!=null && !toReplace.isEmpty();
-    }
-    public boolean hasReplaceBy() {
-        return replaceBy!=null && !replaceBy.isEmpty();
-    }
-    public boolean hasFileEnding() {
-        return fileEnding!=null && !fileEnding.isEmpty();
-    }
-    public String getToReplace() {
-        return toReplace;
-    }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    It's used to specify the file ending in different context. 
+    */
 
-    public void setToReplace(String toReplace) {
-        this.toReplace = toReplace;
-    }
-
-    public String getReplaceBy() {
-        return replaceBy;
-    }
-
-    public void setReplaceBy(String replaceBy) {
-        this.replaceBy = replaceBy;
-    }
-
-    public String getFileEnding() {
-        return fileEnding;
-    }
-
-    public void setFileEnding(String fileEnding) {
+    public DirectoryMapReadCall setFileEnding(String fileEnding) {
         this.fileEnding = fileEnding;
+        return this;
     }
+    
+    public String getFileEnding () {
+       return this.fileEnding;
+    }
+    
+    public boolean hasFileEnding () {
+        return fileEnding!= null && !fileEnding.isEmpty();
+    }
+    /**
+    replaceBy
+    */
+
+    public DirectoryMapReadCall setReplaceBy(String replaceBy) {
+        this.replaceBy = replaceBy;
+        return this;
+    }
+    
+    public String getReplaceBy () {
+       return this.replaceBy;
+    }
+    
+    public boolean hasReplaceBy () {
+        return replaceBy!= null && !replaceBy.isEmpty();
+    }
+    /**
+    toReplace
+    */
+
+    public DirectoryMapReadCall setToReplace(String toReplace) {
+        this.toReplace = toReplace;
+        return this;
+    }
+    
+    public String getToReplace () {
+       return this.toReplace;
+    }
+    
+    public boolean hasToReplace () {
+        return toReplace!= null && !toReplace.isEmpty();
+    }
+/*=>{}.*/
 }

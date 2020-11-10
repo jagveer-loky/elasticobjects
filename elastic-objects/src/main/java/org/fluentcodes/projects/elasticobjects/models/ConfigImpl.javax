@@ -1,5 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
-/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}|*/
+/*==>{ALLImport.tpl, javaGenImport/*, JAVA}|*/
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,10 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
  */
 public classConfigImplextends BaseImpl implements Config, {
 
-/*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
+/*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
 /*=>{}.*/
 
-/*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
+/*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
    private  Expose expose;
    private final  String module;
    private final  String moduleScope;
@@ -24,7 +24,7 @@ public classConfigImplextends BaseImpl implements Config, {
 /*=>{}.*/
 
 publicConfigImpl() {final Map inputMap) {
-/*==>{TemplateResourceCall->CONFIGConstructor.tpl, fieldMap/*, JAVA}|*/   this.expose = (Expose) inputMap.get(EXPOSE);
+/*==>{CONFIGConstructor.tpl, fieldMap/*, JAVA}|*/   this.expose = (Expose) inputMap.get(EXPOSE);
 
    this.module = (String) inputMap.get(MODULE);
 
@@ -38,7 +38,7 @@ publicConfigImpl() {final Map inputMap) {
 /*=>{}.*/
 }
 
-/*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}|*/
+/*==>{ALLSetter.tpl, fieldMap/*, JAVA}|*/
 
     /**
     expose

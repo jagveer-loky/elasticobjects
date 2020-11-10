@@ -1,5 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
-/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}|*/
+/*==>{ALLImport.tpl, javaGenImport/*, JAVA}|*/
 /*=>{}.*/
 
 /**
@@ -8,7 +8,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
  */
 public class ASubObject   {
 
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
     public static final String ID = "id";
     public static final String MY_ASUB_OBJECT = "myASubObject";
     public static final String MY_STRING = "myString";
@@ -16,7 +16,7 @@ public class ASubObject   {
     public static final String NATURAL_ID = "naturalId";
     /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
     private  Long id;
     private  ASubObject myASubObject;
     private  String myString;
@@ -24,7 +24,7 @@ public class ASubObject   {
     private  String naturalId;
     /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA}|*/
 
     /**
      The id with a autonumbering

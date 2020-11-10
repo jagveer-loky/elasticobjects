@@ -1,4 +1,12 @@
 {
+  "absolute": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "In a directory context this will mark absolute context. ",
+    "expose": "NONE",
+    "fieldKey": "absolute"
+  },
   "attributeList": {
     "module": "elastic-objects",
     "moduleScope": "main",

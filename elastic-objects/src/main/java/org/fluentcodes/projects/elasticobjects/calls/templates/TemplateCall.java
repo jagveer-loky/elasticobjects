@@ -7,11 +7,8 @@ import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.CallContent;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+/*==>{ALLHeader.tpl, ., JAVA|>}|*/
 
 /**
  * Executes a template content. 
@@ -21,11 +18,11 @@ public class TemplateCall extends CallImpl implements CallContent {
 /*=>{}.*/
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
 
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
    public static final String CONTENT = "content";
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
    private  String content;
 /*=>{}.*/
 
@@ -85,7 +82,7 @@ public class TemplateCall extends CallImpl implements CallContent {
         super.setTargetPath(x);
         return this;
     }
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
     /**
     A content.
     */

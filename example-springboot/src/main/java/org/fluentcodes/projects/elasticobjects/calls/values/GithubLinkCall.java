@@ -1,20 +1,35 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Created by Werner on 30.9.2020.
+ * Create a link, if its FileConfig or ModelConfig, to the github source.
+ *
+ * @author Werner Diwischek
+ * @creationDate Thu Oct 01 00:00:00 CEST 2020
+ * @modificationDate Tue Nov 10 15:38:29 CET 2020
  */
-public class GithubLinkCall extends CallImpl {
+public class GithubLinkCall extends CallImpl  {
+/*=>{}.*/
     private static final String GITHUB_PIC = " <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>";
-    private String configType;
-    private String configKey;
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String CONFIG_KEY = "configKey";
+   public static final String CONFIG_TYPE = "configType";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String configKey;
+   private  String configType;
+/*=>{}.*/
+
     private Config config;
     private boolean configured = true;
     private boolean noLabel = false;
@@ -24,9 +39,9 @@ public class GithubLinkCall extends CallImpl {
         super();
     }
     public GithubLinkCall(final String configKey) {
-        this(configKey, "ModelConfig");
+        this("ModelConfig", configKey);
     }
-    public GithubLinkCall(final String configKey, final String configType) {
+    public GithubLinkCall(final String configType, final String configKey) {
         super();
         setTargetPath(TARGET_AS_STRING);
         this.configKey = configKey;
@@ -135,29 +150,6 @@ public class GithubLinkCall extends CallImpl {
         builder.append("</a></nobreak>");
         return builder.toString();
     }
-
-    public boolean hasConfigType() {
-        return configType !=null && !configType.isEmpty();
-    }
-    public boolean hasConfigKey() {
-        return configKey !=null && !configKey.isEmpty();
-    }
-    public String getConfigType() {
-        return configType;
-    }
-
-    public void setConfigType(String configType) {
-        this.configType = configType;
-    }
-
-    public String getConfigKey() {
-        return configKey;
-    }
-
-    public void setConfigKey(String configKey) {
-        this.configKey = configKey;
-    }
-
     public Boolean isNoGithub() {
         return noGithub;
     }
@@ -181,4 +173,39 @@ public class GithubLinkCall extends CallImpl {
     protected boolean isConfigured() {
         return configured;
     }
+
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Key for configuration  {@link Config}
+    */
+
+    public GithubLinkCall setConfigKey(String configKey) {
+        this.configKey = configKey;
+        return this;
+    }
+    
+    public String getConfigKey () {
+       return this.configKey;
+    }
+    
+    public boolean hasConfigKey () {
+        return configKey!= null && !configKey.isEmpty();
+    }
+    /**
+    Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
+    */
+
+    public GithubLinkCall setConfigType(String configType) {
+        this.configType = configType;
+        return this;
+    }
+    
+    public String getConfigType () {
+       return this.configType;
+    }
+    
+    public boolean hasConfigType () {
+        return configType!= null && !configType.isEmpty();
+    }
+/*=>{}.*/
 }

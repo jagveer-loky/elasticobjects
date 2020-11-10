@@ -1,5 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
-/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}|*/
+/*==>{ALLImport.tpl, javaGenImport/*, JAVA}|*/
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 /*=>{}.*/
 import org.fluentcodes.projects.elasticobjects.EO;
@@ -13,7 +13,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 public interface Call  {
     String TARGET_AS_STRING = "_asString";
 
-    /*==>{TemplateResourceCall->INTERFACEStaticNames.tpl, fieldMap/*, JAVA}|*/
+    /*==>{INTERFACEStaticNames.tpl, fieldMap/*, JAVA}|*/
     String CONDITION = "condition";
     String DURATION = "duration";
     String LOG_LEVEL = "logLevel";
@@ -55,7 +55,7 @@ public interface Call  {
         return getKeepCall().getStartComment();
     }
 
-    /*==>{TemplateResourceCall->INTERFACESetter.tpl, fieldMap/*, JAVA}|*/
+    /*==>{INTERFACESetter.tpl, fieldMap/*, JAVA}|*/
 
     /**
      * A condition for calls.

@@ -1,6 +1,6 @@
 package \
 =>{packagePath}.;
-/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}.*/
+/*==>{ALLImport.tpl, javaGenImport/*, JAVA}.*/
 
 /**
  *
@@ -12,8 +12,8 @@ public interface =>{modelKey}. \
 ==>{JavaExtendsCall->superKey|>}. \
 ==>{JavaImplementsCall->interfaces|>}. {
 
-/*==>{TemplateResourceCall->INTERFACEStaticNames.tpl, fieldMap/*, JAVA}.*/
+/*==>{INTERFACEStaticNames.tpl, fieldMap/*, JAVA}.*/
 
-/*==>{TemplateResourceCall->INTERFACESetter.tpl, fieldMap/*, JAVA}.*/
+/*==>{INTERFACESetter.tpl, fieldMap/*, JAVA}.*/
 
 }

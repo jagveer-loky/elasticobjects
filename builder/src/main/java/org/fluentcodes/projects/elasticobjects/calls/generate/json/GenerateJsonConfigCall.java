@@ -18,7 +18,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., JAVA|>}|*/
 
 /**
  * Call for generation json configurations from the sheet.
@@ -33,11 +33,11 @@ public class GenerateJsonConfigCall extends GenerateCall {
         super();
         this.configType = configType;
     }
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
    public static final String CONFIG_TYPE = "configType";
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
    private  String configType;
 /*=>{}.*/
     private FileConfig targetConfig;
@@ -115,7 +115,7 @@ public class GenerateJsonConfigCall extends GenerateCall {
         return feedback;
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
 
     /**
     Key for configuration type.

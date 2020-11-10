@@ -1,10 +1,10 @@
 package \
 =>{packagePath}.;
-/* ==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}.*/
+/* ==>{ALLHeader.tpl, ., , JAVA|>}.*/
 
-/* ==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}.*/
+/* ==>{ALLStaticNames.tpl, fieldMap/*, ., override eq false, JAVA|>}.*/
 
-/* ==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}.*/
+/* ==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}.*/
 
-/* ==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}.*/
+/* ==>{TALLSetter.tpl, fieldMap/*, , JAVA|>}.*/
 }

@@ -1,4 +1,4 @@
-==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*|>}.
+==>{ALLImport.tpl, javaGenImport/*|>}.
 /**
  * \
  ==>{JavaCommentCall->description|>}.

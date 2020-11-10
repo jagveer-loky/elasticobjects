@@ -27,7 +27,7 @@ public class GithubLinkCallTest {
 
     @Test
     public void FileConfig_configKey_AnObjectCsv__execute__$()  {
-        GithubLinkCall call = new GithubLinkCall("AnObject.csv", "FileConfig");
+        GithubLinkCall call = new GithubLinkCall("FileConfig", "AnObject.csv");
         EO eo = ProviderRootTestScope.createEo();
         String result = call.execute(eo);
         Assertions.assertThat(result).isEqualTo("\n" +
@@ -36,7 +36,7 @@ public class GithubLinkCallTest {
 
     @Test
     public void call_NONE_SPIwebHeaderHtml___execute__expected()  {
-        GithubLinkCall call = new GithubLinkCall("SPI|web|Header.html", "NONE");
+        GithubLinkCall call = new GithubLinkCall("NONE", "SPI|web|Header.html");
         EO eo = ProviderRootTestScope.createEo();
         String result = call.execute(eo);
         Assertions.assertThat(result).isEqualTo("\n<nobreak><a target=\"github\" href=\"https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/web/Header.html\"> <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>Header.html</a></nobreak>");
@@ -44,7 +44,7 @@ public class GithubLinkCallTest {
 
     @Test
     public void eo_NONE_SPIwebHeaderHtml___execute__expected()  {
-        GithubLinkCall call = new GithubLinkCall("SPI|web|Header.html", "NONE");
+        GithubLinkCall call = new GithubLinkCall("NONE", "SPI|web|Header.html");
         EO eo = ProviderRootTestScope.createEo();
         eo.addCall(call);
         eo.execute();

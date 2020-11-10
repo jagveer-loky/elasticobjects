@@ -1,28 +1,42 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
+
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 /**
- * Created by werner.diwischek on 2.10.2020.
+ * Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. 
+ * Offers also general access methods like read(String filePath, String fileName) for java access. 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 16:44:58 CET 2020
  */
-public class DirectoryListReadCall extends FileReadCall{
-    private Boolean absolute = false;
+public class DirectoryListReadCall extends FileReadCall  {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String ABSOLUTE = "absolute";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  Boolean absolute;
+/*=>{}.*/
     public DirectoryListReadCall() {
         super();
+        absolute = false;
     }
     public DirectoryListReadCall(final String configKey) {
         super(configKey);
+        absolute = false;
     }
 
     @Override
@@ -80,14 +94,26 @@ public class DirectoryListReadCall extends FileReadCall{
         return urlList;
     }
 
-    public Boolean getAbsolute() {
-        return absolute;
-    }
     public Boolean isAbsolute() {
         return absolute;
     }
 
-    public void setAbsolute(Boolean absolute) {
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    In a directory context this will mark absolute context. 
+    */
+
+    public DirectoryListReadCall setAbsolute(Boolean absolute) {
         this.absolute = absolute;
+        return this;
     }
+    
+    public Boolean getAbsolute () {
+       return this.absolute;
+    }
+    
+    public boolean hasAbsolute () {
+        return absolute!= null;
+    }
+/*=>{}.*/
 }

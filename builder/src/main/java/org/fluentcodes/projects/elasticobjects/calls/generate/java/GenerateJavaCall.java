@@ -16,7 +16,7 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_K
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SHAPE_TYPE;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA}|*/
+/*==>{ALLHeader.tpl, ., JAVA}|*/
 import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 
 /**
@@ -31,10 +31,10 @@ public class GenerateJavaCall extends GenerateCall  {
     public final static String GEN_IGNORE = "genIgnore";
     public final static String FIELD_MAP = "fieldMap";
 
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
 /*=>{}.*/
 
     public GenerateJavaCall() {
@@ -96,6 +96,6 @@ public class GenerateJavaCall extends GenerateCall  {
         return feedback;
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
 /*=>{}.*/
 }

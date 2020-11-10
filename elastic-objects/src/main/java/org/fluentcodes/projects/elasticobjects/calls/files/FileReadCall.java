@@ -3,16 +3,28 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOBytes;
 import org.fluentcodes.tools.xpect.IOString;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
 /**
- * Created by werner.diwischek on 9.7.2020.
+ * Read content of a file. Put it to targetPath in in when targetPath not equals "_asString".
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 15:48:03 CET 2020
  */
 public class FileReadCall extends FileCall implements ConfigReadCommand {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
     public FileReadCall() {
         super();
     }
@@ -56,4 +68,6 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
         }
         return new IOBytes().setFileName(filePath + Path.DELIMITER + fileName).read();
     }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 }

@@ -1,31 +1,42 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
+
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCommand;
-
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Created by werner.diwischek on 8.11.2020.
+ * Read content of a file specified by sourceFileConfigKey referencing a FileConfig with this key. Afterwards it will store it to the file configuration with key targetFileConfigKey. 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 16:21:04 CET 2020
  */
-
 public class FileReadWriteCall extends CallImpl implements ConfigReadWriteCommand {
-    public static final String SOURCE_FILE_CONFIG_KEY = "sourceFileConfigKey";
-    public static final String TARGET_FILE_CONFIG_KEY = "targetFileConfigKey";
-    private String sourceFileConfigKey;
-    private String targetFileConfigKey;
-    private boolean compare;
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String COMPARE = "compare";
+   public static final String SOURCE_FILE_CONFIG_KEY = "sourceFileConfigKey";
+   public static final String TARGET_FILE_CONFIG_KEY = "targetFileConfigKey";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  Boolean compare;
+   private  String sourceFileConfigKey;
+   private  String targetFileConfigKey;
+/*=>{}.*/
 
     public FileReadWriteCall() {
         super();
-        compare = false;
+        compare = true;
     }
 
     public FileReadWriteCall(final String sourceFileConfigKey, final String targetFileConfigKey) {
         super();
         this.sourceFileConfigKey = sourceFileConfigKey;
         this.targetFileConfigKey = targetFileConfigKey;
-        compare = false;
+        compare = true;
     }
 
     @Override
@@ -44,31 +55,58 @@ public class FileReadWriteCall extends CallImpl implements ConfigReadWriteComman
                 .execute(eo);
     }
 
-    public String getSourceFileConfigKey() {
-        return sourceFileConfigKey;
-    }
-
-    @Override
-    public FileReadWriteCall setSourceFileConfigKey(String sourceFileConfigKey) {
-        this.sourceFileConfigKey = sourceFileConfigKey;
-        return this;
-    }
-
-    public String getTargetFileConfigKey() {
-        return targetFileConfigKey;
-    }
-
-    @Override
-    public FileReadWriteCall setTargetFileConfigKey(String targetFileConfigKey) {
-        this.targetFileConfigKey = targetFileConfigKey;
-        return this;
-    }
-
     public boolean isCompare() {
         return compare;
     }
 
-    public void setCompare(boolean compare) {
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Trigger a compare before writing in @FileWriteCall
+    */
+
+    public FileReadWriteCall setCompare(Boolean compare) {
         this.compare = compare;
+        return this;
     }
+    
+    public Boolean getCompare () {
+       return this.compare;
+    }
+    
+    public boolean hasCompare () {
+        return compare!= null;
+    }
+    /**
+    Defines the key for a file configuration {@link FileConfig} where to read a file.
+    */
+
+    public FileReadWriteCall setSourceFileConfigKey(String sourceFileConfigKey) {
+        this.sourceFileConfigKey = sourceFileConfigKey;
+        return this;
+    }
+    
+    public String getSourceFileConfigKey () {
+       return this.sourceFileConfigKey;
+    }
+    
+    public boolean hasSourceFileConfigKey () {
+        return sourceFileConfigKey!= null && !sourceFileConfigKey.isEmpty();
+    }
+    /**
+    A target for persisting template results in TemplateResourceStoreCall. 
+    */
+
+    public FileReadWriteCall setTargetFileConfigKey(String targetFileConfigKey) {
+        this.targetFileConfigKey = targetFileConfigKey;
+        return this;
+    }
+    
+    public String getTargetFileConfigKey () {
+       return this.targetFileConfigKey;
+    }
+    
+    public boolean hasTargetFileConfigKey () {
+        return targetFileConfigKey!= null && !targetFileConfigKey.isEmpty();
+    }
+/*=>{}.*/
 }

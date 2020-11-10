@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}|*/
+/*==>{ALLImport.tpl, javaGenImport/*, JAVA}|*/
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import java.util.Date;
  */
 
 public class AnObject   {
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
     public static final String ID = "id";
     public static final String MY_ASUB_OBJECT = "myASubObject";
     public static final String MY_ASUB_OBJECT_LIST = "myASubObjectList";
@@ -33,7 +33,7 @@ public class AnObject   {
     public static final String NATURAL_ID = "naturalId";
     /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
     private  Long id;
     private  ASubObject myASubObject;
     private  List<ASubObject> myASubObjectList;
@@ -56,7 +56,7 @@ public class AnObject   {
         return this.myBoolean;
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA}|*/
 
     /**
      The id with a autonumbering

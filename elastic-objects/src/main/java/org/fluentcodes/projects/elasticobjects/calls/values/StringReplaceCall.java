@@ -1,20 +1,30 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Created by Werner on 26.08.2020.
+ * For replacing field 'toReplace' by 'replaceBy'.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 14:33:04 CET 2020
  */
-public class StringReplaceCall extends CallImpl  implements SimpleCommand {
-    public static final String TO_REPLACE = "toReplace";
-    public static final String REPLACE_BY = "replaceBy";
+public class StringReplaceCall extends CallImpl implements SimpleCommand {
+/*=>{}.*/
 
-    private String toReplace;
-    private String replaceBy;
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String REPLACE_BY = "replaceBy";
+   public static final String TO_REPLACE = "toReplace";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String replaceBy;
+   private  String toReplace;
+/*=>{}.*/
 
     public StringReplaceCall() {
         super();
@@ -63,19 +73,36 @@ public class StringReplaceCall extends CallImpl  implements SimpleCommand {
         return ((String)eo.get()).replaceAll(toReplace, replaceBy);
     }
 
-    public String getToReplace() {
-        return toReplace;
-    }
-
-    public void setToReplace(String toReplace) {
-        this.toReplace = toReplace;
-    }
-
-    public String getReplaceBy() {
-        return replaceBy;
-    }
-
-    public void setReplaceBy(String replaceBy) {
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    replaceBy
+    */
+    public StringReplaceCall setReplaceBy(String replaceBy) {
         this.replaceBy = replaceBy;
+        return this;
     }
+    
+    public String getReplaceBy () {
+       return this.replaceBy;
+    }
+    
+    public boolean hasReplaceBy () {
+        return replaceBy!= null && !replaceBy.isEmpty();
+    }
+    /**
+    toReplace
+    */
+    public StringReplaceCall setToReplace(String toReplace) {
+        this.toReplace = toReplace;
+        return this;
+    }
+    
+    public String getToReplace () {
+       return this.toReplace;
+    }
+    
+    public boolean hasToReplace () {
+        return toReplace!= null && !toReplace.isEmpty();
+    }
+/*=>{}.*/
 }

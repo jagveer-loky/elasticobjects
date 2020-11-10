@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-/*==>{TemplateResourceCall->ALLImport.tpl, javaGenImport/*, JAVA}|*/
+/*==>{ALLImport.tpl, javaGenImport/*, JAVA}|*/
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +19,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
  * Created by Werner on 10.10.2016.
  */
 public abstract class ConfigImpl extends BaseImpl implements Config {
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
     /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
     private  Expose expose;
     private final  String module;
     private final  String moduleScope;
@@ -114,7 +114,7 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         }
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA}|*/
 
     /**
      expose

@@ -1,4 +1,5 @@
 "naturalId";"modelKeys";"description";"module";"subModule";"fieldKey";"scope";"dbFieldParams";"eoFieldParams";"viewFieldParams";
+"absolute";"Boolean";"In a directory context this will mark absolute context. ";"elastic-objects";"";"absolute";"";"";"";"";
 "attributeList";"ArrayList,String";"Definition of available attributes for an Action.";"elastic-objects";"";"attributeList";"";"";"";"";
 "author";"String";"The autor of something e,g. a class.";"elastic-objects";"";"author";"";"";"";"";
 "cached";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"cached";"";"";"";"";

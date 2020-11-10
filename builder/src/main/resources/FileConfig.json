@@ -1,10 +1,10 @@
 {
-  "AllHeader.tpl": {
+  "ALLHeader.tpl": {
     "module": "builder",
     "moduleScope": "main",
     "hostKey": "localhost",
     "filePath": "templates/java",
-    "fileName": "AllHeader.tpl",
+    "fileName": "ALLHeader.tpl",
     "description": "Java header template for imports, comments, class declaration. ",
     "expose": "WEB",
     "cached": "false",

@@ -1,15 +1,28 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Created by Werner on 26.08.2020.
+ * An example for a simple call with a field.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 15:07:40 CET 2020
  */
-public class TheGreetingCall extends CallImpl  implements SimpleCommand {
-    private String greeting;
+public class TheGreetingCall extends CallImpl implements SimpleCommand {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String GREETING = "greeting";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String greeting;
+/*=>{}.*/
     public TheGreetingCall() {
         super();
     }
@@ -36,11 +49,22 @@ public class TheGreetingCall extends CallImpl  implements SimpleCommand {
         return (value);
     }
 
-    public String getGreeting() {
-        return greeting;
-    }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    The field value for TheGreetingCall example. 
+    */
 
-    public void setGreeting(String greeting) {
+    public TheGreetingCall setGreeting(String greeting) {
         this.greeting = greeting;
+        return this;
     }
+    
+    public String getGreeting () {
+       return this.greeting;
+    }
+    
+    public boolean hasGreeting () {
+        return greeting!= null && !greeting.isEmpty();
+    }
+/*=>{}.*/
 }

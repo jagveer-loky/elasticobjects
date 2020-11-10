@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., JAVA|>}|*/
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 
 /**
@@ -16,13 +16,13 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
  * Created by Werner Diwischek at date Thu Nov 05 09:33:24 CET 2020.
  */
 public abstract class GenerateCall extends CallImpl implements GenerateCommand {
-        /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+        /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
         public static final String FILE_ENDING = "fileEnding";
         public static final String MODULE = "module";
         public static final String MODULE_SCOPE = "moduleScope";
         /*=>{}.*/
 
-        /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+        /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
         private  String fileEnding;
         private  String module;
         private  String moduleScope;
@@ -72,7 +72,7 @@ public abstract class GenerateCall extends CallImpl implements GenerateCommand {
         return true;
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
     /**
 
      */

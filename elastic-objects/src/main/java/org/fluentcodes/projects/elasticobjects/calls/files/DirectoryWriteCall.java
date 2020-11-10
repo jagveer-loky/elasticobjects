@@ -5,12 +5,24 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
-
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 /**
- * Created by werner.diwischek on 2.10.2020.
+ * Defines a file write operation for a directory configuration {@link DirectoryConfig} specified by fileConfigKey. 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 16:34:30 CET 2020
  */
-public class DirectoryWriteCall extends FileWriteCall {
-    private String fileName;
+public class DirectoryWriteCall extends FileWriteCall  {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String FILE_NAME = "fileName";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String fileName;
+/*=>{}.*/
     public DirectoryWriteCall() {
         super();
     }
@@ -47,16 +59,22 @@ public class DirectoryWriteCall extends FileWriteCall {
         return "Written content with  length " + getContent().length() + " to file '" + url + "'" ;
     }
 
-    public boolean hasFileName() {
-        return fileName != null && !fileName.isEmpty();
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}. 
+    */
 
     public DirectoryWriteCall setFileName(String fileName) {
         this.fileName = fileName;
         return this;
     }
+    
+    public String getFileName () {
+       return this.fileName;
+    }
+    
+    public boolean hasFileName () {
+        return fileName!= null && !fileName.isEmpty();
+    }
+/*=>{}.*/
 }

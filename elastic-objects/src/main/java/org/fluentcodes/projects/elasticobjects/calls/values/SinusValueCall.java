@@ -1,17 +1,28 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Created by Werner on 13.07.2020.
+ * For setting sinus value to EO.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 14:26:08 CET 2020
  */
-public class SinusValueCall extends CallImpl  implements SimpleCommand {
+public class SinusValueCall extends CallImpl implements SimpleCommand {
+/*=>{}.*/
+
+        /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+        /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
     @Override
     public Object execute(final EO eo) {
         super.check(eo);
@@ -23,4 +34,6 @@ public class SinusValueCall extends CallImpl  implements SimpleCommand {
             throw new EoException(e.getMessage());
         }
     }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 }

@@ -2,31 +2,28 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 
-/*==>{TemplateResourceCall->ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 /**
  * Parses the content loaded by {@link DirectoryReadCall}.
  * This will use a FileConfig entry using {@link DirectoryConfig} instance. 
  *
  * @author Werner Diwischek
- * @creationDate Sat Oct 10 00:00:00 CEST 2020
- * @modificationDate Fri Nov 06 10:56:45 CET 2020
+ * @creationDate 
+ * @modificationDate Tue Nov 10 13:09:53 CET 2020
  */
-public class TemplateDirResourceCall extends DirectoryReadCall {
+public class TemplateDirResourceCall extends DirectoryReadCall  {
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{TemplateResourceCall->ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
 
     public TemplateDirResourceCall() {
@@ -81,6 +78,6 @@ public class TemplateDirResourceCall extends DirectoryReadCall {
         }
     }
 
-    /*==>{TemplateResourceCall->ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
 }

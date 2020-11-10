@@ -3,18 +3,30 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 /**
- * Created by Werner on 30.9.2020.
+ * Create a link to a config page and if its FileConfig or ModelConfig to the github source.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Nov 10 15:40:45 CET 2020
  */
-public class ConfigLinkCall extends GithubLinkCall {
+public class ConfigLinkCall extends GithubLinkCall  {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
     public ConfigLinkCall() {
         super();
     }
     public ConfigLinkCall(final String fileConfigKey) {
-        this(fileConfigKey, "ModelConfig");
+        this("ModelConfig", fileConfigKey);
     }
-    public ConfigLinkCall(final String fileConfigKey, final String configType) {
-        super(fileConfigKey,configType);
+    public ConfigLinkCall(final String configType, final String fileConfigKey) {
+        super(configType, fileConfigKey);
     }
 
     @Override
@@ -34,4 +46,6 @@ public class ConfigLinkCall extends GithubLinkCall {
         builder.append("</a>\n");
         return builder.toString();
     }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 }
