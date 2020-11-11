@@ -4,7 +4,6 @@ import au.com.bytecode.opencsv.CSVReader;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
-import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.io.IOException;
@@ -14,10 +13,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 /**
- * Created by werner.diwischek on 03.12.16.
+ * Defines read call for a csv action depending on one link CsvConfig. 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 06:03:07 CET 2020
  */
-public class CsvReadCall extends CsvSimpleReadCall {
+public class CsvReadCall extends CsvSimpleReadCall  {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
     public CsvReadCall()  {
         super();
     }
@@ -76,5 +88,6 @@ public class CsvReadCall extends CsvSimpleReadCall {
         }
         return result;
     }
-
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 }

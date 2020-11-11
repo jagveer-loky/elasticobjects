@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigsCommand;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -12,29 +13,55 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.models.Expose;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigsCommand;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Created by Werner on 14.07.2020.
+ * For getting a list of keys for a specific configuration type, config filter and expose type.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 05:34:37 CET 2020
  */
-public class ConfigKeysCall extends CallImpl {
-    private String configType;
-    private String configFilter = ".*";
-    private Expose expose = Expose.NONE;
-    private SortOrder sortOrder = SortOrder.ASC;
+public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String CONFIG_FILTER = "configFilter";
+   public static final String CONFIG_TYPE = "configType";
+   public static final String EXPOSE = "expose";
+   public static final String SORT_ORDER = "sortOrder";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String configFilter;
+   private  String configType;
+   private  Expose expose;
+   private  SortOrder sortOrder;
+/*=>{}.*/
     private Class<? extends Config> configClass;
 
     public ConfigKeysCall() {
         super();
+        expose = Expose.NONE;
+        sortOrder = SortOrder.ASC;
+
     }
 
     public ConfigKeysCall(final Class<? extends Config> configClass) {
         super();
         this.configClass = configClass;
         this.configType = configClass.getSimpleName();
+        expose =  Expose.NONE;
+        sortOrder = SortOrder.ASC;
     }
 
     public ConfigKeysCall(final String configType) {
         super();
         this.configType = configType;
+        expose =  Expose.NONE;
+        sortOrder = SortOrder.ASC;
     }
 
     public ConfigKeysCall(final Class<? extends Config> configClass, final String configFilter) {
@@ -42,37 +69,11 @@ public class ConfigKeysCall extends CallImpl {
         this.configFilter = configFilter;
     }
 
-    public void setByParameter(final String values) {
-        if (values == null||values.isEmpty()) {
-            throw new EoException("Set by empty input values");
-        }
-        String[] array = values.split(", ");
-        if (array.length>4) {
-            throw new EoException("Short form should have form '<configType>[,<naturalId>][,<expose>][,<targetPath>]' with max length 3 but has size " + array.length + ": '" + values + "'." );
-        }
-        setByString(array);
-    }
-
-    protected void setByString(final String[] array) {
-        if (array == null||array.length == 0) {
-            throw new EoException("Set by empty input values");
-        }
-        if (array.length>0) {
-            setConfigType(array[0]);
-        }
-        if (array.length>1) {
-            setConfigFilter(array[1]);
-        }
-        if (array.length>2) {
-            setExpose(Expose.valueOf(array[2]));
-        }
-        if (array.length>3) {
-            setTargetPath(array[3]);
-        }
-    }
-
     @Override
     public Object execute(final EO eo) {
+        if (!hasConfigFilter()) {
+            configFilter = ".*";
+        }
         super.check(eo);
         if (configType == null && configClass == null) {
             throw new EoException("Problem no config type defined.");
@@ -101,39 +102,70 @@ public class ConfigKeysCall extends CallImpl {
         }
     }
 
-    public String getConfigType() {
-        return configType;
-    }
-
-    public ConfigKeysCall setConfigType(String configName) {
-        this.configType = configName;
-        return this;
-    }
-
-    public String getConfigFilter() {
-        return configFilter;
-    }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Key for filter configuration
+    */
 
     public ConfigKeysCall setConfigFilter(String configFilter) {
         this.configFilter = configFilter;
         return this;
     }
-
-    public Expose getExpose() {
-        return expose;
+    
+    public String getConfigFilter () {
+       return this.configFilter;
     }
+    
+    public boolean hasConfigFilter () {
+        return configFilter!= null && !configFilter.isEmpty();
+    }
+    /**
+    Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
+    */
+
+    public ConfigKeysCall setConfigType(String configType) {
+        this.configType = configType;
+        return this;
+    }
+    
+    public String getConfigType () {
+       return this.configType;
+    }
+    
+    public boolean hasConfigType () {
+        return configType!= null && !configType.isEmpty();
+    }
+    /**
+    expose
+    */
 
     public ConfigKeysCall setExpose(Expose expose) {
         this.expose = expose;
         return this;
     }
-
-    public SortOrder getSortOrder() {
-        return sortOrder;
+    
+    public Expose getExpose () {
+       return this.expose;
     }
+    
+    public boolean hasExpose () {
+        return expose!= null;
+    }
+    /**
+    sortOrder
+    */
 
     public ConfigKeysCall setSortOrder(SortOrder sortOrder) {
         this.sortOrder = sortOrder;
         return this;
     }
+    
+    public SortOrder getSortOrder () {
+       return this.sortOrder;
+    }
+    
+    public boolean hasSortOrder () {
+        return sortOrder!= null;
+    }
+/*=>{}.*/
 }

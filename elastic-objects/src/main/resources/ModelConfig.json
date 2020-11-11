@@ -209,6 +209,21 @@
     },
     "author": "Werner Diwischek"
   },
+  "ConfigsCommand": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "Call",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with configType, configFilter, expose, targetPath and sortOrder values.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "ConfigsCommand",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
   "ConfigDirectoryReadCommand": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1306,6 +1321,21 @@
       "shapeType": "SCALAR"
     },
     "author": "java"
+  },
+  "SortOrder": {
+    "configModelKey": "ModelConfigScalar",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "description": "Enum with different shapetypes like SCALAR or BEAN. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
+    "modelKey": "SortOrder",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "ENUM"
+    },
+    "author": "Werner Diwischek"
   },
   "StringLowerCall": {
     "module": "elastic-objects",

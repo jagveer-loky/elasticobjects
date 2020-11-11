@@ -1,17 +1,27 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 /**
- * Created by werner.diwischek on 8.11.2020.
+ * Super class for file calls with a configuration key to resolve {@link HostConfig} with init method. Extends {@link CallImpl}. 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 07:56:18 CET 2020
  */
-public abstract class HostCall extends CallImpl {
-    private String hostConfigKey;
+public abstract class HostCall extends CallImpl implements Call {
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String HOST_CONFIG_KEY = "hostConfigKey";
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String hostConfigKey;
+/*=>{}.*/
+
     private HostConfig hostConfig;
 
     public HostCall() {
@@ -35,14 +45,23 @@ public abstract class HostCall extends CallImpl {
     public HostConfig getHostConfig()  {
         return hostConfig;
     }
-    public String getHostConfigKey() {
-        return hostConfigKey;
-    }
-    public boolean hasHostConfigKey() {
-        return hostConfigKey!=null && ! hostConfigKey.isEmpty();
-    }
 
-    public void setHostConfigKey(String hostConfigKey) {
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    A key for host objects.
+    */
+
+    public HostCall setHostConfigKey(String hostConfigKey) {
         this.hostConfigKey = hostConfigKey;
+        return this;
     }
+    
+    public String getHostConfigKey () {
+       return this.hostConfigKey;
+    }
+    
+    public boolean hasHostConfigKey () {
+        return hostConfigKey!= null && !hostConfigKey.isEmpty();
+    }
+/*=>{}.*/
 }

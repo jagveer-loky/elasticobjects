@@ -2,20 +2,29 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 /**
- * Created by werner.diwischek on 03.12.16.
+ * Defines a primitive csv file read operation. 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 06:10:13 CET 2020
  */
 public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
-    private ListParams listParams;
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String LIST_PARAMS = "listParams";
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  ListParams listParams;
+/*=>{}.*/
     public CsvSimpleReadCall()  {
         super();
         listParams = new ListParams();
@@ -23,11 +32,6 @@ public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
     public CsvSimpleReadCall(final String configKey)  {
         super(configKey);
         listParams = new ListParams();
-    }
-
-    @Override
-    public ListParams getListParams() {
-        return listParams;
     }
 
     @Override
@@ -74,4 +78,22 @@ public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
         }
         return result;
     }
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Filter for the readings within {{@link link} ListAction}.
+    */
+
+    public CsvSimpleReadCall setListParams(ListParams listParams) {
+        this.listParams = listParams;
+        return this;
+    }
+    
+    public ListParams getListParams () {
+       return this.listParams;
+    }
+    
+    public boolean hasListParams () {
+        return listParams!= null;
+    }
+/*=>{}.*/
 }

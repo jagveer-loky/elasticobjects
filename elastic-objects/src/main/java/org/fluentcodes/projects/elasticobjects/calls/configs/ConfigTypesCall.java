@@ -9,10 +9,24 @@ import org.fluentcodes.projects.elasticobjects.models.Config;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Created by Werner on 22.08.2020.
+ * For getting a list of keys for a configuration types.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 05:47:58 CET 2020
  */
-public class ConfigTypesCall extends CallImpl  implements SimpleCommand {
+public class ConfigTypesCall extends CallImpl implements SimpleCommand {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
     private Class<? extends Config> configClass;
 
@@ -35,4 +49,6 @@ public class ConfigTypesCall extends CallImpl  implements SimpleCommand {
             throw new EoException(e);
         }
     }
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 }

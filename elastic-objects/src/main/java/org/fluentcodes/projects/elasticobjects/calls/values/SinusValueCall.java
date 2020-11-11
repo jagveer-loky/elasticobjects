@@ -18,10 +18,10 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 public class SinusValueCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-        /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-        /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
     @Override
     public Object execute(final EO eo) {
@@ -34,6 +34,6 @@ public class SinusValueCall extends CallImpl implements SimpleCommand {
             throw new EoException(e.getMessage());
         }
     }
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
 }

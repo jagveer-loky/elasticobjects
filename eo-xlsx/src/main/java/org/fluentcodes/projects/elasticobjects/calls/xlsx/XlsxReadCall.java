@@ -3,9 +3,6 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
@@ -13,12 +10,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 /**
- * Reads and writes Excelsheets.
- * Created by werner.diwischek on 18.12.17.
+ * Read an Excel sheet specified by fileConfigKey referencing to a {@link XlsxConfig} configuration.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 08:02:52 CET 2020
  */
 public class XlsxReadCall extends FileReadCall implements ListInterface {
-    private ListParams listParams;
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String LIST_PARAMS = "listParams";
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private final  ListParams listParams;
+/*=>{}.*/
     public XlsxReadCall()  {
         super();
         listParams = new ListParams();
@@ -27,11 +39,6 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
     public XlsxReadCall(final String configKey)  {
         super(configKey);
         listParams = new ListParams();
-    }
-
-    @Override
-    public ListParams getListParams() {
-        return listParams;
     }
 
     public Object execute(EO eo) {
@@ -77,4 +84,17 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
         }
         return result;
     }
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
+    */
+    @Override
+    public ListParams getListParams () {
+       return this.listParams;
+    }
+    @Override
+    public boolean hasListParams () {
+        return listParams!= null;
+    }
+/*=>{}.*/
 }

@@ -36,7 +36,7 @@ public class ConfigAsFlatListCallCheck {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(FieldConfig.class.getSimpleName())
-                .setKeys("naturalId","modelKeys","description","module","subModule","fieldKey","scope",
+                .setFieldKeys("naturalId","modelKeys","description","module","subModule","fieldKey","scope",
                         "dbFieldParams","eoFieldParams","viewFieldParams");
         String result = call.execute(eo);
         new XpectString().compareAsString(result);

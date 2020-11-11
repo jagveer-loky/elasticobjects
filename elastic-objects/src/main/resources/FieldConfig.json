@@ -432,7 +432,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "ListParams",
-    "description": "Filter for the readings within {@link ListAction}.",
+    "description": "Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.",
     "expose": "NONE",
     "fieldKey": "listParams",
     "length": 80
@@ -740,6 +740,14 @@
     "description": "shapeType",
     "expose": "NONE",
     "fieldKey": "shapeType"
+  },
+  "sortOrder": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "SortOrder",
+    "description": "sortOrder",
+    "expose": "NONE",
+    "fieldKey": "sortOrder"
   },
   "sourceFileConfigKey": {
     "module": "elastic-objects",

@@ -4,8 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -18,14 +17,26 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
-/*==>{ALLHeader.tpl, ., JAVA|>}|*/
-
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 /**
  * Call for generation json configurations from the sheet.
- * Created by Werner Diwischek at date Thu Nov 05 15:31:43 CET 2020.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 07:39:50 CET 2020
  */
-public class GenerateJsonConfigCall extends GenerateCall {
+public class GenerateJsonConfigCall extends GenerateCall  {
 /*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String CONFIG_TYPE = "configType";
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String configType;
+/*=>{}.*/
+
     public GenerateJsonConfigCall() {
         super();
     }
@@ -33,16 +44,8 @@ public class GenerateJsonConfigCall extends GenerateCall {
         super();
         this.configType = configType;
     }
-    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
-   public static final String CONFIG_TYPE = "configType";
-/*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
-   private  String configType;
-/*=>{}.*/
     private FileConfig targetConfig;
-
-
 
     @Override
     public String getTargetFileConfigKey() {
@@ -115,22 +118,19 @@ public class GenerateJsonConfigCall extends GenerateCall {
         return feedback;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
-
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
     /**
-    Key for configuration type.
+    Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
     */
-    
+
     public GenerateJsonConfigCall setConfigType(String configType) {
         this.configType = configType;
         return this;
     }
-
     
     public String getConfigType () {
        return this.configType;
     }
-
     
     public boolean hasConfigType () {
         return configType!= null && !configType.isEmpty();

@@ -49,7 +49,7 @@
 "keepCall";"KeepCalls";"Will use an existing  result file beforehand as template. ";"elastic-objects";"";"keepCall";"";"";"";"";
 "key";"String";"A generic key.";"elastic-objects";"";"key";"";"";"";"";
 "length";"Integer";"Length of a field.";"elastic-objects";"";"length";"";"";"";"";
-"listParams";"ListParams";"Filter for the readings within {@link ListAction}.";"elastic-objects";"";"listParams";"";"";"";"";
+"listParams";"ListParams";"Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.";"elastic-objects";"";"listParams";"";"";"";"";
 "localFieldKeys";"ArrayList,String";"A list of field as proivided by the model configuration. ";"elastic-objects";"";"localFieldKeys";"";"";"";"";
 "log";"String";"";"";"";"log";"";"";"";"";
 "logLevel";"LogLevel";"logLevel";"elastic-objects";"";"logLevel";"";"";"";"";
@@ -100,6 +100,7 @@
 "serializationType";"JSONSerializationType";"The types of Serialization. ";"elastic-objects";"";"serializationType";"";"";"";"";
 "serialized";"String";"The serialized field for @{link pathPattern}.";"elastic-objects";"";"serialized";"";"";"";"";
 "shapeType";"ShapeTypes";"shapeType";"elastic-objects";"";"shapeType";"";"";"";"";
+"sortOrder";"SortOrder";"sortOrder";"elastic-objects";"";"sortOrder";"";"";"";"";
 "sourceFileConfigKey";"String";"Defines the key for a file configuration @FileConfig where to read a file.";"elastic-objects";"";"sourceFileConfigKey";"";"";"";"";
 "sourcePath";"String";"A sourcePath where EO offers it's input value when the execution starts.";"elastic-objects";"";"sourcePath";"";"";"";"";
 "startCondition";"String";"A condition for calls. ";"elastic-objects";"";"startCondition";"";"";"";"";

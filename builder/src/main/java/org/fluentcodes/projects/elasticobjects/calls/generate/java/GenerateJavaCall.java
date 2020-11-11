@@ -1,28 +1,27 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.JavaImportHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreKeepCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
-import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 
 import java.util.Date;
 
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SHAPE_TYPE;
 
-/*==>{ALLHeader.tpl, ., JAVA}|*/
+/*==>{ALLHeader.tpl, ., , JAVA}|*/
 import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
-
 /**
  * Call for generation of java code from ModelConfig data. 
- * FieldConfig will be loaded from ConfigsCache. 
- * Created by Werner Diwischek at date Thu Nov 05 09:17:53 CET 2020.
+ *  * FieldConfig will be loaded from ConfigsCache. 
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 07:35:57 CET 2020
  */
 public class GenerateJavaCall extends GenerateCall  {
 /*=>{}.*/
@@ -31,10 +30,10 @@ public class GenerateJavaCall extends GenerateCall  {
     public final static String GEN_IGNORE = "genIgnore";
     public final static String FIELD_MAP = "fieldMap";
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
 
     public GenerateJavaCall() {
@@ -96,6 +95,6 @@ public class GenerateJavaCall extends GenerateCall  {
         return feedback;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
 /*=>{}.*/
 }

@@ -7,7 +7,6 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracke
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 /**
  * Super class for file calls with one configuration key. Extends {@link HostCall}. Provide an init method to resolve {@link FileConfig} and @HostConfig

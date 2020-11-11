@@ -2,18 +2,29 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 /**
- * Created by Werner on 09.10.2016.
+ * Executes a list of sql statements within DbSqlConfig.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 07:16:55 CET 2020
  */
 public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
     public DbSqlExecuteCall()  {
         super();
     }
@@ -54,5 +65,7 @@ public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
         }
         return executed;
     }
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 
 }

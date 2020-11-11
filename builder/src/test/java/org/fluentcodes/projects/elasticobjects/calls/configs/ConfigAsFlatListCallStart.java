@@ -32,7 +32,7 @@ public class ConfigAsFlatListCallStart {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(ModelConfig.class.getSimpleName())
-                .setKeys(
+                .setFieldKeys(
                         "naturalId",
                         "configModelKey",
                         "module",
@@ -50,7 +50,7 @@ public class ConfigAsFlatListCallStart {
                         "viewParams",
                         "author");
         String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+            new XpectString().compareAsString(result);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class ConfigAsFlatListCallStart {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(FieldConfig.class.getSimpleName())
-                .setKeys("naturalId",
+                .setFieldKeys("naturalId",
                         "module",
                         "subModule",
                         "modelKeys",
@@ -79,7 +79,7 @@ public class ConfigAsFlatListCallStart {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(FileConfig.class.getSimpleName())
-                .setKeys("naturalId",
+                .setFieldKeys("naturalId",
                         "configModelKey",
                         "module",
                         "subModule",
@@ -103,7 +103,7 @@ public class ConfigAsFlatListCallStart {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(HostConfig.class.getSimpleName())
-                .setKeys(
+                .setFieldKeys(
                         "naturalId",
                         "configModelKey",
                         "module",
@@ -131,7 +131,7 @@ public class ConfigAsFlatListCallStart {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(DbSqlConfig.class.getSimpleName())
-                .setKeys(
+                .setFieldKeys(
                         "naturalId",
                         "configModelKey",
                         "module",

@@ -11,15 +11,33 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.models.Expose;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
- * Call set parts of the config cache to the adapter.
- * Created by werner.diwischek on 10.6.2018
+ * Creates an open api schema from model configuration.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 05:43:36 CET 2020
  */
-public class ConfigOpenApiCall extends CallImpl {
-    private String filterModule;
-    private String filterSubModule;
-    private String configFilter = ".*";
-    private Expose expose = Expose.WEB;
+public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String CONFIG_FILTER = "configFilter";
+   public static final String EXPOSE = "expose";
+   public static final String FILTER_MODULE = "filterModule";
+   public static final String FILTER_SUB_MODULE = "filterSubModule";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String configFilter;
+   private  Expose expose;
+   private  String filterModule;
+   private  String filterSubModule;
+/*=>{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
 
     private Set <String> created;
@@ -62,48 +80,6 @@ public class ConfigOpenApiCall extends CallImpl {
 
     }
 
-    public boolean hasFilterModule() {
-        return filterModule != null && !filterModule.isEmpty();
-    }
-
-    public String getFilterModule() {
-        return filterModule;
-    }
-
-    public ConfigOpenApiCall setFilterModule(final String entry) {
-        this.filterModule = entry;
-        return this;
-    }
-
-    public boolean hasFilterSubModule() {
-        return filterSubModule != null && !filterSubModule.isEmpty();
-    }
-
-    public String getFilterSubModule() {
-        return filterSubModule;
-    }
-
-    public ConfigOpenApiCall setFilterSubModule(final String entry) {
-        this.filterSubModule = entry;
-        return this;
-    }
-
-    public String getConfigFilter() {
-        return configFilter;
-    }
-
-    public void setConfigFilter(String configFilter) {
-        this.configFilter = configFilter;
-    }
-
-    public Expose getExpose() {
-        return expose;
-    }
-
-    public void setExpose(Expose expose) {
-        this.expose = expose;
-    }
-
     public SortOrder getSortOrder() {
         return sortOrder;
     }
@@ -114,6 +90,9 @@ public class ConfigOpenApiCall extends CallImpl {
 
     @Override
     public Object execute(final EO eo)  {
+        if (!hasExpose()) {
+            expose = Expose.NONE;
+        }
         created = new HashSet<>();
         toCreate = new HashSet<>();
         ConfigKeysCall keysCall = new ConfigKeysCall(ModelConfig.class, configFilter)
@@ -213,5 +192,72 @@ public class ConfigOpenApiCall extends CallImpl {
             create(schemasEo, createConfig);
         }
     }
+
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Key for filter configuration
+    */
+
+    public ConfigOpenApiCall setConfigFilter(String configFilter) {
+        this.configFilter = configFilter;
+        return this;
+    }
+    
+    public String getConfigFilter () {
+       return this.configFilter;
+    }
+    
+    public boolean hasConfigFilter () {
+        return configFilter!= null && !configFilter.isEmpty();
+    }
+    /**
+    expose
+    */
+
+    public ConfigOpenApiCall setExpose(Expose expose) {
+        this.expose = expose;
+        return this;
+    }
+    
+    public Expose getExpose () {
+       return this.expose;
+    }
+    
+    public boolean hasExpose () {
+        return expose!= null;
+    }
+    /**
+    Filter for modules in  {{@link link} ConfigAction}
+    */
+
+    public ConfigOpenApiCall setFilterModule(String filterModule) {
+        this.filterModule = filterModule;
+        return this;
+    }
+    
+    public String getFilterModule () {
+       return this.filterModule;
+    }
+    
+    public boolean hasFilterModule () {
+        return filterModule!= null && !filterModule.isEmpty();
+    }
+    /**
+    Filter for subModules in  {{@link link} ConfigAction}
+    */
+
+    public ConfigOpenApiCall setFilterSubModule(String filterSubModule) {
+        this.filterSubModule = filterSubModule;
+        return this;
+    }
+    
+    public String getFilterSubModule () {
+       return this.filterSubModule;
+    }
+    
+    public boolean hasFilterSubModule () {
+        return filterSubModule!= null && !filterSubModule.isEmpty();
+    }
+/*=>{}.*/
 
 }

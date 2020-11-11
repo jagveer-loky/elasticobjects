@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.InsertStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.UpdateStatement;
@@ -11,13 +10,25 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 import java.util.List;
 
+
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 /**
- * Write model data from current eo to data base.
- * Created by werner.diwischek on 28.10.20.
+ * Write an entry in database by creating a insert or update sql from entry in sourcePath.
+ * The object must be an instance of {@link ModelConfigDbObject}.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 06:45:11 CET 2020
  */
-
 public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand {
+/*=>{}.*/
 
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
     public DbModelWriteCall()  {
         super();
     }
@@ -57,8 +68,6 @@ public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand 
         return updateCount;
     }
 
-
-
-
-
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 }

@@ -2,23 +2,30 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.DeleteStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 import java.util.List;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 /**
- * Reads and writes database tables.
- * Created by werner.diwischek on 29.10.20.
+ * Remove an entry from database by creating a delete sql from entry in sourcePath.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 06:24:57 CET 2020
  */
 public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand {
-    private ListParams listParams;
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 
     public DbModelDeleteCall()  {
         super();
@@ -48,4 +55,6 @@ public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand
         return DeleteStatement.of(eo)
                 .execute(getDbConfig().getConnection());
     }
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*=>{}.*/
 }

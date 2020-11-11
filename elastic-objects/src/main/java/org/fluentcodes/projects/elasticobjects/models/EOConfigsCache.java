@@ -136,7 +136,7 @@ public class EOConfigsCache {
     }
 
     public Set<String> getConfigKeys(Class configClass, Expose expose) {
-        if (expose == Expose.NONE || getConfigMap(configClass).isEmpty()) {
+        if (expose == null || expose == Expose.NONE || getConfigMap(configClass).isEmpty()) {
             return getConfigMap(configClass).getKeys();
         }
         Set<String> configKeys = new LinkedHashSet<>();

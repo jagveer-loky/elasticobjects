@@ -1,18 +1,30 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.sql.Connection;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 /**
  * Abstract class providing an sql config before executing.
- * Created by werner.diwischek on 29.10.20.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 06:55:21 CET 2020
  */
-public abstract class DbSqlCall extends HostCall {
-    private String sqlKey;
+public abstract class DbSqlCall extends HostCall  {
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String SQL_KEY = "sqlKey";
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String sqlKey;
+/*=>{}.*/
     private DbSqlConfig sqlConfig;
 
     public DbSqlCall()  {
@@ -58,20 +70,27 @@ public abstract class DbSqlCall extends HostCall {
         return getDbConfig().getConnection();
     }
 
-    public String getSqlKey() {
-        return sqlKey;
-    }
-
-    public void setSqlKey(String sqlKey) {
-        this.sqlKey = sqlKey;
-    }
-
-    public boolean hasSqlKey() {
-        return sqlKey!=null && !sqlKey.isEmpty();
-    }
-
     public DbSqlConfig getSqlConfig() {
         return sqlConfig;
     }
+
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    The key to select a configuration from DbSqlConfig within DbSqlCall.
+    */
+
+    public DbSqlCall setSqlKey(String sqlKey) {
+        this.sqlKey = sqlKey;
+        return this;
+    }
+    
+    public String getSqlKey () {
+       return this.sqlKey;
+    }
+    
+    public boolean hasSqlKey () {
+        return sqlKey!= null && !sqlKey.isEmpty();
+    }
+/*=>{}.*/
 
 }

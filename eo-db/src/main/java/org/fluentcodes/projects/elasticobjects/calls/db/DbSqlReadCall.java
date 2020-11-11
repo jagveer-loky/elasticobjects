@@ -3,19 +3,32 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
 /**
- * Map results of a sql select to eo.
- * Created by werner.diwischek on 18.12.17.
+ * Map results of a sql select to the targetPath.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 07:20:13 CET 2020
  */
-public class DbSqlReadCall extends DbSqlCall implements ListInterface {
-    private ListParams listParams;
+public class DbSqlReadCall extends DbSqlCall implements ListInterface,  ConfigReadCommand {
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String LIST_PARAMS = "listParams";
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private final  ListParams listParams;
+/*=>{}.*/
 
     public DbSqlReadCall()  {
         super();
@@ -71,13 +84,18 @@ public class DbSqlReadCall extends DbSqlCall implements ListInterface {
                 listParams);
     }
 
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
+    */
     @Override
-    public ListParams getListParams() {
-        return listParams;
+    public ListParams getListParams () {
+       return this.listParams;
     }
-
-    public boolean hasListParams() {
-        return listParams!=null && !listParams.isEmpty();
+    @Override
+    public boolean hasListParams () {
+        return listParams!= null;
     }
+/*=>{}.*/
 
 }

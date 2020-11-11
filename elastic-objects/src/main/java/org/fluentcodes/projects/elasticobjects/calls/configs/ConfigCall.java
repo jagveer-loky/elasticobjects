@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
@@ -12,14 +10,26 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import java.util.List;
 import java.util.Map;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 /**
- * Call set parts of the config cache to the adapter.
- * Created by werner.diwischek on 10.6.2018
+ * For getting a map of configurations for a specific configuration type.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 05:37:16 CET 2020
  */
 public class ConfigCall extends ConfigKeysCall {
-    private static final Logger LOG = LogManager.getLogger(ConfigCall.class);
-    private String filterModule;
-    private String filterSubModule;
+/*=>{}.*/
+
+    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String FILTER_MODULE = "filterModule";
+   public static final String FILTER_SUB_MODULE = "filterSubModule";
+/*=>{}.*/
+
+    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String filterModule;
+   private  String filterSubModule;
+/*=>{}.*/
 
     public ConfigCall() {
         super();
@@ -31,32 +41,6 @@ public class ConfigCall extends ConfigKeysCall {
 
     public ConfigCall(final Class<? extends Config> configClass, final String configFilter) {
         super(configClass, configFilter);
-    }
-
-    public boolean hasFilterModule() {
-        return filterModule != null && !filterModule.isEmpty();
-    }
-
-    public String getFilterModule() {
-        return filterModule;
-    }
-
-    public ConfigCall setFilterModule(final String entry) {
-        this.filterModule = entry;
-        return this;
-    }
-
-    public boolean hasFilterSubModule() {
-        return filterSubModule != null && !filterSubModule.isEmpty();
-    }
-
-    public String getFilterSubModule() {
-        return filterSubModule;
-    }
-
-    public ConfigCall setFilterSubModule(final String entry) {
-        this.filterSubModule = entry;
-        return this;
     }
 
     @Override
@@ -87,5 +71,40 @@ public class ConfigCall extends ConfigKeysCall {
         }
         return super.createReturnType(eo,result.get());
     }
+
+    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    Filter for modules
+    */
+
+    public ConfigCall setFilterModule(String filterModule) {
+        this.filterModule = filterModule;
+        return this;
+    }
+    
+    public String getFilterModule () {
+       return this.filterModule;
+    }
+    
+    public boolean hasFilterModule () {
+        return filterModule!= null && !filterModule.isEmpty();
+    }
+    /**
+    Filter for subModules
+    */
+
+    public ConfigCall setFilterSubModule(String filterSubModule) {
+        this.filterSubModule = filterSubModule;
+        return this;
+    }
+    
+    public String getFilterSubModule () {
+       return this.filterSubModule;
+    }
+    
+    public boolean hasFilterSubModule () {
+        return filterSubModule!= null && !filterSubModule.isEmpty();
+    }
+/*=>{}.*/
 
 }

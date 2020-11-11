@@ -1,17 +1,29 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 /**
- * Reads and writes database tables.
- * Created by werner.diwischek on 29.10.20.
+ * Abstract call class for model based {@link ModelConfigDbObject} database operations.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Wed Nov 11 06:19:26 CET 2020
  */
-public abstract class DbModelCall extends HostCall {
-    private String modelConfigKey;
+public abstract class DbModelCall extends HostCall  {
+/*=>{}.*/
+
+/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+   public static final String MODEL_CONFIG_KEY = "modelConfigKey";
+/*=>{}.*/
+
+/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+   private  String modelConfigKey;
+/*=>{}.*/
+
     private ModelConfigDbObject modelConfigDbObject;
     public DbModelCall()  {
         super();
@@ -45,15 +57,22 @@ public abstract class DbModelCall extends HostCall {
         return (DbConfig)getHostConfig();
     }
 
-    public boolean hasModelConfigKey() {
-        return modelConfigKey != null && !modelConfigKey.isEmpty();
-    }
+/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /**
+    The model name for the cache object {{@link link} Config}.
+    */
 
-    public String getModelConfigKey() {
-        return modelConfigKey;
-    }
-
-    public void setModelConfigKey(String modelConfigKey) {
+    public DbModelCall setModelConfigKey(String modelConfigKey) {
         this.modelConfigKey = modelConfigKey;
+        return this;
     }
+    
+    public String getModelConfigKey () {
+       return this.modelConfigKey;
+    }
+    
+    public boolean hasModelConfigKey () {
+        return modelConfigKey!= null && !modelConfigKey.isEmpty();
+    }
+/*=>{}.*/
 }
