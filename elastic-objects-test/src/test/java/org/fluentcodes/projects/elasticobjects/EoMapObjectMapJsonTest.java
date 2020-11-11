@@ -40,6 +40,15 @@ public class EoMapObjectMapJsonTest {
     }
 
     @Test
+    public void scopeDev_Map_first_1_second_2_third_3__mapObject__first_is_1() {
+        final EO eo = ProviderRootDevScope.createEo();
+        final String mapJson = "{\"first\": 1,\"second\": 2,\"third\": 3}";
+        eo.mapObject(mapJson);
+
+        Assertions.assertThat(eo.get("first")).isEqualTo(1);
+    }
+
+    @Test
     public void scopeDev_whenEmpty_thenNothingSet()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.mapObject("{}");

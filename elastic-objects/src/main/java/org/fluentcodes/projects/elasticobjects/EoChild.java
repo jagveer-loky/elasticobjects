@@ -8,6 +8,7 @@ import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.time.LocalDateTime;
@@ -878,46 +879,42 @@ public class EoChild implements EO {
             return;
         }
         if (this.isScalar()) {
-            //super.compare(builder, other);
+            if (!ScalarComparator.compare(this.get(), other.get())) {
+                builder.append(getPathAsString() + ": " + this.get() + " <> " + other.get());
+            }
             return;
         }
-        List<String> list;
-        try {
-            list = new ArrayList<>(keysEo());
-        } catch (Exception e) {
-            e.printStackTrace();
-            builder.append(getPath() + ":");
-            builder.append("\nProblem getting keys!\n");
-            return;
+        List<String> list = new ArrayList<>(this.keys());
+        List<String> otherList = new ArrayList<>(other.keys());
+        for (String key: otherList) {
+            if (list.contains(key)) {
+                continue;
+            }
+            builder.append(getPathAsString() + Path.DELIMITER + key + ": null <> " + other.getEo(key).getModelClass().getSimpleName() + "\n");
         }
         for (String key : list) {
-            EO nextAdapter = null;
-            try {
-                nextAdapter = this.getEo(key);
-            } catch (Exception e) {
-                builder.append(getPath());
-                builder.append("\nProblem getting child for " + key + "!" + e.getMessage() + "\n");
+            EO childEo = this.getEo(key);
+            EO otherChildEo = null;
+            if (other.hasEo(key)) {
+                otherChildEo = other.getEo(key);
+            }
+            else {
+                builder.append(getPathAsString() + key + ": " + getEo(key).getModelClass().getSimpleName() + "<> null \n");
+
                 continue;
             }
-            EO nextOther = null;
-            try {
-                nextOther = other.getEo(key);
-            } catch (Exception e) {
-                builder.append(getPath() + ": ");
-                builder.append("\nProblem getting child for " + key + "!" + e.getMessage() + "\n");
-                continue;
-            }
-            if (nextAdapter == null && nextOther == null) {
-                builder.append(getPath() + " - " + key);
+            if (childEo == null && otherChildEo == null) {
+                builder.append(Path.DELIMITER + getPath() + " - " + key);
                 builder.append("\nboth null!\n");
                 continue;
-            } else if (nextAdapter == null && nextOther != null) {
+            }
+            else if (childEo == null && otherChildEo != null) {
                 try {
-                    if (nextOther.isContainer()) {
-                        builder.append("null != " + getPath() + "/" + key + " with size= " + nextOther.sizeEo() + "\n");
+                    if (otherChildEo.isContainer()) {
+                        builder.append("null != " + getPath() + "/" + key + " with size= " + otherChildEo.sizeEo() + "\n");
                         continue;
                     } else {
-                        builder.append("null != " + getPath() + "/" + key + " = " + nextOther.get() + "\n");
+                        builder.append("null != " + getPath() + "/" + key + " = " + otherChildEo.get() + "\n");
                         continue;
                     }
                 } catch (Exception e) {
@@ -926,14 +923,14 @@ public class EoChild implements EO {
                     e.printStackTrace();
                     continue;
                 }
-            } else if (nextAdapter != null && nextOther == null) {
+            } else if (childEo != null && otherChildEo == null) {
                 try {
-                    if (nextAdapter.isContainer()) {
-                        builder.append(getPath() + "/" + key + " with size= " + nextAdapter.sizeEo() + " != null\n");
+                    if (childEo.isContainer()) {
+                        builder.append(getPath() + "/" + key + " with size= " + childEo.sizeEo() + " != null\n");
                         continue;
 
                     } else {
-                        builder.append(getPath() + "/" + key + " = " + nextAdapter.get() + " != null\n");
+                        builder.append(getPath() + "/" + key + " = " + childEo.get() + " != null\n");
                         continue;
                     }
                 } catch (Exception e) {
@@ -943,7 +940,7 @@ public class EoChild implements EO {
                     continue;
                 }
             }
-            nextAdapter.compare(builder, nextOther);
+            childEo.compare(builder, otherChildEo);
         }
     }
 }
