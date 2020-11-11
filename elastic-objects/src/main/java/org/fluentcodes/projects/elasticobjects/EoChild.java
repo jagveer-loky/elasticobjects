@@ -878,10 +878,14 @@ public class EoChild implements EO {
             return "Error getSerialized " + getPath() + ": " + e.getMessage();
         }
     }
-
-
     @Override
-    public void compare(final StringBuilder builder, final EO other) {
+    public String compare(final EO other) {
+        StringBuilder diff = new StringBuilder();
+        compare(diff, other);
+        return diff.toString();
+    }
+
+    protected void compare(final StringBuilder builder, final EO other) {
         if (this.isNull()) {
             return;
         }
@@ -947,7 +951,7 @@ public class EoChild implements EO {
                     continue;
                 }
             }
-            childEo.compare(builder, otherChildEo);
+            ((EoChild)childEo).compare(builder, otherChildEo);
         }
     }
 }

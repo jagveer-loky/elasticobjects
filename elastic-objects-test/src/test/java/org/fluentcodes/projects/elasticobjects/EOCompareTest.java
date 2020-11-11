@@ -22,64 +22,52 @@ public class EOCompareTest {
 
     @Test
     public void EO_first_test_EO_first_test__compare__equals()  {
-        EO adapter = ProviderRootTestScope.createEo();
-        adapter.set(TEO_STATIC.S_STRING, "first");
+        EO eo1 = ProviderRootTestScope.createEo();
+        eo1.set(TEO_STATIC.S_STRING, "first");
 
-        EO other = ProviderRootTestScope.createEo();
-        other.set(TEO_STATIC.S_STRING,"first");
+        EO eo2 = ProviderRootTestScope.createEo();
+        eo2.set(TEO_STATIC.S_STRING,"first");
 
-        StringBuilder builder = new StringBuilder();
-        adapter.compare(builder, other);
-        Assert.assertEquals("", builder.toString());
+        String diff = eo1.compare(eo2);
+        Assertions.assertThat(diff).isEmpty();
     }
 
     @Test
     public void Map_myString_value_AnObject_myString_value__compare__equals()  {
         final Map map = new HashMap();
         map.put(AnObject.MY_STRING, "value");
-        final EO eo = ProviderRootTestScope.createEo();
-        eo.mapObject(map);
+        final EO eo1 = ProviderRootTestScope.createEo(map);
 
-        AnObject anObject = new AnObject();
-        anObject.setMyString("value");
-        final EO eo2 = ProviderRootTestScope.createEo();
-        eo2.mapObject(anObject);
+        final EO eo2 = ProviderRootTestScope.createEo(new AnObject().setMyString("value"));
 
-        StringBuilder diff = new StringBuilder();
-        eo.compare(diff, eo2);
-        Assert.assertEquals("", diff.toString());
+        String diff = eo1.compare(eo2);
+        Assertions.assertThat(diff).isEmpty();
     }
 
     @Test
     public void Map_myString_value_AnObject_myString_value2__compare__notquals()  {
         final Map map = new HashMap();
         map.put(AnObject.MY_STRING, "value");
-        final EO eo = ProviderRootTestScope.createEo();
-        eo.mapObject(map);
+        final EO eoMap = ProviderRootTestScope.createEo(map);
 
-        AnObject anObject = new AnObject();
-        anObject.setMyString("value2");
-        final EO eo2 = ProviderRootTestScope.createEo();
-        eo2.mapObject(anObject);
+        final EO eoAnObject = ProviderRootTestScope.createEo(new AnObject().setMyString("value2"));
 
-        StringBuilder diff = new StringBuilder();
-        eo.compare(diff, eo2);
+        String diff = eoMap.compare(eoAnObject);
         Assertions.assertThat(diff).isNotEmpty();
     }
 
     @Test
     public void Map_key0_test_Map_key1_test__compare__notEquals()  {
-        EO adapter = ProviderRootDevScope.createEo();
-        adapter.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY0);
+        EO eo1 = ProviderRootDevScope.createEo();
+        eo1.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY0);
 
-        EO other = ProviderRootDevScope.createEo();
-        other.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY1);
+        EO eo2 = ProviderRootDevScope.createEo();
+        eo2.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY1);
 
-        StringBuilder builder = new StringBuilder();
-        adapter.compare(builder, other);
-        Assertions.assertThat(builder.toString()).isNotEmpty();
-        Assertions.assertThat(builder.toString()).contains("null <> ");
-        Assertions.assertThat(builder.toString()).contains("<> null");
+        String diff = eo1.compare(eo2);
+        Assertions.assertThat(diff).isNotEmpty();
+        Assertions.assertThat(diff).contains("null <> ");
+        Assertions.assertThat(diff).contains("<> null");
     }
 
 }

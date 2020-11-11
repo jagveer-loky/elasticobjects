@@ -103,7 +103,7 @@ public interface EO {
 
     EO setSerializationType(JSONSerializationType serializationType);
 
-    void compare(final StringBuilder builder, final EO other);
+    String compare(final EO other);
 
     String toString(JSONSerializationType serializationType);
 
