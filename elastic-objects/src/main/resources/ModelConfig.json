@@ -602,7 +602,6 @@
     "fieldKeys": [
       "fileConfigKey"
     ],
-    "interfaces": "CallContent",
     "superKey": "HostCall",
     "expose": "NONE",
     "description": "Super class for file calls with one configuration key. Extends @HostCall. Provide an init method to resolve @FileConfig and @HostConfig",

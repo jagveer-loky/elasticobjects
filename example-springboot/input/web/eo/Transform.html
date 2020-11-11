@@ -1,1 +1,15 @@
-<h3>Compare</h3>
+<h3>Transform</h3>
+<p><b>To transform object is similar to a merge</b></p>
+
+<p>
+    The following example is provided in \
+    ==>{GithubLinkCall->NONE, EOTT||EoTransformTest.java}.:
+</p>
+<textarea style="height:120px;">
+  AnObject anObject = new AnObject().setMyString("value");
+  final EO eo = ProviderRootTestScope.createEo();
+  eo.mapObject(anObject);
+  Assertions.assertThat(eo.get().getClass()).isEqualTo(LinkedHashMap.class);
+  Assertions.assertThat(((Map)eo.get()).get("myString")).isEqualTo("value");
+</textarea>
+

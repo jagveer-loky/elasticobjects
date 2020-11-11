@@ -105,5 +105,7 @@ public interface EO {
 
     void compare(final StringBuilder builder, final EO other);
 
+    String toString(JSONSerializationType serializationType);
+
 
 }

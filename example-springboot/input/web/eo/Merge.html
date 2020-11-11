@@ -1,1 +1,16 @@
 <h3>Compare</h3>
+<p><b>With EO one can easily merge objects if the keys of the fields are matching. </b>
+</p>
+<p>
+The following example is provided in \
+==>{GithubLinkCall->NONE, EOTT||EoMergeTest.java}.:
+<textarea style="height:120px;">
+    AnObject anObject = new AnObject().setMyString("value");
+    final EO eo = ProviderRootTestScope.createEo(anObject);
+
+    final Map map = new HashMap();
+    map.put(AnObject.NATURAL_ID, "id");
+    eo.mapObject(map);
+    Assertions.assertThat(anObject.getNaturalId()).isEqualTo("id");
+</textarea>
+</p>

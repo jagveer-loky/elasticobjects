@@ -858,6 +858,11 @@ public class EoChild implements EO {
 
     @Override
     public String toString() {
+        return toString(JSONSerializationType.EO);
+    }
+
+    @Override
+    public String toString(JSONSerializationType serializationType) {
         if (this == null) {
             return "Not instanciated";
         }
@@ -865,7 +870,9 @@ public class EoChild implements EO {
             return get().toString();
         }
         try {
-            return new EOToJSON().toJSON(this);
+            return new EOToJSON()
+                    .setSerializationType(serializationType)
+                    .toJSON(this);
         } catch (Exception e) {
             e.printStackTrace();
             return "Error getSerialized " + getPath() + ": " + e.getMessage();
