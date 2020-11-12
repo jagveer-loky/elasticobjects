@@ -14,7 +14,6 @@
 
     final EO eo2 = ProviderRootTestScope.createEo(new AnObject().setMyString("value"));
 
-    StringBuilder diff = new StringBuilder();
     String diff = eo1.compare(eo2);
     Assertions.assertThat(diff).isEmpty();
 </textarea>

@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.*;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -18,7 +20,7 @@ import java.util.Arrays;
 
 @RestController
 public class WebEo {
-
+    private final static Logger LOG = LogManager.getLogger(WebEo.class);
     @Autowired
     private EOConfigsCache configsCache;
 
@@ -63,6 +65,9 @@ public class WebEo {
         if (eoAsString.isEmpty()) {
             return "'value' is empty!";
         }
+
+        System.out.println("Post request  " + eoAsString);
+        LOG.info("Post request " + eoAsString);
 
         final String[] roles = getRoles();
         final LogLevel logLevel = getLevel(logLevelAsString);

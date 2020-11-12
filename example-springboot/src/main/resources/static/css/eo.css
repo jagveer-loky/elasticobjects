@@ -11,6 +11,12 @@ textarea {
     width:90%;
     height:40px;
 }
+h6 {
+    font-size:0.9rem
+}
+h5 {
+    font-size:0.925rem
+}
 tbody {
     font-size:12px;
 }

@@ -1,11 +1,7 @@
 <h3>Java Implementation and Usage</h3>
 
 <p>
-    <b>This part is about the java usage of Elastic Objects with \
-    ==>{GithubLinkCall->NONE, EO||EoRoot.java}., \
-    ==>{GithubLinkCall->NONE, EO||EoChild.java}.
-    and it's interface \
-        ==>{GithubLinkCall->NONE, EO||EO.java}.</b>
+    <b>This part is about the usage of Elastic Objects in a native java application. </b>
 </p>
 
 <p>
@@ -15,12 +11,206 @@
 </p>
 
 <img src="/pics/eoTree.svg" width="200" style="margin:20px;"/>
-<h5>Model Configurations</h5>
-    For the access to the embedded java objects EO
-    is provided by preloaded <a href="/configs/ModelConfig.html">model configurations</a> in JSON.
+<p>
+    Like a Java 8 Optional it contains an object. But it knows
+</p>
+<ul style="list-style-type:circle;">
+    <li>the EO wrapper of the parent object,</li>
+    <li>all EO wrappers for the child objects by fieldName and </li>
+    <li>its type rules(Model configuration).</li>
+</ul>
+
+<p>The following classes are provided for this. </p>
+
+<ul>
+    <li>==>{GithubLinkCall->NONE, EO||EoRoot.java}.</li>
+    <li>==>{GithubLinkCall->NONE, EO||EoChild.java}.</li>
+    <li>==>{GithubLinkCall->NONE, EO||EO.java}.</li>
+</ul>
+
+<p>The following examples are in the test class \
+    ==>{GithubLinkCall->NONE, EOTT|documentation|EoHtmlTest.java}..</p>
+
+<h5>Create a new root</h5>
+
+<p>The ==>{GithubLinkCall->NONE, EO||EoRoot.java}. is for initializing the root of the tree. It has
+a constructor with the cache object. The cache object is usually static (tests) or a singelton.</p>
+
+<textarea style="height:80px;">
+EO eoRoot = new EoRoot(EO_CONFIGS_DEV);
+Assertions.assertThat(eoRoot.getModelClass())
+    .isEqualTo(Map.class);
+</textarea>
+
+<p>It could be also initialized with an object.</p>
+
+<textarea style="height:120px;">
+AnObject anObject = new AnObject()
+    .setMyString("test");
+EO eoRoot = new EoRoot(EO_CONFIGS_TEST, anObject);
+Assertions.assertThat(eoRoot.get("myString"))
+   .isEqualTo("test");
+Assertions.assertThat(eoRoot.get() == anObject)
+    .isTrue();
+</textarea>
+
+<p>A JSON string will automatically resolved to a map or list object.</p>
+
+<textarea style="height:80px;">
+EO eoRoot = new EoRoot(EO_CONFIGS_DEV, "{\"key\":1}");
+Assertions.assertThat(eoRoot.get("key"))
+    .isEqualTo(1);
+</textarea>
+
+<p>A typed JSON string will automatically mapped to the object.</p>
+
+<textarea style="height:120px;">
+EO eoRoot = new EoRoot(EO_CONFIGS_TEST,
+    "{\"(AnObject)key\":{\"myString\":\"test\"}}");
+Assertions.assertThat(eoRoot.get("key/myString"))
+    .isEqualTo("test");
+Assertions.assertThat(eoRoot.getEo("key").getModelClass())
+    .isEqualTo(AnObject.class);
+</textarea>
+
+<a name="ModelConfig"></a>
+<h5>Model Configuration Cache</h5>
+<p>Instantiating an EoRoot object use always the configration cache object.
+This objects loads every file named
+    <ul>
+    <li><a href="/configs/ModelConfig.html" style="padding-left:15px;">&equiv;ModelConfig</a>.json</li>
+    <li><a href="/configs/FieldConfig.html" style="padding-left:15px;">&equiv;FieldConfig</a>.json</li>
+    <li><a href="/configs/FileConfig.html" style="padding-left:15px;">&equiv;FileConfig</a>.json</li>
+    <li><a href="/configs/HostConfig.html" style="padding-left:15px;">&equiv;HostConfig</a>.json</li>
+</ul>
+    from the classpath when initialized.
+</p>
+<p>
+These configurations build the base for all object access in EO
+with <a href="/configs/ModelConfig.html">model configurations</a>.
 </p>
 <img src="/pics/eoModel.svg" width="200" style="margin:20px;"/>
 
+
+<a name="set" ></a>
+<h5>Set Values</h5>
+
+<p>With the set method one could add childs also via a path pattern</p>
+
+<textarea style="height:100px">EO eoRoot = createEoDev();
+    EO eoChild = eoRoot.set("test", "a/b/c");
+Assertions.assertThat(eoChild.get())
+    .isEqualTo("test");
+Assertions.assertThat(((Map)((Map)((Map)eoRoot.get()).get("a")).get("b")).get("c"))
+    .isEqualTo("test");
+</textarea>
+
+<p>
+    The return value of set method is the child on path "a/b/c". The last test will get the map from the
+    root and then navigate through the map tree.
+</p>
+
+<h6>Path as Array</h6>
+
+<p>
+    One can also set the path in an array in java context, which simplify usage there.
+</p>
+
+<textarea style="height:100px">EO eoRoot = createEoDev();
+    EO eoChild = eoRoot.set("test", "a","b","c");
+Assertions.assertThat(eoRoot.get("a/b/c"))
+    .isEqualTo("test");
+Assertions.assertThat(eoChild.get("/a/b/c"))
+    .isEqualTo("test");
+</textarea>
+
+<p>
+    With a leading "/" the path will interpreted starting with the root similar than in a file system.
+</p>
+
+<h6>Setting Objects</h6>
+
+<p>
+    One can also set an object to an arbitrary path, where the complete object tree will be mapped.
+</p>
+
+<textarea style="height:100px">AnObject anObject = new AnObject().setMyString("test");
+EO eoRoot = createEoTest();
+EO eoChild = eoRoot.set(anObject, "x/y/z");
+Assertions.assertThat(eoRoot.get("x/y/z/myString"))
+    .isEqualTo("test");
+Assertions.assertThat(eoChild.getModelClass())
+    .isEqualTo(AnObject.class);
+</textarea>
+
+
+<h6>Typed Path</h6>
+
+<p>
+    One can also set AnObject via path directive.
+</p>
+
+<textarea style="height:100px">EO eoRoot = createEoTest();
+eoRoot.set("test", "a/(AnObject)b/myString");
+Assertions.assertThat(eoRoot.get("a/b/myString"))
+    .isEqualTo("test");
+Assertions.assertThat(eoRoot.getEo("a/b").getModelClass())
+    .isEqualTo(AnObject.class);
+</textarea>
+
+<h5>Get EO</h5>
+<p>
+    One could navigate through the object hierarchy in several ways with the getEo method.
+</p>
+
+<textarea style="height:210px;">EO eoRoot = createEoDev();
+EO eoChild = eoRoot.set("test", "a/b/c");
+Assertions.assertThat(eoChild
+    .getEo()
+    .get())
+    .isEqualTo("test");
+Assertions.assertThat(eoChild
+    .getEo("/a/b/c")
+    .get())
+    .isEqualTo("test");
+Assertions.assertThat(eoRoot
+    .getEo("a","b","c")
+    .get())
+    .isEqualTo("test");
+</textarea>
+
+<h6>Back Navigation</h6>
+
+<p>
+    Similar to a file system command there is also a back navigation with "..".
+</p>
+
+<textarea style="height:150px;">EO eoRoot = createEoDev();
+EO eoChild = eoRoot.set("test1", "a/b/c");
+    eoRoot.set("test2", "a/b/x");
+Assertions.assertThat(eoChild
+    .getEo("..","x")
+    .get())
+    .isEqualTo("test2");
+</textarea>
+
+<a name="get"></a>
+<h5>Get Values</h5>
+<p>
+    A short form for getting the value instead of the combination getEo(&lt;path>).get()
+    is get(&lt;path>).
+</p>
+<textarea style="height:130px;">EO eoRoot = createEoDev();
+EO eoChild = eoRoot.set("test", "a/b/c");
+Assertions.assertThat(eoChild.get())
+    .isEqualTo("test");
+Assertions.assertThat(eoChild.get("/a/b/c"))
+    .isEqualTo("test");
+Assertions.assertThat(eoRoot.get("a","b","c"))
+    .isEqualTo("test");
+</textarea>
+
+<a name="call"></a>
 <h5>Call Types</h5>
 <p>A special
     ==>{ConfigLinkCall->ModelConfig, Call}. bean with a
@@ -33,7 +223,16 @@
 </ul>
 <img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
 
+<h5>Other Examples</h5>
+<ul>
+    <li><a href="Compare.html">Compare</a>: An example to compare an object and a map for equal values.</li>
+    <li><a href="Transform.html">Transform</a>: An example to transform an object to a map.</li>
+    <li><a href="Merge.html">Merge</a>: An example to merge map values into an object.</li>
+</ul>
+
+<h5>Usage as a tool</h5>
 <p>
-    With about 270 KByte its small enough to be integrated it in an application where it's appropriated. Other tool libraries like guava
-    has more than 2MByte.
+    With about 270 KByte Elastic Objects is rather small. So it could be integrated
+    as a tool in java applications where it's appropriated. Other tool libraries like guava
+    have more than 2MByte.
 </p>

@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.PathElement;
@@ -17,6 +19,7 @@ import java.util.Arrays;
 
 @RestController
 public class WebEoGet {
+    private final static Logger LOG = LogManager.getLogger(WebEoGet.class);
     //http://www.baeldung.com/spring-value-defaults
     @Value("${elasticobjects.scope:QS}")
     String scope;
@@ -72,6 +75,8 @@ public class WebEoGet {
         eo.set(selectedItem, "selectedItem");
         eo.set(contentDirectory, "contentDirectory");
         eo.addCall(new TemplateResourceCall("ContentPage.html"));
+        System.out.println("Request for " + contentDirectory + "/" + selectedItem);
+        LOG.info("Request for " + contentDirectory + "/" + selectedItem);
         try {
             eo.execute();
         }
@@ -94,8 +99,11 @@ public class WebEoGet {
         eo.set(configFilter, "configFilter");
         eo.set(configType, "configType");
         eo.set(configSelected, "configSelected");
+        System.out.println("Request for " + configType + "/" + configSelected);
+        LOG.info("Request for " + configType + "/" + configSelected);
         eo.addCall(new TemplateResourceCall("ConfigsPage.html"));
         eo.setRoles(Arrays.asList(WebEo.getRoles()));
+
         try {
             eo.execute();
             if (eo.hasErrors()) {
@@ -116,6 +124,8 @@ public class WebEoGet {
         eo.set(selectedItem + ".html", "selectedItem");
         eo.set(".*", "configFilter");
         eo.set(selectedItem, "configType");
+        System.out.println("Request for config " + selectedItem);
+        LOG.info("Request for config " + selectedItem);
         eo.addCall(new TemplateResourceCall("ConfigsStartPage.html"));
         try {
             eo.execute();
