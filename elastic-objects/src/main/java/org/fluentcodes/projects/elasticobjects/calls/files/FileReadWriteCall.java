@@ -1,10 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCommand;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
  * Read content of a file specified by sourceFileConfigKey referencing a FileConfig with this key. Afterwards it will store it to the file configuration with key targetFileConfigKey. 
  *

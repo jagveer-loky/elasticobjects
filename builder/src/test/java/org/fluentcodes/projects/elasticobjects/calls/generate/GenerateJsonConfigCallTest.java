@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.calls.generate.json.GenerateJsonC
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-
 import org.junit.Test;
 
 /**

@@ -1,14 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.Arrays;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
  * Returns the "implements " statement from the interfaces field value.
  *

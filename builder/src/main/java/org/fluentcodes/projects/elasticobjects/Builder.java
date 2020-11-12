@@ -11,7 +11,6 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -9,9 +9,12 @@ import org.fluentcodes.tools.xpect.IORuntimeException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.lang.reflect.Constructor;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigImpl.*;
 import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties.CLASS_PATH;

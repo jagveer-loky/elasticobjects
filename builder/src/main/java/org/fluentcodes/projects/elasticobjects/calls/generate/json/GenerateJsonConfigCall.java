@@ -4,7 +4,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -17,8 +18,8 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
+;
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 /**
  * Call for generation json configurations from the sheet.
  *

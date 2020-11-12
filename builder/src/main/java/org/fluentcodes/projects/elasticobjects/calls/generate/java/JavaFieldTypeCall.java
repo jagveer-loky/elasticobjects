@@ -1,11 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
  * Returns a type String depending on the modelKeys field value, e.g. "<Map, AnObject>" if modeKey is "Map, AnObject".
  *

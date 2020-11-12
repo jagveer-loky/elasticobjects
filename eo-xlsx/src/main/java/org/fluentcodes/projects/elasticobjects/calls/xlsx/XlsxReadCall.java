@@ -3,6 +3,9 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
+import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
@@ -11,9 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
-import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 /**
  * Read an Excel sheet specified by fileConfigKey referencing to a {@link XlsxConfig} configuration.
  *

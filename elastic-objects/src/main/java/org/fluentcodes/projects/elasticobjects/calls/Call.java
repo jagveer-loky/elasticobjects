@@ -1,10 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 /*==>{ALLImport.tpl, javaGenImport/*, JAVA}|*/
-import org.fluentcodes.projects.elasticobjects.LogLevel;
-/*=>{}.*/
+
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
+
+/*=>{}.*/
 
 /**
  * Basic interface for calls 

@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.calls.PermissionProperties;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionProperties;
 
 import java.net.URL;
 

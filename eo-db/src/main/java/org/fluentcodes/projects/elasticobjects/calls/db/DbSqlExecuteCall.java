@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.sql.SQLException;
@@ -9,7 +10,6 @@ import java.sql.Statement;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 /**
  * Executes a list of sql statements within DbSqlConfig.
  *

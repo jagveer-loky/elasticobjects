@@ -16,7 +16,7 @@ Service oriented architecture today is usually some typed RPC calls bound to url
     combine configurable request message to the service.
     The message is a special GraphQL format returning
     a JSON result. Schema informations have to be defined as well as the binding to some
-    server functionality.
+    server functionality with resolvers.
 </p>
 <h5>Service Concept</h5>
 <p>
@@ -35,75 +35,135 @@ like a <b>shopping bag</b>, where the calls are the <b>shopping list items</b>.
 </p>
 
 
-==>{TemplateDirResourceCall->examples, SinusValueCall.html}.
-
 <h5>Simple Calls</h5>
+
 <p>
-    The implementation of a simple call is just straight forward. To offer it's functionality
+    A call just has to implement an execute method with EO as input and extend the
+    ==>{GithubLinkCall->ModelConfig, CallImpl}. class.
+    There is no restriction to what this execute method implements.
+</p>
+<p>
+    To offer it's functionality
     to a service only an entry in the
     ==>{GithubLinkCall->NONE, SPR||ModelConfig.json}. is necessary.
 </p>
+
+==>{TemplateDirResourceCall->examples, SinusValueCall.html}.
+
+<h6>Other Simple Calls</h6>
+
 <p>
     As examples you find here
     ==>{ConfigLinkCall->ModelConfig, TheGreetingCall}. or more senseful the links used for this
     website on ==>{ConfigLinkCall->ModelConfig, ConfigLinkCall}..
 </p>
 
+
+<h5>File Calls</h5>
+
+<p>To allow access to files on the server side there are the
+    <a href="/configs/FileConfig.html">file configurations</a>
+    with role permissions and the file
+location.</p>
+<p>There are several sorts of file configuration types defined e.g.</p>
+<ul  style="list-style-type:circle;">
+    <li><a href="/examples/FileCall.html">Flat Files</a></li>
+    <li><a href="/examples/ListCall.html">Csv Files</a></li>
+    <li><a href="/examples/ExcelCall.html">Excel Files</a></li>
+    <li><a href="/examples/TemplateCall.html">Template Files</a></li>
+</ul>
+<p>If one has a new file it's enough to add an entry in the
+<a href="/configs/FileConfig.html">FileConfig</a>. For this demo web site \
+    ==>{GithubLinkCall->NONE, SPR||FileConfig.json}. is used.</p>
+
 ==>{TemplateDirResourceCall->examples, FileReadCall.html}.
-
-
-<h5>File Resources</h5>
-<p>The ==>{ConfigLinkCall->ModelConfig, FileReadCall}. example uses
-    ==>{ConfigLinkCall->ModelConfig, ResourceCall}..
-</p>
-<p>
-    To allow access to a file resource on the server one just has to add an entry in
-    ==>{GithubLinkCall->NONE, SPR||FileConfig.json}. in the classpath.
-</p>
-<p>Every offered file based resource call has an entry here. So you find in |
-    ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L2}. one to read
-    some Excel sheet.
-</p>
-
 
 ==>{TemplateDirResourceCall->examples, XlsxReadCall.html}.
 
 
+<h5>Combining Data Request and Rendering</h5>
+
+<p>Since one can combine any calls in an arbitrary structure, one can also combine template
+rendering calls with retrieving data.
+</p>
+
 ==>{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
 
+<h5>Template Call</h5>
+<p>A template is some arbitrare text files containing markup for
+</p>
+<ul style="list-style-type:circle;">
+    <li>path</li>
+    <li>typed JSON</li>
+    <li>short form of typed JSON</li>
+</ul>
+<img src="/pics/eoTemplateCall.svg" width="200" style="margin:20px;"/>
 
 ==>{TemplateDirResourceCall->examples, TemplateCall.html}.
 
+<h5>Database Calls</h5>
+<p>The database calls actually have two flavours: One using the
+==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.
+    with predefined SQLs.
+</p>
+<p>
+    The other like
+    ==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. is using
+==>{GithubLinkCall->ModelConfig, ModelConfigDbObject}. as a extension of
+    ==>{GithubLinkCall->ModelConfig, ModelConfigObject}.</p>
+<p>
+    A former hibernate module will be refactored at some time. 
+</p>
+
+<h5>Generating Code and Configurations</h5>
+<p>
+    The starting point of the project was the generation of code with templates out of structured
+    data to automate the boring part of building applications.
+</p>
+<p>The configurations and some parts of the code here are generated via
+==>{GithubLinkCall->NONE, BR||eo.xlsx}..</p>
+<p>
+    For the java classes a special call
+==>{GithubLinkCall->NONE, EO|calls.templates.|TemplateResourceStoreKeepCall.java}. is used:
+    If the
+   target file exists it will be used as a template itself.
+    So one can modify the java class
+    outside the markups. This content will not be lost
+    when generated.
+</p>
 
 <h5>Conclusion</h5>
+
 <p>
 With a simple tiny typed JSON extension
     one could build incredible flexible service architectures with a more object oriented approach.
 </p>
 <p>
-    I think that EO is a nice "Proof of Concept" in Java. To make a framework
-    I could waste endless time to check out
+    I think that EO is a nice "Proof of Concept" in Java. To make it a service framework for
+    productive use it would need early adaptor projects and a lot of discussions.
+    Otherwise one can spend endless time to check out
     all possibilities, not mentioned other programming languages.
 </p>
 
 <p>
-    So I will put mor focus on the original
+    So I will put more focus on the original
     intention: The generation of code in
     ==>{GithubLinkCall->NONE, B||Builder.java}.. by structured data like
     ==>{GithubLinkCall->NONE, BR||eo.xlsx}. .
 </p>
 
-<p>I hope the examples show what is practicable possible
-    with a minimal standard extensions.
-I would love to work with a framework with such a concept.
+<p>I hope the examples show what is easily possible
+    with a minimal standard extension of JSON.
+I would love to work with a framework on a similar concept.
 </p>
 
 <p>
-    But it's the opposite of Uncle Bob Martins quote at the beginning.
+    It's the opposite of Uncle Bob Martins quote at the beginning.
     The framework configuration build the heart of the app
     to eliminate differences in
 programming languages, application servers and frameworks.
 </p>
 <p>
-    So it could inject type binding to untyped languages and improve types even to Java e.g. with length.
+    With the configuration in the heart one could inject type binding properties to untyped languages.
+    And one can improve types even to Java e.g. with length.
 </p>

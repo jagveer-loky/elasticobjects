@@ -29,12 +29,19 @@
 </ul>
 
 <p>The following examples are in the test class \
-    ==>{GithubLinkCall->NONE, EOTT|documentation|EoHtmlTest.java}..</p>
+    ==>{GithubLinkCall->NONE, EOTT|documentation|EoHtmlTest.java}. using the test object
+==>{ConfigLinkCall->ModelConfig, AnObject}.</p>
 
 <h5>Create a new root</h5>
 
 <p>The ==>{GithubLinkCall->NONE, EO||EoRoot.java}. is for initializing the root of the tree. It has
-a constructor with the cache object. The cache object is usually static (tests) or a singelton.</p>
+a constructor with the cache object. </p>
+
+<img src="/pics/eoRoot.svg" width="200" style="margin:20px;"/>
+
+<p>
+    This <a href="#ModelConfig">cache</a> will be usually initialized one time as static or as a (injected) singelton.
+</p>
 
 <textarea style="height:80px;">
 EO eoRoot = new EoRoot(EO_CONFIGS_DEV);
@@ -74,7 +81,7 @@ Assertions.assertThat(eoRoot.getEo("key").getModelClass())
 </textarea>
 
 <a name="ModelConfig"></a>
-<h5>Model Configuration Cache</h5>
+<h5>Configuration Cache</h5>
 <p>Instantiating an EoRoot object use always the configration cache object.
 This objects loads every file named
     <ul>
@@ -85,11 +92,27 @@ This objects loads every file named
 </ul>
     from the classpath when initialized.
 </p>
+
+
+<h6>Model Configuration</h6>
+
+<p>To hide the differences between different tree type objects
+    <a href="configs/ModelConfig.html">model configurations</a>
+    are loaded and provided in a cache object.
+</p>
+
+<img src="/pics/eoModelConfig.svg" width="200" style="margin:20px;"/>
 <p>
-These configurations build the base for all object access in EO
-with <a href="/configs/ModelConfig.html">model configurations</a>.
+    The <a href="/configs/ModelConfig.html">model configurations</a>
+    build the base for all object access in EO.
 </p>
 <img src="/pics/eoModel.svg" width="200" style="margin:20px;"/>
+
+<p>The cache object
+    ==>{GithubLinkCall->NONE, EO|models|EOConfigsCache.java}.
+    loads all ModelConfig.json,
+    Models.json and FieldConfig.json files from the classpath.
+</p>
 
 
 <a name="set" ></a>

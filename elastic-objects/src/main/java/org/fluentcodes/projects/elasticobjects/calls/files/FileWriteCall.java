@@ -4,13 +4,13 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.tools.xpect.IOString;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 /**
  * Write content or serialized eo to a file. 
  *

@@ -9,10 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import java.util.ArrayList;
-import java.util.List;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
  * Creates a flat list from configurations.
  *

@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigsCommand;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.Config;
@@ -14,9 +13,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.models.Expose;
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigsCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
  * For getting a list of keys for a specific configuration type, config filter and expose type.
  *

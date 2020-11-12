@@ -1,13 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
  * Replaces new lines in description with a starting " * " for new line. 
  * Foreach pattern {@link &gt;Class>[} .,] a comment link {{@link link} &gt;Class>} will be generated. 

@@ -10,8 +10,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.models.Config.EXPOSE;
 import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.models.Config.EXPOSE;
 
 /**
  * Created by Werner on 10.10.2016.

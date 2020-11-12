@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.commands;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 public interface GenerateCommand extends Call {

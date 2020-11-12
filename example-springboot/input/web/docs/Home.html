@@ -66,7 +66,7 @@ like a <b>shopping bag</b>, where the calls are the <b>shopping list items</b>.
     with role permissions and the file
 location.</p>
 <p>There are several sorts of file configuration types defined e.g.</p>
-<ul>
+<ul  style="list-style-type:circle;">
     <li><a href="/examples/FileCall.html">Flat Files</a></li>
     <li><a href="/examples/ListCall.html">Csv Files</a></li>
     <li><a href="/examples/ExcelCall.html">Excel Files</a></li>
@@ -89,24 +89,48 @@ rendering calls with retrieving data.
 
 ==>{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
 
+<h5>Template Call</h5>
+<p>A template is some arbitrare text files containing markup for
+</p>
+<ul style="list-style-type:circle;">
+    <li>path</li>
+    <li>typed JSON</li>
+    <li>short form of typed JSON</li>
+</ul>
+<img src="/pics/eoTemplateCall.svg" width="200" style="margin:20px;"/>
 
 ==>{TemplateDirResourceCall->examples, TemplateCall.html}.
 
+<h5>Database Calls</h5>
+<p>The database calls actually have two flavours: One using the
+==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.
+    with predefined SQLs.
+</p>
+<p>
+    The other like
+    ==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. is using
+==>{GithubLinkCall->ModelConfig, ModelConfigDbObject}. as a extension of
+    ==>{GithubLinkCall->ModelConfig, ModelConfigObject}.</p>
+<p>
+    A former hibernate module will be refactored at some time. 
+</p>
 
 <h5>Generating Code and Configurations</h5>
 <p>
     The starting point of the project was the generation of code with templates out of structured
-    data.
+    data to automate the boring part of building applications.
 </p>
 <p>The configurations and some parts of the code here are generated via
 ==>{GithubLinkCall->NONE, BR||eo.xlsx}..</p>
 <p>
-    A nice thing with the used
-==>{GithubLinkCall->NONE, EO|calls.templates.|TemplateResourceStoreKeepCall.java}.: It uses
-    the target file as a template itself, if it exists. So one can modify a java class
-    outside the markups without loosing it the class was generated again.
+    For the java classes a special call
+==>{GithubLinkCall->NONE, EO|calls.templates.|TemplateResourceStoreKeepCall.java}. is used:
+    If the
+   target file exists it will be used as a template itself.
+    So one can modify the java class
+    outside the markups. This content will not be lost
+    when generated.
 </p>
-
 
 <h5>Conclusion</h5>
 
@@ -129,8 +153,8 @@ With a simple tiny typed JSON extension
 </p>
 
 <p>I hope the examples show what is easily possible
-    with a minimal standard extensions.
-I would love to work with a framework with such a concept.
+    with a minimal standard extension of JSON.
+I would love to work with a framework on a similar concept.
 </p>
 
 <p>
@@ -140,5 +164,6 @@ I would love to work with a framework with such a concept.
 programming languages, application servers and frameworks.
 </p>
 <p>
-    So it could inject type binding to untyped languages and improve types even to Java e.g. with length.
+    With the configuration in the heart one could inject type binding properties to untyped languages.
+    And one can improve types even to Java e.g. with length.
 </p>

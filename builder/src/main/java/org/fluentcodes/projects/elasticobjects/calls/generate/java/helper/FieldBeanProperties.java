@@ -4,12 +4,12 @@ import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.FieldProperties;
 
 import static org.fluentcodes.projects.elasticobjects.domain.Base.DESCRIPTION;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigProperties.FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigProperties.OVERRIDE;
 import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.FIELD_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.LENGTH;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.MODEL_KEYS;
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfigProperties.FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfigProperties.OVERRIDE;
 
 public interface FieldBeanProperties extends FieldProperties {
 

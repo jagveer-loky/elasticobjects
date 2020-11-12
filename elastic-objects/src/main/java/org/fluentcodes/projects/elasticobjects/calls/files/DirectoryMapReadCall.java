@@ -1,13 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
 
-import java.io.File;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
+import org.fluentcodes.projects.elasticobjects.EO;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;

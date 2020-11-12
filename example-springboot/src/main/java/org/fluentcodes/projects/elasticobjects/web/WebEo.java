@@ -2,16 +2,21 @@ package org.fluentcodes.projects.elasticobjects.web;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.*;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
+import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 
 /**
@@ -81,10 +86,12 @@ public class WebEo {
             try {
                 eo.execute();
                 if (!eo.getLogList().isEmpty()) {
+                    LOG.error(eo.getLog());
                     return "Error occured: " + eo.getLog();
                 }
             }
             catch (Exception e) {
+                LOG.error(e);
                 return "Exception occured: " + e.getMessage();
             }
             eo.debug("'/eo-form' is executed ");
@@ -123,10 +130,12 @@ public class WebEo {
             try {
                 eo.execute();
                 if (!eo.getLogList().isEmpty()) {
+                    LOG.error(eo.getLog());
                     return "Error occured: " + eo.getLog();
                 }
             }
             catch (Exception e) {
+                LOG.error(e);
                 return "Exception occured: " + e.getMessage();
             }
             TemplateCall call = new TemplateCall();

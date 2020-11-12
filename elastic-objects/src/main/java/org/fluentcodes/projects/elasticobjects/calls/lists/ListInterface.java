@@ -8,15 +8,12 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
 
 /**
  * Created by Werner on 13.9.2020.

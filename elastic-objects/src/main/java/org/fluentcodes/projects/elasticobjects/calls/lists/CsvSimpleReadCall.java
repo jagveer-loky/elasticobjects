@@ -2,12 +2,13 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 /**
  * Defines a primitive csv file read operation. 
  *

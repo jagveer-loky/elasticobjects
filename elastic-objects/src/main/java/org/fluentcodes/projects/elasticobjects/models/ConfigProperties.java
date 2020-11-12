@@ -2,9 +2,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 //  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
 
-import org.fluentcodes.projects.elasticobjects.domain.Base;
-
-import java.util.List;
 import java.util.Map;
 //=>{}.
 

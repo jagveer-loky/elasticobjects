@@ -1,0 +1,89 @@
+
+<h5>Typed JSON (De)serialization</h5>
+<p>
+    With a special JSON serialization/deserialization adding type to a fieldName,
+    one can loosely transfer complex
+    objects and trigger calls from a client.
+</p>
+<h5>Spring Boot Demo</h5>
+<p>
+    This site itself is a demo for this principle: A small spring boot application together
+    with Elastic Objects and some <a href="configs/FileConfig.html">TemplateConfigurations</a>.
+</p>
+<p>
+    The page you see with an "ordinary" web-url triggers the spring boot method
+     ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}..createRootPage
+    with the MVC request mapping "/{selectedItem:.+}.html".
+</p>
+<p>
+    This method creates at server side a new EO object with selectedItem="Home.html" and
+     ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}.
+    and the template name
+     ==>{ConfigLinkCall->FileConfig, ContentPage.html}..
+
+</p>
+<p>
+    When the
+     ==>{ConfigLinkCall->FileConfig, ContentPage.html}. template
+     is parsed, it will load
+     ==>{GithubLinkCall->NONE, SP|web|Home.html}..
+    So this is what you read.
+</p>
+<h5>The post version</h5>
+<p>
+   Every page with an url ending ".html" creates the EO object on server side.
+</p>
+<p>
+    In the following example with JSON from the client side render the same result:
+ </p>
+<p>
+<form action="/eo-form" method="post" target="example">
+            <textarea name="eo" style="height:150px">{
+   "selectedItem": "Home.html",
+   "contentDirectory":"docs",
+   "(TemplateResourceCall)call": {
+      "fileConfigKey":"ContentPage.html"
+   },
+   "asTemplate":true
+}</textarea>
+    <input type="submit" value="post"/>
+</form>
+</p>
+
+<p>
+    The result is the same beside the url is not so "nice".
+    But it demonstrates the flexibility to send EO objects to the server.
+    If you remove the "asTemplate" value
+    you will get the "raw" JSON response.
+</p>
+
+<h5>Further Content</h5>
+<p>
+    The other pages have two topics
+</p>
+<ul>
+    <li><a href="/examples/ExampleStart.html">Examples</a></li>
+    <li>Different Configurations.</li>
+</ul>
+<h5>Examples</h5>
+<p>The most pages are about getting data from the server</p>
+<ul>
+    <li><a href="/examples/FileCall.html">FileCall</a></li>
+    <li><a href="/examples/JsonCall.html">JsonCall</a></li>
+    <li><a href="/examples/CsvCall.html">CsvCall</a></li>
+    <li><a href="/examples/XlsxCall.html">XlsxCall</a></li>
+    <li><a href="/examples/DbCall.html">DbCall</a></li>
+</ul>
+
+<p>
+    They have their own configurations e.g. with permission restrictions.
+</p>
+
+<p>
+    <a href="/examples/TemplateExamples.html">Templates</a> offer the possibility to embed the calls in an arbitrary text
+in a hierarchical way.
+</p>
+
+<p>
+    Finally and first there is an example creating an own call with <a href="/examples/TheGreetingCall.html">TheGreetingCall</a>.
+</p>

@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.Set;
 
 public class UnmodifiableSet<E> extends UnmodifiableCollection<E>

@@ -10,8 +10,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 /**
  * For getting a list of keys for a configuration types.
  *

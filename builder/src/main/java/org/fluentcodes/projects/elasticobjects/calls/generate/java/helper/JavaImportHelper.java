@@ -1,11 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java.helper;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
@@ -15,7 +13,6 @@ import java.util.List;
 import java.util.Set;
 
 import static org.fluentcodes.projects.elasticobjects.calls.generate.java.GenerateJavaCall.FIELD_MAP;
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.INTERFACES;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SUPER_KEY;

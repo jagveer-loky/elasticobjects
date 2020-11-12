@@ -1,19 +1,21 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 /*==>{ALLImport.tpl, javaGenImport/*, JAVA}|*/
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
-/*=>{}.*/
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import java.util.LinkedHashMap;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
+import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+/*=>{}.*/
 
 /**
  * Created by Werner on 10.10.2016.

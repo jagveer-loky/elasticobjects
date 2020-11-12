@@ -8,7 +8,6 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 /**
  * Parses the content loaded by {@link DirectoryReadCall}.
  * This will use a FileConfig entry using {@link DirectoryConfig} instance. 

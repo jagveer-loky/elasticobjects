@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectString;

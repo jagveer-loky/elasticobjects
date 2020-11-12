@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.FieldHelper;
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.helper.JavaImportHelper;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
@@ -14,7 +15,6 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_K
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SHAPE_TYPE;
 
 /*==>{ALLHeader.tpl, ., , JAVA}|*/
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateCall;
 /**
  * Call for generation of java code from ModelConfig data. 
  *  * FieldConfig will be loaded from ConfigsCache. 

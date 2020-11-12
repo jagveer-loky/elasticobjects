@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.InsertStatement;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.UpdateStatement;
@@ -10,9 +11,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 import java.util.List;
 
-
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 /**
  * Write an entry in database by creating a insert or update sql from entry in sourcePath.
  * The object must be an instance of {@link ModelConfigDbObject}.

@@ -4,6 +4,7 @@ import au.com.bytecode.opencsv.CSVReader;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.io.IOException;
@@ -14,7 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 /**
  * Defines read call for a csv action depending on one link CsvConfig. 
  *
