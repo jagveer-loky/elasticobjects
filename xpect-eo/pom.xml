@@ -5,7 +5,7 @@
 
     <groupId>org.fluentcodes.tools</groupId>
     <artifactId>xpect-eo</artifactId>
-    <version>0.7.7</version>
+    <version>0.7.8</version>
     <name>Xpect with EO (Elastic Objects)</name>
 
     <packaging>jar</packaging>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-root</artifactId>
-        <version>0.7.0</version>
+        <version>0.8.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
