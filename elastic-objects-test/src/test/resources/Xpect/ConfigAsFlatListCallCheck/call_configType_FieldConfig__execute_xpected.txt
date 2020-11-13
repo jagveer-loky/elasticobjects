@@ -1,5 +1,5 @@
 "naturalId";"modelKeys";"description";"module";"subModule";"fieldKey";"scope";"dbFieldParams";"eoFieldParams";"viewFieldParams";
-"absolute";"Boolean";"In a directory context this will mark absolute context. ";"elastic-objects";"";"absolute";"";"";"";"";
+"absolute";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"absolute";"";"";"";"";
 "attributeList";"ArrayList,String";"Definition of available attributes for an Action.";"elastic-objects";"";"attributeList";"";"";"";"";
 "author";"String";"The autor of something e,g. a class.";"elastic-objects";"";"author";"";"";"";"";
 "cached";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"cached";"";"";"";"";
@@ -8,7 +8,7 @@
 "compare";"Boolean";"Trigger a compare before writing in @FileWriteCall";"elastic-objects";"";"compare";"";"";"";"";
 "condition";"String";"A condition for calls. ";"elastic-objects";"";"condition";"";"";"";"";
 "configFilter";"String";"Key for filter configuration";"elastic-objects";"";"configFilter";"";"";"";"";
-"configKey";"String";"Key for configuration  {@link ConfigConfig}";"elastic-objects";"";"configKey";"";"";"";"";
+"configKey";"String";"Key for configuration @Config";"elastic-objects";"";"configKey";"";"";"";"";
 "configModelKey";"String";"The model of the configuration to determine type.";"elastic-objects";"";"configModelKey";"";"";"";"";
 "configType";"String";"Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.";"elastic-objects";"";"configType";"";"";"";"";
 "content";"String";"A content for different calls. In a template context the content of the markup. ";"elastic-objects";"";"content";"";"";"";"";
@@ -32,8 +32,6 @@
 "fileName";"String";"A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"fileName";"";"";"";"";
 "filePath";"String";"A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"filePath";"";"";"";"";
 "filter";"String";"Filter for List entries.";"elastic-objects";"";"filter";"";"";"";"";
-"filterModule";"String";"Filter for modules in  {@link ConfigAction}";"elastic-objects";"";"filterModule";"";"";"";"";
-"filterSubModule";"String";"Filter for subModules in  {@link ConfigAction}";"elastic-objects";"";"filterSubModule";"";"";"";"";
 "hibernate";"String";"hibernate";"elastic-objects";"";"hibernate";"";"";"";"";
 "hibernateAnnotations";"Boolean";"sets a Flag for using hibernate annotations when bean is created. ";"elastic-objects";"";"hibernateAnnotations";"";"";"";"";
 "hostConfigKey";"String";"A key for host objects.";"elastic-objects";"";"hostConfigKey";"";"";"";"";
@@ -54,8 +52,8 @@
 "log";"String";"";"";"";"log";"";"";"";"";
 "logLevel";"LogLevel";"logLevel";"elastic-objects";"";"logLevel";"";"";"";"";
 "mapKey";"String";"The field used as a key for joined maps. ";"elastic-objects";"";"mapKey";"";"";"";"";
-"modelConfigKey";"String";"The model name for the cache object {@link Config}.";"elastic-objects";"";"modelConfigKey";"";"";"";"";
-"modelKey";"String";"The model name for the bean/action object {@link Bean}.";"elastic-objects";"";"modelKey";"";"";"";"";
+"modelConfigKey";"String";"The model name for the cache object @ModelConfig.";"elastic-objects";"";"modelConfigKey";"";"";"";"";
+"modelKey";"String";"The model name for the bean/action object @ModelConfig.";"elastic-objects";"";"modelKey";"";"";"";"";
 "modelKeys";"String";"A string representation for a list of modelsConfig.";"elastic-objects";"";"modelKeys";"";"";"";"";
 "modelList";"ArrayList,String";"A list of naturalIds of models for FieldConfig.";"elastic-objects";"";"modelList";"";"";"";"";
 "models";"String";"A string representation for a list of model keys.";"elastic-objects";"";"models";"";"";"";"";
@@ -63,8 +61,8 @@
 "moduleScope";"String";"Defines scope of the configuration within module, eg 'test' or 'main' .";"elastic-objects";"";"moduleScope";"";"";"";"";
 "myAnObject";"AnObject";"A AnObject field.";"elastic-objects-test";"";"myAnObject";"";"";"";"";
 "myASubObject";"ASubObject";"myASubObject";"elastic-objects-test";"";"myASubObject";"";"";"";"";
-"myASubObjectList";"ArrayList,ASubObject";"A generic parametrized example List with {@link ASubObject}";"elastic-objects-test";"";"myASubObjectList";"";"";"";"";
-"myASubObjectMap";"HashMap,ASubObject";"A generic parametrized example Map with {@link ASubObject}";"elastic-objects-test";"";"myASubObjectMap";"";"";"";"";
+"myASubObjectList";"ArrayList,ASubObject";"A generic parametrized example List with @ASubObject";"elastic-objects-test";"";"myASubObjectList";"";"";"";"";
+"myASubObjectMap";"HashMap,ASubObject";"A generic parametrized example Map with @ASubObject";"elastic-objects-test";"";"myASubObjectMap";"";"";"";"";
 "myBoolean";"Boolean";"myBoolean";"elastic-objects-test";"";"myBoolean";"";"";"";"";
 "myDate";"Date";"myDate";"elastic-objects-test";"";"myDate";"";"";"";"";
 "myDouble";"Double";"myDouble";"elastic-objects-test";"";"myDouble";"";"";"";"";
@@ -76,7 +74,7 @@
 "myObject";"Object";"A test object thing. ";"elastic-objects-test";"";"myObject";"";"";"";"";
 "myString";"String";"Just a small test string used in test models. ";"elastic-objects-test";"";"myString";"";"";"";"";
 "name";"String";"The name field of a class. ";"elastic-objects";"";"name";"";"";"";"";
-"naturalId";"String";"The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}";"elastic-objects";"";"naturalId";"";"";"";"";
+"naturalId";"String";"The natural key in @Base";"elastic-objects";"";"naturalId";"";"";"";"";
 "naturalKeys";"ArrayList,String";"naturalKeys";"elastic-objects";"";"naturalKeys";"";"";"";"";
 "notNull";"Boolean";"notNull";"elastic-objects";"";"notNull";"";"";"";"";
 "overwrite";"Boolean";"overwrite";"elastic-objects";"";"overwrite";"";"";"";"";
@@ -100,7 +98,7 @@
 "serializationType";"JSONSerializationType";"The types of Serialization. ";"elastic-objects";"";"serializationType";"";"";"";"";
 "serialized";"String";"The serialized field for @{link pathPattern}.";"elastic-objects";"";"serialized";"";"";"";"";
 "shapeType";"ShapeTypes";"shapeType";"elastic-objects";"";"shapeType";"";"";"";"";
-"sortOrder";"SortOrder";"sortOrder";"elastic-objects";"";"sortOrder";"";"";"";"";
+"sortOrder";"SortOrder";"A field with a SortOrder enum";"elastic-objects";"";"sortOrder";"";"";"";"";
 "sourceFileConfigKey";"String";"Defines the key for a file configuration @FileConfig where to read a file.";"elastic-objects";"";"sourceFileConfigKey";"";"";"";"";
 "sourcePath";"String";"A sourcePath where EO offers it's input value when the execution starts.";"elastic-objects";"";"sourcePath";"";"";"";"";
 "startCondition";"String";"A condition for calls. ";"elastic-objects";"";"startCondition";"";"";"";"";
@@ -109,7 +107,7 @@
 "SuperExampleClass.id";"Long";"";"";"";"id";"";"";"";"";
 "SuperExampleClass.subClass";"FieldExampleClass";"";"";"";"subClass";"";"";"";"";
 "superKey";"String";"A key for the super class of a class.";"elastic-objects";"";"superKey";"";"";"";"";
-"table";"String";"The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.";"elastic-objects";"";"table";"";"";"";"";
+"table";"String";"The name of the persistence entity.";"elastic-objects";"";"table";"";"";"";"";
 "targetConfigKey";"String";"The naturalId of a FileConfig entry with an embedded FileWriteCall. ";"elastic-objects";"";"targetConfigKey";"";"";"";"";
 "targetFile";"String";"The naturalId of a FileConfig entry with an embedded FileWriteCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
 "targetFileConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFileConfigKey";"";"";"";"";

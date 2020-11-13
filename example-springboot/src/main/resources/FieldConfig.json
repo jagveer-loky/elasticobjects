@@ -3,7 +3,7 @@
     "module": "example-springboot",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "The field value for TheGreetingCall example. ",
+    "description": "The field value for @TheGreetingCall example. ",
     "expose": "NONE",
     "fieldKey": "greeting",
     "length": 15

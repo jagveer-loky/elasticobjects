@@ -64,6 +64,6 @@
   "expose": "WEB",
   "module": "elastic-objects",
   "moduleScope": "main",
-  "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
+  "description": "The natural key in @Base",
   "naturalId": "naturalId"
 }

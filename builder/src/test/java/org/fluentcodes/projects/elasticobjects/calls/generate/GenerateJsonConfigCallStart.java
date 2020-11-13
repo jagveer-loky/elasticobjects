@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModuleScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Ignore;
@@ -19,7 +21,6 @@ import static org.fluentcodes.projects.elasticobjects.models.Config.MODULE_SCOPE
  * @since 9.10.2020.
  */
 public class GenerateJsonConfigCallStart {
-    @Ignore
    @Test
     public void callTemplateResourceCall_JsonBuilderTpl__execute__logEmpty() {
         TemplateResourceCall call = new TemplateResourceCall("JsonBuilder.tpl");
@@ -27,7 +28,7 @@ public class GenerateJsonConfigCallStart {
         eo.set(Moduls.ALL.getName(), MODULE);
         eo.set(ModuleScope.MAIN.dir(), MODULE_SCOPE);
         eo.set("", FILE_ENDING);
-        eo.set(FileConfig.class.getSimpleName() , CONFIG_TYPE);
+        eo.set(ModelConfig.class.getSimpleName() , CONFIG_TYPE);
         String result = call.execute(eo);
         System.out.println(result);
         Assertions.assertThat(result).contains("src/main/resources");

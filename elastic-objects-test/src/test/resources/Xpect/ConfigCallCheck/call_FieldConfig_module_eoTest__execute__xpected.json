@@ -40,7 +40,7 @@
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "description": "A generic parametrized example List with {@link ASubObject}",
+    "description": "A generic parametrized example List with @ASubObject",
     "naturalId": "myASubObjectList"
   },
   "3": {
@@ -54,7 +54,7 @@
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "description": "A generic parametrized example Map with {@link ASubObject}",
+    "description": "A generic parametrized example Map with @ASubObject",
     "naturalId": "myASubObjectMap"
   },
   "4": {

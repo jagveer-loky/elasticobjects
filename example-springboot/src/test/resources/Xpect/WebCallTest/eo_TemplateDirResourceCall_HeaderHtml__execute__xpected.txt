@@ -53,7 +53,7 @@
                     <div class="site-branding-text">
                         <p class="site-title"><a href="/Home.html"
                                                  rel="home">EO - Elastic Objects</a></p>
-                        <p class="site-description">A Typed Path to Build Solutions</p>
+                        <p class="site-description">Typed JSON<div style="color:white; opacity:0.8; font-size:0.7rem;">for Computer Communication and Templating</div></p>
                     </div><!-- .site-branding-text -->
                 </div><!-- .wrap -->
             </div><!-- .site-branding -->

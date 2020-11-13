@@ -22,13 +22,13 @@ public class ConfigCall extends ConfigKeysCall {
 /*=>{}.*/
 
     /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
-   public static final String FILTER_MODULE = "filterModule";
-   public static final String FILTER_SUB_MODULE = "filterSubModule";
+   public static final String MODULE = "module";
+   public static final String MODULE_SCOPE = "moduleScope";
 /*=>{}.*/
 
     /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
-   private  String filterModule;
-   private  String filterSubModule;
+   private  String module;
+   private  String moduleScope;
 /*=>{}.*/
 
     public ConfigCall() {
@@ -56,10 +56,10 @@ public class ConfigCall extends ConfigKeysCall {
         for (String key : keys) {
             Config configEntry = (Config) eo.getConfigsCache().find(configClass, key);
             try {
-                if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getFilterModule()))) {
+                if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;
                 }
-                if (hasFilterSubModule() && (configEntry.getModuleScope() == null || !configEntry.getModuleScope().equals(this.getFilterSubModule()))) {
+                if (hasFilterSubModule() && (configEntry.getModuleScope() == null || !configEntry.getModuleScope().equals(this.getModuleScope()))) {
                     continue;
                 }
             } catch (Exception e) {
@@ -77,33 +77,33 @@ public class ConfigCall extends ConfigKeysCall {
     Filter for modules
     */
 
-    public ConfigCall setFilterModule(String filterModule) {
-        this.filterModule = filterModule;
+    public ConfigCall setModule(String module) {
+        this.module = module;
         return this;
     }
     
-    public String getFilterModule () {
-       return this.filterModule;
+    public String getModule() {
+       return this.module;
     }
     
     public boolean hasFilterModule () {
-        return filterModule!= null && !filterModule.isEmpty();
+        return module != null && !module.isEmpty();
     }
     /**
     Filter for subModules
     */
 
-    public ConfigCall setFilterSubModule(String filterSubModule) {
-        this.filterSubModule = filterSubModule;
+    public ConfigCall setModuleScope(String moduleScope) {
+        this.moduleScope = moduleScope;
         return this;
     }
     
-    public String getFilterSubModule () {
-       return this.filterSubModule;
+    public String getModuleScope() {
+       return this.moduleScope;
     }
     
     public boolean hasFilterSubModule () {
-        return filterSubModule!= null && !filterSubModule.isEmpty();
+        return moduleScope != null && !moduleScope.isEmpty();
     }
 /*=>{}.*/
 

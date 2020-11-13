@@ -2,6 +2,7 @@
   "ConfigLinkCall": {
     "module": "example-springboot",
     "moduleScope": "main",
+    "interfaces": "SimpleCommand",
     "superKey": "GithubLinkCall",
     "expose": "WEB",
     "description": "Create a link to a config page and if its FileConfig or ModelConfig to the github source.",

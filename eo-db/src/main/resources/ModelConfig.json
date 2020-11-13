@@ -25,9 +25,12 @@
   "DbModelCall": {
     "module": "eo-db",
     "moduleScope": "main",
+    "fieldKeys": [
+      "modelConfigKey"
+    ],
     "superKey": "HostCall",
     "expose": "WEB",
-    "description": "Executes a list of sql statements within DbSqlConfig.",
+    "description": "Abstract call class for model based @ModelConfigDbObject database operations. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelCall",
     "properties": {
@@ -40,9 +43,10 @@
   "DbModelDeleteCall": {
     "module": "eo-db",
     "moduleScope": "main",
+    "interfaces": "ConfigWriteCommand",
     "superKey": "DbModelCall",
     "expose": "WEB",
-    "description": "Remove an entry from database by creating a delete sql from entry in sourcePath.",
+    "description": "Remove an entry from database by creating a delete sql from entry in sourcePath. \nThe object in sourcePath must be an instance of @ModelConfigDbObject.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelDeleteCall",
     "properties": {
@@ -55,10 +59,10 @@
   "DbModelReadCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "interfaces": "ListInterface",
+    "interfaces": "ListInterface,ConfigReadCommand",
     "superKey": "DbModelCall",
     "expose": "WEB",
-    "description": "Read an entry in database by creating a select sql from entry in sourcePath.",
+    "description": "Read an entry in database by creating a select sql from entry in sourcePath. \nThe object in sourcePath must be an instance of @ModelConfigDbObject.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelReadCall",
     "properties": {
@@ -71,9 +75,10 @@
   "DbModelWriteCall": {
     "module": "eo-db",
     "moduleScope": "main",
+    "interfaces": "ConfigWriteCommand",
     "superKey": "DbModelCall",
     "expose": "WEB",
-    "description": "Write an entry in database by creating a insert or update sql from entry in sourcePath.",
+    "description": "Write an entry in database by creating a insert or update sql from entry in sourcePath.\nThe object must be an instance of @ModelConfigDbObject.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbModelWriteCall",
     "properties": {
@@ -106,7 +111,7 @@
     ],
     "superKey": "HostCall",
     "expose": "WEB",
-    "description": "Executes a list of sql statements within DbSqlConfig.",
+    "description": "Abstract class providing an sql config before executing.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlCall",
     "properties": {
@@ -139,6 +144,7 @@
   "DbSqlExecuteCall": {
     "module": "eo-db",
     "moduleScope": "main",
+    "interfaces": "ConfigWriteCommand",
     "superKey": "DbSqlCall",
     "expose": "WEB",
     "description": "Executes a list of sql statements within DbSqlConfig.",
@@ -169,10 +175,10 @@
   "DbSqlReadCall": {
     "module": "eo-db",
     "moduleScope": "main",
-    "interfaces": "ListInterface",
+    "interfaces": "ListInterface,ConfigReadCommand",
     "superKey": "DbSqlCall",
     "expose": "WEB",
-    "description": "Executes a list of sql statements within DbSqlConfig.",
+    "description": "Map results of a sql select to the targetPath.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlReadCall",
     "properties": {

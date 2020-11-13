@@ -3,12 +3,16 @@
   "0": {
     "fieldKey": "absolute",
     "modelKeys": "Boolean",
+    "(ArrayList)modelList": {
+      "0": "DirectoryListReadCall",
+      "1": "DirectoryMapReadCall"
+    },
     "notNull": false,
     "unique": false,
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "In a directory context this will mark absolute context. ",
+    "description": "If true will cache the readed file within the cache object. ",
     "naturalId": "absolute"
   },
   "1": {
@@ -135,7 +139,8 @@
       "1": "CsvConfig",
       "2": "ListInterface",
       "3": "ListParams",
-      "4": "CsvSimpleReadCall"
+      "4": "CsvSimpleReadCall",
+      "5": "CsvSimpleWriteCall"
     },
     "notNull": false,
     "unique": false,
@@ -152,7 +157,10 @@
       "0": "FileWriteCall",
       "1": "JsonWriteCall",
       "2": "DirectoryWriteCall",
-      "3": "CsvSimpleWriteCall"
+      "3": "FileReadWriteCall",
+      "4": "TemplateResourceStoreKeepCall",
+      "5": "CsvSimpleWriteCall",
+      "6": "TemplateResourceStoreCall"
     },
     "notNull": false,
     "unique": false,
@@ -180,9 +188,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -237,7 +245,7 @@
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "Key for configuration  {@link ConfigConfig}",
+    "description": "Key for configuration @Config",
     "naturalId": "configKey"
   },
   "10": {
@@ -503,9 +511,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -662,12 +670,13 @@
       "6": "ModelConfigObject",
       "7": "ModelConfigDbObject",
       "8": "ModelConfigList",
-      "9": "ModelConfigNone",
-      "10": "ModelConfigScalar"
+      "9": "ConfigAsFlatListCall",
+      "10": "ModelConfigNone",
+      "11": "ModelConfigScalar"
     },
     "notNull": false,
     "unique": false,
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A list of field keys for the model configuration. ",
@@ -770,7 +779,8 @@
       "1": "CsvConfig",
       "2": "ListInterface",
       "3": "ListParams",
-      "4": "CsvSimpleReadCall"
+      "4": "CsvSimpleReadCall",
+      "5": "CsvSimpleWriteCall"
     },
     "notNull": false,
     "unique": false,
@@ -781,36 +791,6 @@
     "naturalId": "filter"
   },
   "33": {
-    "fieldKey": "filterModule",
-    "modelKeys": "String",
-    "(ArrayList)modelList": {
-      "0": "ConfigOpenApiCall",
-      "1": "ConfigCall"
-    },
-    "notNull": false,
-    "unique": false,
-    "(Expose)expose": "WEB",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "description": "Filter for modules in  {@link ConfigAction}",
-    "naturalId": "filterModule"
-  },
-  "34": {
-    "fieldKey": "filterSubModule",
-    "modelKeys": "String",
-    "(ArrayList)modelList": {
-      "0": "ConfigOpenApiCall",
-      "1": "ConfigCall"
-    },
-    "notNull": false,
-    "unique": false,
-    "(Expose)expose": "WEB",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "description": "Filter for subModules in  {@link ConfigAction}",
-    "naturalId": "filterSubModule"
-  },
-  "35": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
     "notNull": false,
@@ -821,7 +801,7 @@
     "description": "hibernate",
     "naturalId": "hibernate"
   },
-  "36": {
+  "34": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
     "notNull": false,
@@ -832,7 +812,7 @@
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "37": {
+  "35": {
     "fieldKey": "hostConfigKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -861,7 +841,7 @@
     "description": "A key for host objects.",
     "naturalId": "hostConfigKey"
   },
-  "38": {
+  "36": {
     "fieldKey": "hostName",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -875,7 +855,7 @@
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "39": {
+  "37": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -944,7 +924,7 @@
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "40": {
+  "38": {
     "fieldKey": "idKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -959,7 +939,7 @@
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "41": {
+  "39": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -973,7 +953,7 @@
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "42": {
+  "40": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
     "notNull": false,
@@ -984,7 +964,7 @@
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "43": {
+  "41": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1008,7 +988,7 @@
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "44": {
+  "42": {
     "fieldKey": "javaProperties",
     "modelKeys": "Map",
     "notNull": false,
@@ -1019,7 +999,7 @@
     "description": "A map of properties used in configs and calls.",
     "naturalId": "javaProperties"
   },
-  "45": {
+  "43": {
     "fieldKey": "join",
     "modelKeys": "String",
     "notNull": false,
@@ -1030,7 +1010,7 @@
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "46": {
+  "44": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
     "notNull": false,
@@ -1041,7 +1021,7 @@
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "47": {
+  "45": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
@@ -1059,9 +1039,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -1092,7 +1072,7 @@
     "description": "Will use an existing  result file beforehand as template. ",
     "naturalId": "keepCall"
   },
-  "48": {
+  "46": {
     "fieldKey": "key",
     "modelKeys": "String",
     "notNull": false,
@@ -1103,7 +1083,7 @@
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "49": {
+  "47": {
     "fieldKey": "length",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1111,7 +1091,8 @@
       "1": "CsvConfig",
       "2": "ListInterface",
       "3": "ListParams",
-      "4": "CsvSimpleReadCall"
+      "4": "CsvSimpleReadCall",
+      "5": "CsvSimpleWriteCall"
     },
     "notNull": false,
     "unique": false,
@@ -1121,7 +1102,7 @@
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "50": {
+  "48": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
     "notNull": false,
@@ -1132,7 +1113,7 @@
     "description": "Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.",
     "naturalId": "listParams"
   },
-  "51": {
+  "49": {
     "fieldKey": "localFieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1156,7 +1137,7 @@
     "description": "A list of field as proivided by the model configuration. ",
     "naturalId": "localFieldKeys"
   },
-  "52": {
+  "50": {
     "fieldKey": "log",
     "modelKeys": "String",
     "notNull": false,
@@ -1164,7 +1145,7 @@
     "(Expose)expose": "NONE",
     "naturalId": "log"
   },
-  "53": {
+  "51": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
     "(ArrayList)modelList": {
@@ -1182,9 +1163,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -1215,7 +1196,7 @@
     "description": "logLevel",
     "naturalId": "logLevel"
   },
-  "54": {
+  "52": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
     "notNull": false,
@@ -1226,7 +1207,7 @@
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "55": {
+  "53": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
     "notNull": false,
@@ -1234,10 +1215,10 @@
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "The model name for the cache object {@link Config}.",
+    "description": "The model name for the cache object @ModelConfig.",
     "naturalId": "modelConfigKey"
   },
-  "56": {
+  "54": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1258,10 +1239,10 @@
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "The model name for the bean/action object {@link Bean}.",
+    "description": "The model name for the bean/action object @ModelConfig.",
     "naturalId": "modelKey"
   },
-  "57": {
+  "55": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1275,7 +1256,7 @@
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "58": {
+  "56": {
     "fieldKey": "modelList",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1289,7 +1270,7 @@
     "description": "A list of naturalIds of models for FieldConfig.",
     "naturalId": "modelList"
   },
-  "59": {
+  "57": {
     "fieldKey": "models",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1307,9 +1288,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -1340,7 +1321,7 @@
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "60": {
+  "58": {
     "fieldKey": "module",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1362,19 +1343,21 @@
       "15": "ModelConfigObject",
       "16": "ModelConfigDbObject",
       "17": "FieldConfig",
-      "18": "ModelConfigList",
-      "19": "ModelConfigNone",
-      "20": "ModelConfigScalar"
+      "18": "ConfigOpenApiCall",
+      "19": "ModelConfigList",
+      "20": "ConfigCall",
+      "21": "ModelConfigNone",
+      "22": "ModelConfigScalar"
     },
     "notNull": false,
     "unique": false,
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "61": {
+  "59": {
     "fieldKey": "moduleScope",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1396,19 +1379,21 @@
       "15": "ModelConfigObject",
       "16": "ModelConfigDbObject",
       "17": "FieldConfig",
-      "18": "ModelConfigList",
-      "19": "ModelConfigNone",
-      "20": "ModelConfigScalar"
+      "18": "ConfigOpenApiCall",
+      "19": "ModelConfigList",
+      "20": "ConfigCall",
+      "21": "ModelConfigNone",
+      "22": "ModelConfigScalar"
     },
     "notNull": false,
     "unique": false,
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
     "naturalId": "moduleScope"
   },
-  "62": {
+  "60": {
     "fieldKey": "myAnObject",
     "modelKeys": "AnObject",
     "(ArrayList)modelList": {
@@ -1422,7 +1407,7 @@
     "description": "A AnObject field.",
     "naturalId": "myAnObject"
   },
-  "63": {
+  "61": {
     "fieldKey": "myASubObject",
     "modelKeys": "ASubObject",
     "(ArrayList)modelList": {
@@ -1437,7 +1422,7 @@
     "description": "myASubObject",
     "naturalId": "myASubObject"
   },
-  "64": {
+  "62": {
     "fieldKey": "myASubObjectList",
     "modelKeys": "ArrayList,ASubObject",
     "(ArrayList)modelList": {
@@ -1448,10 +1433,10 @@
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "description": "A generic parametrized example List with {@link ASubObject}",
+    "description": "A generic parametrized example List with @ASubObject",
     "naturalId": "myASubObjectList"
   },
-  "65": {
+  "63": {
     "fieldKey": "myASubObjectMap",
     "modelKeys": "HashMap,ASubObject",
     "(ArrayList)modelList": {
@@ -1462,10 +1447,10 @@
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "description": "A generic parametrized example Map with {@link ASubObject}",
+    "description": "A generic parametrized example Map with @ASubObject",
     "naturalId": "myASubObjectMap"
   },
-  "66": {
+  "64": {
     "fieldKey": "myBoolean",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1479,7 +1464,7 @@
     "description": "myBoolean",
     "naturalId": "myBoolean"
   },
-  "67": {
+  "65": {
     "fieldKey": "myDate",
     "modelKeys": "Date",
     "(ArrayList)modelList": {
@@ -1493,7 +1478,7 @@
     "description": "myDate",
     "naturalId": "myDate"
   },
-  "68": {
+  "66": {
     "fieldKey": "myDouble",
     "modelKeys": "Double",
     "(ArrayList)modelList": {
@@ -1507,7 +1492,7 @@
     "description": "myDouble",
     "naturalId": "myDouble"
   },
-  "69": {
+  "67": {
     "fieldKey": "myFloat",
     "modelKeys": "Float",
     "(ArrayList)modelList": {
@@ -1521,7 +1506,7 @@
     "description": "myFloat",
     "naturalId": "myFloat"
   },
-  "70": {
+  "68": {
     "fieldKey": "myInt",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1535,7 +1520,7 @@
     "description": "myInt",
     "naturalId": "myInt"
   },
-  "71": {
+  "69": {
     "fieldKey": "myList",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
@@ -1549,7 +1534,7 @@
     "description": "myList",
     "naturalId": "myList"
   },
-  "72": {
+  "70": {
     "fieldKey": "myLong",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -1563,7 +1548,7 @@
     "description": "myLong",
     "naturalId": "myLong"
   },
-  "73": {
+  "71": {
     "fieldKey": "myMap",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
@@ -1577,7 +1562,7 @@
     "description": "myMap",
     "naturalId": "myMap"
   },
-  "74": {
+  "72": {
     "fieldKey": "myObject",
     "modelKeys": "Object",
     "(ArrayList)modelList": {
@@ -1591,7 +1576,7 @@
     "description": "A test object thing. ",
     "naturalId": "myObject"
   },
-  "75": {
+  "73": {
     "fieldKey": "myString",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1606,7 +1591,7 @@
     "description": "Just a small test string used in test models. ",
     "naturalId": "myString"
   },
-  "76": {
+  "74": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1620,7 +1605,7 @@
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "77": {
+  "75": {
     "fieldKey": "naturalId",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1686,10 +1671,10 @@
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
+    "description": "The natural key in @Base",
     "naturalId": "naturalId"
   },
-  "78": {
+  "76": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
@@ -1704,7 +1689,7 @@
     "description": "naturalKeys",
     "naturalId": "naturalKeys"
   },
-  "79": {
+  "77": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1719,7 +1704,7 @@
     "description": "notNull",
     "naturalId": "notNull"
   },
-  "80": {
+  "78": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1737,9 +1722,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -1770,7 +1755,7 @@
     "description": "overwrite",
     "naturalId": "overwrite"
   },
-  "81": {
+  "79": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
     "notNull": false,
@@ -1781,7 +1766,7 @@
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "82": {
+  "80": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1805,7 +1790,7 @@
     "description": "packagePath",
     "naturalId": "packagePath"
   },
-  "83": {
+  "81": {
     "fieldKey": "password",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1819,7 +1804,7 @@
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "84": {
+  "82": {
     "fieldKey": "permissionRole",
     "modelKeys": "PermissionRole",
     "(ArrayList)modelList": {
@@ -1840,7 +1825,7 @@
     "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
     "naturalId": "permissionRole"
   },
-  "85": {
+  "83": {
     "fieldKey": "create",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1854,7 +1839,7 @@
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "86": {
+  "84": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1868,7 +1853,7 @@
     "description": "port",
     "naturalId": "port"
   },
-  "87": {
+  "85": {
     "fieldKey": "postpend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1886,9 +1871,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -1919,7 +1904,7 @@
     "description": "postpend String when executed by ExecutorCallImpl",
     "naturalId": "postpend"
   },
-  "88": {
+  "86": {
     "fieldKey": "prepend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1937,9 +1922,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -1970,7 +1955,7 @@
     "description": "prepend String when executed by ExecutorCallImpl",
     "naturalId": "prepend"
   },
-  "89": {
+  "87": {
     "fieldKey": "properties",
     "modelKeys": "Map",
     "notNull": false,
@@ -1981,7 +1966,7 @@
     "description": "Properties for configurations.",
     "naturalId": "properties"
   },
-  "90": {
+  "88": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1995,7 +1980,7 @@
     "description": "protocol",
     "naturalId": "protocol"
   },
-  "91": {
+  "89": {
     "fieldKey": "read",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2009,7 +1994,7 @@
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "92": {
+  "90": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2024,7 +2009,7 @@
     "description": "replaceBy",
     "naturalId": "replaceBy"
   },
-  "93": {
+  "91": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2039,7 +2024,7 @@
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "94": {
+  "92": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -2047,7 +2032,8 @@
       "1": "CsvConfig",
       "2": "ListInterface",
       "3": "ListParams",
-      "4": "CsvSimpleReadCall"
+      "4": "CsvSimpleReadCall",
+      "5": "CsvSimpleWriteCall"
     },
     "notNull": false,
     "unique": false,
@@ -2057,7 +2043,7 @@
     "description": "rowEnd",
     "naturalId": "rowEnd"
   },
-  "95": {
+  "93": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -2065,7 +2051,8 @@
       "1": "CsvConfig",
       "2": "ListInterface",
       "3": "ListParams",
-      "4": "CsvSimpleReadCall"
+      "4": "CsvSimpleReadCall",
+      "5": "CsvSimpleWriteCall"
     },
     "notNull": false,
     "unique": false,
@@ -2075,7 +2062,7 @@
     "description": "rowHead",
     "naturalId": "rowHead"
   },
-  "96": {
+  "94": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -2083,7 +2070,8 @@
       "1": "CsvConfig",
       "2": "ListInterface",
       "3": "ListParams",
-      "4": "CsvSimpleReadCall"
+      "4": "CsvSimpleReadCall",
+      "5": "CsvSimpleWriteCall"
     },
     "notNull": false,
     "unique": false,
@@ -2093,7 +2081,7 @@
     "description": "rowStart",
     "naturalId": "rowStart"
   },
-  "97": {
+  "95": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
     "(ArrayList)modelList": {
@@ -2127,7 +2115,7 @@
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "98": {
+  "96": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
     "(ArrayList)modelList": {
@@ -2141,7 +2129,7 @@
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "99": {
+  "97": {
     "fieldKey": "serialized",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2155,7 +2143,7 @@
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "100": {
+  "98": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
     "(ArrayList)modelList": {
@@ -2177,18 +2165,22 @@
     "description": "shapeType",
     "naturalId": "shapeType"
   },
-  "101": {
+  "99": {
     "fieldKey": "sortOrder",
     "modelKeys": "SortOrder",
+    "(ArrayList)modelList": {
+      "0": "ConfigKeysCall",
+      "1": "ConfigCall"
+    },
     "notNull": false,
     "unique": false,
-    "(Expose)expose": "NONE",
+    "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "sortOrder",
+    "description": "A field with a SortOrder enum",
     "naturalId": "sortOrder"
   },
-  "102": {
+  "100": {
     "fieldKey": "sourceFileConfigKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2204,7 +2196,7 @@
     "description": "Defines the key for a file configuration @FileConfig where to read a file.",
     "naturalId": "sourceFileConfigKey"
   },
-  "103": {
+  "101": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2222,9 +2214,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -2255,7 +2247,7 @@
     "description": "A sourcePath where EO offers it's input value when the execution starts.",
     "naturalId": "sourcePath"
   },
-  "104": {
+  "102": {
     "fieldKey": "startCondition",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2273,9 +2265,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -2306,7 +2298,7 @@
     "description": "A condition for calls. ",
     "naturalId": "startCondition"
   },
-  "105": {
+  "103": {
     "fieldKey": "startDirective",
     "modelKeys": "String",
     "notNull": false,
@@ -2317,7 +2309,7 @@
     "description": "A content included before template.",
     "naturalId": "startDirective"
   },
-  "106": {
+  "104": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2328,7 +2320,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SubExampleClass.name"
   },
-  "107": {
+  "105": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -2339,7 +2331,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.id"
   },
-  "108": {
+  "106": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
     "(ArrayList)modelList": {
@@ -2350,7 +2342,7 @@
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "109": {
+  "107": {
     "fieldKey": "superKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2374,7 +2366,7 @@
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "110": {
+  "108": {
     "fieldKey": "table",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2386,10 +2378,10 @@
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
+    "description": "The name of the persistence entity.",
     "naturalId": "table"
   },
-  "111": {
+  "109": {
     "fieldKey": "targetConfigKey",
     "modelKeys": "String",
     "notNull": false,
@@ -2400,7 +2392,7 @@
     "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
     "naturalId": "targetConfigKey"
   },
-  "112": {
+  "110": {
     "fieldKey": "targetFile",
     "modelKeys": "String",
     "notNull": false,
@@ -2411,7 +2403,7 @@
     "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
     "naturalId": "targetFile"
   },
-  "113": {
+  "111": {
     "fieldKey": "targetFileConfigKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2427,7 +2419,7 @@
     "description": "A target for persisting template results in TemplateResourceStoreCall. ",
     "naturalId": "targetFileConfigKey"
   },
-  "114": {
+  "112": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2445,9 +2437,9 @@
       "11": "ConfigDirectoryReadCommand",
       "12": "DirectoryReadCall",
       "13": "TemplateResourceCall",
-      "14": "ConfigKeysCall",
-      "15": "ConfigTypesCall",
-      "16": "ConfigsCommand",
+      "14": "ConfigsCommand",
+      "15": "ConfigKeysCall",
+      "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
       "19": "ValueCall",
@@ -2478,7 +2470,7 @@
     "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
     "naturalId": "targetPath"
   },
-  "115": {
+  "113": {
     "fieldKey": "templateFileConfigKey",
     "modelKeys": "String",
     "notNull": false,
@@ -2489,7 +2481,7 @@
     "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
     "naturalId": "templateFileConfigKey"
   },
-  "116": {
+  "114": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2504,7 +2496,7 @@
     "description": "toReplace",
     "naturalId": "toReplace"
   },
-  "117": {
+  "115": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -2519,7 +2511,7 @@
     "description": "unique",
     "naturalId": "unique"
   },
-  "118": {
+  "116": {
     "fieldKey": "ID",
     "modelKeys": "Long",
     "fieldName": "ID",
@@ -2531,7 +2523,7 @@
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "119": {
+  "117": {
     "fieldKey": "user",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2545,7 +2537,7 @@
     "description": "user",
     "naturalId": "user"
   },
-  "120": {
+  "118": {
     "fieldKey": "value",
     "modelKeys": "String",
     "notNull": false,
@@ -2556,7 +2548,7 @@
     "description": "value",
     "naturalId": "value"
   },
-  "121": {
+  "119": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
     "notNull": false,
@@ -2567,7 +2559,7 @@
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "122": {
+  "120": {
     "fieldKey": "write",
     "modelKeys": "String",
     "(ArrayList)modelList": {

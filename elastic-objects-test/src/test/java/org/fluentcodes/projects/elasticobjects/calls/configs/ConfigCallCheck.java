@@ -35,8 +35,8 @@ public class ConfigCallCheck {
     public void call_FieldConfig_module_eoTest__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(FieldConfig.class);
-        call.setFilterModule("elastic-objects-test");
-        call.setFilterSubModule(ModuleScope.MAIN.dir());
+        call.setModule("elastic-objects-test");
+        call.setModuleScope(ModuleScope.MAIN.dir());
         List result = (List) call.execute(eo);
         new XpectEo.Builder<>()
                 .setType(JSONSerializationType.EO)
@@ -58,8 +58,8 @@ public class ConfigCallCheck {
     public void eo_ModelConfig_module_eoTest_submodule_main__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
         final ConfigCall call = new ConfigCall(ModelConfig.class);
-        call.setFilterModule("elastic-objects-test");
-        call.setFilterSubModule(ModuleScope.MAIN.dir());
+        call.setModule("elastic-objects-test");
+        call.setModuleScope(ModuleScope.MAIN.dir());
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

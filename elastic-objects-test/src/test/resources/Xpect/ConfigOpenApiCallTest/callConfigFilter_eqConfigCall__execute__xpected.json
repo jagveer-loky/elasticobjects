@@ -5,12 +5,12 @@
         "type": "object",
         "description": "For getting a map of configurations for a specific configuration type.",
         "properties": {
-          "filterModule": {
-            "description": "Filter for modules in  {@link ConfigAction}",
+          "module": {
+            "description": "Defines a target module where generating occurs. ",
             "type": "string"
           },
-          "filterSubModule": {
-            "description": "Filter for subModules in  {@link ConfigAction}",
+          "moduleScope": {
+            "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
             "type": "string"
           },
           "configFilter": {
@@ -29,6 +29,15 @@
               "(Expose)1": "INFO",
               "(Expose)2": "CREATE",
               "(Expose)3": "NONE"
+            }
+          },
+          "sortOrder": {
+            "description": "A field with a SortOrder enum",
+            "type": "string",
+            "(ArrayList)enum": {
+              "(SortOrder)0": "NONE",
+              "(SortOrder)1": "ASC",
+              "(SortOrder)2": "DESC"
             }
           },
           "condition": {
@@ -110,7 +119,7 @@
             "format": "int62"
           },
           "naturalId": {
-            "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
+            "description": "The natural key in @Base",
             "type": "string"
           }
         }

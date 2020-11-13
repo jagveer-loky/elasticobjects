@@ -31,15 +31,15 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
     /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
    public static final String CONFIG_FILTER = "configFilter";
    public static final String EXPOSE = "expose";
-   public static final String FILTER_MODULE = "filterModule";
-   public static final String FILTER_SUB_MODULE = "filterSubModule";
+   public static final String MODULE = "module";
+   public static final String MODULE_SCOPE = "moduleScope";
 /*=>{}.*/
 
     /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
    private  String configFilter;
    private  Expose expose;
-   private  String filterModule;
-   private  String filterSubModule;
+   private  String module;
+   private  String subModule;
 /*=>{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
 
@@ -112,10 +112,10 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
             }
             ModelConfig configEntry = eo.getConfigsCache().findModel(key);
             try {
-                if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getFilterModule()))) {
+                if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;
                 }
-                if (hasFilterSubModule() && (configEntry.getConfigsCache() == null || !configEntry.getConfigsCache().equals(this.getFilterSubModule()))) {
+                if (hasFilterSubModule() && (configEntry.getConfigsCache() == null || !configEntry.getConfigsCache().equals(this.getSubModule()))) {
                     continue;
                 }
             } catch (Exception e) {
@@ -233,33 +233,33 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
     Filter for modules in  {{@link link} ConfigAction}
     */
 
-    public ConfigOpenApiCall setFilterModule(String filterModule) {
-        this.filterModule = filterModule;
+    public ConfigOpenApiCall setModule(String module) {
+        this.module = module;
         return this;
     }
     
-    public String getFilterModule () {
-       return this.filterModule;
+    public String getModule() {
+       return this.module;
     }
     
     public boolean hasFilterModule () {
-        return filterModule!= null && !filterModule.isEmpty();
+        return module != null && !module.isEmpty();
     }
     /**
     Filter for subModules in  {{@link link} ConfigAction}
     */
 
-    public ConfigOpenApiCall setFilterSubModule(String filterSubModule) {
-        this.filterSubModule = filterSubModule;
+    public ConfigOpenApiCall setSubModule(String subModule) {
+        this.subModule = subModule;
         return this;
     }
     
-    public String getFilterSubModule () {
-       return this.filterSubModule;
+    public String getSubModule() {
+       return this.subModule;
     }
     
     public boolean hasFilterSubModule () {
-        return filterSubModule!= null && !filterSubModule.isEmpty();
+        return subModule != null && !subModule.isEmpty();
     }
 /*=>{}.*/
 

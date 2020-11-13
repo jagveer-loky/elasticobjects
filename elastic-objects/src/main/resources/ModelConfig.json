@@ -176,11 +176,13 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "configType"
+      "configType",
+      "fieldKeys"
     ],
+    "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
-    "description": "Creates a string as list file.",
+    "description": "Creates a flat list from all loaded configurations for a specific configType.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigAsFlatListCall",
     "properties": {
@@ -194,8 +196,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "filterModule",
-      "filterSubModule"
+      "module",
+      "moduleScope"
     ],
     "superKey": "ConfigKeysCall",
     "expose": "WEB",
@@ -206,21 +208,6 @@
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ConfigsCommand": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "Call",
-    "expose": "NONE",
-    "description": "Offer the setByParameter default method with configType, configFilter, expose, targetPath and sortOrder values.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
-    "modelKey": "ConfigsCommand",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -255,18 +242,34 @@
     },
     "author": "Werner Diwischek"
   },
+  "ConfigsCommand": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "superKey": "Call",
+    "expose": "NONE",
+    "description": "Offer the setByParameter default method with  configType, configFilter and sortOrder.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
+    "modelKey": "ConfigsCommand",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
   "ConfigKeysCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
       "configFilter",
       "configType",
-      "expose"
+      "expose",
+      "sortOrder"
     ],
-    "interfaces": "SimpleCommand",
+    "interfaces": "ConfigsCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
-    "description": "For getting a list of keys for a specific configuration type.",
+    "description": "For getting a list of keys for a specific configuration type, config filter and expose type.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigKeysCall",
     "properties": {
@@ -282,8 +285,8 @@
     "fieldKeys": [
       "configFilter",
       "expose",
-      "filterModule",
-      "filterSubModule"
+      "module",
+      "moduleScope"
     ],
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -334,7 +337,7 @@
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
-    "description": "For getting a list of keys for a configuration types.",
+    "description": "For getting a list of keys of all loaded configuration types from the cache like ConfigModel.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "ConfigTypesCall",
     "properties": {
@@ -412,6 +415,7 @@
   "CsvSimpleWriteCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "interfaces": "ListInterface",
     "superKey": "FileWriteCall",
     "expose": "WEB",
     "description": "Defines a primitive csv file write operation. ",
@@ -442,6 +446,9 @@
   "DirectoryListReadCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "fieldKeys": [
+      "absolute"
+    ],
     "superKey": "FileReadCall",
     "expose": "WEB",
     "description": "Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. \nOffers also general access methods like read(String filePath, String fileName) for java access. ",
@@ -483,7 +490,7 @@
     "interfaces": "ConfigDirectoryReadCommand",
     "superKey": "FileReadCall",
     "expose": "WEB",
-    "description": "Defines a file read operation for a directory configuration @DirectoryConfig specified by fileConfigKey. ",
+    "description": "Defines a file read operation for a directory configuration @DirectoryConfig \nspecified by fileConfigKey defined in @FileReadCall. \nThe fileName instance field will be validated against the fileName in the FileConfig as pattern.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "DirectoryReadCall",
     "properties": {
@@ -642,7 +649,7 @@
     "interfaces": "ConfigReadCommand",
     "superKey": "FileCall",
     "expose": "WEB",
-    "description": "Read content of a file. Put it to targetPath in in when targetPath not equals \"_asString\".",
+    "description": "Read content of a file. Store content to targetPath when targetPath not equals \"_asString\".",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileReadCall",
     "properties": {
@@ -656,6 +663,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
+      "compare",
       "sourceFileConfigKey",
       "targetFileConfigKey"
     ],
@@ -1326,7 +1334,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "expose": "NONE",
-    "description": "Enum with different shapetypes like SCALAR or BEAN. ",
+    "description": "Enum for sorting order used for example in @ConfigKeysCall.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "modelKey": "SortOrder",
     "properties": {

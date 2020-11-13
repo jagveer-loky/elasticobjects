@@ -38,7 +38,7 @@
     "module": "eo-xlsx",
     "moduleScope": "main",
     "author": "Werner Diwischek",
-    "description": "Executes a call  for the file and sheet defined in XlsxConfig configuration.",
+    "description": "Read an Excel sheet specified by fileConfigKey referencing to a @XlsxConfig configuration.",
     "naturalId": "XlsxReadCall"
   },
   "(LogLevel)_logLevel": "WARN"

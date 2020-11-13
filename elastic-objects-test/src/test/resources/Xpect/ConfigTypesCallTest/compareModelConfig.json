@@ -30,7 +30,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "author": "Werner Diwischek",
-    "description": "For getting a list of keys for a configuration types.",
+    "description": "For getting a list of keys of all loaded configuration types from the cache like ConfigModel.",
     "naturalId": "ConfigTypesCall"
   },
   "(LogLevel)_logLevel": "WARN"

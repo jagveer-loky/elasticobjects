@@ -3,7 +3,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "In a directory context this will mark absolute context. ",
+    "description": "If true will cache the readed file within the cache object. ",
     "expose": "NONE",
     "fieldKey": "absolute"
   },
@@ -79,7 +79,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "Key for configuration  {@link ConfigConfig}",
+    "description": "Key for configuration @Config",
     "expose": "WEB",
     "fieldKey": "configKey",
     "length": 64
@@ -277,24 +277,6 @@
     "fieldKey": "filter",
     "length": 512
   },
-  "filterModule": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Filter for modules in  {@link ConfigAction}",
-    "expose": "WEB",
-    "fieldKey": "filterModule",
-    "length": 64
-  },
-  "filterSubModule": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Filter for subModules in  {@link ConfigAction}",
-    "expose": "WEB",
-    "fieldKey": "filterSubModule",
-    "length": 64
-  },
   "hibernate": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -466,7 +448,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "The model name for the cache object {@link Config}.",
+    "description": "The model name for the cache object @ModelConfig.",
     "expose": "NONE",
     "fieldKey": "modelConfigKey",
     "length": 80
@@ -475,7 +457,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "The model name for the bean/action object {@link Bean}.",
+    "description": "The model name for the bean/action object @ModelConfig.",
     "expose": "NONE",
     "fieldKey": "modelKey",
     "length": 80
@@ -537,7 +519,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "The naturalKey for all caches {@link ConfigImpl} and {@link BeanImpl}",
+    "description": "The natural key in @Base",
     "expose": "NONE",
     "fieldKey": "naturalId",
     "length": 80,
@@ -745,7 +727,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "SortOrder",
-    "description": "sortOrder",
+    "description": "A field with a SortOrder enum",
     "expose": "NONE",
     "fieldKey": "sortOrder"
   },
@@ -798,7 +780,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "The name of the persistence entity in {@link ModelConfig} or the join table in {@link FieldConfig}.",
+    "description": "The name of the persistence entity.",
     "expose": "NONE",
     "fieldKey": "table",
     "length": 80

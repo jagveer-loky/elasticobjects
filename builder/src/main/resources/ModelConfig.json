@@ -137,7 +137,7 @@
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
-    "description": "Returns  an \"@override\" annotation is override field value is true.",
+    "description": "Returns an override annotation if override field value is true.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "JavaFieldOverrideCall",
     "properties": {
