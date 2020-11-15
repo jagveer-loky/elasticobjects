@@ -1,7 +1,8 @@
 [![Open Source Helpers](https://www.codetriage.com/fluentcodes/elasticobjects/badges/users.svg)](https://www.codetriage.com/fluentcodes/elasticobjects)
 
-> A detailed documentation with interactive examples you find at [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html). The website is an example by itself
-and build by one generic spring boot endpoint and EO template calls.
+> A detailed documentation with interactive examples you find at [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).  
+> This website is an example by itself. Its build by one generic spring boot endpoint and  
+> EO template calls.
 
 <h3>EO - Elastic Objects</h3>
 <p>
@@ -9,9 +10,17 @@ Elastic Objects is a java framework using typed JSON for looseless communication
 </p>
 <p>
 Functionality is provided by special
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
-objects with a generic execution method using source and target path for in- and output.
-There are predefined generic calls for files, JSON, Excel, CSV, databases or templates.
+<nobreak><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
+objects with a generic execution method using a source path as input and
+a target path for output.
+There are predefined generic calls for
+<ul>
+<li>files</li>,
+<li>Excel</li>
+<li>csv</li>
+<li>databases</li>
+<li>templates</li>.
+</ul>
 <p>
 Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 </p>
@@ -50,7 +59,7 @@ Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/eoCall.svg" width="200" style="margin:20px;"/>
 
 <h5>Rich message Concept</h5>
-<p>The corresponding JSON message with embedded type information
+<p>A JSON message with embedded type information
     allows a service architecture by one generic url. This type information
     trigger a typed object instantiation on the server.
 </p>
@@ -92,8 +101,6 @@ To demonstrate the possibilities, here an combined example:
 <a href="http://elasticobjects.org/config/FileConfig/table.tpl">&equiv;table.tpl</a>
  and store it under the path "_asTemplate"</li>
 </ul>
-When you press the button, the /eo-form endpoint of
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a></nobreak> will be called using the typed JSON as input.
 
     {
     "data": {
@@ -108,9 +115,7 @@ When you press the button, the /eo-form endpoint of
     },
     "asTemplate":true
     }
-<p>
-If you remove the "asTemplate" value the result will be the JSON returned from the server.
-</p>
+<p>You can try out the example on <a href="www.elasticobjects.org/Home.html#templateResourceCallHtml">elasticobjects.org</a></p>
 <p>The
 <nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
 <a href="http://elasticobjects.org/config/ModelConfig/TemplateResourceCall">&equiv;TemplateResourceCall</a>
@@ -118,16 +123,15 @@ If you remove the "asTemplate" value the result will be the JSON returned from t
     Templates are just files with certain placeholders .
 </p>
 
-<h5>A Real Template Example</h5>
+<h5>Sending Template</h5>
 
 <p>
-    In <a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a> has another endpoint "eo-template". Here
-    one can send template content directly.
+    A second endpoint is used sending templates via  <a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a>.
 </p>
 
 <p>
-    In the following example all data read example calls are integrated in
-    an editable template storing values in different paths:
+    The following example is executable on
+    <a href="www.elasticobjects.org/Home.html#templateCall">elasticobjects.org</a>
 </p>
 
 <ul>
