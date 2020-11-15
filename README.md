@@ -241,7 +241,11 @@ is equivalent to
 </p>
 
 <h3>Conclusion</h3>
-<p></p>
+<p>
+The project has now version 0.8.1 and it's good enough for a proof of concept. For
+the hyped microservice architectures it would offer an incredible flexibility compared with
+RPC API solutions. 
+</p>
 
 <!--# Elastic Objects
 <p>
