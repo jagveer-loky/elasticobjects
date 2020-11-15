@@ -161,30 +161,36 @@ This example is executable on
 </p>
 
 <h3>Other Examples</h5>
-
+<h4>Service Examples</h4>
 <p>
-    Under <a href="http://elasticobjects.org/examples/ExamplesStart.html">examples</a>
-    you find other working editable cases.
+    Under <a href="http://elasticobjects.org/examples/ExamplesStart.html">http://elasticobjects.org/examples/ExamplesStart.html</a>
+    you find further working editable service examples:
 </p>
+<ul>
+<li><a href="http://elasticobjects.org/examples/TheGreetingCall.html">TheGreetingCall</a></li>
+<li><a href="http://elasticobjects.org/examples/FileCall.html">FileCall</a></li>
+<li><a href="http://elasticobjects.org/examples/JsonCall.html">JsonCall</a></li>
+<li><a href="http://elasticobjects.org/examples/ListCall.html">ListCall</a></li>
+<li><a href="http://elasticobjects.org/examples/DbCall.html">DbCall</a></li>
+<li><a href="http://elasticobjects.org/examples/TemplateCall.html">TemplateCall</a></li>
+<li><a href="http://elasticobjects.org/examples/ConfigsCall.html">ConfigsCall</a></li>
+</ul>
+
+
+
+<h4>Direct Java Usage</h4>
 <p>
     Under the
-<nobreak><a target="github" href="elastic-objects-test/src/test/java/org/fluentcodes/projects/elasticobjects//."> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>.</a></nobreak>elastic-objects-test you find a lot of tests.
-    Here other potential applications scenarios like
-    <ul>
-    <li>convert</li>
-    <li>merge</li>
-    <li>compare</li>
+<a href="http://elasticobjects.org/eo/EO.html">http://elasticobjects.org/eo/EO.html</a>
+    you find examples to use EO in a java code context.
+
+<ul>
+    <li><a href="http://elasticobjects.org/eo/Compare.html">compare</a></li>
+    <li><a href="http://elasticobjects.org/eo/Merge.html">merge</a></li>
+    <li><a href="http://elasticobjects.org/eo/Transform.html">transform</a></li>
 </ul>
-native java objects are tested.
 
 </p>
-
-
-<p>
-    With about 270 KByte its small enough to be integrated it in an application where it's appropriated. Other tool libraries like guava
-    has more than 2MByte.
-</p>
-
 
 <!--# Elastic Objects
 <p>
@@ -244,7 +250,7 @@ generic execute method with EO as input.
 Actually three modules are deployed to [Maven Central](https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects).
 
 #### elastic-objects
-The [core](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects) has actually no dependencies beside Log4j  
+The [core](elastic-objects) has actually no dependencies beside Log4j  
 and is rather small with a jar size of approximately 270 KB. It already includes the template calls.
 ```
     <dependency>
@@ -260,15 +266,15 @@ and is rather small with a jar size of approximately 270 KB. It already includes
 </a></div>
 
 #### elastic-objects-test
-The objectives [elastic-objects-test](https://github.com/fluentcodes/elasticobjects/tree/master/elastic-objects-test) is providing all tests for elastic-object module together with a main package providing test helper and test objects to other modules.
+The objectives [elastic-objects-test](elastic-objects-test) is providing all tests for elastic-object module together with a main package providing test helper and test objects to other modules.
 
 #### examples-springboot
-[examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/examples-springboot)
+[examples-springboot](examples-springboot)
 are the sources for the spring boot web example on
 [http://www.elasticobjects.org](http://www.elasticobjects.org).
 
 #### eo-csv
-[eo-csv](https://github.com/fluentcodes/elasticobjects/tree/master/eo-csv) offers calls and configurations for reading and writing csv files using [OpenCsv](https://mvnrepository.com/artifact/com.opencsv/opencsv).
+[eo-csv](eo-csv) offers calls and configurations for reading and writing csv files using [OpenCsv](https://mvnrepository.com/artifact/com.opencsv/opencsv).
 
 
     <dependency>
@@ -283,11 +289,11 @@ are the sources for the spring boot web example on
 </a></div>
 
 #### eo-db
-[examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/eo-db)
+[eo-db](eo-db)
 is provide the execution of some sql configurations as list or as query.
 
 #### eo-xlsx
-[eo-xlsx](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations for reading and writing xlsx files using [Apache POI](https://mvnrepository.com/artifact/org.apache.poi/poi).
+[eo-xlsx](eo-xlsx) offers calls and configurations for reading and writing xlsx files using [Apache POI](https://mvnrepository.com/artifact/org.apache.poi/poi).
 
 
     <dependency>
@@ -297,7 +303,7 @@ is provide the execution of some sql configurations as list or as query.
     </dependency>
 
 #### builder
-[builder](https://github.com/fluentcodes/elasticobjects/tree/master/eo-xlsx) offers calls and configurations  
+[builder](eo-builder) offers calls and configurations  
 for generating sources like java classes or json configuration by a simple Excel file.
 
 <div align="right" style="font-size:10px"><a href="#page"><font size="2">top</font></a></div>
