@@ -27,6 +27,14 @@ There are some predefined generic  calls e.g. for
 <a href="eo-xlsx/src/main/java/org/fluentcodes/projects/elasticobjects/calls/xlsx/XlsxReadCall.java">Excel</a>,
 <a href="eo-db/src/main/java/org/fluentcodes/projects/elasticobjects/calls/db/DbSqlReadCall.java">database</a> or
 <a href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateCall.java">templates</a>.
+The calls implemented are used in the two applications:
+<ul>
+<li>the documentation on
+<a href="http://elasticobjects.org/">http://elasticobjects.org/"</a> in module
+<a href="example-springboot">example-springboot</a></li>
+<li> the <a href="builder">builder</a> for generation java code and configurations.
+</li>
+</ul>
 </p>
 
 
@@ -38,6 +46,10 @@ There are some predefined generic  calls e.g. for
     Typed objects are embedded in an untyped map structure.
 </p>
 <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/eoTree.svg" width="200" style="margin:20px;"/>
+
+<p>
+Some code examples you will find in <a href="http://elasticobjects.org/eo/EO.html">http://elasticobjects.org/eo/EO.html</a>.
+</p>
 <h3>Model Configurations</h5>
     For the access to the embedded java objects EO
     is provided by preloaded <a href="http://elasticobjects.org/configs/ModelConfig.html">model configurations</a> in JSON.
@@ -227,6 +239,9 @@ is equivalent to
     <li><a href="http://elasticobjects.org/eo/Transform.html">transform</a></li>
 </ul>
 </p>
+
+<h3>Conclusion</h3>
+<p></p>
 
 <!--# Elastic Objects
 <p>
