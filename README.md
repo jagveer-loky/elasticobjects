@@ -61,7 +61,7 @@ Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 
 <h3>Pseudo JSON Example</h5>
 <p>
-    The following pseudo code would call an execute method in the <b>ACall</b> instance,
+    The following pseudo code would call the execute method in the <b>ACall</b> instance,
     which uses the <b>AnObject</b> object provided in <i>input</i> path
     and store the result in <i>target</i> path.
 
@@ -74,7 +74,7 @@ Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 <h3>A CSV Example</h5>
 <p>
 This example is executable on
-<a href="www.elasticobjects.org/Home.html#templateResourceCallHtml">elasticobjects.org</a>.
+<a href="http://www.elasticobjects.org/Home.html#templateResourceCallHtml">elasticobjects.org</a>.
 </p>
 
     {
@@ -116,26 +116,27 @@ This example is executable on
 <h3>Sending Template</h5>
 <p>
     The following example is executable on
-    <a href="www.elasticobjects.org/Home.html#templateCall">elasticobjects.org</a>
+    <a href="http://www.elasticobjects.org/Home.html#templateCall">elasticobjects.org</a>
 </p>
 
     <h1>An Example Template</h1>
     
     <h2>CSV</h2>
-    ==>;{CsvSimpleReadCall->AnObject.csv, data/csv}.
-    ==&gt;{TemplateResourceCall->table.tpl, data/csv}.
+    ==>{CsvSimpleReadCall->AnObject.csv, data/csv}.
+    ==>{TemplateResourceCall->table.tpl, data/csv}.
     
     <h2>Excel</h2>
-    ==&gt;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
-    ==&gt;{TemplateResourceCall->table.tpl, data/xlsx}.
+    ==>{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+    ==>{TemplateResourceCall->table.tpl, data/xlsx}.
     
     <h2>DB</h2>
-    ==&gt;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
-    ==&gt;{TemplateResourceCall->table.tpl, data/db}.
+    ==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
+    ==>{TemplateResourceCall->table.tpl, data/db}.
 
-
+<h4>Elements</h4>
 <p>
-    A second endpoint is used sending templates via  <a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a>.
+   On elasticobjects.org a second endpoint is defined for receiving templates via
+   <a target="github" href="blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a>.
 </p>
 <ul>
     <li>
