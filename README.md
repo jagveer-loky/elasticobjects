@@ -6,7 +6,7 @@
 
 <h1>EO - Elastic Objects</h1>
 <p>
-Elastic Objects is a java framework using typed JSON for looseless communication of
+Elastic Objects is a java framework using typed JSON for looseless communication with
 composed objects by one generic endpoint.
 </p>
 <p>
@@ -90,6 +90,7 @@ This example is executable on
     "asTemplate":true
     }
 
+
 <h4>Elements</h4>
 <ul>
     <li>
@@ -107,6 +108,10 @@ This example is executable on
  is part of the core module.
     Templates are just files with certain placeholders .
 </p>
+
+
+
+
 
 <h3>Sending Template</h5>
 <p>
@@ -127,6 +132,32 @@ This example is executable on
     <h2>DB</h2>
     ==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
     ==>{TemplateResourceCall->table.tpl, data/db}.
+
+
+<h4>Short Form</h4>
+<p>In the template a short form of one call JSON is used:
+
+     ==>{CsvSimpleReadCall->AnObject.csv, data/csv}.
+
+is equivalent to
+
+    ===>{"(CsvSimpleReadCall)":{
+         "fileConfigKey":"AnObject.csv",
+         "targetPath":"data/csv"     
+    }}.
+
+and
+
+    ==>{TemplateResourceCall->table.tpl, data/csv}.
+
+is equivalent to
+
+    ===>{"(TemplateResourceCall)":{
+         "fileConfigKey"="table.tpl",
+         "sourcePath": "data/csv"    
+    }}.
+ </p>
+
 
 <h4>Elements</h4>
 <p>
@@ -178,6 +209,7 @@ This example is executable on
 
 
 
+
 <h4>Direct Java Usage</h4>
 <p>
     Under the
@@ -189,7 +221,6 @@ This example is executable on
     <li><a href="http://elasticobjects.org/eo/Merge.html">merge</a></li>
     <li><a href="http://elasticobjects.org/eo/Transform.html">transform</a></li>
 </ul>
-
 </p>
 
 <!--# Elastic Objects
