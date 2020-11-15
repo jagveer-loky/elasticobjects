@@ -11,7 +11,7 @@ composed objects by one generic endpoint.
 </p>
 <p>
 Functionality is provided by special
-<nobreak><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
+<nobreak><a href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
 objects with a generic execution method using a <b>source path</b> as <b>input</b> and
 a <b>target path</b> for <b>output</b>.
 There are predefined generic calls for
@@ -41,8 +41,7 @@ Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 
 <h3>Call Types</h5>
 <p>A special
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/Call">&equiv;Call</a>
+<nobreak><a target="github" href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>Call</a>
  bean with a
     generic execution method offers <b>functionality</b>. Its has the following important fields: </p>
 
@@ -94,18 +93,14 @@ This example is executable on
 <h4>Elements</h4>
 <ul>
     <li>
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/CsvSimpleReadCall">&equiv;CsvSimpleReadCall</a>
+<nobreak><a target="github" href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>CsvSimpleReadCall</a>
  reads
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/main/resources/input/assets/bt/AnObject.csv"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/FileConfig/AnObject.csv">&equiv;AnObject.csv</a>
+<nobreak><a target="github" href="elastic-objects-test/src/main/resources/input/assets/bt/AnObject.csv"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>AnObject.csv</a>
  and store it under the path "/data/csv"</li>
     <li>
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/TemplateResourceCall">&equiv;TemplateResourceCall</a>
+<nobreak><a target="github" href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>TemplateResourceCall</a>
  use /data/csv as input
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/templates/table.tpl"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/FileConfig/table.tpl">&equiv;table.tpl</a>
+<nobreak><a target="github" href="example-springboot/src/main/resources/templates/table.tpl"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>table.tpl</a>
  and store it under the path "_asTemplate"</li>
 </ul>
 <a href="http://elasticobjects.org/config/ModelConfig/TemplateResourceCall">&equiv;TemplateResourceCall</a>
@@ -140,69 +135,29 @@ This example is executable on
 </p>
 <ul>
     <li>
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/CsvSimpleReadCall">&equiv;CsvSimpleReadCall</a>
+<nobreak><a target="github" href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>CsvSimpleReadCall</a>
  with
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/main/resources/input/assets/bt/AnObject.csv"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/FileConfig/AnObject.csv">&equiv;AnObject.csv</a>
+<nobreak><a target="github" href="elastic-objects-test/src/main/resources/input/assets/bt/AnObject.csv"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>AnObject.csv</a>
 </li>
     <li>
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-xlsx/src/main/java/org/fluentcodes/projects/elasticobjects/calls/xlsx/XlsxReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/XlsxReadCall">&equiv;XlsxReadCall</a>
+<nobreak><a target="github" href="eo-xlsx/src/main/java/org/fluentcodes/projects/elasticobjects/calls/xlsx/XlsxReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>XlsxReadCall</a>
  with
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/input/data/lists/AnObject.xlsx"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/FileConfig/AnObject.xlsx:test">&equiv;AnObject.xlsx:test</a>
+<nobreak><a target="github" href="example-springboot/input/data/lists/AnObject.xlsx"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>AnObject.xlsx:test</a>
 </li>
     <li>
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-db/src/main/java/org/fluentcodes/projects/elasticobjects/calls/db/DbQueryCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/DbQueryCall">&equiv;DbQueryCall</a>
+<nobreak><a target="github" href="eo-db/src/main/java/org/fluentcodes/projects/elasticobjects/calls/db/DbQueryCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>DbQueryCall</a>
  with
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/eo-db/src/main/resources//DbSqlConfig.json"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>DbSqlConfig.json</a></nobreak></li>
+<nobreak><a target="github" href="eo-db/src/main/resources//DbSqlConfig.json"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>DbSqlConfig.json</a></nobreak></li>
 </ul>
 <p>
-    After each reading the
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/main/java/org/fluentcodes/projects/elasticobjects/domain/test/AnObject.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/AnObject">&equiv;AnObject</a>
+    After each read call the
+<nobreak><a target="github" href="elastic-objects-test/src/main/java/org/fluentcodes/projects/elasticobjects/domain/test/AnObject.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>AnObject</a>
  example data a
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/TemplateResourceCall">&equiv;TemplateResourceCall</a>
+<nobreak><a target="github" href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>TemplateResourceCall</a>
  will render this
     data with
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/resources/templates/table.tpl"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/FileConfig/table.tpl">&equiv;table.tpl</a>
+<nobreak><a target="github" href="example-springboot/src/main/resources/templates/table.tpl"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>table.tpl</a>
  again.
-</p>
-
-<h3>Demo Applications </h5>
-
-<p>Beneath the <a href="http://elasticobjects.org/configs/ModelConfig.html">model configurations page</a> you find the available
-    calls.</p>
-
-<p>Some like
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/calls/values/ConfigLinkCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/ConfigLinkCall">&equiv;ConfigLinkCall</a>
- are special for this web site,
-    which is a demo by itself.</p>
-
-<p>Another demo is
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/builder/src/main/java/org/fluentcodes/projects/elasticobjects//Builder.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>Builder.java</a></nobreak>. It generates
-    json configurations and java classes from an
-    Excelsheet
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/builder/src/main/resources//eo.xlsx"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>eo.xlsx</a></nobreak> with templates and calls.
-</p>
-
-<p>The calls are build for the requirements of these two demo applications. But calls are
-    easy to extend as
-described in <a href="http://elasticobjects.org/examples/TheGreetingCall.html">TheGreetingCall.html</a>
-</p>
-
-<p>
-    The "configured calls" like
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files/FileReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
-<a href="http://elasticobjects.org/config/ModelConfig/FileReadCall">&equiv;FileReadCall</a>
- use their own configuration.
-    The values used here you can see in <a href="http://elasticobjects.org/configs/FileConfig.html">file</a> and
-    <a href="http://elasticobjects.org/configs/DbSqlConfig.html">sql</a> configurations.
 </p>
 
 <h3>Other Examples</h5>
@@ -213,7 +168,7 @@ described in <a href="http://elasticobjects.org/examples/TheGreetingCall.html">T
 </p>
 <p>
     Under the
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects-test/src/test/java/org/fluentcodes/projects/elasticobjects//."> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>.</a></nobreak>elastic-objects-test you find a lot of tests.
+<nobreak><a target="github" href="elastic-objects-test/src/test/java/org/fluentcodes/projects/elasticobjects//."> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>.</a></nobreak>elastic-objects-test you find a lot of tests.
     Here other potential applications scenarios like
     <ul>
     <li>convert</li>
@@ -224,30 +179,7 @@ native java objects are tested.
 
 </p>
 
-<h3>Conclusion</h5>
-<p>
-    The concept behind EO with typed JSON boosts the possibilities to create applications
-to another level, even if its just a tiny extension. I miss something like this when I has to
-work in micro services projects.
-</p>
 
-<p>
-    The implementation for EO started some year ago creating source code with Excelsheets as data base and
-    templates.
-
-</p>
-<p> I restarted work on EO this july, when a project was finished. It made
-    good progress. With version 0.7.0
-    it's not finished, but core parts are working proper and stable.
-</p>
-
-<p>
-    In November another project starts and I will have lesser time.
-</p>
-<p>
-    So I will focus on the code generation part with new templates in other programming languages and
-    a separate demo application.
-</p>
 <p>
     With about 270 KByte its small enough to be integrated it in an application where it's appropriated. Other tool libraries like guava
     has more than 2MByte.
@@ -333,7 +265,7 @@ The objectives [elastic-objects-test](https://github.com/fluentcodes/elasticobje
 #### examples-springboot
 [examples-springboot](https://github.com/fluentcodes/elasticobjects/tree/master/examples-springboot)
 are the sources for the spring boot web example on
-[elasticobjects.org](elasticobjects.org).
+[http://www.elasticobjects.org](http://www.elasticobjects.org).
 
 #### eo-csv
 [eo-csv](https://github.com/fluentcodes/elasticobjects/tree/master/eo-csv) offers calls and configurations for reading and writing csv files using [OpenCsv](https://mvnrepository.com/artifact/com.opencsv/opencsv).
