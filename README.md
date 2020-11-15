@@ -4,14 +4,17 @@
 and build by one generic spring boot endpoint and EO template calls.
 
 <h3>EO - Elastic Objects</h3>
-
 <p>
-Service oriented architecture today is usually some typed RPC calls bound to urls by
-    an application server framework. <b>Type</b> and <b>functionality</b> mapping is stuck
-    in a procedural concept
-    from the IT stone age and fat web application frameworks.
+Elastic Objects is a java framework using typed JSON for looseless communication of composed objects by one generic endpoint.
 </p>
-
+<p>
+Functionality is provided by special
+<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
+objects with a generic execution method using source and target path for in- and output.
+There are predefined generic calls for files, JSON, Excel, CSV, databases or templates.
+<p>
+Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
+</p>
 
 <h5>Elastic Objects</h5>
 <p>
@@ -71,7 +74,7 @@ Service oriented architecture today is usually some typed RPC calls bound to url
     }
 </p>
 
-<h5>A Real JSON Example</h5>
+<h5>A CSV Example</h5>
 To demonstrate the possibilities, here an combined example:
 <ul>
     <li>
@@ -322,7 +325,7 @@ and is rather small with a jar size of approximately 270 KB. It already includes
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>elastic-objects</artifactId>
-        <version>0.6.0</version>
+        <version>0.8.0</version>
     </dependency>
 ```
 
@@ -346,7 +349,7 @@ are the sources for the spring boot web example on
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-csv</artifactId>
-        <version>0.6.0</version>
+        <version>0.8.0</version>
     </dependency>
     
     <div align="right" style="font-size:10px">
@@ -365,7 +368,7 @@ is provide the execution of some sql configurations as list or as query.
     <dependency>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
         <artifactId>eo-xlsx</artifactId>
-        <version>0.6.0</version>
+        <version>0.8.0</version>
     </dependency>
 
 #### builder
