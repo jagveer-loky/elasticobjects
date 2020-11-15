@@ -4,41 +4,42 @@
 > This website is an example by itself. Its build by one generic spring boot endpoint and  
 > EO template calls.
 
-<h3>EO - Elastic Objects</h3>
+<h1>EO - Elastic Objects</h1>
 <p>
-Elastic Objects is a java framework using typed JSON for looseless communication of composed objects by one generic endpoint.
+Elastic Objects is a java framework using typed JSON for looseless communication of
+composed objects by one generic endpoint.
 </p>
 <p>
 Functionality is provided by special
 <nobreak><a href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
-objects with a generic execution method using a source path as input and
-a target path for output.
+objects with a generic execution method using a <b>source path</b> as <b>input</b> and
+a <b>target path</b> for <b>output</b>.
 There are predefined generic calls for
 <ul>
-<li>files</li>,
-<li>Excel</li>
-<li>csv</li>
-<li>databases</li>
-<li>templates</li>.
+<li>files,</li>
+<li>Excel,</li>
+<li>csv,</li>
+<li>databases and </li>
+<li>templates.</li>
 </ul>
 <p>
 Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 </p>
 
-<h5>Elastic Objects</h5>
+<h3>Elastic Objects</h5>
 <p>
     Elastic Objects is a generic object wrapper skin
     with <b>typed</b> path methods to an java object skeleton.
-    Typed objects are embedded in a untyped map structure.
+    Typed objects are embedded in an untyped map structure.
 </p>
 <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/eoTree.svg" width="200" style="margin:20px;"/>
-<h5>Model Configurations</h5>
+<h3>Model Configurations</h5>
     For the access to the embedded java objects EO
     is provided by preloaded <a href="http://elasticobjects.org/configs/ModelConfig.html">model configurations</a> in JSON.
 </p>
 <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/eoModel.svg" width="200" style="margin:20px;"/>
 
-<h5>Call Types</h5>
+<h3>Call Types</h5>
 <p>A special
 <nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
 <a href="http://elasticobjects.org/config/ModelConfig/Call">&equiv;Call</a>
@@ -58,20 +59,7 @@ Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 </ul>
 <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/eoCall.svg" width="200" style="margin:20px;"/>
 
-<h5>Rich message Concept</h5>
-<p>A JSON message with embedded type information
-    allows a service architecture by one generic url. This type information
-    trigger a typed object instantiation on the server.
-</p>
-
-<p>
-    As a client one is free to combine data and calls in a JSON tree structure
-    and the message send over one generic server endpoint.
-</p>
-
-
-<h5>Pseudo JSON Example</h5>
-
+<h3>Pseudo JSON Example</h5>
 <p>
     The following pseudo code would call an execute method in the <b>ACall</b> instance,
     which uses the <b>AnObject</b> object provided in <i>input</i> path
@@ -83,8 +71,27 @@ Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
     }
 </p>
 
-<h5>A CSV Example</h5>
-To demonstrate the possibilities, here an combined example:
+<h3>A CSV Example</h5>
+<p>
+This example is executable on
+<a href="www.elasticobjects.org/Home.html#templateResourceCallHtml">elasticobjects.org</a>.
+</p>
+
+    {
+    "data": {
+        "(CsvSimpleReadCall)csv":{
+             "configKey"="AnObject.csv"
+        },
+        "(TemplateResourceCall)abc":{
+            "configKey":"table.tpl",
+            "sourcePath":"/data/csv",
+            "targetPath":"/_asTemplate"
+        }
+    },
+    "asTemplate":true
+    }
+
+<h4>Elements</h4>
 <ul>
     <li>
 <nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
@@ -101,39 +108,35 @@ To demonstrate the possibilities, here an combined example:
 <a href="http://elasticobjects.org/config/FileConfig/table.tpl">&equiv;table.tpl</a>
  and store it under the path "_asTemplate"</li>
 </ul>
-
-    {
-    "data": {
-        "(CsvSimpleReadCall)csv":{
-             "configKey"="AnObject.csv"
-        },
-        "(TemplateResourceCall)abc":{
-            "configKey":"table.tpl",
-            "sourcePath":"/data/csv",
-            "targetPath":"/_asTemplate"
-        }
-    },
-    "asTemplate":true
-    }
-<p>You can try out the example on <a href="www.elasticobjects.org/Home.html#templateResourceCallHtml">elasticobjects.org</a></p>
-<p>The
-<nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateResourceCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
 <a href="http://elasticobjects.org/config/ModelConfig/TemplateResourceCall">&equiv;TemplateResourceCall</a>
  is part of the core module.
     Templates are just files with certain placeholders .
 </p>
 
-<h5>Sending Template</h5>
-
-<p>
-    A second endpoint is used sending templates via  <a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a>.
-</p>
-
+<h3>Sending Template</h5>
 <p>
     The following example is executable on
     <a href="www.elasticobjects.org/Home.html#templateCall">elasticobjects.org</a>
 </p>
 
+    <h1>An Example Template</h1>
+    
+    <h2>CSV</h2>
+    ==>;{CsvSimpleReadCall->AnObject.csv, data/csv}.
+    ==&gt;{TemplateResourceCall->table.tpl, data/csv}.
+    
+    <h2>Excel</h2>
+    ==&gt;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+    ==&gt;{TemplateResourceCall->table.tpl, data/xlsx}.
+    
+    <h2>DB</h2>
+    ==&gt;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
+    ==&gt;{TemplateResourceCall->table.tpl, data/db}.
+
+
+<p>
+    A second endpoint is used sending templates via  <a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/example-springboot/src/main/java/org/fluentcodes/projects/elasticobjects/web/WebEo.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>WebEo.java</a>.
+</p>
 <ul>
     <li>
 <nobreak><a target="github" href="https://github.com/fluentcodes/elasticobjects/blob/master/elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/></a></nobreak>
@@ -169,22 +172,7 @@ To demonstrate the possibilities, here an combined example:
  again.
 </p>
 
-    <h1>An Example Template</h1>
-
-    <h2>CSV</h2>
-    $[(CsvSimpleReadCall)data/csv configKey="AnObject.csv" /]
-    $[(TemplateResourceCall)data/csv configKey="table.tpl" /]
-
-    <h2>Excel</h2>
-    $[(XlsxReadCall)data/xlsx configKey="AnObject.xlsx:test" /]
-    $[(TemplateResourceCall)data/xlsx configKey="table.tpl" /]
-
-    <h2>DB</h2>
-    $[(DbQueryCall)data/db configKey="h2:mem:basic:AnObject" /]
-    $[(TemplateResourceCall)data/db configKey="table.tpl" /]
-
-
-<h5>Demo Applications </h5>
+<h3>Demo Applications </h5>
 
 <p>Beneath the <a href="http://elasticobjects.org/configs/ModelConfig.html">model configurations page</a> you find the available
     calls.</p>
@@ -216,7 +204,7 @@ described in <a href="http://elasticobjects.org/examples/TheGreetingCall.html">T
     <a href="http://elasticobjects.org/configs/DbSqlConfig.html">sql</a> configurations.
 </p>
 
-<h5>Other Examples</h5>
+<h3>Other Examples</h5>
 
 <p>
     Under <a href="http://elasticobjects.org/examples/ExamplesStart.html">examples</a>
@@ -235,7 +223,7 @@ native java objects are tested.
 
 </p>
 
-<h5>Conclusion</h5>
+<h3>Conclusion</h5>
 <p>
     The concept behind EO with typed JSON boosts the possibilities to create applications
 to another level, even if its just a tiny extension. I miss something like this when I has to
