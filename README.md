@@ -14,17 +14,22 @@ Functionality is provided by special
 <nobreak><a href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
 objects with a generic execution method using a <b>source path</b> as <b>input</b> and
 a <b>target path</b> for <b>output</b>.
-There are predefined generic calls for
-<ul>
-<li>files,</li>
-<li>Excel,</li>
-<li>csv,</li>
-<li>databases and </li>
-<li>templates.</li>
-</ul>
-<p>
-Compared with todays RPC its a "Remote Object Call" (ROC) architecture.
 </p>
+<p>
+Compared with todays RPC concepts its more a "Remote Object Call" (ROC) architecture. One can easily
+create new calls for almost anything. A client can create a typed JSON message addressing call objects
+in any combination.
+</p>
+<p>
+There are some predefined generic  calls e.g. for
+<a href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/files/FileReadCall.java">files</a>,
+<a href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/lists/CsvSimpleReadCall.java">csv</a>,
+<a href="eo-xlsx/src/main/java/org/fluentcodes/projects/elasticobjects/calls/xlsx/XlsxReadCall.java">Excel</a>,
+<a href="eo-db/src/main/java/org/fluentcodes/projects/elasticobjects/calls/db/DbSqlReadCall.java">database</a> or
+<a href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/templates/TemplateCall.java">templates</a>.
+</p>
+
+
 
 <h3>Elastic Objects</h5>
 <p>
