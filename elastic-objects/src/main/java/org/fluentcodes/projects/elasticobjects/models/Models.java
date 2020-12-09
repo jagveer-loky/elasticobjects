@@ -19,10 +19,10 @@ import java.util.Map;
  * @since 20.05.16.
  */
 public class Models {
-    private final ModelConfigInterface[] models;
+    private final ModelConfig[] models;
     private final boolean hasChildModel;
 
-    private Models(final ModelConfigInterface... models) {
+    private Models(final ModelConfig... models) {
         this.models = models;
         hasChildModel = models.length > 1;
     }
@@ -34,7 +34,7 @@ public class Models {
 
     public Models(final EOConfigsCache cache, final String... modelKeysIn)  {
         String[] modelKeys = strip(modelKeysIn);
-        this.models = new ModelConfigInterface[modelKeys.length];
+        this.models = new ModelConfig[modelKeys.length];
         for (int i=0; i < modelKeysIn.length; i++) {
             models[i] = cache.findModel(modelKeysIn[i]);
         }
@@ -187,7 +187,7 @@ public class Models {
         return getModel().getModelClass();
     }
 
-    public ModelConfigInterface getModel() {
+    public ModelConfig getModel() {
         return models[0];
     }
     public boolean hasChildModel() {
@@ -198,7 +198,7 @@ public class Models {
         return isMap() && !hasChildModel() && (getModelClass() == Map.class || getModelClass() == LinkedHashMap.class);
     }
 
-    public ModelConfigInterface getChildModel() {
+    public ModelConfig getChildModel() {
         if (!hasChildModel()) {
             return null;
         }
@@ -209,7 +209,7 @@ public class Models {
         return this.models.length;
     }
 
-    public ModelConfigInterface get(int i) {
+    public ModelConfig get(int i) {
         if (i>size()-1) {
             throw new EoException("Index out of bounds " + i + ">" + size());
         }

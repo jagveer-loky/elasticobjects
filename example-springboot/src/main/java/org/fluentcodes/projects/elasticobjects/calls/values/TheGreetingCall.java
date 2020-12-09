@@ -16,11 +16,11 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class TheGreetingCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
    public static final String GREETING = "greeting";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
    private  String greeting;
 /*=>{}.*/
     public TheGreetingCall() {
@@ -49,7 +49,7 @@ public class TheGreetingCall extends CallImpl implements SimpleCommand {
         return (value);
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
     /**
     The field value for TheGreetingCall example. 
     */

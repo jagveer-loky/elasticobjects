@@ -1,0 +1,46 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "(ArrayList)fieldKeys": {
+      "0": "configType",
+      "1": "fileEnding",
+      "2": "module",
+      "3": "moduleScope",
+      "4": "projectDirectory",
+      "5": "sourceFileConfigKey",
+      "6": "targetFileConfigKey",
+      "7": "condition",
+      "8": "duration",
+      "9": "keepCall",
+      "10": "logLevel",
+      "11": "models",
+      "12": "overwrite",
+      "13": "postpend",
+      "14": "prepend",
+      "15": "sourcePath",
+      "16": "startCondition",
+      "17": "targetPath",
+      "18": "author",
+      "19": "creationDate",
+      "20": "description",
+      "21": "id",
+      "22": "naturalId"
+    },
+    "localFieldKeys": {
+      "0": "configType"
+    },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "modelKey": "GenerateEoConfigJsonCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "superKey": "GenerateAbstract",
+    "(Expose)expose": "NONE",
+    "module": "builder",
+    "moduleScope": "main",
+    "author": "Werner Diwischek",
+    "description": "Call for generation json configurations from the sheet.",
+    "naturalId": "GenerateEoConfigJsonCall"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

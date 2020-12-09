@@ -7,23 +7,24 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Defines a file read operation for a directory configuration {@link DirectoryConfig} 
- * specified by fileConfigKey. 
+ * specified by fileConfigKey defined in {@link FileReadCall}. 
  * The fileName instance field will be validated against the fileName in the FileConfig as pattern.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 16:31:23 CET 2020
+ * @modificationDate Tue Dec 08 09:41:09 CET 2020
  */
-public class DirectoryReadCall extends FileReadCall  {
+public class DirectoryReadCall extends FileReadCall {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String FILE_NAME = "fileName";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String fileName;
 /*=>{}.*/
 
@@ -72,7 +73,7 @@ public class DirectoryReadCall extends FileReadCall  {
         return content;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}. 
     */

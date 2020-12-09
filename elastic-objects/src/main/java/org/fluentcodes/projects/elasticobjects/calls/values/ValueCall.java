@@ -6,21 +6,22 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * For setting values to EO.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 14:51:17 CET 2020
+ * @modificationDate Tue Dec 08 12:04:23 CET 2020
  */
 public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String CONTENT = "content";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String content;
 /*=>{}.*/
 
@@ -41,20 +42,20 @@ public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
         return super.createReturnString(eo, content.toString());
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     A content for different calls. In a template context the content of the markup. 
     */
-    @Override
+
     public ValueCall setContent(String content) {
         this.content = content;
         return this;
     }
-    @Override
+    
     public String getContent () {
        return this.content;
     }
-    @Override
+    
     public boolean hasContent () {
         return content!= null && !content.isEmpty();
     }

@@ -12,22 +12,23 @@ import java.util.Enumeration;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. 
  * Offers also general access methods like read(String filePath, String fileName) for java access. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 16:44:58 CET 2020
+ * @modificationDate Tue Dec 08 09:39:58 CET 2020
  */
 public class DirectoryListReadCall extends FileReadCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String ABSOLUTE = "absolute";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  Boolean absolute;
 /*=>{}.*/
     public DirectoryListReadCall() {
@@ -98,9 +99,9 @@ public class DirectoryListReadCall extends FileReadCall  {
         return absolute;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
-    In a directory context this will mark absolute context. 
+    If true will cache the readed file within the cache object. 
     */
 
     public DirectoryListReadCall setAbsolute(Boolean absolute) {

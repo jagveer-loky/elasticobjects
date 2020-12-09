@@ -46,75 +46,39 @@ public class Path {
             this.entries = new PathElement[0];
             return;
         }
-        boolean hasDelimiter = false;
-        if (pathEntries[0].startsWith(DELIMITER)) {
-            absolute = true;
-            pathEntries[0] = pathEntries[0].replaceAll("^" + DELIMITER + "+", "");
-        }
-        if (pathEntries.length == 1 && !pathEntries[0].contains(DELIMITER)) {
-            if (pathEntries[0] == null || pathEntries[0].isEmpty() || PathElement.SAME.equals(pathEntries[0]) || pathEntries[0].matches("\\s*")) {
-                this.entries = new PathElement[0];
-                return;
-            }
-            this.entries = new PathElement[] {new PathElement(pathEntries[0])};
-            return;
-        }
-
-        if (pathEntries.length == 1) {
-            pathEntries = pathEntries[0].split(DELIMITER);
-        }
-
-        StringBuilder simplePath = new StringBuilder();
-        for (String pathEntry : pathEntries) {
-            if (pathEntry == null || pathEntry.isEmpty() || PathElement.SAME.equals(pathEntry) || pathEntry.matches("\\s*")) {
-                continue;
-            }
-            if (pathEntry.contains(DELIMITER)||pathEntry.contains(PathElement.BACK)) {
-                hasDelimiter = true;
-                break;
-            }
-            simplePath.append(pathEntry);
-            simplePath.append(DELIMITER);
-        }
-    if (!hasDelimiter){
-        pathEntries = simplePath.toString().replaceAll(DELIMITER + "$","").split(DELIMITER);
-        PathElement[] tempEntries = new PathElement[pathEntries.length];
-            int size = 0;
-            for (int i=0; i< pathEntries.length; i++) {
-                String entry = pathEntries[i];
-                if (entry == null) {
-                    continue;
-                }
-                if (PathElement.SAME.equals(entry)) {
-                    continue;
-                }
-                tempEntries[size] = new PathElement(pathEntries[i]);
-                size++;
-            }
-            this.entries = new PathElement[size];
-            if (size==0) {
-                return;
-            }
-            for (int i=0; i<pathEntries.length;i++) {
-                entries[i] = tempEntries[i];
-            }
-            return;
-        }
-        List<PathElement> entryList = new ArrayList<>();
-        for (String pathElement: pathEntries) {
-            if (pathElement == null || pathElement.isEmpty()) {
-                continue;
-            }
-            this.addPaths(pathElement.split(Path.DELIMITER), entryList);
-        }
-        this.entries = new PathElement[entryList.size()];
-        for (int i= 0; i< entryList.size(); i++) {
-            this.entries[i] = entryList.get(i);
-        }
+        List<String> tempPath = new ArrayList<>();
+        addPathElements(tempPath, pathEntries);
+        int size = tempPath.size();
+        this.entries = tempPath.stream()
+                .map(PathElement::new)
+                .toArray(PathElement[]::new);
     }
 
     public static final String ofs(String... pathEntries) {
         return new Path(pathEntries).directory(true);
+    }
+
+    private void addPathElements(final List<String>tempPath, final String[] addArray) {
+        for (String pathEntry : addArray) {
+            if (pathEntry == null || pathEntry.isEmpty() || PathElement.SAME.equals(pathEntry) || pathEntry.matches("\\s*")) {
+                continue;
+            }
+            if (pathEntry.contains(DELIMITER)) {
+                if (pathEntry.startsWith(Path.DELIMITER)) {
+                    tempPath.clear();
+                    absolute = true;
+                }
+                addPathElements(tempPath, pathEntry.split(Path.DELIMITER));
+                continue;
+            }
+            if (pathEntry.equals(PathElement.BACK)) {
+                if (tempPath.size()>0 && !PathElement.BACK.equals(tempPath.get(tempPath.size()-1))) {
+                        tempPath.remove(tempPath.size() - 1);
+                        continue;
+                }
+            }
+            tempPath.add(pathEntry);
+        }
     }
 
     protected Path setAbsolute(Boolean absolute) {
@@ -165,6 +129,7 @@ public class Path {
                     target = target.getEo(element);
                 }
                 else {
+                    //Object object = target.get(element.getKey());
                     throw new EoException("Could not move to path '" + this.toString() + "' because key '" + element.toString() + "' does not exist on '" + target.getPathAsString() + "'." );
                 }
             }
@@ -327,10 +292,15 @@ public class Path {
     }
 
     public Path getParentPath() {
-        if (size() < 1) {
-            Path parent =  new Path(Path.DELIMITER);
+        if (this.entries.length == 0) {
+            return new Path(Path.DELIMITER);
         }
-        return new Path(this.absolute, Arrays.copyOfRange(this.entries, 0, entries.length-1));
+        try {
+            return new Path(this.absolute, Arrays.copyOfRange(this.entries, 0, entries.length - 1));
+        }
+        catch (IllegalArgumentException e) {
+            throw new EoException(e);
+        }
     }
 
     public String getParentKey() {

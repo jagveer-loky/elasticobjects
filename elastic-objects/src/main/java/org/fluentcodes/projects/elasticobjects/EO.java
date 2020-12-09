@@ -2,7 +2,9 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.List;
@@ -60,7 +62,7 @@ public interface EO {
     void setCheckObjectReplication(boolean checkObjectReplication);
 
     Models getModels();
-    ModelConfigInterface getModel();
+    ModelConfig getModel();
     Class getModelClass();
     boolean isChanged();
     boolean isContainer();

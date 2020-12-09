@@ -1,8 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
 
-public interface HostProperties extends Config {
+public interface HostProperties extends Config, ConfigProperties {
 
     String PORT = "port";
     String PROTOCOL = "protocol";

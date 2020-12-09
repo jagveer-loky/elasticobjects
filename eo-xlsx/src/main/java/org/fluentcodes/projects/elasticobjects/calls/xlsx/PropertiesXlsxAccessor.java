@@ -2,10 +2,11 @@ package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
 
 import java.util.List;
 
-public interface PropertiesXlsxAccessor extends Config {
+public interface PropertiesXlsxAccessor extends Config, ConfigProperties {
     String SHEET_NAME = "sheetName";
 
     List readRaw(ListParams params);

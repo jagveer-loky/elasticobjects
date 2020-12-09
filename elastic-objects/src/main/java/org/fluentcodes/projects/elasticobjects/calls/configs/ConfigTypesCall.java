@@ -10,20 +10,21 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
- * For getting a list of keys for a configuration types.
+ * For getting a list of keys of all loaded configuration types from the cache like ConfigModel.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Wed Nov 11 05:47:58 CET 2020
+ * @modificationDate Tue Dec 08 09:38:48 CET 2020
  */
 public class ConfigTypesCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
     private Class<? extends Config> configClass;
@@ -47,6 +48,6 @@ public class ConfigTypesCall extends CallImpl implements SimpleCommand {
             throw new EoException(e);
         }
     }
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 }

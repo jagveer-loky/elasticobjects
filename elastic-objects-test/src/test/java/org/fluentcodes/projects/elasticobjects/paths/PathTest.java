@@ -24,6 +24,11 @@ public class PathTest {
     }
 
     @Test
+    public void constructorString_back() {
+        Assert.assertEquals("../../back", new Path("../../back").directory());
+    }
+
+    @Test
     public void givenBackAtTheMiddle_thenRemains() {
         String other = Path.ofs(PathElement.SAME, PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2);
         Assertions.assertThat(new Path(other).directory()).isEqualTo(Path.ofs(PathElement.BACK, S_LEVEL0, S_LEVEL1, S_LEVEL2));

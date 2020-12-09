@@ -64,6 +64,7 @@ public class FileReadCallJsonTest {
     public void givenEoRoleGuestAndFileSource_whenExecute_thenValuesAreMapped()  {
         final FileReadCall call = new FileReadCall(LIST_SIMPLE_JSON);
         EO eo = ProviderRootTestScope.createEo();
+        call.setTargetPath(".");
         eo.setRoles(R_GUEST);
         eo.addCall(call);
         eo.execute();

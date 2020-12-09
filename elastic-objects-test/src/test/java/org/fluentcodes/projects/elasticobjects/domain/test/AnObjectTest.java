@@ -32,8 +32,8 @@ public class AnObjectTest {
     public void scopeTest__findFieldConfig_myObject__found()  {
         FieldConfig field = ProviderRootTestScope.EO_CONFIGS.findField(AnObject.MY_OBJECT);
         Assert.assertEquals(AnObject.MY_OBJECT, field.getFieldKey());
-        Assert.assertEquals(false, field.getUnique());
-        Assert.assertEquals(false, field.getNotNull());
+        Assertions.assertThat(field.hasUnique()).isFalse();
+        Assertions.assertThat(field.hasNotNull()).isFalse();
         Assertions.assertThat(field.getDescription()).isNotNull();
         Assert.assertEquals(Object.class, field.getModelClass());
     }

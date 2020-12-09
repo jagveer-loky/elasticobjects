@@ -340,7 +340,7 @@ public class ScalarConverter {
         }
     }
 
-    public static Date toDate(Object source) {
+    public static Date asDate(Object source) throws ParseException {
         if (source instanceof Timestamp) {
             Timestamp time = (Timestamp) source;
             Date date = new Date(time.getTime());
@@ -356,30 +356,31 @@ public class ScalarConverter {
             }
             for (String pattern : dateFormatter.keySet()) {
                 if (sourceS.matches(pattern)) {
-                    try {
-                        return dateFormatter.get(pattern).parse(sourceS);
-                    } catch (ParseException e) {
-                        LOG.error("Date ParseException for  " + source + " and pattern " + pattern);
-                        return null;
-                    }
+                    return dateFormatter.get(pattern).parse(sourceS);
                 }
             }
         }
         if (source instanceof Long) {
-            //LOG.info("Now use 0 " + type + " " + valueType);
             return new Date((Long) source);
         }
-        if (source instanceof Double) {
-            //LOG.info("Now use 0 " + type + " " + valueType);
-            Double doubleValue = (Double) source;
-            return new Date(doubleValue.longValue());
+        if (source instanceof Number) {
+            return new Date(((Number) source).longValue());
         }
-        return null;
+        throw new EoException("Could not transform '" + source + "' to date: '" + source.getClass().getSimpleName() + "'" );
     }
 
-    public static Boolean toBoolean(Object source) {
+    public static Date toDate(Object source) {
+        try {
+            return asDate(source);
+        }
+        catch (Exception e) {
+            throw new EoException(e);
+        }
+    }
+
+    public static Boolean asBoolean(Object source) {
         if (source == null) {
-            return false;
+            return null;
         }
         if (source instanceof Boolean) {
             return new Boolean((Boolean) source);
@@ -389,20 +390,28 @@ public class ScalarConverter {
                 return true;
             } else if (((String) source).matches("^false|0|$")) {
                 return false;
-            } else {
-                return false;
             }
+            throw new EoException("Problem getting boolean value from String '" + source + "'");
         }
         if (source instanceof Integer) {
             if (((Integer) source) == 1) {
                 return true;
             } else if (((Integer) source) == 0) {
                 return false;
-            } else {
-                return false;
             }
+            throw new EoException("Problem getting boolean value from Integer '" + source + "'");
         }
-        return false;
+        throw new EoException("Problem getting boolean value from class  '" + source.getClass().getSimpleName() + "' with value  '" + source + "'");
+    }
+
+    public static Boolean toBoolean(Object source) {
+        try {
+            return asBoolean(source);
+        }
+        catch (EoException e) {
+            LOG.warn(e.getMessage());
+            return false;
+        }
     }
 
     public static Float toFloat(Object value) {
@@ -465,6 +474,9 @@ public class ScalarConverter {
         if (value == null) {
             return null;
         }
+        if (value instanceof Integer) {
+            return (Integer) value;
+        }
         if (value instanceof String) {
             String check = (String) value;
             if (check.matches("^[\\d]+$")) {
@@ -481,9 +493,7 @@ public class ScalarConverter {
         if (!(value instanceof Number)) {
             throw new EoException("Could not transform to integer since value is neither String nor parsable String nor Number with value='" + value.toString() + "': " + value.getClass());
         }
-        if (value instanceof Integer) {
-            return (Integer) value;
-        }
+
         if (value instanceof Long) {
             return ((Long) value).intValue();
         }

@@ -13,24 +13,26 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.models.Expose;
+
 /**
  * For getting a list of keys for a specific configuration type, config filter and expose type.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Wed Nov 11 05:34:37 CET 2020
+ * @modificationDate Tue Dec 08 09:35:56 CET 2020
  */
 public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String CONFIG_FILTER = "configFilter";
    public static final String CONFIG_TYPE = "configType";
    public static final String EXPOSE = "expose";
    public static final String SORT_ORDER = "sortOrder";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String configFilter;
    private  String configType;
    private  Expose expose;
@@ -98,7 +100,7 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
         }
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     Key for filter configuration
     */
@@ -148,7 +150,7 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
         return expose!= null;
     }
     /**
-    sortOrder
+    A field with a SortOrder enum
     */
 
     public ConfigKeysCall setSortOrder(SortOrder sortOrder) {

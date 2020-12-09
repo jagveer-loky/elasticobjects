@@ -11,17 +11,10 @@ import java.util.Set;
  * Created by Werner on 09.10.2016.
  */
 public interface ModelConfigInterface extends Config {
-    String getModelKey();
-    List<String> getFieldKeys();
-
-    Set<String> getFieldNames();
-    boolean isToSerialize();
-    String getSuperKey();
-    String getPackagePath();
     Map<String, FieldConfig> getFieldCacheMap() ;
-    Map<String, ModelConfigInterface> getImportClasses() ;
+    Map<String, ModelConfig> getImportClasses() ;
     Class getModelClass() ;
-    ModelConfigInterface getSuperModel() ;
+    ModelConfig getSuperModel() ;
 
     /**
      * Gets the Field with fieldName.
@@ -32,15 +25,13 @@ public interface ModelConfigInterface extends Config {
      */
     FieldConfig getFieldConfig(final String fieldName) ;
     boolean hasFieldConfig(final String fieldName);
-    ModelConfigInterface getFieldModel(final String fieldName) ;
+    ModelConfig getFieldModel(final String fieldName) ;
     Class getFieldClass(final String fieldName) ;
     Set<String> keys(Object object) ;
     Map getKeyValues(Object object, PathPattern pathPattern) ;
     int size(Object object) ;
     boolean isEmpty(Object object) ;
     void set(String fieldName, Object object, Object value);
-    boolean hasSetter(final String fieldName);
-    boolean hasGetter(final String fieldName);
 
     /**
      * Gets the value for fieldName of the object.
@@ -80,28 +71,6 @@ public interface ModelConfigInterface extends Config {
      * @ on scalar model without field structure.
      */
     void remove(final String fieldName, final Object object) ;
-
     Object create();
 
-    boolean equals(ModelConfigInterface modelCache);
-
-    boolean hasModel();
-
-    boolean isScalar();
-    boolean isNumber();
-    boolean isMap();
-    boolean isMapType();
-    boolean isSet();
-    boolean isList();
-    boolean isCreate();
-    boolean isListType();
-    boolean isCall();
-    boolean isObject();
-    boolean isNull();
-    default boolean isEnum() {
-        return this.getModelClass().isEnum();
-    }
-    default boolean isContainer() {
-        return isMap() || isObject() || isList();
-    }
 }

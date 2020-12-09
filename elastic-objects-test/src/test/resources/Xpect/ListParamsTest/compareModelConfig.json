@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN",
     "(ArrayList)fieldKeys": {
       "0": "colKeys",
       "1": "filter",
@@ -12,7 +9,7 @@
       "4": "rowHead",
       "5": "rowStart"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "colKeys",
       "1": "filter",
       "2": "length",
@@ -20,6 +17,9 @@
       "4": "rowHead",
       "5": "rowStart"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "modelKey": "ListParams",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
     "(Expose)expose": "NONE",

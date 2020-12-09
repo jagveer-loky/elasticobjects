@@ -7,8 +7,6 @@
       "0": "DirectoryListReadCall",
       "1": "DirectoryMapReadCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -18,8 +16,6 @@
   "1": {
     "fieldKey": "attributeList",
     "modelKeys": "ArrayList,String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -58,8 +54,8 @@
       "25": "ConfigTypesCall",
       "26": "JsonWriteCall",
       "27": "DirectoryWriteCall",
-      "28": "HostConfig",
-      "29": "ModelConfigDbProperties",
+      "28": "StringLowerFirstCharCall",
+      "29": "HostConfig",
       "30": "ModelConfigObject",
       "31": "ModelConfigDbObject",
       "32": "FieldConfig",
@@ -73,20 +69,17 @@
       "40": "ModelConfigList",
       "41": "ConfigCall",
       "42": "ConfigAsFlatListCall",
-      "43": "FileReadWriteCall",
-      "44": "TemplateResourceStoreKeepCall",
-      "45": "StringReplaceWithHtmlCall",
-      "46": "ModelConfigNone",
-      "47": "DirectoryMapReadCall",
-      "48": "CsvSimpleReadCall",
-      "49": "StringReplaceCall",
-      "50": "CsvSimpleWriteCall",
-      "51": "TemplateResourceStoreCall",
-      "52": "ModelConfigScalar",
-      "53": "SinusValueCall"
+      "43": "StringReplaceWithHtmlCall",
+      "44": "ModelConfigNone",
+      "45": "DirectoryMapReadCall",
+      "46": "CsvSimpleReadCall",
+      "47": "StringReplaceCall",
+      "48": "CsvSimpleWriteCall",
+      "49": "FileReadWriteCall",
+      "50": "TemplateResourceStoreCall",
+      "51": "ModelConfigScalar",
+      "52": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -101,8 +94,6 @@
       "1": "CsvConfig",
       "2": "DirectoryConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -123,8 +114,6 @@
       "7": "ModelConfigNone",
       "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -142,8 +131,6 @@
       "4": "CsvSimpleReadCall",
       "5": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -157,13 +144,10 @@
       "0": "FileWriteCall",
       "1": "JsonWriteCall",
       "2": "DirectoryWriteCall",
-      "3": "FileReadWriteCall",
-      "4": "TemplateResourceStoreKeepCall",
-      "5": "CsvSimpleWriteCall",
-      "6": "TemplateResourceStoreCall"
+      "3": "CsvSimpleWriteCall",
+      "4": "FileReadWriteCall",
+      "5": "TemplateResourceStoreCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -193,28 +177,26 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -229,8 +211,6 @@
       "1": "ConfigOpenApiCall",
       "2": "ConfigCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -240,8 +220,6 @@
   "9": {
     "fieldKey": "configKey",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -257,8 +235,6 @@
       "2": "DirectoryConfig",
       "3": "HostConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -273,8 +249,6 @@
       "1": "ConfigCall",
       "2": "ConfigAsFlatListCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -293,8 +267,6 @@
       "5": "TemplateCall",
       "6": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -315,8 +287,6 @@
       "7": "ModelConfigNone",
       "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -355,8 +325,8 @@
       "25": "ConfigTypesCall",
       "26": "JsonWriteCall",
       "27": "DirectoryWriteCall",
-      "28": "HostConfig",
-      "29": "ModelConfigDbProperties",
+      "28": "StringLowerFirstCharCall",
+      "29": "HostConfig",
       "30": "ModelConfigObject",
       "31": "ModelConfigDbObject",
       "32": "FieldConfig",
@@ -370,20 +340,17 @@
       "40": "ModelConfigList",
       "41": "ConfigCall",
       "42": "ConfigAsFlatListCall",
-      "43": "FileReadWriteCall",
-      "44": "TemplateResourceStoreKeepCall",
-      "45": "StringReplaceWithHtmlCall",
-      "46": "ModelConfigNone",
-      "47": "DirectoryMapReadCall",
-      "48": "CsvSimpleReadCall",
-      "49": "StringReplaceCall",
-      "50": "CsvSimpleWriteCall",
-      "51": "TemplateResourceStoreCall",
-      "52": "ModelConfigScalar",
-      "53": "SinusValueCall"
+      "43": "StringReplaceWithHtmlCall",
+      "44": "ModelConfigNone",
+      "45": "DirectoryMapReadCall",
+      "46": "CsvSimpleReadCall",
+      "47": "StringReplaceCall",
+      "48": "CsvSimpleWriteCall",
+      "49": "FileReadWriteCall",
+      "50": "TemplateResourceStoreCall",
+      "51": "ModelConfigScalar",
+      "52": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -404,8 +371,6 @@
       "7": "ModelConfigNone",
       "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -418,8 +383,6 @@
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -458,8 +421,8 @@
       "25": "ConfigTypesCall",
       "26": "JsonWriteCall",
       "27": "DirectoryWriteCall",
-      "28": "HostConfig",
-      "29": "ModelConfigDbProperties",
+      "28": "StringLowerFirstCharCall",
+      "29": "HostConfig",
       "30": "ModelConfigObject",
       "31": "ModelConfigDbObject",
       "32": "FieldConfig",
@@ -473,20 +436,17 @@
       "40": "ModelConfigList",
       "41": "ConfigCall",
       "42": "ConfigAsFlatListCall",
-      "43": "FileReadWriteCall",
-      "44": "TemplateResourceStoreKeepCall",
-      "45": "StringReplaceWithHtmlCall",
-      "46": "ModelConfigNone",
-      "47": "DirectoryMapReadCall",
-      "48": "CsvSimpleReadCall",
-      "49": "StringReplaceCall",
-      "50": "CsvSimpleWriteCall",
-      "51": "TemplateResourceStoreCall",
-      "52": "ModelConfigScalar",
-      "53": "SinusValueCall"
+      "43": "StringReplaceWithHtmlCall",
+      "44": "ModelConfigNone",
+      "45": "DirectoryMapReadCall",
+      "46": "CsvSimpleReadCall",
+      "47": "StringReplaceCall",
+      "48": "CsvSimpleWriteCall",
+      "49": "FileReadWriteCall",
+      "50": "TemplateResourceStoreCall",
+      "51": "ModelConfigScalar",
+      "52": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -516,28 +476,26 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -547,8 +505,6 @@
   "19": {
     "fieldKey": "endDirective",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -558,8 +514,6 @@
   "20": {
     "fieldKey": "entries",
     "modelKeys": "ArrayList",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -572,8 +526,6 @@
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -599,18 +551,15 @@
       "12": "ModelConfigMap",
       "13": "ConfigKeysCall",
       "14": "HostConfig",
-      "15": "ModelConfigDbProperties",
-      "16": "ModelConfigObject",
-      "17": "ModelConfigDbObject",
-      "18": "FieldConfig",
-      "19": "ConfigOpenApiCall",
-      "20": "ModelConfigList",
-      "21": "ConfigCall",
-      "22": "ModelConfigNone",
-      "23": "ModelConfigScalar"
+      "15": "ModelConfigObject",
+      "16": "ModelConfigDbObject",
+      "17": "FieldConfig",
+      "18": "ConfigOpenApiCall",
+      "19": "ModelConfigList",
+      "20": "ConfigCall",
+      "21": "ModelConfigNone",
+      "22": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -624,8 +573,6 @@
       "0": "CsvProperties",
       "1": "CsvConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -638,8 +585,6 @@
     "(ArrayList)modelList": {
       "0": "FieldExampleClass"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "FieldExampleClass.value"
   },
@@ -649,8 +594,6 @@
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -661,21 +604,16 @@
     "fieldKey": "fieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
-      "0": "ModelConfigInterface",
-      "1": "ModelConfigProperties",
-      "2": "ModelConfig",
-      "3": "ModelConfigSet",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigDbProperties",
-      "6": "ModelConfigObject",
-      "7": "ModelConfigDbObject",
-      "8": "ModelConfigList",
-      "9": "ConfigAsFlatListCall",
-      "10": "ModelConfigNone",
-      "11": "ModelConfigScalar"
+      "0": "ModelConfig",
+      "1": "ModelConfigSet",
+      "2": "ModelConfigMap",
+      "3": "ModelConfigObject",
+      "4": "ModelConfigDbObject",
+      "5": "ModelConfigList",
+      "6": "ConfigAsFlatListCall",
+      "7": "ModelConfigNone",
+      "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -689,8 +627,6 @@
       "0": "FieldProperties",
       "1": "FieldConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -714,8 +650,6 @@
       "10": "CsvSimpleReadCall",
       "11": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -728,8 +662,6 @@
     "(ArrayList)modelList": {
       "0": "DirectoryMapReadCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -747,8 +679,6 @@
       "4": "DirectoryWriteCall",
       "5": "TemplateDirResourceCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -763,8 +693,6 @@
       "1": "CsvConfig",
       "2": "DirectoryConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -782,8 +710,6 @@
       "4": "CsvSimpleReadCall",
       "5": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -791,28 +717,42 @@
     "naturalId": "filter"
   },
   "33": {
+    "fieldKey": "final",
+    "modelKeys": "Boolean",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "description": "If true will cache the readed file within the cache object. ",
+    "naturalId": "final"
+  },
+  "34": {
+    "fieldKey": "generated",
+    "modelKeys": "Boolean",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "description": "If true will cache the readed file within the cache object. ",
+    "naturalId": "generated"
+  },
+  "35": {
     "fieldKey": "hibernate",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "hibernate",
     "naturalId": "hibernate"
   },
-  "34": {
+  "36": {
     "fieldKey": "hibernateAnnotations",
     "modelKeys": "Boolean",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "sets a Flag for using hibernate annotations when bean is created. ",
     "naturalId": "hibernateAnnotations"
   },
-  "35": {
+  "37": {
     "fieldKey": "hostConfigKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -833,29 +773,25 @@
       "14": "CsvSimpleReadCall",
       "15": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A key for host objects.",
     "naturalId": "hostConfigKey"
   },
-  "36": {
+  "38": {
     "fieldKey": "hostName",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A name for host objects.",
     "naturalId": "hostName"
   },
-  "37": {
+  "39": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
@@ -888,8 +824,8 @@
       "26": "ConfigTypesCall",
       "27": "JsonWriteCall",
       "28": "DirectoryWriteCall",
-      "29": "HostConfig",
-      "30": "ModelConfigDbProperties",
+      "29": "StringLowerFirstCharCall",
+      "30": "HostConfig",
       "31": "ModelConfigObject",
       "32": "ModelConfigDbObject",
       "33": "FieldConfig",
@@ -904,17 +840,16 @@
       "42": "ModelConfigList",
       "43": "ConfigCall",
       "44": "ConfigAsFlatListCall",
-      "45": "FileReadWriteCall",
-      "46": "TemplateResourceStoreKeepCall",
-      "47": "StringReplaceWithHtmlCall",
-      "48": "ModelConfigNone",
-      "49": "DirectoryMapReadCall",
-      "50": "CsvSimpleReadCall",
-      "51": "StringReplaceCall",
-      "52": "CsvSimpleWriteCall",
-      "53": "TemplateResourceStoreCall",
-      "54": "ModelConfigScalar",
-      "55": "SinusValueCall"
+      "45": "StringReplaceWithHtmlCall",
+      "46": "ModelConfigNone",
+      "47": "DirectoryMapReadCall",
+      "48": "CsvSimpleReadCall",
+      "49": "StringReplaceCall",
+      "50": "CsvSimpleWriteCall",
+      "51": "FileReadWriteCall",
+      "52": "TemplateResourceStoreCall",
+      "53": "ModelConfigScalar",
+      "54": "SinusValueCall"
     },
     "notNull": true,
     "unique": true,
@@ -924,47 +859,48 @@
     "description": "The id with a autonumbering",
     "naturalId": "id"
   },
-  "38": {
+  "40": {
     "fieldKey": "idKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "ModelConfigDbProperties",
-      "1": "ModelConfigDbObject"
+      "0": "ModelConfigProperties",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigDbObject",
+      "6": "ModelConfigList",
+      "7": "ModelConfigNone",
+      "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The id key defined in modelsList",
     "naturalId": "idKey"
   },
-  "39": {
+  "41": {
     "fieldKey": "indent",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "JsonWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The number of indent for serialization level.",
     "naturalId": "indent"
   },
-  "40": {
+  "42": {
     "fieldKey": "inputKey",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A key for a input view.",
     "naturalId": "inputKey"
   },
-  "41": {
+  "43": {
     "fieldKey": "interfaces",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -973,55 +909,46 @@
       "2": "ModelConfig",
       "3": "ModelConfigSet",
       "4": "ModelConfigMap",
-      "5": "ModelConfigDbProperties",
-      "6": "ModelConfigObject",
-      "7": "ModelConfigDbObject",
-      "8": "ModelConfigList",
-      "9": "ModelConfigNone",
-      "10": "ModelConfigScalar"
+      "5": "ModelConfigObject",
+      "6": "ModelConfigDbObject",
+      "7": "ModelConfigList",
+      "8": "ModelConfigNone",
+      "9": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A comma separeted list of interface keys. ",
     "naturalId": "interfaces"
   },
-  "42": {
+  "44": {
     "fieldKey": "javaProperties",
     "modelKeys": "Map",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A map of properties used in configs and calls.",
     "naturalId": "javaProperties"
   },
-  "43": {
+  "45": {
     "fieldKey": "join",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A reference key to a id field for joining.",
     "naturalId": "join"
   },
-  "44": {
+  "46": {
     "fieldKey": "joinInverse",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A self reference key to a id field on a glue n-m table.",
     "naturalId": "joinInverse"
   },
-  "45": {
+  "47": {
     "fieldKey": "keepCall",
     "modelKeys": "KeepCalls",
     "(ArrayList)modelList": {
@@ -1044,46 +971,42 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Will use an existing  result file beforehand as template. ",
     "naturalId": "keepCall"
   },
-  "46": {
+  "48": {
     "fieldKey": "key",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A generic key.",
     "naturalId": "key"
   },
-  "47": {
+  "49": {
     "fieldKey": "length",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -1094,58 +1017,47 @@
       "4": "CsvSimpleReadCall",
       "5": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Length of a field.",
     "naturalId": "length"
   },
-  "48": {
+  "50": {
     "fieldKey": "listParams",
     "modelKeys": "ListParams",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.",
     "naturalId": "listParams"
   },
-  "49": {
+  "51": {
     "fieldKey": "localFieldKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
-      "0": "ModelConfigInterface",
-      "1": "ModelConfigProperties",
-      "2": "ModelConfig",
-      "3": "ModelConfigSet",
-      "4": "ModelConfigMap",
-      "5": "ModelConfigDbProperties",
-      "6": "ModelConfigObject",
-      "7": "ModelConfigDbObject",
-      "8": "ModelConfigList",
-      "9": "ModelConfigNone",
-      "10": "ModelConfigScalar"
+      "0": "ModelConfig",
+      "1": "ModelConfigSet",
+      "2": "ModelConfigMap",
+      "3": "ModelConfigObject",
+      "4": "ModelConfigDbObject",
+      "5": "ModelConfigList",
+      "6": "ModelConfigNone",
+      "7": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A list of field as proivided by the model configuration. ",
     "naturalId": "localFieldKeys"
   },
-  "50": {
+  "52": {
     "fieldKey": "log",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "naturalId": "log"
   },
-  "51": {
+  "53": {
     "fieldKey": "logLevel",
     "modelKeys": "LogLevel",
     "(ArrayList)modelList": {
@@ -1168,57 +1080,51 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "logLevel",
     "naturalId": "logLevel"
   },
-  "52": {
+  "54": {
     "fieldKey": "mapKey",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The field used as a key for joined maps. ",
     "naturalId": "mapKey"
   },
-  "53": {
+  "55": {
     "fieldKey": "modelConfigKey",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The model name for the cache object @ModelConfig.",
     "naturalId": "modelConfigKey"
   },
-  "54": {
+  "56": {
     "fieldKey": "modelKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1227,50 +1133,43 @@
       "2": "ModelConfig",
       "3": "ModelConfigSet",
       "4": "ModelConfigMap",
-      "5": "ModelConfigDbProperties",
-      "6": "ModelConfigObject",
-      "7": "ModelConfigDbObject",
-      "8": "ModelConfigList",
-      "9": "ModelConfigNone",
-      "10": "ModelConfigScalar"
+      "5": "ModelConfigObject",
+      "6": "ModelConfigDbObject",
+      "7": "ModelConfigList",
+      "8": "ModelConfigNone",
+      "9": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The model name for the bean/action object @ModelConfig.",
     "naturalId": "modelKey"
   },
-  "55": {
+  "57": {
     "fieldKey": "modelKeys",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A string representation for a list of modelsConfig.",
     "naturalId": "modelKeys"
   },
-  "56": {
+  "58": {
     "fieldKey": "modelList",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
       "0": "FieldConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A list of naturalIds of models for FieldConfig.",
     "naturalId": "modelList"
   },
-  "57": {
+  "59": {
     "fieldKey": "models",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1293,35 +1192,33 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A string representation for a list of model keys.",
     "naturalId": "models"
   },
-  "58": {
+  "60": {
     "fieldKey": "module",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1339,25 +1236,22 @@
       "11": "ModelConfigSet",
       "12": "ModelConfigMap",
       "13": "HostConfig",
-      "14": "ModelConfigDbProperties",
-      "15": "ModelConfigObject",
-      "16": "ModelConfigDbObject",
-      "17": "FieldConfig",
-      "18": "ConfigOpenApiCall",
-      "19": "ModelConfigList",
-      "20": "ConfigCall",
-      "21": "ModelConfigNone",
-      "22": "ModelConfigScalar"
+      "14": "ModelConfigObject",
+      "15": "ModelConfigDbObject",
+      "16": "FieldConfig",
+      "17": "ConfigOpenApiCall",
+      "18": "ModelConfigList",
+      "19": "ConfigCall",
+      "20": "ModelConfigNone",
+      "21": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines a target module where generating occurs. ",
     "naturalId": "module"
   },
-  "59": {
+  "61": {
     "fieldKey": "moduleScope",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1375,237 +1269,204 @@
       "11": "ModelConfigSet",
       "12": "ModelConfigMap",
       "13": "HostConfig",
-      "14": "ModelConfigDbProperties",
-      "15": "ModelConfigObject",
-      "16": "ModelConfigDbObject",
-      "17": "FieldConfig",
-      "18": "ConfigOpenApiCall",
-      "19": "ModelConfigList",
-      "20": "ConfigCall",
-      "21": "ModelConfigNone",
-      "22": "ModelConfigScalar"
+      "14": "ModelConfigObject",
+      "15": "ModelConfigDbObject",
+      "16": "FieldConfig",
+      "17": "ConfigOpenApiCall",
+      "18": "ModelConfigList",
+      "19": "ConfigCall",
+      "20": "ModelConfigNone",
+      "21": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
     "naturalId": "moduleScope"
   },
-  "60": {
+  "62": {
     "fieldKey": "myAnObject",
     "modelKeys": "AnObject",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A AnObject field.",
     "naturalId": "myAnObject"
   },
-  "61": {
+  "63": {
     "fieldKey": "myASubObject",
     "modelKeys": "ASubObject",
     "(ArrayList)modelList": {
       "0": "ASubObject",
       "1": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myASubObject",
     "naturalId": "myASubObject"
   },
-  "62": {
+  "64": {
     "fieldKey": "myASubObjectList",
     "modelKeys": "ArrayList,ASubObject",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A generic parametrized example List with @ASubObject",
     "naturalId": "myASubObjectList"
   },
-  "63": {
+  "65": {
     "fieldKey": "myASubObjectMap",
     "modelKeys": "HashMap,ASubObject",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A generic parametrized example Map with @ASubObject",
     "naturalId": "myASubObjectMap"
   },
-  "64": {
+  "66": {
     "fieldKey": "myBoolean",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myBoolean",
     "naturalId": "myBoolean"
   },
-  "65": {
+  "67": {
     "fieldKey": "myDate",
     "modelKeys": "Date",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myDate",
     "naturalId": "myDate"
   },
-  "66": {
+  "68": {
     "fieldKey": "myDouble",
     "modelKeys": "Double",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myDouble",
     "naturalId": "myDouble"
   },
-  "67": {
+  "69": {
     "fieldKey": "myFloat",
     "modelKeys": "Float",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myFloat",
     "naturalId": "myFloat"
   },
-  "68": {
+  "70": {
     "fieldKey": "myInt",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myInt",
     "naturalId": "myInt"
   },
-  "69": {
+  "71": {
     "fieldKey": "myList",
     "modelKeys": "ArrayList",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myList",
     "naturalId": "myList"
   },
-  "70": {
+  "72": {
     "fieldKey": "myLong",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myLong",
     "naturalId": "myLong"
   },
-  "71": {
+  "73": {
     "fieldKey": "myMap",
     "modelKeys": "HashMap",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "myMap",
     "naturalId": "myMap"
   },
-  "72": {
+  "74": {
     "fieldKey": "myObject",
     "modelKeys": "Object",
     "(ArrayList)modelList": {
       "0": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "A test object thing. ",
     "naturalId": "myObject"
   },
-  "73": {
+  "75": {
     "fieldKey": "myString",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "ASubObject",
       "1": "AnObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "description": "Just a small test string used in test models. ",
     "naturalId": "myString"
   },
-  "74": {
+  "76": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "ASubObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The name field of a class. ",
     "naturalId": "name"
   },
-  "75": {
+  "77": {
     "fieldKey": "naturalId",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1638,8 +1499,8 @@
       "26": "ConfigTypesCall",
       "27": "JsonWriteCall",
       "28": "DirectoryWriteCall",
-      "29": "HostConfig",
-      "30": "ModelConfigDbProperties",
+      "29": "StringLowerFirstCharCall",
+      "30": "HostConfig",
       "31": "ModelConfigObject",
       "32": "ModelConfigDbObject",
       "33": "FieldConfig",
@@ -1654,17 +1515,16 @@
       "42": "ModelConfigList",
       "43": "ConfigCall",
       "44": "ConfigAsFlatListCall",
-      "45": "FileReadWriteCall",
-      "46": "TemplateResourceStoreKeepCall",
-      "47": "StringReplaceWithHtmlCall",
-      "48": "ModelConfigNone",
-      "49": "DirectoryMapReadCall",
-      "50": "CsvSimpleReadCall",
-      "51": "StringReplaceCall",
-      "52": "CsvSimpleWriteCall",
-      "53": "TemplateResourceStoreCall",
-      "54": "ModelConfigScalar",
-      "55": "SinusValueCall"
+      "45": "StringReplaceWithHtmlCall",
+      "46": "ModelConfigNone",
+      "47": "DirectoryMapReadCall",
+      "48": "CsvSimpleReadCall",
+      "49": "StringReplaceCall",
+      "50": "CsvSimpleWriteCall",
+      "51": "FileReadWriteCall",
+      "52": "TemplateResourceStoreCall",
+      "53": "ModelConfigScalar",
+      "54": "SinusValueCall"
     },
     "notNull": true,
     "unique": true,
@@ -1674,37 +1534,49 @@
     "description": "The natural key in @Base",
     "naturalId": "naturalId"
   },
-  "76": {
+  "78": {
     "fieldKey": "naturalKeys",
     "modelKeys": "ArrayList,String",
     "(ArrayList)modelList": {
-      "0": "ModelConfigDbProperties",
-      "1": "ModelConfigDbObject"
+      "0": "ModelConfigProperties",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigDbObject",
+      "6": "ModelConfigList",
+      "7": "ModelConfigNone",
+      "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "naturalKeys",
     "naturalId": "naturalKeys"
   },
-  "77": {
+  "79": {
     "fieldKey": "notNull",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
       "0": "FieldProperties",
       "1": "FieldConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "notNull",
     "naturalId": "notNull"
   },
-  "78": {
+  "80": {
+    "fieldKey": "override",
+    "modelKeys": "Boolean",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "description": "If true will cache the readed file within the cache object. ",
+    "naturalId": "override"
+  },
+  "81": {
     "fieldKey": "overwrite",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
@@ -1727,46 +1599,42 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "overwrite",
     "naturalId": "overwrite"
   },
-  "79": {
+  "82": {
     "fieldKey": "packageGroup",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines to which group a model belong e.g. asset/cache/action",
     "naturalId": "packageGroup"
   },
-  "80": {
+  "83": {
     "fieldKey": "packagePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1775,36 +1643,31 @@
       "2": "ModelConfig",
       "3": "ModelConfigSet",
       "4": "ModelConfigMap",
-      "5": "ModelConfigDbProperties",
-      "6": "ModelConfigObject",
-      "7": "ModelConfigDbObject",
-      "8": "ModelConfigList",
-      "9": "ModelConfigNone",
-      "10": "ModelConfigScalar"
+      "5": "ModelConfigObject",
+      "6": "ModelConfigDbObject",
+      "7": "ModelConfigList",
+      "8": "ModelConfigNone",
+      "9": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "packagePath",
     "naturalId": "packagePath"
   },
-  "81": {
+  "84": {
     "fieldKey": "password",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The password instance var.",
     "naturalId": "password"
   },
-  "82": {
+  "85": {
     "fieldKey": "permissionRole",
     "modelKeys": "PermissionRole",
     "(ArrayList)modelList": {
@@ -1817,43 +1680,37 @@
       "6": "HostConfig",
       "7": "ModelConfigDbObject"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
     "naturalId": "permissionRole"
   },
-  "83": {
+  "86": {
     "fieldKey": "create",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "String representation of RolePermission create permissions",
     "naturalId": "Permissions.create"
   },
-  "84": {
+  "87": {
     "fieldKey": "port",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "port",
     "naturalId": "port"
   },
-  "85": {
+  "88": {
     "fieldKey": "postpend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1876,35 +1733,33 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "postpend String when executed by ExecutorCallImpl",
     "naturalId": "postpend"
   },
-  "86": {
+  "89": {
     "fieldKey": "prepend",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -1927,104 +1782,92 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "prepend String when executed by ExecutorCallImpl",
     "naturalId": "prepend"
   },
-  "87": {
+  "90": {
     "fieldKey": "properties",
     "modelKeys": "Map",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Properties for configurations.",
     "naturalId": "properties"
   },
-  "88": {
+  "91": {
     "fieldKey": "protocol",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "protocol",
     "naturalId": "protocol"
   },
-  "89": {
+  "92": {
     "fieldKey": "read",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "String representation of RolePermission read permissions",
     "naturalId": "read"
   },
-  "90": {
+  "93": {
     "fieldKey": "replaceBy",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "DirectoryMapReadCall",
       "1": "StringReplaceCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "replaceBy",
     "naturalId": "replaceBy"
   },
-  "91": {
+  "94": {
     "fieldKey": "rowDelimiter",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "CsvProperties",
       "1": "CsvConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A delimiter for rows used for csv files.",
     "naturalId": "rowDelimiter"
   },
-  "92": {
+  "95": {
     "fieldKey": "rowEnd",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -2035,15 +1878,13 @@
       "4": "CsvSimpleReadCall",
       "5": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "rowEnd",
     "naturalId": "rowEnd"
   },
-  "93": {
+  "96": {
     "fieldKey": "rowHead",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -2054,15 +1895,13 @@
       "4": "CsvSimpleReadCall",
       "5": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "rowHead",
     "naturalId": "rowHead"
   },
-  "94": {
+  "97": {
     "fieldKey": "rowStart",
     "modelKeys": "Integer",
     "(ArrayList)modelList": {
@@ -2073,15 +1912,13 @@
       "4": "CsvSimpleReadCall",
       "5": "CsvSimpleWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "rowStart",
     "naturalId": "rowStart"
   },
-  "95": {
+  "98": {
     "fieldKey": "scope",
     "modelKeys": "ArrayList,Scope",
     "(ArrayList)modelList": {
@@ -2099,51 +1936,44 @@
       "11": "ModelConfigSet",
       "12": "ModelConfigMap",
       "13": "HostConfig",
-      "14": "ModelConfigDbProperties",
-      "15": "ModelConfigObject",
-      "16": "ModelConfigDbObject",
-      "17": "FieldConfig",
-      "18": "ModelConfigList",
-      "19": "ModelConfigNone",
-      "20": "ModelConfigScalar"
+      "14": "ModelConfigObject",
+      "15": "ModelConfigDbObject",
+      "16": "FieldConfig",
+      "17": "ModelConfigList",
+      "18": "ModelConfigNone",
+      "19": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A scope for the cache value.",
     "naturalId": "scope"
   },
-  "96": {
+  "99": {
     "fieldKey": "serializationType",
     "modelKeys": "JSONSerializationType",
     "(ArrayList)modelList": {
       "0": "JsonWriteCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The types of Serialization. ",
     "naturalId": "serializationType"
   },
-  "97": {
+  "100": {
     "fieldKey": "serialized",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "PathPattern"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The serialized field for @{link pathPattern}.",
     "naturalId": "serialized"
   },
-  "98": {
+  "101": {
     "fieldKey": "shapeType",
     "modelKeys": "ShapeTypes",
     "(ArrayList)modelList": {
@@ -2157,46 +1987,39 @@
       "7": "ModelConfigNone",
       "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "shapeType",
     "naturalId": "shapeType"
   },
-  "99": {
+  "102": {
     "fieldKey": "sortOrder",
     "modelKeys": "SortOrder",
     "(ArrayList)modelList": {
       "0": "ConfigKeysCall",
       "1": "ConfigCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A field with a SortOrder enum",
     "naturalId": "sortOrder"
   },
-  "100": {
+  "103": {
     "fieldKey": "sourceFileConfigKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "FileReadWriteCall",
-      "1": "TemplateResourceStoreKeepCall",
-      "2": "TemplateResourceStoreCall"
+      "1": "TemplateResourceStoreCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "Defines the key for a file configuration @FileConfig where to read a file.",
     "naturalId": "sourceFileConfigKey"
   },
-  "101": {
+  "104": {
     "fieldKey": "sourcePath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2219,35 +2042,33 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A sourcePath where EO offers it's input value when the execution starts.",
     "naturalId": "sourcePath"
   },
-  "102": {
+  "105": {
     "fieldKey": "startCondition",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2270,79 +2091,69 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A condition for calls. ",
     "naturalId": "startCondition"
   },
-  "103": {
+  "106": {
     "fieldKey": "startDirective",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A content included before template.",
     "naturalId": "startDirective"
   },
-  "104": {
+  "107": {
     "fieldKey": "name",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "SubExampleClass"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "SubExampleClass.name"
   },
-  "105": {
+  "108": {
     "fieldKey": "id",
     "modelKeys": "Long",
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.id"
   },
-  "106": {
+  "109": {
     "fieldKey": "subClass",
     "modelKeys": "FieldExampleClass",
     "(ArrayList)modelList": {
       "0": "SuperExampleClass"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "INFO",
     "naturalId": "SuperExampleClass.subClass"
   },
-  "107": {
+  "110": {
     "fieldKey": "superKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2351,75 +2162,70 @@
       "2": "ModelConfig",
       "3": "ModelConfigSet",
       "4": "ModelConfigMap",
-      "5": "ModelConfigDbProperties",
-      "6": "ModelConfigObject",
-      "7": "ModelConfigDbObject",
-      "8": "ModelConfigList",
-      "9": "ModelConfigNone",
-      "10": "ModelConfigScalar"
+      "5": "ModelConfigObject",
+      "6": "ModelConfigDbObject",
+      "7": "ModelConfigList",
+      "8": "ModelConfigNone",
+      "9": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A key for the super class of a class.",
     "naturalId": "superKey"
   },
-  "108": {
+  "111": {
     "fieldKey": "table",
     "modelKeys": "String",
     "(ArrayList)modelList": {
-      "0": "ModelConfigDbProperties",
-      "1": "ModelConfigDbObject"
+      "0": "ModelConfigProperties",
+      "1": "ModelConfig",
+      "2": "ModelConfigSet",
+      "3": "ModelConfigMap",
+      "4": "ModelConfigObject",
+      "5": "ModelConfigDbObject",
+      "6": "ModelConfigList",
+      "7": "ModelConfigNone",
+      "8": "ModelConfigScalar"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The name of the persistence entity.",
     "naturalId": "table"
   },
-  "109": {
+  "112": {
     "fieldKey": "targetConfigKey",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
     "naturalId": "targetConfigKey"
   },
-  "110": {
+  "113": {
     "fieldKey": "targetFile",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
     "naturalId": "targetFile"
   },
-  "111": {
+  "114": {
     "fieldKey": "targetFileConfigKey",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "FileReadWriteCall",
-      "1": "TemplateResourceStoreKeepCall",
-      "2": "TemplateResourceStoreCall"
+      "1": "TemplateResourceStoreCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A target for persisting template results in TemplateResourceStoreCall. ",
     "naturalId": "targetFileConfigKey"
   },
-  "112": {
+  "115": {
     "fieldKey": "targetPath",
     "modelKeys": "String",
     "(ArrayList)modelList": {
@@ -2442,76 +2248,82 @@
       "16": "ConfigTypesCall",
       "17": "JsonWriteCall",
       "18": "DirectoryWriteCall",
-      "19": "ValueCall",
-      "20": "StringUpperCall",
-      "21": "TemplateCall",
-      "22": "StringReplaceWhiteSpaceCall",
-      "23": "TemplateDirResourceCall",
-      "24": "StringLowerCall",
-      "25": "ConfigOpenApiCall",
-      "26": "ConfigCall",
-      "27": "ConfigAsFlatListCall",
-      "28": "ConfigReadWriteCommand",
-      "29": "FileReadWriteCall",
-      "30": "TemplateResourceStoreKeepCall",
-      "31": "StringReplaceWithHtmlCall",
-      "32": "DirectoryMapReadCall",
-      "33": "CsvSimpleReadCall",
-      "34": "StringReplaceCall",
-      "35": "CsvSimpleWriteCall",
+      "19": "StringLowerFirstCharCall",
+      "20": "ValueCall",
+      "21": "StringUpperCall",
+      "22": "TemplateCall",
+      "23": "StringReplaceWhiteSpaceCall",
+      "24": "TemplateDirResourceCall",
+      "25": "StringLowerCall",
+      "26": "ConfigOpenApiCall",
+      "27": "ConfigCall",
+      "28": "ConfigAsFlatListCall",
+      "29": "StringReplaceWithHtmlCall",
+      "30": "DirectoryMapReadCall",
+      "31": "ConfigReadWriteCommand",
+      "32": "CsvSimpleReadCall",
+      "33": "StringReplaceCall",
+      "34": "CsvSimpleWriteCall",
+      "35": "FileReadWriteCall",
       "36": "TemplateResourceStoreCall",
       "37": "SinusValueCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
     "naturalId": "targetPath"
   },
-  "113": {
+  "116": {
+    "fieldKey": "template",
+    "modelKeys": "Boolean",
+    "(ArrayList)modelList": {
+      "0": "FileConfig",
+      "1": "CsvConfig",
+      "2": "DirectoryConfig"
+    },
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
+    "naturalId": "template"
+  },
+  "117": {
     "fieldKey": "templateFileConfigKey",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
     "naturalId": "templateFileConfigKey"
   },
-  "114": {
+  "118": {
     "fieldKey": "toReplace",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "DirectoryMapReadCall",
       "1": "StringReplaceCall"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "toReplace",
     "naturalId": "toReplace"
   },
-  "115": {
+  "119": {
     "fieldKey": "unique",
     "modelKeys": "Boolean",
     "(ArrayList)modelList": {
       "0": "FieldProperties",
       "1": "FieldConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "unique",
     "naturalId": "unique"
   },
-  "116": {
+  "120": {
     "fieldKey": "ID",
     "modelKeys": "Long",
     "fieldName": "ID",
@@ -2523,50 +2335,42 @@
     "description": "Alias for id with uppercase.",
     "naturalId": "upper.ID"
   },
-  "117": {
+  "121": {
     "fieldKey": "user",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "HostConfig"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "user",
     "naturalId": "user"
   },
-  "118": {
+  "122": {
     "fieldKey": "value",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "value",
     "naturalId": "value"
   },
-  "119": {
+  "123": {
     "fieldKey": "viewKey",
     "modelKeys": "String",
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
     "description": "A key for a view.",
     "naturalId": "viewKey"
   },
-  "120": {
+  "124": {
     "fieldKey": "write",
     "modelKeys": "String",
     "(ArrayList)modelList": {
       "0": "PermissionRole"
     },
-    "notNull": false,
-    "unique": false,
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",

@@ -8,21 +8,22 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Parses the content loaded by {@link DirectoryReadCall}.
  * This will use a FileConfig entry using {@link DirectoryConfig} instance. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 13:09:53 CET 2020
+ * @modificationDate Tue Dec 08 11:35:19 CET 2020
  */
 public class TemplateDirResourceCall extends DirectoryReadCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
     public TemplateDirResourceCall() {
@@ -77,6 +78,6 @@ public class TemplateDirResourceCall extends DirectoryReadCall  {
         }
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 }

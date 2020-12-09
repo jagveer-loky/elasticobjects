@@ -25,10 +25,10 @@ import java.util.List;
 public class CsvReadCall extends CsvSimpleReadCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
     public CsvReadCall()  {
         super();
@@ -88,6 +88,6 @@ public class CsvReadCall extends CsvSimpleReadCall  {
         }
         return result;
     }
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
 }

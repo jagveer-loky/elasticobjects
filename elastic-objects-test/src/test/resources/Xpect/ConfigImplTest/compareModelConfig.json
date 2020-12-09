@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": false,
-    "(ShapeTypes)shapeType": "CONFIG",
     "(ArrayList)fieldKeys": {
       "0": "expose",
       "1": "module",
@@ -15,6 +12,9 @@
       "7": "id",
       "8": "naturalId"
     },
+    "classPath": "src.main.java",
+    "create": false,
+    "(ShapeTypes)shapeType": "CONFIG",
     "interfaces": "Config",
     "modelKey": "ConfigImpl",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",

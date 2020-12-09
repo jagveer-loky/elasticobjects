@@ -22,12 +22,12 @@ import java.util.List;
 public class DbModelReadCall extends DbModelCall implements ListInterface,  ConfigReadCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
    public static final String LIST_PARAMS = "listParams";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
-   private final  ListParams listParams;
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+   private ListParams listParams;
 /*=>{}.*/
 
     public DbModelReadCall()  {
@@ -57,10 +57,16 @@ public class DbModelReadCall extends DbModelCall implements ListInterface,  Conf
                 getListParams());
     }
 
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */
+    @Override
+    public DbModelReadCall setListParams(ListParams listParams) {
+        this.listParams = listParams;
+        return this;
+    }
+
     @Override
     public ListParams getListParams () {
        return this.listParams;

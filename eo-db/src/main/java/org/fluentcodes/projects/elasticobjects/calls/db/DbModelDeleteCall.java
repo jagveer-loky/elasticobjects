@@ -21,10 +21,10 @@ import java.util.List;
 public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
 
     public DbModelDeleteCall()  {
@@ -55,6 +55,6 @@ public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand
         return DeleteStatement.of(eo)
                 .execute(getDbConfig().getConnection());
     }
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
 }

@@ -9,6 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModuleScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
@@ -54,6 +55,7 @@ public class ConfigCallCheck {
         Assertions.assertThat(result.size()).isEqualTo(1);
     }
 
+    @Ignore
     @Test
     public void eo_ModelConfig_module_eoTest_submodule_main__execute__xpected()  {
         final EO eo = ProviderRootTestScope.createEo();
@@ -70,6 +72,7 @@ public class ConfigCallCheck {
     }
 
 
+    @Ignore
     @Test
     public void eo_ModelConfig_configFilter_Map__execute__xpected() {
         final EO eo = ProviderRootTestScope.createEo();

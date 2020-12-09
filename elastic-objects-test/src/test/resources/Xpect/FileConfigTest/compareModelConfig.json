@@ -1,33 +1,35 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": false,
-    "(ShapeTypes)shapeType": "CONFIG",
     "(ArrayList)fieldKeys": {
       "0": "cached",
       "1": "configModelKey",
       "2": "fileName",
       "3": "filePath",
       "4": "hostConfigKey",
-      "5": "permissionRole",
-      "6": "expose",
-      "7": "module",
-      "8": "moduleScope",
-      "9": "scope",
-      "10": "author",
-      "11": "creationDate",
-      "12": "description",
-      "13": "id",
-      "14": "naturalId"
+      "5": "template",
+      "6": "permissionRole",
+      "7": "expose",
+      "8": "module",
+      "9": "moduleScope",
+      "10": "scope",
+      "11": "author",
+      "12": "creationDate",
+      "13": "description",
+      "14": "id",
+      "15": "naturalId"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "cached",
       "1": "configModelKey",
       "2": "fileName",
       "3": "filePath",
-      "4": "hostConfigKey"
+      "4": "hostConfigKey",
+      "5": "template"
     },
+    "classPath": "src.main.java",
+    "create": false,
+    "(ShapeTypes)shapeType": "CONFIG",
     "modelKey": "FileConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "superKey": "ResourceConfig",

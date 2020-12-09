@@ -109,14 +109,14 @@ public class WebEo {
 
     @RequestMapping(value = "/eo-template", method = RequestMethod.POST)
     public String eoPostTemplate(
-            @RequestParam(value = "template", required = true) final String template,
+            @RequestParam(value = "template", required = false) final String template,
             @RequestParam(value = "logLevel", required = false, defaultValue = "WARN") final String logLevelAsString
     ) {
         if (template == null) {
-            return "No 'template' is set!";
+            return "No 'template' data provided at all!";
         }
         if (template.isEmpty()) {
-            return "'template' is empty!";
+            return "'template' data is empty!";
         }
 
         final String[] roles = getRoles();

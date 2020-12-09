@@ -1,17 +1,4 @@
 <h6>Accessing An Excel File</h6>
-<p>
-    The following example sets
-    the content of \
-    ==>{GithubLinkCall->NONE, SPI|data.lists|AnObject.xlsx}. to
-    ==>{ConfigLinkCall->FieldConfig, targetPath}. values via
-    ==>{GithubLinkCall->ModelConfig, XlsxReadCall}..
-</p>
-<p>
-    The fileConfigKey refers to a configuration in
-    ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L2}.
-    You're allowed to read the sheet, because
-    your role "guest" is within the read permissions.
-</p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
    "(XlsxReadCall)values":{
@@ -22,10 +9,12 @@
     <input type="submit" value="post"/>
 </form>
 <p>
-    If you click, you will see the content is set to  "values" as a map using the first row as
-    keys.
+    ==>{GithubLinkCall->ModelConfig, XlsxReadCall}.
+    resolve the \
+    ==>{ConfigLinkCall->FieldConfig, fileConfigKey}. "AnObject.xlsx:test" in \
+    ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L2}.
 </p>
 <p>
-    If you remove "_serializationType" you can see the hidden fields used by EO, for example the duration of
-    this call.
+    The resulting list of maps is set to\
+    ==>{ConfigLinkCall->FieldConfig, targetPath}. "values".
 </p>

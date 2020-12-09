@@ -1,0 +1,11 @@
+{
+  "_rootmodel": "GenerateModelTemplateMapCall",
+  "sourceFileConfigKey": ".*",
+  "targetFileConfigKey": ".*",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.",
+  "projectDirectory": ".",
+  "module": ".*",
+  "moduleScope": ".*",
+  "fileEnding": "",
+  "naturalId": "ASubObject"
+}

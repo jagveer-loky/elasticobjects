@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -38,15 +39,12 @@ public class ExecutorCall {
         String sourcePathString = new ParserSqareBracket(call.getSourcePath()).parse(eo);
         Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
         EO sourceParent = sourcePath.moveToParent(eo);
-        boolean isFilter = sourcePath.isFilter();
+        boolean isFilter = sourcePath.isEmpty()? false : sourcePath.isFilter();
         if (!((CallImpl)call).evalStartCondition(sourceParent)) {
             return "";
         }
-        List<String> loopPaths = sourceParent.keys(sourcePath.getParentKey());
-        if (loopPaths.isEmpty()) {
-            //System.out.println("x");
-            throw new EoException("Could not find child entries for '" + call.getClass().getSimpleName() + "' for '" + sourcePathString + "' in '" + eo.getPathAsString() + ".");
-        }
+        List<String> loopPaths = sourcePath.isEmpty()? Arrays.asList(new String[]{"."}):sourceParent.keys(sourcePath.getParentKey());
+
         // get targetParent
         String targetPath;
         if (call.hasTargetPath()) {

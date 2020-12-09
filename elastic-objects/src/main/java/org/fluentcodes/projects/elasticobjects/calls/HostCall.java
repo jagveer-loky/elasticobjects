@@ -4,21 +4,22 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Super class for file calls with a configuration key to resolve {@link HostConfig} with init method. Extends {@link CallImpl}. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Wed Nov 11 07:56:18 CET 2020
+ * @modificationDate Tue Dec 08 07:32:31 CET 2020
  */
 public abstract class HostCall extends CallImpl implements Call {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String HOST_CONFIG_KEY = "hostConfigKey";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String hostConfigKey;
 /*=>{}.*/
 
@@ -46,7 +47,7 @@ public abstract class HostCall extends CallImpl implements Call {
         return hostConfig;
     }
 
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     A key for host objects.
     */

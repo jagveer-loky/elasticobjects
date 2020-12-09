@@ -7,13 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Read a list from a directory. The file names will replace <i>toReplace (default "_")</i> by <i>replaceBy (default "")</i> and <i>fileEnding(default ".html")</i> will be removed. 
  * 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 16:49:48 CET 2020
+ * @modificationDate Tue Dec 08 07:08:15 CET 2020
  */
 public class DirectoryMapReadCall extends DirectoryListReadCall  {
 /*=>{}.*/
@@ -21,13 +22,13 @@ public class DirectoryMapReadCall extends DirectoryListReadCall  {
     public final static String DEFAULT_REPLACE_BY = " ";
     public final static String DEFAULT_FILE_ENDING = ".html";
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String FILE_ENDING = "fileEnding";
    public static final String REPLACE_BY = "replaceBy";
    public static final String TO_REPLACE = "toReplace";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String fileEnding;
    private  String replaceBy;
    private  String toReplace;
@@ -62,7 +63,7 @@ public class DirectoryMapReadCall extends DirectoryListReadCall  {
         return result;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     It's used to specify the file ending in different context. 
     */

@@ -12,5 +12,8 @@
   ==>{StringUpperFirstCharCall->fieldKey}. (
   ==>{JavaFieldTypeCall->modelKeys}. \
   =>{fieldKey}.);
-   boolean has
-  ==>{StringUpperFirstCharCall->fieldKey}. ();
+   default Boolean has
+  ==>{StringUpperFirstCharCall->fieldKey}. () {
+      return get==>{StringUpperFirstCharCall->fieldKey}.()!= null
+    ==>{JavaFieldNotEmptyCall->modelKeys}.;
+    }

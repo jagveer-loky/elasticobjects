@@ -1,6 +1,20 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
+    "modelKey": "AnObject",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+    "(Expose)expose": "WEB",
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "author": "Werner Diwischek",
+    "description": "Model class with different types of fields including generic collections, maps and @link ASubObject objects.",
+    "naturalId": "AnObject",
+    "permissionRole": {
+      "read": "guest"
+    },
     "(ArrayList)fieldKeys": {
       "0": "id",
       "1": "myASubObject",
@@ -19,7 +33,7 @@
       "14": "myString",
       "15": "naturalId"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "id",
       "1": "myASubObject",
       "2": "myASubObjectList",
@@ -36,21 +50,7 @@
       "13": "myObject",
       "14": "myString",
       "15": "naturalId"
-    },
-    "modelKey": "AnObject",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-    "(Expose)expose": "WEB",
-    "module": "elastic-objects-test",
-    "moduleScope": "main",
-    "author": "Werner Diwischek",
-    "description": "Model class with different types of fields including generic collections, maps and @link ASubObject objects.",
-    "naturalId": "AnObject",
-    "permissionRole": {
-      "read": "guest"
-    },
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN"
+    }
   },
   "(LogLevel)_logLevel": "WARN"
 }

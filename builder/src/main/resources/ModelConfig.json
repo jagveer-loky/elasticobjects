@@ -1,32 +1,56 @@
 {
-  "GenerateCall": {
+  "GenerateModelAbstract": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "GenerateModelProperties",
+    "superKey": "GenerateAbstract",
+    "expose": "NONE",
+    "description": "Abstract super class for generating code based on ModelBeans.json.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateModelAbstract",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "CALL_BEAN",
+      "abstract": true
+    },
+    "author": "Werner Diwischek"
+  },
+  "GenerateAbstract": {
     "module": "builder",
     "moduleScope": "main",
     "fieldKeys": [
       "fileEnding",
       "module",
-      "moduleScope"
+      "moduleScope",
+      "projectDirectory",
+      "sourceFileConfigKey",
+      "targetFileConfigKey"
     ],
-    "interfaces": "GenerateCommand",
     "superKey": "CallImpl",
     "expose": "NONE",
-    "description": "Abstract super class for generating code.",
+    "description": "Instance abstract base class for generating code with targetFileConfigKey and filter module, moduleScope values. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
-    "modelKey": "GenerateCall",
+    "modelKey": "GenerateAbstract",
     "properties": {
       "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": false,
+      "shapeType": "CALL_BEAN",
+      "abstract": true
     },
     "author": "Werner Diwischek"
   },
-  "GenerateCommand": {
+  "GenerateModelProperties": {
     "module": "builder",
     "moduleScope": "main",
+    "fieldKeys": [
+      "packagePath"
+    ],
+    "superKey": "GenerateProperties",
     "expose": "NONE",
-    "description": "Offer the setByParameter default method with  module, moduleScope and fileEnding values. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.commands",
-    "modelKey": "GenerateCommand",
+    "description": "Interface for generating code based on ModelBeans.json.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateModelProperties",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -34,14 +58,35 @@
     },
     "author": "Werner Diwischek"
   },
-  "GenerateJavaCall": {
+  "GenerateProperties": {
     "module": "builder",
     "moduleScope": "main",
-    "superKey": "GenerateCall",
+    "fieldKeys": [
+      "fileEnding",
+      "module",
+      "moduleScope",
+      "targetFileConfigKey"
+    ],
+    "superKey": "Call",
     "expose": "NONE",
-    "description": "Call for generation of java code from ModelConfig data. \n * FieldConfig will be loaded from ConfigsCache. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
-    "modelKey": "GenerateJavaCall",
+    "description": "Offer the setByParameter default method with  module, moduleScope and fileEnding values. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "GenerateModelTemplateCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "GenerateModelAbstract",
+    "expose": "NONE",
+    "description": "Call for generation code based on a template from sourceFileConfigKey and ModelBeans.json data. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateModelTemplateCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -49,17 +94,47 @@
     },
     "author": "Werner Diwischek"
   },
-  "GenerateJsonConfigCall": {
+  "GenerateModelTemplateMapCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "GenerateModelAbstract",
+    "expose": "NONE",
+    "description": "Call for generation code based on a template from sourceFileConfigKey and ModelBeans.json data. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateModelTemplateMapCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "GenerateEoConfigJsonCall": {
     "module": "builder",
     "moduleScope": "main",
     "fieldKeys": [
       "configType"
     ],
-    "superKey": "GenerateCall",
+    "superKey": "GenerateAbstract",
     "expose": "NONE",
     "description": "Call for generation json configurations from the sheet.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.json",
-    "modelKey": "GenerateJsonConfigCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateEoConfigJsonCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "GenerateModelBeansJsonCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "superKey": "GenerateAbstract",
+    "expose": "NONE",
+    "description": "Call for generation ModelBeans.json configuration from the sheet.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
+    "modelKey": "GenerateModelBeansJsonCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -83,38 +158,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "JavaExtendsCall": {
-    "module": "builder",
-    "moduleScope": "main",
-    "interfaces": "SimpleCommand",
-    "superKey": "CallImpl",
-    "expose": "WEB",
-    "description": "Returns \"extends\" with superKey if superKey is not empty.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
-    "modelKey": "JavaExtendsCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "JavaFieldFinalCall": {
-    "module": "builder",
-    "moduleScope": "main",
-    "interfaces": "SimpleCommand",
-    "superKey": "CallImpl",
-    "expose": "WEB",
-    "description": "Returns \"final\" string when final value is true.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
-    "modelKey": "JavaFieldFinalCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
   "JavaFieldNotEmptyCall": {
     "module": "builder",
     "moduleScope": "main",
@@ -124,22 +167,6 @@
     "description": "If type of the field is map, string or array a check for is empty is returned. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
     "modelKey": "JavaFieldNotEmptyCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "JavaFieldOverrideCall": {
-    "module": "builder",
-    "moduleScope": "main",
-    "interfaces": "SimpleCommand",
-    "superKey": "CallImpl",
-    "expose": "WEB",
-    "description": "Returns an override annotation if override field value is true.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
-    "modelKey": "JavaFieldOverrideCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,
@@ -163,6 +190,54 @@
     },
     "author": "Werner Diwischek"
   },
+  "JavaFieldAnnotationDbCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldAnnotationDbCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaFieldAnnotationNotNullCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldAnnotationNotNullCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaFieldAnnotationSizeCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldAnnotationSizeCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "JavaImplementsCall": {
     "module": "builder",
     "moduleScope": "main",
@@ -176,6 +251,145 @@
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "JavaImportCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Create import statement java string for instance vars. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaImportCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "FieldBean": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "FieldBeanJavaMethods",
+    "superKey": "ConfigBean",
+    "expose": "WEB",
+    "description": "A bean container class for Field values",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "FieldBean",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "FieldBeanProperties": {
+    "module": "builder",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "fieldKey",
+      "final",
+      "generated",
+      "super",
+      "javascriptType",
+      "length",
+      "modelKeys",
+      "notNull",
+      "override"
+    ],
+    "interfaces": "FieldProperties,Base",
+    "expose": "WEB",
+    "description": "An interface for@FieldBean with access methods for properties. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "FieldBeanProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "FieldBeanJavaMethods": {
+    "module": "builder",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "javaDescription",
+      "javaGetMethod",
+      "javaSetMethod",
+      "javaHasMethod"
+    ],
+    "interfaces": "FieldBeanProperties",
+    "expose": "WEB",
+    "description": "An interface for@FieldBean with access methods for properties. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "FieldBeanProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+
+  "ModelBean": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "ModelBeanProperties",
+    "superKey": "ConfigBean",
+    "expose": "WEB",
+    "description": "A bean container class for Model values",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelBean",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ModelBeanProperties": {
+    "module": "builder",
+    "moduleScope": "main",
+    "fieldKeys": [
+      "abstract",
+      "dbAnnotated",
+      "fieldBeans",
+      "interfaces",
+      "javascriptType",
+      "modelKey",
+      "modelKeyLower",
+      "modelKeyPlural",
+      "modelKeyPluralLower",
+      "packagePath",
+      "superKey"
+    ],
+    "interfaces": "ModelConfigProperties,Base",
+    "expose": "WEB",
+    "description": "An interface for@ModelBean with access methods for properties. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelBeanProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ConfigBean": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "Config,ConfigProperties",
+    "expose": "WEB",
+    "description": "The basic bean class for the @ConfigImpl class.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ConfigBean",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "BEAN"
     },
     "author": "Werner Diwischek"
   }

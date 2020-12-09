@@ -1,14 +1,14 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN",
     "(ArrayList)fieldKeys": {
       "0": "FieldExampleClass.value"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "FieldExampleClass.value"
     },
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "modelKey": "FieldExampleClass",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "INFO",

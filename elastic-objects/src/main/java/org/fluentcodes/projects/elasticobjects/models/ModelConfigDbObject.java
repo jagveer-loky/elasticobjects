@@ -10,7 +10,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.ResourceConfig.ROLE_
 /**
  * Created by Werner on 01.11.2020.
  */
-public class ModelConfigDbObject extends ModelConfigObject implements ModelConfigDbProperties, PermissionProperties {
+public class ModelConfigDbObject extends ModelConfigObject implements ModelConfigProperties, PermissionProperties {
     public final static String HOST_CONFIG_KEY = "hostConfigKey";
     private final PermissionRole permissionRole;
     private final String hostConfigKey;

@@ -1,41 +1,8 @@
 {
   "0": {
-    "(ArrayList)fieldKeys": {
-      "0": "id",
-      "1": "myASubObject",
-      "2": "myASubObjectList",
-      "3": "myASubObjectMap",
-      "4": "myAnObject",
-      "5": "myBoolean",
-      "6": "myDate",
-      "7": "myDouble",
-      "8": "myFloat",
-      "9": "myInt",
-      "10": "myList",
-      "11": "myLong",
-      "12": "myMap",
-      "13": "myObject",
-      "14": "myString",
-      "15": "naturalId"
-    },
-    "(ArrayList)localFieldKeys": {
-      "0": "id",
-      "1": "myASubObject",
-      "2": "myASubObjectList",
-      "3": "myASubObjectMap",
-      "4": "myAnObject",
-      "5": "myBoolean",
-      "6": "myDate",
-      "7": "myDouble",
-      "8": "myFloat",
-      "9": "myInt",
-      "10": "myList",
-      "11": "myLong",
-      "12": "myMap",
-      "13": "myObject",
-      "14": "myString",
-      "15": "naturalId"
-    },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "modelKey": "AnObject",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "WEB",
@@ -47,25 +14,47 @@
     "permissionRole": {
       "read": "guest"
     },
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN"
-  },
-  "1": {
     "(ArrayList)fieldKeys": {
       "0": "id",
       "1": "myASubObject",
-      "2": "myString",
-      "3": "name",
-      "4": "naturalId"
+      "2": "myASubObjectList",
+      "3": "myASubObjectMap",
+      "4": "myAnObject",
+      "5": "myBoolean",
+      "6": "myDate",
+      "7": "myDouble",
+      "8": "myFloat",
+      "9": "myInt",
+      "10": "myList",
+      "11": "myLong",
+      "12": "myMap",
+      "13": "myObject",
+      "14": "myString",
+      "15": "naturalId"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "id",
       "1": "myASubObject",
-      "2": "myString",
-      "3": "name",
-      "4": "naturalId"
-    },
+      "2": "myASubObjectList",
+      "3": "myASubObjectMap",
+      "4": "myAnObject",
+      "5": "myBoolean",
+      "6": "myDate",
+      "7": "myDouble",
+      "8": "myFloat",
+      "9": "myInt",
+      "10": "myList",
+      "11": "myLong",
+      "12": "myMap",
+      "13": "myObject",
+      "14": "myString",
+      "15": "naturalId"
+    }
+  },
+  "1": {
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "modelKey": "ASubObject",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "WEB",
@@ -77,9 +66,20 @@
     "permissionRole": {
       "read": "guest"
     },
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN"
+    "(ArrayList)fieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "myString",
+      "3": "name",
+      "4": "naturalId"
+    },
+    "localFieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "myString",
+      "3": "name",
+      "4": "naturalId"
+    }
   },
   "(LogLevel)_logLevel": "WARN"
 }

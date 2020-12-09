@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
-import static org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall.upperFirstCharacter;
+import static org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall.upper;
 
 /**
  * Tests for {@link StringUpperFirstCharCall}
@@ -57,6 +57,6 @@ public class StringUpperFirstCharCallTest {
 
     @Test
     public void upperFirstChar() {
-        Assert.assertEquals("Test", upperFirstCharacter(S_STRING));
+        Assert.assertEquals("Test", upper(S_STRING));
     }
 }

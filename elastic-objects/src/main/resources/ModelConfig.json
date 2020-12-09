@@ -160,11 +160,25 @@
       "moduleScope",
       "scope"
     ],
-    "superKey": "Base",
+    "interfaces": "ConfigProperties,Base",
     "expose": "NONE",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Config",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ConfigProperties": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "description": "Basic config interface as super interface for other cached items. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ConfigProperties",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -239,6 +253,20 @@
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ConfigProperties": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "description": "Basic cache as super object for other cached items. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ConfigProperties",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "Interface"
     },
     "author": "Werner Diwischek"
   },
@@ -629,7 +657,8 @@
       "configModelKey",
       "fileName",
       "filePath",
-      "hostConfigKey"
+      "hostConfigKey",
+      "template"
     ],
     "superKey": "ResourceConfig",
     "expose": "NONE",
@@ -901,25 +930,29 @@
     "author": "Werner Diwischek"
   },
   "ModelConfig": {
+    "author": "Werner Diwischek",
+    "description": "Table definitions with pojo.",
+    "expose": "NONE",
+    "fieldKeys": [
+      "fieldKeys",
+      "localFieldKeys"
+    ],
+    "interfaces": "ModelConfigProperties",
+    "modelKey": "ModelConfig",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "ModelConfigProperties",
-    "superKey": "ConfigImpl",
-    "expose": "NONE",
-    "description": "Table definitions with pojo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelConfig",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
-    "author": "Werner Diwischek"
+    "superKey": "ConfigImpl"
   },
   "ModelConfigDbObject": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "ModelConfigDbProperties,PermissionProperties",
+    "interfaces": "ModelConfigProperties,PermissionProperties",
     "superKey": "ModelConfigObject",
     "expose": "NONE",
     "description": "Class definitions for an object with getters and setters.",
@@ -932,33 +965,11 @@
     },
     "author": "Werner Diwischek"
   },
-  "ModelConfigDbProperties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "idKey",
-      "naturalKeys",
-      "table"
-    ],
-    "superKey": "ModelConfigInterface",
-    "expose": "NONE",
-    "description": "Elementary model propeties.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelConfigDbProperties",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
   "ModelConfigInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "fieldKeys",
       "interfaces",
-      "localFieldKeys",
       "modelKey",
       "packagePath",
       "superKey"
@@ -1042,7 +1053,10 @@
       "classPath",
       "create",
       "defaultImplementation",
-      "shapeType"
+      "shapeType",
+      "idKey",
+      "naturalKeys",
+      "table"
     ],
     "superKey": "ModelConfigInterface",
     "expose": "NONE",
@@ -1444,6 +1458,22 @@
     },
     "author": "Werner Diwischek"
   },
+  "StringLowerFirstCharCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "For setting upper value to EO.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "StringLowerFirstCharCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "TemplateCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1501,21 +1531,6 @@
     "description": "Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "modelKey": "TemplateResourceStoreCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "TemplateResourceStoreKeepCall": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "FileReadWriteCall",
-    "expose": "WEB",
-    "description": "First try to read the target file with targetFileConfigKey and use it as template if exists. If not try to use templateFileConfigKey as template with FileReadCall. After processing a FileWriteCall wth the targetConfigKey is executed.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
-    "modelKey": "TemplateResourceStoreKeepCall",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

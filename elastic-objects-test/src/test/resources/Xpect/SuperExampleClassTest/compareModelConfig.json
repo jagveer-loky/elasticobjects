@@ -1,16 +1,16 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN",
     "(ArrayList)fieldKeys": {
       "0": "SuperExampleClass.id",
       "1": "SuperExampleClass.subClass"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "SuperExampleClass.id",
       "1": "SuperExampleClass.subClass"
     },
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "modelKey": "SuperExampleClass",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "INFO",

@@ -5,23 +5,24 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCommand;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Read content of a file specified by sourceFileConfigKey referencing a FileConfig with this key. Afterwards it will store it to the file configuration with key targetFileConfigKey. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 16:21:04 CET 2020
+ * @modificationDate Tue Dec 08 09:47:43 CET 2020
  */
 public class FileReadWriteCall extends CallImpl implements ConfigReadWriteCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String COMPARE = "compare";
    public static final String SOURCE_FILE_CONFIG_KEY = "sourceFileConfigKey";
    public static final String TARGET_FILE_CONFIG_KEY = "targetFileConfigKey";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  Boolean compare;
    private  String sourceFileConfigKey;
    private  String targetFileConfigKey;
@@ -41,14 +42,19 @@ public class FileReadWriteCall extends CallImpl implements ConfigReadWriteComman
 
     @Override
     public Object execute(final EO eo)  {
-        return write(eo, read(eo));
+        return writeTarget(eo, readSource(eo));
     }
 
-    protected String read(final EO eo) {
+    protected String readSource(final EO eo) {
         return (String)new FileReadCall(sourceFileConfigKey).execute(eo);
     }
 
-    protected String write(final EO eo, final String content) {
+    protected String readTarget(final EO eo) {
+        return (String)new FileReadCall(targetFileConfigKey).execute(eo);
+    }
+
+
+    protected String writeTarget(final EO eo, final String content) {
         return new FileWriteCall(targetFileConfigKey)
                 .setContent(content)
                 .setCompare(compare)
@@ -59,7 +65,7 @@ public class FileReadWriteCall extends CallImpl implements ConfigReadWriteComman
         return compare;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     Trigger a compare before writing in @FileWriteCall
     */

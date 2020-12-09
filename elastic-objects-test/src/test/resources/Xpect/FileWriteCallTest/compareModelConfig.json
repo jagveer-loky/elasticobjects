@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "compare",
       "1": "content",
@@ -26,11 +23,14 @@
       "18": "id",
       "19": "naturalId"
     },
-    "interfaces": "ConfigWriteCommand,CallContent",
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "compare",
       "1": "content"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "interfaces": "ConfigWriteCommand,CallContent",
     "modelKey": "FileWriteCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "superKey": "FileCall",

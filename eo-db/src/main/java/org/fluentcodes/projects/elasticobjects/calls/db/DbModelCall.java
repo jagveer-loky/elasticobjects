@@ -16,11 +16,11 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 public abstract class DbModelCall extends HostCall  {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
    public static final String MODEL_CONFIG_KEY = "modelConfigKey";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
    private  String modelConfigKey;
 /*=>{}.*/
 
@@ -57,7 +57,7 @@ public abstract class DbModelCall extends HostCall  {
         return (DbConfig)getHostConfig();
     }
 
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
     /**
     The model name for the cache object {{@link link} Config}.
     */

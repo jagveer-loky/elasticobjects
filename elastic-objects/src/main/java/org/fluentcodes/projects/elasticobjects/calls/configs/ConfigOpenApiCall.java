@@ -9,7 +9,6 @@ import org.fluentcodes.projects.elasticobjects.models.Expose;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.JsonTypes;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.Arrays;
@@ -28,18 +27,18 @@ import java.util.Set;
 public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String CONFIG_FILTER = "configFilter";
    public static final String EXPOSE = "expose";
    public static final String MODULE = "module";
    public static final String MODULE_SCOPE = "moduleScope";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String configFilter;
    private  Expose expose;
    private  String module;
-   private  String subModule;
+   private  String moduleScope;
 /*=>{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
 
@@ -115,7 +114,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                 if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;
                 }
-                if (hasFilterSubModule() && (configEntry.getConfigsCache() == null || !configEntry.getConfigsCache().equals(this.getSubModule()))) {
+                if (hasFilterSubModule() && (configEntry.getConfigsCache() == null || !configEntry.getConfigsCache().equals(this.getModuleScope()))) {
                     continue;
                 }
             } catch (Exception e) {
@@ -162,7 +161,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
             else if (fieldModels.isList()) {
                 EO array = field.set("array", "$ref");
                 if (fieldModels.hasChildModel()) {
-                    ModelConfigInterface childModel = fieldModels.getChildModel();
+                    ModelConfig childModel = fieldModels.getChildModel();
                     array.setEmpty("items");
                     if (childModel.isScalar()) {
                         array.set(JsonTypes.getType(childModel.getModelClass()), "type");
@@ -196,7 +195,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
         }
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     Key for filter configuration
     */
@@ -249,17 +248,17 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
     Filter for subModules in  {{@link link} ConfigAction}
     */
 
-    public ConfigOpenApiCall setSubModule(String subModule) {
-        this.subModule = subModule;
+    public ConfigOpenApiCall setModuleScope(String moduleScope) {
+        this.moduleScope = moduleScope;
         return this;
     }
     
-    public String getSubModule() {
-       return this.subModule;
+    public String getModuleScope() {
+       return this.moduleScope;
     }
     
     public boolean hasFilterSubModule () {
-        return subModule != null && !subModule.isEmpty();
+        return moduleScope != null && !moduleScope.isEmpty();
     }
 /*=>{}.*/
 

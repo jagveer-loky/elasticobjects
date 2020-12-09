@@ -18,11 +18,11 @@ import java.sql.Connection;
 public abstract class DbSqlCall extends HostCall  {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
    public static final String SQL_KEY = "sqlKey";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
    private  String sqlKey;
 /*=>{}.*/
     private DbSqlConfig sqlConfig;
@@ -74,7 +74,7 @@ public abstract class DbSqlCall extends HostCall  {
         return sqlConfig;
     }
 
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
     /**
     The key to select a configuration from DbSqlConfig within DbSqlCall.
     */

@@ -16,15 +16,19 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class JavaFieldTypeCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
     @Override
     public String execute(final EO eo) {
+
+        return TYPE((String)eo.get());
+    }
+    public static final String TYPE(final String modelKeys)  {
         try {
-            String[] models = ((String)eo.get()).split(",");
+            String[] models = modelKeys.split(",");
             if (models.length == 2) {
                 if (models[0].endsWith("Map")) {
                     return "Map<String, " + models[1] + ">";
@@ -44,6 +48,6 @@ public class JavaFieldTypeCall extends CallImpl implements SimpleCommand {
             throw new EoException(e.getMessage());
         }
     }
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
 }

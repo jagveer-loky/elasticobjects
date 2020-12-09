@@ -1,20 +1,9 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ArrayList)fieldKeys": {
-      "0": "id",
-      "1": "myASubObject",
-      "2": "myString",
-      "3": "name",
-      "4": "naturalId"
-    },
-    "(ArrayList)localFieldKeys": {
-      "0": "id",
-      "1": "myASubObject",
-      "2": "myString",
-      "3": "name",
-      "4": "naturalId"
-    },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "modelKey": "ASubObject",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "(Expose)expose": "WEB",
@@ -26,9 +15,20 @@
     "permissionRole": {
       "read": "guest"
     },
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN"
+    "(ArrayList)fieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "myString",
+      "3": "name",
+      "4": "naturalId"
+    },
+    "localFieldKeys": {
+      "0": "id",
+      "1": "myASubObject",
+      "2": "myString",
+      "3": "name",
+      "4": "naturalId"
+    }
   },
   "(LogLevel)_logLevel": "WARN"
 }

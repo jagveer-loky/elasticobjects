@@ -1,7 +1,4 @@
 {
-  "classPath": "src.main.java",
-  "create": false,
-  "shapeType": "CALL_BEAN",
   "fieldKeys": [
     "condition",
     "duration",
@@ -20,6 +17,9 @@
     "id",
     "naturalId"
   ],
+  "classPath": "src.main.java",
+  "create": false,
+  "shapeType": "CALL_BEAN",
   "interfaces": "SimpleCommand",
   "modelKey": "CallImpl",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls",

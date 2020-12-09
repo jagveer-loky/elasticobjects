@@ -4,5 +4,7 @@ public interface CallContent {
     String CONTENT = "content";
     String getContent();
     CallContent setContent(String content);
-    boolean hasContent();
+    default boolean hasContent() {
+        return getContent() !=null && !getContent().isEmpty();
+    }
 }

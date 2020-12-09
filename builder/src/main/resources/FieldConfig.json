@@ -1,10 +1,116 @@
 {
-  "buildPath": {
+  "fieldBeans": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Map,FieldBean",
+    "description": "A fieldBean map with @ModelBean",
+    "expose": "NONE",
+    "fieldKey": "fieldBeans"
+  },
+  "modelKeyPlural": {
     "module": "builder",
     "moduleScope": "main",
     "modelKeys": "String",
-    "expose": "WEB",
-    "fieldKey": "buildPath",
+    "description": "The plural version of modelKey.",
+    "expose": "NONE",
+    "fieldKey": "modelKeyPlural",
+    "properties": {"transient": true, "final": true}
+  },
+  "modelKeyLower": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The lower version of modelKey.",
+    "expose": "NONE",
+    "fieldKey": "modelKeyLower",
+    "length": 64,
+    "properties": {"transient": true, "final": true}
+  },
+  "modelKeyPluralLower": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The plural lower version of modelKey.",
+    "expose": "NONE",
+    "fieldKey": "modelKeyPluralLower",
+    "properties": {"transient": true, "final": true}
+  },
+  "javascriptType": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The javascript type version. ",
+    "expose": "NONE",
+    "fieldKey": "javascriptType",
+    "properties": {"transient": true, "final": true}
+  },
+  "dbAnnotated": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true a db annotation will be generated for java instance vars. ",
+    "expose": "NONE",
+    "fieldKey": "dbAnnotated"
+  },
+  "projectDirectory": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Base directory for the projects generated files.",
+    "expose": "NONE",
+    "fieldKey": "projectDirectory",
     "length": 64
+  },
+  "javaGetMethod": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Base directory for the projects generated files.",
+    "expose": "NONE",
+    "fieldKey": "javaGetMethod",
+    "properties": {"transient": true, "final": true}
+  },
+  "javaSetMethod": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Base directory for the projects generated files.",
+    "expose": "NONE",
+    "fieldKey": "javaSetMethod",
+    "properties": {"transient": true, "final": true}
+  },
+  "javaHasMethod": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Base directory for the projects generated files.",
+    "expose": "NONE",
+    "fieldKey": "javaHasMethod",
+    "properties": {"transient": true, "final": true}
+  },
+  "javaDescription": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Base directory for the projects generated files.",
+    "expose": "NONE",
+    "fieldKey": "javaDescription",
+    "properties": {"transient": true, "final": true}
+  },
+  "abstract": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true the generated model will be initially set as abstract class.",
+    "expose": "NONE",
+    "fieldKey": "abstract"
+  },
+  "super": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true the generated model will be initially set as abstract class.",
+    "expose": "NONE",
+    "fieldKey": "super"
   }
 }

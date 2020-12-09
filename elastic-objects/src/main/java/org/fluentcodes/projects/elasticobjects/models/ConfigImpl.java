@@ -20,11 +20,11 @@ import java.util.Map;
 /**
  * Created by Werner on 10.10.2016.
  */
-public abstract class ConfigImpl extends BaseImpl implements Config {
-    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false}|*/
+public abstract class ConfigImpl extends BaseImpl implements Config, ConfigProperties {
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, JAVA, override eq false}|*/
     /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, JAVA}|*/
     private  Expose expose;
     private final  String module;
     private final  String moduleScope;
@@ -116,7 +116,7 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         }
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, JAVA}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, JAVA}|*/
 
     /**
      expose
@@ -132,11 +132,6 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         return this.expose;
     }
 
-    @Override
-    public boolean hasExpose () {
-        return expose!= null;
-    }
-
     /**
      Defines a target module where generating occurs.
      */
@@ -144,11 +139,6 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
     @Override
     public String getModule () {
         return this.module;
-    }
-
-    @Override
-    public boolean hasModule () {
-        return module!= null && !module.isEmpty();
     }
 
     /**
@@ -160,11 +150,6 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         return this.moduleScope;
     }
 
-    @Override
-    public boolean hasModuleScope () {
-        return moduleScope!= null && !moduleScope.isEmpty();
-    }
-
     /**
      Properties for configurations.
      */
@@ -172,11 +157,6 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
     @Override
     public Map getProperties () {
         return this.properties;
-    }
-
-    @Override
-    public boolean hasProperties () {
-        return properties!= null && !properties.isEmpty();
     }
 
     /**
@@ -188,9 +168,5 @@ public abstract class ConfigImpl extends BaseImpl implements Config {
         return this.scope;
     }
 
-    @Override
-    public boolean hasScope () {
-        return scope!= null && !scope.isEmpty();
-    }
     /*=>{}.*/
 }

@@ -1,13 +1,68 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.calls.values.StringLowerCall;
+import org.fluentcodes.projects.elasticobjects.calls.values.StringPluralCall;
+import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-public interface ModelConfigProperties extends ModelConfigInterface {
+import java.util.List;
+
+public interface ModelConfigProperties extends ConfigProperties, Base {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
     String SHAPE_TYPE = "shapeType";
     String CREATE = "create";
     String CLASS_PATH = "classPath";
+    String ID_KEY = "idKey";
+    String NATURAL_KEYS = "naturalKeys";
+    String TABLE = "table";
+
+    default boolean hasTable() {
+        return getTable()!=null && !getTable().isEmpty();
+    }
+
+    default String getTable() {
+        return hasProperties() ? (String) getProperties().get(TABLE) : null;
+    }
+
+    default boolean hasIdKey() {
+        return getIdKey()!=null && !getIdKey().isEmpty();
+    }
+
+    default String getIdKey() {
+        return hasProperties() ? (String) getProperties().get(ID_KEY) : null;
+    }
+
+    default boolean hasNaturalKeys() {
+        return getNaturalKeys()!=null && !getNaturalKeys().isEmpty();
+    }
+
+    default String getNaturalKeys() {
+        return hasProperties() ? (String) getProperties().get(NATURAL_KEYS) : null;
+    }
+
+    String getModelKey();
+    default boolean hasModelKey() {
+        return getModelKey()!=null && !getModelKey().isEmpty();
+    }
+
+    String getPackagePath();
+    default boolean hasPackagePath() {
+        return getPackagePath()!=null && !getPackagePath().isEmpty();
+    }
+
+    List<String> getFieldKeys();
+
+    String getSuperKey();
+    default boolean hasSuperKey() {
+        return getSuperKey()!=null && !getSuperKey().isEmpty();
+    }
+
+    String getInterfaces();
+    default boolean hasInterfaces() {
+        return getInterfaces()!=null && !getInterfaces().isEmpty();
+    }
+
 
     default boolean hasCreate() {
         return getCreate()!=null;
@@ -52,5 +107,53 @@ public interface ModelConfigProperties extends ModelConfigInterface {
         return hasProperties()?(String)getProperties().get(CLASS_PATH):null;
     }
 
+    default boolean isList() {
+        return (this instanceof ModelConfigList);
+    }
 
+    default boolean isMap() {
+        return (this instanceof ModelConfigMap);
+    }
+
+    default boolean isSet() {
+        return (this instanceof ModelConfigSet);
+    }
+
+    default boolean isScalar() {
+        return (this instanceof ModelConfigScalar);
+    }
+
+    default boolean isObject() {
+        return (this instanceof ModelConfigObject);
+    }
+
+    default boolean isCall() {
+        return isObject () && getShapeType() == ShapeTypes.CALL_BEAN;
+    }
+
+    default boolean isInterface() {
+        return isObject () && getShapeType() == ShapeTypes.INTERFACE;
+    }
+
+    default boolean isContainer() {
+        return !isScalar();
+    }
+
+    default boolean isNumber() {
+        return false;
+    }
+
+    default boolean hasModel() {
+        return true;
+    }
+
+    default boolean isCreate() {
+        return getCreate();
+    }
+    default boolean isNull() {
+        return false;
+    }
+    default boolean isEnum() {
+        return false;
+    }
 }

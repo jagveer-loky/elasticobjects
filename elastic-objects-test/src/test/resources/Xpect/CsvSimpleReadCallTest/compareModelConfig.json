@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "colKeys",
       "1": "filter",
@@ -30,6 +27,9 @@
       "22": "id",
       "23": "naturalId"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
     "interfaces": "ListInterface",
     "modelKey": "CsvSimpleReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",

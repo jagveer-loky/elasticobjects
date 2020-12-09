@@ -36,7 +36,7 @@ public class ConfigDivTest {
     @Test
     public void testMap()  {
         
-        ModelConfigInterface mapModel = ProviderRootTestScope.EO_CONFIGS.findModel(Map.class.getSimpleName());
+        ModelConfig mapModel = ProviderRootTestScope.EO_CONFIGS.findModel(Map.class.getSimpleName());
         Assert.assertEquals(Map.class.getSimpleName(), mapModel.getModelKey());
         Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());
@@ -49,7 +49,7 @@ public class ConfigDivTest {
 
     @Test
     public void scalarModel__setKeyValue__exception()  {
-        ModelConfigInterface scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(String.class.getSimpleName());
+        ModelConfig scalarModel = ProviderRootTestScope.EO_CONFIGS.findModel(String.class.getSimpleName());
         Assert.assertEquals(String.class.getSimpleName(), scalarModel.getModelKey());
         Assert.assertTrue(scalarModel.isScalar());
 

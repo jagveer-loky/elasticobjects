@@ -21,23 +21,9 @@ public class ModelConfigSet extends ModelConfig {
         super(provider, map);
     }
 
-    /*@Override
-    public String getTable() {
-        return null;
-    }
-     */
-
     @Override
-    public ModelConfigInterface getFieldModel(final String fieldName)  {
+    public ModelConfig getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
-    }
-    @Override
-    public boolean hasSetter(final String fieldName) {
-        return true;
-    }
-    @Override
-    public boolean hasGetter(final String fieldName) {
-        return true;
     }
 
     @Override
@@ -199,24 +185,8 @@ public class ModelConfigSet extends ModelConfig {
         return new ArrayList();
     }
     @Override
-    public boolean isCreate() {
-        return true;
-    }
-    @Override
     public boolean hasModel() {
         return false;
-    }
-    @Override
-    public boolean isSet() {
-        return true;
-    }
-    @Override
-    public boolean isList() {
-        return true;
-    }
-    @Override
-    public boolean isListType() {
-        return true;
     }
 
 

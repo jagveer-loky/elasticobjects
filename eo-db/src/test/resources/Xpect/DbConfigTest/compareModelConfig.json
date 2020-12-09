@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": false,
-    "(ShapeTypes)shapeType": "CONFIG",
     "(ArrayList)fieldKeys": {
       "0": "dbType",
       "1": "driver",
@@ -27,14 +24,17 @@
       "19": "user",
       "20": "permissionRole"
     },
-    "interfaces": "DbProperties",
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "dbType",
       "1": "driver",
       "2": "extension",
       "3": "jndi",
       "4": "schema"
     },
+    "classPath": "src.main.java",
+    "create": false,
+    "(ShapeTypes)shapeType": "CONFIG",
+    "interfaces": "DbProperties",
     "modelKey": "DbConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "superKey": "HostConfig",

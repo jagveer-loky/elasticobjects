@@ -1,8 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
 
-public interface DbSqlProperties extends Config {
+public interface DbSqlProperties extends Config, ConfigProperties {
     final static String DB_KEY = "dbKey";
 
     default boolean hasDbKey() {

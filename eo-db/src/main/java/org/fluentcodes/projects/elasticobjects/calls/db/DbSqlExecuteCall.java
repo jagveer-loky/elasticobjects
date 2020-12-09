@@ -20,10 +20,10 @@ import java.util.List;
 public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
     public DbSqlExecuteCall()  {
         super();
@@ -65,7 +65,7 @@ public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
         }
         return executed;
     }
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
 
 }

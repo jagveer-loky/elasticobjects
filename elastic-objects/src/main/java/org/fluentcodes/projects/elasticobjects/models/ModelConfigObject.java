@@ -48,10 +48,10 @@ public class ModelConfigObject extends ModelConfig {
         return null;
     }
     public static String setter(final String field) {
-        return "set" + StringUpperFirstCharCall.upperFirstCharacter(field);
+        return "set" + StringUpperFirstCharCall.upper(field);
     }
     public static String getter(final String field) {
-        return "get" + StringUpperFirstCharCall.upperFirstCharacter(field);
+        return "get" + StringUpperFirstCharCall.upper(field);
     }
 
 
@@ -67,7 +67,7 @@ public class ModelConfigObject extends ModelConfig {
         return null;
     }
     @Override
-    public ModelConfigInterface getFieldModel(final String fieldName)  {
+    public ModelConfig getFieldModel(final String fieldName)  {
         resolve();
         return getFieldConfig(fieldName).getModelConfig();
     }
@@ -104,14 +104,14 @@ public class ModelConfigObject extends ModelConfig {
         return counter;
     }
 
-    public List<Object> keysAsIs(Object object)  {
-        resolve();
-        return (List) this.getFieldKeys();
-    }
-
-    @Override
-    public boolean hasSetter(final String fieldName) {
-        return setterMap.containsKey(fieldName);
+    protected boolean isFinal(final String fieldName) {
+        if (!getFieldCacheMap().containsKey(fieldName)) {
+            return true;
+        }
+        if (getFieldConfig(fieldName).isTransient()) {
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -119,6 +119,9 @@ public class ModelConfigObject extends ModelConfig {
         resolve();
         if (fieldName == null) {
             throw new EoException("Setter: null key request for " + this.getModelKey() + "! ");
+        }
+        if (isFinal(fieldName)) {
+            return;
         }
         final Method setter = setterMap.get(fieldName);
         if (setter == null) {
@@ -145,17 +148,13 @@ public class ModelConfigObject extends ModelConfig {
         String fieldName = ScalarConverter.toString(fieldNameAsObject);
         final Method getter = getterMap.get(fieldName);
         if (getter == null) {
-            throw new EoException("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+            throw new EoException("Get not defined:  '" + this.getModelKey() + ".get" + fieldName + "'. ");
         }
         try {
             return getter.invoke(object, null);
         } catch (Exception e) {
             throw new EoException(e);
         }
-    }
-    @Override
-    public boolean hasGetter(final String fieldName) {
-        return getterMap.containsKey(fieldName);
     }
 
     @Override
@@ -166,7 +165,7 @@ public class ModelConfigObject extends ModelConfig {
         }
         final Method getter = getterMap.get(fieldName);
         if (getter == null) {
-            throw new EoException("No getter defined for " + this.getModelKey() + "." + fieldName + " but essential for object instance var access. ");
+            throw new EoException("Get not defined:  '" + this.getModelKey() + ".get" + fieldName + "'. ");
         }
         try {
             return getter.invoke(object, null);
@@ -259,12 +258,12 @@ public class ModelConfigObject extends ModelConfig {
             return;
         }
         for (String fieldKey : getFieldKeys()) {
-            ModelConfigInterface fieldType;
+            ModelConfig fieldType;
             String fieldName;
             FieldConfig fieldConfig = getConfigsCache().findField(fieldKey);
             fieldName = fieldConfig.getFieldKey();
             if (fieldName == null) {
-                throw new EoException("Null fieldName?! " + fieldName);
+                throw new EoException("Null fieldName?! " + fieldKey);
             }
             fieldConfig.addModel(this);
             getFieldCacheMap().put(fieldName, fieldConfig);
@@ -291,17 +290,18 @@ public class ModelConfigObject extends ModelConfig {
             }
 
             Class fieldTypeClass = fieldType.getModelClass();
-            String fieldNameUpper = StringUpperFirstCharCall.upperFirstCharacter(fieldName);
+            String fieldNameUpper = StringUpperFirstCharCall.upper(fieldName);
             if (this.getShapeType() != ShapeTypes.CONFIG) {
                 try {
                     Method setterField = findSetMethod(getModelClass(), setter(fieldName), fieldTypeClass);
                     setterMap.put(fieldName, setterField);
                 } catch (Exception e) {
+                    LOG.debug("Setter not resolved '"+ getModelKey() + ".set" + fieldNameUpper + "': " + e.getMessage());
                     try {
                         Method setterField = findSetMethod(getModelClass(), setter(fieldName), Object.class);
                         setterMap.put(fieldName, setterField);
                     } catch (Exception e1) {
-                        LOG.debug("Could not resolve getter for add " + fieldNameUpper + ": " + e1.getMessage());
+                        //LOG.debug("Could not resolve '"+ getModelKey() + ".set" + fieldNameUpper + \"': " + e1.getMessage());
                     }
                 }
             }
@@ -315,7 +315,7 @@ public class ModelConfigObject extends ModelConfig {
                 }
                 getterMap.put(fieldName, getterField);
             } catch (Exception e) {
-                    LOG.debug("Could not resolve getter for find" + fieldNameUpper + ": " + e.getMessage());
+                    LOG.debug("Getter not resolved '" + getModelKey()+ ".get" + fieldNameUpper + ": " + e.getMessage());
             }
         }
     }
@@ -370,20 +370,5 @@ public class ModelConfigObject extends ModelConfig {
             return false;
         }
         return getModelKey().equals(modelCache.getModelKey());
-    }
-    public boolean isCall() {
-        return  getShapeType() == ShapeTypes.CALL_BEAN;
-    }
-
-    public boolean isInterface() {
-        return getShapeType() == ShapeTypes.INTERFACE;
-    }
-    @Override
-    public boolean isCreate() {
-        return getCreate();
-    }
-    @Override
-    public boolean isObject() {
-        return true;
     }
 }

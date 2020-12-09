@@ -6,20 +6,21 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * For setting upper value to EO.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 14:37:19 CET 2020
+ * @modificationDate Tue Dec 08 12:02:53 CET 2020
  */
 public class StringUpperCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
     @Override
     public String execute(final EO eo) {
@@ -58,7 +59,7 @@ public class StringUpperCall extends CallImpl implements SimpleCommand {
         }
         return builder.toString();
     }
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
 }

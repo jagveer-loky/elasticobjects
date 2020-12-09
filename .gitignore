@@ -12,3 +12,4 @@ out/*
 eo-db-hibernate/
 builder-sandboxes/
 builder-projects/
+.DS_Store

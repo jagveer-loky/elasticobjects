@@ -18,8 +18,10 @@ import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -175,6 +177,9 @@ public abstract class Parser {
     }
 
     private String replacePathValues(final EO eo, String pathOrKey) {
+        if (pathOrKey.contains("modelKeyLower")) {
+            System.out.println("");
+        }
         if (pathOrKey.startsWith(SYSTEM_CHAR)) {
             return getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
         }
@@ -194,7 +199,11 @@ public abstract class Parser {
                 .replaceAll(PARENT, eo.getParentKey())
                 .replaceAll(PARENT, eo.getParentKey());
 
-        return eo.getEo(pathOrKey).toString();
+        Object value = eo.get(pathOrKey);
+        if (value instanceof Date) {
+            return value.toString();
+        }
+        return ScalarConverter.toString(value);
     }
 
     protected Object callCommand(final EO eo, final String callDirective, final String finish, final String defaultValue) {

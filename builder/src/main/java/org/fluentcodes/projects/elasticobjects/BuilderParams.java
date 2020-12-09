@@ -7,14 +7,29 @@ import com.lexicalscope.jewel.cli.Option;
  * http://jewelcli.lexicalscope.com/usage.html nice documentation
  */
 public interface BuilderParams {
-    @Option(shortName = "b",  defaultToNull = true)
-    String getBuilder();
+    String PARAMS_DEFAULT_JSON = "ParamsDefault.json";
+    @Option(shortName = "c",  defaultValue = PARAMS_DEFAULT_JSON)
+    String getCallJson();
+
+    @Option(shortName = "t", defaultToNull = true)
+    String getTargetFileConfigKey();
+    default boolean hasTargetFileConfigKey() {return getTargetFileConfigKey() != null && ! getTargetFileConfigKey().isEmpty();}
+
+    @Option(shortName = "s",  defaultToNull = true)
+    String getSourceFileConfigKey();
+    default boolean hasSourceFileConfigKey() {return getSourceFileConfigKey() != null && ! getSourceFileConfigKey().isEmpty();}
 
     @Option(shortName = "p",  defaultToNull = true)
-    String getBuildPath();
+    String getProjectDirectory();
+    default boolean hasProjectDirectory() {
+        return getProjectDirectory()!=null && !getProjectDirectory().isEmpty();
+    }
 
-    @Option(shortName = "m", defaultToNull = true)
+    @Option(shortName = "y", defaultToNull = true)
     String getConfigType();
+    default boolean hasConfigType() {
+        return getConfigType()!=null && !getConfigType().isEmpty();
+    }
 
     @Option(shortName = "m", defaultToNull = true)
     String getModule();
@@ -22,7 +37,13 @@ public interface BuilderParams {
         return getModule()!=null && !getModule().isEmpty();
     }
 
-    @Option(shortName = "s", defaultValue = "main")
+    @Option(shortName = "f", defaultToNull = true)
+    String getFileEnding();
+    default boolean hasFileEnding() {
+        return getFileEnding()!=null && !getFileEnding().isEmpty();
+    }
+
+    @Option(shortName = "o", defaultToNull = true)
     String getModuleScope();
     default boolean hasModuleScope() {
         return getModuleScope()!=null && !getModuleScope().isEmpty();

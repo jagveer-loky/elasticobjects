@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": false,
-    "(ShapeTypes)shapeType": "CONFIG",
     "(ArrayList)fieldKeys": {
       "0": "fieldKey",
       "1": "modelKeys",
@@ -21,12 +18,15 @@
       "13": "id",
       "14": "naturalId"
     },
-    "interfaces": "FieldProperties",
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "fieldKey",
       "1": "modelKeys",
       "2": "modelList"
     },
+    "classPath": "src.main.java",
+    "create": false,
+    "(ShapeTypes)shapeType": "CONFIG",
+    "interfaces": "FieldProperties",
     "modelKey": "FieldConfig",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "superKey": "ConfigImpl",

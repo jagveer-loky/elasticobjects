@@ -1,12 +1,4 @@
 <h6>Compute Sinus</h6>
- <p>
-     With the
-      ==>{GithubLinkCall->ModelConfig, SinusValueCall}. a sinus can be computed.
-    The example read the value from
-     ==>{ConfigLinkCall->FieldConfig, sourcePath}.
-     source and set the ==>{ConfigLinkCall->FieldConfig, targetPath}.
-     target value with the sinus value.
- </p>
 
  <form action="/eo-form" method="post" target="example" >
      <textarea name="eo" style="height:120px">{
@@ -19,5 +11,9 @@
 }</textarea>
      <input type="submit" value="post"/>
  </form>
-<p>You can change the value of source or the path itself to see it really works.
-    "_serializationType" with value "STANDARD" will return a non typed JSON. </p>
+
+<p>
+    ==>{GithubLinkCall->ModelConfig, SinusValueCall}. compute the sinus from the
+    ==>{ConfigLinkCall->FieldConfig, sourcePath}. "source".
+    The result will set in the ==>{ConfigLinkCall->FieldConfig, targetPath}. "target".
+</p>

@@ -28,7 +28,7 @@ public class EoAnObjectSetTest {
         ModelConfigInterface cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
         Assert.assertNotNull(cache.getFieldConfig(AnObject.MY_STRING));
         Assert.assertEquals(AnObject.MY_STRING, cache.getFieldConfig(AnObject.MY_STRING).getFieldKey());
-        ModelConfigInterface aSubObject = cache.getFieldModel(AnObject.MY_ASUB_OBJECT);
+        ModelConfig aSubObject = cache.getFieldModel(AnObject.MY_ASUB_OBJECT);
         Assert.assertEquals(ASubObject.class.getSimpleName(), aSubObject.getModelKey());
         Assert.assertEquals(AnObject.MY_STRING, aSubObject.getFieldConfig(AnObject.MY_STRING).getFieldKey());
     }
@@ -39,8 +39,8 @@ public class EoAnObjectSetTest {
                 .findModel(AnObject.class)
                 .getFieldConfig(AnObject.MY_STRING);
         Assert.assertNotNull(fieldConfig);
-        Assert.assertFalse(fieldConfig.getUnique());
-        Assert.assertFalse(fieldConfig.getNotNull());
+        Assertions.assertThat(fieldConfig.hasUnique()).isFalse();
+        Assertions.assertThat(fieldConfig.hasNotNull()).isFalse();
         //Assert.assertTrue(fieldDefinitions.isElementary());
         //Assert.assertTrue(fieldDefinitions.isScalar());
         Assert.assertEquals(new Integer(20), fieldConfig.getLength());
@@ -130,7 +130,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void getFields()  {
-        ModelConfigInterface cache = ProviderRootTestScope.findModel(AnObject.class);
+        ModelConfig cache = ProviderRootTestScope.findModel(AnObject.class);
         Assert.assertEquals(AnObject.class.getSimpleName(), cache.getModelKey());
         AnObject anObject = (AnObject) cache.create();
         cache.set(AnObject.MY_STRING, anObject, S_STRING);

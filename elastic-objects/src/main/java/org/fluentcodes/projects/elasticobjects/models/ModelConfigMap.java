@@ -19,7 +19,7 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterface 
     }
 
     @Override
-    public ModelConfigInterface getFieldModel(final String fieldName)  {
+    public ModelConfig getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }
 
@@ -116,27 +116,5 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterface 
         resolve();
         return new LinkedHashMap<>();
     }
-    @Override
-    public boolean hasSetter(final String fieldName) {
-        return true;
-    }
-    @Override
-    public boolean hasGetter(final String fieldName) {
-        return true;
-    }
-    @Override
-    public boolean isCreate() {
-        return true;
-    }
-    @Override
-    public boolean isMap() {
-        return true;
-    }
-    @Override
-    public boolean isMapType() {
-        return true;
-    }
-
-
 
 }

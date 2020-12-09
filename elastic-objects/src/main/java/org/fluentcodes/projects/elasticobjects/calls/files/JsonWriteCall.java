@@ -5,22 +5,24 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+
 /**
  * Serialize the value of the sourcePath as JSON and write it to a file
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 16:15:09 CET 2020
+ * @modificationDate Tue Dec 08 09:49:43 CET 2020
  */
 public class JsonWriteCall extends FileWriteCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String INDENT = "indent";
    public static final String SERIALIZATION_TYPE = "serializationType";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  Integer indent;
    private  JSONSerializationType serializationType;
 /*=>{}.*/
@@ -48,7 +50,7 @@ public class JsonWriteCall extends FileWriteCall  {
         return super.execute(eo);
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     The number of indent for serialization level.
     */
@@ -57,7 +59,7 @@ public class JsonWriteCall extends FileWriteCall  {
         this.indent = indent;
         return this;
     }
-
+    
     public Integer getIndent () {
        return this.indent;
     }

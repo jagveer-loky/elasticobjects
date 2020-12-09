@@ -8,21 +8,22 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Defines a primitive csv file write operation. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Wed Nov 11 06:14:13 CET 2020
+ * @modificationDate Tue Dec 08 11:26:51 CET 2020
  */
 public class CsvSimpleWriteCall extends FileWriteCall implements ListInterface {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String LIST_PARAMS = "listParams";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  ListParams listParams;
 /*=>{}.*/
 
@@ -73,20 +74,20 @@ public class CsvSimpleWriteCall extends FileWriteCall implements ListInterface {
         setContent(buffer.toString());
         return super.execute(eo);
     }
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
-    Filter for the readings within {{@link link} ListAction}.
+    Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */
-
+@Override
     public CsvSimpleWriteCall setListParams(ListParams listParams) {
         this.listParams = listParams;
         return this;
     }
-    
+    @Override
     public ListParams getListParams () {
        return this.listParams;
     }
-    
+    @Override
     public boolean hasListParams () {
         return listParams!= null;
     }

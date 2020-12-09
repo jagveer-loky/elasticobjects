@@ -1,36 +1,7 @@
 <a name="sendingATemplate">
-<h6>Sending a Template</h6>
+<h6>Csv, Excel and DB Together</h6>
 </a>
 
-<p>
-
-    ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. has the generic endpoint "eo-template". Here
-    one can send template content directly.
-</p>
-
-<p>
-    In the following example all data read example calls are integrated in
-    an editable template storing values in different paths:
-</p>
-
-<ul>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. with
-        ==>{ConfigLinkCall->FileConfig, AnObject.csv}.</li>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, XlsxReadCall}. with
-        ==>{ConfigLinkCall->FileConfig, AnObject.xlsx:test}.</li>
-    <li>
-        ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. with
-        ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</li>
-</ul>
-<p>
-    After each reading the
-    ==>{ConfigLinkCall->ModelConfig, AnObject}. example data a
-    ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. will render this
-    data with
-    ==>{ConfigLinkCall->FileConfig, table.tpl}. again.
-</p>
 <form action="/eo-template" method="post" target="example">
     <textarea name="template" style="height:210px">
 <h1>An Example Template</h1>
@@ -49,3 +20,23 @@
 </textarea>
     <input type="submit" value="post"/>
 </form>
+
+<p>
+All implemented list read calls are integrated in
+    that editable template:
+    </p>
+<ul>
+    <li>
+        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. set
+        ==>{ConfigLinkCall->FileConfig, AnObject.csv}. to "data/csv"</li>
+    <li>
+        ==>{ConfigLinkCall->ModelConfig, XlsxReadCall}. with
+        ==>{ConfigLinkCall->FileConfig, AnObject.xlsx:test}. to "data/xlsx"</li>
+    <li>
+        ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. with
+        ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.  to "data/db"</li>
+</ul>
+<p>
+==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. will the render the data with
+==>{ConfigLinkCall->FileConfig, table.tpl}.
+</p>

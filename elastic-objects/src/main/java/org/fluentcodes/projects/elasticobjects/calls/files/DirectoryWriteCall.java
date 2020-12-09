@@ -6,21 +6,22 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracke
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Defines a file write operation for a directory configuration {@link DirectoryConfig} specified by fileConfigKey. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 16:34:30 CET 2020
+ * @modificationDate Tue Dec 08 09:43:38 CET 2020
  */
 public class DirectoryWriteCall extends FileWriteCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String FILE_NAME = "fileName";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String fileName;
 /*=>{}.*/
     public DirectoryWriteCall() {
@@ -59,7 +60,7 @@ public class DirectoryWriteCall extends FileWriteCall  {
         return "Written content with  length " + getContent().length() + " to file '" + url + "'" ;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}. 
     */

@@ -1,15 +1,4 @@
 <h6>Read a Flat File</h6>
-<p>
-    In the following example
-    the content of \
-    ==>{GithubLinkCall->NONE, SPI|data.files|public.txt}. is set to the
-    ==>{ConfigLinkCall->FieldConfig, targetPath}. xyz via
-    ==>{GithubLinkCall->ModelConfig, FileReadCall}..
-</p>
-<p>
-    The fileConfigKey refers to a configuration in
-    ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L302}.
-</p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
         "(FileReadCall)xyz":{
@@ -19,11 +8,14 @@
 }</textarea>
     <input type="submit" value="post"/>
 </form>
+
 <p>
-    If you click, you will see the content is set to  "xyz" since
-    your role "guest" with the generic interface is in the read permissions.
+    ==>{GithubLinkCall->ModelConfig, FileReadCall}. will resolve \
+    ==>{GithubLinkCall->NONE, SPI|data.files|public.txt}. from
+    the \
+    ==>{GithubLinkCall->NONE, SPR||FileConfig.json#L302}.
 </p>
 <p>
-    If you remove "_serializationType" you can see the hidden fields used by EO, for example the duration of
-    this call.
+    The content of the file will set to the
+    ==>{ConfigLinkCall->FieldConfig, targetPath}. "xyz".
 </p>

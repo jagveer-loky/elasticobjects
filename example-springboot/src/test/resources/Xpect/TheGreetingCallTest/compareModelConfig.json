@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "greeting",
       "1": "condition",
@@ -23,10 +20,13 @@
       "15": "id",
       "16": "naturalId"
     },
-    "interfaces": "SimpleCommand",
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "greeting"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "interfaces": "SimpleCommand",
     "modelKey": "TheGreetingCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "superKey": "CallImpl",

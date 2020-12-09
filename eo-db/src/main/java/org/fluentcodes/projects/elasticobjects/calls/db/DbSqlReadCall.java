@@ -4,6 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
+import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
@@ -22,12 +23,12 @@ import java.util.List;
 public class DbSqlReadCall extends DbSqlCall implements ListInterface,  ConfigReadCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
-   public static final String LIST_PARAMS = "listParams";
+/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+   public static String LIST_PARAMS = "listParams";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
-   private final  ListParams listParams;
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+   private ListParams listParams;
 /*=>{}.*/
 
     public DbSqlReadCall()  {
@@ -84,10 +85,15 @@ public class DbSqlReadCall extends DbSqlCall implements ListInterface,  ConfigRe
                 listParams);
     }
 
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */
+    @Override
+    public DbSqlReadCall setListParams(ListParams listParams) {
+        this.listParams = listParams;
+        return this;
+    }
     @Override
     public ListParams getListParams () {
        return this.listParams;

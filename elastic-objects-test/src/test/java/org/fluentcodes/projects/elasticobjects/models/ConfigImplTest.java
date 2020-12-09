@@ -17,13 +17,13 @@ public class ConfigImplTest {
     @Test
     public void changeProperties()  {
         ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(ConfigImpl.class);
-        Map map = model.getProperties();
+        /*Map map = model.getProperties();
         Assertions
                 .assertThatThrownBy(
                         () -> {
                             model.getProperties().put("newKey", "newValue");
                         })
-                .isInstanceOf(UnsupportedOperationException.class);
+                .isInstanceOf(UnsupportedOperationException.class);*/
     }
 
     @Test

@@ -11,23 +11,24 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracke
 import org.fluentcodes.tools.xpect.IOString;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Write content or serialized eo to a file. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 16:08:19 CET 2020
+ * @modificationDate Tue Dec 08 09:48:45 CET 2020
  */
 public class FileWriteCall extends FileCall implements ConfigWriteCommand,  CallContent {
 /*=>{}.*/
     private static final Logger LOG = LogManager.getLogger(FileWriteCall.class);
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String COMPARE = "compare";
    public static final String CONTENT = "content";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  Boolean compare;
    private  String content;
 /*=>{}.*/
@@ -99,7 +100,7 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
         return this;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     Trigger a compare before writing in @FileWriteCall
     */

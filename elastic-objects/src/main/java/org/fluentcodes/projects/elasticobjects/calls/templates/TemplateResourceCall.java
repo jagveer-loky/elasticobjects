@@ -4,18 +4,22 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Parses the content of a FileConfig configuration. 
- * Created by Werner Diwischek at date Fri Nov 06 08:22:14 CET 2020.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Dec 08 11:38:28 CET 2020
  */
-public class TemplateResourceCall extends FileReadCall {
+public class TemplateResourceCall extends FileReadCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
     public TemplateResourceCall() {
@@ -52,10 +56,14 @@ public class TemplateResourceCall extends FileReadCall {
     }
 
     public String execute(EO eo) {
+        if (!evalCondition(eo)){
+            return "";
+        }
         String content = super.read(eo);
-        return new TemplateCall(content).execute(eo);
+        return new TemplateCall(content)
+                .execute(eo);
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 }

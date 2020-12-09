@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": false,
-    "(ShapeTypes)shapeType": "INTERFACE",
     "(ArrayList)fieldKeys": {
       "0": "condition",
       "1": "duration",
@@ -17,7 +14,7 @@
       "9": "startCondition",
       "10": "targetPath"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "condition",
       "1": "duration",
       "2": "keepCall",
@@ -30,6 +27,9 @@
       "9": "startCondition",
       "10": "targetPath"
     },
+    "classPath": "src.main.java",
+    "create": false,
+    "(ShapeTypes)shapeType": "INTERFACE",
     "modelKey": "Call",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "(Expose)expose": "NONE",

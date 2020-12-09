@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "condition",
       "1": "duration",
@@ -24,6 +21,9 @@
       "16": "id",
       "17": "naturalId"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
     "interfaces": "ConfigWriteCommand",
     "modelKey": "DbModelDeleteCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",

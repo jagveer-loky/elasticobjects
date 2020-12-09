@@ -22,7 +22,7 @@ public class BaseImplTest {
 
     @Test
     public void TEST__findModel__fieldKeys_size_5()  {
-        ModelConfigInterface modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(BaseImpl.class);
+        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(BaseImpl.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(BaseImpl.class, modelConfig.getModelClass());
         Assert.assertEquals(5, modelConfig.getFieldCacheMap().size());

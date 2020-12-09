@@ -62,7 +62,7 @@ public class ModelConfigTest {
     @Test
     public void checkDependentModels()  {
         // Check if basic Models are available
-        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
+        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
         Assert.assertEquals(AnObject.class.getSimpleName(), model.getModelKey());
         model = ProviderRootTestScope.EO_CONFIGS.findModel(ASubObject.class);
         Assert.assertEquals(ASubObject.class.getSimpleName(), model.getModelKey());

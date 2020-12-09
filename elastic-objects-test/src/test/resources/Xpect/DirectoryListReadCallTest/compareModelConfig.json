@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "absolute",
       "1": "condition",
@@ -25,9 +22,12 @@
       "17": "id",
       "18": "naturalId"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "absolute"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
     "modelKey": "DirectoryListReadCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "superKey": "FileReadCall",

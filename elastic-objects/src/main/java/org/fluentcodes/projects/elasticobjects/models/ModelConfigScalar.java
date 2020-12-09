@@ -16,7 +16,7 @@ public class ModelConfigScalar extends ModelConfig {
     }
 
     @Override
-    public ModelConfigInterface getFieldModel(final String fieldName)  {
+    public ModelConfig getFieldModel(final String fieldName)  {
         throw new EoException("Could not get sub field model because no field defined for scalar models: " + fieldName);
     }
 
@@ -80,23 +80,15 @@ public class ModelConfigScalar extends ModelConfig {
     public Object create() {
         return null;
     }
+
     @Override
-    public boolean isScalar() {
-        return true;
+    public boolean isNumber() {
+        return getModelClass().getSimpleName().matches("(Integer|Float|Double|Long)");
     }
 
     @Override
-    public boolean hasSetter(final String fieldName) {
-        return false;
+    public boolean isEnum() {
+        return (getModelClass().isEnum());
     }
-    @Override
-    public boolean hasGetter(final String fieldName) {
-        return false;
-    }
-    @Override
-    public boolean isNull() {
-        return false;
-    }
-
 
 }

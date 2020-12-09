@@ -21,6 +21,7 @@ import java.util.Map;
 public interface ListInterface {
     String LIST_PARAMS = "listParams";
     ListParams getListParams();
+    ListInterface setListParams(ListParams listParams);
     String getTargetPath();
 
     default Integer getRowHead() {

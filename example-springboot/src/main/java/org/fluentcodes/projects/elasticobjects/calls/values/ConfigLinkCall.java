@@ -14,10 +14,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class ConfigLinkCall extends GithubLinkCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
     public ConfigLinkCall() {
         super();
@@ -46,6 +46,6 @@ public class ConfigLinkCall extends GithubLinkCall  {
         builder.append("</a>\n");
         return builder.toString();
     }
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
 /*=>{}.*/
 }

@@ -9,22 +9,24 @@ import java.util.Arrays;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import java.util.ArrayList;
+
 /**
- * Creates a flat list from configurations.
+ * Creates a flat list from all loaded configurations for a specific configType.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Wed Nov 11 05:00:09 CET 2020
+ * @modificationDate Tue Dec 08 09:31:09 CET 2020
  */
 public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String CONFIG_TYPE = "configType";
    public static final String FIELD_KEYS = "fieldKeys";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String configType;
    private  List<String> fieldKeys;
 /*=>{}.*/
@@ -46,7 +48,7 @@ public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
                 .asString(eo, resultAsListMap, fieldKeys);
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
     Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
     */

@@ -274,7 +274,7 @@ public class ParserCurlyBracketTest {
                 "=>{val1}.";
         String result = new ParserCurlyBracket(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).isEqualTo("{\n  \"a\": \"1\"\n}");
+        Assertions.assertThat(result).isEqualTo("{a=1}");
     }
 
 

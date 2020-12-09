@@ -7,20 +7,21 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * For setting sinus value to EO.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 14:26:08 CET 2020
+ * @modificationDate Tue Dec 08 15:52:04 CET 2020
  */
 public class SinusValueCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
     @Override
     public Object execute(final EO eo) {
@@ -33,6 +34,6 @@ public class SinusValueCall extends CallImpl implements SimpleCommand {
             throw new EoException(e.getMessage());
         }
     }
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 }

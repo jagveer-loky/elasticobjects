@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "configType",
       "1": "fieldKeys",
@@ -24,11 +21,14 @@
       "16": "id",
       "17": "naturalId"
     },
-    "interfaces": "SimpleCommand",
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "configType",
       "1": "fieldKeys"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "interfaces": "SimpleCommand",
     "modelKey": "ConfigAsFlatListCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",
     "superKey": "CallImpl",

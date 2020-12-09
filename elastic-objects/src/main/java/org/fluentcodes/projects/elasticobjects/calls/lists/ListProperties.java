@@ -1,14 +1,18 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
 
+import java.util.List;
+
+import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.COL_KEYS;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.FILTER_RAW;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.LENGTH;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.ROW_END;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.ROW_HEAD;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.ROW_START;
 
-public interface ListProperties extends Config {
+public interface ListProperties extends Config, ConfigProperties {
     
     default boolean hasRowHead() {
         return getRowHead()!=null;
@@ -20,7 +24,21 @@ public interface ListProperties extends Config {
 
     default void setRowHead(final Integer value) {
         if (hasProperties()) {
-            getProperties().put(value, ROW_HEAD);
+            getProperties().put(ROW_HEAD, value);
+        }
+    }
+
+    default boolean hasColKeys() {
+        return getColKeys()!=null && !getColKeys().isEmpty();
+    }
+
+    default List<String> getColKeys() {
+        return hasProperties()?(List<String>)getProperties().get(COL_KEYS):null;
+    }
+
+    default void setColKeys(final List<String> value) {
+        if (hasProperties()) {
+            getProperties().put(COL_KEYS, value);
         }
     }
 
@@ -34,7 +52,7 @@ public interface ListProperties extends Config {
 
     default void setRowStart(final Integer value) {
         if (hasProperties()) {
-            getProperties().put(value, ROW_START);
+            getProperties().put(ROW_START, value);
         }
     }
 
@@ -48,7 +66,7 @@ public interface ListProperties extends Config {
 
     default void setRowEnd(final Integer value) {
         if (hasProperties()) {
-            getProperties().put(value, ROW_END);
+            getProperties().put(ROW_END, value);
         }
     }
 
@@ -62,7 +80,7 @@ public interface ListProperties extends Config {
 
     default void setLength(final Integer value) {
         if (hasProperties()) {
-            getProperties().put(value, LENGTH);
+            getProperties().put(LENGTH, value);
         }
     }
 
@@ -76,7 +94,7 @@ public interface ListProperties extends Config {
 
     default void setFilter(final String value) {
         if (hasProperties()) {
-            getProperties().put(value, FILTER_RAW);
+            getProperties().put(FILTER_RAW, value);
         }
     }
 

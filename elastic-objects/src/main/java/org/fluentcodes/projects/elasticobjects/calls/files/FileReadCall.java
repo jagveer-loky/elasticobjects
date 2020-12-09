@@ -10,20 +10,21 @@ import org.fluentcodes.tools.xpect.IOBytes;
 import org.fluentcodes.tools.xpect.IOString;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
- * Read content of a file. Put it to targetPath in in when targetPath not equals "_asString".
+ * Read content of a file. Store content to targetPath when targetPath not equals "_asString".
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 15:48:03 CET 2020
+ * @modificationDate Tue Dec 08 09:46:41 CET 2020
  */
 public class FileReadCall extends FileCall implements ConfigReadCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
     public FileReadCall() {
         super();
@@ -47,6 +48,7 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
             return fileConfig.getCachedContent();
         }
         String filePath = fileConfig.getFilePath() + "/" + fileConfig.getFileName();
+        filePath = filePath.replaceAll("^\\./","");
         String result = read(eo, filePath);
         if (fileConfig.isCached()) {
             fileConfig.setCachedContent(result);
@@ -68,6 +70,6 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
         }
         return new IOBytes().setFileName(filePath + Path.DELIMITER + fileName).read();
     }
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 }

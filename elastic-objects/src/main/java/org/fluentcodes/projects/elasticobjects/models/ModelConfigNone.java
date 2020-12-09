@@ -17,7 +17,7 @@ public class ModelConfigNone extends ModelConfig {
     }
 
     @Override
-    public ModelConfigInterface getFieldModel(final String fieldName)  {
+    public ModelConfig getFieldModel(final String fieldName)  {
         throw new EoException("No field defined for scalar models: " + fieldName);
     }
 
@@ -25,7 +25,6 @@ public class ModelConfigNone extends ModelConfig {
     public FieldConfig getFieldConfig(final String fieldName)  {
         throw new EoException("No field defined for scalar models: " + fieldName);
     }
-
 
     @Override
     public Class getFieldClass(String fieldName)  {
@@ -90,15 +89,9 @@ public class ModelConfigNone extends ModelConfig {
     public boolean hasModel() {
         return false;
     }
-    @Override
-    public boolean isScalar() {
-        return true;
-    }
 
     @Override
     public boolean isNull() {
         return true;
     }
-
-
 }

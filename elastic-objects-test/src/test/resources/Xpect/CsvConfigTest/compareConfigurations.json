@@ -35,7 +35,7 @@
     "naturalId": "AnObject.json"
   },
   "2": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExample.json",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -46,7 +46,7 @@
     "naturalId": "ContentExample"
   },
   "3": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExampleData.json",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -57,7 +57,7 @@
     "naturalId": "ContentExampleData"
   },
   "4": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExampleDynamic.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -68,7 +68,7 @@
     "naturalId": "ContentExampleDynamic"
   },
   "5": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExampleElement1.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -79,7 +79,7 @@
     "naturalId": "ContentExampleElement1"
   },
   "6": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExampleElement2.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -90,7 +90,7 @@
     "naturalId": "ContentExampleElement2"
   },
   "7": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExampleStatic.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -101,7 +101,7 @@
     "naturalId": "ContentExampleStatic"
   },
   "8": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExampleStaticCondition.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -112,7 +112,7 @@
     "naturalId": "ContentExampleStaticCondition"
   },
   "9": {
-    "cached": false,
+    "cached": true,
     "fileName": "ContentExampleStaticKeep.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
@@ -138,7 +138,7 @@
     "naturalId": "FileTest.txt"
   },
   "11": {
-    "cached": false,
+    "cached": true,
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostConfigKey": "localhost",

@@ -1,29 +1,33 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * For replacing field 'toReplace' by 'replaceBy'.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Tue Nov 10 14:33:04 CET 2020
+ * @modificationDate Tue Dec 08 11:43:01 CET 2020
  */
-public class StringReplaceCall extends CallImpl implements SimpleCommand {
+public class StringReplaceCall extends CallImpl implements CallContent {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String REPLACE_BY = "replaceBy";
    public static final String TO_REPLACE = "toReplace";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String replaceBy;
    private  String toReplace;
+   private String content;
 /*=>{}.*/
 
     public StringReplaceCall() {
@@ -50,7 +54,7 @@ public class StringReplaceCall extends CallImpl implements SimpleCommand {
         if (array.length>1) {
             setToReplace(array[1]);
         }
-        if (array.length>1) {
+        if (array.length>2) {
             setReplaceBy(array[2]);
         }
     }
@@ -67,16 +71,38 @@ public class StringReplaceCall extends CallImpl implements SimpleCommand {
         if (replaceBy == null) {
             throw new EoException("replaceBy is null! ");
         }
-        if (!(eo.get() instanceof String)) {
-            throw new EoException("Value " + eo.getPathAsString() + " for replace is not a String but " + eo.get().getClass());
+        String content = null;
+        if (hasContent()) {
+            content = (String) new TemplateCall(getContent())
+                    .setSourcePath(getSourcePath())
+                    .execute(eo);
         }
-        return ((String)eo.get()).replaceAll(toReplace, replaceBy);
+        else {
+            if (!(eo.get() instanceof String)) {
+                throw new EoException("Value " + eo.getPathAsString() + " for replace is not a String but " + eo.get().getClass());
+            }
+            content = (String) eo.get();
+        }
+        return (content.replaceAll(toReplace, replaceBy));
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+
+    @Override
+    public String getContent() {
+        return content;
+    }
+
+    @Override
+    public StringReplaceCall setContent(String content) {
+        this.content = content;
+        return this;
+    }
+
     /**
     replaceBy
     */
+
     public StringReplaceCall setReplaceBy(String replaceBy) {
         this.replaceBy = replaceBy;
         return this;
@@ -92,6 +118,7 @@ public class StringReplaceCall extends CallImpl implements SimpleCommand {
     /**
     toReplace
     */
+
     public StringReplaceCall setToReplace(String toReplace) {
         this.toReplace = toReplace;
         return this;

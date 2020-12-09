@@ -6,23 +6,27 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., JAVA|>}|*/
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 
 /**
  * Executes a template content. 
- * Created by Werner Diwischek at date Thu Nov 05 22:26:46 CET 2020.
+ *
+ * @author Werner Diwischek
+ * @creationDate 
+ * @modificationDate Tue Dec 08 11:33:49 CET 2020
  */
-public class TemplateCall extends CallImpl implements CallContent {
+public class TemplateCall extends CallImpl implements CallContent, SimpleCommand {
 /*=>{}.*/
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, JAVA, override eq false|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String CONTENT = "content";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String content;
 /*=>{}.*/
 
@@ -82,11 +86,11 @@ public class TemplateCall extends CallImpl implements CallContent {
         super.setTargetPath(x);
         return this;
     }
-    /*==>{ALLSetter.tpl, fieldMap/*, JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
-    A content.
+    A content for different calls. In a template context the content of the markup. 
     */
-    
+
     public TemplateCall setContent(String content) {
         this.content = content;
         return this;

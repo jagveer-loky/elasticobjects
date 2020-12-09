@@ -4,7 +4,9 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -61,7 +63,7 @@ public class EoChild implements EO {
         if (value == null) {
             return;
         }
-        ModelConfigInterface valueModel = getConfigsCache().findModel(value);
+        ModelConfigProperties valueModel = getConfigsCache().findModel(value);
         if (valueModel.isScalar()) {
             if (isScalar()) {
                 setValueChecked(value);
@@ -161,7 +163,15 @@ public class EoChild implements EO {
 
     @Override
     public Object get(final String... pathStrings) {
-        return new Path(pathStrings).moveTo(this).get();
+        try {
+            return new Path(pathStrings).moveTo(this).get();
+        }
+        catch (EoException e) {
+            if (pathStrings.length == 1) {
+                return this.getModel().get(pathStrings[0], get());
+            }
+            throw new EoException(String.join("/", pathStrings) + e.getMessage());
+        }
     }
 
     protected void removeChild(String parentFieldName) {
@@ -256,7 +266,7 @@ public class EoChild implements EO {
         if (value == null) {
             return this;
         }
-        ModelConfigInterface valueModel = getConfigsCache().findModel(value);
+        ModelConfig valueModel = getConfigsCache().findModel(value);
         if (valueModel.isScalar()) {
             if (isScalar()) {
                 setValueChecked(value);
@@ -739,9 +749,11 @@ public class EoChild implements EO {
     public Models getModels() {
         return pathElement.getModels();
     }
-    public ModelConfigInterface getModel() {
+
+    public ModelConfig getModel() {
         return getModels().getModel();
     }
+
     public Models getChildModels(PathElement pathElement) {
         return getModels().getChildModels(this, pathElement);
     }

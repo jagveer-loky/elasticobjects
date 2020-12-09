@@ -21,7 +21,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public abstract class ModelConfig extends ConfigImpl implements ModelConfigProperties {
+public abstract class ModelConfig extends ConfigImpl implements ModelConfigProperties, ModelConfigInterface {
     public static final String MODEL_KEY = "modelKey";
     public static final String FIELD_KEYS = "fieldKeys";
     public static final String INTERFACES = "interfaces";
@@ -36,15 +36,15 @@ public abstract class ModelConfig extends ConfigImpl implements ModelConfigPrope
     private final String interfaces;
 
     private Class modelClass;
-    private ModelConfigInterface superModel;
+    private ModelConfig superModel;
 
     private final List<String> localFieldKeys;
 
     //resolved
     private final List<String> fieldKeys;
     private final Map<String, FieldConfig> fieldCacheMap;
-    private final Map<String, ModelConfigInterface> importClasses;
-    private final Map<String, ModelConfigInterface> interfacesMap;
+    private final Map<String, ModelConfig> importClasses;
+    private final Map<String, ModelConfig> interfacesMap;
 
     public ModelConfig(EOConfigsCache configsCache, Map map) {
         super(configsCache, map);
@@ -154,13 +154,6 @@ public abstract class ModelConfig extends ConfigImpl implements ModelConfigPrope
         return this.localFieldKeys;
     }
 
-    public Set<String> getFieldNames() {
-        if (fieldCacheMap.isEmpty()) {
-            return new HashSet<>();
-        }
-        return fieldCacheMap.keySet();
-    }
-
     private final void setFieldKeys(List<String> fieldsNames) {
         if (isScalar()) {
             return;
@@ -200,7 +193,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelConfigPrope
         return modelClass;
     }
 
-    public Map<String, ModelConfigInterface> getImportClasses() {
+    public Map<String, ModelConfig> getImportClasses() {
         resolve();
         return importClasses;
     }
@@ -240,11 +233,11 @@ public abstract class ModelConfig extends ConfigImpl implements ModelConfigPrope
             this.modelClass = (Class.forName(packagePath + "." + modelKey));
         } catch (Exception e) {
             e.printStackTrace();
-            throw new EoException("Could not resolve class with packagePath " + packagePath + " and modelKey " + modelKey, e);
+            throw new EoException("Class not resolved with packagePath " + packagePath + " and modelKey " + modelKey, e);
         }
     }
 
-    public ModelConfigInterface getSuperModel()  {
+    public ModelConfig getSuperModel()  {
         resolve();
         return superModel;
     }
@@ -253,7 +246,7 @@ public abstract class ModelConfig extends ConfigImpl implements ModelConfigPrope
         if (superKey == null || superKey.isEmpty()) {
             return;
         }
-        ModelConfigInterface model = getConfigsCache().findModel(superKey);
+        ModelConfig model = getConfigsCache().findModel(superKey);
         this.superModel = model;
     }
 
@@ -355,15 +348,11 @@ public abstract class ModelConfig extends ConfigImpl implements ModelConfigPrope
         setFieldKeys();
     }
 
-    public boolean isToSerialize() {
-        return getShapeType() == ShapeTypes.SCALAR_SERIALIZED;
-    }
-
     /*public Object getId(Object object) {
         return this.get(getIdKey(), object);
     }*/
 
-    public boolean equals(ModelConfigInterface modelCache) {
+    public boolean equals(ModelConfig modelCache) {
         if (modelKey == null) {
             return false;
         }
@@ -372,63 +361,4 @@ public abstract class ModelConfig extends ConfigImpl implements ModelConfigPrope
         }
         return modelKey.equals(modelCache.getModelKey());
     }
-
-    @Override
-    public boolean hasSetter(final String fieldName) {
-        return false;
-    }
-    @Override
-    public boolean hasGetter(final String fieldName) {
-        return false;
-    }
-
-    @Override
-    public boolean isNumber() {
-        return false;
-    }
-    @Override
-    public boolean hasModel() {
-        return true;
-    }
-    @Override
-    public boolean isCreate() {
-        return false;
-    }
-    @Override
-    public boolean isMap() {
-        return false;
-    }
-    @Override
-    public boolean isSet() {
-        return false;
-    }
-    @Override
-    public boolean isList() {
-        return false;
-    }
-    @Override
-    public boolean isObject() {
-        return false;
-    }
-    @Override
-    public boolean isListType() {
-        return false;
-    }
-    @Override
-    public boolean isCall() {
-        return false;
-    }
-    @Override
-    public boolean isMapType() {
-        return false;
-    }
-    @Override
-    public boolean isScalar() {
-        return false;
-    }
-    @Override
-    public boolean isNull() {
-        return false;
-    }
-
 }

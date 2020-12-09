@@ -37,7 +37,7 @@ public class FileConfig extends ResourceConfig implements FileConfigInterface {
         super(provider, map);
         this.fileName = (String) map.get(FILE_NAME);
         this.filePath = (String) map.get(FILE_PATH);
-        this.cached = map.containsKey(CACHED) ? ScalarConverter.toBoolean(CACHED) : false;
+        this.cached = map.containsKey(CACHED) ? ScalarConverter.toBoolean(map.get(CACHED)) : false;
         this.hostConfigKey = map.containsKey(HOST_KEY) ? (String) map.get(HOST_KEY) : HostConfig.LOCALHOST;
         this.hostCache = (HostConfig)provider.find(HostConfig.class, hostConfigKey);
     }

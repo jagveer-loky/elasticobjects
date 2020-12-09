@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "replaceBy",
       "1": "toReplace",
@@ -24,11 +21,14 @@
       "16": "id",
       "17": "naturalId"
     },
-    "interfaces": "SimpleCommand",
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "replaceBy",
       "1": "toReplace"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
+    "interfaces": "SimpleCommand",
     "modelKey": "StringReplaceCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "superKey": "CallImpl",

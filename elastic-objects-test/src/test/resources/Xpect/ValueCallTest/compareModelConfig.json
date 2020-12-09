@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "content",
       "1": "condition",
@@ -23,6 +20,9 @@
       "15": "id",
       "16": "naturalId"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
     "interfaces": "CallContent,SimpleCommand",
     "modelKey": "ValueCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",

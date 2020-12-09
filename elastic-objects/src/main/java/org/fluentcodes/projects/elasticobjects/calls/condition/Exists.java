@@ -19,6 +19,7 @@ public class Exists implements Condition {
         this.key = key;
     }
 
+
     public String getKey() {
         return key;
     }
@@ -27,11 +28,13 @@ public class Exists implements Condition {
         return null;
     }
 
+    @Override
     public boolean compare(Object object) {
         //TODO
         return true;
     }
 
+    @Override
     public String createQuery(Map<String, Object> keyValues) {
         //TODO
         return "";
@@ -42,6 +45,7 @@ public class Exists implements Condition {
         return builder.toString();
     }
 
+    @Override
     public boolean filter(List row) {
         if (row == null) {
             LOG.warn("Null row should not occure!");
@@ -60,6 +64,7 @@ public class Exists implements Condition {
         return false;
     }
 
+    @Override
     public boolean filter(EO eo) {
         if (eo == null) {
             throw new EoException("Null adapter should not occure!");

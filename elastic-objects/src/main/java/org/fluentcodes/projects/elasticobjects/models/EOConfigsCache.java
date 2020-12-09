@@ -111,7 +111,7 @@ public class EOConfigsCache {
         }
         Object config = getConfigMap(configClass).find(configKey);
         if (config == null) {
-            throw new EoException("Could not resolve config for configClass " + configClass.getSimpleName() + " for configKey=" + configKey + ".");
+            throw new EoException("Config not resolved configClass " + configClass.getSimpleName() + " for configKey=" + configKey + ".");
         }
         return config;
     }

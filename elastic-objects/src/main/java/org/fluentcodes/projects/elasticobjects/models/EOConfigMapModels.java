@@ -16,6 +16,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigProperties.PROPERTIES;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties.CLASS_PATH;
 
@@ -121,7 +122,7 @@ public class EOConfigMapModels extends EOConfigMap {
         map.put(Config.EXPOSE, Expose.NONE.name());
         map.put(Config.CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
 
-        map.put(Config.PROPERTIES, properties);
+        map.put(PROPERTIES, properties);
         addConfigByMap(map);
 
 

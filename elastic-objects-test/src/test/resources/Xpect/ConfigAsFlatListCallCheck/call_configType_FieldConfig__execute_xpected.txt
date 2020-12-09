@@ -32,6 +32,8 @@
 "fileName";"String";"A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"fileName";"";"";"";"";
 "filePath";"String";"A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ";"elastic-objects";"";"filePath";"";"";"";"";
 "filter";"String";"Filter for List entries.";"elastic-objects";"";"filter";"";"";"";"";
+"final";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"final";"";"";"";"";
+"generated";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"generated";"";"";"";"";
 "hibernate";"String";"hibernate";"elastic-objects";"";"hibernate";"";"";"";"";
 "hibernateAnnotations";"Boolean";"sets a Flag for using hibernate annotations when bean is created. ";"elastic-objects";"";"hibernateAnnotations";"";"";"";"";
 "hostConfigKey";"String";"A key for host objects.";"elastic-objects";"";"hostConfigKey";"";"";"";"";
@@ -77,6 +79,7 @@
 "naturalId";"String";"The natural key in @Base";"elastic-objects";"";"naturalId";"";"";"";"";
 "naturalKeys";"ArrayList,String";"naturalKeys";"elastic-objects";"";"naturalKeys";"";"";"";"";
 "notNull";"Boolean";"notNull";"elastic-objects";"";"notNull";"";"";"";"";
+"override";"Boolean";"If true will cache the readed file within the cache object. ";"elastic-objects";"";"override";"";"";"";"";
 "overwrite";"Boolean";"overwrite";"elastic-objects";"";"overwrite";"";"";"";"";
 "packageGroup";"String";"Defines to which group a model belong e.g. asset/cache/action";"elastic-objects";"";"packageGroup";"";"";"";"";
 "packagePath";"String";"packagePath";"elastic-objects";"";"packagePath";"";"";"";"";
@@ -112,6 +115,7 @@
 "targetFile";"String";"The naturalId of a FileConfig entry with an embedded FileWriteCall. ";"elastic-objects";"";"targetFile";"";"";"";"";
 "targetFileConfigKey";"String";"A target for persisting template results in TemplateResourceStoreCall. ";"elastic-objects";"";"targetFileConfigKey";"";"";"";"";
 "targetPath";"String";"A targetPath where the result of the execution will be mapped. If value is ""_asString"" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.";"elastic-objects";"";"targetPath";"";"";"";"";
+"template";"Boolean";"The field name for a ""naturalId"" in ""FileConfig"" whenever a file resource is used for a template processing. ";"elastic-objects";"";"template";"";"";"";"";
 "templateFileConfigKey";"String";"The field name for a ""naturalId"" in ""FileConfig"" whenever a file resource is used for a template processing. ";"elastic-objects";"";"templateFileConfigKey";"";"";"";"";
 "toReplace";"String";"toReplace";"elastic-objects";"";"toReplace";"";"";"";"";
 "unique";"Boolean";"unique";"elastic-objects";"";"unique";"";"";"";"";

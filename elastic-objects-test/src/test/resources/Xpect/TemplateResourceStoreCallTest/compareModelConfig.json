@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "compare",
       "1": "sourceFileConfigKey",
@@ -25,6 +22,9 @@
       "17": "id",
       "18": "naturalId"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
     "modelKey": "TemplateResourceStoreCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
     "superKey": "FileReadWriteCall",

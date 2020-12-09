@@ -1,24 +1,6 @@
 <a name="templateResourceCallHtml">
 <h6>Render a List in a Table</h6>
 </a>
-<p><p>The
-    ==>{GithubLinkCall->ModelConfig, TemplateResourceCall}. is part of the core module.
-    Templates are just file resources with embedded typed json or paths.
-</p>
-
-</p>
-To demonstrate the possibilities, here an combined example:
-<ul>
-    <ol>
-        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. reads
-        ==>{ConfigLinkCall->FileConfig, AnObject.csv}. and store it under the path "/data/csv"</ol>
-    <ol>
-        ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. use /data/csv as input
-        ==>{ConfigLinkCall->FileConfig, table.tpl}.
-        and store it under the path "_asTemplate"</ol>
-</ul>
-When you press the button, the /eo-form endpoint of
-==>{GithubLinkCall->NONE, SP|web|WebEo.java}. will be called using the typed JSON as input.
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:210px">{
     "data": {
@@ -35,6 +17,17 @@ When you press the button, the /eo-form endpoint of
 }</textarea>
     <input type="submit" value="post"/>
 </form>
+
 <p>
-    If you remove the "asTemplate" value the result will be the JSON returned from the server.
+        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. reads
+        ==>{ConfigLinkCall->FileConfig, AnObject.csv}.. \
+    It will store a list of maps in \
+    ==>{ConfigLinkCall->FieldConfig, targetPath}. "/data/csv"
 </p>
+<p>
+        ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. use
+    ==>{ConfigLinkCall->FieldConfig, sourcePath}. "/data/csv" as input.
+       After rendering with ==>{ConfigLinkCall->FileConfig, table.tpl}. the result
+        is stored under ==>{ConfigLinkCall->FieldConfig, targetPath}. "_asTemplate"</>
+</p>
+

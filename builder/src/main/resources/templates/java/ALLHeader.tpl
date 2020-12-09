@@ -1,4 +1,4 @@
-==>{ALLImport.tpl, javaGenImport/*|>}.
+==>{JavaImportCall->.}.
 /**
  * \
  ==>{JavaCommentCall->description|>}.
@@ -10,7 +10,13 @@
  * @modificationDate \
  =>{/date|>}.
  */
-public class \
-=>{modelKey}.=>{/fileEnding}. \
-==>{JavaExtendsCall->superKey|>}. \
+public
+==>{TemplateCall->., abstract eq true}| abstract=>{}. \
+==>{TemplateCall->., shapeType eq INTERFACE}|interface \
+=>{}.
+==>{TemplateCall->., shapeType ne INTERFACE}|class \
+=>{}.
+=>{modelKey}.=>{/fileEnding}.
+==>{TemplateCall->., superKey ex}| extends \
+=>{superKey}.=>{}. \
 ==>{JavaImplementsCall->interfaces|>}. {

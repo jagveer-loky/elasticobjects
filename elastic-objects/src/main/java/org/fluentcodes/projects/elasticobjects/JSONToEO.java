@@ -277,8 +277,8 @@ public class JSONToEO {
     private String debug() {
         int position = new Long(index).intValue();
         int positionNext = position + 1;
-        int max = position + 20;
-        int min = position - 20;
+        int max = position + 50;
+        int min = position - 50;
         if (min<0) {
             min = 0;
         }
@@ -451,8 +451,8 @@ public class JSONToEO {
         if ("null".equals(value) || value== null || value.isEmpty()) {
             return eoParent;
         }
-        if (rawFieldName == null) {
-            throw new EoException("Null rawFieldName");
+        if (rawFieldName == null || rawFieldName.isEmpty()) {
+            throw new EoException("Null rawFieldName" + debug());
         }
         if (rawFieldName.matches("\\(.*\\).*")) {
             pathElement = new PathElement(rawFieldName, eoParent, value);

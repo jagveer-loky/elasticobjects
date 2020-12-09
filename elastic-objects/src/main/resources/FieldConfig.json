@@ -7,6 +7,30 @@
     "expose": "NONE",
     "fieldKey": "absolute"
   },
+  "override": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true will cache the readed file within the cache object. ",
+    "expose": "NONE",
+    "fieldKey": "override"
+  },
+  "final": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true will cache the readed file within the cache object. ",
+    "expose": "NONE",
+    "fieldKey": "final"
+  },
+  "generated": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true will cache the readed file within the cache object. ",
+    "expose": "NONE",
+    "fieldKey": "generated"
+  },
   "attributeList": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -820,6 +844,14 @@
     "expose": "WEB",
     "fieldKey": "targetPath",
     "length": 80
+  },
+  "template": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
+    "expose": "WEB",
+    "fieldKey": "template"
   },
   "templateFileConfigKey": {
     "module": "elastic-objects",

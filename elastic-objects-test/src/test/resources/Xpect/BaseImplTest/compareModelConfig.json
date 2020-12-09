@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN",
     "(ArrayList)fieldKeys": {
       "0": "author",
       "1": "creationDate",
@@ -11,6 +8,9 @@
       "3": "id",
       "4": "naturalId"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "BEAN",
     "interfaces": "Base",
     "modelKey": "BaseImpl",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain",

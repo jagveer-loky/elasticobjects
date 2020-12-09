@@ -11,22 +11,23 @@ import java.util.List;
 import java.util.Map;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * For getting a map of configurations for a specific configuration type.
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Wed Nov 11 05:37:16 CET 2020
+ * @modificationDate Tue Dec 08 09:33:28 CET 2020
  */
-public class ConfigCall extends ConfigKeysCall {
+public class ConfigCall extends ConfigKeysCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String MODULE = "module";
    public static final String MODULE_SCOPE = "moduleScope";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  String module;
    private  String moduleScope;
 /*=>{}.*/
@@ -56,10 +57,10 @@ public class ConfigCall extends ConfigKeysCall {
         for (String key : keys) {
             Config configEntry = (Config) eo.getConfigsCache().find(configClass, key);
             try {
-                if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
+                if (hasModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;
                 }
-                if (hasFilterSubModule() && (configEntry.getModuleScope() == null || !configEntry.getModuleScope().equals(this.getModuleScope()))) {
+                if (hasModuleScope() && (configEntry.getModuleScope() == null || !configEntry.getModuleScope().equals(this.getModuleScope()))) {
                     continue;
                 }
             } catch (Exception e) {
@@ -72,9 +73,9 @@ public class ConfigCall extends ConfigKeysCall {
         return super.createReturnType(eo,result.get());
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
-    Filter for modules
+    Defines a target module where generating occurs. 
     */
 
     public ConfigCall setModule(String module) {
@@ -82,15 +83,15 @@ public class ConfigCall extends ConfigKeysCall {
         return this;
     }
     
-    public String getModule() {
+    public String getModule () {
        return this.module;
     }
     
-    public boolean hasFilterModule () {
-        return module != null && !module.isEmpty();
+    public boolean hasModule () {
+        return module!= null && !module.isEmpty();
     }
     /**
-    Filter for subModules
+    Defines scope of the configuration within module, eg 'test' or 'main' .
     */
 
     public ConfigCall setModuleScope(String moduleScope) {
@@ -98,12 +99,12 @@ public class ConfigCall extends ConfigKeysCall {
         return this;
     }
     
-    public String getModuleScope() {
+    public String getModuleScope () {
        return this.moduleScope;
     }
     
-    public boolean hasFilterSubModule () {
-        return moduleScope != null && !moduleScope.isEmpty();
+    public boolean hasModuleScope () {
+        return moduleScope!= null && !moduleScope.isEmpty();
     }
 /*=>{}.*/
 

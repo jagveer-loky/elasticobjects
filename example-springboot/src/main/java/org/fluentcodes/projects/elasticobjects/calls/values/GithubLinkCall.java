@@ -20,12 +20,12 @@ public class GithubLinkCall extends CallImpl  {
 /*=>{}.*/
     private static final String GITHUB_PIC = " <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>";
 
-    /*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
    public static final String CONFIG_KEY = "configKey";
    public static final String CONFIG_TYPE = "configType";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
    private  String configKey;
    private  String configType;
 /*=>{}.*/
@@ -174,7 +174,7 @@ public class GithubLinkCall extends CallImpl  {
         return configured;
     }
 
-    /*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
     /**
     Key for configuration  {@link Config}
     */

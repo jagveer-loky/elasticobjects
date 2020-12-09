@@ -17,11 +17,14 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
     public static final String TO_SERIALIZE = "toSerialize";
     public static final String LENGTH = "length";
     public static final String NAME = "name";
+    public static final String DEFAULT_VALUE = "defaultValue";
+
     private final Boolean toSerialize;
     private final String fieldKey;
     private final String modelKeys;
     private final Integer length;
     private List<String> modelList;
+    private final Object defaultValue;
     private Models models;
 
     public FieldConfig(EOConfigsCache configsCache, Map map) {
@@ -32,6 +35,7 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
             this.modelKeys = (String) map.get(MODEL_KEYS);
             this.modelList = new ArrayList<>();
             this.length = map.containsKey(LENGTH) ? ScalarConverter.toInt(map.get(LENGTH)) : null;
+            this.defaultValue = map.get(DEFAULT_VALUE);
             super.setExpose(Expose.NONE);
         }
         catch (Exception e) {
@@ -55,6 +59,7 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
     public List<String> getModelList() {
         return new ArrayList<>(modelList);
     }
+
     public boolean hasModelList() {
         return !modelList.isEmpty();
     }
@@ -81,8 +86,14 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
         this.models = new Models(getConfigsCache(), modelKeys.split(","));
     }
 
+    @Override
     public Integer getLength() {
         return length;
+    }
+
+    @Override
+    public Object getDefaultValue() {
+        return defaultValue;
     }
 
     public Boolean getToSerialize() {
@@ -115,11 +126,11 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
         return getModels().getModel().getModelKey();
     }
 
-    public ModelConfigInterface getModelConfig()  {
+    public ModelConfig getModelConfig()  {
         return getModels().getModel();
     }
 
-    public ModelConfigInterface getChildModel()  {
+    public ModelConfig getChildModel()  {
         return getModels().getChildModel();
     }
 }

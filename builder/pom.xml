@@ -7,7 +7,7 @@
     <artifactId>builder</artifactId>
     <packaging>jar</packaging>
     <version>0.8.1-SNAPSHOT</version>
-    <name>EO builder root</name>
+    <name>builder root</name>
     <url>http://www.elasticobjects.com</url>
     <parent>
         <groupId>org.fluentcodes.projects.elasticobjects</groupId>
@@ -33,27 +33,14 @@
             <artifactId>elastic-objects-test</artifactId>
             <version>0.8.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-            <artifactId>eo-csv</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
-        </dependency>
+
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-xlsx</artifactId>
             <version>0.8.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-            <artifactId>eo-db</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.fluentcodes.projects.elasticobjects</groupId>
-            <artifactId>example-springboot</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
+
+         <dependency>
             <groupId>com.lexicalscope.jewelcli</groupId>
             <artifactId>jewelcli</artifactId>
             <version>0.8.3</version>

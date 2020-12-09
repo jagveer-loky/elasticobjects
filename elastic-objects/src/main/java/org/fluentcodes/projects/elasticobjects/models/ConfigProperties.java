@@ -1,19 +1,17 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-//  ===>{"(TemplateResourceCall).":{"sourcePath":"javaGenImport/*", "configKey":"ALLImport.tpl", "keepCall":"JAVA"}}|
-
+/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 import java.util.Map;
-//=>{}.
-
-
 /**
- * Created by Werner on 10.10.2016.
+ * Created by Werner on 20.11.2020.
  */
 public interface ConfigProperties  {
-//  ===>{"(TemplateResourceCall).":{"sourcePath":"fieldKeys/*", "configKey":"INTERFACEStaticNames.tpl", "keepCall":"JAVA"}}|
+    /*=>{}.*/
+    /*==>{INTERFACEStaticNames.tpl, fieldBeans/*, super eq false, JAVA}|*/
     String PROPERTIES = "properties";
-//=>{}.
+/*=>{}.*/
 
+    /*==>{INTERFACESetter.tpl, fieldBeans/*, super eq false, JAVA}|*/
     default boolean hasProperties() {
         return getProperties()!=null && !getProperties().isEmpty();
     }
@@ -22,6 +20,5 @@ public interface ConfigProperties  {
      Properties for configurations.
      */
     Map getProperties();
-
-//=>{}.
+    /*=>{}.*/
 }

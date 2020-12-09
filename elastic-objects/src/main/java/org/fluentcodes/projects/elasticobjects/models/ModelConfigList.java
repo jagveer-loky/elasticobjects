@@ -24,7 +24,7 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
     }
 
     @Override
-    public ModelConfigInterface getFieldModel(final String fieldName)  {
+    public ModelConfig getFieldModel(final String fieldName)  {
         return getConfigsCache().findModel(Object.class); //TODO
     }
 
@@ -171,31 +171,5 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
         resolve();
         return new ArrayList();
     }
-    @Override
-    public boolean hasModel() {
-        return true;
-    }
-    @Override
-    public boolean isCreate() {
-        return true;
-    }
-    @Override
-    public boolean hasSetter(final String fieldName) {
-        return true;
-    }
-    @Override
-    public boolean hasGetter(final String fieldName) {
-        return true;
-    }
-    @Override
-    public boolean isList() {
-        return true;
-    }
-    @Override
-    public boolean isListType() {
-        return true;
-    }
-
-
 
 }

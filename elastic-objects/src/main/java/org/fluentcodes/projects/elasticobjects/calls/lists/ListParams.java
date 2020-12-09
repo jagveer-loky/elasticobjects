@@ -51,32 +51,16 @@ public class ListParams {
         }
     }
 
-    public ListParams(Map attributes) {
-
-        mapAttributes(attributes);
-    }
-
-    public void mapAttributes(Map attributes) {
-        if (attributes == null || attributes.isEmpty()) {
-            return;
-        }
-        setRowHead(attributes.get(ROW_HEAD));
-        setRowStart(attributes.get(ROW_START));
-        setLength(attributes.get(LENGTH));
-        setRowEnd(attributes.get(ROW_END));
-        setColKeys(attributes.get(COL_KEYS));
-        this.filter = ScalarConverter.toString(attributes.get(FILTER_RAW));
-    }
-
     public void merge(Map<String, Object> properties) {
         if (properties == null) {
             prepare();
             return;
         }
-        this.setRowHead(properties.get(ROW_HEAD));
-        this.setRowStart(properties.get(ROW_START));
-        this.setLength(properties.get(LENGTH));
-        this.setRowEnd(properties.get(ROW_END));
+        this.mergeRowHead(properties.get(ROW_HEAD));
+        this.mergeRowStart(properties.get(ROW_START));
+        this.mergeLength(properties.get(LENGTH));
+        this.mergeRowEnd(properties.get(ROW_END));
+        this.mergeFilter(properties.get(FILTER_RAW));
         prepare();
     }
 
@@ -142,6 +126,21 @@ public class ListParams {
         return filter;
     }
 
+    private ListParams mergeFilter(Object filter) {
+        if (filter == null) {
+            return this;
+        }
+        if (hasFilter()) {
+            return this;
+        }
+        try {
+            this.filter = ScalarConverter.toString(filter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return this;
+    }
+
     protected ListParams checkRowStart() {
         if (rowStart == null) {
             rowStart = rowHead + 1;
@@ -158,25 +157,26 @@ public class ListParams {
         return rowHead;
     }
 
-    public ListParams setRowHead(Object rowHead) {
+    public ListParams setRowHead(Integer rowHead) {
+        this.rowHead = rowHead;
+        return this;
+    }
+
+    private ListParams mergeRowHead(Object rowHead) {
         if (rowHead == null) {
             return this;
         }
         if (this.rowHead != null) {
             return this;
         }
-        Integer value = null;
         try {
-            value = ScalarConverter.toInt(rowHead);
+            this.rowHead = ScalarConverter.toInt(rowHead);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (value == null) {
-            return this;
-        }
-        this.rowHead = value;
         return this;
     }
+
 
     public boolean hasRowHead() {
         return rowHead != null && rowHead > -1;
@@ -210,23 +210,23 @@ public class ListParams {
         return rowStart;
     }
 
-    public ListParams setRowStart(Object entry) {
+    public ListParams setRowStart(Integer entry) {
+        this.rowStart = entry;
+        return this;
+    }
+
+    private ListParams mergeRowStart(Object entry) {
         if (entry == null) {
             return this;
         }
         if (hasRowStart()) {
             return this;
         }
-        Integer value = null;
         try {
-            value = ScalarConverter.toInt(entry);
+            this.rowStart = ScalarConverter.toInt(entry);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (value == null) {
-            return this;
-        }
-        this.rowStart = value;
         return this;
     }
 
@@ -244,24 +244,23 @@ public class ListParams {
     public Integer getRowEnd() {
         return rowEnd;
     }
+    public ListParams setRowEnd(Integer entry) {
+        this.rowEnd = entry;
+        return this;
+    }
 
-    public ListParams setRowEnd(Object entry) {
+    private ListParams mergeRowEnd(Object entry) {
         if (entry == null) {
             return this;
         }
         if (this.rowEnd != null && this.rowEnd > -1) {
             return this;
         }
-        Integer value = null;
         try {
-            value = ScalarConverter.toInt(entry);
+            this.rowEnd = ScalarConverter.toInt(entry);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (value == null) {
-            return this;
-        }
-        this.rowEnd = value;
         return this;
     }
 
@@ -285,23 +284,23 @@ public class ListParams {
         return length;
     }
 
-    public ListParams setLength(Object entry) {
+    public ListParams setLength(Integer entry) {
+        this.length = entry;
+        return this;
+    }
+
+    private ListParams mergeLength(Object entry) {
         if (entry == null) {
             return this;
         }
         if (hasLength()) {
             return this;
         }
-        Integer value = null;
         try {
-            value = ScalarConverter.toInt(entry);
+            this.length = ScalarConverter.toInt(entry);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (value == null) {
-            return this;
-        }
-        this.length = value;
         return this;
     }
 
@@ -335,7 +334,7 @@ public class ListParams {
         return this;
     }
 
-    public ListParams setColKeys(Object colKeys) {
+    private ListParams mergeColKeys(Object colKeys) {
         if (colKeys == null) {
             return this;
         }

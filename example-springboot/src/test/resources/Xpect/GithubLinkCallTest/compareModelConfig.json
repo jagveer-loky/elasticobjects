@@ -1,9 +1,6 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": true,
-    "(ShapeTypes)shapeType": "CALL_BEAN",
     "(ArrayList)fieldKeys": {
       "0": "configKey",
       "1": "configType",
@@ -24,10 +21,13 @@
       "16": "id",
       "17": "naturalId"
     },
-    "(ArrayList)localFieldKeys": {
+    "localFieldKeys": {
       "0": "configKey",
       "1": "configType"
     },
+    "classPath": "src.main.java",
+    "create": true,
+    "(ShapeTypes)shapeType": "CALL_BEAN",
     "modelKey": "GithubLinkCall",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "superKey": "CallImpl",

@@ -9,21 +9,22 @@ import java.util.Arrays;
 import java.util.List;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+
 /**
  * Defines a primitive csv file read operation. 
  *
  * @author Werner Diwischek
  * @creationDate 
- * @modificationDate Wed Nov 11 06:10:13 CET 2020
+ * @modificationDate Tue Dec 08 11:16:47 CET 2020
  */
 public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldMap/*, override eq false, JAVA|>}|*/
+/*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    public static final String LIST_PARAMS = "listParams";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
    private  ListParams listParams;
 /*=>{}.*/
     public CsvSimpleReadCall()  {
@@ -79,20 +80,20 @@ public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
         }
         return result;
     }
-/*==>{ALLSetter.tpl, fieldMap/*, , JAVA|>}|*/
+/*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
     /**
-    Filter for the readings within {{@link link} ListAction}.
+    Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */
-
+    @Override
     public CsvSimpleReadCall setListParams(ListParams listParams) {
         this.listParams = listParams;
         return this;
     }
-    
+    @Override
     public ListParams getListParams () {
        return this.listParams;
     }
-    
+    @Override
     public boolean hasListParams () {
         return listParams!= null;
     }
