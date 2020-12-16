@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.calls.generate.java.JavaCommentCa
 import org.fluentcodes.projects.elasticobjects.calls.generate.java.JavaFieldTypeCall;
 import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 
-public interface FieldBeanJavaMethods extends FieldBeanProperties {
+public interface FieldBeanJavaMethods extends FieldBeanInterface {
     default String getJavaGetMethod() {
         return getJavaOverride() +
                 "   public " + getJavaFieldType() + " get" + upperFieldKey() + "() {\n" +

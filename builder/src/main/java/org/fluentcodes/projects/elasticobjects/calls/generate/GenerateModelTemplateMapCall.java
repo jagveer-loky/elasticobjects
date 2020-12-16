@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
-import org.fluentcodes.projects.elasticobjects.BuilderParams;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;

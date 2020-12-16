@@ -50,7 +50,7 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
         XlsxConfig config = (XlsxConfig) init(PermissionType.READ, eo);
         getListParams().merge(config.getProperties());
         List result = new ArrayList<>();
-        Sheet sheet = config.getSheet();
+        Sheet sheet = config.getSheet(eo);
         if (sheet == null) {
             throw new EoException("The sheet for '" + getNaturalId() + "' is null. Perhaps the sheet name '" + config.getSheetName() + "' is undefined.");
         }

@@ -1,11 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+import org.fluentcodes.projects.elasticobjects.domain.Base;
+
 import java.util.Map;
 /**
  * Created by Werner on 20.11.2020.
  */
-public interface ConfigProperties  {
+public interface ConfigProperties {
     /*=>{}.*/
     /*==>{INTERFACEStaticNames.tpl, fieldBeans/*, super eq false, JAVA}|*/
     String PROPERTIES = "properties";

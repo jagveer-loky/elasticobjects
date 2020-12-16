@@ -1,12 +1,4 @@
 {
-  "fieldBeans": {
-    "module": "builder",
-    "moduleScope": "main",
-    "modelKeys": "Map,FieldBean",
-    "description": "A fieldBean map with @ModelBean",
-    "expose": "NONE",
-    "fieldKey": "fieldBeans"
-  },
   "modelKeyPlural": {
     "module": "builder",
     "moduleScope": "main",
@@ -34,23 +26,6 @@
     "expose": "NONE",
     "fieldKey": "modelKeyPluralLower",
     "properties": {"transient": true, "final": true}
-  },
-  "javascriptType": {
-    "module": "builder",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The javascript type version. ",
-    "expose": "NONE",
-    "fieldKey": "javascriptType",
-    "properties": {"transient": true, "final": true}
-  },
-  "dbAnnotated": {
-    "module": "builder",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true a db annotation will be generated for java instance vars. ",
-    "expose": "NONE",
-    "fieldKey": "dbAnnotated"
   },
   "projectDirectory": {
     "module": "builder",
@@ -96,21 +71,5 @@
     "expose": "NONE",
     "fieldKey": "javaDescription",
     "properties": {"transient": true, "final": true}
-  },
-  "abstract": {
-    "module": "builder",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true the generated model will be initially set as abstract class.",
-    "expose": "NONE",
-    "fieldKey": "abstract"
-  },
-  "super": {
-    "module": "builder",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true the generated model will be initially set as abstract class.",
-    "expose": "NONE",
-    "fieldKey": "super"
   }
 }

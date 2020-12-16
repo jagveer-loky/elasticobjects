@@ -68,7 +68,7 @@
   "colKeys": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "modelKeys": "ArrayList,String",
+    "modelKeys": "List,String",
     "description": "The key list for mapping values in a value list. ",
     "expose": "NONE",
     "fieldKey": "colKeys"
@@ -179,6 +179,71 @@
     "fieldKey": "description",
     "length": 512
   },
+  "javascriptType": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The javascript type version. ",
+    "expose": "NONE",
+    "fieldKey": "javascriptType",
+    "properties": {"transient": true, "final": true}
+  },
+  "super": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true the generated model will be initially set as abstract class.",
+    "expose": "NONE",
+    "fieldKey": "super"
+  },
+  "abstract": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true the generated model will be initially set as abstract class.",
+    "expose": "NONE",
+    "fieldKey": "abstract"
+  },
+  "transient": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true the generated model will be initially set as abstract class.",
+    "expose": "NONE",
+    "fieldKey": "transient"
+  },
+  "dbAnnotated": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true a db annotation will be generated for java instance vars. ",
+    "expose": "NONE",
+    "fieldKey": "dbAnnotated"
+  },
+  "default": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true a db annotation will be generated for java instance vars. ",
+    "expose": "NONE",
+    "fieldKey": "default"
+  },
+  "fieldBeans": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Map,FieldBean",
+    "description": "A fieldBean map with @ModelBean",
+    "expose": "NONE",
+    "fieldKey": "fieldBeans"
+  },
+  "fieldConfigMap": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Map,FieldConfig",
+    "description": "A fieldBean map with @ModelBean",
+    "expose": "NONE",
+    "fieldKey": "fieldConfigMap"
+  },
   "duration": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -242,7 +307,7 @@
   "fieldKeys": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "modelKeys": "ArrayList,String",
+    "modelKeys": "List,String",
     "description": "A list of field keys for the model configuration. ",
     "expose": "NONE",
     "fieldKey": "fieldKeys"
@@ -603,13 +668,13 @@
     "fieldKey": "password",
     "length": 15
   },
-  "permissionRole": {
+  "rolePermissions": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "PermissionRole",
     "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
     "expose": "NONE",
-    "fieldKey": "permissionRole"
+    "fieldKey": "rolePermissions"
   },
   "Permissions.create": {
     "module": "elastic-objects",
@@ -717,7 +782,7 @@
   "scope": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "modelKeys": "ArrayList,Scope",
+    "modelKeys": "List,Scope",
     "description": "A scope for the cache value.",
     "expose": "WEB",
     "fieldKey": "scope"

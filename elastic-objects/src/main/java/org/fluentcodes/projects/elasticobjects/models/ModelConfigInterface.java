@@ -1,76 +1,181 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.PathPattern;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by Werner on 09.10.2016.
- */
-public interface ModelConfigInterface extends Config {
-    Map<String, FieldConfig> getFieldCacheMap() ;
-    Map<String, ModelConfig> getImportClasses() ;
-    Class getModelClass() ;
-    ModelConfig getSuperModel() ;
+import static org.fluentcodes.projects.elasticobjects.models.Model.ABSTRACT;
 
-    /**
-     * Gets the Field with fieldName.
-     *
-     * @param fieldName
-     * @return
-     * @
-     */
-    FieldConfig getFieldConfig(final String fieldName) ;
-    boolean hasFieldConfig(final String fieldName);
-    ModelConfig getFieldModel(final String fieldName) ;
-    Class getFieldClass(final String fieldName) ;
-    Set<String> keys(Object object) ;
-    Map getKeyValues(Object object, PathPattern pathPattern) ;
-    int size(Object object) ;
-    boolean isEmpty(Object object) ;
-    void set(String fieldName, Object object, Object value);
+public interface ModelConfigInterface extends ConfigConfigInterface {
+    String DEFAULT_IMPLEMENTATION = "defaultImplementation";
+    String SHAPE_TYPE = "shapeType";
+    String CREATE = "create";
+    String CLASS_PATH = "classPath";
+    String ID_KEY = "idKey";
+    String NATURAL_KEYS = "naturalKeys";
+    String TABLE = "table";
 
-    /**
-     * Gets the value for fieldName of the object.
-     *
-     * @param fieldNameAsObject
-     * @param object
-     * @return
-     * @
-     */
-    Object getAsIs(Object fieldNameAsObject, Object object) ;
+    default boolean hasTable() {
+        return getTable()!=null && !getTable().isEmpty();
+    }
 
-    /**
-     * Gets the value for fieldName of the object.
-     *
-     * @param fieldName
-     * @param object
-     * @return
-     * @
-     */
-    Object get(String fieldName, Object object) ;
+    default String getTable() {
+        return hasProperties() ? (String) getProperties().get(TABLE) : null;
+    }
 
-    boolean exists(final String fieldName, final Object object) ;
+    default boolean hasIdKey() {
+        return getIdKey()!=null && !getIdKey().isEmpty();
+    }
 
-    boolean hasKey(final String fieldName) ;
-    boolean hasKey(final Path path);
-    /**
-     * Removes a value depending on the type.
-     * <ul>
-     * <li>scalar: </li>
-     * <li>object: add value to null</li>
-     * <li>map: removes value</li>
-     * <li>list: removes value</li>
-     * </ul>
-     *
-     * @param fieldName The fieldName
-     * @param object    The object
-     * @ on scalar model without field structure.
-     */
-    void remove(final String fieldName, final Object object) ;
-    Object create();
+    default String getIdKey() {
+        return hasProperties() ? (String) getProperties().get(ID_KEY) : null;
+    }
 
+    default boolean hasNaturalKeys() {
+        return getNaturalKeys()!=null && !getNaturalKeys().isEmpty();
+    }
+
+    default String getNaturalKeys() {
+        return hasProperties() ? (String) getProperties().get(NATURAL_KEYS) : null;
+    }
+
+    String getModelKey();
+    default boolean hasModelKey() {
+        return getModelKey()!=null && !getModelKey().isEmpty();
+    }
+
+    String getPackagePath();
+    default boolean hasPackagePath() {
+        return getPackagePath()!=null && !getPackagePath().isEmpty();
+    }
+
+    Set<String> getFieldKeys();
+    default boolean hasFields() {
+        return getFieldKeys().isEmpty();
+    }
+
+    String getSuperKey();
+    default boolean hasSuperKey() {
+        return getSuperKey()!=null && !getSuperKey().isEmpty();
+    }
+
+    String getInterfaces();
+    default boolean hasInterfaces() {
+        return getInterfaces()!=null && !getInterfaces().isEmpty();
+    }
+
+    default boolean hasCreate() {
+        return getCreate()!=null;
+    }
+
+    default Boolean getCreate() {
+        return hasProperties() && getProperties().containsKey(CREATE)? ScalarConverter.toBoolean(getProperties().get(CREATE)) : true;
+    }
+
+    default boolean hasShapeType() {
+        return getShapeType()!=null;
+    }
+
+    default ShapeTypes getShapeType() {
+        if (!hasProperties()) {
+            return null;
+        }
+        if (!getProperties().containsKey(SHAPE_TYPE)) {
+            return null;
+        }
+        if (getProperties().get(SHAPE_TYPE) instanceof String) {
+            return ShapeTypes.valueOf((String) getProperties().get(SHAPE_TYPE));
+        }
+        if (getProperties().get(SHAPE_TYPE) instanceof ShapeTypes) {
+            return (ShapeTypes)getProperties().get(SHAPE_TYPE);
+        }
+        throw new EoException("Could not map " + getProperties().get(SHAPE_TYPE) + " " + getProperties().get(SHAPE_TYPE).getClass());
+    }
+
+    default boolean hasDefaultImplementation() {
+        return getDefaultImplementation()!=null && !getDefaultImplementation().isEmpty();
+    }
+
+    default String getDefaultImplementation() {
+        return hasProperties() ? (String) getProperties().get(DEFAULT_IMPLEMENTATION) : null;
+    }
+
+    default Boolean getAbstract() {
+        return (Boolean)getProperties().get(ABSTRACT);
+    }
+    default Boolean hasAbstract() {
+        return getAbstract()!=null;
+    }
+    default Boolean isAbstract() {
+        return (hasAbstract() && getAbstract()) || false;
+    }
+
+    default Boolean getDbAnnotated() {
+        return (Boolean)getProperties().get(ABSTRACT);
+    }
+    default Boolean hasDbAnnotated() {
+        return getDbAnnotated()!=null;
+    }
+    default Boolean isDbAnnotated() {
+        return (hasDbAnnotated() && getDbAnnotated()) || false;
+    }
+
+    default boolean hasClassPath() {
+        return getClassPath()!=null && !getClassPath().isEmpty();
+    }
+    default String getClassPath() {
+        return hasProperties()?(String)getProperties().get(CLASS_PATH):null;
+    }
+
+    default boolean isList() {
+        return (this instanceof ModelConfigList);
+    }
+
+    default boolean isMap() {
+        return (this instanceof ModelConfigMap);
+    }
+
+    default boolean isSet() {
+        return (this instanceof ModelConfigSet);
+    }
+
+    default boolean isScalar() {
+        return (this instanceof ModelConfigScalar);
+    }
+
+    default boolean isObject() {
+        return (this instanceof ModelConfigObject);
+    }
+
+    default boolean isCall() {
+        return isObject () && getShapeType() == ShapeTypes.CALL_BEAN;
+    }
+
+    default boolean isInterface() {
+        return isObject () && getShapeType() == ShapeTypes.INTERFACE;
+    }
+
+    default boolean isContainer() {
+        return !isScalar();
+    }
+
+    default boolean isNumber() {
+        return false;
+    }
+
+    default boolean hasModel() {
+        return true;
+    }
+
+    default boolean isCreate() {
+        return getCreate();
+    }
+    default boolean isNull() {
+        return false;
+    }
+    default boolean isEnum() {
+        return false;
+    }
 }

@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties;
 
 import java.util.Map;
 
@@ -41,7 +40,7 @@ public class UpdateStatement extends PreparedStatementValues {
         if (source == null) {
             throw new EoException("Null eo for delete");
         }
-        ModelConfigProperties model = source.getModel();
+        ModelConfigInterface model = source.getModel();
         if (!model.isObject()) {
             throw new EoException("Model '" + model.getModelKey() + "' is not a object");
         }

@@ -1,14 +1,17 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "classPath": "src.main.java",
-    "create": false,
-    "(ShapeTypes)shapeType": "ENUM",
     "modelKey": "KeepCalls",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "configModelKey": "ModelConfigScalar",
     "(Expose)expose": "NONE",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "ENUM"
+    },
     "author": "Werner Diwischek",
     "description": "Enum for templates to keep the template directives in the template result as a comment. ",
     "naturalId": "KeepCalls"

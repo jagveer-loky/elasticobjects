@@ -3,10 +3,9 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -471,7 +470,7 @@ public class PathElement {
         this.value = this.models.create();
     }
 
-    public ModelConfigInterface getModel() {
+    public ModelConfigInterfaceMethods getModel() {
         return this.models.getModel();
     }
 

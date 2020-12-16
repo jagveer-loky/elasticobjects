@@ -10,18 +10,20 @@
   },
   "(List)_calls": {
     "(CsvSimpleReadCall)0": {
-      "colKeys": {
-        "0": "key1",
-        "1": "key2"
+      "listParams": {
+        "colKeys": {
+          "0": "key1",
+          "1": "key2"
+        },
+        "length": -1,
+        "rowEnd": 3,
+        "rowHead": 0,
+        "rowStart": 1
       },
-      "length": -1,
-      "rowEnd": 3,
-      "rowHead": 0,
-      "rowStart": 1,
-      "postpend": "",
-      "prepend": "",
       "fileConfigKey": "ListSimple.csv",
-      "hostConfigKey": "localhost"
+      "hostConfigKey": "localhost",
+      "postpend": "",
+      "prepend": ""
     }
   }
 }

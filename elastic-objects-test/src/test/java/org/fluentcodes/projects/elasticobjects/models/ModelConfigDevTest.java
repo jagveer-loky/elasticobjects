@@ -17,7 +17,6 @@ public class ModelConfigDevTest {
         for (String key: keys) {
             ModelConfig model = cache.findModel(key);
             Assertions.assertThat(model).isNotNull();
-            model.resolve();
         }
     }
 }

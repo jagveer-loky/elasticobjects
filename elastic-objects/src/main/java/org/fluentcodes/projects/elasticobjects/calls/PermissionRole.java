@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,11 +35,20 @@ public class PermissionRole {
     }
 
     public PermissionRole(PermissionRole rolePermissions) {
-        this.read = rolePermissions.getRead();
-        this.write = rolePermissions.getWrite();
-        this.create = rolePermissions.getCreate();
-        this.delete = rolePermissions.getDelete();
-        this.execute = rolePermissions.getExecute();
+        if (rolePermissions == null)  {
+            this.read = null;
+            this.write = null;
+            this.create = null;
+            this.delete = null;
+            this.execute = null;
+        }
+        else {
+            this.read = rolePermissions.getRead();
+            this.write = rolePermissions.getWrite();
+            this.create = rolePermissions.getCreate();
+            this.delete = rolePermissions.getDelete();
+            this.execute = rolePermissions.getExecute();
+        }
         resolve();
     }
 
@@ -49,7 +58,7 @@ public class PermissionRole {
         }
         this.read = (String) rolePermissions.get(READ);
         this.write = (String) rolePermissions.get(WRITE);
-        this.create = (String) rolePermissions.get(ModelConfigProperties.CREATE);
+        this.create = (String) rolePermissions.get(ModelConfigInterface.CREATE);
         this.delete = (String) rolePermissions.get(DELETE);
         this.execute = (String) rolePermissions.get(EXECUTE);
         resolve();

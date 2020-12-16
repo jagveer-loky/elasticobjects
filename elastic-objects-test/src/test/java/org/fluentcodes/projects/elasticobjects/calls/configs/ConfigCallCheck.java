@@ -17,6 +17,7 @@ import java.util.List;
 /**
  * Created 10.6.2018
  */
+@Ignore
 public class ConfigCallCheck {
 
     @Test

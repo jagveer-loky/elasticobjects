@@ -3,10 +3,9 @@ package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.models.FieldBeanProperties;
+import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
-import org.fluentcodes.projects.elasticobjects.models.ModelBeanProperties;
+import org.fluentcodes.projects.elasticobjects.models.ModelBeanGenProperties;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 
@@ -28,18 +27,18 @@ public class JavaFieldAnnotationDbCall extends CallImpl implements SimpleCommand
 
     @Override
     public String execute(final EO eo) {
-        if (!(eo.get() instanceof FieldBeanProperties)) {
-            throw new EoException("Input must be instance of '" + FieldBeanProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
+        if (!(eo.get() instanceof FieldBeanInterface)) {
+            throw new EoException("Input must be instance of '" + FieldBeanInterface.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
         }
         EO eoModel = eo.getParent().getParent(); //hashmap
-        if (!(eoModel.get() instanceof ModelBeanProperties)) {
-            throw new EoException("Input parent must be instance of '" + ModelBeanProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
+        if (!(eoModel.get() instanceof ModelBeanGenProperties)) {
+            throw new EoException("Input parent must be instance of '" + ModelBeanGenProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
         }
-        if (!((ModelBeanProperties)eoModel.get()).isDbAnnotated()) {
+        if (!((ModelBeanGenProperties)eoModel.get()).isDbAnnotated()) {
             return "";
         }
         try {
-            FieldBeanProperties properties = (FieldBeanProperties) eo.get();
+            FieldBeanInterface properties = (FieldBeanInterface) eo.get();
             if (properties.isTransient()) {
                 return "@Transient";
             }

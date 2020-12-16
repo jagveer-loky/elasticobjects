@@ -11,8 +11,16 @@ import java.util.Set;
 public class ModelConfigScalar extends ModelConfig {
     public static final String CONFIG_MODEL_KEY = "ModelConfigScalar";
 
-    public ModelConfigScalar(EOConfigsCache provider, Map map) {
-        super(provider, map);
+    public ModelConfigScalar(Map map) {
+        this(new ModelBean(map));
+    }
+
+    public ModelConfigScalar(ConfigBean bean) {
+        this((ModelBean) bean);
+    }
+
+    public ModelConfigScalar(ModelBean bean) {
+        super(bean);
     }
 
     @Override
@@ -52,11 +60,6 @@ public class ModelConfigScalar extends ModelConfig {
     }
 
     @Override
-    public Object getAsIs(final Object fieldNameAsObject, final Object object)  {
-        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
-    }
-
-    @Override
     public Object get(final String fieldName, final Object object)  {
         throw new EoException("Could not get field value because no sub fields defined for scalar models: " + fieldName);
     }
@@ -64,11 +67,6 @@ public class ModelConfigScalar extends ModelConfig {
     @Override
     public boolean exists(final String fieldName, final Object object)  {
         throw new EoException("No sub fields defined for scalar models: " + fieldName);
-    }
-
-    @Override
-    public boolean hasKey(final String fieldName) {
-        return false;
     }
 
     @Override

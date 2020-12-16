@@ -8,10 +8,12 @@ import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.fluentcodes.tools.xpect.XpectString;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
+@Ignore
 public class ConfigKeysCallTest {
     @Test
     public void call_configFilter_naturalId__execute__list_size_1() {

@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
-import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
+import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
@@ -20,7 +20,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
  * @creationDate 
  * @modificationDate Tue Dec 08 16:36:56 CET 2020
  */
-public abstract class CallImpl extends BaseImpl implements Call {
+public abstract class CallImpl extends BaseBean implements Call {
 /*=>{}.*/
 
     /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/

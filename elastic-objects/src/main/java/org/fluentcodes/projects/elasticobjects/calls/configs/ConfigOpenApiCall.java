@@ -114,26 +114,25 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                 if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;
                 }
-                if (hasFilterSubModule() && (configEntry.getConfigsCache() == null || !configEntry.getConfigsCache().equals(this.getModuleScope()))) {
+                if (hasFilterSubModule()){ // && (configEntry.getConfigsCache() == null || !configEntry.getConfigsCache().equals(this.getModuleScope()))) {
                     continue;
                 }
             } catch (Exception e) {
                 throw new EoException(e);
             }
-            configEntry.resolve();
             create(schemas, configEntry);
         }
         return super.createReturnType(eo, schemeRoot.get());
     }
 
-    private void create(EO schemasEo, ModelConfig config) {
-        EO entry = schemasEo.setEmpty(config.getModelKey());
-        created.add(config.getModelKey());
+    private void create(EO schemasEo, ModelConfig modelConfig) {
+        EO entry = schemasEo.setEmpty(modelConfig.getModelKey());
+        created.add(modelConfig.getModelKey());
         entry.set("object","type");
-        entry.set(config.getDescription(), "description");
+        entry.set(modelConfig.getDescription(), "description");
         EO properties = entry.setEmpty("properties");
-        for (String fieldKey: config.getFieldKeys()) {
-            FieldConfig fieldConfig = schemasEo.getConfigsCache().findField(fieldKey);
+        for (String fieldKey: modelConfig.getFieldKeys()) {
+            FieldConfig fieldConfig = modelConfig.getFieldConfig(fieldKey);
             EO field = properties.setEmpty(fieldConfig.getFieldKey());
             Models fieldModels = fieldConfig.getModels();
             if (fieldConfig.hasDescription()) {
@@ -184,8 +183,8 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                 field.set(fieldModels.toString(), "type");
             }
         }
-        created.add(config.getModelKey());
-        toCreate.remove(config.getModelKey());
+        created.add(modelConfig.getModelKey());
+        toCreate.remove(modelConfig.getModelKey());
         if (toCreate.isEmpty()) {
             return;
         }

@@ -5,15 +5,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.fluentcodes.projects.elasticobjects.models.Config.SCOPE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldProperties.GENERATED;
-import static org.fluentcodes.projects.elasticobjects.models.FieldProperties.NOT_NULL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldProperties.OVERRIDE;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties.CLASS_PATH;
+import static org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface.CLASS_PATH;
 
 public class ModelBeanTest {
     @Test

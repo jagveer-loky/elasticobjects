@@ -2,10 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateAbstract;
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateProperties;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.calls.xlsx.XlsxReadCall;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
@@ -13,10 +10,8 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import static org.fluentcodes.projects.elasticobjects.calls.generate.GenerateModelAbstract.MODEL_BEANS_JSON;
-import static org.fluentcodes.projects.elasticobjects.models.ModelBean.FIELD_BEANS;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 
@@ -62,7 +57,7 @@ public class GenerateModelBeansJsonCall extends GenerateAbstract implements Gene
         Map<String, Map> models = (Map<String, Map>)eo.get(ModelConfig.class.getSimpleName());
         for (String key: models.keySet()) {
             ModelBean modelBean = new ModelBean(models.get(key));
-            modelBean.resolveFieldBeans((Map<String, Map>)eo.get(FieldConfig.class.getSimpleName()));
+            modelBean.mergeFieldDefinition((Map<String, Map>)eo.get(FieldConfig.class.getSimpleName()));
             modelBeans.put(key, modelBean);
         }
 

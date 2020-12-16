@@ -21,17 +21,6 @@ public class ConfigDivTest {
 
     private static final Logger LOG = LogManager.getLogger(ConfigDivTest.class);
 
-    @Test
-    public void changeLocalFieldKeys()  {
-        ModelConfigObject model = (ModelConfigObject)ProviderRootTestScope.EO_CONFIGS.findModel(Config.class);
-        Map map = model.getProperties();
-        Assertions
-                .assertThatThrownBy(
-                        () -> {
-                            model.getLocalFieldKeys().add("newValue");
-                        })
-                .isInstanceOf(UnsupportedOperationException.class);
-    }
 
     @Test
     public void testMap()  {

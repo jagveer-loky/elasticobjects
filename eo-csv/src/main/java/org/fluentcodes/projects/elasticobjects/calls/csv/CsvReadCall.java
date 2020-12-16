@@ -40,13 +40,13 @@ public class CsvReadCall extends CsvSimpleReadCall  {
 
     @Override
     public List readRaw(final EO eo) {
-        CsvConfig config = (CsvConfig) init(PermissionType.READ, eo);
-        getListParams().merge(config.getProperties());
-        URL url = config.findUrl();
+        CsvConfig csvFileConfig = (CsvConfig) init(PermissionType.READ, eo);
+        getListParams().merge(csvFileConfig.getProperties());
+        URL url = csvFileConfig.findUrl(eo, getHostConfigKey());
         //System.out.println("CSV " + url.toString());
         CSVReader reader = null;
         try {
-            reader = new CSVReader(new InputStreamReader(url.openStream()), config.getFieldDelimiter().charAt(0));
+            reader = new CSVReader(new InputStreamReader(url.openStream()), csvFileConfig.getFieldDelimiter().charAt(0));
         } catch (IOException e) {
             throw new EoException(e);
         }

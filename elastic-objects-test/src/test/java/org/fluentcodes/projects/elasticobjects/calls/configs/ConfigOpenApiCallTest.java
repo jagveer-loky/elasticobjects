@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
 /**
  * Created 7.9.2020
  */
+@Ignore
 public class ConfigOpenApiCallTest {
     @Test
     public void createByModelConfig()  {

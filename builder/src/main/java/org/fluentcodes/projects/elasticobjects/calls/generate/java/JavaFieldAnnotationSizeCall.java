@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.generate.java;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.models.FieldBeanProperties;
+import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
@@ -25,11 +25,11 @@ public class JavaFieldAnnotationSizeCall extends CallImpl implements SimpleComma
 
     @Override
     public String execute(final EO eo) {
-        if (!(eo.get() instanceof FieldBeanProperties)) {
-            throw new EoException("Input must be instance of '" + FieldBeanProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
+        if (!(eo.get() instanceof FieldBeanInterface)) {
+            throw new EoException("Input must be instance of '" + FieldBeanInterface.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
         }
         try {
-            FieldBeanProperties properties = (FieldBeanProperties) eo.get();
+            FieldBeanInterface properties = (FieldBeanInterface) eo.get();
             if (!properties.hasSize()) {
                 return "";
             }

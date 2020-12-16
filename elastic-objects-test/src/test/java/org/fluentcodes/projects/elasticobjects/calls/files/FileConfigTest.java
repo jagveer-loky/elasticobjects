@@ -7,6 +7,10 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.junit.Ignore;
 import org.junit.Test;
 
+import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfig.FILE_NAME;
+import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface.MODULE;
+
 /**
  * Created by Werner on 12.10.2016.
  */
@@ -23,12 +27,23 @@ public class FileConfigTest {
         ConfigModelChecks.compare(FileConfig.class);
     }
 
+    @Ignore // TODO was just a trial
+    @Test
+    public void TEST____getFileNameTest()  {
+        FileBean bean = (FileBean) ConfigModelChecks.createSetGet(FileBean.class.getSimpleName(), FILE_NAME, "test");
+        FileConfig config = (FileConfig) bean.createConfig();
+        Assertions.assertThat(config.getFileName())
+                .isEqualTo("test");
+    }
+
+
     // Failed in mvn
     @Ignore
     @Test
     public void anObjectCsv__compare__xpected()  {
         ConfigChecks.compareConfiguration(FileConfig.class, "AnObject.csv");
     }
+
 
 
     @Test

@@ -50,6 +50,14 @@ public class StringUpperFirstCharCall extends CallImpl implements SimpleCommand 
         return item.substring(0, 1).toUpperCase() + item.substring(1);
     }
 
+    public static String setter(String item) {
+        return "set" + upper(item);
+    }
+
+    public static String getter(String item) {
+        return "get" + upper(item);
+    }
+
     /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
 }

@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 /**
- * Created by Werner Diwischek on 09.10.2016.
+ * Created by Werner Diwischek on 6.10.20
  */
 
 public class FieldExampleClass {

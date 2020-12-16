@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,7 +27,7 @@ public class ConfigTypesCall extends CallImpl implements SimpleCommand {
     /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
 /*=>{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
-    private Class<? extends Config> configClass;
+    private Class<? extends ConfigConfigInterface> configClass;
 
     public ConfigTypesCall() {
         super();

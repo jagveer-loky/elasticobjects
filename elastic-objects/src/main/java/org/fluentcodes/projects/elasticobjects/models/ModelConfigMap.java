@@ -11,16 +11,24 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigMap extends ModelConfig implements ModelConfigInterface {
+public class ModelConfigMap extends ModelConfig implements ModelConfigInterfaceMethods {
     public static final String CONFIG_MODEL_KEY = "ModelConfigMap";
 
-    public ModelConfigMap(EOConfigsCache provider, Map map) {
-        super(provider, map);
+    public ModelConfigMap(Map map) {
+        this(new ModelBean(map));
+    }
+
+    public ModelConfigMap(ConfigBean bean) {
+        this((ModelBean) bean);
+    }
+
+    public ModelConfigMap(ModelBean bean) {
+        super(bean);
     }
 
     @Override
     public ModelConfig getFieldModel(final String fieldName)  {
-        return getConfigsCache().findModel(Object.class); //TODO
+        return null; //TODO
     }
 
 
@@ -31,12 +39,10 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterface 
 
     @Override
     public Set<String> keys(Object object)  {
-        resolve();
         return ((Map) object).keySet();
     }
 
     public int size(Object object)  {
-        resolve();
         int counter = 0;
         for (Object key : ((Map) object).keySet()) {
             if (((Map) object).get(key) == null) {
@@ -47,30 +53,8 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterface 
         return counter;
     }
 
-    public List<Object> keysAsIs(Object object)  {
-        resolve();
-        return new ArrayList(((Map) object).keySet());
-    }
-
     public void set(String fieldName, Object object, Object value)  {
-        resolve();
         ((Map) object).put(fieldName, value);
-    }
-
-    /**
-     * Gets the value for fieldName of the object.
-     *
-     * @param fieldNameAsObject
-     * @param object
-     * @return
-     * @
-     */
-    public Object getAsIs(Object fieldNameAsObject, Object object)  {
-        resolve();
-        if (fieldNameAsObject == null) {
-            throw new EoException("Getter: null key request for " + this.getModelKey() + "! ");
-        }
-        return ((Map) object).get(fieldNameAsObject);
     }
 
     /**
@@ -82,7 +66,6 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterface 
      * @
      */
     public Object get(String fieldName, Object object)  {
-        resolve();
         if (((Map) object).containsKey(fieldName)) {
             return ((Map) object).get(fieldName);
         } else if (fieldName.matches("^\\d+$")) {
@@ -96,24 +79,17 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterface 
     }
 
     public boolean exists(final String fieldName, final Object object)  {
-        resolve();
         return ((Map) object).containsKey(fieldName);
 
     }
 
-    @Override
-    public boolean hasKey(final String fieldName) {
-        return true;
-    }
 
     public void remove(final String fieldName, final Object object)  {
-        resolve();
         get(fieldName, object);
         ((Map) object).remove(fieldName);
     }
 
     public Object create() {
-        resolve();
         return new LinkedHashMap<>();
     }
 

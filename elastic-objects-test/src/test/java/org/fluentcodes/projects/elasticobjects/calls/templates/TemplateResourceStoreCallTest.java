@@ -39,7 +39,7 @@ public class TemplateResourceStoreCallTest {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
-        modelConfig.set(KEEP_CALL, call, "JAVA");
+        modelConfig.set(KEEP_CALL, call, KeepCalls.JAVA);
         Assertions.assertThat(call.getKeepCall()).isEqualTo(KeepCalls.JAVA);
         Assertions.assertThat(modelConfig.get(KEEP_CALL, call)).isEqualTo(KeepCalls.JAVA);
     }

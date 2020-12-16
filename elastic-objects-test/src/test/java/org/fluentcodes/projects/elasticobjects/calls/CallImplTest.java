@@ -1,13 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.domain.Base;
-import org.fluentcodes.projects.elasticobjects.domain.BaseImpl;
+import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
@@ -40,7 +36,7 @@ public class CallImplTest {
         // ModelConfig
         Assertions.assertThat(config.getModelKey()).isEqualTo(CallImpl.class.getSimpleName());
         Assertions.assertThat(config.getInterfaces()).isEqualTo(SimpleCommand.class.getSimpleName());
-        Assertions.assertThat(config.getSuperKey()).isEqualTo(BaseImpl.class.getSimpleName());
+        Assertions.assertThat(config.getSuperKey()).isEqualTo(BaseBean.class.getSimpleName());
         Assertions.assertThat(config.getFieldKeys()).isNotEmpty();
         Assertions.assertThat(config.getPackagePath()).isEqualTo("org.fluentcodes.projects.elasticobjects.calls");
         // ModelProperties

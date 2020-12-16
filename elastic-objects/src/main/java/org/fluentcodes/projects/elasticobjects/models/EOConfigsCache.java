@@ -27,59 +27,27 @@ import java.util.stream.Collectors;
 public class EOConfigsCache {
     private static final Logger LOG = LogManager.getLogger(EOConfigsCache.class);
     private final Map<Class, EOConfigMap> eoConfigsMap;
-    private final boolean localSerialized;
     private final Scope scope;
-    private String serialized;
-    private Pattern modelPattern;
 
     public EOConfigsCache() {
-        this(Scope.ALL, false);
+        this(Scope.DEV);
     }
 
     public EOConfigsCache(final Scope scope) {
-        this(scope, false);
-    }
-
-    public EOConfigsCache(final Scope scope, final boolean localSerialized) {
         eoConfigsMap = new LinkedHashMap<>();
-        this.scope = scope;
-        this.localSerialized = localSerialized;
-        this.modelPattern = null;
-        eoConfigsMap.put(ModelConfig.class, new EOConfigMapModels(this));
-        eoConfigsMap.put(FieldConfig.class, new EOConfigMapFields(this));
-        eoConfigsMap.put(HostConfig.class, new EOConfigMapHost(this));
-        eoConfigsMap.put(FileConfig.class, new EOConfigMapFile(this));
-        if (scope != Scope.DEV) {
-            eoConfigsMap.get(ModelConfig.class).addJsonConfigs();
-            eoConfigsMap.get(FieldConfig.class).addJsonConfigs();
-            ((EOConfigMapModels)eoConfigsMap.get(ModelConfig.class)).addJsonClassNames();
-            for (String key: eoConfigsMap.get(ModelConfig.class).getKeys()) {
-                eoConfigsMap.get(ModelConfig.class).find(key).resolve();
-            }
-            eoConfigsMap.get(HostConfig.class).addJsonConfigs();
-            eoConfigsMap.get(FileConfig.class).addJsonConfigs();
+        this.scope = scope == null ? Scope.DEV : scope;
+        eoConfigsMap.put(ModelConfig.class, new EOConfigMapModels(this, scope));
+        if (scope == Scope.DEV) {
+            return;
         }
-    }
-
-    protected void addModel(Map model) {
-        eoConfigsMap.get(ModelConfig.class).addConfigByMap(model);
-    }
-
-    protected void addField(Map model) {
-        eoConfigsMap.get(FieldConfig.class).addConfigByMap(model);
-    }
-
-    protected Scope getScope() {
-        return scope;
+        eoConfigsMap.put(HostConfig.class, new EOConfigMap(this, scope, HostConfig.class));
+        eoConfigsMap.put(FileConfig.class, new EOConfigMap(this, scope, FileConfig.class));
     }
 
     public Set<Class> getKeys() {
         return eoConfigsMap.keySet();
     }
 
-    public Set<String> getKeys(final Class<? extends Config> configClass) {
-        return getConfigMap(configClass).getKeys();
-    }
 
     public List<String> getConfigClassesAsStringList() {
         return eoConfigsMap.keySet().stream().map(x -> x.getSimpleName()).collect(Collectors.toCollection(ArrayList::new));
@@ -116,26 +84,6 @@ public class EOConfigsCache {
         return config;
     }
 
-
-    public Object find(final String packagePath, final String cacheClassName, final String assetKey)  {
-        Class cacheClass = null;
-        try {
-            cacheClass = Class.forName(packagePath + "." + cacheClassName);
-        } catch (ClassNotFoundException e) {
-            throw new EoException(e);
-        }
-        return find(cacheClass, assetKey);
-    }
-
-    public boolean hasConfigKey(final Class configClass, final String key) {
-        try {
-            return getConfigMap(configClass).hasKey(key);
-        }
-        catch (EoException e) {
-            return false;
-        }
-    }
-
     public Set<String> getConfigKeys(Class configClass) {
         return getConfigKeys(configClass, Expose.NONE);
     }
@@ -146,7 +94,7 @@ public class EOConfigsCache {
         }
         Set<String> configKeys = new LinkedHashSet<>();
         for (String naturalId: getConfigMap(configClass).getKeys()) {
-            Config config = getConfigMap(configClass).find(naturalId);
+            ConfigConfigInterface config = getConfigMap(configClass).find(naturalId);
             if (config.getExpose().ordinal() <= expose.ordinal()) {
                 configKeys.add(naturalId);
             }
@@ -156,7 +104,7 @@ public class EOConfigsCache {
 
     private EOConfigMap getConfigMap(Class configClass) {
         if (eoConfigsMap.get(configClass) == null) {
-            eoConfigsMap.put(configClass, new EOConfigMapImmutable(this, configClass));
+            eoConfigsMap.put(configClass, new EOConfigMap(this, scope, configClass));
         }
         EOConfigMap configs = eoConfigsMap.get(configClass);
         if (configs == null) {
@@ -165,20 +113,17 @@ public class EOConfigsCache {
         return configs;
     }
 
-    public void add(Class configClass, Config config) {
-        getConfigMap(configClass).addConfig(config);
-    }
-
-    public FieldConfig findField(final String fieldKey)  {
-        return (FieldConfig) find(FieldConfig.class, fieldKey);
-    }
-
     public ModelConfig findModel(final String modelKey)  {
         return (ModelConfig) find(ModelConfig.class, modelKey);
     }
-
     public ModelConfig findModel(final Class modelClass)  {
         return findModel(modelClass.getSimpleName());
+    }
+    public ModelConfig findModel(final Object modelValue)  {
+        if (modelValue == null) {
+            throw new EoException("null model value");
+        }
+        return findModel(modelValue.getClass());
     }
 
     public FileConfig findFile(final String key)  {
@@ -188,117 +133,6 @@ public class EOConfigsCache {
         return (HostConfig) find(HostConfig.class, key);
     }
 
-    public ModelConfig findModel(final Object modelValue)  {
-        if (modelValue == null) {
-            throw new EoException("null model value");
-        }
-        return findModel(modelValue.getClass());
-    }
 
-    public final Object transform(final String fieldKey, Map attributes)  {
-        if (fieldKey == null) {
-            return null;
-        }
-        if (attributes == null) {
-            return null;
-        }
-        return transform(fieldKey, attributes.get(fieldKey));
-    }
 
-    public final Object transform(final String fieldKey, Map attributes, Object defaultValue)  {
-        if (fieldKey == null) {
-            return null;
-        }
-        if (attributes == null) {
-            return null;
-        }
-        if (attributes.get(fieldKey) != null) {
-            return transform(fieldKey, attributes.get(fieldKey));
-        } else {
-            return transform(fieldKey, defaultValue);
-        }
-    }
-
-    public final Object transform(final String fieldKey, final Object source)  {
-        return transform(fieldKey, source, null);
-    }
-
-    public final Object transform(final String fieldKey, Object source, Object defaultValue)  {
-        FieldConfig fieldConfig = null;
-        try {
-            fieldConfig = findField(fieldKey);
-        }
-        catch (EoException e) {
-           LOG.error(e.getMessage());
-           return null;
-        }
-        if (fieldConfig == null || fieldKey.isEmpty()) {
-            throw new EoException("No fieldKey provided for " + fieldKey + " and source=" + source);
-        }
-        /*DBFieldParams dbFieldParams = fieldConfig.getDbFieldParams();
-        if (dbFieldParams != null) {
-            Object configDefaultValue = dbFieldParams.getDefaultValue();
-            if (configDefaultValue != null && defaultValue == null) {
-                defaultValue = configDefaultValue;
-            }
-        }*/
-        if (source == null && defaultValue == null) {
-            return null;
-        }
-        if (source == null) {
-            source = defaultValue;
-        }
-        Models models = fieldConfig.getModels();
-        if (models.isScalar()) {
-            String scalarClassName = models.getModelClass().getSimpleName();
-            switch (scalarClassName) {
-                case "String":
-                    return ScalarConverter.toString(source);
-                case "Integer":
-                    return ScalarConverter.toInt(source);
-                case "Boolean":
-                    return ScalarConverter.toBoolean(source);
-                case "Date":
-                    return ScalarConverter.toDate(source);
-                case "Double":
-                    return ScalarConverter.toDouble(source);
-                case "Float":
-                    return ScalarConverter.toFloat(source);
-            }
-        }
-        if (models.isEnum()) {
-            String enumValue = ScalarConverter.toString(source);
-            return Enum.valueOf(models.getModelClass(), enumValue);
-            //https://stackoverflow.com/questions/26357132/generic-enum-valueof-method-enum-class-in-parameter-and-return-enum-item/26357317
-        }
-        // complex types use MODULE_NAME...
-        EO eo = new EoRoot(this, source);
-        return eo.get();
-    }
-
-    public String serialize() {
-        if (localSerialized && serialized != null) {
-            return serialized;
-        }
-        StringBuilder builder = new StringBuilder("{\n");
-        int counter = 0;
-        for (Class entry : eoConfigsMap.keySet()) {
-            builder.append("  \"");
-            builder.append(entry.getSimpleName());
-            builder.append("\":{\n");
-            builder.append(eoConfigsMap.get(entry).toStringx());
-            counter++;
-            builder.append("  }");
-            if (counter < eoConfigsMap.keySet().size()) {
-                builder.append(",");
-            }
-            builder.append("\n");
-
-        }
-        builder.append("}");
-        if (localSerialized) {
-            this.serialized = builder.toString();
-        }
-        return builder.toString();
-    }
 }

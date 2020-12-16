@@ -2,14 +2,43 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigCall;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
+import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.FieldBean;
+import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
+import org.junit.Test;
 
 import java.util.List;
 
+import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfig.FILE_NAME;
+
 public class ConfigModelChecks {
+
+    public static Object createSetGet(final String beanName, final String fieldName, Object value)  {
+        ModelConfig config = ProviderRootTestScope.EO_CONFIGS
+                .findModel(beanName);
+        Object object = config.create();
+        Assertions.assertThat(object).isNotNull();
+        config.set(fieldName, object, value);
+        Assertions.assertThat(config.get(fieldName, object)).isEqualTo(value);
+        return object;
+    }
+
+    public static Object createConfig(final ModelBean configBean, final String fieldName, Object value)  {
+        Assertions.assertThat(configBean).isNotNull();
+        ModelConfigInterfaceMethods config = (ModelConfigInterfaceMethods)configBean.createConfig();
+        //Assertions.assertThat(config.get(fieldName)).isEqualTo(value);
+        return config;
+    }
+
 
     public static ModelConfig createThrowsException(final Class modelClass) {
         final ModelConfig model = ProviderRootTestScope
@@ -22,7 +51,7 @@ public class ConfigModelChecks {
                             model.create();
                         })
                 .isInstanceOf(EoException.class)
-                .hasMessageContaining("Could not create empty instance from model for '" + modelClass.getSimpleName() + "'");
+                .hasMessageContaining("ModelConfig has no create flag -> no empty instance will create for '" + modelClass.getSimpleName() + "'");
         return model;
     }
 
@@ -30,7 +59,6 @@ public class ConfigModelChecks {
         final ModelConfig model = ProviderRootTestScope
                 .EO_CONFIGS
                 .findModel(modelClass);
-        model.resolve();
         Assertions.assertThat(model.getModelClass()).isEqualTo(modelClass);
         return model;
     }

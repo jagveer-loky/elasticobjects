@@ -67,7 +67,7 @@ public class DirectoryReadCall extends FileReadCall {
 
         final String filePath = ParserSqareBracket.replacePathValues(config.getFilePath() + "/" + replaceFileName, eo);
         final String content = new IOString().setFileName(filePath).read();
-        if (config.isCached()) {
+        if (config.getCached()) {
             config.setCachedContent(fileName, content);
         }
         return content;

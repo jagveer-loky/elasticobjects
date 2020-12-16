@@ -3,8 +3,6 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.List;
@@ -51,6 +49,7 @@ public interface EO {
 
     Map getKeyValues() ;
 
+    boolean isTransient(String fieldName);
     EO getEo(String... path) ;
     EO getEo(PathElement path) ;
     EO remove(String... path) ;

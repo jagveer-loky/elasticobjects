@@ -1,4 +1,20 @@
 {
+  "JavaFieldTypeCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldTypeCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "GenerateModelAbstract": {
     "module": "builder",
     "moduleScope": "main",
@@ -174,22 +190,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "JavaFieldTypeCall": {
-    "module": "builder",
-    "moduleScope": "main",
-    "interfaces": "SimpleCommand",
-    "superKey": "CallImpl",
-    "expose": "WEB",
-    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
-    "modelKey": "JavaFieldTypeCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
   "JavaFieldAnnotationDbCall": {
     "module": "builder",
     "moduleScope": "main",
@@ -270,7 +270,7 @@
     },
     "author": "Werner Diwischek"
   },
-  "FieldBean": {
+  "FieldBeanGen": {
     "module": "builder",
     "moduleScope": "main",
     "interfaces": "FieldBeanJavaMethods",
@@ -283,32 +283,6 @@
       "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "FieldBeanProperties": {
-    "module": "builder",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "fieldKey",
-      "final",
-      "generated",
-      "super",
-      "javascriptType",
-      "length",
-      "modelKeys",
-      "notNull",
-      "override"
-    ],
-    "interfaces": "FieldProperties,Base",
-    "expose": "WEB",
-    "description": "An interface for@FieldBean with access methods for properties. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "FieldBeanProperties",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -334,58 +308,15 @@
     "author": "Werner Diwischek"
   },
 
-  "ModelBean": {
+  "ModelBeanGen": {
     "module": "builder",
     "moduleScope": "main",
-    "interfaces": "ModelBeanProperties",
+    "interfaces": "ModelBeanGenProperties",
     "superKey": "ConfigBean",
     "expose": "WEB",
     "description": "A bean container class for Model values",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelBean",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ModelBeanProperties": {
-    "module": "builder",
-    "moduleScope": "main",
-    "fieldKeys": [
-      "abstract",
-      "dbAnnotated",
-      "fieldBeans",
-      "interfaces",
-      "javascriptType",
-      "modelKey",
-      "modelKeyLower",
-      "modelKeyPlural",
-      "modelKeyPluralLower",
-      "packagePath",
-      "superKey"
-    ],
-    "interfaces": "ModelConfigProperties,Base",
-    "expose": "WEB",
-    "description": "An interface for@ModelBean with access methods for properties. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelBeanProperties",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ConfigBean": {
-    "module": "builder",
-    "moduleScope": "main",
-    "interfaces": "Config,ConfigProperties",
-    "expose": "WEB",
-    "description": "The basic bean class for the @ConfigImpl class.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ConfigBean",
     "properties": {
       "classPath": "src.main.java",
       "create": true,

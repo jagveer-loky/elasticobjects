@@ -40,7 +40,7 @@ public class EoRemoveTest {
         EO root = ProviderRootTestScope.createEo(AnObject.class);
         Assertions
                 .assertThatThrownBy(()->{root.remove(AnObject.MY_STRING);})
-                .hasMessage("Object value for " + AnObject.MY_STRING + " is already null.");
+                .hasMessage("Could not remove entry '" + AnObject.MY_STRING + "' because it is not set in '" + AnObject.class.getSimpleName() + "'");
     }
 
     /**
@@ -64,7 +64,7 @@ public class EoRemoveTest {
         EO root = ProviderRootDevScope.createEo(Map.class);
         Assertions
                 .assertThatThrownBy(()->{root.remove("test");})
-                .hasMessage("No value add for fieldName=test");
+                .hasMessage("Could not remove entry 'test' because it is not set in 'Map'");
     }
 
     @Test
@@ -83,6 +83,6 @@ public class EoRemoveTest {
         EO root = ProviderRootDevScope.createEo(new ArrayList<>());
         Assertions
                 .assertThatThrownBy(()->{root.remove(S0);})
-                .hasMessage("List size 0 greater than 0");
+                .hasMessage("Could not remove entry '0' because it is not set in 'ArrayList'");
     }
 }

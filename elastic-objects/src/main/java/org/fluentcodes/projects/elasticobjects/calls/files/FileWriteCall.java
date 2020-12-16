@@ -63,7 +63,7 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
                 content = eo.toString();
             }
         }
-        String targetFile = fileConfig.createUrl().getFile();
+        String targetFile = fileConfig.createUrl(getHostConfig()).getFile();
         if (ParserSqareBracket.containsStartSequence(targetFile)) {
             targetFile = new ParserSqareBracket(targetFile).parse(eo);
         }

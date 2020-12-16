@@ -1,9 +1,1 @@
-{
-  "password": "########",
-  "user": "dummy",
-  "expose": "NONE",
-  "module": "elastic-objects-test",
-  "moduleScope": "test",
-  "description": "A connection to elastic objects",
-  "naturalId": "dummyftpurl"
-}
+dummyftpurl -> ftp://dummyftp:21

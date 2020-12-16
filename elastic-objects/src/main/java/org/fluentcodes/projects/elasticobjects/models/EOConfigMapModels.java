@@ -1,24 +1,23 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.domain.Base;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
+import org.fluentcodes.projects.elasticobjects.UnmodifiableCollection;
+import org.fluentcodes.projects.elasticobjects.UnmodifiableList;
+import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.tools.xpect.IORuntimeException;
-import org.fluentcodes.tools.xpect.IOString;
 
-import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
-
-import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
-import static org.fluentcodes.projects.elasticobjects.models.ConfigProperties.PROPERTIES;
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties.CLASS_PATH;
 
 /**
  * @Author Werner Diwischek
@@ -28,187 +27,131 @@ public class EOConfigMapModels extends EOConfigMap {
     private final static String MODELS_JSON = "Models.json";
     private Set<String> callSet = new TreeSet<>();
 
-    public EOConfigMapModels(final EOConfigsCache eoConfigsCache)  {
-        super(eoConfigsCache, ModelConfig.class);
-        addBasicConfigs();
+    public static final ModelConfig DEFAULT_MODEL = new ModelConfigMap(new ModelBean(Map.class, ShapeTypes.MAP));
+
+    public EOConfigMapModels(EOConfigsCache cache, final Scope scope)  {
+        super(cache, scope, ModelConfig.class);
     }
 
-   @Override
-    public Config find(final String key)  {
+    @Override
+    protected Map<String, ConfigConfigInterface> initMap() {
+        Map<String, ModelBean> modelBeanMap = createBaseModelBeans();
+        if (getScope() == Scope.DEV) {
+            return createModelConfigMap(modelBeanMap);
+        }
+        // reading all ModelConfig.json
+        String configModelsString = readConfigFiles();
+
+        final EOConfigsCache baseCache = new EOConfigsCache();
+        Map<String, Map> modelMap = (Map<String, Map>) new EoRoot(baseCache, configModelsString).get();
+        Map<String, Map> fieldMap = readFieldMap(baseCache);
+        for (String naturalId: modelMap.keySet() ) {
+            if (modelBeanMap.containsKey(naturalId)) {
+                throw new EoInternalException("Bean with naturalId '" + naturalId + "' already exists");
+            }
+            ModelBean modelBean = new ModelBean(modelMap.get(naturalId));
+            if (!modelBean.hasNaturalId()) {
+                modelBean.setNaturalId(naturalId);
+            }
+            modelBean.mergeFieldDefinition(fieldMap);
+            modelBeanMap.put(modelBean.getNaturalId(), modelBean);
+        }
+        addJsonClassNames(modelBeanMap);
+
+        Map<String, ConfigConfigInterface> modelConfigMap = createModelConfigMap(modelBeanMap);
+        for (ConfigConfigInterface modelConfig: modelConfigMap.values()) {
+            ((ModelConfig)modelConfig).resolve(modelConfigMap);
+        }
+        for (ConfigConfigInterface modelConfig: modelConfigMap.values()) {
+            ((ModelConfig)modelConfig).resolveSuper();
+        }
+        return modelConfigMap;
+    }
+
+
+
+    private static final Map<String, ConfigConfigInterface> createModelConfigMap(Map<String, ModelBean> modelBeanMap) {
+        Map<String, ConfigConfigInterface> modelConfigMap = new TreeMap<>();
+        for (ModelBean modelBean: modelBeanMap.values()) {
+            modelConfigMap.put(modelBean.getNaturalId(), modelBean.createConfig());
+        }
+        return modelConfigMap;
+    }
+
+    protected Map<String, Map> readFieldMap(final EOConfigsCache baseCache) {
+        String configFieldsString = readConfigFiles("FieldConfig.json");
+        Map<String, Map> configFieldMap = (Map<String, Map>) new EoRoot(baseCache, configFieldsString).get();
+        return configFieldMap;
+    }
+
+    protected void addJsonClassNames(Map<String, ModelBean> modelBeanMap)  {
+        String modelListString = readConfigFiles(MODELS_JSON);
+        if (modelListString == null || modelListString.isEmpty()) {
+            return;
+        }
+        String[] modelClasses = modelListString.split("\n");
+        for (String modelClass: modelClasses) {
+            addModelForClasses(modelClass, modelBeanMap);
+        }
+    }
+
+    private void addModelForClasses(String modelClass, Map<String, ModelBean> modelBeanMap) {
         try {
-            return super.find(key);
-        } catch (EoException e) {
-            try {
-                return super.find(key.replaceAll(".*\\.", ""));
-            }
-            catch (EoException e1) {
-                try {
-                    return ModelConfig.addByClassName(getConfigsCache(), key);
-                }
-                catch(EoException e2) {
-                    throw new EoException("Could not find Class '" + key + "' neither in cache nor classPath! " + e.getMessage());
-                }
-            }
+            addModelForClasses(Class.forName(modelClass), modelBeanMap);
+        } catch (Exception e) {
+            throw new EoException("Could not find Class " + modelClass + ": " + e.getMessage());
         }
     }
 
-    protected void addJsonClassNames()  {
-        String providerSource = MODELS_JSON;
-        try {
-            List<String> classNameJsons = new IOString()
-                    .setFileName(providerSource)
-                    .readStringList();
-
-            for (String classNameJson : classNameJsons) {
-                EO eo = new EoRoot(getConfigsCache(), classNameJson);
-                List classNames = (List) eo.get();
-                if (classNames == null) {
-                    continue;
-                }
-                for (Object className: classNames) {
-                    if ("List".equals(className)) {
-                        continue;
-                    }
-                    ModelConfig modelConfig = ModelConfig.addByClassName(getConfigsCache(), (String) className);
-                    if (!hasKey(modelConfig.getNaturalId())) {
-                        super.addConfig(modelConfig);
-                    }
-                }
+    private void addModelForClasses(Class modelClass, Map<String, ModelBean> modelBeanMap) {
+        ModelBeanForClasses modelBean = new ModelBeanForClasses(modelClass, modelBeanMap);
+        if (modelBeanMap.containsKey(modelClass.getSimpleName())) {
+            LOG.info("Already defined '" + modelBeanMap + "'");
+            return;
+        }
+        for (FieldBeanInterface fieldBean: modelBean.getFieldBeans().values()) {
+            String typeKey = ((FieldBeanForClasses)fieldBean).getTypeKey();
+            if (!modelBeanMap.containsKey(typeKey)) {
+                addModelForClasses(((FieldBeanForClasses) fieldBean).getTypeClass().getTypeName(), modelBeanMap);
             }
         }
-        catch (IORuntimeException e) {
-            LOG.debug("Could not find " + MODELS_JSON + " files.");
+        modelBeanMap.put(modelBean.getNaturalId(), modelBean);
+        if (modelBean.hasSuperClass()) {
+            addModelForClasses(modelBean.getSuperClass(), modelBeanMap);
         }
     }
 
-    protected void addConfigByMap(final Map map) {
-        String naturalId = (String)map.get(NATURAL_ID);
-        if (naturalId == null) {
-            throw new EoInternalException("No naturalid provided for FileConfig");
-        }
-        Class configurationClass = ModelConfigObject.class;
-        final String configModelKey = (String)map.get(Config.CONFIG_MODEL_KEY);
-        if (configModelKey !=null && !configModelKey.isEmpty() && !configModelKey.equals(configurationClass.getSimpleName())) {
-            try {
-                configurationClass = Class.forName("org.fluentcodes.projects.elasticobjects.models." + configModelKey);
-            } catch (ClassNotFoundException e) {
-                throw new EoException(e);
-            }
-        }
-        try {
-        Constructor configurationConstructor = configurationClass.getConstructor(EOConfigsCache.class, Map.class);
-            try {
-                addConfig((Config)configurationConstructor.newInstance(getConfigsCache(), map));
-            } catch (Exception e) {
-                throw new EoInternalException("Problem with '" + naturalId + "'/'" + configurationClass.getSimpleName() + "' in ModelConfig", e);
-            }
-        }
-        catch (Exception e) {
-            throw new EoInternalException("Problem with model '" + naturalId + "' mapped to configuration config class '" + configurationClass.getSimpleName() + "' in ModelConfig", e);
-        }
+    private static void addModelBeanMap(final HashMap<String, ModelBean> modelMap, Class modelClass) {
+        modelMap.put(modelClass.getSimpleName(), new ModelBean(modelClass, ShapeTypes.MAP));
+    }
+    private static void addModelBeanList(final HashMap<String, ModelBean> modelMap, Class modelClass) {
+        modelMap.put(modelClass.getSimpleName(), new ModelBean(modelClass, ShapeTypes.LIST));
+    }
+    private static void addModelBeanScalar(final HashMap<String, ModelBean> modelMap, Class modelClass) {
+        modelMap.put(modelClass.getSimpleName(), new ModelBean(modelClass, ShapeTypes.SCALAR));
     }
 
-    protected void addBasicConfigs()  {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put(ModelConfigProperties.SHAPE_TYPE, "MAP");
-        properties.put(ModelConfigProperties.DEFAULT_IMPLEMENTATION, "LinkedHashMap");
+    private static final Map<String, ModelBean> createBaseModelBeans() {
+        HashMap<String, ModelBean> modelMap = new LinkedHashMap<>();
+        addModelBeanMap(modelMap, LinkedHashMap.class);
+        addModelBeanMap(modelMap, Map.class);
+        addModelBeanMap(modelMap, UnmodifiableMap.class);
 
+        addModelBeanList(modelMap, UnmodifiableCollection.class);
+        addModelBeanList(modelMap, UnmodifiableList.class);
+        addModelBeanList(modelMap, List.class);
+        addModelBeanList(modelMap, ArrayList.class);
 
-        Map<String, Object> map = new HashMap<>();
-        map.put(PACKAGE_PATH, "java.util");
-        // map
-        map.put(Base.NATURAL_ID, "Map");
-        map.put(ModelConfig.MODEL_KEY, "Map");
-        map.put(Config.EXPOSE, Expose.NONE.name());
-        map.put(Config.CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
-
-        map.put(PROPERTIES, properties);
-        addConfigByMap(map);
-
-
-        map.put(Base.NATURAL_ID, "LinkedHashMap");
-        map.put(ModelConfig.MODEL_KEY, "LinkedHashMap");
-        addConfigByMap(map);
-
-        // list
-        map.put(Base.NATURAL_ID, "List");
-        map.put(ModelConfig.MODEL_KEY, "List");
-        map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
-
-        properties.put(ModelConfigProperties.SHAPE_TYPE, "LIST");
-        properties.put(ModelConfigProperties.DEFAULT_IMPLEMENTATION, "ArrayList");
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "ArrayList");
-        map.put(ModelConfig.MODEL_KEY, "ArrayList");
-        addConfigByMap(map);
-
-
-        properties.put(ModelConfigProperties.SHAPE_TYPE, ShapeTypes.SCALAR.name());
-        properties.put(ModelConfigProperties.CREATE, false);
-
-        map.put(PACKAGE_PATH, "java.lang");
-        // scalar
-        map.put(Base.NATURAL_ID, "Integer");
-        map.put(PACKAGE_PATH, "java.lang");
-        map.put(ModelConfig.MODEL_KEY, "Integer");
-        map.put(Config.EXPOSE, Expose.NONE.name());
-        map.put(Config.CONFIG_MODEL_KEY, ModelConfigScalar.CONFIG_MODEL_KEY);
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "Long");
-        map.put(ModelConfig.MODEL_KEY, "Long");
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "String");
-        map.put(ModelConfig.MODEL_KEY, "String");
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "Double");
-        map.put(ModelConfig.MODEL_KEY, "Double");
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "Float");
-        map.put(ModelConfig.MODEL_KEY, "Float");
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "Boolean");
-        map.put(ModelConfig.MODEL_KEY, "Boolean");
-        addConfigByMap(map);
-
-        map.put(PACKAGE_PATH, "java.util");
-        map.put(Base.NATURAL_ID, "Date");
-        map.put(ModelConfig.MODEL_KEY, "Date");
-        addConfigByMap(map);
-
-        //
-        properties.put(ModelConfigProperties.SHAPE_TYPE, ShapeTypes.ENUM.name());
-        properties.put(ModelConfigProperties.CREATE, false);
-        properties.put(CLASS_PATH, "src/main/java");
-
-        map.put(PACKAGE_PATH, "org.fluentcodes.projects.elasticobjects");
-        map.put(Base.NATURAL_ID, "LogLevel");
-        map.put(ModelConfig.MODEL_KEY, "LogLevel");
-        map.put(Config.EXPOSE, Expose.NONE.name());
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "JSONSerializationType");
-        map.put(ModelConfig.MODEL_KEY, "JSONSerializationType");
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "UnmodifiableMap");
-        map.put(ModelConfig.MODEL_KEY, "UnmodifiableMap");
-        map.put(Config.CONFIG_MODEL_KEY, ModelConfigMap.CONFIG_MODEL_KEY);
-        addConfigByMap(map);
-
-        map.put(Base.NATURAL_ID, "UnmodifiableCollection");
-        map.put(ModelConfig.MODEL_KEY, "UnmodifiableCollection");
-        map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
-
-        map.put(Base.NATURAL_ID, "UnmodifiableList");
-        map.put(ModelConfig.MODEL_KEY, "UnmodifiableList");
-        map.put(Config.CONFIG_MODEL_KEY, ModelConfigList.CONFIG_MODEL_KEY);
-
-        addConfigByMap(map);
+        addModelBeanScalar(modelMap, Integer.class);
+        addModelBeanScalar(modelMap, Long.class);
+        addModelBeanScalar(modelMap, String.class);
+        addModelBeanScalar(modelMap, Float.class);
+        addModelBeanScalar(modelMap, Double.class);
+        addModelBeanScalar(modelMap, Boolean.class);
+        addModelBeanScalar(modelMap, Date.class);
+        addModelBeanScalar(modelMap, LogLevel.class);
+        addModelBeanScalar(modelMap, JSONSerializationType.class);
+        return modelMap;
     }
+
 }

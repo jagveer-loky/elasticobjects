@@ -8,6 +8,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -329,7 +330,11 @@ public class ListParams {
         return colKeys;
     }
 
-    public ListParams setColKeys(List <String> colKeys) {
+    public ListParams setColKeys(List<String> colKeys) {
+        this.colKeys = colKeys;
+        return this;
+    }
+    public ListParams setColKeys(ArrayList<String> colKeys) {
         this.colKeys = colKeys;
         return this;
     }

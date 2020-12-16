@@ -40,6 +40,28 @@
               "(SortOrder)2": "DESC"
             }
           },
+          "author": {
+            "description": "The autor of something e,g. a class.",
+            "type": "string"
+          },
+          "creationDate": {
+            "description": "Used to define the creation of an item.",
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "description": "A description of the model used by every model extending BaseClassImpl. ",
+            "type": "string"
+          },
+          "id": {
+            "description": "The id with a autonumbering",
+            "type": "integer",
+            "format": "int62"
+          },
+          "naturalId": {
+            "description": "The natural key in @Base",
+            "type": "string"
+          },
           "condition": {
             "description": "A condition for calls. ",
             "type": "string"
@@ -98,28 +120,6 @@
           },
           "targetPath": {
             "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
-            "type": "string"
-          },
-          "author": {
-            "description": "The autor of something e,g. a class.",
-            "type": "string"
-          },
-          "creationDate": {
-            "description": "Used to define the creation of an item.",
-            "type": "string",
-            "format": "date-time"
-          },
-          "description": {
-            "description": "A description of the model used by every model extending BaseClassImpl. ",
-            "type": "string"
-          },
-          "id": {
-            "description": "The id with a autonumbering",
-            "type": "integer",
-            "format": "int62"
-          },
-          "naturalId": {
-            "description": "The natural key in @Base",
             "type": "string"
           }
         }

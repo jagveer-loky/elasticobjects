@@ -7,9 +7,8 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.FieldBean;
-import org.fluentcodes.projects.elasticobjects.models.FieldBeanProperties;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
-import org.fluentcodes.projects.elasticobjects.models.ModelBeanProperties;
+import org.fluentcodes.projects.elasticobjects.models.ModelBeanGenProperties;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -58,8 +57,8 @@ public class JavaImportCall extends CallImpl implements SimpleCommand {
 
     @Override
     public String execute(final EO eo) {
-        if (!(eo.get() instanceof ModelBeanProperties)) {
-            throw new EoException("Input must be instance of '" + ModelBeanProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
+        if (!(eo.get() instanceof ModelBeanGenProperties)) {
+            throw new EoException("Input must be instance of '" + ModelBeanGenProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
         }
         EO eoRoot = eo.getRoot();
         ModelBean modelBean = (ModelBean)eo.get();
@@ -89,8 +88,8 @@ public class JavaImportCall extends CallImpl implements SimpleCommand {
                 throw new EoException("Problem resolving model '" + fieldModelKey + "'");
             }
             EO eoFieldModel = eoRoot.getEo(fieldModelKey);
-            if (!(eoFieldModel.get() instanceof ModelBeanProperties)) {
-                throw new EoException("Input must be instance of '" + ModelBeanProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
+            if (!(eoFieldModel.get() instanceof ModelBeanGenProperties)) {
+                throw new EoException("Input must be instance of '" + ModelBeanGenProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
             }
             ModelBean fieldModel = (ModelBean) eoFieldModel.get();
             if (!fieldModel.hasPackagePath()) {

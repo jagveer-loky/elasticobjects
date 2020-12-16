@@ -1,0 +1,20 @@
+{
+  "_rootmodel": "ArrayList",
+  "0": {
+    "modelKey": "ExecutorCall",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+    "configModelKey": "ModelConfigObject",
+    "(Expose)expose": "NONE",
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": false,
+      "shapeType": "OBJECT"
+    },
+    "author": "Werner Diwischek",
+    "description": "Facade execution ",
+    "naturalId": "ExecutorCall"
+  },
+  "(LogLevel)_logLevel": "WARN"
+}

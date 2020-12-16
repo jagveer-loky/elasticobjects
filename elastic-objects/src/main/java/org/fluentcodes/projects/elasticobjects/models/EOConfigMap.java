@@ -3,52 +3,75 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 import org.fluentcodes.tools.xpect.IOString;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
-
 /**
  * Created by Werner on 19.8.2020.
  */
-public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
+public class EOConfigMap implements EOConfigMapInterface<ConfigConfigInterface> {
     public static final Logger LOG = LogManager.getLogger(EOConfigMap.class);
-    private final Map<String, Config> configMap;
-    private final Class<? extends Config> configClass;
-    private final EOConfigsCache configsCache;
+    private final Map<String, ConfigConfigInterface> configMap;
+    private final Scope scope;
+    private final Class<? extends ConfigConfigInterface> configClass;
+    private final EOConfigsCache cache;
 
-    public EOConfigMap(final EOConfigsCache eoConfigsCache, final Class<? extends Config> configClass)  {
+    protected EOConfigMap(EOConfigsCache cache, Scope scope, final Class<? extends ConfigConfigInterface> configClass)  {
         this.configClass = configClass;
-        this.configsCache = eoConfigsCache;
-        configMap = new HashMap<>();
+        this.scope = scope;
+        this.cache = cache;
+        this.configMap = initMap();
     }
 
-    public EOConfigsCache getConfigsCache() {
-        return configsCache;
+    /**
+     * Default init map.
+     * @return the expanded final configurations.
+     */
+    protected Map<String, ConfigConfigInterface> initMap() {
+        final String configBeanString = readConfigFiles();
+        String configBeanName = configClass.getName().replaceAll("Config$", "Bean");
+        Class beanClass = null;
+        try {
+            beanClass = Class.forName(configBeanName);
+        } catch (ClassNotFoundException e) {
+            throw new EoException("Could not find bean class for '" + configClass.getName() + "'." );
+        }
+        EO eoRoot = new EoRoot(cache, Map.class, beanClass);
+        eoRoot.mapObject(configBeanString);
+        Map<String, ConfigBean> configBeanMap = (Map<String, ConfigBean>)eoRoot.get();
+        Map<String, ConfigConfigInterface> configMap = new LinkedHashMap<>();
+        for (String naturalId: configBeanMap.keySet()) {
+            ConfigBean configBean = configBeanMap.get(naturalId);
+            if (configBean == null) {
+                throw new EoInternalException("Problem resolving bean with key '" + naturalId + "'.");
+            }
+            configBean.setNaturalId(naturalId);
+            configMap.put(naturalId, configBean.createConfig(cache));
+        }
+        return configMap;
     }
 
     public Scope getScope() {
-        return configsCache.getScope();
+        return scope;
     }
 
     @Override
-    public Config find(String key)  {
-        Config item = configMap.get(key);
-        if (item == null) {
+    public ConfigConfigInterface find(String key)  {
+        if (key == null || key.isEmpty()) {
+            throw new EoException("Key for find in '" + configClass.getSimpleName() + "' is empty!");
+        }
+        if (!configMap.containsKey(key)) {
             throw new EoException("Could not find config entry for '" + key + "' in config class '" + configClass.getSimpleName() + "'");
         }
-        return item;
+        return configMap.get(key);
     }
 
     public Set<String> getKeys() {
@@ -63,114 +86,43 @@ public abstract class EOConfigMap implements EOConfigMapInterface<Config> {
         return configMap.isEmpty();
     }
 
-    protected void addJsonConfigs()  {
-        String providerSource = configClass.getSimpleName() + ".json";
+    protected final String readConfigFiles() {
+        return readConfigFiles(configClass.getSimpleName() + ".json");
+    }
+
+    /**
+     * Read all files in the classpath and concatenate them so its a valid json file.
+     * @param fileName A file name for JSON configurations.
+     * @return the concatenated file content.
+     */
+    protected final String readConfigFiles(final String fileName) {
         try {
-            List<String> configs = new IOString()
-                    .setFileName(providerSource)
+            List<String> configContentList = new IOString()
+                    .setFileName(fileName)
                     .readStringList();
-            for (String config : configs) {
-                EO eo = new EoRoot(configsCache, Map.class);
-                try {
-                    eo.mapObject(config);
-                }
-                catch (Exception e) {
-                    throw new EoException("Problem lading '"+ configClass.getSimpleName() + "' " + ": " + e.getMessage() + " " + config);
-                }
-                addConfigMap((Map) eo.get());
+            if (configContentList.isEmpty()) {
+                LOG.warn("No configuration file '" + configClass + ".json' found in the classpath!");
+                return "";
             }
+
+            if (configContentList.size() == 1) {
+                return configContentList.get(0);
+            }
+            StringBuilder concatenate = new StringBuilder();
+            concatenate.append(configContentList.get(0)
+                    .replaceAll("\\}$",","));
+            for (int i = 1; i<configContentList.size()-1; i++) {
+                concatenate.append(configContentList.get(i)
+                        .replaceAll("\\}$",",")
+                        .replaceAll("^\\{",""));
+            }
+            concatenate.append(configContentList.get(configContentList.size()-1)
+                    .replaceAll("^\\{",""));
+            return concatenate.toString();
         }
         catch (IORuntimeException e) {
-            LOG.info("No configuration file found for '" + getClass().getSimpleName() + "' in the classpath!");
+            LOG.warn("No configuration file '" + configClass + ".json' found in the classpath!");
+            return "";
         }
     }
-
-    private void addConfigMap(final Map map)  {
-        for (Object key : map.keySet()) {
-            addConfigByMap((String) key, (Map)map.get(key));
-        }
-    }
-
-    protected void addConfigByMap(final String key, final Map map) {
-        if (!map.containsKey(NATURAL_ID)) {
-            map.put(NATURAL_ID, key);
-        }
-        addConfigByMap(map);
-    }
-
-    protected void addConfigByMap(final Map map) {
-        String naturalId = (String)map.get(NATURAL_ID);
-        if (naturalId == null) {
-            throw new EoInternalException("No naturalid provided for FileConfig");
-        }
-        if (hasKey(naturalId)) {
-            throw new EoInternalException("NaturalId " + naturalId + " already exists FileConfig.");
-        }
-        if (configMap.containsKey(naturalId)) {
-            throw new EoInternalException("NaturalId '" + naturalId + "' already exist in " + this.configClass.getSimpleName());
-        }
-        String modelKey =
-                map.containsKey(Config.CONFIG_MODEL_KEY) && map.get(Config.CONFIG_MODEL_KEY) !=null && !((String)map.get(Config.CONFIG_MODEL_KEY)).isEmpty()
-                        ? (String) map.get(Config.CONFIG_MODEL_KEY)
-                        : configClass.getSimpleName();
-        ModelConfig configurationModel = getConfigsCache().findModel(modelKey);
-        try {
-            Class configurationClass = configurationModel.getModelClass();
-            Constructor configurationConstructor = configurationClass.getConstructor(EOConfigsCache.class, Map.class);
-            try {
-                addConfig((Config)configurationConstructor.newInstance(getConfigsCache(), map));
-            } catch (InstantiationException e) {
-                throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
-            } catch (IllegalAccessException e) {
-                throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
-            } catch (InvocationTargetException e) {
-                throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
-            }
-            catch (Exception e) {
-                throw new EoInternalException(e);
-            }
-        } catch (NoSuchMethodException e) {
-            throw new EoInternalException("Problem with '" + naturalId + "'/'" + modelKey + "' in " + configClass.getSimpleName(), e);
-        }
-    }
-
-    protected void addConfig(final Config config) {
-        if (this.configMap.containsKey(config.getNaturalId())) {
-            throw new EoException("Natural id already set: '" + this.configClass.getSimpleName() + "' for " + config.getNaturalId());
-        }
-        this.configMap.put(config.getNaturalId(), config);
-        if (!configMap.containsKey(config.getNaturalId())) {
-            throw new EoException("Could not set '" + this.configClass.getSimpleName() + "' for " + config.getNaturalId());
-        }
-    }
-
-    public String toStringx() {
-        StringBuilder builder = new StringBuilder();
-        int counter = 0;
-        for (String key : configMap.keySet()) {
-            Config config = (Config) configMap.get(key);
-
-            try {
-                config.resolve();
-                builder.append("    \"");
-                builder.append(key);
-                builder.append("\":");
-                EO adapter = new EoRoot(configsCache,config);
-                builder.append(new EOToJSON()
-                        .setStartIndent(3)
-                        .toJSON(adapter));
-                counter++;
-                if (counter < configMap.keySet().size()) {
-                    builder.append(",");
-                }
-                builder.append("\n");
-            } catch (Exception e) {
-                e.printStackTrace();
-                builder.append("{}");
-            }
-        }
-        return builder.toString();
-    }
-
-
 }

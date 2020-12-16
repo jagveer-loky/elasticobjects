@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
@@ -30,7 +30,7 @@ public class GithubLinkCall extends CallImpl  {
    private  String configType;
 /*=>{}.*/
 
-    private Config config;
+    private ConfigConfigInterface config;
     private boolean configured = true;
     private boolean noLabel = false;
     private Boolean noGithub = false;
@@ -115,7 +115,7 @@ public class GithubLinkCall extends CallImpl  {
             builder.append("</a></nobreak>");
             return builder.toString();
         }
-        this.config = (Config) eo.getConfigsCache().find(configClass, configKey);
+        this.config = (ConfigConfigInterface) eo.getConfigsCache().find(configClass, configKey);
         builder.append(config.getModule());
         if (configClass.equals(ModelConfig.class)) {
             builder.append("/src/");
@@ -163,7 +163,7 @@ public class GithubLinkCall extends CallImpl  {
         this.noGithub = noGithub;
     }
 
-    protected Config getConfig() {
+    protected ConfigConfigInterface getConfig() {
         return config;
     }
     protected void setNoLabel() {
@@ -176,7 +176,7 @@ public class GithubLinkCall extends CallImpl  {
 
     /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
     /**
-    Key for configuration  {@link Config}
+    Key for configuration  {@link ConfigConfigInterface}
     */
 
     public GithubLinkCall setConfigKey(String configKey) {

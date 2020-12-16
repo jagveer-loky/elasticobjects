@@ -1,17 +1,23 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
+
 /**
  * Created by Werner on 09.10.2016.
  */
-public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
+public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
     public static final String FIELD_KEY = "fieldKey";
     public static final String MODEL_KEYS = "modelKeys";
     public static final String TO_SERIALIZE = "toSerialize";
@@ -19,27 +25,111 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
     public static final String NAME = "name";
     public static final String DEFAULT_VALUE = "defaultValue";
 
+    private boolean resolved;
     private final Boolean toSerialize;
     private final String fieldKey;
     private final String modelKeys;
     private final Integer length;
     private List<String> modelList;
     private final Object defaultValue;
+    private final ModelConfig modelConfig;
     private Models models;
+    private Method getter;
+    private Method setter;
 
-    public FieldConfig(EOConfigsCache configsCache, Map map) {
-        super(configsCache, map);
-        try {
-            this.toSerialize = map.containsKey(TO_SERIALIZE) ? ScalarConverter.toBoolean(TO_SERIALIZE) : false;
-            this.fieldKey = (String) map.get(FIELD_KEY);
-            this.modelKeys = (String) map.get(MODEL_KEYS);
-            this.modelList = new ArrayList<>();
-            this.length = map.containsKey(LENGTH) ? ScalarConverter.toInt(map.get(LENGTH)) : null;
-            this.defaultValue = map.get(DEFAULT_VALUE);
-            super.setExpose(Expose.NONE);
+    public FieldConfig(final ModelConfig modelConfig, final FieldBeanInterface bean) {
+        super(bean);
+        this.modelConfig = modelConfig;
+        this.toSerialize = false;
+        this.fieldKey = bean.getFieldKey();
+        this.modelKeys = bean.getModelKeys();
+        this.modelList = ((FieldBean)bean).getModelList();
+        this.length = bean.getLength();
+        this.defaultValue = bean.getDefaultValue();
+    }
+
+    protected void resolve(ModelConfig model, Map<String, ConfigConfigInterface> modelConfigMap) {
+        if (resolved) {
+            return;
         }
-        catch (Exception e) {
-            throw new EoInternalException("Problem setting field with " + map.get(NATURAL_ID));
+        resolved = true;
+        if (!hasModelKeys()) {
+            throw new EoException("Every field needs a model type but '" + getNaturalId() + "' has none!" );
+        }
+        String[] modelKeyArray = modelKeys.split(",");
+        List<ModelConfig> modelConfigList = new ArrayList<>();
+        for (String modelKey: modelKeyArray) {
+            if (!modelConfigMap.containsKey(modelKey)) {
+                throw new EoException("Could not resolve fieldType '" + modelKey + "' for '" + fieldKey + "' (" + getModelKeys() + ").");
+            }
+            modelConfigList.add((ModelConfig)modelConfigMap.get(modelKey));
+        }
+        this.models = new Models(modelConfigList);
+
+        if (!model.isObject()) {
+            return;
+        }
+
+        if (model.getShapeType() == ShapeTypes.INTERFACE) {
+            String value = getProperties().toString();
+            if (!isDefault()) {
+                return;
+            }
+        }
+
+        this.getter = getGetMethod(model, this.fieldKey);
+
+        if (isFinal()) {
+            return;
+        }
+
+        this.setter = getSetMethod(model, this.fieldKey);
+    }
+
+    private Method getGetMethod(final ModelConfig model, final String fieldKey) {
+        try {
+            return model.getModelClass().getMethod(StringUpperFirstCharCall.getter(fieldKey), null);
+        } catch (NoSuchMethodException e) {
+            throw new EoException("\nCould not find getter method for '" + fieldKey + "' and model '" + modelConfig.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
+        }
+    }
+
+    private Method getSetMethod(final ModelConfig model, final String fieldKey) {
+        try {
+            return model.getModelClass().getMethod(StringUpperFirstCharCall.setter(fieldKey), models.getModelClass());
+        } catch (NoSuchMethodException e) {
+            throw new EoException("\nCould not find setter method for '" + fieldKey + "' and model '" + modelConfig.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
+        }
+    }
+
+    protected Object get(Object parent) {
+        if (getter==null) {
+            throw new EoException("No getter defined '" + getNaturalId() + "' for '" + parent.getClass().getSimpleName() + "'.");
+        }
+        if (parent==null) {
+            throw new EoException("Null parent for get '" + getNaturalId() + "' for '\" + parent.getClass().getSimpleName() + \"'.");
+        }
+        try {
+            return getter.invoke(parent, null);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new EoException("Problem invoke getter with '" + getNaturalId() + "' and model '" + parent.getClass().getSimpleName() + "':" + e.getMessage());
+        }
+    }
+
+    protected void set(Object parent, Object value) {
+        if (isFinal()) {
+            throw new EoException("Field '" + getNaturalId() + "' marked as final for model '" + parent.getClass().getSimpleName() + "'.");
+        }
+        if (setter==null) {
+            throw new EoException("Setter is null for field '" + getNaturalId() + "' and model '" + parent.getClass().getSimpleName() + "'.");
+        }
+        if (parent==null) {
+            throw new EoException("Null parent for field '" + getNaturalId() + "'.");
+        }
+        try {
+            setter.invoke(parent, value);
+        } catch (Exception e) {
+            throw new EoException("\nProblem invoke setter with '" + getNaturalId() + "' and model '" + parent.getClass().getSimpleName() + "' with value class'" + value.getClass().getSimpleName() + "':" + e.getMessage());
         }
     }
 
@@ -64,28 +154,6 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
         return !modelList.isEmpty();
     }
 
-    protected final static void addByClassField(EOConfigsCache configsCache, Field field)  {
-        Class modelClass = field.getDeclaringClass();
-        Class typeClass = field.getType();
-        Map map = new HashMap();
-
-        map.put(FIELD_KEY, field.getName());
-        map.put(NATURAL_ID, modelClass.getSimpleName() + "." + field.getName());
-        map.put(NAME, field.getName());
-        map.put(MODEL_KEYS, typeClass.getSimpleName());
-        FieldConfig config = new FieldConfig(configsCache, map);
-        configsCache.add(FieldConfig.class, config);
-        if (!configsCache.hasConfigKey(ModelConfig.class, typeClass.getSimpleName())) {
-            ModelConfig.addByClassName(configsCache, typeClass.getName());
-        }
-    }
-
-    @Override
-    public void resolve()  {
-        super.resolve();
-        this.models = new Models(getConfigsCache(), modelKeys.split(","));
-    }
-
     @Override
     public Integer getLength() {
         return length;
@@ -96,16 +164,11 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
         return defaultValue;
     }
 
-    public Boolean getToSerialize() {
-        return toSerialize;
-    }
-
     public String getFieldKey() {
         return this.fieldKey;
     }
 
     public Models getModels() {
-        resolve();
         return models;
     }
 
@@ -132,5 +195,10 @@ public class FieldConfig extends ConfigImpl implements FieldProperties, Config {
 
     public ModelConfig getChildModel()  {
         return getModels().getChildModel();
+    }
+
+    @Override
+    public String toString() {
+        return modelConfig.getNaturalId() + "." + getNaturalId() + "";
     }
 }

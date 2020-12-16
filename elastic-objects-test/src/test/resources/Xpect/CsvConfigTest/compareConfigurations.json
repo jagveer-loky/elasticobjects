@@ -1,22 +1,22 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "fieldDelimiter": ";",
-    "rowDelimiter": "\n",
-    "rowEnd": 4,
-    "rowHead": 0,
-    "rowStart": 1,
     "cached": false,
-    "configModelKey": "CsvConfig",
     "fileName": "AnObject.csv",
     "filePath": "input/assets/bt",
     "hostConfigKey": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest"
     },
+    "configModelKey": "CsvConfig",
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
+    "properties": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 4
+    },
     "description": "A sample character separated file with 3x3 entries and a header which could be mapped to AnObject.",
     "naturalId": "AnObject.csv"
   },
@@ -25,9 +25,10 @@
     "fileName": "AnObject.json",
     "filePath": "input/assets/bt",
     "hostConfigKey": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest"
     },
+    "configModelKey": "FileConfig",
     "(Expose)expose": "WEB",
     "module": "elastic-objects-test",
     "moduleScope": "main",
@@ -39,6 +40,7 @@
     "fileName": "ContentExample.json",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -50,6 +52,7 @@
     "fileName": "ContentExampleData.json",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -61,6 +64,7 @@
     "fileName": "ContentExampleDynamic.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -72,6 +76,7 @@
     "fileName": "ContentExampleElement1.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -83,6 +88,7 @@
     "fileName": "ContentExampleElement2.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -94,6 +100,7 @@
     "fileName": "ContentExampleStatic.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -105,6 +112,7 @@
     "fileName": "ContentExampleStaticCondition.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -116,6 +124,7 @@
     "fileName": "ContentExampleStaticKeep.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -127,10 +136,11 @@
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostConfigKey": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest",
       "write": "admin"
     },
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -142,6 +152,7 @@
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -149,23 +160,23 @@
     "naturalId": "FileTestCached.txt"
   },
   "12": {
-    "fieldDelimiter": ";",
-    "rowDelimiter": "\n",
-    "rowEnd": 3,
-    "rowHead": 0,
-    "rowStart": 1,
     "cached": false,
-    "configModelKey": "CsvConfig",
     "fileName": "ListSimple.csv",
     "filePath": "input/calls/list-simple",
     "hostConfigKey": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest",
       "write": "admin"
     },
+    "configModelKey": "CsvConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "main",
+    "properties": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
     "description": "A sample csv file with 2*2 values and a head as a source.",
     "naturalId": "ListSimple.csv"
   },
@@ -174,10 +185,11 @@
     "fileName": "ListSimple.json",
     "filePath": "input/calls/list-simple",
     "hostConfigKey": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest",
       "write": "admin"
     },
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -185,21 +197,21 @@
     "naturalId": "ListSimple.json"
   },
   "14": {
-    "fieldDelimiter": ";",
-    "rowDelimiter": "\n",
-    "rowHead": 0,
     "cached": false,
-    "configModelKey": "CsvConfig",
     "fileName": "target.csv",
     "filePath": " =>[@TMP].",
     "hostConfigKey": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest",
       "write": "admin"
     },
+    "configModelKey": "CsvConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
+    "properties": {
+      "rowHead": 0
+    },
     "description": "A sample target csv file with tmp placeholder.",
     "naturalId": "target.csv"
   },
@@ -208,6 +220,7 @@
     "fileName": "target.json",
     "filePath": " =>[@TMP].",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -219,6 +232,7 @@
     "fileName": "target.txt",
     "filePath": " =>[@TMP].",
     "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
@@ -227,13 +241,13 @@
   },
   "17": {
     "cached": false,
-    "configModelKey": "DirectoryConfig",
     "fileName": "AnObjectTest",
     "filePath": "Xpect",
     "hostConfigKey": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "execute": "guest"
     },
+    "configModelKey": "DirectoryConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",

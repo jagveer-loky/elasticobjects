@@ -8,11 +8,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.FileNotFoundException;
@@ -24,18 +26,20 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Werner on 30.10.2016.
  */
-public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
-    public XlsxConfig(final EOConfigsCache configsCache, final Map map) {
-        super(configsCache, map);
+public class XlsxConfig extends FileConfig implements XlsxConfigInterface {
+    public XlsxConfig(ConfigBean configBean) {
+        this((FileBean)configBean);
+    }
+    public XlsxConfig(FileBean bean) {
+        super(bean);
     }
 
-    public Sheet getSheet()  {
-        Workbook wb = readWorkbook();
+    public Sheet getSheet(final EO eo)  {
+        Workbook wb = readWorkbook(eo);
         if (hasNoSheetName()) {
             return wb.getSheetAt(0);
         } else {
@@ -54,8 +58,8 @@ public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
         throw new EoException("Deprecated");
     }
 
-    public Workbook readWorkbook()  {
-        URL url = findUrl();
+    public Workbook readWorkbook(final EO eo)  {
+        URL url = findUrl(eo, getHostConfigKey());
         if (url == null) {
             throw new EoException("Could not load url from " + getNaturalId());
         }
@@ -144,11 +148,11 @@ public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
         }
     }
 
-    public void write(List rows) {
+    public void write(final EO eo, List rows) {
         Workbook wb = null;
         Sheet sheet = null;
         try {
-            sheet = getSheet();
+            sheet = getSheet(eo);
         } catch (Exception e) {
             throw new EoException(e);
         }
@@ -183,14 +187,14 @@ public class XlsxConfig extends FileConfig implements PropertiesXlsxAccessor {
             }
         }
         try {
-            writeWorkbook(sheet.getWorkbook());
+            writeWorkbook(eo, sheet.getWorkbook());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void writeWorkbook(Workbook wb)  {
-        URL url = getUrl();
+    public void writeWorkbook(final EO eo, Workbook wb)  {
+        URL url = findUrl(eo, getHostConfigKey());
         //URLConnection connection = url.openConnection();
 
         //if (connection==null) {

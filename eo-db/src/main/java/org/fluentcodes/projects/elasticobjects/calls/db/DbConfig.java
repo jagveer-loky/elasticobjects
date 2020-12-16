@@ -1,26 +1,28 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Map;
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbConfig extends HostConfig implements DbProperties {
+public class DbConfig extends HostConfig implements DbConfigInterface {
     public static final String H2_BASIC = "h2:mem:basic";
     private Connection connection;
-
-    public DbConfig(final EOConfigsCache provider, final Map map)  {
-        super(provider, map);
+    public DbConfig(final ConfigBean configBean) {
+        this((FileBean)configBean);
+    }
+    public DbConfig(final FileBean bean) {
+        super(bean);
     }
 
     public static final void closeStatement(Statement statement) {

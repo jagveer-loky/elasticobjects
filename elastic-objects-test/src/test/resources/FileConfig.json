@@ -2,7 +2,7 @@
   "ContentExample": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExample.json",
     "description": "Calls templates.",
@@ -12,7 +12,7 @@
   "ContentExampleData": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleData.json",
     "description": "Simple data for the content templates.",
@@ -22,7 +22,7 @@
   "ContentExampleDynamic": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleDynamic.tpl",
     "description": "A template or ContentExample using the template field for rendering with a template",
@@ -32,7 +32,7 @@
   "ContentExampleElement1": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleElement1.tpl",
     "description": "A template for an entry fo ContentExample",
@@ -42,7 +42,7 @@
   "ContentExampleElement2": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleElement2.tpl",
     "description": "A template for an entry fo ContentExample",
@@ -52,7 +52,7 @@
   "ContentExampleStatic": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleStatic.tpl",
     "description": "A template  ContentExample with condition",
@@ -62,7 +62,7 @@
   "ContentExampleStaticCondition": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleStaticCondition.tpl",
     "description": "A template  ContentExample with condition",
@@ -72,7 +72,7 @@
   "ContentExampleStaticKeep": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
     "fileName": "ContentExampleStaticKeep.tpl",
     "description": "A template  ContentExample with condition",
@@ -82,7 +82,7 @@
   "FileTest.txt": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/file-simple",
     "fileName": "FileTest.txt",
     "description": "Local 'source.txt' definition.",
@@ -96,7 +96,7 @@
   "FileTestCached.txt": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/file-simple",
     "fileName": "FileTest.txt",
     "description": "Local file with cache set true.",
@@ -106,7 +106,7 @@
   "ListSimple.json": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "input/calls/list-simple",
     "fileName": "ListSimple.json",
     "description": "A sample json file with 2*2 values and a head as a source.",
@@ -121,7 +121,7 @@
     "configModelKey": "CsvConfig",
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": " =>[@TMP].",
     "fileName": "target.csv",
     "description": "A sample target csv file with tmp placeholder.",
@@ -131,14 +131,12 @@
       "read": "guest",
       "write": "admin"
     },
-    "properties": {
-      "rowHead": 0
-    }
+    "properties": {"rowHead": 0}
   },
   "target.json": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": " =>[@TMP].",
     "fileName": "target.json",
     "description": "A sample target json file with tmp placeholder.",
@@ -148,7 +146,7 @@
   "target.txt": {
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": " =>[@TMP].",
     "fileName": "target.txt",
     "description": "Target file definition",
@@ -159,7 +157,7 @@
     "configModelKey": "DirectoryConfig",
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "Xpect",
     "fileName": "AnObjectTest",
     "description": "Test directory for DirectoryListReadCall",

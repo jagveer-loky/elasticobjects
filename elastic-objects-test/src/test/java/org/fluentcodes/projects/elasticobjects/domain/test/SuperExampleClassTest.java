@@ -1,18 +1,23 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
+import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.ID;
 
 public class SuperExampleClassTest {
 
     @Test
     public void givenScopeDev_whenFindSuperExampleClass_thenExceptionThrown()  {
         try {
-            ModelConfigInterface model = ProviderRootDevScope.EO_CONFIGS.findModel(SuperExampleClass.class);
+            ModelConfigInterfaceMethods model = ProviderRootDevScope.EO_CONFIGS.findModel(SuperExampleClass.class);
             Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
         }
         catch(EoException e) {
@@ -23,6 +28,16 @@ public class SuperExampleClassTest {
     @Test
     public void createByModelConfig()  {
         ConfigModelChecks.create(SuperExampleClass.class);
+    }
+
+    @Test
+    public void setValue() {
+        ModelConfig config = ProviderRootTestScope.EO_CONFIGS.findModel(SuperExampleClass.class);
+        Object object = config.create();
+        config.set("id", object, 1L);
+        Assertions.assertThat(config.get("id", object)).isEqualTo(1L);
+        Assertions.assertThat(((SuperExampleClass)object).getId()).isEqualTo(1L);
+
     }
 
     @Test

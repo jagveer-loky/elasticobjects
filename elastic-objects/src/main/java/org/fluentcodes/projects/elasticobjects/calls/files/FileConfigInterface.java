@@ -1,30 +1,33 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionProperties;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
-
-import java.net.URL;
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public interface FileConfigInterface extends PermissionProperties, ConfigProperties {
+public interface FileConfigInterface extends PermissionConfigInterface, ConfigProperties {
     String TEMPLATE = "template";
-    Boolean isCached();
+
+    Boolean getCached();
+    default boolean hasCached() {
+        return getCached()!=null;
+    }
     String getFileName();
+    default boolean hasFileName() {
+        return getFileName()!=null && !getFileName().isEmpty();
+    }
     String getFilePath();
-    String getCachedContent();
-    void setCachedContent(String cachedContent);
 
-    String getUrlPath();
-    URL findUrl() ;
-    URL getUrl();
-    URL createUrl();
+    default boolean hasFilePath() {
+        return getFilePath()!=null && !getFilePath().isEmpty();
+    }
 
-    boolean hasFileName();
     String getHostConfigKey();
-    HostConfig getHostConfig();
+
+    default boolean hasHostConfigKey() {
+        return getHostConfigKey()!=null && !getHostConfigKey().isEmpty();
+    }
 
     default Boolean hasTemplate() {
         return isTemplate() != null;

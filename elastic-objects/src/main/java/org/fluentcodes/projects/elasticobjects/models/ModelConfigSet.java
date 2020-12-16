@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -17,13 +18,21 @@ import java.util.Set;
 public class ModelConfigSet extends ModelConfig {
     private static final Logger LOG = LogManager.getLogger(ModelConfigSet.class);
 
-    public ModelConfigSet(EOConfigsCache provider, Map map) {
-        super(provider, map);
+    public ModelConfigSet(Map map) {
+        this(new ModelBean(map));
+    }
+
+    public ModelConfigSet(ConfigBean bean) {
+        this((ModelBean) bean);
+    }
+
+    public ModelConfigSet(ModelBean bean) {
+        super(bean);
     }
 
     @Override
     public ModelConfig getFieldModel(final String fieldName)  {
-        return getConfigsCache().findModel(Object.class); //TODO
+        return null;//getConfigsCache().findModel(Object.class); //TODO
     }
 
     @Override
@@ -39,7 +48,6 @@ public class ModelConfigSet extends ModelConfig {
 
 
     public Set<String> keys(Object object)  {
-        resolve();
         int size = -1;
         if (object instanceof List) {
             size = ((Set) object).size();
@@ -53,7 +61,6 @@ public class ModelConfigSet extends ModelConfig {
 
     @Override
     public int size(final Object object)  {
-        resolve();
         int counter = 0;
         int size = -1;
         if (object instanceof List) {
@@ -68,22 +75,8 @@ public class ModelConfigSet extends ModelConfig {
         return counter;
     }
 
-    public List<Object> keysAsIs(final Object object)  {
-        resolve();
-        int size = -1;
-        if (object instanceof List) {
-            size = ((Set) object).size();
-        }
-        List<Integer> fields = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            fields.add(new Integer(i));
-        }
-        return null;//(Set) fields;
-    }
-
     @Override
     public boolean isEmpty(final Object object)  {
-        resolve();
         if (object == null) {
             return true;
         }
@@ -101,7 +94,6 @@ public class ModelConfigSet extends ModelConfig {
 
     @Override
     public void set(final String fieldName, final Object object, final Object value)  {
-        resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
         if (i == ((Set) object).size()) {
@@ -117,23 +109,7 @@ public class ModelConfigSet extends ModelConfig {
     }
 
     @Override
-    public Object getAsIs(final Object fieldNameAsObject, final Object object)  {
-        resolve();
-        if (fieldNameAsObject == null) {
-            throw new EoException("Getter: null key request for " + this.getModelKey() + "! ");
-        }
-        //TODO
-        String fieldName = ScalarConverter.toString(fieldNameAsObject);
-        Integer i = Integer.parseInt(fieldName);
-        if (i + 1 > ((Set) object).size()) {
-            return null;
-        }
-        return null;//((Set) object).find(i);
-    }
-
-    @Override
     public Object get(final String fieldName, final Object object)  {
-        resolve();
         //TODO
         Integer i = ((Set) object).size();
         try {
@@ -149,23 +125,13 @@ public class ModelConfigSet extends ModelConfig {
 
     @Override
     public boolean exists(final String fieldName, final Object object)  {
-        resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
         return i <= ((Set) object).size() - 1;
     }
 
     @Override
-    public boolean hasKey(final String fieldName) {
-        if (fieldName.matches("^\\d$")) {
-            return true;
-        }
-        return true; // use size as key for values not matching.
-    }
-
-    @Override
     public void remove(final String fieldName, final Object object)  {
-        resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
         Set list = ((Set) object);
@@ -181,7 +147,6 @@ public class ModelConfigSet extends ModelConfig {
 
     @Override
     public Object create()  {
-        resolve();
         return new ArrayList();
     }
     @Override

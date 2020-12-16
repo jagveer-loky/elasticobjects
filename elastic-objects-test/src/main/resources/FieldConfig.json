@@ -18,7 +18,7 @@
   "myASubObjectList": {
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "modelKeys": "ArrayList,ASubObject",
+    "modelKeys": "List,ASubObject",
     "description": "A generic parametrized example List with @ASubObject",
     "expose": "WEB",
     "fieldKey": "myASubObjectList"
@@ -26,7 +26,7 @@
   "myASubObjectMap": {
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "modelKeys": "HashMap,ASubObject",
+    "modelKeys": "Map,ASubObject",
     "description": "A generic parametrized example Map with @ASubObject",
     "expose": "WEB",
     "fieldKey": "myASubObjectMap"

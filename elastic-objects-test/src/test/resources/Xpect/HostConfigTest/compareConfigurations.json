@@ -1,55 +1,74 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "hostName": "dummyftp",
-    "password": "########",
-    "port": 21,
-    "protocol": "ftp",
-    "user": "dummy",
+    "configModelKey": "HostConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "dummyftp",
+      "user": "dummy",
+      "password": "test1234",
+      "port": 21,
+      "protocol": "ftp"
+    },
     "description": "A connection to elastic objects",
     "naturalId": "dummyftp"
   },
   "1": {
-    "password": "########",
-    "user": "dummy",
+    "configModelKey": "HostConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "user": "dummy",
+      "password": "test1234",
+      "url": "ftp://dummyftp:21"
+    },
     "description": "A connection to elastic objects",
     "naturalId": "dummyftpurl"
   },
   "2": {
-    "hostName": "elasticobjects",
-    "port": 80,
-    "protocol": "http",
+    "configModelKey": "HostConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "elasticobjects",
+      "port": 80,
+      "protocol": "http"
+    },
     "description": "A connection to elastic objects",
     "naturalId": "elasticobjects"
   },
   "3": {
-    "hostName": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest"
     },
+    "configModelKey": "HostConfig",
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "properties": {
+      "hostName": "localhost"
+    },
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
   "4": {
-    "hostName": "localhost",
-    "permissionRole": {
+    "(PermissionRole)rolePermissions": {
       "read": "guest"
     },
+    "configModelKey": "HostConfig",
     "(Expose)expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "properties": {
+      "hostName": "localhost"
+    },
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   },

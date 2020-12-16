@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -25,7 +25,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void fromEoConfigsCache()  {
-        ModelConfigInterface cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfigInterfaceMethods cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
         Assert.assertNotNull(cache.getFieldConfig(AnObject.MY_STRING));
         Assert.assertEquals(AnObject.MY_STRING, cache.getFieldConfig(AnObject.MY_STRING).getFieldKey());
         ModelConfig aSubObject = cache.getFieldModel(AnObject.MY_ASUB_OBJECT);
@@ -78,7 +78,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void givenModelFromString_notNull()  {
-        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
+        ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
         Assertions.assertThat(model).isNotNull();
     }
 
@@ -118,7 +118,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void assertAnObjectFieldTest()  {
-        ModelConfigInterface model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
 
         FieldConfig field = model.getFieldConfig(AnObject.MY_STRING);
         Assert.assertEquals(String.class, field.getModelClass());
@@ -191,7 +191,7 @@ public class EoAnObjectSetTest {
         Assertions.assertThatThrownBy(
                 ()->{ eo.set(S_STRING_OTHER, S_KEY1);}
         )
-                .hasMessage("No fieldName defined key1(" + AnObject.class.getSimpleName() + ").");
+                .hasMessage("No fieldConfig 'key1' defined in model '" + AnObject.class.getSimpleName() + "' ! ");
     }
 
     @Test

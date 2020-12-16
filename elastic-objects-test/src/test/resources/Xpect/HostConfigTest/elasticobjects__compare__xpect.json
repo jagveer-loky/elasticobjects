@@ -1,12 +1,16 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "hostName": "elasticobjects",
-    "port": 80,
-    "protocol": "http",
+    "configModelKey": "HostConfig",
     "(Expose)expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "elasticobjects",
+      "port": 80,
+      "protocol": "http"
+    },
     "description": "A connection to elastic objects",
     "naturalId": "elasticobjects"
   },

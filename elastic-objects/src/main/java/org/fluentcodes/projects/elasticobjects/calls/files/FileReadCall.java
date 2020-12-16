@@ -50,7 +50,7 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
         String filePath = fileConfig.getFilePath() + "/" + fileConfig.getFileName();
         filePath = filePath.replaceAll("^\\./","");
         String result = read(eo, filePath);
-        if (fileConfig.isCached()) {
+        if (fileConfig.getCached()) {
             fileConfig.setCachedContent(result);
         }
         return result;

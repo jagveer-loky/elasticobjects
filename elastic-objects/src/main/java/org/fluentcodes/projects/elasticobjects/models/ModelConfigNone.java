@@ -12,8 +12,16 @@ import java.util.Set;
 public class ModelConfigNone extends ModelConfig {
     public static final String CONFIG_MODEL_KEY = "ModelConfigNone";
 
-    public ModelConfigNone(EOConfigsCache provider, Map map) {
-        super(provider, map);
+    public ModelConfigNone(Map map) {
+        this(new ModelBean(map));
+    }
+
+    public ModelConfigNone(ConfigBean bean) {
+        this((ModelBean) bean);
+    }
+
+    public ModelConfigNone(ModelBean bean) {
+        super(bean);
     }
 
     @Override
@@ -56,11 +64,6 @@ public class ModelConfigNone extends ModelConfig {
     }
 
     @Override
-    public Object getAsIs(final Object fieldNameAsObject, final Object object)  {
-        throw new EoException("No field defined for scalar models!" + object.getClass().getSimpleName());
-    }
-
-    @Override
     public Object get(final String fieldName, final Object object)  {
         throw new EoException("No field defined for scalar models: " + fieldName);
     }
@@ -68,11 +71,6 @@ public class ModelConfigNone extends ModelConfig {
     @Override
     public boolean exists(final String fieldName, final Object object)  {
         throw new EoException("No field defined for scalar models: " + fieldName);
-    }
-
-    @Override
-    public boolean hasKey(final String fieldName) {
-        return false;
     }
 
     @Override

@@ -29,13 +29,4 @@ public class FieldPropertiesTest {
         ConfigModelChecks.compare(FieldConfig.class);
     }
 
-    @Test
-    public void naturalId__getMethod__expected()  {
-        FieldConfig config = ProviderRootTestScope.EO_CONFIGS.findField(NATURAL_ID);
-        Assertions.assertThat(config.getNotNull()).isTrue();
-        Assertions.assertThat(config.getUnique()).isTrue();
-        Assertions.assertThat(config.getFieldName()).isNull();
-    }
-
-
 }

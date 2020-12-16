@@ -15,17 +15,25 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigList extends ModelConfig implements ModelConfigInterface {
-    private static final Logger LOG = LogManager.getLogger(ConfigImpl.class);
+public class ModelConfigList extends ModelConfig implements ModelConfigInterfaceMethods {
+    private static final Logger LOG = LogManager.getLogger(ConfigConfig.class);
     public static final String CONFIG_MODEL_KEY = "ModelConfigList";
 
-    public ModelConfigList(EOConfigsCache provider, Map map) {
-        super(provider, map);
+    public ModelConfigList(Map map) {
+        this(new ModelBean(map));
+    }
+
+    public ModelConfigList(ConfigBean bean) {
+        this((ModelBean) bean);
+    }
+
+    public ModelConfigList(ModelBean bean) {
+        super(bean);
     }
 
     @Override
     public ModelConfig getFieldModel(final String fieldName)  {
-        return getConfigsCache().findModel(Object.class); //TODO
+        return null; //getConfigsCache().findModel(Object.class); //TODO
     }
 
     @Override
@@ -41,7 +49,6 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
 
 
     public Set<String> keys(Object object)  {
-        resolve();
         int size = -1;
         if (object instanceof List) {
             size = ((List) object).size();
@@ -55,7 +62,6 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
 
     @Override
     public int size(final Object object)  {
-        resolve();
         int counter = 0;
         int size = -1;
         if (object instanceof List) {
@@ -72,7 +78,6 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
 
     @Override
     public void set(final String fieldName, final Object object, final Object value)  {
-        resolve();
         if (object == null) {
             throw new EoInternalException("List object for " + fieldName + " is null!");
         }
@@ -100,23 +105,7 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
     }
 
     @Override
-    public Object getAsIs(final Object fieldNameAsObject, final Object object)  {
-        resolve();
-        if (fieldNameAsObject == null) {
-            throw new EoException("Getter: null key request for " + this.getModelKey() + "! ");
-        }
-        //TODO
-        String fieldName = ScalarConverter.toString(fieldNameAsObject);
-        Integer i = Integer.parseInt(fieldName);
-        if (i + 1 > ((List) object).size()) {
-            return null;
-        }
-        return ((List) object).get(i);
-    }
-
-    @Override
     public Object get(final String fieldName, final Object object)  {
-        resolve();
         //TODO
         Integer i = ((List) object).size();
         try {
@@ -132,23 +121,13 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
 
     @Override
     public boolean exists(final String fieldName, final Object object)  {
-        resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
         return i <= ((List) object).size() - 1;
     }
 
     @Override
-    public boolean hasKey(final String fieldName) {
-        if (fieldName.matches("^\\d$")) {
-            return true;
-        }
-        return true; // use size as key for values not matching.
-    }
-
-    @Override
     public void remove(final String fieldName, final Object object)  {
-        resolve();
         //TODO
         Integer i = Integer.parseInt(fieldName);
         List list = ((List) object);
@@ -168,7 +147,6 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
 
     @Override
     public Object create()  {
-        resolve();
         return new ArrayList();
     }
 

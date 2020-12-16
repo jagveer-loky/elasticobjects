@@ -1,19 +1,39 @@
 {
   "_rootmodel": "ArrayList",
   "0": {
-    "(ArrayList)fieldKeys": {
-      "0": "SuperExampleClass.id",
-      "1": "SuperExampleClass.subClass"
+    "fieldConfigMap": {
+      "id": {
+        "fieldKey": "id",
+        "modelKeys": "Long",
+        "(ArrayList)modelList": {
+          "0": "Long"
+        },
+        "properties": {
+          "fieldName": "id"
+        },
+        "naturalId": "SuperExampleClass.id",
+        "fieldName": "id"
+      },
+      "subClass": {
+        "fieldKey": "subClass",
+        "modelKeys": "FieldExampleClass",
+        "(ArrayList)modelList": {
+          "0": "FieldExampleClass"
+        },
+        "properties": {
+          "fieldName": "subClass"
+        },
+        "naturalId": "SuperExampleClass.subClass",
+        "fieldName": "subClass"
+      }
     },
-    "localFieldKeys": {
-      "0": "SuperExampleClass.id",
-      "1": "SuperExampleClass.subClass"
-    },
-    "create": true,
-    "(ShapeTypes)shapeType": "BEAN",
     "modelKey": "SuperExampleClass",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-    "(Expose)expose": "INFO",
+    "configModelKey": "ModelConfigObject",
+    "properties": {
+      "(ShapeTypes)shapeType": "OBJECT",
+      "create": true
+    },
     "naturalId": "SuperExampleClass"
   },
   "(LogLevel)_logLevel": "WARN"

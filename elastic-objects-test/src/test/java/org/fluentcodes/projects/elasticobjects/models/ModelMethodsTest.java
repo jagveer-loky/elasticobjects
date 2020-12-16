@@ -1,0 +1,21 @@
+package org.fluentcodes.projects.elasticobjects.models;
+
+import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.junit.Test;
+
+/**
+ * Created by Werner on 7.8.2020.
+ */
+public class ModelMethodsTest {
+
+    @Test
+    public void createByModelConfig_throwsException()  {
+        ConfigModelChecks.createThrowsException(ModelConfigInterfaceMethods.class);
+    }
+
+    @Test
+    public void compareModelConfig()  {
+        ConfigModelChecks.compare(ModelConfigInterfaceMethods.class);
+    }
+
+}

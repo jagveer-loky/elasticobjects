@@ -3,7 +3,9 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
@@ -25,6 +27,16 @@ public class Models {
     private Models(final ModelConfig... models) {
         this.models = models;
         hasChildModel = models.length > 1;
+    }
+    protected Models(final List<ModelConfig> models) {
+        this.models = new ModelConfig[models.size()];
+        for (int i = 0; i<models.size(); i++) {
+            if (models.get(i) == null) {
+                throw new EoInternalException("Null model for " + models);
+            }
+            this.models[i] = models.get(0);
+        }
+        hasChildModel = models.size() > 1;
     }
 
     //https://stackoverflow.com/questions/997482/does-java-support-default-parameter-values
@@ -73,7 +85,7 @@ public class Models {
 
     public Models getChildModels()  {
         if (models.length < 2) {
-            return new Models(models[0].getConfigsCache(), "Map");
+            return new Models(EOConfigMapModels.DEFAULT_MODEL);
         }
         return new Models(Arrays.copyOfRange(this.models, 1, models.length));
     }
@@ -138,10 +150,10 @@ public class Models {
         return null;
     }
 
-    public List<ModelConfigInterface> getModels() {
-        List<ModelConfigInterface> models = new ArrayList<>();
+    public List<ModelConfigInterfaceMethods> getModels() {
+        List<ModelConfigInterfaceMethods> models = new ArrayList<>();
 
-        for (ModelConfigInterface model : this.models) {
+        for (ModelConfigInterfaceMethods model : this.models) {
             models.add(model);
         }
         return models;

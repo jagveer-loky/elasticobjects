@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigsCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.Config;
+import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Expose;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
@@ -13,7 +13,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.models.Expose;
 
 /**
  * For getting a list of keys for a specific configuration type, config filter and expose type.
@@ -38,7 +37,7 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
    private  Expose expose;
    private  SortOrder sortOrder;
 /*=>{}.*/
-    private Class<? extends Config> configClass;
+    private Class<? extends ConfigConfigInterface> configClass;
 
     public ConfigKeysCall() {
         super();
@@ -47,7 +46,7 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
 
     }
 
-    public ConfigKeysCall(final Class<? extends Config> configClass) {
+    public ConfigKeysCall(final Class<? extends ConfigConfigInterface> configClass) {
         super();
         this.configClass = configClass;
         this.configType = configClass.getSimpleName();
@@ -62,7 +61,7 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
         sortOrder = SortOrder.ASC;
     }
 
-    public ConfigKeysCall(final Class<? extends Config> configClass, final String configFilter) {
+    public ConfigKeysCall(final Class<? extends ConfigConfigInterface> configClass, final String configFilter) {
         this(configClass);
         this.configFilter = configFilter;
     }

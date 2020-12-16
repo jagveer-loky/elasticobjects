@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigProperties;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -63,7 +62,7 @@ public class EoChild implements EO {
         if (value == null) {
             return;
         }
-        ModelConfigProperties valueModel = getConfigsCache().findModel(value);
+        ModelConfigInterface valueModel = getConfigsCache().findModel(value);
         if (valueModel.isScalar()) {
             if (isScalar()) {
                 setValueChecked(value);
@@ -187,6 +186,9 @@ public class EoChild implements EO {
             return this;
         }
         String parentFieldName = removePath.getParentKey();
+        if (!parentEo.hasEo(parentFieldName)) {
+            throw new EoException("Could not remove entry '" + parentFieldName + "' because it is not set in '" + getModel().getModelKey() + "'");
+        }
         parentEo.removeChild(parentFieldName);
         return parentEo;
     }
@@ -196,6 +198,10 @@ public class EoChild implements EO {
         return set(value, path);
     }
 
+    @Override
+    public boolean isTransient(final String fieldName) {
+        return getModel().hasFieldConfig(fieldName)  ? getModel().getFieldConfig(fieldName).isTransient(): false;
+    }
 
     @Override
     public EO getEo(String... pathString)  {
@@ -833,7 +839,7 @@ public class EoChild implements EO {
                 }
             }
             else if (isEmpty()) {
-                    return false;
+                return false;
             }
         }
         return true;

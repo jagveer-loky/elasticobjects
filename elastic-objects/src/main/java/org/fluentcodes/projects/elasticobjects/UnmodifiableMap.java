@@ -150,6 +150,11 @@ public class UnmodifiableMap<K,V> implements Map<K,V>, Serializable {
 
     @Override
     public String toString() {
-        return new HashMap(this).toString();
+        StringBuilder stringBuilder = new StringBuilder("{");
+        for (Object key: keySet()) {
+            stringBuilder.append("\"" + key + "\":");
+            stringBuilder.append("\"" + get(key) + "\",");
+        }
+        return stringBuilder.toString().replaceAll(",$","}");
     }
 }

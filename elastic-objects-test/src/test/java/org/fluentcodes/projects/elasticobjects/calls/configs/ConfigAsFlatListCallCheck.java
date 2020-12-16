@@ -6,11 +6,13 @@ import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectString;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Created 8.9.2020
  */
+@Ignore
 public class ConfigAsFlatListCallCheck {
 
     @Test
@@ -22,6 +24,7 @@ public class ConfigAsFlatListCallCheck {
     public void compareModelConfig()  {
         ConfigModelChecks.compare(ConfigAsFlatListCall.class);
     }
+
 
     @Test
     public void call_configType_ModelConfig__execute_xpected()  {

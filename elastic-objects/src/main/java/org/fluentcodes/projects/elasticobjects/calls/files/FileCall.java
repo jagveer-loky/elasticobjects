@@ -49,7 +49,7 @@ public abstract class FileCall extends HostCall  {
         fileConfig = eo.getConfigsCache().findFile(ParserSqareBracket.replacePathValues(this.fileConfigKey, eo));
         fileConfig.hasPermissions(permissionType, eo.getRoles());
         if (!hasHostConfigKey()) {
-            if (fileConfig.hasHostKey()) {
+            if (fileConfig.hasHostConfigKey()) {
                 setHostConfigKey(fileConfig.getHostConfigKey());
             }
             else {
@@ -61,7 +61,7 @@ public abstract class FileCall extends HostCall  {
     }
 
     protected String getUrl() {
-        return getHostConfig().getUrl() + fileConfig.getUrl();
+        return getHostConfig().getUrl() + fileConfig.getUrl(getHostConfig());
     }
 
     public void setConfigKey(String fileConfigKey) {
