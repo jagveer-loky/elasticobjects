@@ -139,7 +139,7 @@ public interface ListInterface {
             for (int i = 0; i < filteredResult.size(); i++) {
                 Object row = filteredResult.get(i);
                 if (isMapped) {
-                    String target = Parser.replacePathValues(targetPath, new EoRoot(eo.getConfigsCache(), row));
+                    String target = Parser.replacePathValues(targetPath, EoRoot.OF(eo.getConfigsCache(), row));
                     eo.set(row, target);
                 }
             }

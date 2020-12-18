@@ -78,7 +78,7 @@ public class WebEo {
         final LogLevel logLevel = getLevel(logLevelAsString);
 
         try {
-            final EO eo = new EoRoot(this.configsCache)
+            final EO eo = EoRoot.OFthis.configsCache)
                     .setLogLevel(logLevel)
                     .mapObject(eoAsString);
 
@@ -123,7 +123,7 @@ public class WebEo {
         final LogLevel logLevel = getLevel(logLevelAsString);
 
         try {
-            final EO eo = new EoRoot(this.configsCache)
+            final EO eo = EoRoot.OFthis.configsCache)
                     .setLogLevel(logLevel);
 
             eo.setRoles(Arrays.asList(roles));

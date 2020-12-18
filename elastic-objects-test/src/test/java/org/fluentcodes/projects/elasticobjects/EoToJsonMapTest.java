@@ -19,7 +19,7 @@ public class EoToJsonMapTest {
 
     @Test
     public void withDefault()  {
-        EO eo = ProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapTestEo();
         String serialized = new EOToJSON().toJSON(eo);
         //AssertEO.compare(serialized);
     }
@@ -27,7 +27,7 @@ public class EoToJsonMapTest {
     @Test
     public void withIndent0()  {
         
-        EO eo = ProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(0)
                 .toJSON(eo);
@@ -37,7 +37,7 @@ public class EoToJsonMapTest {
     @Test
     public void withIndent1()  {
         
-        EO eo = ProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(1)
                 .toJSON(eo);
@@ -47,7 +47,7 @@ public class EoToJsonMapTest {
     @Test
     public void withIndent2()  {
         
-        EO eo = ProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapTestEo();
         String stringified = new EOToJSON()
                 .setStartIndent(2)
                 .toJSON(eo);
@@ -134,7 +134,7 @@ public class EoToJsonMapTest {
 
     @Test
     public void loopScalar()  {
-        EO eo = ProviderMapJson.EMPTY.createMapEo();
+        EO eo = ProviderMapJson.EMPTY.createMapTestEo();
         long duration = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
             String stringified = new EOToJSON()

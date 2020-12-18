@@ -255,7 +255,7 @@ Elastic Objects is an object wrapper around the skeleton of hierarchical Java ob
 
     AnObject anObject = new AnObject();
     anObject.setMyString("value");
-    EoRoot eoRoot = new EoRoot(anObject);
+    EoRoot eoRoot = EoRoot.OFanObject);
 <p>
 It offers
 <b>path</b>

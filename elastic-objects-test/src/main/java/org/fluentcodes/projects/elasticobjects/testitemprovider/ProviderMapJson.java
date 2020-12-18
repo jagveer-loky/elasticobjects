@@ -12,8 +12,6 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 public enum ProviderMapJson {
     SIMPLE_INSERT_WITH_PATH("{\"key0\": \"test\", \"level0\": {\"key0\": \"testOther\"}}"),
     EMPTY("{}"),
-    LIST_DOUBLE123("{\"(List,Double)source\": {\"0\": 1,\"1\": 2,\"2\": 3}}"),
-    LIST_123("{\"source\": [ 1, 2, 3]}"),
     LIST_123_TYPED("{\"(List,Double)source\": {\"0\": 1,\"1\": 2,\"2\": 3}}"),
     LIST_SMALL("[\"test\", 1]"),
     VALUES_CALL_NUMBER_SCALAR("{\"(Double)source\":2.1}"),
@@ -34,10 +32,16 @@ public enum ProviderMapJson {
     }
 
     public Map createMap() {
-        return (Map)createMapEo().get();
+        return (Map) createMapTestEo().get();
     }
 
-    public EO createMapEo() {
+    public EO createMapTestEo() {
+        EO eo =  ProviderRootTestScope.createEo(content);
+        Assertions.assertThat(eo.getLog()).isEmpty();
+        return eo;
+    }
+
+    public EO createMapDevEo() {
         EO eo =  ProviderRootTestScope.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;

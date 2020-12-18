@@ -62,9 +62,9 @@ public class BaseConfig implements BaseConfigInterface {
         return modificationDate;
     }
 
-    public String toString(EOConfigsCache provider) {
+    public String toString(EOConfigsCache cache) {
         try {
-            return new EoRoot(provider,this).toString();
+            return EoRoot.OF(cache,this).toString();
         } catch (Exception e) {
             return e.getMessage();
         }

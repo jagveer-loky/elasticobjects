@@ -20,12 +20,13 @@ public interface EO {
      * @
      */
     EOConfigsCache getConfigsCache();
-
-    String getParentKeyWithModels();
-    String getParentKey();
+    String getFieldKey();
     boolean hasParent();
 
     EO getParent();
+
+    EO createChild(final PathElement fieldKey);
+    EO createChild(final PathElement pathElement, final Object value);
 
     Path getPath();
     String getPathAsString();
@@ -63,15 +64,13 @@ public interface EO {
     Models getModels();
     ModelConfig getModel();
     Class getModelClass();
+
     boolean isChanged();
     boolean isContainer();
-    boolean isToSerialize(JSONSerializationType serializationType);
     boolean isList();
     boolean isObject();
     boolean isScalar();
     boolean isMap();
-    boolean hasDefaultMap();
-    boolean isChildTyped();
     boolean isNull();
     boolean isEoEmpty();
     boolean isEmpty();

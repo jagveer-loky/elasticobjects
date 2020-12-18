@@ -1,12 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -27,23 +23,21 @@ public class EoSetListTest {
 
     @Test
     public void givenListDouble123Dev_hasDoubleValues()  {
-        final EO eo0 = ProviderRootTestScope.createEo();
-        ProviderRootTestScope.findModel(AnObject.class);
-        final EO eo = ProviderMapJson.LIST_DOUBLE123.createMapEo();
+        final EO eo = ProviderRootDevScope.createEo("{\"(List,Double)source\": {\"0\": 1,\"1\": 2,\"2\": 3}}");
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Double.class);
     }
 
     @Test
     public void givenList123_hasIntegerValues()  {
-        final EO eo = ProviderMapJson.LIST_123.createMapEo();
-        Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(ArrayList.class);
+        final EO eo = ProviderRootDevScope.createEo("{\"source\": [ 1, 2, 3]}");
+        Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Integer.class);
     }
 
     @Test
     public void givenList123Typed_hasDoubleValues()  {
-        final EO eo = ProviderMapJson.LIST_123_TYPED.createMapEo();
+        final EO eo = ProviderMapJson.LIST_123_TYPED.createMapTestEo();
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Double.class);
     }

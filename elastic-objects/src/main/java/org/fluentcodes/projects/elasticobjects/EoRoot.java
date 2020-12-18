@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.List;
 import java.util.Map;
@@ -16,38 +17,35 @@ public class EoRoot extends EoChild {
 
     private boolean checkObjectReplication = false;
 
-    private EoRoot(final EOConfigsCache cache)  {
-        this(cache, Map.class);
+    protected EoRoot(final EOConfigsCache cache, final EoChildParams params) {
+        super(params);
+        this.eoConfigCache = cache;
     }
 
-    public EoRoot(final EOConfigsCache cache, Object value)  {
-        super();
-
-        this.eoConfigCache = cache;
-        if (value == null) {
-            PathElement rootPathElement = new PathElement(cache, Map.class);
-            setPathElement(rootPathElement);
-        }
-        else {
-            PathElement rootPathElement = new PathElement(cache, value);
-            setPathElement(rootPathElement);
-        }
-        if (value == null || value instanceof Class) {
-            return;
-        }
-        if (!isScalar()) {
-            mapObject(value);
-        }
-        setLogLevel(LogLevel.WARN);
+    public static EoRoot OF(final EOConfigsCache cache)  {
+        return OF(cache, (Object)null);
     }
 
-    public EoRoot(final EOConfigsCache cache, Class... classes)  {
-        super();
-        this.eoConfigCache = cache;
-        PathElement rootPathElement = new PathElement(cache, classes);
-        rootPathElement.resolveRoot(this, null);
-        setPathElement(rootPathElement);
-        setLogLevel(LogLevel.WARN);
+    public static EoRoot OF(final EOConfigsCache cache, Object value)  {
+        if (value != null &&(value instanceof Class)) {
+            return OF_CLASS(cache, (Class) value);
+        }
+        Models models = new Models(cache, value);
+        EoChildParams params = new EoChildParams(models);
+        EoRoot root = new EoRoot(cache, params);
+        root.setLogLevel(LogLevel.WARN);
+        if (value!=null) {
+            root.mapObject(value);
+        }
+        return root;
+    }
+
+    public static EoRoot OF_CLASS(final EOConfigsCache cache, Class... classes)  {
+        Models models  = new Models(cache, classes);
+        EoChildParams params = new EoChildParams(models);
+        EoRoot root = new EoRoot(cache, params);
+        root.setLogLevel(LogLevel.WARN);
+        return root;
     }
 
     public static Class getClass(Object value) {

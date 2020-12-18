@@ -193,11 +193,11 @@ public abstract class Parser {
             return eo.get().toString();
         }
         if (pathOrKey.equals(PARENT)) {
-            return eo.getParentKey();
+            return eo.getFieldKey();
         }
         pathOrKey = pathOrKey
-                .replaceAll(PARENT, eo.getParentKey())
-                .replaceAll(PARENT, eo.getParentKey());
+                .replaceAll(PARENT, eo.getFieldKey())
+                .replaceAll(PARENT, eo.getFieldKey());
 
         Object value = eo.get(pathOrKey);
         if (value instanceof Date) {
@@ -261,7 +261,7 @@ public abstract class Parser {
     }
 
     protected Object callJson(final EO eo, final String callDirective, final String finish, final String defaultValue) {
-        EO eoCall = new EoRoot(eo.getConfigsCache(), "{" + callDirective + "}");
+        EO eoCall = EoRoot.OF(eo.getConfigsCache(), "{" + callDirective + "}");
         if (!eoCall.isEmpty()) {
             eo.mapObject(eoCall.get());
         }

@@ -357,7 +357,7 @@ public class ListParams {
     public void addRowEntry(EOConfigsCache configsCache, List result, List rowEntry) {
         if (hasColKeys()) {
             Map<String,Object> rowMap = createMapFromRow(rowEntry);
-            if (filter(new EoRoot(configsCache, rowMap))) {
+            if (filter(EoRoot.OF(configsCache, rowMap))) {
                 result.add(rowMap);
             }
             else {
@@ -365,7 +365,7 @@ public class ListParams {
             }
         }
         else {
-            if (filter(new EoRoot(configsCache, rowEntry))) {
+            if (filter(EoRoot.OF(configsCache, rowEntry))) {
                 result.add(rowEntry);
             }
         }

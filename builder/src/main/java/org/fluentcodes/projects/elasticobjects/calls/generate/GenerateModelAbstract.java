@@ -28,7 +28,7 @@ public abstract class GenerateModelAbstract extends GenerateAbstract implements 
     }
 
     public static EO READ(Scope scope) {
-        EO eo = new EoRoot(new EOConfigsCache(scope));
+        EO eo = EoRoot.OFnew EOConfigsCache(scope));
         new FileReadCall(MODEL_BEANS_JSON)
                 .setTargetPath(".")
                 .execute(eo);

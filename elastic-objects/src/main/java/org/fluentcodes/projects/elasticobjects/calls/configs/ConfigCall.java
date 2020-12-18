@@ -46,7 +46,7 @@ public class ConfigCall extends ConfigKeysCall  {
 
     @Override
     public Object execute(EO eo)  {
-        EO result = new EoRoot(eo.getConfigsCache(),List.class,Map.class);
+        EO result = EoRoot.OF_CLASS(eo.getConfigsCache(),List.class,Map.class);
         result.setSerializationType(JSONSerializationType.STANDARD);
         String targetPath = getTargetPath();
         setTargetPath(null);

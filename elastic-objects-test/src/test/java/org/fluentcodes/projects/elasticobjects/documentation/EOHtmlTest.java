@@ -14,23 +14,23 @@ public class EOHtmlTest {
     protected static final EOConfigsCache EO_CONFIGS_TEST = new EOConfigsCache(Scope.TEST);
 
     protected static final EO createEoDev() {
-        return new EoRoot(EO_CONFIGS_DEV);
+        return EoRoot.OF(EO_CONFIGS_DEV);
     }
 
     protected static final EO createEoTest() {
-        return new EoRoot(EO_CONFIGS_TEST);
+        return EoRoot.OF(EO_CONFIGS_TEST);
     }
 
     @Test
     public void scopeDev__ConstructorEmpty__hasClassLinkedHashMap() {
-        EO eoRoot = new EoRoot(EO_CONFIGS_DEV);
+        EO eoRoot = EoRoot.OF(EO_CONFIGS_DEV);
         Assertions.assertThat(eoRoot.getModelClass())
                 .isEqualTo(Map.class);
     }
 
     @Test
     public void scopeDev__ConstructorJson__hasClassLinkedHashMap() {
-        EO eoRoot = new EoRoot(EO_CONFIGS_DEV, "{\"key\":1}");
+        EO eoRoot = EoRoot.OF(EO_CONFIGS_DEV, "{\"key\":1}");
         Assertions.assertThat(eoRoot.get("key"))
                 .isEqualTo(1);
     }
@@ -39,7 +39,7 @@ public class EOHtmlTest {
     public void scopeTest__ConstructorAnObject__hasClassLinkedHashMap() {
         AnObject anObject = new AnObject()
                 .setMyString("test");
-        EO eoRoot = new EoRoot(EO_CONFIGS_TEST, anObject);
+        EO eoRoot = EoRoot.OF(EO_CONFIGS_TEST, anObject);
         Assertions.assertThat(eoRoot.get("myString"))
                 .isEqualTo("test");
         Assertions.assertThat(eoRoot.get() == anObject)
@@ -48,7 +48,7 @@ public class EOHtmlTest {
 
     @Test
     public void scopeTest__ConstructorJsonAnObjectTyped__hasClassAnObject() {
-        EO eoRoot = new EoRoot(EO_CONFIGS_TEST, "{\"(AnObject)key\":{\"myString\":\"test\"}}");
+        EO eoRoot = EoRoot.OF(EO_CONFIGS_TEST, "{\"(AnObject)key\":{\"myString\":\"test\"}}");
         Assertions.assertThat(eoRoot.get("key/myString"))
                 .isEqualTo("test");
         Assertions.assertThat(eoRoot.getEo("key").getModelClass())

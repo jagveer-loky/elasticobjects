@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,12 +89,6 @@ public class Path {
         return absolute;
     }
 
-    public boolean isRootModel() {
-        if (isEmpty() || entries.length>1 || !entries[0].isRootModel()) {
-            return false;
-        }
-        return true;
-    }
     public boolean isFilterNothing() {
         for (PathElement path : this.entries) {
             if (path.getKey().equals(PathElement.MATCHER_ALL)) {
@@ -129,7 +122,6 @@ public class Path {
                     target = target.getEo(element);
                 }
                 else {
-                    //Object object = target.get(element.getKey());
                     throw new EoException("Could not move to path '" + this.toString() + "' because key '" + element.toString() + "' does not exist on '" + target.getPathAsString() + "'." );
                 }
             }
@@ -137,10 +129,6 @@ public class Path {
         return target;
     }
 
-    public EO createParent (final EO eo, Models models) {
-        Path parentPath = this.getParentPath();
-        return parentPath.create(eo, models.create());
-    }
     public EO create (EO parent) {
         return create(parent, null);
     }
@@ -161,18 +149,15 @@ public class Path {
             }
             else if (element.isSame()) {
                 if (counter==entries.length) {
-                    if (parent.isRoot() && element.hasModelArray()) {
-                        ((EoRoot)parent).setRootModels(String.join(",", element.getModelsArray()));
-                    }
                     parent.mapObject(value);
                 }
             }
+            else if (element.isRootModel()) {
+                throw new EoException("Could not change model with a set");
+            }
             else {
                 if (counter==entries.length) {
-                    if (element.isRootModel()) {
-                        ((EoChild)parent).setRootModels((String)value);
-                    }
-                    else if (((EoChild)parent).hasEo(element)) {
+                    if (((EoChild)parent).hasEo(element)) {
                         parent = parent.getEo(element);
                         parent.mapObject(value);
                         //element.resolve(parent, value);
@@ -182,11 +167,7 @@ public class Path {
                         if (parent.isScalar()) {
                             throw new EoException("Could not create a field value with '" + element.getKey() + "' for a scalar (" + parent.getModel().toString() + ") parent on path '" + parent.getPathAsString() + "'");
                         }
-                        element.resolve(parent, value);
-                        parent = new EoChild(element);
-                        if (!element.isScalar()){
-                            parent.mapObject(value);
-                        }
+                        parent = parent.createChild(element, value);
                     }
                 }
                 else {
@@ -196,8 +177,7 @@ public class Path {
                         //((EoChild)parent).setPathElement(element);
                     }
                     else {
-                        element.resolve(parent, null);
-                        parent = new EoChild(element);
+                        parent = parent.createChild(element);
                     }
                 }
             }
@@ -396,7 +376,7 @@ public class Path {
             return null;
         }
         PathElement element = entries[entries.length - 1];
-        if (element.hasModels()) {
+        if (element.hasModelArray()) {
             return "(" + String.join(",",element.getModelsArray()) + ")" + element.getKey();
         }
         return element.getKey();

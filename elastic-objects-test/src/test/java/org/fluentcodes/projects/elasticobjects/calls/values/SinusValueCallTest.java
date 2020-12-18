@@ -31,7 +31,7 @@ public class SinusValueCallTest {
 
     public static final EO createSimple() {
         try {
-            return ProviderMapJson.VALUES_CALL_NUMBER_SCALAR.createMapEo().getEo(SOURCE);
+            return ProviderMapJson.VALUES_CALL_NUMBER_SCALAR.createMapTestEo().getEo(SOURCE);
         }
         catch (Exception e) {
             LOG.info(e.getMessage());
@@ -68,7 +68,7 @@ public class SinusValueCallTest {
 
 
     public static final EO createArray() {
-        return ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapEo().getEo(SOURCE);
+        return ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapTestEo().getEo(SOURCE);
     }
 
     /**
@@ -161,7 +161,7 @@ public class SinusValueCallTest {
     @Ignore
     @Test
     public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
-        EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapEo();
+        EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapTestEo();
         EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_ON_TARGET_PATH_JSON.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

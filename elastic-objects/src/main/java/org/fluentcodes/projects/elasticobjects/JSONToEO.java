@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -71,37 +72,6 @@ public class JSONToEO {
     public JSONToEO(String json) {
         this(new StringReader(json));
         this.json = json;
-    }
-
-    private static Models stringToValue(final EOConfigsCache configsCache, final String string)  {
-        if (string.equals("")) {
-            return new Models(configsCache, String.class);
-        }
-        if (string.equalsIgnoreCase("true")) {
-            return new Models(configsCache, Boolean.class);
-        }
-        if (string.equalsIgnoreCase("false")) {
-            return new Models(configsCache, Boolean.class);
-        }
-        if (string.equalsIgnoreCase("null")) {
-            return new Models(configsCache, Map.class);
-        }
-
-        /*
-         * If it might be a number, try converting it. If a number cannot be
-         * produced, then the fileName will just be a getSerialized.
-         */
-
-        char b = string.charAt(0);
-        if ((b >= '0' && b <= '9') || b == '-') {
-            if (string.indexOf('.') > -1 || string.indexOf('e') > -1
-                    || string.indexOf('E') > -1) {
-                return new Models(configsCache, Double.class);
-            } else {
-                return new Models(configsCache, Long.class);
-            }
-        }
-        return new Models(configsCache, String.class);
     }
 
     /**
@@ -402,13 +372,14 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
                 }
                 String value = this.nextString(c, rawFieldName);
-                new PathElement(rawFieldName, eoParent, value).buildEo();
+                eoParent.createChild(new PathElement(rawFieldName), value);
                 return eoParent;
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    pathElement = new PathElement(rawFieldName, eoParent, null);
-                    mapObject(new EoChild(pathElement));
+                    PathElement pathFromKey = new PathElement(rawFieldName, Map.class);
+                    EO child = eoParent.createChild(pathFromKey);
+                    mapObject(child);
                     return eoParent;
                 }
                 else {
@@ -417,16 +388,12 @@ public class JSONToEO {
                 }
             case '[':
                 if (rawFieldName != null) {// List value
-                    PathElement element = new PathElement(rawFieldName, eoParent, new ArrayList());
-
-                    EO child = new EoChild(element);
+                    PathElement pathFromKey = new PathElement(rawFieldName, List.class);
+                    EO child = eoParent.createChild(pathFromKey);
                     mapList(child);
                     return child;
                 }
                 else {
-                    if (!eoParent.isList()) {
-                        ((EoChild) eoParent).setRootModels("List");
-                    }
                     mapList(eoParent); // start parsing
                     return eoParent;
                 }
@@ -455,14 +422,13 @@ public class JSONToEO {
             throw new EoException("Null rawFieldName" + debug());
         }
         if (rawFieldName.matches("\\(.*\\).*")) {
-            pathElement = new PathElement(rawFieldName, eoParent, value);
-            return new EoChild(pathElement);
+            pathElement = new PathElement(rawFieldName);
+            return eoParent.createChild(pathElement, value);
         }
         else {
             Object valueObject = ScalarConverter.fromJson(value);
-            pathElement = new PathElement(rawFieldName, eoParent, valueObject);
-            EO child = pathElement.buildEo();
-            return child;
+            pathElement = new PathElement(rawFieldName);
+            return eoParent.createChild(pathElement, valueObject);
         }
     }
 

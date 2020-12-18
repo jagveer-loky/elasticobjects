@@ -1,7 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.JSONToEO;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -14,20 +16,28 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.PathElement.CALLS;
+import static org.fluentcodes.projects.elasticobjects.PathElement.ERROR_LEVEL;
+import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
+import static org.fluentcodes.projects.elasticobjects.PathElement.SERIALIZATION_TYPE;
+
 /**
- * A list of models defining types
+ * An array of models defining types
  *
  * @author Werner Diwischek
  * @since 20.05.16.
  */
+
 public class Models {
+    private static final List<Class> DEFAULT_CLASSES = Arrays.asList(new Class[] {Map.class, LinkedHashMap.class, String.class, Boolean.class, Integer.class});
     private final ModelConfig[] models;
     private final boolean hasChildModel;
 
-    private Models(final ModelConfig... models) {
+    public Models(final ModelConfig... models) {
         this.models = models;
         hasChildModel = models.length > 1;
     }
+
     protected Models(final List<ModelConfig> models) {
         this.models = new ModelConfig[models.size()];
         for (int i = 0; i<models.size(); i++) {
@@ -53,6 +63,27 @@ public class Models {
         hasChildModel = models.length > 1;
     }
 
+    public Models(final EOConfigsCache cache, final Object value)  {
+        hasChildModel = false;
+        if (value == null) {
+            this.models = new ModelConfig[]{cache.findModel(Map.class)};
+        }
+        else if (value instanceof String) {
+            if  (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
+                this.models = new ModelConfig[]{cache.findModel(Map.class)};
+            }
+            else if  (JSONToEO.jsonListPattern.matcher((String) value).find()) {
+                this.models = new ModelConfig[]{cache.findModel(List.class)};
+            }
+            else {
+                this.models = new ModelConfig[]{cache.findModel(String.class)};
+            }
+        }
+        else {
+            this.models = new ModelConfig[]{cache.findModel(value.getClass())};
+        }
+    }
+
     private static String[] convert (Class[] classes) {
         if (classes == null || classes.length==0 || Object.class.equals(classes[0])) {
             return new String[] {"Map"};
@@ -63,6 +94,7 @@ public class Models {
         }
         return modelNames;
     }
+
     private static String[] strip (String[] toBeStripped) {
         if (toBeStripped == null || toBeStripped.length==0 || "Object".equals(toBeStripped[0])) {
             return new String[] {"Map"};
@@ -81,6 +113,13 @@ public class Models {
             e.printStackTrace();
             return true;
         }
+    }
+
+    public Models getChildModelsTrue()  {
+        if (models.length < 2) {
+            return null;
+        }
+        return new Models(Arrays.copyOfRange(this.models, 1, models.length));
     }
 
     public Models getChildModels()  {
@@ -123,8 +162,23 @@ public class Models {
         return value.getClass();
     }
 
-    public static Class getValueClass(final Object value) {
-        return getValueClass(new Models(), value);
+    public Models getChildModels(final String fieldKey) {
+        if (fieldKey == null) {
+            return null;
+        }
+        if (!PathElement.isParentSet(fieldKey)) {
+            return null;
+        }
+        if (getModel().isList() || getModel().isMap()) {
+            return getChildModelsTrue();
+        }
+        if (!getModel().isContainer()) {
+            return null;
+        }
+        if (!getModel().hasFieldConfig(fieldKey)) {
+            return null;
+        }
+        return getModel().getFieldConfig(fieldKey).getModels();
     }
 
     public Models getChildModels(final EO eo, final PathElement pathElement) {
@@ -240,6 +294,13 @@ public class Models {
             }
         }
         return buffer.toString();
+    }
+
+    public String createDirective() {
+        if (DEFAULT_CLASSES.contains(getModelClass())) {
+            return "";
+        }
+        return "(" + toString() + ")";
     }
 
     public boolean isScalar() {

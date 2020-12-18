@@ -44,7 +44,7 @@ public class EOConfigMap implements EOConfigMapInterface<ConfigConfigInterface> 
         } catch (ClassNotFoundException e) {
             throw new EoException("Could not find bean class for '" + configClass.getName() + "'." );
         }
-        EO eoRoot = new EoRoot(cache, Map.class, beanClass);
+        EO eoRoot = EoRoot.OF_CLASS(cache, Map.class, beanClass);
         eoRoot.mapObject(configBeanString);
         Map<String, ConfigBean> configBeanMap = (Map<String, ConfigBean>)eoRoot.get();
         Map<String, ConfigConfigInterface> configMap = new LinkedHashMap<>();

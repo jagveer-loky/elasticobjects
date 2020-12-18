@@ -44,7 +44,7 @@ a constructor with the cache object. </p>
 </p>
 
 <textarea style="height:80px;">
-EO eoRoot = new EoRoot(EO_CONFIGS_DEV);
+EO eoRoot = EoRoot.OFEO_CONFIGS_DEV);
 Assertions.assertThat(eoRoot.getModelClass())
     .isEqualTo(Map.class);
 </textarea>
@@ -54,7 +54,7 @@ Assertions.assertThat(eoRoot.getModelClass())
 <textarea style="height:120px;">
 AnObject anObject = new AnObject()
     .setMyString("test");
-EO eoRoot = new EoRoot(EO_CONFIGS_TEST, anObject);
+EO eoRoot = EoRoot.OFEO_CONFIGS_TEST, anObject);
 Assertions.assertThat(eoRoot.get("myString"))
    .isEqualTo("test");
 Assertions.assertThat(eoRoot.get() == anObject)
@@ -64,7 +64,7 @@ Assertions.assertThat(eoRoot.get() == anObject)
 <p>A JSON string will automatically resolved to a map or list object.</p>
 
 <textarea style="height:80px;">
-EO eoRoot = new EoRoot(EO_CONFIGS_DEV, "{\"key\":1}");
+EO eoRoot = EoRoot.OFEO_CONFIGS_DEV, "{\"key\":1}");
 Assertions.assertThat(eoRoot.get("key"))
     .isEqualTo(1);
 </textarea>
@@ -72,7 +72,7 @@ Assertions.assertThat(eoRoot.get("key"))
 <p>A typed JSON string will automatically mapped to the object.</p>
 
 <textarea style="height:120px;">
-EO eoRoot = new EoRoot(EO_CONFIGS_TEST,
+EO eoRoot = EoRoot.OFEO_CONFIGS_TEST,
     "{\"(AnObject)key\":{\"myString\":\"test\"}}");
 Assertions.assertThat(eoRoot.get("key/myString"))
     .isEqualTo("test");

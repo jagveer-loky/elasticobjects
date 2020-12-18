@@ -11,14 +11,14 @@ public class PathElementTest {
     public void testWithoutModel() {
         PathElement pathElement = new PathElement("test");
         Assert.assertEquals("test", pathElement.getKey());
-        Assert.assertFalse(pathElement.hasModels());
+        Assert.assertFalse(pathElement.hasModelArray());
     }
 
     @Test
     public void testWithEmptyModel() {
         PathElement pathElement = new PathElement("()test");
         Assert.assertEquals("test", pathElement.getKey());
-        Assert.assertFalse(pathElement.hasModels());
+        Assert.assertFalse(pathElement.hasModelArray());
     }
 
     @Test

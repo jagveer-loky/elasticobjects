@@ -46,6 +46,9 @@ public class ConfigBean extends BaseBean implements Config {
         mergeExpose(values.get(EXPOSE));
         mergeScope(values.get(SCOPE));
         if (values.containsKey(PROPERTIES)) {
+            if (values.get(PROPERTIES) instanceof String ) {
+                System.out.println("x");
+            }
             properties = (Map)values.get(PROPERTIES);
         }
         else {

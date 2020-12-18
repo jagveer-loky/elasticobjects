@@ -3,11 +3,8 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -33,13 +30,12 @@ public class ModelBean extends ConfigBean implements Model {
         super();
         fieldBeans = new TreeMap<>();
     }
+
     public ModelBean(final String key) {
         super();
         setNaturalId(key);
         fieldBeans = new TreeMap<>();
     }
-
-
 
     public ModelBean(final Class modelClass, ShapeTypes shapeType) {
         this();
@@ -129,7 +125,13 @@ public class ModelBean extends ConfigBean implements Model {
                 return;
             }
             for (Object key : ((Map)raw).keySet()) {
-                Map<String, Object> fieldMap = (Map<String,Object>) ((Map)raw).get(key);
+                Map<String, Object> fieldMap = null;
+                try {
+                    fieldMap = (Map<String, Object>) ((Map) raw).get(key);
+                }
+                catch (Exception e) {
+                    throw new EoException("Problem casting field value " + raw);
+                }
                 if (!fieldMap.containsKey(NATURAL_ID)) {
                     fieldMap.put(NATURAL_ID, key);
                 }

@@ -20,7 +20,7 @@ public class EoRootListTest {
 
     @Test
     public void givenDev_whenNewWithArrayListValue_thenMap()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, new ArrayList());
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, new ArrayList());
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(ArrayList.class);
         Assertions.assertThat(eo.get().getClass()).isEqualTo(ArrayList.class);
@@ -30,7 +30,7 @@ public class EoRootListTest {
 
     @Test
     public void givenDev_whenNewWithListClass_thenMap()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS,List.class);
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS,List.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get().getClass()).isEqualTo(ArrayList.class);
@@ -40,7 +40,7 @@ public class EoRootListTest {
 
     @Test
     public void givenDev_whenNewWithListStringClass_thenListString()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, List.class, String.class);
+        final EO eo = EoRoot.OF_CLASS(ProviderRootDevScope.EO_CONFIGS, List.class, String.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions
                 .assertThat(eo.getModels().toString())
@@ -49,7 +49,7 @@ public class EoRootListTest {
 
     @Test
     public void givenDev_whenNewWithListMapClass_thenListMap()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, List.class, Map.class);
+        final EO eo = EoRoot.OF_CLASS(ProviderRootDevScope.EO_CONFIGS, List.class, Map.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions
                 .assertThat(eo.getModels().toString())
@@ -58,7 +58,7 @@ public class EoRootListTest {
 
     @Test
     public void givenDev_whenJsonListEmpty_thenXpected()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, "[]");
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, "[]");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.isEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
@@ -67,7 +67,7 @@ public class EoRootListTest {
 
     @Test
     public void givenDev_whenListDoubleWithRootModel_thenXpected()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS);
         eo.mapObject("{\"_rootmodel\":\"List,Double\", \"0\":1,\"1\":2}");
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         new XpectEo<>().compareAsString(eo);

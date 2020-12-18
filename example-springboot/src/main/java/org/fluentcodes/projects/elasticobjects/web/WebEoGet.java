@@ -75,7 +75,7 @@ public class WebEoGet {
     }
 
     private String createPage(final String contentDirectory, final String selectedItem) {
-        EO eo = new EoRoot(cache);
+        EO eo = EoRoot.OFcache);
         eo.setRoles(Arrays.asList(WebEo.getRoles()));
         eo.set(selectedItem, "selectedItem");
         eo.set(contentDirectory, "contentDirectory");
@@ -101,7 +101,7 @@ public class WebEoGet {
     @RequestMapping(value = "/config/{configType}/{configSelected:.+}", method = RequestMethod.GET)
     @ResponseBody
     public String createConfigPage(@PathVariable String configType, @PathVariable String configSelected, @RequestParam(required = false, defaultValue = ".*") String configFilter) {
-        EO eo = new EoRoot(cache);
+        EO eo = EoRoot.OFcache);
         eo.set(configType + " - " + configSelected, "selectedItem");
         eo.set(configFilter, "configFilter");
         eo.set(configType, "configType");
@@ -128,7 +128,7 @@ public class WebEoGet {
     @RequestMapping(value = "/configs/{selectedItem:.+}.html", method = RequestMethod.GET)
     @ResponseBody
     public String createConfigStartPage(@PathVariable String selectedItem) {
-        EO eo = new EoRoot(cache);
+        EO eo = EoRoot.OFcache);
         eo.setRoles(Arrays.asList(WebEo.getRoles()));
         eo.set(selectedItem + ".html", "selectedItem");
         eo.set(".*", "configFilter");

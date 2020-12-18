@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
@@ -14,7 +12,12 @@ import org.junit.Test;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_BOOLEAN;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * @author Werner Diwischek

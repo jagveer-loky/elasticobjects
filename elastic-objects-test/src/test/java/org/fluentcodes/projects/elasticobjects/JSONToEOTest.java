@@ -27,7 +27,7 @@ public class JSONToEOTest {
 
     @Test
     public void testNewLineAsPartOfAStringValue()  {
-        EO eoWithNewLine = ProviderRootTestScope.createEo("{\"1\":\"a\\n\"}");
+        EO eoWithNewLine = ProviderRootDevScope.createEo("{\"1\":\"a\\n\"}");
         Assert.assertEquals("a\n", eoWithNewLine.get(S1));
     }
 

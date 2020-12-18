@@ -4,6 +4,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
@@ -92,10 +93,10 @@ public class EoMapObjectListJsonTest {
     }
 
     @Test
-    public void givenDevListStringEmpty_whenMapanObjectBoolean_thenFirstListElementSetWithString()  {
+    public void givenDevListStringEmpty_whenMapAnObjectBoolean_thenFirstListElementSetWithString()  {
         EO root = ProviderRootDevScope.createEo(List.class, String.class);
         root
-                .mapObject(TestProviderAnObjectJson.BOOLEAN.content());
+                .mapObject("{\"" + AnObject.MY_BOOLEAN + "\": true}");
         Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(root.get(S0)).isEqualTo(S_BOOLEAN.toString());
     }
@@ -103,7 +104,7 @@ public class EoMapObjectListJsonTest {
     @Test
     public void givenDevList_whenMapJsonBoolean_thenFirstListElementSetWithBoolean()  {
         final EO root = ProviderRootDevScope.createEo(List.class);
-        root.mapObject(TestProviderAnObjectJson.BOOLEAN.content());
+        root.mapObject("{\"" + AnObject.MY_BOOLEAN + "\": true}");
         Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(root.get(S0)).isEqualTo(S_BOOLEAN);
     }
@@ -133,7 +134,7 @@ public class EoMapObjectListJsonTest {
 
     @Test
     public void givenDev_whenListDouble_thenXpected()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS);
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS);
         eo.mapObject("{\"(List,Double)items\":{\"0\":1,\"1\":2}}");
         Assertions.assertThat(eo.getEo("items").getModelClass()).isEqualTo(List.class);
         new XpectEo<>().compareAsString(eo);

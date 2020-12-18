@@ -138,7 +138,7 @@ public class BaseBean implements Base {
 
     public String toString(EOConfigsCache provider) {
         try {
-            return new EoRoot(provider,this).toString();
+            return EoRoot.OF(provider,this).toString();
         } catch (Exception e) {
             return e.getMessage();
         }

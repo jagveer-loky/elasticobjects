@@ -374,20 +374,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "ConfigProperties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "expose": "NONE",
-    "description": "Basic cache as super object for other cached items. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ConfigProperties",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "Interface"
-    },
-    "author": "Werner Diwischek"
-  },
   "ConfigsCommand": {
     "module": "elastic-objects",
     "moduleScope": "main",

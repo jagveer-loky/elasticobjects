@@ -60,14 +60,14 @@ public class EoSetScalarTest {
 
     @Test
     public void givenDevList_whenSetBooleanWith0_thenSetValue()  {
-        final EO root = new EoRoot(ProviderRootDevScope.EO_CONFIGS, List.class);
+        final EO root = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, List.class);
         root.set(S_BOOLEAN, S0);
         Assert.assertEquals(S_BOOLEAN, root.get(S0));
     }
 
     @Test
     public void givenDevList_whenSetStringWithLevel0_thenSetValueWith0()  {
-        final EO root = new EoRoot(ProviderRootDevScope.EO_CONFIGS, List.class);
+        final EO root = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, List.class);
         root.set(S_STRING, S_LEVEL0);
         Assert.assertEquals(S_STRING, root.get(S0));
     }

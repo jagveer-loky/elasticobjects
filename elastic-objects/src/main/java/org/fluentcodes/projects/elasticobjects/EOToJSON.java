@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.StringWriter;
@@ -62,7 +63,7 @@ public class EOToJSON {
     }
 
     public String toJSON(final EOConfigsCache cache, final Object object)  {
-        return toJSON(new EoRoot(cache, object));
+        return toJSON(EoRoot.OF(cache, object));
     }
 
     public String toJSON(final EO eo)  {
@@ -110,7 +111,7 @@ public class EOToJSON {
                 continue;
             }
             EO eoChild  = eoParent.getEo(fieldName);
-            if (!eoChild.isToSerialize(serializationType)) {
+            if (eoChild.isEmpty()) {
                 continue;
             }
             if (!first) {
@@ -192,12 +193,19 @@ public class EOToJSON {
         }
         stringWriter.append("\"");
         if (serializationType == JSONSerializationType.EO) {
-            stringWriter.append(eoChild.getParentKeyWithModels());
+            stringWriter.append(eoChild.getModels().createDirective());
         }
-        else {
-            stringWriter.append(eoChild.getParentKey());
-        }
+
+        stringWriter.append(eoChild.getFieldKey());
         stringWriter.append("\": ");
+    }
+
+    public String getParentKeyWithModels(EO eo) {
+        if (eo.isRoot()) {
+            return "";
+        }
+        Models models = eo.getModels();
+        return models.createDirective() + eo.getFieldKey();
     }
 
     private void addLineBreak(StringWriter stringWriter, int indent) {

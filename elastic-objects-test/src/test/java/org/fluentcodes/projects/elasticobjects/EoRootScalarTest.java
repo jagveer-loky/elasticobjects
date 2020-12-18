@@ -13,7 +13,7 @@ public class EoRootScalarTest {
 
     @Test
     public void givenDev_whenNewStringClass_thenValueIsNull()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, String.class);
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, String.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get()).isNull();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(String.class);
@@ -21,7 +21,7 @@ public class EoRootScalarTest {
 
     @Test
     public void givenDev_whenNewStringValue_thenValueIsSet()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, "test");
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, "test");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get()).isEqualTo("test");
         Assertions.assertThat(eo.getModelClass()).isEqualTo(String.class);
@@ -29,7 +29,7 @@ public class EoRootScalarTest {
 
     @Test
     public void givenDev_whenNewIntegerClass_thenValueIsSet()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, Integer.class);
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, Integer.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get()).isNull();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Integer.class);
@@ -37,7 +37,7 @@ public class EoRootScalarTest {
 
     @Test
     public void givenDev_whenNewIntegerValue_thenValueIsSet()  {
-        final EO eo = new EoRoot(ProviderRootDevScope.EO_CONFIGS, 1);
+        final EO eo = EoRoot.OF(ProviderRootDevScope.EO_CONFIGS, 1);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get()).isEqualTo(1);
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Integer.class);
