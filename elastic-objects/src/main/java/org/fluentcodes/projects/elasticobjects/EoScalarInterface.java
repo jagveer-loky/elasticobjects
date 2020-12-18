@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface EO extends EoLogInterface{
+public interface EoScalarInterface extends EoLogInterface{
     /**
      * Creates a new object an map it to the object
      *
@@ -23,7 +23,7 @@ public interface EO extends EoLogInterface{
     EOConfigsCache getConfigsCache();
     String getFieldKey();
 
-    EO getParent();
+    EoScalarInterface getParent();
     default boolean hasParent() {
         return getParent()!=null;
     }
@@ -31,8 +31,8 @@ public interface EO extends EoLogInterface{
         return hasParent();
     }
 
-    EO createChild(final PathElement fieldKey);
-    EO createChild(final PathElement pathElement, final Object value);
+    EoScalarInterface createChild(final PathElement fieldKey);
+    EoScalarInterface createChild(final PathElement pathElement, final Object value);
 
     Path getPath();
     String getPathAsString();
@@ -43,26 +43,19 @@ public interface EO extends EoLogInterface{
         return getModels().isEmpty(get());
     }
 
-    EO set(Object value, String... paths) ;
-    EO setEmpty(String... paths) ;
+    EoScalarInterface set(Object value, String... paths) ;
+    EoScalarInterface setEmpty(String... paths) ;
 
-    EO mapObject(Object source);
+    EoScalarInterface mapObject(Object source);
 
     boolean hasEo(String path);
-    int sizeEo();
-    int size();
-    Set<String> keys();
-    Set<String> keysEo() ;
-    List<String> keys(String path) ;
-    List<String> keys(PathPattern pathPattern) ;
-    List<String> filterPaths(String filter) ;
 
     Map getKeyValues() ;
 
-    EO getEo(String... path) ;
-    EO getEo(PathElement path) ;
-    EO remove(String... path) ;
-    EO getRoot() ;
+    EoScalarInterface getEo(String... path) ;
+    EoScalarInterface getEo(PathElement path) ;
+    EoScalarInterface remove(String... path) ;
+    EoScalarInterface getRoot() ;
 
     Models getModels();
     ModelConfig getModel();
@@ -107,9 +100,9 @@ public interface EO extends EoLogInterface{
         return getRoles() != null && !getRoles().isEmpty();
     }
 
-    EO addCall(Call callExecutor) ;
+    EoScalarInterface addCall(Call callExecutor) ;
     Set<String> getCallKeys();
-    EO getCallEo(String key);
+    EoScalarInterface getCallEo(String key);
 
     boolean execute();
 
@@ -124,9 +117,9 @@ public interface EO extends EoLogInterface{
 
     JSONSerializationType getSerializationType();
 
-    EO setSerializationType(JSONSerializationType serializationType);
+    EoScalarInterface setSerializationType(JSONSerializationType serializationType);
 
-    String compare(final EO other);
+    String compare(final EoScalarInterface other);
 
     String toString(JSONSerializationType serializationType);
 

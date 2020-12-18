@@ -18,7 +18,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class EoChild implements EO {
     private final EO parentEo;
@@ -79,11 +78,6 @@ public class EoChild implements EO {
 
     protected Object getValueFromParent() {
         return getParentEo().getValue(getFieldKey());
-    }
-
-    @Override
-    public boolean hasParent() {
-        return !isRoot();
     }
 
     @Override
@@ -191,11 +185,6 @@ public class EoChild implements EO {
     }
 
     @Override
-    public boolean isTransient(final String fieldName) {
-        return getModel().hasFieldConfig(fieldName)  ? getModel().getFieldConfig(fieldName).isTransient(): false;
-    }
-
-    @Override
     public EO getEo(String... pathString)  {
         return new Path(pathString).moveTo(this);
     }
@@ -292,11 +281,6 @@ public class EoChild implements EO {
     @Override
     public boolean isEoEmpty() {
         return eoMap == null || eoMap.isEmpty();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return getModels().isEmpty(get());
     }
 
     @Override
@@ -452,11 +436,6 @@ public class EoChild implements EO {
     }
 
     @Override
-    public boolean isRoot() {
-        return false;
-    }
-
-    @Override
     public Path getPath() {
         return new Path(getPathAsString());
     }
@@ -486,55 +465,6 @@ public class EoChild implements EO {
         getParentEo().getPathAsString(builder);
     }
 
-
-    @Override
-    public EO debug(String message) {
-        if (checkLevel(LogLevel.DEBUG)) {
-            return log(message, getLogLevel());
-        }
-        return this;
-    }
-
-    @Override
-    public EO info(String message) {
-        if (checkLevel(LogLevel.INFO)) {
-            return log(message, LogLevel.INFO);
-        }
-        return this;
-    }
-
-    @Override
-    public EO warn(String message) {
-        if (checkLevel(LogLevel.WARN)) {
-            return log(message, LogLevel.WARN);
-        }
-        return this;
-    }
-
-    @Override
-    public EO warn(String message, Exception e) {
-        if (checkLevel(LogLevel.WARN)) {
-            return log( message, LogLevel.WARN, e);
-        }
-        return this;
-    }
-
-    @Override
-    public EO error(String message) {
-        if (checkLevel(LogLevel.ERROR)) {
-            return log( message, LogLevel.ERROR);
-        }
-        return this;
-    }
-
-    @Override
-    public EO error(String message, Exception e) {
-        if (checkLevel(LogLevel.ERROR)) {
-            return log( message, LogLevel.ERROR, e);
-        }
-        return this;
-    }
-
     private EO getLogEo() {
         EO rootEo = getRoot();
         if (!rootEo.hasEo(PathElement.LOGS)) {
@@ -551,16 +481,7 @@ public class EoChild implements EO {
         return (List<String>)getLogEo().get();
      }
 
-    @Override
-    public String getLog() {
-        if (!hasEo(PathElement.LOGS)) {
-            return "";
-        }
-        return getLogList().stream().collect(Collectors.joining("\n"));
-    }
-
-
-    private EO log(String message, LogLevel logLevel) {
+    public EO log(String message, LogLevel logLevel) {
         if (message == null) {
             return this;
         }
@@ -571,17 +492,12 @@ public class EoChild implements EO {
         return this;
     }
 
-    private EO log(String message, LogLevel logLevel, Exception e) {
+    public EO log(String message, LogLevel logLevel, Exception e) {
         log( message + ": " + e.getMessage(), logLevel);
         return this;
     }
 
     // LOG_LEVEL
-
-    private boolean checkLevel(LogLevel messageLevel) {
-        return getLogLevel().ordinal() <= messageLevel.ordinal();
-    }
-
     @Override
     public LogLevel getLogLevel() {
         if (hasLogLevel()) {
@@ -593,23 +509,12 @@ public class EoChild implements EO {
         return getParent().getLogLevel();
     }
 
-
     @Override
     public EO setLogLevel(LogLevel logLevel) {
         if (!hasEo(PathElement.LOG_LEVEL)) {
             createChild(new PathElement(PathElement.LOG_LEVEL), logLevel);
         }
         return this;
-    }
-
-    public boolean hasLogLevel() {
-        return hasEo(new PathElement(PathElement.LOG_LEVEL));
-    }
-
-
-    @Override
-    public boolean hasErrors() {
-        return getErrorLevel() == LogLevel.ERROR;
     }
 
     @Override
@@ -644,10 +549,6 @@ public class EoChild implements EO {
     @Override
     public void setRoles(final List<String> roles) {
         getRoot().setRoles(roles);
-    }
-
-    public boolean hasRoles() {
-        return getRoot().hasRoles();
     }
 
     @Override
@@ -697,37 +598,6 @@ public class EoChild implements EO {
     public boolean isChanged() {
         return changed;
     }
-
-    @Override
-    public boolean isList() {
-        return getModel().isList();
-    }
-
-    @Override
-    public boolean isObject() {
-        return getModel().isObject();
-    }
-
-    @Override
-    public boolean isScalar() {
-        return getModel().isScalar() || getModels().isEnum();
-    }
-
-    @Override
-    public boolean isMap() {
-        return getModel().isMap();
-    }
-
-    @Override
-    public boolean isNull() {
-        return getModel().isNull();
-    }
-
-    @Override
-    public boolean isContainer() {
-        return !isScalar();
-    }
-
     // SERIALIZATION TYPE
 
     @Override

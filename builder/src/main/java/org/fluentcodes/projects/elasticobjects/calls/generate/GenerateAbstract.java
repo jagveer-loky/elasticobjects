@@ -49,9 +49,6 @@ public abstract class GenerateAbstract extends CallImpl implements GeneratePrope
 
     @Override
     protected boolean init(final EO eo) {
-        if (eo.isEmpty()) {
-            //throw new EoException("Eo for generating json configuration files is empty! " + eo.getPathAsString());
-        }
         if (!hasTargetFileConfigKey()) {
             throw new EoException("targetFileConfigKey must be set but is empty");
         }
