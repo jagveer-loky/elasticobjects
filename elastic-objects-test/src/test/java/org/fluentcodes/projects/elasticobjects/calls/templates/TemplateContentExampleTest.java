@@ -12,11 +12,13 @@ import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * Created by Werner on 22.03.2017.
  */
 public class TemplateContentExampleTest {
-    public static final String CONFIG_KEY_JSON = "ContentExampleData";
+    public static final String CONTENT_EXAMPLE_DATA = "ContentExampleData";
     public static final String STATIC_TPL = "ContentExampleStatic";
     public static final String STATIC_KEEP_TPL = "ContentExampleStaticKeep";
     public static final String STATIC_CONDITION_TPL = "ContentExampleStaticCondition";
@@ -27,9 +29,9 @@ public class TemplateContentExampleTest {
 
 
     @Test
-    public void call_ConfigKeyJson__execute__xpected()  {
-        EO eo = ProviderRootTestScope.createEo();
-        final FileReadCall call = new FileReadCall(CONFIG_KEY_JSON);
+    public void eoList_FileReadCall_ContentExampleData__execute__xpected()  {
+        EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
+        final FileReadCall call = new FileReadCall(CONTENT_EXAMPLE_DATA);
         call.setTargetPath(".");
         eo.addCall(call);
         eo.execute();
@@ -39,11 +41,11 @@ public class TemplateContentExampleTest {
     }
 
     @Test
-    public void eo_DataJson__execute__xpected()  {
-        EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEoTest();
+    public void __eo_ContentExampleDataJson__xpected()  {
+        EO eo = ProviderRootTestScope.createEo(TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.content());
         Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         eo.setSerializationType(JSONSerializationType.STANDARD);
-        Assertions.assertThat(eo.getLog().isEmpty());
         new XpectEo().compareAsString(eo);
     }
 

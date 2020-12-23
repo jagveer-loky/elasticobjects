@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
 import org.junit.Test;
 
@@ -11,17 +11,17 @@ public class CsvWriteCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(CsvWriteCall.class);
+        ModelConfigChecks.create(CsvWriteCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(CsvWriteCall.class);
+        ModelConfigChecks.compare(CsvWriteCall.class);
     }
 
     @Test
     public void resolveModel()  {
-        ConfigModelChecks.resolve(CsvConfig.class);
+        ModelConfigChecks.resolve(CsvConfig.class);
     }
 
 }

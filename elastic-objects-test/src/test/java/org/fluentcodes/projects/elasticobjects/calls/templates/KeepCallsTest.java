@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -11,11 +11,11 @@ public class KeepCallsTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(KeepCalls.class);
+        ModelConfigChecks.compare(KeepCalls.class);
     }
 
     @Test
     public void createByModelConfig()  {
-        Assertions.assertThat(ConfigModelChecks.create(KeepCalls.class)).isNull();
+        Assertions.assertThat(ModelConfigChecks.create(KeepCalls.class)).isNull();
     }
 }

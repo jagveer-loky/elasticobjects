@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
@@ -26,12 +26,12 @@ public class ValueCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(ValueCall.class);
+        ModelConfigChecks.create(ValueCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(ValueCall.class);
+        ModelConfigChecks.compare(ValueCall.class);
     }
 
     @Test
@@ -91,12 +91,12 @@ public class ValueCallTest {
     @Test
     public void givenEoWithCallJsonMapWithPath_whenExecuteEo_thenEoIsMap()  {
         EO eo = ProviderRootTestScope.createEo();
-        final ValueCall call = new ValueCall("{\"level1\":\"test\"}");
-        call.setTargetPath(S_LEVEL0);
+        final ValueCall call = new ValueCall("{\"key1\":\"test\"}");
+        call.setTargetPath("key0");
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.get(S_LEVEL0, S_LEVEL1)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.get("key0", "key1")).isEqualTo(S_STRING);
     }
 
     @Test

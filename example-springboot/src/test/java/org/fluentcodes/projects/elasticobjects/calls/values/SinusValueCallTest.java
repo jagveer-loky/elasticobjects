@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class SinusValueCallTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(SinusValueCall.class);
+        ModelConfigChecks.compare(SinusValueCall.class);
     }
 
     @Test

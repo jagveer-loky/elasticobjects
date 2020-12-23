@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
@@ -22,12 +22,12 @@ import static org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFi
 public class StringUpperFirstCharCallTest {
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(StringUpperFirstCharCall.class);
+        ModelConfigChecks.create(StringUpperFirstCharCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(StringUpperFirstCharCall.class);
+        ModelConfigChecks.compare(StringUpperFirstCharCall.class);
     }
     @Test
     public void givenModelCreateAndValueTest_whenExecute_thenUpperCaseReturned()  {

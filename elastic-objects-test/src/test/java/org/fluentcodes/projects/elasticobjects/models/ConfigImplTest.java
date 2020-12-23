@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
@@ -23,11 +23,11 @@ public class ConfigImplTest {
 
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(ConfigConfig.class);
+        ModelConfigChecks.createThrowsException(ConfigConfig.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(ConfigConfig.class);
+        ModelConfigChecks.compare(ConfigConfig.class);
     }
 }

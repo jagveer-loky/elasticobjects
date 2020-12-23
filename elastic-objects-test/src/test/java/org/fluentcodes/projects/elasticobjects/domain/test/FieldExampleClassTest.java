@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
@@ -23,12 +23,12 @@ public class FieldExampleClassTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(FieldExampleClass.class);
+        ModelConfigChecks.create(FieldExampleClass.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(FieldExampleClass.class);
+        ModelConfigChecks.compare(FieldExampleClass.class);
     }
 
 }

@@ -101,7 +101,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                 .setExpose(expose)
                 .setSortOrder(sortOrder);
         List<String> keys = (List<String>)keysCall.execute(eo);
-        EO schemeRoot = EoRoot.OF(eo.getConfigsCache());
+        EO schemeRoot = EoRoot.of(eo.getConfigsCache());
         EO components = schemeRoot.setEmpty("components");
         EO schemas = components.setEmpty("schemas");
 

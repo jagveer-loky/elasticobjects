@@ -42,16 +42,4 @@ public class EOConfigsConfigTest {
         ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(ASubObject.class);
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }
-
-    // Just a first check for the dev scope working.
-    @Test
-    public void checkConfigsCacheDev()  {
-        EOConfigsCache configsCache = new EOConfigsCache(Scope.DEV);
-        ModelConfigInterfaceMethods model = configsCache.findModel(Map.class);
-        EO adapter = ProviderRootTestScope.createEo(S_STRING);
-        Assert.assertEquals(S_STRING, adapter.get());
-        Assert.assertEquals(String.class.getSimpleName(), adapter.getModelClass().getSimpleName());
-    }
-
-
 }

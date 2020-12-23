@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -17,7 +17,7 @@ public class TheGreetingCallTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(TheGreetingCall.class);
+        ModelConfigChecks.compare(TheGreetingCall.class);
     }
 
     @Test

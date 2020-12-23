@@ -74,8 +74,9 @@ public class ModelConfigObject extends ModelConfig {
     }
 
     @Override
-    public void set(final String fieldName, final Object parent, final Object value)  {
+    public boolean set(final String fieldName, final Object parent, final Object value)  {
         getFieldConfig(fieldName).set(parent, value);
+        return true;
     }
 
     @Override

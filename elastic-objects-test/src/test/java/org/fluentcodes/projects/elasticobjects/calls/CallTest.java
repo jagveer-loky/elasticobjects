@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -12,10 +10,10 @@ public class CallTest {
 
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(Call.class);
+        ModelConfigChecks.createThrowsException(Call.class);
     }
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(Call.class);
+        ModelConfigChecks.compare(Call.class);
     }
 }

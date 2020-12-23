@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -9,17 +9,17 @@ import org.junit.Test;
 public class DbModelReadCallTest {
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(DbModelReadCall.class);
+        ModelConfigChecks.create(DbModelReadCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbModelReadCall.class);
+        ModelConfigChecks.compare(DbModelReadCall.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(DbModelReadCall.class);
+        ModelConfigChecks.resolve(DbModelReadCall.class);
     }
 }
 

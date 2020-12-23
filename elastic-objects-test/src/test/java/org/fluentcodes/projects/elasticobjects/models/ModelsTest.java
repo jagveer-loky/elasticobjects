@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ModelsTest {
     @Test
     public void withModelConfigInterface()  {
-        Models models = new Models(ProviderRootTestScope.EO_CONFIGS, ModelConfig.class.getSimpleName());
+        Models models = new Models(ProviderRootTestScope.EO_CONFIGS, ModelConfig.class);
         Assert.assertTrue(models.hasModel());
         Assert.assertFalse(models.hasChildModel());
         Assert.assertFalse(models.isEmpty());

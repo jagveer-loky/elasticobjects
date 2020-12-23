@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -9,17 +9,17 @@ import org.junit.Test;
 public class DbModelDeleteCallTest {
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(DbModelDeleteCall.class);
+        ModelConfigChecks.create(DbModelDeleteCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbModelDeleteCall.class);
+        ModelConfigChecks.compare(DbModelDeleteCall.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(DbModelDeleteCall.class);
+        ModelConfigChecks.resolve(DbModelDeleteCall.class);
     }
 }
 

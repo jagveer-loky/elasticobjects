@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
@@ -16,12 +16,12 @@ public class TemplateResourceStoreCallTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(TemplateResourceStoreCall.class);
+        ModelConfigChecks.compare(TemplateResourceStoreCall.class);
     }
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(TemplateResourceStoreCall.class);
+        ModelConfigChecks.create(TemplateResourceStoreCall.class);
     }
 
     @Test

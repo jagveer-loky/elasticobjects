@@ -111,7 +111,7 @@ public abstract class CallImpl extends BaseBean implements Call {
         if (isTargetAsString()) {
             return new EOToJSON()
                     .setSerializationType(JSONSerializationType.STANDARD)
-                    .toJSON(eo.getConfigsCache(), result);
+                    .toJson(eo.getConfigsCache(), result);
         }
         eo.set(result, targetPath);
         return "";

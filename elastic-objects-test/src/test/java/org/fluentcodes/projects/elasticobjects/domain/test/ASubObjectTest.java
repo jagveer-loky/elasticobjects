@@ -1,33 +1,30 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class ASubObjectTest {
 
     @Test
-    public void DEV__find_AnObject__exception()  {
-        try {
-            ModelConfigInterfaceMethods model = ProviderRootDevScope.EO_CONFIGS.findModel(ASubObject.class);
-            Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
-        }
-        catch(EoException e) {
-
-        }
+    public void DEV__find_ASubObject__exception()  {
+        Assertions
+                .assertThatThrownBy(()->{ProviderRootDevScope.EO_CONFIGS.findModel(ASubObject.class);})
+                .isInstanceOf(EoException.class);
     }
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(ASubObject.class);
+        ModelConfigChecks.create(ASubObject.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(ASubObject.class);
+        ModelConfigChecks.compare(ASubObject.class);
     }
+
+
 
 }

@@ -1,83 +1,79 @@
 {
-  "_rootmodel": "ArrayList",
-  "0": {
-    "fieldConfigMap": {
-      "author": {
-        "fieldKey": "author",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "override": true
-        },
-        "description": "The autor of something e,g. a class.",
-        "naturalId": "author"
+  "fieldConfigMap": {
+    "author": {
+      "fieldKey": "author",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "override": true
       },
-      "creationDate": {
-        "fieldKey": "creationDate",
-        "modelKeys": "Date",
-        "(ArrayList)modelList": {
-          "0": "Date"
-        },
-        "properties": {
-          "override": true
-        },
-        "description": "Used to define the creation of an item.",
-        "naturalId": "creationDate"
-      },
-      "description": {
-        "fieldKey": "description",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "override": true
-        },
-        "description": "A description of the model used by every model extending BaseClassImpl. ",
-        "naturalId": "description"
-      },
-      "id": {
-        "fieldKey": "id",
-        "modelKeys": "Long",
-        "(ArrayList)modelList": {
-          "0": "Long"
-        },
-        "properties": {
-          "override": true
-        },
-        "description": "The id with a autonumbering",
-        "naturalId": "id"
-      },
-      "naturalId": {
-        "fieldKey": "naturalId",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "override": true
-        },
-        "description": "The natural key in @Base",
-        "naturalId": "naturalId"
-      }
+      "description": "The autor of something e,g. a class.",
+      "naturalId": "author"
     },
-    "interfaces": "Base",
-    "modelKey": "BaseBean",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
-    "configModelKey": "ModelConfigObject",
-    "(Expose)expose": "NONE",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN"
+    "creationDate": {
+      "fieldKey": "creationDate",
+      "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
+      "properties": {
+        "override": true
+      },
+      "description": "Used to define the creation of an item.",
+      "naturalId": "creationDate"
     },
-    "author": "Werner Diwischek",
-    "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
-    "naturalId": "BaseBean"
+    "description": {
+      "fieldKey": "description",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "override": true
+      },
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
+      "naturalId": "description"
+    },
+    "id": {
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
+      "properties": {
+        "override": true
+      },
+      "description": "The id with a autonumbering",
+      "naturalId": "id"
+    },
+    "naturalId": {
+      "fieldKey": "naturalId",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "override": true
+      },
+      "description": "The natural key in @Base",
+      "naturalId": "naturalId"
+    }
   },
-  "(LogLevel)_logLevel": "WARN"
+  "interfaces": "Base",
+  "modelKey": "BaseBean",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
+  "configModelKey": "ModelConfigObject",
+  "expose": "NONE",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "properties": {
+    "classPath": "src.main.java",
+    "create": true,
+    "shapeType": "BEAN"
+  },
+  "author": "Werner Diwischek",
+  "description": "Basic bean as super object for model beans with id, naturalId and description but no annotations. ",
+  "naturalId": "BaseBean"
 }

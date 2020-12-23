@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -9,12 +9,12 @@ import org.junit.Test;
 public class PermissionConfigInterfaceTest {
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(PermissionConfigInterface.class);
+        ModelConfigChecks.compare(PermissionConfigInterface.class);
     }
 
     @Test
     public void createModelConfig()  {
-        ConfigModelChecks.createThrowsException(PermissionConfigInterface.class);
+        ModelConfigChecks.createThrowsException(PermissionConfigInterface.class);
     }
 
 }

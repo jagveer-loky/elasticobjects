@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -19,17 +19,17 @@ public class XlsxReadCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(XlsxReadCall.class);
+        ModelConfigChecks.create(XlsxReadCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(XlsxReadCall.class);
+        ModelConfigChecks.compare(XlsxReadCall.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(XlsxConfig.class);
+        ModelConfigChecks.resolve(XlsxConfig.class);
     }
 
     @Test

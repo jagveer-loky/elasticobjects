@@ -30,20 +30,14 @@ public class SinusValueCallTest {
     private static final Double ARRAY_RESULT2 = 0.1411200080598672;
 
     public static final EO createSimple() {
-        try {
-            return ProviderMapJson.VALUES_CALL_NUMBER_SCALAR.createMapTestEo().getEo(SOURCE);
-        }
-        catch (Exception e) {
-            LOG.info(e.getMessage());
-            throw e;
-        }
+        return ProviderRootTestScope.createEo("{\"(Double)source\":2.1}");
     }
 
     /**
      * Wiki example
      */
     @Test
-    public void givenDev_whenTargetIsSinus_thenExecutedValue() {
+    public void eo_source_1_call_target__execute__get_target_0_8414709848078965() {
         final EO eo = ProviderRootTestScope.createEo();
         final String jsonString = "{\n" +
                 "  \"(Double)source\":1,\n" +
@@ -58,12 +52,12 @@ public class SinusValueCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(SinusValueCall.class);
+        ModelConfigChecks.create(SinusValueCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(SinusValueCall.class);
+        ModelConfigChecks.compare(SinusValueCall.class);
     }
 
 
@@ -85,10 +79,10 @@ public class SinusValueCallTest {
     }
 
     @Test
-    public void givenSimple_thenSourceValueWillBeOverwritten()  {
+    public void eo_source_1__call_execute__return_0_8632093666488737()  {
         final Call call = new SinusValueCall();
         EO eo = createSimple();
-        Double result = (Double) call.execute(eo);
+        Double result = (Double) call.execute(eo.getEo("source"));
         Assertions.assertThat(result).isEqualTo(0.8632093666488737);
     }
 
@@ -96,10 +90,10 @@ public class SinusValueCallTest {
     public void checkSerializationSimple()  {
         Call call = new SinusValueCall();
         call.setSourcePath(SOURCE);
-        EO eo = createSimple();
+        EO eo = createSimple().getRoot();
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String value = new EOToJSON().setSerializationType(JSONSerializationType.EO).toJSON(eo);
+        String value = new EOToJSON().setSerializationType(JSONSerializationType.EO).toJson(eo);
         EO eoFromString = ProviderRootTestScope.createEo(value);
         Assertions.assertThat(eoFromString.getLog()).isEmpty();
         eoFromString.execute();
@@ -116,7 +110,7 @@ public class SinusValueCallTest {
         final EO eoCall = ProviderRootTestScope.createEo(call);
         final String asString = new EOToJSON()
                 .setSerializationType(JSONSerializationType.EO)
-                .toJSON(eoCall);
+                .toJson(eoCall);
         final Call fromString = (Call) ProviderRootTestScope.createEo(asString).get();
         Double fromResult = (Double) fromString.execute(eo);
         Assertions.assertThat(fromResult).isEqualTo(result);
@@ -125,7 +119,7 @@ public class SinusValueCallTest {
     @Test
     public void givenEoSimple_WhenExecuteDirect_ResultExpected()  {
         EO eo = createSimple();
-        Double result = (Double) new SinusValueCall().execute(eo);
+        Double result = (Double) new SinusValueCall().execute(eo.getEo("source"));
         Assertions.assertThat(result).isEqualTo(SIMPLE_RESULT);
     }
 
@@ -141,7 +135,7 @@ public class SinusValueCallTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.setSerializationType(JSONSerializationType.EO);
         final String asString = new EOToJSON()
-                .toJSON(eo.getRoot());
+                .toJson(eo.getRoot());
         final EO fromString = ProviderRootTestScope.createEo(asString);
         fromString.setLogLevel(LogLevel.INFO);
         fromString.execute();
@@ -169,7 +163,7 @@ public class SinusValueCallTest {
     }
 
     @Test
-    public void givenEoArrayAndCallWithSourceAndFilterAndTarget_WhenExecuteWithinEo()  {
+    public void eo_1_2_3__execute_serialize__()  {
         Call call =  new SinusValueCall()
                 .setTargetPath(TARGET)
                 .setSourcePath("/source/*");
@@ -180,11 +174,11 @@ public class SinusValueCallTest {
         Assertions.assertThat(eo.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
         String value = new EOToJSON()
                 .setSerializationType(JSONSerializationType.EO)
-                .toJSON(eo.getRoot());
+                .toJson(eo.getRoot());
         EO eoFromJson = ProviderRootTestScope.createEo(value);
         Assertions.assertThat(eoFromJson.get(TARGET ,"2")).isEqualTo(ARRAY_RESULT2);
         Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0")).isNotNull();
-        Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0","targetPath")).isEqualTo(TARGET);
+        Assertions.assertThat(eoFromJson.get(PathElement.CALLS,"0","targetPath")).isEqualTo(TARGET + "/2");
     }
 
     @Test
@@ -217,7 +211,7 @@ public class SinusValueCallTest {
     }
 
     @Test
-    public void givenEo_whenReplaceString_thenPlaceHolderIsReplaced()  {
+    public void Eo_value_2_template__parse__get_value_0()  {
         EO eo = ProviderRootTestScope.createEo();
         eo.set(2, "value");
         String result = new ParserCurlyBracket("-" +

@@ -1,77 +1,73 @@
 {
-  "_rootmodel": "ArrayList",
-  "0": {
-    "fieldConfigMap": {
-      "colKeys": {
-        "fieldKey": "colKeys",
-        "modelKeys": "List,String",
-        "(ArrayList)modelList": {
-          "0": "List",
-          "1": "String"
-        },
-        "description": "The key list for mapping values in a value list. ",
-        "naturalId": "colKeys"
-      },
-      "filter": {
-        "fieldKey": "filter",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "Filter for List entries.",
-        "naturalId": "filter"
-      },
-      "length": {
-        "fieldKey": "length",
-        "modelKeys": "Integer",
-        "(ArrayList)modelList": {
-          "0": "Integer"
-        },
-        "description": "Length of a field.",
-        "naturalId": "length"
-      },
-      "rowEnd": {
-        "fieldKey": "rowEnd",
-        "modelKeys": "Integer",
-        "(ArrayList)modelList": {
-          "0": "Integer"
-        },
-        "description": "rowEnd",
-        "naturalId": "rowEnd"
-      },
-      "rowHead": {
-        "fieldKey": "rowHead",
-        "modelKeys": "Integer",
-        "(ArrayList)modelList": {
-          "0": "Integer"
-        },
-        "description": "rowHead",
-        "naturalId": "rowHead"
-      },
-      "rowStart": {
-        "fieldKey": "rowStart",
-        "modelKeys": "Integer",
-        "(ArrayList)modelList": {
-          "0": "Integer"
-        },
-        "description": "rowStart",
-        "naturalId": "rowStart"
-      }
+  "fieldConfigMap": {
+    "colKeys": {
+      "fieldKey": "colKeys",
+      "modelKeys": "List,String",
+      "modelList": [
+        "List",
+        "String"
+      ],
+      "description": "The key list for mapping values in a value list. ",
+      "naturalId": "colKeys"
     },
-    "modelKey": "ListParams",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "configModelKey": "ModelConfigObject",
-    "(Expose)expose": "NONE",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN"
+    "filter": {
+      "fieldKey": "filter",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "Filter for List entries.",
+      "naturalId": "filter"
     },
-    "author": "Werner Diwischek",
-    "description": "Defines the parameter like rowStart, rowEnd and length.",
-    "naturalId": "ListParams"
+    "length": {
+      "fieldKey": "length",
+      "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
+      "description": "Length of a field.",
+      "naturalId": "length"
+    },
+    "rowEnd": {
+      "fieldKey": "rowEnd",
+      "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
+      "description": "rowEnd",
+      "naturalId": "rowEnd"
+    },
+    "rowHead": {
+      "fieldKey": "rowHead",
+      "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
+      "description": "rowHead",
+      "naturalId": "rowHead"
+    },
+    "rowStart": {
+      "fieldKey": "rowStart",
+      "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
+      "description": "rowStart",
+      "naturalId": "rowStart"
+    }
   },
-  "(LogLevel)_logLevel": "WARN"
+  "modelKey": "ListParams",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+  "configModelKey": "ModelConfigObject",
+  "expose": "NONE",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "properties": {
+    "classPath": "src.main.java",
+    "create": true,
+    "shapeType": "BEAN"
+  },
+  "author": "Werner Diwischek",
+  "description": "Defines the parameter like rowStart, rowEnd and length.",
+  "naturalId": "ListParams"
 }

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -10,11 +10,11 @@ import org.junit.Test;
 public class FileWriteCallTest {
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(FileWriteCall.class);
+        ModelConfigChecks.create(FileWriteCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(FileWriteCall.class);
+        ModelConfigChecks.compare(FileWriteCall.class);
     }
 }

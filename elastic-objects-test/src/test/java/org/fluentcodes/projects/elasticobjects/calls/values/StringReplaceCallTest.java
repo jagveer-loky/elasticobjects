@@ -1,7 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
@@ -17,12 +18,13 @@ public class StringReplaceCallTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(StringReplaceCall.class);
+        ModelConfigChecks.compare(StringReplaceCall.class);
     }
 
     @Test
     public void givenModelConfigPackagePath_whenExecuteCall_thenDotsAreReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
+        eo.setSerializationType(JSONSerializationType.STANDARD);
         eo.mapObject(ProviderRootTestScope.EO_CONFIGS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
         String content = new StringReplaceCall("\\.", "/").execute(eo.getEo(PACKAGE_PATH));
@@ -32,6 +34,7 @@ public class StringReplaceCallTest {
     @Test
     public void call_TemplateCall_eo_StringReplaceCall_packagePath__execute__dotsAreReplaced()  {
         EO eo = ProviderRootTestScope.createEo();
+        eo.setSerializationType(JSONSerializationType.STANDARD);
         eo.mapObject(ProviderRootTestScope.EO_CONFIGS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
         String content = new TemplateCall("* \n" +

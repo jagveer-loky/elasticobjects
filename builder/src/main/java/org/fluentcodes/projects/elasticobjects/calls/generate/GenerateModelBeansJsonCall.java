@@ -68,7 +68,7 @@ public class GenerateModelBeansJsonCall extends GenerateAbstract implements Gene
             modelBean.resolveSuper(modelBeans);
         }
         FileWriteCall writeCall = new FileWriteCall(getTargetFileConfigKey());
-        String content = new EOToJSON().toJSON(eo.getConfigsCache(), modelBeans);
+        String content = new EOToJSON().toJson(eo.getConfigsCache(), modelBeans);
         //writeCall.setCompare(false);
         writeCall.setContent(content);
         feedback.append(writeCall.execute(eo));

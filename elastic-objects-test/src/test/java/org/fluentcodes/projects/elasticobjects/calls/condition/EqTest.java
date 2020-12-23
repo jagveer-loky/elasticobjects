@@ -48,11 +48,9 @@ public class EqTest {
     }
 
     @Test
-    public void _3_1__filterList__true() {
-        Eq eq = new Eq("3", 1);
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat(eq.filter(row)).isTrue();
+    public void _4_1__filterList__true() {
+        Eq eq = new Eq("4", 1);
+        Assertions.assertThat(eq.filter(AndTest.EXAMPLE_LIST)).isTrue();
     }
 
     @Test

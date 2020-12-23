@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -15,17 +15,17 @@ public class DbSqlExecuteCallTest {
     private final static String CREATE = "h2:mem:basic:Create";
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(DbSqlExecuteCall.class);
+        ModelConfigChecks.create(DbSqlExecuteCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbSqlExecuteCall.class);
+        ModelConfigChecks.compare(DbSqlExecuteCall.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(DbSqlExecuteCall.class);
+        ModelConfigChecks.resolve(DbSqlExecuteCall.class);
     }
 
     @Test

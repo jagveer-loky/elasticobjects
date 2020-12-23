@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -11,19 +11,19 @@ import org.junit.Test;
 public class DbSqlConfigTest {
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(DbSqlConfig.class);
+        ModelConfigChecks.createThrowsException(DbSqlConfig.class);
     }
 
     // TODO check within 0.5.0 for mvn test fails.
     @Ignore
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbSqlConfig.class);
+        ModelConfigChecks.compare(DbSqlConfig.class);
     }
 
     @Test
     public void resolveModel()  {
-        ConfigModelChecks.resolve(DbSqlConfig.class);
+        ModelConfigChecks.resolve(DbSqlConfig.class);
     }
 
     @Test

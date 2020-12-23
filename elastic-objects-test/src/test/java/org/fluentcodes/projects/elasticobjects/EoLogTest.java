@@ -15,20 +15,20 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EoLogTest {
 
     @Test
-    public void givenDev_thenLogLevelWarn()  {
+    public void ____getLogLevel_WARN()  {
         EO eo = ProviderRootDevScope.createEo();
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
     }
 
     @Test
-    public void givenDev_WhenSetLogLevelError_thenLogLevelError()  {
+    public void __setLogLevel_ERROR__getLogLevel_ERROR()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.setLogLevel(LogLevel.ERROR);
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.ERROR);
     }
 
     @Test
-    public void givenEORootWithWarn_whenErrorMessage_thenLogNotEmpty()  {
+    public void __error__errorLevel_ERROR()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.error(S_MESSAGE, new Exception(S_STRING));
         Assertions.assertThat(eo.getLog()).isNotEmpty();
@@ -36,14 +36,14 @@ public class EoLogTest {
     }
 
     @Test
-    public void error_WarnAdapter()  {
+    public void __error__log_isNotEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.error(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
-    public void warnWithException_WarnAdapter()  {
+    public void __warn_exception__log_isNotEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.warn(S_MESSAGE, new Exception(S_STRING));
         Assertions.assertThat(eo.getLog()).isNotEmpty();
@@ -51,28 +51,28 @@ public class EoLogTest {
 
 
     @Test
-    public void warn_WarnAdapter()  {
+    public void __warn__log_isNotEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.warn(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
-    public void info_WarnAdapter()  {
+    public void __info__log_isEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
-    public void debug_WarnAdapter()  {
+    public void __debug__log_isEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         eo.debug(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
-    public void givenDevWitChild_whenWarnMessage_thenLogNotEmpty()  {
+    public void child__warn__log_isNotEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         EO eoChild = eo
                 .setEmpty(S_LEVEL0);
@@ -82,7 +82,7 @@ public class EoLogTest {
     }
 
     @Test
-    public void givenDevWithChild_whenInfoMessage_thenLogEmpty()  {
+    public void child__info__log_isEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         EO eoChild = eo
                 .setEmpty(S_LEVEL0);
@@ -91,12 +91,11 @@ public class EoLogTest {
     }
 
     @Test
-    public void givenChildWithLogLevelInfo_whenInfoMessage_thenLogNotEmpty()  {
+    public void child_LogLevel_INFO__info__log_isNotEmpty()  {
         EO eo = ProviderRootDevScope.createEo();
         EO child = eo.setEmpty(S_LEVEL0);
         child.setLogLevel(LogLevel.INFO);
         child.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
-        //new XpectEo().compareAsString(eo);
     }
 }

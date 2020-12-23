@@ -6,7 +6,6 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,7 +15,7 @@ import java.util.Set;
  */
 public class EOToJSON {
     public static final String REPEATED = ".repeated";
-    private int startIndent = 1;
+    private int indent = 1;
     private PathPattern pathPattern;
     private JSONSerializationType serializationType;
     private boolean checkObjectReplication = false;
@@ -25,6 +24,9 @@ public class EOToJSON {
 
     public EOToJSON() {
 
+    }
+    public EOToJSON(JSONSerializationType serializationType) {
+        this.serializationType = serializationType;
     }
 
     public boolean isCheckObjectReplication() {
@@ -39,8 +41,8 @@ public class EOToJSON {
         return this;
     }
 
-    public EOToJSON setStartIndent(int indent) {
-        this.startIndent = indent;
+    public EOToJSON setIndent(int indent) {
+        this.indent = indent;
         return this;
     }
 
@@ -62,35 +64,35 @@ public class EOToJSON {
         return this;
     }
 
-    public String toJSON(final EOConfigsCache cache, final Object object)  {
-        return toJSON(EoRoot.OF(cache, object));
+    private boolean isStandard() {
+        return this.serializationType == JSONSerializationType.STANDARD;
     }
 
-    public String toJSON(final EO eo)  {
+    public String toJson(final EOConfigsCache cache, final Object object)  {
+        if (isStandard()) {
+            EO mapEo = EoRoot.ofClass(cache, Map.class);
+            mapEo.setSerializationType(JSONSerializationType.STANDARD);
+            return toJson(mapEo.mapObject(object));
+        }
+        return toJson(EoRoot.ofValue(cache, object));
+    }
+
+    public String toJson(final EO eo)  {
         if (eo.isScalar()) {
             return eo.get().toString();
         }
-        if (serializationType ==null) {
+        if (serializationType == null) {
             this.setSerializationType(eo.getSerializationType());
         }
         StringWriter stringWriter = new StringWriter();
         this.addContainerStart(stringWriter, eo);
-        if (serializationType == JSONSerializationType.EO && !(eo.getModelClass() == Map.class || eo.getModelClass() == LinkedHashMap.class)) {
-            addLineBreak(stringWriter, this.startIndent);
-            addIndent(stringWriter, this.startIndent);
-            stringWriter.append("\"");
-            stringWriter.append(PathElement.ROOT_MODEL);
-            stringWriter.append("\": \"");
-            stringWriter.append(eo.getModels().toString());
-            stringWriter.append("\",");
-        }
-        toJSON(stringWriter, eo, startIndent);
-        addLineBreak(stringWriter,1);
+        toJson(stringWriter, eo, indent);
+        addLineBreak(stringWriter,indent);
         addContainerEnd(stringWriter, eo, 0);
         return stringWriter.toString();
     }
 
-    private void toJSON(final StringWriter stringWriter, final EO eoParent, final int indentLevel)  {
+    private void toJson(final StringWriter stringWriter, final EO eoParent, final int indentLevel)  {
         if (eoParent.get() == null) {
             return ;
         }
@@ -132,7 +134,7 @@ public class EOToJSON {
                 continue;
             }
             addContainerStart(stringWriter, eoChild);
-            toJSON(stringWriter, eoChild, indentLevel + 1);
+            toJson(stringWriter, eoChild, indentLevel + 1);
             addContainerEnd(stringWriter, eoChild, indentLevel);
         }
     }

@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 
 /**
  * Serialize the value of the sourcePath as JSON and write it to a file
@@ -45,8 +44,8 @@ public class JsonWriteCall extends FileWriteCall  {
         }
         setContent(new EOToJSON()
                 .setSerializationType(serializationType)
-                .setStartIndent(indent)
-                .toJSON(eo));
+                .setIndent(indent)
+                .toJson(eo));
         return super.execute(eo);
     }
 

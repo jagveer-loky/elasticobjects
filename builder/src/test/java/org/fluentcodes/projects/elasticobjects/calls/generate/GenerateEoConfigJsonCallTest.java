@@ -1,8 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.calls.generate.GenerateEoConfigJsonCall;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -16,12 +15,12 @@ public class GenerateEoConfigJsonCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(GenerateEoConfigJsonCall.class);
+        ModelConfigChecks.create(GenerateEoConfigJsonCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(GenerateEoConfigJsonCall.class);
+        ModelConfigChecks.compare(GenerateEoConfigJsonCall.class);
     }
 
     /**

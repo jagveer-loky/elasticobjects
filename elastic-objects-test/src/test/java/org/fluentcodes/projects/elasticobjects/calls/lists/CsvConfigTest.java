@@ -1,9 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.junit.Test;
 
@@ -14,22 +12,22 @@ public class CsvConfigTest {
 
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(CsvConfig.class);
+        ModelConfigChecks.createThrowsException(CsvConfig.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(CsvConfig.class);
+        ModelConfigChecks.resolve(CsvConfig.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(CsvConfig.class);
+        ModelConfigChecks.compare(CsvConfig.class);
     }
 
     @Test
     public void resolveModel()  {
-        ConfigModelChecks.resolve(CsvConfig.class);
+        ModelConfigChecks.resolve(CsvConfig.class);
     }
 
     @Test

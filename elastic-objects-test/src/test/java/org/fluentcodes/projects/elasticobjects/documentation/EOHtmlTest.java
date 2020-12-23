@@ -14,41 +14,32 @@ public class EOHtmlTest {
     protected static final EOConfigsCache EO_CONFIGS_TEST = new EOConfigsCache(Scope.TEST);
 
     protected static final EO createEoDev() {
-        return EoRoot.OF(EO_CONFIGS_DEV);
+        return EoRoot.of(EO_CONFIGS_DEV);
     }
 
     protected static final EO createEoTest() {
-        return EoRoot.OF(EO_CONFIGS_TEST);
+        return EoRoot.of(EO_CONFIGS_TEST);
     }
 
     @Test
-    public void scopeDev__ConstructorEmpty__hasClassLinkedHashMap() {
-        EO eoRoot = EoRoot.OF(EO_CONFIGS_DEV);
+    public void DEV__ConstructorEmpty__hasClassLinkedHashMap() {
+        EO eoRoot = EoRoot.of(EO_CONFIGS_DEV);
         Assertions.assertThat(eoRoot.getModelClass())
                 .isEqualTo(Map.class);
     }
 
     @Test
-    public void scopeDev__ConstructorJson__hasClassLinkedHashMap() {
-        EO eoRoot = EoRoot.OF(EO_CONFIGS_DEV, "{\"key\":1}");
+    public void DEV__ConstructorJson__hasClassLinkedHashMap() {
+        EO eoRoot = EoRoot.ofValue(EO_CONFIGS_DEV, "{\"key\":1}");
         Assertions.assertThat(eoRoot.get("key"))
                 .isEqualTo(1);
     }
 
-    @Test
-    public void scopeTest__ConstructorAnObject__hasClassLinkedHashMap() {
-        AnObject anObject = new AnObject()
-                .setMyString("test");
-        EO eoRoot = EoRoot.OF(EO_CONFIGS_TEST, anObject);
-        Assertions.assertThat(eoRoot.get("myString"))
-                .isEqualTo("test");
-        Assertions.assertThat(eoRoot.get() == anObject)
-                .isTrue();
-    }
+
 
     @Test
-    public void scopeTest__ConstructorJsonAnObjectTyped__hasClassAnObject() {
-        EO eoRoot = EoRoot.OF(EO_CONFIGS_TEST, "{\"(AnObject)key\":{\"myString\":\"test\"}}");
+    public void TEST__ConstructorJsonAnObjectTyped__hasClassAnObject() {
+        EO eoRoot = EoRoot.ofValue(EO_CONFIGS_TEST, "{\"(AnObject)key\":{\"myString\":\"test\"}}");
         Assertions.assertThat(eoRoot.get("key/myString"))
                 .isEqualTo("test");
         Assertions.assertThat(eoRoot.getEo("key").getModelClass())
@@ -56,7 +47,7 @@ public class EOHtmlTest {
     }
 
     @Test
-    public void scopeDev__set_abc_test__hasMapTree() {
+    public void DEV__set_abc_test__hasMapTree() {
         EO eoRoot = createEoDev();
         EO eoChild = eoRoot.set("test", "a/b/c");
         Assertions.assertThat(eoChild.get())
@@ -65,7 +56,7 @@ public class EOHtmlTest {
                 .isEqualTo("test");
     }
     @Test
-    public void scopeDev__set_a_b_c_test__hasValue() {
+    public void DEV__set_a_b_c_test__hasValue() {
         EO eoRoot = createEoDev();
         EO eoChild = eoRoot.set("test", "a","b","c");
         Assertions.assertThat(eoRoot.get("a/b/c"))
@@ -75,7 +66,7 @@ public class EOHtmlTest {
     }
 
     @Test
-    public void scopeTest__set_xyz_AnObject_myString_test__hasMyString() {
+    public void TEST__set_xyz_AnObject_myString_test__hasMyString() {
         AnObject anObject = new AnObject().setMyString("test");
         EO eoRoot = createEoTest();
         EO eoChild = eoRoot.set(anObject, "x/y/z");
@@ -86,7 +77,7 @@ public class EOHtmlTest {
     }
 
     @Test
-    public void scopeTest__set_typed_abmyString_test__isTest() {
+    public void TEST__set_typed_abmyString_test__isTest() {
         EO eoRoot = createEoTest();
         eoRoot.set("test", "a/(AnObject)b/myString");
         Assertions.assertThat(eoRoot.get("a/b/myString"))
@@ -114,7 +105,7 @@ public class EOHtmlTest {
     }
 
     @Test
-    public void scopeDev__getBack__isTest2() {
+    public void DEV__getBack__isTest2() {
         EO eoRoot = createEoDev();
         EO eoChild = eoRoot.set("test1", "a/b/c");
         eoRoot.set("test2", "a/b/x");

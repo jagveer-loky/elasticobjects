@@ -1,121 +1,117 @@
 {
-  "_rootmodel": "ArrayList",
-  "0": {
-    "fieldConfigMap": {
-      "condition": {
-        "fieldKey": "condition",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "A condition for calls. ",
-        "naturalId": "condition"
-      },
-      "duration": {
-        "fieldKey": "duration",
-        "modelKeys": "Long",
-        "(ArrayList)modelList": {
-          "0": "Long"
-        },
-        "description": "The duration of a call.",
-        "naturalId": "duration"
-      },
-      "keepCall": {
-        "fieldKey": "keepCall",
-        "modelKeys": "KeepCalls",
-        "(ArrayList)modelList": {
-          "0": "KeepCalls"
-        },
-        "description": "Will use an existing  result file beforehand as template. ",
-        "naturalId": "keepCall"
-      },
-      "logLevel": {
-        "fieldKey": "logLevel",
-        "modelKeys": "LogLevel",
-        "(ArrayList)modelList": {
-          "0": "LogLevel"
-        },
-        "description": "logLevel",
-        "naturalId": "logLevel"
-      },
-      "models": {
-        "fieldKey": "models",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "A string representation for a list of model keys.",
-        "naturalId": "models"
-      },
-      "overwrite": {
-        "fieldKey": "overwrite",
-        "modelKeys": "Boolean",
-        "(ArrayList)modelList": {
-          "0": "Boolean"
-        },
-        "description": "overwrite",
-        "naturalId": "overwrite"
-      },
-      "postpend": {
-        "fieldKey": "postpend",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "postpend String when executed by ExecutorCallImpl",
-        "naturalId": "postpend"
-      },
-      "prepend": {
-        "fieldKey": "prepend",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "prepend String when executed by ExecutorCallImpl",
-        "naturalId": "prepend"
-      },
-      "sourcePath": {
-        "fieldKey": "sourcePath",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "A sourcePath where EO offers it's input value when the execution starts.",
-        "naturalId": "sourcePath"
-      },
-      "startCondition": {
-        "fieldKey": "startCondition",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "A condition for calls. ",
-        "naturalId": "startCondition"
-      },
-      "targetPath": {
-        "fieldKey": "targetPath",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
-        "naturalId": "targetPath"
-      }
+  "fieldConfigMap": {
+    "condition": {
+      "fieldKey": "condition",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "A condition for calls. ",
+      "naturalId": "condition"
     },
-    "modelKey": "Call",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "configModelKey": "ModelConfigObject",
-    "(Expose)expose": "NONE",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
+    "duration": {
+      "fieldKey": "duration",
+      "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
+      "description": "The duration of a call.",
+      "naturalId": "duration"
     },
-    "author": "Werner Diwischek",
-    "description": "Basic interface for calls ",
-    "naturalId": "Call"
+    "keepCall": {
+      "fieldKey": "keepCall",
+      "modelKeys": "KeepCalls",
+      "modelList": [
+        "KeepCalls"
+      ],
+      "description": "Will use an existing  result file beforehand as template. ",
+      "naturalId": "keepCall"
+    },
+    "logLevel": {
+      "fieldKey": "logLevel",
+      "modelKeys": "LogLevel",
+      "modelList": [
+        "LogLevel"
+      ],
+      "description": "logLevel",
+      "naturalId": "logLevel"
+    },
+    "models": {
+      "fieldKey": "models",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "A string representation for a list of model keys.",
+      "naturalId": "models"
+    },
+    "overwrite": {
+      "fieldKey": "overwrite",
+      "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
+      "description": "overwrite",
+      "naturalId": "overwrite"
+    },
+    "postpend": {
+      "fieldKey": "postpend",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "postpend String when executed by ExecutorCallImpl",
+      "naturalId": "postpend"
+    },
+    "prepend": {
+      "fieldKey": "prepend",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "prepend String when executed by ExecutorCallImpl",
+      "naturalId": "prepend"
+    },
+    "sourcePath": {
+      "fieldKey": "sourcePath",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "A sourcePath where EO offers it's input value when the execution starts.",
+      "naturalId": "sourcePath"
+    },
+    "startCondition": {
+      "fieldKey": "startCondition",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "A condition for calls. ",
+      "naturalId": "startCondition"
+    },
+    "targetPath": {
+      "fieldKey": "targetPath",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
+      "naturalId": "targetPath"
+    }
   },
-  "(LogLevel)_logLevel": "WARN"
+  "modelKey": "Call",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+  "configModelKey": "ModelConfigObject",
+  "expose": "NONE",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "properties": {
+    "classPath": "src.main.java",
+    "create": false,
+    "shapeType": "INTERFACE"
+  },
+  "author": "Werner Diwischek",
+  "description": "Basic interface for calls ",
+  "naturalId": "Call"
 }

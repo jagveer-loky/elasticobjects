@@ -16,7 +16,7 @@ public class AnObjectToJsonTest {
     @Test
     public void mapDefault()  {
         EO eo = ProviderMapJson.EMPTY.createBtEo();
-        String serialized = new EOToJSON().toJSON(eo);
+        String serialized = new EOToJSON().toJson(eo);
         //AssertEO.compare(serialized);
     }
 
@@ -24,8 +24,8 @@ public class AnObjectToJsonTest {
     public void withIndent0()  {
         EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
-                .setStartIndent(0)
-                .toJSON(eo);
+                .setIndent(0)
+                .toJson(eo);
         //AssertEO.compare(stringified);
     }
 
@@ -33,8 +33,8 @@ public class AnObjectToJsonTest {
     public void withIndent1()  {
         EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
-                .setStartIndent(2)
-                .toJSON(eo);
+                .setIndent(2)
+                .toJson(eo);
         //AssertEO.compare(stringified);
     }
 
@@ -42,8 +42,8 @@ public class AnObjectToJsonTest {
     public void withIndent2()  {
         EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
-                .setStartIndent(2)
-                .toJSON(eo);
+                .setIndent(2)
+                .toJson(eo);
         //AssertEO.compare(stringified);
     }
 
@@ -51,9 +51,9 @@ public class AnObjectToJsonTest {
     public void withSTANDARD()  {
         EO eo = ProviderMapJson.EMPTY.createBtEo();
         String stringified = new EOToJSON()
-                .setStartIndent(2)
+                .setIndent(2)
                 .setSerializationType(JSONSerializationType.STANDARD)
-                .toJSON(eo);
+                .toJson(eo);
         //AssertEO.compare(stringified);
     }
 

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,17 +12,17 @@ public class ListParamsTest {
 
     @Test
     public void compareModelConfig() {
-        ConfigModelChecks.compare(ListParams.class);
+        ModelConfigChecks.compare(ListParams.class);
     }
 
     @Test
     public void createByModelConfig() {
-        ConfigModelChecks.create(ListParams.class);
+        ModelConfigChecks.create(ListParams.class);
     }
 
     @Test
     public void givenModelClass_whenSetRowHead_thenException() {
-        ConfigModelChecks.checkSetGet(ListParams.class, ListParams.ROW_HEAD, 1);
+        ModelConfigChecks.checkSetGet(ListParams.class, ListParams.ROW_HEAD, 1);
     }
 
     @Test

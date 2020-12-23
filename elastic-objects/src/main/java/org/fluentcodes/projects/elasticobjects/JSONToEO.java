@@ -377,8 +377,7 @@ public class JSONToEO {
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    PathElement pathFromKey = new PathElement(rawFieldName, Map.class);
-                    EO child = eoParent.createChild(pathFromKey);
+                    EO child = eoParent.createChild(new PathElement(rawFieldName, Map.class), null);
                     mapObject(child);
                     return eoParent;
                 }

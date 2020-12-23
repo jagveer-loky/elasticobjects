@@ -93,7 +93,7 @@ public class ModelConfigSet extends ModelConfig {
     }
 
     @Override
-    public void set(final String fieldName, final Object object, final Object value)  {
+    public boolean set(final String fieldName, final Object object, final Object value)  {
         //TODO
         Integer i = Integer.parseInt(fieldName);
         if (i == ((Set) object).size()) {
@@ -106,6 +106,7 @@ public class ModelConfigSet extends ModelConfig {
             }
             ((Set) object).add(value);
         }
+        return true;
     }
 
     @Override

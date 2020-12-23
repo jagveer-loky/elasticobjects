@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
@@ -18,12 +18,12 @@ public class CallImplTest {
 
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(CallImpl.class);
+        ModelConfigChecks.createThrowsException(CallImpl.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(CallImpl.class);
+        ModelConfigChecks.compare(CallImpl.class);
     }
 
     @Test

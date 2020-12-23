@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
@@ -15,7 +15,7 @@ public class GithubLinkCallTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(GithubLinkCall.class);
+        ModelConfigChecks.compare(GithubLinkCall.class);
     }
 
     @Test

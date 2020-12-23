@@ -1,20 +1,16 @@
 {
-  "_rootmodel": "ArrayList",
-  "0": {
-    "modelKey": "ExecutorCall",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "configModelKey": "ModelConfigObject",
-    "(Expose)expose": "NONE",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "OBJECT"
-    },
-    "author": "Werner Diwischek",
-    "description": "Facade execution ",
-    "naturalId": "ExecutorCall"
+  "modelKey": "ExecutorCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+  "configModelKey": "ModelConfigObject",
+  "expose": "NONE",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "properties": {
+    "classPath": "src.main.java",
+    "create": false,
+    "shapeType": "OBJECT"
   },
-  "(LogLevel)_logLevel": "WARN"
+  "author": "Werner Diwischek",
+  "description": "Facade execution ",
+  "naturalId": "ExecutorCall"
 }

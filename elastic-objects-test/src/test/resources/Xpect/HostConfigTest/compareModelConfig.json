@@ -1,180 +1,176 @@
 {
-  "_rootmodel": "ArrayList",
-  "0": {
-    "fieldConfigMap": {
-      "rolePermissions": {
-        "fieldKey": "rolePermissions",
-        "modelKeys": "PermissionRole",
-        "(ArrayList)modelList": {
-          "0": "PermissionRole"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
-        "naturalId": "rolePermissions"
-      },
-      "configModelKey": {
-        "fieldKey": "configModelKey",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "The model of the configuration to determine type.",
-        "naturalId": "configModelKey"
-      },
-      "expose": {
-        "fieldKey": "expose",
-        "modelKeys": "Expose",
-        "(ArrayList)modelList": {
-          "0": "Expose"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "expose",
-        "naturalId": "expose"
-      },
-      "module": {
-        "fieldKey": "module",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "Defines a target module where generating occurs. ",
-        "naturalId": "module"
-      },
-      "moduleScope": {
-        "fieldKey": "moduleScope",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
-        "naturalId": "moduleScope"
-      },
+  "fieldConfigMap": {
+    "rolePermissions": {
+      "fieldKey": "rolePermissions",
+      "modelKeys": "PermissionRole",
+      "modelList": [
+        "PermissionRole"
+      ],
       "properties": {
-        "fieldKey": "properties",
-        "modelKeys": "Map",
-        "(ArrayList)modelList": {
-          "0": "Map"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "Properties for configurations.",
-        "naturalId": "properties"
+        "final": true,
+        "override": true
       },
-      "scope": {
-        "fieldKey": "scope",
-        "modelKeys": "List,Scope",
-        "(ArrayList)modelList": {
-          "0": "List",
-          "1": "Scope"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "A scope for the cache value.",
-        "naturalId": "scope"
-      },
-      "author": {
-        "fieldKey": "author",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "The autor of something e,g. a class.",
-        "naturalId": "author"
-      },
-      "creationDate": {
-        "fieldKey": "creationDate",
-        "modelKeys": "Date",
-        "(ArrayList)modelList": {
-          "0": "Date"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "Used to define the creation of an item.",
-        "naturalId": "creationDate"
-      },
-      "description": {
-        "fieldKey": "description",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "A description of the model used by every model extending BaseClassImpl. ",
-        "naturalId": "description"
-      },
-      "id": {
-        "fieldKey": "id",
-        "modelKeys": "Long",
-        "(ArrayList)modelList": {
-          "0": "Long"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "The id with a autonumbering",
-        "naturalId": "id"
-      },
-      "naturalId": {
-        "fieldKey": "naturalId",
-        "modelKeys": "String",
-        "(ArrayList)modelList": {
-          "0": "String"
-        },
-        "properties": {
-          "final": true,
-          "override": true
-        },
-        "description": "The natural key in @Base",
-        "naturalId": "naturalId"
-      }
+      "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+      "naturalId": "rolePermissions"
     },
-    "interfaces": "HostConfigInterfaceMethods",
-    "modelKey": "HostConfig",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "superKey": "PermissionConfig",
-    "configModelKey": "ModelConfigObject",
-    "(Expose)expose": "NONE",
-    "module": "elastic-objects",
-    "moduleScope": "main",
+    "configModelKey": {
+      "fieldKey": "configModelKey",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "The model of the configuration to determine type.",
+      "naturalId": "configModelKey"
+    },
+    "expose": {
+      "fieldKey": "expose",
+      "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "expose",
+      "naturalId": "expose"
+    },
+    "module": {
+      "fieldKey": "module",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "Defines a target module where generating occurs. ",
+      "naturalId": "module"
+    },
+    "moduleScope": {
+      "fieldKey": "moduleScope",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
+      "naturalId": "moduleScope"
+    },
     "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "CONFIG"
+      "fieldKey": "properties",
+      "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "Properties for configurations.",
+      "naturalId": "properties"
     },
-    "description": "Basic host definition for file or db cache. ",
-    "naturalId": "HostConfig"
+    "scope": {
+      "fieldKey": "scope",
+      "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "A scope for the cache value.",
+      "naturalId": "scope"
+    },
+    "author": {
+      "fieldKey": "author",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "The autor of something e,g. a class.",
+      "naturalId": "author"
+    },
+    "creationDate": {
+      "fieldKey": "creationDate",
+      "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "Used to define the creation of an item.",
+      "naturalId": "creationDate"
+    },
+    "description": {
+      "fieldKey": "description",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
+      "naturalId": "description"
+    },
+    "id": {
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "The id with a autonumbering",
+      "naturalId": "id"
+    },
+    "naturalId": {
+      "fieldKey": "naturalId",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "final": true,
+        "override": true
+      },
+      "description": "The natural key in @Base",
+      "naturalId": "naturalId"
+    }
   },
-  "(LogLevel)_logLevel": "WARN"
+  "interfaces": "HostConfigInterfaceMethods",
+  "modelKey": "HostConfig",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+  "superKey": "PermissionConfig",
+  "configModelKey": "ModelConfigObject",
+  "expose": "NONE",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "properties": {
+    "classPath": "src.main.java",
+    "create": false,
+    "shapeType": "CONFIG"
+  },
+  "description": "Basic host definition for file or db cache. ",
+  "naturalId": "HostConfig"
 }

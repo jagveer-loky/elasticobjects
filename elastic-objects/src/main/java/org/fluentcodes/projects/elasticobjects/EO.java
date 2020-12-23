@@ -20,7 +20,7 @@ public interface EO extends EoLogInterface{
      *
      * @
      */
-    EOConfigsCache getConfigsCache();
+
     String getFieldKey();
 
     EO getParent();
@@ -28,7 +28,7 @@ public interface EO extends EoLogInterface{
         return getParent()!=null;
     }
     default boolean isRoot() {
-        return hasParent();
+        return !hasParent();
     }
 
     EO createChild(final PathElement fieldKey);
@@ -99,6 +99,11 @@ public interface EO extends EoLogInterface{
     }
     boolean isEoEmpty();
 
+    String compare(final EO other);
+
+    String toString(JSONSerializationType serializationType);
+
+
     void setRoles(String... roles);
     List<String> getRoles();
     void setRoles(List<String> roles);
@@ -107,7 +112,7 @@ public interface EO extends EoLogInterface{
         return getRoles() != null && !getRoles().isEmpty();
     }
 
-    EO addCall(Call callExecutor) ;
+    EO addCall(Call callExecutor);
     Set<String> getCallKeys();
     EO getCallEo(String key);
 
@@ -122,13 +127,19 @@ public interface EO extends EoLogInterface{
         return hasEo(PathElement.LOG_LEVEL);
     }
 
+    default EOConfigsCache getConfigsCache() {
+        return getRoot().getConfigsCache();
+    }
+
+    default boolean isSerializationTypeStandard() {
+        return getSerializationType() == JSONSerializationType.STANDARD;
+    }
+    default boolean hasSerializationType() {
+        return getRoot().hasEo(PathElement.SERIALIZATION_TYPE);
+    }
     JSONSerializationType getSerializationType();
 
     EO setSerializationType(JSONSerializationType serializationType);
-
-    String compare(final EO other);
-
-    String toString(JSONSerializationType serializationType);
 
 
 }

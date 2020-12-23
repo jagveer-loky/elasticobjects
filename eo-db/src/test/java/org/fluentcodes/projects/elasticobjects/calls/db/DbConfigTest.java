@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.junit.Test;
 
@@ -11,17 +11,17 @@ import org.junit.Test;
 public class DbConfigTest {
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(DbConfig.class);
+        ModelConfigChecks.createThrowsException(DbConfig.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbConfig.class);
+        ModelConfigChecks.compare(DbConfig.class);
     }
 
     @Test
     public void resolveModel()  {
-        ConfigModelChecks.resolve(DbConfig.class);
+        ModelConfigChecks.resolve(DbConfig.class);
     }
 
     @Test

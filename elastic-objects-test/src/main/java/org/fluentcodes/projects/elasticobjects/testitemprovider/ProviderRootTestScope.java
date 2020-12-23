@@ -10,15 +10,15 @@ public class ProviderRootTestScope {
     public static final EOConfigsCache EO_CONFIGS = new EOConfigsCache(Scope.TEST);
 
     public static final EO createEoWithClasses(Class... classes) {
-        return EoRoot.OF(EO_CONFIGS, classes);
+        return EoRoot.ofClass(EO_CONFIGS, classes);
     }
 
     public static final EO createEo() {
-        return EoRoot.OF(EO_CONFIGS);
+        return EoRoot.of(EO_CONFIGS);
     }
 
     public static final EO createEo(Object value) {
-        return EoRoot.OF(EO_CONFIGS, value);
+        return EoRoot.ofValue(EO_CONFIGS, value);
     }
 
     public static final ModelConfig findModel (final Class eoClass) {

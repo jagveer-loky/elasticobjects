@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 
@@ -13,6 +13,6 @@ public class AnObjectTest {
     }
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(AnObject.class);
+        ModelConfigChecks.compare(AnObject.class);
     }
 }

@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
@@ -21,17 +21,17 @@ public class CsvReadCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(CsvReadCall.class);
+        ModelConfigChecks.create(CsvReadCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(CsvReadCall.class);
+        ModelConfigChecks.compare(CsvReadCall.class);
     }
 
     @Test
     public void resolveModelConfig()  {
-        ConfigModelChecks.resolve(CsvConfig.class);
+        ModelConfigChecks.resolve(CsvConfig.class);
     }
 
     // TODO so why in mvn does not work

@@ -59,7 +59,7 @@ public class ModelConfigNone extends ModelConfig {
     }
 
     @Override
-    public void set(final String fieldName, final Object object, final Object value)  {
+    public boolean set(final String fieldName, final Object object, final Object value)  {
         throw new EoException("No field defined for scalar models: " + fieldName);
     }
 

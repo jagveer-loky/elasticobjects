@@ -2,11 +2,9 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.fluentcodes.tools.xpect.XpectEo;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Test;
 
@@ -16,12 +14,12 @@ import org.junit.Test;
 public class HostConfigTest {
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(HostConfig.class);
+        ModelConfigChecks.createThrowsException(HostConfig.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(HostConfig.class);
+        ModelConfigChecks.compare(HostConfig.class);
     }
 
     @Test
@@ -85,7 +83,7 @@ public class HostConfigTest {
     }
 
     @Test
-    public void elasticobjects__compare__xpect()  {
+    public void __compareConfiguration_elasticobjects__xpected()  {
         ConfigChecks.compareConfiguration(HostConfig.class, "elasticobjects");
     }
 

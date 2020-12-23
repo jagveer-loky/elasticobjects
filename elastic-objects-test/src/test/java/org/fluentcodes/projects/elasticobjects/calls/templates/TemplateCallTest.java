@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCallTest;
@@ -17,12 +17,12 @@ public class TemplateCallTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(TemplateCall.class);
+        ModelConfigChecks.compare(TemplateCall.class);
     }
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(TemplateCall.class);
+        ModelConfigChecks.create(TemplateCall.class);
     }
 
     @Test

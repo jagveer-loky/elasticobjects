@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.Date;
-import java.util.Map;
 
 /**
  * Created by Werner on 14.12.2017.
@@ -64,7 +63,7 @@ public class BaseConfig implements BaseConfigInterface {
 
     public String toString(EOConfigsCache cache) {
         try {
-            return EoRoot.OF(cache,this).toString();
+            return EoRoot.ofValue(cache,this).toString();
         } catch (Exception e) {
             return e.getMessage();
         }

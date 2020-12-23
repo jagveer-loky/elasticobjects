@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
@@ -19,7 +17,6 @@ import org.junit.Test;
 
 import java.util.*;
 
-@Ignore
 public class EOPerformance {
     private static final int maxRoot = 10000;
     private static final ObjectMapper JACKSON_MAPPER = new ObjectMapper();
@@ -34,6 +31,7 @@ public class EOPerformance {
     private static final String SMALL_JSON = TestProviderAnObjectJson.SMALL.content();
     private static final AnObject ALL = TestProviderAnObjectJson.ALL.createBt();
     private static final String ALL_JSON = TestProviderAnObjectJson.ALL.content();
+    @Ignore
     @Test
     public void root() throws Exception {
         StringBuilder result = new StringBuilder();
@@ -123,7 +121,7 @@ public class EOPerformance {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
             EO eo = ProviderRootTestScope.createEo(object);
-            String json = new EOToJSON().toJSON(eo);
+            String json = new EOToJSON().toJson(eo);
         }
         long duration = System.currentTimeMillis() - start;
         String result =  "EO     : " + duration  + " ms\n";
@@ -134,7 +132,7 @@ public class EOPerformance {
     private String serializeWithEoAndEoObject(EO eo)  {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            String json = new EOToJSON().toJSON(eo);
+            String json = new EOToJSON().toJson(eo);
         }
         long duration = System.currentTimeMillis() - start;
         String result =  "EO dir. : " + duration  + " ms\n";

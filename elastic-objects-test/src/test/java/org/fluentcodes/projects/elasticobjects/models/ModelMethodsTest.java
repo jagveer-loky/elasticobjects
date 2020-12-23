@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -10,12 +10,12 @@ public class ModelMethodsTest {
 
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(ModelConfigInterfaceMethods.class);
+        ModelConfigChecks.createThrowsException(ModelConfigInterfaceMethods.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(ModelConfigInterfaceMethods.class);
+        ModelConfigChecks.compare(ModelConfigInterfaceMethods.class);
     }
 
 }

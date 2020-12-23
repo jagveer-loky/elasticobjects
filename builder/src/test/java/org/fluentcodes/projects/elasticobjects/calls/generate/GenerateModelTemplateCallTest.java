@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -11,11 +11,11 @@ public class GenerateModelTemplateCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(GenerateModelTemplateCall.class);
+        ModelConfigChecks.create(GenerateModelTemplateCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(GenerateModelTemplateCall.class);
+        ModelConfigChecks.compare(GenerateModelTemplateCall.class);
     }
 }

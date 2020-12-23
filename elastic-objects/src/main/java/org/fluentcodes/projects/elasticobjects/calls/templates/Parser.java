@@ -261,7 +261,7 @@ public abstract class Parser {
     }
 
     protected Object callJson(final EO eo, final String callDirective, final String finish, final String defaultValue) {
-        EO eoCall = EoRoot.OF(eo.getConfigsCache(), "{" + callDirective + "}");
+        EO eoCall = EoRoot.ofValue(eo.getConfigsCache(), "{" + callDirective + "}");
         if (!eoCall.isEmpty()) {
             eo.mapObject(eoCall.get());
         }

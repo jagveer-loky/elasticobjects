@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
@@ -9,8 +9,6 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevS
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.ID;
 
 public class SuperExampleClassTest {
 
@@ -27,7 +25,7 @@ public class SuperExampleClassTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(SuperExampleClass.class);
+        ModelConfigChecks.create(SuperExampleClass.class);
     }
 
     @Test
@@ -42,7 +40,7 @@ public class SuperExampleClassTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(SuperExampleClass.class);
+        ModelConfigChecks.compare(SuperExampleClass.class);
     }
 
 }

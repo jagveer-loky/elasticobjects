@@ -99,8 +99,8 @@ public class WebEo {
                 return (String)eo.get(PathElement.TEMPLATE);
             }
             final String result = new EOToJSON()
-                    .setStartIndent(1)
-                    .toJSON(eo);
+                    .setIndent(1)
+                    .toJson(eo);
             return result;
         } catch (Exception e) {
             return "Unexpected Exception occured. Please contact Elastic Objects support! " + e.getMessage();

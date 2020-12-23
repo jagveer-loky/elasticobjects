@@ -50,7 +50,7 @@ public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
     int size(Object object) ;
     boolean isEmpty(Object object) ;
 
-    void set(String fieldName, Object object, Object value);
+    boolean set(String fieldName, Object object, Object value);
 
     /**
      * Gets the value for fieldName of the object.

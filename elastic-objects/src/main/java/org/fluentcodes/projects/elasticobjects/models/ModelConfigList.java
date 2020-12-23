@@ -77,7 +77,7 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
     }
 
     @Override
-    public void set(final String fieldName, final Object object, final Object value)  {
+    public boolean set(final String fieldName, final Object object, final Object value)  {
         if (object == null) {
             throw new EoInternalException("List object for " + fieldName + " is null!");
         }
@@ -102,6 +102,7 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
             }
             ((List) object).add(value);
         }
+        return true;
     }
 
     @Override

@@ -267,14 +267,14 @@ public class ParserCurlyBracketTest {
     }
 
     @Test
-    public void eo_TemplateCall_val1_hash__parse__toStringUsed() {
+    public void eo_key0_key1_value__parse__value() {
         final EO eo = ProviderRootTestScope.createEo();
         final String replace = "" +
-                "===>{\"val1\":{\"a\":\"1\"}}." +
-                "=>{val1}.";
+                "===>{\"key0\":{\"key1\":\"value\"}}." +
+                "=>{key0/key1}.";
         String result = new ParserCurlyBracket(replace).parse(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(result).isEqualTo("{a=1}");
+        Assertions.assertThat(result).isEqualTo("value");
     }
 
 

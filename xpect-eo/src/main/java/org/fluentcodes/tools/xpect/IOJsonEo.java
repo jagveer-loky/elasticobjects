@@ -53,16 +53,16 @@ public class IOJsonEo<T> extends IOObject<T> {
         }
         try {
             if (object instanceof EO) {
-                return new EOToJSON().toJSON((EO)object);
+                return new EOToJSON().toJson((EO)object);
             }
             if (cache == null) {
                 cache = new EOConfigsCache(Scope.TEST);
             }
-            EO eo = EoRoot.OFcache, object);
+            EO eo = EoRoot.ofValue(cache, object);
             if (type!=null) {
-                return new EOToJSON().setSerializationType(type).toJSON(eo);
+                return new EOToJSON().setSerializationType(type).toJson(eo);
             }
-            return new EOToJSON().toJSON(eo);
+            return new EOToJSON().toJson(eo);
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }
@@ -79,7 +79,7 @@ public class IOJsonEo<T> extends IOObject<T> {
 
     public EO asEo(final String asString) {
         try {
-            return EoRoot.OFcache, getMappingClass()).mapObject(asString);
+            return EoRoot.ofValue(cache, getMappingClass()).mapObject(asString);
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }

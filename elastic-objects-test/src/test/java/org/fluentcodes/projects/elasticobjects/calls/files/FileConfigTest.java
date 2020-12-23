@@ -2,14 +2,12 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfig.FILE_NAME;
-import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
-import static org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface.MODULE;
 
 /**
  * Created by Werner on 12.10.2016.
@@ -19,18 +17,18 @@ public class FileConfigTest {
 
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(FileConfig.class);
+        ModelConfigChecks.createThrowsException(FileConfig.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(FileConfig.class);
+        ModelConfigChecks.compare(FileConfig.class);
     }
 
     @Ignore // TODO was just a trial
     @Test
     public void TEST____getFileNameTest()  {
-        FileBean bean = (FileBean) ConfigModelChecks.createSetGet(FileBean.class.getSimpleName(), FILE_NAME, "test");
+        FileBean bean = (FileBean) ModelConfigChecks.createSetGet(FileBean.class.getSimpleName(), FILE_NAME, "test");
         FileConfig config = (FileConfig) bean.createConfig();
         Assertions.assertThat(config.getFileName())
                 .isEqualTo("test");

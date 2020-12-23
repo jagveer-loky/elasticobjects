@@ -1,11 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.junit.Assert;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -14,11 +9,11 @@ import org.junit.Test;
 public class ExecutorCallTest {
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(ExecutorCall.class);
+        ModelConfigChecks.compare(ExecutorCall.class);
     }
 
     @Test
     public void createModelConfig()  {
-        ConfigModelChecks.createThrowsException(ExecutorCall.class);
+        ModelConfigChecks.createThrowsException(ExecutorCall.class);
     }
 }

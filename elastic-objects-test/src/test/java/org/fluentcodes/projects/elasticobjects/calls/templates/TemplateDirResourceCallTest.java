@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -10,11 +10,11 @@ public class TemplateDirResourceCallTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(TemplateDirResourceCall.class);
+        ModelConfigChecks.compare(TemplateDirResourceCall.class);
     }
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(TemplateDirResourceCall.class);
+        ModelConfigChecks.create(TemplateDirResourceCall.class);
     }
 }

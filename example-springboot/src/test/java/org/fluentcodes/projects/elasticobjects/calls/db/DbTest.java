@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
@@ -101,6 +101,6 @@ public class DbTest {
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DbSqlReadCall.class);
+        ModelConfigChecks.compare(DbSqlReadCall.class);
     }
 }

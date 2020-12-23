@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
@@ -22,12 +22,12 @@ public class FileReadCallTest {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(FileReadCall.class);
+        ModelConfigChecks.create(FileReadCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(FileReadCall.class);
+        ModelConfigChecks.compare(FileReadCall.class);
     }
 
     @Test

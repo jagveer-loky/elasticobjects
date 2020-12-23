@@ -185,40 +185,14 @@ public class EoAnObjectSetTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
-    @Test
-    public void givenBt_whenSetNotExistingField_thenExceptionThrown()  {
-        final EO eo = ProviderRootTestScope.createEo(new AnObject());
-        Assertions.assertThatThrownBy(
-                ()->{ eo.set(S_STRING_OTHER, S_KEY1);}
-        )
-                .hasMessage("No fieldConfig 'key1' defined in model '" + AnObject.class.getSimpleName() + "' ! ");
-    }
+
 
     @Test
-    public void givenBt_whenSetScalarFieldWithObject_thenExeptionThrown()  {
-        final EO eo = ProviderRootTestScope.createEo(new AnObject());
-        Assertions
-                .assertThatThrownBy(
-                        ()->{eo.set(new AnObject(), AnObject.MY_STRING);}
-                )
-                .hasMessage("Problem setting non scalar value (" + AnObject.class.getSimpleName() + ") for field name '" + AnObject.MY_STRING + "'. Expected is String!");
-    }
-
-    @Test
-    public void givenTest_whenSetPathWithAnObjectDirective_thenModelIsAnObject()  {
+    public void TEST__setEmpty_key0_key1_key2_AnObject_key__getModelClass_key0_key1_key2_key3_AnObject()  {
         final EO eo = ProviderRootTestScope.createEo();
-        eo.set(new AnObject(), S_LEVEL0);
-        Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(AnObject.class);
-    }
-
-
-
-    @Test
-    public void givenTestEmpty_whenSetAnObjectDirectiveAtEndOfLongPath_thenIsAnObjectClass()  {
-        final EO eo = ProviderRootTestScope.createEo();
-        eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2, "(" + AnObject.class.getSimpleName() + ")" + S_LEVEL3);
+        eo.setEmpty("key0", "key1", "key2", "(" + AnObject.class.getSimpleName() + ")" + "key3");
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL2, S_LEVEL3).getModelClass()).isEqualTo(AnObject.class);
+        Assertions.assertThat(eo.getEo("key0", "key1", "key2", "key3").getModelClass()).isEqualTo(AnObject.class);
     }
 
 }

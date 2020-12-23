@@ -8,6 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_STRING;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.NATURAL_ID;
 
 public class EoCloneTest {
@@ -40,8 +41,10 @@ public class EoCloneTest {
     @Test
     public void AnObject_myString_value__setNaturalId_id__is_same_in_AnObject()  {
         final AnObject anObject1 = new AnObject().setMyString( "value");
+        EO eo0 = ProviderRootTestScope.createEo();
         final EO eo1 = ProviderRootTestScope.createEo(anObject1);
         eo1.set("id", NATURAL_ID);
+        Assertions.assertThat(eo1.get(MY_STRING)).isEqualTo("value");
         Assertions.assertThat(eo1.get(NATURAL_ID)).isEqualTo("id");
         Assertions.assertThat(anObject1.getNaturalId()).isEqualTo("id");
     }

@@ -43,7 +43,7 @@ public class EOConfigMapModels extends EOConfigMap {
         String configModelsString = readConfigFiles();
 
         final EOConfigsCache baseCache = new EOConfigsCache();
-        Map<String, Map> modelMap = (Map<String, Map>) EoRoot.OF(baseCache, configModelsString).get();
+        Map<String, Map> modelMap = (Map<String, Map>) EoRoot.ofValue(baseCache, configModelsString).get();
         Map<String, Map> fieldMap = readFieldMap(baseCache);
         for (String naturalId: modelMap.keySet() ) {
             if (modelBeanMap.containsKey(naturalId)) {
@@ -80,7 +80,7 @@ public class EOConfigMapModels extends EOConfigMap {
 
     protected Map<String, Map> readFieldMap(final EOConfigsCache baseCache) {
         String configFieldsString = readConfigFiles("FieldConfig.json");
-        Map<String, Map> configFieldMap = (Map<String, Map>) EoRoot.OF(baseCache, configFieldsString).get();
+        Map<String, Map> configFieldMap = (Map<String, Map>) EoRoot.ofValue(baseCache, configFieldsString).get();
         return configFieldMap;
     }
 

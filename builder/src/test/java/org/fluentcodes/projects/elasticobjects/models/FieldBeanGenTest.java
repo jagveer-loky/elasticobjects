@@ -81,7 +81,7 @@ public class FieldBeanGenTest {
         String getMethod = fieldBean.getJavaGetMethod();
 
         Assertions.assertThat(getMethod).contains("get");
-        String serialized = new EOToJSON().toJSON(eo.getEo(AnObject.class.getSimpleName()));
-        String serialized2 = new EOToJSON().toJSON(eo.getConfigsCache(), fieldBean);
+        String serialized = new EOToJSON().toJson(eo.getEo(AnObject.class.getSimpleName()));
+        String serialized2 = new EOToJSON().toJson(eo.getConfigsCache(), fieldBean);
     }
 }

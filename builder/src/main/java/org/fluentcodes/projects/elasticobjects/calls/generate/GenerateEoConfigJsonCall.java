@@ -116,7 +116,7 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
                 }
                 String jsonConfig = new EOToJSON()
                         .setSerializationType(JSONSerializationType.STANDARD)
-                        .toJSON(configTypeEo.getConfigsCache(), result);
+                        .toJson(configTypeEo.getConfigsCache(), result);
                 FileWriteCall call = new FileWriteCall(getTargetFileConfigKey(), jsonConfig);
                 call.setCompare(true);
                 feedback.append(call.execute(eoWrite));

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbSqlConfig;
@@ -18,12 +18,12 @@ public class ConfigAsFlatListCallStart {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(ConfigAsFlatListCall.class);
+        ModelConfigChecks.create(ConfigAsFlatListCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(ConfigAsFlatListCall.class);
+        ModelConfigChecks.compare(ConfigAsFlatListCall.class);
     }
 
     @Test

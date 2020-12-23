@@ -53,8 +53,9 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterfaceM
         return counter;
     }
 
-    public void set(String fieldName, Object object, Object value)  {
+    public boolean set(String fieldName, Object object, Object value)  {
         ((Map) object).put(fieldName, value);
+        return true;
     }
 
     /**

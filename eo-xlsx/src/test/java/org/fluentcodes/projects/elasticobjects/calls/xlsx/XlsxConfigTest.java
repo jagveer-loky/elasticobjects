@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,17 +12,17 @@ import org.junit.Test;
 public class XlsxConfigTest {
     @Test
     public void createByModelConfig_throwsException()  {
-        ConfigModelChecks.createThrowsException(XlsxConfig.class);
+        ModelConfigChecks.createThrowsException(XlsxConfig.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(XlsxConfig.class);
+        ModelConfigChecks.compare(XlsxConfig.class);
     }
 
     @Test
     public void resolveModel()  {
-        ConfigModelChecks.resolve(XlsxConfig.class);
+        ModelConfigChecks.resolve(XlsxConfig.class);
     }
 
     @Test

@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects</artifactId>
-            <version>0.7.0</version>
+            <version>0.8.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>

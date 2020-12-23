@@ -92,6 +92,9 @@ public class ModelBean extends ConfigBean implements Model {
     }
 
     protected void merge(final Map values) {
+        if (values == null) {
+            throw new EoInternalException("Null mapping model values for '" + getNaturalId() + "'.");
+        }
         super.merge(values);
         setModelKey((String)values.get(MODEL_KEY));
         setPackagePath((String)values.get(PACKAGE_PATH));

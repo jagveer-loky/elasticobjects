@@ -1,12 +1,18 @@
 package org.fluentcodes.projects.elasticobjects;
 
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 /**
  * PathElement encapsulate eo local values of eo and its parent.
  * Created by Werner on 4.07.2020.
@@ -26,61 +32,84 @@ public class PathElement {
     public static final String TEMPLATE = "_template";
     public static final String IN_TEMPLATE = "_";
     public static final String CONFIG = "_config";
+    public static final Map<String,String[]> keyClassMap = initKeyClassMap();
 
-    private String key;
-    private String[] modelsArray;
+    public static final PathElement OF_ERROR_LEVEL = new PathElement(ERROR_LEVEL);
+    public static final PathElement OF_LOG_LEVEL = new PathElement(LOG_LEVEL);
+    public static final PathElement OF_ROOT_MODEL = new PathElement(ROOT_MODEL);
+
+    private final String key;
+    private final String[] modelsArray;
+    private final Boolean call;
+    private String callTargetPath;
 
     public PathElement(final String compositionKey) {
+        this(compositionKey, null);
+    }
+
+    public PathElement(final PathElement pathElement, final Models fieldModels) {
+        this.key = pathElement.getKey();
+        this.call = false;
+        if (fieldModels == null || fieldModels.isEmpty()) {
+            this.modelsArray = pathElement.getModelsArray();
+        }
+        else {
+            this.modelsArray = fieldModels.getModelsStringArray();
+        }
+    }
+
+    public PathElement(final String compositionKey, Class... modelClasses) {
         if (PathElement.ROOT_MODEL.equals(compositionKey)) {
+            this.call = false;
             this.key = compositionKey;
+            this.modelsArray = keyClassMap.get(key);
             return;
         }
         final Matcher matcher = PathElement.modelPattern.matcher(compositionKey);
-        String modelKey = null;
         if (matcher.find()) {
-            modelKey = matcher.group(1);
+            String modelString = matcher.group(1);
+            this.call = modelString.endsWith("Call") ? true : false;
             this.key = matcher.group(2);
+            if (modelString != null && !modelString.isEmpty()) {
+                if (keyClassMap.containsKey(key)) {
+                    this.modelsArray = keyClassMap.get(key);
+                    if (!modelString.equals(Arrays.stream(modelsArray).collect(Collectors.joining(",")))) {
+                        throw new EoException("Mismatch between setted model '" + modelString + "' and fixed model '" + key + "'");
+                    }
+                    return;
+                }
+                this.modelsArray = modelString.split(",");
+                return;
+            }
+            this.modelsArray = keyClassMap.get(key);
+            return;
         }
         else {
             this.key = compositionKey;
-            if (LOG_LEVEL.equals(key) ) {
-                modelKey = LogLevel.class.getSimpleName();
-            }
-            else if (ERROR_LEVEL.equals(key) ) {
-                modelKey = LogLevel.class.getSimpleName();
-            }
-            else if (CALLS.equals(key) ) {
-                modelKey = List.class.getSimpleName();
-            }
-            else if (SERIALIZATION_TYPE.equals(key) ) {
-                modelKey = JSONSerializationType.class.getSimpleName();
-            }
-            if (modelKey == null || modelKey.isEmpty()) {
-                modelsArray = new String[]{};
+            this.call = false;
+            if (modelClasses == null|| modelClasses.length==0) {
+                this.modelsArray = keyClassMap.get(key);
                 return;
             }
+            this.modelsArray = new String[modelClasses.length];
+            int counter = 0;
+            for (Class modelClass: modelClasses) {
+                this.modelsArray[counter] = modelClasses[counter].getSimpleName();
+                counter++;
+            }
         }
-        modelsArray = modelKey.split(",");
+        //if (key.isEmpty())  throw new EoException("An empty key derived for input '" + compositionKey + "'");
     }
 
-
-    public PathElement(final String compositionKey, Class... modelClasses) {
-        this(compositionKey);
-        if (modelsArray!=null && modelsArray.length>0) {
-            return;
-        }
-        if (modelClasses == null|| modelClasses.length==0) {
-            return;
-        }
-        if (modelClasses.length==1 && modelClasses[0].equals(Map.class)) {
-            return;
-        }
-        this.modelsArray = new String[modelClasses.length];
-        int counter = 0;
-        for (Class modelClass: modelClasses) {
-            this.modelsArray[counter] = modelClasses[counter].getSimpleName();
-            counter++;
-        }
+    private static final Map<String, String[]> initKeyClassMap() {
+        final Map<String, String[]> keyEnumMap = new HashMap<>();
+        keyEnumMap.put(LOG_LEVEL, new String[] {LogLevel.class.getSimpleName()});
+        keyEnumMap.put(LOGS, new String[] {List.class.getSimpleName()});
+        keyEnumMap.put(CALLS, new String[] {List.class.getSimpleName()});
+        keyEnumMap.put(SERIALIZATION_TYPE, new String[] {JSONSerializationType.class.getSimpleName()});
+        keyEnumMap.put(ERROR_LEVEL, new String[] {LogLevel.class.getSimpleName()});
+        keyEnumMap.put(ROOT_MODEL, new String[] {String.class.getSimpleName()});
+        return keyEnumMap;
     }
 
     /**
@@ -89,7 +118,7 @@ public class PathElement {
      * @return true if empty or starting with "_"
      */
     public static boolean isParentNotSet(final String key) {
-        return key == null || key.isEmpty() || key.startsWith("_");
+        return key == null || key.startsWith("_");
     }
 
     public static boolean isParentSet(final String key) {
@@ -101,6 +130,24 @@ public class PathElement {
     }
     public boolean isParentSet() {
         return !isParentNotSet();
+    }
+
+    protected boolean isCall() {
+        return call;
+    }
+
+    protected void  createCallTargetPath(final EO parentEo) {
+        if (parentEo==null) {
+            throw new EoException("Could not create target path.");
+        }
+        if (callTargetPath!=null) {
+            throw new EoInternalException("target path should be created one time.");
+        }
+        this.callTargetPath = parentEo.getPathAsString() + Path.DELIMITER + key;
+    }
+
+    protected String getCallTargetPath() {
+        return getCallTargetPath();
     }
 
     protected boolean isCallDirectory() {
@@ -146,6 +193,6 @@ public class PathElement {
         if (!hasModelArray()) {
             return key;
         }
-        return "(" + modelsArray.toString() + ")" + key;
+        return "(" + Arrays.stream(modelsArray).collect(Collectors.joining(",")) + ")" + key;
     }
 }

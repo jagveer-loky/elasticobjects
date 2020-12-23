@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.junit.Test;
 
 /**
@@ -10,12 +10,12 @@ import org.junit.Test;
 public class DirectoryReadCallTest {
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(DirectoryListReadCall.class);
+        ModelConfigChecks.create(DirectoryListReadCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(DirectoryListReadCall.class);
+        ModelConfigChecks.compare(DirectoryListReadCall.class);
     }
 
 }

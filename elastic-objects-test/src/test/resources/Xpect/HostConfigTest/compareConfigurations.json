@@ -45,7 +45,7 @@
     "naturalId": "elasticobjects"
   },
   "3": {
-    "(PermissionRole)rolePermissions": {
+    "rolePermissions": {
       "read": "guest"
     },
     "configModelKey": "HostConfig",
@@ -59,7 +59,7 @@
     "naturalId": "local"
   },
   "4": {
-    "(PermissionRole)rolePermissions": {
+    "rolePermissions": {
       "read": "guest"
     },
     "configModelKey": "HostConfig",
@@ -71,6 +71,5 @@
     },
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
-  },
-  "(LogLevel)_logLevel": "WARN"
+  }
 }

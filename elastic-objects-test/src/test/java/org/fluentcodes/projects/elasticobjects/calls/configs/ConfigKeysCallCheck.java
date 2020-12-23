@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.Expose;
@@ -19,17 +19,17 @@ public class ConfigKeysCallCheck {
 
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(ConfigKeysCall.class);
+        ModelConfigChecks.create(ConfigKeysCall.class);
     }
 
     @Test
     public void givenTestProvider_whenSetConfigType_thenIsSet()  {
-        ConfigModelChecks.checkSetGet(ConfigKeysCall.class,"configType", ModelConfig.class.getSimpleName());
+        ModelConfigChecks.checkSetGet(ConfigKeysCall.class,"configType", ModelConfig.class.getSimpleName());
     }
 
     @Test
     public void givenTestProvider_whenSetConfigFilter_thenIsSet()  {
-        ConfigModelChecks.checkSetGet(ConfigKeysCall.class,"configFilter", ".+");
+        ModelConfigChecks.checkSetGet(ConfigKeysCall.class,"configFilter", ".+");
     }
 
     @Test

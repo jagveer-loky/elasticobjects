@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -12,12 +12,12 @@ import org.junit.Test;
 public class BaseBeanTest {
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(BaseBean.class);
+        ModelConfigChecks.create(BaseBean.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(BaseBean.class);
+        ModelConfigChecks.compare(BaseBean.class);
     }
 
     @Test

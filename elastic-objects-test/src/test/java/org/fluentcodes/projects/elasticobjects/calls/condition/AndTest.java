@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -54,7 +55,6 @@ public class AndTest {
     public void eq_testString_test__filter_eoString__true()  {
         And and = new And(new Eq(AnObject.MY_STRING, "test"));
         EO eo = TestProviderAnObjectJson.STRING.createEoDev();
-
         Assertions.assertThat( and.filter(eo)).isTrue();
     }
 
@@ -62,7 +62,6 @@ public class AndTest {
     public void eq_testString_test__filter_eoString__false()  {
         And and = new And(new Eq(AnObject.MY_STRING, "testOther"));
         EO eo = TestProviderAnObjectJson.STRING.createEoDev();
-
         Assertions.assertThat( and.filter(eo)).isFalse();
     }
 
@@ -71,56 +70,46 @@ public class AndTest {
     @Test
     public void like_0_test__filterList__true()  {
         And and = new And(new Like("0", "test"));
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat(and.filter(row)).isTrue();
+        Assertions.assertThat(and.filter(EXAMPLE_LIST)).isTrue();
     }
 
     @Test
     public void like_2_test__filterList__false()  {
         And and = new And(new Like("2", "test"));
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat(and.filter(row)).isFalse();
+        Assertions.assertThat(and.filter(EXAMPLE_LIST)).isFalse();
     }
 
     @Test
-    public void like_3_1__filterList__true()  {
-        And and = new And(new Like("3", 1));
-        List row = ProviderListJson.LIST.createListDev();
+    public void like_4_1__filterList__true()  {
+        And and = new And(new Like("4", 1));
+        Assertions.assertThat(and.filter(EXAMPLE_LIST)).isTrue();
+    }
 
-        Assertions.assertThat(and.filter(row)).isTrue();
+    public static final List EXAMPLE_LIST = (List)new ProviderRootDevScope()
+            .createEo("[\"test\",\n\"testOther\",\n" + null + ",\n\"key0\",\n1]")
+            .get();
+
+    @Test
+    public void like_0_test_and_like_4_1__filter_List__true()  {
+        And and = new And(new Like("0", "test"), new Like("4", 1));
+        Assertions.assertThat(and.filter(EXAMPLE_LIST)).isTrue();
     }
 
     @Test
-    public void like_0_test_and_like_3_1__filterList__true()  {
-        And and = new And(new Like("0", "test"), new Like("3", 1));
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat(and.filter(row)).isTrue();
-    }
-
-    @Test
-    public void like_0_testFalse_and_like_3_1__filterList__false()  {
+    public void like_0_testFalse_and_like_3_1__filter_List__false()  {
         And and = new And(new Like("0", "testFalse"), new Like("3", 1));
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat(and.filter(row)).isFalse();
+        Assertions.assertThat(and.filter(EXAMPLE_LIST)).isFalse();
     }
 
     @Test
-    public void string_like_0_test_and_like_3_1__filterList__true()  {
-        And and = new And("0 like test && 3 like 1");
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat(and.filter(row)).isTrue();
+    public void string_like_0_test_and_like_4_1__filter_List__true()  {
+        And and = new And("0 like test && 4 like 1");
+        Assertions.assertThat(and.filter(EXAMPLE_LIST)).isTrue();
     }
 
     @Test
-    public void string_like_0_testFalse_and_like_3_1__filterList__false()  {
-        And and = new And("0 like testFalse && 3 like 1");
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat(and.filter(row)).isFalse();
+    public void string_like_0_testFalse_and_like_4_1__filter_List__false()  {
+        And and = new And("0 like testFalse && 4 like 1");
+        Assertions.assertThat(and.filter(EXAMPLE_LIST)).isFalse();
     }
 }

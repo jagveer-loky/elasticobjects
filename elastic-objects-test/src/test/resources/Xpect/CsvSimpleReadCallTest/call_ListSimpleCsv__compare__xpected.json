@@ -1,5 +1,4 @@
 {
-  "(LogLevel)_logLevel": "WARN",
   "0": {
     "key1": "value11",
     "key2": "value12"
@@ -10,8 +9,8 @@
   },
   "(List)_calls": {
     "(CsvSimpleReadCall)0": {
-      "listParams": {
-        "colKeys": {
+      "(ListParams)listParams": {
+        "(List,String)colKeys": {
           "0": "key1",
           "1": "key2"
         },

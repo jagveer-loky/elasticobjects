@@ -128,9 +128,8 @@ public class ScalarConverter {
             return toString(source);
         } else if (mapClass == Date.class) {
             return toDate(source);
-
         } else if (mapClass == Boolean.class) {
-            return toBoolean(source);
+            return asBoolean(source);
         } else if (mapClass == Float.class) {
             return toFloat(source);
         } else if (mapClass == Double.class) {
@@ -205,61 +204,7 @@ public class ScalarConverter {
         if (mapClass == null || mapClass == Object.class) {
             return source;
         }
-        //TODO if (((ItemsCache)getConfigsCache()).getModelConfig(mapClass).isScalar()) {
         return transformScalar(mapClass, source);
-        //}
-//        Object mappedValue = null;
-//        if (source ==null) {
-//            return mappedValue;
-//        }
-//        String stringValue = null;
-//        if (source instanceof String) {
-//            stringValue= (String) source;
-//        }
-//        LOG.debug("Field with type " + mapClass.getName() + " value type=" + source.getClass().getName() + " value=" + source);
-//        if (stringValue.equals("")) {
-//            return null;
-//        }
-//      if (mapClass.getName().equals("byte[]")) {
-//            if (source instanceof String) {
-//                mappedValue = stringValue.getBytes();
-//            }
-//        }
-//
-//
-//        else if (mapClass==Boolean.class) {
-//            if (source instanceof String) {
-//                String xValue = (String) source;
-//                if (xValue.equals("true")) {
-//                    mappedValue =  new Boolean(true);
-//                } else if (xValue.equals("false")) {
-//                    mappedValue =  new Boolean(false);
-//                } else if (xValue.equals("")) {
-//                    mappedValue =  new Boolean(false);
-//                } else {
-//                    LOG.warn("Could not add value " + source);
-//                    mappedValue =  new Boolean(false);
-//                }
-//            }
-//            else if (source instanceof Double) {
-//                long val = Math.round((Double) source);
-//                if (val == 1) {
-//                    mappedValue = new Boolean(true);
-//                } else if (val == 0) {
-//                    mappedValue =  new Boolean(false);
-//                } else {
-//                    LOG.warn("Could not add value " + source + " - " + val);
-//                    mappedValue =  new Boolean(false);
-//                }
-//            }
-//        }
-//        else {
-//            mappedValue=source;
-//        }
-//        if (mappedValue==null) {
-//            LOG.warn("Could not map value " + source + " " + source.getSerialized() + " " + source.getClass().getName() + " " + mapClass.getName());
-//        }
-//        return mappedValue;
     }
 
     public static List toJSONArray(Object source) {
@@ -330,13 +275,22 @@ public class ScalarConverter {
         if (source instanceof String) {
             return new String((String) source);
         }
+        if (source instanceof Number) {
+            return source.toString();
+        }
+        if (source instanceof Boolean) {
+            return source.toString();
+        }
+        if (source.getClass().isEnum()) {
+            return source.toString();
+        }
         if (source instanceof Date) {
             return new Long(((Date) source).getTime()).toString();
         }
         if (source instanceof byte[]) {
             return new String((byte[]) source);
         } else {
-            return source.toString();
+            throw new EoException("Could not create 'String' value from '" + source + "' (" + source.getClass().getSimpleName() + ")");
         }
     }
 

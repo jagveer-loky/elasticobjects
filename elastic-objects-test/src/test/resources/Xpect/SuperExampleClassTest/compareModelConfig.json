@@ -1,40 +1,36 @@
 {
-  "_rootmodel": "ArrayList",
-  "0": {
-    "fieldConfigMap": {
-      "id": {
-        "fieldKey": "id",
-        "modelKeys": "Long",
-        "(ArrayList)modelList": {
-          "0": "Long"
-        },
-        "properties": {
-          "fieldName": "id"
-        },
-        "naturalId": "SuperExampleClass.id",
+  "fieldConfigMap": {
+    "id": {
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
+      "properties": {
         "fieldName": "id"
       },
-      "subClass": {
-        "fieldKey": "subClass",
-        "modelKeys": "FieldExampleClass",
-        "(ArrayList)modelList": {
-          "0": "FieldExampleClass"
-        },
-        "properties": {
-          "fieldName": "subClass"
-        },
-        "naturalId": "SuperExampleClass.subClass",
+      "naturalId": "SuperExampleClass.id",
+      "fieldName": "id"
+    },
+    "subClass": {
+      "fieldKey": "subClass",
+      "modelKeys": "FieldExampleClass",
+      "modelList": [
+        "FieldExampleClass"
+      ],
+      "properties": {
         "fieldName": "subClass"
-      }
-    },
-    "modelKey": "SuperExampleClass",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-    "configModelKey": "ModelConfigObject",
-    "properties": {
-      "(ShapeTypes)shapeType": "OBJECT",
-      "create": true
-    },
-    "naturalId": "SuperExampleClass"
+      },
+      "naturalId": "SuperExampleClass.subClass",
+      "fieldName": "subClass"
+    }
   },
-  "(LogLevel)_logLevel": "WARN"
+  "modelKey": "SuperExampleClass",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+  "configModelKey": "ModelConfigObject",
+  "properties": {
+    "shapeType": "OBJECT",
+    "create": true
+  },
+  "naturalId": "SuperExampleClass"
 }

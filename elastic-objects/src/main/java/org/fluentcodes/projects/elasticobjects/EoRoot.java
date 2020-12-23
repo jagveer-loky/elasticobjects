@@ -1,6 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
@@ -17,35 +19,48 @@ public class EoRoot extends EoChild {
 
     private boolean checkObjectReplication = false;
 
-    protected EoRoot(final EOConfigsCache cache, final EoChildParams params) {
-        super(params);
+    protected EoRoot(EOConfigsCache cache, Object rootValue, Models rootModels) {
+        super(null, null, rootValue, rootModels);
+        if (rootModels.isScalar()) {
+            throw new EoException("Root could not be a scalar type but starting value is '" + rootModels.toString() + "'!");
+        }
         this.eoConfigCache = cache;
-    }
-
-    public static EoRoot OF(final EOConfigsCache cache)  {
-        return OF(cache, (Object)null);
-    }
-
-    public static EoRoot OF(final EOConfigsCache cache, Object value)  {
-        if (value != null &&(value instanceof Class)) {
-            return OF_CLASS(cache, (Class) value);
+        if (rootModels.getModelClass() != Map.class) {
+            new EoChild(this, PathElement.ROOT_MODEL, rootModels.toString(), new Models(cache, String.class));
         }
-        Models models = new Models(cache, value);
-        EoChildParams params = new EoChildParams(models);
-        EoRoot root = new EoRoot(cache, params);
-        root.setLogLevel(LogLevel.WARN);
-        if (value!=null) {
-            root.mapObject(value);
+        if (rootValue != null) {
+            mapObject(rootValue);
         }
-        return root;
     }
 
-    public static EoRoot OF_CLASS(final EOConfigsCache cache, Class... classes)  {
-        Models models  = new Models(cache, classes);
-        EoChildParams params = new EoChildParams(models);
-        EoRoot root = new EoRoot(cache, params);
-        root.setLogLevel(LogLevel.WARN);
-        return root;
+    public static EoRoot of(final EOConfigsCache cache)  {
+        return ofClass(cache, Map.class);
+    }
+
+    public static EoRoot ofValue(final EOConfigsCache cache, Object rootValue)  {
+        if (rootValue == null) return ofClass(cache, Map.class);
+        if (rootValue instanceof Class)  return ofClass(cache, (Class) rootValue);
+        if (rootValue instanceof String) {
+            if (JSONToEO.jsonMapPattern.matcher((String)rootValue).find()) {
+                return new EoRoot(cache, rootValue, Models.ofValue(cache, Map.class));
+            }
+            if (JSONToEO.jsonListPattern.matcher((String)rootValue).find()) {
+                return new EoRoot(cache, rootValue, Models.ofValue(cache, List.class));
+            }
+        }
+        return new EoRoot(cache, rootValue, Models.ofValue(cache, rootValue));
+    }
+
+    public static EoRoot ofClass(final EOConfigsCache cache, Class... rootClasses)  {
+        return new EoRoot(cache, null, new Models(cache, rootClasses));
+    }
+
+    public static EoRoot ofClass(final EOConfigsCache cache, final Object rootValue, Class... rootClasses)  {
+        Models rootModels  = new Models(cache, rootClasses);
+        if (rootModels.isScalar()) {
+            throw new EoException("Could not create root with an scalar entry: '" + rootClasses[0].getSimpleName() + "'");
+        }
+        return new EoRoot(cache, rootValue, rootModels);
     }
 
     public static Class getClass(Object value) {
@@ -84,8 +99,6 @@ public class EoRoot extends EoChild {
     public EoRoot getRoot() {
         return this;
     }
-
-
 
     @Override
     public boolean execute() {

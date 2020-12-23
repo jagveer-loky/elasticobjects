@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigModelChecks;
+import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
@@ -21,12 +21,12 @@ import static org.fluentcodes.projects.elasticobjects.calls.values.StringLowerCa
 public class StringLowerCallTest {
     @Test
     public void createByModelConfig()  {
-        ConfigModelChecks.create(StringLowerCall.class);
+        ModelConfigChecks.create(StringLowerCall.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ConfigModelChecks.compare(StringLowerCall.class);
+        ModelConfigChecks.compare(StringLowerCall.class);
     }
 
 

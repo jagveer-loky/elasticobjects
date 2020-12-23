@@ -44,7 +44,7 @@ public class Models {
             if (models.get(i) == null) {
                 throw new EoInternalException("Null model for " + models);
             }
-            this.models[i] = models.get(0);
+            this.models[i] = models.get(i);
         }
         hasChildModel = models.size() > 1;
     }
@@ -63,25 +63,31 @@ public class Models {
         hasChildModel = models.length > 1;
     }
 
-    public Models(final EOConfigsCache cache, final Object value)  {
+    public Models(final EOConfigsCache cache) {
         hasChildModel = false;
+        this.models = new ModelConfig[]{cache.findModel(Map.class)};
+    }
+
+    public static final Models ofValue(final EOConfigsCache cache, final Object value)  {
         if (value == null) {
-            this.models = new ModelConfig[]{cache.findModel(Map.class)};
+            return new Models(cache, Map.class);
         }
-        else if (value instanceof String) {
+        if (value.getClass() == Class.class) {
+            return new Models(cache, (Class)value);
+        }
+
+        if (value instanceof String) {
             if  (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
-                this.models = new ModelConfig[]{cache.findModel(Map.class)};
+                return new Models(cache, Map.class);
             }
             else if  (JSONToEO.jsonListPattern.matcher((String) value).find()) {
-                this.models = new ModelConfig[]{cache.findModel(List.class)};
+                return new Models(cache, List.class);
             }
             else {
-                this.models = new ModelConfig[]{cache.findModel(String.class)};
+                return new Models(cache, String.class);
             }
         }
-        else {
-            this.models = new ModelConfig[]{cache.findModel(value.getClass())};
-        }
+        return new Models(cache, value.getClass());
     }
 
     private static String[] convert (Class[] classes) {
@@ -129,55 +135,20 @@ public class Models {
         return new Models(Arrays.copyOfRange(this.models, 1, models.length));
     }
 
-    private Models createValueModels(EO eo, Models childModels, Object value) {
-        return new Models(eo.getConfigsCache(), getValueClass(childModels, value));
-    }
-
-    public static Class getValueClass(final Models childModel, final Object value) {
-        if (value == null) {
-            return Map.class;
-        }
-        if (childModel == null|| childModel.isEmpty()) {
-            if (value instanceof String) {
-                if (JSONToEO.jsonListPattern.matcher((String) value).find()) {
-                    return List.class;
-                } else if (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
-                    return Map.class;
-                } else {
-                    return String.class;
-                }
-            }
-        }
-        else if (!childModel.isScalar() && (value instanceof String)) {
-            if (JSONToEO.jsonListPattern.matcher((String) value).find()) {
-                return childModel.getModelClass();
-            } else if (JSONToEO.jsonMapPattern.matcher((String) value).find()) {
-                return childModel.getModelClass();
-            }
-        }
-        else if (childModel.isEnum()) {
-            return childModel.getModelClass();
-        }
-        //return null;
-        return value.getClass();
-    }
-
     public Models getChildModels(final String fieldKey) {
         if (fieldKey == null) {
+            throw new EoException("Field key to derive child models should never be null for '" + toString() + "'!");
+        }
+        if (!PathElement.isParentSet(fieldKey)) {  // all fieldkeys starting with _ will be independent of the parent model.
             return null;
         }
-        if (!PathElement.isParentSet(fieldKey)) {
+        if (!getModel().isContainer()) {
             return null;
         }
         if (getModel().isList() || getModel().isMap()) {
             return getChildModelsTrue();
         }
-        if (!getModel().isContainer()) {
-            return null;
-        }
-        if (!getModel().hasFieldConfig(fieldKey)) {
-            return null;
-        }
+
         return getModel().getFieldConfig(fieldKey).getModels();
     }
 
@@ -213,6 +184,14 @@ public class Models {
         return models;
     }
 
+    public String[] getModelsStringArray() {
+        String[] modelsStringArray = new String[models.length];
+        for (int i = 0; i< models.length; i++) {
+            modelsStringArray[i] = models[i].getModelKey();
+        }
+        return modelsStringArray;
+    }
+
     public boolean hasModel() {
         return getModel()!=null && getModel().getModelClass()!=Map.class;
     }
@@ -241,10 +220,6 @@ public class Models {
         return getModel().isCall();
     }
 
-    public boolean isDefaultMap() {
-        return models.length == 1 && getModelClass() == Map.class;
-    }
-
     public boolean isNull() {
         return getModel().isNull();
     }
@@ -258,10 +233,6 @@ public class Models {
     }
     public boolean hasChildModel() {
         return hasChildModel;
-    }
-
-    public boolean hasDefaultMap() {
-        return isMap() && !hasChildModel() && (getModelClass() == Map.class || getModelClass() == LinkedHashMap.class);
     }
 
     public ModelConfig getChildModel() {
@@ -311,7 +282,6 @@ public class Models {
     public boolean isContainer() {
         return getModel().isContainer();
     }
-
 
     public Object transform(Object source)  {
         if (source == null) {
