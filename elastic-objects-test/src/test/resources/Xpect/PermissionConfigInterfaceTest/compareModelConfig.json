@@ -1,0 +1,26 @@
+{
+  "fieldConfigMap": {
+    "rolePermissions": {
+      "fieldKey": "rolePermissions",
+      "modelKeys": "PermissionRole",
+      "modelList": [
+        "PermissionRole"
+      ],
+      "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+      "naturalId": "rolePermissions"
+    }
+  },
+  "modelKey": "PermissionConfigInterface",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+  "configModelKey": "ModelConfigObject",
+  "expose": "NONE",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "properties": {
+    "classPath": "src.main.java",
+    "create": false,
+    "shapeType": "INTERFACE"
+  },
+  "description": "Interface with permissions methods ",
+  "naturalId": "PermissionConfigInterface"
+}

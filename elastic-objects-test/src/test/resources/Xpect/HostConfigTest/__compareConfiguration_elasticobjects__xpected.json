@@ -1,8 +1,7 @@
 {
-  "_rootmodel": "ArrayList",
-  "0": {
+  "elasticobjects": {
     "configModelKey": "HostConfig",
-    "(Expose)expose": "NONE",
+    "expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
     "properties": {
