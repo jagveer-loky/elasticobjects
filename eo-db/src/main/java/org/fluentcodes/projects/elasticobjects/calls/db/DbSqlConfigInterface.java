@@ -7,8 +7,6 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
 import java.util.List;
 
 public interface DbSqlConfigInterface extends ConfigConfigInterface, ConfigProperties {
-    final static String DB_KEY = "dbKey";
-
     default String getSql() {
         if (!hasSqlList()) {
             throw new EoInternalException("Problem with empty sql list");
@@ -17,14 +15,6 @@ public interface DbSqlConfigInterface extends ConfigConfigInterface, ConfigPrope
             throw new EoInternalException("Problem with " + getSqlList().size() + " entriies in sql list");
         }
         return getSqlList().get(0);
-    }
-
-    default boolean hasDbKey() {
-        return getDbKey()!=null && !getDbKey().isEmpty();
-    }
-
-    default String getDbKey() {
-        return (String) getProperties().get(DB_KEY);
     }
 
     List<String> getSqlList();

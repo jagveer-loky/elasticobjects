@@ -45,7 +45,9 @@ public class TheGreetingCall extends CallImpl implements SimpleCommand {
             name = (String)eo.get();
         }
         String value = this.greeting + " " + name + "!";
-        eo.set(value, getTargetPath());
+        if (hasTargetPath()) {
+            eo.set(value, getTargetPath());
+        }
         return (value);
     }
 

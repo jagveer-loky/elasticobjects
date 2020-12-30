@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.domain.Base;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
@@ -37,6 +38,7 @@ public class EoChild implements EO {
         this.fieldModels = fieldModels;
         this.changed = false;
         this.eoMap = fieldModels.isScalar() ? null : new LinkedHashMap<>();
+
         if (fieldModels == null||fieldModels.isEmpty()) {
             throw new EoInternalException("No field model defined for '" + fieldKey + "'" );
         }
@@ -287,17 +289,18 @@ public class EoChild implements EO {
                 new EoChild(this, PathElement.ROOT_MODEL, fieldModels.toString(), new Models(getConfigsCache(), String.class));
                 return this;
             }
+            pathElement.resolve(this, childValue);
+            // child models defined
             Models childModels = fieldModels.getChildModels(pathElement.getKey());
-            if (childModels!=null && !pathElement.isCall()) return of(this, pathElement, childValue,  childModels);
-            // special for calls
+            if (childModels!=null && pathElement.isParentSet()) return of(this, pathElement, childValue,  childModels);
+            // no call...
             if (!pathElement.isCall()) return of(this, pathElement, childValue);
-            Models callModels = new Models(this.getConfigsCache(), pathElement.getModelsArray());
-            if (!PathElement.CALLS.equals(this.fieldKey)) {
-                Call call = (Call) callModels.create();
-                call.setTargetPath(getPathAsString() + Path.DELIMITER + pathElement.getKey());
-                return of(this.getCallsEo(), pathElement, call, callModels);
-            }
-            return of(this.getCallsEo(), pathElement, childValue);  // special for call
+            // call...
+            Object call = childValue == null?
+                    pathElement.getModels().create():
+                    childValue;
+            if (pathElement.hasCallTargetPath()) ((Call)call).setTargetPath(pathElement.getCallTargetPath());
+            return of(this.getCallsEo(), pathElement, call, pathElement.getModels());
         }
         catch (Exception e) {
             throw new EoException("Exception for '" + pathElement.getKey() + "': " + e.getMessage());
@@ -393,18 +396,13 @@ public class EoChild implements EO {
 
         //PathPattern pathPattern = params.getPathPattern();
         PathPattern pathPattern = new PathPattern(PathElement.MATCHER_ALL);
-        Map keyValues = null;
-        try {
-            keyValues = valueModel.getKeyValues(value, pathPattern);
-        } catch (Exception e) {
-            throw new EoException("Problem getting key values of value " + e.getMessage());
-        }
-        if (keyValues.isEmpty()) return this;
 
-        for (Object key : keyValues.keySet()) {
+        for (String key : valueModel.keys(value)) {
             String fieldName = ScalarConverter.toString(key);
             PathElement pathElement = new PathElement(fieldName);
-            Object childValue = keyValues.get(key);
+            if (valueModel.isJsonIgnore(key)) continue;
+            if (!valueModel.exists(key, value)) continue;
+            Object childValue = valueModel.get(key, value);
             if (childValue == null && hasEo(pathElement)) {
                 continue;
             }

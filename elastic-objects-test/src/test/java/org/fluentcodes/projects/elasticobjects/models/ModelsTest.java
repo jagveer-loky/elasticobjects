@@ -14,19 +14,20 @@ import java.util.ArrayList;
  */
 public class ModelsTest {
     @Test
-    public void withModelConfigInterface()  {
+    public void ModelConfig____isObject_true()  {
         Models models = new Models(ProviderRootTestScope.EO_CONFIGS, ModelConfig.class);
         Assert.assertTrue(models.hasModel());
-        Assert.assertFalse(models.hasChildModel());
-        Assert.assertFalse(models.isEmpty());
+        Assertions.assertThat(models.isScalar()).isFalse();
+        Assertions.assertThat(models.isObject()).isTrue();
     }
 
     @Test
-    public void createArrayList() {
+    public void ArrayList____isList_true() {
         EO eo = ProviderRootDevScope.createEo();
         Models models = new Models(eo.getConfigsCache(), ArrayList.class);
-        Assertions.assertThat(models.isCreate()).isTrue();
+        Assertions.assertThat(models.isCreate()).isFalse();
         Assertions.assertThat(models.isScalar()).isFalse();
+        Assertions.assertThat(models.isList()).isTrue();
     }
 
 

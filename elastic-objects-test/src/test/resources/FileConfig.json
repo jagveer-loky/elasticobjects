@@ -131,7 +131,9 @@
       "read": "guest",
       "write": "admin"
     },
-    "properties": {"rowHead": 0}
+    "properties": {
+      "rowHead": 0
+    }
   },
   "target.json": {
     "module": "elastic-objects-test",
@@ -158,8 +160,8 @@
     "module": "elastic-objects-test",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
-    "filePath": "Xpect",
-    "fileName": "AnObjectTest",
+    "filePath": "Xpect/AnObjectTest",
+    "fileName": ".*.json",
     "description": "Test directory for DirectoryListReadCall",
     "expose": "NONE",
     "cached": "false",

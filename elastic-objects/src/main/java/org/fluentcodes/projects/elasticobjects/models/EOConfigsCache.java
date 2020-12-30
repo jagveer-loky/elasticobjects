@@ -95,7 +95,7 @@ public class EOConfigsCache {
         Set<String> configKeys = new LinkedHashSet<>();
         for (String naturalId: getConfigMap(configClass).getKeys()) {
             ConfigConfigInterface config = getConfigMap(configClass).find(naturalId);
-            if (config.getExpose().ordinal() <= expose.ordinal()) {
+            if (config.hasExpose() && config.getExpose().ordinal() <= expose.ordinal()) {
                 configKeys.add(naturalId);
             }
         }

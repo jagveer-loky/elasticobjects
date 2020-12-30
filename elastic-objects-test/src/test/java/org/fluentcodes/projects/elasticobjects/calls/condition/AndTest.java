@@ -18,8 +18,10 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
  * Created by werner.diwischek on 08.01.18.
  */
 public class AndTest {
+    public static final List EXAMPLE_LIST = (List)new ProviderRootDevScope()
+            .createEo("[\"test\",\n\"testOther\",\n" + null + ",\n\"key0\",\n1]")
+            .get();
 
-    //static final Pattern ifPattern = Pattern.compile("(key).*");
     @Test
     public void eq_testString_string__createQuery__expected() {
         And and = new And(new Eq(AnObject.MY_STRING, "test"));
@@ -84,10 +86,6 @@ public class AndTest {
         And and = new And(new Like("4", 1));
         Assertions.assertThat(and.filter(EXAMPLE_LIST)).isTrue();
     }
-
-    public static final List EXAMPLE_LIST = (List)new ProviderRootDevScope()
-            .createEo("[\"test\",\n\"testOther\",\n" + null + ",\n\"key0\",\n1]")
-            .get();
 
     @Test
     public void like_0_test_and_like_4_1__filter_List__true()  {

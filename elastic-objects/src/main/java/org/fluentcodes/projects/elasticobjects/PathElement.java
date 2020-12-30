@@ -40,8 +40,8 @@ public class PathElement {
 
     private final String key;
     private final String[] modelsArray;
-    private final Boolean call;
     private String callTargetPath;
+    private Models models;
 
     public PathElement(final String compositionKey) {
         this(compositionKey, null);
@@ -49,18 +49,17 @@ public class PathElement {
 
     public PathElement(final PathElement pathElement, final Models fieldModels) {
         this.key = pathElement.getKey();
-        this.call = false;
         if (fieldModels == null || fieldModels.isEmpty()) {
             this.modelsArray = pathElement.getModelsArray();
         }
         else {
             this.modelsArray = fieldModels.getModelsStringArray();
         }
+
     }
 
     public PathElement(final String compositionKey, Class... modelClasses) {
         if (PathElement.ROOT_MODEL.equals(compositionKey)) {
-            this.call = false;
             this.key = compositionKey;
             this.modelsArray = keyClassMap.get(key);
             return;
@@ -68,7 +67,6 @@ public class PathElement {
         final Matcher matcher = PathElement.modelPattern.matcher(compositionKey);
         if (matcher.find()) {
             String modelString = matcher.group(1);
-            this.call = modelString.endsWith("Call") ? true : false;
             this.key = matcher.group(2);
             if (modelString != null && !modelString.isEmpty()) {
                 if (keyClassMap.containsKey(key)) {
@@ -86,7 +84,6 @@ public class PathElement {
         }
         else {
             this.key = compositionKey;
-            this.call = false;
             if (modelClasses == null|| modelClasses.length==0) {
                 this.modelsArray = keyClassMap.get(key);
                 return;
@@ -133,21 +130,39 @@ public class PathElement {
     }
 
     protected boolean isCall() {
-        return call;
+        return models != null? models.getModelClass().getSimpleName().endsWith("Call"): false;
     }
 
-    protected void  createCallTargetPath(final EO parentEo) {
-        if (parentEo==null) {
-            throw new EoException("Could not create target path.");
+    protected void  resolve(final EO parentEo, final Object value) {
+        if (parentEo == null)  return;
+        deriveModels(parentEo.getConfigsCache(), value);
+        if (isCall() && !CALLS.equals(parentEo.getFieldKey())) {
+            this.callTargetPath = parentEo.getPathAsString() + Path.DELIMITER + key;
+            //this.key = CALLS;
         }
-        if (callTargetPath!=null) {
-            throw new EoInternalException("target path should be created one time.");
+    }
+
+    private void deriveModels(final EOConfigsCache cache, final Object value) {
+        if (modelsArray != null) {
+            this.models = new Models(cache, modelsArray);
+            return;
         }
-        this.callTargetPath = parentEo.getPathAsString() + Path.DELIMITER + key;
+        if (value != null) {
+            this.models = new Models(cache, value.getClass());
+            return;
+        }
+        this.models = new Models(cache, Map.class);
     }
 
     protected String getCallTargetPath() {
-        return getCallTargetPath();
+        return callTargetPath;
+    }
+    protected boolean hasCallTargetPath() {
+        return callTargetPath!=null && !callTargetPath.isEmpty();
+    }
+
+    protected Models getModels() {
+        return models;
     }
 
     protected boolean isCallDirectory() {

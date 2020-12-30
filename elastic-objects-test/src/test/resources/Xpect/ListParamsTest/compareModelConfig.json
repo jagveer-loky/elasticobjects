@@ -7,6 +7,9 @@
         "List",
         "String"
       ],
+      "properties": {
+        "override": false
+      },
       "description": "The key list for mapping values in a value list. ",
       "naturalId": "colKeys"
     },
@@ -16,6 +19,9 @@
       "modelList": [
         "String"
       ],
+      "properties": {
+        "override": false
+      },
       "description": "Filter for List entries.",
       "naturalId": "filter"
     },
@@ -25,6 +31,9 @@
       "modelList": [
         "Integer"
       ],
+      "properties": {
+        "override": false
+      },
       "description": "Length of a field.",
       "naturalId": "length"
     },
@@ -34,6 +43,9 @@
       "modelList": [
         "Integer"
       ],
+      "properties": {
+        "override": false
+      },
       "description": "rowEnd",
       "naturalId": "rowEnd"
     },
@@ -43,6 +55,9 @@
       "modelList": [
         "Integer"
       ],
+      "properties": {
+        "override": false
+      },
       "description": "rowHead",
       "naturalId": "rowHead"
     },
@@ -52,6 +67,9 @@
       "modelList": [
         "Integer"
       ],
+      "properties": {
+        "override": false
+      },
       "description": "rowStart",
       "naturalId": "rowStart"
     }

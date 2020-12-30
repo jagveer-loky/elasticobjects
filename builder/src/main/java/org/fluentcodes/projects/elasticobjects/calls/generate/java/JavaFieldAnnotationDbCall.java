@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelBeanGenProperties;
 
 /*==>{ALLHeader.tpl, ., , JAVA|>}|*/
 
@@ -31,12 +30,13 @@ public class JavaFieldAnnotationDbCall extends CallImpl implements SimpleCommand
             throw new EoException("Input must be instance of '" + FieldBeanInterface.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
         }
         EO eoModel = eo.getParent().getParent(); //hashmap
+        /*
         if (!(eoModel.get() instanceof ModelBeanGenProperties)) {
             throw new EoException("Input parent must be instance of '" + ModelBeanGenProperties.class.getSimpleName() + "' but is '" + eo.get().getClass().getSimpleName() + "'");
         }
         if (!((ModelBeanGenProperties)eoModel.get()).isDbAnnotated()) {
             return "";
-        }
+        }*/
         try {
             FieldBeanInterface properties = (FieldBeanInterface) eo.get();
             if (properties.isTransient()) {

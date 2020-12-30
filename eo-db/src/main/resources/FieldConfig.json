@@ -76,7 +76,7 @@
   "sqlList": {
     "module": "eo-db",
     "moduleScope": "main",
-    "modelKeys": "ArrayList,String",
+    "modelKeys": "List,String",
     "description": "A list of sql strings to be executed in @DbSqlConfig",
     "expose": "NONE",
     "fieldKey": "sqlList"

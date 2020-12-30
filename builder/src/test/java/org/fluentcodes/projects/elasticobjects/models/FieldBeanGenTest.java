@@ -75,9 +75,9 @@ public class FieldBeanGenTest {
     @Test
     public void getAnObject__persist__withoutGetField() {
         EO eo = GenerateModelAbstract.READ(Scope.TEST);
-        ModelBean modelBean = (ModelBean) eo.get(AnObject.class.getSimpleName());
-        modelBean.resolve();
-        FieldBean fieldBean = modelBean.getFieldBean(NATURAL_ID);
+        ModelBeanGen modelBean = (ModelBeanGen) eo.get(AnObject.class.getSimpleName());
+        // TODOmodelBean.resolve();
+        FieldBeanGen fieldBean = (FieldBeanGen) modelBean.getFieldBean(NATURAL_ID);
         String getMethod = fieldBean.getJavaGetMethod();
 
         Assertions.assertThat(getMethod).contains("get");

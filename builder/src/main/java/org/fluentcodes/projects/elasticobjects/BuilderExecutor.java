@@ -18,14 +18,14 @@ public class BuilderExecutor {
     }
 
     protected String execute(EOConfigsCache cache) {
-        EO callEo = EoRoot.OFcache);
+        EO callEo = EoRoot.of(cache);
         new FileReadCall()
                 .setFileConfigKey(params.getCallJson())
                 .setTargetPath(".")
                 .execute(callEo);
         GenerateAbstract generator = (GenerateAbstract)callEo.get();
         generator.mergeParams(params);
-        EO eo = EoRoot.OFcache);
+        EO eo = EoRoot.of(cache);
         return (String) generator.execute(eo);
     }
 }

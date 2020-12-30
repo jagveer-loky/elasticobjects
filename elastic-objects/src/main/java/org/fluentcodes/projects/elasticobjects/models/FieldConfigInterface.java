@@ -14,6 +14,7 @@ public interface FieldConfigInterface extends ConfigConfigInterface {
     String FIELD_NAME = "fieldName";
     String GENERATED = "generated";
     String JOIN_INVERSE = "joinInverse";
+    String JSON_IGNORE = "jsonIgnore";
     String JOIN = "join";
     String HIBERNATE = "hibernate";
     String MAP_KEY = "mapKey";
@@ -114,11 +115,21 @@ public interface FieldConfigInterface extends ConfigConfigInterface {
         return getTransient() != null;
     }
     default boolean isTransient() {
-        return getTransient() != null && getTransient();
+        return hasTransient() && getTransient();
     }
     default Boolean getTransient() {
-        return hasProperties() ? ScalarConverter.asBoolean(getProperties().get(TRANSIENT)) : null;
+        return (Boolean)getProperties().get(TRANSIENT);
     }
+    default boolean hasJsonIgnore() {
+        return getJsonIgnore() != null;
+    }
+    default boolean isJsonIgnore() {
+        return hasJsonIgnore() && getJsonIgnore();
+    }
+    default Boolean getJsonIgnore() {
+        return (Boolean)getProperties().get(JSON_IGNORE);
+    }
+
     default boolean hasSuper() {
         return getSuper() != null;
     }

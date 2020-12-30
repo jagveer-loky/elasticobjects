@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import sun.security.provider.SHA;
 
 import java.util.List;
 import java.util.Map;
@@ -39,11 +40,32 @@ public interface Model extends ModelConfigInterface, Config {
     }
 
     default void setShapeType(ShapeTypes shapeType) {
-        if (getProperties()==null) {
-            throw new EoException("Could not set shapeType .. properties not defined");
-        }
         getProperties().put(SHAPE_TYPE, shapeType);
     }
+
+    default void defaultShapeType() {
+        if (!hasShapeType()) return;
+    }
+
+    default ShapeTypes convertShapeType(Object value) {
+        if (value == null) {
+            return null;
+        }
+        if (value instanceof ShapeTypes) {
+            return (ShapeTypes) value;
+        }
+        else if (value instanceof String) {
+            return ShapeTypes.valueOf((String)value);
+        }
+        throw new EoException("Could not map " + value + " " + value.getClass());
+    }
+
+    default void mergeShapeType(Object value) {
+        if (hasShapeType())  {
+            return;
+        }
+        setShapeType(convertShapeType(value));
+     }
 
     default void setDefaultImplementation(String defaultImplementation) {
         getProperties().put(DEFAULT_IMPLEMENTATION, defaultImplementation);

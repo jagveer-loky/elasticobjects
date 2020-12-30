@@ -78,7 +78,7 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
 
         EO configTypeEo = rootEo.getEo(DATA);
         for (String module: configTypeEo.keys()) {
-            if ("basic".equals(module)) {
+            if ("basic".equals(module)||"old".equals(module)) {
                 continue;
             }
             EO eoModule = configTypeEo.getEo(module);
@@ -104,12 +104,6 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
                     String naturalId = (String)configurationMap.get(NATURAL_ID);
                     if (naturalId == null || naturalId.isEmpty()) {
                         throw new EoInternalException("Could not find natural Id in config " + configTypeEo.toString());
-                    }
-                    if (ModelConfig.class.getSimpleName().equals(getConfigType())) {
-                        FieldHelper fieldMap = eoConfiguration.hasEo(FIELD_KEYS)?
-                            new FieldHelper(eoConfiguration):
-                            new FieldHelper("");
-                        configurationMap.put(FIELD_KEYS, fieldMap.filterKeys());
                     }
                     configurationMap.remove(NATURAL_ID);
                     result.put(naturalId, configurationMap);

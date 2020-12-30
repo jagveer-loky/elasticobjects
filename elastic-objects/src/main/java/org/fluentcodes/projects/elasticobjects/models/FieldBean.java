@@ -53,13 +53,13 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         super.merge(values);
         setNaturalId((String)values.get(NATURAL_ID));
         setFieldKey((String)values.get(FIELD_KEY));
+        if (!hasFieldKey()) defaultFieldKey();
         mergeFinal(values.get(FINAL));
         mergeOverride(values.get(OVERRIDE));
+        mergeJsonIgnore(values.get(JSON_IGNORE));
         mergeTransient(values.get(TRANSIENT));
         mergeDefault(values.get(DEFAULT));
-        if (!hasFieldKey()) {
-            throw new EoException("No value is set for fieldKey!");
-        }
+
         setLength(ScalarConverter.toInt(values.get(LENGTH)));
         setModelKeys((String)values.get(MODEL_KEYS));
     }

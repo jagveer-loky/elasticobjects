@@ -261,7 +261,7 @@ public class EoToJsonTest {
                 .assertThatThrownBy(()->{new EOToJSON()
                         .toJson(ProviderRootTestScope.EO_CONFIGS, modelConfig);})
                 .isInstanceOf(EoException.class)
-                .hasMessageContaining("Field 'fieldKey' marked as final for model 'FieldConfig'");
+                .hasMessageContaining("Field 'rolePermissions' marked as final for model 'ModelConfigDbObject'.");
     }
 
     @Test

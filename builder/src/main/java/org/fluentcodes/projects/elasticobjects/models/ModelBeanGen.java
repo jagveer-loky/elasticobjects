@@ -4,7 +4,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
-public class ModelBeanGen extends ModelBean <FieldBeanGen> implements Model {
+public class ModelBeanGen extends ModelBean implements Model {
     public ModelBeanGen() {
         super();
     }

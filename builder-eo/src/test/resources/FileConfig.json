@@ -2,7 +2,7 @@
   "builderTest.json": {
     "module": "builder",
     "moduleScope": "main",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": ".",
     "fileName": "builderTest.json",
     "description": "Control directives to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall.",

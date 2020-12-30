@@ -2,23 +2,97 @@
   "DbConfig": {
     "module": "eo-db",
     "moduleScope": "main",
-    "fieldKeys": [
-      "dbType",
-      "driver",
-      "extension",
-      "jndi",
-      "schema"
-    ],
-    "interfaces": "DbProperties",
+    "fieldKeys": {
+      "dbType": {
+        "final": true,
+        "jsonIgnore": true
+      },
+      "driver": {
+        "final": true,
+        "jsonIgnore": true
+      },
+      "extension": {
+        "final": true,
+        "jsonIgnore": true
+      },
+      "jndi": {
+        "final": true,
+        "jsonIgnore": true
+      },
+      "schema": {
+        "final": true,
+        "jsonIgnore": true
+      }
+    },
+    "interfaces": "DbConfigInterface",
     "superKey": "HostConfig",
     "expose": "NONE",
     "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbConfig",
     "properties": {
-      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbConfigInterface": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "interfaces": "ConfigConfigInterface,ConfigProperties",
+    "expose": "NONE",
+    "description": "Methods to get the properties schema from properties map.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbConfigInterface",
+    "properties": {
+      "create": false,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbBean": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "fieldKeys": {
+      "dbType": {
+        "jsonIgnore": true
+      },
+      "driver": {
+        "jsonIgnore": true
+      },
+      "extension": {
+        "jsonIgnore": true
+      },
+      "jndi": {
+        "jsonIgnore": true
+      },
+      "schema": {
+        "jsonIgnore": true
+      }
+    },
+    "interfaces": "DbBeanInterface",
+    "superKey": "HostBean",
+    "expose": "NONE",
+    "description": "Mainly the schema information as base for  {@link DbQueryConfig} ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbBean",
+    "properties": {
+      "create": true,
+      "shapeType": "BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbBeanInterface": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "interfaces": "DbConfigInterface,Base",
+    "expose": "NONE",
+    "description": "Methods to get the properties schema from properties map.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbBeanInterface",
+    "properties": {
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -88,21 +162,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbProperties": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "superKey": "Config",
-    "expose": "NONE",
-    "description": "Methods to get the properties schema from properties map.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbProperties",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
   "DbSqlCall": {
     "module": "eo-db",
     "moduleScope": "main",
@@ -124,20 +183,43 @@
   "DbSqlConfig": {
     "module": "eo-db",
     "moduleScope": "main",
-    "fieldKeys": [
-      "dbKey",
-      "sqlList"
-    ],
-    "interfaces": "DbSqlProperties",
-    "superKey": "ResourceConfig",
+    "fieldKeys": {
+      "sqlList": {
+        "final": true
+      }
+    },
+    "interfaces": "DbSqlConfigInterface",
+    "superKey": "PermissionConfig",
     "expose": "NONE",
-    "description": "Execute sql statements via jdbc connection. ",
+    "description": "Configuration for sql statements. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
     "modelKey": "DbSqlConfig",
     "properties": {
-      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbSqlBean": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "fieldKeys": {
+      "sqlList": {
+        "final": false
+      },
+      "properties": {
+        "final": false
+      }
+    },
+    "interfaces": "DbSqlBeanInterface",
+    "superKey": "PermissionBean",
+    "expose": "NONE",
+    "description": "Execute sql statements via jdbc connection. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbSqlBean",
+    "properties": {
+      "create": true,
+      "shapeType": "BEAN"
     },
     "author": "Werner Diwischek"
   },
@@ -157,16 +239,41 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbSqlProperties": {
+  "DbSqlConfigInterface": {
     "module": "eo-db",
     "moduleScope": "main",
+    "fieldKeys": {
+      "sqlList": {
+        "final": true,
+        "notNull": true
+      }
+    },
     "superKey": "Config",
     "expose": "NONE",
-    "description": "Methods to get the dbKey property from properties map.",
+    "description": "SQL list get.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlProperties",
+    "modelKey": "DbSqlConfigInterface",
     "properties": {
       "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "INTERFACE"
+    },
+    "author": "Werner Diwischek"
+  },
+  "DbSqlBeanInterface": {
+    "module": "eo-db",
+    "moduleScope": "main",
+    "fieldKeys": {
+      "sqlList": {
+        "notNull": true
+      }
+    },
+    "superKey": "Config",
+    "expose": "NONE",
+    "description": "SQL list set",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "modelKey": "DbSqlBeanInterface",
+    "properties": {
       "create": true,
       "shapeType": "INTERFACE"
     },

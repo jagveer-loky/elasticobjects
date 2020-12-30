@@ -42,7 +42,7 @@ public class JavascriptFieldCall extends CallImpl implements SimpleCommand {
         StringBuilder builder = new StringBuilder("public ");
         builder. append(StringLowerCall.lower(fieldBean.getFieldKey()));
         builder.append("?: ");
-        builder.append(JavascriptFieldTypeCall.createType(fieldBean.getModelKeys()));
+        // TODO builder.append(JavascriptFieldTypeCall.createType(fieldBean.getModelKeys()));
         builder.append(", ");
         return builder.toString();
     }

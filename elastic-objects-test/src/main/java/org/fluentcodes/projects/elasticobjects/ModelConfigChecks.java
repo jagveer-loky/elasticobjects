@@ -41,7 +41,7 @@ public class ModelConfigChecks {
                             model.create();
                         })
                 .isInstanceOf(EoException.class)
-                .hasMessageContaining("ModelConfig has no create flag -> no empty instance will create for '" + modelClass.getSimpleName() + "'");
+                .hasMessageContaining("ModelConfig has no create flag -> no empty instance will created for '" + modelClass.getSimpleName() + "'");
         return model;
     }
 

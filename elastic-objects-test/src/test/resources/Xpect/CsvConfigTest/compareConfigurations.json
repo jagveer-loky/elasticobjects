@@ -1,0 +1,269 @@
+{
+  "ContentExample": {
+    "cached": true,
+    "fileName": "ContentExample.json",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "Calls templates.",
+    "naturalId": "ContentExample"
+  },
+  "ContentExampleData": {
+    "cached": true,
+    "fileName": "ContentExampleData.json",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "Simple data for the content templates.",
+    "naturalId": "ContentExampleData"
+  },
+  "ContentExampleDynamic": {
+    "cached": true,
+    "fileName": "ContentExampleDynamic.tpl",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A template or ContentExample using the template field for rendering with a template",
+    "naturalId": "ContentExampleDynamic"
+  },
+  "ContentExampleElement1": {
+    "cached": true,
+    "fileName": "ContentExampleElement1.tpl",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A template for an entry fo ContentExample",
+    "naturalId": "ContentExampleElement1"
+  },
+  "ContentExampleElement2": {
+    "cached": true,
+    "fileName": "ContentExampleElement2.tpl",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A template for an entry fo ContentExample",
+    "naturalId": "ContentExampleElement2"
+  },
+  "ContentExampleStatic": {
+    "cached": true,
+    "fileName": "ContentExampleStatic.tpl",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A template  ContentExample with condition",
+    "naturalId": "ContentExampleStatic"
+  },
+  "ContentExampleStaticCondition": {
+    "cached": true,
+    "fileName": "ContentExampleStaticCondition.tpl",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A template  ContentExample with condition",
+    "naturalId": "ContentExampleStaticCondition"
+  },
+  "ContentExampleStaticKeep": {
+    "cached": true,
+    "fileName": "ContentExampleStaticKeep.tpl",
+    "filePath": "input/calls/content-example",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A template  ContentExample with condition",
+    "naturalId": "ContentExampleStaticKeep"
+  },
+  "FileTest.txt": {
+    "cached": false,
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
+    "hostConfigKey": "localhost",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "Local 'source.txt' definition.",
+    "naturalId": "FileTest.txt"
+  },
+  "FileTestCached.txt": {
+    "cached": true,
+    "fileName": "FileTest.txt",
+    "filePath": "input/calls/file-simple",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "Local file with cache set true.",
+    "naturalId": "FileTestCached.txt"
+  },
+  "ListSimple.json": {
+    "cached": false,
+    "fileName": "ListSimple.json",
+    "filePath": "input/calls/list-simple",
+    "hostConfigKey": "localhost",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A sample json file with 2*2 values and a head as a source.",
+    "naturalId": "ListSimple.json"
+  },
+  "target.csv": {
+    "cached": false,
+    "fileName": "target.csv",
+    "filePath": " =>[@TMP].",
+    "hostConfigKey": "localhost",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "configModelKey": "CsvConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "properties": {
+      "rowHead": 0
+    },
+    "description": "A sample target csv file with tmp placeholder.",
+    "naturalId": "target.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "rowHead": 0
+  },
+  "target.json": {
+    "cached": false,
+    "fileName": "target.json",
+    "filePath": " =>[@TMP].",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "A sample target json file with tmp placeholder.",
+    "naturalId": "target.json"
+  },
+  "target.txt": {
+    "cached": false,
+    "fileName": "target.txt",
+    "filePath": " =>[@TMP].",
+    "hostConfigKey": "localhost",
+    "configModelKey": "FileConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "Target file definition",
+    "naturalId": "target.txt"
+  },
+  "XPECT_TEST": {
+    "cached": false,
+    "fileName": ".*.json",
+    "filePath": "Xpect/AnObjectTest",
+    "hostConfigKey": "localhost",
+    "rolePermissions": {
+      "execute": "guest"
+    },
+    "configModelKey": "DirectoryConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "description": "Test directory for DirectoryListReadCall",
+    "naturalId": "XPECT_TEST"
+  },
+  "AnObject.csv": {
+    "cached": false,
+    "fileName": "AnObject.csv",
+    "filePath": "input/assets/bt",
+    "hostConfigKey": "localhost",
+    "rolePermissions": {
+      "read": "guest"
+    },
+    "configModelKey": "CsvConfig",
+    "expose": "WEB",
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "properties": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 4
+    },
+    "description": "A sample character separated file with 3x3 entries and a header which could be mapped to AnObject.",
+    "naturalId": "AnObject.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "rowEnd": 4,
+    "rowHead": 0,
+    "rowStart": 1
+  },
+  "AnObject.json": {
+    "cached": false,
+    "fileName": "AnObject.json",
+    "filePath": "input/assets/bt",
+    "hostConfigKey": "localhost",
+    "rolePermissions": {
+      "read": "guest"
+    },
+    "configModelKey": "FileConfig",
+    "expose": "WEB",
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "description": "Simple data for the AnObject.",
+    "naturalId": "AnObject.json"
+  },
+  "ListSimple.csv": {
+    "cached": false,
+    "fileName": "ListSimple.csv",
+    "filePath": "input/calls/list-simple",
+    "hostConfigKey": "localhost",
+    "rolePermissions": {
+      "read": "guest",
+      "write": "admin"
+    },
+    "configModelKey": "CsvConfig",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "main",
+    "properties": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
+    "description": "A sample csv file with 2*2 values and a head as a source.",
+    "naturalId": "ListSimple.csv",
+    "fieldDelimiter": ";",
+    "rowDelimiter": "\n",
+    "rowEnd": 3,
+    "rowHead": 0,
+    "rowStart": 1
+  }
+}

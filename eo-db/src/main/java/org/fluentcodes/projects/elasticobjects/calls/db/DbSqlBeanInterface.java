@@ -17,8 +17,4 @@ public interface DbSqlBeanInterface extends DbSqlConfigInterface, Base {
             setSqlList((List)value);
         }
     }
-
-    default void setDbKey(final String value) {
-        getProperties().put(DB_KEY, value);
-    }
 }

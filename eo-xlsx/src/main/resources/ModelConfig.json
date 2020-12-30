@@ -2,14 +2,13 @@
   "XlsxConfig": {
     "module": "eo-xlsx",
     "moduleScope": "main",
-    "superKey": "FileConfig",
     "interfaces": "XlsxConfigInterface",
+    "superKey": "FileConfig",
     "expose": "NONE",
     "description": "The cache class for excel access. Contains the file cache.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxConfig",
     "properties": {
-      "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
@@ -19,15 +18,18 @@
     "module": "eo-xlsx",
     "moduleScope": "main",
     "fieldKeys": {
-      "sheetName": {"default": true, "final": true, "transient": true}
+      "sheetName": {
+        "default": true,
+        "final": true,
+        "transient": true
+      }
     },
-    "superKey": "FileConfigInterface",
+    "interfaces": "FileConfigInterface",
     "expose": "NONE",
     "description": "The cache class for excel access. Contains the file cache.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxConfigInterface",
     "properties": {
-      "classPath": "src.main.java",
       "create": false,
       "shapeType": "INTERFACE"
     },
@@ -43,7 +45,6 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxReadCall",
     "properties": {
-      "classPath": "src.main.java",
       "create": true,
       "shapeType": "CALL_BEAN"
     },

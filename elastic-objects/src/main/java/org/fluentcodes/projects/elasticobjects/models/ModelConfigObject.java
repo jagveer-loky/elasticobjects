@@ -1,18 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,7 +10,6 @@ import java.util.Set;
  * Created by Werner on 09.10.2016.
  */
 public class ModelConfigObject extends ModelConfig {
-    private static final Logger LOG = LogManager.getLogger(ModelConfigObject.class);
 
     public ModelConfigObject(Map map) {
         this(new ModelBean(map));
@@ -58,7 +47,7 @@ public class ModelConfigObject extends ModelConfig {
 
     @Override
     public Set<String> keys(final Object object)  {
-        return this.getFieldConfigMap().keySet();
+        return this.getFieldKeys();
     }
 
     @Override
@@ -97,7 +86,7 @@ public class ModelConfigObject extends ModelConfig {
     @Override
     public Object create()  {
         if (!isCreate()) {
-            throw new EoException("ModelConfig has no create flag -> no empty instance will create for '" + getModelKey() + "'");
+            throw new EoException("ModelConfig has no create flag -> no empty instance will created for '" + getModelKey() + "'");
         }
         if (getShapeType() == ShapeTypes.CONFIG) {
             throw new EoException("A config has no empty constructor and can't initialized by eo " + getModelKey());
@@ -126,5 +115,9 @@ public class ModelConfigObject extends ModelConfig {
             return false;
         }
         return getModelKey().equals(modelCache.getModelKey());
+    }
+
+    public boolean isJsonIgnore(final String key) {
+        return getFieldConfig(key).isJsonIgnore();
     }
 }

@@ -6,7 +6,11 @@
     "description": "The plural version of modelKey.",
     "expose": "NONE",
     "fieldKey": "modelKeyPlural",
-    "properties": {"transient": true, "final": true}
+    "length": 64,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
   },
   "modelKeyLower": {
     "module": "builder",
@@ -16,7 +20,10 @@
     "expose": "NONE",
     "fieldKey": "modelKeyLower",
     "length": 64,
-    "properties": {"transient": true, "final": true}
+    "properties": {
+      "transient": true,
+      "final": true
+    }
   },
   "modelKeyPluralLower": {
     "module": "builder",
@@ -25,7 +32,20 @@
     "description": "The plural lower version of modelKey.",
     "expose": "NONE",
     "fieldKey": "modelKeyPluralLower",
-    "properties": {"transient": true, "final": true}
+    "length": 64,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
+  },
+  "javascriptType": {
+    "module": "builder",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The javascript type version. ",
+    "expose": "NONE",
+    "fieldKey": "javascriptType",
+    "length": 64
   },
   "projectDirectory": {
     "module": "builder",
@@ -40,36 +60,52 @@
     "module": "builder",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "Base directory for the projects generated files.",
+    "description": "Complete standard get method for java.",
     "expose": "NONE",
     "fieldKey": "javaGetMethod",
-    "properties": {"transient": true, "final": true}
+    "length": 64,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
   },
   "javaSetMethod": {
     "module": "builder",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "Base directory for the projects generated files.",
+    "description": "Complete standard set method for java.",
     "expose": "NONE",
     "fieldKey": "javaSetMethod",
-    "properties": {"transient": true, "final": true}
+    "length": 64,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
   },
   "javaHasMethod": {
     "module": "builder",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "Base directory for the projects generated files.",
+    "description": "Complete standard has method for java.",
     "expose": "NONE",
     "fieldKey": "javaHasMethod",
-    "properties": {"transient": true, "final": true}
+    "length": 64,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
   },
   "javaDescription": {
     "module": "builder",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "Base directory for the projects generated files.",
+    "description": "Complete description header for java. ",
     "expose": "NONE",
     "fieldKey": "javaDescription",
-    "properties": {"transient": true, "final": true}
+    "length": 64,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
   }
 }

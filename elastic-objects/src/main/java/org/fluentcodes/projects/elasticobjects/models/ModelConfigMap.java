@@ -79,9 +79,12 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterfaceM
 
     }
 
+    public Set<String> getFieldKeys() {
+        return getFieldConfigMap().keySet();
+    }
+
     public boolean exists(final String fieldName, final Object object)  {
         return ((Map) object).containsKey(fieldName);
-
     }
 
 

@@ -12,6 +12,7 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
     public static final String SQL_LIST = "sqlList";
     public static final String DEFAULT_HOST_CONFIG_KEY = "defaultHostConfigKey";
     private List<String> sqlList;
+    private Map properties;
 
     public DbSqlBean() {
         super();
@@ -26,6 +27,15 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
 
     protected void merge(final Map values) {
         super.merge(values);
+    }
+
+    @Override
+    public Map<String, Object> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Map properties) {
+        this.properties = properties;
     }
 
     @Override

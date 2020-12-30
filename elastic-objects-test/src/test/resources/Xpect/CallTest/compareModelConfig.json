@@ -51,7 +51,7 @@
       "modelList": [
         "Boolean"
       ],
-      "description": "overwrite",
+      "description": "A overwrite field flag for @Call.",
       "naturalId": "overwrite"
     },
     "postpend": {

@@ -26,7 +26,7 @@ public class ModelConfigDbObject extends ModelConfigObject implements Permission
 
     public ModelConfigDbObject(ModelBean bean) {
         super(bean);
-        this.permissionRole = null;
+        this.permissionRole = bean.getRolePermissions();
         this.hostConfigKey = null;
         //this.permissionRole = new PermissionRole((Map)map.get(ROLE_PERMISSIONS));
         //this.hostConfigKey = (String)map.get(HOST_CONFIG_KEY);

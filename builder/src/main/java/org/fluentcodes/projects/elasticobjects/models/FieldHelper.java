@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
 public class FieldHelper {
@@ -46,9 +47,15 @@ public class FieldHelper {
                 return;
             }
             for (Object key : ((Map)raw).keySet()) {
-                Map<String, Object> fieldMap = (Map<String,Object>) ((Map)raw).get(key);
-                FieldBean fieldJoiner = new FieldBean(fieldMap);
-                this.fieldMap.put((String)key, fieldJoiner);
+                try {
+                    Map<String, Object> fieldMap = (Map<String, Object>) ((Map) raw).get(key);
+                    fieldMap.put(NATURAL_ID, key);
+                    FieldBean fieldJoiner = new FieldBean(fieldMap);
+                    this.fieldMap.put((String)key, fieldJoiner);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         else {

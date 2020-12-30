@@ -1,82 +1,81 @@
 {
-
   "localMySql:core": {
-    "dbKey": "localMySql:core",
     "configModelKey": "DbConfig",
-    "dbType": "MYSQL",
+    "properties": {
+      "dbType": "MYSQL",
+      "schema": "core"
+    },
     "module": "eo-db",
-    "subModule": "main",
-    "description": "Core Schema",
-    "naturalId": "localMySql:core"
+    "moduleScope": "main",
+    "description": "Core Schema"
   },
   "localMySql:test": {
-    "dbKey": "localMySql:test",
     "configModelKey": "DbConfig",
-    "dbType": "MYSQL",
+    "properties": {
+      "dbType": "MYSQL",
+      "schema": "test"
+    },
     "module": "eo-db",
-    "subModule": "main",
-    "description": "Test Schema",
-    "naturalId": "localMySql:test"
+    "moduleScope": "main",
+    "description": "Test Schema"
   },
   "localOracle:XE": {
-    "dbKey": "localOracle:XE",
     "configModelKey": "DbConfig",
-    "schema": "XE",
-    "dbType": "ORACLE",
+    "properties": {
+      "schema": "XE",
+      "dbType": "ORACLE"
+    },
     "module": "eo-db",
-    "subModule": "main",
-    "description": "Oracle Schem",
-    "naturalId": "localOracle:XE"
+    "moduleScope": "main",
+    "description": "Oracle Schem"
   },
   "hsql:mem": {
-    "dbKey": "hsql:mem",
     "configModelKey": "DbConfig",
-    "schema": "mem",
-    "dbType": "HSQL",
+    "properties": {
+      "schema": "mem",
+      "dbType": "HSQL"
+    },
     "module": "eo-db",
-    "subModule": "main",
-    "description": "local HSQL which exists just in memory",
-    "naturalId": "hsql:mem"
+    "moduleScope": "main",
+    "description": "local HSQL which exists just in memory"
   },
   "hsql:fileTest": {
-    "dbKey": "hsql:fileTest",
     "configModelKey": "DbConfig",
-
-    "schema": "file:$[TMP]/test.hsql",
-    "dbType": "HSQL",
+    "properties": {
+      "schema": "file:$[TMP]/test.hsql",
+      "dbType": "HSQL"
+    },
     "module": "eo-db",
-    "subModule": "main",
-    "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
-    "naturalId": "hsql:fileTest"
+    "moduleScope": "main",
+    "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html"
   },
   "h2:mem": {
-    "dbKey": "h2:mem",
     "configModelKey": "DbConfig",
-    "hostKey": "h2",
-    "protocol": "jdbc:h2",
-    "user": "sa",
-    "schema": "mem:test",
-    "driver": "org.h2.Driver",
-    "dbType": "H2",
-    "extension": "DATABASE_TO_UPPER=false;",
+
+    "properties": {
+      "protocol": "jdbc:h2",
+      "user": "sa",
+      "schema": "mem:test",
+      "driver": "org.h2.Driver",
+      "dbType": "H2",
+      "extension": "DATABASE_TO_UPPER=false;"
+    },
     "module": "eo-db",
-    "subModule": "main",
-    "description": "local H2 which exists just in memory",
-    "naturalId": "h2:mem"
+    "moduleScope": "main",
+    "description": "local H2 which exists just in memory"
   },
   "h2:file": {
-    "dbKey": "h2:file",
     "module": "eo-db",
-    "subModule": "main",
+    "moduleScope": "main",
     "configModelKey": "DbConfig",
-    "hostKey": "h2",
-    "protocol": "jdbc:h2",
-    "user": "sa",
-    "schema": "$[TMP]/test",
-    "driver": "org.h2.Driver",
-    "dbType": "H2",
-    "extension": "DATABASE_TO_UPPER=false;",
-    "description": "local H2 with a temp file",
-    "naturalId": "h2:file"
+    "properties": {
+      "protocol": "jdbc:h2",
+      "user": "sa",
+      "schema": "=>{TMP}./test",
+      "driver": "org.h2.Driver",
+      "dbType": "H2",
+      "extension": "DATABASE_TO_UPPER=false;"
+    },
+    "description": "local H2 with a temp file"
   }
 }

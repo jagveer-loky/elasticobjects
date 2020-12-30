@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 public interface FieldBeanInterface extends Config, FieldConfigInterface {
@@ -27,13 +28,14 @@ public interface FieldBeanInterface extends Config, FieldConfigInterface {
 
     void setFieldKey(String fieldKey);
     default void mergeFieldKey(Object value) {
-        if (value == null) {
-            return;
-        }
-        if (hasFieldKey()) {
-            return;
-        }
+        if (value == null) return;
+        if (hasFieldKey()) return;
         setFieldKey(ScalarConverter.toString(value));
+    }
+    default void defaultFieldKey() {
+        if (hasFieldKey()) return;
+        if (!hasNaturalId()) throw new EoException("Field with neither fieldKey nor naturalId is set");
+        setFieldKey(getNaturalId());
     }
 
     void setLength(Integer length);
@@ -128,25 +130,22 @@ public interface FieldBeanInterface extends Config, FieldConfigInterface {
         getProperties().put(SUPER, false );
     }
 
-    default boolean hasJsonIgnore() {
-        return getJsonIgnore()!=null && getJsonIgnore();
-    }
-    
-    default Boolean getJsonIgnore () {
-        return (Boolean) getProperties().get(OVERRIDE);
-    }
-
-    default void setJsonIgnore (String value) {
+    default void mergeJsonIgnore (Object value) {
+        if (value == null) {
+            return;
+        }
         if (hasJsonIgnore()) {
             return;
         }
-        getProperties().put(OVERRIDE, "true".equals(value) );
+        if (value instanceof Boolean) {
+            getProperties().put(JSON_IGNORE, value);
+        }
+        if (value instanceof String) {
+            getProperties().put(JSON_IGNORE, "true".equals(value));
+        }
     }
 
     default void setJsonIgnore (Boolean value) {
-        if (hasJsonIgnore()) {
-            return;
-        }
         getProperties().put(OVERRIDE, value );
     }
 

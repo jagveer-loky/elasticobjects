@@ -64,6 +64,9 @@ public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
 
     boolean exists(final String fieldName, final Object object) ;
 
+    default boolean hasValue(final String fieldName, final Object object) {
+        return get(fieldName, object) != null;
+    }
     /**
      * Removes a value depending on the type.
      * <ul>

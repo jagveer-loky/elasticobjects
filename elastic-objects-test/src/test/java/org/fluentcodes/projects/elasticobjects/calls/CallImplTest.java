@@ -31,7 +31,6 @@ public class CallImplTest {
         EOConfigsCache cache = ProviderRootTestScope.EO_CONFIGS;
         ModelConfig config = cache.findModel(CallImpl.class.getSimpleName());
         Assertions.assertThat(config).isNotNull();
-        Assertions.assertThat(config.getClassPath()).isEqualTo("src.main.java");
 
         // ModelConfig
         Assertions.assertThat(config.getModelKey()).isEqualTo(CallImpl.class.getSimpleName());
@@ -40,7 +39,7 @@ public class CallImplTest {
         Assertions.assertThat(config.getFieldKeys()).isNotEmpty();
         Assertions.assertThat(config.getPackagePath()).isEqualTo("org.fluentcodes.projects.elasticobjects.calls");
         // ModelProperties
-        Assertions.assertThat(config.getCreate()).isFalse();
+        Assertions.assertThat(config.isCreate()).isFalse();
         Assertions.assertThat(config.getShapeType()).isEqualTo(ShapeTypes.CALL_BEAN);
         Assertions.assertThat(config.getDefaultImplementation()).isNull();
 

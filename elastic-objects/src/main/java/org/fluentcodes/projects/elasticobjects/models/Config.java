@@ -140,7 +140,7 @@ public interface Config extends Base, ConfigConfigInterface {
             try {
                 return (ConfigConfigInterface)configurationConstructor.newInstance(this);
             } catch (Exception e) {
-                throw new EoInternalException("Problem with '" + getNaturalId() + "'/'" + configClass.getSimpleName() + "' in ModelConfig", e);
+                throw new EoInternalException("Problem with create new instance for config constructor with bean class for '" + getNaturalId() + "'/'" + configClass.getSimpleName() + "' in ModelConfig", e);
             }
         }
         catch (NoSuchMethodException e) {

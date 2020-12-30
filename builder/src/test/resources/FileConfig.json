@@ -2,7 +2,7 @@
   "classes.tpl.java": {
     "module": "builder-eo",
     "moduleScope": "main",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "templates/java",
     "fileName": "=>[shapeType].create.tpl",
     "description": "Generic root templates for generating java.",
@@ -15,7 +15,7 @@
   "classes.java": {
     "module": "builder-eo",
     "moduleScope": "main",
-    "hostKey": "localhost",
+    "hostConfigKey": "localhost",
     "filePath": "=>[/projectDirectory]./=>[module]./src/=>[moduleScope]./java/==>[StringReplaceCall->packagePath, \\., /].",
     "fileName": "/=>[modelKey].=>[/fileEnding]..java",
     "description": "Target file to generate java class files.",

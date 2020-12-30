@@ -31,14 +31,14 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "author",
-      "creationDate",
-      "description",
       "id",
-      "naturalId"
+      "description",
+      "naturalId",
+      "creationDate",
+      "author"
     ],
+    "interfaces": "BaseConfigInterface",
     "expose": "NONE",
-    "superKey": "BaseConfigInterface",
     "description": "Basic bean as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
     "modelKey": "Base",
@@ -53,11 +53,21 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "author": {"override": true},
-      "creationDate": {"override": true},
-      "description": {"override": true},
-      "id": {"override": true},
-      "naturalId": {"override": true}
+      "author": {
+        "override": true
+      },
+      "creationDate": {
+        "override": true
+      },
+      "description": {
+        "override": true
+      },
+      "id": {
+        "override": true
+      },
+      "naturalId": {
+        "override": true
+      }
     },
     "interfaces": "Base",
     "expose": "NONE",
@@ -75,11 +85,11 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "author",
-      "creationDate",
-      "description",
       "id",
-      "naturalId"
+      "description",
+      "naturalId",
+      "creationDate",
+      "author"
     ],
     "expose": "NONE",
     "description": "Basic bean as super interface for other cached items. ",
@@ -96,11 +106,26 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "author": {"override": true, "final": true},
-      "creationDate": {"override": true, "final": true},
-      "description": {"override": true, "final": true},
-      "id": {"override": true, "final": true},
-      "naturalId": {"override": true, "final": true}
+      "author": {
+        "override": true,
+        "final": true
+      },
+      "creationDate": {
+        "override": true,
+        "final": true
+      },
+      "description": {
+        "override": true,
+        "final": true
+      },
+      "id": {
+        "override": true,
+        "final": true
+      },
+      "naturalId": {
+        "override": true,
+        "final": true
+      }
     },
     "interfaces": "BaseConfigInterface",
     "expose": "NONE",
@@ -118,17 +143,17 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "condition",
-      "duration",
-      "keepCall",
-      "logLevel",
-      "models",
-      "overwrite",
-      "postpend",
-      "prepend",
       "sourcePath",
+      "targetPath",
+      "models",
+      "condition",
       "startCondition",
-      "targetPath"
+      "overwrite",
+      "logLevel",
+      "duration",
+      "prepend",
+      "postpend",
+      "keepCall"
     ],
     "expose": "NONE",
     "description": "Basic interface for calls ",
@@ -162,28 +187,51 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "condition": {"override": true},
-      "duration": {"override": true},
-      "keepCall": {"override": true},
-      "logLevel": {"override": true},
-      "models": {"override": true},
-      "overwrite": {"override": true},
-      "postpend": {"override": true},
-      "prepend": {"override": true},
-      "sourcePath": {"override": true},
-      "startCondition": {"override": true},
-      "targetPath": {"override": true}
+      "condition": {
+        "override": true
       },
+      "duration": {
+        "override": true
+      },
+      "keepCall": {
+        "override": true
+      },
+      "logLevel": {
+        "override": true
+      },
+      "models": {
+        "override": true
+      },
+      "overwrite": {
+        "override": true
+      },
+      "postpend": {
+        "override": true
+      },
+      "prepend": {
+        "override": true
+      },
+      "sourcePath": {
+        "override": true
+      },
+      "startCondition": {
+        "override": true
+      },
+      "targetPath": {
+        "override": true
+      }
+    },
     "interfaces": "SimpleCommand",
     "superKey": "BaseBean",
     "expose": "NONE",
-    "description": "Basic implementation for calls. ",
+    "description": "Basic bean implementation for calls. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "CallImpl",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
-      "shapeType": "CALL_BEAN"
+      "shapeType": "CALL_BEAN",
+      "abstract": true
     },
     "author": "Werner Diwischek"
   },
@@ -229,7 +277,7 @@
     "expose": "NONE",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "Config",
+    "modelKey": "ConfigConfigInterface",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -252,20 +300,6 @@
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "Config",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": false,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
-  "ConfigProperties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "expose": "NONE",
-    "description": "Basic config interface as super interface for other cached items. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ConfigProperties",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -331,16 +365,26 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "expose": {"override": true},
-      "module": {"override": true},
-      "moduleScope": {"override": true},
-      "scope": {"override": true},
-      "configModelKey": {"override": true}
+      "expose": {
+        "override": true
+      },
+      "module": {
+        "override": true
+      },
+      "moduleScope": {
+        "override": true
+      },
+      "scope": {
+        "override": true
+      },
+      "configModelKey": {
+        "override": true
+      }
     },
     "interfaces": "Config",
     "superKey": "BaseBean",
     "expose": "NONE",
-    "description": "Basic cache as super object for other cached items. ",
+    "description": "The basic bean class for the configurations class.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ConfigBean",
     "properties": {
@@ -354,12 +398,30 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "expose": {"override": true, "final": true},
-      "module": {"override": true, "final": true},
-      "moduleScope": {"override": true, "final": true},
-      "scope": {"override": true, "final": true},
-      "configModelKey": {"override": true, "final": true},
-      "properties": {"override": true, "final": true}
+      "expose": {
+        "override": true,
+        "final": true
+      },
+      "module": {
+        "override": true,
+        "final": true
+      },
+      "moduleScope": {
+        "override": true,
+        "final": true
+      },
+      "scope": {
+        "override": true,
+        "final": true
+      },
+      "configModelKey": {
+        "override": true,
+        "final": true
+      },
+      "properties": {
+        "override": true,
+        "final": true
+      }
     },
     "interfaces": "ConfigConfigInterface,ConfigProperties",
     "superKey": "BaseConfig",
@@ -371,6 +433,19 @@
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
+    },
+    "author": "Werner Diwischek"
+  },
+  "ConfigProperties": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "expose": "NONE",
+    "description": "Defines the properties access method as interface. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ConfigProperties",
+    "properties": {
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -393,8 +468,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "configFilter",
       "configType",
+      "configFilter",
       "expose",
       "sortOrder"
     ],
@@ -415,10 +490,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "configFilter",
-      "expose",
       "module",
-      "moduleScope"
+      "moduleScope",
+      "configFilter",
+      "expose"
     ],
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -513,10 +588,14 @@
   "CsvProperties": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": [
-      "fieldDelimiter",
-      "rowDelimiter"
-    ],
+    "fieldKeys": {
+      "fieldDelimiter": {
+        "default": true
+      },
+      "rowDelimiter": {
+        "default": true
+      }
+    },
     "expose": "NONE",
     "description": "Defines acces to csv properties with fieldDelimiter and rowDelimiter fields in CsvConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -532,7 +611,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "listParams": {}
+      "listParams": {
+        "override": false
+      }
     },
     "interfaces": "ListInterface",
     "superKey": "FileReadCall",
@@ -600,9 +681,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "fileEnding",
+      "toReplace",
       "replaceBy",
-      "toReplace"
+      "fileEnding"
     ],
     "superKey": "DirectoryListReadCall",
     "expose": "WEB",
@@ -701,9 +782,18 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "fieldKey": {"final":  true, "override":true},
-      "modelKeys": {"final":  true, "override":true},
-      "modelList": {"final":  true, "override":true}
+      "fieldKey": {
+        "final": true,
+        "override": true
+      },
+      "modelKeys": {
+        "final": true,
+        "override": true
+      },
+      "modelList": {
+        "final": true,
+        "override": true
+      }
     },
     "interfaces": "FieldConfigInterface",
     "superKey": "ConfigConfig",
@@ -722,9 +812,18 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "fieldName": {"final": true, "default": true},
-      "notNull": {"final": true, "default": true},
-      "unique": {"final": true, "default": true}
+      "fieldName": {
+        "final": true,
+        "default": true
+      },
+      "notNull": {
+        "final": true,
+        "default": true
+      },
+      "unique": {
+        "final": true,
+        "default": true
+      }
     },
     "superKey": "ConfigConfigInterface",
     "expose": "NONE",
@@ -752,7 +851,8 @@
     "properties": {
       "classPath": "src.main.java",
       "create": false,
-      "shapeType": "CALL_BEAN"
+      "shapeType": "CALL_BEAN",
+      "abstract": true
     },
     "author": "Werner Diwischek"
   },
@@ -760,16 +860,26 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "cached": {},
-      "fileName": {},
-      "filePath": {},
-      "hostConfigKey": {},
-      "properties": {}
+      "cached": {
+        "override": false
+      },
+      "fileName": {
+        "override": false
+      },
+      "filePath": {
+        "override": false
+      },
+      "hostConfigKey": {
+        "override": false
+      },
+      "properties": {
+        "override": false
+      }
     },
     "interfaces": "FileBeanInterface",
     "superKey": "PermissionBean",
     "expose": "NONE",
-    "description": "Immutable EO file configuration allow read or write access to a specific file. ",
+    "description": "The bean counterpart for @FileConfig.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileBean",
     "properties": {
@@ -783,10 +893,18 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "cached": {"final":  true},
-      "fileName": {"final":  true},
-      "filePath": {"final":  true},
-      "hostConfigKey": {"final":  true}
+      "cached": {
+        "final": true
+      },
+      "fileName": {
+        "final": true
+      },
+      "filePath": {
+        "final": true
+      },
+      "hostConfigKey": {
+        "final": true
+      }
     },
     "interfaces": "FileConfigInterfaceMethods",
     "superKey": "PermissionConfig",
@@ -805,14 +923,22 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "cached": {"final":  true},
-      "fileName": {"final":  true},
-      "filePath": {"final":  true},
-      "hostConfigKey": {"final":  true}
+      "cached": {
+        "final": true
+      },
+      "fileName": {
+        "final": true
+      },
+      "filePath": {
+        "final": true
+      },
+      "hostConfigKey": {
+        "final": true
+      }
     },
-    "superKey": "PermissionConfigInterface",
+    "interfaces": "PermissionConfigInterface",
     "expose": "NONE",
-    "description": "Immutable EO file configuration allow read or write access to a specific file. ",
+    "description": "Access methods for field properties map. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "FileConfigInterface",
     "properties": {
@@ -842,9 +968,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "compare",
       "sourceFileConfigKey",
-      "targetFileConfigKey"
+      "targetFileConfigKey",
+      "compare"
     ],
     "interfaces": "ConfigReadWriteCommand",
     "superKey": "CallImpl",
@@ -863,8 +989,12 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "compare": {},
-      "content": {"override": true}
+      "compare": {
+        "override": false
+      },
+      "content": {
+        "override": true
+      }
     },
     "interfaces": "ConfigWriteCommand,CallContent",
     "superKey": "FileCall",
@@ -908,7 +1038,8 @@
     "properties": {
       "classPath": "src.main.java",
       "create": false,
-      "shapeType": "CALL_BEAN"
+      "shapeType": "CALL_BEAN",
+      "abstract": true
     },
     "author": "Werner Diwischek"
   },
@@ -930,7 +1061,7 @@
   "HostConfigInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "ConfigConfigInterface",
+    "interfaces": "ConfigConfigInterface",
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
@@ -945,7 +1076,7 @@
   "HostConfigInterfaceMethods": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "HostConfigInterface",
+    "interfaces": "HostConfigInterface",
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
@@ -960,7 +1091,7 @@
   "Host": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "HostConfigInterface",
+    "interfaces": "HostConfigInterface",
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
@@ -976,8 +1107,8 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
-      "indent",
-      "serializationType"
+      "serializationType",
+      "indent"
     ],
     "superKey": "FileWriteCall",
     "expose": "WEB",
@@ -1039,12 +1170,30 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "colKeys": {"default": true, "transient": true},
-      "filter": {"default": true, "transient": true},
-      "length": {"default": true, "transient": true},
-      "rowEnd": {"default": true, "transient": true},
-      "rowHead": {"default": true, "transient": true},
-      "rowStart": {"default": true, "transient": true}
+      "colKeys": {
+        "default": true,
+        "transient": true
+      },
+      "filter": {
+        "default": true,
+        "transient": true
+      },
+      "length": {
+        "default": true,
+        "transient": true
+      },
+      "rowEnd": {
+        "default": true,
+        "transient": true
+      },
+      "rowHead": {
+        "default": true,
+        "transient": true
+      },
+      "rowStart": {
+        "default": true,
+        "transient": true
+      }
     },
     "expose": "NONE",
     "description": "Defines default access values for ListParams",
@@ -1061,12 +1210,24 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "colKeys": {},
-      "filter": {},
-      "length": {},
-      "rowEnd": {},
-      "rowHead": {},
-      "rowStart": {}
+      "colKeys": {
+        "override": false
+      },
+      "filter": {
+        "override": false
+      },
+      "length": {
+        "override": false
+      },
+      "rowEnd": {
+        "override": false
+      },
+      "rowHead": {
+        "override": false
+      },
+      "rowStart": {
+        "override": false
+      }
     },
     "expose": "NONE",
     "description": "Defines the parameter like rowStart, rowEnd and length.",
@@ -1082,14 +1243,26 @@
   "ListProperties": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": [
-      "colKeys",
-      "filter",
-      "length",
-      "rowEnd",
-      "rowHead",
-      "rowStart"
-    ],
+    "fieldKeys": {
+      "colKeys": {
+        "default": true
+      },
+      "filter": {
+        "default": true
+      },
+      "length": {
+        "default": true
+      },
+      "rowEnd": {
+        "default": true
+      },
+      "rowHead": {
+        "default": true
+      },
+      "rowStart": {
+        "default": true
+      }
+    },
     "expose": "NONE",
     "description": "Defines access to list properties in configurations.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
@@ -1102,31 +1275,51 @@
     "author": "Werner Diwischek"
   },
   "ModelConfig": {
-    "author": "Werner Diwischek",
-    "description": "Table definitions with pojo.",
-    "expose": "NONE",
-    "fieldKeys": {
-      "interfaces": {"override": true, "final": true},
-      "modelKey": {"override": true, "final": true},
-      "packagePath": {"override": true, "final": true},
-      "superKey": {"override": true, "final": true},
-      "fieldConfigMap": {"final": true}
-    },
-    "interfaces": "ModelConfigInterfaceMethods",
-    "modelKey": "ModelConfig",
     "module": "elastic-objects",
     "moduleScope": "main",
+    "fieldKeys": {
+      "interfaces": {
+        "override": true,
+        "final": true
+      },
+      "modelKey": {
+        "override": true,
+        "final": true
+      },
+      "packagePath": {
+        "override": true,
+        "final": true
+      },
+      "superKey": {
+        "override": true,
+        "final": true
+      },
+      "fieldConfigMap": {
+        "final": true
+      }
+    },
+    "interfaces": "ModelConfigInterfaceMethods",
+    "superKey": "ConfigConfig",
+    "expose": "NONE",
+    "description": "Table definitions with pojo.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "ModelConfig",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
       "shapeType": "CONFIG"
     },
-    "superKey": "ConfigConfig"
+    "author": "Werner Diwischek"
   },
   "ModelConfigDbObject": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "fieldKeys": {
+      "rolePermissions": {
+        "overwrite": true,
+        "final": true
+      }
+    },
     "interfaces": "PermissionConfigInterface",
     "superKey": "ModelConfigObject",
     "expose": "NONE",
@@ -1144,14 +1337,32 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "abstract": {"override": true, "final": true, "transient": true,
-        "default": true},
-      "dbAnnotated": {"override": true, "final": true, "transient": true,
-        "default": true}
+      "abstract": {
+        "override": false,
+        "final": true,
+        "transient": true,
+        "default": true
+      },
+      "dbAnnotated": {
+        "override": false,
+        "final": true,
+        "transient": true,
+        "default": true
+      },
+      "fieldConfigMap": {
+        "override": false,
+        "final": true
+      },
+      "interfaces": {
+        "override": false
+      },
+      "modelKey": {
+        "override": false
+      }
     },
     "superKey": "Config",
     "expose": "NONE",
-    "description": "Table definitions with pojo.",
+    "description": "Elementary model properties.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelConfigInterface",
     "properties": {
@@ -1345,10 +1556,10 @@
     "fieldKeys": [
       "rolePermissions"
     ],
+    "interfaces": "PermissionConfigInterface",
     "expose": "NONE",
     "description": "Interface with permissions methods ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "superKey": "PermissionConfigInterface",
     "modelKey": "Permission",
     "properties": {
       "classPath": "src.main.java",
@@ -1359,11 +1570,11 @@
   "PermissionConfigInterfaceMethods": {
     "module": "elastic-objects",
     "moduleScope": "main",
+    "interfaces": "PermissionConfigInterface",
     "expose": "NONE",
     "description": "Interface with permissions methods ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "PermissionConfigInterfaceMethods",
-    "superKey": "PermissionConfigInterface",
     "properties": {
       "classPath": "src.main.java",
       "create": false,
@@ -1390,11 +1601,11 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
+      "read",
+      "write",
       "Permissions.create",
       "delete",
-      "execute",
-      "read",
-      "write"
+      "execute"
     ],
     "expose": "NONE",
     "description": "Defines the roles ",
@@ -1411,7 +1622,10 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "rolePermissions": {"override": true, "final": true}
+      "rolePermissions": {
+        "override": true,
+        "final": true
+      }
     },
     "interfaces": "PermissionConfigInterfaceMethods",
     "superKey": "ConfigConfig",
@@ -1574,14 +1788,31 @@
     },
     "author": "Werner Diwischek"
   },
+  "StringPluralCall": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "For setting lower value to EO.",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+    "modelKey": "StringPluralCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "StringReplaceCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
+      "toReplace",
       "replaceBy",
-      "toReplace"
+      "content"
     ],
-    "interfaces": "SimpleCommand",
+    "interfaces": "CallContent",
     "superKey": "CallImpl",
     "expose": "WEB",
     "description": "For replacing field 'toReplace' by 'replaceBy'.",
@@ -1664,7 +1895,7 @@
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
-    "description": "For setting upper value to EO.",
+    "description": "For setting lower value to EO.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "StringLowerFirstCharCall",
     "properties": {
@@ -1677,7 +1908,11 @@
   "TemplateCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": {"content": {"override": true}},
+    "fieldKeys": {
+      "content": {
+        "override": true
+      }
+    },
     "interfaces": "CallContent,SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
@@ -1753,7 +1988,11 @@
   "ValueCall": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": {"content": {"override": true}},
+    "fieldKeys": {
+      "content": {
+        "override": true
+      }
+    },
     "interfaces": "CallContent,SimpleCommand",
     "superKey": "CallImpl",
     "expose": "WEB",
@@ -1777,6 +2016,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "FieldBean",
     "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -1785,7 +2025,11 @@
   "HostBean": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": {"properties": {}},
+    "fieldKeys": {
+      "properties": {
+        "override": false
+      }
+    },
     "interfaces": "Host",
     "superKey": "PermissionBean",
     "expose": "WEB",
@@ -1793,6 +2037,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "HostBean",
     "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -1802,7 +2047,9 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "rolePermissions": {"override": true}
+      "rolePermissions": {
+        "override": true
+      }
     },
     "interfaces": "Permission",
     "superKey": "ConfigBean",
@@ -1811,6 +2058,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "PermissionBean",
     "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -1820,15 +2068,15 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": [
+      "notNull",
+      "modelKeys",
       "fieldKey",
+      "length",
+      "override",
       "final",
       "generated",
       "super",
-      "javascriptType",
-      "length",
-      "modelKeys",
-      "notNull",
-      "override"
+      "javascriptType"
     ],
     "interfaces": "FieldConfigInterface,Config",
     "expose": "WEB",
@@ -1836,6 +2084,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "FieldBeanInterface",
     "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "INTERFACE"
     },
@@ -1845,10 +2094,18 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "interfaces": {"override": true},
-      "modelKey": {"override": true},
-      "packagePath": {"override": true},
-      "superKey": {"override": true}
+      "interfaces": {
+        "override": true
+      },
+      "modelKey": {
+        "override": true
+      },
+      "packagePath": {
+        "override": true
+      },
+      "superKey": {
+        "override": true
+      }
     },
     "interfaces": "Model",
     "superKey": "ConfigBean",
@@ -1857,6 +2114,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
     "modelKey": "ModelBean",
     "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -1867,23 +2125,43 @@
     "moduleScope": "main",
     "fieldKeys": {
       "abstract": {
+        "jsonSerialized": false,
         "transient": true,
         "default": true
       },
       "dbAnnotated": {
-        "transient": true
+        "jsonSerialized": false,
+        "transient": true,
+        "default": true
       },
-      "interfaces": {},
-      "modelKey":{},
-      "packagePath": {},
-      "superKey": {}
+      "shapeType": {
+        "jsonSerialized": false,
+        "transient": true,
+        "default": true
+      },
+      "javascriptType": {
+        "override": false
+      },
+      "interfaces": {
+        "override": false
+      },
+      "modelKey": {
+        "override": false
+      },
+      "packagePath": {
+        "override": false
+      },
+      "superKey": {
+        "override": false
+      }
     },
     "interfaces": "ModelConfigInterface,Config",
     "expose": "WEB",
     "description": "An interface for@ModelBean with access methods for properties. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelBean",
+    "modelKey": "Model",
     "properties": {
+      "classPath": "src.main.java",
       "create": true,
       "shapeType": "INTERFACE"
     },

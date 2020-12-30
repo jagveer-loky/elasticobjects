@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
+import org.fluentcodes.projects.elasticobjects.calls.HostBean;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
@@ -19,9 +19,9 @@ public class DbConfig extends HostConfig implements DbConfigInterface {
     public static final String H2_BASIC = "h2:mem:basic";
     private Connection connection;
     public DbConfig(final ConfigBean configBean) {
-        this((FileBean)configBean);
+        this((HostBean)configBean);
     }
-    public DbConfig(final FileBean bean) {
+    public DbConfig(final HostBean bean) {
         super(bean);
     }
 

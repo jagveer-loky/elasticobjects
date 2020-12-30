@@ -10,7 +10,7 @@
         "default": true,
         "transient": true,
         "final": true,
-        "override": true
+        "override": false
       },
       "description": "If true the generated model will be initially set as abstract class.",
       "naturalId": "abstract"
@@ -25,10 +25,48 @@
         "default": true,
         "transient": true,
         "final": true,
-        "override": true
+        "override": false
       },
       "description": "If true a db annotation will be generated for java instance vars. ",
       "naturalId": "dbAnnotated"
+    },
+    "fieldConfigMap": {
+      "fieldKey": "fieldConfigMap",
+      "modelKeys": "Map,FieldConfig",
+      "modelList": [
+        "Map",
+        "FieldConfig"
+      ],
+      "properties": {
+        "final": true,
+        "override": false
+      },
+      "description": "A fieldBean map with @FieldConfig",
+      "naturalId": "fieldConfigMap"
+    },
+    "interfaces": {
+      "fieldKey": "interfaces",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "override": false
+      },
+      "description": "A comma separeted list of interface keys. ",
+      "naturalId": "interfaces"
+    },
+    "modelKey": {
+      "fieldKey": "modelKey",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "properties": {
+        "override": false
+      },
+      "description": "The model name for the bean/action object @ModelConfig.",
+      "naturalId": "modelKey"
     },
     "configModelKey": {
       "fieldKey": "configModelKey",

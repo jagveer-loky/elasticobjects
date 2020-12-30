@@ -50,14 +50,6 @@ public abstract class DbSqlCall extends HostCall  {
         }
         sqlConfig = (DbSqlConfig)eo.getConfigsCache().find(DbSqlConfig.class, sqlKey);
         sqlConfig.hasPermissions(permissionType, eo.getRoles());
-        if (!hasHostConfigKey()) {
-            if (sqlConfig.hasDbKey()) {
-                setHostConfigKey(sqlConfig.getDbKey());
-            }
-            else {
-                setHostConfigKey(DbConfig.H2_BASIC);
-            }
-        }
         super.initHostConfig(permissionType, eo);
         return sqlConfig;
     }

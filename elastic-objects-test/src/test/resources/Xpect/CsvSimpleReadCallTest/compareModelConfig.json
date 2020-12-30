@@ -6,6 +6,9 @@
       "modelList": [
         "ListParams"
       ],
+      "properties": {
+        "override": false
+      },
       "description": "Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.",
       "naturalId": "listParams"
     },
@@ -96,7 +99,7 @@
       "properties": {
         "override": true
       },
-      "description": "overwrite",
+      "description": "A overwrite field flag for @Call.",
       "naturalId": "overwrite"
     },
     "postpend": {

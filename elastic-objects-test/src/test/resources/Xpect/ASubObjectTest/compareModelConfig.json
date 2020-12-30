@@ -61,6 +61,7 @@
     "shapeType": "BEAN"
   },
   "author": "Werner Diwischek",
+  "creationDate": 1605826772992,
   "description": "A sub object as an example.",
   "naturalId": "ASubObject"
 }

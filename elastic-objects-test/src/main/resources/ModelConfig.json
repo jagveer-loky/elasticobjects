@@ -5,21 +5,21 @@
     "moduleScope": "main",
     "fieldKeys": [
       "id",
+      "naturalId",
+      "myAnObject",
       "myASubObject",
       "myASubObjectList",
       "myASubObjectMap",
-      "myAnObject",
-      "myBoolean",
-      "myDate",
-      "myDouble",
-      "myFloat",
-      "myInt",
       "myList",
-      "myLong",
       "myMap",
-      "myObject",
+      "myInt",
       "myString",
-      "naturalId"
+      "myLong",
+      "myDate",
+      "myBoolean",
+      "myFloat",
+      "myDouble",
+      "myObject"
     ],
     "expose": "WEB",
     "description": "Model class with different types of fields including generic collections, maps and @link ASubObject objects.",
@@ -41,10 +41,10 @@
     "moduleScope": "main",
     "fieldKeys": [
       "id",
+      "naturalId",
       "myASubObject",
-      "myString",
       "name",
-      "naturalId"
+      "myString"
     ],
     "expose": "WEB",
     "description": "A sub object as an example.",
@@ -58,6 +58,7 @@
     "author": "Werner Diwischek",
     "rolePermissions": {
       "read": "guest"
-    }
+    },
+    "creationDate": 1605826800000
   }
 }

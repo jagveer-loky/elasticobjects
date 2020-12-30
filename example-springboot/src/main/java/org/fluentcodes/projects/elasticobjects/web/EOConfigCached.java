@@ -22,7 +22,7 @@ public class EOConfigCached {
      */
     @Bean
     public EOConfigsCache createProvider() throws Exception {
-        EOConfigsCache provider = new EOConfigsCache(Scope.valueOf(scope), true);
+        EOConfigsCache provider = new EOConfigsCache(Scope.valueOf(scope));
         return provider;
     }
 }

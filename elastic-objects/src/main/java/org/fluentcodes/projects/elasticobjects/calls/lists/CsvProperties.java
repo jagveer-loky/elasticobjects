@@ -8,6 +8,7 @@ public interface CsvProperties extends ConfigConfigInterface, ConfigProperties {
     public static final String ROW_DELIMITER = "rowDelimiter";
     public static final String DEFAULT_FIELD_DELIMITER = ";";
     public static final String DEFAULT_ROW_DELIMITER = "\n";
+
     default boolean hasFieldDelimiter() {
         return getFieldDelimiter()!=null && !getFieldDelimiter().isEmpty();
     }

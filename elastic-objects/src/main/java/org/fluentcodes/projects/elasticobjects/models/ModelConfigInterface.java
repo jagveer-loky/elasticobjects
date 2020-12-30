@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 import static org.fluentcodes.projects.elasticobjects.models.Model.ABSTRACT;
+import static org.fluentcodes.projects.elasticobjects.models.Model.DB_ANNOTATED;
+import static org.fluentcodes.projects.elasticobjects.models.Model.JAVASCRIPT_TYPE;
 
 public interface ModelConfigInterface extends ConfigConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
@@ -67,21 +69,18 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
     }
 
     default boolean hasCreate() {
-        return getCreate()!=null;
+        return getProperties().containsKey(CREATE) && getProperties().get(CREATE) != null;
     }
 
     default Boolean getCreate() {
-        return hasProperties() && getProperties().containsKey(CREATE)? ScalarConverter.toBoolean(getProperties().get(CREATE)) : true;
+        return (Boolean) getProperties().get(CREATE);
     }
 
     default boolean hasShapeType() {
-        return getShapeType()!=null;
+        return getProperties().get(SHAPE_TYPE)!=null;
     }
 
     default ShapeTypes getShapeType() {
-        if (!hasProperties()) {
-            return null;
-        }
         if (!getProperties().containsKey(SHAPE_TYPE)) {
             return null;
         }
@@ -95,38 +94,38 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
     }
 
     default boolean hasDefaultImplementation() {
-        return getDefaultImplementation()!=null && !getDefaultImplementation().isEmpty();
+        return getProperties().containsKey(DEFAULT_IMPLEMENTATION);
     }
 
     default String getDefaultImplementation() {
-        return hasProperties() ? (String) getProperties().get(DEFAULT_IMPLEMENTATION) : null;
+        return (String) getProperties().get(DEFAULT_IMPLEMENTATION);
     }
 
     default Boolean getAbstract() {
         return (Boolean)getProperties().get(ABSTRACT);
     }
     default Boolean hasAbstract() {
-        return getAbstract()!=null;
+        return getProperties().containsKey(ABSTRACT);
     }
     default Boolean isAbstract() {
         return (hasAbstract() && getAbstract()) || false;
     }
 
     default Boolean getDbAnnotated() {
-        return (Boolean)getProperties().get(ABSTRACT);
+        return (Boolean)getProperties().get(DB_ANNOTATED);
     }
     default Boolean hasDbAnnotated() {
-        return getDbAnnotated()!=null;
+        return getProperties().containsKey(DB_ANNOTATED);
     }
     default Boolean isDbAnnotated() {
         return (hasDbAnnotated() && getDbAnnotated()) || false;
     }
 
-    default boolean hasClassPath() {
-        return getClassPath()!=null && !getClassPath().isEmpty();
+    default String getJavascriptType() {
+        return (String)getProperties().get(JAVASCRIPT_TYPE);
     }
-    default String getClassPath() {
-        return hasProperties()?(String)getProperties().get(CLASS_PATH):null;
+    default Boolean hasJavascriptType() {
+        return getProperties().containsKey(JAVASCRIPT_TYPE) && getProperties().get(JAVASCRIPT_TYPE) != null && !((String) getProperties().get(JAVASCRIPT_TYPE)).isEmpty() ;
     }
 
     default boolean isList() {
@@ -170,12 +169,16 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
     }
 
     default boolean isCreate() {
-        return getCreate();
+        return hasCreate() && getCreate();
     }
     default boolean isNull() {
         return false;
     }
     default boolean isEnum() {
+        return false;
+    }
+
+    default boolean isJsonIgnore(final String key) {
         return false;
     }
 }

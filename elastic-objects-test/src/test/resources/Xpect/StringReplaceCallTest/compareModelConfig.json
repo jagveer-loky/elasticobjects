@@ -1,5 +1,14 @@
 {
   "fieldConfigMap": {
+    "content": {
+      "fieldKey": "content",
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "description": "A content for different calls. In a template context the content of the markup. ",
+      "naturalId": "content"
+    },
     "replaceBy": {
       "fieldKey": "replaceBy",
       "modelKeys": "String",
@@ -87,7 +96,7 @@
       "properties": {
         "override": true
       },
-      "description": "overwrite",
+      "description": "A overwrite field flag for @Call.",
       "naturalId": "overwrite"
     },
     "postpend": {
@@ -211,7 +220,7 @@
       "naturalId": "naturalId"
     }
   },
-  "interfaces": "SimpleCommand",
+  "interfaces": "CallContent",
   "modelKey": "StringReplaceCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
   "superKey": "CallImpl",

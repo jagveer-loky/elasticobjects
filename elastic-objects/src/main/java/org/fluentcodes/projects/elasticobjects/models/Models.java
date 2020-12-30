@@ -1,11 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.JSONToEO;
-import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
@@ -15,11 +12,6 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.PathElement.CALLS;
-import static org.fluentcodes.projects.elasticobjects.PathElement.ERROR_LEVEL;
-import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
-import static org.fluentcodes.projects.elasticobjects.PathElement.SERIALIZATION_TYPE;
 
 /**
  * An array of models defining types

@@ -61,7 +61,7 @@ public class JsonCallTest {
 
     @Test
     public void givenEmpty_whenMapList_thenListIsSet()  {
-        EO eo = ProviderRootDevScope.createEo();
+        EO eo = ProviderRootDevScope.createEo(List.class);
         eo.mapObject("[]");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);

@@ -24,6 +24,4 @@ public class DbSqlConfig extends PermissionConfig implements DbSqlConfigInterfac
     public List<String> getSqlList() {
         return sqlList;
     }
-
-
 }

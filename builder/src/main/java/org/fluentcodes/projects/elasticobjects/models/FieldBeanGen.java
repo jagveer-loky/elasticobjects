@@ -17,14 +17,14 @@ public class FieldBeanGen extends FieldBean implements
         super(values);
     }
 
-    protected FieldBeanGen(final FieldConfigInterface fieldBean) {
+    protected FieldBeanGen(final FieldBean fieldBean) {
         super();
         merge(fieldBean);
         setSuper(true);
     }
 
 
-    public void merge(final FieldConfigInterface fieldBean) {
+    public void merge(final FieldBean fieldBean) {
         super.merge(fieldBean);
     }
 }

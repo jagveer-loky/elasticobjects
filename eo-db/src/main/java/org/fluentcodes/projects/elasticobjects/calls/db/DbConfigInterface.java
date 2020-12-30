@@ -33,11 +33,17 @@ public interface DbConfigInterface extends ConfigConfigInterface, ConfigProperti
     }
 
     default boolean hasDbType() {
-        return getDbType()!=null;
+        return getProperties().containsKey(DB_TYPE) && getProperties().get(DB_TYPE)!=null;
     }
 
     default DbTypes getDbType() {
-        return (DbTypes)getProperties().get(DB_TYPE);
+        if (!hasDbType()) {
+            return null;
+        }
+        if (getProperties().get(DB_TYPE) instanceof DbTypes) {
+            return (DbTypes) getProperties().get(DB_TYPE);
+        }
+        return DbTypes.valueOf((String)getProperties().get(DB_TYPE));
     }
 
     default boolean hasExtension() {

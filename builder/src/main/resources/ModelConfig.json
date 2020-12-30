@@ -1,20 +1,4 @@
 {
-  "JavaFieldTypeCall": {
-    "module": "builder",
-    "moduleScope": "main",
-    "interfaces": "SimpleCommand",
-    "superKey": "CallImpl",
-    "expose": "WEB",
-    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
-    "modelKey": "JavaFieldTypeCall",
-    "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
-    },
-    "author": "Werner Diwischek"
-  },
   "GenerateModelAbstract": {
     "module": "builder",
     "moduleScope": "main",
@@ -36,12 +20,12 @@
     "module": "builder",
     "moduleScope": "main",
     "fieldKeys": [
-      "fileEnding",
       "module",
       "moduleScope",
+      "fileEnding",
+      "targetFileConfigKey",
       "projectDirectory",
-      "sourceFileConfigKey",
-      "targetFileConfigKey"
+      "sourceFileConfigKey"
     ],
     "superKey": "CallImpl",
     "expose": "NONE",
@@ -64,7 +48,7 @@
     ],
     "superKey": "GenerateProperties",
     "expose": "NONE",
-    "description": "Interface for generating code based on ModelBeans.json.",
+    "description": "Interface for generating template based code from ModelBeans.json.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate",
     "modelKey": "GenerateModelProperties",
     "properties": {
@@ -78,9 +62,9 @@
     "module": "builder",
     "moduleScope": "main",
     "fieldKeys": [
-      "fileEnding",
       "module",
       "moduleScope",
+      "fileEnding",
       "targetFileConfigKey"
     ],
     "superKey": "Call",
@@ -190,6 +174,22 @@
     },
     "author": "Werner Diwischek"
   },
+  "JavaFieldTypeCall": {
+    "module": "builder",
+    "moduleScope": "main",
+    "interfaces": "SimpleCommand",
+    "superKey": "CallImpl",
+    "expose": "WEB",
+    "description": "Returns a type String depending on the modelKeys field value, e.g. \"<Map, AnObject>\" if modeKey is \"Map, AnObject\".",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.generate.java",
+    "modelKey": "JavaFieldTypeCall",
+    "properties": {
+      "classPath": "src.main.java",
+      "create": true,
+      "shapeType": "CALL_BEAN"
+    },
+    "author": "Werner Diwischek"
+  },
   "JavaFieldAnnotationDbCall": {
     "module": "builder",
     "moduleScope": "main",
@@ -274,13 +274,12 @@
     "module": "builder",
     "moduleScope": "main",
     "interfaces": "FieldBeanJavaMethods",
-    "superKey": "ConfigBean",
+    "superKey": "FieldBean",
     "expose": "WEB",
     "description": "A bean container class for Field values",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "FieldBean",
+    "modelKey": "FieldBeanGen",
     "properties": {
-      "classPath": "src.main.java",
       "create": true,
       "shapeType": "BEAN"
     },
@@ -295,32 +294,28 @@
       "javaSetMethod",
       "javaHasMethod"
     ],
-    "interfaces": "FieldBeanProperties",
+    "interfaces": "FieldBeanInterface",
     "expose": "WEB",
-    "description": "An interface for@FieldBean with access methods for properties. ",
+    "description": "An interface for@FieldBean with access methods for properties.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "FieldBeanProperties",
+    "modelKey": "FieldBeanJavaMethods",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
+      "create": false,
       "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
-
   "ModelBeanGen": {
     "module": "builder",
     "moduleScope": "main",
     "interfaces": "ModelBeanGenProperties",
-    "superKey": "ConfigBean",
     "expose": "WEB",
     "description": "A bean container class for Model values",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelBean",
+    "modelKey": "ModelBeanGen",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN"
+      "create": false,
+      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   }

@@ -65,7 +65,7 @@ public class GenerateModelBeansJsonCall extends GenerateAbstract implements Gene
             if (!modelBean.hasSuperKey()) {
                 continue;
             }
-            modelBean.resolveSuper(modelBeans);
+            modelBean.resolveSuper(modelBeans, false);
         }
         FileWriteCall writeCall = new FileWriteCall(getTargetFileConfigKey());
         String content = new EOToJSON().toJson(eo.getConfigsCache(), modelBeans);

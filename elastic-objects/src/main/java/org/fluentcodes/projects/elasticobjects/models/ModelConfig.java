@@ -185,6 +185,9 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
         for (String key : keys) {
             try {
+                /*if (fieldConfigMap.get(key).isTransient()) {
+                    continue;
+                }*/
                 Object value = get(key, object);
                 if (value == null) {
                     continue;
@@ -219,6 +222,9 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
         try {
             if (this.hasSuperKey()) {
+                if (getSuperKey().equals(modelKey)) {
+                    throw new EoInternalException("Recursive super '" + getSuperKey() + "'!");
+                }
                 superModel.resolveSuper();
                 for (String key : superModel.getFieldKeys()) {
                     if (fieldConfigMap.containsKey(key)) {
@@ -230,6 +236,9 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
             for (ModelConfig interfaceModel : interfacesMap.values()) {
                 if (interfaceModel == null) {
                     continue;
+                }
+                if (interfaceModel.getModelKey().equals(modelKey)) {
+                    throw new EoInternalException("Recursive super '" + interfaceModel.getModelKey() + "'!");
                 }
                 interfaceModel.resolveSuper();
                 for (String key : interfaceModel.getFieldKeys()) {

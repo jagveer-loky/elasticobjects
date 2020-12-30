@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.calls.Permission;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
@@ -10,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import static org.fluentcodes.projects.elasticobjects.calls.PermissionConfig.ROLE_PERMISSIONS;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.FIELD_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.INTERFACES;
@@ -17,7 +20,7 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_K
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SUPER_KEY;
 
-public class ModelBean extends ConfigBean implements Model {
+public class ModelBean extends ConfigBean implements Model, Permission {
     public static final String FIELD_BEANS = "fieldBeans";
     private boolean resolved;
     private String modelKey;
@@ -25,6 +28,7 @@ public class ModelBean extends ConfigBean implements Model {
     private String superKey;
     private String interfaces;
     private Map<String, FieldBeanInterface> fieldBeans;
+    private PermissionRole rolePermissions;
 
     public ModelBean() {
         super();
@@ -52,6 +56,8 @@ public class ModelBean extends ConfigBean implements Model {
         setPackagePath((String)values.get(PACKAGE_PATH));
         setInterfaces((String)values.get(INTERFACES));
         setSuperKey((String)values.get(SUPER_KEY));
+        mergePermission(values.get(ROLE_PERMISSIONS));
+        defaultShapeType();
         fieldBeans = new TreeMap<>();
         if (!values.containsKey(FIELD_KEYS)) {
             return;
@@ -301,6 +307,17 @@ public class ModelBean extends ConfigBean implements Model {
             fieldBeanLocal.setSuper(true);
             subFieldBeans.put(fieldBean.getNaturalId(), fieldBeanLocal);
         }
+    }
+
+    @Override
+    public PermissionRole getRolePermissions() {
+        return rolePermissions;
+    }
+
+    @Override
+    public ModelBean setRolePermissions(PermissionRole rolePermissions) {
+        this.rolePermissions = rolePermissions;
+        return this;
     }
 
     @Override

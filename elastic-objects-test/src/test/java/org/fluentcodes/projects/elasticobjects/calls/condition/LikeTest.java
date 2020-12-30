@@ -1,16 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.like;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.condition.AndTest;
+import org.fluentcodes.projects.elasticobjects.calls.condition.Like;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
-import org.fluentcodes.projects.elasticobjects.calls.condition.Like;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Test;
-
-import java.util.List;
 
 
 public class LikeTest {
@@ -34,24 +30,18 @@ public class LikeTest {
     @Test
     public void _0_string__filter_rowList__true()  {
         Like like = new Like("0", "test");
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat( like.filter(row)).isTrue();
+        Assertions.assertThat( like.filter(AndTest.EXAMPLE_LIST)).isTrue();
     }
 
     @Test
     public void _2_stringOther__filter_rowList__false()  {
         Like like = new Like("2", "stringOther");
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat( like.filter(row)).isFalse();
+        Assertions.assertThat( like.filter(AndTest.EXAMPLE_LIST)).isFalse();
     }
 
     @Test
-    public void _3_s1__filter_rowList__true()  {
-        Like like = new Like("3", "1");
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat( like.filter(row)).isTrue();
+    public void _4_1__filter_rowList__true()  {
+        Like like = new Like("4", "1");
+        Assertions.assertThat( like.filter(AndTest.EXAMPLE_LIST)).isTrue();
     }
 }

@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-
 import java.util.Map;
 
 /**

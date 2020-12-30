@@ -4,7 +4,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.domain.Base;
 
 import java.util.Map;
-/**
+/**ƒ
  * Created by Werner on 20.11.2020.
  */
 public interface ConfigProperties {

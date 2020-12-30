@@ -359,6 +359,7 @@ public class JSONToEO {
      * @
      */
     private EO createChild(EO eoParent, final String rawFieldName)  {
+
         if (eoParent == null) {
             throw new EoException("parent eo is null ...!");
         }
@@ -368,8 +369,8 @@ public class JSONToEO {
         switch (c) {
             case '"':
             case '\'':  // String value
-                if (rawFieldName == null) {
-                    throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Scalar value with no name");
+                if (rawFieldName == null || rawFieldName.isEmpty()) {
+                    throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Value with no name" + debug());
                 }
                 String value = this.nextString(c, rawFieldName);
                 eoParent.createChild(new PathElement(rawFieldName), value);

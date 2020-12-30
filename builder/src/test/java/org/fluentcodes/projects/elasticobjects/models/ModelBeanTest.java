@@ -4,43 +4,27 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
-
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface.CLASS_PATH;
+import static org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface.SHAPE_TYPE;
 
 public class ModelBeanTest {
     @Test
-    public void set_ClassPath_test__get__test() {
+    public void set_ShapeTypes_LIST__getShapeType__LIST() {
         ModelBean modelBean = new ModelBean();
-        modelBean.setClassPath("test");
-        Assertions.assertThat(modelBean.getClassPath()).isEqualTo("test");
+        modelBean.setShapeType(ShapeTypes.LIST);
+        Assertions.assertThat(modelBean.getShapeType()).isEqualTo(ShapeTypes.LIST);
      }
 
     @Test
-    public void set_ClassPath_test__properties_get__test() {
+    public void set_ShapeTypes_LIST__properties_get_ShapeType__LIST() {
         ModelBean modelBean = new ModelBean();
-        modelBean.setClassPath("test");
-        Assertions.assertThat((String)modelBean.getProperties().get(CLASS_PATH)).isEqualTo("test");
+        modelBean.setShapeType(ShapeTypes.LIST);
+        Assertions.assertThat(modelBean.getProperties().get(SHAPE_TYPE)).isEqualTo(ShapeTypes.LIST);
     }
 
     @Test
-    public void eo_set_ClassPath_test__get__test() {
+    public void eo_set_ShapeTypes_LIST__get_ShapeType__LIST() {
         EO eo = ProviderRootTestScope.createEo(new ModelBean());
-        eo.set("test", CLASS_PATH);
-        Assertions.assertThat((String)eo.get(CLASS_PATH)).isEqualTo("test");
-    }
-
-    @Test
-    public void set_PackagePath_test__get__test() {
-        ModelBean modelBean = new ModelBean();
-        modelBean.setPackagePath("test");
-        Assertions.assertThat(modelBean.getPackagePath()).isEqualTo("test");
-    }
-
-    @Test
-    public void eo_set_PackagePath_test__get__test() {
-        EO eo = ProviderRootTestScope.createEo(new ModelBean());
-        eo.set("test", PACKAGE_PATH);
-        Assertions.assertThat((String)eo.get(PACKAGE_PATH)).isEqualTo("test");
+        eo.set(ShapeTypes.LIST, SHAPE_TYPE);
+        Assertions.assertThat((String)eo.get(SHAPE_TYPE)).isEqualTo(ShapeTypes.LIST);
     }
 }

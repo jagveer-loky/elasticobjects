@@ -11,7 +11,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "If true will cache the readed file within the cache object. ",
+    "description": "Indicates that a super or interface defines the method already but is overwritten. When java is generated an override annotation is set. ",
     "expose": "NONE",
     "fieldKey": "override"
   },
@@ -19,7 +19,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "If true will cache the readed file within the cache object. ",
+    "description": "If true only a setter for the private variable is generated. When setting a value in an EO context an exception is thrown. ",
     "expose": "NONE",
     "fieldKey": "final"
   },
@@ -27,7 +27,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "If true will cache the readed file within the cache object. ",
+    "description": "Indicates a generated value?! A generated flag for @FieldBean",
     "expose": "NONE",
     "fieldKey": "generated"
   },
@@ -180,24 +180,28 @@
     "length": 512
   },
   "javascriptType": {
-    "module": "builder",
+    "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "The javascript type version. ",
+    "description": "The type of javascript is derived from the java type.",
     "expose": "NONE",
     "fieldKey": "javascriptType",
-    "properties": {"transient": true, "final": true}
+    "length": 10,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
   },
   "super": {
-    "module": "builder",
+    "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "If true the generated model will be initially set as abstract class.",
+    "description": "Marker to show, that the field is implemented in a super class. ",
     "expose": "NONE",
     "fieldKey": "super"
   },
   "abstract": {
-    "module": "builder",
+    "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "If true the generated model will be initially set as abstract class.",
@@ -205,15 +209,15 @@
     "fieldKey": "abstract"
   },
   "transient": {
-    "module": "builder",
+    "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "If true the generated model will be initially set as abstract class.",
+    "description": "Will ignore field when a persistiong occure. Create a transient annotation when java is generated. ",
     "expose": "NONE",
     "fieldKey": "transient"
   },
   "dbAnnotated": {
-    "module": "builder",
+    "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "If true a db annotation will be generated for java instance vars. ",
@@ -221,10 +225,10 @@
     "fieldKey": "dbAnnotated"
   },
   "default": {
-    "module": "builder",
+    "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "If true a db annotation will be generated for java instance vars. ",
+    "description": "Set when an default implementation is defined within an interface. ",
     "expose": "NONE",
     "fieldKey": "default"
   },
@@ -240,7 +244,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Map,FieldConfig",
-    "description": "A fieldBean map with @ModelBean",
+    "description": "A fieldBean map with @FieldConfig",
     "expose": "NONE",
     "fieldKey": "fieldConfigMap"
   },
@@ -637,7 +641,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "overwrite",
+    "description": "A overwrite field flag for @Call.",
     "expose": "WEB",
     "fieldKey": "overwrite"
   },
@@ -913,10 +917,11 @@
   "template": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
+    "modelKeys": "String",
+    "description": "template",
     "expose": "WEB",
-    "fieldKey": "template"
+    "fieldKey": "template",
+    "length": 80
   },
   "templateFileConfigKey": {
     "module": "elastic-objects",
