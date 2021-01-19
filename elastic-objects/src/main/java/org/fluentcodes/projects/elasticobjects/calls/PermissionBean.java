@@ -1,34 +1,39 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
-
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.calls.PermissionConfig.ROLE_PERMISSIONS;
-
+/*=>{javaHeader}|*/
 /**
- * Created by Werner on 10.12.2020.
+ * 
+ * A bean container class for Field values 
+ * @author Werner Diwischek
+ * @creationDate Wed Dec 16 00:00:00 CET 2020
+ * @modificationDate Thu Jan 14 13:07:13 CET 2021
  */
-public abstract class PermissionBean extends ConfigBean implements Permission {
+public class PermissionBean extends ConfigBean implements PermissionBeanInterface  {
+/*=>{}.*/
     private PermissionRole rolePermissions;
 
     public PermissionBean() {
         super();
     }
 
-    protected void merge(final Map values) {
-        super.merge(values);
-        mergePermission(values.get(ROLE_PERMISSIONS));
+    public void merge(final Map configMap) {
+        super.merge(configMap);
+        mergeRolePermissions(configMap.get(ROLE_PERMISSIONS));
     }
 
-    @Override
-    public PermissionRole getRolePermissions() {
-        return rolePermissions;
+/*=>{javaAccessors}|*/
+   @Override
+   public PermissionRole getRolePermissions() {
+      return this.rolePermissions;
+   }
+   @Override
+   public PermissionBean setRolePermissions(final PermissionRole rolePermissions) {
+      this.rolePermissions = rolePermissions;
+      return this;
     }
 
-    @Override
-    public PermissionBean setRolePermissions(PermissionRole value) {
-        this.rolePermissions = value;
-        return this;
-    }
+/*=>{}.*/
  }

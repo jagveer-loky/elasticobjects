@@ -3,22 +3,10 @@
     "value": {
       "fieldKey": "value",
       "modelKeys": "String",
-      "modelList": [
-        "String"
-      ],
-      "properties": {
-        "fieldName": "value"
-      },
-      "naturalId": "FieldExampleClass.value",
-      "fieldName": "value"
+      "naturalId": "FieldExampleClass.value"
     }
   },
   "modelKey": "FieldExampleClass",
   "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-  "configModelKey": "ModelConfigObject",
-  "properties": {
-    "shapeType": "OBJECT",
-    "create": true
-  },
   "naturalId": "FieldExampleClass"
 }

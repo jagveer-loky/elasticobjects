@@ -2,7 +2,9 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
+import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
@@ -10,6 +12,12 @@ import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_ST
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.NATURAL_ID;
 
 public class AnObjectTest {
+
+    @Test
+    public void TEST__get_ShapeType__BEAN() {
+        ModelBean modelBean = ProviderRootTestScope.findModelBean(AnObject.class);
+        Assertions.assertThat(modelBean.getShapeType()).isEqualTo(ShapeTypes.BEAN);
+    }
 
     @Test
     public void TEST__setNaturalIdTest__getNaturalIdTest()  {

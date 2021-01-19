@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.sql.Connection;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Abstract class providing an sql config before executing.
  *
@@ -18,11 +18,11 @@ import java.sql.Connection;
 public abstract class DbSqlCall extends HostCall  {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
    public static final String SQL_KEY = "sqlKey";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
    private  String sqlKey;
 /*=>{}.*/
     private DbSqlConfig sqlConfig;
@@ -66,7 +66,7 @@ public abstract class DbSqlCall extends HostCall  {
         return sqlConfig;
     }
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
     /**
     The key to select a configuration from DbSqlConfig within DbSqlCall.
     */

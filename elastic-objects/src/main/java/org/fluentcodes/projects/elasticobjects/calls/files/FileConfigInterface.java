@@ -1,43 +1,48 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.calls.PermissionConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
-
+import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+/*=>{javaAccessors}|*/
 /**
- * Created by Werner on 09.10.2016.
+ * 
+ * Access methods for field properties map.  
+ * @author Werner Diwischek
+ * @creationDate Wed Sep 09 00:00:00 CEST 2020
+ * @modificationDate Thu Jan 14 14:24:01 CET 2021
  */
-public interface FileConfigInterface extends PermissionConfigInterface, ConfigProperties {
-    String TEMPLATE = "template";
+public interface FileConfigInterface extends PermissionConfigInterface,ConfigConfigInterface  {
+/*=>{}.*/
 
-    Boolean getCached();
-    default boolean hasCached() {
-        return getCached()!=null;
-    }
-    String getFileName();
-    default boolean hasFileName() {
-        return getFileName()!=null && !getFileName().isEmpty();
-    }
-    String getFilePath();
+/*=>{javaStaticNames}|*/
+    String FILE_NAME = "fileName";
+    String FILE_PATH = "filePath";
+    String CACHED = "cached";
+/*=>{}.*/
 
-    default boolean hasFilePath() {
-        return getFilePath()!=null && !getFilePath().isEmpty();
-    }
+/*=>{javaAccessors}|*/
+   Boolean getCached();
+   default boolean hasCached() {
+      return getCached() != null;
+   }
+   default boolean isCached() {
+      return hasCached() && getCached();
+   }
 
-    String getHostConfigKey();
+   String getFileName();
+   default boolean hasFileName() {
+      return getFileName() != null && !getFileName().isEmpty();
+   }
+   String getFilePath();
+   default boolean hasFilePath() {
+      return getFilePath() != null && !getFilePath().isEmpty();
+   }
+   String getHostConfigKey();
+   default boolean hasHostConfigKey() {
+      return getHostConfigKey() != null && !getHostConfigKey().isEmpty();
+   }
+/*=>{}.*/
 
-    default boolean hasHostConfigKey() {
-        return getHostConfigKey()!=null && !getHostConfigKey().isEmpty();
+    default boolean isTargetTemplate() {
+        return true;
     }
-
-    default Boolean hasTemplate() {
-        return isTemplate() != null;
-    }
-    default Boolean isTemplate() {
-        return (Boolean) getProperties().get(TEMPLATE);
-    }
-    default FileConfigInterface getTemplate(Boolean template) {
-        getProperties().put(TEMPLATE, template);
-        return this;
-    }
-
 }

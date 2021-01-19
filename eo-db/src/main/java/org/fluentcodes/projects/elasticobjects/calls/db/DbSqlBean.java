@@ -25,8 +25,8 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
         defaultConfigModelKey();
     }
 
-    protected void merge(final Map values) {
-        super.merge(values);
+    public void merge(final Map configMap) {
+        super.merge(configMap);
     }
 
     @Override

@@ -17,10 +17,10 @@ import java.util.Set;
  */
 public abstract class ModelConfig extends ConfigConfig implements ModelConfigInterfaceMethods {
     public static final String MODEL_KEY = "modelKey";
-    public static final String FIELD_KEYS = "fieldKeys";
     public static final String INTERFACES = "interfaces";
     public static final String SUPER_KEY = "superKey";
     public static final String PACKAGE_PATH = "packagePath";
+    public static final String FIELD_CONFIG_MAP = "fieldConfigMap";
 
     private static final Logger LOG = LogManager.getLogger(ModelConfig.class);
     private boolean resolved = false;
@@ -92,6 +92,10 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
     }
 
     @Override
+    public Map<String, FieldConfig> getFieldMap() {
+        return fieldConfigMap;
+    }
+
     public Map<String, FieldConfig> getFieldConfigMap() {
         return fieldConfigMap;
     }
@@ -147,13 +151,6 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    public Class getFieldClass(final String fieldName) {
-        if (!this.isObject()) {
-            return Object.class;
-        }
-        return getFieldConfig(fieldName).getModelClass();
-    }
-
     private void setFieldConfigMap(final Map<String, ConfigConfigInterface> modelConfigMap) {
         if (!hasFieldConfigMap()) {
             return;
@@ -163,15 +160,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    @Override
-    public boolean isEmpty(final Object object) {
-        if (object == null) {
-            return true;
-        }
-        Map valueMap = getKeyValues(object, new PathPattern("*"));
 
-        return valueMap.size() == 0;
-    }
 
     @Override
     public Map getKeyValues(final Object object, final PathPattern pathPattern) {
@@ -230,7 +219,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
                     if (fieldConfigMap.containsKey(key)) {
                         continue;
                     }
-                    fieldConfigMap.put(key, superModel.getFieldConfig(key));
+                    fieldConfigMap.put(key, (FieldConfig)superModel.getField(key));
                 }
             }
             for (ModelConfig interfaceModel : interfacesMap.values()) {
@@ -245,7 +234,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
                     if (fieldConfigMap.containsKey(key)) {
                         continue;
                     }
-                    fieldConfigMap.put(key, interfaceModel.getFieldConfig(key));
+                    fieldConfigMap.put(key, (FieldConfig) interfaceModel.getField(key));
                 }
             }
         }

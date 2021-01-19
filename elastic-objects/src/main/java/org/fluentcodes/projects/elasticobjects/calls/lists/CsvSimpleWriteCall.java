@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Defines a primitive csv file write operation. 
@@ -19,11 +19,11 @@ import java.util.List;
 public class CsvSimpleWriteCall extends FileWriteCall implements ListInterface {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
    public static final String LIST_PARAMS = "listParams";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
    private  ListParams listParams;
 /*=>{}.*/
 
@@ -74,7 +74,7 @@ public class CsvSimpleWriteCall extends FileWriteCall implements ListInterface {
         setContent(buffer.toString());
         return super.execute(eo);
     }
-/*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaAccessors}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */

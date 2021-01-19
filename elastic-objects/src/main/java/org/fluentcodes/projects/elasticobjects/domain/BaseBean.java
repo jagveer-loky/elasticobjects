@@ -1,25 +1,29 @@
 package org.fluentcodes.projects.elasticobjects.domain;
-
-import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-
-import java.util.Date;
 import java.util.Map;
 
+/*=>{javaHeader}|*/
+import java.util.Date;
 /**
- * Created by Werner on 14.12.2017.
- * A basic model used by ordinary beans
+ * 
+ * Base bean as super object for model beans with id, naturalId and description but no annotations.  
+ * @author Werner Diwischek
+ * @creationDate Wed Dec 21 00:00:00 CET 2016
+ * @modificationDate Sat Jan 09 13:58:40 CET 2021
  */
-public class BaseBean implements Base {
-
-    private Long id;
-    private String description;
-    private String naturalId;
-    private Date creationDate;
-    private String author;
-
-    private Date modificationDate;
+public class BaseBean implements BaseBeanInterface {
+/*=>{}.*/
+    /*=>{javaInstanceVars}|*/
+   /* The author of the class. */
+   private String author;
+   /* Used to define the creation of an item. */
+   private Date creationDate;
+   /* A description of the model used by every model extending BaseClassImpl.  */
+   private String description;
+   /* The numeric id of an instance of a class. */
+   private Long id;
+   /* The natural key in @Base */
+   private String naturalId;
+/*=>{}.*/
 
     /**
      * Just an empty constructor since basic
@@ -31,116 +35,101 @@ public class BaseBean implements Base {
         this.naturalId = naturalId;
     }
 
-    public void merge(final Base map) {
+    public BaseBean(final BaseConfig  config) {
+        this.naturalId = config.getNaturalId();
+        this.author = config.getAuthor();
+        this.creationDate = config.getCreationDate();
+        this.description = config.getDescription();
+        this.id = config.getId();
+    }
+
+    public void merge(final BaseBeanInterface map) {
         mergeId(map.getId());
         mergeNaturalId(map.getNaturalId());
         mergeDescription(map.getDescription());
-        mergeCreateDate(map.getCreationDate());
+        mergeCreationDate(map.getCreationDate());
         mergeAuthor(map.getAuthor());
-        setModificationDate();
     }
 
-    protected void merge(final Map map) {
-        if (map == null || map.isEmpty()) {
+    public void merge(final Map configMap) {
+        if (configMap == null || configMap.isEmpty()) {
             return;
         }
         try {
-            mergeId(map.get(ID));
-            mergeNaturalId(map.get(NATURAL_ID));
-            mergeDescription(map.get(DESCRIPTION));
-            mergeCreateDate(map.get(CREATION_DATE));
-            mergeAuthor(map.get(AUTHOR));
+            mergeId(configMap.get(ID));
+            mergeNaturalId(configMap.get(NATURAL_ID));
+            mergeDescription(configMap.get(DESCRIPTION));
+            mergeCreationDate(configMap.get(CREATION_DATE));
+            mergeAuthor(configMap.get(AUTHOR));
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        setModificationDate();
+    }
+    /*=>{javaAccessors}|*/
+   public String getAuthor() {
+      return this.author;
+   }
+
+   public BaseBean setAuthor(final String author) {
+      this.author = author;
+      return this;
     }
 
-   /**
-     * The id with a autonumbering
-     */
-    @Override
-    public Long getId() {
-        return this.id;
-    }
-    @Override
-    public void setId(Long id) {
-        this.id = id;
+   public boolean hasAuthor() {
+      return getAuthor() != null && !getAuthor().isEmpty();
+   }
+
+   public Date getCreationDate() {
+      return this.creationDate;
+   }
+
+   public BaseBean setCreationDate(final Date creationDate) {
+      this.creationDate = creationDate;
+      return this;
     }
 
-    /**
-     * A description of the model used by every model extending BaseClassImpl.
-     */
-    @Override
-    public String getDescription() {
-        return this.description;
-    }
-    @Override
-    public void setDescription(String description) {
-        this.description = description;
+   public boolean hasCreationDate() {
+      return getCreationDate() != null;
+   }
+
+   public String getDescription() {
+      return this.description;
+   }
+
+   public BaseBean setDescription(final String description) {
+      this.description = description;
+      return this;
     }
 
-    /**
-     * The naturalKey for all config {@link ConfigConfig}
-     */
-    @Override
-    public String getNaturalId() {
-        return this.naturalId;
+   public boolean hasDescription() {
+      return getDescription() != null && !getDescription().isEmpty();
+   }
+
+   public Long getId() {
+      return this.id;
+   }
+
+   public BaseBean setId(final Long id) {
+      this.id = id;
+      return this;
     }
 
-    @Override
-    public BaseBean setNaturalId(String naturalId) {
-        this.naturalId = naturalId;
-        return this;
+   public boolean hasId() {
+      return getId() != null;
+   }
+
+   public String getNaturalId() {
+      return this.naturalId;
+   }
+
+   public BaseBean setNaturalId(final String naturalId) {
+      this.naturalId = naturalId;
+      return this;
     }
 
-    /**
-     * Used to define the creation of an item.
-     */
-    @Override
-    public Date getCreationDate() {
-        return this.creationDate;
-    }
-    @Override
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-
-    @Override
-    public String getAuthor() {
-        return author;
-    }
-
-    @Override
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    @Override
-    public void setCreationDate() {
-        this.creationDate = new Date();
-    }
-
-    @Override
-    public Date getModificationDate() {
-        return modificationDate;
-    }
-
-    @Override
-    public void setModificationDate() {
-        this.modificationDate = new Date();
-    }
-    public void setModificationDate(Date date) {
-        this.modificationDate = date;
-    }
-
-    public String toString(EOConfigsCache provider) {
-        try {
-            return EoRoot.ofValue(provider,this).toString();
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-    }
+   public boolean hasNaturalId() {
+      return getNaturalId() != null && !getNaturalId().isEmpty();
+   }
+/*=>{}.*/
 }

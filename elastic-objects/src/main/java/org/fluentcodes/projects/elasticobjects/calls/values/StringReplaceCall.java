@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * For replacing field 'toReplace' by 'replaceBy'.
@@ -19,12 +19,12 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class StringReplaceCall extends CallImpl implements CallContent {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String REPLACE_BY = "replaceBy";
    public static final String TO_REPLACE = "toReplace";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String replaceBy;
    private  String toReplace;
    private String content;
@@ -86,7 +86,7 @@ public class StringReplaceCall extends CallImpl implements CallContent {
         return (content.replaceAll(toReplace, replaceBy));
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 
     @Override
     public String getContent() {

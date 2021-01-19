@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Create a link, if its FileConfig or ModelConfig, to the github source.
  *
@@ -20,12 +20,12 @@ public class GithubLinkCall extends CallImpl  {
 /*=>{}.*/
     private static final String GITHUB_PIC = " <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>";
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String CONFIG_KEY = "configKey";
    public static final String CONFIG_TYPE = "configType";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String configKey;
    private  String configType;
 /*=>{}.*/
@@ -174,7 +174,7 @@ public class GithubLinkCall extends CallImpl  {
         return configured;
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     Key for configuration  {@link ConfigConfigInterface}
     */

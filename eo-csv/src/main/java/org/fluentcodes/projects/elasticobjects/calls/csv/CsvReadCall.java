@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Defines read call for a csv action depending on one link CsvConfig. 
  *
@@ -25,10 +25,10 @@ import java.util.List;
 public class CsvReadCall extends CsvSimpleReadCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
 /*=>{}.*/
     public CsvReadCall()  {
         super();
@@ -88,6 +88,6 @@ public class CsvReadCall extends CsvSimpleReadCall  {
         }
         return result;
     }
-    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 /*=>{}.*/
 }

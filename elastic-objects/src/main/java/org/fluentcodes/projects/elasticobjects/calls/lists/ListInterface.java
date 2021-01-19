@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
-import org.fluentcodes.projects.elasticobjects.domain.Base;
+import org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -225,7 +225,7 @@ public interface ListInterface {
         Map<String, Integer> keyPosition = new LinkedHashMap<>();
         boolean externalKey = true;
         if (keys == null || keys.isEmpty()) {
-            keyPosition.put(Base.NATURAL_ID, 0);
+            keyPosition.put(BaseConfigInterface.NATURAL_ID, 0);
             externalKey = false;
         }
         else {

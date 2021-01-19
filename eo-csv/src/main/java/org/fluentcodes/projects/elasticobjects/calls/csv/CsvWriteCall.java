@@ -1,5 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleWriteCall;
 /**
  * Defines write call for a csv action depending on one link CsvConfig. 
@@ -11,14 +11,14 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleWriteCall;
 public class CsvWriteCall extends CsvSimpleWriteCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
 /*=>{}.*/
     public CsvWriteCall()  {
         super();
     }
-    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 /*=>{}.*/
 }

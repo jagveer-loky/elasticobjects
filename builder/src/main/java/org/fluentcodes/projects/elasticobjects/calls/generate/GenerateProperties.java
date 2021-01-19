@@ -3,13 +3,14 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 import org.fluentcodes.projects.elasticobjects.BuilderParams;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.models.Model;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 public interface GenerateProperties extends Call {
     /*=>{}.*/
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
     String FILE_ENDING = "fileEnding";
     String ALL = ".*";
     void mergeParams(BuilderParams params);
@@ -48,19 +49,19 @@ public interface GenerateProperties extends Call {
     }
 
     default boolean isModelBean(final EO eoModel) {
-        if (eoModel.getModelClass() != ModelBean.class) {
+        if (!(eoModel.get() instanceof Model)) {
             return false;
         }
         return true;
     }
 
     default ModelBean getModelBean (final EO eoModel) {
-        if (eoModel.isEmpty()) {
+        /*if (eoModel.isEmpty()) {
             throw new EoException("Problem eoModel is empty '" + eoModel.getModelClass().getSimpleName() + "'");
-        }
-        if (eoModel.getModelClass() != ModelBean.class) {
+        }*/
+        /*if (eoModel.getModelClass() != ModelBean.class) {
             throw new EoException("Problem eoModel is not instance of modelBean '" + eoModel.getModelClass().getSimpleName() + "'");
-        }
+        }*/
         return (ModelBean) eoModel.get();
     }
 

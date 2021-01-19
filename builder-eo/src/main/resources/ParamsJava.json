@@ -1,11 +1,10 @@
 {
   "_rootmodel": "GenerateModelTemplateMapCall",
-  "sourceFileConfigKey": ".*",
+  "sourceFileConfigKey": "eo.xlsx",
   "targetFileConfigKey": ".*",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.",
   "projectDirectory": ".",
   "module": ".*",
   "moduleScope": ".*",
   "fileEnding": "",
-  "naturalId": "ASubObject"
+  "naturalId": "FileBeanInterface"
 }

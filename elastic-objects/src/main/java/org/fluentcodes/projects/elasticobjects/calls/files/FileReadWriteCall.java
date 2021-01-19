@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCommand;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Read content of a file specified by sourceFileConfigKey referencing a FileConfig with this key. Afterwards it will store it to the file configuration with key targetFileConfigKey. 
@@ -16,13 +16,13 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCom
 public class FileReadWriteCall extends CallImpl implements ConfigReadWriteCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String COMPARE = "compare";
    public static final String SOURCE_FILE_CONFIG_KEY = "sourceFileConfigKey";
    public static final String TARGET_FILE_CONFIG_KEY = "targetFileConfigKey";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  Boolean compare;
    private  String sourceFileConfigKey;
    private  String targetFileConfigKey;
@@ -65,7 +65,7 @@ public class FileReadWriteCall extends CallImpl implements ConfigReadWriteComman
         return compare;
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     Trigger a compare before writing in @FileWriteCall
     */

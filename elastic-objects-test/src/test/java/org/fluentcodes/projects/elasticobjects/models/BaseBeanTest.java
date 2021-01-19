@@ -25,7 +25,7 @@ public class BaseBeanTest {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(BaseBean.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(BaseBean.class, modelConfig.getModelClass());
-        Assert.assertEquals(5, modelConfig.getFieldConfigMap().size());
+        Assert.assertEquals(5, modelConfig.getFieldMap().size());
         Assert.assertEquals(5, modelConfig.getFieldKeys().size());
         BaseBean modelImpl = (BaseBean) modelConfig.create();
         Assert.assertNotNull(modelImpl);

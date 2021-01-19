@@ -3,50 +3,45 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "If true will cache the readed file within the cache object. ",
+    "description": "x",
     "expose": "NONE",
-    "fieldKey": "absolute"
+    "fieldKey": "absolute",
+    "properties": {
+      "property": true
+    }
   },
-  "override": {
+  "abstract": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "Indicates that a super or interface defines the method already but is overwritten. When java is generated an override annotation is set. ",
+    "description": "If true the generated model will be initially set as abstract class.",
     "expose": "NONE",
-    "fieldKey": "override"
-  },
-  "final": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true only a setter for the private variable is generated. When setting a value in an EO context an exception is thrown. ",
-    "expose": "NONE",
-    "fieldKey": "final"
-  },
-  "generated": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "Indicates a generated value?! A generated flag for @FieldBean",
-    "expose": "NONE",
-    "fieldKey": "generated"
-  },
-  "attributeList": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "ArrayList,String",
-    "description": "Definition of available attributes for an Action.",
-    "expose": "NONE",
-    "fieldKey": "attributeList"
+    "fieldKey": "abstract",
+    "properties": {
+      "property": true,
+      "default": true
+    }
   },
   "author": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "String",
-    "description": "The autor of something e,g. a class.",
+    "description": "The author of the class.",
     "expose": "WEB",
     "fieldKey": "author",
     "length": 256
+  },
+  "bean": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "For a bean constructor show which bean is the source for a configuration",
+    "expose": "NONE",
+    "fieldKey": "bean",
+    "length": 32,
+    "properties": {
+      "property": true
+    }
   },
   "cached": {
     "module": "elastic-objects",
@@ -55,15 +50,6 @@
     "description": "If true will cache the readed file within the cache object. ",
     "expose": "NONE",
     "fieldKey": "cached"
-  },
-  "classPath": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Defines the classpath target path when generating java classes and resources beneath module like 'src/main/java' or 'src/test/resources'. ",
-    "expose": "WEB",
-    "fieldKey": "classPath",
-    "length": 64
   },
   "colKeys": {
     "module": "elastic-objects",
@@ -77,7 +63,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
-    "description": "Trigger a compare before writing in @FileWriteCall",
+    "description": "Indicates a comparision before writing in @FileWriteCall",
     "expose": "NONE",
     "fieldKey": "compare"
   },
@@ -152,6 +138,29 @@
     "expose": "WEB",
     "fieldKey": "creationDate"
   },
+  "dbAnnotated": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true a db annotation will be generated for java instance vars. ",
+    "expose": "NONE",
+    "fieldKey": "dbAnnotated",
+    "properties": {
+      "property": true,
+      "default": true
+    }
+  },
+  "default": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Set when an default implementation is defined within an interface. ",
+    "expose": "NONE",
+    "fieldKey": "default",
+    "properties": {
+      "property": true
+    }
+  },
   "defaultImplementation": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -178,75 +187,6 @@
     "expose": "WEB",
     "fieldKey": "description",
     "length": 512
-  },
-  "javascriptType": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The type of javascript is derived from the java type.",
-    "expose": "NONE",
-    "fieldKey": "javascriptType",
-    "length": 10,
-    "properties": {
-      "transient": true,
-      "final": true
-    }
-  },
-  "super": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "Marker to show, that the field is implemented in a super class. ",
-    "expose": "NONE",
-    "fieldKey": "super"
-  },
-  "abstract": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true the generated model will be initially set as abstract class.",
-    "expose": "NONE",
-    "fieldKey": "abstract"
-  },
-  "transient": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "Will ignore field when a persistiong occure. Create a transient annotation when java is generated. ",
-    "expose": "NONE",
-    "fieldKey": "transient"
-  },
-  "dbAnnotated": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true a db annotation will be generated for java instance vars. ",
-    "expose": "NONE",
-    "fieldKey": "dbAnnotated"
-  },
-  "default": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "Set when an default implementation is defined within an interface. ",
-    "expose": "NONE",
-    "fieldKey": "default"
-  },
-  "fieldBeans": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Map,FieldBean",
-    "description": "A fieldBean map with @ModelBean",
-    "expose": "NONE",
-    "fieldKey": "fieldBeans"
-  },
-  "fieldConfigMap": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Map,FieldConfig",
-    "description": "A fieldBean map with @FieldConfig",
-    "expose": "NONE",
-    "fieldKey": "fieldConfigMap"
   },
   "duration": {
     "module": "elastic-objects",
@@ -290,6 +230,22 @@
     "expose": "WEB",
     "fieldKey": "expose"
   },
+  "fieldBeans": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Map,FieldBean",
+    "description": "A fieldBean map with @ModelBean",
+    "expose": "NONE",
+    "fieldKey": "fieldBeans"
+  },
+  "fieldConfigMap": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Map,FieldConfig",
+    "description": "A fieldBean map with @FieldConfig",
+    "expose": "NONE",
+    "fieldKey": "fieldConfigMap"
+  },
   "fieldDelimiter": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -297,7 +253,10 @@
     "description": "A delimiter for fields used for csv files. ",
     "expose": "NONE",
     "fieldKey": "fieldDelimiter",
-    "length": 4
+    "length": 4,
+    "properties": {
+      "property": true
+    }
   },
   "fieldKey": {
     "module": "elastic-objects",
@@ -323,7 +282,10 @@
     "description": "A name for different purposes depending on the model.",
     "expose": "NONE",
     "fieldKey": "fieldName",
-    "length": 80
+    "length": 80,
+    "properties": {
+      "property": true
+    }
   },
   "fileConfigKey": {
     "module": "elastic-objects",
@@ -370,6 +332,28 @@
     "fieldKey": "filter",
     "length": 512
   },
+  "final": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true only a setter for the private variable is generated. When setting a value in an EO context an exception is thrown. ",
+    "expose": "NONE",
+    "fieldKey": "final",
+    "properties": {
+      "property": true
+    }
+  },
+  "generated": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Indicates a generated value?! A generated flag for @FieldBean",
+    "expose": "NONE",
+    "fieldKey": "generated",
+    "properties": {
+      "property": true
+    }
+  },
   "hibernate": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -403,13 +387,16 @@
     "description": "A name for host objects.",
     "expose": "NONE",
     "fieldKey": "hostName",
-    "length": 80
+    "length": 80,
+    "properties": {
+      "property": true
+    }
   },
   "id": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Long",
-    "description": "The id with a autonumbering",
+    "description": "The numeric id of an instance of a class.",
     "expose": "WEB",
     "fieldKey": "id",
     "properties": {
@@ -460,6 +447,19 @@
     "expose": "NONE",
     "fieldKey": "javaProperties"
   },
+  "javascriptType": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The type of javascript is derived from the java type.",
+    "expose": "NONE",
+    "fieldKey": "javascriptType",
+    "length": 10,
+    "properties": {
+      "transient": true,
+      "final": true
+    }
+  },
   "join": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -477,6 +477,17 @@
     "expose": "NONE",
     "fieldKey": "joinInverse",
     "length": 80
+  },
+  "jsonIgnore": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "jsonIgnore",
+    "expose": "NONE",
+    "fieldKey": "jsonIgnore",
+    "properties": {
+      "property": true
+    }
   },
   "keepCall": {
     "module": "elastic-objects",
@@ -537,6 +548,28 @@
     "fieldKey": "mapKey",
     "length": 80
   },
+  "max": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Integer",
+    "description": "A maximal length for field string types",
+    "expose": "NONE",
+    "fieldKey": "max",
+    "properties": {
+      "property": true
+    }
+  },
+  "min": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Integer",
+    "description": "A minimal length for field string types",
+    "expose": "NONE",
+    "fieldKey": "min",
+    "properties": {
+      "property": true
+    }
+  },
   "modelConfigKey": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -580,6 +613,14 @@
     "expose": "WEB",
     "fieldKey": "models",
     "length": 512
+  },
+  "modificationDate": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Date",
+    "description": "Will be set whenever a bean derived from super class @BaseBean is instantiated. ",
+    "expose": "WEB",
+    "fieldKey": "modificationDate"
   },
   "module": {
     "module": "elastic-objects",
@@ -635,7 +676,21 @@
     "modelKeys": "Boolean",
     "description": "notNull",
     "expose": "NONE",
-    "fieldKey": "notNull"
+    "fieldKey": "notNull",
+    "properties": {
+      "property": true
+    }
+  },
+  "override": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Indicates that a super or interface defines the method already but is overwritten. When java is generated an override annotation is set. ",
+    "expose": "NONE",
+    "fieldKey": "override",
+    "properties": {
+      "property": true
+    }
   },
   "overwrite": {
     "module": "elastic-objects",
@@ -643,7 +698,10 @@
     "modelKeys": "Boolean",
     "description": "A overwrite field flag for @Call.",
     "expose": "WEB",
-    "fieldKey": "overwrite"
+    "fieldKey": "overwrite",
+    "properties": {
+      "property": true
+    }
   },
   "packageGroup": {
     "module": "elastic-objects",
@@ -670,15 +728,10 @@
     "description": "The password instance var.",
     "expose": "NONE",
     "fieldKey": "password",
-    "length": 15
-  },
-  "rolePermissions": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "PermissionRole",
-    "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
-    "expose": "NONE",
-    "fieldKey": "rolePermissions"
+    "length": 15,
+    "properties": {
+      "property": true
+    }
   },
   "Permissions.create": {
     "module": "elastic-objects",
@@ -695,7 +748,10 @@
     "modelKeys": "Integer",
     "description": "port",
     "expose": "NONE",
-    "fieldKey": "port"
+    "fieldKey": "port",
+    "properties": {
+      "property": true
+    }
   },
   "postpend": {
     "module": "elastic-objects",
@@ -723,6 +779,17 @@
     "expose": "WEB",
     "fieldKey": "properties"
   },
+  "property": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Indicates that a field is a config property map value which can be implemented as a default interface method. ",
+    "expose": "NONE",
+    "fieldKey": "property",
+    "properties": {
+      "property": true
+    }
+  },
   "protocol": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -730,7 +797,10 @@
     "description": "protocol",
     "expose": "NONE",
     "fieldKey": "protocol",
-    "length": 8
+    "length": 8,
+    "properties": {
+      "property": true
+    }
   },
   "read": {
     "module": "elastic-objects",
@@ -750,6 +820,14 @@
     "fieldKey": "replaceBy",
     "length": 5
   },
+  "rolePermissions": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "PermissionRole",
+    "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+    "expose": "NONE",
+    "fieldKey": "rolePermissions"
+  },
   "rowDelimiter": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -757,7 +835,10 @@
     "description": "A delimiter for rows used for csv files.",
     "expose": "NONE",
     "fieldKey": "rowDelimiter",
-    "length": 4
+    "length": 4,
+    "properties": {
+      "property": true
+    }
   },
   "rowEnd": {
     "module": "elastic-objects",
@@ -765,7 +846,10 @@
     "modelKeys": "Integer",
     "description": "rowEnd",
     "expose": "WEB",
-    "fieldKey": "rowEnd"
+    "fieldKey": "rowEnd",
+    "properties": {
+      "property": true
+    }
   },
   "rowHead": {
     "module": "elastic-objects",
@@ -773,7 +857,10 @@
     "modelKeys": "Integer",
     "description": "rowHead",
     "expose": "WEB",
-    "fieldKey": "rowHead"
+    "fieldKey": "rowHead",
+    "properties": {
+      "property": true
+    }
   },
   "rowStart": {
     "module": "elastic-objects",
@@ -781,7 +868,10 @@
     "modelKeys": "Integer",
     "description": "rowStart",
     "expose": "WEB",
-    "fieldKey": "rowStart"
+    "fieldKey": "rowStart",
+    "properties": {
+      "property": true
+    }
   },
   "scope": {
     "module": "elastic-objects",
@@ -814,7 +904,10 @@
     "modelKeys": "ShapeTypes",
     "description": "shapeType",
     "expose": "NONE",
-    "fieldKey": "shapeType"
+    "fieldKey": "shapeType",
+    "properties": {
+      "property": true
+    }
   },
   "sortOrder": {
     "module": "elastic-objects",
@@ -859,6 +952,28 @@
     "expose": "WEB",
     "fieldKey": "startDirective",
     "length": 500
+  },
+  "staticName": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "staticName",
+    "expose": "NONE",
+    "fieldKey": "staticName",
+    "properties": {
+      "property": true
+    }
+  },
+  "super": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Marker to show, that the field is implemented in a super class. ",
+    "expose": "NONE",
+    "fieldKey": "super",
+    "properties": {
+      "property": true
+    }
   },
   "superKey": {
     "module": "elastic-objects",
@@ -941,13 +1056,28 @@
     "fieldKey": "toReplace",
     "length": 5
   },
+  "transient": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Will ignore field when a persistiong occure. Create a transient annotation when java is generated. ",
+    "expose": "NONE",
+    "fieldKey": "transient",
+    "properties": {
+      "property": true,
+      "default": true
+    }
+  },
   "unique": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "unique",
     "expose": "NONE",
-    "fieldKey": "unique"
+    "fieldKey": "unique",
+    "properties": {
+      "property": true
+    }
   },
   "upper.ID": {
     "module": "elastic-objects",
@@ -962,6 +1092,18 @@
       "notNull": true
     }
   },
+  "url": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "url",
+    "expose": "NONE",
+    "fieldKey": "url",
+    "length": 80,
+    "properties": {
+      "property": true
+    }
+  },
   "user": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -969,7 +1111,10 @@
     "description": "user",
     "expose": "NONE",
     "fieldKey": "user",
-    "length": 50
+    "length": 50,
+    "properties": {
+      "property": true
+    }
   },
   "value": {
     "module": "elastic-objects",

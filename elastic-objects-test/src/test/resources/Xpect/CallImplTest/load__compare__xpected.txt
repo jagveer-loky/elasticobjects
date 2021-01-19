@@ -1,1 +1,1 @@
-CALL_BEAN CallImpl
+BEAN CallImpl

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.domain.Base;
+import org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
@@ -30,7 +30,7 @@ public class GenerateEoConfigJsonCallTest {
     public void modelConfig__set_NaturalId_test__ok()  {
         ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(GenerateEoConfigJsonCall.class.getSimpleName());
         Object object = model.create();
-        model.set(Base.NATURAL_ID,object, "test");
-        Assertions.assertThat(model.get(Base.NATURAL_ID, object)).isEqualTo("test");
+        model.set(BaseConfigInterface.NATURAL_ID,object, "test");
+        Assertions.assertThat(model.get(BaseConfigInterface.NATURAL_ID, object)).isEqualTo("test");
     }
 }

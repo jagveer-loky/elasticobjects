@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOBytes;
 import org.fluentcodes.tools.xpect.IOString;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Read content of a file. Store content to targetPath when targetPath not equals "_asString".
@@ -21,10 +21,10 @@ import org.fluentcodes.tools.xpect.IOString;
 public class FileReadCall extends FileCall implements ConfigReadCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
 /*=>{}.*/
     public FileReadCall() {
         super();
@@ -70,6 +70,6 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
         }
         return new IOBytes().setFileName(filePath + Path.DELIMITER + fileName).read();
     }
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 /*=>{}.*/
 }

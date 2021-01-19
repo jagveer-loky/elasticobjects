@@ -22,13 +22,11 @@
       "myObject"
     ],
     "expose": "WEB",
-    "description": "Model class with different types of fields including generic collections, maps and @link ASubObject objects.",
+    "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "AnObject",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN"
+      "create": true
     },
     "author": "Werner Diwischek",
     "rolePermissions": {
@@ -39,21 +37,30 @@
     "configModelKey": "ModelConfigDbObject",
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "fieldKeys": [
-      "id",
-      "naturalId",
-      "myASubObject",
-      "name",
-      "myString"
-    ],
+    "fieldKeys": {
+      "id": {
+        "final": false,
+        "staticName": false
+      },
+      "naturalId": {
+        "final": false
+      },
+      "myASubObject": {
+        "final": false
+      },
+      "name": {
+        "final": false
+      },
+      "myString": {
+        "final": false
+      }
+    },
     "expose": "WEB",
     "description": "A sub object as an example.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
     "modelKey": "ASubObject",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "BEAN"
+      "create": true
     },
     "author": "Werner Diwischek",
     "rolePermissions": {

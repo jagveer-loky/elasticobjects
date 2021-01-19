@@ -50,9 +50,7 @@ public class EOConfigMapModels extends EOConfigMap {
                 throw new EoInternalException("Bean with naturalId '" + naturalId + "' already exists");
             }
             ModelBean modelBean = new ModelBean(modelMap.get(naturalId));
-            if (!modelBean.hasNaturalId()) {
-                modelBean.setNaturalId(naturalId);
-            }
+            if (!modelBean.hasNaturalId()) modelBean.setNaturalId(naturalId);
             modelBean.mergeFieldDefinition(fieldMap);
             modelBeanMap.put(modelBean.getNaturalId(), modelBean);
         }

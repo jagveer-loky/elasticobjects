@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import java.util.List;
 import java.util.Map;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * For getting a map of configurations for a specific configuration type.
@@ -22,12 +22,12 @@ import java.util.Map;
 public class ConfigCall extends ConfigKeysCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String MODULE = "module";
    public static final String MODULE_SCOPE = "moduleScope";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String module;
    private  String moduleScope;
 /*=>{}.*/
@@ -72,7 +72,7 @@ public class ConfigCall extends ConfigKeysCall  {
         return super.createReturnType(eo,result.get());
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     Defines a target module where generating occurs. 
     */

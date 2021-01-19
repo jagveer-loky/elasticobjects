@@ -7,8 +7,8 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.domain.Base.ID;
-import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
 
 public class UpdateStatement extends PreparedStatementValues {
 

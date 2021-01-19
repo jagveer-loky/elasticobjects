@@ -16,11 +16,11 @@ import java.util.regex.Pattern;
 public class ParserCurlyBracket extends Parser{
     private static final String START = "{";
     private static final String STOP = "}";
-    private static final Pattern VAR_PATTERN = Parser.CREATE_VAR_PATTERN("\\" + START, "\\" + STOP);
-    private static final String END_SEQUENCE = Parser.CREATE_END_SEQUENCE(STOP);
-    private static final String CONTINUE_SEQUENCE = Parser.CREATE_CONTINUE_SEQUENCE(STOP);
-    private static final String START_SEQUENCE = Parser.CREATE_START_SEQUENCE(START);
-    private static final String CLOSE_SEQUENCE = Parser.CREATE_CLOSE_SEQUENCE(START, STOP);  public ParserCurlyBracket(final String template) {
+    private static final Pattern VAR_PATTERN = Parser.createVarPattern("\\" + START, "\\" + STOP);
+    private static final String END_SEQUENCE = Parser.createEndSequence(STOP);
+    private static final String CONTINUE_SEQUENCE = Parser.createContinueSequence(STOP);
+    private static final String START_SEQUENCE = Parser.createStartSequence(START);
+    private static final String CLOSE_SEQUENCE = Parser.createCloseSequence(START, STOP);  public ParserCurlyBracket(final String template) {
         super(template);
     }
 

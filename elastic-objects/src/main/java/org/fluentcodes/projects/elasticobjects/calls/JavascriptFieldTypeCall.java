@@ -3,8 +3,9 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Returns a type String depending on the modelKeys field value, e.g. "<Map, AnObject>" if modeKey is "Map, AnObject".
@@ -16,10 +17,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class JavascriptFieldTypeCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
 /*=>{}.*/
     @Override
     public String execute(final EO eo) {
@@ -29,6 +30,9 @@ public class JavascriptFieldTypeCall extends CallImpl implements SimpleCommand {
         return createType((String)eo.get());
     }
     public static String createType(final String modelKeys) {
+        if (modelKeys == null ||modelKeys.isEmpty()) {
+            throw new EoInternalException("Could not create javascript type with empty input for java model");
+        }
         try {
             String[] models = modelKeys.split(",");
             if (models.length == 2) {
@@ -56,6 +60,6 @@ public class JavascriptFieldTypeCall extends CallImpl implements SimpleCommand {
             throw new EoException(e.getMessage());
         }
     }
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
 /*=>{}.*/
 }

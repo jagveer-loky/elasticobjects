@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.calls.generate.GenerateModelAbstract.MODEL_BEANS_JSON;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Call for generation json configurations from the sheet.
@@ -23,10 +23,10 @@ import static org.fluentcodes.projects.elasticobjects.calls.generate.GenerateMod
  * @modificationDate Wed Nov 11 07:39:50 CET 2020
  */
 public class GenerateModelBeansJsonCall extends GenerateAbstract implements GenerateProperties{
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
 /*=>{}.*/
     public GenerateModelBeansJsonCall() {
         super();
@@ -45,13 +45,13 @@ public class GenerateModelBeansJsonCall extends GenerateAbstract implements Gene
         init(eo);
         StringBuilder feedback = new StringBuilder();
 
-        XlsxReadCall readCall = new XlsxReadCall(getSourceFileConfigKey() + ":" + ModelConfig.class.getSimpleName());
-        readCall.setTargetPath(ModelConfig.class.getSimpleName() + "/=>[naturalId].");
-        feedback.append(readCall.execute(eo));
+        XlsxReadCall modelCall = new XlsxReadCall(getSourceFileConfigKey() + ":" + ModelConfig.class.getSimpleName());
+        modelCall.setTargetPath(ModelConfig.class.getSimpleName() + "/=>[naturalId].");
+        feedback.append(modelCall.execute(eo));
 
-        readCall = new XlsxReadCall(getSourceFileConfigKey() + ":" + FieldConfig.class.getSimpleName());
-        readCall.setTargetPath(FieldConfig.class.getSimpleName() + "/=>[naturalId].");
-        feedback.append(readCall.execute(eo));
+        XlsxReadCall fieldCall = new XlsxReadCall(getSourceFileConfigKey() + ":" + FieldConfig.class.getSimpleName());
+        fieldCall.setTargetPath(FieldConfig.class.getSimpleName() + "/=>[naturalId].");
+        feedback.append(fieldCall.execute(eo));
 
         Map<String, ModelBean> modelBeans = new LinkedHashMap<>();
         Map<String, Map> models = (Map<String, Map>)eo.get(ModelConfig.class.getSimpleName());
@@ -76,7 +76,7 @@ public class GenerateModelBeansJsonCall extends GenerateAbstract implements Gene
         return feedback.toString();
     }
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
 /*=>{}.*/
 
 }

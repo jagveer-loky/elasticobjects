@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * For setting values to EO.
@@ -17,11 +17,11 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String CONTENT = "content";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String content;
 /*=>{}.*/
 
@@ -42,7 +42,7 @@ public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
         return super.createReturnString(eo, content.toString());
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     A content for different calls. In a template context the content of the markup. 
     */

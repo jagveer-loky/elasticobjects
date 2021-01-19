@@ -13,19 +13,27 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.Map;
 
+/*=>{javaHeader}|*/
 /**
- * Created by Werner on 09.10.2016.
+ * 
+ * Immutable EO file configuration allow read or write access to a specific file.  
+ * @author Werner Diwischek
+ * @creationDate Wed Oct 17 00:00:00 CEST 2018
+ * @modificationDate Thu Jan 14 14:42:46 CET 2021
  */
-public class FileConfig extends PermissionConfig implements FileConfigInterfaceMethods {
-    public static final String FILE_NAME = "fileName";
-    public static final String FILE_PATH = "filePath";
-    public static final String CACHED = "cached";
+public class FileConfig extends PermissionConfig implements FileConfigInterfaceMethods  {
+/*=>{}.*/
 
-    private final String fileName;
-    private final String filePath;
-    private final String hostConfigKey;
-    private final Boolean cached;
-
+/*=>{javaInstanceVars}|*/
+   /* If true will cache the readed file within the cache object.  */
+   private final Boolean cached;
+   /* A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
+   private final String fileName;
+   /* A filePath used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
+   private final String filePath;
+   /* A key for host objects. */
+   private final String hostConfigKey;
+/*=>{}.*/
     private String cachedContent;
 
     public FileConfig(Map map) {
@@ -43,6 +51,27 @@ public class FileConfig extends PermissionConfig implements FileConfigInterfaceM
         this.cached = bean.getCached();
         this.hostConfigKey = bean.getHostConfigKey();
     }
+
+
+
+/*=>{javaAccessors}|*/
+   @Override
+   public Boolean getCached() {
+      return this.cached;
+   }
+   @Override
+   public String getFileName() {
+      return this.fileName;
+   }
+   @Override
+   public String getFilePath() {
+      return this.filePath;
+   }
+   @Override
+   public String getHostConfigKey() {
+      return this.hostConfigKey;
+   }
+/*=>{}.*/
 
     protected boolean hasCachedContent() {
         return cachedContent != null && !cachedContent.isEmpty();
@@ -127,41 +156,5 @@ public class FileConfig extends PermissionConfig implements FileConfigInterfaceM
         } catch (MalformedURLException e) {
             throw new EoException(e);
         }
-    }
-
-    /**
-     * File cached
-     */
-    @Override
-    public String getFileName() {
-        return this.fileName;
-    }
-    @Override
-    public String getFilePath() {
-        return this.filePath;
-    }
-    @Override
-    public boolean hasFileName() {
-        return fileName != null && !fileName.isEmpty();
-    }
-    @Override
-    public boolean hasFilePath() {
-        return filePath != null && !filePath.isEmpty();
-    }
-
-    /**
-     * A key for host objects.
-     */
-    @Override
-    public String getHostConfigKey() {
-        return this.hostConfigKey;
-    }
-
-    /**
-     * If true will config the readed file within the config object.
-     */
-    @Override
-    public Boolean getCached() {
-        return this.cached;
     }
 }

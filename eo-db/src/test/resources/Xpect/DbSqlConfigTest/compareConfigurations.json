@@ -6,15 +6,9 @@
     "rolePermissions": {
       "execute": "admin"
     },
-    "configModelKey": "DbSqlConfig",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "test",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": "AnObject"
-    },
     "description": "Basic H2 dropping AnObject table",
     "naturalId": "h2:mem:basic:AnObjectDrop"
   },
@@ -25,15 +19,9 @@
     "rolePermissions": {
       "read": "guest"
     },
-    "configModelKey": "DbSqlConfig",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": "AnObject"
-    },
     "description": "Query for AnObject",
     "naturalId": "h2:mem:basic:AnObject"
   },
@@ -56,15 +44,9 @@
     "rolePermissions": {
       "execute": "admin"
     },
-    "configModelKey": "DbSqlConfig",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": ""
-    },
     "description": "Basic H2 creating tables",
     "naturalId": "h2:mem:basic:Create"
   },
@@ -75,15 +57,9 @@
     "rolePermissions": {
       "read": "guest"
     },
-    "configModelKey": "DbSqlConfig",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "classPath": "src/main/resources",
-      "dbKey": "h2:mem:basic",
-      "modelKey": "ASubObject"
-    },
     "description": "Query for ASubObject",
     "naturalId": "h2:mem:basic:ASubObject"
   }

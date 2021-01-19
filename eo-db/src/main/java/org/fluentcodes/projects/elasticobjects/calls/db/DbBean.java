@@ -21,8 +21,8 @@ public class DbBean extends HostBean implements DbBeanInterface {
         defaultConfigModelKey();
     }
 
-    protected void merge(final Map values) {
-        super.merge(values);
+    public void merge(final Map configMap) {
+        super.merge(configMap);
     }
 
     @Override
@@ -41,8 +41,4 @@ public class DbBean extends HostBean implements DbBeanInterface {
         this.sqlList = sqlList;
     }
 
-    @Override
-    public String toString() {
-        return getNaturalId() + " -> " + getUrl();
-    }
 }

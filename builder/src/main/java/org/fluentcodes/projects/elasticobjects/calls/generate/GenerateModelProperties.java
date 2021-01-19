@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 public interface GenerateModelProperties extends GenerateProperties {
     /*=>{}.*/
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
     default void defaultOverwrite() {
         if (getOverwrite() == null) {
             setOverwrite(false);

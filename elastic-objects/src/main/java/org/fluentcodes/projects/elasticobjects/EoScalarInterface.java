@@ -62,7 +62,7 @@ public interface EoScalarInterface extends EoLogInterface{
     Class getModelClass();
 
     default boolean isTransient(final String fieldName) {
-        return getModel().hasFieldConfig(fieldName)  ? getModel().getFieldConfig(fieldName).isTransient(): false;
+        return getModel().hasFieldConfig(fieldName)  ? getModel().getField(fieldName).isTransient(): false;
     }
 
     boolean isCheckObjectReplication();

@@ -1,24 +1,21 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import java.util.List;
-import java.util.Map;
-
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-
+import java.util.List;
+import java.util.Map;
 /**
- * Model class with different types of fields including generic collections, maps and {@link link} ASubObject objects.
- *
+ * 
+ Model class with different types of fields including generic collections, maps and {@link ASubObject} objects. *
  * @author Werner Diwischek
- * @creationDate 
- * @modificationDate Tue Dec 08 05:53:22 CET 2020
+ * @creationDate null
+ * @modificationDate Thu Jan 07 05:19:42 CET 2021
  */
-public class AnObject   {
-/*=>{}.*/
+public class AnObject  {/*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA}|*/
+    /*=>{javaStaticNames}|*/
    public static final String ID = "id";
    public static final String MY_ASUB_OBJECT = "myASubObject";
    public static final String MY_ASUB_OBJECT_LIST = "myASubObjectList";
@@ -37,285 +34,237 @@ public class AnObject   {
    public static final String NATURAL_ID = "naturalId";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA}|*/
-   private  Long id;
-   private  ASubObject myASubObject;
-   private  List<ASubObject> myASubObjectList;
-   private  Map<String, ASubObject> myASubObjectMap;
-   private  AnObject myAnObject;
-   private  Boolean myBoolean;
-   private  Date myDate;
-   private  Double myDouble;
-   private  Float myFloat;
-   private  Integer myInt;
-   private  ArrayList myList;
-   private  Long myLong;
-   private  HashMap myMap;
-   private  Object myObject;
-   private  String myString;
-   private  String naturalId;
+    /*=>{javaInstanceVars}|*/
+   /* The id with a autonumbering */
+   private Long id;
+   /* myASubObject */
+   private ASubObject myASubObject;
+   /* A generic parametrized example List with @ASubObject */
+   private List<ASubObject> myASubObjectList;
+   /* A generic parametrized example Map with @ASubObject */
+   private Map<String, ASubObject> myASubObjectMap;
+   /* A AnObject field. */
+   private AnObject myAnObject;
+   /* myBoolean */
+   private Boolean myBoolean;
+   /* myDate */
+   private Date myDate;
+   /* myDouble */
+   private Double myDouble;
+   /* myFloat */
+   private Float myFloat;
+   /* myInt */
+   private Integer myInt;
+   /* myList */
+   private ArrayList myList;
+   /* myLong */
+   private Long myLong;
+   /* myMap */
+   private HashMap myMap;
+   /* A test object thing.  */
+   private Object myObject;
+   /* Just a small test string used in test models.  */
+   private String myString;
+   /* The natural key in @Base */
+   private String naturalId;
 /*=>{}.*/
 
     public Boolean isMyBoolean () {
         return this.myBoolean;
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA}|*/
-    /**
-    The id with a autonumbering
-    */
+    /*=>{javaAccessors}|*/
+   public Long getId() {
+      return this.id;
+   }
 
-    public AnObject setId(Long id) {
-        this.id = id;
-        return this;
+   public AnObject setId(final Long id) {
+      this.id = id;
+      return this;
     }
-    
-    public Long getId () {
-       return this.id;
-    }
-    
-    public boolean hasId () {
-        return id!= null;
-    }
-    /**
-    myASubObject
-    */
 
-    public AnObject setMyASubObject(ASubObject myASubObject) {
-        this.myASubObject = myASubObject;
-        return this;
-    }
-    
-    public ASubObject getMyASubObject () {
-       return this.myASubObject;
-    }
-    
-    public boolean hasMyASubObject () {
-        return myASubObject!= null;
-    }
-    /**
-    A generic parametrized example List with @ASubObject
-    */
+   public boolean hasId() {
+      return this.id != null;
+   }
+   public ASubObject getMyASubObject() {
+      return this.myASubObject;
+   }
 
-    public AnObject setMyASubObjectList(List<ASubObject> myASubObjectList) {
-        this.myASubObjectList = myASubObjectList;
-        return this;
+   public AnObject setMyASubObject(final ASubObject myASubObject) {
+      this.myASubObject = myASubObject;
+      return this;
     }
-    
-    public List<ASubObject> getMyASubObjectList () {
-       return this.myASubObjectList;
-    }
-    
-    public boolean hasMyASubObjectList () {
-        return myASubObjectList!= null && !myASubObjectList.isEmpty();
-    }
-    /**
-    A generic parametrized example Map with @ASubObject
-    */
 
-    public AnObject setMyASubObjectMap(Map<String, ASubObject> myASubObjectMap) {
-        this.myASubObjectMap = myASubObjectMap;
-        return this;
-    }
-    
-    public Map<String, ASubObject> getMyASubObjectMap () {
-       return this.myASubObjectMap;
-    }
-    
-    public boolean hasMyASubObjectMap () {
-        return myASubObjectMap!= null && !myASubObjectMap.isEmpty();
-    }
-    /**
-    A AnObject field.
-    */
+   public boolean hasMyASubObject() {
+      return this.myASubObject != null;
+   }
+   public List<ASubObject> getMyASubObjectList() {
+      return this.myASubObjectList;
+   }
 
-    public AnObject setMyAnObject(AnObject myAnObject) {
-        this.myAnObject = myAnObject;
-        return this;
+   public AnObject setMyASubObjectList(final List<ASubObject> myASubObjectList) {
+      this.myASubObjectList = myASubObjectList;
+      return this;
     }
-    
-    public AnObject getMyAnObject () {
-       return this.myAnObject;
-    }
-    
-    public boolean hasMyAnObject () {
-        return myAnObject!= null;
-    }
-    /**
-    myBoolean
-    */
 
-    public AnObject setMyBoolean(Boolean myBoolean) {
-        this.myBoolean = myBoolean;
-        return this;
-    }
-    
-    public Boolean getMyBoolean () {
-       return this.myBoolean;
-    }
-    
-    public boolean hasMyBoolean () {
-        return myBoolean!= null;
-    }
-    /**
-    myDate
-    */
+   public boolean hasMyASubObjectList() {
+      return this.myASubObjectList != null && this.myASubObjectList.isEmpty();
+   }
+   public Map<String, ASubObject> getMyASubObjectMap() {
+      return this.myASubObjectMap;
+   }
 
-    public AnObject setMyDate(Date myDate) {
-        this.myDate = myDate;
-        return this;
+   public AnObject setMyASubObjectMap(final Map<String, ASubObject> myASubObjectMap) {
+      this.myASubObjectMap = myASubObjectMap;
+      return this;
     }
-    
-    public Date getMyDate () {
-       return this.myDate;
-    }
-    
-    public boolean hasMyDate () {
-        return myDate!= null;
-    }
-    /**
-    myDouble
-    */
 
-    public AnObject setMyDouble(Double myDouble) {
-        this.myDouble = myDouble;
-        return this;
-    }
-    
-    public Double getMyDouble () {
-       return this.myDouble;
-    }
-    
-    public boolean hasMyDouble () {
-        return myDouble!= null;
-    }
-    /**
-    myFloat
-    */
+   public boolean hasMyASubObjectMap() {
+      return this.myASubObjectMap != null && this.myASubObjectMap.isEmpty();
+   }
+   public AnObject getMyAnObject() {
+      return this.myAnObject;
+   }
 
-    public AnObject setMyFloat(Float myFloat) {
-        this.myFloat = myFloat;
-        return this;
+   public AnObject setMyAnObject(final AnObject myAnObject) {
+      this.myAnObject = myAnObject;
+      return this;
     }
-    
-    public Float getMyFloat () {
-       return this.myFloat;
-    }
-    
-    public boolean hasMyFloat () {
-        return myFloat!= null;
-    }
-    /**
-    myInt
-    */
 
-    public AnObject setMyInt(Integer myInt) {
-        this.myInt = myInt;
-        return this;
-    }
-    
-    public Integer getMyInt () {
-       return this.myInt;
-    }
-    
-    public boolean hasMyInt () {
-        return myInt!= null;
-    }
-    /**
-    myList
-    */
+   public boolean hasMyAnObject() {
+      return this.myAnObject != null;
+   }
+   public Boolean getMyBoolean() {
+      return this.myBoolean;
+   }
 
-    public AnObject setMyList(ArrayList myList) {
-        this.myList = myList;
-        return this;
+   public AnObject setMyBoolean(final Boolean myBoolean) {
+      this.myBoolean = myBoolean;
+      return this;
     }
-    
-    public ArrayList getMyList () {
-       return this.myList;
-    }
-    
-    public boolean hasMyList () {
-        return myList!= null && !myList.isEmpty();
-    }
-    /**
-    myLong
-    */
 
-    public AnObject setMyLong(Long myLong) {
-        this.myLong = myLong;
-        return this;
-    }
-    
-    public Long getMyLong () {
-       return this.myLong;
-    }
-    
-    public boolean hasMyLong () {
-        return myLong!= null;
-    }
-    /**
-    myMap
-    */
+   public boolean hasMyBoolean() {
+      return this.myBoolean != null;
+   }
+   public Date getMyDate() {
+      return this.myDate;
+   }
 
-    public AnObject setMyMap(HashMap myMap) {
-        this.myMap = myMap;
-        return this;
+   public AnObject setMyDate(final Date myDate) {
+      this.myDate = myDate;
+      return this;
     }
-    
-    public HashMap getMyMap () {
-       return this.myMap;
-    }
-    
-    public boolean hasMyMap () {
-        return myMap!= null && !myMap.isEmpty();
-    }
-    /**
-    A test object thing. 
-    */
 
-    public AnObject setMyObject(Object myObject) {
-        this.myObject = myObject;
-        return this;
-    }
-    
-    public Object getMyObject () {
-       return this.myObject;
-    }
-    
-    public boolean hasMyObject () {
-        return myObject!= null;
-    }
-    /**
-    Just a small test string used in test models. 
-    */
+   public boolean hasMyDate() {
+      return this.myDate != null;
+   }
+   public Double getMyDouble() {
+      return this.myDouble;
+   }
 
-    public AnObject setMyString(String myString) {
-        this.myString = myString;
-        return this;
+   public AnObject setMyDouble(final Double myDouble) {
+      this.myDouble = myDouble;
+      return this;
     }
-    
-    public String getMyString () {
-       return this.myString;
-    }
-    
-    public boolean hasMyString () {
-        return myString!= null && !myString.isEmpty();
-    }
-    /**
-    The natural key in @Base
-    */
 
-    public AnObject setNaturalId(String naturalId) {
-        this.naturalId = naturalId;
-        return this;
+   public boolean hasMyDouble() {
+      return this.myDouble != null;
+   }
+   public Float getMyFloat() {
+      return this.myFloat;
+   }
+
+   public AnObject setMyFloat(final Float myFloat) {
+      this.myFloat = myFloat;
+      return this;
     }
-    
-    public String getNaturalId () {
-       return this.naturalId;
+
+   public boolean hasMyFloat() {
+      return this.myFloat != null;
+   }
+   public Integer getMyInt() {
+      return this.myInt;
+   }
+
+   public AnObject setMyInt(final Integer myInt) {
+      this.myInt = myInt;
+      return this;
     }
-    
-    public boolean hasNaturalId () {
-        return naturalId!= null && !naturalId.isEmpty();
+
+   public boolean hasMyInt() {
+      return this.myInt != null;
+   }
+   public ArrayList getMyList() {
+      return this.myList;
+   }
+
+   public AnObject setMyList(final ArrayList myList) {
+      this.myList = myList;
+      return this;
     }
+
+   public boolean hasMyList() {
+      return this.myList != null && this.myList.isEmpty();
+   }
+   public Long getMyLong() {
+      return this.myLong;
+   }
+
+   public AnObject setMyLong(final Long myLong) {
+      this.myLong = myLong;
+      return this;
+    }
+
+   public boolean hasMyLong() {
+      return this.myLong != null;
+   }
+   public HashMap getMyMap() {
+      return this.myMap;
+   }
+
+   public AnObject setMyMap(final HashMap myMap) {
+      this.myMap = myMap;
+      return this;
+    }
+
+   public boolean hasMyMap() {
+      return this.myMap != null && this.myMap.isEmpty();
+   }
+   public Object getMyObject() {
+      return this.myObject;
+   }
+
+   public AnObject setMyObject(final Object myObject) {
+      this.myObject = myObject;
+      return this;
+    }
+
+   public boolean hasMyObject() {
+      return this.myObject != null;
+   }
+   public String getMyString() {
+      return this.myString;
+   }
+
+   public AnObject setMyString(final String myString) {
+      this.myString = myString;
+      return this;
+    }
+
+   public boolean hasMyString() {
+      return this.myString != null && this.myString.isEmpty();
+   }
+   public String getNaturalId() {
+      return this.naturalId;
+   }
+
+   public AnObject setNaturalId(final String naturalId) {
+      this.naturalId = naturalId;
+      return this;
+    }
+
+   public boolean hasNaturalId() {
+      return this.naturalId != null && this.naturalId.isEmpty();
+   }
 /*=>{}.*/
 }

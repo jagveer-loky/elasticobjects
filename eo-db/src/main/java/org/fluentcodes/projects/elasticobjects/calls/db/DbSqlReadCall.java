@@ -12,7 +12,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Map results of a sql select to the targetPath.
  *
@@ -23,11 +23,11 @@ import java.util.List;
 public class DbSqlReadCall extends DbSqlCall implements ListInterface,  ConfigReadCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
    public static String LIST_PARAMS = "listParams";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
    private ListParams listParams;
 /*=>{}.*/
 
@@ -85,7 +85,7 @@ public class DbSqlReadCall extends DbSqlCall implements ListInterface,  ConfigRe
                 listParams);
     }
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */

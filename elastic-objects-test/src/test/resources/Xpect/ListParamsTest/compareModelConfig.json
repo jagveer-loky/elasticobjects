@@ -3,88 +3,46 @@
     "colKeys": {
       "fieldKey": "colKeys",
       "modelKeys": "List,String",
-      "modelList": [
-        "List",
-        "String"
-      ],
-      "properties": {
-        "override": false
-      },
       "description": "The key list for mapping values in a value list. ",
       "naturalId": "colKeys"
     },
     "filter": {
       "fieldKey": "filter",
+      "length": 512,
       "modelKeys": "String",
-      "modelList": [
-        "String"
-      ],
-      "properties": {
-        "override": false
-      },
       "description": "Filter for List entries.",
       "naturalId": "filter"
     },
     "length": {
       "fieldKey": "length",
       "modelKeys": "Integer",
-      "modelList": [
-        "Integer"
-      ],
-      "properties": {
-        "override": false
-      },
       "description": "Length of a field.",
       "naturalId": "length"
     },
     "rowEnd": {
       "fieldKey": "rowEnd",
       "modelKeys": "Integer",
-      "modelList": [
-        "Integer"
-      ],
-      "properties": {
-        "override": false
-      },
       "description": "rowEnd",
       "naturalId": "rowEnd"
     },
     "rowHead": {
       "fieldKey": "rowHead",
       "modelKeys": "Integer",
-      "modelList": [
-        "Integer"
-      ],
-      "properties": {
-        "override": false
-      },
       "description": "rowHead",
       "naturalId": "rowHead"
     },
     "rowStart": {
       "fieldKey": "rowStart",
       "modelKeys": "Integer",
-      "modelList": [
-        "Integer"
-      ],
-      "properties": {
-        "override": false
-      },
       "description": "rowStart",
       "naturalId": "rowStart"
     }
   },
   "modelKey": "ListParams",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-  "configModelKey": "ModelConfigObject",
   "expose": "NONE",
   "module": "elastic-objects",
   "moduleScope": "main",
-  "properties": {
-    "classPath": "src.main.java",
-    "create": true,
-    "shapeType": "BEAN"
-  },
   "author": "Werner Diwischek",
   "description": "Defines the parameter like rowStart, rowEnd and length.",
   "naturalId": "ListParams"

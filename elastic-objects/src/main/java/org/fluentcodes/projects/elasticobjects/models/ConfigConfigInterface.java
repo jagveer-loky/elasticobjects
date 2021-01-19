@@ -2,7 +2,8 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface;
 
 import java.util.List;
-/*==>{ALLHeader.tpl, ., , JAVA}|*/
+import java.util.Map;
+/*=>{javaHeader}|*/
 
 /**
  * Basic config interface as super interface for other cached items. 
@@ -11,15 +12,16 @@ import java.util.List;
  * @creationDate 
  * @modificationDate Tue Dec 08 17:46:47 CET 2020
  */
-public interface ConfigConfigInterface extends BaseConfigInterface, ConfigProperties {
+public interface ConfigConfigInterface extends BaseConfigInterface {
 /*=>{}.*/
 
-    /*==>{INTERFACEStaticNames.tpl, fieldBeans/*, super eq false, JAVA}|*/
+    /*=>{javaStaticNames}|*/
     String EXPOSE = "expose";
     String MODULE = "module";
     String MODULE_SCOPE = "moduleScope";
     String SCOPE = "scope";
-/*=>{}.*/
+    String PROPERTIES = "properties";
+    /*=>{}.*/
 
     default boolean hasScope(final Scope scope) {
         if (scope == Scope.ALL) {
@@ -36,12 +38,20 @@ public interface ConfigConfigInterface extends BaseConfigInterface, ConfigProper
         return false;
     }
 
-    /*==>{INTERFACESetter.tpl, fieldBeans/*, super eq false, JAVA}|*/
+    /*=>{javaAccessors}|*/
+    default boolean hasProperties() {
+        return getProperties()!=null && !getProperties().isEmpty();
+    }
+
+    /**
+     Properties for configurations.
+     */
+    Map getProperties();
+
 
   /**
   * expose
   */
-  ConfigConfigInterface setExpose(Expose expose);
    Expose getExpose();
    default Boolean hasExpose () {
       return getExpose()!= null;

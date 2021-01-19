@@ -1,18 +1,23 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 
 import java.util.Map;
-
+/*=>{javaHeader}|*/
 /**
- * Created by Werner on 09.10.2016.
+ * 
+ * Basic host definition for file or db cache.  
+ * @author null
+ * @creationDate Wed Oct 17 00:00:00 CEST 2018
+ * @modificationDate Thu Jan 14 12:17:41 CET 2021
  */
-public class HostConfig extends PermissionConfig implements HostConfigInterface, HostConfigInterfaceMethods {
+public class HostConfig extends PermissionConfig implements HostConfigInterfaceMethods  {
+/*=>{}.*/
     public static final String LOCALHOST = "localhost";
-    public static final String HOST_KEY = "hostKey";
+
+/*=>{javaAccessors}|*/
+/*=>{}.*/
     private String urlCache;
 
     public HostConfig(final Map map) {

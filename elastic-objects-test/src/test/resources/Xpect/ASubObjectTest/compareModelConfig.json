@@ -6,60 +6,42 @@
     "id": {
       "fieldKey": "id",
       "modelKeys": "Long",
-      "modelList": [
-        "Long"
-      ],
-      "description": "The id with a autonumbering",
+      "description": "The numeric id of an instance of a class.",
       "naturalId": "id"
     },
     "myASubObject": {
       "fieldKey": "myASubObject",
       "modelKeys": "ASubObject",
-      "modelList": [
-        "ASubObject"
-      ],
       "description": "myASubObject",
       "naturalId": "myASubObject"
     },
     "myString": {
       "fieldKey": "myString",
+      "length": 20,
       "modelKeys": "String",
-      "modelList": [
-        "String"
-      ],
       "description": "Just a small test string used in test models. ",
       "naturalId": "myString"
     },
     "name": {
       "fieldKey": "name",
+      "length": 80,
       "modelKeys": "String",
-      "modelList": [
-        "String"
-      ],
       "description": "The name field of a class. ",
       "naturalId": "name"
     },
     "naturalId": {
       "fieldKey": "naturalId",
+      "length": 80,
       "modelKeys": "String",
-      "modelList": [
-        "String"
-      ],
       "description": "The natural key in @Base",
       "naturalId": "naturalId"
     }
   },
   "modelKey": "ASubObject",
   "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-  "configModelKey": "ModelConfigDbObject",
   "expose": "WEB",
   "module": "elastic-objects-test",
   "moduleScope": "main",
-  "properties": {
-    "classPath": "src.main.java",
-    "create": true,
-    "shapeType": "BEAN"
-  },
   "author": "Werner Diwischek",
   "creationDate": 1605826772992,
   "description": "A sub object as an example.",

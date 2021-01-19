@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 public enum KeepCalls {
     HTML("<!--", "-->"),
-    JAVA("\n/*", "*/"),
+    JAVA("/*", "*/\n"),
     NONE("", "");
     private String startComment;
     private String endComment;

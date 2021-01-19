@@ -1,39 +1,59 @@
 package org.fluentcodes.projects.elasticobjects.domain;
 
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
-
 import java.util.Date;
-import java.util.Map;
 
+/*=>{javaHeader}|*/
 /**
- * Created by Werner on 10.10.2017.
+ * 
+ * Basic bean as super interface for other cached items.  
+ * @author Werner Diwischek
+ * @creationDate Mon Dec 21 00:00:00 CET 2020
+ * @modificationDate Thu Jan 07 16:15:03 CET 2021
  */
-public interface BaseConfigInterface {
-    Long getId();
-    default boolean hasId() {
-        return getId() == null;
-    }
+public interface BaseConfigInterface  {
+/*=>{}.*/
+/*=>{javaStaticNames}|*/
+   String AUTHOR = "author";
+   String CREATION_DATE = "creationDate";
+   String DESCRIPTION = "description";
+   String ID = "id";
+   String NATURAL_ID = "naturalId";
+/*=>{}.*/
 
-    String getDescription();
+/*=>{javaAccessors}|*/
+   public String getAuthor();
 
-    default boolean hasDescription() {
-        return getDescription()!=null && !getDescription().isEmpty();
-    }
+   default boolean hasAuthor() {
+      return getAuthor() != null && !getAuthor().isEmpty();
+   }
 
-    String getNaturalId();
+   public Date getCreationDate();
 
-    default boolean hasNaturalId() {
-        return getNaturalId()!=null && !getNaturalId().isEmpty();
-    }
-    Date getCreationDate();
-    default boolean hasCreationDate() {
-        return getCreationDate() != null;
-    }
+   default boolean hasCreationDate() {
+      return getCreationDate() != null;
+   }
 
-    Date getModificationDate();
+   public String getDescription();
 
-    String getAuthor();
-    default boolean hasAuthor() {
-        return getAuthor() !=null && !getAuthor().isEmpty();
-    }
+   default boolean hasDescription() {
+      return getDescription() != null && !getDescription().isEmpty();
+   }
+
+   public Long getId();
+
+   default boolean hasId() {
+      return getId() != null;
+   }
+
+   public String getNaturalId();
+
+   default boolean hasNaturalId() {
+      return getNaturalId() != null && !getNaturalId().isEmpty();
+   }
+
+/*=>{}.*/
+
+   default Date getModificationDate() {
+      return new Date();
+   }
 }

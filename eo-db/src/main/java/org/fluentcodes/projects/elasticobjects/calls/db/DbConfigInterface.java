@@ -1,10 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
 
-public interface DbConfigInterface extends ConfigConfigInterface, ConfigProperties {
+public interface DbConfigInterface extends ConfigConfigInterface {
     String SCHEMA = "schema";
     String DRIVER = "driver";
     String JNDI = "jndi";

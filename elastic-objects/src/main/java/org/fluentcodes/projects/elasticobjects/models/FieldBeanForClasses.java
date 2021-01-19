@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
-import java.util.List;
 import java.util.Map;
 
 public class FieldBeanForClasses extends FieldBean {

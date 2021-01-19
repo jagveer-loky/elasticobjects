@@ -1,71 +1,80 @@
 package org.fluentcodes.projects.elasticobjects.domain;
 
-import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-
+/*=>{javaHeader}|*/
 import java.util.Date;
-
 /**
- * Created by Werner on 14.12.2017.
- * A basic model used by ordinary beans
+ * 
+ * Basic final configuration as super object for all configuration with id, naturalId and description.  
+ * @author Werner Diwischek
+ * @creationDate Mon Dec 21 00:00:00 CET 2020
+ * @modificationDate Sat Jan 09 08:03:06 CET 2021
  */
-public class BaseConfig implements BaseConfigInterface {
-    private final Long id;
-    private final String description;
-    private final String naturalId;
-    private final Date creationDate;
-    private final String author;
+public class BaseConfig implements BaseConfigInterface  {
+/*=>{}.*/
+/*=>{javaInstanceVars}|*/
+   /* The author of the class. */
+   private final String author;
+   /* Used to define the creation of an item. */
+   private final Date creationDate;
+   /* A description of the model used by every model extending BaseClassImpl.  */
+   private final String description;
+   /* The numeric id of an instance of a class. */
+   private final Long id;
+   /* The natural key in @Base */
+   private final String naturalId;
+/*=>{}.*/
 
-    private final Date modificationDate;
+/*=>{javaBeanConstructor}|*/
+  public BaseConfig(final BaseBeanInterface bean) {
+      this.author = bean.getAuthor();
+      this.creationDate = bean.getCreationDate();
+      this.description = bean.getDescription();
+      this.id = bean.getId();
+      this.naturalId = bean.getNaturalId();
+   }
+/*=>{}.*/
 
-    /**
-     * Just an empty constructor since basic
-     */
+/*=>{javaAccessors}|*/
+   public String getAuthor() {
+      return this.author;
+   }
 
-    public BaseConfig(final Base bean) {
-        this.author = bean.getAuthor();
-        this.creationDate = bean.getCreationDate();
-        this.description = bean.getDescription();
-        this.id = bean.getId();
-        this.modificationDate = bean.getModificationDate();
-        this.naturalId = bean.getNaturalId();
-    }
+   public boolean hasAuthor() {
+      return getAuthor() != null && !getAuthor().isEmpty();
+   }
 
-    @Override
-    public Long getId() {
-        return this.id;
-    }
+   public Date getCreationDate() {
+      return this.creationDate;
+   }
 
-    @Override
-    public String getDescription() {
-        return this.description;
-    }
+   public boolean hasCreationDate() {
+      return getCreationDate() != null;
+   }
 
-    @Override
-    public String getNaturalId() {
-        return this.naturalId;
-    }
+   public String getDescription() {
+      return this.description;
+   }
 
-    @Override
-    public Date getCreationDate() {
-        return this.creationDate;
-    }
+   public boolean hasDescription() {
+      return getDescription() != null && !getDescription().isEmpty();
+   }
 
-    @Override
-    public String getAuthor() {
-        return author;
-    }
+   public Long getId() {
+      return this.id;
+   }
 
-    @Override
-    public Date getModificationDate() {
-        return modificationDate;
-    }
+   public boolean hasId() {
+      return getId() != null;
+   }
 
-    public String toString(EOConfigsCache cache) {
-        try {
-            return EoRoot.ofValue(cache,this).toString();
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-    }
+   public String getNaturalId() {
+      return this.naturalId;
+   }
+
+   public boolean hasNaturalId() {
+      return getNaturalId() != null && !getNaturalId().isEmpty();
+   }
+
+/*=>{}.*/
+
 }

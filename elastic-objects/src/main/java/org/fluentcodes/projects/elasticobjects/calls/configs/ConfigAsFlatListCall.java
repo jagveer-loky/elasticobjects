@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleWriteCall;
 import java.util.Arrays;
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 import java.util.ArrayList;
 
 /**
@@ -21,12 +21,12 @@ import java.util.ArrayList;
 public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String CONFIG_TYPE = "configType";
    public static final String FIELD_KEYS = "fieldKeys";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String configType;
    private  List<String> fieldKeys;
 /*=>{}.*/
@@ -48,7 +48,7 @@ public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
                 .asString(eo, resultAsListMap, fieldKeys);
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
     */

@@ -1,4 +1,33 @@
 {
+  "classes.java": {
+    "module": "builder-eo",
+    "moduleScope": "main",
+    "hostConfigKey": "localhost",
+    "filePath": "=>[/projectDirectory]./=>[module]./src/=>[moduleScope]./java/==>[StringReplaceCall->packagePath, \\., /].",
+    "fileName": "/=>[modelKey].=>[/fileEnding]..java",
+    "description": "Target file to generate java class files.",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "write": "admin"
+    },
+    "properties": {
+      "template": true
+    }
+  },
+  "classes.tpl.java": {
+    "module": "builder-eo",
+    "moduleScope": "main",
+    "hostConfigKey": "localhost",
+    "filePath": "templates/java",
+    "fileName": "=>[shapeType].create.tpl",
+    "description": "Generic root templates for generating java.",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "write": "admin"
+    }
+  },
   "data.xlsx": {
     "configModelKey": "XlsxConfig",
     "module": "builder-eo",
@@ -14,6 +43,19 @@
     },
     "properties": {
       "rowHead": 0
+    }
+  },
+  "eo.xlsx": {
+    "module": "builder-eo",
+    "moduleScope": "main",
+    "hostConfigKey": "localhost",
+    "filePath": ".",
+    "fileName": "eo.xlsx",
+    "description": "The default parameters  for GenerateModelBeansJsonCall",
+    "expose": "WEB",
+    "cached": "false",
+    "rolePermissions": {
+      "execute": "superadmin"
     }
   },
   "eo.xlsx:DbSqlConfig": {
@@ -91,35 +133,6 @@
       "sheetName": "ModelConfig"
     }
   },
-  "classes.tpl.java": {
-    "module": "builder-eo",
-    "moduleScope": "main",
-    "hostConfigKey": "localhost",
-    "filePath": "templates/java",
-    "fileName": "=>[shapeType].create.tpl",
-    "description": "Generic root templates for generating java.",
-    "expose": "WEB",
-    "cached": "false",
-    "rolePermissions": {
-      "write": "admin"
-    }
-  },
-  "classes.java": {
-    "module": "builder-eo",
-    "moduleScope": "main",
-    "hostConfigKey": "localhost",
-    "filePath": "=>[/projectDirectory]./=>[module]./src/=>[moduleScope]./java/==>[StringReplaceCall->packagePath, \\., /].",
-    "fileName": "/=>[modelKey].=>[/fileEnding]..java",
-    "description": "Target file to generate java class files.",
-    "expose": "WEB",
-    "cached": "false",
-    "rolePermissions": {
-      "write": "admin"
-    },
-    "properties": {
-      "template": true
-    }
-  },
   "ParamsEoConfigs.json": {
     "module": "builder-eo",
     "moduleScope": "main",
@@ -140,19 +153,6 @@
     "filePath": ".",
     "fileName": "ParamsJava.json",
     "description": "The default parameters  for generating eo java classes with GenerateModelTemplateMapJsonCall",
-    "expose": "WEB",
-    "cached": "false",
-    "rolePermissions": {
-      "execute": "superadmin"
-    }
-  },
-  "ParamsModelBeans.json": {
-    "module": "builder-eo",
-    "moduleScope": "main",
-    "hostConfigKey": "localhost",
-    "filePath": ".",
-    "fileName": "ParamsModelBeans.json",
-    "description": "The default parameters  for GenerateModelBeansJsonCall",
     "expose": "WEB",
     "cached": "false",
     "rolePermissions": {

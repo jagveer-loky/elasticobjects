@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfig.FILE_NAME;
+import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfigInterface.FILE_NAME;
 
 /**
  * Created by Werner on 12.10.2016.

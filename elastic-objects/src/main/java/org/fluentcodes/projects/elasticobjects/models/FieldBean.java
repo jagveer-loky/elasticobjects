@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Field;
@@ -8,16 +7,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+/*=>{javaHeader}|*/
+/**
+ * 
+ * The basic bean container class for the configuration class {@link FieldConfig}. Also used as a base for building source code.
+ * @author Werner Diwischek
+ * @creationDate Wed Dec 09 00:00:00 CET 2020
+ * @modificationDate Thu Jan 14 04:43:19 CET 2021
+ */
+public class FieldBean extends ConfigBean implements FieldBeanInterface  {
+/*=>{}.*/
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.FIELD_KEY;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.LENGTH;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfig.MODEL_KEYS;
+/*=>{javaInstanceVars}|*/
+   /* fieldKey */
+   private String fieldKey;
+   /* Length of a field. */
+   private Integer length;
+   /* A string representation for a list of modelsConfig. */
+   private String modelKeys;
+/*=>{}.*/
 
-public class FieldBean extends ConfigBean implements FieldBeanInterface {
-    private String fieldKey;
-    private String modelKeys;
-    private Integer length;
-    private Object defaultValue;
     private ModelBean modelBean;
 
     public FieldBean() {
@@ -40,6 +49,13 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         setModelKeys(typeClass.getSimpleName());
     }
 
+    public FieldBean(final FieldConfig config) {
+        super(config);
+        setFieldKey(config.getFieldKey());
+        setLength(config.getLength());
+        setModelKeys(config.getModelKeys());
+    }
+
     protected FieldBean(final FieldBeanInterface fieldBean) {
         super();
         this.merge((FieldBean) fieldBean);
@@ -49,19 +65,19 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         return this;
     }
 
-    public void merge(final Map values) {
-        super.merge(values);
-        setNaturalId((String)values.get(NATURAL_ID));
-        setFieldKey((String)values.get(FIELD_KEY));
+    public void merge(final Map configMap) {
+        super.merge(configMap);
+        setNaturalId((String) configMap.get(NATURAL_ID));
+        setFieldKey((String) configMap.get(FIELD_KEY));
         if (!hasFieldKey()) defaultFieldKey();
-        mergeFinal(values.get(FINAL));
-        mergeOverride(values.get(OVERRIDE));
-        mergeJsonIgnore(values.get(JSON_IGNORE));
-        mergeTransient(values.get(TRANSIENT));
-        mergeDefault(values.get(DEFAULT));
+        mergeFinal(configMap.get(FINAL));
+        mergeOverride(configMap.get(OVERRIDE));
+        mergeJsonIgnore(configMap.get(JSON_IGNORE));
+        mergeTransient(configMap.get(TRANSIENT));
+        mergeDefault(configMap.get(DEFAULT));
 
-        setLength(ScalarConverter.toInt(values.get(LENGTH)));
-        setModelKeys((String)values.get(MODEL_KEYS));
+        setLength(ScalarConverter.toInt(configMap.get(LENGTH)));
+        setModelKeys((String) configMap.get(MODEL_KEYS));
     }
 
     public void merge(final FieldBean fieldBean) {
@@ -69,9 +85,10 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         mergeFieldKey(fieldBean.getFieldKey());
         mergeModelKeys(fieldBean.getModelKeys());
         mergeLength(fieldBean.getLength());
+        mergeFinal(fieldBean.getFinal());
+        mergeProperty(fieldBean.getProperty());
         mergeFieldName(fieldBean.getFieldName());
         mergeGenerated(fieldBean.getGenerated());
-        mergeDefaultValue(fieldBean.getDefaultValue());
     }
 
     public void defaultValues() {
@@ -85,62 +102,58 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         defaultSuper();
     }
 
-    @Override
-    public String getFieldKey() {
-        return fieldKey;
-    }
-
-    @Override
-    public void setFieldKey(String fieldKey) {
-        this.fieldKey = fieldKey;
-    }
-
-    @Override
-    public String getModelKeys() {
-        return modelKeys;
-    }
-
     public List<String> getModelList() {
         if (!hasModelKeys()) {
             return new ArrayList<>();
         }
         return Arrays.asList(modelKeys.split(","));
     }
+/*=>{javaAccessors}|*/
+   @Override
+   public String getFieldKey() {
+      return this.fieldKey;
+   }
 
-    @Override
-    public void setModelKeys(String modelKeys) {
-        this.modelKeys = modelKeys;
+   @Override
+   public FieldBean setFieldKey(final String fieldKey) {
+      this.fieldKey = fieldKey;
+      return this;
     }
 
-    @Override
-    public Object getDefaultValue() {
-        return defaultValue;
+   @Override
+   public Integer getLength() {
+      return this.length;
+   }
+
+   @Override
+   public FieldBean setLength(final Integer length) {
+      this.length = length;
+      return this;
     }
 
-    @Override
-    public void setDefaultValue(Object defaultValue) {
-        this.defaultValue = defaultValue;
+   @Override
+   public String getModelKeys() {
+      return this.modelKeys;
+   }
+
+   @Override
+   public FieldBean setModelKeys(final String modelKeys) {
+      this.modelKeys = modelKeys;
+      return this;
     }
 
-    @Override
-    public Integer getLength() {
-        return length;
-    }
-
-    @Override
-    public void setLength(Integer length) {
-        this.length = length;
-    }
+/*=>{}.*/
 
     @Override
     public String toString() {
-        return "FieldBean(" + getNaturalId() + ")";
+        return "(" + modelKeys + ")" + getNaturalId();
     }
 
+    @Override
     public ModelBean getModelBean() {
         return modelBean;
     }
-
+    @Override
     public void setModelBean(ModelBean modelBean) {
         this.modelBean = modelBean;
     }

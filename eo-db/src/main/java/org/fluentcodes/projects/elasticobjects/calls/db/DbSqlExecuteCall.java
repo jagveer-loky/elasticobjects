@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Executes a list of sql statements within DbSqlConfig.
  *
@@ -20,10 +20,10 @@ import java.util.List;
 public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
 /*=>{}.*/
     public DbSqlExecuteCall()  {
         super();
@@ -65,7 +65,7 @@ public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
         }
         return executed;
     }
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
 /*=>{}.*/
 
 }

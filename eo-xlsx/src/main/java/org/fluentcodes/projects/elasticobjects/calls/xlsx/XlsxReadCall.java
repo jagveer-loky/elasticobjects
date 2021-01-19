@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Read an Excel sheet specified by fileConfigKey referencing to a {@link XlsxConfig} configuration.
  *
@@ -25,11 +25,11 @@ import java.util.List;
 public class XlsxReadCall extends FileReadCall implements ListInterface {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
    public static final String LIST_PARAMS = "listParams";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
    private ListParams listParams;
 /*=>{}.*/
     public XlsxReadCall()  {
@@ -85,7 +85,7 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
         }
         return result;
     }
-/*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaAccessors}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */

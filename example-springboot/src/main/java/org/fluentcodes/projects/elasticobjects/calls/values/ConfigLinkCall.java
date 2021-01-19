@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Create a link to a config page and if its FileConfig or ModelConfig to the github source.
  *
@@ -14,10 +14,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class ConfigLinkCall extends GithubLinkCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
 /*=>{}.*/
     public ConfigLinkCall() {
         super();
@@ -46,6 +46,6 @@ public class ConfigLinkCall extends GithubLinkCall  {
         builder.append("</a>\n");
         return builder.toString();
     }
-    /*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 /*=>{}.*/
 }

@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Abstract call class for model based {@link ModelConfigDbObject} database operations.
  *
@@ -16,11 +16,11 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 public abstract class DbModelCall extends HostCall  {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
    public static final String MODEL_CONFIG_KEY = "modelConfigKey";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
    private  String modelConfigKey;
 /*=>{}.*/
 
@@ -57,7 +57,7 @@ public abstract class DbModelCall extends HostCall  {
         return (DbConfig)getHostConfig();
     }
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
     /**
     The model name for the cache object {{@link link} Config}.
     */

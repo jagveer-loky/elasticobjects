@@ -10,14 +10,13 @@ import java.util.Set;
  * Created by Werner on 09.10.2016.
  */
 public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
-    Map<String, FieldConfig> getFieldConfigMap() ;
 
     default boolean hasFieldConfig(final String fieldName) {
-        return getFieldConfigMap().containsKey(fieldName) && getFieldConfigMap().get(fieldName) != null;
+        return getFieldMap().containsKey(fieldName) && getFieldMap().get(fieldName) != null;
     }
 
     default boolean hasFieldConfigMap() {
-        return !getFieldConfigMap().isEmpty();
+        return !getFieldMap().isEmpty();
     }
 
     default void existFieldConfig(final String fieldName) {
@@ -26,13 +25,22 @@ public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
         }
     }
 
-    default FieldConfig getFieldConfig(final String fieldName) {
+    default FieldConfigInterface getField(final String fieldName) {
         existFieldConfig(fieldName);
-        return getFieldConfigMap().get(fieldName);
+        return getFieldMap().get(fieldName);
     }
 
     default Set<String> getFieldKeys() {
-        return getFieldConfigMap().keySet();
+        return getFieldMap().keySet();
+    }
+
+    default boolean isNotEmpty(Object object) {
+        for (String key: keys(object)) {
+            if (exists(key, object)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     Class getModelClass() ;
@@ -48,9 +56,27 @@ public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
     Set<String> keys(Object object) ;
     Map getKeyValues(Object object, PathPattern pathPattern) ;
     int size(Object object) ;
-    boolean isEmpty(Object object) ;
 
-    boolean set(String fieldName, Object object, Object value);
+    default boolean isEmpty(final Object object) {
+        if (object == null) {
+            return true;
+        }
+        for (final String key: keys(object)) {
+            if (exists(key, object)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    default boolean set(final String fieldName, final Object parent, final Object value)  {
+        ((FieldConfig)getField(fieldName)).set(parent, value);
+        return true;
+    }
+
+    default Object get(final String fieldName, final Object parent)  {
+        return ((FieldConfig)getField(fieldName)).get(parent);
+    }
 
     /**
      * Gets the value for fieldName of the object.
@@ -60,7 +86,6 @@ public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
      * @return
      * @
      */
-    Object get(String fieldName, Object object) ;
 
     boolean exists(final String fieldName, final Object object) ;
 

@@ -3,14 +3,18 @@ package org.fluentcodes.projects.elasticobjects.models;
 import java.util.Map;
 
 public class FieldBeanGen extends FieldBean implements
-        FieldBeanJavaMethods,
-        FieldBeanJavaScriptMethods {
+        FieldBeanInterface4Java,
+        FieldBeanInterface4Javascript {
 
     public FieldBeanGen() {
         super();
     }
     public FieldBeanGen(String key) {
         super(key);
+    }
+
+    public FieldBeanGen(FieldConfig config) {
+        super(config);
     }
 
     public FieldBeanGen(final Map values) {
@@ -22,7 +26,6 @@ public class FieldBeanGen extends FieldBean implements
         merge(fieldBean);
         setSuper(true);
     }
-
 
     public void merge(final FieldBean fieldBean) {
         super.merge(fieldBean);

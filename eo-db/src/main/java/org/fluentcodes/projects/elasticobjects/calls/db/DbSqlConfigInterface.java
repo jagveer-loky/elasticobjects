@@ -2,11 +2,10 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
 
 import java.util.List;
 
-public interface DbSqlConfigInterface extends ConfigConfigInterface, ConfigProperties {
+public interface DbSqlConfigInterface extends ConfigConfigInterface {
     default String getSql() {
         if (!hasSqlList()) {
             throw new EoInternalException("Problem with empty sql list");

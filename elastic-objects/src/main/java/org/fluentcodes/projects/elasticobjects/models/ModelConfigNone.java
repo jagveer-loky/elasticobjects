@@ -30,12 +30,7 @@ public class ModelConfigNone extends ModelConfig {
     }
 
     @Override
-    public FieldConfig getFieldConfig(final String fieldName)  {
-        throw new EoException("No field defined for scalar models: " + fieldName);
-    }
-
-    @Override
-    public Class getFieldClass(String fieldName)  {
+    public FieldConfig getField(final String fieldName)  {
         throw new EoException("No field defined for scalar models: " + fieldName);
     }
 

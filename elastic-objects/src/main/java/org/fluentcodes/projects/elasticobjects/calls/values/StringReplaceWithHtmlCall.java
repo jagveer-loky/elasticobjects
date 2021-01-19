@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Replaces white space with underscore.
@@ -17,10 +17,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class StringReplaceWithHtmlCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
 /*=>{}.*/
 
     @Override
@@ -34,6 +34,6 @@ public class StringReplaceWithHtmlCall extends CallImpl implements SimpleCommand
             throw new EoException(e.getMessage());
         }
     }
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 /*=>{}.*/
 }

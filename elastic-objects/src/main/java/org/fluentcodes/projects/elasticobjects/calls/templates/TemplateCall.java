@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Executes a template content. 
@@ -22,11 +22,11 @@ public class TemplateCall extends CallImpl implements CallContent, SimpleCommand
 /*=>{}.*/
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String CONTENT = "content";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String content;
 /*=>{}.*/
 
@@ -86,7 +86,7 @@ public class TemplateCall extends CallImpl implements CallContent, SimpleCommand
         super.setTargetPath(x);
         return this;
     }
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     A content for different calls. In a template context the content of the markup. 
     */

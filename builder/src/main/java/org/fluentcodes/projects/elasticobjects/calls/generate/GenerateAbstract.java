@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.Date;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Abstract super class for generating code.
@@ -25,7 +25,7 @@ public abstract class GenerateAbstract extends CallImpl implements GeneratePrope
     public static final String PROJECT_DIRECTORY = "projectDirectory";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
     private String module;
     private String moduleScope;
     private String fileEnding;
@@ -61,6 +61,8 @@ public abstract class GenerateAbstract extends CallImpl implements GeneratePrope
         setModule(ParserSqareBracket.replacePathValues(module,eo));
         setModuleScope(ParserSqareBracket.replacePathValues(moduleScope, eo));
         setProjectDirectory(ParserSqareBracket.replacePathValues(projectDirectory, eo));
+        defaultModule();
+        defaultModuleScope();
         eo.set(module, Path.DELIMITER, MODULE);
         eo.set(moduleScope, Path.DELIMITER, MODULE_SCOPE);
         eo.set(projectDirectory, Path.DELIMITER, PROJECT_DIRECTORY);
@@ -75,7 +77,7 @@ public abstract class GenerateAbstract extends CallImpl implements GeneratePrope
     }
 
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
 
     public String getTargetFileConfigKey() {
         return targetFileConfigKey;
@@ -126,6 +128,20 @@ public abstract class GenerateAbstract extends CallImpl implements GeneratePrope
     public GenerateAbstract setModule(String module) {
         this.module = module;
         return this;
+    }
+
+    public void defaultModule() {
+        if (hasModule()) {
+            return;
+        }
+        this.module = ".*";
+    }
+
+    public void defaultModuleScope() {
+        if (hasModuleScope()) {
+            return;
+        }
+        this.moduleScope = ".*";
     }
 
     public String getModule () {

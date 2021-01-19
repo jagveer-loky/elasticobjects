@@ -7,16 +7,13 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
 import org.fluentcodes.projects.elasticobjects.calls.xlsx.XlsxReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.FieldHelper;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_KEYS;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Call for generation json configurations from the sheet.
  *
@@ -27,13 +24,13 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.FIELD_K
 public class GenerateEoConfigJsonCall extends GenerateAbstract {
 /*=>{}.*/
     public static final String DATA = "data";
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
    public static final String CONFIG_TYPE = "configType";
     /*=>{}.*/
     static final String CONFIG_RESOURCES = "ConfigResources";
     /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
    private  String configType;
 /*=>{}.*/
 
@@ -120,7 +117,7 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
         return feedback.toString();
     }
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
     /**
     Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
     */

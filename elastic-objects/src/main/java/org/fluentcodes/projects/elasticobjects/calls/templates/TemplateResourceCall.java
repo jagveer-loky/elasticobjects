@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Parses the content of a FileConfig configuration. 
@@ -16,10 +16,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class TemplateResourceCall extends FileReadCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
 /*=>{}.*/
 
     public TemplateResourceCall() {
@@ -64,6 +64,6 @@ public class TemplateResourceCall extends FileReadCall  {
                 .execute(eo);
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 /*=>{}.*/
 }

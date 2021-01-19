@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracke
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.xpect.IOString;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Defines a file read operation for a directory configuration {@link DirectoryConfig} 
@@ -20,11 +20,11 @@ import org.fluentcodes.tools.xpect.IOString;
 public class DirectoryReadCall extends FileReadCall {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String FILE_NAME = "fileName";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String fileName;
 /*=>{}.*/
 
@@ -73,7 +73,7 @@ public class DirectoryReadCall extends FileReadCall {
         return content;
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}. 
     */

@@ -29,20 +29,15 @@ public class ModelConfigObject extends ModelConfig {
 
     @Override
     public ModelConfig getFieldModel(final String fieldName)  {
-        return getFieldConfig(fieldName).getModelConfig();
+        return ((FieldConfig)getField(fieldName)).getModelConfig();
     }
 
     public Models getFieldModels(final String fieldName)  {
-        return getFieldConfig(fieldName).getModels();
+        return ((FieldConfig)getField(fieldName)).getModels();
     }
 
     public ModelConfigInterfaceMethods getFieldChild(final String fieldName)  {
-        return getFieldConfig(fieldName).getChildModel();
-    }
-
-    @Override
-    public Class getFieldClass(final String fieldName)  {
-        return getFieldConfig(fieldName).getModelClass();
+        return ((FieldConfig)getField(fieldName)).getChildModel();
     }
 
     @Override
@@ -63,19 +58,13 @@ public class ModelConfigObject extends ModelConfig {
     }
 
     @Override
-    public boolean set(final String fieldName, final Object parent, final Object value)  {
-        getFieldConfig(fieldName).set(parent, value);
-        return true;
-    }
-
-    @Override
-    public Object get(final String fieldName, final Object parent)  {
-        return getFieldConfig(fieldName).get(parent);
-    }
-
-    @Override
     public boolean exists(final String fieldName, final Object parent)  {
-        return get(fieldName, parent)!=null;
+        try {
+            return get(fieldName, parent) != null;
+        }
+        catch (EoException e) {
+            return false;
+        }
     }
 
     @Override
@@ -118,6 +107,6 @@ public class ModelConfigObject extends ModelConfig {
     }
 
     public boolean isJsonIgnore(final String key) {
-        return getFieldConfig(key).isJsonIgnore();
+        return getField(key).isJsonIgnore();
     }
 }

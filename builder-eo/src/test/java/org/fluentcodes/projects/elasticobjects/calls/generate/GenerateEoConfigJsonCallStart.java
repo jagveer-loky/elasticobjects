@@ -21,7 +21,7 @@ public class GenerateEoConfigJsonCallStart {
         EO eo = ProviderRootTestScope.createEo();
         call.setSourceFileConfigKey("eo.xlsx");
         call.setProjectDirectory("..");
-        call.setModule(Moduls.EO_XLSX.getName());
+        call.setModule(Moduls.ALL.getName());
         call.setModuleScope(ModuleScope.MAIN.dir());
         String result = call.execute(eo);
         System.out.println(result);

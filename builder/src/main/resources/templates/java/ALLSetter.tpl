@@ -1,8 +1,0 @@
-\
-=>{javaDescription}.
-\
-=>{javaSetMethod}.
-\
-=>{javaGetMethod}.
-\
-=>{javaHasMethod}.

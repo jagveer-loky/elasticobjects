@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracke
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 
-/*==>{ALLHeader.tpl, ., , JAVA}|*/
+/*=>{javaHeader}|*/
 /**
  * Call for generation of java code from ModelConfig data. 
  *  * FieldConfig will be loaded from ConfigsCache. 
@@ -19,10 +19,10 @@ public class GenerateModelTemplateCall extends GenerateModelAbstract {
     private final static String JAVA_GEN_MODEL = "/modelKey";
     public final static String FIELD_MAP = "fieldMap";
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
 /*=>{}.*/
 
     public GenerateModelTemplateCall() {
@@ -66,7 +66,7 @@ public class GenerateModelTemplateCall extends GenerateModelAbstract {
     }
 
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
 /*=>{}.*/
 
 

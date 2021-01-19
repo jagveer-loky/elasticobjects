@@ -5,8 +5,9 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.
@@ -18,10 +19,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public class TemplateResourceStoreCall extends FileReadWriteCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
 /*=>{}.*/
 
     public TemplateResourceStoreCall() {
@@ -40,12 +41,13 @@ public class TemplateResourceStoreCall extends FileReadWriteCall  {
             return "Nothing to do no template parts.";
         }
         String content = new TemplateCall(template).execute(eo);
+        //throw new EoInternalException("");
         return writeTarget(eo, content);
     }
 
     private String readSourceOrTarget(final EO eo) {
         FileConfig targetFileConfig = eo.getConfigsCache().findFile(getTargetFileConfigKey());
-        if (!targetFileConfig.isTemplate()) {
+        if (!targetFileConfig.isTargetTemplate()) {
             return readSource(eo);
         }
         else {
@@ -58,6 +60,6 @@ public class TemplateResourceStoreCall extends FileReadWriteCall  {
         }
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
 /*=>{}.*/
 }

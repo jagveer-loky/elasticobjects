@@ -18,6 +18,7 @@ public class GenerateModelTemplateCallStart {
 
     public static void createAll(final String naturalId) {
         GenerateModelTemplateMapCall call = new GenerateModelTemplateMapCall();
+        call.setSourceFileConfigKey("eo.xlsx");
         call.setTargetFileConfigKey("classes.java");
         call.setProjectDirectory("..");
         call.setPackagePath("org.fluentcodes.projects.elasticobjects.");

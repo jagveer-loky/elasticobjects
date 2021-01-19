@@ -62,7 +62,10 @@
     "description": "The database schema used for persisting as a property of @HostConfig",
     "expose": "NONE",
     "fieldKey": "schema",
-    "length": 80
+    "length": 80,
+    "properties": {
+      "property": true
+    }
   },
   "sqlKey": {
     "module": "eo-db",

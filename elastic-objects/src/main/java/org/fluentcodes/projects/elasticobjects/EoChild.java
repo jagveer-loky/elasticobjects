@@ -1,11 +1,10 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.domain.Base;
+import org.fluentcodes.projects.elasticobjects.domain.BaseBeanInterface;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
@@ -29,7 +28,7 @@ public class EoChild implements EO {
     private Object fieldValue;
     private boolean changed;
 
-    protected EoChild(final EO parentEo, final String fieldKey, final Object fieldValue, final Models fieldModels) {
+    protected EoChild(final EO parentEo, final String fieldKey, final Object value, final Models fieldModels) {
         if (parentEo != null && (fieldKey == null || fieldKey.isEmpty())) {
             throw new EoException("Could not create parent EO without a fieldKey for '" + fieldModels.toString() + "'");
         }
@@ -47,25 +46,25 @@ public class EoChild implements EO {
                 throw new EoException("Null scalar value not supported for root");
             }
             if (isParentSet())
-                setParentValue(ScalarConverter.transformScalar(fieldModels.getModelClass(), fieldValue));
+                setParentValue(ScalarConverter.transformScalar(fieldModels.getModelClass(), value));
             else
-                this.fieldValue = ScalarConverter.transformScalar(fieldModels.getModelClass(), fieldValue);
+                this.fieldValue = ScalarConverter.transformScalar(fieldModels.getModelClass(), value);
             ((EoChild) parentEo).addChildEo(this);
             return;
         }
-        else if (fieldValue == null) {
+        else if (value == null) {
             this.fieldValue = fieldModels.create();
         }
-        else if (fieldValue.getClass() == fieldModels.getModelClass()) {  // use existing non scalar
-            this.fieldValue = fieldValue;
+        else if (value.getClass() == fieldModels.getModelClass()) {  // use existing non scalar
+            this.fieldValue = value;
         }
         else {
             this.fieldValue = fieldModels.create();
         }
         if (parentEo == null) return;
         // container
-        if (fieldValue != null) {
-            mapObject(fieldValue);
+        if (value != null) {
+            mapObject(value);
         }
         setParentValue(this.fieldValue);
         ((EoChild) parentEo).addChildEo(this);
@@ -390,19 +389,13 @@ public class EoChild implements EO {
                 throw new EoException("Could not map scalar '" + value.toString() + "'(" + valueModel.toString() + ") to container model '" + getModels().toString() + "' '" + this.getPath().toString() + "'");
             }
         }
-        if (valueModel.isEmpty(value)) {
-            return this;
-        }
-
-        //PathPattern pathPattern = params.getPathPattern();
-        PathPattern pathPattern = new PathPattern(PathElement.MATCHER_ALL);
-
-        for (String key : valueModel.keys(value)) {
-            String fieldName = ScalarConverter.toString(key);
+        Set<String> fieldNameSet = valueModel.keys(value);
+        for (String fieldName : fieldNameSet) {
             PathElement pathElement = new PathElement(fieldName);
-            if (valueModel.isJsonIgnore(key)) continue;
-            if (!valueModel.exists(key, value)) continue;
-            Object childValue = valueModel.get(key, value);
+            if (valueModel.isJsonIgnore(fieldName)) continue;
+            if (valueModel.isProperty(fieldName)) continue;
+            if (!valueModel.exists(fieldName, value)) continue;
+            Object childValue = valueModel.get(fieldName, value);
             if (childValue == null && hasEo(pathElement)) {
                 continue;
             }
@@ -413,12 +406,12 @@ public class EoChild implements EO {
 
     private Object createBaseObject(Object value) {
         Object object = fieldModels.create();
-        if (object instanceof Base) {
+        if (object instanceof BaseBeanInterface) {
             if (value instanceof Long) {
-                ((Base)object).setId((Long)object);
+                ((BaseBeanInterface)object).setId((Long)object);
             }
             else if (value instanceof String) {
-                ((Base)object).setNaturalId((String)object);
+                ((BaseBeanInterface)object).setNaturalId((String)object);
             }
             return object;
         }

@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Super class for file calls with one configuration key. Extends {@link HostCall}. Provide an init method to resolve {@link FileConfig} and @HostConfig
@@ -19,11 +19,11 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 public abstract class FileCall extends HostCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String FILE_CONFIG_KEY = "fileConfigKey";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String fileConfigKey;
 /*=>{}.*/
     private FileConfig fileConfig;
@@ -67,7 +67,7 @@ public abstract class FileCall extends HostCall  {
     public void setConfigKey(String fileConfigKey) {
         this.fileConfigKey = fileConfigKey;
     }
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     Defines the key for a file configuration {@link FileConfig} where to read or write a file.
     */

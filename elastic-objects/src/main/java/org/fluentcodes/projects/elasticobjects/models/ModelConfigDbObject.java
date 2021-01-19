@@ -1,13 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.calls.PermissionConfigInterface;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.calls.PermissionConfig.ROLE_PERMISSIONS;
 
 /**
  * Created by Werner on 01.11.2020.

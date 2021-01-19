@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceS
 import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Abstract super class for generating code.
  *
@@ -19,7 +19,7 @@ public abstract class GenerateModelAbstract extends GenerateAbstract implements 
     public static final String MODEL_BEANS_JSON = "ModelBeans.json";
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
     private String packagePath;
 /*=>{}.*/
 
@@ -44,7 +44,7 @@ public abstract class GenerateModelAbstract extends GenerateAbstract implements 
 
     @Override
     protected boolean init(final EO eo) {
-        READ(eo);
+        ModelBeansReadCall.read(getSourceFileConfigKey(), eo);
         super.init(eo);
         return true;
     }
@@ -55,7 +55,7 @@ public abstract class GenerateModelAbstract extends GenerateAbstract implements 
     }
 
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
 
     public String getPackagePath() {
         return packagePath;

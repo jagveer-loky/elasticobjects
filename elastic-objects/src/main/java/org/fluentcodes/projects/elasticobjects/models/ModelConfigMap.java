@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,12 +34,18 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterfaceM
 
 
     @Override
-    public FieldConfig getFieldConfig(final String fieldName) {
+    public FieldConfig getField(final String fieldName) {
         return null; //TODO
     }
 
     @Override
     public Set<String> keys(Object object)  {
+        if (object == null) {
+            return new HashSet<>();
+        }
+        if (!(object instanceof Map)) {
+            throw new EoException("Map expected but '" + object.getClass().getSimpleName() + "'");
+        }
         return ((Map) object).keySet();
     }
 
@@ -77,10 +84,6 @@ public class ModelConfigMap extends ModelConfig implements ModelConfigInterfaceM
         }
         throw new EoException("No value add for fieldName=" + fieldName);
 
-    }
-
-    public Set<String> getFieldKeys() {
-        return getFieldConfigMap().keySet();
     }
 
     public boolean exists(final String fieldName, final Object object)  {

@@ -1,86 +1,43 @@
 {
   "localMySql:core": {
-    "configModelKey": "DbConfig",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "dbType": "MYSQL",
-      "schema": "core"
-    },
     "description": "Core Schema",
     "naturalId": "localMySql:core"
   },
   "localMySql:test": {
-    "configModelKey": "DbConfig",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "dbType": "MYSQL",
-      "schema": "test"
-    },
     "description": "Test Schema",
     "naturalId": "localMySql:test"
   },
   "localOracle:XE": {
-    "configModelKey": "DbConfig",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "schema": "XE",
-      "dbType": "ORACLE"
-    },
     "description": "Oracle Schem",
     "naturalId": "localOracle:XE"
   },
   "hsql:mem": {
-    "configModelKey": "DbConfig",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "schema": "mem",
-      "dbType": "HSQL"
-    },
     "description": "local HSQL which exists just in memory",
     "naturalId": "hsql:mem"
   },
   "hsql:fileTest": {
-    "configModelKey": "DbConfig",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "schema": "file:$[TMP]/test.hsql",
-      "dbType": "HSQL"
-    },
     "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
     "naturalId": "hsql:fileTest"
   },
   "h2:mem": {
-    "configModelKey": "DbConfig",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "protocol": "jdbc:h2",
-      "user": "sa",
-      "schema": "mem:test",
-      "driver": "org.h2.Driver",
-      "dbType": "H2",
-      "extension": "DATABASE_TO_UPPER=false;"
-    },
     "description": "local H2 which exists just in memory",
     "naturalId": "h2:mem"
   },
   "h2:file": {
-    "configModelKey": "DbConfig",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "protocol": "jdbc:h2",
-      "user": "sa",
-      "schema": "=>{TMP}./test",
-      "driver": "org.h2.Driver",
-      "dbType": "H2",
-      "extension": "DATABASE_TO_UPPER=false;"
-    },
     "description": "local H2 with a temp file",
     "naturalId": "h2:file"
   },
@@ -88,18 +45,9 @@
     "rolePermissions": {
       "read": "guest"
     },
-    "configModelKey": "DbConfig",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "schema": "file:basic",
-      "dbType": "H2",
-      "extension": "DATABASE_TO_UPPER=false;",
-      "driver": "org.h2.Driver",
-      "protocol": "jdbc",
-      "hostName": "h2"
-    },
     "description": "Local H2 in file persisted for the test resources.",
     "naturalId": "h2:file:basic"
   },
@@ -107,18 +55,9 @@
     "rolePermissions": {
       "read": "guest"
     },
-    "configModelKey": "DbConfig",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
-    "properties": {
-      "schema": "mem:basic",
-      "dbType": "H2",
-      "extension": "DATABASE_TO_UPPER=false;",
-      "driver": "org.h2.Driver",
-      "protocol": "jdbc",
-      "hostName": "h2"
-    },
     "description": "Local H2 in memory for the test resources.",
     "naturalId": "h2:mem:basic"
   },
@@ -126,13 +65,9 @@
     "rolePermissions": {
       "read": "guest"
     },
-    "configModelKey": "HostConfig",
     "expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "properties": {
-      "hostName": "localhost"
-    },
     "description": "local host with key 'local'",
     "naturalId": "local"
   },
@@ -140,13 +75,9 @@
     "rolePermissions": {
       "read": "guest"
     },
-    "configModelKey": "HostConfig",
     "expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "properties": {
-      "hostName": "localhost"
-    },
     "description": "local host with key 'localhost'",
     "naturalId": "localhost"
   }

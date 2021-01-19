@@ -12,7 +12,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * For getting a list of keys for a specific configuration type, config filter and expose type.
@@ -24,14 +24,14 @@ import java.util.stream.Collectors;
 public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String CONFIG_FILTER = "configFilter";
    public static final String CONFIG_TYPE = "configType";
    public static final String EXPOSE = "expose";
    public static final String SORT_ORDER = "sortOrder";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String configFilter;
    private  String configType;
    private  Expose expose;
@@ -99,7 +99,7 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
         }
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     Key for filter configuration
     */

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 
@@ -17,7 +17,7 @@ public interface Call  {
 /*=>{}.*/
     String TARGET_AS_STRING = "_asString";
 
-    /*==>{INTERFACEStaticNames.tpl, fieldBeans/*, super eq false, JAVA}|*/
+    /*=>{javaStaticNames}|*/
    String CONDITION = "condition";
    String DURATION = "duration";
    String KEEP_CALL = "keepCall";
@@ -56,7 +56,7 @@ public interface Call  {
         return getKeepCall().getStartComment();
     }
 
-    /*==>{INTERFACESetter.tpl, fieldBeans/*, super eq false, JAVA}|*/
+    /*=>{javaAccessors}|*/
 
   /**
   * A condition for calls. 

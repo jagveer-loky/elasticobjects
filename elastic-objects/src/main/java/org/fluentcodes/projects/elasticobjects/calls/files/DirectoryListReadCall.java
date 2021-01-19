@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. 
@@ -24,11 +24,11 @@ import java.util.List;
 public class DirectoryListReadCall extends FileReadCall  {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String ABSOLUTE = "absolute";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  Boolean absolute;
 /*=>{}.*/
     public DirectoryListReadCall() {
@@ -99,7 +99,7 @@ public class DirectoryListReadCall extends FileReadCall  {
         return absolute;
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     If true will cache the readed file within the cache object. 
     */

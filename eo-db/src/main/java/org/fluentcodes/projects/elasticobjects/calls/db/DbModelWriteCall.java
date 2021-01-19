@@ -11,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 import java.util.List;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Write an entry in database by creating a insert or update sql from entry in sourcePath.
  * The object must be an instance of {@link ModelConfigDbObject}.
@@ -23,10 +23,10 @@ import java.util.List;
 public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
 /*=>{}.*/
     public DbModelWriteCall()  {
         super();
@@ -67,6 +67,6 @@ public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand 
         return updateCount;
     }
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
 /*=>{}.*/
 }

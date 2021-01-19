@@ -1,14 +1,15 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
 import java.util.Set;
 
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.OVERRIDE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.PROPERTY;
 import static org.fluentcodes.projects.elasticobjects.models.Model.ABSTRACT;
 import static org.fluentcodes.projects.elasticobjects.models.Model.DB_ANNOTATED;
-import static org.fluentcodes.projects.elasticobjects.models.Model.JAVASCRIPT_TYPE;
 
 public interface ModelConfigInterface extends ConfigConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
@@ -18,6 +19,9 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
     String ID_KEY = "idKey";
     String NATURAL_KEYS = "naturalKeys";
     String TABLE = "table";
+    String BEAN = "bean";
+
+    Map<String, FieldConfig> getFieldMap() ;
 
     default boolean hasTable() {
         return getTable()!=null && !getTable().isEmpty();
@@ -58,6 +62,15 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
         return getFieldKeys().isEmpty();
     }
 
+
+    default FieldConfigInterface getField(final String key) {
+        return getFieldMap().get(key);
+    }
+
+    default boolean hasField(final String key) {
+        return getFieldMap().containsKey(key);
+    }
+
     String getSuperKey();
     default boolean hasSuperKey() {
         return getSuperKey()!=null && !getSuperKey().isEmpty();
@@ -76,13 +89,23 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
         return (Boolean) getProperties().get(CREATE);
     }
 
+    default boolean hasProperty () {
+        return getProperties().containsKey(PROPERTY) && getProperties().get(PROPERTY)!=null;
+    }
+    default boolean isProperty() {
+        return hasProperty() && getProperty();
+    }
+    default Boolean getProperty() {
+        return (Boolean) getProperties().get(PROPERTY);
+    }
+
     default boolean hasShapeType() {
-        return getProperties().get(SHAPE_TYPE)!=null;
+        return getProperties().containsKey(SHAPE_TYPE) && getProperties().get(SHAPE_TYPE) != null;
     }
 
     default ShapeTypes getShapeType() {
         if (!getProperties().containsKey(SHAPE_TYPE)) {
-            return null;
+            return ShapeTypes.BEAN;
         }
         if (getProperties().get(SHAPE_TYPE) instanceof String) {
             return ShapeTypes.valueOf((String) getProperties().get(SHAPE_TYPE));
@@ -105,10 +128,38 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
         return (Boolean)getProperties().get(ABSTRACT);
     }
     default Boolean hasAbstract() {
-        return getProperties().containsKey(ABSTRACT);
+        return getProperties().containsKey(ABSTRACT) && getProperties().get(ABSTRACT) !=null;
     }
     default Boolean isAbstract() {
-        return (hasAbstract() && getAbstract()) || false;
+        return hasAbstract() && getAbstract();
+    }
+
+    default Boolean getFinal() {
+        return (Boolean)getProperties().get(FINAL);
+    }
+    default boolean hasFinal() {
+        return getProperties().containsKey(FINAL) && getProperties().get(FINAL) !=null;
+    }
+    default boolean isFinal() {
+        return hasFinal() && getFinal();
+    }
+
+    default Boolean getOverride() {
+        return (Boolean)getProperties().get(OVERRIDE);
+    }
+    default boolean hasOverride() {
+        return getProperties().containsKey(OVERRIDE) && getProperties().get(OVERRIDE) !=null;
+    }
+    default boolean isOverride() {
+        return hasOverride() && getOverride();
+    }
+
+
+    default String getBean() {
+        return (String)getProperties().get(BEAN);
+    }
+    default boolean hasBean() {
+        return getProperties().containsKey(BEAN) && getProperties().get(BEAN) !=null  && !((String)getProperties().get(BEAN)).isEmpty();
     }
 
     default Boolean getDbAnnotated() {
@@ -119,13 +170,6 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
     }
     default Boolean isDbAnnotated() {
         return (hasDbAnnotated() && getDbAnnotated()) || false;
-    }
-
-    default String getJavascriptType() {
-        return (String)getProperties().get(JAVASCRIPT_TYPE);
-    }
-    default Boolean hasJavascriptType() {
-        return getProperties().containsKey(JAVASCRIPT_TYPE) && getProperties().get(JAVASCRIPT_TYPE) != null && !((String) getProperties().get(JAVASCRIPT_TYPE)).isEmpty() ;
     }
 
     default boolean isList() {
@@ -149,11 +193,11 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
     }
 
     default boolean isCall() {
-        return isObject () && getShapeType() == ShapeTypes.CALL_BEAN;
+        return getModelKey().endsWith("Call");
     }
 
     default boolean isInterface() {
-        return isObject () && getShapeType() == ShapeTypes.INTERFACE;
+        return getShapeType() == ShapeTypes.INTERFACE;
     }
 
     default boolean isContainer() {
@@ -179,6 +223,10 @@ public interface ModelConfigInterface extends ConfigConfigInterface {
     }
 
     default boolean isJsonIgnore(final String key) {
-        return false;
+        return hasField(key) && getField(key).isJsonIgnore()    ;
+    }
+
+    default boolean isProperty(final String key) {
+        return hasField(key) && getField(key).isProperty();
     }
 }

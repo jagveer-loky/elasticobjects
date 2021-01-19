@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.sql.Timestamp;
@@ -68,9 +69,6 @@ public class ScalarConverter {
                 throw new EoException("Could not transform non quoted value '" + value + "'.");
             }
         }
-
-
-
     }
 
     public static Object transformToJSON(Object source) {
@@ -425,6 +423,9 @@ public class ScalarConverter {
     }
 
     public static Integer toInt(Object value)  {
+        return toInteger(value);
+    }
+    public static Integer toInteger(Object value)  {
         if (value == null) {
             return null;
         }
@@ -485,21 +486,8 @@ public class ScalarConverter {
         if (value == null) {
             return null;
         }
-        if (!(value instanceof Number)) {
-            return null;
-        }
-        if (value instanceof Integer) {
-            return ((Integer) value).shortValue();
-        }
-        if (value instanceof Long) {
-            return ((Long) value).shortValue();
-        }
-
-        if (value instanceof Float) {
-            return ((Float) value).shortValue();
-        }
-        if (value instanceof Double) {
-            return ((Double) value).shortValue();
+        if (value instanceof Number) {
+            return ((Number)value).shortValue();
         }
         //mappedValue = new Long(Math.round((Float)valueObject)).intValue();
         //mappedValue = new Long(Math.round((Double)valueObject)).intValue();
@@ -537,6 +525,21 @@ public class ScalarConverter {
             return ((Double) value).longValue();
         }
         return null;
+    }
+
+    public static PermissionRole toPermissionRole(Object value) {
+        if (value == null) {
+            return null;
+        }
+        if (value instanceof Map) {
+            return new PermissionRole((Map) value);
+        }
+        else if (value instanceof PermissionRole) {
+            return (PermissionRole) value;
+        }
+        else {
+            throw new EoException("Unsupported type for permissionRole '" + value.getClass().getSimpleName() + "'");
+        }
     }
 }
 

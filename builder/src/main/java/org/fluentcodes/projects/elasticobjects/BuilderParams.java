@@ -7,7 +7,7 @@ import com.lexicalscope.jewel.cli.Option;
  * http://jewelcli.lexicalscope.com/usage.html nice documentation
  */
 public interface BuilderParams {
-    String PARAMS_DEFAULT_JSON = "ParamsDefault.json";
+    String PARAMS_DEFAULT_JSON = "ParamsJava.json";
     @Option(shortName = "c",  defaultValue = PARAMS_DEFAULT_JSON)
     String getCallJson();
 

@@ -20,6 +20,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.io.EOFException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,10 +31,6 @@ import java.util.regex.Pattern;
 
 
 public abstract class Parser {
-    private static final String TEMPLATE_CALL_MATCH = "^&";
-    private static final String VALUE_CALL_MATCH = "^#";
-    private static final String TEMPLATE_CALL_CHAR = "&";
-    private static final String VALUE_CALL_CHAR = "#";
     private static final String DEFAULT_SEPARATOR = "|>";
     private static final String SYSTEM_CHAR = "@";
     private static final String ENV_CHAR = "%";
@@ -49,23 +46,23 @@ public abstract class Parser {
         this.template = template;
     }
 
-    protected static final Pattern CREATE_VAR_PATTERN(final String start, final String stop) {
+    protected static final Pattern createVarPattern(final String start, final String stop) {
         final String pattern = "[\t ]*([=]{0,2})=>" + start + "(.*?)(" + stop + "[\\.\\|])";
         return Pattern.compile(pattern, Pattern.DOTALL);
     }
-    protected static final String CREATE_END_SEQUENCE(final String stop) {
+    protected static final String createEndSequence(final String stop) {
         return stop + ".";
     }
 
-    protected static final String CREATE_CONTINUE_SEQUENCE (final String stop) {
+    protected static final String createContinueSequence(final String stop) {
         return stop + "|";
     }
 
-    protected static final String CREATE_START_SEQUENCE (final String start) {
+    protected static final String createStartSequence(final String start) {
         return "=>" + start;
     }
 
-    protected static final String CREATE_CLOSE_SEQUENCE(final String start, final String stop) {
+    protected static final String createCloseSequence(final String start, final String stop) {
         return "=>" + start + stop + ".";
     }
 
@@ -142,7 +139,7 @@ public abstract class Parser {
             callSequence = callSequence.replaceAll("\\" + DEFAULT_SEPARATOR + ".*", "");
             try {
                 if (callIndicator == null || callIndicator.isEmpty()) {
-                    result.append(replacePathValues(eo, callSequence));
+                    result.append(replacePathValues(eo, callSequence, finish, defaultValue));
                 } else if (callIndicator.equals("=")) { // setCall
                     result.append(callCommand(eo, callSequence, finish, defaultValue));
                 } else if (callIndicator.equals("==")) { // json
@@ -176,10 +173,7 @@ public abstract class Parser {
         return pathOrKey.replaceAll(".*\\|>", "");
     }
 
-    private String replacePathValues(final EO eo, String pathOrKey) {
-        if (pathOrKey.contains("modelKeyLower")) {
-            System.out.println("");
-        }
+    private String replacePathValues(final EO eo, String pathOrKey, final String finish, final String defaultValue) {
         if (pathOrKey.startsWith(SYSTEM_CHAR)) {
             return getSystemValue(pathOrKey.replaceAll(SYSTEM_CHAR, ""));
         }
@@ -203,15 +197,24 @@ public abstract class Parser {
         if (value instanceof Date) {
             return value.toString();
         }
+        if (!isEndSequence(finish)) {
+            findContent();// remove existing value
+            StringBuilder builder = new StringBuilder(getStartSequence());
+            builder.append(pathOrKey);
+            builder.append(getContinueSequence());
+            builder.append(KeepCalls.JAVA.getEndComment());
+            builder.append(value);
+            builder.append(KeepCalls.JAVA.getStartComment());
+            builder.append(getCloseSequence());
+            return builder.toString();
+        }
         return ScalarConverter.toString(value);
     }
 
     protected Object callCommand(final EO eo, final String callDirective, final String finish, final String defaultValue) {
         if (eo == null) {
-            throw new EoException("Null eo, so could not execute call '" + callDirective + "'.");
-        }
-        if (eo.getConfigsCache() == null) {
-            throw new EoException("Null eo configCache, so could not execute call '" + callDirective + "'.");
+            return defaultValue;
+            //throw new EoException("No configuration without eo available '" + callDirective + "'" );
         }
         String[] methodAndInput = callDirective.split("->");
         String parameters = methodAndInput.length==1?methodAndInput[0]:methodAndInput[1];
@@ -261,6 +264,10 @@ public abstract class Parser {
     }
 
     protected Object callJson(final EO eo, final String callDirective, final String finish, final String defaultValue) {
+        if (eo == null) {
+            return defaultValue;
+            //throw new EoException("No configuration without eo available '" + callDirective + "'" );
+        }
         EO eoCall = EoRoot.ofValue(eo.getConfigsCache(), "{" + callDirective + "}");
         if (!eoCall.isEmpty()) {
             eo.mapObject(eoCall.get());

@@ -36,14 +36,8 @@ public class ModelConfigSet extends ModelConfig {
     }
 
     @Override
-    public FieldConfig getFieldConfig(final String fieldName) {
+    public FieldConfig getField(final String fieldName) {
         return null; //TODO
-    }
-
-
-    @Override
-    public Class getFieldClass(String fieldName) {
-        return Object.class;
     }
 
 

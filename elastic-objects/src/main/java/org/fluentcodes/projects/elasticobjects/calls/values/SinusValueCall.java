@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * For setting sinus value to EO.
@@ -18,10 +18,10 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 public class SinusValueCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-/*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
 /*=>{}.*/
     @Override
     public Object execute(final EO eo) {
@@ -34,6 +34,6 @@ public class SinusValueCall extends CallImpl implements SimpleCommand {
             throw new EoException(e.getMessage());
         }
     }
-/*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+/*=>{javaAccessors}|*/
 /*=>{}.*/
 }

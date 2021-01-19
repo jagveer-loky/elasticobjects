@@ -14,10 +14,7 @@
           "0": "key1",
           "1": "key2"
         },
-        "length": -1,
-        "rowEnd": 3,
-        "rowHead": 0,
-        "rowStart": -1
+        "length": -1
       },
       "fileConfigKey": "ListSimple.csv",
       "hostConfigKey": "localhost",

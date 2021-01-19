@@ -10,7 +10,7 @@
     "modelKey": "XlsxConfig",
     "properties": {
       "create": false,
-      "shapeType": "CONFIG"
+      "final": true
     },
     "author": "Werner Diwischek"
   },
@@ -45,8 +45,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
     "modelKey": "XlsxReadCall",
     "properties": {
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": true
     },
     "author": "Werner Diwischek"
   }

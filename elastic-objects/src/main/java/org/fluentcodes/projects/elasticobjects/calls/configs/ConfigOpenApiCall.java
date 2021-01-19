@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 /**
  * Creates an open api schema from model configuration.
  *
@@ -27,14 +27,14 @@ import java.util.Set;
 public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
 /*=>{}.*/
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String CONFIG_FILTER = "configFilter";
    public static final String EXPOSE = "expose";
    public static final String MODULE = "module";
    public static final String MODULE_SCOPE = "moduleScope";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String configFilter;
    private  Expose expose;
    private  String module;
@@ -132,7 +132,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
         entry.set(modelConfig.getDescription(), "description");
         EO properties = entry.setEmpty("properties");
         for (String fieldKey: modelConfig.getFieldKeys()) {
-            FieldConfig fieldConfig = modelConfig.getFieldConfig(fieldKey);
+            FieldConfig fieldConfig = (FieldConfig) modelConfig.getField(fieldKey);
             EO field = properties.setEmpty(fieldConfig.getFieldKey());
             Models fieldModels = fieldConfig.getModels();
             if (fieldConfig.hasDescription()) {
@@ -194,7 +194,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
         }
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     Key for filter configuration
     */

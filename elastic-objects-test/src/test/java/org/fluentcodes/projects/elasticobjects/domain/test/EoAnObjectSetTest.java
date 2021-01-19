@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
@@ -26,18 +27,18 @@ public class EoAnObjectSetTest {
     @Test
     public void fromEoConfigsCache()  {
         ModelConfigInterfaceMethods cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
-        Assert.assertNotNull(cache.getFieldConfig(AnObject.MY_STRING));
-        Assert.assertEquals(AnObject.MY_STRING, cache.getFieldConfig(AnObject.MY_STRING).getFieldKey());
+        Assert.assertNotNull(cache.getField(AnObject.MY_STRING));
+        Assert.assertEquals(AnObject.MY_STRING, cache.getField(AnObject.MY_STRING).getFieldKey());
         ModelConfig aSubObject = cache.getFieldModel(AnObject.MY_ASUB_OBJECT);
         Assert.assertEquals(ASubObject.class.getSimpleName(), aSubObject.getModelKey());
-        Assert.assertEquals(AnObject.MY_STRING, aSubObject.getFieldConfig(AnObject.MY_STRING).getFieldKey());
+        Assert.assertEquals(AnObject.MY_STRING, aSubObject.getField(AnObject.MY_STRING).getFieldKey());
     }
 
     @Test
     public void TEST__find_AnObject_get_myString__$()  {
-        FieldConfig fieldConfig = ProviderRootTestScope.EO_CONFIGS
+        FieldConfigInterface fieldConfig = ProviderRootTestScope.EO_CONFIGS
                 .findModel(AnObject.class)
-                .getFieldConfig(AnObject.MY_STRING);
+                .getField(AnObject.MY_STRING);
         Assert.assertNotNull(fieldConfig);
         Assertions.assertThat(fieldConfig.hasUnique()).isFalse();
         Assertions.assertThat(fieldConfig.hasNotNull()).isFalse();
@@ -120,11 +121,11 @@ public class EoAnObjectSetTest {
     public void assertAnObjectFieldTest()  {
         ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
 
-        FieldConfig field = model.getFieldConfig(AnObject.MY_STRING);
-        Assert.assertEquals(String.class, field.getModelClass());
+        FieldConfigInterface field = model.getField(AnObject.MY_STRING);
+        Assert.assertEquals(String.class, ((FieldConfig)field).getModelClass());
 
-        field = model.getFieldConfig(MY_OBJECT);
-        Assert.assertEquals(Object.class, field.getModelClass());
+        field = model.getField(MY_OBJECT);
+        Assert.assertEquals(Object.class, ((FieldConfig)field).getModelClass());
 
     }
 

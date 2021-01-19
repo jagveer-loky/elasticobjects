@@ -141,7 +141,7 @@ public class Models {
             return getChildModelsTrue();
         }
 
-        return getModel().getFieldConfig(fieldKey).getModels();
+        return ((FieldConfig)getModel().getField(fieldKey)).getModels();
     }
 
     public Models getChildModels(final EO eo, final PathElement pathElement) {

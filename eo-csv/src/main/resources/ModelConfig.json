@@ -8,9 +8,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvReadCall",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": true
     },
     "author": "Werner Diwischek"
   },
@@ -23,9 +21,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.csv",
     "modelKey": "CsvWriteCall",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": true
     },
     "author": "Werner Diwischek"
   }

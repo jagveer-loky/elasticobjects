@@ -9,9 +9,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "ConfigLinkCall",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": true
     },
     "author": "Werner Diwischek"
   },
@@ -28,9 +26,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "GithubLinkCall",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": true
     },
     "author": "Werner Diwischek"
   },
@@ -47,9 +43,7 @@
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
     "modelKey": "TheGreetingCall",
     "properties": {
-      "classPath": "src.main.java",
-      "create": true,
-      "shapeType": "CALL_BEAN"
+      "create": true
     },
     "author": "Werner Diwischek"
   }

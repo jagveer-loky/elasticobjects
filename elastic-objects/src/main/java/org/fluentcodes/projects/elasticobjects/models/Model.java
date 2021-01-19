@@ -2,13 +2,15 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import sun.security.provider.SHA;
 
 import java.util.List;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.PROPERTY;
 
-public interface Model extends ModelConfigInterface, Config {
+
+public interface Model extends ModelConfigInterface, ConfigBeanInterface {
     String JAVASCRIPT_TYPE = "javascriptType";
     String DB_ANNOTATED = "dbAnnotated";
     String ABSTRACT = "abstract";
@@ -27,9 +29,21 @@ public interface Model extends ModelConfigInterface, Config {
         }
     }
 
+    void setFieldBeans(Map<String, FieldBeanInterface> fieldBeans);
     Map<String, FieldBeanInterface> getFieldBeans();
     default boolean hasFieldBeans() {
         return getFieldBeans()!=null && !getFieldBeans().isEmpty();
+    }
+    default FieldBeanInterface getFieldBean(final String fieldKey) {
+        return getFieldBeans().get(fieldKey);
+    }
+
+    default void setFinal(Boolean value) {
+        getProperties().put(FINAL, value);
+    }
+
+    default void setBean(String value) {
+        getProperties().put(BEAN, value);
     }
 
     default void setCreate(Boolean create) {
@@ -99,6 +113,11 @@ public interface Model extends ModelConfigInterface, Config {
     }
     default Model setDbAnnotated(Boolean dbAnnotated) {
         getProperties().put(DB_ANNOTATED, dbAnnotated);
+        return this;
+    }
+
+    default Model setProperty(Boolean value) {
+        getProperties().put(PROPERTY, value);
         return this;
     }
 

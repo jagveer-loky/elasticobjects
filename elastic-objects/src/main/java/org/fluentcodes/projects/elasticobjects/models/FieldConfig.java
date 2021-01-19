@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -10,24 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/*=>{javaHeader}|*/
 /**
- * Created by Werner on 09.10.2016.
+ * 
+ * Immutabel EO field configuration will be initalized by internal builder using map values. 
+ * @author Werner Diwischek
+ * @creationDate Wed Oct 17 00:00:00 CEST 2018
+ * @modificationDate Thu Jan 14 04:26:27 CET 2021
  */
-public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
-    public static final String FIELD_KEY = "fieldKey";
-    public static final String MODEL_KEYS = "modelKeys";
-    public static final String TO_SERIALIZE = "toSerialize";
-    public static final String LENGTH = "length";
-    public static final String NAME = "name";
-    public static final String DEFAULT_VALUE = "defaultValue";
-
+public class FieldConfig extends ConfigConfig implements FieldConfigInterface  {
+/*=>{}.*/
+/*=>{javaInstanceVars}|*/
+   /* fieldKey */
+   private final String fieldKey;
+   /* Length of a field. */
+   private final Integer length;
+   /* A string representation for a list of modelsConfig. */
+   private final String modelKeys;
+/*=>{}.*/
     private boolean resolved;
     private final Boolean toSerialize;
-    private final String fieldKey;
-    private final String modelKeys;
-    private final Integer length;
     private List<String> modelList;
-    private final Object defaultValue;
     private final ModelConfig modelConfig;
     private Models models;
     private Method getter;
@@ -41,7 +43,6 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
         this.modelKeys = bean.getModelKeys();
         this.modelList = ((FieldBean)bean).getModelList();
         this.length = bean.getLength();
-        this.defaultValue = bean.getDefaultValue();
     }
 
     protected void resolve(ModelConfig model, Map<String, ConfigConfigInterface> modelConfigMap) {
@@ -67,8 +68,8 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
         }
 
         if (model.getShapeType() == ShapeTypes.INTERFACE) {
-            String value = getProperties().toString();
-            if (!isDefault()) {
+            if (!isDefault() && !hasProperty()) {
+                //System.out.println(toString() + ": " + getProperties().get(DEFAULT) + " - " + getProperties().get(PROPERTY));
                 return;
             }
         }
@@ -100,6 +101,9 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
 
     protected Object get(Object parent) {
         if (getter==null) {
+            /*for (Object key: getProperties().keySet()) {
+                System.out.println(key + " " + getProperties().get(key));
+            }*/
             throw new EoException("No getter defined '" + getNaturalId() + "' for '" + parent.getClass().getSimpleName() + "'.");
         }
         if (parent==null) {
@@ -129,56 +133,34 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
         }
     }
 
-    protected void addModel(final ModelConfig modelConfig) {
-        if (modelConfig == null || modelConfig.getNaturalId() == null)  {
-            throw new EoInternalException("Problem with modelConfig where naturalId could not be resolved");
-        }
-        if (modelList.contains(modelConfig.getNaturalId())) {
-            return;
-        }
-        modelList.add(modelConfig.getNaturalId());
-        if (getExpose().ordinal() >= modelConfig.getExpose().ordinal()) {
-            super.setExpose(modelConfig.getExpose());
-        }
-    }
-
     public List<String> getModelList() {
         return new ArrayList<>(modelList);
     }
 
-    public boolean hasModelList() {
-        return !modelList.isEmpty();
-    }
+/*=>{javaAccessors}|*/
+   @Override
+   public String getFieldKey() {
+      return this.fieldKey;
+   }
 
-    @Override
-    public Integer getLength() {
-        return length;
-    }
+   @Override
+   public Integer getLength() {
+      return this.length;
+   }
 
-    @Override
-    public Object getDefaultValue() {
-        return defaultValue;
-    }
+   @Override
+   public String getModelKeys() {
+      return this.modelKeys;
+   }
 
-    public String getFieldKey() {
-        return this.fieldKey;
-    }
+/*=>{}.*/
 
     public Models getModels() {
         return models;
     }
 
-    public String getModelKeys() {
-        return modelKeys;
-    }
-
-
     public Class getModelClass()  {
         return getModelConfig().getModelClass();
-    }
-
-    public Class getChildClass()  {
-        return getChildModel().getModelClass();
     }
 
     public String getModel()  {

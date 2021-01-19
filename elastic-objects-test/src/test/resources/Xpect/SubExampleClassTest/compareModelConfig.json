@@ -3,47 +3,21 @@
     "name": {
       "fieldKey": "name",
       "modelKeys": "String",
-      "modelList": [
-        "String"
-      ],
-      "properties": {
-        "fieldName": "name"
-      },
-      "naturalId": "SubExampleClass.name",
-      "fieldName": "name"
+      "naturalId": "SubExampleClass.name"
     },
     "id": {
       "fieldKey": "id",
       "modelKeys": "Long",
-      "modelList": [
-        "Long"
-      ],
-      "properties": {
-        "fieldName": "id"
-      },
-      "naturalId": "SuperExampleClass.id",
-      "fieldName": "id"
+      "naturalId": "SuperExampleClass.id"
     },
     "subClass": {
       "fieldKey": "subClass",
       "modelKeys": "FieldExampleClass",
-      "modelList": [
-        "FieldExampleClass"
-      ],
-      "properties": {
-        "fieldName": "subClass"
-      },
-      "naturalId": "SuperExampleClass.subClass",
-      "fieldName": "subClass"
+      "naturalId": "SuperExampleClass.subClass"
     }
   },
   "modelKey": "SubExampleClass",
   "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
   "superKey": "SuperExampleClass",
-  "configModelKey": "ModelConfigObject",
-  "properties": {
-    "shapeType": "OBJECT",
-    "create": true
-  },
   "naturalId": "SubExampleClass"
 }

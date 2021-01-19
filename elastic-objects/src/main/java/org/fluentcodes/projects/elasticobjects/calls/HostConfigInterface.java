@@ -1,66 +1,64 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ConfigProperties;
+/*=>{javaHeader}|*/
+/**
+ * 
+ * Methods to get the properties schema from properties map. 
+ * @author Werner Diwischek
+ * @creationDate Sat Sep 19 00:00:00 CEST 2020
+ * @modificationDate Thu Jan 14 12:15:25 CET 2021
+ */
+public interface HostConfigInterface extends ConfigConfigInterface  {
+/*=>{}.*/
 
-public interface HostConfigInterface extends ConfigConfigInterface{
+/*=>{javaStaticNames}|*/
+   String HOST_NAME = "hostName";
+   String PASSWORD = "password";
+   String PORT = "port";
+   String PROTOCOL = "protocol";
+   String URL = "url";
+   String USER = "user";
+/*=>{}.*/
 
-    String PORT = "port";
-    String PROTOCOL = "protocol";
-    String PASSWORD = "password";
-    String HOST_NAME = "hostName";
-    String USER = "user";
-    String URL = "url";
-
-    default boolean hasUrl() {
-        return getUrl()!=null && !getUrl().isEmpty();
-    }
-
-    default String getUrl() {
-        return hasProperties()?(String)getProperties().get(URL):null;
-    }
-
-    default boolean hasHostName() {
-        return getHostName()!=null && !getHostName().isEmpty();
-    }
-
-    default String getHostName() {
-        return hasProperties()?(String)getProperties().get(HOST_NAME):null;
-    }
-
-    default boolean hasProtocol() {
-        return getProtocol()!=null && !getProtocol().isEmpty();
-    }
-
-    default String getProtocol() {
-        return hasProperties()?(String)getProperties().get(PROTOCOL):null;
-    }
-
-
-    default boolean hasPort() {
-        return getPort()!=null;
-    }
-
-    default Integer getPort() {
-        return hasProperties()?(Integer)getProperties().get(PORT):null;
-    }
-
-    default boolean hasUser() {
-        return getUser()!=null && !getUser().isEmpty();
-    }
-
-    default String getUser() {
-        return hasProperties()?(String)getProperties().get(USER):null;
-    }
-
-    default boolean hasPassword() {
-        return getPassword()!=null && !getPassword().isEmpty();
-    }
-
-    default String getPassword() {
-        return hasProperties() && getProperties().containsKey(PASSWORD) ? "########" : null;
-    }
+/*=>{javaAccessors}|*/
+   default String getHostName(){
+      return (String) getProperties().get(HOST_NAME);
+   }
+   default boolean hasHostName() {
+      return getProperties().containsKey(HOST_NAME) && getProperties().get(HOST_NAME) != null;
+   }
+   default String getPassword(){
+      return (String) getProperties().get(PASSWORD);
+   }
+   default boolean hasPassword() {
+      return getProperties().containsKey(PASSWORD) && getProperties().get(PASSWORD) != null;
+   }
+   default Integer getPort(){
+      return (Integer) getProperties().get(PORT);
+   }
+   default boolean hasPort() {
+      return getProperties().containsKey(PORT) && getProperties().get(PORT) != null;
+   }
+   default String getProtocol(){
+      return (String) getProperties().get(PROTOCOL);
+   }
+   default boolean hasProtocol() {
+      return getProperties().containsKey(PROTOCOL) && getProperties().get(PROTOCOL) != null;
+   }
+   default String getUrl(){
+      return (String) getProperties().get(URL);
+   }
+   default boolean hasUrl() {
+      return getProperties().containsKey(URL) && getProperties().get(URL) != null;
+   }
+   default String getUser(){
+      return (String) getProperties().get(USER);
+   }
+   default boolean hasUser() {
+      return getProperties().containsKey(USER) && getProperties().get(USER) != null;
+   }
+/*=>{}.*/
 
     default String getPasswordReal() {
         return hasProperties()?(String)getProperties().get(PASSWORD):null;

@@ -37,16 +37,9 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
     }
 
     @Override
-    public FieldConfig getFieldConfig(final String fieldName) {
+    public FieldConfig getField(final String fieldName) {
         return null; //TODO
     }
-
-
-    @Override
-    public Class getFieldClass(String fieldName) {
-        return Object.class;
-    }
-
 
     public Set<String> keys(Object object)  {
         int size = -1;

@@ -1,15 +1,24 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
-
-import java.util.List;
-
+/*=>{javaHeader}|*/
 /**
- * Created by Werner on 10.10.2016.
+ * 
+ * Interface with permissions methods  
+ * @author null
+ * @creationDate Wed Dec 16 00:00:00 CET 2020
+ * @modificationDate Thu Jan 14 12:52:16 CET 2021
  */
-public interface PermissionConfigInterface extends ConfigConfigInterface {
-    PermissionRole getRolePermissions();
-    default boolean hasPermissionRole() {
-        return getRolePermissions() != null;
-    }
+public interface PermissionConfigInterface  {
+/*=>{}.*/
+
+/*=>{javaStaticNames}|*/
+   String ROLE_PERMISSIONS = "rolePermissions";
+/*=>{}.*/
+
+/*=>{javaAccessors}|*/
+   PermissionRole getRolePermissions();
+   default boolean hasRolePermissions() {
+      return getRolePermissions() != null;
+   }
+/*=>{}.*/
 }

@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-/*==>{ALLHeader.tpl, ., , JAVA}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Call for generation of java code from ModelConfig data. 
@@ -25,10 +25,10 @@ public class GenerateModelTemplateMapCall extends GenerateModelAbstract {
 /*=>{}.*/
     private final static String JAVA_GEN_MODEL = "/modelKey";
     public final static String FIELD_MAP = "fieldMap";
-/*==>{ALLStaticNames.tpl, fieldBeans/*, override eq false, JAVA|>}|*/
+/*=>{javaStaticNames}|*/
 /*=>{}.*/
 
-/*==>{ALLInstanceVars.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaInstanceVars}|*/
 /*=>{}.*/
 
     public GenerateModelTemplateMapCall() {
@@ -42,15 +42,12 @@ public class GenerateModelTemplateMapCall extends GenerateModelAbstract {
         if (hasNaturalId() && !modelBean.getNaturalId().equals(getNaturalId())) {
             return false;
         }
-        if (!hasPackagePath()) {
-            throw new EoException("PackagePath filter is empty but required for generating model based code!");
-        }
         if (!modelBean.hasPackagePath()) {
             throw new EoException("PackagePath for '" + modelBean.getNaturalId() + "' is null!");
         }
-        if (!modelBean.getPackagePath().startsWith(getPackagePath())) {
+        /*if (!modelBean.getPackagePath().startsWith(getPackagePath())) {
             return false;
-        }
+        }*/
         return super.filter(modelBean);
     }
 
@@ -102,7 +99,7 @@ public class GenerateModelTemplateMapCall extends GenerateModelAbstract {
         return feedback.toString();
     }
 
-/*==>{ALLSetter.tpl, fieldBeans/*, , JAVA|>}|*/
+/*=>{javaAccessors}|*/
     /*=>{}.*/
 
 

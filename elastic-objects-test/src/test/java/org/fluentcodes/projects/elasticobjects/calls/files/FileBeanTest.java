@@ -5,9 +5,9 @@ import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.calls.PermissionConfig.ROLE_PERMISSIONS;
-import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfig.FILE_NAME;
-import static org.fluentcodes.projects.elasticobjects.domain.Base.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.calls.PermissionConfigInterface.ROLE_PERMISSIONS;
+import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfigInterface.FILE_NAME;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface.MODULE;
 
 public class FileBeanTest {

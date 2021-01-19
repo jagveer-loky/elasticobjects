@@ -1,11 +1,17 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import java.util.Map;
-
+/*=>{javaHeader}|*/
 /**
- * Created by Werner on 11.12.2020.
+ * 
+ * A bean container class for Field values 
+ * @author Werner Diwischek
+ * @creationDate Wed Dec 16 00:00:00 CET 2020
+ * @modificationDate Thu Jan 14 12:24:13 CET 2021
  */
-public class HostBean extends PermissionBean implements Host {
+public class HostBean extends PermissionBean implements HostBeanInterface  {
+/*=>{}.*/
+
     public HostBean() {
         super();
         defaultConfigModelKey();
@@ -16,9 +22,14 @@ public class HostBean extends PermissionBean implements Host {
         defaultConfigModelKey();
     }
 
-    protected void merge(final Map values) {
-        super.merge(values);
+    public void merge(final Map configMap) {
+        super.merge(configMap);
     }
+
+/*=>{javaAccessors}|*/
+/*=>{}.*/
+
+
 
     @Override
     public void defaultConfigModelKey() {

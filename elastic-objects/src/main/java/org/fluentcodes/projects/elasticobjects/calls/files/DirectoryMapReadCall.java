@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/*==>{ALLHeader.tpl, ., , JAVA|>}|*/
+/*=>{javaHeader}|*/
 
 /**
  * Read a list from a directory. The file names will replace <i>toReplace (default "_")</i> by <i>replaceBy (default "")</i> and <i>fileEnding(default ".html")</i> will be removed. 
@@ -22,13 +22,13 @@ public class DirectoryMapReadCall extends DirectoryListReadCall  {
     public final static String DEFAULT_REPLACE_BY = " ";
     public final static String DEFAULT_FILE_ENDING = ".html";
 
-    /*==>{ALLStaticNames.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaStaticNames}|*/
    public static final String FILE_ENDING = "fileEnding";
    public static final String REPLACE_BY = "replaceBy";
    public static final String TO_REPLACE = "toReplace";
 /*=>{}.*/
 
-    /*==>{ALLInstanceVars.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaInstanceVars}|*/
    private  String fileEnding;
    private  String replaceBy;
    private  String toReplace;
@@ -63,7 +63,7 @@ public class DirectoryMapReadCall extends DirectoryListReadCall  {
         return result;
     }
 
-    /*==>{ALLSetter.tpl, fieldBeans/*, super eq false, JAVA|>}|*/
+    /*=>{javaAccessors}|*/
     /**
     It's used to specify the file ending in different context. 
     */
