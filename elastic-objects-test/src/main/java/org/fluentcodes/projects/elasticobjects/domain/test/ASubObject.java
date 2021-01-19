@@ -6,19 +6,20 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
  * A sub object as an example. 
  * @author Werner Diwischek
  * @creationDate Fri Nov 20 00:00:00 CET 2020
- * @modificationDate Thu Jan 07 05:23:39 CET 2021
+ * @modificationDate Tue Jan 19 12:14:01 CET 2021
  */
-public class ASubObject  {/*=>{}.*/
+public class ASubObject  {
+/*=>{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*!!Problem invoke getter with 'javaStaticNames' and model 'ModelBeanGen':null!!*/
    public static final String ID = "id";
    public static final String MY_ASUB_OBJECT = "myASubObject";
    public static final String MY_STRING = "myString";
    public static final String NAME = "name";
    public static final String NATURAL_ID = "naturalId";
-/*=>{}.*/
+/*!!Could not create 'String' value from 'ASubObject(BEAN)' (ModelBeanGen)!!*/
 
-    /*=>{javaInstanceVars}|*/
+    /*!!Problem invoke getter with 'javaInstanceVars' and model 'ModelBeanGen':null!!*/
    /* The id with a autonumbering */
    private Long id;
    /* myASubObject */
@@ -29,9 +30,9 @@ public class ASubObject  {/*=>{}.*/
    private String name;
    /* The natural key in @Base */
    private String naturalId;
-/*=>{}.*/
+/*!!Could not create 'String' value from 'ASubObject(BEAN)' (ModelBeanGen)!!*/
 
-    /*=>{javaAccessors}|*/
+    /*!!Problem invoke getter with 'javaAccessors' and model 'ModelBeanGen':null!!*/
    public Long getId() {
       return this.id;
    }
@@ -92,5 +93,5 @@ public class ASubObject  {/*=>{}.*/
    public boolean hasNaturalId() {
       return this.naturalId != null && this.naturalId.isEmpty();
    }
-/*=>{}.*/
+/*!!Could not create 'String' value from 'ASubObject(BEAN)' (ModelBeanGen)!!*/
 }

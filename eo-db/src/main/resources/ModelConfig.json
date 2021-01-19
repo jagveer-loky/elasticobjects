@@ -183,7 +183,7 @@
         "notNull": true
       }
     },
-    "interfaces": "DbSqlConfigInterface, BaseBeanInterface",
+    "interfaces": "DbSqlConfigInterface,BaseBeanInterface",
     "expose": "NONE",
     "description": "SQL list set",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",

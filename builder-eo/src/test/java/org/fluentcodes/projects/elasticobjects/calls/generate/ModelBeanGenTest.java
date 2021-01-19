@@ -50,20 +50,10 @@ public class ModelBeanGenTest {
     @Test
     public void AnObject__getImport__expected() {
         ModelBeanGen anObjectModelBean = findModelBean(AnObject.class);
-        Assertions.assertThat(anObjectModelBean.getJavaImport()).isEqualTo("import java.util.HashMap;\n" +
-                "import java.util.Map;\n" +
+        Assertions.assertThat(anObjectModelBean.getJavaImport()).isEqualTo("import java.util.ArrayList;\n" +
+                "import java.util.Date;\n" +
+                "import java.util.HashMap;\n" +
                 "import java.util.List;\n" +
-                "import java.util.Date;\n" +
-                "import java.util.ArrayList;\n");
-    }
-
-    @Test
-    public void call_BEANCreateTpl__execute_AnObject__expected() {
-        ModelBeanGen anObjectModelBean = findModelBean(AnObject.class);
-        TemplateResourceCall call = new TemplateResourceCall("BEANCreate.tpl");
-        EO eo = ProviderRootTestScope.createEo(anObjectModelBean);
-        Assertions.assertThat(call.execute(eo)).isEqualTo("import java.util.ArrayList;\n" +
-                "import java.util.Date;\n" +
-                "import java.util.HashMap;\n");
+                "import java.util.Map;\n");
     }
 }
