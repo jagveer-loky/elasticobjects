@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 

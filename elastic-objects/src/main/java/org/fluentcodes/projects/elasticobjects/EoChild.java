@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBeanInterface;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
@@ -688,7 +688,7 @@ public class EoChild implements EO {
     }
 
     @Override
-    public EOConfigsCache getConfigsCache() {
+    public ConfigMaps getConfigsCache() {
         return getRoot().getConfigsCache();
     }
 

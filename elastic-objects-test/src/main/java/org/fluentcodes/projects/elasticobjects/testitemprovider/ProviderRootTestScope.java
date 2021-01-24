@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
@@ -11,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
 import java.util.Map;
 
 public class ProviderRootTestScope {
-    public static final EOConfigsCache EO_CONFIGS = new EOConfigsCache(Scope.TEST);
+    public static final ConfigMaps EO_CONFIGS = new ConfigMaps(Scope.TEST);
 
     public static final EO createEoWithClasses(Class... classes) {
         return EoRoot.ofClass(EO_CONFIGS, classes);

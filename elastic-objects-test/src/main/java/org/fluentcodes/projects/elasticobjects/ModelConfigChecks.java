@@ -22,13 +22,6 @@ public class ModelConfigChecks {
         return object;
     }
 
-    public static Object createConfig(final ModelBean configBean, final String fieldName, Object value)  {
-        Assertions.assertThat(configBean).isNotNull();
-        ModelConfigInterfaceMethods config = (ModelConfigInterfaceMethods)configBean.createConfig();
-        //Assertions.assertThat(config.get(fieldName)).isEqualTo(value);
-        return config;
-    }
-
 
     public static ModelConfig createThrowsException(final Class modelClass) {
         final ModelConfig model = ProviderRootTestScope

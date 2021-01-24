@@ -1,7 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.calls.db;
-
-import org.fluentcodes.projects.elasticobjects.calls.HostBean;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
+package org.fluentcodes.projects.elasticobjects.calls;
 
 import java.util.List;
 import java.util.Map;

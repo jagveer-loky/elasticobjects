@@ -15,6 +15,10 @@ public class PermissionBean extends ConfigBean implements PermissionBeanInterfac
 /*=>{}.*/
     private PermissionRole rolePermissions;
 
+    public PermissionBean(final String naturalId, final Map<String, Object> map) {
+        super(naturalId, map);
+    }
+
     public PermissionBean() {
         super();
     }

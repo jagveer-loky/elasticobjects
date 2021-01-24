@@ -26,6 +26,7 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface  {
    /* A string representation for a list of modelsConfig. */
    private String modelKeys;
 /*=>{}.*/
+    private boolean merged = false;
 
     private ModelBean modelBean;
 
@@ -39,6 +40,11 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface  {
     public FieldBean(final Map values) {
         super();
         merge(values);
+    }
+
+    public FieldBean(final String key, final Map values) {
+        this(values);
+        if (!hasNaturalId())  setNaturalId(key);
     }
 
     public FieldBean(final Field field) {
@@ -89,6 +95,7 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface  {
         mergeProperty(fieldBean.getProperty());
         mergeFieldName(fieldBean.getFieldName());
         mergeGenerated(fieldBean.getGenerated());
+        this.merged = true;
     }
 
     public void defaultValues() {
@@ -143,7 +150,12 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface  {
     }
 
 /*=>{}.*/
-
+    public boolean isMerged() {
+        return merged;
+    }
+    void setMerged(boolean merged) {
+        this.merged = merged;
+    }
     @Override
     public String toString() {
         return "(" + modelKeys + ")" + getNaturalId();

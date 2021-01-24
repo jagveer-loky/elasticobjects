@@ -25,15 +25,6 @@ public class FileConfigTest {
         ModelConfigChecks.compare(FileConfig.class);
     }
 
-    @Ignore // TODO was just a trial
-    @Test
-    public void TEST____getFileNameTest()  {
-        FileBean bean = (FileBean) ModelConfigChecks.createSetGet(FileBean.class.getSimpleName(), FILE_NAME, "test");
-        FileConfig config = (FileConfig) bean.createConfig();
-        Assertions.assertThat(config.getFileName())
-                .isEqualTo("test");
-    }
-
 
     // Failed in mvn
     @Ignore

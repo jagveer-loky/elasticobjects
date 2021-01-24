@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
@@ -127,7 +127,7 @@ public interface EO extends EoLogInterface{
         return hasEo(PathElement.LOG_LEVEL);
     }
 
-    default EOConfigsCache getConfigsCache() {
+    default ConfigMaps getConfigsCache() {
         return getRoot().getConfigsCache();
     }
 

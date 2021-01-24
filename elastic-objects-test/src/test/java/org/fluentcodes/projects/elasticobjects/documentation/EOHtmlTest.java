@@ -4,14 +4,14 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.junit.Test;
 import java.util.Map;
 
 public class EOHtmlTest {
-    protected static final EOConfigsCache EO_CONFIGS_DEV = new EOConfigsCache(Scope.DEV);
-    protected static final EOConfigsCache EO_CONFIGS_TEST = new EOConfigsCache(Scope.TEST);
+    protected static final ConfigMaps EO_CONFIGS_DEV = new ConfigMaps(Scope.DEV);
+    protected static final ConfigMaps EO_CONFIGS_TEST = new ConfigMaps(Scope.TEST);
 
     protected static final EO createEoDev() {
         return EoRoot.of(EO_CONFIGS_DEV);

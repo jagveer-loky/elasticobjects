@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
+import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Before;
 import org.junit.Test;

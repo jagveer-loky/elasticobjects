@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.web;
 
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +21,8 @@ public class EOConfigCached {
      * @throws Exception on misconfiguration of the json config files in the classpath.
      */
     @Bean
-    public EOConfigsCache createProvider() throws Exception {
-        EOConfigsCache provider = new EOConfigsCache(Scope.valueOf(scope));
+    public ConfigMaps createProvider() throws Exception {
+        ConfigMaps provider = new ConfigMaps(Scope.valueOf(scope));
         return provider;
     }
 }

@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -52,7 +52,7 @@ public class GenerateModelTemplateMapCall extends GenerateModelAbstract {
     }
 
     private Map<String, String> initFileConfigKeyMap(final EO eo) {
-        EOConfigsCache cache = eo.getConfigsCache();
+        ConfigMaps cache = eo.getConfigsCache();
         Set<String> fileConfigKeys = cache.getConfigKeys(FileConfig.class);
         Map<String, String> fileConfigKeyMap = new LinkedHashMap<>();
         for (String key: fileConfigKeys) {

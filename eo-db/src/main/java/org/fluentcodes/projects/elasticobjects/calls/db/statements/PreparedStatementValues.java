@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db.statements;
 
-import org.fluentcodes.projects.elasticobjects.calls.db.DbConfig;
+import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 

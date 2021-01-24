@@ -57,6 +57,8 @@ public interface ConfigConfigInterface extends BaseConfigInterface {
       return getExpose()!= null;
     }
 
+
+
   /**
   * Defines a target module where generating occurs. 
   */

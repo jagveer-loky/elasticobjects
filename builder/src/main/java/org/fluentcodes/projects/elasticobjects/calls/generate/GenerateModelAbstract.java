@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreCall;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 /*=>{javaHeader}|*/
@@ -28,7 +28,7 @@ public abstract class GenerateModelAbstract extends GenerateAbstract implements 
     }
 
     public static EO READ(Scope scope) {
-        EO eo = EoRoot.of(new EOConfigsCache(scope));
+        EO eo = EoRoot.of(new ConfigMaps(scope));
         new FileReadCall(MODEL_BEANS_JSON)
                 .setTargetPath(".")
                 .execute(eo);

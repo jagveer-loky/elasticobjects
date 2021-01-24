@@ -1,8 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.Arrays;
@@ -142,7 +141,7 @@ public class PathElement {
         }
     }
 
-    private void deriveModels(final EOConfigsCache cache, final Object value) {
+    private void deriveModels(final ConfigMaps cache, final Object value) {
         if (modelsArray != null) {
             this.models = new Models(cache, modelsArray);
             return;
@@ -185,7 +184,7 @@ public class PathElement {
         return modelsArray;
     }
 
-    public Models getModels(EOConfigsCache cache) {
+    public Models getModels(ConfigMaps cache) {
         if (hasModelArray()) {
             return new Models(cache, modelsArray);
         }

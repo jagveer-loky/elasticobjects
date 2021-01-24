@@ -1,7 +1,7 @@
 package org.fluentcodes.tools.xpect;
 
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.tools.xpect.compators.XpectComparator;
 import org.fluentcodes.tools.xpect.compators.XpectStringComparator;
 
@@ -11,10 +11,10 @@ public class XpectEo<T>  extends Xpect<T> {
     public XpectEo() {
         super(new IOJsonEo<>());
     }
-    public XpectEo(EOConfigsCache cache) {
+    public XpectEo(ConfigMaps cache) {
         super(new IOJsonEo<>(cache));
     }
-    public XpectEo(EOConfigsCache cache, final Class mappingClass) {
+    public XpectEo(ConfigMaps cache, final Class mappingClass) {
         this(cache);
         setMappingClass(mappingClass);
     }
@@ -22,14 +22,14 @@ public class XpectEo<T>  extends Xpect<T> {
         super(new IOJsonEo<>(builder));
     }
 
-    public XpectEo(EOConfigsCache cache, final XpectComparator<T> objectComparator, final XpectStringComparator stringComparator) {
+    public XpectEo(ConfigMaps cache, final XpectComparator<T> objectComparator, final XpectStringComparator stringComparator) {
         super(new IOJsonEo<>(cache), objectComparator, stringComparator);
     }
 
     public static class Builder<T> {
         JSONSerializationType type = JSONSerializationType.STANDARD;
         Class[] classes = new Class[]{Map.class};
-        EOConfigsCache cache;
+        ConfigMaps cache;
 
 
         public JSONSerializationType getType() {
@@ -41,7 +41,7 @@ public class XpectEo<T>  extends Xpect<T> {
             return this;
         }
 
-        public Builder setCache(EOConfigsCache cache) {
+        public Builder setCache(ConfigMaps cache) {
             this.cache = cache;
             return this;
         }

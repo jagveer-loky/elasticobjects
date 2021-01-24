@@ -1,5 +1,6 @@
-package org.fluentcodes.projects.elasticobjects.calls.db;
+package org.fluentcodes.projects.elasticobjects.calls;
 
+import org.fluentcodes.projects.elasticobjects.calls.db.DbTypes;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
 
 public interface DbConfigInterface extends ConfigConfigInterface {

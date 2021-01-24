@@ -64,80 +64,45 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         defaultShapeType();
         fieldBeans = new TreeMap<>();
         modelSet = new TreeSet<>();
-        addFieldMap(config);
+        setFieldMap(config);
+    }
+
+    public ModelBean(final String naturalId, final Map values) {
+        super(naturalId, values);
     }
 
     public ModelBean(final Map values) {
         super(values);
-        /* setModelKey((String)values.get(MODEL_KEY));
-        setPackagePath((String)values.get(PACKAGE_PATH));
-        setInterfaces((String)values.get(INTERFACES));
-        setSuperKey((String)values.get(SUPER_KEY));
-        mergePermission(values.get(ROLE_PERMISSIONS));
-        defaultShapeType();
-        fieldBeans = new TreeMap<>();
-        modelSet = new TreeSet<>();
-        if (!values.containsKey(FIELD_KEYS)) {
-            return;
-        }
-        Object fieldEntries = values.get(FIELD_KEYS);
-        if ((fieldEntries instanceof String)) {
-            if (((String) fieldEntries).isEmpty()) {
-                return;
-            }
-            List<String> fieldKeys = Arrays.asList(((String) fieldEntries).split(",\\s*"));
-            for (String key : fieldKeys) {
-                addField(key);
-            }
-        }
-        else if (fieldEntries instanceof List) {
-            if (((List) fieldEntries).isEmpty()) {
-                return;
-            }
-            List<String> fieldKeys = new ArrayList<>((List) fieldEntries);
-            for (Object key : fieldKeys) {
-                addField((String)key);
-            }
-        }
-        else if (fieldEntries instanceof Map) {
-            if (((Map) fieldEntries).isEmpty()) {
-                return;
-            }
-            addField((Map)fieldEntries);
-        }
-        else {
-            throw new EoInternalException("FieldKeys are neither String, Map or List");
-        }*/
     }
 
 
-    protected void addFieldMap(final ModelConfig config) {
+    protected void setFieldMap(final ModelConfig config) {
         for (FieldConfig fieldConfig: config.getFieldMap().values()) {
-            fieldBeans.put(config.getNaturalId(), new FieldBean(fieldConfig));
+            addField(fieldConfig);
         }
     }
 
     protected void addField(final String fieldKey) {
-        FieldBean fieldBean = new FieldBean(fieldKey);
-        if (hasFinal()) fieldBean.setFinal(getFinal());
-        if (hasOverride()) fieldBean.setOverride(getOverride());
-        fieldBeans.put(fieldKey, fieldBean);
+        addField(new FieldBean(fieldKey));
     }
 
-    protected void addFieldSuper(final FieldBean fieldBean) {
-        FieldBean fieldBeanNew = new FieldBean(fieldBean);
-        fieldBeanNew.setSuper(true);
+    protected void addField(final FieldConfig fieldConfig) {
+        addField(new FieldBean(fieldConfig));
+    }
+
+    protected void addField(final String fieldKey, final Map<String, Object> fieldMap) {
+        addField(new FieldBean(fieldKey, fieldMap));
+    }
+
+    protected void addField(final FieldBean fieldBean) {
+        if (hasFinal()) fieldBean.setFinal(getFinal());
+        if (hasOverride()) fieldBean.setOverride(getOverride());
         fieldBeans.put(fieldBean.getNaturalId(), fieldBean);
     }
 
-    protected void addField(final Map fieldConfigMap) {
+    protected void setFieldMap(final Map fieldConfigMap) {
         for (Object key : fieldConfigMap.keySet()) {
-            Map<String, Object> fieldConfigEntry = (Map<String,Object>) fieldConfigMap.get(key);
-            FieldBean fieldBean = new FieldBean(fieldConfigEntry);
-            fieldBean.setNaturalId((String)key);
-            if (hasFinal()) fieldBean.setFinal(getFinal());
-            if (hasOverride()) fieldBean.setOverride(getOverride());
-            this.fieldBeans.put((String)key, fieldBean);
+            addField((String) key, (Map<String,Object>) fieldConfigMap.get(key));
         }
     }
 
@@ -283,6 +248,23 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         this.fieldBeans = fieldBeans;
     }
 
+    public void mergeFieldBeanMap(FieldBeanMap fieldBeanMap) {
+        for (FieldBeanInterface fieldBean: fieldBeans.values()) {
+            if (!fieldBean.hasNaturalId()) {
+                throw new EoInternalException("Could not get field definition for '" + fieldBean.getNaturalId() + "'.");
+            }
+            if (!fieldBean.isMerged()) {
+                if (!fieldBeanMap.hasKey(fieldBean.getNaturalId())) {
+                    throw new EoInternalException("Could not get field definition for '" + fieldBean.getNaturalId() + "'.");
+                }
+                FieldBean fieldBeanFromMap = fieldBeanMap.find(fieldBean.getNaturalId());
+                if (isFinal()) fieldBeanFromMap.setFinal(true);
+                ((FieldBean) fieldBean).merge(fieldBeanFromMap);
+            }
+            fieldBean.setModelBean(this);
+        }
+    }
+
     public void mergeFieldDefinition(Map<String, Map> fieldMap) {
         for (FieldBeanInterface fieldBean: fieldBeans.values()) {
             if (!fieldBean.hasNaturalId()) {
@@ -323,6 +305,9 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         }
         for (FieldBeanInterface fieldBean: fieldBeans.values()) {
             fieldBean.setModelBean(this);
+            if (!fieldBean.hasModelKeys()) {
+                throw new EoInternalException("No modelKeys for '" + fieldBean.getNaturalId() + "'");
+            }
             for (String fieldModelKey: fieldBean.getModelKeys().split(",")) {
                 if (!modelBeans.containsKey(fieldModelKey) || modelBeans.get(fieldModelKey) == null) {
                     throw new EoInternalException("Could not find model '" + fieldModelKey + "' for '" + fieldBean.getFieldKey() + "'." );
@@ -334,28 +319,27 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
     }
 
     protected void resolveSuper(Map<String, ModelBean> modelBeans, Map<String, FieldBeanInterface> subFieldBeans, boolean mergeFields) {
-        if (resolved) {
-            return;
-        }
-        if (this.hasSuperKey()) {
-            if (!modelBeans.containsKey(this.getSuperKey())) {
-                throw new EoException("Could not resolve super key '" + getSuperKey() + "' for '" + getNaturalId() + "'.");
-            }
-            ModelBean superModelBean = modelBeans.get(this.getSuperKey());
-            superModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
-        }
-
-        if (this.hasInterfaces()) {
-            String[] interfaces = this.getInterfaces().split(",");
-            for (String interfaceKey : interfaces) {
-                if (!modelBeans.containsKey(interfaceKey)) {
-                    throw new EoInternalException("Could not find interface '" + interfaceKey + "' for '" + getNaturalId() + "'.");
+        if (!resolved) {
+            if (this.hasSuperKey()) {
+                if (!modelBeans.containsKey(this.getSuperKey())) {
+                    throw new EoException("Could not resolve super key '" + getSuperKey() + "' for '" + getNaturalId() + "'.");
                 }
-                ModelBean interfaceModelBean = modelBeans.get(interfaceKey);
-                interfaceModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
+                ModelBean superModelBean = modelBeans.get(this.getSuperKey());
+                superModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
             }
+
+            if (this.hasInterfaces()) {
+                String[] interfaces = this.getInterfaces().split(",");
+                for (String interfaceKey : interfaces) {
+                    if (!modelBeans.containsKey(interfaceKey)) {
+                        throw new EoInternalException("Could not find interface '" + interfaceKey + "' for '" + getNaturalId() + "'.");
+                    }
+                    ModelBean interfaceModelBean = modelBeans.get(interfaceKey);
+                    interfaceModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
+                }
+            }
+            resolved = true;
         }
-        resolved = true;
 
         if (!mergeFields) {
             return;

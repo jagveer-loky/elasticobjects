@@ -15,7 +15,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  */
 public interface FieldBeanInterface extends FieldConfigInterface, ConfigBeanInterface  {
 /*=>{}.*/
-
+    boolean isMerged();
     /*=>{javaAccessors}|*/
    default FieldBeanInterface setDefault(Boolean value) {
       getProperties().put(DEFAULT, value);

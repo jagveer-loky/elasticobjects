@@ -116,22 +116,19 @@ public interface ConfigBeanInterface extends ConfigConfigInterface,BaseBeanInter
         setConfigModelKey(ScalarConverter.toString(value));
     }
 
-    default ConfigConfigInterface createConfig() {
-        if (!hasConfigModelKey()) {
-            throw new EoException("No configModelKey is set!");
-        }
+    default Class createConfig(final String path) {
         try {
-            Class modelConfigClass = Class.forName("org.fluentcodes.projects.elasticobjects.models." + getConfigModelKey());
-            return createConfig(modelConfigClass);
+            return Class.forName(path + "." + getConfigModelKey());
         } catch (ClassNotFoundException e) {
             throw new EoException(e);
         }
-
     }
 
-    default ConfigConfigInterface createConfig(final Class<? extends ConfigConfig> configClass) {
+
+    default ConfigConfigInterface createConfig(Class<? extends ConfigConfig> configClass) {
+        Class usedConfigClass = hasConfigModelKey() ? createConfig(configClass.getPackage().getName()) : configClass;
         try {
-            Constructor configurationConstructor = configClass.getConstructor(ConfigBean.class);
+            Constructor configurationConstructor = usedConfigClass.getConstructor(ConfigBean.class);
             try {
                 return (ConfigConfigInterface)configurationConstructor.newInstance(this);
             } catch (Exception e) {
@@ -143,7 +140,7 @@ public interface ConfigBeanInterface extends ConfigConfigInterface,BaseBeanInter
         }
     }
 
-    default ConfigConfigInterface createConfig(EOConfigsCache configsCache) {
+    default ConfigConfigInterface createConfig(ConfigMaps configsCache) {
         if (!hasConfigModelKey()) {
             throw new EoException("No configModelKey is set!");
         }

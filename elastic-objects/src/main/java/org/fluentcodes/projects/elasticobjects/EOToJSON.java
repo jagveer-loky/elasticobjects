@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -68,7 +68,7 @@ public class EOToJSON {
         return this.serializationType == JSONSerializationType.STANDARD;
     }
 
-    public String toJson(final EOConfigsCache cache, final Object object)  {
+    public String toJson(final ConfigMaps cache, final Object object)  {
         if (isStandard()) {
             EO mapEo = EoRoot.ofClass(cache, Map.class);
             mapEo.setSerializationType(JSONSerializationType.STANDARD);

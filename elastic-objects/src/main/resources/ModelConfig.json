@@ -442,11 +442,11 @@
   "CsvConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "CsvProperties,ListProperties",
+    "interfaces": "CsvConfigInterface,ListProperties",
     "superKey": "FileConfig",
     "expose": "NONE",
     "description": "Configuration for csv files with fieldDelimiter and rowDelimiter fields. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "CsvConfig",
     "properties": {
       "create": false,
@@ -454,7 +454,7 @@
     },
     "author": "Werner Diwischek"
   },
-  "CsvProperties": {
+  "CsvConfigInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
@@ -467,8 +467,8 @@
     },
     "expose": "NONE",
     "description": "Defines acces to csv properties with fieldDelimiter and rowDelimiter fields in CsvConfig.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-    "modelKey": "CsvProperties",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+    "modelKey": "CsvConfigInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE"

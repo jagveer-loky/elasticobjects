@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,9 +29,9 @@ public class WebEoGet {
     @Value("${elasticobjects.scope:QS}")
     String scope;
 
-    EOConfigsCache cache;
+    ConfigMaps cache;
     @Autowired
-    public WebEoGet(EOConfigsCache cache) {
+    public WebEoGet(ConfigMaps cache) {
         this.cache = cache;
     }
 

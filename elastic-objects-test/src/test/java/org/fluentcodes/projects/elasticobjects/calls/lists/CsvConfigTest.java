@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
+import org.fluentcodes.projects.elasticobjects.calls.files.CsvConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.junit.Test;
 

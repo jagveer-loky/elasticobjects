@@ -3,7 +3,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbSqlExecuteCall;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +18,7 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class Start {
     @Autowired
-    private EOConfigsCache configsCache;
+    private ConfigMaps configsCache;
 
     private static final Logger LOG = LogManager.getLogger(Start.class);
     public static void main(String[] args) {

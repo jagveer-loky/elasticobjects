@@ -23,7 +23,7 @@
     "superKey": "HostBean",
     "expose": "NONE",
     "description": "Mainly the schema information as base for  @DbQueryConfig",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "DbBean",
     "properties": {
       "create": true
@@ -36,7 +36,7 @@
     "interfaces": "DbConfigInterface,BaseBeanInterface",
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "DbBeanInterface",
     "properties": {
       "create": false,
@@ -73,7 +73,7 @@
     "superKey": "HostConfig",
     "expose": "NONE",
     "description": "Mainly the schema information as base for  @DbQueryConfig",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "DbConfig",
     "properties": {
       "create": false,
@@ -87,7 +87,7 @@
     "interfaces": "ConfigConfigInterface",
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
     "modelKey": "DbConfigInterface",
     "properties": {
       "create": false,

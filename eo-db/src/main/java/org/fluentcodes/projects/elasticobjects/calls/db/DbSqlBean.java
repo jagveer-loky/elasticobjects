@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.calls.PermissionBean;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,10 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
     public DbSqlBean() {
         super();
         defaultConfigModelKey();
+    }
+
+    public DbSqlBean(final String naturalId, final Map<String, Object> map) {
+        super(naturalId, map);
     }
 
     public DbSqlBean(final Map<String, Object> map) {
@@ -53,6 +58,7 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
     public void setSqlList(List<String> sqlList) {
         this.sqlList = sqlList;
     }
+
 
     @Override
     public String toString() {

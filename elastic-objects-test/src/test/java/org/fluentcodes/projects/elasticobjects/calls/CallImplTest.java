@@ -2,9 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
@@ -28,7 +27,7 @@ public class CallImplTest {
 
     @Test
     public void load__compare__xpected()  {
-        EOConfigsCache cache = ProviderRootTestScope.EO_CONFIGS;
+        ConfigMaps cache = ProviderRootTestScope.EO_CONFIGS;
         ModelConfig config = cache.findModel(CallImpl.class.getSimpleName());
         Assertions.assertThat(config).isNotNull();
 

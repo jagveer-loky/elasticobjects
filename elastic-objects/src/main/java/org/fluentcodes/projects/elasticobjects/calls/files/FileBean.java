@@ -33,6 +33,10 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
         defaultConfigModelKey();
     }
 
+    public FileBean(final String naturalId, final Map map) {
+        super(naturalId, map);
+    }
+
     public FileBean(final Map map) {
         super();
         merge(map);

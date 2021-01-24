@@ -3,15 +3,13 @@ package org.fluentcodes.projects.elasticobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
-import org.fluentcodes.projects.elasticobjects.models.Models;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -29,7 +27,7 @@ public class JSONToEO {
     public static final Pattern jsonMapPattern = Pattern.compile("^\\{");
     public static final Pattern jsonListPattern = Pattern.compile("^\\[");
     private static final Logger LOG = LogManager.getLogger(JSONToEO.class);
-    private EOConfigsCache provider;
+    private ConfigMaps provider;
     private long character;
     private long index;
     private boolean eof;
@@ -63,7 +61,7 @@ public class JSONToEO {
         this.line = 1;
     }
 
-    public JSONToEO(String json, EOConfigsCache provider) {
+    public JSONToEO(String json, ConfigMaps provider) {
         this(new StringReader(json));
         this.json = json;
         this.provider = provider;

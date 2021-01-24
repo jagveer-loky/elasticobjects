@@ -14,6 +14,7 @@ public class FieldBeanForClasses extends FieldBean {
         setNaturalId(modelBean.getModelKey() + "." + getFieldKey());
         this.typeClass = field.getType();
         setModelKeys(getTypeKey());
+        setMerged(true);
     }
     protected String getTypeKey() {
         return typeClass.getTypeName().replaceAll(".*\\.", "");

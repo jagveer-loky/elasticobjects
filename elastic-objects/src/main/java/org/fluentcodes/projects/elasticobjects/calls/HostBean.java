@@ -17,6 +17,11 @@ public class HostBean extends PermissionBean implements HostBeanInterface  {
         defaultConfigModelKey();
     }
 
+    public HostBean(final String naturalId, final Map<String, Object> map) {
+        super(naturalId, map);
+        defaultConfigModelKey();
+    }
+
     public HostBean(final Map<String, Object> map) {
         super();
         defaultConfigModelKey();

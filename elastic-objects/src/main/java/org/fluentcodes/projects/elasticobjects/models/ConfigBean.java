@@ -45,6 +45,13 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
         merge(values);
     }
 
+    public ConfigBean(final String naturalId, final Map values) {
+        super();
+        properties = new HashMap();
+        merge(values);
+        if (!hasNaturalId()) setNaturalId(naturalId);
+    }
+
     public ConfigBean(final ConfigConfig config) {
         super(config);
         setModule(config.getModule());

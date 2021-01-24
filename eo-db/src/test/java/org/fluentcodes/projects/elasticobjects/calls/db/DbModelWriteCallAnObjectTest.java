@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.calls.db.DbConfig.H2_BASIC;
+import static org.fluentcodes.projects.elasticobjects.calls.DbConfig.H2_BASIC;
 
 
 public class DbModelWriteCallAnObjectTest {

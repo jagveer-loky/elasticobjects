@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class HostBeanInterfaceConfigTest {
 
     @Test
     public void elasticobjects__compare__xpected()  {
-        EOConfigsCache cache = ProviderRootTestScope.EO_CONFIGS;
+        ConfigMaps cache = ProviderRootTestScope.EO_CONFIGS;
         HostConfig config = cache.findHost("elasticobjects");
         Assertions.assertThat(config).isNotNull();
         Assertions.assertThat(config.getPassword()).isNull();
@@ -52,7 +52,7 @@ public class HostBeanInterfaceConfigTest {
 
     @Test
     public void dummyftp__compare__xpected()  {
-        EOConfigsCache cache = ProviderRootTestScope.EO_CONFIGS;
+        ConfigMaps cache = ProviderRootTestScope.EO_CONFIGS;
         HostConfig config = cache.findHost("dummyftp");
         Assertions.assertThat(config).isNotNull();
         Assertions.assertThat(config.getHostName()).isEqualTo("dummyftp");
@@ -68,7 +68,7 @@ public class HostBeanInterfaceConfigTest {
 
     @Test
     public void dummyftpurl__compare__xpected()  {
-        EOConfigsCache cache = ProviderRootTestScope.EO_CONFIGS;
+        ConfigMaps cache = ProviderRootTestScope.EO_CONFIGS;
         HostConfig config = cache.findHost("dummyftpurl");
         Assertions.assertThat(config).isNotNull();
         Assertions.assertThat(config.getHostName()).isNull();
