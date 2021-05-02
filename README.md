@@ -1,6 +1,6 @@
 [![Open Source Helpers](https://www.codetriage.com/fluentcodes/elasticobjects/badges/users.svg)](https://www.codetriage.com/fluentcodes/elasticobjects)
 
-> A detailed documentation with interactive examples you find at [elasticobjects.org](http://www.elasticobjects.org/examples/ExamplesStart.html).  
+> A detailed documentation with interactive examples you find at [elasticobjects.org](https://www.elasticobjects.org/examples/ExamplesStart.html).  
 > This website is an example by itself. Its build by one generic spring boot endpoint and  
 > EO template calls.
 
@@ -90,7 +90,7 @@ Some code examples you will find in <a href="http://elasticobjects.org/eo/EO.htm
 <h3>A CSV Example</h5>
 <p>
 This example is executable on
-<a href="http://www.elasticobjects.org/Home.html#templateResourceCallHtml">elasticobjects.org</a>.
+<a href="https://www.elasticobjects.org/Home.html#templateResourceCallHtml">elasticobjects.org</a>.
 </p>
 
     {
@@ -133,7 +133,7 @@ This example is executable on
 <h3>Sending Template</h5>
 <p>
     The following example is executable on
-    <a href="http://www.elasticobjects.org/Home.html#templateCall">elasticobjects.org</a>
+    <a href="https://www.elasticobjects.org/Home.html#templateCall">elasticobjects.org</a>
 </p>
 
     <h1>An Example Template</h1>
