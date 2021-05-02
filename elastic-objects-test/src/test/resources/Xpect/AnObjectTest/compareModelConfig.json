@@ -1,113 +1,113 @@
 {
-  "rolePermissions": {
-    "read": "guest"
-  },
+  "author": "Werner Diwischek",
+  "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
+  "expose": "WEB",
   "fieldConfigMap": {
     "id": {
+      "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "description": "The numeric id of an instance of a class.",
       "naturalId": "id"
     },
     "myASubObject": {
+      "description": "myASubObject",
       "fieldKey": "myASubObject",
       "modelKeys": "ASubObject",
-      "description": "myASubObject",
       "naturalId": "myASubObject"
     },
     "myASubObjectList": {
+      "description": "A generic parametrized example List with @ASubObject",
       "fieldKey": "myASubObjectList",
       "modelKeys": "List,ASubObject",
-      "description": "A generic parametrized example List with @ASubObject",
       "naturalId": "myASubObjectList"
     },
     "myASubObjectMap": {
+      "description": "A generic parametrized example Map with @ASubObject",
       "fieldKey": "myASubObjectMap",
       "modelKeys": "Map,ASubObject",
-      "description": "A generic parametrized example Map with @ASubObject",
       "naturalId": "myASubObjectMap"
     },
     "myAnObject": {
+      "description": "A AnObject field.",
       "fieldKey": "myAnObject",
       "modelKeys": "AnObject",
-      "description": "A AnObject field.",
       "naturalId": "myAnObject"
     },
     "myBoolean": {
+      "description": "myBoolean",
       "fieldKey": "myBoolean",
       "modelKeys": "Boolean",
-      "description": "myBoolean",
       "naturalId": "myBoolean"
     },
     "myDate": {
+      "description": "myDate",
       "fieldKey": "myDate",
       "modelKeys": "Date",
-      "description": "myDate",
       "naturalId": "myDate"
     },
     "myDouble": {
+      "description": "myDouble",
       "fieldKey": "myDouble",
       "modelKeys": "Double",
-      "description": "myDouble",
       "naturalId": "myDouble"
     },
     "myFloat": {
+      "description": "myFloat",
       "fieldKey": "myFloat",
       "modelKeys": "Float",
-      "description": "myFloat",
       "naturalId": "myFloat"
     },
     "myInt": {
+      "description": "myInt",
       "fieldKey": "myInt",
       "modelKeys": "Integer",
-      "description": "myInt",
       "naturalId": "myInt"
     },
     "myList": {
+      "description": "myList",
       "fieldKey": "myList",
       "modelKeys": "ArrayList",
-      "description": "myList",
       "naturalId": "myList"
     },
     "myLong": {
+      "description": "myLong",
       "fieldKey": "myLong",
       "modelKeys": "Long",
-      "description": "myLong",
       "naturalId": "myLong"
     },
     "myMap": {
+      "description": "myMap",
       "fieldKey": "myMap",
       "modelKeys": "HashMap",
-      "description": "myMap",
       "naturalId": "myMap"
     },
     "myObject": {
+      "description": "A test object thing. ",
       "fieldKey": "myObject",
       "modelKeys": "Object",
-      "description": "A test object thing. ",
       "naturalId": "myObject"
     },
     "myString": {
+      "description": "Just a small test string used in test models. ",
       "fieldKey": "myString",
       "length": 20,
       "modelKeys": "String",
-      "description": "Just a small test string used in test models. ",
       "naturalId": "myString"
     },
     "naturalId": {
+      "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "description": "The natural key in @Base",
       "naturalId": "naturalId"
     }
   },
   "modelKey": "AnObject",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-  "expose": "WEB",
   "module": "elastic-objects-test",
   "moduleScope": "main",
-  "author": "Werner Diwischek",
-  "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
-  "naturalId": "AnObject"
+  "naturalId": "AnObject",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+  "rolePermissions": {
+    "read": "guest"
+  }
 }

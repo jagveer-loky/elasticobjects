@@ -6,6 +6,9 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by werner.diwischek on 06.01.18.
  */
@@ -29,6 +32,15 @@ public class BaseBeanTest {
         Assert.assertEquals(5, modelConfig.getFieldKeys().size());
         BaseBean modelImpl = (BaseBean) modelConfig.create();
         Assert.assertNotNull(modelImpl);
+    }
+
+    @Test
+    public void merge_mapWithAuthor() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("author", "author");
+        BaseBean baseBean = new BaseBean();
+        baseBean.merge(map);
+        Assert.assertEquals("author", baseBean.getAuthor());
     }
 
 }

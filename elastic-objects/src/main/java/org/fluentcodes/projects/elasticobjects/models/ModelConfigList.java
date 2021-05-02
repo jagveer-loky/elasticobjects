@@ -19,10 +19,6 @@ public class ModelConfigList extends ModelConfig implements ModelConfigInterface
     private static final Logger LOG = LogManager.getLogger(ConfigConfig.class);
     public static final String CONFIG_MODEL_KEY = "ModelConfigList";
 
-    public ModelConfigList(Map map) {
-        this(new ModelBean(map));
-    }
-
     public ModelConfigList(ConfigBean bean) {
         this((ModelBean) bean);
     }

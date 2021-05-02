@@ -54,10 +54,6 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         setModelClass();
     }
 
-    public ModelConfig(Map map) {
-        this(new ModelBean(map));
-    }
-
     /**
      * The model name for the actions
      */

@@ -1,186 +1,186 @@
 {
+  "author": "Werner Diwischek",
+  "creationDate": 1539727163392,
+  "description": "Immutabel EO field configuration will be initalized by @FieldBean object.",
+  "expose": "NONE",
   "fieldConfigMap": {
-    "fieldKey": {
-      "fieldKey": "fieldKey",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "fieldKey",
-      "naturalId": "fieldKey"
-    },
-    "length": {
-      "fieldKey": "length",
-      "modelKeys": "Integer",
-      "description": "Length of a field.",
-      "naturalId": "length"
-    },
-    "modelKeys": {
-      "fieldKey": "modelKeys",
-      "length": 256,
-      "modelKeys": "String",
-      "description": "A string representation for a list of modelsConfig.",
-      "naturalId": "modelKeys"
-    },
-    "expose": {
-      "fieldKey": "expose",
-      "modelKeys": "Expose",
-      "description": "expose",
-      "naturalId": "expose"
-    },
-    "module": {
-      "fieldKey": "module",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "Defines a target module where generating occurs. ",
-      "naturalId": "module"
-    },
-    "moduleScope": {
-      "fieldKey": "moduleScope",
-      "length": 10,
-      "modelKeys": "String",
-      "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
-      "naturalId": "moduleScope"
-    },
-    "scope": {
-      "fieldKey": "scope",
-      "modelKeys": "List,Scope",
-      "description": "A scope for the cache value.",
-      "naturalId": "scope"
-    },
     "author": {
+      "description": "The author of the class.",
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "description": "The author of the class.",
       "naturalId": "author"
     },
     "creationDate": {
+      "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "description": "Used to define the creation of an item.",
       "naturalId": "creationDate"
     },
+    "default": {
+      "description": "Set when an default implementation is defined within an interface. ",
+      "fieldKey": "default",
+      "modelKeys": "Boolean",
+      "naturalId": "default"
+    },
     "description": {
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "description": "A description of the model used by every model extending BaseClassImpl. ",
       "naturalId": "description"
     },
-    "id": {
-      "fieldKey": "id",
-      "modelKeys": "Long",
-      "description": "The numeric id of an instance of a class.",
-      "naturalId": "id"
+    "expose": {
+      "description": "expose",
+      "fieldKey": "expose",
+      "modelKeys": "Expose",
+      "naturalId": "expose"
     },
-    "naturalId": {
-      "fieldKey": "naturalId",
+    "fieldKey": {
+      "description": "fieldKey",
+      "fieldKey": "fieldKey",
       "length": 80,
       "modelKeys": "String",
-      "description": "The natural key in @Base",
-      "naturalId": "naturalId"
-    },
-    "default": {
-      "fieldKey": "default",
-      "modelKeys": "Boolean",
-      "description": "Set when an default implementation is defined within an interface. ",
-      "naturalId": "default"
+      "naturalId": "fieldKey"
     },
     "fieldName": {
+      "description": "A name for different purposes depending on the model.",
       "fieldKey": "fieldName",
       "length": 80,
       "modelKeys": "String",
-      "description": "A name for different purposes depending on the model.",
       "naturalId": "fieldName"
     },
     "final": {
+      "description": "If true only a setter for the private variable is generated. When setting a value in an EO context an exception is thrown. ",
       "fieldKey": "final",
       "modelKeys": "Boolean",
-      "description": "If true only a setter for the private variable is generated. When setting a value in an EO context an exception is thrown. ",
       "naturalId": "final"
     },
     "generated": {
+      "description": "Indicates a generated value?! A generated flag for @FieldBean",
       "fieldKey": "generated",
       "modelKeys": "Boolean",
-      "description": "Indicates a generated value?! A generated flag for @FieldBean",
       "naturalId": "generated"
     },
+    "id": {
+      "description": "The numeric id of an instance of a class.",
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "naturalId": "id"
+    },
     "javascriptType": {
+      "description": "The type of javascript is derived from the java type.",
       "fieldKey": "javascriptType",
       "length": 10,
       "modelKeys": "String",
-      "description": "The type of javascript is derived from the java type.",
       "naturalId": "javascriptType"
     },
     "jsonIgnore": {
+      "description": "jsonIgnore",
       "fieldKey": "jsonIgnore",
       "modelKeys": "Boolean",
-      "description": "jsonIgnore",
       "naturalId": "jsonIgnore"
     },
+    "length": {
+      "description": "Length of a field.",
+      "fieldKey": "length",
+      "modelKeys": "Integer",
+      "naturalId": "length"
+    },
     "max": {
+      "description": "A maximal length for field string types",
       "fieldKey": "max",
       "modelKeys": "Integer",
-      "description": "A maximal length for field string types",
       "naturalId": "max"
     },
     "min": {
+      "description": "A minimal length for field string types",
       "fieldKey": "min",
       "modelKeys": "Integer",
-      "description": "A minimal length for field string types",
       "naturalId": "min"
     },
+    "modelKeys": {
+      "description": "A string representation for a list of modelsConfig.",
+      "fieldKey": "modelKeys",
+      "length": 256,
+      "modelKeys": "String",
+      "naturalId": "modelKeys"
+    },
+    "module": {
+      "description": "Defines a target module where generating occurs. ",
+      "fieldKey": "module",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "module"
+    },
+    "moduleScope": {
+      "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
+      "fieldKey": "moduleScope",
+      "length": 10,
+      "modelKeys": "String",
+      "naturalId": "moduleScope"
+    },
+    "naturalId": {
+      "description": "The natural key in @Base",
+      "fieldKey": "naturalId",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "naturalId"
+    },
     "notNull": {
+      "description": "notNull",
       "fieldKey": "notNull",
       "modelKeys": "Boolean",
-      "description": "notNull",
       "naturalId": "notNull"
     },
     "override": {
+      "description": "Indicates that a super or interface defines the method already but is overwritten. When java is generated an override annotation is set. ",
       "fieldKey": "override",
       "modelKeys": "Boolean",
-      "description": "Indicates that a super or interface defines the method already but is overwritten. When java is generated an override annotation is set. ",
       "naturalId": "override"
     },
     "property": {
+      "description": "Indicates that a field is a config property map value which can be implemented as a default interface method. ",
       "fieldKey": "property",
       "modelKeys": "Boolean",
-      "description": "Indicates that a field is a config property map value which can be implemented as a default interface method. ",
       "naturalId": "property"
     },
+    "scope": {
+      "description": "A scope for the cache value.",
+      "fieldKey": "scope",
+      "modelKeys": "List,Scope",
+      "naturalId": "scope"
+    },
     "staticName": {
+      "description": "staticName",
       "fieldKey": "staticName",
       "modelKeys": "Boolean",
-      "description": "staticName",
       "naturalId": "staticName"
     },
     "super": {
+      "description": "Marker to show, that the field is implemented in a super class. ",
       "fieldKey": "super",
       "modelKeys": "Boolean",
-      "description": "Marker to show, that the field is implemented in a super class. ",
       "naturalId": "super"
     },
     "transient": {
+      "description": "Will ignore field when a persistiong occure. Create a transient annotation when java is generated. ",
       "fieldKey": "transient",
       "modelKeys": "Boolean",
-      "description": "Will ignore field when a persistiong occure. Create a transient annotation when java is generated. ",
       "naturalId": "transient"
     },
     "unique": {
+      "description": "unique",
       "fieldKey": "unique",
       "modelKeys": "Boolean",
-      "description": "unique",
       "naturalId": "unique"
     }
   },
   "interfaces": "FieldConfigInterface",
   "modelKey": "FieldConfig",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-  "superKey": "ConfigConfig",
-  "expose": "NONE",
   "module": "elastic-objects",
   "moduleScope": "main",
-  "author": "Werner Diwischek",
-  "creationDate": 1539727163392,
-  "description": "Immutabel EO field configuration will be initalized by @FieldBean object.",
-  "naturalId": "FieldConfig"
+  "naturalId": "FieldConfig",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "superKey": "ConfigConfig"
 }

@@ -1,31 +1,52 @@
 {
-  "h2:mem:basic:AnObjectDrop": {
-    "sqlList": [
-      "drop table AnObject if exists"
-    ],
-    "rolePermissions": {
-      "execute": "admin"
-    },
-    "expose": "WEB",
-    "module": "eo-db",
-    "moduleScope": "test",
-    "description": "Basic H2 dropping AnObject table",
-    "naturalId": "h2:mem:basic:AnObjectDrop"
-  },
-  "h2:mem:basic:AnObject": {
-    "sqlList": [
-      "Select * from AnObject"
-    ],
-    "rolePermissions": {
-      "read": "guest"
-    },
+  "h2:mem:basic:ASubObject": {
+    "description": "Query for ASubObject",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
+    "naturalId": "h2:mem:basic:ASubObject",
+    "rolePermissions": {
+      "read": "guest"
+    },
+    "sqlList": [
+      "Select * from ASubObject"
+    ]
+  },
+  "h2:mem:basic:AnObject": {
     "description": "Query for AnObject",
-    "naturalId": "h2:mem:basic:AnObject"
+    "expose": "WEB",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "h2:mem:basic:AnObject",
+    "rolePermissions": {
+      "read": "guest"
+    },
+    "sqlList": [
+      "Select * from AnObject"
+    ]
+  },
+  "h2:mem:basic:AnObjectDrop": {
+    "description": "Basic H2 dropping AnObject table",
+    "expose": "WEB",
+    "module": "eo-db",
+    "moduleScope": "test",
+    "naturalId": "h2:mem:basic:AnObjectDrop",
+    "rolePermissions": {
+      "execute": "admin"
+    },
+    "sqlList": [
+      "drop table AnObject if exists"
+    ]
   },
   "h2:mem:basic:Create": {
+    "description": "Basic H2 creating tables",
+    "expose": "WEB",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "h2:mem:basic:Create",
+    "rolePermissions": {
+      "execute": "admin"
+    },
     "sqlList": [
       "drop table AnObject if exists",
       "drop table ASubObject if exists",
@@ -40,27 +61,6 @@
       "insert into AnObject (naturalId, myString,myInt,myBoolean) values ('key1', 'value1',1, true)",
       "insert into AnObject (naturalId, myString,myInt,myBoolean) values ('key2', 'value2',2, false)",
       "insert into AnObject (naturalId, myString,myInt,myBoolean) values ('key3', 'value3',3, true)"
-    ],
-    "rolePermissions": {
-      "execute": "admin"
-    },
-    "expose": "WEB",
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "Basic H2 creating tables",
-    "naturalId": "h2:mem:basic:Create"
-  },
-  "h2:mem:basic:ASubObject": {
-    "sqlList": [
-      "Select * from ASubObject"
-    ],
-    "rolePermissions": {
-      "read": "guest"
-    },
-    "expose": "WEB",
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "Query for ASubObject",
-    "naturalId": "h2:mem:basic:ASubObject"
+    ]
   }
 }

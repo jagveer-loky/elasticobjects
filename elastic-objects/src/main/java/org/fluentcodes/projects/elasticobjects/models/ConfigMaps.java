@@ -1,9 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfigMap;
+import org.fluentcodes.projects.elasticobjects.calls.HostFactory;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfigMap;
+import org.fluentcodes.projects.elasticobjects.calls.files.FileFactory;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * @since 13.10.2016.
  */
 public class ConfigMaps {
-    private final Map<Class, ConfigConfigMapInterface> configMaps;
+    private final Map<Class, Map<String, ConfigConfigInterface>> configMaps;
     private final Scope scope;
 
     public ConfigMaps() {
@@ -30,13 +30,17 @@ public class ConfigMaps {
     public ConfigMaps(final Scope scope) {
         configMaps = new LinkedHashMap<>();
         this.scope = scope == null ? Scope.DEV : scope;
-        //configMaps.put(ModelConfig.class, new EOConfigMapModels(this, scope));
-        configMaps.put(ModelConfig.class, new ModelConfigsMap(scope));
         if (scope == Scope.DEV) {
+            configMaps.put(ModelConfig.class, new ModelFactoryBasic().createImmutableConfig(this));
             return;
         }
-        configMaps.put(HostConfig.class, new HostConfigMap(scope));
-        configMaps.put(FileConfig.class, new FileConfigMap(scope));
+        configMaps.put(ModelConfig.class, new ModelFactoryAll().createImmutableConfig(this));
+        configMaps.put(HostConfig.class, new HostFactory().createImmutableConfig(this));
+        configMaps.put(FileConfig.class, new FileFactory().createImmutableConfig(this));
+    }
+
+    public Scope getScope() {
+        return scope;
     }
 
     public Set<Class> getKeys() {
@@ -49,8 +53,12 @@ public class ConfigMaps {
 
     public Object find(final Class configClass, final String configKey)  {
         if (configKey == null || configKey.isEmpty()) throw new EoException("Config key is empty for finder '" + configClass.getSimpleName() + "'!");
-        ConfigConfigInterface config = getConfigMap(configClass).find(configKey);
+        ConfigConfigInterface config = getConfigMap(configClass).get(configKey);
         return config;
+    }
+    public boolean hasKey(final Class configClass, final String configKey)  {
+        if (configKey == null || configKey.isEmpty()) throw new EoException("Config key is empty for finder '" + configClass.getSimpleName() + "'!");
+        return  getConfigMap(configClass).containsKey(configKey);
     }
 
     public boolean isEmpty(final Class configClass) {
@@ -58,26 +66,38 @@ public class ConfigMaps {
     }
 
     public Set<String> getConfigKeys(final String configName)  {
-        return getConfigMap(findConfigClass(configName)).getKeys();
+        return getConfigKeys(findConfigClass(configName));
     }
 
     public Set<String> getConfigKeys(Class configClass) {
-        return getConfigMap(configClass).getKeys();
+        return getConfigMap(configClass).keySet();
     }
 
     public Set<String> getConfigKeys(Class configClass, Expose expose) {
-        return getConfigMap(configClass).getKeys(expose);
+        return getConfigMap(configClass).keySet();
     }
 
-    private ConfigConfigMapInterface getConfigMap(Class configClass) {
+    private Map<String, ConfigConfigInterface> getConfigMap(Class configClass) {
         if (configClass == null) throw new EoException("Config class is null!");
-        if (!this.configMaps.containsKey(configClass)) configMaps.put(configClass, new ConfigConfigMap(scope, configClass));
+        if (!this.configMaps.containsKey(configClass)) {
+            String factoryClassName = configClass.getName() + "Factory";
+            Class factoryClass = null;
+            try {
+                factoryClass = Class.forName(factoryClassName);
+            } catch (ClassNotFoundException e) {
+                throw new EoException(e);
+            }
+            ConfigFactory configFactory = null;
+            try {
+                configFactory = (ConfigFactory) factoryClass.getConstructor().newInstance();
+            } catch (Exception e) {
+                throw new EoException(e);
+            }
+            configMaps.put(configClass, configFactory.createImmutableConfig(this));
+        }
         return configMaps.get(configClass);
     }
 
-    private ConfigConfigMapInterface getConfigMap(final String configName)  {
-        return getConfigMap(findConfigClass(configName));
-    }
 
     private Class findConfigClass(final String configName)  {
         if (configName == null || configName.isEmpty()) throw new EoException("Null search name for configMap entry");
@@ -103,6 +123,11 @@ public class ConfigMaps {
     public FileConfig findFile(final String key)  {
         return (FileConfig) find(FileConfig.class, key);
     }
+
+    public boolean hasFile(final String key)  {
+        return hasKey(FileConfig.class, key);
+    }
+
     public HostConfig findHost(final String key)  {
         return (HostConfig) find(HostConfig.class, key);
     }

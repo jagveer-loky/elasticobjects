@@ -77,11 +77,11 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
         mergeModuleScope(configMap.get(MODULE_SCOPE));
         mergeExpose(configMap.get(EXPOSE));
         mergeScope(configMap.get(SCOPE));
-        properties = new HashMap<>();
+        this.properties = new HashMap<>();
         if (configMap.containsKey(PROPERTIES)) {
             Object props = configMap.get(PROPERTIES);
             if (props instanceof Map) {
-                properties.putAll((Map) props);
+                this.properties.putAll((Map) props);
             }
 
         }

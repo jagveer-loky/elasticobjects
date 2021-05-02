@@ -12,9 +12,6 @@ public class ModelConfigDbObject extends ModelConfigObject implements Permission
     public final static String HOST_CONFIG_KEY = "hostConfigKey";
     private final PermissionRole permissionRole;
     private final String hostConfigKey;
-    public ModelConfigDbObject(Map map) {
-        this(new ModelBean(map));
-    }
 
     public ModelConfigDbObject(ConfigBean bean) {
         this((ModelBean) bean);

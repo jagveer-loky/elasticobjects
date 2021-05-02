@@ -1,171 +1,171 @@
 {
+  "author": "Werner Diwischek",
+  "description": "Read an entry in database by creating a select sql from entry in sourcePath. \nThe object in sourcePath must be an instance of @ModelConfigDbObject.",
+  "expose": "WEB",
   "fieldConfigMap": {
-    "modelConfigKey": {
-      "fieldKey": "modelConfigKey",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "The model name for the cache object @ModelConfig.",
-      "naturalId": "modelConfigKey"
-    },
-    "hostConfigKey": {
-      "fieldKey": "hostConfigKey",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "A key for host objects.",
-      "naturalId": "hostConfigKey"
-    },
-    "condition": {
-      "fieldKey": "condition",
-      "length": 1000,
-      "modelKeys": "String",
-      "description": "A condition for calls. ",
-      "naturalId": "condition"
-    },
-    "duration": {
-      "fieldKey": "duration",
-      "modelKeys": "Long",
-      "description": "The duration of a call.",
-      "naturalId": "duration"
-    },
-    "keepCall": {
-      "fieldKey": "keepCall",
-      "modelKeys": "KeepCalls",
-      "description": "Will use an existing  result file beforehand as template. ",
-      "naturalId": "keepCall"
-    },
-    "logLevel": {
-      "fieldKey": "logLevel",
-      "modelKeys": "LogLevel",
-      "description": "logLevel",
-      "naturalId": "logLevel"
-    },
-    "models": {
-      "fieldKey": "models",
-      "length": 512,
-      "modelKeys": "String",
-      "description": "A string representation for a list of model keys.",
-      "naturalId": "models"
-    },
-    "overwrite": {
-      "fieldKey": "overwrite",
-      "modelKeys": "Boolean",
-      "description": "A overwrite field flag for @Call.",
-      "naturalId": "overwrite"
-    },
-    "postpend": {
-      "fieldKey": "postpend",
-      "length": 256,
-      "modelKeys": "String",
-      "description": "postpend String when executed by ExecutorCallImpl",
-      "naturalId": "postpend"
-    },
-    "prepend": {
-      "fieldKey": "prepend",
-      "length": 256,
-      "modelKeys": "String",
-      "description": "prepend String when executed by ExecutorCallImpl",
-      "naturalId": "prepend"
-    },
-    "sourcePath": {
-      "fieldKey": "sourcePath",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "A sourcePath where EO offers it's input value when the execution starts.",
-      "naturalId": "sourcePath"
-    },
-    "startCondition": {
-      "fieldKey": "startCondition",
-      "length": 1000,
-      "modelKeys": "String",
-      "description": "A condition for calls. ",
-      "naturalId": "startCondition"
-    },
-    "targetPath": {
-      "fieldKey": "targetPath",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
-      "naturalId": "targetPath"
-    },
     "author": {
+      "description": "The author of the class.",
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "description": "The author of the class.",
       "naturalId": "author"
     },
+    "colKeys": {
+      "description": "The key list for mapping values in a value list. ",
+      "fieldKey": "colKeys",
+      "modelKeys": "List,String",
+      "naturalId": "colKeys"
+    },
+    "condition": {
+      "description": "A condition for calls. ",
+      "fieldKey": "condition",
+      "length": 1000,
+      "modelKeys": "String",
+      "naturalId": "condition"
+    },
     "creationDate": {
+      "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "description": "Used to define the creation of an item.",
       "naturalId": "creationDate"
     },
     "description": {
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "description": "A description of the model used by every model extending BaseClassImpl. ",
       "naturalId": "description"
     },
-    "id": {
-      "fieldKey": "id",
+    "duration": {
+      "description": "The duration of a call.",
+      "fieldKey": "duration",
       "modelKeys": "Long",
-      "description": "The numeric id of an instance of a class.",
-      "naturalId": "id"
-    },
-    "naturalId": {
-      "fieldKey": "naturalId",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "The natural key in @Base",
-      "naturalId": "naturalId"
-    },
-    "colKeys": {
-      "fieldKey": "colKeys",
-      "modelKeys": "List,String",
-      "description": "The key list for mapping values in a value list. ",
-      "naturalId": "colKeys"
+      "naturalId": "duration"
     },
     "filter": {
+      "description": "Filter for List entries.",
       "fieldKey": "filter",
       "length": 512,
       "modelKeys": "String",
-      "description": "Filter for List entries.",
       "naturalId": "filter"
     },
+    "hostConfigKey": {
+      "description": "A key for host objects.",
+      "fieldKey": "hostConfigKey",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "hostConfigKey"
+    },
+    "id": {
+      "description": "The numeric id of an instance of a class.",
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "naturalId": "id"
+    },
+    "keepCall": {
+      "description": "Will use an existing  result file beforehand as template. ",
+      "fieldKey": "keepCall",
+      "modelKeys": "KeepCalls",
+      "naturalId": "keepCall"
+    },
     "length": {
+      "description": "Length of a field.",
       "fieldKey": "length",
       "modelKeys": "Integer",
-      "description": "Length of a field.",
       "naturalId": "length"
     },
+    "logLevel": {
+      "description": "logLevel",
+      "fieldKey": "logLevel",
+      "modelKeys": "LogLevel",
+      "naturalId": "logLevel"
+    },
+    "modelConfigKey": {
+      "description": "The model name for the cache object @ModelConfig.",
+      "fieldKey": "modelConfigKey",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "modelConfigKey"
+    },
+    "models": {
+      "description": "A string representation for a list of model keys.",
+      "fieldKey": "models",
+      "length": 512,
+      "modelKeys": "String",
+      "naturalId": "models"
+    },
+    "naturalId": {
+      "description": "The natural key in @Base",
+      "fieldKey": "naturalId",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "naturalId"
+    },
+    "overwrite": {
+      "description": "A overwrite field flag for @Call.",
+      "fieldKey": "overwrite",
+      "modelKeys": "Boolean",
+      "naturalId": "overwrite"
+    },
+    "postpend": {
+      "description": "postpend String when executed by ExecutorCallImpl",
+      "fieldKey": "postpend",
+      "length": 256,
+      "modelKeys": "String",
+      "naturalId": "postpend"
+    },
+    "prepend": {
+      "description": "prepend String when executed by ExecutorCallImpl",
+      "fieldKey": "prepend",
+      "length": 256,
+      "modelKeys": "String",
+      "naturalId": "prepend"
+    },
     "rowEnd": {
+      "description": "rowEnd",
       "fieldKey": "rowEnd",
       "modelKeys": "Integer",
-      "description": "rowEnd",
       "naturalId": "rowEnd"
     },
     "rowHead": {
+      "description": "rowHead",
       "fieldKey": "rowHead",
       "modelKeys": "Integer",
-      "description": "rowHead",
       "naturalId": "rowHead"
     },
     "rowStart": {
+      "description": "rowStart",
       "fieldKey": "rowStart",
       "modelKeys": "Integer",
-      "description": "rowStart",
       "naturalId": "rowStart"
+    },
+    "sourcePath": {
+      "description": "A sourcePath where EO offers it's input value when the execution starts.",
+      "fieldKey": "sourcePath",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "sourcePath"
+    },
+    "startCondition": {
+      "description": "A condition for calls. ",
+      "fieldKey": "startCondition",
+      "length": 1000,
+      "modelKeys": "String",
+      "naturalId": "startCondition"
+    },
+    "targetPath": {
+      "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
+      "fieldKey": "targetPath",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "targetPath"
     }
   },
   "interfaces": "ListInterface,ConfigReadCommand",
   "modelKey": "DbModelReadCall",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-  "superKey": "DbModelCall",
-  "expose": "WEB",
   "module": "eo-db",
   "moduleScope": "main",
-  "author": "Werner Diwischek",
-  "description": "Read an entry in database by creating a select sql from entry in sourcePath. \nThe object in sourcePath must be an instance of @ModelConfigDbObject.",
-  "naturalId": "DbModelReadCall"
+  "naturalId": "DbModelReadCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
+  "superKey": "DbModelCall"
 }

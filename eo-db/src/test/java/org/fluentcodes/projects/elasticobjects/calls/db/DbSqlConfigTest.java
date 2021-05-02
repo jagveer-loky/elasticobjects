@@ -15,7 +15,6 @@ public class DbSqlConfigTest {
     }
 
     // TODO check within 0.5.0 for mvn test fails.
-    @Ignore
     @Test
     public void compareModelConfig()  {
         ModelConfigChecks.compare(DbSqlConfig.class);

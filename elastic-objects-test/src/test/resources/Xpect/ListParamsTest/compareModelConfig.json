@@ -1,49 +1,49 @@
 {
+  "author": "Werner Diwischek",
+  "description": "Defines the parameter like rowStart, rowEnd and length.",
+  "expose": "NONE",
   "fieldConfigMap": {
     "colKeys": {
+      "description": "The key list for mapping values in a value list. ",
       "fieldKey": "colKeys",
       "modelKeys": "List,String",
-      "description": "The key list for mapping values in a value list. ",
       "naturalId": "colKeys"
     },
     "filter": {
+      "description": "Filter for List entries.",
       "fieldKey": "filter",
       "length": 512,
       "modelKeys": "String",
-      "description": "Filter for List entries.",
       "naturalId": "filter"
     },
     "length": {
+      "description": "Length of a field.",
       "fieldKey": "length",
       "modelKeys": "Integer",
-      "description": "Length of a field.",
       "naturalId": "length"
     },
     "rowEnd": {
+      "description": "rowEnd",
       "fieldKey": "rowEnd",
       "modelKeys": "Integer",
-      "description": "rowEnd",
       "naturalId": "rowEnd"
     },
     "rowHead": {
+      "description": "rowHead",
       "fieldKey": "rowHead",
       "modelKeys": "Integer",
-      "description": "rowHead",
       "naturalId": "rowHead"
     },
     "rowStart": {
+      "description": "rowStart",
       "fieldKey": "rowStart",
       "modelKeys": "Integer",
-      "description": "rowStart",
       "naturalId": "rowStart"
     }
   },
   "modelKey": "ListParams",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
-  "expose": "NONE",
   "module": "elastic-objects",
   "moduleScope": "main",
-  "author": "Werner Diwischek",
-  "description": "Defines the parameter like rowStart, rowEnd and length.",
-  "naturalId": "ListParams"
+  "naturalId": "ListParams",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists"
 }

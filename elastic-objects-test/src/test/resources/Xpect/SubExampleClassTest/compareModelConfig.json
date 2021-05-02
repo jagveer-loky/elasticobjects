@@ -1,10 +1,5 @@
 {
   "fieldConfigMap": {
-    "name": {
-      "fieldKey": "name",
-      "modelKeys": "String",
-      "naturalId": "SubExampleClass.name"
-    },
     "id": {
       "fieldKey": "id",
       "modelKeys": "Long",
@@ -14,10 +9,15 @@
       "fieldKey": "subClass",
       "modelKeys": "FieldExampleClass",
       "naturalId": "SuperExampleClass.subClass"
+    },
+    "name": {
+      "fieldKey": "name",
+      "modelKeys": "String",
+      "naturalId": "SubExampleClass.name"
     }
   },
   "modelKey": "SubExampleClass",
+  "naturalId": "SubExampleClass",
   "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-  "superKey": "SuperExampleClass",
-  "naturalId": "SubExampleClass"
+  "superKey": "SuperExampleClass"
 }

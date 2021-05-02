@@ -1,47 +1,47 @@
 {
+  "author": "Werner Diwischek",
+  "creationDate": 1482274766848,
+  "description": "Base bean as super object for model beans with id, naturalId and description but no annotations. ",
+  "expose": "NONE",
   "fieldConfigMap": {
     "author": {
+      "description": "The author of the class.",
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "description": "The author of the class.",
       "naturalId": "author"
     },
     "creationDate": {
+      "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "description": "Used to define the creation of an item.",
       "naturalId": "creationDate"
     },
     "description": {
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "description": "A description of the model used by every model extending BaseClassImpl. ",
       "naturalId": "description"
     },
     "id": {
+      "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "description": "The numeric id of an instance of a class.",
       "naturalId": "id"
     },
     "naturalId": {
+      "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "description": "The natural key in @Base",
       "naturalId": "naturalId"
     }
   },
   "interfaces": "BaseBeanInterface",
   "modelKey": "BaseBean",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
-  "expose": "NONE",
   "module": "elastic-objects",
   "moduleScope": "main",
-  "author": "Werner Diwischek",
-  "creationDate": 1482274766848,
-  "description": "Base bean as super object for model beans with id, naturalId and description but no annotations. ",
-  "naturalId": "BaseBean"
+  "naturalId": "BaseBean",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain"
 }

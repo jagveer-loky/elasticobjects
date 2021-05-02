@@ -13,7 +13,6 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
     public static final String SQL_LIST = "sqlList";
     public static final String DEFAULT_HOST_CONFIG_KEY = "defaultHostConfigKey";
     private List<String> sqlList;
-    private Map properties;
 
     public DbSqlBean() {
         super();
@@ -24,24 +23,11 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
         super(naturalId, map);
     }
 
-    public DbSqlBean(final Map<String, Object> map) {
-        super();
-
-        defaultConfigModelKey();
-    }
-
     public void merge(final Map configMap) {
         super.merge(configMap);
+        mergeSqlList(configMap.get(SQL_LIST));
     }
 
-    @Override
-    public Map<String, Object> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(Map properties) {
-        this.properties = properties;
-    }
 
     @Override
     public void defaultConfigModelKey() {

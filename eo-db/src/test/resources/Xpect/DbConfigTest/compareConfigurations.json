@@ -1,84 +1,84 @@
 {
-  "localMySql:core": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "Core Schema",
-    "naturalId": "localMySql:core"
-  },
-  "localMySql:test": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "Test Schema",
-    "naturalId": "localMySql:test"
-  },
-  "localOracle:XE": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "Oracle Schem",
-    "naturalId": "localOracle:XE"
-  },
-  "hsql:mem": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "local HSQL which exists just in memory",
-    "naturalId": "hsql:mem"
-  },
-  "hsql:fileTest": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
-    "naturalId": "hsql:fileTest"
-  },
-  "h2:mem": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "description": "local H2 which exists just in memory",
-    "naturalId": "h2:mem"
-  },
   "h2:file": {
+    "description": "local H2 with a temp file",
     "module": "eo-db",
     "moduleScope": "main",
-    "description": "local H2 with a temp file",
     "naturalId": "h2:file"
   },
   "h2:file:basic": {
-    "rolePermissions": {
-      "read": "guest"
-    },
+    "description": "Local H2 in file persisted for the test resources.",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
-    "description": "Local H2 in file persisted for the test resources.",
-    "naturalId": "h2:file:basic"
+    "naturalId": "h2:file:basic",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "h2:mem": {
+    "description": "local H2 which exists just in memory",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "h2:mem"
   },
   "h2:mem:basic": {
-    "rolePermissions": {
-      "read": "guest"
-    },
+    "description": "Local H2 in memory for the test resources.",
     "expose": "WEB",
     "module": "eo-db",
     "moduleScope": "main",
-    "description": "Local H2 in memory for the test resources.",
-    "naturalId": "h2:mem:basic"
+    "naturalId": "h2:mem:basic",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "hsql:fileTest": {
+    "description": "local HSQL with a temp @see http://hsqldb.org/doc/guide/dbproperties-chapt.html",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "hsql:fileTest"
+  },
+  "hsql:mem": {
+    "description": "local HSQL which exists just in memory",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "hsql:mem"
   },
   "local": {
-    "rolePermissions": {
-      "read": "guest"
-    },
+    "description": "local host with key 'local'",
     "expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "local host with key 'local'",
-    "naturalId": "local"
+    "naturalId": "local",
+    "rolePermissions": {
+      "read": "guest"
+    }
+  },
+  "localMySql:core": {
+    "description": "Core Schema",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "localMySql:core"
+  },
+  "localMySql:test": {
+    "description": "Test Schema",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "localMySql:test"
+  },
+  "localOracle:XE": {
+    "description": "Oracle Schem",
+    "module": "eo-db",
+    "moduleScope": "main",
+    "naturalId": "localOracle:XE"
   },
   "localhost": {
-    "rolePermissions": {
-      "read": "guest"
-    },
+    "description": "local host with key 'localhost'",
     "expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "local host with key 'localhost'",
-    "naturalId": "localhost"
+    "naturalId": "localhost",
+    "rolePermissions": {
+      "read": "guest"
+    }
   }
 }

@@ -122,7 +122,7 @@ public class Models {
 
     public Models getChildModels()  {
         if (models.length < 2) {
-            return new Models(ModelConfigsMap.DEFAULT_MODEL);
+            //return new Models(ModelConfigsMap.DEFAULT_MODEL);
         }
         return new Models(Arrays.copyOfRange(this.models, 1, models.length));
     }

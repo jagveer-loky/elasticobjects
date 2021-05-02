@@ -1,11 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import java.util.HashMap;
 import java.util.Map;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 
 /*=>{javaHeader}|*/
 import java.util.List;
 import org.fluentcodes.projects.elasticobjects.domain.BaseConfig;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+
 /**
  * 
  * Basic cache as super object for other cached items.  
@@ -27,13 +30,16 @@ public class ConfigConfig extends BaseConfig implements ConfigConfigInterface  {
    private final List<Scope> scope;
 /*=>{}.*/
 
-    public ConfigConfig(ConfigBeanInterface config) {
-        super(config);
-        this.module = config.getModule();
-        this.moduleScope = config.getModuleScope();
-        this.scope = config.getScope();
-        this.expose = config.getExpose();
-        this.properties = new UnmodifiableMap(config.getProperties());
+    public ConfigConfig(ConfigBeanInterface configBean) {
+        super(configBean);
+        this.module = configBean.getModule();
+        this.moduleScope = configBean.getModuleScope();
+        this.scope = configBean.getScope();
+        this.expose = configBean.getExpose();
+        if (configBean.getProperties() == null) {
+            throw new EoInternalException("Null properties not allowed creating configs.");
+        }
+        this.properties = new UnmodifiableMap(configBean.getProperties());
     }
 
     @Override

@@ -1,43 +1,43 @@
 {
-  "elasticobjects": {
-    "expose": "NONE",
-    "module": "elastic-objects-test",
-    "moduleScope": "test",
-    "description": "A connection to elastic objects",
-    "naturalId": "elasticobjects"
-  },
   "dummyftp": {
+    "description": "A connection to elastic objects",
     "expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "description": "A connection to elastic objects",
     "naturalId": "dummyftp"
   },
   "dummyftpurl": {
+    "description": "A connection to elastic objects",
     "expose": "NONE",
     "module": "elastic-objects-test",
     "moduleScope": "test",
-    "description": "A connection to elastic objects",
     "naturalId": "dummyftpurl"
   },
+  "elasticobjects": {
+    "description": "A connection to elastic objects",
+    "expose": "NONE",
+    "module": "elastic-objects-test",
+    "moduleScope": "test",
+    "naturalId": "elasticobjects"
+  },
   "local": {
-    "rolePermissions": {
-      "read": "guest"
-    },
+    "description": "local host with key 'local'",
     "expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "local host with key 'local'",
-    "naturalId": "local"
+    "naturalId": "local",
+    "rolePermissions": {
+      "read": "guest"
+    }
   },
   "localhost": {
-    "rolePermissions": {
-      "read": "guest"
-    },
+    "description": "local host with key 'localhost'",
     "expose": "WEB",
     "module": "elastic-objects",
     "moduleScope": "main",
-    "description": "local host with key 'localhost'",
-    "naturalId": "localhost"
+    "naturalId": "localhost",
+    "rolePermissions": {
+      "read": "guest"
+    }
   }
 }
