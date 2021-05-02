@@ -10,6 +10,8 @@ target/*
 out/*
 *.idea/
 eo-db-hibernate/
+builder/
+builder-eo/
 builder-sandboxes/
 builder-projects/
 .DS_Store
