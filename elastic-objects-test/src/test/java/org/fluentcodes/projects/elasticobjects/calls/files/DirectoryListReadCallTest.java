@@ -26,7 +26,7 @@ public class DirectoryListReadCallTest {
     public void dir_xpect_filter_AnObjectTest__read__notEmpty() {
         DirectoryListReadCall call = new DirectoryListReadCall();
         List<String> result = call.listFiles("Xpect","AnObjectTest", false);
-        Assertions.assertThat(result.get(0)).contains("AnObjectTest");
+        Assertions.assertThat(result.get(0)).isEqualTo("AnObjectTest");
     }
 
     @Test

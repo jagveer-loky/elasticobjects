@@ -2,9 +2,6 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.models.FieldBean;
-import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModuleScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;

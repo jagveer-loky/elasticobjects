@@ -1,0 +1,171 @@
+{
+  "author": "Werner Diwischek",
+  "description": "Read an Excel sheet specified by fileConfigKey referencing to a @XlsxConfig configuration.",
+  "expose": "WEB",
+  "fieldConfigMap": {
+    "author": {
+      "description": "The author of the class.",
+      "fieldKey": "author",
+      "length": 256,
+      "modelKeys": "String",
+      "naturalId": "author"
+    },
+    "colKeys": {
+      "description": "The key list for mapping values in a value list. ",
+      "fieldKey": "colKeys",
+      "modelKeys": "List,String",
+      "naturalId": "colKeys"
+    },
+    "condition": {
+      "description": "A condition for calls. ",
+      "fieldKey": "condition",
+      "length": 1000,
+      "modelKeys": "String",
+      "naturalId": "condition"
+    },
+    "creationDate": {
+      "description": "Used to define the creation of an item.",
+      "fieldKey": "creationDate",
+      "modelKeys": "Date",
+      "naturalId": "creationDate"
+    },
+    "description": {
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
+      "fieldKey": "description",
+      "length": 512,
+      "modelKeys": "String",
+      "naturalId": "description"
+    },
+    "duration": {
+      "description": "The duration of a call.",
+      "fieldKey": "duration",
+      "modelKeys": "Long",
+      "naturalId": "duration"
+    },
+    "fileConfigKey": {
+      "description": "Defines the key for a file configuration @FileConfig where to read or write a file.",
+      "fieldKey": "fileConfigKey",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "fileConfigKey"
+    },
+    "filter": {
+      "description": "Filter for List entries.",
+      "fieldKey": "filter",
+      "length": 512,
+      "modelKeys": "String",
+      "naturalId": "filter"
+    },
+    "hostConfigKey": {
+      "description": "A key for host objects.",
+      "fieldKey": "hostConfigKey",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "hostConfigKey"
+    },
+    "id": {
+      "description": "The numeric id of an instance of a class.",
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "naturalId": "id"
+    },
+    "keepCall": {
+      "description": "Will use an existing  result file beforehand as template. ",
+      "fieldKey": "keepCall",
+      "modelKeys": "KeepCalls",
+      "naturalId": "keepCall"
+    },
+    "length": {
+      "description": "Length of a field.",
+      "fieldKey": "length",
+      "modelKeys": "Integer",
+      "naturalId": "length"
+    },
+    "logLevel": {
+      "description": "logLevel",
+      "fieldKey": "logLevel",
+      "modelKeys": "LogLevel",
+      "naturalId": "logLevel"
+    },
+    "models": {
+      "description": "A string representation for a list of model keys.",
+      "fieldKey": "models",
+      "length": 512,
+      "modelKeys": "String",
+      "naturalId": "models"
+    },
+    "naturalId": {
+      "description": "The natural key in @Base",
+      "fieldKey": "naturalId",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "naturalId"
+    },
+    "overwrite": {
+      "description": "A overwrite field flag for @Call.",
+      "fieldKey": "overwrite",
+      "modelKeys": "Boolean",
+      "naturalId": "overwrite"
+    },
+    "postpend": {
+      "description": "postpend String when executed by ExecutorCallImpl",
+      "fieldKey": "postpend",
+      "length": 256,
+      "modelKeys": "String",
+      "naturalId": "postpend"
+    },
+    "prepend": {
+      "description": "prepend String when executed by ExecutorCallImpl",
+      "fieldKey": "prepend",
+      "length": 256,
+      "modelKeys": "String",
+      "naturalId": "prepend"
+    },
+    "rowEnd": {
+      "description": "rowEnd",
+      "fieldKey": "rowEnd",
+      "modelKeys": "Integer",
+      "naturalId": "rowEnd"
+    },
+    "rowHead": {
+      "description": "rowHead",
+      "fieldKey": "rowHead",
+      "modelKeys": "Integer",
+      "naturalId": "rowHead"
+    },
+    "rowStart": {
+      "description": "rowStart",
+      "fieldKey": "rowStart",
+      "modelKeys": "Integer",
+      "naturalId": "rowStart"
+    },
+    "sourcePath": {
+      "description": "A sourcePath where EO offers it's input value when the execution starts.",
+      "fieldKey": "sourcePath",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "sourcePath"
+    },
+    "startCondition": {
+      "description": "A condition for calls. ",
+      "fieldKey": "startCondition",
+      "length": 1000,
+      "modelKeys": "String",
+      "naturalId": "startCondition"
+    },
+    "targetPath": {
+      "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
+      "fieldKey": "targetPath",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "targetPath"
+    }
+  },
+  "interfaces": "ListInterface",
+  "modelKey": "XlsxReadCall",
+  "module": "eo-xlsx",
+  "moduleScope": "main",
+  "naturalId": "XlsxReadCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.xlsx",
+  "superKey": "FileReadCall"
+}

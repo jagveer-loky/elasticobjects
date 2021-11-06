@@ -100,10 +100,9 @@ public interface ConfigBeanInterface extends ConfigConfigInterface,BaseBeanInter
         throw new EoException("Could not set moduleScope from class '" + value.getClass() + "' and value '" + value + "'");
     }
 
+    boolean hasConfigModelKey();
     String getConfigModelKey();
-    default boolean hasConfigModelKey() {
-        return getConfigModelKey() != null && !getConfigModelKey().isEmpty();
-    }
+
     ConfigBeanInterface setConfigModelKey(String configModelKey);
     default void defaultConfigModelKey() {}
     default void mergeConfigModelKey(Object value) {
@@ -116,19 +115,17 @@ public interface ConfigBeanInterface extends ConfigConfigInterface,BaseBeanInter
         setConfigModelKey(ScalarConverter.toString(value));
     }
 
-    default Class createConfig(final String path) {
+    default Class deriveConfigClass() {
         try {
-            return Class.forName(path + "." + getConfigModelKey());
+            return Class.forName(this.getClass().getPackage().toString().replace("package ", "") + "." + getConfigModelKey());
         } catch (ClassNotFoundException e) {
             throw new EoException(e);
         }
     }
 
-
     default ConfigConfigInterface createConfig(Class<? extends ConfigConfig> configClass) {
-        Class usedConfigClass = hasConfigModelKey() ? createConfig(configClass.getPackage().getName()) : configClass;
         try {
-            Constructor configurationConstructor = usedConfigClass.getConstructor(ConfigBean.class);
+            Constructor configurationConstructor = configClass.getConstructor(ConfigBean.class);
             try {
                 return (ConfigConfigInterface)configurationConstructor.newInstance(this);
             } catch (Exception e) {

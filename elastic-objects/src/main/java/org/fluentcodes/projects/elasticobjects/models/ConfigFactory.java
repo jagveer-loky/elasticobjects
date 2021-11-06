@@ -5,32 +5,71 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.calls.HostBean;
+import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 import org.fluentcodes.tools.xpect.IOString;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Optional;
 import java.util.TreeMap;
 
 /**
  * Created by Werner on 22.10.2021.
  */
 
-public abstract class ConfigFactory<T extends ConfigConfigInterface, U extends ConfigBeanInterface> implements ConfigConfigMapInterface<T, U> {
+public abstract class ConfigFactory<T extends ConfigBeanInterface, U extends ConfigConfigInterface>
+        implements ConfigConfigMapInterface<T, U> {
     public static final Logger LOG = LogManager.getLogger(ConfigFactory.class);
+    private final Scope scope;
+    private final Class<? extends ConfigConfigInterface> configClass;
+    private final Class<? extends ConfigBeanInterface> beanClass;
 
-    public Map<String, ConfigConfigInterface> createImmutableConfig(ConfigMaps configMaps){
+    protected ConfigFactory(final Scope scope, final Class<? extends ConfigBeanInterface> beanClass, Class<? extends ConfigConfigInterface> configClass) {
+        this.scope = scope;
+        this.configClass = configClass;
+        this.beanClass = beanClass;
+    }
+
+    public  Map<String, ConfigConfigInterface> createImmutableConfig(ConfigMaps configMaps){
         return new UnmodifiableMap<>(createConfigMap(configMaps));
     }
 
-    public final static String readConfigFiles(Class<? extends ConfigConfigInterface> defaultConfigClass) {
-        return readConfigFiles(defaultConfigClass.getSimpleName() + ".json");
+    /**
+     * Default init map.
+     * @return the expanded final configurations.
+     */
+    @Override
+    public Map<String, T> createBeanMap(ConfigMaps configMaps) {
+        EO eoRoot = EoRoot.ofClass(configMaps, readConfigFiles(), Map.class, beanClass);
+        Map<String,T> beanMap = (Map<String, T>)eoRoot.get();
+        for (Map.Entry<String, T> entry: beanMap.entrySet()) {
+            entry.getValue().setNaturalId(entry.getKey());
+        }
+        return beanMap;
+    }
+
+    @Override
+    public Map<String, U> createConfigMap(ConfigMaps configMaps) {
+        Map<String, T> beanMap = createBeanMap(configMaps);
+        Map<String, U> configMap = new TreeMap<>();
+        try {
+            for (Map.Entry<String, T> entry: beanMap.entrySet()) {
+                U config = (U)entry.getValue().createConfig(configMaps);
+                configMap.put(entry.getKey(), config);
+            }
+        } catch (Exception e) {
+            throw new EoInternalException(e);
+        }
+        return configMap;
+    }
+
+    public  String readConfigFiles() {
+        return readConfigFiles(configClass.getSimpleName() + ".json");
     }
 
     /**
@@ -38,13 +77,13 @@ public abstract class ConfigFactory<T extends ConfigConfigInterface, U extends C
      * @param fileName A file name for JSON configurations.
      * @return the concatenated file content.
      */
-    public final static String readConfigFiles(final String fileName) {
+    public static final String readConfigFiles(final String fileName) {
         try {
             List<String> configContentList = new IOString()
                     .setFileName(fileName)
                     .readStringList();
             if (configContentList.isEmpty()) {
-                LOG.warn("No configuration file '" + fileName + "' found in the classpath!");
+                LOG.warn("No configuration file '{}' found in the classpath!", fileName);
                 return "";
             }
 
@@ -68,5 +107,7 @@ public abstract class ConfigFactory<T extends ConfigConfigInterface, U extends C
         }
     }
 
-
+    public Scope getScope() {
+        return scope;
+    }
 }

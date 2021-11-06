@@ -76,7 +76,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         super(values);
     }
 
-
     protected void setFieldMap(final ModelConfig config) {
         for (FieldConfig fieldConfig: config.getFieldMap().values()) {
             addField(fieldConfig);
@@ -109,7 +108,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
 
     public void merge(final Map valueMap) {
         if (valueMap == null) {
-            throw new EoInternalException("Null mapping model values for '" + getNaturalId() + "'.");
+            throw new EoInternalException("Value Map is null for '" + getNaturalId() + "'.");
         }
         super.merge(valueMap);
         setModelKey((String) valueMap.get(MODEL_KEY));
@@ -307,7 +306,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         for (FieldBeanInterface fieldBean: fieldBeans.values()) {
             fieldBean.setParentModel(this);
             if (!fieldBean.hasModelKeys()) {
-                throw new EoInternalException("No modelKeys for '" + fieldBean.getNaturalId() + "'");
+                throw new EoInternalException("No Model defined for field '" + fieldBean.getNaturalId() + "'");
             }
             for (String fieldModelKey: fieldBean.getModelKeys().split(",")) {
                 if (!modelBeans.containsKey(fieldModelKey) || modelBeans.get(fieldModelKey) == null) {

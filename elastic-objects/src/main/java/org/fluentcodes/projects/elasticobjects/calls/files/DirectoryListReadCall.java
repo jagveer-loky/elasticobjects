@@ -67,7 +67,7 @@ public class DirectoryListReadCall extends FileReadCall  {
             }
             directory = new File(urlList.get(0).getFile());
         }
-        String directoryName = isAbsolute ? directory.getAbsolutePath() + Path.DELIMITER: directory.getName() + Path.DELIMITER;
+        String directoryName = isAbsolute ? directory.getAbsolutePath() + Path.DELIMITER: "";
         final String[] fileNames = directory.list();
         List<String> fileNameList = new ArrayList<>();
         for(final String fileName:fileNames) {

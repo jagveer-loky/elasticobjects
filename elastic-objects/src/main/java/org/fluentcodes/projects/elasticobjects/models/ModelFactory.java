@@ -1,52 +1,61 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableCollection;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableList;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
 /**
  * Created by Werner on 21.1.2021.
  */
 
-public abstract class ModelFactory extends ConfigFactory<ModelConfigInterface, ModelBean> {
+public abstract class ModelFactory extends ConfigFactory<ModelBean, ModelConfigInterface> {
+
+    protected ModelFactory(Scope scope) {
+        super(scope, ModelBean.class, ModelConfig.class);
+    }
     /**
      * Create a config map from a bean map.
      * @return the config map
      */
     @Override
-    public Map<String, ModelConfigInterface> createConfigMap(ConfigMaps configMaps) {
+    public  Map<String, ModelConfigInterface> createConfigMap(ConfigMaps configMaps) {
         Map<String, ModelConfigInterface> configMap = new TreeMap<>();
         Map<String, ModelBean> beanMap = createBeanMap(configMaps);
-        for (String key: beanMap.keySet()) {
-            ModelBean bean = beanMap.get(key);
-            if (bean.isScalar()) {
-                configMap.put(key, new ModelConfigScalar(beanMap.get(key)));
+        for (Map.Entry<String, ModelBean> entry: beanMap.entrySet()) {
+
+            Optional<String> filterScope = getScope().filter(entry.getKey());
+            if (!filterScope.isPresent()) {
+                continue;
             }
-            else if (bean.isMap()) {
-                configMap.put(key, new ModelConfigMap(beanMap.get(key)));
+            final String key = filterScope.get();
+            ModelBean bean = entry.getValue();
+            bean.resolveSuper(beanMap, true);
+            ShapeTypes shapeType = bean.getShapeType();
+            if (shapeType == ShapeTypes.SCALAR || shapeType == ShapeTypes.ENUM) {
+                configMap.put(key, new ModelConfigScalar(entry.getValue()));
             }
-            else if (bean.isList()) {
-                configMap.put(key, new ModelConfigList(beanMap.get(key)));
+            else if (shapeType == ShapeTypes.MAP) {
+                configMap.put(key, new ModelConfigMap(entry.getValue()));
             }
-            else if (bean.isObject()) {
-                configMap.put(key, new ModelConfigObject(beanMap.get(key)));
+            else if (shapeType == ShapeTypes.LIST) {
+                configMap.put(key, new ModelConfigList(entry.getValue()));
             }
+            else {
+                if (bean.hasConfigModelKey() && !bean.getConfigModelKey().equals(ModelConfigObject.class.getSimpleName())) {
+                    configMap.put(key, (ModelConfigInterface) bean.createConfig(bean.deriveConfigClass()));
+                }
+                else {
+                    configMap.put(key, new ModelConfigObject(entry.getValue()));
+                }
+            }
+        }
+        for (Map.Entry<String, ModelConfigInterface> entry: configMap.entrySet()) {
+            ((ModelConfig)entry.getValue()).resolve(configMap);
         }
         return configMap;
     }
 
-    void resolveSuper(Map<String, ModelBean> modelMap) {
-        for (ModelBean modelBean: modelMap.values()) {
-            modelBean.resolveSuper(modelMap, true);
-        }
+    protected Map<String, ModelConfigInterface> createConfigMap() {
+        return createConfigMap(new ConfigMaps(Scope.DEV));
     }
 }

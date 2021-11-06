@@ -6,6 +6,8 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface.SHAPE_TYPE;
 
 public class ModelBeanTest {
@@ -91,6 +93,12 @@ public class ModelBeanTest {
         ModelBean modelBean = new ModelBean();
         modelBean.addField("test");
         Assertions.assertThat(modelBean.getFieldBean("test")).isNotNull();
+    }
+
+    @Test
+    public void ArrayListList__isList__true() {
+        ModelBean modelBean = new ModelBean(ArrayList.class, ShapeTypes.LIST);
+        Assertions.assertThat(modelBean.getShapeType()).isEqualTo(ShapeTypes.LIST);
     }
 
 }

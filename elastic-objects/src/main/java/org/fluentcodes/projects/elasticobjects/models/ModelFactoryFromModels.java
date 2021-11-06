@@ -11,7 +11,10 @@ import java.util.TreeMap;
  */
 
 public class ModelFactoryFromModels extends ModelFactory {
-    private final static String MODELS_JSON = "Models.json";
+    private static final String MODELS_JSON = "Models.json";
+    public ModelFactoryFromModels(Scope scope) {
+        super(scope);
+    }
 
     /**
      * Default init map.
@@ -52,10 +55,10 @@ public class ModelFactoryFromModels extends ModelFactory {
         }
     }
 
-    private void addModelForClasses(Map<String, ModelBean> beanMap, Class modelClass) {
+    private void addModelForClasses(Map<String, ModelBean> beanMap, Class<?> modelClass) {
         ModelBeanForClasses modelBean = new ModelBeanForClasses(modelClass, beanMap);
         if (beanMap.containsKey(modelClass.getSimpleName())) {
-            LOG.info("Already defined '" + modelClass.getSimpleName() + "'");
+            LOG.info("Already defined '{}'", modelClass.getSimpleName());
             return;
         }
         for (FieldBeanInterface fieldBean: modelBean.getFieldBeans().values()) {

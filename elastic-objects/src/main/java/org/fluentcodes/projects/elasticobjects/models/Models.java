@@ -267,7 +267,7 @@ public class Models {
     }
 
     public boolean isScalar() {
-        return getModel().isScalar();
+        return getModel().isScalar() || getModel().isEnum();
     }
 
 

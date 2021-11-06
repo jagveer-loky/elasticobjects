@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * @since 13.10.2016.
  */
 public class ConfigMaps {
-    private final Map<Class, Map<String, ConfigConfigInterface>> configMaps;
+    private final Map<Class<? extends ConfigConfigInterface>, Map<String, ConfigConfigInterface>> configMaps;
     private final Scope scope;
 
     public ConfigMaps() {
@@ -29,21 +29,21 @@ public class ConfigMaps {
 
     public ConfigMaps(final Scope scope) {
         configMaps = new LinkedHashMap<>();
-        this.scope = scope == null ? Scope.DEV : scope;
+        this.scope = scope;
         if (scope == Scope.DEV) {
             configMaps.put(ModelConfig.class, new ModelFactoryBasic().createImmutableConfig(this));
             return;
         }
-        configMaps.put(ModelConfig.class, new ModelFactoryAll().createImmutableConfig(this));
-        configMaps.put(HostConfig.class, new HostFactory().createImmutableConfig(this));
-        configMaps.put(FileConfig.class, new FileFactory().createImmutableConfig(this));
+        configMaps.put(ModelConfig.class, new ModelFactoryAll(scope).createImmutableConfig(new ConfigMaps(Scope.DEV)));
+        configMaps.put(HostConfig.class, new HostFactory(scope).createImmutableConfig(this));
+        configMaps.put(FileConfig.class, new FileFactory(scope).createImmutableConfig(this));
     }
 
     public Scope getScope() {
         return scope;
     }
 
-    public Set<Class> getKeys() {
+    public Set<Class<? extends ConfigConfigInterface>> getKeys() {
         return configMaps.keySet();
     }
 
@@ -51,11 +51,23 @@ public class ConfigMaps {
         return configMaps.keySet().stream().map(x -> x.getSimpleName()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public Object find(final Class configClass, final String configKey)  {
-        if (configKey == null || configKey.isEmpty()) throw new EoException("Config key is empty for finder '" + configClass.getSimpleName() + "'!");
+    /**
+     * Find a certain configuration within the configuration map for configClass.
+     * @param configClass the associated config class
+     * @param configKey   the config key to find
+     * @return The configuration class
+     */
+    public Object find(final Class<? extends ConfigConfigInterface> configClass, final String configKey)  {
+        if (configKey == null || configKey.isEmpty()) {
+            throw new EoException("Config key is empty within '" + configClass.getSimpleName() + "'!");
+        }
+        if (!getConfigMap(configClass).containsKey(configKey)) {
+            throw new EoException("Could not found config key within '" + configClass.getSimpleName() + "'!");
+        }
         ConfigConfigInterface config = getConfigMap(configClass).get(configKey);
         return config;
     }
+
     public boolean hasKey(final Class configClass, final String configKey)  {
         if (configKey == null || configKey.isEmpty()) throw new EoException("Config key is empty for finder '" + configClass.getSimpleName() + "'!");
         return  getConfigMap(configClass).containsKey(configKey);
@@ -80,7 +92,7 @@ public class ConfigMaps {
     private Map<String, ConfigConfigInterface> getConfigMap(Class configClass) {
         if (configClass == null) throw new EoException("Config class is null!");
         if (!this.configMaps.containsKey(configClass)) {
-            String factoryClassName = configClass.getName() + "Factory";
+            String factoryClassName = configClass.getName().replace("Config", "Factory") ;
             Class factoryClass = null;
             try {
                 factoryClass = Class.forName(factoryClassName);
@@ -89,7 +101,7 @@ public class ConfigMaps {
             }
             ConfigFactory configFactory = null;
             try {
-                configFactory = (ConfigFactory) factoryClass.getConstructor().newInstance();
+                configFactory = (ConfigFactory) factoryClass.getConstructor(Scope.class).newInstance(scope);
             } catch (Exception e) {
                 throw new EoException(e);
             }
@@ -111,7 +123,7 @@ public class ConfigMaps {
         return (ModelConfig) find(ModelConfig.class, modelKey);
     }
     public ModelConfig findModel(final Class modelClass)  {
-        return findModel(modelClass.getSimpleName());
+        return (ModelConfig) find(ModelConfig.class, modelClass.getSimpleName());
     }
     public ModelConfig findModel(final Object modelValue)  {
         if (modelValue == null) {

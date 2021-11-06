@@ -4,7 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 /*=>{javaHeader}|*/
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.fluentcodes.projects.elasticobjects.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+
 /**
  * 
  * The basic bean class for the configuration classes. 
@@ -14,7 +20,7 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
  */
 public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
 /*=>{}.*/
-
+    private static final Logger LOG = LogManager.getLogger(ConfigBean.class);
     private static final String CONFIG_MODEL_KEY = "configModelKey";
 /*=>{javaInstanceVars}|*/
    /* The model of the configuration to determine type. */
@@ -27,6 +33,8 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
    private String moduleScope;
    /* A scope for the cache value. */
    private List<Scope> scope;
+
+   private Class<? extends ConfigConfigInterface> configModelClass;
 /*=>{}.*/
     private Map properties;
 
@@ -41,6 +49,9 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
 
     public ConfigBean(final Map values) {
         super();
+        if (values == null) {
+            throw new EoInternalException("Null value for initial map. Could not create configuration bean");
+        }
         properties = new HashMap();
         merge(values);
     }
@@ -99,13 +110,17 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
     /*=>{javaAccessors}|*/
    @Override
    public String getConfigModelKey() {
-      return this.configModelKey;
+       return this.configModelKey;
    }
+
+    public boolean hasConfigModelKey() {
+        return configModelKey != null && !configModelKey.isEmpty();
+    }
 
    @Override
    public ConfigBean setConfigModelKey(final String configModelKey) {
-      this.configModelKey = configModelKey;
-      return this;
+       this.configModelKey = configModelKey;
+       return this;
     }
 
    @Override

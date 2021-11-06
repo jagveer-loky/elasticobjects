@@ -19,7 +19,7 @@ public class HostFactoryTest {
 
     @Test
     public void TEST_hostBeanMap_createConfigMap__find_localhost__notNull() {
-        Map<String, HostConfig> hostConfigMap = new HostFactory()
+        Map<String, HostConfig> hostConfigMap = new HostFactory(Scope.DEV)
                 .createConfigMap(ProviderRootTestScope.EO_CONFIGS);
         Assertions.assertThat(hostConfigMap.containsKey("localhost")).isTrue();
     }

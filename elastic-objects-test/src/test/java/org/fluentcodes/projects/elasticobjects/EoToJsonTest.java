@@ -257,8 +257,9 @@ public class EoToJsonTest {
     @Test
     public void ModelConfig_ASubObject____exception() {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(ASubObject.class);
+        EOToJSON eoToJSON = new EOToJSON();
         Assertions
-                .assertThatThrownBy(()->{new EOToJSON()
+                .assertThatThrownBy(()->{eoToJSON
                         .toJson(ProviderRootTestScope.EO_CONFIGS, modelConfig);})
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Field 'author' marked as final for model 'ModelConfigDbObject'.");
@@ -272,63 +273,8 @@ public class EoToJsonTest {
         Assertions.assertThat(json).isNotEmpty();
     }
 
-    // TODO not a test. Just for developing purposes
-    //@Ignore
-    @Test
-    public void loopScalar()  {
-        EO eo = ProviderMapJson.EMPTY.createMapTestEo();
-        long duration = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            String stringified = new EOToJSON()
-                    .setSerializationType(JSONSerializationType.SCALAR)
-                    .toJson(eo);
-        }
-        duration = System.currentTimeMillis() - duration;
-        System.out.println("Duration: " + duration + " ms.");
-    }
 
-    // TODO for checks of object repetition...
-    @Ignore
-    @Test
-    public void setSameMaps()  {
-        Map map = new LinkedHashMap<>();
-        map.put(S_KEY0, S_STRING);
-        map.put(S_KEY1, S_INTEGER);
 
-        EO eo = ProviderRootTestScope.createEo();
-        eo.set(map, S_LEVEL0);
-        eo.set(map, S_LEVEL1);
-        /*String toCompare = MapProviderJSON.toJSONMap(S_LEVEL0,
-                MapProviderJSON.toJSONMap(S_KEY0, S_STRING, S_KEY1, S_INTEGER),
-                S_LEVEL1,
-                MapProviderJSON.toJSONMap(S_KEY0, S_STRING, S_KEY1, S_INTEGER)
-        );
-        String serialized = new EOToJSON()
-                .setStartIndent(0)
-                .toJSON(eo);
-
-        Assert.assertEquals(toCompare, serialized);*/
-    }
-
-    // TODO for checks of object repetition...
-    @Ignore
-    @Test
-    public void setSameMapsWithCheck()  {
-        Map map = new LinkedHashMap<>();
-        map.put(S_KEY0, S_STRING);
-
-        EO eo = ProviderRootTestScope.createEo();
-        eo.mapObject(map);
-        eo
-                .set(map, S_LEVEL0);
-        eo.setCheckObjectReplication(true);
-        String serialized = new EOToJSON()
-                .setIndent(0)
-                .toJson(eo);
-        /*String toCompare = MapProviderJSON.toJSONMap(S_KEY0, S_STRING, S_LEVEL0,
-                MapProviderJSON.toJSONMap(EOToJSON.REPEATED, Path.DELIMITER));
-        Assert.assertEquals(toCompare, serialized);*/
-    }
 
 
 }

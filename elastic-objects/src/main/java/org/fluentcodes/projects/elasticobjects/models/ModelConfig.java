@@ -111,7 +111,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    private final void setSuperModel(Map<String, ConfigConfigInterface> modelConfigMap) {
+    private final void setSuperModel(Map<String, ModelConfigInterface> modelConfigMap) {
         if (!hasSuperKey()) {
             return;
         }
@@ -123,7 +123,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
 
 
 
-    private final void setDefaultImplementationModel(Map<String, ConfigConfigInterface> modelConfigMap) {
+    private final void setDefaultImplementationModel(Map<String, ModelConfigInterface> modelConfigMap) {
         if (!hasDefaultImplementation()) {
             return;
         }
@@ -137,7 +137,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         return defaultImplementationModel;
     }
 
-    private final void setInterfacesMap(Map<String, ConfigConfigInterface> cache) {
+    private final void setInterfacesMap(Map<String, ModelConfigInterface> cache) {
         if (interfaces == null || interfaces.isEmpty()) {
             return;
         }
@@ -147,7 +147,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    private void setFieldConfigMap(final Map<String, ConfigConfigInterface> modelConfigMap) {
+    private void setFieldConfigMap(final Map<String, ModelConfigInterface> modelConfigMap) {
         if (!hasFieldConfigMap()) {
             return;
         }
@@ -185,7 +185,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         return keyValues;
     }
 
-    public void resolve(Map<String, ConfigConfigInterface> modelConfigMap)  {
+    public void resolve(Map<String, ModelConfigInterface> modelConfigMap)  {
         if (resolved) {
             return;
         }

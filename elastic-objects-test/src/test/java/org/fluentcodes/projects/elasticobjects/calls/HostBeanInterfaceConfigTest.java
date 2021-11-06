@@ -37,6 +37,8 @@ public class HostBeanInterfaceConfigTest {
         ConfigChecks.compareConfigurations(HostConfig.class);
     }
 
+
+
     @Test
     public void elasticobjects__compare__xpected()  {
         ConfigMaps cache = ProviderRootTestScope.EO_CONFIGS;

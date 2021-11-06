@@ -44,4 +44,10 @@ public class DbSqlFactoryTest {
         assertThat(map.size()).isEqualTo(4);
     }
 
+    @Test
+    public void getDbFromConfigMap() {
+        DbSqlConfig config = (DbSqlConfig)ProviderRootTestScope.EO_CONFIGS.find(DbSqlConfig.class, "h2:mem:basic:AnObject");
+        assertThat(config).isNotNull();
+    }
+
 }

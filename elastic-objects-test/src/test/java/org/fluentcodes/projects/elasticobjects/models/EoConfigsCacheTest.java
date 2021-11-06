@@ -18,7 +18,7 @@ public class EoConfigsCacheTest {
         Assertions
                 .assertThatThrownBy(()->{
                     ProviderRootDevScope.EO_CONFIGS.findModel(AnObject.class);})
-                .hasMessageContaining("Could not find config entry for")
+                .hasMessageContaining("Could not found config key within 'ModelConfig'!")
                 .isInstanceOf(EoException.class);
     }
 

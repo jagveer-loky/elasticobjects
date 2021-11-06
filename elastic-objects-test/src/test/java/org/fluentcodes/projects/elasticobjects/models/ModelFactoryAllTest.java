@@ -9,24 +9,31 @@ import static org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterfa
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 
 public class ModelFactoryAllTest {
-    public static final ModelFactory MODEL_BEAN_MAP = new ModelFactoryAll();
+    public static Map<String, ModelBean> BEAN_MAP = new ModelFactoryAll().createBeanMap();
+    public static Map<String, ModelConfigInterface> CONFIG_MAP = new ModelFactoryAll().createConfigMap();
 
     @Test
     public void createBeanMap__get_Map__notNull() {
-        ModelBean bean = new ModelFactoryAll().createBeanMap((ConfigMaps) null)
+        ModelBean bean = BEAN_MAP
                 .get(Map.class.getSimpleName());
         Assertions.assertThat(bean).isNotNull();
     }
 
 
     @Test
-    public void TEST_modelBeanMapResolved__find_AnObject__notNull() {
-        ModelBean bean = new ModelFactoryAll().createBeanMap((ConfigMaps) null)
+    public void TEST_modelBeanMapResolved__find_ModelBean__notNull() {
+        ModelBean bean = BEAN_MAP
                 .get(ModelBean.class.getSimpleName());
-        FieldBeanInterface packagePathBean = bean.getFieldBean(PACKAGE_PATH);
+        Assertions.assertThat(bean.getFieldBean(PACKAGE_PATH)).isNotNull();
+        Assertions.assertThat(bean.getFieldBean(MODULE_SCOPE)).isNull();
+    }
+
+    @Test
+    public void TEST_modelConfigMapResolved__find_ModelBean__notNull() {
+        ModelConfigInterface config = CONFIG_MAP
+                .get(ModelBean.class.getSimpleName());
+        FieldConfigInterface packagePathBean = config.getField(PACKAGE_PATH);
         Assertions.assertThat(packagePathBean).isNotNull();
-        FieldBeanInterface moduleScopeBean = bean.getFieldBean(MODULE_SCOPE);
-        Assertions.assertThat(moduleScopeBean).isNotNull();
     }
 
 

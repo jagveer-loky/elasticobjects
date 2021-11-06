@@ -28,8 +28,8 @@ public class ConfigBeanTest {
         ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(ConfigBean.class);
         Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
         Assert.assertEquals(ConfigBean.class, modelConfig.getModelClass());
-        Assert.assertEquals(5, modelConfig.getFieldMap().size());
-        Assert.assertEquals(5, modelConfig.getFieldKeys().size());
+        Assert.assertEquals(11, modelConfig.getFieldMap().size());
+        Assert.assertEquals(11, modelConfig.getFieldKeys().size());
         BaseBean modelImpl = (BaseBean) modelConfig.create();
         Assert.assertNotNull(modelImpl);
     }

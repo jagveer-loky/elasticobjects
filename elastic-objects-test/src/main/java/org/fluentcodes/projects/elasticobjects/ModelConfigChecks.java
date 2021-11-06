@@ -2,9 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
 
@@ -49,14 +47,7 @@ public class ModelConfigChecks {
     public static Object create(final Class modelClass)  {
         ModelConfig config = ProviderRootTestScope.EO_CONFIGS.findModel(modelClass);
         Assertions.assertThat(config).isNotNull();
-        if (config.isScalar()) {
-            return config.create();
-        }
-        else if (config.isCreate()) {
-            return config.create();
-        }
-
-        throw new EoException("Method expects a create model type " + modelClass.getSimpleName());
+        return config.create();
     }
 
     public static void compare(final Class modelClass) {

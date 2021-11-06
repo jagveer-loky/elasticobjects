@@ -46,7 +46,7 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface  {
     }
 
 
-    protected void resolve(ModelConfig model, Map<String, ConfigConfigInterface> modelConfigMap) {
+    protected void resolve(ModelConfig model, Map<String, ModelConfigInterface> modelConfigMap) {
         if (resolved) {
             return;
         }
