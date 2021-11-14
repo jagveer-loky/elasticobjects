@@ -7,86 +7,148 @@
       "description": "If true the generated model will be initially set as abstract class.",
       "fieldKey": "abstract",
       "modelKeys": "Boolean",
-      "naturalId": "abstract"
+      "naturalId": "abstract",
+      "properties": {
+        "super": true,
+        "final": true,
+        "property": true
+      }
     },
     "author": {
       "description": "The author of the class.",
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "author"
+      "naturalId": "author",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "creationDate": {
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "naturalId": "creationDate"
+      "naturalId": "creationDate",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "dbAnnotated": {
       "description": "If true a db annotation will be generated for java instance vars. ",
       "fieldKey": "dbAnnotated",
       "modelKeys": "Boolean",
-      "naturalId": "dbAnnotated"
+      "naturalId": "dbAnnotated",
+      "properties": {
+        "super": true,
+        "final": true,
+        "property": true
+      }
     },
     "description": {
       "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "description"
+      "naturalId": "description",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "expose": {
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
-      "naturalId": "expose"
+      "naturalId": "expose",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "id": {
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "naturalId": "id"
+      "naturalId": "id",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "interfaces": {
       "description": "A comma separeted list of interface keys. ",
       "fieldKey": "interfaces",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "interfaces"
+      "naturalId": "interfaces",
+      "properties": {
+        "super": true
+      }
     },
     "modelKey": {
       "description": "The model name for the bean/action object @ModelConfig.",
       "fieldKey": "modelKey",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "modelKey"
+      "naturalId": "modelKey",
+      "properties": {
+        "super": true
+      }
     },
     "module": {
       "description": "Defines a target module where generating occurs. ",
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "module"
+      "naturalId": "module",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "moduleScope": {
       "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
-      "naturalId": "moduleScope"
+      "naturalId": "moduleScope",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "naturalId": {
       "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "naturalId"
+      "naturalId": "naturalId",
+      "properties": {
+        "super": true,
+        "final": true
+      }
+    },
+    "properties": {
+      "description": "Properties for configurations.",
+      "fieldKey": "properties",
+      "modelKeys": "Map",
+      "naturalId": "properties",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "scope": {
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
-      "naturalId": "scope"
+      "naturalId": "scope",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     }
   },
   "modelKey": "ModelConfigInterfaceMethods",
@@ -94,5 +156,9 @@
   "moduleScope": "main",
   "naturalId": "ModelConfigInterfaceMethods",
   "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "properties": {
+    "create": false,
+    "shapeType": "INTERFACE"
+  },
   "superKey": "ModelConfigInterface"
 }

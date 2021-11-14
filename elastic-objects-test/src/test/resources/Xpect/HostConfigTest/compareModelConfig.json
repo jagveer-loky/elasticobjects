@@ -1,6 +1,6 @@
 {
-  "author": "Werner Diwischek",
-  "description": "Mainly the schema information as base for  @DbQueryConfig",
+  "creationDate": 1539727163392,
+  "description": "Basic host definition for file or db cache. ",
   "expose": "NONE",
   "fieldConfigMap": {
     "author": {
@@ -8,147 +8,207 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "author"
+      "naturalId": "author",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "creationDate": {
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "naturalId": "creationDate"
-    },
-    "dbType": {
-      "description": "The type of the db as Enumeration providing informations like the driver.",
-      "fieldKey": "dbType",
-      "modelKeys": "DbTypes",
-      "naturalId": "dbType"
+      "naturalId": "creationDate",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "description": {
       "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "description"
-    },
-    "driver": {
-      "description": "driver",
-      "fieldKey": "driver",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "driver"
+      "naturalId": "description",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "expose": {
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
-      "naturalId": "expose"
-    },
-    "extension": {
-      "description": "An extension for database initialization. ",
-      "fieldKey": "extension",
-      "length": 1024,
-      "modelKeys": "String",
-      "naturalId": "extension"
+      "naturalId": "expose",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "hostName": {
       "description": "A name for host objects.",
       "fieldKey": "hostName",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "hostName"
+      "naturalId": "hostName",
+      "properties": {
+        "final": true,
+        "property": true,
+        "override": true
+      }
     },
     "id": {
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "naturalId": "id"
-    },
-    "jndi": {
-      "description": "The jndi lookup for a hibernate session factory. ",
-      "fieldKey": "jndi",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "jndi"
+      "naturalId": "id",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "module": {
       "description": "Defines a target module where generating occurs. ",
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "module"
+      "naturalId": "module",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "moduleScope": {
       "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
-      "naturalId": "moduleScope"
+      "naturalId": "moduleScope",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "naturalId": {
       "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "naturalId"
+      "naturalId": "naturalId",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "password": {
       "description": "The password instance var.",
       "fieldKey": "password",
       "length": 15,
       "modelKeys": "String",
-      "naturalId": "password"
+      "naturalId": "password",
+      "properties": {
+        "final": true,
+        "property": true,
+        "override": true
+      }
     },
     "port": {
       "description": "port",
       "fieldKey": "port",
       "modelKeys": "Integer",
-      "naturalId": "port"
+      "naturalId": "port",
+      "properties": {
+        "final": true,
+        "property": true,
+        "override": true
+      }
+    },
+    "properties": {
+      "description": "Properties for configurations.",
+      "fieldKey": "properties",
+      "modelKeys": "Map",
+      "naturalId": "properties",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "protocol": {
       "description": "protocol",
       "fieldKey": "protocol",
       "length": 8,
       "modelKeys": "String",
-      "naturalId": "protocol"
+      "naturalId": "protocol",
+      "properties": {
+        "final": true,
+        "property": true,
+        "override": true
+      }
     },
     "rolePermissions": {
       "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
       "fieldKey": "rolePermissions",
       "modelKeys": "PermissionRole",
-      "naturalId": "rolePermissions"
-    },
-    "schema": {
-      "description": "The database schema used for persisting as a property of @HostConfig",
-      "fieldKey": "schema",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "schema"
+      "naturalId": "rolePermissions",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "scope": {
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
-      "naturalId": "scope"
+      "naturalId": "scope",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
     },
     "url": {
       "description": "url",
       "fieldKey": "url",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "url"
+      "naturalId": "url",
+      "properties": {
+        "final": true,
+        "property": true,
+        "override": true
+      }
     },
     "user": {
       "description": "user",
       "fieldKey": "user",
       "length": 50,
       "modelKeys": "String",
-      "naturalId": "user"
+      "naturalId": "user",
+      "properties": {
+        "final": true,
+        "property": true,
+        "override": true
+      }
     }
   },
-  "interfaces": "DbConfigInterface",
-  "modelKey": "DbConfig",
-  "module": "eo-db",
+  "interfaces": "HostInterface",
+  "modelKey": "HostConfig",
+  "module": "elastic-objects",
   "moduleScope": "main",
-  "naturalId": "DbConfig",
+  "naturalId": "HostConfig",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-  "superKey": "HostConfig"
+  "properties": {
+    "final": true,
+    "create": false
+  },
+  "superKey": "PermissionConfig"
 }

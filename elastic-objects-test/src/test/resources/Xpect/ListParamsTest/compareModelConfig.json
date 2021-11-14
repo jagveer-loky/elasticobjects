@@ -7,43 +7,67 @@
       "description": "The key list for mapping values in a value list. ",
       "fieldKey": "colKeys",
       "modelKeys": "List,String",
-      "naturalId": "colKeys"
+      "naturalId": "colKeys",
+      "properties": {
+        "override": false
+      }
     },
     "filter": {
       "description": "Filter for List entries.",
       "fieldKey": "filter",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "filter"
+      "naturalId": "filter",
+      "properties": {
+        "override": false
+      }
     },
     "length": {
       "description": "Length of a field.",
       "fieldKey": "length",
       "modelKeys": "Integer",
-      "naturalId": "length"
+      "naturalId": "length",
+      "properties": {
+        "override": false
+      }
     },
     "rowEnd": {
       "description": "rowEnd",
       "fieldKey": "rowEnd",
       "modelKeys": "Integer",
-      "naturalId": "rowEnd"
+      "naturalId": "rowEnd",
+      "properties": {
+        "property": true,
+        "override": false
+      }
     },
     "rowHead": {
       "description": "rowHead",
       "fieldKey": "rowHead",
       "modelKeys": "Integer",
-      "naturalId": "rowHead"
+      "naturalId": "rowHead",
+      "properties": {
+        "property": true,
+        "override": false
+      }
     },
     "rowStart": {
       "description": "rowStart",
       "fieldKey": "rowStart",
       "modelKeys": "Integer",
-      "naturalId": "rowStart"
+      "naturalId": "rowStart",
+      "properties": {
+        "property": true,
+        "override": false
+      }
     }
   },
   "modelKey": "ListParams",
   "module": "elastic-objects",
   "moduleScope": "main",
   "naturalId": "ListParams",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists"
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+  "properties": {
+    "create": true
+  }
 }

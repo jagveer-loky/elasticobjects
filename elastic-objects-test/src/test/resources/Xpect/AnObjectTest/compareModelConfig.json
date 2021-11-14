@@ -107,6 +107,9 @@
   "moduleScope": "main",
   "naturalId": "AnObject",
   "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+  "properties": {
+    "create": true
+  },
   "rolePermissions": {
     "read": "guest"
   }

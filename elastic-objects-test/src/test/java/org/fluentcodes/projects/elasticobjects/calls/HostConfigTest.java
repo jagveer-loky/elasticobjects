@@ -11,7 +11,7 @@ import org.junit.Test;
 /**
  * Created by Werner on 11.10.2016.
  */
-public class HostBeanInterfaceConfigTest {
+public class HostConfigTest {
     @Test
     public void createByModelConfig_throwsException()  {
         ModelConfigChecks.createThrowsException(HostConfig.class);
@@ -36,8 +36,6 @@ public class HostBeanInterfaceConfigTest {
     public void compareConfigurations()  {
         ConfigChecks.compareConfigurations(HostConfig.class);
     }
-
-
 
     @Test
     public void elasticobjects__compare__xpected()  {

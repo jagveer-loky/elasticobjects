@@ -8,127 +8,185 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "author"
+      "naturalId": "author",
+      "properties": {
+        "super": true
+      }
     },
     "condition": {
       "description": "A condition for calls. ",
       "fieldKey": "condition",
       "length": 1000,
       "modelKeys": "String",
-      "naturalId": "condition"
+      "naturalId": "condition",
+      "properties": {
+        "super": true
+      }
     },
     "creationDate": {
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "naturalId": "creationDate"
+      "naturalId": "creationDate",
+      "properties": {
+        "super": true
+      }
     },
     "description": {
       "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "description"
+      "naturalId": "description",
+      "properties": {
+        "super": true
+      }
     },
     "duration": {
       "description": "The duration of a call.",
       "fieldKey": "duration",
       "modelKeys": "Long",
-      "naturalId": "duration"
+      "naturalId": "duration",
+      "properties": {
+        "super": true
+      }
     },
     "fileConfigKey": {
       "description": "Defines the key for a file configuration @FileConfig where to read or write a file.",
       "fieldKey": "fileConfigKey",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "fileConfigKey"
+      "naturalId": "fileConfigKey",
+      "properties": {
+        "super": true
+      }
     },
     "fileName": {
       "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
       "fieldKey": "fileName",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "fileName"
+      "naturalId": "fileName",
+      "properties": {
+        "super": true
+      }
     },
     "hostConfigKey": {
       "description": "A key for host objects.",
       "fieldKey": "hostConfigKey",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "hostConfigKey"
+      "naturalId": "hostConfigKey",
+      "properties": {
+        "super": true
+      }
     },
     "id": {
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "naturalId": "id"
+      "naturalId": "id",
+      "properties": {
+        "super": true
+      }
     },
     "keepCall": {
       "description": "Will use an existing  result file beforehand as template. ",
       "fieldKey": "keepCall",
       "modelKeys": "KeepCalls",
-      "naturalId": "keepCall"
+      "naturalId": "keepCall",
+      "properties": {
+        "super": true
+      }
     },
     "logLevel": {
       "description": "logLevel",
       "fieldKey": "logLevel",
       "modelKeys": "LogLevel",
-      "naturalId": "logLevel"
+      "naturalId": "logLevel",
+      "properties": {
+        "super": true
+      }
     },
     "models": {
       "description": "A string representation for a list of model keys.",
       "fieldKey": "models",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "models"
+      "naturalId": "models",
+      "properties": {
+        "super": true
+      }
     },
     "naturalId": {
       "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "naturalId"
+      "naturalId": "naturalId",
+      "properties": {
+        "super": true
+      }
     },
     "overwrite": {
       "description": "A overwrite field flag for @Call.",
       "fieldKey": "overwrite",
       "modelKeys": "Boolean",
-      "naturalId": "overwrite"
+      "naturalId": "overwrite",
+      "properties": {
+        "super": true,
+        "property": true
+      }
     },
     "postpend": {
       "description": "postpend String when executed by ExecutorCallImpl",
       "fieldKey": "postpend",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "postpend"
+      "naturalId": "postpend",
+      "properties": {
+        "super": true
+      }
     },
     "prepend": {
       "description": "prepend String when executed by ExecutorCallImpl",
       "fieldKey": "prepend",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "prepend"
+      "naturalId": "prepend",
+      "properties": {
+        "super": true
+      }
     },
     "sourcePath": {
       "description": "A sourcePath where EO offers it's input value when the execution starts.",
       "fieldKey": "sourcePath",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "sourcePath"
+      "naturalId": "sourcePath",
+      "properties": {
+        "super": true
+      }
     },
     "startCondition": {
       "description": "A condition for calls. ",
       "fieldKey": "startCondition",
       "length": 1000,
       "modelKeys": "String",
-      "naturalId": "startCondition"
+      "naturalId": "startCondition",
+      "properties": {
+        "super": true
+      }
     },
     "targetPath": {
       "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
       "fieldKey": "targetPath",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "targetPath"
+      "naturalId": "targetPath",
+      "properties": {
+        "super": true
+      }
     }
   },
   "modelKey": "TemplateDirResourceCall",
@@ -136,5 +194,8 @@
   "moduleScope": "main",
   "naturalId": "TemplateDirResourceCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+  "properties": {
+    "create": true
+  },
   "superKey": "DirectoryReadCall"
 }

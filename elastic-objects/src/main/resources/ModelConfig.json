@@ -266,7 +266,7 @@
   "ConfigInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": "expose, module, moduleScope, scope",
+    "fieldKeys": "expose, module, moduleScope, scope, properties",
     "interfaces": "BaseConfigInterface",
     "expose": "NONE",
     "description": "Basic config interface as super interface for other cached items. ",
@@ -838,7 +838,8 @@
   "HostBean": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "HostBeanInterface",
+    "fieldKeys": "port, protocol, password, hostName, user, url",
+    "interfaces": "HostInterface",
     "superKey": "PermissionBean",
     "expose": "WEB",
     "description": "A bean container class for Field values",
@@ -846,23 +847,6 @@
     "modelKey": "HostBean",
     "properties": {
       "create": true
-    },
-    "author": "Werner Diwischek",
-    "creationDate": 1608073200000
-  },
-  "HostBeanInterface": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": "port, protocol, password, hostName, user, url",
-    "interfaces": "HostConfigInterface,PermissionBeanInterface",
-    "expose": "NONE",
-    "description": "Methods to get the properties schema from properties map.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "HostBeanInterface",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE",
-      "final": false
     },
     "author": "Werner Diwischek",
     "creationDate": 1608073200000
@@ -888,7 +872,8 @@
   "HostConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "HostConfigInterfaceMethods",
+    "fieldKeys": "port, protocol, password, hostName, user, url",
+    "interfaces": "HostInterface",
     "superKey": "PermissionConfig",
     "expose": "NONE",
     "description": "Basic host definition for file or db cache. ",
@@ -900,7 +885,7 @@
     },
     "creationDate": 1539727200000
   },
-  "HostConfigInterface": {
+  "HostInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "port, protocol, password, hostName, user, url",
@@ -908,7 +893,7 @@
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "HostConfigInterface",
+    "modelKey": "HostInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
@@ -916,22 +901,6 @@
     },
     "author": "Werner Diwischek",
     "creationDate": 1600466400000
-  },
-  "HostConfigInterfaceMethods": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "interfaces": "HostConfigInterface",
-    "expose": "NONE",
-    "description": "Methods to get the properties schema from properties map.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "HostConfigInterfaceMethods",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE",
-      "final": true
-    },
-    "author": "Werner Diwischek",
-    "creationDate": 1608073200000
   },
   "JsonWriteCall": {
     "module": "elastic-objects",

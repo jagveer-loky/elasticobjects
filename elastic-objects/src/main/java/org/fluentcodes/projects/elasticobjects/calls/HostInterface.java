@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
  * @creationDate Sat Sep 19 00:00:00 CEST 2020
  * @modificationDate Thu Jan 14 12:15:25 CET 2021
  */
-public interface HostConfigInterface extends ConfigInterface {
+public interface HostInterface extends ConfigInterface {
 /*=>{}.*/
 
 /*=>{javaStaticNames}|*/
@@ -20,7 +20,7 @@ public interface HostConfigInterface extends ConfigInterface {
    String URL = "url";
    String USER = "user";
 /*=>{}.*/
-
+   String getUrlCache();
 /*=>{javaAccessors}|*/
    default String getHostName(){
       return (String) getProperties().get(HOST_NAME);

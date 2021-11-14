@@ -1,1 +1,0 @@
-elasticobjects -> null

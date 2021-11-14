@@ -9,6 +9,11 @@
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "naturalId": "AnObject.csv",
+    "properties": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 4
+    },
     "rolePermissions": {
       "read": "guest"
     }
@@ -151,6 +156,11 @@
     "module": "elastic-objects-test",
     "moduleScope": "main",
     "naturalId": "ListSimple.csv",
+    "properties": {
+      "rowHead": 0,
+      "rowStart": 1,
+      "rowEnd": 3
+    },
     "rolePermissions": {
       "read": "guest",
       "write": "admin"
@@ -195,6 +205,9 @@
     "module": "elastic-objects-test",
     "moduleScope": "test",
     "naturalId": "target.csv",
+    "properties": {
+      "rowHead": 0
+    },
     "rolePermissions": {
       "read": "guest",
       "write": "admin"

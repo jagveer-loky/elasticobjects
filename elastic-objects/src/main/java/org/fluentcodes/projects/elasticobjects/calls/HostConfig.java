@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
+import com.sun.corba.se.spi.ior.IdentifiableFactory;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 
@@ -12,7 +13,7 @@ import java.util.Map;
  * @creationDate Wed Oct 17 00:00:00 CEST 2018
  * @modificationDate Thu Jan 14 12:17:41 CET 2021
  */
-public class HostConfig extends PermissionConfig implements HostConfigInterfaceMethods  {
+public class HostConfig extends PermissionConfig implements HostInterface  {
 /*=>{}.*/
     public static final String LOCALHOST = "localhost";
 

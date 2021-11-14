@@ -8,143 +8,238 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "author"
+      "naturalId": "author",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "cached": {
       "description": "If true will cache the readed file within the cache object. ",
       "fieldKey": "cached",
       "modelKeys": "Boolean",
-      "naturalId": "cached"
+      "naturalId": "cached",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "colKeys": {
       "description": "The key list for mapping values in a value list. ",
       "fieldKey": "colKeys",
       "modelKeys": "List,String",
-      "naturalId": "colKeys"
+      "naturalId": "colKeys",
+      "properties": {
+        "super": true
+      }
     },
     "creationDate": {
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "naturalId": "creationDate"
+      "naturalId": "creationDate",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "description": {
       "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "description"
+      "naturalId": "description",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "expose": {
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
-      "naturalId": "expose"
+      "naturalId": "expose",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "fieldDelimiter": {
       "description": "A delimiter for fields used for csv files. ",
       "fieldKey": "fieldDelimiter",
       "length": 4,
       "modelKeys": "String",
-      "naturalId": "fieldDelimiter"
+      "naturalId": "fieldDelimiter",
+      "properties": {
+        "super": true,
+        "property": true
+      }
     },
     "fileName": {
       "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
       "fieldKey": "fileName",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "fileName"
+      "naturalId": "fileName",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "filePath": {
       "description": "A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ",
       "fieldKey": "filePath",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "filePath"
+      "naturalId": "filePath",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "filter": {
       "description": "Filter for List entries.",
       "fieldKey": "filter",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "filter"
+      "naturalId": "filter",
+      "properties": {
+        "super": true
+      }
     },
     "hostConfigKey": {
       "description": "A key for host objects.",
       "fieldKey": "hostConfigKey",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "hostConfigKey"
+      "naturalId": "hostConfigKey",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "id": {
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "naturalId": "id"
+      "naturalId": "id",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "length": {
       "description": "Length of a field.",
       "fieldKey": "length",
       "modelKeys": "Integer",
-      "naturalId": "length"
+      "naturalId": "length",
+      "properties": {
+        "super": true
+      }
     },
     "module": {
       "description": "Defines a target module where generating occurs. ",
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "module"
+      "naturalId": "module",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "moduleScope": {
       "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
-      "naturalId": "moduleScope"
+      "naturalId": "moduleScope",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "naturalId": {
       "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "naturalId"
+      "naturalId": "naturalId",
+      "properties": {
+        "super": true,
+        "final": true
+      }
+    },
+    "properties": {
+      "description": "Properties for configurations.",
+      "fieldKey": "properties",
+      "modelKeys": "Map",
+      "naturalId": "properties",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "rolePermissions": {
       "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
       "fieldKey": "rolePermissions",
       "modelKeys": "PermissionRole",
-      "naturalId": "rolePermissions"
+      "naturalId": "rolePermissions",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     },
     "rowDelimiter": {
       "description": "A delimiter for rows used for csv files.",
       "fieldKey": "rowDelimiter",
       "length": 4,
       "modelKeys": "String",
-      "naturalId": "rowDelimiter"
+      "naturalId": "rowDelimiter",
+      "properties": {
+        "super": true,
+        "property": true
+      }
     },
     "rowEnd": {
       "description": "rowEnd",
       "fieldKey": "rowEnd",
       "modelKeys": "Integer",
-      "naturalId": "rowEnd"
+      "naturalId": "rowEnd",
+      "properties": {
+        "super": true,
+        "property": true
+      }
     },
     "rowHead": {
       "description": "rowHead",
       "fieldKey": "rowHead",
       "modelKeys": "Integer",
-      "naturalId": "rowHead"
+      "naturalId": "rowHead",
+      "properties": {
+        "super": true,
+        "property": true
+      }
     },
     "rowStart": {
       "description": "rowStart",
       "fieldKey": "rowStart",
       "modelKeys": "Integer",
-      "naturalId": "rowStart"
+      "naturalId": "rowStart",
+      "properties": {
+        "super": true,
+        "property": true
+      }
     },
     "scope": {
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
-      "naturalId": "scope"
+      "naturalId": "scope",
+      "properties": {
+        "super": true,
+        "final": true
+      }
     }
   },
   "interfaces": "CsvConfigInterface,ListProperties",
@@ -153,5 +248,9 @@
   "moduleScope": "main",
   "naturalId": "CsvConfig",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+  "properties": {
+    "final": true,
+    "create": false
+  },
   "superKey": "FileConfig"
 }

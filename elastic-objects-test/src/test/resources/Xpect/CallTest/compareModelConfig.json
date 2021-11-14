@@ -40,7 +40,10 @@
       "description": "A overwrite field flag for @Call.",
       "fieldKey": "overwrite",
       "modelKeys": "Boolean",
-      "naturalId": "overwrite"
+      "naturalId": "overwrite",
+      "properties": {
+        "property": true
+      }
     },
     "postpend": {
       "description": "postpend String when executed by ExecutorCallImpl",
@@ -82,5 +85,9 @@
   "module": "elastic-objects",
   "moduleScope": "main",
   "naturalId": "Call",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.calls"
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+  "properties": {
+    "create": false,
+    "shapeType": "INTERFACE"
+  }
 }
