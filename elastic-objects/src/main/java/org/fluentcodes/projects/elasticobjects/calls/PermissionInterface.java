@@ -1,6 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 /*=>{javaHeader}|*/
+
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+
+import java.util.List;
+
 /**
  * 
  * Interface with permissions methods  
@@ -21,4 +26,6 @@ public interface PermissionConfigInterface  {
       return getRolePermissions() != null;
    }
 /*=>{}.*/
+
+
 }
