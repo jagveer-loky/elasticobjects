@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.calls.xlsx.XlsxReadCall;
 
 import java.util.Map;
 
-public class ConfigBeanMap4Sheet<T extends ConfigConfigInterface> extends ConfigFactory<T> {
+public class ConfigBeanMap4Sheet<T extends ConfigInterface> extends ConfigFactory<T> {
     protected ConfigBeanMap4Sheet(final Scope scope, final Class<? extends ConfigBean> beanClass, final Class<? extends ConfigConfig> configClass)  {
         super(scope, beanClass, configClass);
     }

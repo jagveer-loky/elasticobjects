@@ -11,7 +11,7 @@ import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterfac
 import static org.fluentcodes.projects.elasticobjects.models.Model.ABSTRACT;
 import static org.fluentcodes.projects.elasticobjects.models.Model.DB_ANNOTATED;
 
-public interface ModelConfigInterface extends ConfigConfigInterface {
+public interface ModelConfigInterface extends ConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
     String SHAPE_TYPE = "shapeType";
     String CREATE = "create";

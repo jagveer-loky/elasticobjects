@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -23,7 +22,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  * @creationDate null
  * @modificationDate Sun Jan 10 10:57:55 CET 2021
  */
-public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
+public class ConfigBean extends BaseBean implements ConfigInterface {
 /*=>{}.*/
     private static final Logger LOG = LogManager.getLogger(ConfigBean.class);
     private static final String CONFIG_MODEL_KEY = "configModelKey";
@@ -39,7 +38,7 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
    /* A scope for the cache value. */
    private List<Scope> scope;
 
-   private Class<? extends ConfigConfigInterface> configModelClass;
+   private Class<? extends ConfigInterface> configModelClass;
 /*=>{}.*/
     private Map properties;
 
@@ -124,45 +123,37 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
        return this;
     }
 
-   @Override
    public Expose getExpose() {
       return this.expose;
    }
 
-   @Override
    public ConfigBean setExpose(final Expose expose) {
       this.expose = expose;
       return this;
     }
 
-   @Override
    public String getModule() {
       return this.module;
    }
 
-   @Override
    public ConfigBean setModule(final String module) {
       this.module = module;
       return this;
     }
 
-   @Override
    public String getModuleScope() {
       return this.moduleScope;
    }
 
-   @Override
    public ConfigBean setModuleScope(final String moduleScope) {
       this.moduleScope = moduleScope;
       return this;
     }
 
-   @Override
    public List<Scope> getScope() {
       return this.scope;
    }
 
-   @Override
    public ConfigBean setScope(final List<Scope> scope) {
       this.scope = scope;
       return this;
@@ -196,11 +187,11 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
         return deriveConfigClass(getConfigModelKey());
     }
 
-    ConfigConfigInterface createConfig(Class<? extends ConfigConfig> configClass) {
+    ConfigInterface createConfig(Class<? extends ConfigConfig> configClass) {
         try {
             Constructor configurationConstructor = configClass.getConstructor(ConfigBean.class);
             try {
-                return (ConfigConfigInterface)configurationConstructor.newInstance(this);
+                return (ConfigInterface)configurationConstructor.newInstance(this);
             } catch (Exception e) {
                 throw new EoInternalException("Problem with create new instance for config constructor with bean class for '" + getNaturalId() + "'/'" + configClass.getSimpleName() + "' in ModelConfig", e);
             }
@@ -210,7 +201,7 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
         }
     }
 
-    ConfigConfigInterface createConfig(ConfigMaps configsCache) {
+    ConfigInterface createConfig(ConfigMaps configsCache) {
         if (!hasConfigModelKey()) {
             throw new EoException("No configModelKey is set!");
         }

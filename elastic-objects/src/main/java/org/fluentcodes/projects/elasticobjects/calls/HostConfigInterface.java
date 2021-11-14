@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 /*=>{javaHeader}|*/
 /**
  * 
@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
  * @creationDate Sat Sep 19 00:00:00 CEST 2020
  * @modificationDate Thu Jan 14 12:15:25 CET 2021
  */
-public interface HostConfigInterface extends ConfigConfigInterface  {
+public interface HostConfigInterface extends ConfigInterface {
 /*=>{}.*/
 
 /*=>{javaStaticNames}|*/

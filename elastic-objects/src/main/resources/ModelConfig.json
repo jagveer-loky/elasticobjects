@@ -215,7 +215,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "expose, module, moduleScope, scope, configModelKey, properties",
-    "interfaces": "ConfigBeanInterface",
+    "interfaces": "ConfigInterface",
     "superKey": "BaseBean",
     "expose": "NONE",
     "description": "The basic bean class for the configuration classes. Defines properies map for individual extensions.  ",
@@ -224,23 +224,6 @@
     "properties": {
       "create": true,
       "override": true
-    },
-    "author": "Werner Diwischek",
-    "creationDate": 1608073200000
-  },
-  "ConfigBeanInterface": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": "expose, module, moduleScope, scope, configModelKey",
-    "interfaces": "ConfigConfigInterface",
-    "expose": "NONE",
-    "description": "Basic config interface as super interface for other cached items. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ConfigBeanInterface",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE",
-      "final": false
     },
     "author": "Werner Diwischek",
     "creationDate": 1608073200000
@@ -266,7 +249,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "expose, module, moduleScope, scope",
-    "interfaces": "ConfigConfigInterface",
+    "interfaces": "ConfigInterface",
     "superKey": "BaseConfig",
     "expose": "NONE",
     "description": "Basic cache as super object for other cached items. ",
@@ -280,7 +263,7 @@
     "author": "Werner Diwischek",
     "creationDate": 1608073200000
   },
-  "ConfigConfigInterface": {
+  "ConfigInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "expose, module, moduleScope, scope",
@@ -288,7 +271,7 @@
     "expose": "NONE",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ConfigConfigInterface",
+    "modelKey": "ConfigInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
@@ -633,7 +616,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "fieldKey, modelKeys, length, notNull, override, final, generated, super, javascriptType, transient, min, max, unique, fieldName, jsonIgnore, staticName, default, property",
-    "interfaces": "FieldConfigInterface,ConfigBeanInterface",
+    "interfaces": "FieldConfigInterface",
     "expose": "NONE",
     "description": "An interface for @FieldBean with access methods for properties. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -668,7 +651,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "fieldKey, modelKeys, length, notNull, override, final, generated, super, javascriptType, transient, min, max, unique, fieldName, jsonIgnore, staticName, default, property",
-    "interfaces": "ConfigConfigInterface",
+    "interfaces": "ConfigInterface",
     "expose": "NONE",
     "description": "Access methods for field properties map and get method definitions for final fields. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -755,7 +738,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "cached, fileName, filePath, hostConfigKey",
-    "interfaces": "PermissionConfigInterface,ConfigConfigInterface",
+    "interfaces": "PermissionConfigInterface,ConfigInterface",
     "expose": "NONE",
     "description": "Access methods for field properties map. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
@@ -921,7 +904,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "port, protocol, password, hostName, user, url",
-    "interfaces": "ConfigConfigInterface",
+    "interfaces": "ConfigInterface",
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
@@ -1129,7 +1112,7 @@
         "override": false
       }
     },
-    "interfaces": "ModelConfigInterface,ConfigBeanInterface",
+    "interfaces": "ModelConfigInterface",
     "expose": "WEB",
     "description": "An interface for @ModelBean with access methods for properties. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -1267,7 +1250,7 @@
         "override": false
       }
     },
-    "interfaces": "ConfigConfigInterface",
+    "interfaces": "ConfigInterface",
     "expose": "NONE",
     "description": "Elementary model properties.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",

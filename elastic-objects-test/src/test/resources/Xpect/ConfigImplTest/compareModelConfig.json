@@ -64,7 +64,7 @@
       "naturalId": "scope"
     }
   },
-  "interfaces": "ConfigConfigInterface",
+  "interfaces": "ConfigInterface",
   "modelKey": "ConfigConfig",
   "module": "elastic-objects",
   "moduleScope": "main",

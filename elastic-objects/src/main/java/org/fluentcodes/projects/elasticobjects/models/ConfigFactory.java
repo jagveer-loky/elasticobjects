@@ -5,36 +5,31 @@ import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
-import org.fluentcodes.projects.elasticobjects.calls.HostBean;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.tools.xpect.IORuntimeException;
 import org.fluentcodes.tools.xpect.IOString;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.TreeMap;
 
 /**
  * Created by Werner on 22.10.2021.
  */
 
-public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigConfigInterface> {
+public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterface> {
     public static final Logger LOG = LogManager.getLogger(ConfigFactory.class);
     private final Scope scope;
-    private final Class<? extends ConfigConfigInterface> configClass;
-    private final Class<? extends ConfigBeanInterface> beanClass;
+    private final Class<? extends ConfigInterface> configClass;
+    private final Class<? extends ConfigBean> beanClass;
 
-    protected ConfigFactory(final Scope scope, final Class<? extends ConfigBeanInterface> beanClass, Class<? extends ConfigConfigInterface> configClass) {
+    protected ConfigFactory(final Scope scope, final Class<? extends ConfigBean> beanClass, Class<? extends ConfigInterface> configClass) {
         this.scope = scope;
         this.configClass = configClass;
         this.beanClass = beanClass;
     }
 
-    public  Map<String, ConfigConfigInterface> createImmutableConfig(ConfigMaps configMaps){
+    public  Map<String, ConfigInterface> createImmutableConfig(ConfigMaps configMaps){
         return new UnmodifiableMap<>(createConfigMap(configMaps));
     }
 

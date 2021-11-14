@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * @since 13.10.2016.
  */
 public class ConfigMaps {
-    private final Map<Class<? extends ConfigConfigInterface>, Map<String, ConfigConfigInterface>> configMaps;
+    private final Map<Class<? extends ConfigInterface>, Map<String, ConfigInterface>> configMaps;
     private final Scope scope;
 
     public ConfigMaps() {
@@ -43,7 +43,7 @@ public class ConfigMaps {
         return scope;
     }
 
-    public Set<Class<? extends ConfigConfigInterface>> getKeys() {
+    public Set<Class<? extends ConfigInterface>> getKeys() {
         return configMaps.keySet();
     }
 
@@ -57,14 +57,14 @@ public class ConfigMaps {
      * @param configKey   the config key to find
      * @return The configuration class
      */
-    public Object find(final Class<? extends ConfigConfigInterface> configClass, final String configKey)  {
+    public Object find(final Class<? extends ConfigInterface> configClass, final String configKey)  {
         if (configKey == null || configKey.isEmpty()) {
             throw new EoException("Config key is empty within '" + configClass.getSimpleName() + "'!");
         }
         if (!getConfigMap(configClass).containsKey(configKey)) {
             throw new EoException("Could not found config key within '" + configClass.getSimpleName() + "'!");
         }
-        ConfigConfigInterface config = getConfigMap(configClass).get(configKey);
+        ConfigInterface config = getConfigMap(configClass).get(configKey);
         return config;
     }
 
@@ -89,7 +89,7 @@ public class ConfigMaps {
         return getConfigMap(configClass).keySet();
     }
 
-    private Map<String, ConfigConfigInterface> getConfigMap(Class configClass) {
+    private Map<String, ConfigInterface> getConfigMap(Class configClass) {
         if (configClass == null) throw new EoException("Config class is null!");
         if (!this.configMaps.containsKey(configClass)) {
             String factoryClassName = configClass.getName().replace("Config", "Factory") ;

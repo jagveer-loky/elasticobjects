@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface.MODULE_SCOPE;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.MODULE_SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 
 public class ModelFactoryAllTest {

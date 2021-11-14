@@ -77,7 +77,7 @@
       "naturalId": "scope"
     }
   },
-  "interfaces": "ConfigBeanInterface",
+  "interfaces": "ConfigInterface",
   "modelKey": "ConfigBean",
   "module": "elastic-objects",
   "moduleScope": "main",

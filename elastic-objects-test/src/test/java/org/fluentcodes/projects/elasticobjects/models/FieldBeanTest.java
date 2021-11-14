@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface.SCOPE;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.GENERATED;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.NOT_NULL;
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.OVERRIDE;

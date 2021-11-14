@@ -12,7 +12,7 @@ import java.util.Map;
  * @creationDate 
  * @modificationDate Tue Dec 08 17:46:47 CET 2020
  */
-public interface ConfigConfigInterface extends BaseConfigInterface {
+public interface ConfigInterface extends BaseConfigInterface {
 /*=>{}.*/
 
     /*=>{javaStaticNames}|*/

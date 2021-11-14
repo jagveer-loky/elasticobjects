@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryMapReadCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.ASubObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
@@ -50,6 +50,6 @@ public class ModelTemplateCallStart {
     }
     @Test
     public void call__execute__logEmpty() {
-        createAll(ConfigConfigInterface.class.getSimpleName());
+        createAll(ConfigInterface.class.getSimpleName());
     }
 }

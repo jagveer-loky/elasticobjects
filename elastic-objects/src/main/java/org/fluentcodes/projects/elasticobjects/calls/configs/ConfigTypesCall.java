@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,7 +27,7 @@ public class ConfigTypesCall extends CallImpl implements SimpleCommand {
     /*=>{javaInstanceVars}|*/
 /*=>{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
-    private Class<? extends ConfigConfigInterface> configClass;
+    private Class<? extends ConfigInterface> configClass;
 
     public ConfigTypesCall() {
         super();
@@ -36,7 +36,7 @@ public class ConfigTypesCall extends CallImpl implements SimpleCommand {
     @Override
     public Object execute(final EO eo) {
         super.check(eo);
-        Set<Class<? extends ConfigConfigInterface>> keys = eo.getConfigsCache().getKeys();
+        Set<Class<? extends ConfigInterface>> keys = eo.getConfigsCache().getKeys();
         try {
             return keys
                     .stream()

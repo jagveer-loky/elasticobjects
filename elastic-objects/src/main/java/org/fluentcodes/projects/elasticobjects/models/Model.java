@@ -10,7 +10,7 @@ import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterfac
 import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.PROPERTY;
 
 
-public interface Model extends ModelConfigInterface, ConfigBeanInterface {
+public interface Model extends ModelConfigInterface {
     String JAVASCRIPT_TYPE = "javascriptType";
     String DB_ANNOTATED = "dbAnnotated";
     String ABSTRACT = "abstract";

@@ -1,9 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.calls.db.DbTypes;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 
-public interface DbConfigInterface extends ConfigConfigInterface {
+public interface DbConfigInterface extends ConfigInterface {
     String SCHEMA = "schema";
     String DRIVER = "driver";
     String JNDI = "jndi";

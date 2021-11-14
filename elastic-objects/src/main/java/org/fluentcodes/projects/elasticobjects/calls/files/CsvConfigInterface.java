@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 
-public interface CsvConfigInterface extends ConfigConfigInterface {
+public interface CsvConfigInterface extends ConfigInterface {
     public static final String FIELD_DELIMITER = "fieldDelimiter";
     public static final String ROW_DELIMITER = "rowDelimiter";
     public static final String DEFAULT_FIELD_DELIMITER = ";";

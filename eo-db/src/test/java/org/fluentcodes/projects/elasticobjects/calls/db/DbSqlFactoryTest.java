@@ -1,9 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Test;

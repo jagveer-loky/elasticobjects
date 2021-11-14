@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import java.util.HashMap;
 import java.util.Map;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 
@@ -16,7 +15,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
  * @creationDate null
  * @modificationDate Sun Jan 10 11:32:02 CET 2021
  */
-public class ConfigConfig extends BaseConfig implements ConfigConfigInterface  {
+public class ConfigConfig extends BaseConfig implements ConfigInterface {
 /*=>{}.*/
    private final Map properties;
     /*=>{javaInstanceVars}|*/

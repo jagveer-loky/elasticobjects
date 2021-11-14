@@ -13,7 +13,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  * @creationDate Fri Nov 06 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 06:47:24 CET 2021
  */
-public interface FieldBeanInterface extends FieldConfigInterface, ConfigBeanInterface {
+public interface FieldBeanInterface extends FieldConfigInterface{
     /*=>{}.*/
     boolean isMerged();
 

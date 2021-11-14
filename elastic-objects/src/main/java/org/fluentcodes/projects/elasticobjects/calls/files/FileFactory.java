@@ -1,20 +1,10 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ConfigFactory;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigList;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigMap;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigObject;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigScalar;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
-import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
