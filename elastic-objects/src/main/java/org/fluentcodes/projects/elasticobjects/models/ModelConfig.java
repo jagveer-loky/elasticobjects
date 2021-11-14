@@ -47,7 +47,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         this.fieldConfigMap = new LinkedHashMap<>();
         this.interfacesMap = new LinkedHashMap<>();
         if (bean.hasFieldBeans()) {
-            for (FieldBeanInterface fieldBean : bean.getFieldBeans().values()) {
+            for (FieldBean fieldBean : bean.getFieldBeans().values()) {
                 fieldConfigMap.put(fieldBean.getFieldKey(), new FieldConfig(this, fieldBean));
             }
         }

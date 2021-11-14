@@ -1,5 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 /*=>{javaHeader}|*/
@@ -9,7 +12,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.JSONToEO;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 /**
  * 
@@ -96,10 +101,8 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
             }
 
         }
-        defaultConfigModelKey();
     }
 
-    @Override
     public Map<String, Object> getProperties() {
         return properties;
     }
@@ -108,7 +111,6 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
     }
 
     /*=>{javaAccessors}|*/
-   @Override
    public String getConfigModelKey() {
        return this.configModelKey;
    }
@@ -117,7 +119,6 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
         return configModelKey != null && !configModelKey.isEmpty();
     }
 
-   @Override
    public ConfigBean setConfigModelKey(final String configModelKey) {
        this.configModelKey = configModelKey;
        return this;
@@ -167,5 +168,136 @@ public class ConfigBean extends BaseBean implements ConfigBeanInterface  {
       return this;
     }
 
+    /**
+     * Defines scope of the configuration within module, eg 'test' or 'main' .
+     */
+
+    void mergeConfigModelKey(Object value) {
+        if (value == null) {
+            return;
+        }
+        if (hasConfigModelKey()) {
+            return;
+        }
+        setConfigModelKey(ScalarConverter.toString(value));
+    }
+
+    Class deriveConfigClass(final String configModelKey) {
+        try {
+            return Class.forName(
+                    this.getClass().getPackage().toString().replace("package ", "")
+                            + "." + configModelKey);
+        } catch (Exception e) {
+            throw new EoException(e.getMessage());
+        }
+    }
+
+    Class deriveConfigClass() {
+        return deriveConfigClass(getConfigModelKey());
+    }
+
+    ConfigConfigInterface createConfig(Class<? extends ConfigConfig> configClass) {
+        try {
+            Constructor configurationConstructor = configClass.getConstructor(ConfigBean.class);
+            try {
+                return (ConfigConfigInterface)configurationConstructor.newInstance(this);
+            } catch (Exception e) {
+                throw new EoInternalException("Problem with create new instance for config constructor with bean class for '" + getNaturalId() + "'/'" + configClass.getSimpleName() + "' in ModelConfig", e);
+            }
+        }
+        catch (NoSuchMethodException e) {
+            throw new EoInternalException("Problem find constructor for '" + getNaturalId() + "'  '" + configClass.getSimpleName() + "' with ConfigBean", e);
+        }
+    }
+
+    ConfigConfigInterface createConfig(ConfigMaps configsCache) {
+        if (!hasConfigModelKey()) {
+            throw new EoException("No configModelKey is set!");
+        }
+        ModelConfig configModel = configsCache.findModel(getConfigModelKey());
+        return createConfig(configModel.getModelClass());
+
+    }
+
+    private List<Scope> createScopeList(List values) {
+        List<Scope> scopeList = new ArrayList<>();
+        for (Object value:values) {
+            if (value instanceof String) {
+                try {
+                    scopeList.add(Scope.valueOf((String) value));
+                }
+                catch (Exception e) {
+                    throw new EoException("Could not set scope from string with value '" + value + "'");
+                }
+            }
+            else if (value instanceof Scope) {
+                scopeList.add((Scope)value);
+            }
+            else {
+                throw new EoException("Could not set scope from class '" + value.getClass() + "' and value '" + value + "'");
+            }
+        }
+        return scopeList;
+    }
+    private void mergeScope(Object value) {
+        if (value==null) {
+            return;
+        }
+        if (hasScope()) {
+            return;
+        }
+        if (value instanceof String) {
+            if (!((String)value).isEmpty()) {
+                String[] values = ((String)value).split(",");
+                setScope(createScopeList(Arrays.asList(values)));
+                return;
+            }
+        }
+        else if (value instanceof List) {
+            setScope(createScopeList((List) value));
+            return;
+        }
+        throw new EoException("Could not set moduleScope from class '" + value.getClass() + "' and value '" + value + "'");
+    }
+
+    private void mergeModuleScope(Object value) {
+        if (value == null) {
+            return;
+        }
+        if (hasModuleScope()) {
+            return;
+        }
+        setModuleScope(ScalarConverter.toString(value));
+    }
+
+    private void mergeModule(Object value) {
+        if (value == null) {
+            return;
+        }
+        if (hasModule()) {
+            return;
+        }
+        setModule(ScalarConverter.toString(value));
+    }
+
+    private void mergeExpose(Object value) {
+        if (value==null) {
+            return;
+        }
+        if (hasExpose()) {
+            return;
+        }
+        if (value instanceof Expose) {
+            setExpose((Expose)value);
+            return;
+        }
+        if (value instanceof String) {
+            setExpose(Expose.valueOf((String) value));
+            return;
+        }
+        throw new EoException("Could not set expose from class '" + value.getClass() + "' and value '" + value + "'");
+    }
+
 /*=>{}.*/
+
 }

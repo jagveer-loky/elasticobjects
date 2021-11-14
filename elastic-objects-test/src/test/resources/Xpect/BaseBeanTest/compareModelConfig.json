@@ -38,7 +38,6 @@
       "naturalId": "naturalId"
     }
   },
-  "interfaces": "BaseBeanInterface",
   "modelKey": "BaseBean",
   "module": "elastic-objects",
   "moduleScope": "main",

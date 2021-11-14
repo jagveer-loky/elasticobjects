@@ -1,8 +1,16 @@
 package org.fluentcodes.projects.elasticobjects.domain;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+
 import java.util.Map;
 
 /*=>{javaHeader}|*/
 import java.util.Date;
+
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.AUTHOR;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.CREATION_DATE;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.DESCRIPTION;
 /**
  * 
  * Base bean as super object for model beans with id, naturalId and description but no annotations.  
@@ -10,7 +18,7 @@ import java.util.Date;
  * @creationDate Wed Dec 21 00:00:00 CET 2016
  * @modificationDate Sat Jan 09 13:58:40 CET 2021
  */
-public class BaseBean implements BaseBeanInterface {
+public class BaseBean {
 /*=>{}.*/
     /*=>{javaInstanceVars}|*/
    /* The author of the class. */
@@ -43,12 +51,12 @@ public class BaseBean implements BaseBeanInterface {
         this.id = config.getId();
     }
 
-    public void merge(final BaseBeanInterface map) {
-        mergeId(map.getId());
-        mergeNaturalId(map.getNaturalId());
-        mergeDescription(map.getDescription());
-        mergeCreationDate(map.getCreationDate());
-        mergeAuthor(map.getAuthor());
+    public void merge(final BaseBean bean) {
+        mergeId(bean.getId());
+        mergeNaturalId(bean.getNaturalId());
+        mergeDescription(bean.getDescription());
+        mergeCreationDate(bean.getCreationDate());
+        mergeAuthor(bean.getAuthor());
     }
 
     public void merge(final Map configMap) {
@@ -132,4 +140,34 @@ public class BaseBean implements BaseBeanInterface {
       return getNaturalId() != null && !getNaturalId().isEmpty();
    }
 /*=>{}.*/
+
+    private void mergeNaturalId(final Object value) {
+        if (value == null) return;
+        if (hasNaturalId()) return;
+        setNaturalId(ScalarConverter.toString(value));
+    }
+
+    private void mergeId(final Object value) {
+        if (value == null) return;
+        if (hasId()) return;
+        setId(ScalarConverter.toLong(value));
+    }
+
+    private void mergeDescription(final Object value) {
+        if (value == null) return;
+        if (hasDescription()) return;
+        setDescription(ScalarConverter.toString(value));
+    }
+
+    private void mergeCreationDate(final Object value) {
+        if (value == null) return;
+        if (hasCreationDate()) return;
+        setCreationDate(ScalarConverter.toDate(value));
+    }
+
+    private void mergeAuthor(final Object value) {
+        if (value == null) return;
+        if (hasAuthor()) return;
+        setAuthor(ScalarConverter.toString(value));
+    }
 }

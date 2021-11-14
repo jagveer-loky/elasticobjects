@@ -54,15 +54,14 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
         defaultConfigModelKey();
     }
 
-    @Override
-    public void defaultConfigModelKey() {
+    private void defaultConfigModelKey() {
         if (hasConfigModelKey()) {
             return;
         }
         setConfigModelKey(FileConfig.class.getSimpleName());
     }
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    @Override
    public Boolean getCached() {
       return this.cached;
@@ -103,5 +102,5 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
       return this;
     }
 
-/*=>{}.*/
+/*.{}.*/
 }

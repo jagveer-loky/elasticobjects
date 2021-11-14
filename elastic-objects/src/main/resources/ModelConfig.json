@@ -29,7 +29,6 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "id, description, naturalId, creationDate, author",
-    "interfaces": "BaseBeanInterface",
     "expose": "NONE",
     "description": "Base bean as super object for model beans with id, naturalId and description but no annotations. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
@@ -40,23 +39,6 @@
     },
     "author": "Werner Diwischek",
     "creationDate": 1482274800000
-  },
-  "BaseBeanInterface": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": "id, description, naturalId, creationDate, author",
-    "interfaces": "BaseConfigInterface",
-    "expose": "NONE",
-    "description": "Basic bean as super interface for other cached items. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
-    "modelKey": "BaseBeanInterface",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE",
-      "final": false
-    },
-    "author": "Werner Diwischek",
-    "creationDate": 1608505200000
   },
   "BaseConfig": {
     "module": "elastic-objects",
@@ -250,7 +232,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "expose, module, moduleScope, scope, configModelKey",
-    "interfaces": "ConfigConfigInterface,BaseBeanInterface",
+    "interfaces": "ConfigConfigInterface",
     "expose": "NONE",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -1134,24 +1116,6 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
-      "abstract": {
-        "jsonSerialized": false,
-        "transient": true,
-        "default": true
-      },
-      "dbAnnotated": {
-        "jsonSerialized": false,
-        "transient": true,
-        "default": true
-      },
-      "shapeType": {
-        "jsonSerialized": false,
-        "transient": true,
-        "default": true
-      },
-      "javascriptType": {
-        "override": false
-      },
       "interfaces": {
         "override": false
       },
@@ -1180,6 +1144,19 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
+      "abstract": {
+        "jsonSerialized": false,
+        "transient": true,
+        "default": true
+      },
+      "dbAnnotated": {
+        "jsonSerialized": false,
+        "transient": true,
+        "default": true
+      },
+      "javascriptType": {
+        "override": false
+      },
       "interfaces": {
         "override": true
       },
@@ -1188,6 +1165,11 @@
       },
       "packagePath": {
         "override": true
+      },
+      "shapeType": {
+        "jsonSerialized": false,
+        "transient": true,
+        "default": true
       },
       "superKey": {
         "override": true

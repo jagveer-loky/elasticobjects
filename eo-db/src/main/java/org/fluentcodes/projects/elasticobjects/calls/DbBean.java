@@ -10,24 +10,14 @@ public class DbBean extends HostBean implements DbBeanInterface {
     private List<String> sqlList;
     public DbBean() {
         super();
-        defaultConfigModelKey();
     }
 
     public DbBean(final Map<String, Object> map) {
         super();
-        defaultConfigModelKey();
     }
 
     public void merge(final Map configMap) {
         super.merge(configMap);
-    }
-
-    @Override
-    public void defaultConfigModelKey() {
-        if (hasConfigModelKey()) {
-            return;
-        }
-        setConfigModelKey(HostConfig.class.getSimpleName());
     }
 
     public List<String> getSqlList() {

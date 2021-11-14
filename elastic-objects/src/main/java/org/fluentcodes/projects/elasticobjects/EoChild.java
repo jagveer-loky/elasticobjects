@@ -1,7 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.domain.BaseBeanInterface;
+
+import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
@@ -418,12 +419,12 @@ public class EoChild implements EO {
 
     private Object createBaseObject(Object value) {
         Object object = fieldModels.create();
-        if (object instanceof BaseBeanInterface) {
+        if (object instanceof BaseBean) {
             if (value instanceof Long) {
-                ((BaseBeanInterface)object).setId((Long)object);
+                ((BaseBean)object).setId((Long)object);
             }
             else if (value instanceof String) {
-                ((BaseBeanInterface)object).setNaturalId((String)object);
+                ((BaseBean)object).setNaturalId((String)object);
             }
             return object;
         }

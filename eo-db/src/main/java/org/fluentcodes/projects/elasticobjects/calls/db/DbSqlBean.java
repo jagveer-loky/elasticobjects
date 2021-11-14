@@ -29,8 +29,7 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
     }
 
 
-    @Override
-    public void defaultConfigModelKey() {
+    private void defaultConfigModelKey() {
         if (hasConfigModelKey()) {
             return;
         }

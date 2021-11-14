@@ -35,7 +35,7 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface  {
     private Method getter;
     private Method setter;
 
-    public FieldConfig(final ModelConfig parentModel, final FieldBeanInterface bean) {
+    public FieldConfig(final ModelConfig parentModel, final FieldBean bean) {
         super(bean);
         this.parentModel = parentModel;
         this.toSerialize = false;

@@ -30,7 +30,7 @@ public class ConfigConfig extends BaseConfig implements ConfigConfigInterface  {
    private final List<Scope> scope;
 /*=>{}.*/
 
-    public ConfigConfig(ConfigBeanInterface configBean) {
+    public ConfigConfig(ConfigBean configBean) {
         super(configBean);
         this.module = configBean.getModule();
         this.moduleScope = configBean.getModuleScope();

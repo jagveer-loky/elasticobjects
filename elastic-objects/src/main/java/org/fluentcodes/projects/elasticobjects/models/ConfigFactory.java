@@ -22,8 +22,7 @@ import java.util.TreeMap;
  * Created by Werner on 22.10.2021.
  */
 
-public abstract class ConfigFactory<T extends ConfigBeanInterface, U extends ConfigConfigInterface>
-        implements ConfigConfigMapInterface<T, U> {
+public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigConfigInterface> {
     public static final Logger LOG = LogManager.getLogger(ConfigFactory.class);
     private final Scope scope;
     private final Class<? extends ConfigConfigInterface> configClass;
@@ -43,7 +42,6 @@ public abstract class ConfigFactory<T extends ConfigBeanInterface, U extends Con
      * Default init map.
      * @return the expanded final configurations.
      */
-    @Override
     public Map<String, T> createBeanMap(ConfigMaps configMaps) {
         EO eoRoot = EoRoot.ofClass(configMaps, readConfigFiles(), Map.class, beanClass);
         Map<String,T> beanMap = (Map<String, T>)eoRoot.get();
@@ -53,7 +51,6 @@ public abstract class ConfigFactory<T extends ConfigBeanInterface, U extends Con
         return beanMap;
     }
 
-    @Override
     public Map<String, U> createConfigMap(ConfigMaps configMaps) {
         Map<String, T> beanMap = createBeanMap(configMaps);
         Map<String, U> configMap = new TreeMap<>();

@@ -29,6 +29,7 @@ public class HostBean extends PermissionBean implements HostBeanInterface  {
 
     public void merge(final Map configMap) {
         super.merge(configMap);
+        defaultConfigModelKey();
     }
 
 /*=>{javaAccessors}|*/
@@ -36,8 +37,7 @@ public class HostBean extends PermissionBean implements HostBeanInterface  {
 
 
 
-    @Override
-    public void defaultConfigModelKey() {
+    private void defaultConfigModelKey() {
         if (hasConfigModelKey()) {
             return;
         }

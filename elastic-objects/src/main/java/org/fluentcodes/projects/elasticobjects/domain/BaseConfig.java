@@ -25,7 +25,7 @@ public class BaseConfig implements BaseConfigInterface  {
 /*=>{}.*/
 
 /*=>{javaBeanConstructor}|*/
-  public BaseConfig(final BaseBeanInterface bean) {
+  public BaseConfig(final BaseBean bean) {
       this.author = bean.getAuthor();
       this.creationDate = bean.getCreationDate();
       this.description = bean.getDescription();

@@ -1,10 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.calls.db.DbTypes;
-import org.fluentcodes.projects.elasticobjects.domain.BaseBeanInterface;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-public interface DbBeanInterface extends DbConfigInterface, BaseBeanInterface {
+public interface DbBeanInterface extends DbConfigInterface {
     default void setSchema(final String value) {
         getProperties().put(SCHEMA, value);
     }
