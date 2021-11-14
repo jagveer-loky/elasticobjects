@@ -1,13 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-
-import java.util.List;
 import java.util.Map;
-
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.PROPERTY;
 
 
 public interface Model extends ModelConfigInterface {
@@ -25,7 +18,7 @@ public interface Model extends ModelConfigInterface {
     default boolean hasFieldBeans() {
         return getFieldBeans()!=null && !getFieldBeans().isEmpty();
     }
-    default FieldBeanInterface getFieldBean(final String fieldKey) {
+    default FieldBean getFieldBean(final String fieldKey) {
         return getFieldBeans().get(fieldKey);
     }
 

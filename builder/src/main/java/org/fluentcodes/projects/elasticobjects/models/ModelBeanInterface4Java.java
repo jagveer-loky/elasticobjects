@@ -18,12 +18,12 @@ public interface ModelBeanInterface4Java extends Model {
     default String getJavaAccessors() {
         StringBuilder builder = new StringBuilder();
         if (isInterface()) {
-            for (FieldBeanInterface field : getFieldBeans().values()) {
+            for (FieldBean field : getFieldBeans().values()) {
                 builder.append(((FieldBeanGen)field).getJavaAccess4Interface());
             }
         }
         else {
-            for (FieldBeanInterface field : getFieldBeans().values()) {
+            for (FieldBean field : getFieldBeans().values()) {
                 builder.append(((FieldBeanGen) field).getJavaAccess4Bean());
             }
         }
@@ -32,7 +32,7 @@ public interface ModelBeanInterface4Java extends Model {
 
     default String getJavaInstanceVars() {
         StringBuilder builder = new StringBuilder();
-        for (FieldBeanInterface field: getFieldBeans().values()) {
+        for (FieldBean field: getFieldBeans().values()) {
             builder.append(((FieldBeanGen)field).getJavaInstanceVar());
         }
         return builder.toString();
@@ -50,7 +50,7 @@ public interface ModelBeanInterface4Java extends Model {
         if (hasSuperKey()) {
             builder.append("    super(bean);\n");
         }
-        for (FieldBeanInterface field: getFieldBeans().values()) {
+        for (FieldBean field: getFieldBeans().values()) {
             builder.append(((FieldBeanGen)field).getJavaBeanConstructor());
         }
         builder.append("   }\n");
@@ -59,7 +59,7 @@ public interface ModelBeanInterface4Java extends Model {
 
     default String getJavaStaticNames() {
         StringBuilder builder = new StringBuilder();
-        for (FieldBeanInterface field: getFieldBeans().values()) {
+        for (FieldBean field: getFieldBeans().values()) {
             if (!(field instanceof FieldBeanGen)) {
                 throw new EoInternalException("Not a fieldBeanGen instance for "+ getModelKey() + "." + field.getFieldKey() );
             }

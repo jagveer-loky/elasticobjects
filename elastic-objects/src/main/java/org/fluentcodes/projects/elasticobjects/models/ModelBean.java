@@ -1,10 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
-import org.fluentcodes.projects.elasticobjects.calls.PermissionBeanInterface;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionInterface;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,15 +15,15 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.FIELD_KEY;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.PROPERTY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FIELD_KEY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.PROPERTY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.INTERFACES;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SUPER_KEY;
 
-public class ModelBean extends ConfigBean implements Model, PermissionBeanInterface, Comparable<ModelBean> {
+public class ModelBean extends ConfigBean implements Model, PermissionInterface, Comparable<ModelBean> {
     public static final String FIELD_BEANS = "fieldBeans";
     public static final String FIELD_KEYS = "fieldKeys";
     private boolean resolved;
@@ -252,7 +253,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
     }
 
     public void mergeFieldBeanMap(Map<String, FieldBean> fieldBeanMap) {
-        for (FieldBeanInterface fieldBean: fieldBeans.values()) {
+        for (FieldBean fieldBean: fieldBeans.values()) {
             if (!fieldBean.hasNaturalId()) {
                 throw new EoInternalException("Could not get field definition for '" + fieldBean.getNaturalId() + "'.");
             }
@@ -269,7 +270,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
     }
 
     public void mergeFieldDefinition(Map<String, Map> fieldMap) {
-        for (FieldBeanInterface fieldBean: fieldBeans.values()) {
+        for (FieldBean fieldBean: fieldBeans.values()) {
             if (!fieldBean.hasNaturalId()) {
                 throw new EoInternalException("Could not get field definition for '" + fieldBean.getNaturalId() + "'.");
             }
@@ -306,7 +307,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
                 interfaceModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
             }
         }
-        for (FieldBeanInterface fieldBean: fieldBeans.values()) {
+        for (FieldBean fieldBean: fieldBeans.values()) {
             fieldBean.setParentModel(this);
             if (!fieldBean.hasModelKeys()) {
                 throw new EoInternalException("No Model defined for field '" + fieldBean.getNaturalId() + "'");
@@ -347,7 +348,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         if (!mergeFields) {
             return;
         }
-        for (FieldBeanInterface fieldBean: this.fieldBeans.values()) {
+        for (FieldBean fieldBean: this.fieldBeans.values()) {
             if (subFieldBeans.containsKey(fieldBean.getNaturalId())) {
                 subFieldBeans.get(fieldBean.getNaturalId()).setOverride(true);
                 continue;
@@ -363,7 +364,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         return rolePermissions;
     }
 
-    @Override
     public ModelBean setRolePermissions(PermissionRole rolePermissions) {
         this.rolePermissions = rolePermissions;
         return this;
@@ -460,6 +460,12 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
             throw new EoException("Could not set create .. properties not defined");
         }
         getProperties().put(CREATE, create);
+    }
+
+    private void mergeRolePermissions(final Object value) {
+        if (value == null) return;
+        if (hasRolePermissions()) return;
+        setRolePermissions(ScalarConverter.toPermissionRole(value));
     }
 
 }

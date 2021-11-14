@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -17,7 +19,7 @@ import java.util.Map;
  * @creationDate Wed Dec 09 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 04:43:19 CET 2021
  */
-public class FieldBean extends ConfigBean implements FieldBeanInterface {
+public class FieldBean extends ConfigBean implements FieldInterface {
     /*=>{}.*/
 
     /*=>{javaInstanceVars}|*/
@@ -66,7 +68,7 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         setModelKeys(config.getModelKeys());
     }
 
-    protected FieldBean(final FieldBeanInterface fieldBean) {
+    protected FieldBean(final FieldBean fieldBean) {
         super();
         this.merge((FieldBean) fieldBean);
         setSuper(true);
@@ -127,7 +129,6 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         return this.fieldKey;
     }
 
-    @Override
     public FieldBean setFieldKey(final String fieldKey) {
         this.fieldKey = fieldKey;
         return this;
@@ -138,7 +139,6 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         return this.length;
     }
 
-    @Override
     public FieldBean setLength(final Integer length) {
         this.length = length;
         return this;
@@ -149,7 +149,7 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         return this.modelKeys;
     }
 
-    @Override
+
     public FieldBean setModelKeys(final String modelKeys) {
         this.modelKeys = modelKeys;
         return this;
@@ -180,7 +180,6 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         return parentModel;
     }
 
-    @Override
     public void setParentModel(ModelConfigInterface modelBean) {
         this.parentModel = modelBean;
     }
@@ -337,4 +336,125 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
         }
         getProperties().put(FINAL, false);
     }
+
+    public FieldBean setDefault(Boolean value) {
+        getProperties().put(DEFAULT, value);
+        return this;
+    }
+
+    private void mergeDefault(final Object value) {
+        if (value == null) return;
+        if (hasDefault()) return;
+        setDefault(ScalarConverter.toBoolean(value));
+    }
+
+    public FieldBean setFieldName(String value) {
+        getProperties().put(FIELD_NAME, value);
+        return this;
+    }
+
+
+    public FieldBean setFinal(Boolean value) {
+        getProperties().put(FINAL, value);
+        return this;
+    }
+
+
+    public FieldBean setGenerated(Boolean value) {
+        getProperties().put(GENERATED, value);
+        return this;
+    }
+
+
+    public FieldBean setJavascriptType(String value) {
+        getProperties().put(JAVASCRIPT_TYPE, value);
+        return this;
+    }
+
+    public FieldBean setJsonIgnore(Boolean value) {
+        getProperties().put(JSON_IGNORE, value);
+        return this;
+    }
+
+    public FieldBean setMax(Integer value) {
+        getProperties().put(MAX, value);
+        return this;
+    }
+
+
+    public FieldBean setMin(Integer value) {
+        getProperties().put(MIN, value);
+        return this;
+    }
+
+
+    public FieldBean setNotNull(Boolean value) {
+        getProperties().put(NOT_NULL, value);
+        return this;
+    }
+
+
+    public FieldBean setOverride(Boolean value) {
+        getProperties().put(OVERRIDE, value);
+        return this;
+    }
+
+    public FieldBean setProperty(Boolean value) {
+        getProperties().put(PROPERTY, value);
+        return this;
+    }
+
+
+    public FieldBean setStaticName(Boolean value) {
+        getProperties().put(STATIC_NAME, value);
+        return this;
+    }
+
+
+    public FieldBean setSuper(Boolean value) {
+        getProperties().put(SUPER, value);
+        return this;
+    }
+
+
+    public FieldBean setTransient(Boolean value) {
+        getProperties().put(TRANSIENT, value);
+        return this;
+    }
+
+
+    public FieldBean setUnique(Boolean value) {
+        getProperties().put(UNIQUE, value);
+        return this;
+    }
+
+
+    /*=>{}.*/
+    private Models getModels(EO eo) {
+        return new Models(eo.getConfigsCache(), getModelKeys());
+    }
+
+    private Object getFieldValue(final String key) {
+        return getProperties().get(key);
+    }
+
+    /* no null */
+
+    public void setOverride(String value) {
+        getProperties().put(OVERRIDE, "true".equals(value));
+    }
+
+
+    public void setMax() {
+        if (hasMax()) {
+            return;
+        }
+        getProperties().put(MAX, -1);
+    }
+
+
+    public void setJavascriptType() {
+        getProperties().put(JAVASCRIPT_TYPE, JavascriptFieldTypeCall.createType(getModelKeys()));
+    }
+
 }

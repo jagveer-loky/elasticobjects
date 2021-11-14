@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.FieldInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
@@ -36,7 +36,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void TEST__find_AnObject_get_myString__$()  {
-        FieldConfigInterface fieldConfig = ProviderRootTestScope.EO_CONFIGS
+        FieldInterface fieldConfig = ProviderRootTestScope.EO_CONFIGS
                 .findModel(AnObject.class)
                 .getField(AnObject.MY_STRING);
         Assert.assertNotNull(fieldConfig);
@@ -121,7 +121,7 @@ public class EoAnObjectSetTest {
     public void assertAnObjectFieldTest()  {
         ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
 
-        FieldConfigInterface field = model.getField(AnObject.MY_STRING);
+        FieldInterface field = model.getField(AnObject.MY_STRING);
         Assert.assertEquals(String.class, ((FieldConfig)field).getModelClass());
 
         field = model.getField(MY_OBJECT);

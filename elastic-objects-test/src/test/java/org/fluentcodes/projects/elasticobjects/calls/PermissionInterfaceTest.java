@@ -6,15 +6,15 @@ import org.junit.Test;
 /**
  * Created by Werner on 3.8.2017.
  */
-public class PermissionConfigInterfaceTest {
+public class PermissionInterfaceTest {
     @Test
     public void compareModelConfig()  {
-        ModelConfigChecks.compare(PermissionConfigInterface.class);
+        ModelConfigChecks.compare(PermissionInterface.class);
     }
 
     @Test
     public void createModelConfig()  {
-        ModelConfigChecks.createThrowsException(PermissionConfigInterface.class);
+        ModelConfigChecks.createThrowsException(PermissionInterface.class);
     }
 
 }

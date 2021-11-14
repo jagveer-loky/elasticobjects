@@ -11,7 +11,7 @@ import java.net.URL;
  * @creationDate Wed Dec 16 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 14:46:34 CET 2021
  */
-public interface FileConfigInterfaceMethods extends FileConfigInterface  {
+public interface FileConfigMethods {
 /*=>{}.*/
     String getCachedContent();
     void setCachedContent(String cachedContent);

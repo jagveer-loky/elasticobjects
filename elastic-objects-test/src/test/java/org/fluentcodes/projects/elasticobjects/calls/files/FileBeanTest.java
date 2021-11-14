@@ -5,8 +5,8 @@ import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.calls.PermissionConfigInterface.ROLE_PERMISSIONS;
-import static org.fluentcodes.projects.elasticobjects.calls.files.FileConfigInterface.FILE_NAME;
+import static org.fluentcodes.projects.elasticobjects.calls.PermissionInterface.ROLE_PERMISSIONS;
+import static org.fluentcodes.projects.elasticobjects.calls.files.FileInterface.FILE_NAME;
 import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.MODULE;
 

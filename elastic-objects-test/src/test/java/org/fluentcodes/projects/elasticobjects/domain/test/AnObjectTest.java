@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.FieldInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
@@ -28,7 +28,7 @@ public class AnObjectTest {
 
     @Test
     public void TEST_myString__toString__String_AnObject_myString() {
-        FieldConfigInterface field = ProviderRootTestScope.findModel(AnObject.class).getField("myString");
+        FieldInterface field = ProviderRootTestScope.findModel(AnObject.class).getField("myString");
         Assertions.assertThat(field.toString()).isEqualTo("(String)AnObject.myString");
     }
 

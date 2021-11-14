@@ -23,7 +23,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.LOCALHOST
  * @creationDate Wed Oct 17 00:00:00 CEST 2018
  * @modificationDate Thu Jan 14 14:42:46 CET 2021
  */
-public class FileConfig extends PermissionConfig implements FileConfigInterfaceMethods  {
+public class FileConfig extends PermissionConfig implements FileConfigMethods, FileInterface  {
 /*=>{}.*/
 
 /*=>{javaInstanceVars}|*/

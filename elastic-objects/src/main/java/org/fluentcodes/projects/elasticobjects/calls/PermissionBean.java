@@ -1,6 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+
 import java.util.Map;
 
 /*=>{javaHeader}|*/
@@ -11,7 +13,7 @@ import java.util.Map;
  * @creationDate Wed Dec 16 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 13:07:13 CET 2021
  */
-public class PermissionBean extends ConfigBean implements PermissionBeanInterface  {
+public class PermissionBean extends ConfigBean implements PermissionInterface {
 /*=>{}.*/
     private PermissionRole rolePermissions;
 
@@ -33,11 +35,17 @@ public class PermissionBean extends ConfigBean implements PermissionBeanInterfac
    public PermissionRole getRolePermissions() {
       return this.rolePermissions;
    }
-   @Override
+
    public PermissionBean setRolePermissions(final PermissionRole rolePermissions) {
       this.rolePermissions = rolePermissions;
       return this;
     }
 
 /*=>{}.*/
+
+    private void mergeRolePermissions(final Object value) {
+        if (value == null) return;
+        if (hasRolePermissions()) return;
+        setRolePermissions(ScalarConverter.toPermissionRole(value));
+    }
  }

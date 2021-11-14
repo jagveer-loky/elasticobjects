@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperCall;
 import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 
-public interface FieldBeanInterface4Java extends FieldBeanInterface {
+public interface FieldBeanInterface4Java extends FieldInterface {
 
     default String getJavaFieldType() {
         String[] models = getModelKeys().split(",");

@@ -598,8 +598,8 @@
   "FieldBean": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": "fieldKey, modelKeys, length",
-    "interfaces": "FieldBeanInterface",
+    "fieldKeys": "fieldKey, modelKeys, length, notNull, override, final, generated, super, javascriptType, transient, min, max, unique, fieldName, jsonIgnore, staticName, default, property",
+    "interfaces": "FieldInterface",
     "superKey": "ConfigBean",
     "expose": "NONE",
     "description": "The basic bean container class for the configuration class@FieldConfig. Also used as a base for building source code. ",
@@ -612,28 +612,11 @@
     "author": "Werner Diwischek",
     "creationDate": 1607468400000
   },
-  "FieldBeanInterface": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": "fieldKey, modelKeys, length, notNull, override, final, generated, super, javascriptType, transient, min, max, unique, fieldName, jsonIgnore, staticName, default, property",
-    "interfaces": "FieldConfigInterface",
-    "expose": "NONE",
-    "description": "An interface for @FieldBean with access methods for properties. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "FieldBeanInterface",
-    "properties": {
-      "create": true,
-      "shapeType": "INTERFACE",
-      "final": false
-    },
-    "author": "Werner Diwischek",
-    "creationDate": 1604617200000
-  },
   "FieldConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "fieldKey, modelKeys, length",
-    "interfaces": "FieldConfigInterface",
+    "interfaces": "FieldInterface",
     "superKey": "ConfigConfig",
     "expose": "NONE",
     "description": "Immutabel EO field configuration will be initalized by @FieldBean object.",
@@ -647,7 +630,7 @@
     "author": "Werner Diwischek",
     "creationDate": 1539727200000
   },
-  "FieldConfigInterface": {
+  "FieldInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "fieldKey, modelKeys, length, notNull, override, final, generated, super, javascriptType, transient, min, max, unique, fieldName, jsonIgnore, staticName, default, property",
@@ -655,7 +638,7 @@
     "expose": "NONE",
     "description": "Access methods for field properties map and get method definitions for final fields. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "FieldConfigInterface",
+    "modelKey": "FieldInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
@@ -668,7 +651,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "cached, fileName, filePath, hostConfigKey",
-    "interfaces": "FileBeanInterface",
+    "interfaces": "FileInterface",
     "superKey": "PermissionBean",
     "expose": "NONE",
     "description": "The bean counterpart for @FileConfig.",
@@ -678,23 +661,6 @@
       "create": true,
       "final": false,
       "override": true
-    },
-    "author": "Werner Diwischek",
-    "creationDate": 1608073200000
-  },
-  "FileBeanInterface": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": "cached, fileName, filePath, hostConfigKey",
-    "interfaces": "FileConfigInterface,PermissionBeanInterface",
-    "expose": "NONE",
-    "description": "Access methods for field properties map. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "FileBeanInterface",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE",
-      "final": false
     },
     "author": "Werner Diwischek",
     "creationDate": 1608073200000
@@ -720,7 +686,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "cached, fileName, filePath, hostConfigKey",
-    "interfaces": "FileConfigInterfaceMethods",
+    "interfaces": "FileInterface,FileConfigMethods",
     "superKey": "PermissionConfig",
     "expose": "NONE",
     "description": "Immutable EO file configuration allow read or write access to a specific file. ",
@@ -734,15 +700,15 @@
     "author": "Werner Diwischek",
     "creationDate": 1539727200000
   },
-  "FileConfigInterface": {
+  "FileInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "cached, fileName, filePath, hostConfigKey",
-    "interfaces": "PermissionConfigInterface,ConfigInterface",
+    "interfaces": "PermissionInterface,ConfigInterface",
     "expose": "NONE",
     "description": "Access methods for field properties map. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "FileConfigInterface",
+    "modelKey": "FileInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
@@ -751,14 +717,13 @@
     "author": "Werner Diwischek",
     "creationDate": 1599602400000
   },
-  "FileConfigInterfaceMethods": {
+  "FileConfigMethods": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "interfaces": "FileConfigInterface",
     "expose": "NONE",
     "description": "Access methods for field properties map. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
-    "modelKey": "FileConfigInterfaceMethods",
+    "modelKey": "FileConfigMethods",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
@@ -1184,7 +1149,7 @@
         "final": true
       }
     },
-    "interfaces": "PermissionConfigInterface",
+    "interfaces": "PermissionInterface",
     "superKey": "ModelConfigObject",
     "expose": "NONE",
     "description": "Class definitions for an object with getters and setters.",
@@ -1400,7 +1365,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "rolePermissions",
-    "interfaces": "PermissionBeanInterface",
+    "interfaces": "PermissionInterface",
     "superKey": "ConfigBean",
     "expose": "WEB",
     "description": "A bean container class for PermissionRole.",
@@ -1414,26 +1379,11 @@
     "author": "Werner Diwischek",
     "creationDate": 1608073200000
   },
-  "PermissionBeanInterface": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": "rolePermissions",
-    "interfaces": "PermissionConfigInterface",
-    "expose": "NONE",
-    "description": "Interface with permissions methods ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "PermissionBeanInterface",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE",
-      "final": false
-    }
-  },
   "PermissionConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "rolePermissions",
-    "interfaces": "PermissionConfigInterfaceMethods",
+    "interfaces": "PermissionInterface",
     "superKey": "ConfigConfig",
     "expose": "NONE",
     "description": "Abstract implementation for resources with permissions methods ",
@@ -1447,35 +1397,20 @@
     },
     "creationDate": 1608073200000
   },
-  "PermissionConfigInterface": {
+  "PermissionInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "rolePermissions",
     "expose": "NONE",
     "description": "Interface with permissions methods ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "PermissionConfigInterface",
+    "modelKey": "PermissionInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
       "final": true
     },
     "creationDate": 1608073200000
-  },
-  "PermissionConfigInterfaceMethods": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "interfaces": "PermissionConfigInterface",
-    "expose": "NONE",
-    "description": "Interface with permissions methods ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "PermissionConfigInterfaceMethods",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE",
-      "final": true
-    },
-    "creationDate": 1604185200000
   },
   "PermissionRole": {
     "module": "elastic-objects",

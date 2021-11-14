@@ -29,16 +29,16 @@ public class FieldConfigTest {
 
     @Test
     public void TEST__findModel_FieldConfigInterface__getProperty_()  {
-        final ModelConfig fieldConfigInterfaceModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldConfigInterface.class);
-        Assert.assertEquals(FieldConfigInterface.class.getSimpleName(), fieldConfigInterfaceModel.getModelKey());
-        Assert.assertEquals(FieldConfigInterface.class, fieldConfigInterfaceModel.getModelClass());
+        final ModelConfig fieldConfigInterfaceModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldInterface.class);
+        Assert.assertEquals(FieldInterface.class.getSimpleName(), fieldConfigInterfaceModel.getModelKey());
+        Assert.assertEquals(FieldInterface.class, fieldConfigInterfaceModel.getModelClass());
     }
 
     @Test
     public void TEST__findModel_FieldBeanInterface__getProperty_()  {
-        final ModelConfig fieldBeanInterfaceModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldBeanInterface.class);
-        Assert.assertEquals(FieldBeanInterface.class.getSimpleName(), fieldBeanInterfaceModel.getModelKey());
-        Assert.assertEquals(FieldBeanInterface.class, fieldBeanInterfaceModel.getModelClass());
+        final ModelConfig fieldBeanInterfaceModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldBean.class);
+        Assert.assertEquals(FieldBean.class.getSimpleName(), fieldBeanInterfaceModel.getModelKey());
+        Assert.assertEquals(FieldBean.class, fieldBeanInterfaceModel.getModelClass());
     }
 
 }

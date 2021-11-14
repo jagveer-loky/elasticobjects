@@ -11,7 +11,7 @@ import java.util.Map;
  * @creationDate Wed Dec 16 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 12:24:13 CET 2021
  */
-public class HostBean extends PermissionBean implements HostInterface, PermissionBeanInterface  {
+public class HostBean extends PermissionBean implements HostInterface, PermissionInterface {
 /*=>{}.*/
 
     public HostBean() {

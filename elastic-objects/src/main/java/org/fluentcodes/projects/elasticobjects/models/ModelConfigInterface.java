@@ -5,9 +5,9 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import java.util.Map;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.OVERRIDE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.PROPERTY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.OVERRIDE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.PROPERTY;
 import static org.fluentcodes.projects.elasticobjects.models.Model.ABSTRACT;
 import static org.fluentcodes.projects.elasticobjects.models.Model.DB_ANNOTATED;
 
@@ -71,7 +71,7 @@ public interface ModelConfigInterface extends ConfigInterface {
     }
 
 
-    default FieldConfigInterface getField(final String key) {
+    default FieldInterface getField(final String key) {
         return getFieldMap().get(key);
     }
 

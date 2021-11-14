@@ -13,7 +13,7 @@ import java.util.List;
  * @creationDate Wed Dec 16 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 12:52:16 CET 2021
  */
-public interface PermissionConfigInterface  {
+public interface PermissionInterface {
 /*=>{}.*/
 
 /*=>{javaStaticNames}|*/

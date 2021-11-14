@@ -318,7 +318,7 @@
       }
     }
   },
-  "interfaces": "FieldConfigInterface",
+  "interfaces": "FieldInterface",
   "modelKey": "FieldConfig",
   "module": "elastic-objects",
   "moduleScope": "main",

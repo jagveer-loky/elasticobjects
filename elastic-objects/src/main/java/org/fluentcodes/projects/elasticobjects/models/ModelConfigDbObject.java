@@ -1,14 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.calls.PermissionConfigInterfaceMethods;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionInterface;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
-
-import java.util.Map;
 
 /**
  * Created by Werner on 01.11.2020.
  */
-public class ModelConfigDbObject extends ModelConfigObject implements PermissionConfigInterfaceMethods {
+public class ModelConfigDbObject extends ModelConfigObject implements PermissionInterface {
     public final static String HOST_CONFIG_KEY = "hostConfigKey";
     private final PermissionRole permissionRole;
     private final String hostConfigKey;

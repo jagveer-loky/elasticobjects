@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.FieldInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
@@ -394,7 +394,7 @@ public class EoChild implements EO {
         Set<String> fieldNameSet = valueModel.keys(value);
         for (String fieldName : fieldNameSet) {
             if (valueModel.isObject()) {
-                FieldConfigInterface fieldBean = valueModel.getField(fieldName);
+                FieldInterface fieldBean = valueModel.getField(fieldName);
                 if (fieldBean == null) {
                     continue;
                 }
