@@ -13,7 +13,7 @@ import java.sql.Statement;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbConfig extends HostConfig implements DbConfigInterface {
+public class DbConfig extends HostConfig implements DbInterface {
     public static final String H2_BASIC = "h2:mem:basic";
     private Connection connection;
     public DbConfig(final ConfigBean configBean) {

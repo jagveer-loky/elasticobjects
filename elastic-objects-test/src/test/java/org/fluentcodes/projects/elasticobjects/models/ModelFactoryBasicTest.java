@@ -16,14 +16,14 @@ public class ModelFactoryBasicTest {
 
     @Test
     public void createConfigMap__get_Map__notNull() {
-        ModelConfigInterface config = new ModelFactoryBasic().createConfigMap(null)
+        ModelInterface config = new ModelFactoryBasic().createConfigMap(null)
                 .get(Map.class.getSimpleName());
         Assertions.assertThat(config).isNotNull();
     }
 
     @Test
     public void createImmutableConfig__get_Map__notNull() {
-        ModelConfigInterface config = (ModelConfigInterface) new ModelFactoryBasic().createImmutableConfig(null)
+        ModelInterface config = (ModelInterface) new ModelFactoryBasic().createImmutableConfig(null)
                 .get(Map.class.getSimpleName());
         Assertions.assertThat(config).isNotNull();
     }

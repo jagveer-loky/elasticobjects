@@ -10,12 +10,12 @@ public class ModelMethodsTest {
 
     @Test
     public void createByModelConfig_throwsException()  {
-        ModelConfigChecks.createThrowsException(ModelConfigInterfaceMethods.class);
+        ModelConfigChecks.createThrowsException(ModelConfigMethods.class);
     }
 
     @Test
     public void compareModelConfig()  {
-        ModelConfigChecks.compare(ModelConfigInterfaceMethods.class);
+        ModelConfigChecks.compare(ModelConfigMethods.class);
     }
 
 }

@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigList extends ModelConfig implements ModelConfigInterfaceMethods {
+public class ModelConfigList extends ModelConfig implements ModelConfigMethods {
     private static final Logger LOG = LogManager.getLogger(ConfigConfig.class);
     public static final String CONFIG_MODEL_KEY = "ModelConfigList";
 

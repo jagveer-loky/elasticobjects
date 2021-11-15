@@ -26,6 +26,12 @@ public interface PermissionInterface {
       return getRolePermissions() != null;
    }
 /*=>{}.*/
-
+default boolean hasPermissions(PermissionType callPermission, List<String> roleKeys)  {
+   int rolePermission = getRolePermissions().getPermissions(roleKeys).value();
+   if (callPermission.value() > rolePermission) {
+      throw new EoException("No permissions for roles " + roleKeys + ": " + callPermission.name() + "(" + callPermission.value() + ")");
+   }
+   return true;
+}
 
 }

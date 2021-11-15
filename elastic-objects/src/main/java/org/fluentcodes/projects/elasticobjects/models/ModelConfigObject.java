@@ -36,7 +36,7 @@ public class ModelConfigObject extends ModelConfig {
         return ((FieldConfig)getField(fieldName)).getModels();
     }
 
-    public ModelConfigInterfaceMethods getFieldChild(final String fieldName)  {
+    public ModelConfigMethods getFieldChild(final String fieldName)  {
         return ((FieldConfig)getField(fieldName)).getChildModel();
     }
 
@@ -87,7 +87,7 @@ public class ModelConfigObject extends ModelConfig {
                 throw new EoException(e);
             }
         } else {
-            ModelConfigInterfaceMethods implementation = getDefaultImplementationModel();
+            ModelConfigMethods implementation = getDefaultImplementationModel();
             try {
                 return implementation.getModelClass().newInstance();
             } catch (Exception e) {

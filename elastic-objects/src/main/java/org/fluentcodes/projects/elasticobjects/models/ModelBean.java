@@ -17,13 +17,14 @@ import java.util.TreeSet;
 
 import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FIELD_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.JAVASCRIPT_TYPE;
 import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.PROPERTY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.INTERFACES;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SUPER_KEY;
 
-public class ModelBean extends ConfigBean implements Model, PermissionInterface, Comparable<ModelBean> {
+public class ModelBean extends ConfigBean implements ModelInterface, PermissionInterface, Comparable<ModelBean> {
     public static final String FIELD_BEANS = "fieldBeans";
     public static final String FIELD_KEYS = "fieldKeys";
     private boolean resolved;
@@ -194,7 +195,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionInterface,
         return modelKey;
     }
 
-    @Override
     public void setModelKey(String modelKey) {
         this.modelKey = modelKey;
     }
@@ -204,7 +204,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionInterface,
         return packagePath;
     }
 
-    @Override
     public void setPackagePath(String packagePath) {
         this.packagePath = packagePath;
     }
@@ -217,7 +216,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionInterface,
     public void setFieldKeys(List<String> fieldKeys) {
     }
 
-    @Override
     public void setSuperKey(String superKey) {
         this.superKey = superKey;
     }
@@ -227,19 +225,24 @@ public class ModelBean extends ConfigBean implements Model, PermissionInterface,
         return interfaces;
     }
 
-    @Override
     public void setInterfaces(String interfaces) {
         this.interfaces = interfaces;
     }
 
-    @Override
     public Set<String> getFieldKeys() {
         return getFieldBeans().keySet();
     }
 
-    @Override
     public Map<String, FieldBean> getFieldBeans() {
         return fieldBeans;
+    }
+
+    public boolean hasFieldBeans() {
+        return fieldBeans!=null && !fieldBeans.isEmpty();
+    }
+
+    public FieldBean getFieldBean(final String fieldKey) {
+        return fieldBeans.get(fieldKey);
     }
 
     @Override
@@ -247,7 +250,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionInterface,
         throw new EoException("TODO");
     }
 
-    @Override
     public void setFieldBeans(Map<String, FieldBean> fieldBeans) {
         this.fieldBeans = fieldBeans;
     }
@@ -412,17 +414,17 @@ public class ModelBean extends ConfigBean implements Model, PermissionInterface,
         getProperties().put(TABLE, value);
     }
 
-    public Model setDbAnnotated(Boolean dbAnnotated) {
+    public ModelBean setDbAnnotated(Boolean dbAnnotated) {
         getProperties().put(DB_ANNOTATED, dbAnnotated);
         return this;
     }
 
-    public Model setProperty(Boolean value) {
+    public ModelBean setProperty(Boolean value) {
         getProperties().put(PROPERTY, value);
         return this;
     }
 
-    public Model setAbstract(Boolean dbAnnotated) {
+    public ModelBean setAbstract(Boolean dbAnnotated) {
         getProperties().put(ABSTRACT, dbAnnotated);
         return this;
     }

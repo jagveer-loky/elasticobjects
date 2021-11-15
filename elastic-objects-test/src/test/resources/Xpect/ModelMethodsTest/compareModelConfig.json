@@ -151,14 +151,14 @@
       }
     }
   },
-  "modelKey": "ModelConfigInterfaceMethods",
+  "modelKey": "ModelConfigMethods",
   "module": "elastic-objects",
   "moduleScope": "main",
-  "naturalId": "ModelConfigInterfaceMethods",
+  "naturalId": "ModelConfigMethods",
   "packagePath": "org.fluentcodes.projects.elasticobjects.models",
   "properties": {
     "create": false,
     "shapeType": "INTERFACE"
   },
-  "superKey": "ModelConfigInterface"
+  "superKey": "ModelInterface"
 }

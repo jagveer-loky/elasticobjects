@@ -11,7 +11,7 @@ public class ConfigImplTest {
 
     @Test
     public void changeProperties()  {
-        ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(ConfigConfig.class);
+        ModelConfigMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(ConfigConfig.class);
         /*Map map = model.getProperties();
         Assertions
                 .assertThatThrownBy(

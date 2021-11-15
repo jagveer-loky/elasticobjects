@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
 
 /**
  * @author Werner Diwischek

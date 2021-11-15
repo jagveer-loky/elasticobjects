@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.calls.db.DbTypes;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 
-public interface DbConfigInterface extends ConfigInterface {
+public interface DbInterface extends ConfigInterface {
     String SCHEMA = "schema";
     String DRIVER = "driver";
     String JNDI = "jndi";

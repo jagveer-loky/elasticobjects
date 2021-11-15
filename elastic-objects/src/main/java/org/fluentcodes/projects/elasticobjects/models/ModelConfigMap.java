@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigMap extends ModelConfig implements ModelConfigInterfaceMethods {
+public class ModelConfigMap extends ModelConfig implements ModelConfigMethods {
     public static final String CONFIG_MODEL_KEY = "ModelConfigMap";
 
     public ModelConfigMap(Map map) {

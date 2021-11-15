@@ -30,7 +30,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
     private boolean resolved;
     private final Boolean toSerialize;
     private List<String> modelList;
-    private final ModelConfigInterface parentModel;
+    private final ModelInterface parentModel;
     private Models models;
     private Method getter;
     private Method setter;
@@ -46,7 +46,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
     }
 
 
-    protected void resolve(ModelConfig model, Map<String, ModelConfigInterface> modelConfigMap) {
+    protected void resolve(ModelConfig model, Map<String, ModelInterface> modelConfigMap) {
         if (resolved) {
             return;
         }
@@ -168,7 +168,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         return getModels().getModel().getModelKey();
     }
 
-    public ModelConfigInterface getParentModel()  {
+    public ModelInterface getParentModel()  {
         return parentModel;
     }
 

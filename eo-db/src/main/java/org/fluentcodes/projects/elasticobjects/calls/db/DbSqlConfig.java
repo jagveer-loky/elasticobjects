@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Werner on 09.10.2016.
  */
-public class DbSqlConfig extends PermissionConfig implements DbSqlConfigInterface {
+public class DbSqlConfig extends PermissionConfig implements DbSqlInterface {
     private final List<String> sqlList;
 
     public DbSqlConfig(final ConfigBean configBean) {

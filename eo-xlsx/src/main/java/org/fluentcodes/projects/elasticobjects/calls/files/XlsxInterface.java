@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 
 import java.util.List;
 
-public interface XlsxConfigInterface extends ConfigInterface {
+public interface XlsxInterface extends ConfigInterface {
     String SHEET_NAME = "sheetName";
 
     List readRaw(ListParams params);

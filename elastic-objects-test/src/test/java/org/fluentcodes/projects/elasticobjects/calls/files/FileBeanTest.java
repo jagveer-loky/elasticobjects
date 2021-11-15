@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.calls.PermissionInterface.ROLE_PERMISSIONS;
 import static org.fluentcodes.projects.elasticobjects.calls.files.FileInterface.FILE_NAME;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.MODULE;
 
 public class FileBeanTest {

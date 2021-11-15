@@ -19,7 +19,7 @@
         "jsonIgnore": true
       }
     },
-    "interfaces": "DbBeanInterface",
+    "interfaces": "DbInterface",
     "superKey": "HostBean",
     "expose": "NONE",
     "description": "Mainly the schema information as base for  @DbQueryConfig",
@@ -27,20 +27,6 @@
     "modelKey": "DbBean",
     "properties": {
       "create": true
-    },
-    "author": "Werner Diwischek"
-  },
-  "DbBeanInterface": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "interfaces": "DbConfigInterface,BaseBeanInterface",
-    "expose": "NONE",
-    "description": "Methods to get the properties schema from properties map.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "DbBeanInterface",
-    "properties": {
-      "create": false,
-      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -69,7 +55,7 @@
         "jsonIgnore": true
       }
     },
-    "interfaces": "DbConfigInterface",
+    "interfaces": "DbInterface",
     "superKey": "HostConfig",
     "expose": "NONE",
     "description": "Mainly the schema information as base for  @DbQueryConfig",
@@ -81,14 +67,14 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbConfigInterface": {
+  "DbInterface": {
     "module": "eo-db",
     "moduleScope": "main",
-    "interfaces": "ConfigConfigInterface",
+    "interfaces": "ConfigInterface",
     "expose": "NONE",
     "description": "Methods to get the properties schema from properties map.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
-    "modelKey": "DbConfigInterface",
+    "modelKey": "DbInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE"
@@ -164,7 +150,7 @@
         "final": false
       }
     },
-    "interfaces": "DbSqlBeanInterface",
+    "interfaces": "DbSqlInterface",
     "superKey": "PermissionBean",
     "expose": "NONE",
     "description": "Execute sql statements via jdbc connection. ",
@@ -172,25 +158,6 @@
     "modelKey": "DbSqlBean",
     "properties": {
       "create": true
-    },
-    "author": "Werner Diwischek"
-  },
-  "DbSqlBeanInterface": {
-    "module": "eo-db",
-    "moduleScope": "main",
-    "fieldKeys": {
-      "sqlList": {
-        "notNull": true
-      }
-    },
-    "interfaces": "DbSqlConfigInterface,BaseBeanInterface",
-    "expose": "NONE",
-    "description": "SQL list set",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlBeanInterface",
-    "properties": {
-      "create": true,
-      "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
@@ -218,7 +185,7 @@
         "final": true
       }
     },
-    "interfaces": "DbSqlConfigInterface",
+    "interfaces": "DbSqlInterface",
     "superKey": "PermissionConfig",
     "expose": "NONE",
     "description": "Configuration for sql statements. ",
@@ -230,7 +197,7 @@
     },
     "author": "Werner Diwischek"
   },
-  "DbSqlConfigInterface": {
+  "DbSqlInterface": {
     "module": "eo-db",
     "moduleScope": "main",
     "fieldKeys": {
@@ -239,11 +206,11 @@
         "notNull": true
       }
     },
-    "interfaces": "ConfigConfigInterface",
+    "interfaces": "ConfigInterface",
     "expose": "NONE",
     "description": "SQL list get.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.db",
-    "modelKey": "DbSqlConfigInterface",
+    "modelKey": "DbSqlInterface",
     "properties": {
       "create": true,
       "shapeType": "INTERFACE"

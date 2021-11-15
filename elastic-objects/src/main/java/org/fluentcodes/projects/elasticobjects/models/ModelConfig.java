@@ -15,7 +15,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public abstract class ModelConfig extends ConfigConfig implements ModelConfigInterfaceMethods {
+public abstract class ModelConfig extends ConfigConfig implements ModelConfigMethods {
     public static final String MODEL_KEY = "modelKey";
     public static final String INTERFACES = "interfaces";
     public static final String SUPER_KEY = "superKey";
@@ -111,7 +111,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    private final void setSuperModel(Map<String, ModelConfigInterface> modelConfigMap) {
+    private final void setSuperModel(Map<String, ModelInterface> modelConfigMap) {
         if (!hasSuperKey()) {
             return;
         }
@@ -123,7 +123,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
 
 
 
-    private final void setDefaultImplementationModel(Map<String, ModelConfigInterface> modelConfigMap) {
+    private final void setDefaultImplementationModel(Map<String, ModelInterface> modelConfigMap) {
         if (!hasDefaultImplementation()) {
             return;
         }
@@ -133,11 +133,11 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         this.defaultImplementationModel = (ModelConfig) modelConfigMap.get(getDefaultImplementation());
     }
 
-    public final ModelConfigInterfaceMethods getDefaultImplementationModel() {
+    public final ModelConfigMethods getDefaultImplementationModel() {
         return defaultImplementationModel;
     }
 
-    private final void setInterfacesMap(Map<String, ModelConfigInterface> cache) {
+    private final void setInterfacesMap(Map<String, ModelInterface> cache) {
         if (interfaces == null || interfaces.isEmpty()) {
             return;
         }
@@ -147,7 +147,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    private void setFieldConfigMap(final Map<String, ModelConfigInterface> modelConfigMap) {
+    private void setFieldConfigMap(final Map<String, ModelInterface> modelConfigMap) {
         if (!hasFieldConfigMap()) {
             return;
         }
@@ -185,7 +185,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         return keyValues;
     }
 
-    public void resolve(Map<String, ModelConfigInterface> modelConfigMap)  {
+    public void resolve(Map<String, ModelInterface> modelConfigMap)  {
         if (resolved) {
             return;
         }

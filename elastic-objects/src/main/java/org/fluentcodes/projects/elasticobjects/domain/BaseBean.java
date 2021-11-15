@@ -6,11 +6,11 @@ import java.util.Map;
 /*=>{javaHeader}|*/
 import java.util.Date;
 
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.ID;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.AUTHOR;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.CREATION_DATE;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.DESCRIPTION;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.AUTHOR;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.CREATION_DATE;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.DESCRIPTION;
 /**
  * 
  * Base bean as super object for model beans with id, naturalId and description but no annotations.  

@@ -1,19 +1,8 @@
 {
   "author": "Werner Diwischek",
-  "description": "Table definitions with pojo.",
+  "description": "Mainly the schema information as base for  @DbQueryConfig",
   "expose": "NONE",
   "fieldConfigMap": {
-    "abstract": {
-      "description": "If true the generated model will be initially set as abstract class.",
-      "fieldKey": "abstract",
-      "modelKeys": "Boolean",
-      "naturalId": "abstract",
-      "properties": {
-        "super": true,
-        "final": true,
-        "property": true
-      }
-    },
     "author": {
       "description": "The author of the class.",
       "fieldKey": "author",
@@ -37,15 +26,14 @@
         "override": true
       }
     },
-    "dbAnnotated": {
-      "description": "If true a db annotation will be generated for java instance vars. ",
-      "fieldKey": "dbAnnotated",
-      "modelKeys": "Boolean",
-      "naturalId": "dbAnnotated",
+    "dbType": {
+      "description": "The type of the db as Enumeration providing informations like the driver.",
+      "fieldKey": "dbType",
+      "modelKeys": "DbTypes",
+      "naturalId": "dbType",
       "properties": {
-        "super": true,
         "final": true,
-        "property": true
+        "jsonIgnore": true
       }
     },
     "description": {
@@ -60,6 +48,17 @@
         "override": true
       }
     },
+    "driver": {
+      "description": "driver",
+      "fieldKey": "driver",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "driver",
+      "properties": {
+        "final": true,
+        "jsonIgnore": true
+      }
+    },
     "expose": {
       "description": "expose",
       "fieldKey": "expose",
@@ -71,14 +70,27 @@
         "override": true
       }
     },
-    "fieldConfigMap": {
-      "description": "A fieldBean map with @FieldConfig",
-      "fieldKey": "fieldConfigMap",
-      "modelKeys": "Map,FieldConfig",
-      "naturalId": "fieldConfigMap",
+    "extension": {
+      "description": "An extension for database initialization. ",
+      "fieldKey": "extension",
+      "length": 1024,
+      "modelKeys": "String",
+      "naturalId": "extension",
       "properties": {
         "final": true,
-        "override": false
+        "jsonIgnore": true
+      }
+    },
+    "hostName": {
+      "description": "A name for host objects.",
+      "fieldKey": "hostName",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "hostName",
+      "properties": {
+        "super": true,
+        "final": true,
+        "property": true
       }
     },
     "id": {
@@ -92,26 +104,15 @@
         "override": true
       }
     },
-    "interfaces": {
-      "description": "A comma separeted list of interface keys. ",
-      "fieldKey": "interfaces",
-      "length": 256,
-      "modelKeys": "String",
-      "naturalId": "interfaces",
-      "properties": {
-        "final": true,
-        "override": true
-      }
-    },
-    "modelKey": {
-      "description": "The model name for the bean/action object @ModelConfig.",
-      "fieldKey": "modelKey",
+    "jndi": {
+      "description": "The jndi lookup for a hibernate session factory. ",
+      "fieldKey": "jndi",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "modelKey",
+      "naturalId": "jndi",
       "properties": {
         "final": true,
-        "override": true
+        "jsonIgnore": true
       }
     },
     "module": {
@@ -150,15 +151,27 @@
         "override": true
       }
     },
-    "packagePath": {
-      "description": "packagePath",
-      "fieldKey": "packagePath",
-      "length": 124,
+    "password": {
+      "description": "The password instance var.",
+      "fieldKey": "password",
+      "length": 15,
       "modelKeys": "String",
-      "naturalId": "packagePath",
+      "naturalId": "password",
       "properties": {
+        "super": true,
         "final": true,
-        "override": true
+        "property": true
+      }
+    },
+    "port": {
+      "description": "port",
+      "fieldKey": "port",
+      "modelKeys": "Integer",
+      "naturalId": "port",
+      "properties": {
+        "super": true,
+        "final": true,
+        "property": true
       }
     },
     "properties": {
@@ -172,6 +185,40 @@
         "override": true
       }
     },
+    "protocol": {
+      "description": "protocol",
+      "fieldKey": "protocol",
+      "length": 8,
+      "modelKeys": "String",
+      "naturalId": "protocol",
+      "properties": {
+        "super": true,
+        "final": true,
+        "property": true
+      }
+    },
+    "rolePermissions": {
+      "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+      "fieldKey": "rolePermissions",
+      "modelKeys": "PermissionRole",
+      "naturalId": "rolePermissions",
+      "properties": {
+        "super": true,
+        "final": true
+      }
+    },
+    "schema": {
+      "description": "The database schema used for persisting as a property of @HostConfig",
+      "fieldKey": "schema",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "schema",
+      "properties": {
+        "final": true,
+        "property": true,
+        "jsonIgnore": true
+      }
+    },
     "scope": {
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
@@ -183,27 +230,40 @@
         "override": true
       }
     },
-    "superKey": {
-      "description": "A key for the super class of a class.",
-      "fieldKey": "superKey",
-      "length": 256,
+    "url": {
+      "description": "url",
+      "fieldKey": "url",
+      "length": 80,
       "modelKeys": "String",
-      "naturalId": "superKey",
+      "naturalId": "url",
       "properties": {
+        "super": true,
         "final": true,
-        "override": true
+        "property": true
+      }
+    },
+    "user": {
+      "description": "user",
+      "fieldKey": "user",
+      "length": 50,
+      "modelKeys": "String",
+      "naturalId": "user",
+      "properties": {
+        "super": true,
+        "final": true,
+        "property": true
       }
     }
   },
-  "interfaces": "ModelConfigMethods",
-  "modelKey": "ModelConfig",
-  "module": "elastic-objects",
+  "interfaces": "DbInterface",
+  "modelKey": "DbConfig",
+  "module": "eo-db",
   "moduleScope": "main",
-  "naturalId": "ModelConfig",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "naturalId": "DbConfig",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
   "properties": {
     "final": true,
     "create": false
   },
-  "superKey": "ConfigConfig"
+  "superKey": "HostConfig"
 }

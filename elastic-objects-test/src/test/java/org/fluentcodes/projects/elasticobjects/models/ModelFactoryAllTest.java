@@ -10,7 +10,7 @@ import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE
 
 public class ModelFactoryAllTest {
     public static Map<String, ModelBean> BEAN_MAP = new ModelFactoryAll().createBeanMap();
-    public static Map<String, ModelConfigInterface> CONFIG_MAP = new ModelFactoryAll().createConfigMap();
+    public static Map<String, ModelInterface> CONFIG_MAP = new ModelFactoryAll().createConfigMap();
 
     @Test
     public void createBeanMap__get_Map__notNull() {
@@ -30,7 +30,7 @@ public class ModelFactoryAllTest {
 
     @Test
     public void TEST_modelConfigMapResolved__find_ModelBean__notNull() {
-        ModelConfigInterface config = CONFIG_MAP
+        ModelInterface config = CONFIG_MAP
                 .get(ModelBean.class.getSimpleName());
         FieldInterface packagePathBean = config.getField(PACKAGE_PATH);
         Assertions.assertThat(packagePathBean).isNotNull();

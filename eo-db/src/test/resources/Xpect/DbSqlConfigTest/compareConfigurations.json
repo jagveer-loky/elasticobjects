@@ -5,6 +5,11 @@
     "module": "eo-db",
     "moduleScope": "main",
     "naturalId": "h2:mem:basic:ASubObject",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "ASubObject"
+    },
     "rolePermissions": {
       "read": "guest"
     },
@@ -18,6 +23,11 @@
     "module": "eo-db",
     "moduleScope": "main",
     "naturalId": "h2:mem:basic:AnObject",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "AnObject"
+    },
     "rolePermissions": {
       "read": "guest"
     },
@@ -31,6 +41,11 @@
     "module": "eo-db",
     "moduleScope": "test",
     "naturalId": "h2:mem:basic:AnObjectDrop",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": "AnObject"
+    },
     "rolePermissions": {
       "execute": "admin"
     },
@@ -44,6 +59,11 @@
     "module": "eo-db",
     "moduleScope": "main",
     "naturalId": "h2:mem:basic:Create",
+    "properties": {
+      "classPath": "src/main/resources",
+      "dbKey": "h2:mem:basic",
+      "modelKey": ""
+    },
     "rolePermissions": {
       "execute": "admin"
     },

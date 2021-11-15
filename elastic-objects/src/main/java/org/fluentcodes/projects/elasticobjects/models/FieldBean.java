@@ -32,7 +32,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
     /*=>{}.*/
     private boolean merged = false;
 
-    private ModelConfigInterface parentModel;
+    private ModelInterface parentModel;
 
     public FieldBean() {
         super();
@@ -176,11 +176,11 @@ public class FieldBean extends ConfigBean implements FieldInterface {
     }
 
     @Override
-    public ModelConfigInterface getParentModel() {
+    public ModelInterface getParentModel() {
         return parentModel;
     }
 
-    public void setParentModel(ModelConfigInterface modelBean) {
+    public void setParentModel(ModelInterface modelBean) {
         this.parentModel = modelBean;
     }
 

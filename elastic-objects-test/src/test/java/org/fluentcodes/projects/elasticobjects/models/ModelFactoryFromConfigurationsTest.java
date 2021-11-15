@@ -36,7 +36,7 @@ public class ModelFactoryFromConfigurationsTest {
 
     @Test
     public void createConfigMap__() {
-        Map<String, ModelConfigInterface> configMap = new ModelFactoryFromConfigurations().createConfigMap();
+        Map<String, ModelInterface> configMap = new ModelFactoryFromConfigurations().createConfigMap();
         Assertions.assertThat( configMap.get("ConfigCall")
                 .getField("configFilter")
                 .getModelKeys())

@@ -44,7 +44,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "id, description, naturalId, creationDate, author",
-    "interfaces": "BaseConfigInterface",
+    "interfaces": "BaseInterface",
     "expose": "NONE",
     "description": "Basic final configuration as super object for all configuration with id, naturalId and description. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
@@ -57,14 +57,14 @@
     "author": "Werner Diwischek",
     "creationDate": 1608505200000
   },
-  "BaseConfigInterface": {
+  "BaseInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "id, description, naturalId, creationDate, author",
     "expose": "NONE",
     "description": "Basic bean as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.domain",
-    "modelKey": "BaseConfigInterface",
+    "modelKey": "BaseInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
@@ -267,7 +267,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "expose, module, moduleScope, scope, properties",
-    "interfaces": "BaseConfigInterface",
+    "interfaces": "BaseInterface",
     "expose": "NONE",
     "description": "Basic config interface as super interface for other cached items. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
@@ -1029,34 +1029,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "Model": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "fieldKeys": {
-      "interfaces": {
-        "override": false
-      },
-      "modelKey": {
-        "override": false
-      },
-      "packagePath": {
-        "override": false
-      },
-      "superKey": {
-        "override": false
-      }
-    },
-    "interfaces": "ModelConfigInterface",
-    "expose": "WEB",
-    "description": "An interface for @ModelBean with access methods for properties. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "Model",
-    "properties": {
-      "create": true,
-      "shapeType": "INTERFACE"
-    },
-    "author": "Werner Diwischek"
-  },
   "ModelBean": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1092,7 +1064,7 @@
         "override": true
       }
     },
-    "interfaces": "Model",
+    "interfaces": "ModelInterface",
     "superKey": "ConfigBean",
     "expose": "WEB",
     "description": "A bean container class for Model values",
@@ -1128,7 +1100,7 @@
         "final": true
       }
     },
-    "interfaces": "ModelConfigInterfaceMethods",
+    "interfaces": "ModelConfigMethods",
     "superKey": "ConfigConfig",
     "expose": "NONE",
     "description": "Table definitions with pojo.",
@@ -1161,7 +1133,7 @@
     },
     "author": "Werner Diwischek"
   },
-  "ModelConfigInterface": {
+  "ModelInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": {
@@ -1188,21 +1160,21 @@
     "expose": "NONE",
     "description": "Elementary model properties.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelConfigInterface",
+    "modelKey": "ModelInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE"
     },
     "author": "Werner Diwischek"
   },
-  "ModelConfigInterfaceMethods": {
+  "ModelConfigMethods": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "superKey": "ModelConfigInterface",
+    "superKey": "ModelInterface",
     "expose": "NONE",
     "description": "Elementary model propeties.",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelConfigInterfaceMethods",
+    "modelKey": "ModelConfigMethods",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE"

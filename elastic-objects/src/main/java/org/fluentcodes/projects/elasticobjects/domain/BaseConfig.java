@@ -9,7 +9,7 @@ import java.util.Date;
  * @creationDate Mon Dec 21 00:00:00 CET 2020
  * @modificationDate Sat Jan 09 08:03:06 CET 2021
  */
-public class BaseConfig implements BaseConfigInterface  {
+public class BaseConfig implements BaseInterface {
 /*=>{}.*/
 /*=>{javaInstanceVars}|*/
    /* The author of the class. */

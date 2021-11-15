@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigMethods;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -15,7 +15,7 @@ public class SuperExampleClassTest {
     @Test
     public void givenScopeDev_whenFindSuperExampleClass_thenExceptionThrown()  {
         try {
-            ModelConfigInterfaceMethods model = ProviderRootDevScope.EO_CONFIGS.findModel(SuperExampleClass.class);
+            ModelConfigMethods model = ProviderRootDevScope.EO_CONFIGS.findModel(SuperExampleClass.class);
             Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
         }
         catch(EoException e) {

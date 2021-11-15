@@ -1,25 +1,25 @@
 {
   "author": "Werner Diwischek",
-  "description": "Table definitions with pojo.",
+  "description": "The cache class for excel access. Contains the file cache.",
   "expose": "NONE",
   "fieldConfigMap": {
-    "abstract": {
-      "description": "If true the generated model will be initially set as abstract class.",
-      "fieldKey": "abstract",
-      "modelKeys": "Boolean",
-      "naturalId": "abstract",
-      "properties": {
-        "super": true,
-        "final": true,
-        "property": true
-      }
-    },
     "author": {
       "description": "The author of the class.",
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
       "naturalId": "author",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
+    },
+    "cached": {
+      "description": "If true will cache the readed file within the cache object. ",
+      "fieldKey": "cached",
+      "modelKeys": "Boolean",
+      "naturalId": "cached",
       "properties": {
         "super": true,
         "final": true,
@@ -35,17 +35,6 @@
         "super": true,
         "final": true,
         "override": true
-      }
-    },
-    "dbAnnotated": {
-      "description": "If true a db annotation will be generated for java instance vars. ",
-      "fieldKey": "dbAnnotated",
-      "modelKeys": "Boolean",
-      "naturalId": "dbAnnotated",
-      "properties": {
-        "super": true,
-        "final": true,
-        "property": true
       }
     },
     "description": {
@@ -71,14 +60,40 @@
         "override": true
       }
     },
-    "fieldConfigMap": {
-      "description": "A fieldBean map with @FieldConfig",
-      "fieldKey": "fieldConfigMap",
-      "modelKeys": "Map,FieldConfig",
-      "naturalId": "fieldConfigMap",
+    "fileName": {
+      "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
+      "fieldKey": "fileName",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "fileName",
       "properties": {
+        "super": true,
         "final": true,
-        "override": false
+        "override": true
+      }
+    },
+    "filePath": {
+      "description": "A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ",
+      "fieldKey": "filePath",
+      "length": 512,
+      "modelKeys": "String",
+      "naturalId": "filePath",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
+    },
+    "hostConfigKey": {
+      "description": "A key for host objects.",
+      "fieldKey": "hostConfigKey",
+      "length": 80,
+      "modelKeys": "String",
+      "naturalId": "hostConfigKey",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
       }
     },
     "id": {
@@ -88,28 +103,6 @@
       "naturalId": "id",
       "properties": {
         "super": true,
-        "final": true,
-        "override": true
-      }
-    },
-    "interfaces": {
-      "description": "A comma separeted list of interface keys. ",
-      "fieldKey": "interfaces",
-      "length": 256,
-      "modelKeys": "String",
-      "naturalId": "interfaces",
-      "properties": {
-        "final": true,
-        "override": true
-      }
-    },
-    "modelKey": {
-      "description": "The model name for the bean/action object @ModelConfig.",
-      "fieldKey": "modelKey",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "modelKey",
-      "properties": {
         "final": true,
         "override": true
       }
@@ -150,22 +143,22 @@
         "override": true
       }
     },
-    "packagePath": {
-      "description": "packagePath",
-      "fieldKey": "packagePath",
-      "length": 124,
-      "modelKeys": "String",
-      "naturalId": "packagePath",
-      "properties": {
-        "final": true,
-        "override": true
-      }
-    },
     "properties": {
       "description": "Properties for configurations.",
       "fieldKey": "properties",
       "modelKeys": "Map",
       "naturalId": "properties",
+      "properties": {
+        "super": true,
+        "final": true,
+        "override": true
+      }
+    },
+    "rolePermissions": {
+      "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+      "fieldKey": "rolePermissions",
+      "modelKeys": "PermissionRole",
+      "naturalId": "rolePermissions",
       "properties": {
         "super": true,
         "final": true,
@@ -183,27 +176,27 @@
         "override": true
       }
     },
-    "superKey": {
-      "description": "A key for the super class of a class.",
-      "fieldKey": "superKey",
-      "length": 256,
+    "sheetName": {
+      "description": "A name for the sheet selected.",
+      "fieldKey": "sheetName",
+      "length": 64,
       "modelKeys": "String",
-      "naturalId": "superKey",
+      "naturalId": "sheetName",
       "properties": {
-        "final": true,
-        "override": true
+        "super": true,
+        "final": true
       }
     }
   },
-  "interfaces": "ModelConfigMethods",
-  "modelKey": "ModelConfig",
-  "module": "elastic-objects",
+  "interfaces": "XlsxInterface",
+  "modelKey": "XlsxConfig",
+  "module": "eo-xlsx",
   "moduleScope": "main",
-  "naturalId": "ModelConfig",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "naturalId": "XlsxConfig",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
   "properties": {
     "final": true,
     "create": false
   },
-  "superKey": "ConfigConfig"
+  "superKey": "FileConfig"
 }

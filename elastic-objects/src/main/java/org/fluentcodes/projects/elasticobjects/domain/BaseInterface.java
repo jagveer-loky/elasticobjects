@@ -10,7 +10,7 @@ import java.util.Date;
  * @creationDate Mon Dec 21 00:00:00 CET 2020
  * @modificationDate Thu Jan 07 16:15:03 CET 2021
  */
-public interface BaseConfigInterface  {
+public interface BaseInterface {
 /*=>{}.*/
 /*=>{javaStaticNames}|*/
    String AUTHOR = "author";

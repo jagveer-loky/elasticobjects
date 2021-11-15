@@ -8,10 +8,8 @@ import java.util.Set;
 import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FINAL;
 import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.OVERRIDE;
 import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.PROPERTY;
-import static org.fluentcodes.projects.elasticobjects.models.Model.ABSTRACT;
-import static org.fluentcodes.projects.elasticobjects.models.Model.DB_ANNOTATED;
 
-public interface ModelConfigInterface extends ConfigInterface {
+public interface ModelInterface extends ConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
     String SHAPE_TYPE = "shapeType";
     String CREATE = "create";
@@ -20,6 +18,9 @@ public interface ModelConfigInterface extends ConfigInterface {
     String NATURAL_KEYS = "naturalKeys";
     String TABLE = "table";
     String BEAN = "bean";
+    String JAVASCRIPT_TYPE = "javascriptType";
+    String DB_ANNOTATED = "dbAnnotated";
+    String ABSTRACT = "abstract";
 
     Map<String, FieldConfig> getFieldMap() ;
 

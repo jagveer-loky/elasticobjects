@@ -167,10 +167,10 @@ public class Models {
         return null;
     }
 
-    public List<ModelConfigInterfaceMethods> getModels() {
-        List<ModelConfigInterfaceMethods> models = new ArrayList<>();
+    public List<ModelConfigMethods> getModels() {
+        List<ModelConfigMethods> models = new ArrayList<>();
 
-        for (ModelConfigInterfaceMethods model : this.models) {
+        for (ModelConfigMethods model : this.models) {
             models.add(model);
         }
         return models;

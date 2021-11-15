@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.FieldInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterfaceMethods;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfigMethods;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Assert;
@@ -26,7 +26,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void fromEoConfigsCache()  {
-        ModelConfigInterfaceMethods cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfigMethods cache = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
         Assert.assertNotNull(cache.getField(AnObject.MY_STRING));
         Assert.assertEquals(AnObject.MY_STRING, cache.getField(AnObject.MY_STRING).getFieldKey());
         ModelConfig aSubObject = cache.getFieldModel(AnObject.MY_ASUB_OBJECT);
@@ -79,7 +79,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void givenModelFromString_notNull()  {
-        ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
+        ModelConfigMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
         Assertions.assertThat(model).isNotNull();
     }
 
@@ -119,7 +119,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void assertAnObjectFieldTest()  {
-        ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
+        ModelConfigMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class);
 
         FieldInterface field = model.getField(AnObject.MY_STRING);
         Assert.assertEquals(String.class, ((FieldConfig)field).getModelClass());

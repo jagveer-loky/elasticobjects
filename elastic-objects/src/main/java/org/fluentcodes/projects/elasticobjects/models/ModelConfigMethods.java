@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
+public interface ModelConfigMethods extends ModelInterface {
 
     default boolean hasFieldConfig(final String fieldName) {
         return getFieldMap().containsKey(fieldName) && getFieldMap().get(fieldName) != null;
@@ -107,7 +107,7 @@ public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
      */
     void remove(final String fieldName, final Object object) ;
 
-    ModelConfigInterfaceMethods getDefaultImplementationModel();
+    ModelConfigMethods getDefaultImplementationModel();
 
     default Object create()  {
         if (!isCreate()) {
@@ -123,7 +123,7 @@ public interface ModelConfigInterfaceMethods extends ModelConfigInterface {
                 throw new EoException(e);
             }
         } else {
-            ModelConfigInterfaceMethods implementation = getDefaultImplementationModel();
+            ModelConfigMethods implementation = getDefaultImplementationModel();
             try {
                 return implementation.getModelClass().newInstance();
             } catch (Exception e) {

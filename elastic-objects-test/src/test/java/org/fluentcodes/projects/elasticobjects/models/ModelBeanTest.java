@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface.SHAPE_TYPE;
+import static org.fluentcodes.projects.elasticobjects.models.ModelInterface.SHAPE_TYPE;
 
 public class ModelBeanTest {
     @Test

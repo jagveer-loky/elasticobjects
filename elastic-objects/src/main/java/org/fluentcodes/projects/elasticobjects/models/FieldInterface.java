@@ -226,7 +226,7 @@ public interface FieldInterface extends ConfigInterface {
     }
 
 
-   ModelConfigInterface getParentModel();
+   ModelInterface getParentModel();
    default boolean hasParentModel() {
       return getParentModel()!=null;
    }
