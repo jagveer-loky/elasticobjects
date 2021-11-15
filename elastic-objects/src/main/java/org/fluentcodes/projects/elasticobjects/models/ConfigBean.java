@@ -187,6 +187,10 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         return deriveConfigClass(getConfigModelKey());
     }
 
+    ConfigInterface createConfig() {
+        return createConfig(deriveConfigClass());
+    }
+
     ConfigInterface createConfig(Class<? extends ConfigConfig> configClass) {
         try {
             Constructor configurationConstructor = configClass.getConstructor(ConfigBean.class);
@@ -199,15 +203,6 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         catch (NoSuchMethodException e) {
             throw new EoInternalException("Problem find constructor for '" + getNaturalId() + "'  '" + configClass.getSimpleName() + "' with ConfigBean", e);
         }
-    }
-
-    ConfigInterface createConfig(ConfigMaps configsCache) {
-        if (!hasConfigModelKey()) {
-            throw new EoException("No configModelKey is set!");
-        }
-        ModelConfig configModel = configsCache.findModel(getConfigModelKey());
-        return createConfig(configModel.getModelClass());
-
     }
 
     private List<Scope> createScopeList(List values) {

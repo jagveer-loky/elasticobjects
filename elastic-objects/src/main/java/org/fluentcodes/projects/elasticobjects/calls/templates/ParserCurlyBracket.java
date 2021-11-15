@@ -20,7 +20,9 @@ public class ParserCurlyBracket extends Parser{
     private static final String END_SEQUENCE = Parser.createEndSequence(STOP);
     private static final String CONTINUE_SEQUENCE = Parser.createContinueSequence(STOP);
     private static final String START_SEQUENCE = Parser.createStartSequence(START);
-    private static final String CLOSE_SEQUENCE = Parser.createCloseSequence(START, STOP);  public ParserCurlyBracket(final String template) {
+    private static final String CLOSE_SEQUENCE = Parser.createCloseSequence(START, STOP);
+
+    public ParserCurlyBracket(final String template) {
         super(template);
     }
 

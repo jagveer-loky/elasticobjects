@@ -45,6 +45,19 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         this.length = bean.getLength();
     }
 
+    public FieldConfig(final ConfigBean bean) {
+        this((FieldBean)bean);
+    }
+
+    public FieldConfig(final FieldBean bean) {
+        super(bean);
+        this.toSerialize = false;
+        this.fieldKey = bean.getFieldKey();
+        this.modelKeys = bean.getModelKeys();
+        this.length = bean.getLength();
+        parentModel = null;
+    }
+
 
     protected void resolve(ModelConfig model, Map<String, ModelInterface> modelConfigMap) {
         if (resolved) {

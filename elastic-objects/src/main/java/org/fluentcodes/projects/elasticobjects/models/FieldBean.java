@@ -46,6 +46,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
     public FieldBean(final Map values) {
         super();
         merge(values);
+        defaultValues();
     }
 
     public FieldBean(final String key, final Map values) {
@@ -105,7 +106,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         this.merged = true;
     }
 
-    public void defaultValues() {
+    private void defaultValues() {
         // default values for templates
         defaultOverride();
         defaultNotNull();
@@ -114,6 +115,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         defaultTransient();
         defaultUnique();
         defaultSuper();
+        defaultConfigModelKey();
     }
 
     public List<String> getModelList() {
@@ -295,6 +297,13 @@ public class FieldBean extends ConfigBean implements FieldInterface {
 
     private void defaultSuper() {
         getProperties().put(SUPER, false);
+    }
+
+    private void defaultConfigModelKey() {
+        if (hasConfigModelKey()) {
+            return;
+        }
+        setConfigModelKey(FieldConfig.class.getSimpleName());
     }
 
 

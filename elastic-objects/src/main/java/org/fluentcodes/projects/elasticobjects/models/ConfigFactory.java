@@ -51,7 +51,7 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
         Map<String, U> configMap = new TreeMap<>();
         try {
             for (Map.Entry<String, T> entry: beanMap.entrySet()) {
-                U config = (U)entry.getValue().createConfig(configMaps);
+                U config = (U)entry.getValue().createConfig();
                 configMap.put(entry.getKey(), config);
             }
         } catch (Exception e) {

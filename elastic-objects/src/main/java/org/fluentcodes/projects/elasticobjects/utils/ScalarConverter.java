@@ -287,9 +287,8 @@ public class ScalarConverter {
         }
         if (source instanceof byte[]) {
             return new String((byte[]) source);
-        } else {
-            throw new EoException("Could not create 'String' value from '" + source + "' (" + source.getClass().getSimpleName() + ")");
         }
+        throw new EoException("Could not create 'String' value from '" + source + "' (" + source.getClass().getSimpleName() + ")");
     }
 
     public static Date asDate(Object source) throws ParseException {

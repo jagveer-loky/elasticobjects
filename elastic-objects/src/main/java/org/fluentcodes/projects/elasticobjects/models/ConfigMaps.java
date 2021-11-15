@@ -35,6 +35,7 @@ public class ConfigMaps {
             return;
         }
         configMaps.put(ModelConfig.class, new ModelFactoryAll(scope).createImmutableConfig(new ConfigMaps(Scope.DEV)));
+        configMaps.put(FieldConfig.class, new FieldFactory(scope).createImmutableConfig(this));
         configMaps.put(HostConfig.class, new HostFactory(scope).createImmutableConfig(this));
         configMaps.put(FileConfig.class, new FileFactory(scope).createImmutableConfig(this));
     }
