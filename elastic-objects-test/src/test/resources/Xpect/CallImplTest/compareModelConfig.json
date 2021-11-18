@@ -10,7 +10,9 @@
       "modelKeys": "String",
       "naturalId": "author",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "condition": {
@@ -20,6 +22,12 @@
       "modelKeys": "String",
       "naturalId": "condition",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -29,7 +37,9 @@
       "modelKeys": "Date",
       "naturalId": "creationDate",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "description": {
@@ -39,7 +49,9 @@
       "modelKeys": "String",
       "naturalId": "description",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "duration": {
@@ -48,6 +60,12 @@
       "modelKeys": "Long",
       "naturalId": "duration",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -57,7 +75,9 @@
       "modelKeys": "Long",
       "naturalId": "id",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "keepCall": {
@@ -66,6 +86,12 @@
       "modelKeys": "KeepCalls",
       "naturalId": "keepCall",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -75,6 +101,12 @@
       "modelKeys": "LogLevel",
       "naturalId": "logLevel",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -85,6 +117,12 @@
       "modelKeys": "String",
       "naturalId": "models",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -95,7 +133,9 @@
       "modelKeys": "String",
       "naturalId": "naturalId",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "overwrite": {
@@ -104,6 +144,12 @@
       "modelKeys": "Boolean",
       "naturalId": "overwrite",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "property": true,
         "override": true
       }
@@ -115,6 +161,12 @@
       "modelKeys": "String",
       "naturalId": "postpend",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -125,6 +177,12 @@
       "modelKeys": "String",
       "naturalId": "prepend",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -135,6 +193,12 @@
       "modelKeys": "String",
       "naturalId": "sourcePath",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -145,6 +209,12 @@
       "modelKeys": "String",
       "naturalId": "startCondition",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     },
@@ -155,6 +225,12 @@
       "modelKeys": "String",
       "naturalId": "targetPath",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
         "override": true
       }
     }

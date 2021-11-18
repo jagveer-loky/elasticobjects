@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -364,7 +363,6 @@ public class EoChild implements EO {
         if (isScalar()) {
             setParentValue(ScalarConverter.transform(fieldModels.getModelClass(), value));
             return this;
-            //throw new EoException("Scalar values will not be mapped! '" + getModels().toString() + "' '" + this.getPath().toString() + "'");
         }
         ModelConfig valueModel = getConfigsCache().findModel(value);
 
@@ -383,12 +381,18 @@ public class EoChild implements EO {
             else if (value instanceof Long) {
                 Object base = createBaseObject(value);
                 if (base == null) {
-                    throw new EoException("Could not map scalar to container model '" + getModels().toString() + "' '" + this.getPath().toString() + "'");
+                    throw new EoException("Could not map scalar to container model '" +
+                            getModels().toString() + "' '" +
+                            this.getPath().toString() + "'");
                 }
                 value = base;
             }
             else {
-                throw new EoException("Could not map scalar '" + value.toString() + "'(" + valueModel.toString() + ") to container model '" + getModels().toString() + "' '" + this.getPath().toString() + "'");
+                throw new EoException("Could not map scalar '{}" +
+                        value.toString() + "'(" +
+                        valueModel.getModelKey() + ") to container model '" +
+                        getModels().toString() + "' '" +
+                        this.getPath().toString() + "'");
             }
         }
         Set<String> fieldNameSet = valueModel.keys(value);

@@ -16,7 +16,7 @@ public class ModelConfigMapTest {
 
     @Test
     public void readMainJackson()  {
-        final ModelConfigMap mapModel = (ModelConfigMap) ProviderRootDevScope.EO_CONFIGS.findModel(Map.class);
+        final ModelConfigMap mapModel = (ModelConfigMap) ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(Map.class);
         Assert.assertEquals(Map.class, mapModel.getModelClass());
         final Map map = (Map) mapModel.create();
         Assert.assertEquals(LinkedHashMap.class, map.getClass());

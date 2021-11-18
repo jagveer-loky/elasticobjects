@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigFactory;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 /**
@@ -8,12 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
  */
 
 public class HostFactory extends ConfigFactory< HostBean, HostConfig> {
-    public HostFactory() {
-        this(Scope.DEV);
+    public HostFactory(final ConfigMaps configMaps) {
+        super(configMaps, HostBean.class, HostConfig.class);
     }
-    public HostFactory(final Scope scope) {
-        super(scope, HostBean.class, HostConfig.class);
-    }
-
-
 }

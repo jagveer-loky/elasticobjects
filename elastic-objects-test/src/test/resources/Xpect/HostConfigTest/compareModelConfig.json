@@ -11,6 +11,7 @@
       "naturalId": "author",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -22,6 +23,7 @@
       "naturalId": "creationDate",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -34,6 +36,7 @@
       "naturalId": "description",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -45,6 +48,7 @@
       "naturalId": "expose",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -56,6 +60,7 @@
       "modelKeys": "String",
       "naturalId": "hostName",
       "properties": {
+        "generated": false,
         "final": true,
         "property": true,
         "override": true
@@ -68,6 +73,7 @@
       "naturalId": "id",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -80,6 +86,7 @@
       "naturalId": "module",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -92,6 +99,7 @@
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -104,6 +112,7 @@
       "naturalId": "naturalId",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -115,6 +124,7 @@
       "modelKeys": "String",
       "naturalId": "password",
       "properties": {
+        "generated": false,
         "final": true,
         "property": true,
         "override": true
@@ -126,6 +136,7 @@
       "modelKeys": "Integer",
       "naturalId": "port",
       "properties": {
+        "generated": false,
         "final": true,
         "property": true,
         "override": true
@@ -138,6 +149,7 @@
       "naturalId": "properties",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -149,6 +161,7 @@
       "modelKeys": "String",
       "naturalId": "protocol",
       "properties": {
+        "generated": false,
         "final": true,
         "property": true,
         "override": true
@@ -161,6 +174,7 @@
       "naturalId": "rolePermissions",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -171,6 +185,7 @@
       "naturalId": "scope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -182,6 +197,7 @@
       "modelKeys": "String",
       "naturalId": "url",
       "properties": {
+        "generated": false,
         "final": true,
         "property": true,
         "override": true
@@ -194,6 +210,7 @@
       "modelKeys": "String",
       "naturalId": "user",
       "properties": {
+        "generated": false,
         "final": true,
         "property": true,
         "override": true

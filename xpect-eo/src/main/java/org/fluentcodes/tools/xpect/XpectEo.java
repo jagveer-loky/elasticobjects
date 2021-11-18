@@ -1,6 +1,7 @@
 package org.fluentcodes.tools.xpect;
 
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.tools.xpect.compators.XpectComparator;
 import org.fluentcodes.tools.xpect.compators.XpectStringComparator;
@@ -24,6 +25,16 @@ public class XpectEo<T>  extends Xpect<T> {
 
     public XpectEo(ConfigMaps cache, final XpectComparator<T> objectComparator, final XpectStringComparator stringComparator) {
         super(new IOJsonEo<>(cache), objectComparator, stringComparator);
+    }
+
+    public static final String load(ConfigConfig config) {
+        XpectEo xpect = new XpectEo(config.getConfigMaps());
+        return xpect.load(config.toString());
+    }
+
+    public static final String load(final ConfigMaps configMaps, Object toCompare) {
+        XpectEo xpect = new XpectEo(configMaps);
+        return xpect.load(toCompare);
     }
 
     public static class Builder<T> {

@@ -111,6 +111,7 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
         }
     }
 
+    @Override
     public void merge(final Map valueMap) {
         if (valueMap == null) {
             throw new EoInternalException("Value Map is null for '" + getNaturalId() + "'.");
@@ -265,7 +266,7 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
                 }
                 FieldBean fieldBeanFromMap = fieldBeanMap.get(fieldBean.getNaturalId());
                 //if (isFinal()) fieldBeanFromMap.setFinal(true);
-                ((FieldBean) fieldBean).merge(fieldBeanFromMap);
+                fieldBean.merge(fieldBeanFromMap);
             }
             fieldBean.setParentModel(this);
         }
@@ -299,8 +300,8 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
             superModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
         }
         if (this.hasInterfaces()) {
-            String[] interfaces = this.getInterfaces().split(",");
-            for (String interfaceKey: interfaces) {
+            String[] interfaceArray = this.getInterfaces().split(",");
+            for (String interfaceKey: interfaceArray) {
                 if (!modelBeans.containsKey(interfaceKey) || modelBeans.get(interfaceKey) == null) {
                     throw new EoInternalException("Could not find interface '" + interfaceKey + "' for '" + getNaturalId() + "'." );
                 }
@@ -335,8 +336,8 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
             }
 
             if (this.hasInterfaces()) {
-                String[] interfaces = this.getInterfaces().split(",");
-                for (String interfaceKey : interfaces) {
+                String[] interfaceArray = this.getInterfaces().split(",");
+                for (String interfaceKey : interfaceArray) {
                     if (!modelBeans.containsKey(interfaceKey)) {
                         throw new EoInternalException("Could not find interface '" + interfaceKey + "' for '" + getNaturalId() + "'.");
                     }
@@ -404,6 +405,7 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
         }
         setShapeType(convertShapeType(value));
     }
+
     public void setIdKey(String value) {
         getProperties().put(ID_KEY, value);
     }
@@ -442,7 +444,7 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
     }
 
     public String getJavascriptType() {
-        return JavascriptFieldTypeCall.createType(getModelKey());
+        return (String) getProperties().get(JAVASCRIPT_TYPE);
     }
 
     public boolean hasJavaScriptType() {

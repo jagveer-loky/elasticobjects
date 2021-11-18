@@ -10,6 +10,7 @@
       "naturalId": "abstract",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -22,6 +23,7 @@
       "naturalId": "author",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -33,6 +35,7 @@
       "naturalId": "creationDate",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -44,6 +47,7 @@
       "naturalId": "dbAnnotated",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -56,6 +60,7 @@
       "naturalId": "description",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -67,6 +72,7 @@
       "naturalId": "expose",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -77,6 +83,11 @@
       "modelKeys": "Map,FieldConfig",
       "naturalId": "fieldConfigMap",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
         "final": true,
         "override": false
       }
@@ -88,6 +99,7 @@
       "naturalId": "id",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -99,6 +111,11 @@
       "modelKeys": "String",
       "naturalId": "interfaces",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
         "final": true,
         "override": true
       }
@@ -110,6 +127,11 @@
       "modelKeys": "String",
       "naturalId": "modelKey",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
         "final": true,
         "override": true
       }
@@ -122,6 +144,7 @@
       "naturalId": "module",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -134,6 +157,7 @@
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -146,6 +170,7 @@
       "naturalId": "naturalId",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -157,6 +182,11 @@
       "modelKeys": "String",
       "naturalId": "packagePath",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
         "final": true,
         "override": true
       }
@@ -168,6 +198,7 @@
       "naturalId": "properties",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -179,6 +210,7 @@
       "naturalId": "scope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -190,6 +222,11 @@
       "modelKeys": "String",
       "naturalId": "superKey",
       "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
         "final": true,
         "override": true
       }

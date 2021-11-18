@@ -11,6 +11,7 @@ import org.fluentcodes.tools.xpect.IOString;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
 /**
@@ -22,22 +23,28 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
     private final Scope scope;
     private final Class<? extends ConfigInterface> configClass;
     private final Class<? extends ConfigBean> beanClass;
+    private final ConfigMaps configMaps;
 
-    protected ConfigFactory(final Scope scope, final Class<? extends ConfigBean> beanClass, Class<? extends ConfigInterface> configClass) {
-        this.scope = scope;
+    protected ConfigFactory(final ConfigMaps configMaps, final Class<? extends ConfigBean> beanClass, Class<? extends ConfigInterface> configClass) {
+        this.configMaps = configMaps;
+        this.scope = configMaps.getScope();
         this.configClass = configClass;
         this.beanClass = beanClass;
     }
 
-    public  Map<String, ConfigInterface> createImmutableConfig(ConfigMaps configMaps){
-        return new UnmodifiableMap<>(createConfigMap(configMaps));
+    protected ConfigMaps getConfigMaps() {
+        return configMaps;
+    }
+
+    public  Map<String, ConfigInterface> createImmutableConfig(){
+        return new UnmodifiableMap<>(createConfigMap());
     }
 
     /**
      * Default init map.
      * @return the expanded final configurations.
      */
-    public Map<String, T> createBeanMap(ConfigMaps configMaps) {
+    public Map<String, T> createBeanMap() {
         EO eoRoot = EoRoot.ofClass(configMaps, readConfigFiles(), Map.class, beanClass);
         Map<String,T> beanMap = (Map<String, T>)eoRoot.get();
         for (Map.Entry<String, T> entry: beanMap.entrySet()) {
@@ -46,12 +53,17 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
         return beanMap;
     }
 
-    public Map<String, U> createConfigMap(ConfigMaps configMaps) {
-        Map<String, T> beanMap = createBeanMap(configMaps);
+    public Map<String, U> createConfigMap() {
+        Map<String, T> beanMap = createBeanMap();
         Map<String, U> configMap = new TreeMap<>();
         try {
             for (Map.Entry<String, T> entry: beanMap.entrySet()) {
-                U config = (U)entry.getValue().createConfig();
+                Optional<String> filterScope = getScope().filter(entry.getKey());
+                if (!filterScope.isPresent()) {
+                    continue;
+                }
+                final String key = filterScope.get();
+                U config = (U)entry.getValue().createConfig(configMaps);
                 configMap.put(entry.getKey(), config);
             }
         } catch (Exception e) {

@@ -1,120 +1,157 @@
 {
   "author": "Werner Diwischek",
-  "description": "Read a list from a directory. If it's called from an EO context the fileName of the associated FileConfig will  be used to filter the result, e.g. *.html. \nOffers also general access methods like read(String filePath, String fileName) for java access. ",
+  "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
   "expose": "WEB",
   "fieldConfigMap": {
-    "absolute": {
-      "description": "x",
-      "fieldKey": "absolute",
-      "modelKeys": "Boolean",
-      "naturalId": "absolute",
-      "properties": {
-        "property": true
-      }
-    },
-    "author": {
-      "description": "The author of the class.",
-      "fieldKey": "author",
-      "length": 256,
-      "modelKeys": "String",
-      "naturalId": "author",
-      "properties": {
-        "super": true
-      }
-    },
-    "condition": {
-      "description": "A condition for calls. ",
-      "fieldKey": "condition",
-      "length": 1000,
-      "modelKeys": "String",
-      "naturalId": "condition",
-      "properties": {
-        "super": true
-      }
-    },
-    "creationDate": {
-      "description": "Used to define the creation of an item.",
-      "fieldKey": "creationDate",
-      "modelKeys": "Date",
-      "naturalId": "creationDate",
-      "properties": {
-        "super": true
-      }
-    },
-    "description": {
-      "description": "A description of the model used by every model extending BaseClassImpl. ",
-      "fieldKey": "description",
-      "length": 512,
-      "modelKeys": "String",
-      "naturalId": "description",
-      "properties": {
-        "super": true
-      }
-    },
-    "duration": {
-      "description": "The duration of a call.",
-      "fieldKey": "duration",
-      "modelKeys": "Long",
-      "naturalId": "duration",
-      "properties": {
-        "super": true
-      }
-    },
-    "fileConfigKey": {
-      "description": "Defines the key for a file configuration @FileConfig where to read or write a file.",
-      "fieldKey": "fileConfigKey",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "fileConfigKey",
-      "properties": {
-        "super": true
-      }
-    },
-    "hostConfigKey": {
-      "description": "A key for host objects.",
-      "fieldKey": "hostConfigKey",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "hostConfigKey",
-      "properties": {
-        "super": true
-      }
-    },
     "id": {
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
       "naturalId": "id",
       "properties": {
-        "super": true
+        "generated": false,
+        "final": false
       }
     },
-    "keepCall": {
-      "description": "Will use an existing  result file beforehand as template. ",
-      "fieldKey": "keepCall",
-      "modelKeys": "KeepCalls",
-      "naturalId": "keepCall",
+    "myASubObject": {
+      "description": "myASubObject",
+      "fieldKey": "myASubObject",
+      "modelKeys": "ASubObject",
+      "naturalId": "myASubObject",
       "properties": {
-        "super": true
+        "generated": false,
+        "final": false
       }
     },
-    "logLevel": {
-      "description": "logLevel",
-      "fieldKey": "logLevel",
-      "modelKeys": "LogLevel",
-      "naturalId": "logLevel",
+    "myASubObjectList": {
+      "description": "A generic parametrized example List with @ASubObject",
+      "fieldKey": "myASubObjectList",
+      "modelKeys": "List,ASubObject",
+      "naturalId": "myASubObjectList",
       "properties": {
-        "super": true
+        "generated": false,
+        "final": false
       }
     },
-    "models": {
-      "description": "A string representation for a list of model keys.",
-      "fieldKey": "models",
-      "length": 512,
+    "myASubObjectMap": {
+      "description": "A generic parametrized example Map with @ASubObject",
+      "fieldKey": "myASubObjectMap",
+      "modelKeys": "Map,ASubObject",
+      "naturalId": "myASubObjectMap",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myAnObject": {
+      "description": "A AnObject field.",
+      "fieldKey": "myAnObject",
+      "modelKeys": "AnObject",
+      "naturalId": "myAnObject",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myBoolean": {
+      "description": "myBoolean",
+      "fieldKey": "myBoolean",
+      "modelKeys": "Boolean",
+      "naturalId": "myBoolean",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myDate": {
+      "description": "myDate",
+      "fieldKey": "myDate",
+      "modelKeys": "Date",
+      "naturalId": "myDate",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myDouble": {
+      "description": "myDouble",
+      "fieldKey": "myDouble",
+      "modelKeys": "Double",
+      "naturalId": "myDouble",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myFloat": {
+      "description": "myFloat",
+      "fieldKey": "myFloat",
+      "modelKeys": "Float",
+      "naturalId": "myFloat",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myInt": {
+      "description": "myInt",
+      "fieldKey": "myInt",
+      "modelKeys": "Integer",
+      "naturalId": "myInt",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myList": {
+      "description": "myList",
+      "fieldKey": "myList",
+      "modelKeys": "ArrayList",
+      "naturalId": "myList",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myLong": {
+      "description": "myLong",
+      "fieldKey": "myLong",
+      "modelKeys": "Long",
+      "naturalId": "myLong",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myMap": {
+      "description": "myMap",
+      "fieldKey": "myMap",
+      "modelKeys": "HashMap",
+      "naturalId": "myMap",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myObject": {
+      "description": "A test object thing. ",
+      "fieldKey": "myObject",
+      "modelKeys": "Object",
+      "naturalId": "myObject",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
+    },
+    "myString": {
+      "description": "Just a small test string used in test models. ",
+      "fieldKey": "myString",
+      "length": 20,
       "modelKeys": "String",
-      "naturalId": "models",
+      "naturalId": "myString",
       "properties": {
-        "super": true
+        "generated": false,
+        "final": false
       }
     },
     "naturalId": {
@@ -124,77 +161,20 @@
       "modelKeys": "String",
       "naturalId": "naturalId",
       "properties": {
-        "super": true
-      }
-    },
-    "overwrite": {
-      "description": "A overwrite field flag for @Call.",
-      "fieldKey": "overwrite",
-      "modelKeys": "Boolean",
-      "naturalId": "overwrite",
-      "properties": {
-        "super": true,
-        "property": true
-      }
-    },
-    "postpend": {
-      "description": "postpend String when executed by ExecutorCallImpl",
-      "fieldKey": "postpend",
-      "length": 256,
-      "modelKeys": "String",
-      "naturalId": "postpend",
-      "properties": {
-        "super": true
-      }
-    },
-    "prepend": {
-      "description": "prepend String when executed by ExecutorCallImpl",
-      "fieldKey": "prepend",
-      "length": 256,
-      "modelKeys": "String",
-      "naturalId": "prepend",
-      "properties": {
-        "super": true
-      }
-    },
-    "sourcePath": {
-      "description": "A sourcePath where EO offers it's input value when the execution starts.",
-      "fieldKey": "sourcePath",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "sourcePath",
-      "properties": {
-        "super": true
-      }
-    },
-    "startCondition": {
-      "description": "A condition for calls. ",
-      "fieldKey": "startCondition",
-      "length": 1000,
-      "modelKeys": "String",
-      "naturalId": "startCondition",
-      "properties": {
-        "super": true
-      }
-    },
-    "targetPath": {
-      "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
-      "fieldKey": "targetPath",
-      "length": 80,
-      "modelKeys": "String",
-      "naturalId": "targetPath",
-      "properties": {
-        "super": true
+        "generated": false,
+        "final": false
       }
     }
   },
-  "modelKey": "DirectoryListReadCall",
-  "module": "elastic-objects",
+  "modelKey": "AnObject",
+  "module": "elastic-objects-test",
   "moduleScope": "main",
-  "naturalId": "DirectoryListReadCall",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+  "naturalId": "AnObject",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
   "properties": {
     "create": true
   },
-  "superKey": "FileReadCall"
+  "rolePermissions": {
+    "read": "guest"
+  }
 }

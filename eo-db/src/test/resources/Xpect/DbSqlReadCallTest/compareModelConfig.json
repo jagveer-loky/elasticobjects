@@ -10,7 +10,9 @@
       "modelKeys": "String",
       "naturalId": "author",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "colKeys": {
@@ -19,7 +21,9 @@
       "modelKeys": "List,String",
       "naturalId": "colKeys",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "condition": {
@@ -30,6 +34,8 @@
       "naturalId": "condition",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -39,7 +45,9 @@
       "modelKeys": "Date",
       "naturalId": "creationDate",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "description": {
@@ -49,7 +57,9 @@
       "modelKeys": "String",
       "naturalId": "description",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "duration": {
@@ -59,6 +69,8 @@
       "naturalId": "duration",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -69,7 +81,9 @@
       "modelKeys": "String",
       "naturalId": "filter",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "hostConfigKey": {
@@ -79,7 +93,9 @@
       "modelKeys": "String",
       "naturalId": "hostConfigKey",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "id": {
@@ -88,7 +104,9 @@
       "modelKeys": "Long",
       "naturalId": "id",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "keepCall": {
@@ -98,6 +116,8 @@
       "naturalId": "keepCall",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -107,7 +127,9 @@
       "modelKeys": "Integer",
       "naturalId": "length",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "logLevel": {
@@ -117,6 +139,8 @@
       "naturalId": "logLevel",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -128,6 +152,8 @@
       "naturalId": "models",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -138,7 +164,9 @@
       "modelKeys": "String",
       "naturalId": "naturalId",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "overwrite": {
@@ -148,6 +176,8 @@
       "naturalId": "overwrite",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true,
         "override": true
       }
@@ -160,6 +190,8 @@
       "naturalId": "postpend",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -171,6 +203,8 @@
       "naturalId": "prepend",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -181,6 +215,8 @@
       "naturalId": "rowEnd",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -191,6 +227,8 @@
       "naturalId": "rowHead",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -201,6 +239,8 @@
       "naturalId": "rowStart",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -212,6 +252,8 @@
       "naturalId": "sourcePath",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -222,7 +264,9 @@
       "modelKeys": "String",
       "naturalId": "sqlKey",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "startCondition": {
@@ -233,6 +277,8 @@
       "naturalId": "startCondition",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -244,6 +290,8 @@
       "naturalId": "targetPath",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "override": true
       }
     }

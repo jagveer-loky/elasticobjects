@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,11 +17,11 @@ import java.sql.Statement;
 public class DbConfig extends HostConfig implements DbInterface {
     public static final String H2_BASIC = "h2:mem:basic";
     private Connection connection;
-    public DbConfig(final ConfigBean configBean) {
-        this((HostBean)configBean);
+    public DbConfig(final ConfigBean configBean, final ConfigMaps configMaps) {
+        this((HostBean)configBean, configMaps);
     }
-    public DbConfig(final HostBean bean) {
-        super(bean);
+    public DbConfig(final HostBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     public static final void closeStatement(Statement statement) {

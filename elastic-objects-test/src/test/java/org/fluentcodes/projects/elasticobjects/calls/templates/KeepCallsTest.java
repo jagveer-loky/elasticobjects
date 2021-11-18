@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.models.FieldBean;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.FieldFactory;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.junit.Test;
 
@@ -33,7 +34,7 @@ public class KeepCallsTest {
 
     @Test
     public void DEV_fieldBeanMap__find_keepCall__notNull() {
-        FieldBean bean = new FieldFactory().createBeanMap()
+        FieldBean bean = new FieldFactory(ProviderRootTestScope.EO_CONFIGS).createBeanMap()
                 .get("keepCall");
         Assertions.assertThat(bean).isNotNull();
         Assertions.assertThat(bean.getModelKeys()).isEqualTo(KeepCalls.class.getSimpleName());

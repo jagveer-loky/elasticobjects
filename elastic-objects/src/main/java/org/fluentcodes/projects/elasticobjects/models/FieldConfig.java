@@ -36,7 +36,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
     private Method setter;
 
     public FieldConfig(final ModelConfig parentModel, final FieldBean bean) {
-        super(bean);
+        super(bean, parentModel.getConfigMaps());
         this.parentModel = parentModel;
         this.toSerialize = false;
         this.fieldKey = bean.getFieldKey();
@@ -45,12 +45,12 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         this.length = bean.getLength();
     }
 
-    public FieldConfig(final ConfigBean bean) {
-        this((FieldBean)bean);
+    public FieldConfig(final ConfigBean bean, final ConfigMaps configMaps) {
+        this((FieldBean)bean, configMaps);
     }
 
-    public FieldConfig(final FieldBean bean) {
-        super(bean);
+    public FieldConfig(final FieldBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
         this.toSerialize = false;
         this.fieldKey = bean.getFieldKey();
         this.modelKeys = bean.getModelKeys();
@@ -191,12 +191,37 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        if (!hasKey()) return "";
-        builder.append(getKey());
-        if (this.hasParentModelKey()) builder.insert(0, getParentModel().getModelKey() + ".");
-        return hasModelKeys()?
-                "(" + modelKeys + ")" + builder.toString():
-                builder.toString();
+        if (getConfigMaps().isModelFinished()) {
+            return super.toString();
+        }
+        return fieldKey + "(" + modelKeys +")";
+    }
+
+    public FieldBean createBean() {
+        final FieldBean bean = new FieldBean();
+        populateBean(bean);
+        return bean;
+    }
+
+    public void populateBean(final FieldBean bean) {
+        super.populateBean(bean);
+        bean.setFieldKey(fieldKey);
+        bean.setOverride(getOverride());
+        bean.setFinal(getFinal());
+        bean.setModelKeys(modelKeys);
+        bean.setLength(getLength());
+        bean.setGenerated(getGenerated());
+        bean.setNotNull(getNotNull());
+        bean.setSuper(getSuper());
+        bean.setDefault(getDefault());
+        bean.setTransient(getTransient());
+        bean.setUnique(getUnique());
+        bean.setFieldName(getFieldName());
+        bean.setJavascriptType(getJavascriptType());
+        bean.setJsonIgnore(bean.getJsonIgnore());
+        bean.setMax(getMax());
+        bean.setMin(getMin());
+        bean.setStaticName(getStaticName());
+        bean.setProperty(getProperty());
     }
 }

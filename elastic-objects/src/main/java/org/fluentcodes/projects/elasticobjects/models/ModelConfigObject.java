@@ -10,17 +10,11 @@ import java.util.Set;
  * Created by Werner on 09.10.2016.
  */
 public class ModelConfigObject extends ModelConfig {
-
-    public ModelConfigObject(Map map) {
-        this(new ModelBean(map));
+    public ModelConfigObject(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
-
-    public ModelConfigObject(ConfigBean bean) {
-        this((ModelBean) bean);
-    }
-
-    public ModelConfigObject(ModelBean bean) {
-        super(bean);
+    public ModelConfigObject(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     public static String getter(final String field) {

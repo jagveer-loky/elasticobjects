@@ -13,16 +13,12 @@ import java.util.Set;
 public class ModelConfigMap extends ModelConfig implements ModelConfigMethods {
     public static final String CONFIG_MODEL_KEY = "ModelConfigMap";
 
-    public ModelConfigMap(Map map) {
-        this(new ModelBean(map));
+    public ModelConfigMap(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
 
-    public ModelConfigMap(ConfigBean bean) {
-        this((ModelBean) bean);
-    }
-
-    public ModelConfigMap(ModelBean bean) {
-        super(bean);
+    public ModelConfigMap(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     @Override

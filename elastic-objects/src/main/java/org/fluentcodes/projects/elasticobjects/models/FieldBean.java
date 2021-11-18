@@ -83,7 +83,6 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         super.merge(configMap);
         setNaturalId((String) configMap.get(NATURAL_ID));
         setFieldKey((String) configMap.get(FIELD_KEY));
-        if (!hasFieldKey()) defaultFieldKey();
         mergeFinal(configMap.get(FINAL));
         mergeOverride(configMap.get(OVERRIDE));
         mergeJsonIgnore(configMap.get(JSON_IGNORE));

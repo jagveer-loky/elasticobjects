@@ -273,7 +273,30 @@ public class EoToJsonTest {
         Assertions.assertThat(json).isNotEmpty();
     }
 
+    @Test
+    public void stringifyNewLine() {
+        final String input = "newline:\nnextline";
+        final String value = EOToJSON.stringify(input);
+        Assertions.assertThat(value).isEqualTo("newline:\\nnextline");
+    }
 
+    @Test
+    public void stringifyQuote() {
+        final String value = EOToJSON.stringify("quote:\"");
+        Assertions.assertThat(value).isEqualTo("quote:\\\"");
+    }
+
+    @Test
+    public void stringifyNumber() {
+        final String value = EOToJSON.stringify(+1111111111.111);
+        Assertions.assertThat(value).isEqualTo("1.111111111111E9");
+    }
+
+    @Test
+    public void stringifyNothingSpecial() {
+        final String value = EOToJSON.stringify("Nothing special");
+        Assertions.assertThat(value).isEqualTo("Nothing special");
+    }
 
 
 

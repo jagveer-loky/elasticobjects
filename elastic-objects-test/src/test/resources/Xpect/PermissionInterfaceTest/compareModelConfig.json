@@ -9,6 +9,7 @@
       "modelKeys": "PermissionRole",
       "naturalId": "rolePermissions",
       "properties": {
+        "generated": false,
         "final": true
       }
     }

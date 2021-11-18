@@ -9,32 +9,52 @@
       "fieldKey": "condition",
       "length": 1000,
       "modelKeys": "String",
-      "naturalId": "condition"
+      "naturalId": "condition",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "duration": {
       "description": "The duration of a call.",
       "fieldKey": "duration",
       "modelKeys": "Long",
-      "naturalId": "duration"
+      "naturalId": "duration",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "keepCall": {
       "description": "Will use an existing  result file beforehand as template. ",
       "fieldKey": "keepCall",
       "modelKeys": "KeepCalls",
-      "naturalId": "keepCall"
+      "naturalId": "keepCall",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "logLevel": {
       "description": "logLevel",
       "fieldKey": "logLevel",
       "modelKeys": "LogLevel",
-      "naturalId": "logLevel"
+      "naturalId": "logLevel",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "models": {
       "description": "A string representation for a list of model keys.",
       "fieldKey": "models",
       "length": 512,
       "modelKeys": "String",
-      "naturalId": "models"
+      "naturalId": "models",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "overwrite": {
       "description": "A overwrite field flag for @Call.",
@@ -42,6 +62,8 @@
       "modelKeys": "Boolean",
       "naturalId": "overwrite",
       "properties": {
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -50,35 +72,55 @@
       "fieldKey": "postpend",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "postpend"
+      "naturalId": "postpend",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "prepend": {
       "description": "prepend String when executed by ExecutorCallImpl",
       "fieldKey": "prepend",
       "length": 256,
       "modelKeys": "String",
-      "naturalId": "prepend"
+      "naturalId": "prepend",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "sourcePath": {
       "description": "A sourcePath where EO offers it's input value when the execution starts.",
       "fieldKey": "sourcePath",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "sourcePath"
+      "naturalId": "sourcePath",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "startCondition": {
       "description": "A condition for calls. ",
       "fieldKey": "startCondition",
       "length": 1000,
       "modelKeys": "String",
-      "naturalId": "startCondition"
+      "naturalId": "startCondition",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "targetPath": {
       "description": "A targetPath where the result of the execution will be mapped. If value is \"_asString\" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination.",
       "fieldKey": "targetPath",
       "length": 80,
       "modelKeys": "String",
-      "naturalId": "targetPath"
+      "naturalId": "targetPath",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     }
   },
   "modelKey": "Call",

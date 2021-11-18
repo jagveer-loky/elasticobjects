@@ -15,7 +15,7 @@ public class ModelConfigListTest {
 
     @Test
     public void DEV_findModel_List__create__getClass_ArrayList()  {
-        ModelConfigList listModel = (ModelConfigList) ProviderRootDevScope.EO_CONFIGS.findModel(List.class);
+        ModelConfigList listModel = (ModelConfigList) ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(List.class);
         Assertions.assertThat(listModel.getModelClass()).isEqualTo(List.class);
         List list = (List) listModel.create();
         Assertions.assertThat(list.getClass()).isEqualTo(ArrayList.class);
@@ -25,7 +25,7 @@ public class ModelConfigListTest {
 
     @Test
     public void DEV_findModel_ArrayList__create__isList()  {
-        ModelConfigList listModel = (ModelConfigList) ProviderRootDevScope.EO_CONFIGS.findModel(ArrayList.class);
+        ModelConfigList listModel = (ModelConfigList) ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(ArrayList.class);
         Assertions.assertThat(listModel.getModelClass()).isEqualTo(ArrayList.class);
         List list = (List) listModel.create();
         Assertions.assertThat(list.getClass()).isEqualTo(ArrayList.class);

@@ -13,6 +13,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.FileNotFoundException;
@@ -29,11 +30,11 @@ import java.util.List;
  * Created by Werner on 30.10.2016.
  */
 public class XlsxConfig extends FileConfig implements XlsxInterface {
-    public XlsxConfig(ConfigBean configBean) {
-        this((FileBean)configBean);
+    public XlsxConfig(final ConfigBean configBean, final ConfigMaps configMaps) {
+        this((FileBean)configBean, configMaps);
     }
-    public XlsxConfig(FileBean bean) {
-        super(bean);
+    public XlsxConfig(final FileBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     public Sheet getSheet(final EO eo)  {

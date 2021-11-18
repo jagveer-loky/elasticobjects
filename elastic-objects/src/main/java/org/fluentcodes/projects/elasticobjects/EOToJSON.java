@@ -9,12 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Created by werner.diwischek on 13.01.18.
  */
 public class EOToJSON {
     public static final String REPEATED = ".repeated";
+    public static final Pattern REMOVE_PATTERN = Pattern.compile("\r");
+    public static final Pattern NEWLINE_PATTERN = Pattern.compile("\n");
+    public static final Pattern ESCAPE_PATTERN = Pattern.compile("\"");
+    public static final Pattern NUMBER_PATTERN = Pattern.compile("[\\.,]+0+$");
     private int indent = 1;
     private PathPattern pathPattern;
     private JSONSerializationType serializationType;
@@ -176,15 +181,24 @@ public class EOToJSON {
         addLineBreak(stringWriter, indentLevel);
     }
 
-    private String stringify(Object object) {
+    static String stringify(Object object) {
         if (object == null) {
             return "";
         }
-        String value = ScalarConverter.toString(object);
-        value = value.replaceAll("\n", "\\\\n");
-        value = value.replaceAll("\"", "\\\\\"");
+        String value = NEWLINE_PATTERN
+                .matcher(ScalarConverter.toString(object))
+                .replaceAll("\\\\n");
+        value = ESCAPE_PATTERN
+                .matcher(value)
+                .replaceAll("\\\\\"");
+         value = REMOVE_PATTERN
+                .matcher(value)
+                .replaceAll("");
+
         if (object instanceof Number) {
-            return value.replaceAll("[\\.,]+0+$", "");
+            value = NUMBER_PATTERN
+                    .matcher(ScalarConverter.toString(object))
+                    .replaceAll("");
         }
         return value;
     }

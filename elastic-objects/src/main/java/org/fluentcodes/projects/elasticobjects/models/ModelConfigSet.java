@@ -16,16 +16,12 @@ import java.util.Set;
 public class ModelConfigSet extends ModelConfig {
     private static final Logger LOG = LogManager.getLogger(ModelConfigSet.class);
 
-    public ModelConfigSet(Map map) {
-        this(new ModelBean(map));
+    public ModelConfigSet(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
 
-    public ModelConfigSet(ConfigBean bean) {
-        this((ModelBean) bean);
-    }
-
-    public ModelConfigSet(ModelBean bean) {
-        super(bean);
+    public ModelConfigSet(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     @Override

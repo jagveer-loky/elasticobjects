@@ -15,7 +15,7 @@ public class SuperExampleClassTest {
     @Test
     public void givenScopeDev_whenFindSuperExampleClass_thenExceptionThrown()  {
         try {
-            ModelConfigMethods model = ProviderRootDevScope.EO_CONFIGS.findModel(SuperExampleClass.class);
+            ModelConfigMethods model = ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(SuperExampleClass.class);
             Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
         }
         catch(EoException e) {

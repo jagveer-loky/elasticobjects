@@ -47,7 +47,6 @@ public interface ConfigInterface extends BaseInterface {
    */
   Map<String, Object> getProperties();
 
-
   /**
    * expose
    */

@@ -10,7 +10,13 @@
       "modelKeys": "Long",
       "naturalId": "id",
       "properties": {
-        "final": false
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
       }
     },
     "myASubObject": {
@@ -19,7 +25,13 @@
       "modelKeys": "ASubObject",
       "naturalId": "myASubObject",
       "properties": {
-        "final": false
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
       }
     },
     "myString": {
@@ -29,7 +41,13 @@
       "modelKeys": "String",
       "naturalId": "myString",
       "properties": {
-        "final": false
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
       }
     },
     "name": {
@@ -39,7 +57,13 @@
       "modelKeys": "String",
       "naturalId": "name",
       "properties": {
-        "final": false
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
       }
     },
     "naturalId": {
@@ -49,7 +73,13 @@
       "modelKeys": "String",
       "naturalId": "naturalId",
       "properties": {
-        "final": false
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
       }
     }
   },

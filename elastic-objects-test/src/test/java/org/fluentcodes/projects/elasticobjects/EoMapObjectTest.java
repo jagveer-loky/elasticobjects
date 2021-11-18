@@ -16,7 +16,6 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
@@ -28,14 +27,16 @@ public class EoMapObjectTest {
     @Test
     public void DEV__Boolean__exception()  {
         final EO root = ProviderRootDevScope.createEo();
-        Assertions.assertThatThrownBy(() ->{root.mapObject(true);})
+        Assertions.assertThatThrownBy(
+                () ->{root.mapObject(true);
+        })
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Could not map scalar");
     }
 
     @Test
     public void DEV__JSON_List_Double_0_1_1_2__xpected()  {
-        final EO eo = EoRoot.of(ProviderRootDevScope.EO_CONFIGS);
+        final EO eo = EoRoot.of(ProviderRootDevScope.CONFIG_MAPS_DEV);
         eo.mapObject("{\"" + PathElement.ROOT_MODEL + "\":\"List,Double\", \"0\":1,\"1\":2}");
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(Double.class);
@@ -308,7 +309,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_List_Double_key_0_1_1_2__get_key_1_2()  {
-        final EO eo = EoRoot.of(ProviderRootDevScope.EO_CONFIGS);
+        final EO eo = EoRoot.of(ProviderRootDevScope.CONFIG_MAPS_DEV);
         eo.mapObject("{\"(List,Double)key\":{\"0\":1,\"1\":2}}");
         Assertions.assertThat(eo.getEo("key").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get("key/1")).isEqualTo(2.0);

@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <version>0.8.1-SNAPSHOT</version>
     <name>EO - Elastic Objects Root</name>
-    <url>http://www.elasticobjects.com</url>
+
     <modules>
         <module>elastic-objects</module>
         <module>elastic-objects-test</module>
@@ -22,6 +22,17 @@
         <module>builder-eo</module>
         <module>builder-projects</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.2</version>
+        </dependency>
+    </dependencies>
+
+    <url>http://www.elasticobjects.com</url>
+
     <licenses>
       <license>
         <name>Apache License Version 2.0</name>
@@ -44,18 +55,11 @@
         <url>https://github.com/fluentcodes/elasticobjects/</url>
     </scm>
 
-    <issueManagement>
-        <system></system>
-        <url></url>
-    </issueManagement>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.13.2</version>
-        </dependency>
-    </dependencies>
+    <issueManagement>
+        <system>Gitlab issues.</system>
+        <url>https://gitlab.com/dashboard/issues?assignee_username=fluentcodes</url>
+    </issueManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 import java.util.Map;
 /*=>{javaHeader}|*/
@@ -21,16 +22,12 @@ public class HostConfig extends PermissionConfig implements HostInterface {
   /*=>{}.*/
   private String urlCache;
 
-  public HostConfig(final Map map) {
-    this(new HostBean(map));
+  public HostConfig(ConfigBean bean, final ConfigMaps configMaps) {
+    this((HostBean) bean, configMaps);
   }
 
-  public HostConfig(ConfigBean bean) {
-    this((HostBean) bean);
-  }
-
-  public HostConfig(final HostBean host) {
-    super(host);
+  public HostConfig(final HostBean host, final ConfigMaps configMaps) {
+    super(host, configMaps);
   }
 
   protected boolean hasUrlCache() {
@@ -75,11 +72,6 @@ public class HostConfig extends PermissionConfig implements HostInterface {
       throw new EoException("Incomplete host exception: host name not add!");
     }
     return createUrl();
-  }
-
-  @Override
-  public String toString() {
-    return getNaturalId() + " -> " + getUrl();
   }
 
   /**

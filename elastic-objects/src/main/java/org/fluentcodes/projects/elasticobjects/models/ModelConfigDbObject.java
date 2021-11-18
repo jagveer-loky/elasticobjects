@@ -11,12 +11,12 @@ public class ModelConfigDbObject extends ModelConfigObject implements Permission
     private final PermissionRole permissionRole;
     private final String hostConfigKey;
 
-    public ModelConfigDbObject(ConfigBean bean) {
-        this((ModelBean) bean);
+    public ModelConfigDbObject(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
 
-    public ModelConfigDbObject(ModelBean bean) {
-        super(bean);
+    public ModelConfigDbObject(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
         this.permissionRole = bean.getRolePermissions();
         this.hostConfigKey = null;
         //this.permissionRole = new PermissionRole((Map)map.get(ROLE_PERMISSIONS));

@@ -12,6 +12,8 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTest
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
+
 
 /*=>{javaHeader}|*/
 /**

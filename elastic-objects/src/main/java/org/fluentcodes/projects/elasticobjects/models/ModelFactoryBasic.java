@@ -19,32 +19,10 @@ import java.util.TreeMap;
 
 public class ModelFactoryBasic extends ModelFactory {
 
-    public ModelFactoryBasic() {
-        super(Scope.DEV);
+    public ModelFactoryBasic(final ConfigMaps configMaps) {
+        super(configMaps);
     }
     @Override
-    public Map<String, ModelBean> createBeanMap(ConfigMaps configMaps) {
-        Map<String, ModelBean> modelMap = new TreeMap<>();
-        return addModelBeans(modelMap);
-    }
-    /*@Override
-    public  Map<String, ModelConfigInterface> createConfigMap(ConfigMaps configMaps){
-        Map<String, ModelBean> beanMap = createBeanMap();
-        Map<String, ModelConfigInterface> configMap = new TreeMap<>();
-        for (Map.Entry<String, ModelBean>entry: beanMap.entrySet()) {
-            if (entry.getValue().isMap()) {
-                configMap.put(entry.getKey(), new ModelConfigMap(entry.getValue()));
-            }
-            else if (entry.getValue().isList()) {
-                configMap.put(entry.getKey(), new ModelConfigList(entry.getValue()));
-            }
-            else if (entry.getValue().isScalar()) {
-                configMap.put(entry.getKey(), new ModelConfigScalar(entry.getValue()));
-            }
-        }
-        return configMap;
-    }*/
-
     public Map<String, ModelBean> createBeanMap() {
         Map<String, ModelBean> modelMap = new TreeMap<>();
         return addModelBeans(modelMap);

@@ -12,6 +12,7 @@
       "naturalId": "author",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -23,6 +24,7 @@
       "naturalId": "creationDate",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -35,6 +37,7 @@
       "naturalId": "description",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -45,6 +48,7 @@
       "modelKeys": "Expose",
       "naturalId": "expose",
       "properties": {
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -56,6 +60,7 @@
       "naturalId": "id",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -67,6 +72,7 @@
       "modelKeys": "String",
       "naturalId": "module",
       "properties": {
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -78,6 +84,7 @@
       "modelKeys": "String",
       "naturalId": "moduleScope",
       "properties": {
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -90,6 +97,7 @@
       "naturalId": "naturalId",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -101,6 +109,7 @@
       "naturalId": "properties",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -110,6 +119,7 @@
       "modelKeys": "List,Scope",
       "naturalId": "scope",
       "properties": {
+        "generated": false,
         "final": true,
         "override": true
       }

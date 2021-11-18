@@ -49,7 +49,7 @@ public class EoSetTest {
 
     @Test
     public void DEV__key0_true__get_key0_true()  {
-        final EO root = EoRoot.ofValue(ProviderRootDevScope.EO_CONFIGS, List.class);
+        final EO root = EoRoot.ofValue(ProviderRootDevScope.CONFIG_MAPS_DEV, List.class);
         root.set(true, "key0");
         Assert.assertEquals(true, root.get("0"));
     }

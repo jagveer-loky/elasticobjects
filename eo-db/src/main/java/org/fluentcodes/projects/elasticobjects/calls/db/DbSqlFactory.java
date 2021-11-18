@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigFactory;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 /**
@@ -8,10 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
  */
 
 public class DbSqlFactory extends ConfigFactory< DbSqlBean, DbSqlConfig> {
-    public DbSqlFactory() {
-        super(Scope.DEV, DbSqlBean.class, DbSqlConfig.class);
-    }
-    public DbSqlFactory(final Scope scope) {
-        super(scope, DbSqlBean.class, DbSqlConfig.class);
+    public DbSqlFactory(final ConfigMaps configMaps) {
+        super(configMaps, DbSqlBean.class, DbSqlConfig.class);
     }
 }

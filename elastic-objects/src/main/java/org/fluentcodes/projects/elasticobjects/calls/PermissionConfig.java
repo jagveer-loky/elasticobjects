@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 /*=>{javaHeader}|*/
 
@@ -16,8 +17,8 @@ public abstract class PermissionConfig extends ConfigConfig implements Permissio
 
   private final PermissionRole rolePermissions;
 
-  protected PermissionConfig(PermissionBean bean) {
-    super(bean);
+  protected PermissionConfig(PermissionBean bean, final ConfigMaps configMaps) {
+    super(bean, configMaps);
     this.rolePermissions = new PermissionRole(bean.getRolePermissions());
   }
 

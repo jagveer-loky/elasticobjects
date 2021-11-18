@@ -11,6 +11,7 @@
       "naturalId": "author",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -21,6 +22,7 @@
       "naturalId": "cached",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -30,7 +32,9 @@
       "modelKeys": "List,String",
       "naturalId": "colKeys",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "creationDate": {
@@ -40,6 +44,7 @@
       "naturalId": "creationDate",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -51,6 +56,7 @@
       "naturalId": "description",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -61,6 +67,7 @@
       "naturalId": "expose",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -72,6 +79,8 @@
       "naturalId": "fieldDelimiter",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -83,6 +92,7 @@
       "naturalId": "fileName",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -94,6 +104,7 @@
       "naturalId": "filePath",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -104,7 +115,9 @@
       "modelKeys": "String",
       "naturalId": "filter",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "hostConfigKey": {
@@ -115,6 +128,7 @@
       "naturalId": "hostConfigKey",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -125,6 +139,7 @@
       "naturalId": "id",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -134,7 +149,9 @@
       "modelKeys": "Integer",
       "naturalId": "length",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "module": {
@@ -145,6 +162,7 @@
       "naturalId": "module",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -156,6 +174,7 @@
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -167,6 +186,7 @@
       "naturalId": "naturalId",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -177,6 +197,7 @@
       "naturalId": "properties",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -187,6 +208,7 @@
       "naturalId": "rolePermissions",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -198,6 +220,8 @@
       "naturalId": "rowDelimiter",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -208,6 +232,8 @@
       "naturalId": "rowEnd",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -218,6 +244,8 @@
       "naturalId": "rowHead",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -228,6 +256,8 @@
       "naturalId": "rowStart",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -238,6 +268,7 @@
       "naturalId": "scope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     }

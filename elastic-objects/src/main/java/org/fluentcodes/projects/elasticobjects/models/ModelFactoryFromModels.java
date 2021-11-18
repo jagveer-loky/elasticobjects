@@ -12,8 +12,8 @@ import java.util.TreeMap;
 
 public class ModelFactoryFromModels extends ModelFactory {
     private static final String MODELS_JSON = "Models.json";
-    public ModelFactoryFromModels(Scope scope) {
-        super(scope);
+    public ModelFactoryFromModels(final ConfigMaps configMaps) {
+        super(configMaps);
     }
 
     /**
@@ -21,7 +21,7 @@ public class ModelFactoryFromModels extends ModelFactory {
      * @return the expanded final configurations.
      */
     @Override
-    public Map<String, ModelBean> createBeanMap(final ConfigMaps configMaps) {
+    public Map<String, ModelBean> createBeanMap() {
         Map<String, ModelBean> beanMap = new TreeMap<>();
         return addModelBeans(beanMap);
     }

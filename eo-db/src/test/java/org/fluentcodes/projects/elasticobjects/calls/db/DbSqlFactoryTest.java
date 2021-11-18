@@ -29,15 +29,15 @@ public class DbSqlFactoryTest {
 
     @Test
     public void createBeanMap() {
-        DbSqlFactory beanMap = new DbSqlFactory();
-        Map<String, DbSqlBean> map = beanMap.createBeanMap(ProviderRootTestScope.EO_CONFIGS);
+        DbSqlFactory beanMap = new DbSqlFactory(ProviderRootTestScope.EO_CONFIGS);
+        Map<String, DbSqlBean> map = beanMap.createBeanMap();
         assertThat(map.size()).isEqualTo(4);
     }
 
     @Test
     public void createConfigMap() {
-        DbSqlFactory beanMap = new DbSqlFactory();
-        Map<String, DbSqlConfig> map = beanMap.createConfigMap(ProviderRootTestScope.EO_CONFIGS);
+        DbSqlFactory beanMap = new DbSqlFactory(ProviderRootTestScope.EO_CONFIGS);
+        Map<String, DbSqlConfig> map = beanMap.createConfigMap();
         assertThat(map.size()).isEqualTo(4);
     }
 

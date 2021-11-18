@@ -1,5 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.domain.BaseConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -16,6 +20,7 @@ import java.util.Map;
  */
 public class ConfigConfig extends BaseConfig implements ConfigInterface {
   /*=>{}.*/
+  private final ConfigMaps configMaps;
   private final Map<String, Object> properties;
   /*=>{javaInstanceVars}|*/
   /* expose */
@@ -28,16 +33,21 @@ public class ConfigConfig extends BaseConfig implements ConfigInterface {
   private final List<Scope> scope;
   /*=>{}.*/
 
-  public ConfigConfig(ConfigBean configBean) {
+  public ConfigConfig(ConfigBean configBean, final ConfigMaps configMaps) {
     super(configBean);
     this.module = configBean.getModule();
     this.moduleScope = configBean.getModuleScope();
     this.scope = configBean.getScope();
     this.expose = configBean.getExpose();
+    this.configMaps = configMaps;
     if (configBean.getProperties() == null) {
       throw new EoInternalException("Null properties not allowed creating configs.");
     }
     this.properties = new UnmodifiableMap<>(configBean.getProperties());
+  }
+
+  public ConfigMaps getConfigMaps() {
+    return configMaps;
   }
 
   @Override
@@ -80,5 +90,13 @@ public class ConfigConfig extends BaseConfig implements ConfigInterface {
     bean.setModule(getModule());
     bean.setModuleScope(getModuleScope());
     bean.setScope(getScope());
+  }
+
+  @Override
+  public String toString() {
+    EO cloneMap = EoRoot.ofClass(getConfigMaps(), Map.class);
+    cloneMap.setSerializationType(JSONSerializationType.STANDARD);
+    cloneMap.mapObject(this);
+    return new EOToJSON().toJson(cloneMap);
   }
 }

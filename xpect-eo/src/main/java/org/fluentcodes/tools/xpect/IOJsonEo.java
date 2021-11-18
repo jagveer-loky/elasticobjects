@@ -51,6 +51,9 @@ public class IOJsonEo<T> extends IOObject<T> {
         if (object == null) {
             throw new IORuntimeException("Null object for serialization!");
         }
+        if (object instanceof String) {
+            return (String)object;
+        }
         try {
             if (object instanceof EO) {
                 return new EOToJSON().toJson((EO)object);
@@ -62,7 +65,9 @@ public class IOJsonEo<T> extends IOObject<T> {
             if (type!=null) {
                 return new EOToJSON().setSerializationType(type).toJson(eo);
             }
-            return new EOToJSON().toJson(eo);
+            return new EOToJSON()
+                    .setSerializationType(JSONSerializationType.STANDARD)
+                    .toJson(eo);
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }

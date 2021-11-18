@@ -10,7 +10,9 @@
       "modelKeys": "String",
       "naturalId": "author",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "condition": {
@@ -20,7 +22,9 @@
       "modelKeys": "String",
       "naturalId": "condition",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "content": {
@@ -30,6 +34,8 @@
       "modelKeys": "String",
       "naturalId": "content",
       "properties": {
+        "generated": false,
+        "final": false,
         "override": true
       }
     },
@@ -39,7 +45,9 @@
       "modelKeys": "Date",
       "naturalId": "creationDate",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "description": {
@@ -49,7 +57,9 @@
       "modelKeys": "String",
       "naturalId": "description",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "duration": {
@@ -58,7 +68,9 @@
       "modelKeys": "Long",
       "naturalId": "duration",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "id": {
@@ -67,7 +79,9 @@
       "modelKeys": "Long",
       "naturalId": "id",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "keepCall": {
@@ -76,7 +90,9 @@
       "modelKeys": "KeepCalls",
       "naturalId": "keepCall",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "logLevel": {
@@ -85,7 +101,9 @@
       "modelKeys": "LogLevel",
       "naturalId": "logLevel",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "models": {
@@ -95,7 +113,9 @@
       "modelKeys": "String",
       "naturalId": "models",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "naturalId": {
@@ -105,7 +125,9 @@
       "modelKeys": "String",
       "naturalId": "naturalId",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "overwrite": {
@@ -115,6 +137,8 @@
       "naturalId": "overwrite",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -125,7 +149,9 @@
       "modelKeys": "String",
       "naturalId": "postpend",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "prepend": {
@@ -135,7 +161,9 @@
       "modelKeys": "String",
       "naturalId": "prepend",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "replaceBy": {
@@ -143,7 +171,11 @@
       "fieldKey": "replaceBy",
       "length": 5,
       "modelKeys": "String",
-      "naturalId": "replaceBy"
+      "naturalId": "replaceBy",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "sourcePath": {
       "description": "A sourcePath where EO offers it's input value when the execution starts.",
@@ -152,7 +184,9 @@
       "modelKeys": "String",
       "naturalId": "sourcePath",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "startCondition": {
@@ -162,7 +196,9 @@
       "modelKeys": "String",
       "naturalId": "startCondition",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "targetPath": {
@@ -172,7 +208,9 @@
       "modelKeys": "String",
       "naturalId": "targetPath",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "toReplace": {
@@ -180,7 +218,11 @@
       "fieldKey": "toReplace",
       "length": 5,
       "modelKeys": "String",
-      "naturalId": "toReplace"
+      "naturalId": "toReplace",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     }
   },
   "interfaces": "CallContent",

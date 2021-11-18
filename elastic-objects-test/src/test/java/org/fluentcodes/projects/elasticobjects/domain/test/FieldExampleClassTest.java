@@ -12,7 +12,7 @@ public class FieldExampleClassTest {
     @Test
     public void givenScopeDev_whenFindFieldExampleClass_thenExceptionThrown()  {
         try {
-            ModelConfigMethods model = ProviderRootDevScope.EO_CONFIGS.findModel(FieldExampleClass.class);
+            ModelConfigMethods model = ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(FieldExampleClass.class);
             Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
         }
         catch(EoException e) {

@@ -7,7 +7,7 @@ import org.junit.Test;
 public class FieldFactoryTest {
     @Test
     public void TEST_fieldBeanMap__find_id__notNull() {
-        FieldBean bean = new FieldFactory().createBeanMap()
+        FieldBean bean = new FieldFactory(ProviderRootTestScope.EO_CONFIGS).createBeanMap()
                 .get("id");
         Assertions.assertThat(bean).isNotNull();
         Assertions.assertThat(bean.getModelKeys()).isNotNull();
@@ -15,7 +15,7 @@ public class FieldFactoryTest {
 
     @Test
     public void TEST_fieldBeanMap__find_configType__notNull() {
-        FieldBean bean = new FieldFactory().createBeanMap()
+        FieldBean bean = new FieldFactory(ProviderRootTestScope.EO_CONFIGS).createBeanMap()
                 .get("configType");
         Assertions.assertThat(bean).isNotNull();
         Assertions.assertThat(bean.getModelKeys()).isNotNull();

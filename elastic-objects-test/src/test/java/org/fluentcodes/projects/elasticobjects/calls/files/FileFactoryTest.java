@@ -9,7 +9,7 @@ public class FileFactoryTest {
 
     @Test
     public void TEST_fileBeanMap__find_AnObjectCsv__notNull() {
-        FileBean bean = new FileFactory().createBeanMap(ProviderRootTestScope.EO_CONFIGS)
+        FileBean bean = new FileFactory(ProviderRootTestScope.EO_CONFIGS).createBeanMap()
             .get("AnObject.csv");
         Assertions.assertThat(bean).isNotNull();
     }

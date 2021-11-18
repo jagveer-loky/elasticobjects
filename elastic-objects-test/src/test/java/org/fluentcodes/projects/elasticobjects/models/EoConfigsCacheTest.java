@@ -17,8 +17,8 @@ public class EoConfigsCacheTest {
     public void DEV__findModel_AnObject__exception()  {
         Assertions
                 .assertThatThrownBy(()->{
-                    ProviderRootDevScope.EO_CONFIGS.findModel(AnObject.class);})
-                .hasMessageContaining("Could not found config key within 'ModelConfig'!")
+                    ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(AnObject.class);})
+                .hasMessageContaining("Could not find config key 'AnObject' within 'ModelConfig'!")
                 .isInstanceOf(EoException.class);
     }
 

@@ -187,15 +187,15 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         return deriveConfigClass(getConfigModelKey());
     }
 
-    ConfigInterface createConfig() {
-        return createConfig(deriveConfigClass());
+    ConfigInterface createConfig(final  ConfigMaps configMaps) {
+        return createConfig(deriveConfigClass(), configMaps);
     }
 
-    ConfigInterface createConfig(Class<? extends ConfigConfig> configClass) {
+    ConfigInterface createConfig(final Class<? extends ConfigConfig> configClass, final ConfigMaps configMaps) {
         try {
-            Constructor configurationConstructor = configClass.getConstructor(ConfigBean.class);
+            Constructor configurationConstructor = configClass.getConstructor(ConfigBean.class, ConfigMaps.class);
             try {
-                return (ConfigInterface)configurationConstructor.newInstance(this);
+                return (ConfigInterface)configurationConstructor.newInstance(this, configMaps);
             } catch (Exception e) {
                 throw new EoInternalException("Problem with create new instance for config constructor with bean class for '" + getNaturalId() + "'/'" + configClass.getSimpleName() + "' in ModelConfig", e);
             }

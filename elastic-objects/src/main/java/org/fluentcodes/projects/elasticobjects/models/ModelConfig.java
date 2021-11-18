@@ -38,8 +38,8 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
     private final Map<String, FieldConfig> fieldConfigMap;
     private final Map<String, ModelConfig> interfacesMap;
 
-    public ModelConfig(final ModelBean bean) {
-        super(bean);
+    public ModelConfig(final ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
         modelKey = bean.getModelKey();
         packagePath = bean.getPackagePath();
         superKey = bean.getSuperKey();
@@ -252,6 +252,30 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
 
     @Override
     public String toString() {
-        return getShapeType() + " " + getNaturalId() ;
+        if (!getConfigMaps().isModelFinished()) {
+            return getShapeType() + " " + getNaturalId();
+        }
+        else {
+            return super.toString();
+        }
+    }
+
+    public ModelBean createBean() {
+        ModelBean bean = new ModelBean();
+        populateBean(bean);
+        return bean;
+    }
+
+    public void populateBean(ModelBean bean) {
+        super.populateBean(bean);
+        bean.setModelKey(getModelKey());
+        bean.setPackagePath(getPackagePath());
+        bean.setInterfaces(getInterfaces());
+        bean.setSuperKey(getSuperKey());
+
+        bean.setAbstract(getAbstract());
+        bean.setDbAnnotated(getDbAnnotated());
+        bean.setProperty(getProperty());
+        //bean.setRolePermissions(getR)
     }
 }

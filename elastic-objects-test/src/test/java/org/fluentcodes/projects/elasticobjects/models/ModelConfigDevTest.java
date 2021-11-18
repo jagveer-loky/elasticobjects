@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class ModelConfigDevTest {
     @Test
     public void check() {
-        ConfigMaps cache = ProviderRootDevScope.EO_CONFIGS;
+        ConfigMaps cache = ProviderRootDevScope.CONFIG_MAPS_DEV;
         TreeSet<String> keys = new TreeSet<>(cache.getConfigKeys(ModelConfig.class));
         for (String key: keys) {
             ModelConfig model = cache.findModel(key);

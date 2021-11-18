@@ -12,7 +12,7 @@ public class SubExampleClassTest {
     @Test
     public void givenScopeDev_whenFindSubExampleClass_thenExceptionThrown()  {
         try {
-            ModelConfigMethods model = ProviderRootDevScope.EO_CONFIGS.findModel(SubExampleClass.class);
+            ModelConfigMethods model = ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(SubExampleClass.class);
             Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
         }
         catch(EoException e) {

@@ -12,6 +12,7 @@
       "naturalId": "author",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -23,6 +24,7 @@
       "naturalId": "creationDate",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -34,6 +36,7 @@
       "naturalId": "default",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -46,6 +49,7 @@
       "naturalId": "description",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -57,6 +61,7 @@
       "naturalId": "expose",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -68,6 +73,7 @@
       "modelKeys": "String",
       "naturalId": "fieldKey",
       "properties": {
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -80,6 +86,7 @@
       "naturalId": "fieldName",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -91,6 +98,7 @@
       "naturalId": "final",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -102,6 +110,7 @@
       "naturalId": "generated",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -113,6 +122,7 @@
       "naturalId": "id",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -125,6 +135,7 @@
       "naturalId": "javascriptType",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true
       }
     },
@@ -135,6 +146,7 @@
       "naturalId": "jsonIgnore",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -145,6 +157,7 @@
       "modelKeys": "Integer",
       "naturalId": "length",
       "properties": {
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -156,6 +169,7 @@
       "naturalId": "max",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -167,6 +181,7 @@
       "naturalId": "min",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -178,6 +193,7 @@
       "modelKeys": "String",
       "naturalId": "modelKeys",
       "properties": {
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -190,6 +206,7 @@
       "naturalId": "module",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -202,6 +219,7 @@
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -214,6 +232,7 @@
       "naturalId": "naturalId",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -225,6 +244,7 @@
       "naturalId": "notNull",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -236,6 +256,7 @@
       "naturalId": "override",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -247,6 +268,7 @@
       "naturalId": "properties",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -258,6 +280,7 @@
       "naturalId": "property",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -269,6 +292,7 @@
       "naturalId": "scope",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "override": true
       }
@@ -280,6 +304,7 @@
       "naturalId": "staticName",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -291,6 +316,7 @@
       "naturalId": "super",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -302,6 +328,7 @@
       "naturalId": "transient",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }
@@ -313,6 +340,7 @@
       "naturalId": "unique",
       "properties": {
         "super": true,
+        "generated": false,
         "final": true,
         "property": true
       }

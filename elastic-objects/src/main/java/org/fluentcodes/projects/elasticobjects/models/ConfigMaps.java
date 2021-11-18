@@ -1,5 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.HostFactory;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
@@ -22,6 +26,7 @@ import java.util.stream.Collectors;
 public class ConfigMaps {
     private final Map<Class<? extends ConfigInterface>, Map<String, ConfigInterface>> configMaps;
     private final Scope scope;
+    private boolean modelFinished;
 
     public ConfigMaps() {
         this(Scope.DEV);
@@ -31,17 +36,23 @@ public class ConfigMaps {
         configMaps = new LinkedHashMap<>();
         this.scope = scope;
         if (scope == Scope.DEV) {
-            configMaps.put(ModelConfig.class, new ModelFactoryBasic().createImmutableConfig(this));
+            this.modelFinished = true;
+            configMaps.put(ModelConfig.class, new ModelFactoryBasic(this).createImmutableConfig());
             return;
         }
-        configMaps.put(ModelConfig.class, new ModelFactoryAll(scope).createImmutableConfig(new ConfigMaps(Scope.DEV)));
-        configMaps.put(FieldConfig.class, new FieldFactory(scope).createImmutableConfig(this));
-        configMaps.put(HostConfig.class, new HostFactory(scope).createImmutableConfig(this));
-        configMaps.put(FileConfig.class, new FileFactory(scope).createImmutableConfig(this));
+        configMaps.put(ModelConfig.class, new ModelFactoryAll(this).createImmutableConfig());
+        configMaps.put(FieldConfig.class, new FieldFactory(this).createImmutableConfig());
+        this.modelFinished = true;
+        configMaps.put(HostConfig.class, new HostFactory(this).createImmutableConfig());
+        configMaps.put(FileConfig.class, new FileFactory(this).createImmutableConfig());
     }
 
     public Scope getScope() {
         return scope;
+    }
+
+    public boolean isModelFinished() {
+        return modelFinished;
     }
 
     public Set<Class<? extends ConfigInterface>> getKeys() {
@@ -63,7 +74,7 @@ public class ConfigMaps {
             throw new EoException("Config key is empty within '" + configClass.getSimpleName() + "'!");
         }
         if (!getConfigMap(configClass).containsKey(configKey)) {
-            throw new EoException("Could not found config key within '" + configClass.getSimpleName() + "'!");
+            throw new EoException("Could not find config key '" + configKey + "' within '" + configClass.getSimpleName() + "'!");
         }
         ConfigInterface config = getConfigMap(configClass).get(configKey);
         return config;
@@ -100,13 +111,13 @@ public class ConfigMaps {
             } catch (ClassNotFoundException e) {
                 throw new EoException(e);
             }
-            ConfigFactory configFactory = null;
             try {
-                configFactory = (ConfigFactory) factoryClass.getConstructor(Scope.class).newInstance(scope);
+                ConfigFactory configFactory = (ConfigFactory) factoryClass.getConstructor(ConfigMaps.class).newInstance(this);
+                configMaps.put(configClass, configFactory.createImmutableConfig());
             } catch (Exception e) {
                 throw new EoException(e);
             }
-            configMaps.put(configClass, configFactory.createImmutableConfig(this));
+
         }
         return configMaps.get(configClass);
     }
@@ -145,6 +156,17 @@ public class ConfigMaps {
         return (HostConfig) find(HostConfig.class, key);
     }
 
+    public String toString(Class<? extends ConfigInterface> configClass) {
+        if (!isModelFinished()) {
+            return "Not finshed yet.";
+        }
 
+        Map<String, ConfigInterface> configMap = getConfigMap(configClass);
+
+        EO cloneMap = EoRoot.ofClass(this, Map.class);
+        cloneMap.setSerializationType(JSONSerializationType.STANDARD);
+        cloneMap.mapObject(configMap);
+        return new EOToJSON().toJson(cloneMap);
+    }
 
 }

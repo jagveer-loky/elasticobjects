@@ -11,7 +11,7 @@ public class ASubObjectTest {
     @Test
     public void DEV__find_ASubObject__exception()  {
         Assertions
-                .assertThatThrownBy(()->{ProviderRootDevScope.EO_CONFIGS.findModel(ASubObject.class);})
+                .assertThatThrownBy(()->{ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(ASubObject.class);})
                 .isInstanceOf(EoException.class);
     }
 

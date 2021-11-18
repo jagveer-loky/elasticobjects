@@ -12,12 +12,8 @@ import java.util.Map;
 
 public class ModelFactoryFromConfigurations extends ModelFactory {
 
-    public ModelFactoryFromConfigurations() {
-        this(Scope.DEV);
-    }
-
-    public ModelFactoryFromConfigurations(Scope scope) {
-        super(scope);
+    public ModelFactoryFromConfigurations(final ConfigMaps configMaps) {
+        super(configMaps);
     }
 
     /**
@@ -25,23 +21,23 @@ public class ModelFactoryFromConfigurations extends ModelFactory {
      * @return the expanded final configurations.
      */
     @Override
-    public Map<String, ModelBean> createBeanMap(ConfigMaps configMaps) {
-        Map<String, ModelBean> beanMap = new ModelFactoryBasic().createBeanMap();
-        addModelBeans(configMaps, beanMap);
+    public Map<String, ModelBean> createBeanMap() {
+        Map<String, ModelBean> beanMap = new ModelFactoryBasic(getConfigMaps()).createBeanMap();
+        addModelBeans(beanMap);
         return beanMap;
     }
 
-    protected Map<String, ModelBean> createBeanMap() {
-        return createBeanMap(new ConfigMaps(Scope.DEV));
-    }
-
-
-    protected void addModelBeans(ConfigMaps configMaps, Map<String, ModelBean> beanMap) {
-        EO eoRoot = EoRoot.ofClass(configMaps, readConfigFiles(), Map.class);
+    protected void addModelBeans(Map<String, ModelBean> beanMap) {
+        ConfigMaps devConfigMaps = new ConfigMaps(Scope.DEV);
+        EO eoRoot = EoRoot.ofClass(devConfigMaps, readConfigFiles(), Map.class);
         Map<String, Map<String, Object>> mapValues = (Map<String, Map<String, Object>>)eoRoot.get();
-        Map<String, FieldBean> fieldBeanMap = new FieldFactory(getScope()).createBeanMap(configMaps);
+        Map<String, FieldBean> fieldBeanMap = new FieldFactory(devConfigMaps).createBeanMap();
         for (Map.Entry<String, Map<String,Object>> entry: mapValues.entrySet()) {
             ModelBean modelBean = new ModelBean(entry.getValue());
+            if (!modelBean.hasModelKey()) {
+                LOG.warn("No modelKey defined for {}.", entry.getKey());
+                continue;
+            }
             modelBean.setNaturalId(entry.getKey());
             beanMap.put(entry.getKey(), modelBean);
         }

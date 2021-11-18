@@ -8,25 +8,19 @@ import java.util.TreeMap;
  */
 
 public class ModelFactoryAll extends ModelFactory {
-    public ModelFactoryAll() {
-        this(Scope.DEV);
-    }
-    ModelFactoryAll(Scope scope) {
-        super(scope);
+    ModelFactoryAll(final ConfigMaps configMaps) {
+        super(configMaps);
     }
 
     @Override
-    public Map<String, ModelBean> createBeanMap(ConfigMaps configMaps) {
+    public Map<String, ModelBean> createBeanMap() {
         Map<String, ModelBean> beanMap = new TreeMap<>();
-        new ModelFactoryBasic().addModelBeans(beanMap);
-        new ModelFactoryFromConfigurations(configMaps.getScope())
-                .addModelBeans(configMaps, beanMap);
-        new ModelFactoryFromModels(configMaps.getScope())
+        new ModelFactoryBasic(getConfigMaps()).addModelBeans(beanMap);
+        new ModelFactoryFromConfigurations(getConfigMaps())
+                .addModelBeans(beanMap);
+        new ModelFactoryFromModels(getConfigMaps())
                 .addModelBeans(beanMap);
         return beanMap;
     }
 
-    public Map<String, ModelBean> createBeanMap() {
-        return createBeanMap(new ConfigMaps(Scope.DEV));
-    }
 }

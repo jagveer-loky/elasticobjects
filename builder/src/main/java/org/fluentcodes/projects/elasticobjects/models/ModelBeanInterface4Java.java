@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 30.12.2020.
  */
-public interface ModelBeanInterface4Java extends Model {
+public interface ModelBeanInterface4Java extends ModelInterface {
     default String getJavaComment() {
         return ModelBeanGen.replaceLinks(getDescription());
     }

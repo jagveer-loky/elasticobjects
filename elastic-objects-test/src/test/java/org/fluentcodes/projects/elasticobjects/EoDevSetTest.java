@@ -32,21 +32,21 @@ public class EoDevSetTest {
 
     @Test
     public void empty__eo_set_key_value__map_get_key_value()  {
-        final EO eo = EoRoot.of(ProviderRootDevScope.EO_CONFIGS);
+        final EO eo = EoRoot.of(ProviderRootDevScope.CONFIG_MAPS_DEV);
         eo.set("value","key");
         Assertions.assertThat(((Map)eo.get()).get("key")).isEqualTo("value");
     }
 
     @Test
     public void constructor_LinkedHashMap__eo_set_key_value__map_get_key_value()  {
-        final EO eo = EoRoot.ofValue(ProviderRootDevScope.EO_CONFIGS, new LinkedHashMap());
+        final EO eo = EoRoot.ofValue(ProviderRootDevScope.CONFIG_MAPS_DEV, new LinkedHashMap());
         eo.set("value","key");
         Assertions.assertThat(((Map)eo.get()).get("key")).isEqualTo("value");
     }
 
     @Test
     public void key_value__set_model_List__exception()  {
-        final EO eo = EoRoot.of(ProviderRootDevScope.EO_CONFIGS);
+        final EO eo = EoRoot.of(ProviderRootDevScope.CONFIG_MAPS_DEV);
         EO child = eo.set("value", "key");
         Assertions.assertThatThrownBy(()->{child.set(List.class.getSimpleName(), PathElement.ROOT_MODEL);})
                 .hasMessage("Could not change model with a set");
@@ -78,7 +78,7 @@ public class EoDevSetTest {
 
     @Test
     public void empty_class_Map_Map__set_key_value__Exception()  {
-        final EO eo = EoRoot.ofClass(ProviderRootDevScope.EO_CONFIGS, Map.class, Map.class);
+        final EO eo = EoRoot.ofClass(ProviderRootDevScope.CONFIG_MAPS_DEV, Map.class, Map.class);
         Assertions.assertThatThrownBy(()->{eo.set("value", "key");})
                 .isInstanceOf(EoException.class);
     }

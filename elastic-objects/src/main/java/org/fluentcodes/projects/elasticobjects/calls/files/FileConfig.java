@@ -6,12 +6,12 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
-import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.LOCALHOST;
 
@@ -38,16 +38,12 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
 /*=>{}.*/
     private String cachedContent;
 
-    public FileConfig(Map map) {
-        this(new FileBean(map));
+    public FileConfig(ConfigBean bean, final ConfigMaps configMaps) {
+        this((FileBean) bean, configMaps);
     }
 
-    public FileConfig(ConfigBean bean) {
-        this((FileBean) bean);
-    }
-
-    public FileConfig(FileBean bean) {
-        super(bean);
+    public FileConfig(FileBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
         this.fileName = bean.getFileName();
         this.filePath = bean.getFilePath();
         this.cached = bean.getCached();

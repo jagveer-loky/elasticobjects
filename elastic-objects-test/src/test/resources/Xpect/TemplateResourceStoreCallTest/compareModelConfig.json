@@ -10,7 +10,9 @@
       "modelKeys": "String",
       "naturalId": "author",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "compare": {
@@ -19,7 +21,9 @@
       "modelKeys": "Boolean",
       "naturalId": "compare",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "condition": {
@@ -29,7 +33,9 @@
       "modelKeys": "String",
       "naturalId": "condition",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "creationDate": {
@@ -38,7 +44,9 @@
       "modelKeys": "Date",
       "naturalId": "creationDate",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "description": {
@@ -48,7 +56,9 @@
       "modelKeys": "String",
       "naturalId": "description",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "duration": {
@@ -57,7 +67,9 @@
       "modelKeys": "Long",
       "naturalId": "duration",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "id": {
@@ -66,7 +78,9 @@
       "modelKeys": "Long",
       "naturalId": "id",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "keepCall": {
@@ -75,7 +89,9 @@
       "modelKeys": "KeepCalls",
       "naturalId": "keepCall",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "logLevel": {
@@ -84,7 +100,9 @@
       "modelKeys": "LogLevel",
       "naturalId": "logLevel",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "models": {
@@ -94,7 +112,9 @@
       "modelKeys": "String",
       "naturalId": "models",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "naturalId": {
@@ -104,7 +124,9 @@
       "modelKeys": "String",
       "naturalId": "naturalId",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "overwrite": {
@@ -114,6 +136,8 @@
       "naturalId": "overwrite",
       "properties": {
         "super": true,
+        "generated": false,
+        "final": false,
         "property": true
       }
     },
@@ -124,7 +148,9 @@
       "modelKeys": "String",
       "naturalId": "postpend",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "prepend": {
@@ -134,7 +160,9 @@
       "modelKeys": "String",
       "naturalId": "prepend",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "sourceFileConfigKey": {
@@ -144,7 +172,9 @@
       "modelKeys": "String",
       "naturalId": "sourceFileConfigKey",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "sourcePath": {
@@ -154,7 +184,9 @@
       "modelKeys": "String",
       "naturalId": "sourcePath",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "startCondition": {
@@ -164,7 +196,9 @@
       "modelKeys": "String",
       "naturalId": "startCondition",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "targetFileConfigKey": {
@@ -174,7 +208,9 @@
       "modelKeys": "String",
       "naturalId": "targetFileConfigKey",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     },
     "targetPath": {
@@ -184,7 +220,9 @@
       "modelKeys": "String",
       "naturalId": "targetPath",
       "properties": {
-        "super": true
+        "super": true,
+        "generated": false,
+        "final": false
       }
     }
   },
