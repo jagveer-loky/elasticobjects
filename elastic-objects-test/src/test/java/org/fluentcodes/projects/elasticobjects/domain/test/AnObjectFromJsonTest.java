@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
@@ -20,7 +20,7 @@ public class AnObjectFromJsonTest {
 
     @Test
     public void id_1____id_1() {
-        EO eo = ProviderRootTestScope.createEo("{\n" +
+        EO eo = ProviderConfigMaps.createEo("{\n" +
                 "   \"(AnObject)abc\":{\n" +
                 "        \"id\":1\n" +
                 "   }" +

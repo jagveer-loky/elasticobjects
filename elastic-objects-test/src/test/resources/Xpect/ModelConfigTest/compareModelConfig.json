@@ -1,119 +1,299 @@
 {
+  "author": "Werner Diwischek",
+  "description": "Table definitions with pojo.",
+  "expose": "NONE",
   "fieldConfigMap": {
-    "fieldConfigMap": {
-      "fieldKey": "fieldConfigMap",
-      "modelKeys": "Map,FieldConfig",
-      "description": "A fieldBean map with @FieldConfig",
-      "naturalId": "fieldConfigMap"
-    },
-    "interfaces": {
-      "fieldKey": "interfaces",
-      "length": 256,
-      "modelKeys": "String",
-      "description": "A comma separeted list of interface keys. ",
-      "naturalId": "interfaces"
-    },
-    "modelKey": {
-      "fieldKey": "modelKey",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "The model name for the bean/action object @ModelConfig.",
-      "naturalId": "modelKey"
-    },
-    "packagePath": {
-      "fieldKey": "packagePath",
-      "length": 124,
-      "modelKeys": "String",
-      "description": "packagePath",
-      "naturalId": "packagePath"
-    },
-    "superKey": {
-      "fieldKey": "superKey",
-      "length": 256,
-      "modelKeys": "String",
-      "description": "A key for the super class of a class.",
-      "naturalId": "superKey"
-    },
-    "expose": {
-      "fieldKey": "expose",
-      "modelKeys": "Expose",
-      "description": "expose",
-      "naturalId": "expose"
-    },
-    "module": {
-      "fieldKey": "module",
-      "length": 80,
-      "modelKeys": "String",
-      "description": "Defines a target module where generating occurs. ",
-      "naturalId": "module"
-    },
-    "moduleScope": {
-      "fieldKey": "moduleScope",
-      "length": 10,
-      "modelKeys": "String",
-      "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
-      "naturalId": "moduleScope"
-    },
-    "scope": {
-      "fieldKey": "scope",
-      "modelKeys": "List,Scope",
-      "description": "A scope for the cache value.",
-      "naturalId": "scope"
+    "abstract": {
+      "description": "If true the generated model will be initially set as abstract class.",
+      "fieldKey": "abstract",
+      "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
+      "naturalId": "abstract",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "property": true
+      }
     },
     "author": {
+      "description": "The author of the class.",
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
-      "description": "The author of the class.",
-      "naturalId": "author"
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "author",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
     },
     "creationDate": {
+      "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
-      "description": "Used to define the creation of an item.",
-      "naturalId": "creationDate"
+      "modelList": [
+        "Date"
+      ],
+      "naturalId": "creationDate",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "dbAnnotated": {
+      "description": "If true a db annotation will be generated for java instance vars. ",
+      "fieldKey": "dbAnnotated",
+      "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
+      "naturalId": "dbAnnotated",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "property": true
+      }
     },
     "description": {
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
-      "description": "A description of the model used by every model extending BaseClassImpl. ",
-      "naturalId": "description"
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "description",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "expose": {
+      "description": "expose",
+      "fieldKey": "expose",
+      "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
+      "naturalId": "expose",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "fieldConfigMap": {
+      "description": "A fieldBean map with @FieldConfig",
+      "fieldKey": "fieldConfigMap",
+      "modelKeys": "Map,FieldConfig",
+      "modelList": [
+        "Map",
+        "FieldConfig"
+      ],
+      "naturalId": "fieldConfigMap",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": true,
+        "override": false
+      }
     },
     "id": {
+      "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "description": "The numeric id of an instance of a class.",
-      "naturalId": "id"
+      "modelList": [
+        "Long"
+      ],
+      "naturalId": "id",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "interfaces": {
+      "description": "A comma separeted list of interface keys. ",
+      "fieldKey": "interfaces",
+      "length": 256,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "interfaces",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "modelKey": {
+      "description": "The model name for the bean/action object @ModelConfig.",
+      "fieldKey": "modelKey",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "modelKey",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "module": {
+      "description": "Defines a target module where generating occurs. ",
+      "fieldKey": "module",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "module",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "moduleScope": {
+      "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
+      "fieldKey": "moduleScope",
+      "length": 10,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "moduleScope",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
     },
     "naturalId": {
+      "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "description": "The natural key in @Base",
-      "naturalId": "naturalId"
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "naturalId",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
     },
-    "abstract": {
-      "fieldKey": "abstract",
-      "modelKeys": "Boolean",
-      "description": "If true the generated model will be initially set as abstract class.",
-      "naturalId": "abstract"
+    "packagePath": {
+      "description": "packagePath",
+      "fieldKey": "packagePath",
+      "length": 124,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "packagePath",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": true,
+        "override": true
+      }
     },
-    "dbAnnotated": {
-      "fieldKey": "dbAnnotated",
-      "modelKeys": "Boolean",
-      "description": "If true a db annotation will be generated for java instance vars. ",
-      "naturalId": "dbAnnotated"
+    "properties": {
+      "description": "Properties for configurations.",
+      "fieldKey": "properties",
+      "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
+      "naturalId": "properties",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "scope": {
+      "description": "A scope for the cache value.",
+      "fieldKey": "scope",
+      "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
+      "naturalId": "scope",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "superKey": {
+      "description": "A key for the super class of a class.",
+      "fieldKey": "superKey",
+      "length": 256,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "superKey",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": true,
+        "override": true
+      }
     }
   },
-  "interfaces": "ModelConfigInterfaceMethods",
+  "interfaces": "ModelConfigMethods",
   "modelKey": "ModelConfig",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-  "superKey": "ConfigConfig",
-  "expose": "NONE",
   "module": "elastic-objects",
   "moduleScope": "main",
-  "author": "Werner Diwischek",
-  "description": "Table definitions with pojo.",
-  "naturalId": "ModelConfig"
+  "naturalId": "ModelConfig",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "properties": {
+    "final": true,
+    "create": false
+  },
+  "superKey": "ConfigConfig"
 }

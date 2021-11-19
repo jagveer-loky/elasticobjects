@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.csv;
 import au.com.bytecode.opencsv.CSVReader;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
+import org.fluentcodes.projects.elasticobjects.calls.files.CsvConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 

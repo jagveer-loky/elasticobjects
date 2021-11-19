@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
 
 /**
  * A bean class for containing the following values:
@@ -354,7 +354,7 @@ public class ListParams {
         return colKeys!=null && !colKeys.isEmpty();
     }
 
-    public void addRowEntry(EOConfigsCache configsCache, List result, List rowEntry) {
+    public void addRowEntry(ConfigMaps configsCache, List result, List rowEntry) {
         if (hasColKeys()) {
             Map<String,Object> rowMap = createMapFromRow(rowEntry);
             if (filter(EoRoot.ofValue(configsCache, rowMap))) {

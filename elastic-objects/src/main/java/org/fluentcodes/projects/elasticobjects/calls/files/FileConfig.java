@@ -6,12 +6,14 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
-import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.LOCALHOST;
 
 /*=>{javaHeader}|*/
 /**
@@ -21,7 +23,7 @@ import java.util.Map;
  * @creationDate Wed Oct 17 00:00:00 CEST 2018
  * @modificationDate Thu Jan 14 14:42:46 CET 2021
  */
-public class FileConfig extends PermissionConfig implements FileConfigInterfaceMethods  {
+public class FileConfig extends PermissionConfig implements FileConfigMethods, FileInterface  {
 /*=>{}.*/
 
 /*=>{javaInstanceVars}|*/
@@ -36,20 +38,16 @@ public class FileConfig extends PermissionConfig implements FileConfigInterfaceM
 /*=>{}.*/
     private String cachedContent;
 
-    public FileConfig(Map map) {
-        this(new FileBean(map));
+    public FileConfig(ConfigBean bean, final ConfigMaps configMaps) {
+        this((FileBean) bean, configMaps);
     }
 
-    public FileConfig(ConfigBean bean) {
-        this((FileBean) bean);
-    }
-
-    public FileConfig(FileBean bean) {
-        super(bean);
+    public FileConfig(FileBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
         this.fileName = bean.getFileName();
         this.filePath = bean.getFilePath();
         this.cached = bean.getCached();
-        this.hostConfigKey = bean.getHostConfigKey();
+        this.hostConfigKey = bean.hasHostConfigKey() ? bean.getHostConfigKey(): LOCALHOST;
     }
 
 
@@ -96,13 +94,8 @@ public class FileConfig extends PermissionConfig implements FileConfigInterfaceM
     }
 
     protected HostConfig resolveHostConfig(final EO eo, final String hostConfigKey) {
-        if (hostConfigKey == null||hostConfigKey.isEmpty()) {
-            if (hasHostConfigKey()) {
-                return eo.getConfigsCache().findHost(getHostConfigKey());
-            }
-            throw new EoException("No default host key is set. No hostKey provided.");
-        }
-        return eo.getConfigsCache().findHost(hostConfigKey);
+        if (hostConfigKey != null && !hostConfigKey.isEmpty()) return eo.getConfigsCache().findHost(hostConfigKey);
+        return eo.getConfigsCache().findHost(this.getHostConfigKey());
     }
 
     public URL findUrl(final EO eo, final String hostConfigKey)  {
@@ -143,10 +136,10 @@ public class FileConfig extends PermissionConfig implements FileConfigInterfaceM
     }
     @Override
     public URL createUrl(HostConfig hostConfig)  {
-        if (fileName == null || fileName.equals("")) {
+        if (!hasFileName()) {
             throw new EoException("No name in file provided '" + getNaturalId() + "'!");
         }
-        if (filePath == null || filePath.equals("")) {
+        if (!hasFilePath()) {
             throw new EoException("No path in file provided '" + getNaturalId() + "'!");
         }
         String urlString = getUrlPath(hostConfig);

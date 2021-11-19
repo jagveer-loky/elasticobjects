@@ -1,0 +1,9 @@
+{
+  "configModelKey": "ModelConfigObject",
+  "modelKey": "SubExampleClass",
+  "naturalId": "SubExampleClass",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+  "properties": {
+  },
+  "superKey": "SuperExampleClass"
+}

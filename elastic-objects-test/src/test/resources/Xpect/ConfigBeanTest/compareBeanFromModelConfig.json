@@ -1,0 +1,16 @@
+{
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "creationDate": 1608073216000,
+  "description": "The basic bean class for the configuration classes. Defines properies map for individual extensions.  ",
+  "expose": "NONE",
+  "interfaces": "ConfigInterface",
+  "modelKey": "ConfigBean",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "naturalId": "ConfigBean",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "properties": {
+  },
+  "superKey": "BaseBean"
+}

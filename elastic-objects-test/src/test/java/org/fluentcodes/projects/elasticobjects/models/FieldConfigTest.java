@@ -1,43 +1,48 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.junit.Assert;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IConfigurationTests;
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps.CONFIG_MAPS;
+
 /**
- * Created by Werner on 27.8.2018.
+ * Created by Werner on 17.11.2021.
  */
-public class FieldConfigTest {
+public class FieldConfigTest implements IConfigurationTests {
 
+    @Override
+    public Class<?> getModelConfigClass() {
+        return FieldConfig.class;
+    }
+
+    @Override
     @Test
-    public void createByModelConfig_throwsException()  {
-        ModelConfigChecks.createThrowsException(FieldConfig.class);
+    public void create_throwsEoException() {
+        assertCreateThrowingException();
+    }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareConfigurations() {
+        assertLoadedConfigurationsEqualsPersisted();
     }
 
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(FieldConfig.class);
-    }
-
-    @Test
-    public void TEST__findModel_FieldConfig__$()  {
-        final ModelConfig fieldModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldConfig.class);
-        Assert.assertEquals(FieldConfig.class.getSimpleName(), fieldModel.getModelKey());
-        Assert.assertEquals(FieldConfig.class, fieldModel.getModelClass());
-    }
-
-    @Test
-    public void TEST__findModel_FieldConfigInterface__getProperty_()  {
-        final ModelConfig fieldConfigInterfaceModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldConfigInterface.class);
-        Assert.assertEquals(FieldConfigInterface.class.getSimpleName(), fieldConfigInterfaceModel.getModelKey());
-        Assert.assertEquals(FieldConfigInterface.class, fieldConfigInterfaceModel.getModelClass());
-    }
-
-    @Test
-    public void TEST__findModel_FieldBeanInterface__getProperty_()  {
-        final ModelConfig fieldBeanInterfaceModel = ProviderRootTestScope.EO_CONFIGS.findModel(FieldBeanInterface.class);
-        Assert.assertEquals(FieldBeanInterface.class.getSimpleName(), fieldBeanInterfaceModel.getModelKey());
-        Assert.assertEquals(FieldBeanInterface.class, fieldBeanInterfaceModel.getModelClass());
+    public void getDescription() {
+        FieldConfig fieldConfig = (FieldConfig) CONFIG_MAPS.find(FieldConfig.class, "description");
+        assertThat(fieldConfig).isNotNull();
     }
 }

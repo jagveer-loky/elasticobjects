@@ -1,25 +1,34 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Test;
 
 /**
  * Created by Werner on 30.10.2020.
  */
-public class DbModelReadCallTest {
-    @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(DbModelReadCall.class);
+public class DbModelReadCallTest implements IModelConfigCreateTests {
+    @Override
+    public Class<?> getModelConfigClass() {
+        return DbModelReadCall.class;
     }
 
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(DbModelReadCall.class);
+    public void create_noEoException() {
+        assertCreateNoException();
     }
 
+    @Override
     @Test
-    public void resolveModelConfig()  {
-        ModelConfigChecks.resolve(DbModelReadCall.class);
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
     }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
+
 }
 

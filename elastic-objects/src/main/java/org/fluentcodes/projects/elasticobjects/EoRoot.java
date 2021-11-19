@@ -1,9 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 import java.util.List;
@@ -14,12 +13,12 @@ import java.util.Map;
  */
 
 public class EoRoot extends EoChild {
-    private final EOConfigsCache eoConfigCache;
+    private final ConfigMaps eoConfigCache;
     private List<String> roles;
 
     private boolean checkObjectReplication = false;
 
-    protected EoRoot(EOConfigsCache cache, Object rootValue, Models rootModels) {
+    protected EoRoot(ConfigMaps cache, Object rootValue, Models rootModels) {
         super(null, null, rootValue, rootModels);
         if (rootModels.isScalar()) {
             throw new EoException("Root could not be a scalar type but starting value is '" + rootModels.toString() + "'!");
@@ -33,11 +32,11 @@ public class EoRoot extends EoChild {
         }
     }
 
-    public static EoRoot of(final EOConfigsCache cache)  {
+    public static EoRoot of(final ConfigMaps cache)  {
         return ofClass(cache, Map.class);
     }
 
-    public static EoRoot ofValue(final EOConfigsCache cache, Object rootValue)  {
+    public static EoRoot ofValue(final ConfigMaps cache, Object rootValue)  {
         if (rootValue == null) return ofClass(cache, Map.class);
         if (rootValue instanceof Class)  return ofClass(cache, (Class) rootValue);
         if (rootValue instanceof String) {
@@ -51,11 +50,11 @@ public class EoRoot extends EoChild {
         return new EoRoot(cache, rootValue, Models.ofValue(cache, rootValue));
     }
 
-    public static EoRoot ofClass(final EOConfigsCache cache, Class... rootClasses)  {
+    public static EoRoot ofClass(final ConfigMaps cache, Class... rootClasses)  {
         return new EoRoot(cache, null, new Models(cache, rootClasses));
     }
 
-    public static EoRoot ofClass(final EOConfigsCache cache, final Object rootValue, Class... rootClasses)  {
+    public static EoRoot ofClass(final ConfigMaps cache, final Object rootValue, Class... rootClasses)  {
         Models rootModels  = new Models(cache, rootClasses);
         if (rootModels.isScalar()) {
             throw new EoException("Could not create root with an scalar entry: '" + rootClasses[0].getSimpleName() + "'");
@@ -71,7 +70,7 @@ public class EoRoot extends EoChild {
     }
 
     @Override
-    public EOConfigsCache getConfigsCache() {
+    public ConfigMaps getConfigsCache() {
         return eoConfigCache;
     }
 

@@ -4,17 +4,17 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.calls.db.DbConfig.H2_BASIC;
+import static org.fluentcodes.projects.elasticobjects.calls.DbConfig.H2_BASIC;
 
 
 public class DbModelWriteCallAnObjectTest {
     @Before
     public void init() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         Call call = new DbSqlExecuteCall(H2_BASIC, "h2:mem:basic:Create");
         call.execute(eo);
     }
@@ -24,7 +24,7 @@ public class DbModelWriteCallAnObjectTest {
         DbModelWriteCall call = new DbModelWriteCall();
         Assertions.assertThat(call).isNotNull();
         call.setTargetPath("/result");
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1New");
         anObject.setId(1L);
@@ -40,7 +40,7 @@ public class DbModelWriteCallAnObjectTest {
         AnObject anObject = new AnObject();
         anObject.setMyString("value1New");
         anObject.setId(1L);
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.set(anObject, "test");
         eo.setRoles("guest");
 
@@ -59,7 +59,7 @@ public class DbModelWriteCallAnObjectTest {
         DbModelWriteCall call = new DbModelWriteCall();
         Assertions.assertThat(call).isNotNull();
         call.setTargetPath("/result");
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value4");
         anObject.setId(4L);

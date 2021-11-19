@@ -1,9 +1,0 @@
-{
-  "elasticobjects": {
-    "expose": "NONE",
-    "module": "elastic-objects-test",
-    "moduleScope": "test",
-    "description": "A connection to elastic objects",
-    "naturalId": "elasticobjects"
-  }
-}

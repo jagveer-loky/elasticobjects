@@ -1,8 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
 import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 /*=>{javaHeader}|*/
@@ -39,6 +42,10 @@ public abstract class DbModelCall extends HostCall  {
 
     protected ModelConfigDbObject init(final PermissionType permissionType, final EO eo) {
         modelConfigKey = eo.getModelClass().getSimpleName();
+        ModelConfig modelConfig = eo.getConfigsCache().findModel(modelConfigKey);
+        if (!(modelConfig instanceof ModelConfigDbObject)) {
+            throw new EoException("modelConfig for key '" + modelConfigKey + "'is not of type ModelConfigDbObject but " + modelConfig.getClass() + ".");
+        }
         modelConfigDbObject = (ModelConfigDbObject) eo.getConfigsCache().findModel(modelConfigKey);
         modelConfigDbObject.hasPermissions(permissionType, eo.getRoles());
         if (!hasHostConfigKey()) {

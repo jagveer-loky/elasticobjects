@@ -20,7 +20,6 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.io.EOFException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;

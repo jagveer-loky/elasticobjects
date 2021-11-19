@@ -1,113 +1,230 @@
 {
-  "rolePermissions": {
-    "read": "guest"
-  },
+  "author": "Werner Diwischek",
+  "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
+  "expose": "WEB",
   "fieldConfigMap": {
     "id": {
+      "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
-      "description": "The numeric id of an instance of a class.",
-      "naturalId": "id"
+      "modelList": [
+        "Long"
+      ],
+      "naturalId": "id",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myASubObject": {
+      "description": "myASubObject",
       "fieldKey": "myASubObject",
       "modelKeys": "ASubObject",
-      "description": "myASubObject",
-      "naturalId": "myASubObject"
+      "modelList": [
+        "ASubObject"
+      ],
+      "naturalId": "myASubObject",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myASubObjectList": {
+      "description": "A generic parametrized example List with @ASubObject",
       "fieldKey": "myASubObjectList",
       "modelKeys": "List,ASubObject",
-      "description": "A generic parametrized example List with @ASubObject",
-      "naturalId": "myASubObjectList"
+      "modelList": [
+        "List",
+        "ASubObject"
+      ],
+      "naturalId": "myASubObjectList",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myASubObjectMap": {
+      "description": "A generic parametrized example Map with @ASubObject",
       "fieldKey": "myASubObjectMap",
       "modelKeys": "Map,ASubObject",
-      "description": "A generic parametrized example Map with @ASubObject",
-      "naturalId": "myASubObjectMap"
+      "modelList": [
+        "Map",
+        "ASubObject"
+      ],
+      "naturalId": "myASubObjectMap",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myAnObject": {
+      "description": "A AnObject field.",
       "fieldKey": "myAnObject",
       "modelKeys": "AnObject",
-      "description": "A AnObject field.",
-      "naturalId": "myAnObject"
+      "modelList": [
+        "AnObject"
+      ],
+      "naturalId": "myAnObject",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myBoolean": {
+      "description": "myBoolean",
       "fieldKey": "myBoolean",
       "modelKeys": "Boolean",
-      "description": "myBoolean",
-      "naturalId": "myBoolean"
+      "modelList": [
+        "Boolean"
+      ],
+      "naturalId": "myBoolean",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myDate": {
+      "description": "myDate",
       "fieldKey": "myDate",
       "modelKeys": "Date",
-      "description": "myDate",
-      "naturalId": "myDate"
+      "modelList": [
+        "Date"
+      ],
+      "naturalId": "myDate",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myDouble": {
+      "description": "myDouble",
       "fieldKey": "myDouble",
       "modelKeys": "Double",
-      "description": "myDouble",
-      "naturalId": "myDouble"
+      "modelList": [
+        "Double"
+      ],
+      "naturalId": "myDouble",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myFloat": {
+      "description": "myFloat",
       "fieldKey": "myFloat",
       "modelKeys": "Float",
-      "description": "myFloat",
-      "naturalId": "myFloat"
+      "modelList": [
+        "Float"
+      ],
+      "naturalId": "myFloat",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myInt": {
+      "description": "myInt",
       "fieldKey": "myInt",
       "modelKeys": "Integer",
-      "description": "myInt",
-      "naturalId": "myInt"
+      "modelList": [
+        "Integer"
+      ],
+      "naturalId": "myInt",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myList": {
+      "description": "myList",
       "fieldKey": "myList",
       "modelKeys": "ArrayList",
-      "description": "myList",
-      "naturalId": "myList"
+      "modelList": [
+        "ArrayList"
+      ],
+      "naturalId": "myList",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myLong": {
+      "description": "myLong",
       "fieldKey": "myLong",
       "modelKeys": "Long",
-      "description": "myLong",
-      "naturalId": "myLong"
+      "modelList": [
+        "Long"
+      ],
+      "naturalId": "myLong",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myMap": {
+      "description": "myMap",
       "fieldKey": "myMap",
       "modelKeys": "HashMap",
-      "description": "myMap",
-      "naturalId": "myMap"
+      "modelList": [
+        "HashMap"
+      ],
+      "naturalId": "myMap",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myObject": {
+      "description": "A test object thing. ",
       "fieldKey": "myObject",
       "modelKeys": "Object",
-      "description": "A test object thing. ",
-      "naturalId": "myObject"
+      "modelList": [
+        "Object"
+      ],
+      "naturalId": "myObject",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "myString": {
+      "description": "Just a small test string used in test models. ",
       "fieldKey": "myString",
       "length": 20,
       "modelKeys": "String",
-      "description": "Just a small test string used in test models. ",
-      "naturalId": "myString"
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "myString",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     },
     "naturalId": {
+      "description": "The natural key in @Base",
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
-      "description": "The natural key in @Base",
-      "naturalId": "naturalId"
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "naturalId",
+      "properties": {
+        "generated": false,
+        "final": false
+      }
     }
   },
   "modelKey": "AnObject",
-  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
-  "expose": "WEB",
   "module": "elastic-objects-test",
   "moduleScope": "main",
-  "author": "Werner Diwischek",
-  "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
-  "naturalId": "AnObject"
+  "naturalId": "AnObject",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+  "properties": {
+    "create": true
+  },
+  "rolePermissions": {
+    "read": "guest"
+  }
 }

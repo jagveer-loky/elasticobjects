@@ -32,6 +32,10 @@ public enum ShapeTypes {
     public Class getModelConfig() {
         return modelConfig;
     }
+
+    public boolean hasModelConfig() {
+        return modelConfig != null;
+    }
     public String getModelConfigKey() {
         return modelConfig.getSimpleName();
     }

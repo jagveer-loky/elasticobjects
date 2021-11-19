@@ -1,18 +1,32 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Test;
 
 
-public class AnObjectTest {
-    @Test
-    public void create() {
-        AnObject anObject = new AnObject();
-        Assertions.assertThat(anObject).isNotNull();
+public class AnObjectTest implements IModelConfigCreateTests {
+
+    @Override
+    public Class<?> getModelConfigClass() {
+        return AnObject.class;
     }
+
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(AnObject.class);
+    public void create_noEoException() {
+        assertCreateNoException();
     }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
+
 }

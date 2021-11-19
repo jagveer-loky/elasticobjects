@@ -1,9 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.calls.Call.KEEP_CALL;
@@ -12,21 +12,35 @@ import static org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteC
 /**
  * Created 21.9.2020
  */
-public class TemplateResourceStoreCallTest {
+public class TemplateResourceStoreCallTest implements IModelConfigCreateTests {
 
+    @Override
+    public Class<?> getModelConfigClass() {
+        return TemplateResourceStoreCall.class;
+    }
+
+    @Override
+    @Test
+    public void create_noEoException()  {
+        assertCreateNoException();
+    }
+
+    @Override
     @Test
     public void compareModelConfig()  {
-        ModelConfigChecks.compare(TemplateResourceStoreCall.class);
+        assertModelConfigEqualsPersisted();
     }
 
+    @Override
     @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(TemplateResourceStoreCall.class);
+    public void compareBeanFromModelConfig()  {
+        assertBeanFromModelConfigEqualsPersisted();
     }
+
 
     @Test
     public void call__set_targetFile_model_test__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
+        ModelConfig modelConfig = ProviderConfigMaps.CONFIG_MAPS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
         modelConfig.set(TARGET_FILE_CONFIG_KEY, call, "test");
@@ -36,7 +50,7 @@ public class TemplateResourceStoreCallTest {
 
     @Test
     public void __setKeepCall__accessOk() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(TemplateResourceStoreCall.class.getSimpleName());
+        ModelConfig modelConfig = ProviderConfigMaps.CONFIG_MAPS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
         modelConfig.set(KEEP_CALL, call, KeepCalls.JAVA);

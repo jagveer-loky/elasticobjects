@@ -1,11 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface;
+import org.fluentcodes.projects.elasticobjects.domain.BaseInterface;
 import org.junit.Test;
 
 public class FieldBeanGenTest {
-    private static final FieldBeanGen NATURAL_ID = (FieldBeanGen)ModelBeanGenTest.AN_OBJECT_BEAN.getFieldBean(BaseConfigInterface.NATURAL_ID);
+    private static final FieldBeanGen NATURAL_ID = (FieldBeanGen)ModelBeanGenTest.AN_OBJECT_BEAN.getFieldBean(BaseInterface.NATURAL_ID);
 
     @Test
     public void TEST_AnObject_NATURAL_ID___getJavaFieldType__String() {

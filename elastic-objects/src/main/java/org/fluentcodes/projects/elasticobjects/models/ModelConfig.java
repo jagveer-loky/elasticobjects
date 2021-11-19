@@ -15,7 +15,7 @@ import java.util.Set;
 /**
  * Created by Werner on 09.10.2016.
  */
-public abstract class ModelConfig extends ConfigConfig implements ModelConfigInterfaceMethods {
+public abstract class ModelConfig extends ConfigConfig implements ModelConfigMethods {
     public static final String MODEL_KEY = "modelKey";
     public static final String INTERFACES = "interfaces";
     public static final String SUPER_KEY = "superKey";
@@ -38,8 +38,8 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
     private final Map<String, FieldConfig> fieldConfigMap;
     private final Map<String, ModelConfig> interfacesMap;
 
-    public ModelConfig(final ModelBean bean) {
-        super(bean);
+    public ModelConfig(final ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
         modelKey = bean.getModelKey();
         packagePath = bean.getPackagePath();
         superKey = bean.getSuperKey();
@@ -47,15 +47,11 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         this.fieldConfigMap = new LinkedHashMap<>();
         this.interfacesMap = new LinkedHashMap<>();
         if (bean.hasFieldBeans()) {
-            for (FieldBeanInterface fieldBean : bean.getFieldBeans().values()) {
+            for (FieldBean fieldBean : bean.getFieldBeans().values()) {
                 fieldConfigMap.put(fieldBean.getFieldKey(), new FieldConfig(this, fieldBean));
             }
         }
         setModelClass();
-    }
-
-    public ModelConfig(Map map) {
-        this(new ModelBean(map));
     }
 
     /**
@@ -115,7 +111,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    private final void setSuperModel(Map<String, ConfigConfigInterface> modelConfigMap) {
+    private final void setSuperModel(Map<String, ModelInterface> modelConfigMap) {
         if (!hasSuperKey()) {
             return;
         }
@@ -127,7 +123,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
 
 
 
-    private final void setDefaultImplementationModel(Map<String, ConfigConfigInterface> modelConfigMap) {
+    private final void setDefaultImplementationModel(Map<String, ModelInterface> modelConfigMap) {
         if (!hasDefaultImplementation()) {
             return;
         }
@@ -137,11 +133,11 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         this.defaultImplementationModel = (ModelConfig) modelConfigMap.get(getDefaultImplementation());
     }
 
-    public final ModelConfigInterfaceMethods getDefaultImplementationModel() {
+    public final ModelConfigMethods getDefaultImplementationModel() {
         return defaultImplementationModel;
     }
 
-    private final void setInterfacesMap(Map<String, ConfigConfigInterface> cache) {
+    private final void setInterfacesMap(Map<String, ModelInterface> cache) {
         if (interfaces == null || interfaces.isEmpty()) {
             return;
         }
@@ -151,7 +147,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         }
     }
 
-    private void setFieldConfigMap(final Map<String, ConfigConfigInterface> modelConfigMap) {
+    private void setFieldConfigMap(final Map<String, ModelInterface> modelConfigMap) {
         if (!hasFieldConfigMap()) {
             return;
         }
@@ -189,7 +185,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
         return keyValues;
     }
 
-    public void resolve(Map<String, ConfigConfigInterface> modelConfigMap)  {
+    public void resolve(Map<String, ModelInterface> modelConfigMap)  {
         if (resolved) {
             return;
         }
@@ -256,6 +252,30 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigInt
 
     @Override
     public String toString() {
-        return getShapeType() + " " + getNaturalId() ;
+        if (!getConfigMaps().isModelFinished()) {
+            return getShapeType() + " " + getNaturalId();
+        }
+        else {
+            return super.toString();
+        }
+    }
+
+    public ModelBean createBean() {
+        ModelBean bean = new ModelBean();
+        populateBean(bean);
+        return bean;
+    }
+
+    public void populateBean(ModelBean bean) {
+        super.populateBean(bean);
+        bean.setModelKey(getModelKey());
+        bean.setPackagePath(getPackagePath());
+        bean.setInterfaces(getInterfaces());
+        bean.setSuperKey(getSuperKey());
+
+        bean.setAbstract(getAbstract());
+        bean.setDbAnnotated(getDbAnnotated());
+        bean.setProperty(getProperty());
+        //bean.setRolePermissions(getR)
     }
 }

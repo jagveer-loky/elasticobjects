@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-
+@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringWebIT {
@@ -57,7 +57,7 @@ public class SpringWebIT {
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
-        EO eo = ProviderRootTestScope.createEo(body);
+        EO eo = ProviderConfigMaps.createEo(body);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
@@ -82,7 +82,7 @@ public class SpringWebIT {
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
-        EO eo = ProviderRootTestScope.createEo(body);
+        EO eo = ProviderConfigMaps.createEo(body);
         Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
     }
 

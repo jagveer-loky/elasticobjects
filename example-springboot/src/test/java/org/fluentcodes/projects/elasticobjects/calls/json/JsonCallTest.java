@@ -4,8 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class JsonCallTest {
 
     @Test
     public void givenMapJso_whenExecuteCall_thenContentIsRead()  {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
 
         Assertions.assertThat(eo.getLog()).isEmpty();
         String content = (String)new FileReadCall("map.json").execute(eo);
@@ -28,7 +27,7 @@ public class JsonCallTest {
 
     @Test
     public void givenMapJsonOnXYZ_whenExecuteCall_thenXYZHasContent()  {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.setEmpty("(AnObject)xyz");
         eo.addCall(new FileReadCall("map.json").setTargetPath("xyz"));
         eo.execute();
@@ -39,7 +38,7 @@ public class JsonCallTest {
 
     @Test
     public void givenListJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.setEmpty("x/y/(List)z");
         eo.addCall(new FileReadCall("list.json").setTargetPath("x/y/z"));
         eo.execute();
@@ -50,7 +49,7 @@ public class JsonCallTest {
 
     @Test
     public void givenMapJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.setEmpty("x/y/z");
         eo.addCall(new FileReadCall("map.json").setTargetPath("x/y/z"));
         eo.execute();
@@ -61,7 +60,7 @@ public class JsonCallTest {
 
     @Test
     public void givenEmpty_whenMapList_thenListIsSet()  {
-        EO eo = ProviderRootDevScope.createEo(List.class);
+        EO eo = ProviderConfigMaps.createEoDev(List.class);
         eo.mapObject("[]");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);

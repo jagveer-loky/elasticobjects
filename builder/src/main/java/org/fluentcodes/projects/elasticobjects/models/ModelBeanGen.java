@@ -8,9 +8,13 @@ public class ModelBeanGen extends ModelBean implements ModelBeanInterface4Java {
     public ModelBeanGen() {
         super();
     }
-    public ModelBeanGen(String key) {
+    public ModelBeanGen(final String key) {
         this();
         setNaturalId(key);
+    }
+
+    public ModelBeanGen(final String key, final Map map) {
+        super(key, map);
     }
 
     public ModelBeanGen(final ModelConfig config) {
@@ -35,41 +39,22 @@ public class ModelBeanGen extends ModelBean implements ModelBeanInterface4Java {
         return replaced.toString();
     }
 
-    protected void addFieldMap(final ModelConfig config) {
-        for (FieldConfig fieldConfig: config.getFieldMap().values()) {
-            getFieldBeans().put(fieldConfig.getNaturalId(), new FieldBeanGen(fieldConfig));
-            getFieldBeans().get(fieldConfig.getNaturalId()).setModelBean(this);
-        }
-    }
-
     public ModelBeanGen(final Map values) {
         super(values);
     }
 
     @Override
     protected void addField(final String fieldKey) {
-        FieldBeanGen fieldBean = new FieldBeanGen(fieldKey);
-        if (hasFinal()) fieldBean.setFinal(getFinal());
-        if (hasOverride()) fieldBean.setOverride(getOverride());
-        getFieldBeans().put(fieldKey, fieldBean);
+        addField(new FieldBeanGen(fieldKey));
     }
 
     @Override
-    protected void addFieldSuper(final FieldBean fieldBean) {
-        FieldBean fieldBeanNew = new FieldBeanGen(fieldBean);
-        fieldBeanNew.setSuper(true);
-        getFieldBeans().put(fieldBean.getNaturalId(), fieldBean);
+    protected void addField(final FieldConfig fieldConfig) {
+        addField(new FieldBeanGen(fieldConfig));
     }
 
     @Override
-    protected void addField(final Map fieldConfigMap) {
-        for (Object key : fieldConfigMap.keySet()) {
-            Map<String, Object> fieldMap = (Map<String,Object>) fieldConfigMap.get(key);
-            FieldBeanGen fieldBean = new FieldBeanGen(fieldMap);
-            fieldBean.setNaturalId((String)key);
-            if (hasFinal()) fieldBean.setFinal(getFinal());
-            if (hasOverride()) fieldBean.setOverride(getOverride());
-            getFieldBeans().put((String)key, fieldBean);
-        }
+    protected void addField(String fieldKey, final Map<String, Object> fieldMap) {
+        addField(new FieldBeanGen(fieldKey,  fieldMap));
     }
 }

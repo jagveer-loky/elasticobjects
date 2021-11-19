@@ -1,30 +1,30 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Test;
 
-public class ASubObjectTest {
+public class ASubObjectTest implements IModelConfigCreateTests {
 
-    @Test
-    public void DEV__find_ASubObject__exception()  {
-        Assertions
-                .assertThatThrownBy(()->{ProviderRootDevScope.EO_CONFIGS.findModel(ASubObject.class);})
-                .isInstanceOf(EoException.class);
+    @Override
+    public Class<?> getModelConfigClass() {
+        return ASubObject.class;
     }
 
+    @Override
     @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(ASubObject.class);
+    public void create_noEoException() {
+        assertCreateNoException();
     }
 
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(ASubObject.class);
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
     }
 
-
-
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
 }

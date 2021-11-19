@@ -1,6 +1,6 @@
 package org.fluentcodes.tools.xpect;
 
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.tools.testobjects.ForTestClass;
 import org.junit.Ignore;
@@ -13,7 +13,7 @@ import java.util.Map;
  * Some examples are from generated code delivered by a maven artifact from a project last year with gematik
  */
 public class XpectEoTest {
-    private static final EOConfigsCache cache = new EOConfigsCache(Scope.DEV);
+    private static final ConfigMaps cache = new ConfigMaps(Scope.DEV);
     @Test
     public void testHashMap() {
         Map map = new LinkedHashMap<>();

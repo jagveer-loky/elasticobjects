@@ -90,9 +90,9 @@
 
              <h5>Fields</h5>
 
-             ==>{TemplateCall->fieldKeys/*}|
-                      <div><a href="/config/FieldConfig/=>{_value}.">&equiv;
-                          =>{_value}.</a></div>
+             ==>{TemplateCall->fieldConfigMap/*}|
+                      <div><a href="/config/FieldConfig/=>{_parent}.">&equiv;
+                          =>{_parent}.</a></div>
              =>{}.
          =>{}.
 
@@ -110,7 +110,11 @@
          =>{}.
 
         <h5>Configuration</h5>
-        <textarea style="height:250px"> =>{configuration/0}. </textarea>
+        <textarea style="height:250px"> ===>{"(ValueCall).":{
+            "sourcePath":"configuration/0",
+            "targetPath":"_asString"
+            }
+            }. </textarea>
      </div>
 
     <div class="entry-content" id="entry-content" style="font-color:#1f65d7ff;font-size:0.7rem;margin-top:20px">

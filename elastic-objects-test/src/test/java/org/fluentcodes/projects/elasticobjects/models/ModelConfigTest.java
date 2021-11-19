@@ -3,64 +3,66 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.domain.test.ASubObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IConfigurationTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_KEY_UNKNOW;
 
 /**
  * Created by Werner on 04.11.2016.
  */
-public class ModelConfigTest {
+public class ModelConfigTest implements IConfigurationTests {
     private static final Logger LOG = LogManager.getLogger(ModelConfigTest.class);
 
-    @Test
-    public void createByModelConfig_throwsException()  {
-        ModelConfigChecks.createThrowsException(ModelConfig.class);
+    @Override
+    public Class<?> getModelConfigClass() {
+        return ModelConfig.class;
     }
 
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(ModelConfig.class);
+    public void create_throwsEoException() {
+        assertCreateThrowingException();
     }
 
-    @Ignore
+    @Override
     @Test
-    public void givenConfigEntries_whenResolve_thenNoErrors()  {
-        ConfigChecks.resolveConfigs(ModelConfig.class);
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
     }
 
-    @Ignore
+    @Override
     @Test
-    public void resolveConfigurations()  {
-        ConfigChecks.resolveConfigurations(ModelConfig.class);
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
-    @Ignore
+    @Override
     @Test
-    public void compareConfigurations()  {
-        ConfigChecks.compareConfigurations(ModelConfig.class);
+    public void compareConfigurations() {
+        assertLoadedConfigurationsEqualsPersisted();
     }
 
+
     @Test
-    public void scopeTest__findModel_Unknown__exception()  {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.EO_CONFIGS.findModel(SAMPLE_KEY_UNKNOW);})
+    public void scopeTest__findModel_Unknown__exception() {
+        Assertions.assertThatThrownBy(() -> {
+            ProviderConfigMaps.CONFIG_MAPS.findModel(SAMPLE_KEY_UNKNOW);
+        })
                 .isInstanceOf(EoException.class);
     }
 
     @Test
-    public void checkDependentModels()  {
+    public void checkDependentModels() {
         // Check if basic Models are available
-        ModelConfig model = ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class.getSimpleName());
+        ModelConfig model = ProviderConfigMaps.CONFIG_MAPS.findModel(AnObject.class.getSimpleName());
         Assert.assertEquals(AnObject.class.getSimpleName(), model.getModelKey());
-        model = ProviderRootTestScope.EO_CONFIGS.findModel(ASubObject.class);
+        model = ProviderConfigMaps.CONFIG_MAPS.findModel(ASubObject.class);
         Assert.assertEquals(ASubObject.class.getSimpleName(), model.getModelKey());
     }
 }

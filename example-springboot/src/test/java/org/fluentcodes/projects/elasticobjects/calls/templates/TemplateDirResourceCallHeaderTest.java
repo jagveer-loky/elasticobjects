@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -17,14 +17,14 @@ public class TemplateDirResourceCallHeaderTest {
 
     @Test
     public void call_fileName_HeaderHtml__execute__noException() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         TemplateDirResourceCall call = new TemplateDirResourceCall("WEB","Header.html");
         call.execute(eo);
     }
 
     @Test
     public void call_fileName_empty__execute__exception() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         TemplateDirResourceCall call = new TemplateDirResourceCall("WEB");
         Assertions.assertThatThrownBy(()->{call.execute(eo);})
         .isInstanceOf(EoException.class);
@@ -32,7 +32,7 @@ public class TemplateDirResourceCallHeaderTest {
 
     @Test
     public void no_role__execute__noException() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.set("problem", "selectedItem");
         eo.addCall(new TemplateDirResourceCall("WEB","Header.html"));
         eo.execute();
@@ -42,7 +42,7 @@ public class TemplateDirResourceCallHeaderTest {
 
     @Test
      public void role_guest_has_selectedItem__execute__noException() {
-         EO eo = ProviderRootTestScope.createEo();
+         EO eo = ProviderConfigMaps.createEo();
          eo.setRoles("guest");
          eo.set("problem", "selectedItem");
          eo.addCall(new TemplateDirResourceCall("WEB","Header.html"));
@@ -54,7 +54,7 @@ public class TemplateDirResourceCallHeaderTest {
      @Ignore
     @Test
     public void role_guest_no_selectedItem__execute__hasError() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.setRoles("guest");
         eo.addCall(new TemplateDirResourceCall("WEB","Header.html"));
         eo.execute();
@@ -64,7 +64,7 @@ public class TemplateDirResourceCallHeaderTest {
 
     @Test
     public void role_none_has_selectedItem__execute__noTemplate() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.setRoles("none");
         eo.set("problem", "selectedItem");
         eo.addCall(new TemplateDirResourceCall("WEB","Header.html"));

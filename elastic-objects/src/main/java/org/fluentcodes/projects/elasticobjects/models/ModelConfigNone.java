@@ -12,16 +12,12 @@ import java.util.Set;
 public class ModelConfigNone extends ModelConfig {
     public static final String CONFIG_MODEL_KEY = "ModelConfigNone";
 
-    public ModelConfigNone(Map map) {
-        this(new ModelBean(map));
+    public ModelConfigNone(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
 
-    public ModelConfigNone(ConfigBean bean) {
-        this((ModelBean) bean);
-    }
-
-    public ModelConfigNone(ModelBean bean) {
-        super(bean);
+    public ModelConfigNone(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     @Override

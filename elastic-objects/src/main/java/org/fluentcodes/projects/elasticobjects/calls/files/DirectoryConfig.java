@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,14 +12,11 @@ import java.util.Map;
 public class DirectoryConfig extends FileConfig {
     private Map<String, String> cachedContent;
 
-    public DirectoryConfig(Map map) {
-        this(new FileBean(map));
+    public DirectoryConfig(ConfigBean configBean, final ConfigMaps configMaps) {
+        this((FileBean)configBean, configMaps);
     }
-    public DirectoryConfig(ConfigBean configBean) {
-        this((FileBean)configBean);
-    }
-    public DirectoryConfig(FileBean bean) {
-        super(bean);
+    public DirectoryConfig(FileBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
         if (getCached()) {
             cachedContent = new HashMap<>();
         }

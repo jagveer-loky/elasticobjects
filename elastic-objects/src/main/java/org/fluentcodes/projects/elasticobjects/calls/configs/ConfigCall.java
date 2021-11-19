@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
 import java.util.List;
@@ -36,11 +36,11 @@ public class ConfigCall extends ConfigKeysCall  {
         super();
     }
 
-    public ConfigCall(final Class<? extends ConfigConfigInterface> configClass) {
+    public ConfigCall(final Class<? extends ConfigInterface> configClass) {
         super(configClass);
     }
 
-    public ConfigCall(final Class<? extends ConfigConfigInterface> configClass, final String configFilter) {
+    public ConfigCall(final Class<? extends ConfigInterface> configClass, final String configFilter) {
         super(configClass, configFilter);
     }
 
@@ -55,7 +55,7 @@ public class ConfigCall extends ConfigKeysCall  {
         ModelConfig model  = eo.getConfigsCache().findModel(getConfigType());
         Class configClass = model.getModelClass();
         for (String key : keys) {
-            ConfigConfigInterface configEntry = (ConfigConfigInterface) eo.getConfigsCache().find(configClass, key);
+            ConfigInterface configEntry = (ConfigInterface) eo.getConfigsCache().find(configClass, key);
             try {
                 if (hasModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;

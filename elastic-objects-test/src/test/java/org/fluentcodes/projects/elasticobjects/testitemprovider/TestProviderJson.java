@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.tools.io.IOString;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
@@ -41,14 +41,14 @@ public enum TestProviderJson {
     }
 
     public EO getEoTest() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.mapObject(content);
         return eo;
     }
 
 
     public EO getEoDev() {
-        EO eo = ProviderRootDevScope.createEo();
+        EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject(content);
         return eo;
     }

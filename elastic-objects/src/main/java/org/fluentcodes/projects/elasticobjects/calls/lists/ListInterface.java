@@ -7,10 +7,11 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
-import org.fluentcodes.projects.elasticobjects.domain.BaseConfigInterface;
+import org.fluentcodes.projects.elasticobjects.domain.BaseInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -225,7 +226,7 @@ public interface ListInterface {
         Map<String, Integer> keyPosition = new LinkedHashMap<>();
         boolean externalKey = true;
         if (keys == null || keys.isEmpty()) {
-            keyPosition.put(BaseConfigInterface.NATURAL_ID, 0);
+            keyPosition.put(BaseInterface.NATURAL_ID, 0);
             externalKey = false;
         }
         else {
@@ -245,7 +246,10 @@ public interface ListInterface {
                 }
                 String value = null;
                 if (valueMapValue instanceof String) {
-                    value = (String) valueMapValue;
+                    value = (String)valueMapValue;
+                }
+                else if (valueMapValue instanceof Enum) {
+                    value = ((Enum) valueMapValue).toString();
                 }
                 else if ((valueMapValue instanceof Map)) {
                     if (((Map) valueMapValue).isEmpty()) {
@@ -262,7 +266,7 @@ public interface ListInterface {
                         value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigsCache(), valueMapValue);
                     }
                 }
-                else if ((valueMapValue instanceof Integer) || (valueMapValue instanceof Float) || (valueMapValue instanceof Double) || (valueMapValue instanceof Long)){
+                else if ((valueMapValue instanceof Date) || (valueMapValue instanceof Integer) || (valueMapValue instanceof Float) || (valueMapValue instanceof Double) || (valueMapValue instanceof Long)){
                     value = valueMapValue.toString();
                 }
                 else {

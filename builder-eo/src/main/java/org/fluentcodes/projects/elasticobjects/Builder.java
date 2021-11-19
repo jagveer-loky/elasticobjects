@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import com.lexicalscope.jewel.cli.CliFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 /**
@@ -12,7 +12,7 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
  */
 public class Builder {
     private static final Logger LOG = LogManager.getLogger(Builder.class);
-    public static final EOConfigsCache EO_CONFIGS_CACHE = new EOConfigsCache(Scope.TEST);
+    public static final ConfigMaps EO_CONFIGS_CACHE = new ConfigMaps(Scope.TEST);
 
     public static void main(String[] args)  {
         long start = System.currentTimeMillis();

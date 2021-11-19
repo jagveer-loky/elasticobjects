@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.tools.io.IOString;
 
 /*=>{javaHeader}|*/
 

@@ -11,16 +11,12 @@ import java.util.Set;
 public class ModelConfigScalar extends ModelConfig {
     public static final String CONFIG_MODEL_KEY = "ModelConfigScalar";
 
-    public ModelConfigScalar(Map map) {
-        this(new ModelBean(map));
+    public ModelConfigScalar(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
 
-    public ModelConfigScalar(ConfigBean bean) {
-        this((ModelBean) bean);
-    }
-
-    public ModelConfigScalar(ModelBean bean) {
-        super(bean);
+    public ModelConfigScalar(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     @Override

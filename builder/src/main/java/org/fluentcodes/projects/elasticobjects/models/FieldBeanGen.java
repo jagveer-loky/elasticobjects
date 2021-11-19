@@ -9,16 +9,19 @@ public class FieldBeanGen extends FieldBean implements
     public FieldBeanGen() {
         super();
     }
-    public FieldBeanGen(String key) {
+    public FieldBeanGen(final String key) {
         super(key);
     }
 
-    public FieldBeanGen(FieldConfig config) {
+    public FieldBeanGen(final FieldConfig config) {
         super(config);
     }
 
     public FieldBeanGen(final Map values) {
         super(values);
+    }
+    public FieldBeanGen(final String key, final Map values) {
+        super(key, values);
     }
 
     protected FieldBeanGen(final FieldBean fieldBean) {

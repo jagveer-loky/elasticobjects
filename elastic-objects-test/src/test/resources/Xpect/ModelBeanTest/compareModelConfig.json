@@ -1,0 +1,343 @@
+{
+  "author": "Werner Diwischek",
+  "description": "A bean container class for Model values",
+  "expose": "WEB",
+  "fieldConfigMap": {
+    "abstract": {
+      "description": "If true the generated model will be initially set as abstract class.",
+      "fieldKey": "abstract",
+      "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
+      "naturalId": "abstract",
+      "properties": {
+        "super": false,
+        "default": true,
+        "transient": false,
+        "notNull": false,
+        "generated": false,
+        "unique": false,
+        "final": false,
+        "property": true,
+        "override": true
+      }
+    },
+    "author": {
+      "description": "The author of the class.",
+      "fieldKey": "author",
+      "length": 256,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "author",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "configModelKey": {
+      "description": "The model of the configuration to determine type.",
+      "fieldKey": "configModelKey",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "configModelKey",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false
+      }
+    },
+    "creationDate": {
+      "description": "Used to define the creation of an item.",
+      "fieldKey": "creationDate",
+      "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
+      "naturalId": "creationDate",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "dbAnnotated": {
+      "description": "If true a db annotation will be generated for java instance vars. ",
+      "fieldKey": "dbAnnotated",
+      "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
+      "naturalId": "dbAnnotated",
+      "properties": {
+        "super": false,
+        "default": true,
+        "transient": false,
+        "notNull": false,
+        "generated": false,
+        "unique": false,
+        "final": false,
+        "property": true,
+        "override": true
+      }
+    },
+    "description": {
+      "description": "A description of the model used by every model extending BaseClassImpl. ",
+      "fieldKey": "description",
+      "length": 512,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "description",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "expose": {
+      "description": "expose",
+      "fieldKey": "expose",
+      "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
+      "naturalId": "expose",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "id": {
+      "description": "The numeric id of an instance of a class.",
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
+      "naturalId": "id",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "interfaces": {
+      "description": "A comma separeted list of interface keys. ",
+      "fieldKey": "interfaces",
+      "length": 256,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "interfaces",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "javascriptType": {
+      "description": "The type of javascript is derived from the java type.",
+      "fieldKey": "javascriptType",
+      "length": 10,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "javascriptType",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
+      }
+    },
+    "modelKey": {
+      "description": "The model name for the bean/action object @ModelConfig.",
+      "fieldKey": "modelKey",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "modelKey",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "module": {
+      "description": "Defines a target module where generating occurs. ",
+      "fieldKey": "module",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "module",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "moduleScope": {
+      "description": "Defines scope of the configuration within module, eg 'test' or 'main' .",
+      "fieldKey": "moduleScope",
+      "length": 10,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "moduleScope",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "naturalId": {
+      "description": "The natural key in @Base",
+      "fieldKey": "naturalId",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "naturalId",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "packagePath": {
+      "description": "packagePath",
+      "fieldKey": "packagePath",
+      "length": 124,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "packagePath",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "properties": {
+      "description": "Properties for configurations.",
+      "fieldKey": "properties",
+      "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
+      "naturalId": "properties",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "scope": {
+      "description": "A scope for the cache value.",
+      "fieldKey": "scope",
+      "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
+      "naturalId": "scope",
+      "properties": {
+        "super": true,
+        "generated": false,
+        "final": false,
+        "override": true
+      }
+    },
+    "shapeType": {
+      "description": "shapeType",
+      "fieldKey": "shapeType",
+      "modelKeys": "ShapeTypes",
+      "modelList": [
+        "ShapeTypes"
+      ],
+      "naturalId": "shapeType",
+      "properties": {
+        "super": false,
+        "default": true,
+        "transient": false,
+        "notNull": false,
+        "generated": false,
+        "unique": false,
+        "final": false,
+        "property": true,
+        "override": false
+      }
+    },
+    "superKey": {
+      "description": "A key for the super class of a class.",
+      "fieldKey": "superKey",
+      "length": 256,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "superKey",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": true
+      }
+    }
+  },
+  "interfaces": "ModelInterface",
+  "modelKey": "ModelBean",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "naturalId": "ModelBean",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "properties": {
+    "create": true
+  },
+  "superKey": "ConfigBean"
+}

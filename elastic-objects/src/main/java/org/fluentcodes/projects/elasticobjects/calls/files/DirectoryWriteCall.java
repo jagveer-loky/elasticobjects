@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.tools.io.IOString;
 /*=>{javaHeader}|*/
 
 /**

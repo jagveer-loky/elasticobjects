@@ -1,0 +1,14 @@
+{
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
+  "expose": "WEB",
+  "modelKey": "GithubLinkCall",
+  "module": "example-springboot",
+  "moduleScope": "main",
+  "naturalId": "GithubLinkCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+  "properties": {
+  },
+  "superKey": "CallImpl"
+}

@@ -42,11 +42,11 @@ public class Models {
     }
 
     //https://stackoverflow.com/questions/997482/does-java-support-default-parameter-values
-    public Models(final EOConfigsCache cache, final Class... classes)  {
+    public Models(final ConfigMaps cache, final Class... classes)  {
         this(cache, convert(classes));
     }
 
-    public Models(final EOConfigsCache cache, final String... modelKeysIn)  {
+    public Models(final ConfigMaps cache, final String... modelKeysIn)  {
         String[] modelKeys = strip(modelKeysIn);
         this.models = new ModelConfig[modelKeys.length];
         for (int i=0; i < modelKeysIn.length; i++) {
@@ -55,12 +55,12 @@ public class Models {
         hasChildModel = models.length > 1;
     }
 
-    public Models(final EOConfigsCache cache) {
+    public Models(final ConfigMaps cache) {
         hasChildModel = false;
         this.models = new ModelConfig[]{cache.findModel(Map.class)};
     }
 
-    public static final Models ofValue(final EOConfigsCache cache, final Object value)  {
+    public static final Models ofValue(final ConfigMaps cache, final Object value)  {
         if (value == null) {
             return new Models(cache, Map.class);
         }
@@ -122,7 +122,7 @@ public class Models {
 
     public Models getChildModels()  {
         if (models.length < 2) {
-            return new Models(EOConfigMapModels.DEFAULT_MODEL);
+            //return new Models(ModelConfigsMap.DEFAULT_MODEL);
         }
         return new Models(Arrays.copyOfRange(this.models, 1, models.length));
     }
@@ -167,10 +167,10 @@ public class Models {
         return null;
     }
 
-    public List<ModelConfigInterfaceMethods> getModels() {
-        List<ModelConfigInterfaceMethods> models = new ArrayList<>();
+    public List<ModelConfigMethods> getModels() {
+        List<ModelConfigMethods> models = new ArrayList<>();
 
-        for (ModelConfigInterfaceMethods model : this.models) {
+        for (ModelConfigMethods model : this.models) {
             models.add(model);
         }
         return models;
@@ -267,7 +267,7 @@ public class Models {
     }
 
     public boolean isScalar() {
-        return getModel().isScalar();
+        return getModel().isScalar() || getModel().isEnum();
     }
 
 

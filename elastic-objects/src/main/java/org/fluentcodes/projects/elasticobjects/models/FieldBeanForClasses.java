@@ -8,12 +8,13 @@ public class FieldBeanForClasses extends FieldBean {
     private Type typeClass;
 
     public FieldBeanForClasses(final Field field, final ModelBean modelBean, Map<String, ModelBean> modelBeanMap) {
-        setModelBean(modelBean);
+        setParentModel(modelBean);
         setFieldKey(field.getName());
         setFieldName(field.getName());
         setNaturalId(modelBean.getModelKey() + "." + getFieldKey());
         this.typeClass = field.getType();
         setModelKeys(getTypeKey());
+        setMerged(true);
     }
     protected String getTypeKey() {
         return typeClass.getTypeName().replaceAll(".*\\.", "");

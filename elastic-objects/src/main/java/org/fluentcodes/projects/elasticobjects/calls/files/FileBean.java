@@ -5,7 +5,10 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionBean;
 import java.util.Map;
 
 /*=>{javaHeader}|*/
-import org.fluentcodes.projects.elasticobjects.calls.PermissionBean;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+
+import static org.fluentcodes.projects.elasticobjects.calls.HostCall.HOST_CONFIG_KEY;
+
 /**
  * 
  * The bean counterpart for {@link FileConfig}. 
@@ -13,7 +16,7 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionBean;
  * @creationDate Wed Dec 16 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 14:48:43 CET 2021
  */
-public class FileBean extends PermissionBean implements FileBeanInterface  {
+public class FileBean extends PermissionBean implements FileInterface {
 /*=>{}.*/
 
 /*=>{javaInstanceVars}|*/
@@ -33,6 +36,10 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
         defaultConfigModelKey();
     }
 
+    public FileBean(final String naturalId, final Map map) {
+        super(naturalId, map);
+    }
+
     public FileBean(final Map map) {
         super();
         merge(map);
@@ -41,26 +48,25 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
     public void merge (final Map configMap) {
         super.merge(configMap);
         mergeFileName(configMap.get(FILE_NAME));
-        mergeFileName(configMap.get(FILE_PATH));
+        mergeFilePath(configMap.get(FILE_PATH));
         mergeCached(configMap.get(CACHED));
-        mergeHostConfigKey(configMap.get(FILE_NAME));
+        mergeHostConfigKey(configMap.get(HOST_CONFIG_KEY));
         defaultConfigModelKey();
     }
 
-    @Override
-    public void defaultConfigModelKey() {
+    private void defaultConfigModelKey() {
         if (hasConfigModelKey()) {
             return;
         }
         setConfigModelKey(FileConfig.class.getSimpleName());
     }
 
-/*=>{javaAccessors}|*/
-   @Override
+/*.{javaAccessors}|*/
+    @Override
    public Boolean getCached() {
       return this.cached;
    }
-   @Override
+
    public FileBean setCached(final Boolean cached) {
       this.cached = cached;
       return this;
@@ -70,7 +76,6 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
    public String getFileName() {
       return this.fileName;
    }
-   @Override
    public FileBean setFileName(final String fileName) {
       this.fileName = fileName;
       return this;
@@ -80,7 +85,7 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
    public String getFilePath() {
       return this.filePath;
    }
-   @Override
+
    public FileBean setFilePath(final String filePath) {
       this.filePath = filePath;
       return this;
@@ -90,11 +95,35 @@ public class FileBean extends PermissionBean implements FileBeanInterface  {
    public String getHostConfigKey() {
       return this.hostConfigKey;
    }
-   @Override
+
    public FileBean setHostConfigKey(final String hostConfigKey) {
       this.hostConfigKey = hostConfigKey;
       return this;
     }
 
-/*=>{}.*/
+/*.{}.*/
+
+   private void mergeCached(final Object value) {
+        if (value == null) return;
+        if (hasCached()) return;
+        setCached(ScalarConverter.toBoolean(value));
+    }
+
+   private void mergeFileName(final Object value) {
+        if (value == null) return;
+        if (hasFileName()) return;
+        setFileName(ScalarConverter.toString(value));
+    }
+
+   private void mergeFilePath(final Object value) {
+        if (value == null) return;
+        if (hasFilePath()) return;
+        setFilePath(ScalarConverter.toString(value));
+    }
+
+   private void mergeHostConfigKey(final Object value) {
+        if (value == null) return;
+        if (hasHostConfigKey()) return;
+        setHostConfigKey(ScalarConverter.toString(value));
+    }
 }

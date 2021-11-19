@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
@@ -20,7 +20,7 @@ public interface EoScalarInterface extends EoLogInterface{
      *
      * @
      */
-    EOConfigsCache getConfigsCache();
+    ConfigMaps getConfigsCache();
     String getFieldKey();
 
     EoScalarInterface getParent();

@@ -4,31 +4,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
  * Created by Werner on 09.10.2016.
  */
-public class ModelConfigList extends ModelConfig implements ModelConfigInterfaceMethods {
+public class ModelConfigList extends ModelConfig implements ModelConfigMethods {
     private static final Logger LOG = LogManager.getLogger(ConfigConfig.class);
-    public static final String CONFIG_MODEL_KEY = "ModelConfigList";
 
-    public ModelConfigList(Map map) {
-        this(new ModelBean(map));
+    public ModelConfigList(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
 
-    public ModelConfigList(ConfigBean bean) {
-        this((ModelBean) bean);
-    }
-
-    public ModelConfigList(ModelBean bean) {
-        super(bean);
+    public ModelConfigList(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     @Override

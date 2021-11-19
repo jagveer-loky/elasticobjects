@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -8,21 +8,34 @@ import org.junit.Test;
 /**
  * Created by Werner on 22.4.2017
  */
-public class ListParamsTest {
+public class ListParamsTest implements IModelConfigCreateTests {
 
+    @Override
+    public Class<?> getModelConfigClass() {
+        return ListParams.class;
+    }
+
+    @Override
+    @Test
+    public void create_noEoException() {
+        assertCreateNoException();
+    }
+
+    @Override
     @Test
     public void compareModelConfig() {
-        ModelConfigChecks.compare(ListParams.class);
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
-    public void createByModelConfig() {
-        ModelConfigChecks.create(ListParams.class);
-    }
-
-    @Test
-    public void givenModelClass_whenSetRowHead_thenException() {
-        ModelConfigChecks.checkSetGet(ListParams.class, ListParams.ROW_HEAD, 1);
+    public void getSetRowHead() {
+        assertSetGet(ListParams.ROW_HEAD, 1);
     }
 
     @Test

@@ -1,9 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.calls.PermissionBeanInterface;
+import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
+import org.fluentcodes.projects.elasticobjects.calls.PermissionInterface;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,13 +15,16 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldConfigInterface.FIELD_KEY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FIELD_KEY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.JAVASCRIPT_TYPE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.PROPERTY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.INTERFACES;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.SUPER_KEY;
 
-public class ModelBean extends ConfigBean implements Model, PermissionBeanInterface, Comparable<ModelBean> {
+public class ModelBean extends ConfigBean implements ModelInterface, PermissionInterface, Comparable<ModelBean> {
     public static final String FIELD_BEANS = "fieldBeans";
     public static final String FIELD_KEYS = "fieldKeys";
     private boolean resolved;
@@ -27,7 +32,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
     private String packagePath;
     private String superKey;
     private String interfaces;
-    private Map<String, FieldBeanInterface> fieldBeans;
+    private Map<String, FieldBean> fieldBeans;
     private PermissionRole rolePermissions;
     private Set<ModelBean> modelSet;
 
@@ -40,6 +45,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
     public ModelBean(final String key) {
         super();
         setNaturalId(key);
+        setModelKey(key);
         fieldBeans = new TreeMap<>();
         modelSet = new TreeSet<>();
     }
@@ -64,86 +70,51 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         defaultShapeType();
         fieldBeans = new TreeMap<>();
         modelSet = new TreeSet<>();
-        addFieldMap(config);
+        setFieldMap(config);
+    }
+
+    public ModelBean(final String naturalId, final Map values) {
+        super(naturalId, values);
     }
 
     public ModelBean(final Map values) {
         super(values);
-        /* setModelKey((String)values.get(MODEL_KEY));
-        setPackagePath((String)values.get(PACKAGE_PATH));
-        setInterfaces((String)values.get(INTERFACES));
-        setSuperKey((String)values.get(SUPER_KEY));
-        mergePermission(values.get(ROLE_PERMISSIONS));
-        defaultShapeType();
-        fieldBeans = new TreeMap<>();
-        modelSet = new TreeSet<>();
-        if (!values.containsKey(FIELD_KEYS)) {
-            return;
-        }
-        Object fieldEntries = values.get(FIELD_KEYS);
-        if ((fieldEntries instanceof String)) {
-            if (((String) fieldEntries).isEmpty()) {
-                return;
-            }
-            List<String> fieldKeys = Arrays.asList(((String) fieldEntries).split(",\\s*"));
-            for (String key : fieldKeys) {
-                addField(key);
-            }
-        }
-        else if (fieldEntries instanceof List) {
-            if (((List) fieldEntries).isEmpty()) {
-                return;
-            }
-            List<String> fieldKeys = new ArrayList<>((List) fieldEntries);
-            for (Object key : fieldKeys) {
-                addField((String)key);
-            }
-        }
-        else if (fieldEntries instanceof Map) {
-            if (((Map) fieldEntries).isEmpty()) {
-                return;
-            }
-            addField((Map)fieldEntries);
-        }
-        else {
-            throw new EoInternalException("FieldKeys are neither String, Map or List");
-        }*/
     }
 
-
-    protected void addFieldMap(final ModelConfig config) {
+    protected void setFieldMap(final ModelConfig config) {
         for (FieldConfig fieldConfig: config.getFieldMap().values()) {
-            fieldBeans.put(config.getNaturalId(), new FieldBean(fieldConfig));
+            addField(fieldConfig);
         }
     }
 
     protected void addField(final String fieldKey) {
-        FieldBean fieldBean = new FieldBean(fieldKey);
-        if (hasFinal()) fieldBean.setFinal(getFinal());
-        if (hasOverride()) fieldBean.setOverride(getOverride());
-        fieldBeans.put(fieldKey, fieldBean);
+        addField(new FieldBean(fieldKey));
     }
 
-    protected void addFieldSuper(final FieldBean fieldBean) {
-        FieldBean fieldBeanNew = new FieldBean(fieldBean);
-        fieldBeanNew.setSuper(true);
+    protected void addField(final FieldConfig fieldConfig) {
+        addField(new FieldBean(fieldConfig));
+    }
+
+    protected void addField(final String fieldKey, final Map<String, Object> fieldMap) {
+        addField(new FieldBean(fieldKey, fieldMap));
+    }
+
+    protected void addField(final FieldBean fieldBean) {
+        if (hasFinal()) fieldBean.setFinal(getFinal());
+        if (hasOverride()) fieldBean.setOverride(getOverride());
         fieldBeans.put(fieldBean.getNaturalId(), fieldBean);
     }
 
-    protected void addField(final Map fieldConfigMap) {
+    protected void setFieldMap(final Map fieldConfigMap) {
         for (Object key : fieldConfigMap.keySet()) {
-            Map<String, Object> fieldConfigEntry = (Map<String,Object>) fieldConfigMap.get(key);
-            FieldBean fieldBean = new FieldBean(fieldConfigEntry);
-            fieldBean.setNaturalId((String)key);
-            if (hasFinal()) fieldBean.setFinal(getFinal());
-            if (hasOverride()) fieldBean.setOverride(getOverride());
-            this.fieldBeans.put((String)key, fieldBean);
+            addField((String) key, (Map<String,Object>) fieldConfigMap.get(key));
         }
     }
 
+    @Override
     public void merge(final Map valueMap) {
         if (valueMap == null) {
-            throw new EoInternalException("Null mapping model values for '" + getNaturalId() + "'.");
+            throw new EoInternalException("Value Map is null for '" + getNaturalId() + "'.");
         }
         super.merge(valueMap);
         setModelKey((String) valueMap.get(MODEL_KEY));
@@ -152,6 +123,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         setSuperKey((String) valueMap.get(SUPER_KEY));
         mergeRolePermissions(valueMap.get(ROLE_PERMISSIONS));
         defaultShapeType();
+        defaultConfigModelKey();
         modelSet = new TreeSet<>();
         fieldBeans = new TreeMap<>();
         if (!valueMap.containsKey(FIELD_KEYS)) {
@@ -208,8 +180,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         return modelSet;
     }
 
-    @Override
-    public void defaultConfigModelKey() {
+    private void defaultConfigModelKey() {
         if (hasConfigModelKey()) {
             return;
         }
@@ -225,7 +196,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         return modelKey;
     }
 
-    @Override
     public void setModelKey(String modelKey) {
         this.modelKey = modelKey;
     }
@@ -235,7 +205,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         return packagePath;
     }
 
-    @Override
     public void setPackagePath(String packagePath) {
         this.packagePath = packagePath;
     }
@@ -248,7 +217,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
     public void setFieldKeys(List<String> fieldKeys) {
     }
 
-    @Override
     public void setSuperKey(String superKey) {
         this.superKey = superKey;
     }
@@ -258,19 +226,24 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         return interfaces;
     }
 
-    @Override
     public void setInterfaces(String interfaces) {
         this.interfaces = interfaces;
     }
 
-    @Override
     public Set<String> getFieldKeys() {
         return getFieldBeans().keySet();
     }
 
-    @Override
-    public Map<String, FieldBeanInterface> getFieldBeans() {
+    public Map<String, FieldBean> getFieldBeans() {
         return fieldBeans;
+    }
+
+    public boolean hasFieldBeans() {
+        return fieldBeans!=null && !fieldBeans.isEmpty();
+    }
+
+    public FieldBean getFieldBean(final String fieldKey) {
+        return fieldBeans.get(fieldKey);
     }
 
     @Override
@@ -278,13 +251,29 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         throw new EoException("TODO");
     }
 
-    @Override
-    public void setFieldBeans(Map<String, FieldBeanInterface> fieldBeans) {
+    public void setFieldBeans(Map<String, FieldBean> fieldBeans) {
         this.fieldBeans = fieldBeans;
     }
 
+    public void mergeFieldBeanMap(Map<String, FieldBean> fieldBeanMap) {
+        for (FieldBean fieldBean: fieldBeans.values()) {
+            if (!fieldBean.hasNaturalId()) {
+                throw new EoInternalException("Could not get field definition for '" + fieldBean.getNaturalId() + "'.");
+            }
+            if (!fieldBean.isMerged()) {
+                if (!fieldBeanMap.containsKey(fieldBean.getNaturalId())) {
+                    throw new EoInternalException("Could not get field definition for '" + fieldBean.getNaturalId() + "'.");
+                }
+                FieldBean fieldBeanFromMap = fieldBeanMap.get(fieldBean.getNaturalId());
+                //if (isFinal()) fieldBeanFromMap.setFinal(true);
+                fieldBean.merge(fieldBeanFromMap);
+            }
+            fieldBean.setParentModel(this);
+        }
+    }
+
     public void mergeFieldDefinition(Map<String, Map> fieldMap) {
-        for (FieldBeanInterface fieldBean: fieldBeans.values()) {
+        for (FieldBean fieldBean: fieldBeans.values()) {
             if (!fieldBean.hasNaturalId()) {
                 throw new EoInternalException("Could not get field definition for '" + fieldBean.getNaturalId() + "'.");
             }
@@ -294,7 +283,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
             FieldBean fieldBeanFromMap = new FieldBean(fieldMap.get(fieldBean.getNaturalId()));
             if (isFinal()) fieldBeanFromMap.setFinal(true);
             ((FieldBean) fieldBean).merge(fieldBeanFromMap);
-            fieldBean.setModelBean(this);
+            fieldBean.setParentModel(this);
         }
     }
 
@@ -311,8 +300,8 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
             superModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
         }
         if (this.hasInterfaces()) {
-            String[] interfaces = this.getInterfaces().split(",");
-            for (String interfaceKey: interfaces) {
+            String[] interfaceArray = this.getInterfaces().split(",");
+            for (String interfaceKey: interfaceArray) {
                 if (!modelBeans.containsKey(interfaceKey) || modelBeans.get(interfaceKey) == null) {
                     throw new EoInternalException("Could not find interface '" + interfaceKey + "' for '" + getNaturalId() + "'." );
                 }
@@ -321,8 +310,11 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
                 interfaceModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
             }
         }
-        for (FieldBeanInterface fieldBean: fieldBeans.values()) {
-            fieldBean.setModelBean(this);
+        for (FieldBean fieldBean: fieldBeans.values()) {
+            fieldBean.setParentModel(this);
+            if (!fieldBean.hasModelKeys()) {
+                throw new EoInternalException("No Model defined for field '" + fieldBean.getNaturalId() + "'");
+            }
             for (String fieldModelKey: fieldBean.getModelKeys().split(",")) {
                 if (!modelBeans.containsKey(fieldModelKey) || modelBeans.get(fieldModelKey) == null) {
                     throw new EoInternalException("Could not find model '" + fieldModelKey + "' for '" + fieldBean.getFieldKey() + "'." );
@@ -333,34 +325,33 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         resolved = true;
     }
 
-    protected void resolveSuper(Map<String, ModelBean> modelBeans, Map<String, FieldBeanInterface> subFieldBeans, boolean mergeFields) {
-        if (resolved) {
-            return;
-        }
-        if (this.hasSuperKey()) {
-            if (!modelBeans.containsKey(this.getSuperKey())) {
-                throw new EoException("Could not resolve super key '" + getSuperKey() + "' for '" + getNaturalId() + "'.");
-            }
-            ModelBean superModelBean = modelBeans.get(this.getSuperKey());
-            superModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
-        }
-
-        if (this.hasInterfaces()) {
-            String[] interfaces = this.getInterfaces().split(",");
-            for (String interfaceKey : interfaces) {
-                if (!modelBeans.containsKey(interfaceKey)) {
-                    throw new EoInternalException("Could not find interface '" + interfaceKey + "' for '" + getNaturalId() + "'.");
+    protected void resolveSuper(Map<String, ModelBean> modelBeans, Map<String, FieldBean> subFieldBeans, boolean mergeFields) {
+        if (!resolved) {
+            if (this.hasSuperKey()) {
+                if (!modelBeans.containsKey(this.getSuperKey())) {
+                    throw new EoException("Could not resolve super key '" + getSuperKey() + "' for '" + getNaturalId() + "'.");
                 }
-                ModelBean interfaceModelBean = modelBeans.get(interfaceKey);
-                interfaceModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
+                ModelBean superModelBean = modelBeans.get(this.getSuperKey());
+                superModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
             }
+
+            if (this.hasInterfaces()) {
+                String[] interfaceArray = this.getInterfaces().split(",");
+                for (String interfaceKey : interfaceArray) {
+                    if (!modelBeans.containsKey(interfaceKey)) {
+                        throw new EoInternalException("Could not find interface '" + interfaceKey + "' for '" + getNaturalId() + "'.");
+                    }
+                    ModelBean interfaceModelBean = modelBeans.get(interfaceKey);
+                    interfaceModelBean.resolveSuper(modelBeans, this.fieldBeans, mergeFields);
+                }
+            }
+            resolved = true;
         }
-        resolved = true;
 
         if (!mergeFields) {
             return;
         }
-        for (FieldBeanInterface fieldBean: this.fieldBeans.values()) {
+        for (FieldBean fieldBean: this.fieldBeans.values()) {
             if (subFieldBeans.containsKey(fieldBean.getNaturalId())) {
                 subFieldBeans.get(fieldBean.getNaturalId()).setOverride(true);
                 continue;
@@ -376,7 +367,6 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
         return rolePermissions;
     }
 
-    @Override
     public ModelBean setRolePermissions(PermissionRole rolePermissions) {
         this.rolePermissions = rolePermissions;
         return this;
@@ -384,7 +374,7 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
 
     @Override
     public String toString() {
-        return getNaturalId() + "(" + getShapeType() + ")";
+        return "(" + getShapeType() + ")" + getKey() ;
     }
 
     public String getClassName()  {
@@ -395,4 +385,91 @@ public class ModelBean extends ConfigBean implements Model, PermissionBeanInterf
     public int compareTo(ModelBean modelBean) {
         return getClassName().compareTo(modelBean.getClassName());
     }
+
+    private ShapeTypes convertShapeType(Object value) {
+        if (value == null) {
+            return null;
+        }
+        if (value instanceof ShapeTypes) {
+            return (ShapeTypes) value;
+        }
+        else if (value instanceof String) {
+            return ShapeTypes.valueOf((String)value);
+        }
+        throw new EoException("Could not map " + value + " " + value.getClass());
+    }
+
+    private void mergeShapeType(Object value) {
+        if (hasShapeType())  {
+            return;
+        }
+        setShapeType(convertShapeType(value));
+    }
+
+    public void setIdKey(String value) {
+        getProperties().put(ID_KEY, value);
+    }
+    public void setNaturalKeys(List<String> value) {
+        getProperties().put(NATURAL_KEYS, value);
+    }
+    public void setTable(String value) {
+        getProperties().put(TABLE, value);
+    }
+
+    public ModelBean setDbAnnotated(Boolean dbAnnotated) {
+        getProperties().put(DB_ANNOTATED, dbAnnotated);
+        return this;
+    }
+
+    public ModelBean setProperty(Boolean value) {
+        getProperties().put(PROPERTY, value);
+        return this;
+    }
+
+    public ModelBean setAbstract(Boolean dbAnnotated) {
+        getProperties().put(ABSTRACT, dbAnnotated);
+        return this;
+    }
+
+    public void setShapeType(ShapeTypes shapeType) {
+        getProperties().put(SHAPE_TYPE, shapeType);
+    }
+
+    private void defaultShapeType() {
+        if (!hasShapeType()) return;
+    }
+
+    public void setJavascriptType(String value) {
+        getProperties().put(JAVASCRIPT_TYPE, value);
+    }
+
+    public String getJavascriptType() {
+        return (String) getProperties().get(JAVASCRIPT_TYPE);
+    }
+
+    public boolean hasJavaScriptType() {
+        return getJavascriptType()!=null && !getJavascriptType().isEmpty();
+    }
+
+    public void setFinal(Boolean value) {
+        getProperties().put(FINAL, value);
+    }
+
+    public void setBean(String value) {
+        getProperties().put(BEAN, value);
+    }
+
+    public void setCreate(Boolean create) {
+        if (getProperties()==null) {
+            throw new EoException("Could not set create .. properties not defined");
+        }
+        getProperties().put(CREATE, create);
+    }
+
+    private void mergeRolePermissions(final Object value) {
+        if (value == null) return;
+        if (hasRolePermissions()) return;
+        setRolePermissions(ScalarConverter.toPermissionRole(value));
+    }
+
 }

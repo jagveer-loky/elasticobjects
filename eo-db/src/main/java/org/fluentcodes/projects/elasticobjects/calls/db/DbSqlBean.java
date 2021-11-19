@@ -8,38 +8,27 @@ import java.util.Map;
 /**
  * Created by Werner on 11.12.2020.
  */
-public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
+public class DbSqlBean extends PermissionBean implements DbSqlInterface {
     public static final String SQL_LIST = "sqlList";
     public static final String DEFAULT_HOST_CONFIG_KEY = "defaultHostConfigKey";
     private List<String> sqlList;
-    private Map properties;
 
     public DbSqlBean() {
         super();
         defaultConfigModelKey();
     }
 
-    public DbSqlBean(final Map<String, Object> map) {
-        super();
-
-        defaultConfigModelKey();
+    public DbSqlBean(final String naturalId, final Map<String, Object> map) {
+        super(naturalId, map);
     }
 
     public void merge(final Map configMap) {
         super.merge(configMap);
+        mergeSqlList(configMap.get(SQL_LIST));
     }
 
-    @Override
-    public Map<String, Object> getProperties() {
-        return properties;
-    }
 
-    public void setProperties(Map properties) {
-        this.properties = properties;
-    }
-
-    @Override
-    public void defaultConfigModelKey() {
+    private void defaultConfigModelKey() {
         if (hasConfigModelKey()) {
             return;
         }
@@ -54,8 +43,21 @@ public class DbSqlBean extends PermissionBean implements DbSqlBeanInterface {
         this.sqlList = sqlList;
     }
 
+
     @Override
     public String toString() {
         return getNaturalId() + " -> ";
+    }
+
+    private void mergeSqlList(final Object value) {
+        if (value == null) {
+            return;
+        }
+        if (hasSqlList()) {
+            return;
+        }
+        if (value instanceof List) {
+            setSqlList((List)value);
+        }
     }
 }

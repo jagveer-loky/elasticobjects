@@ -2,10 +2,8 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.tools.io.IOString;
 
 import java.util.Map;
 
@@ -21,19 +19,18 @@ public enum TestProviderAnObjectJson {
     EMPTY("{}"),
     FLOAT("{\"myFloat\": 1.1}"),
     FLOAT_TYPED("{\"(Float)myFloat\": 1.1}"),
-    INT( "{\"myInt\": 1}"),
+    INT("{\"myInt\": 1}"),
     SMALL("{\"myString\": \"test\", \"myInt\": 1}"),
     SMALL_TYPED("{\"(String)myString\": \"test\", \"(Integer)myInt\": 1}"),
     STRING("{\"myString\": \"test\"}"),
-    SUB_TEST("{\"(ASubObject)myASubObject\": {\"name\": \"testOther\",\"myString\": \"test\"}}")
-    ;
+    SUB_TEST("{\"(ASubObject)myASubObject\": {\"name\": \"testOther\",\"myString\": \"test\"}}");
 
     private final String content;
+
     TestProviderAnObjectJson(final String content) {
         if (content.startsWith(PATH_INPUT)) {
             this.content = new IOString().setFileName(content).read();
-        }
-        else {
+        } else {
             this.content = content;
         }
     }
@@ -51,23 +48,24 @@ public enum TestProviderAnObjectJson {
     }
 
     public EO createEoTest() {
-        EO eo =  ProviderRootTestScope.createEo(content);
+        EO eo = ProviderConfigMaps.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
 
     public EO createEoDev() {
-        EO eo =  ProviderRootDevScope.createEo(content);
+        EO eo = ProviderConfigMaps.createEoDev(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
 
     public EO createBtEo() {
-        EO eo =  ProviderRootTestScope.createEoWithClasses(AnObject.class);
+        EO eo = ProviderConfigMaps.createEoWithClasses(AnObject.class);
         eo.mapObject(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }
+
     public AnObject createBt() {
         return (AnObject) createBtEo().get();
     }

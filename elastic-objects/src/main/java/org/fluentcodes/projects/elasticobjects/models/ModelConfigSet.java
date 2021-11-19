@@ -3,10 +3,8 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -18,16 +16,12 @@ import java.util.Set;
 public class ModelConfigSet extends ModelConfig {
     private static final Logger LOG = LogManager.getLogger(ModelConfigSet.class);
 
-    public ModelConfigSet(Map map) {
-        this(new ModelBean(map));
+    public ModelConfigSet(ConfigBean bean, final ConfigMaps configMaps) {
+        this((ModelBean) bean, configMaps);
     }
 
-    public ModelConfigSet(ConfigBean bean) {
-        this((ModelBean) bean);
-    }
-
-    public ModelConfigSet(ModelBean bean) {
-        super(bean);
+    public ModelConfigSet(ModelBean bean, final ConfigMaps configMaps) {
+        super(bean, configMaps);
     }
 
     @Override

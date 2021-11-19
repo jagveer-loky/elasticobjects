@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db.statements;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 
 import java.util.Map;
 
@@ -25,7 +25,7 @@ public class DeleteStatement extends PreparedStatementValues {
         if (source == null) {
             throw new EoException("Null eo for delete");
         }
-        ModelConfigInterface model = source.getModel();
+        ModelInterface model = source.getModel();
         if (!model.isObject()) {
             throw new EoException("Model '" + model.getModelKey() + "' is not a object");
         }

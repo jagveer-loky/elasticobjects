@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class BuilderJsonTest {
     public static String BUILDER_JSON_TEST = "builderTest.json";
     public static EO builderEo = createBuilder();
     public static EO createBuilder() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         FileReadCall call = new FileReadCall(BUILDER_JSON_TEST);
         call.setTargetPath(PathElement.SAME);
         call.execute(eo);

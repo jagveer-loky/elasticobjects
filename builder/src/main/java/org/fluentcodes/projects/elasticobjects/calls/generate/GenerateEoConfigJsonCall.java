@@ -7,10 +7,12 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
 import org.fluentcodes.projects.elasticobjects.calls.xlsx.XlsxReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
 
 
 /*=>{javaHeader}|*/
@@ -68,7 +70,7 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
         readCall.setFilter("module eq =>[/module].");
         feedback.append(readCall.execute(rootEo));
 
-        EO eoWrite = ProviderRootTestScope.createEo();
+        EO eoWrite = ProviderConfigMaps.createEo();
         eoWrite.set(configType, CONFIG_TYPE);
         eoWrite.set(getFileEnding(), FILE_ENDING);
         eoWrite.set(getProjectDirectory(), PROJECT_DIRECTORY);

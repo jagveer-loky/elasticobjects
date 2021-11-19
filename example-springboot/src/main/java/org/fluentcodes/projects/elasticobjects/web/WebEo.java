@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.models.EOConfigsCache;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +27,7 @@ import java.util.Arrays;
 public class WebEo {
     private final static Logger LOG = LogManager.getLogger(WebEo.class);
     @Autowired
-    private EOConfigsCache configsCache;
+    private ConfigMaps configsCache;
 
     private static final LogLevel getLevel(final String logLevelAsString) {
         if (logLevelAsString == null || logLevelAsString.isEmpty()) {

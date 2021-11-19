@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfigInterface;
+import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.ROW
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.ROW_HEAD;
 import static org.fluentcodes.projects.elasticobjects.calls.lists.ListParams.ROW_START;
 
-public interface ListProperties extends ConfigConfigInterface {
+public interface ListProperties extends ConfigInterface {
     
     default boolean hasRowHead() {
         return getRowHead()!=null;

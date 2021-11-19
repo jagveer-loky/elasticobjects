@@ -1,27 +1,34 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.calls.lists.CsvConfig;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Test;
 
 /**
  * Created by Werner on 08.10.2016.
  */
-public class CsvWriteCallTest {
+public class CsvWriteCallTest implements IModelConfigCreateTests {
 
-    @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(CsvWriteCall.class);
+    @Override
+    public Class<?> getModelConfigClass() {
+        return CsvWriteCall.class;
     }
 
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(CsvWriteCall.class);
+    public void create_noEoException() {
+        assertCreateNoException();
     }
 
+    @Override
     @Test
-    public void resolveModel()  {
-        ModelConfigChecks.resolve(CsvConfig.class);
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
 }

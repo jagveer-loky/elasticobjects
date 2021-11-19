@@ -1,33 +1,33 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigNoCreateTests;
 import org.junit.Test;
 
 /**
  * Created by Werner on 13.4.2017.
  */
-public class ConfigImplTest {
-
-    @Test
-    public void changeProperties()  {
-        ModelConfigInterfaceMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(ConfigConfig.class);
-        /*Map map = model.getProperties();
-        Assertions
-                .assertThatThrownBy(
-                        () -> {
-                            model.getProperties().put("newKey", "newValue");
-                        })
-                .isInstanceOf(UnsupportedOperationException.class);*/
+public class ConfigImplTest implements IModelConfigNoCreateTests {
+    @Override
+    public Class<?> getModelConfigClass() {
+        return ConfigConfig.class;
     }
 
+    @Override
     @Test
-    public void createByModelConfig_throwsException()  {
-        ModelConfigChecks.createThrowsException(ConfigConfig.class);
+    public void create_throwsEoException() {
+        assertCreateThrowingException();
     }
 
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(ConfigConfig.class);
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
     }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
+
 }

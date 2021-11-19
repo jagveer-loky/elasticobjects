@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
+import org.fluentcodes.projects.elasticobjects.calls.files.CsvConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 

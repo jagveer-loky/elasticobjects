@@ -16,7 +16,7 @@ public class ConfigTypeKeyListCall extends CallImpl  implements SimpleCommand {
     @Override
     public Object execute(final EO eo) {
         super.check(eo);
-        List<String> keys = eo.getConfigsCache().getConfigClassesAsStringList();
+        List<String> keys = eo.getConfigsCache().getKeysAsString();
         if (configFilter == null) {
             return keys;
         }
