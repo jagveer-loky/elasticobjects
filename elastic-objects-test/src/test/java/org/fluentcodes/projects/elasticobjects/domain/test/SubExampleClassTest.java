@@ -1,33 +1,36 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigMethods;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class SubExampleClassTest {
+public class SubExampleClassTest implements IModelConfigCreateTests {
 
-    @Test
-    public void givenScopeDev_whenFindSubExampleClass_thenExceptionThrown()  {
-        try {
-            ModelConfigMethods model = ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(SubExampleClass.class);
-            Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
-        }
-        catch(EoException e) {
-
-        }
+    @Override
+    public Class<?> getModelConfigClass() {
+        return SubExampleClass.class;
     }
 
+    @Override
     @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(SubExampleClass.class);
+    public void create_noEoException() {
+        assertCreateNoException();
     }
 
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(SubExampleClass.class);
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
 }

@@ -8,6 +8,9 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "author",
       "properties": {
         "super": true,
@@ -20,6 +23,9 @@
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "creationDate",
       "properties": {
         "super": true,
@@ -32,6 +38,9 @@
       "description": "The type of the db as Enumeration providing informations like the driver.",
       "fieldKey": "dbType",
       "modelKeys": "DbTypes",
+      "modelList": [
+        "DbTypes"
+      ],
       "naturalId": "dbType",
       "properties": {
         "super": false,
@@ -49,6 +58,9 @@
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "description",
       "properties": {
         "super": true,
@@ -62,6 +74,9 @@
       "fieldKey": "driver",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "driver",
       "properties": {
         "super": false,
@@ -78,6 +93,9 @@
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
       "naturalId": "expose",
       "properties": {
         "super": true,
@@ -91,6 +109,9 @@
       "fieldKey": "extension",
       "length": 1024,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "extension",
       "properties": {
         "super": false,
@@ -108,6 +129,9 @@
       "fieldKey": "hostName",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "hostName",
       "properties": {
         "super": true,
@@ -120,6 +144,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "super": true,
@@ -133,6 +160,9 @@
       "fieldKey": "jndi",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "jndi",
       "properties": {
         "super": false,
@@ -150,6 +180,9 @@
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "module",
       "properties": {
         "super": true,
@@ -163,6 +196,9 @@
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
@@ -176,6 +212,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "super": true,
@@ -189,6 +228,9 @@
       "fieldKey": "password",
       "length": 15,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "password",
       "properties": {
         "super": true,
@@ -201,6 +243,9 @@
       "description": "port",
       "fieldKey": "port",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "port",
       "properties": {
         "super": true,
@@ -213,6 +258,9 @@
       "description": "Properties for configurations.",
       "fieldKey": "properties",
       "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
       "naturalId": "properties",
       "properties": {
         "super": true,
@@ -226,6 +274,9 @@
       "fieldKey": "protocol",
       "length": 8,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "protocol",
       "properties": {
         "super": true,
@@ -238,6 +289,9 @@
       "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
       "fieldKey": "rolePermissions",
       "modelKeys": "PermissionRole",
+      "modelList": [
+        "PermissionRole"
+      ],
       "naturalId": "rolePermissions",
       "properties": {
         "super": true,
@@ -250,6 +304,9 @@
       "fieldKey": "schema",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "schema",
       "properties": {
         "super": false,
@@ -267,6 +324,10 @@
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
       "naturalId": "scope",
       "properties": {
         "super": true,
@@ -280,6 +341,9 @@
       "fieldKey": "url",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "url",
       "properties": {
         "super": true,
@@ -293,6 +357,9 @@
       "fieldKey": "user",
       "length": 50,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "user",
       "properties": {
         "super": true,

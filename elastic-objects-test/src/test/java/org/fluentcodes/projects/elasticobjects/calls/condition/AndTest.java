@@ -4,8 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,8 +17,8 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
  * Created by werner.diwischek on 08.01.18.
  */
 public class AndTest {
-    public static final List EXAMPLE_LIST = (List)new ProviderRootDevScope()
-            .createEo("[\"test\",\n\"testOther\",\n" + null + ",\n\"key0\",\n1]")
+    public static final List EXAMPLE_LIST = (List) ProviderConfigMaps
+            .createEoDev("[\"test\",\n\"testOther\",\n" + null + ",\n\"key0\",\n1]")
             .get();
 
     @Test

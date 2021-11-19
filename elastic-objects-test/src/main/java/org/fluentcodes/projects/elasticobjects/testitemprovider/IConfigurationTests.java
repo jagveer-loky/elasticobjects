@@ -14,8 +14,8 @@ public interface IConfigurationTests extends IModelConfigNoCreateTests {
     void compareConfigurations();
 
     default void assertConfigBeanEqualsPersisted(final String configKey)  {
-        ConfigConfig selectedConfig = (ConfigConfig) ProviderRootTestScope.
-                EO_CONFIGS.
+        ConfigConfig selectedConfig = (ConfigConfig) ProviderConfigMaps.
+                CONFIG_MAPS.
                 find((Class<? extends ConfigInterface>)getModelConfigClass(), configKey);
 
         assertThat(selectedConfig.toString())
@@ -23,8 +23,8 @@ public interface IConfigurationTests extends IModelConfigNoCreateTests {
     }
 
     default void assertLoadedConfigurationsEqualsPersisted()  {
-        String configurationsAsString = ProviderRootTestScope.
-                EO_CONFIGS.
+        String configurationsAsString = ProviderConfigMaps.
+                CONFIG_MAPS.
                 toString((Class<? extends ConfigInterface>)getModelConfigClass());
 
         assertThat(configurationsAsString)

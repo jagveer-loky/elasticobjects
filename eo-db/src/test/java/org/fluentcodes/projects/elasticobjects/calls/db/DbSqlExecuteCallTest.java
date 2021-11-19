@@ -1,9 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,29 +11,38 @@ import org.junit.Test;
 /**
  * Created by Werner on 17.8.2020.
  */
-public class DbSqlExecuteCallTest {
+public class DbSqlExecuteCallTest implements IModelConfigCreateTests {
     private final static String DROP = "h2:mem:basic:AnObjectDrop";
     private final static String CREATE = "h2:mem:basic:Create";
-    @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(DbSqlExecuteCall.class);
+
+    @Override
+    public Class<?> getModelConfigClass() {
+        return DbSqlExecuteCall.class;
     }
 
+    @Override
+    @Test
+    public void create_noEoException()  {
+        assertCreateNoException();
+    }
+
+    @Override
     @Test
     public void compareModelConfig()  {
-        ModelConfigChecks.compare(DbSqlExecuteCall.class);
+        assertModelConfigEqualsPersisted();
     }
 
+    @Override
     @Test
-    public void resolveModelConfig()  {
-        ModelConfigChecks.resolve(DbSqlExecuteCall.class);
+    public void compareBeanFromModelConfig()  {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
     public void queryAnObject()  {
         DbSqlExecuteCall call = new DbSqlExecuteCall(DbConfig.H2_BASIC, CREATE);
         Assert.assertNotNull(call);
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);
     }
 }

@@ -4,13 +4,11 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -48,49 +46,49 @@ public class OrTest {
     @Test
     public void eq_key0_test0_eq_key1_test1__filter_eoKey0Test__true() {
         Or or = new Or("key0 eq test0 || key1 eq test1");
-        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test0\"}");
+        EO eo = ProviderConfigMaps.createEoDev("{\"key0\":\"test0\"}");
         Assertions.assertThat(or.filter(eo)).isTrue();
     }
 
     @Test
     public void eq_tey0_test0_eq_key1_test1__filter_eoKey1Test1__true() {
         Or or = new Or("key0 eq test || key1 eq test1");
-        EO eo = ProviderRootDevScope.createEo("{\"key1\":\"test1\"}");
+        EO eo = ProviderConfigMaps.createEoDev("{\"key1\":\"test1\"}");
         Assertions.assertThat(or.filter(eo)).isTrue();
     }
 
     @Test
     public void eq_key0_test0_eq_key1_test1__filter_eoKey0Test1__false() {
         Or or = new Or("key0 eq test0 || key1 eq test1");
-        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test1\"}");
+        EO eo = ProviderConfigMaps.createEoDev("{\"key0\":\"test1\"}");
         Assertions.assertThat(or.filter(eo)).isFalse();
     }
 
     @Test
     public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filter_eoKey1Test1__true() {
         Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
-        EO eo = ProviderRootDevScope.createEo("{\"key1\":\"test1\"}");
+        EO eo = ProviderConfigMaps.createEoDev("{\"key1\":\"test1\"}");
         Assertions.assertThat(or.filter(eo)).isTrue();
     }
 
     @Test
     public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filter_eoKey2Test2__true() {
         Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
-        EO eo = ProviderRootDevScope.createEo("{\"key2\":\"test2\"}");
+        EO eo = ProviderConfigMaps.createEoDev("{\"key2\":\"test2\"}");
         Assertions.assertThat(or.filter(eo)).isTrue();
     }
 
     @Test
     public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filter_eoKey0Test0__true() {
         Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
-        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test0\"}");
+        EO eo = ProviderConfigMaps.createEoDev("{\"key0\":\"test0\"}");
         Assertions.assertThat(or.filter(eo)).isTrue();
     }
 
     @Test
     public void eq_key0_test0_eq_key1_test1_eq_key2_test2__filterEoKey0Test1__false() {
         Or or = new Or("key0 eq test0 || key1 eq test1  || key2 eq test2");
-        EO eo = ProviderRootDevScope.createEo("{\"key0\":\"test1\"}");
+        EO eo = ProviderConfigMaps.createEoDev("{\"key0\":\"test1\"}");
         Assertions.assertThat(or.filter(eo)).isFalse();
     }
 

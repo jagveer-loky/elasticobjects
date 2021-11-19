@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseConfig;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.models.ModelBeanGen;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
@@ -24,7 +24,7 @@ public class ModelBeanGenTest {
 
     public static EO readEo() {
         ModelBeanMap4SheetCall call = new ModelBeanMap4SheetCall(ModelConfig.class.getSimpleName());
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         call.setSourceFileConfigKey("eo.xlsx");
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

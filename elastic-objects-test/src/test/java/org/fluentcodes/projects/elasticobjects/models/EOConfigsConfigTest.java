@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.domain.test.ASubObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,14 +16,14 @@ public class EOConfigsConfigTest {
 
     @Test
     public void checkConfigsCache()  {
-        ModelConfigMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(ModelConfigObject.class);
+        ModelConfigMethods model = ProviderConfigMaps.CONFIG_MAPS.findModel(ModelConfigObject.class);
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }
 
     @Test
     public void testModelNotExisting_Exception()  {
         try {
-            ModelConfigMethods model = ProviderRootTestScope.EO_CONFIGS.findModel("Nonsense");
+            ModelConfigMethods model = ProviderConfigMaps.CONFIG_MAPS.findModel("Nonsense");
             Assert.fail("Should throw EoException since Nonsense is not in the cache");
         }
         catch(EoException e) {
@@ -34,7 +34,7 @@ public class EOConfigsConfigTest {
 
     @Test
     public void checkConfigsCacheWithST()  {
-        ModelConfigMethods model = ProviderRootTestScope.EO_CONFIGS.findModel(ASubObject.class);
+        ModelConfigMethods model = ProviderConfigMaps.CONFIG_MAPS.findModel(ASubObject.class);
         //new XpectEo<>(TRootTestProvider.EO_CONFIGS).compareAsString(model);
     }
 }

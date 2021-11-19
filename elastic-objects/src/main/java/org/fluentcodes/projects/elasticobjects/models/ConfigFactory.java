@@ -6,8 +6,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.tools.xpect.IORuntimeException;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.tools.io.IORuntimeException;
+import org.fluentcodes.tools.io.IOString;
 
 import java.util.List;
 import java.util.Map;

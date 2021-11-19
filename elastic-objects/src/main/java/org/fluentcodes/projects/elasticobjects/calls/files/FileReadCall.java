@@ -6,8 +6,8 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.tools.xpect.IOBytes;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.tools.io.IOBytes;
+import org.fluentcodes.tools.io.IOString;
 
 /*=>{javaHeader}|*/
 

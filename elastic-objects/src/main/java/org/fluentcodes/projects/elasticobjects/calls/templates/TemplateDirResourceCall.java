@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.tools.xpect.IORuntimeException;
+import org.fluentcodes.tools.io.IORuntimeException;
 
 /*=>{javaHeader}|*/
 

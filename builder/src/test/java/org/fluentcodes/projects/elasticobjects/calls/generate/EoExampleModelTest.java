@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelBeanGen;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 /**
@@ -21,7 +21,7 @@ public class EoExampleModelTest {
 
     public static EO readEoTest() {
         ModelBeanMap4SheetCall call = new ModelBeanMap4SheetCall(ModelConfig.class.getSimpleName());
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         call.setSourceFileConfigKey("eoTest.xlsx");
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

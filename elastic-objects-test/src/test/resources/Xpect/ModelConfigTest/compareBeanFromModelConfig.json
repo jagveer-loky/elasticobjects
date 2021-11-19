@@ -1,0 +1,15 @@
+{
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "Table definitions with pojo.",
+  "expose": "NONE",
+  "interfaces": "ModelConfigMethods",
+  "modelKey": "ModelConfig",
+  "module": "elastic-objects",
+  "moduleScope": "main",
+  "naturalId": "ModelConfig",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+  "properties": {
+  },
+  "superKey": "ConfigConfig"
+}

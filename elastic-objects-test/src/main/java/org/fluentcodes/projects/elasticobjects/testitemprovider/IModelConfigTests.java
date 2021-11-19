@@ -3,12 +3,9 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
 import org.fluentcodes.tools.xpect.XpectEo;
-import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,19 +15,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 public interface IModelConfigTests {
 
     Class<?> getModelConfigClass();
+
     void compareModelConfig();
+
     void compareBeanFromModelConfig();
 
     default ModelConfig getModelConfig() {
-        return ProviderRootTestScope.EO_CONFIGS.findModel(getModelConfigClass());
+        return ProviderConfigMaps.CONFIG_MAPS.findModel(getModelConfigClass());
     }
 
-    default void assertModelConfigEqualsPersisted()  {
+    default void assertModelConfigEqualsPersisted() {
         assertThat(getModelConfig().toString())
                 .isEqualTo(XpectEo.load(getModelConfig()));
     }
 
-    default void assertBeanFromModelConfigEqualsPersisted()  {
+    default void assertBeanFromModelConfigEqualsPersisted() {
         ModelBean fieldBean = getModelConfig().createBean();
 
         assertThat(new EOToJSON()

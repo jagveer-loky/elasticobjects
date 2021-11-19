@@ -1,28 +1,46 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by werner.diwischek on 11.03.18.
+ * Created by werner.diwischek on 11.03.20.
  */
-public class TheGreetingCallTest {
+public class TheGreetingCallTest implements IModelConfigCreateTests {
 
+    @Override
+    public Class<?> getModelConfigClass() {
+        return TheGreetingCall.class;
+    }
+
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(TheGreetingCall.class);
+    public void create_noEoException() {
+        assertCreateNoException();
+    }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
-    public void givenNameAndGreeting_whenExecuteCall_thenNameIsSet()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenNameAndGreeting_whenExecuteCall_thenNameIsSet() {
+        EO eo = ProviderConfigMaps.createEo();
         eo.set("Albert", "abc");
         Assertions.assertThat(eo.getLog()).isEmpty();
         String content = new TheGreetingCall("Hello").execute(eo.getEo("abc"));
@@ -30,40 +48,40 @@ public class TheGreetingCallTest {
     }
 
     @Test
-    public void givenNameAndGreetingAndTargetPath_whenExecuteCall_thenNamesAreSet()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenNameAndGreetingAndTargetPath_whenExecuteCall_thenNamesAreSet() {
+        EO eo = ProviderConfigMaps.createEo();
         eo.set("Albert", "abc");
         eo.addCall(new TheGreetingCall("Hello").setSourcePath("abc").setTargetPath("/x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat((String)eo.get("x/y/z")).isEqualTo("Hello Albert!");
+        Assertions.assertThat((String) eo.get("x/y/z")).isEqualTo("Hello Albert!");
     }
 
     @Test
-    public void givenNameListAndGreeting_whenExecuteCall_thenNamesAreSet()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenNameListAndGreeting_whenExecuteCall_thenNamesAreSet() {
+        EO eo = ProviderConfigMaps.createEo();
         List<String> nameList = Arrays.asList(new String[]{"Albert", "Victor", "Chessy"});
         eo.set(nameList, "abc");
         eo.addCall(new TheGreetingCall("Hello").setSourcePath("abc/*"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat((String)eo.get("abc/0")).isEqualTo("Hello Albert!");
+        Assertions.assertThat((String) eo.get("abc/0")).isEqualTo("Hello Albert!");
     }
 
     @Test
-    public void givenNameListAndGreetingAndTargetPath_whenExecuteCall_thenNamesAreSet()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenNameListAndGreetingAndTargetPath_whenExecuteCall_thenNamesAreSet() {
+        EO eo = ProviderConfigMaps.createEo();
         List<String> nameList = Arrays.asList(new String[]{"Albert", "Victor", "Chessy"});
         eo.set(nameList, "abc");
         eo.addCall(new TheGreetingCall("Hello").setSourcePath("abc/*").setTargetPath("/x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat((String)eo.get("x/y/z/0")).isEqualTo("Hello Albert!");
+        Assertions.assertThat((String) eo.get("x/y/z/0")).isEqualTo("Hello Albert!");
     }
 
     @Test
-    public void callTemplateCall_GreetingCall__execute__replaced()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void callTemplateCall_GreetingCall__execute__replaced() {
+        EO eo = ProviderConfigMaps.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         String content = new TemplateCall("* \n==>{TheGreetingCall->., }. *").execute(eo);
         Assertions.assertThat(content).isEqualTo("* Hi Stranger! *");

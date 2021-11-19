@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -58,12 +58,12 @@ public class FieldBeanTest {
 
     @Test
     public void set_notNull_true__get__true() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         FieldBean fieldBean = new FieldBean();
         fieldBean.setNotNull(true);
         Assertions.assertThat(fieldBean.getNotNull()).isTrue();
         Assertions.assertThat((Boolean)fieldBean.getProperties().get(NOT_NULL)).isTrue();
-        eo = ProviderRootTestScope.createEo(fieldBean);
+        eo = ProviderConfigMaps.createEo(fieldBean);
         Assertions.assertThat((Boolean)eo.get(NOT_NULL)).isTrue();
     }
 
@@ -73,7 +73,7 @@ public class FieldBeanTest {
         fieldBean.setOverride(true);
         Assertions.assertThat(fieldBean.getOverride()).isTrue();
         Assertions.assertThat((Boolean)fieldBean.getProperties().get(OVERRIDE)).isTrue();
-        EO eo = ProviderRootTestScope.createEo(fieldBean);
+        EO eo = ProviderConfigMaps.createEo(fieldBean);
         Assertions.assertThat((Boolean)eo.get(OVERRIDE)).isTrue();
     }
 
@@ -83,7 +83,7 @@ public class FieldBeanTest {
         fieldBean.setGenerated(true);
         Assertions.assertThat(fieldBean.getGenerated()).isTrue();
         Assertions.assertThat((Boolean)fieldBean.getProperties().get(GENERATED)).isTrue();
-        EO eo = ProviderRootTestScope.createEo(fieldBean);
+        EO eo = ProviderConfigMaps.createEo(fieldBean);
         Assertions.assertThat((Boolean)eo.get(GENERATED)).isTrue();
     }
 
@@ -97,7 +97,7 @@ public class FieldBeanTest {
         Assertions.assertThat((Boolean)fieldBean.getProperties().get(GENERATED)).isTrue();
         Assertions.assertThat(fieldBeanOverwritten.getGenerated()).isTrue();
         Assertions.assertThat((Boolean)fieldBeanOverwritten.getProperties().get(GENERATED)).isTrue();
-        EO eo = ProviderRootTestScope.createEo(fieldBean);
+        EO eo = ProviderConfigMaps.createEo(fieldBean);
         Assertions.assertThat((Boolean)eo.get(GENERATED)).isTrue();
     }
 
@@ -106,7 +106,7 @@ public class FieldBeanTest {
         FieldBean fieldBean = new FieldBean();
         fieldBean.setScope(Arrays.asList(new Scope[]{Scope.DEV}));
         Assertions.assertThat(fieldBean.getScope()).isNotEmpty();
-        EO eo = ProviderRootTestScope.createEo(fieldBean);
+        EO eo = ProviderConfigMaps.createEo(fieldBean);
         Assertions.assertThat((List)eo.get(SCOPE)).isNotEmpty();
     }
 }

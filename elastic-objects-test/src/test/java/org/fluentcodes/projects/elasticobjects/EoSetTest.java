@@ -3,8 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,7 +17,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
 public class EoSetTest {
     @Test
     public void DEV__key0_value__get_key0_value()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         eo.set("value", S_LEVEL0);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(String.class);
@@ -30,7 +29,7 @@ public class EoSetTest {
 
     @Test
     public void DEV__key0_key1_value__getPathAsString_key0_key1()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         final EO child = eo.set("value", "key0", "key1");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(child.getModelClass()).isEqualTo(String.class);
@@ -39,7 +38,7 @@ public class EoSetTest {
 
     @Test
     public void DEV_key0_value__child_set__exception()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         EO childEo = eo.set("value", "key0");
         Assertions
                 .assertThatThrownBy(()->{childEo.set("value", "keyOther");})
@@ -49,7 +48,7 @@ public class EoSetTest {
 
     @Test
     public void DEV__key0_true__get_key0_true()  {
-        final EO root = EoRoot.ofValue(ProviderRootDevScope.CONFIG_MAPS_DEV, List.class);
+        final EO root = EoRoot.ofValue(ProviderConfigMaps.CONFIG_MAPS_DEV, List.class);
         root.set(true, "key0");
         Assert.assertEquals(true, root.get("0"));
     }
@@ -59,7 +58,7 @@ public class EoSetTest {
      */
     @Test
     public void DEV__key0_key1_key2_key3_asString_value__get_String_key0_key1_key2_key3_asString_value() {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         EO child = eo.set("value","key0/key1/key2/key3");
         Assertions.assertThat(child.get()).isEqualTo("value");
         Assertions.assertThat(eo.get("key0/key1/key2/key3")).isEqualTo("value");
@@ -68,7 +67,7 @@ public class EoSetTest {
 
     @Test
     public void DEV__key0_key1_key2_key3_value__get_key0_key1_key2_key3_value()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         final EO child = eo.set("value", "key0","key1","key2", "key3");
         assertEquals("value", eo.get("key0","key1","key2", "key3"));
 
@@ -97,7 +96,7 @@ public class EoSetTest {
 
     @Test
     public void DEV__key0_JSONList_value_1__get_key0_0_value_get_key0_1_1()  {
-        final EO eoEmpty = ProviderRootDevScope.createEo();
+        final EO eoEmpty = ProviderConfigMaps.createEoDev();
         eoEmpty.set("[\"value\", 1]", "key0");
         Assertions.assertThat(eoEmpty.getEo("key0").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eoEmpty.get("key0", "1")).isEqualTo(1);
@@ -106,7 +105,7 @@ public class EoSetTest {
 
     @Test
     public void DEV__JSON_List_Double_source_0_1_1_2_2_3__getModelClass_source_0_Double()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         eo.set("{\"(List,Double)source\": {\"0\": 1,\"1\": 2,\"2\": 3}}");
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Double.class);
@@ -114,7 +113,7 @@ public class EoSetTest {
 
     @Test
     public void DEV__JSONList_1_2_3__getModelClass_source_0_Integer()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         eo.set("{\"source\": [ 1, 2, 3]}");
         Assertions.assertThat(eo.getEo("source").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("source", "0").getModelClass()).isEqualTo(Integer.class);
@@ -122,7 +121,7 @@ public class EoSetTest {
 
     @Test
     public void TEST_AnObject__set_key_value__exception()  {
-        final EO eo = ProviderRootTestScope.createEo(new AnObject());
+        final EO eo = ProviderConfigMaps.createEo(new AnObject());
         Assertions.assertThatThrownBy(
                 ()->{ eo.set("value", "key");}
         )
@@ -131,7 +130,7 @@ public class EoSetTest {
 
     @Test
     public void TEST_AnObject__set_myString_AnObject__exception()  {
-        final EO eo = ProviderRootTestScope.createEo(new AnObject());
+        final EO eo = ProviderConfigMaps.createEo(new AnObject());
         Assertions
                 .assertThatThrownBy(
                         ()->{eo.set(new AnObject(), AnObject.MY_STRING);}
@@ -141,7 +140,7 @@ public class EoSetTest {
 
     @Test
     public void TEST__set_key_AnObject__getModelClass_key_AnObject()  {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         eo.set(new AnObject(), "key");
         Assertions.assertThat(eo.getEo("key").getModelClass()).isEqualTo(AnObject.class);
     }

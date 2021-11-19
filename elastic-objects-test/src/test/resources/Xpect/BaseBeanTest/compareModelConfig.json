@@ -9,6 +9,9 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "author",
       "properties": {
         "generated": false,
@@ -20,6 +23,9 @@
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "creationDate",
       "properties": {
         "generated": false,
@@ -32,6 +38,9 @@
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "description",
       "properties": {
         "generated": false,
@@ -43,6 +52,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "generated": false,
@@ -55,6 +67,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "generated": false,

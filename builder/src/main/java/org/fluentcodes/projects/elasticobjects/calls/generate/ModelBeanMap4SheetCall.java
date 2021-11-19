@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.ModelBeanGen;
-import org.fluentcodes.projects.elasticobjects.models.ModelBeanMap4Sheet;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 import java.util.Map;

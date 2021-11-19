@@ -3,8 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -47,7 +46,7 @@ public class ParserCurlyBracketTest {
     @Test
     public void call_not_exist_default__parse__default() {
         String replace = "==>{NO_CALL->|>TEST}.";
-        String result = new ParserCurlyBracket(replace).parse(ProviderRootDevScope.createEo());
+        String result = new ParserCurlyBracket(replace).parse(ProviderConfigMaps.createEoDev());
         Assert.assertNotNull(result);
         Assertions.assertThat(result).isEqualTo("TEST");
     }
@@ -63,7 +62,7 @@ public class ParserCurlyBracketTest {
     @Test
     public void call_json_not_exist_default__parse__default() {
         String replace = "===>{\"(NO_CALL)\":{} |>TEST}.";
-        String result = new ParserCurlyBracket(replace).parse(ProviderRootDevScope.createEo());
+        String result = new ParserCurlyBracket(replace).parse(ProviderConfigMaps.createEoDev());
         Assert.assertNotNull(result);
         Assertions.assertThat(result).isEqualTo("TEST");
     }
@@ -86,7 +85,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void placeHolder_testPath_eo__parse__replace () {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.set("testValue", "testPath");
         String replace = "-=>{testPath}.-";
         String result = new ParserCurlyBracket(replace).parse(eo);
@@ -102,7 +101,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void json_TemplateCall_testPath_testValue__parse__xpected () {
-        final EO eo = ProviderRootTestScope.createEo("{\"testPath\":\"testString\"}");
+        final EO eo = ProviderConfigMaps.createEo("{\"testPath\":\"testString\"}");
         final String replace = "- ===>{\"(TemplateCall).\":{" +
                 "\"sourcePath\":\"testPath\"}" +
                 "}|+=>{_value}.+" +
@@ -114,7 +113,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void set_TemplateCall_testPath_testValue__parse__xpected () {
-        final EO eo = ProviderRootTestScope.createEo("{\"testPath\":\"testString\"}");
+        final EO eo = ProviderConfigMaps.createEo("{\"testPath\":\"testString\"}");
         final String replace = "- ==>{TemplateCall->testPath}|" +
                 "+=>{_value}.+" +
                 "=>{}.-";
@@ -125,7 +124,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void TemplateCall_testPath__parse__replaced () {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         eo.set(AnObject.MY_STRING, "testPath");
         final String replace = "-" +
                 " ===>{\"(TemplateCall).\":{" +
@@ -142,7 +141,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void ValueCall_level0_map__parse__valueSet () {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = " ===>{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0\"}" +
                 "}|" +
@@ -156,7 +155,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void ValueCall_targetPath_level0_placeHolder__parse__replaced () {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = " ===>{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0\"}" +
                 "}|" +
@@ -170,7 +169,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void direct_targetPath_level0_placeHolder__parse__replaced () {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = " ===>{\"level0\":{\"1\":2}}." +
                 "Value: \n=>{level0/1}.";
        String result = new ParserCurlyBracket(replace).parse(eo);
@@ -180,7 +179,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void array_TemplateCall_content_trailing_space__parse__123 () {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"data\":[1,2,3]}." +
                 "==>{TemplateCall->/data/*}|=>{_value}. =>{}.";
@@ -191,7 +190,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void array_123_TemplateCall_content_trailing_space_newline__parse__1_2_3_ () {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"data\":[1,2,3]}." +
                 "==>{TemplateCall->/data/*}|=>{_value}. \n=>{}.";
@@ -202,7 +201,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void array_123_TemplateCall_content_trailing_space_backslash_newline__parse__1_2_3_ () {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"data\":[1,2,3]}." +
                 "==>{TemplateCall->/data/*}|=>{_value}. \\\n=>{}.";
@@ -213,7 +212,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void array_TemplateCall_content_start_space_new_line__parse___1_2_3() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"data\":[1,2,3]}." +
                 "==>{TemplateCall->/data/*}| \n=>{_value}.=>{}.";
@@ -224,7 +223,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void array_TemplateCall_content_start_space_backslash_newline__parse___1_2_3() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"data\":[1,2,3]}." +
                 "==>{TemplateCall->/data/*}| \\\n=>{_value}. =>{}.";
@@ -235,7 +234,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void array_TemplateCall_content_start_space__parse__123() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"data\":[1,2,3]}." +
                 "==>{TemplateCall->/data/*}| =>{_value}.=>{}.";
@@ -246,7 +245,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void array_TemplateCall_content_start_a_space__parse__123() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"data\":[1,2,3]}." +
                 "==>{TemplateCall->/data/*}| a=>{_value}.=>{}.";
@@ -257,7 +256,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void TemplateCall_parent__parse__val2a() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"val1\":{\"a\":\"1\"},\"val2\":{\"a\":\"2\"}}." +
                 "==>{TemplateCall->/val1/a}| val2/a = \n =>{/val2/_parent}.  =>{}.";
@@ -268,7 +267,7 @@ public class ParserCurlyBracketTest {
 
     @Test
     public void eo_key0_key1_value__parse__value() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String replace = "" +
                 "===>{\"key0\":{\"key1\":\"value\"}}." +
                 "=>{key0/key1}.";

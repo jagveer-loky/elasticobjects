@@ -2,8 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 /**
@@ -20,7 +19,7 @@ public class ModelTemplateCallStart {
         call.setPackagePath("org.fluentcodes.projects.elasticobjects.");
         call.setFileEnding("");
         call.setNaturalId(naturalId);
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).contains(" file ");

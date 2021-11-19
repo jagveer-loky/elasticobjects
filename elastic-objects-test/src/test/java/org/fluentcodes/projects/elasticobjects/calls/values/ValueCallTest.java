@@ -1,13 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -19,40 +19,54 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 
 /**
  * Tests for {@link SinusValueCall}
+ *
  * @author Werner Diwischek
  * @since 13.07.2020.
  */
-public class ValueCallTest {
+public class ValueCallTest implements IModelConfigCreateTests {
 
+    @Override
+    public Class<?> getModelConfigClass() {
+        return ValueCall.class;
+    }
+
+    @Override
     @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(ValueCall.class);
+    public void create_noEoException() {
+        assertCreateNoException();
+    }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(ValueCall.class);
-    }
-
-    @Test
-    public void givenModelConfig_whenIsCall_thenTrue()  {
+    public void givenModelConfig_whenIsCall_thenTrue() {
         Assertions
                 .assertThat(
-                        ProviderRootTestScope.findModel(ValueCall.class).isCall()
+                        ProviderConfigMaps.findModel(ValueCall.class).isCall()
                 ).isTrue();
     }
 
     @Test
-    public void givenModelCreate_whenSetValue_thenValueIsSet()  {
-        final ModelConfig model = ProviderRootTestScope.findModel(ValueCall.class);
-        final ValueCall call = (ValueCall)model.create();
+    public void givenModelCreate_whenSetValue_thenValueIsSet() {
+        final ModelConfig model = ProviderConfigMaps.findModel(ValueCall.class);
+        final ValueCall call = (ValueCall) model.create();
         model.set(ValueCall.CONTENT, call, S_STRING);
         Assertions.assertThat(model.get(ValueCall.CONTENT, call)).isEqualTo(S_STRING);
     }
 
     @Test
-    public void givenModels_thenChildValueTypeIsString()  {
-        final EO eo = ProviderRootTestScope.createEo();
+    public void givenModels_thenChildValueTypeIsString() {
+        final EO eo = ProviderConfigMaps.createEo();
         final Models models = new Models(eo.getConfigsCache(), ValueCall.class);
         Models childModels = models.getChildModels(eo, new PathElement(ValueCall.CONTENT));
         Assertions.assertThat(childModels.isScalar()).isTrue();
@@ -60,16 +74,16 @@ public class ValueCallTest {
     }
 
     @Test
-    public void call_String__execute__return_String()  {
+    public void call_String__execute__return_String() {
         final ValueCall call = new ValueCall(S_STRING);
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         Assertions.assertThat(call.execute(eo)).isEqualTo(S_STRING);
     }
 
     @Ignore
     @Test
-    public void givenEoWithCallString_whenExecuteEo_thenEoIsValue()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenEoWithCallString_whenExecuteEo_thenEoIsValue() {
+        EO eo = ProviderConfigMaps.createEo();
         final ValueCall call = new ValueCall(S_STRING);
         eo.addCall(call);
         eo.execute();
@@ -78,8 +92,8 @@ public class ValueCallTest {
     }
 
     @Test
-    public void givenEoWithCallStringWithPath_whenExecuteEo_thenEoIsValue()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenEoWithCallStringWithPath_whenExecuteEo_thenEoIsValue() {
+        EO eo = ProviderConfigMaps.createEo();
         final ValueCall call = new ValueCall(S_STRING);
         call.setTargetPath(S_LEVEL0);
         eo.addCall(call);
@@ -89,8 +103,8 @@ public class ValueCallTest {
     }
 
     @Test
-    public void givenEoWithCallJsonMapWithPath_whenExecuteEo_thenEoIsMap()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenEoWithCallJsonMapWithPath_whenExecuteEo_thenEoIsMap() {
+        EO eo = ProviderConfigMaps.createEo();
         final ValueCall call = new ValueCall("{\"key1\":\"test\"}");
         call.setTargetPath("key0");
         eo.addCall(call);
@@ -100,8 +114,8 @@ public class ValueCallTest {
     }
 
     @Test
-    public void givenEoWithCallJsonListWithPath_whenExecuteEo_thenEoIsList()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenEoWithCallJsonListWithPath_whenExecuteEo_thenEoIsList() {
+        EO eo = ProviderConfigMaps.createEo();
         final ValueCall call = new ValueCall("[1,2]");
         call.setTargetPath(S_LEVEL0);
         eo.addCall(call);
@@ -111,8 +125,8 @@ public class ValueCallTest {
     }
 
     @Test
-    public void call_TemplateCall_level0_content__execute__level0_1()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void call_TemplateCall_level0_content__execute__level0_1() {
+        EO eo = ProviderConfigMaps.createEo();
         final String template = " ===>{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0\"}" +
                 "}|" +
@@ -125,8 +139,8 @@ public class ValueCallTest {
     }
 
     @Test
-    public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap() {
+        EO eo = ProviderConfigMaps.createEo();
         final String template = " ===>{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0\"}" +
                 "}|" +
@@ -139,8 +153,8 @@ public class ValueCallTest {
     }
 
     @Test
-    public void givenTemplateWithValueCallJsonMapAndLongerPath_whenExecute_thenEoIsMap()  {
-        EO eo = ProviderRootTestScope.createEo();
+    public void givenTemplateWithValueCallJsonMapAndLongerPath_whenExecute_thenEoIsMap() {
+        EO eo = ProviderConfigMaps.createEo();
         final String template = " ===>{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0/level1/level2\"}" +
                 "}|" +

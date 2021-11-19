@@ -9,6 +9,9 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "author",
       "properties": {
         "super": true,
@@ -21,6 +24,9 @@
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "creationDate",
       "properties": {
         "super": true,
@@ -34,6 +40,9 @@
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "description",
       "properties": {
         "super": true,
@@ -46,6 +55,9 @@
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
       "naturalId": "expose",
       "properties": {
         "generated": false,
@@ -57,6 +69,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "super": true,
@@ -70,6 +85,9 @@
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "module",
       "properties": {
         "generated": false,
@@ -82,6 +100,9 @@
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "moduleScope",
       "properties": {
         "generated": false,
@@ -94,6 +115,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "super": true,
@@ -106,6 +130,9 @@
       "description": "Properties for configurations.",
       "fieldKey": "properties",
       "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
       "naturalId": "properties",
       "properties": {
         "super": true,
@@ -117,6 +144,10 @@
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
       "naturalId": "scope",
       "properties": {
         "generated": false,

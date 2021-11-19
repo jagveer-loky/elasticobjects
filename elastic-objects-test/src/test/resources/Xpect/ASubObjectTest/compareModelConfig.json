@@ -8,6 +8,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "super": false,
@@ -23,6 +26,9 @@
       "description": "myASubObject",
       "fieldKey": "myASubObject",
       "modelKeys": "ASubObject",
+      "modelList": [
+        "ASubObject"
+      ],
       "naturalId": "myASubObject",
       "properties": {
         "super": false,
@@ -39,6 +45,9 @@
       "fieldKey": "myString",
       "length": 20,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "myString",
       "properties": {
         "super": false,
@@ -55,6 +64,9 @@
       "fieldKey": "name",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "name",
       "properties": {
         "super": false,
@@ -71,6 +83,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "super": false,

@@ -1,20 +1,34 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Test;
 
 /**
  * Created 21.9.2020
  */
-public class TemplateDirResourceCallTest {
+public class TemplateDirResourceCallTest implements IModelConfigCreateTests {
 
-    @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(TemplateDirResourceCall.class);
+    @Override
+    public Class<?> getModelConfigClass() {
+        return TemplateDirResourceCall.class;
     }
 
+    @Override
     @Test
-    public void createByModelConfig()  {
-        ModelConfigChecks.create(TemplateDirResourceCall.class);
+    public void create_noEoException() {
+        assertCreateNoException();
     }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
+
 }

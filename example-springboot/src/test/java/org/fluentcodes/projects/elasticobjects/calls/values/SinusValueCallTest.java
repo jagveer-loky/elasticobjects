@@ -1,24 +1,42 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 /**
- * Created by werner.diwischek on 11.03.18.
+ * Created by werner.diwischek on 11.03.20.
  */
-public class SinusValueCallTest {
+public class SinusValueCallTest implements IModelConfigCreateTests {
 
+    @Override
+    public Class<?> getModelConfigClass() {
+        return SinusValueCall.class;
+    }
+
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(SinusValueCall.class);
+    public void create_noEoException() {
+        assertCreateNoException();
+    }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
     public void eoStringTemplate__execute__xpected()  {
-        EO eo = ProviderRootTestScope.createEo("{\n" +
+        EO eo = ProviderConfigMaps.createEo("{\n" +
                 "   \"(List,Double)source\": {\n" +
                 "     \"0\": 1,\n" +
                 "     \"1\": 2,\n" +

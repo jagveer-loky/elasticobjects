@@ -1,20 +1,34 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Test;
 
 /**
  * Created by Werner on 11.10.2016.
  */
-public class HostBeanTest {
+public class HostBeanTest implements IModelConfigCreateTests {
 
-    @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(HostBean.class);
+    @Override
+    public Class<?> getModelConfigClass() {
+        return HostBean.class;
     }
+
+    @Override
     @Test
-    public void createByModelConfig() {
-        ModelConfigChecks.create(HostBean.class);
+    public void create_noEoException() {
+        assertCreateNoException();
+    }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
 }

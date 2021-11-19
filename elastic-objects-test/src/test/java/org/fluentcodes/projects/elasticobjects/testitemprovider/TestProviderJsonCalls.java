@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.tools.io.IOString;
 
 import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
 
@@ -18,34 +18,32 @@ public enum TestProviderJsonCalls {
     private String fileName;
     private final String content;
     private ProviderMapJson eoData;
+
     TestProviderJsonCalls(final String content) {
         if (content.startsWith(PATH_INPUT)) {
             try {
                 this.fileName = content;
                 this.content = new IOString().setFileName(content).read();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("Could not load file " + content);
                 throw new EoException(e);
             }
-        }
-        else {
+        } else {
             this.content = content;
         }
         try {
             eoData = ProviderMapJson.valueOf(name());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
         }
     }
 
     public EO createMapEo() {
-        return ProviderRootTestScope.createEo(content);
+        return ProviderConfigMaps.createEo(content);
     }
 
     public EO getEo() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.mapObject(content);
         return eo;
     }

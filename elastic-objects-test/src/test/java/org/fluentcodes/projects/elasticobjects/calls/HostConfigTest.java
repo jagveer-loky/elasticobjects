@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IConfigurationTests;
 import org.junit.Test;
 
@@ -13,30 +12,23 @@ public class HostConfigTest implements IConfigurationTests {
     public Class<?> getModelConfigClass() {
         return HostConfig.class;
     }
+
     @Override
     @Test
     public void create_throwsEoException() {
         assertCreateThrowingException();
     }
+
     @Override
     @Test
     public void compareModelConfig() {
         assertModelConfigEqualsPersisted();
     }
+
     @Override
     @Test
     public void compareBeanFromModelConfig() {
         assertBeanFromModelConfigEqualsPersisted();
-    }
-
-    @Test
-    public void givenConfigEntries_whenResolve_thenNoErrors() {
-        ConfigChecks.resolveConfigs(HostConfig.class);
-    }
-
-    @Test
-    public void resolveConfigurations() {
-        ConfigChecks.resolveConfigurations(HostConfig.class);
     }
 
     @Override

@@ -1,38 +1,39 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.junit.Ignore;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IConfigurationTests;
 import org.junit.Test;
 
 /**
  * Created by Werner on 28.1.2018.
  */
-public class DbSqlConfigTest {
-    @Test
-    public void createByModelConfig_throwsException()  {
-        ModelConfigChecks.createThrowsException(DbSqlConfig.class);
+public class DbSqlConfigTest implements IConfigurationTests {
+    @Override
+    public Class<?> getModelConfigClass() {
+        return DbSqlConfig.class;
     }
 
-    // TODO check within 0.5.0 for mvn test fails.
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(DbSqlConfig.class);
+    public void create_throwsEoException() {
+        assertCreateThrowingException();
+    }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
-    public void resolveModel()  {
-        ModelConfigChecks.resolve(DbSqlConfig.class);
+    public void compareConfigurations() {
+        assertLoadedConfigurationsEqualsPersisted();
     }
 
-    @Test
-    public void resolveConfigurations()  {
-        ConfigChecks.resolveConfigurations(DbSqlConfig.class);
-    }
-
-    @Test
-    public void compareConfigurations()  {
-        ConfigChecks.compareConfigurations(DbSqlConfig.class);
-    }
 }
 

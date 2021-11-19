@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         this.toSerialize = false;
         this.fieldKey = bean.getFieldKey();
         this.modelKeys = bean.getModelKeys();
-        this.modelList = ((FieldBean)bean).getModelList();
+        this.modelList = Arrays.asList(modelKeys.split(","));
         this.length = bean.getLength();
     }
 
@@ -54,6 +55,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         this.toSerialize = false;
         this.fieldKey = bean.getFieldKey();
         this.modelKeys = bean.getModelKeys();
+        this.modelList = Arrays.asList(modelKeys.split(","));
         this.length = bean.getLength();
         parentModel = null;
     }
@@ -195,12 +197,6 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
             return super.toString();
         }
         return fieldKey + "(" + modelKeys +")";
-    }
-
-    public FieldBean createBean() {
-        final FieldBean bean = new FieldBean();
-        populateBean(bean);
-        return bean;
     }
 
     public void populateBean(final FieldBean bean) {

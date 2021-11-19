@@ -5,8 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,15 +26,15 @@ public class JsonToEoTest {
 
     @Test
     public void key_valuenewLine____get_valueNewLine()  {
-        EO eoWithNewLine = ProviderRootDevScope.createEo("{\"key\":\"value\\n\"}");
+        EO eoWithNewLine = ProviderConfigMaps.createEoDev("{\"key\":\"value\\n\"}");
         Assert.assertEquals("value\n", eoWithNewLine.get("key"));
     }
 
     @Test
     public void testArray()  {
         String test = "[\"a\"]";
-        JSONToEO tokener = new JSONToEO(test, ProviderRootTestScope.EO_CONFIGS);
-        EO adapter = tokener.createChild(ProviderRootTestScope.createEo());
+        JSONToEO tokener = new JSONToEO(test, ProviderConfigMaps.CONFIG_MAPS);
+        EO adapter = tokener.createChild(ProviderConfigMaps.createEo());
         Assert.assertEquals("a", adapter.get(S0));
     }
 
@@ -43,50 +42,56 @@ public class JsonToEoTest {
     @Test
     public void testNewLineEscapedArray()  {
         String test = "[\"\\n\"]";
-        JSONToEO tokener = new JSONToEO(test, ProviderRootTestScope.EO_CONFIGS);
-        EO adapter = tokener.createChild(ProviderRootTestScope.createEo());
+        JSONToEO tokener = new JSONToEO(test, ProviderConfigMaps.CONFIG_MAPS);
+        EO adapter = tokener.createChild(ProviderConfigMaps.createEo());
         Assert.assertEquals("\n", adapter.get(S0));
     }
 
     @Test
     public void list2EscapedArray____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"\\\n\"]");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("[\"\\\n\"]");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void testCombinationsOfEscapes()  {
-        EO adapter = ProviderRootTestScope.createEo("[\"\\t\\r\"]");
+        EO adapter = ProviderConfigMaps.createEo("[\"\\t\\r\"]");
         Assert.assertEquals("\t\r", adapter.get(S0));
     }
 
     @Test
     public void value_NoEndQuote____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k\":\"v}");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("{\"k\":\"v}");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void value_NoStartQuote____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k\":v\"}");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("{\"k\":v\"}");})
         .isInstanceOf(EoException.class);
     }
 
     @Test
     public void value_NoColon____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k:\"v\"}");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("{\"k:\"v\"}");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void key_NoEndQuote____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{\"k:\"v\"}");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("{\"k:\"v\"}");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void key_NoStartQuote____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("{k\":\"v\"}");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("{k\":\"v\"}");})
                 .isInstanceOf(EoException.class);
     }
 
@@ -94,51 +99,58 @@ public class JsonToEoTest {
     public void givenStringNotQuoted_exception()  {
         Assertions
                 .assertThatThrownBy(()->{
-                    ProviderRootTestScope.createEo("{\"string\":test}");})
+                    ProviderConfigMaps.createEo("{\"string\":test}");})
                 .isInstanceOf(EoException.class)
                 .hasMessage("Could not transform non quoted value 'test'.");
     }
 
     @Test
     public void list_NoEndQuote____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v]");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("[\"v]");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void list_NoStartQuote____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[v\"]");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("[v\"]");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void list_NoQuote____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[test]");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("[test]");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void list_NoClosingBracket____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v\"");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("[\"v\"");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void list_colon____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v\":2]");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("[\"v\":2]");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void list_furtherValues____exception() {
-        Assertions.assertThatThrownBy(()->{ProviderRootTestScope.createEo("[\"v\"],\"k\"");})
+        Assertions.assertThatThrownBy(()->{
+            ProviderConfigMaps.createEo("[\"v\"],\"k\"");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void DEV__NoObjectCharacter__exception() {
         Assertions
-                .assertThatThrownBy(()->{ProviderRootDevScope.createEo("\"k\",[\"v\":2]");})
+                .assertThatThrownBy(()->{
+                    ProviderConfigMaps.createEoDev("\"k\",[\"v\":2]");})
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Null scalar value not supported for root");
     }

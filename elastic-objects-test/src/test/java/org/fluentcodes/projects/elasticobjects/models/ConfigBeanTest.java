@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,26 +12,29 @@ import java.util.Map;
 /**
  * Created by werner.diwischek on 06.01.18.
  */
-public class ConfigBeanTest {
-    @Test
-    public void createByModelConfig() {
-        ModelConfigChecks.create(ConfigBean.class);
+public class ConfigBeanTest implements IModelConfigCreateTests {
+
+    @Override
+    public Class<?> getModelConfigClass() {
+        return ConfigBean.class;
     }
 
+    @Override
+    @Test
+    public void create_noEoException() {
+        assertCreateNoException();
+    }
+
+    @Override
     @Test
     public void compareModelConfig() {
-        ModelConfigChecks.compare(ConfigBean.class);
+        assertModelConfigEqualsPersisted();
     }
 
+    @Override
     @Test
-    public void TEST__findModel__fieldKeys_size_5() {
-        ModelConfig modelConfig = ProviderRootTestScope.EO_CONFIGS.findModel(ConfigBean.class);
-        Assert.assertEquals(ModelConfigObject.class, modelConfig.getClass());
-        Assert.assertEquals(ConfigBean.class, modelConfig.getModelClass());
-        Assert.assertEquals(11, modelConfig.getFieldMap().size());
-        Assert.assertEquals(11, modelConfig.getFieldKeys().size());
-        BaseBean modelImpl = (BaseBean) modelConfig.create();
-        Assert.assertNotNull(modelImpl);
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test

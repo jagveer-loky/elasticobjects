@@ -7,6 +7,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "generated": false,
@@ -17,6 +20,9 @@
       "description": "myASubObject",
       "fieldKey": "myASubObject",
       "modelKeys": "ASubObject",
+      "modelList": [
+        "ASubObject"
+      ],
       "naturalId": "myASubObject",
       "properties": {
         "generated": false,
@@ -27,6 +33,10 @@
       "description": "A generic parametrized example List with @ASubObject",
       "fieldKey": "myASubObjectList",
       "modelKeys": "List,ASubObject",
+      "modelList": [
+        "List",
+        "ASubObject"
+      ],
       "naturalId": "myASubObjectList",
       "properties": {
         "generated": false,
@@ -37,6 +47,10 @@
       "description": "A generic parametrized example Map with @ASubObject",
       "fieldKey": "myASubObjectMap",
       "modelKeys": "Map,ASubObject",
+      "modelList": [
+        "Map",
+        "ASubObject"
+      ],
       "naturalId": "myASubObjectMap",
       "properties": {
         "generated": false,
@@ -47,6 +61,9 @@
       "description": "A AnObject field.",
       "fieldKey": "myAnObject",
       "modelKeys": "AnObject",
+      "modelList": [
+        "AnObject"
+      ],
       "naturalId": "myAnObject",
       "properties": {
         "generated": false,
@@ -57,6 +74,9 @@
       "description": "myBoolean",
       "fieldKey": "myBoolean",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "myBoolean",
       "properties": {
         "generated": false,
@@ -67,6 +87,9 @@
       "description": "myDate",
       "fieldKey": "myDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "myDate",
       "properties": {
         "generated": false,
@@ -77,6 +100,9 @@
       "description": "myDouble",
       "fieldKey": "myDouble",
       "modelKeys": "Double",
+      "modelList": [
+        "Double"
+      ],
       "naturalId": "myDouble",
       "properties": {
         "generated": false,
@@ -87,6 +113,9 @@
       "description": "myFloat",
       "fieldKey": "myFloat",
       "modelKeys": "Float",
+      "modelList": [
+        "Float"
+      ],
       "naturalId": "myFloat",
       "properties": {
         "generated": false,
@@ -97,6 +126,9 @@
       "description": "myInt",
       "fieldKey": "myInt",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "myInt",
       "properties": {
         "generated": false,
@@ -107,6 +139,9 @@
       "description": "myList",
       "fieldKey": "myList",
       "modelKeys": "ArrayList",
+      "modelList": [
+        "ArrayList"
+      ],
       "naturalId": "myList",
       "properties": {
         "generated": false,
@@ -117,6 +152,9 @@
       "description": "myLong",
       "fieldKey": "myLong",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "myLong",
       "properties": {
         "generated": false,
@@ -127,6 +165,9 @@
       "description": "myMap",
       "fieldKey": "myMap",
       "modelKeys": "HashMap",
+      "modelList": [
+        "HashMap"
+      ],
       "naturalId": "myMap",
       "properties": {
         "generated": false,
@@ -137,6 +178,9 @@
       "description": "A test object thing. ",
       "fieldKey": "myObject",
       "modelKeys": "Object",
+      "modelList": [
+        "Object"
+      ],
       "naturalId": "myObject",
       "properties": {
         "generated": false,
@@ -148,6 +192,9 @@
       "fieldKey": "myString",
       "length": 20,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "myString",
       "properties": {
         "generated": false,
@@ -159,6 +206,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "generated": false,

@@ -1,11 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +23,7 @@ public class EoRemoveTest {
      */
     @Test
     public void givenAnObject_thenRemoved()  {
-        EO child = ProviderRootTestScope.createEo(new AnObject())
+        EO child = ProviderConfigMaps.createEo(new AnObject())
                 .set(S_STRING, AnObject.MY_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, (root).size());
@@ -37,7 +34,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenBtEmpty_WhenRemove_thenExceptionThrown()  {
-        EO root = ProviderRootTestScope.createEo(AnObject.class);
+        EO root = ProviderConfigMaps.createEo(AnObject.class);
         Assertions
                 .assertThatThrownBy(()->{root.remove(AnObject.MY_STRING);})
                 .hasMessage("Could not remove entry '" + AnObject.MY_STRING + "' because it is not set in '" + AnObject.class.getSimpleName() + "'");
@@ -50,7 +47,7 @@ public class EoRemoveTest {
      */
     @Test
     public void givenMap_thenRemoved()  {
-        EO child = ProviderRootTestScope.createEo().set(S_STRING, S_TEST_STRING);
+        EO child = ProviderConfigMaps.createEo().set(S_STRING, S_TEST_STRING);
         EO root = child.getRoot();
         Assert.assertEquals(1, root.size());
         Assert.assertEquals(S_STRING, root.get(S_TEST_STRING));
@@ -61,7 +58,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenMapEmpty_WhenRemove_thenExceptionThrown()  {
-        EO root = ProviderRootDevScope.createEo(Map.class);
+        EO root = ProviderConfigMaps.createEoDev(Map.class);
         Assertions
                 .assertThatThrownBy(()->{root.remove("test");})
                 .hasMessage("Could not remove entry 'test' because it is not set in 'Map'");
@@ -69,7 +66,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenList_thenRemoved()  {
-        EO child = ProviderRootTestScope.createEo(new ArrayList<>())
+        EO child = ProviderConfigMaps.createEo(new ArrayList<>())
                 .set( S_STRING,S0);
         // remove value entry first
         EO root = child.getRoot();
@@ -80,7 +77,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenListEmpty_WhenRemove_thenExceptionThrown()  {
-        EO root = ProviderRootDevScope.createEo(new ArrayList<>());
+        EO root = ProviderConfigMaps.createEoDev(new ArrayList<>());
         Assertions
                 .assertThatThrownBy(()->{root.remove(S0);})
                 .hasMessage("Could not remove entry '0' because it is not set in 'ArrayList'");

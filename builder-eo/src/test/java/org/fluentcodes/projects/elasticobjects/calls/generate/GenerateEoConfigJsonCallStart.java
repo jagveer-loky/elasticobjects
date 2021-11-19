@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModuleScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 /**
@@ -15,7 +15,7 @@ public class GenerateEoConfigJsonCallStart {
    @Test
     public void call__execute__logEmpty() {
        GenerateEoConfigJsonCall call = new GenerateEoConfigJsonCall(ModelConfig.class.getSimpleName());
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         call.setSourceFileConfigKey("eo.xlsx");
         call.setProjectDirectory("..");
         call.setModule(Moduls.ALL.getName());

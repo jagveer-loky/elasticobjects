@@ -8,6 +8,9 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "author",
       "properties": {
         "super": true,
@@ -19,6 +22,9 @@
       "description": "If true will cache the readed file within the cache object. ",
       "fieldKey": "cached",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "cached",
       "properties": {
         "super": true,
@@ -30,6 +36,10 @@
       "description": "The key list for mapping values in a value list. ",
       "fieldKey": "colKeys",
       "modelKeys": "List,String",
+      "modelList": [
+        "List",
+        "String"
+      ],
       "naturalId": "colKeys",
       "properties": {
         "super": true,
@@ -41,6 +51,9 @@
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "creationDate",
       "properties": {
         "super": true,
@@ -53,6 +66,9 @@
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "description",
       "properties": {
         "super": true,
@@ -64,6 +80,9 @@
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
       "naturalId": "expose",
       "properties": {
         "super": true,
@@ -76,6 +95,9 @@
       "fieldKey": "fieldDelimiter",
       "length": 4,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "fieldDelimiter",
       "properties": {
         "super": true,
@@ -89,6 +111,9 @@
       "fieldKey": "fileName",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "fileName",
       "properties": {
         "super": true,
@@ -101,6 +126,9 @@
       "fieldKey": "filePath",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "filePath",
       "properties": {
         "super": true,
@@ -113,6 +141,9 @@
       "fieldKey": "filter",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "filter",
       "properties": {
         "super": true,
@@ -125,6 +156,9 @@
       "fieldKey": "hostConfigKey",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "hostConfigKey",
       "properties": {
         "super": true,
@@ -136,6 +170,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "super": true,
@@ -147,6 +184,9 @@
       "description": "Length of a field.",
       "fieldKey": "length",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "length",
       "properties": {
         "super": true,
@@ -159,6 +199,9 @@
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "module",
       "properties": {
         "super": true,
@@ -171,6 +214,9 @@
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
@@ -183,6 +229,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "super": true,
@@ -194,6 +243,9 @@
       "description": "Properties for configurations.",
       "fieldKey": "properties",
       "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
       "naturalId": "properties",
       "properties": {
         "super": true,
@@ -205,6 +257,9 @@
       "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
       "fieldKey": "rolePermissions",
       "modelKeys": "PermissionRole",
+      "modelList": [
+        "PermissionRole"
+      ],
       "naturalId": "rolePermissions",
       "properties": {
         "super": true,
@@ -217,6 +272,9 @@
       "fieldKey": "rowDelimiter",
       "length": 4,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "rowDelimiter",
       "properties": {
         "super": true,
@@ -229,6 +287,9 @@
       "description": "rowEnd",
       "fieldKey": "rowEnd",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "rowEnd",
       "properties": {
         "super": true,
@@ -241,6 +302,9 @@
       "description": "rowHead",
       "fieldKey": "rowHead",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "rowHead",
       "properties": {
         "super": true,
@@ -253,6 +317,9 @@
       "description": "rowStart",
       "fieldKey": "rowStart",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "rowStart",
       "properties": {
         "super": true,
@@ -265,6 +332,10 @@
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
       "naturalId": "scope",
       "properties": {
         "super": true,

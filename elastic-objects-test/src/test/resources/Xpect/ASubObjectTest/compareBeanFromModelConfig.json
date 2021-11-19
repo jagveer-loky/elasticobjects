@@ -1,0 +1,14 @@
+{
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigDbObject",
+  "creationDate": 1605826772992,
+  "description": "A sub object as an example.",
+  "expose": "WEB",
+  "modelKey": "ASubObject",
+  "module": "elastic-objects-test",
+  "moduleScope": "main",
+  "naturalId": "ASubObject",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+  "properties": {
+  }
+}

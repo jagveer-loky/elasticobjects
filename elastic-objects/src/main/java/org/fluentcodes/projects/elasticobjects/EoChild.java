@@ -388,7 +388,7 @@ public class EoChild implements EO {
                 value = base;
             }
             else {
-                throw new EoException("Could not map scalar '{}" +
+                throw new EoException("Could not map scalar '" +
                         value.toString() + "'(" +
                         valueModel.getModelKey() + ") to container model '" +
                         getModels().toString() + "' '" +

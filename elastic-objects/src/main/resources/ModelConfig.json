@@ -615,7 +615,7 @@
   "FieldConfig": {
     "module": "elastic-objects",
     "moduleScope": "main",
-    "fieldKeys": "fieldKey, modelKeys, length",
+    "fieldKeys": "fieldKey, modelKeys, length, modelList",
     "interfaces": "FieldInterface",
     "superKey": "ConfigConfig",
     "expose": "NONE",

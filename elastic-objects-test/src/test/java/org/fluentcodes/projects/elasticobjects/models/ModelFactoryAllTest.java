@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import java.util.Map;
@@ -10,8 +10,8 @@ import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.MOD
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 
 public class ModelFactoryAllTest {
-    public static Map<String, ModelBean> BEAN_MAP = new ModelFactoryAll(ProviderRootTestScope.EO_CONFIGS).createBeanMap();
-    public static Map<String, ModelInterface> CONFIG_MAP = new ModelFactoryAll(ProviderRootTestScope.EO_CONFIGS).createConfigMap();
+    public static Map<String, ModelBean> BEAN_MAP = new ModelFactoryAll(ProviderConfigMaps.CONFIG_MAPS).createBeanMap();
+    public static Map<String, ModelInterface> CONFIG_MAP = new ModelFactoryAll(ProviderConfigMaps.CONFIG_MAPS).createConfigMap();
 
     @Test
     public void createBeanMap__get_Map__notNull() {

@@ -1,41 +1,35 @@
 package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
-import org.fluentcodes.projects.elasticobjects.ConfigChecks;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.XlsxConfig;
-import org.junit.Ignore;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigNoCreateTests;
 import org.junit.Test;
 
 /**
  * Created by Werner on 04.11.2016.
  */
-public class XlsxConfigTest {
-    @Test
-    public void createByModelConfig_throwsException()  {
-        ModelConfigChecks.createThrowsException(XlsxConfig.class);
+public class XlsxConfigTest implements IModelConfigNoCreateTests {
+    private static final String LIST_SIMPLE_XLSX = "ListSimple.xlsx:test";
+
+    @Override
+    public Class<?> getModelConfigClass() {
+        return XlsxConfig.class;
     }
 
+    @Override
     @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(XlsxConfig.class);
+    public void create_throwsEoException() {
+        assertCreateThrowingException();
     }
 
+    @Override
     @Test
-    public void resolveModel()  {
-        ModelConfigChecks.resolve(XlsxConfig.class);
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
     }
 
+    @Override
     @Test
-    public void resolveConfigurations()  {
-        ConfigChecks.resolveConfigurations(FileConfig.class);
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
     }
-
-    // TODO check maven problems within 0.5.0
-    @Ignore
-    @Test
-    public void compareConfigurations()  {
-        ConfigChecks.compareConfigurations(FileConfig.class);
-    }
-
 }

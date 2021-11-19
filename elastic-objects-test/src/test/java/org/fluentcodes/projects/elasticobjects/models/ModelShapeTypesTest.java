@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -47,13 +45,13 @@ public class ModelShapeTypesTest {
     }
 
     private void testTypeClass(Class clazz, ShapeTypes shapeType)  {
-        ShapeTypes shapeTypeStored = ProviderRootTestScope.EO_CONFIGS.findModel(clazz).getShapeType();
+        ShapeTypes shapeTypeStored = ProviderConfigMaps.CONFIG_MAPS.findModel(clazz).getShapeType();
         Assert.assertEquals(shapeType, shapeTypeStored);
     }
 
     private void testTypeObject(Object object, ShapeTypes shapeType) {
         try {
-            ShapeTypes shapeTypeStored = ProviderRootTestScope.EO_CONFIGS.findModel(object).getShapeType();
+            ShapeTypes shapeTypeStored = ProviderConfigMaps.CONFIG_MAPS.findModel(object).getShapeType();
             Assert.assertEquals(shapeType, shapeTypeStored);
         } catch (Exception e) {
             e.printStackTrace();

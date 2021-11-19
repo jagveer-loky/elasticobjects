@@ -1,0 +1,15 @@
+{
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "An example for a simple call with a field.",
+  "expose": "WEB",
+  "interfaces": "SimpleCommand",
+  "modelKey": "TheGreetingCall",
+  "module": "example-springboot",
+  "moduleScope": "main",
+  "naturalId": "TheGreetingCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+  "properties": {
+  },
+  "superKey": "CallImpl"
+}

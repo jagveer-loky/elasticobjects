@@ -3,6 +3,9 @@
     "id": {
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "SuperExampleClass.id",
       "properties": {
         "super": true,
@@ -12,6 +15,9 @@
     "subClass": {
       "fieldKey": "subClass",
       "modelKeys": "FieldExampleClass",
+      "modelList": [
+        "FieldExampleClass"
+      ],
       "naturalId": "SuperExampleClass.subClass",
       "properties": {
         "super": true,
@@ -21,6 +27,9 @@
     "name": {
       "fieldKey": "name",
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "SubExampleClass.name",
       "properties": {
         "fieldName": "name"

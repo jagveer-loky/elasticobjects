@@ -11,11 +11,18 @@
     <packaging>jar</packaging>
     <description>Compare tests with EO persisted objects.</description>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect</artifactId>
-            <version>0.7.2-SNAPSHOT</version>
+            <version>0.7.2</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/elastic-objects -->
         <dependency>
@@ -35,12 +42,6 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.16.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.fluentcodes.tools</groupId>
-            <artifactId>test-objects</artifactId>
-            <version>0.7.2-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -74,11 +75,6 @@
         <system>Gitlab issues.</system>
         <url>https://gitlab.com/dashboard/issues?assignee_username=fluentcodes</url>
     </issueManagement>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
 
     <!--https://smartregister.atlassian.net/wiki/spaces/Documentation/pages/564428801/How+to+upload+and+use+maven+jar+artifacts-->
     <!-- https://www.tfzx.net/article/667541.html -->

@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
 import org.fluentcodes.tools.xpect.XpectEo;
@@ -30,7 +30,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void eoList_FileReadCall_ContentExampleData__execute__xpected()  {
-        EO eo = ProviderRootTestScope.createEoWithClasses(List.class);
+        EO eo = ProviderConfigMaps.createEoWithClasses(List.class);
         final FileReadCall call = new FileReadCall(CONTENT_EXAMPLE_DATA);
         call.setTargetPath(".");
         eo.addCall(call);
@@ -42,7 +42,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void __eo_ContentExampleDataJson__xpected()  {
-        EO eo = ProviderRootTestScope.createEo(TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.content());
+        EO eo = ProviderConfigMaps.createEo(TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.content());
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         eo.setSerializationType(JSONSerializationType.STANDARD);
@@ -82,7 +82,7 @@ public class TemplateContentExampleTest {
     @Ignore
     @Test
     public void call_StaticTpl__execute__xpected()  {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall(STATIC_TPL);
         final String result = call.execute(eo);
@@ -91,7 +91,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void call_StaticKeepTpl__execute__xpected()  {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall(STATIC_KEEP_TPL);
         final String result = call.execute(eo);
@@ -100,7 +100,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void call_StaticConditionTpl__execute__xpected()  {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
 
         final TemplateResourceCall call = new TemplateResourceCall(STATIC_CONDITION_TPL);
         final String result = call.execute(eo);
@@ -118,7 +118,7 @@ public class TemplateContentExampleTest {
 
     @Test
     public void call_DynamicTpl__execute__xpected()  {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final TemplateResourceCall call = new TemplateResourceCall(DYNAMIC_TPL);
         final String result = call.execute(eo);
         new XpectString().compareAsString(result);

@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCrea
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Test;
 
@@ -32,6 +32,7 @@ public class AnObjectTest implements IModelConfigCreateTests {
     public void compareModelConfig()  {
         assertModelConfigEqualsPersisted();
     }
+
     @Override
     @Test
     public void compareBeanFromModelConfig()  {
@@ -40,26 +41,26 @@ public class AnObjectTest implements IModelConfigCreateTests {
 
     @Test
     public void TEST__get_ShapeType__BEAN() {
-        ModelBean modelBean = ProviderRootTestScope.findModelBean(AnObject.class);
+        ModelBean modelBean = ProviderConfigMaps.findModelBean(AnObject.class);
         Assertions.assertThat(modelBean.getShapeType()).isEqualTo(ShapeTypes.BEAN);
     }
 
     @Test
     public void TEST__toString__BEAN_AnObject() {
-        ModelBean modelBean = ProviderRootTestScope.findModelBean(AnObject.class);
+        ModelBean modelBean = ProviderConfigMaps.findModelBean(AnObject.class);
         Assertions.assertThat(modelBean.toString()).isEqualTo("(BEAN)AnObject");
     }
 
     @Test
     public void myString__toString__equalsPersisted() {
-        FieldInterface field = ProviderRootTestScope.findModel(AnObject.class).getField("myString");
+        FieldInterface field = ProviderConfigMaps.findModel(AnObject.class).getField("myString");
         Assertions.assertThat(field.toString())
                 .isEqualTo(XpectEo.load((ConfigConfig)field));
     }
 
     @Test
     public void TEST__setNaturalIdTest__getNaturalIdTest()  {
-        ModelConfig config = ProviderRootTestScope.EO_CONFIGS
+        ModelConfig config = ProviderConfigMaps.CONFIG_MAPS
                 .findModel(AnObject.class);
         Object object = config.create();
         Assertions.assertThat(object).isNotNull();
@@ -70,7 +71,7 @@ public class AnObjectTest implements IModelConfigCreateTests {
 
     @Test
     public void TEST__setMyStringTest__getMyStringTest()  {
-        ModelConfig config = ProviderRootTestScope.EO_CONFIGS
+        ModelConfig config = ProviderConfigMaps.CONFIG_MAPS
                 .findModel(AnObject.class);
         Object object = config.create();
         Assertions.assertThat(object).isNotNull();

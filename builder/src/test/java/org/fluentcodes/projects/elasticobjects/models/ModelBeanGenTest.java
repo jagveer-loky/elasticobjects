@@ -1,15 +1,36 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
-public class ModelBeanGenTest {
-    protected static final ModelBeanGen AN_OBJECT_BEAN = new ModelBeanGen(ProviderRootTestScope.findModel(AnObject.class));
+public class ModelBeanGenTest implements IModelConfigCreateTests {
+    protected static final ModelBeanGen AN_OBJECT_BEAN = new ModelBeanGen(ProviderConfigMaps.findModel(AnObject.class));
+
+    @Override
+    public Class<?> getModelConfigClass() {
+        return ModelBeanGen.class;
+    }
+
+    @Override
+    @Test
+    public void create_noEoException() {
+        assertCreateNoException();
+    }
+
+    @Override
+    @Test
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
 
     @Test
     public void TEST_AnObject__get_ShapeType__BEAN() {
@@ -21,12 +42,4 @@ public class ModelBeanGenTest {
     public void TEST_AnObject__get_Import__expected() {
         Assertions.assertThat(AN_OBJECT_BEAN.getJavaImport()).isEqualTo("");
     }
-
-    @Test
-    public void compareModelConfig()  {
-        ModelConfigChecks.compare(ModelBeanGen.class);
-    }
-
-
-
 }

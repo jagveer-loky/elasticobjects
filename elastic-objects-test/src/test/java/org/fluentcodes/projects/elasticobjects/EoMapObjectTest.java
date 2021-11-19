@@ -4,8 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.tools.xpect.XpectEo;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,7 +25,7 @@ import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
 public class EoMapObjectTest {
     @Test
     public void DEV__Boolean__exception()  {
-        final EO root = ProviderRootDevScope.createEo();
+        final EO root = ProviderConfigMaps.createEoDev();
         Assertions.assertThatThrownBy(
                 () ->{root.mapObject(true);
         })
@@ -36,7 +35,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_List_Double_0_1_1_2__xpected()  {
-        final EO eo = EoRoot.of(ProviderRootDevScope.CONFIG_MAPS_DEV);
+        final EO eo = EoRoot.of(ProviderConfigMaps.CONFIG_MAPS_DEV);
         eo.mapObject("{\"" + PathElement.ROOT_MODEL + "\":\"List,Double\", \"0\":1,\"1\":2}");
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(Double.class);
@@ -45,7 +44,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List__JSON_0_true__get_0_true()  {
-        final EO root = ProviderRootDevScope.createEo(List.class);
+        final EO root = ProviderConfigMaps.createEoDev(List.class);
         root
                 .mapObject("[true]");
         Assertions.assertThat(root.getLog()).isEmpty();
@@ -55,7 +54,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_List_value_1__get_List_0__1()  {
-        final EO root = ProviderRootDevScope.createEo();
+        final EO root = ProviderConfigMaps.createEoDev();
         root
                 .mapObject("{\"_rootmodel\": \"List\",\"0\": 1}");
         Assertions.assertThat(root.getLog())
@@ -70,7 +69,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_key_value__get_key_value()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject("{\"key\": \"value\"}");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get("key")).isEqualTo("value");
@@ -78,7 +77,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_key1_1_key2_2_key3_3__get_key1_1() {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         final String mapJson = "{\"key1\": 1,\"key2\": 2,\"key3\": 3}";
         eo.mapObject(mapJson);
         Assertions.assertThat(eo.get("key1")).isEqualTo(1);
@@ -86,7 +85,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_empty__eo_isEmpty()  {
-        EO eo = ProviderRootDevScope.createEo();
+        EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject("{}");
         Assert.assertTrue(eo.isEmpty());
     }
@@ -94,7 +93,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_key_true__get_key_true()  {
-        final EO eo = ProviderRootDevScope.createEo();;
+        final EO eo = ProviderConfigMaps.createEoDev();;
         eo.mapObject("{\"key\":true}");
         assertThat(eo.getLog()).isEmpty();
         assertThat(eo.get("key")).isEqualTo(true);
@@ -102,7 +101,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_key_1__get_key_1()  {
-        final EO eo = ProviderRootDevScope.createEo();;
+        final EO eo = ProviderConfigMaps.createEoDev();;
         eo.mapObject("{\"key\":1}");
         assertThat(eo.getLog()).isEmpty();
         assertThat(eo.get("key")).isEqualTo(1);
@@ -113,14 +112,14 @@ public class EoMapObjectTest {
      */
     @Test
     public void DEV__JSON_key1_key2_value__expected()  {
-        EO eo = ProviderRootDevScope.createEo();
+        EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject("{\"key1\":{\"key2\":\"value\"}}");
         assertThat(eo.get("key1/key2")).isEqualTo("value");
     }
 
     @Test
     public void DEV__JSON_2_key_value__expected()  {
-        EO eo = ProviderRootDevScope.createEo();
+        EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject("{\"key1\":\"value1\",\"key2\":\"value2\"}");
         assertThat(eo.get("key1")).isEqualTo("value1");
         assertThat(eo.get("key2")).isEqualTo("value2");
@@ -128,7 +127,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_small__expected()  {
-        final EO eo = ProviderRootDevScope.createEo();;
+        final EO eo = ProviderConfigMaps.createEoDev();;
         eo.mapObject("{\"myString\": \"test\", \"myInt\": 1}");
         assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
@@ -138,7 +137,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_all__expected()  {
-        final EO eo = ProviderRootDevScope.createEo();;
+        final EO eo = ProviderConfigMaps.createEoDev();;
         eo.mapObject(TestProviderAnObjectJson.ALL.content());
         assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(Map.class);
@@ -148,21 +147,21 @@ public class EoMapObjectTest {
 
     @Test
     public void TEST__JSON_Double_key_2_2__get_key_2_2()  {
-        EO eo = ProviderRootTestScope.createEo("{\"(Double)key\": 2.2}");
+        EO eo = ProviderConfigMaps.createEo("{\"(Double)key\": 2.2}");
         assertThat(eo.getLog()).isEmpty();
         assertThat(eo.get("key")).isEqualTo((SAMPLE_DOUBLE));
     }
 
     @Test
     public void DEV__JSON_Float_key_1_1__get_key_1_1()  {
-        EO eo = ProviderRootTestScope.createEo("{\"key\": 1.1}");
+        EO eo = ProviderConfigMaps.createEo("{\"key\": 1.1}");
         assertThat(eo.getLog()).isEmpty();
         assertThat(eo.get("key")).isEqualTo((1.1F));
     }
 
     @Test
     public void TEST__JSON_Float_key_1_1__get_key_1_1()  {
-        EO eo = ProviderRootTestScope.createEo("{\"(Float)key\": 1.1}");
+        EO eo = ProviderConfigMaps.createEo("{\"(Float)key\": 1.1}");
         assertThat(eo.getLog()).isEmpty();
         assertThat(eo.get("key")).isEqualTo((1.1F));
     }
@@ -178,7 +177,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__null__size_0()  {
-        final EO eo = ProviderRootDevScope.createEo();
+        final EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject(null);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.size()).isEqualTo(0);
@@ -186,7 +185,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List__String_value__exception()  {
-        final EO root = ProviderRootDevScope.createEo(List.class);
+        final EO root = ProviderConfigMaps.createEoDev(List.class);
         Assertions.assertThatThrownBy(()->{root.mapObject("value");})
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Could not map scalar");
@@ -194,7 +193,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List__true__exception()  {
-        final EO root = ProviderRootDevScope.createEo(List.class);
+        final EO root = ProviderConfigMaps.createEoDev(List.class);
         Assertions.assertThatThrownBy(()->{root.mapObject(true);})
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Could not map scalar");
@@ -202,7 +201,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List__JSONList_empty__size_0()  {
-        EO eo = ProviderRootDevScope.createEo(List.class);
+        EO eo = ProviderConfigMaps.createEoDev(List.class);
         eo.mapObject("[]");
         Assert.assertEquals(List.class, eo.getModelClass());
         Assertions.assertThat(eo.size()).isEqualTo(0);
@@ -210,14 +209,14 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List__JSONList_0_value__get_0_value()  {
-        EO eo = ProviderRootDevScope.createEo(List.class);
+        EO eo = ProviderConfigMaps.createEoDev(List.class);
         eo.mapObject("[\"value\"]");
         Assertions.assertThat(eo.get("0")).isEqualTo("value");
     }
 
     @Test
     public void DEV_List__JSONList_0_0_value__get_0_0_value()  {
-        EO eo = ProviderRootDevScope.createEo(List.class);
+        EO eo = ProviderConfigMaps.createEoDev(List.class);
         eo.mapObject("[[\"testObject\"]]");
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get("0/0")).isEqualTo("testObject");
@@ -225,14 +224,14 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List__JSONList_0_1__get_0_1()    {
-        EO eo = ProviderRootDevScope.createEo(List.class);
+        EO eo = ProviderConfigMaps.createEoDev(List.class);
         eo.mapObject("[1]");
         Assertions.assertThat(eo.get("0")).isEqualTo(1);
     }
 
     @Test
     public void DEV_List__JSONList_0_value_1_2__get_0_value_get_1_2()  {
-        EO eo = ProviderRootDevScope.createEo(List.class);
+        EO eo = ProviderConfigMaps.createEoDev(List.class);
         eo.mapObject("[\"value\",2]");
         Assertions.assertThat(eo.get("0")).isEqualTo("value");
         Assertions.assertThat(eo.get("1")).isEqualTo(2);
@@ -240,7 +239,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_rootmodle_List_Float_0_1_1__get_0_1_1()  {
-        EO eo = ProviderRootDevScope.createEo();
+        EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject("{\"_rootmodel\": \"List\",\"(Float)0\": 1.1}");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get("0")).isEqualTo(1.1F);
@@ -248,7 +247,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_rootmodel_List_0_value_1_1__get_0_value_1_1()  {
-        EO eo = ProviderRootDevScope.createEo();
+        EO eo = ProviderConfigMaps.createEoDev();
         eo.mapObject("{" +
                 "\n\"_rootmodel\":\"List\"," +
                 "\n\"0\":\"value\"," +
@@ -261,7 +260,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List_String__JSON_key_true__get_0_String_true()  {
-        EO root = ProviderRootDevScope.createEoWithClasses(List.class, String.class);
+        EO root = ProviderConfigMaps.createEoWithClassesDev(List.class, String.class);
         root
                 .mapObject("{\"key\": true}");
         Assertions.assertThat(root.getLog()).isEmpty();
@@ -270,7 +269,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__Scalar_value__exception()  {
-        final EO rootEo = ProviderRootDevScope.createEo();
+        final EO rootEo = ProviderConfigMaps.createEoDev();
         Assertions.assertThatThrownBy(()->{rootEo.mapObject("value");})
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("");
@@ -278,7 +277,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV_List__JSON_key_true__get_0_true()  {
-        final EO root = ProviderRootDevScope.createEoWithClasses(List.class);
+        final EO root = ProviderConfigMaps.createEoWithClassesDev(List.class);
         root.mapObject("{\"key\": true}");
         Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(root.get("0")).isEqualTo(true);
@@ -286,7 +285,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_rootmodel_List_key_1__get_0_1()  {
-        final EO root = ProviderRootDevScope.createEo();
+        final EO root = ProviderConfigMaps.createEoDev();
         root
                 .mapObject("{\"_rootmodel\": \"List\",\"key\": 1}");
         Assertions.assertThat(root.getLog())
@@ -299,7 +298,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSONList_1__get_0_1()  {
-        final EO root = ProviderRootDevScope.createEo();
+        final EO root = ProviderConfigMaps.createEoDev();
         root
                 .mapObject("[1]");
         Assertions.assertThat(root.getLog()).isEmpty();
@@ -309,7 +308,7 @@ public class EoMapObjectTest {
 
     @Test
     public void DEV__JSON_List_Double_key_0_1_1_2__get_key_1_2()  {
-        final EO eo = EoRoot.of(ProviderRootDevScope.CONFIG_MAPS_DEV);
+        final EO eo = EoRoot.of(ProviderConfigMaps.CONFIG_MAPS_DEV);
         eo.mapObject("{\"(List,Double)key\":{\"0\":1,\"1\":2}}");
         Assertions.assertThat(eo.getEo("key").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get("key/1")).isEqualTo(2.0);
@@ -321,7 +320,7 @@ public class EoMapObjectTest {
      */
     @Test
     public void TEST__JSON_AnObject_myString_value__get_myString_value() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String jsonString = "{\n" +
                 "\t\"(" + AnObject.class.getSimpleName() + ")key0\":{\n" +
                 "\t\t\"" + AnObject.MY_STRING + "\":\"value\"\n" +
@@ -338,7 +337,7 @@ public class EoMapObjectTest {
      */
     @Test
     public void TEST__JSON_AnObject_comment_text__get_comment_text() {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         final String jsonString = "{\n" +
                 "\t\"(" + AnObject.class.getSimpleName() + ")level0\":{\n" +
                 "\t\t\"" + AnObject.MY_STRING + "\":\"value\",\n" +
@@ -355,7 +354,7 @@ public class EoMapObjectTest {
      */
     @Test
     public void TEST__AnObject_myString_value__get_myString_value()  {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         AnObject bt = new AnObject()
                 .setMyString("value");
         eo.mapObject(bt);
@@ -366,7 +365,7 @@ public class EoMapObjectTest {
 
     @Test
     public void TEST_key_value__Child_AnObject__exception()  {
-        final EO eo = ProviderRootTestScope.createEo();
+        final EO eo = ProviderConfigMaps.createEo();
         EO child = eo.set("key", "value");
         Assertions.assertThatThrownBy(()->{child.mapObject(new AnObject());})
                 .isInstanceOf(EoException.class)
@@ -375,7 +374,7 @@ public class EoMapObjectTest {
 
     @Test
     public void TEST_AnObject_JSON_myString_value__JSON_myInt_1__get_myInt_1()  {
-        final EO eo = ProviderRootTestScope.createEoWithClasses(AnObject.class);
+        final EO eo = ProviderConfigMaps.createEoWithClasses(AnObject.class);
         eo.mapObject("{\"myString\": \"value\"}");
         eo.mapObject("{\"myInt\": 1}");
         assertThat(eo.getModelClass()).isEqualTo(AnObject.class);

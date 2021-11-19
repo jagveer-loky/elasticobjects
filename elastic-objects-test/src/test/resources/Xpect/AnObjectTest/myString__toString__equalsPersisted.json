@@ -3,6 +3,9 @@
   "fieldKey": "myString",
   "length": 20,
   "modelKeys": "String",
+  "modelList": [
+    "String"
+  ],
   "naturalId": "myString",
   "properties": {
     "generated": false,

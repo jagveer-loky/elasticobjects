@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.DbConfig.H2_BASIC;
 public class DbModelReadCallAnObjectTest {
     @Before
     public void init() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         Call call = new DbSqlExecuteCall(H2_BASIC, "h2:mem:basic:Create");
         call.execute(eo);
     }
@@ -24,7 +24,7 @@ public class DbModelReadCallAnObjectTest {
         DbModelReadCall call = new DbModelReadCall();
         call.setTargetPath("/result");
         Assertions.assertThat(call).isNotNull();
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1");
         EO child = eo.set(anObject, "test");
@@ -36,7 +36,7 @@ public class DbModelReadCallAnObjectTest {
 
     @Test
     public void eo_DbQuery_AnObject__execute__1() {
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1");
         EO child = eo.set(anObject, "test");
@@ -54,7 +54,7 @@ public class DbModelReadCallAnObjectTest {
 
     @Test
     public void eo_sourcePath_abc_AnObject_id_1_targetPath_xyz__execute__1() {
-        EO eo = ProviderRootTestScope.createEo("{\n" +
+        EO eo = ProviderConfigMaps.createEo("{\n" +
                 "   \"(AnObject)abc\":{\n" +
                 "        \"id\":1\n" +
                 "   },\n" +

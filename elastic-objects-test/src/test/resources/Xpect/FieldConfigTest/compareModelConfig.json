@@ -9,6 +9,9 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "author",
       "properties": {
         "super": true,
@@ -21,6 +24,9 @@
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "creationDate",
       "properties": {
         "super": true,
@@ -33,6 +39,9 @@
       "description": "Set when an default implementation is defined within an interface. ",
       "fieldKey": "default",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "default",
       "properties": {
         "super": true,
@@ -46,6 +55,9 @@
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "description",
       "properties": {
         "super": true,
@@ -58,6 +70,9 @@
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
       "naturalId": "expose",
       "properties": {
         "super": true,
@@ -71,6 +86,9 @@
       "fieldKey": "fieldKey",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "fieldKey",
       "properties": {
         "generated": false,
@@ -83,6 +101,9 @@
       "fieldKey": "fieldName",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "fieldName",
       "properties": {
         "super": true,
@@ -95,6 +116,9 @@
       "description": "If true only a setter for the private variable is generated. When setting a value in an EO context an exception is thrown. ",
       "fieldKey": "final",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "final",
       "properties": {
         "super": true,
@@ -107,6 +131,9 @@
       "description": "Indicates a generated value?! A generated flag for @FieldBean",
       "fieldKey": "generated",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "generated",
       "properties": {
         "super": true,
@@ -119,6 +146,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "super": true,
@@ -132,6 +162,9 @@
       "fieldKey": "javascriptType",
       "length": 10,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "javascriptType",
       "properties": {
         "super": true,
@@ -143,6 +176,9 @@
       "description": "jsonIgnore",
       "fieldKey": "jsonIgnore",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "jsonIgnore",
       "properties": {
         "super": true,
@@ -155,6 +191,9 @@
       "description": "Length of a field.",
       "fieldKey": "length",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "length",
       "properties": {
         "generated": false,
@@ -166,6 +205,9 @@
       "description": "A maximal length for field string types",
       "fieldKey": "max",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "max",
       "properties": {
         "super": true,
@@ -178,6 +220,9 @@
       "description": "A minimal length for field string types",
       "fieldKey": "min",
       "modelKeys": "Integer",
+      "modelList": [
+        "Integer"
+      ],
       "naturalId": "min",
       "properties": {
         "super": true,
@@ -191,7 +236,25 @@
       "fieldKey": "modelKeys",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "modelKeys",
+      "properties": {
+        "generated": false,
+        "final": true,
+        "override": true
+      }
+    },
+    "modelList": {
+      "description": "A list of naturalIds of models for FieldConfig.",
+      "fieldKey": "modelList",
+      "modelKeys": "ArrayList,String",
+      "modelList": [
+        "ArrayList",
+        "String"
+      ],
+      "naturalId": "modelList",
       "properties": {
         "generated": false,
         "final": true,
@@ -203,6 +266,9 @@
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "module",
       "properties": {
         "super": true,
@@ -216,6 +282,9 @@
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
@@ -229,6 +298,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "super": true,
@@ -241,6 +313,9 @@
       "description": "notNull",
       "fieldKey": "notNull",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "notNull",
       "properties": {
         "super": true,
@@ -253,6 +328,9 @@
       "description": "Indicates that a super or interface defines the method already but is overwritten. When java is generated an override annotation is set. ",
       "fieldKey": "override",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "override",
       "properties": {
         "super": true,
@@ -265,6 +343,9 @@
       "description": "Properties for configurations.",
       "fieldKey": "properties",
       "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
       "naturalId": "properties",
       "properties": {
         "super": true,
@@ -277,6 +358,9 @@
       "description": "Indicates that a field is a config property map value which can be implemented as a default interface method. ",
       "fieldKey": "property",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "property",
       "properties": {
         "super": true,
@@ -289,6 +373,10 @@
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
       "naturalId": "scope",
       "properties": {
         "super": true,
@@ -301,6 +389,9 @@
       "description": "staticName",
       "fieldKey": "staticName",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "staticName",
       "properties": {
         "super": true,
@@ -313,6 +404,9 @@
       "description": "Marker to show, that the field is implemented in a super class. ",
       "fieldKey": "super",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "super",
       "properties": {
         "super": true,
@@ -325,6 +419,9 @@
       "description": "Will ignore field when a persistiong occure. Create a transient annotation when java is generated. ",
       "fieldKey": "transient",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "transient",
       "properties": {
         "super": true,
@@ -337,6 +434,9 @@
       "description": "unique",
       "fieldKey": "unique",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "unique",
       "properties": {
         "super": true,

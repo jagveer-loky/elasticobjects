@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 import java.util.TreeSet;
@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class ModelConfigDevTest {
     @Test
     public void check() {
-        ConfigMaps cache = ProviderRootDevScope.CONFIG_MAPS_DEV;
+        ConfigMaps cache = ProviderConfigMaps.CONFIG_MAPS_DEV;
         TreeSet<String> keys = new TreeSet<>(cache.getConfigKeys(ModelConfig.class));
         for (String key: keys) {
             ModelConfig model = cache.findModel(key);

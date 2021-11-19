@@ -7,6 +7,9 @@
       "description": "If true the generated model will be initially set as abstract class.",
       "fieldKey": "abstract",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "abstract",
       "properties": {
         "super": false,
@@ -25,6 +28,9 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "author",
       "properties": {
         "super": true,
@@ -38,6 +44,9 @@
       "fieldKey": "configModelKey",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "configModelKey",
       "properties": {
         "super": true,
@@ -49,6 +58,9 @@
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "creationDate",
       "properties": {
         "super": true,
@@ -61,6 +73,9 @@
       "description": "If true a db annotation will be generated for java instance vars. ",
       "fieldKey": "dbAnnotated",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "dbAnnotated",
       "properties": {
         "super": false,
@@ -79,6 +94,9 @@
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "description",
       "properties": {
         "super": true,
@@ -91,6 +109,9 @@
       "description": "expose",
       "fieldKey": "expose",
       "modelKeys": "Expose",
+      "modelList": [
+        "Expose"
+      ],
       "naturalId": "expose",
       "properties": {
         "super": true,
@@ -103,6 +124,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "super": true,
@@ -116,6 +140,9 @@
       "fieldKey": "interfaces",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "interfaces",
       "properties": {
         "super": false,
@@ -132,6 +159,9 @@
       "fieldKey": "javascriptType",
       "length": 10,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "javascriptType",
       "properties": {
         "super": false,
@@ -148,6 +178,9 @@
       "fieldKey": "modelKey",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "modelKey",
       "properties": {
         "super": false,
@@ -164,6 +197,9 @@
       "fieldKey": "module",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "module",
       "properties": {
         "super": true,
@@ -177,6 +213,9 @@
       "fieldKey": "moduleScope",
       "length": 10,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "moduleScope",
       "properties": {
         "super": true,
@@ -190,6 +229,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "super": true,
@@ -203,6 +245,9 @@
       "fieldKey": "packagePath",
       "length": 124,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "packagePath",
       "properties": {
         "super": false,
@@ -218,6 +263,9 @@
       "description": "Properties for configurations.",
       "fieldKey": "properties",
       "modelKeys": "Map",
+      "modelList": [
+        "Map"
+      ],
       "naturalId": "properties",
       "properties": {
         "super": true,
@@ -230,6 +278,10 @@
       "description": "A scope for the cache value.",
       "fieldKey": "scope",
       "modelKeys": "List,Scope",
+      "modelList": [
+        "List",
+        "Scope"
+      ],
       "naturalId": "scope",
       "properties": {
         "super": true,
@@ -242,6 +294,9 @@
       "description": "shapeType",
       "fieldKey": "shapeType",
       "modelKeys": "ShapeTypes",
+      "modelList": [
+        "ShapeTypes"
+      ],
       "naturalId": "shapeType",
       "properties": {
         "super": false,
@@ -260,6 +315,9 @@
       "fieldKey": "superKey",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "superKey",
       "properties": {
         "super": false,

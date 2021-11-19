@@ -6,6 +6,8 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
+import org.fluentcodes.tools.io.IOObject;
+import org.fluentcodes.tools.io.IORuntimeException;
 
 import java.util.Arrays;
 
@@ -41,6 +43,7 @@ public class IOJsonEo<T> extends IOObject<T> {
     public String getFileEnding() {
         return fileEnding;
     }
+
     public IOJsonEo<T> setFileEnding(final String fileEnding) {
         this.fileEnding = fileEnding;
         return this;
@@ -52,17 +55,17 @@ public class IOJsonEo<T> extends IOObject<T> {
             throw new IORuntimeException("Null object for serialization!");
         }
         if (object instanceof String) {
-            return (String)object;
+            return (String) object;
         }
         try {
             if (object instanceof EO) {
-                return new EOToJSON().toJson((EO)object);
+                return new EOToJSON().toJson((EO) object);
             }
             if (cache == null) {
                 cache = new ConfigMaps(Scope.TEST);
             }
             EO eo = EoRoot.ofValue(cache, object);
-            if (type!=null) {
+            if (type != null) {
                 return new EOToJSON().setSerializationType(type).toJson(eo);
             }
             return new EOToJSON()

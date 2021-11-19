@@ -8,6 +8,9 @@
       "fieldKey": "author",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "author",
       "properties": {
         "super": true,
@@ -20,6 +23,9 @@
       "fieldKey": "condition",
       "length": 1000,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "condition",
       "properties": {
         "super": true,
@@ -31,6 +37,9 @@
       "description": "Used to define the creation of an item.",
       "fieldKey": "creationDate",
       "modelKeys": "Date",
+      "modelList": [
+        "Date"
+      ],
       "naturalId": "creationDate",
       "properties": {
         "super": true,
@@ -43,6 +52,9 @@
       "fieldKey": "description",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "description",
       "properties": {
         "super": true,
@@ -54,6 +66,9 @@
       "description": "The duration of a call.",
       "fieldKey": "duration",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "duration",
       "properties": {
         "super": true,
@@ -66,6 +81,9 @@
       "fieldKey": "fileConfigKey",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "fileConfigKey",
       "properties": {
         "super": true,
@@ -78,6 +96,9 @@
       "fieldKey": "hostConfigKey",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "hostConfigKey",
       "properties": {
         "super": true,
@@ -89,6 +110,9 @@
       "description": "The numeric id of an instance of a class.",
       "fieldKey": "id",
       "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
       "naturalId": "id",
       "properties": {
         "super": true,
@@ -100,6 +124,9 @@
       "description": "Will use an existing  result file beforehand as template. ",
       "fieldKey": "keepCall",
       "modelKeys": "KeepCalls",
+      "modelList": [
+        "KeepCalls"
+      ],
       "naturalId": "keepCall",
       "properties": {
         "super": true,
@@ -111,6 +138,9 @@
       "description": "logLevel",
       "fieldKey": "logLevel",
       "modelKeys": "LogLevel",
+      "modelList": [
+        "LogLevel"
+      ],
       "naturalId": "logLevel",
       "properties": {
         "super": true,
@@ -123,6 +153,9 @@
       "fieldKey": "models",
       "length": 512,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "models",
       "properties": {
         "super": true,
@@ -135,6 +168,9 @@
       "fieldKey": "naturalId",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "naturalId",
       "properties": {
         "super": true,
@@ -146,6 +182,9 @@
       "description": "A overwrite field flag for @Call.",
       "fieldKey": "overwrite",
       "modelKeys": "Boolean",
+      "modelList": [
+        "Boolean"
+      ],
       "naturalId": "overwrite",
       "properties": {
         "super": true,
@@ -159,6 +198,9 @@
       "fieldKey": "postpend",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "postpend",
       "properties": {
         "super": true,
@@ -171,6 +213,9 @@
       "fieldKey": "prepend",
       "length": 256,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "prepend",
       "properties": {
         "super": true,
@@ -183,6 +228,9 @@
       "fieldKey": "sourcePath",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "sourcePath",
       "properties": {
         "super": true,
@@ -195,6 +243,9 @@
       "fieldKey": "startCondition",
       "length": 1000,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "startCondition",
       "properties": {
         "super": true,
@@ -207,6 +258,9 @@
       "fieldKey": "targetPath",
       "length": 80,
       "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
       "naturalId": "targetPath",
       "properties": {
         "super": true,

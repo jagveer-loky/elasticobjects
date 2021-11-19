@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryMapReadCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.ASubObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 /**
@@ -24,7 +24,7 @@ public class ModelTemplateCallStart {
         call.setPackagePath("org.fluentcodes.projects.elasticobjects.");
         call.setFileEnding("");
         call.setNaturalId(naturalId);
-        EO eo = ProviderRootTestScope.createEo();
+        EO eo = ProviderConfigMaps.createEo();
         eo.setLogLevel(LogLevel.INFO);
         String result = call.execute(eo);
         Assertions.assertThat(eo.hasErrors()).isFalse();

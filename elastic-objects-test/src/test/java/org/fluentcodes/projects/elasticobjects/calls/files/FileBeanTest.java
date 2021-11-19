@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.ModelConfigChecks;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.calls.PermissionInterface.ROLE_PERMISSIONS;
@@ -10,33 +10,52 @@ import static org.fluentcodes.projects.elasticobjects.calls.files.FileInterface.
 import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
 import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.MODULE;
 
-public class FileBeanTest {
+public class FileBeanTest implements IModelConfigCreateTests {
 
-    @Test
-    public void TEST__setFileNameTest__getFileNameTest()  {
-        FileBean object = (FileBean) ModelConfigChecks.createSetGet(FileBean.class.getSimpleName(), FILE_NAME, "test");
-        Assertions.assertThat(object.getFileName()).isEqualTo("test");
+    @Override
+    public Class<?> getModelConfigClass() {
+        return FileBean.class;
     }
 
-    // setter getter from BaseBean
+    @Override
     @Test
-    public void TEST__setNaturalIdTest__getNaturalIdTest()  {
-        FileBean object = (FileBean) ModelConfigChecks.createSetGet(FileBean.class.getSimpleName(), NATURAL_ID, "test");
-        Assertions.assertThat(object.getNaturalId()).isEqualTo("test");
+    public void create_noEoException() {
+        assertCreateNoException();
     }
 
-    // setter getter from ConfigBean
+    @Override
     @Test
-    public void TEST__setModuleTest__getModuleTest()  {
-        FileBean object = (FileBean) ModelConfigChecks.createSetGet(FileBean.class.getSimpleName(), MODULE, "test");
-        Assertions.assertThat(object.getModule()).isEqualTo("test");
+    public void compareModelConfig() {
+        assertModelConfigEqualsPersisted();
+    }
+
+    @Override
+    @Test
+    public void compareBeanFromModelConfig() {
+        assertBeanFromModelConfigEqualsPersisted();
+    }
+
+
+    @Test
+    public void getSetFileName() {
+        assertSetGet(FILE_NAME, "test");
     }
 
     @Test
-    public void TEST__setPermission__getPermissions()  {
+    public void getNaturalId() {
+        assertSetGet(NATURAL_ID, "test");
+    }
+
+    @Test
+    public void getSetModule() {
+        assertSetGet(MODULE, "test");
+    }
+
+    @Test
+    public void getSetPermissionRole() {
         PermissionRole value = new PermissionRole();
-        FileBean object = (FileBean) ModelConfigChecks.createSetGet(FileBean.class.getSimpleName(), ROLE_PERMISSIONS, value);
-        Assertions.assertThat(object.getRolePermissions()).isEqualTo(value);
+        FileBean fileBean = (FileBean) assertSetGet(ROLE_PERMISSIONS, value);
+        Assertions.assertThat(fileBean.getRolePermissions()).isEqualTo(value);
     }
 
 }

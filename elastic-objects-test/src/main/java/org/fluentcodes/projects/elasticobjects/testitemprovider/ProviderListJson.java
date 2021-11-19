@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.tools.xpect.IOString;
+import org.fluentcodes.tools.io.IOString;
 
 import java.util.List;
 
@@ -30,12 +30,12 @@ public enum ProviderListJson {
 
     private final String content;
     private String fileName;
+
     ProviderListJson(final String content) {
         if (content.startsWith(PATH_INPUT)) {
             this.fileName = content;
             this.content = new IOString().setFileName(content).read();
-        }
-        else {
+        } else {
             this.content = content;
         }
     }
@@ -43,20 +43,23 @@ public enum ProviderListJson {
     public String content() {
         return content;
     }
-    public String getFileName () {return fileName;}
 
-    public String getConfigKey () {
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getConfigKey() {
         if (fileName == null) {
             throw new EoException("No fileName for " + name() + " defined");
         }
-        return fileName.replaceAll(".*/","");
+        return fileName.replaceAll(".*/", "");
     }
 
     public List createListDev() {
-        return (List) ProviderRootDevScope.createEo(content).get();
+        return (List) ProviderConfigMaps.createEoDev(content).get();
     }
 
     public EO createEoDev() {
-        return ProviderRootDevScope.createEo(content);
+        return ProviderConfigMaps.createEoDev(content);
     }
 }

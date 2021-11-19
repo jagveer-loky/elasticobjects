@@ -1,9 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 /*=>{javaHeader}|*/
 
@@ -35,11 +38,17 @@ public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
     @Override
     public String execute(final EO eo) {
         super.check(eo);
-        //Object value = eo.get();
-        if (hasTargetPath()) {
-            eo.set(this.content, getTargetPath());
+        if (!hasContent()) {
+            if (eo.isScalar()) {
+                content = ScalarConverter.toString(eo.get());
+            }
+            else {
+                content = new EOToJSON()
+                        .setSerializationType(JSONSerializationType.STANDARD)
+                        .toJson(eo);
+            }
         }
-        return super.createReturnString(eo, content.toString());
+        return super.createReturnString(eo, content);
     }
 
     /*=>{javaAccessors}|*/

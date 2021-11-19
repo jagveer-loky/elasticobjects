@@ -4,8 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObjectTest;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootDevScope;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderRootTestScope;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
 public class EoConfigsCacheTest {
@@ -17,13 +16,13 @@ public class EoConfigsCacheTest {
     public void DEV__findModel_AnObject__exception()  {
         Assertions
                 .assertThatThrownBy(()->{
-                    ProviderRootDevScope.CONFIG_MAPS_DEV.findModel(AnObject.class);})
+                    ProviderConfigMaps.CONFIG_MAPS_DEV.findModel(AnObject.class);})
                 .hasMessageContaining("Could not find config key 'AnObject' within 'ModelConfig'!")
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void TEST__findModel__notNull()  {
-        Assertions.assertThat(ProviderRootTestScope.EO_CONFIGS.findModel(AnObject.class)).isNotNull();
+        Assertions.assertThat(ProviderConfigMaps.CONFIG_MAPS.findModel(AnObject.class)).isNotNull();
     }
 }
