@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionBean;
 
 import java.util.Map;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import static org.fluentcodes.projects.elasticobjects.calls.HostCall.HOST_CONFIG_KEY;
@@ -17,9 +17,9 @@ import static org.fluentcodes.projects.elasticobjects.calls.HostCall.HOST_CONFIG
  * @modificationDate Thu Jan 14 14:48:43 CET 2021
  */
 public class FileBean extends PermissionBean implements FileInterface {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    /* If true will cache the readed file within the cache object.  */
    private Boolean cached;
    /* A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
@@ -28,7 +28,7 @@ public class FileBean extends PermissionBean implements FileInterface {
    private String filePath;
    /* A key for host objects. */
    private String hostConfigKey;
-/*=>{}.*/
+/*.{}.*/
 
 
     public FileBean() {

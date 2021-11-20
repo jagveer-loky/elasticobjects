@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Access methods for field properties map and get method definitions for final fields.  
@@ -9,14 +9,14 @@ package org.fluentcodes.projects.elasticobjects.models;
  * @modificationDate Thu Jan 14 06:06:25 CET 2021
  */
 public interface FieldInterface extends ConfigInterface {
-/*=>{}.*/
+/*.{}.*/
     String DEFAULT_VALUE = "defaultValue";
     String JOIN_INVERSE = "joinInverse";
     String JOIN = "join";
     String HIBERNATE = "hibernate";
     String MAP_KEY = "mapKey";
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    String DEFAULT = "default";
    String FIELD_KEY = "fieldKey";
    String FIELD_NAME = "fieldName";
@@ -35,9 +35,9 @@ public interface FieldInterface extends ConfigInterface {
    String SUPER = "super";
    String TRANSIENT = "transient";
    String UNIQUE = "unique";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
    default Boolean getDefault(){
       return (Boolean) getProperties().get(DEFAULT);
    }
@@ -213,7 +213,7 @@ public interface FieldInterface extends ConfigInterface {
       return hasUnique() && getUnique();
    }
 
-/*=>{}.*/
+/*.{}.*/
     default Object getDefaultValue() {
         return null;
     }

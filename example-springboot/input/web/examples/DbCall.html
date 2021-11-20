@@ -1,39 +1,39 @@
 <h3>Db Calls</h3>
 <p>With the
-    ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. one run queries
+    #{ConfigLinkCall->ModelConfig, DbSqlReadCall}. one run queries
     on the serverside adding the result to EO.
 </p>
 <p>In the following examples the
-     ==>{ConfigLinkCall->DbSqlConfig, h2:mem:basic:AnObject}.
+     #{ConfigLinkCall->DbSqlConfig, h2:mem:basic:AnObject}.
     is used.
 </p>
 <p>It's just a query for the
-    ==>{ConfigLinkCall->ModelConfig, AnObject}. table which will be initialized by
-     ==>{ConfigLinkCall->DbSqlConfig, h2:mem:basic:Create}.
+    #{ConfigLinkCall->ModelConfig, AnObject}. table which will be initialized by
+     #{ConfigLinkCall->DbSqlConfig, h2:mem:basic:Create}.
     when the spring boot container is started by
-     ==>{GithubLinkCall->NONE, SP||Start.java}..
+     #{GithubLinkCall->NONE, SP||Start.java}..
 </p>
 <p>This is an in memory example which will be flushed whenever the server restarts.
     There are two other configurations involved:</p>
 <ul>
     <li>The Database Configuration
-        ==>{ConfigLinkCall->HostConfig, h2:mem:basic}.</li>
+        #{ConfigLinkCall->HostConfig, h2:mem:basic}.</li>
     <li>The Sql init sequence
-        ==>{ConfigLinkCall->DbSqlConfig, h2:mem:basic:Create}.</li>
+        #{ConfigLinkCall->DbSqlConfig, h2:mem:basic:Create}.</li>
 </ul>
 
 <h5>The query result in a table</h5>
- ==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.
- ==>{TemplateResourceCall->table.tpl, xyz}.
+ #{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.
+ #{TemplateResourceCall->table.tpl, xyz}.
 
 The table that you see beforehand is created by the following template sequence with
- ==>{ConfigLinkCall->FileConfig, table.tpl}. within the
- ==>{GithubLinkCall->NONE, SPI|web.examples|DbCall.html}. content:
+ #{ConfigLinkCall->FileConfig, table.tpl}. within the
+ #{GithubLinkCall->NONE, SPI|web.examples|DbCall.html}. content:
 <textarea>==&gt;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.
 ==&gt;{TemplateResourceCall->table.tpl, xyz}.
 </textarea>
 In the <a href="#post4">last example</a> you can see the post version of these calls.
- ==>{ConfigLinkCall->ModelConfig, AnObject}. is a test class.
+ #{ConfigLinkCall->ModelConfig, AnObject}. is a test class.
 
 <h5>Simple Call</h5>
 <p>
@@ -75,7 +75,7 @@ In the <a href="#post4">last example</a> you can see the post version of these c
 <h4>Mapping to Class</h4>
 <p>
     This example will map the query result to the
-     ==>{ConfigLinkCall->DbSqlConfig, h2:mem:basic:AnObject}. class on "values".
+     #{ConfigLinkCall->DbSqlConfig, h2:mem:basic:AnObject}. class on "values".
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -93,8 +93,8 @@ In the <a href="#post4">last example</a> you can see the post version of these c
     <h5>With a template</h5></a>
 <p>
     The following example will use a
-     ==>{ConfigLinkCall->ModelConfig, TemplateCall}. and
-     ==>{ConfigLinkCall->FileConfig, table.tpl}.
+     #{ConfigLinkCall->ModelConfig, TemplateCall}. and
+     #{ConfigLinkCall->FileConfig, table.tpl}.
     to render the query result in a table.
 </p>
 <form action="/eo-form" method="post" target="example">

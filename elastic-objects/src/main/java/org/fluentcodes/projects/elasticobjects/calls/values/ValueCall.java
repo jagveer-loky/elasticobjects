@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * For setting values to EO.
@@ -18,15 +18,15 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  * @modificationDate Tue Dec 08 12:04:23 CET 2020
  */
 public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String CONTENT = "content";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String content;
-/*=>{}.*/
+/*.{}.*/
 
     public ValueCall() {
     }
@@ -51,7 +51,7 @@ public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
         return super.createReturnString(eo, content);
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     A content for different calls. In a template context the content of the markup. 
     */
@@ -68,7 +68,7 @@ public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
     public boolean hasContent () {
         return content!= null && !content.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 
 
 }

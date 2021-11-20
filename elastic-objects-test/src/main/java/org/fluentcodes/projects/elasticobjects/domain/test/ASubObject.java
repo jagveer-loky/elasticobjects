@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * A sub object as an example. 
@@ -9,7 +9,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
  * @modificationDate Tue Jan 19 12:14:01 CET 2021
  */
 public class ASubObject  {
-/*=>{}.*/
+/*.{}.*/
 
     /*!!Problem invoke getter with 'javaStaticNames' and model 'ModelBeanGen':null!!*/
    public static final String ID = "id";

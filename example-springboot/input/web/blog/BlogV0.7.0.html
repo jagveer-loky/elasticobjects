@@ -2,28 +2,28 @@
 <p>
     <b>Target of this version is to extend the calls and configurations for database access.
         Actually they just execute static configurations in
-     ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</b>
+     #{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.</b>
 </p>
 <p align="right"><i>2.11.2020</i></p>
 
 <p>
     The implementation of database objects with
-    ==>{ConfigLinkCall->ModelConfig, ModelConfigDbObject}. allows to define generic calls with objects.
+    #{ConfigLinkCall->ModelConfig, ModelConfigDbObject}. allows to define generic calls with objects.
 </p>
 <ul>
-    <li>==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. </li>
-    <li>==>{ConfigLinkCall->ModelConfig, DbModelWriteCall}. </li>
-    <li>==>{ConfigLinkCall->ModelConfig, DbModelDeleteCall}. </li>
+    <li>#{ConfigLinkCall->ModelConfig, DbModelReadCall}. </li>
+    <li>#{ConfigLinkCall->ModelConfig, DbModelWriteCall}. </li>
+    <li>#{ConfigLinkCall->ModelConfig, DbModelDeleteCall}. </li>
 </ul>
 <p>
     With this an object configuration could contain permissions or table name properties.
 </p>
 <p>
     Furthermore sql configuration calls with
-    ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}. are refactored:
+    #{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}. are refactored:
 <ul>
-    <li>==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. which could be parametrized</li>
-    <li>==>{ConfigLinkCall->ModelConfig, DbSqlExecuteCall}.</li>
+    <li>#{ConfigLinkCall->ModelConfig, DbSqlReadCall}. which could be parametrized</li>
+    <li>#{ConfigLinkCall->ModelConfig, DbSqlExecuteCall}.</li>
 </ul>
 </p>
 <p>The database module

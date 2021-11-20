@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 
@@ -14,10 +14,10 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
  * @modificationDate Tue Dec 08 16:27:20 CET 2020
  */
 public interface Call  {
-/*=>{}.*/
+/*.{}.*/
     String TARGET_AS_STRING = "_asString";
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    String CONDITION = "condition";
    String DURATION = "duration";
    String KEEP_CALL = "keepCall";
@@ -29,7 +29,7 @@ public interface Call  {
    String SOURCE_PATH = "sourcePath";
    String START_CONDITION = "startCondition";
    String TARGET_PATH = "targetPath";
-/*=>{}.*/
+/*.{}.*/
 
     default void initTargetPath(final Path targetPathFromCallPath) {
         if (!hasTargetPath()) {
@@ -56,7 +56,7 @@ public interface Call  {
         return getKeepCall().getStartComment();
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
 
   /**
   * A condition for calls. 
@@ -81,7 +81,7 @@ public interface Call  {
   */
    KeepCalls getKeepCall();
    Call setKeepCall (KeepCalls keepCall);
-   default Boolean hasKeepCall () {
+   default boolean hasKeepCall () {
       return getKeepCall()!= null;
     }
 
@@ -126,7 +126,7 @@ public interface Call  {
   */
    String getPrepend();
    Call setPrepend (String prepend);
-   default Boolean hasPrepend () {
+   default boolean hasPrepend () {
       return getPrepend()!= null && !getPrepend().isEmpty();
     }
 
@@ -135,7 +135,7 @@ public interface Call  {
   */
    String getSourcePath();
    Call setSourcePath (String sourcePath);
-   default Boolean hasSourcePath () {
+   default boolean hasSourcePath () {
       return getSourcePath()!= null && !getSourcePath().isEmpty();
     }
 
@@ -144,7 +144,7 @@ public interface Call  {
   */
    String getStartCondition();
    Call setStartCondition (String startCondition);
-   default Boolean hasStartCondition () {
+   default boolean hasStartCondition () {
       return getStartCondition()!= null && !getStartCondition().isEmpty();
     }
 
@@ -156,5 +156,5 @@ public interface Call  {
    default Boolean hasTargetPath () {
       return getTargetPath()!= null && !getTargetPath().isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

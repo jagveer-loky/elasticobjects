@@ -4,7 +4,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class ExecutorCall {
         if (!call.hasSourcePath()) {
             call.setSourcePath(PathElement.SAME);
         }
-        String sourcePathString = new ParserSqareBracket(call.getSourcePath()).parse(eo);
+        String sourcePathString = new Parser(TemplateMarker.SQUARE, call.getSourcePath()).parse(eo);
         Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
         EO sourceParent = sourcePath.moveToParent(eo);
         boolean isFilter = sourcePath.isEmpty()? false : sourcePath.isFilter();

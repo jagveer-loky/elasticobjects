@@ -3,7 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 
@@ -77,7 +78,7 @@ public class Eq implements Condition {
             return true;
         }
         try {
-            return ScalarComparator.compare(eo.get(key), new ParserSqareBracket((String) this.object).parse(eo));
+            return ScalarComparator.compare(eo.get(key), new Parser(TemplateMarker.SQUARE, (String) this.object).parse(eo));
         }
         catch (EoException e) {
             return false;

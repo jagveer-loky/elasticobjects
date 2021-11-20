@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Defines a primitive csv file read operation. 
@@ -19,15 +19,15 @@ import java.util.List;
  * @modificationDate Tue Dec 08 11:16:47 CET 2020
  */
 public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String LIST_PARAMS = "listParams";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    private  ListParams listParams;
-/*=>{}.*/
+/*.{}.*/
     public CsvSimpleReadCall()  {
         super();
         listParams = new ListParams();
@@ -81,7 +81,7 @@ public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
         }
         return result;
     }
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */
@@ -98,5 +98,5 @@ public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
     public boolean hasListParams () {
         return listParams!= null;
     }
-/*=>{}.*/
+/*.{}.*/
 }

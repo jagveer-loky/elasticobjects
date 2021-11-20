@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
 
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Call for generation json configurations from the sheet.
  *
@@ -24,17 +24,17 @@ import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATUR
  * @modificationDate Wed Nov 11 07:39:50 CET 2020
  */
 public class GenerateEoConfigJsonCall extends GenerateAbstract {
-/*=>{}.*/
+/*.{}.*/
     public static final String DATA = "data";
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String CONFIG_TYPE = "configType";
-    /*=>{}.*/
+    /*.{}.*/
     static final String CONFIG_RESOURCES = "ConfigResources";
-    /*=>{}.*/
+    /*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    private  String configType;
-/*=>{}.*/
+/*.{}.*/
 
     public GenerateEoConfigJsonCall() {
         super();
@@ -66,8 +66,8 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
         StringBuilder feedback = new StringBuilder();
 
         XlsxReadCall readCall = new XlsxReadCall(getSourceFileConfigKey() + ":" + getConfigType());
-        readCall.setTargetPath("/data/=>[module]./=>[moduleScope]./=>[naturalId].");
-        readCall.setFilter("module eq =>[/module].");
+        readCall.setTargetPath("/data/.[module]./.[moduleScope]./.[naturalId].");
+        readCall.setFilter("module eq .[/module].");
         feedback.append(readCall.execute(rootEo));
 
         EO eoWrite = ProviderConfigMaps.createEo();
@@ -119,7 +119,7 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
         return feedback.toString();
     }
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
     /**
     Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
     */
@@ -136,6 +136,6 @@ public class GenerateEoConfigJsonCall extends GenerateAbstract {
     public boolean hasConfigType () {
         return configType!= null && !configType.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 
 }

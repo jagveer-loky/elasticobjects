@@ -4,12 +4,12 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadCommand;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IOBytes;
 import org.fluentcodes.tools.io.IOString;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Read content of a file. Store content to targetPath when targetPath not equals "_asString".
@@ -19,13 +19,13 @@ import org.fluentcodes.tools.io.IOString;
  * @modificationDate Tue Dec 08 09:46:41 CET 2020
  */
 public class FileReadCall extends FileCall implements ConfigReadCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
-/*=>{}.*/
+    /*.{javaInstanceVars}|*/
+/*.{}.*/
     public FileReadCall() {
         super();
     }
@@ -57,7 +57,7 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
     }
 
     protected static String read(final EO eo, String filePath)  {
-        filePath = ParserSqareBracket.replacePathValues(filePath, eo);
+        filePath = Parser.replacePathValues(filePath, eo );
         return new IOString().setFileName(filePath).read();
     }
 
@@ -70,6 +70,6 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
         }
         return new IOBytes().setFileName(filePath + Path.DELIMITER + fileName).read();
     }
-    /*=>{javaAccessors}|*/
-/*=>{}.*/
+    /*.{javaAccessors}|*/
+/*.{}.*/
 }

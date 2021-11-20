@@ -16,7 +16,7 @@ public class GenerateHtml {
         call.setSourceFileConfigKey("Presentation.html");
         //call.setLocalCondition("head like Get an");
         call.setSourcePath("/data/*");
-        call.setTargetFileConfigKey("src/main/resources/static/presentation/==>[StringReplaceWhiteSpaceCall->head]..html");
+        call.setTargetFileConfigKey("src/main/resources/static/presentation/=.[StringReplaceWhiteSpaceCall->head]..html");
         eo.addCall(call);
         eo.execute();
     }
@@ -24,7 +24,7 @@ public class GenerateHtml {
     public static EO READ_XLSX(final String xlsxFile) {
         XlsxReadCall call = new XlsxReadCall(xlsxFile);
         //call.setFilter("head like Get");
-        call.setTargetPath(String.join(Path.DELIMITER,new String[]{ DATA, "=>[head]."}));
+        call.setTargetPath(String.join(Path.DELIMITER,new String[]{ DATA, ".[head]."}));
         EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);
 

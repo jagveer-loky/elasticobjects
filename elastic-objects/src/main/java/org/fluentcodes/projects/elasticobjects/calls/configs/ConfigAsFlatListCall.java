@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleWriteCall;
 import java.util.Arrays;
 import java.util.List;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 import java.util.ArrayList;
 
 /**
@@ -19,17 +19,17 @@ import java.util.ArrayList;
  * @modificationDate Tue Dec 08 09:31:09 CET 2020
  */
 public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String CONFIG_TYPE = "configType";
    public static final String FIELD_KEYS = "fieldKeys";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String configType;
    private  List<String> fieldKeys;
-/*=>{}.*/
+/*.{}.*/
 
     public ConfigAsFlatListCall() {
         super();
@@ -43,12 +43,13 @@ public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
     @Override
     public String execute(EO eo)  {
         List resultAsListMap = (List) new ConfigCall()
-                .setConfigType(configType).execute(eo);
+                .setConfigType(configType)
+                .execute(eo);
         return new CsvSimpleWriteCall()
                 .asString(eo, resultAsListMap, fieldKeys);
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.
     */
@@ -81,6 +82,6 @@ public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
     public boolean hasFieldKeys () {
         return fieldKeys!= null && !fieldKeys.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * The basic bean container class for the configuration class {@link FieldConfig}. Also used as a base for building source code.
@@ -20,16 +20,16 @@ import java.util.Map;
  * @modificationDate Thu Jan 14 04:43:19 CET 2021
  */
 public class FieldBean extends ConfigBean implements FieldInterface {
-    /*=>{}.*/
+    /*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
     /* fieldKey */
     private String fieldKey;
     /* Length of a field. */
     private Integer length;
     /* A string representation for a list of modelsConfig. */
     private String modelKeys;
-    /*=>{}.*/
+    /*.{}.*/
     private boolean merged = false;
 
     private ModelInterface parentModel;
@@ -124,7 +124,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         return Arrays.asList(modelKeys.split(","));
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     @Override
     public String getFieldKey() {
         return this.fieldKey;
@@ -156,7 +156,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         return this;
     }
 
-    /*=>{}.*/
+    /*.{}.*/
     public boolean isMerged() {
         return merged;
     }
@@ -437,7 +437,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
     }
 
 
-    /*=>{}.*/
+    /*.{}.*/
     private Models getModels(EO eo) {
         return new Models(eo.getConfigsCache(), getModelKeys());
     }

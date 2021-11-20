@@ -4,7 +4,7 @@
 </p>
 
 <p>Templates are parsed by
-     ==>{GithubLinkCall->NONE, EO|calls.templates|Parser.java}.
+     #{GithubLinkCall->NONE, EO|calls.templates|Parser.java}.
     for
 <ul>
     <li>&#36;[&lt;path>]</li>
@@ -27,9 +27,9 @@ Special shortages for special calls are
 
 <p>
     All Files named
-     ==>{GithubLinkCall->NONE, SPR||FileConfig.json}. will be loaded.
+     #{GithubLinkCall->NONE, SPR||FileConfig.json}. will be loaded.
     will be loaded from the classpath into the cache object
-     ==>{GithubLinkCall->NONE, EO|models|EOConfigsCache.java}.
+     #{GithubLinkCall->NONE, EO|models|EOConfigsCache.java}.
     the first time a template call will be initiated.
 </p>
 
@@ -37,16 +37,16 @@ Special shortages for special calls are
     All pages in the examples are created by two templates:
     <ul>
     <li>
-        ==>{ConfigLinkCall->FileConfig, ContentPage.html}.</li>
+        #{ConfigLinkCall->FileConfig, ContentPage.html}.</li>
     <li>
-        ==>{ConfigLinkCall->FileConfig, ConfigsPage.html}.</li>
+        #{ConfigLinkCall->FileConfig, ConfigsPage.html}.</li>
 </ul>
     This page is generated via
- ==>{ConfigLinkCall->FileConfig, ContentPage.html}. </p>
+ #{ConfigLinkCall->FileConfig, ContentPage.html}. </p>
 
 <p> On each page you will see a form with a text field containing a json call to create
     the same page via the generic post-call by eo-form
-     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}.
+     #{GithubLinkCall->NONE, SP|web|WebEo.java}.
     and not with the get endpoints
-     ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}. with url path variables.
+     #{GithubLinkCall->NONE, SP|web|WebEoGet.java}. with url path variables.
 </p>.

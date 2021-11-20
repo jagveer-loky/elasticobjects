@@ -22,13 +22,13 @@
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect</artifactId>
-            <version>0.7.2</version>
+            <version>0.7.3-SNAPSHOT</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.fluentcodes.projects.elasticobjects/elastic-objects -->
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects</artifactId>
-            <version>0.8.1</version>
+            <version>0.8.2-SNAPSHOT</version>
         </dependency>
 
         <dependency>

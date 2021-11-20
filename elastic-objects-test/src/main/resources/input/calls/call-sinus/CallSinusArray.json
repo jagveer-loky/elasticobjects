@@ -10,6 +10,6 @@
    },
    "(TemplateCall)1": {
      "sourcePath": "/source/*",
-     "content": "sin(=>{_value}.) =\n =>{/target/_parent}.\n"
+     "content": "sin(.{_value}.) =\n .{/target/_parent}.\n"
    }
  }

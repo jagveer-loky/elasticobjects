@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Returns a type String depending on the modelKeys field value, e.g. "<Map, AnObject>" if modeKey is "Map, AnObject".
@@ -15,13 +15,13 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
  * @modificationDate Wed Nov 11 07:50:06 CET 2020
  */
 public class JavascriptFieldTypeCall extends CallImpl implements SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
-/*=>{}.*/
+/*.{javaStaticNames}|*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
-/*=>{}.*/
+/*.{javaInstanceVars}|*/
+/*.{}.*/
     @Override
     public String execute(final EO eo) {
         if (eo.getModelClass() != String.class) {
@@ -60,6 +60,6 @@ public class JavascriptFieldTypeCall extends CallImpl implements SimpleCommand {
             throw new EoException(e.getMessage());
         }
     }
-/*=>{javaAccessors}|*/
-/*=>{}.*/
+/*.{javaAccessors}|*/
+/*.{}.*/
 }

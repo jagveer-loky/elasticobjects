@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Replaces white space with underscore.
@@ -15,13 +15,13 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @modificationDate Tue Dec 08 11:53:03 CET 2020
  */
 public class StringReplaceWhiteSpaceCall extends CallImpl implements SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
-/*=>{}.*/
+    /*.{javaInstanceVars}|*/
+/*.{}.*/
     @Override
     public String execute(final EO eo) {
         super.check(eo);
@@ -34,6 +34,6 @@ public class StringReplaceWhiteSpaceCall extends CallImpl implements SimpleComma
         }
     }
 
-    /*=>{javaAccessors}|*/
-/*=>{}.*/
+    /*.{javaAccessors}|*/
+/*.{}.*/
 }

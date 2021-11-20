@@ -56,7 +56,7 @@ public class StringReplaceCallTest implements IModelConfigCreateTests {
         eo.mapObject(ProviderConfigMaps.CONFIG_MAPS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
         String content = new TemplateCall("* \n" +
-                "===>{\"(StringReplaceCall).\":{" +
+                "@{\"(StringReplaceCall).\":{" +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\", " +
                 "\"toReplace\"=\"\\\\.\", " +
                 "\"replaceBy\"=\"/\" }" +

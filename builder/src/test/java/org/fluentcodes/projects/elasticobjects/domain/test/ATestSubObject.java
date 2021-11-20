@@ -1,5 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * A sub object as an example. 
@@ -8,18 +8,18 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
  * @modificationDate Sun Jan 31 06:30:46 CET 2021
  */
 public class ATestSubObject  {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String TEST_NAME = "testName";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    /* Just a small test string used in test models.  */
    private String testName;
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    public String getTestName() {
       return this.testName;
    }
@@ -31,5 +31,5 @@ public class ATestSubObject  {
       return this;
     }
 
-/*=>{}.*/
+/*.{}.*/
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,10 +23,9 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  * @modificationDate Sun Jan 10 10:57:55 CET 2021
  */
 public class ConfigBean extends BaseBean implements ConfigInterface {
-/*=>{}.*/
-    private static final Logger LOG = LogManager.getLogger(ConfigBean.class);
+/*.{}.*/
     private static final String CONFIG_MODEL_KEY = "configModelKey";
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    /* The model of the configuration to determine type. */
    private String configModelKey;
    /* expose */
@@ -39,7 +38,7 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
    private List<Scope> scope;
 
    private Class<? extends ConfigInterface> configModelClass;
-/*=>{}.*/
+/*.{}.*/
     private Map properties;
 
     public ConfigBean() {
@@ -109,7 +108,7 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         this.properties = properties;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
    public String getConfigModelKey() {
        return this.configModelKey;
    }
@@ -284,6 +283,6 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         throw new EoException("Could not set expose from class '" + value.getClass() + "' and value '" + value + "'");
     }
 
-/*=>{}.*/
+/*.{}.*/
 
 }

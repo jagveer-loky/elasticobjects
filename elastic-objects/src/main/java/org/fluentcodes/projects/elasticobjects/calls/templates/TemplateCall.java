@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Executes a template content. 
@@ -19,16 +19,16 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @modificationDate Tue Dec 08 11:33:49 CET 2020
  */
 public class TemplateCall extends CallImpl implements CallContent, SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
     private static final transient Logger LOG = LogManager.getLogger(TemplateCall.class);
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String CONTENT = "content";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String content;
-/*=>{}.*/
+/*.{}.*/
 
     public TemplateCall() {
         super.setTargetPath(TARGET_AS_STRING);
@@ -69,7 +69,7 @@ public class TemplateCall extends CallImpl implements CallContent, SimpleCommand
     }
 
     public boolean isContentActive() {
-        return hasContent() && ParserCurlyBracket.containsStartSequence(content);
+        return hasContent() && TemplateMarker.CURLY.hasStartSequence(content);
     }
     /**
      */
@@ -80,13 +80,13 @@ public class TemplateCall extends CallImpl implements CallContent, SimpleCommand
         if (!init(eo)) {
             return "";
         }
-        return new ParserCurlyBracket(content).parse(eo);
+        return new Parser(content).parse(eo);
     }
     public TemplateCall setTargetPath(String x) {
         super.setTargetPath(x);
         return this;
     }
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     A content for different calls. In a template context the content of the markup. 
     */
@@ -103,5 +103,5 @@ public class TemplateCall extends CallImpl implements CallContent, SimpleCommand
     public boolean hasContent () {
         return content!= null && !content.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

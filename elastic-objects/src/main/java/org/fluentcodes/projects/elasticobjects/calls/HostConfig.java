@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 import java.util.Map;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Basic host definition for file or db cache.
@@ -15,11 +15,11 @@ import java.util.Map;
  * @modificationDate Thu Jan 14 12:17:41 CET 2021
  */
 public class HostConfig extends PermissionConfig implements HostInterface {
-  /*=>{}.*/
+  /*.{}.*/
   public static final String LOCALHOST = "localhost";
 
-  /*=>{javaAccessors}|*/
-  /*=>{}.*/
+  /*.{javaAccessors}|*/
+  /*.{}.*/
   private String urlCache;
 
   public HostConfig(ConfigBean bean, final ConfigMaps configMaps) {

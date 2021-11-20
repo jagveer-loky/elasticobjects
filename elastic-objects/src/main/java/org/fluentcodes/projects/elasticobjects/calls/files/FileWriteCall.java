@@ -7,10 +7,11 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
 import org.fluentcodes.tools.io.IOString;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Write content or serialized eo to a file. 
@@ -20,18 +21,18 @@ import org.fluentcodes.tools.io.IOString;
  * @modificationDate Tue Dec 08 09:48:45 CET 2020
  */
 public class FileWriteCall extends FileCall implements ConfigWriteCommand,  CallContent {
-/*=>{}.*/
+/*.{}.*/
     private static final Logger LOG = LogManager.getLogger(FileWriteCall.class);
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String COMPARE = "compare";
    public static final String CONTENT = "content";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  Boolean compare;
    private  String content;
-/*=>{}.*/
+/*.{}.*/
 
     public FileWriteCall() {
         super();
@@ -64,8 +65,8 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
             }
         }
         String targetFile = fileConfig.createUrl(getHostConfig()).getFile();
-        if (ParserSqareBracket.containsStartSequence(targetFile)) {
-            targetFile = new ParserSqareBracket(targetFile).parse(eo);
+        if (TemplateMarker.SQUARE.hasStartSequence(targetFile)) {
+            targetFile = new Parser(TemplateMarker.SQUARE, targetFile).parse(eo);
         }
         // compare with existing file to be overwritten.
         if (compare) {
@@ -100,7 +101,7 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
         return this;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Trigger a compare before writing in @FileWriteCall
     */
@@ -133,5 +134,5 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
     public boolean hasContent () {
         return content!= null && !content.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

@@ -2,10 +2,11 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IOString;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Defines a file write operation for a directory configuration {@link DirectoryConfig} specified by fileConfigKey. 
@@ -15,15 +16,15 @@ import org.fluentcodes.tools.io.IOString;
  * @modificationDate Tue Dec 08 09:43:38 CET 2020
  */
 public class DirectoryWriteCall extends FileWriteCall  {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String FILE_NAME = "fileName";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String fileName;
-/*=>{}.*/
+/*.{}.*/
     public DirectoryWriteCall() {
         super();
     }
@@ -53,14 +54,14 @@ public class DirectoryWriteCall extends FileWriteCall  {
         }
 
         String url = directoryConfig.getFilePath() + "/" + fileName;
-        if (ParserSqareBracket.containsStartSequence(url)) {
-            url = new ParserSqareBracket(url).parse(eo);
+        if (TemplateMarker.SQUARE.hasStartSequence(url)) {
+            url = new Parser(TemplateMarker.SQUARE, url).parse(eo);
         }
         new IOString().setFileName(url).write(getContent());
         return "Written content with  length " + getContent().length() + " to file '" + url + "'" ;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}. 
     */
@@ -77,5 +78,5 @@ public class DirectoryWriteCall extends FileWriteCall  {
     public boolean hasFileName () {
         return fileName!= null && !fileName.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

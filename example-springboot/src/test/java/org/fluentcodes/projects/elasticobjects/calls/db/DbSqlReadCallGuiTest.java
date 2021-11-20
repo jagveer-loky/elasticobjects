@@ -89,8 +89,8 @@ public class DbSqlReadCallGuiTest {
     @Test
     public void template_h2MemBasicAnObject_tableTpl__execute__xpected() {
         final TemplateCall call = new TemplateCall("START " +
-                "==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.\n" +
-                "==>{TemplateResourceCall->table.tpl, xyz}." +
+                "#{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.\n" +
+                "#{TemplateResourceCall->table.tpl, xyz}." +
                 "END");
         EO eo = ProviderConfigMaps.createEo();
         String result = call.execute(eo);

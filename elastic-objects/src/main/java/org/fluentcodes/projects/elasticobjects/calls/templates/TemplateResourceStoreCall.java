@@ -1,13 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteCall;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.
@@ -17,13 +13,13 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
  * @modificationDate Tue Dec 08 11:39:40 CET 2020
  */
 public class TemplateResourceStoreCall extends FileReadWriteCall  {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
-/*=>{}.*/
+    /*.{javaInstanceVars}|*/
+/*.{}.*/
 
     public TemplateResourceStoreCall() {
         super();
@@ -37,7 +33,7 @@ public class TemplateResourceStoreCall extends FileReadWriteCall  {
 
     public String execute(EO eo)  {
         String template = readSourceOrTarget(eo);
-        if (!ParserCurlyBracket.containsStartSequence(template)) {
+        if (!TemplateMarker.CURLY.hasStartSequence(template)) {
             return "Nothing to do no template parts.";
         }
         String content = new TemplateCall(template).execute(eo);
@@ -57,6 +53,6 @@ public class TemplateResourceStoreCall extends FileReadWriteCall  {
         }
     }
 
-    /*=>{javaAccessors}|*/
-/*=>{}.*/
+    /*.{javaAccessors}|*/
+/*.{}.*/
 }

@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseInterface;
 
 import java.util.List;
 import java.util.Map;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Basic config interface as super interface for other cached items.
@@ -14,15 +14,15 @@ import java.util.Map;
  * @modificationDate Tue Dec 08 17:46:47 CET 2020
  */
 public interface ConfigInterface extends BaseInterface {
-  /*=>{}.*/
+  /*.{}.*/
 
-  /*=>{javaStaticNames}|*/
+  /*.{javaStaticNames}|*/
   String EXPOSE = "expose";
   String MODULE = "module";
   String MODULE_SCOPE = "moduleScope";
   String SCOPE = "scope";
   String PROPERTIES = "properties";
-  /*=>{}.*/
+  /*.{}.*/
 
   default boolean hasScope(final Scope scope) {
     if (scope == Scope.ALL) {
@@ -37,7 +37,7 @@ public interface ConfigInterface extends BaseInterface {
     return false;
   }
 
-  /*=>{javaAccessors}|*/
+  /*.{javaAccessors}|*/
   default boolean hasProperties() {
     return getProperties() != null && !getProperties().isEmpty();
   }
@@ -82,5 +82,5 @@ public interface ConfigInterface extends BaseInterface {
   default Boolean hasScope() {
     return getScope() != null && !getScope().isEmpty();
   }
-  /*=>{}.*/
+  /*.{}.*/
 }

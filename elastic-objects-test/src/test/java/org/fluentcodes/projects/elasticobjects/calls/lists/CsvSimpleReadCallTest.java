@@ -177,7 +177,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
 
     @Test
     public void TemplateCall_AnObjectCsv_Parameter__execute__$() {
-        final TemplateCall call = new TemplateCall("START -\n==>{CsvSimpleReadCall->AnObject.csv, xyz}. - END");
+        final TemplateCall call = new TemplateCall("START -\n#{CsvSimpleReadCall->AnObject.csv, xyz}. - END");
         EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);
         Assertions.assertThat(eo.getLog())
@@ -187,7 +187,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
 
     @Test
     public void TemplateCall_AnObjectCsv_Json__execute__$() {
-        final TemplateCall call = new TemplateCall("START -\n===>{\"(CsvSimpleReadCall)xyz\":{" +
+        final TemplateCall call = new TemplateCall("START -\n@{\"(CsvSimpleReadCall)xyz\":{" +
                 "\"fileConfigKey\":\"AnObject.csv\"}}. - END");
         EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);

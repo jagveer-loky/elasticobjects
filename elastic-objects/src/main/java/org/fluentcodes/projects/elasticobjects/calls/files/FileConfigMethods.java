@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 
 import java.net.URL;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Access methods for field properties map.  
@@ -12,7 +12,7 @@ import java.net.URL;
  * @modificationDate Thu Jan 14 14:46:34 CET 2021
  */
 public interface FileConfigMethods {
-/*=>{}.*/
+/*.{}.*/
     String getCachedContent();
     void setCachedContent(String cachedContent);
 

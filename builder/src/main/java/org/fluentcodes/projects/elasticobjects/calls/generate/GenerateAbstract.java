@@ -4,13 +4,13 @@ import org.fluentcodes.projects.elasticobjects.BuilderParams;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.Date;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Abstract super class for generating code.
@@ -23,16 +23,16 @@ public abstract class GenerateAbstract extends CallImpl implements GenerateAbstr
     public static final String MODULE = "module";
     public static final String MODULE_SCOPE = "moduleScope";
     public static final String PROJECT_DIRECTORY = "projectDirectory";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
     private String module;
     private String moduleScope;
     private String fileEnding;
     private String projectDirectory;
     private String targetFileConfigKey;
     private String sourceFileConfigKey;
-/*=>{}.*/
+/*.{}.*/
 
     public GenerateAbstract() {
         super();
@@ -58,9 +58,9 @@ public abstract class GenerateAbstract extends CallImpl implements GenerateAbstr
         if (!hasFileEnding()) {
             fileEnding = "";
         }
-        setModule(ParserSqareBracket.replacePathValues(module,eo));
-        setModuleScope(ParserSqareBracket.replacePathValues(moduleScope, eo));
-        setProjectDirectory(ParserSqareBracket.replacePathValues(projectDirectory, eo));
+        setModule(Parser.replacePathValues(module,eo));
+        setModuleScope(Parser.replacePathValues(moduleScope, eo));
+        setProjectDirectory(Parser.replacePathValues(projectDirectory, eo));
         defaultModule();
         defaultModuleScope();
         eo.set(module, Path.DELIMITER, MODULE);
@@ -71,7 +71,7 @@ public abstract class GenerateAbstract extends CallImpl implements GenerateAbstr
         return true;
     }
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
 
     public String getTargetFileConfigKey() {
         return targetFileConfigKey;
@@ -154,5 +154,5 @@ public abstract class GenerateAbstract extends CallImpl implements GenerateAbstr
        return this.moduleScope;
     }
 
-    /*=>{}.*/
+    /*.{}.*/
 }

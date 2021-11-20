@@ -139,37 +139,37 @@ This example is executable on
     <h1>An Example Template</h1>
     
     <h2>CSV</h2>
-    ==>{CsvSimpleReadCall->AnObject.csv, data/csv}.
-    ==>{TemplateResourceCall->table.tpl, data/csv}.
+    #{CsvSimpleReadCall->AnObject.csv, data/csv}.
+    #{TemplateResourceCall->table.tpl, data/csv}.
     
     <h2>Excel</h2>
-    ==>{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
-    ==>{TemplateResourceCall->table.tpl, data/xlsx}.
+    #{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+    #{TemplateResourceCall->table.tpl, data/xlsx}.
     
     <h2>DB</h2>
-    ==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
-    ==>{TemplateResourceCall->table.tpl, data/db}.
+    #{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
+    #{TemplateResourceCall->table.tpl, data/db}.
 
 
 <h4>Short Form</h4>
 <p>In the template a short form of one call JSON is used:
 
-     ==>{CsvSimpleReadCall->AnObject.csv, data/csv}.
+     #{CsvSimpleReadCall->AnObject.csv, data/csv}.
 
 is equivalent to
 
-    ===>{"(CsvSimpleReadCall)":{
+    @{"(CsvSimpleReadCall)":{
          "fileConfigKey":"AnObject.csv",
          "targetPath":"data/csv"     
     }}.
 
 and
 
-    ==>{TemplateResourceCall->table.tpl, data/csv}.
+    #{TemplateResourceCall->table.tpl, data/csv}.
 
 is equivalent to
 
-    ===>{"(TemplateResourceCall)":{
+    @{"(TemplateResourceCall)":{
          "fileConfigKey"="table.tpl",
          "sourcePath": "data/csv"    
     }}.
@@ -242,7 +242,7 @@ is equivalent to
 
 <h3>Conclusion</h3>
 <p>
-The project has now version 0.8.1 and it's good enough for a proof of concept. For
+The project has now version 0.8.2-SNAPSHOT and it's good enough for a proof of concept. For
 the hyped microservice architectures it would offer an incredible flexibility compared with
 RPC API solutions.
 </p>

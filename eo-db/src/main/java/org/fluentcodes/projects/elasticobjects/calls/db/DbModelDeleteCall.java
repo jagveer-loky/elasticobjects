@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 import java.util.List;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Remove an entry from database by creating a delete sql from entry in sourcePath.
  *
@@ -19,13 +19,13 @@ import java.util.List;
  * @modificationDate Wed Nov 11 06:24:57 CET 2020
  */
 public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
-/*=>{}.*/
+/*.{javaStaticNames}|*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
-/*=>{}.*/
+/*.{javaInstanceVars}|*/
+/*.{}.*/
 
     public DbModelDeleteCall()  {
         super();
@@ -55,6 +55,6 @@ public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand
         return DeleteStatement.of(eo)
                 .execute(getDbConfig().getConnection());
     }
-/*=>{javaAccessors}|*/
-/*=>{}.*/
+/*.{javaAccessors}|*/
+/*.{}.*/
 }

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.calls.PermissionInterface;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
 /**
  * 
  * Access methods for field properties map.  
@@ -11,16 +11,16 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
  * @modificationDate Thu Jan 14 14:24:01 CET 2021
  */
 public interface FileInterface extends PermissionInterface, ConfigInterface {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
     String FILE_NAME = "fileName";
     String FILE_PATH = "filePath";
     String CACHED = "cached";
     String TEMPLATE = "template";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    Boolean getCached();
    default boolean hasCached() {
       return getCached() != null;
@@ -41,7 +41,7 @@ public interface FileInterface extends PermissionInterface, ConfigInterface {
    default boolean hasHostConfigKey() {
       return getHostConfigKey() != null && !getHostConfigKey().isEmpty();
    }
-/*=>{}.*/
+/*.{}.*/
     default String getTemplate(){
     return (String) getProperties().get(TEMPLATE);
 }

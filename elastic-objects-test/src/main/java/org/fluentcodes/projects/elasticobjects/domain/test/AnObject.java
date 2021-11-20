@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -14,9 +14,9 @@ import java.util.Map;
  * @modificationDate Wed Jan 20 07:19:13 CET 2021
  */
 public class AnObject  {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String ID = "id";
    public static final String MY_ASUB_OBJECT = "myASubObject";
    public static final String MY_ASUB_OBJECT_LIST = "myASubObjectList";
@@ -33,9 +33,9 @@ public class AnObject  {
    public static final String MY_OBJECT = "myObject";
    public static final String MY_STRING = "myString";
    public static final String NATURAL_ID = "naturalId";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    /* The numeric id of an instance of a class. */
    private Long id;
    /* myASubObject */
@@ -68,9 +68,9 @@ public class AnObject  {
    private String myString;
    /* The natural key in @Base */
    private String naturalId;
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
    public Long getId() {
       return this.id;
    }
@@ -251,5 +251,5 @@ public class AnObject  {
       return this;
     }
 
-/*=>{}.*/
+/*.{}.*/
 }

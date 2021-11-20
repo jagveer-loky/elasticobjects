@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import java.util.List;
 import java.util.Map;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * For getting a map of configurations for a specific configuration type.
@@ -20,17 +20,17 @@ import java.util.Map;
  * @modificationDate Tue Dec 08 09:33:28 CET 2020
  */
 public class ConfigCall extends ConfigKeysCall  {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String MODULE = "module";
    public static final String MODULE_SCOPE = "moduleScope";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String module;
    private  String moduleScope;
-/*=>{}.*/
+/*.{}.*/
 
     public ConfigCall() {
         super();
@@ -72,7 +72,7 @@ public class ConfigCall extends ConfigKeysCall  {
         return super.createReturnType(eo,result.get());
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Defines a target module where generating occurs. 
     */
@@ -105,6 +105,6 @@ public class ConfigCall extends ConfigKeysCall  {
     public boolean hasModuleScope () {
         return moduleScope!= null && !moduleScope.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 
 }

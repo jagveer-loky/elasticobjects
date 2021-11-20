@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
@@ -205,8 +205,8 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     @Test
     public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced() {
         TemplateCall call = new TemplateCall();
-        call.setContent("sin(=>{testKey}.) = \n" +
-                "===>{\"(SinusValueCall).\":{" +
+        call.setContent("sin(.{testKey}.) = \n" +
+                "@{\"(SinusValueCall).\":{" +
                 "\"sourcePath\":\"testKey\", " +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}.");
@@ -235,8 +235,8 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     public void Eo_value_2_template__parse__get_value_0() {
         EO eo = ProviderConfigMaps.createEo();
         eo.set(2, "value");
-        String result = new ParserCurlyBracket("-" +
-                " ===>{\"(SinusValueCall).\":{" +
+        String result = new Parser("-" +
+                " @{\"(SinusValueCall).\":{" +
                 "\"sourcePath\":\"value\"}" +
                 "}." +
                 "-").parse(eo);
@@ -248,8 +248,8 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced() {
         EO eo = ProviderConfigMaps.createEo();
         eo.set(2, "value");
-        String result = new ParserCurlyBracket("-" +
-                " ===>{\"(SinusValueCall).\":{" +
+        String result = new Parser("-" +
+                " @{\"(SinusValueCall).\":{" +
                 "\"sourcePath\":\"value\", " +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}." +

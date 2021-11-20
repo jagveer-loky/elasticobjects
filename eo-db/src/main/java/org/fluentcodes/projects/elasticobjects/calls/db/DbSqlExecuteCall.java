@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Executes a list of sql statements within DbSqlConfig.
  *
@@ -19,13 +19,13 @@ import java.util.List;
  * @modificationDate Wed Nov 11 07:16:55 CET 2020
  */
 public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
-/*=>{}.*/
+/*.{javaStaticNames}|*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
-/*=>{}.*/
+/*.{javaInstanceVars}|*/
+/*.{}.*/
     public DbSqlExecuteCall()  {
         super();
     }
@@ -66,7 +66,7 @@ public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
         }
         return executed;
     }
-/*=>{javaAccessors}|*/
-/*=>{}.*/
+/*.{javaAccessors}|*/
+/*.{}.*/
 
 }

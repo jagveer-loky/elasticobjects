@@ -9,8 +9,8 @@ import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 public interface GenerateAbstractInterface extends Call {
-    /*=>{}.*/
-    /*=>{javaStaticNames}|*/
+    /*.{}.*/
+    /*.{javaStaticNames}|*/
     String FILE_ENDING = "fileEnding";
     String ALL = ".*";
     void mergeParams(BuilderParams params);

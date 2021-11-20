@@ -3,7 +3,7 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 import java.util.Date;
 
 import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.ID;
@@ -19,8 +19,8 @@ import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.DESCR
  * @modificationDate Sat Jan 09 13:58:40 CET 2021
  */
 public class BaseBean {
-/*=>{}.*/
-    /*=>{javaInstanceVars}|*/
+/*.{}.*/
+    /*.{javaInstanceVars}|*/
    /* The author of the class. */
    private String author;
    /* Used to define the creation of an item. */
@@ -31,7 +31,7 @@ public class BaseBean {
    private Long id;
    /* The natural key in @Base */
    private String naturalId;
-/*=>{}.*/
+/*.{}.*/
 
     /**
      * Just an empty constructor since basic
@@ -74,7 +74,7 @@ public class BaseBean {
             System.out.println(e.getMessage());
         }
     }
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
    public String getAuthor() {
       return this.author;
    }
@@ -139,7 +139,7 @@ public class BaseBean {
    public boolean hasNaturalId() {
       return getNaturalId() != null && !getNaturalId().isEmpty();
    }
-/*=>{}.*/
+/*.{}.*/
 
     private void mergeNaturalId(final Object value) {
         if (value == null) return;

@@ -36,7 +36,7 @@
     <textarea>===&gt;{JSON}.</textarea> or
     <textarea>===&gt;{JSON}|content=&gt;{}.</textarea>
     The content could be set for calls implementing
-    ==>{GithubLinkCall->ModelConfig, CallContent}.
+    #{GithubLinkCall->ModelConfig, CallContent}.
 </p>
 <p>Here any combination of typed json could be set. If several calls are within,
     the content will set to the last call.</p>
@@ -55,12 +55,12 @@
     This shorthand version is similar to the attribute version and simplify the usage for simple calls like
     the often used
 
-    ==>{ConfigLinkCall->ModelConfig, ConfigLinkCall}. :
+    #{ConfigLinkCall->ModelConfig, ConfigLinkCall}. :
     <textarea>==&gt;{ConfigLinkCall->ModelConfig, ConfigLinkCall}.</textarea>
 </p>
 <p>
     How the readability is changed could be shown in the
-    ==>{ConfigLinkCall->FileConfig, table.tpl}. template.
+    #{ConfigLinkCall->FileConfig, table.tpl}. template.
     Beforehand this template was rather squeezed:
     <textarea style="height:100px"><table border="1">
 <tr>$[(TemplateCall). sourcePath="0/*" ] <th>$[_parent]</th>$[/]</tr>

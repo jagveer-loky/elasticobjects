@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Methods to get the properties schema from properties map. 
@@ -10,18 +10,18 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
  * @modificationDate Thu Jan 14 12:15:25 CET 2021
  */
 public interface HostInterface extends ConfigInterface {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    String HOST_NAME = "hostName";
    String PASSWORD = "password";
    String PORT = "port";
    String PROTOCOL = "protocol";
    String URL = "url";
    String USER = "user";
-/*=>{}.*/
+/*.{}.*/
    String getUrlCache();
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    default String getHostName(){
       return (String) getProperties().get(HOST_NAME);
    }
@@ -58,7 +58,7 @@ public interface HostInterface extends ConfigInterface {
    default boolean hasUser() {
       return getProperties().containsKey(USER) && getProperties().get(USER) != null;
    }
-/*=>{}.*/
+/*.{}.*/
 
     default String getPasswordReal() {
         return hasProperties()?(String)getProperties().get(PASSWORD):null;

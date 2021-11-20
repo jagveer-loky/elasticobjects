@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.calls.generate.ModelAbstract.MODEL_BEANS_JSON;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Call for generation json configurations from the sheet.
@@ -18,11 +18,11 @@ import static org.fluentcodes.projects.elasticobjects.calls.generate.ModelAbstra
  * @modificationDate Wed Nov 11 07:39:50 CET 2020
  */
 public class ModelBeanMap4SheetCall extends GenerateAbstract implements GenerateAbstractInterface {
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
-/*=>{}.*/
+/*.{javaInstanceVars}|*/
+/*.{}.*/
     public ModelBeanMap4SheetCall() {
         super();
         setTargetFileConfigKey(MODEL_BEANS_JSON);
@@ -58,7 +58,7 @@ public class ModelBeanMap4SheetCall extends GenerateAbstract implements Generate
         return modelMap;
     }
 
-/*=>{javaAccessors}|*/
-/*=>{}.*/
+/*.{javaAccessors}|*/
+/*.{}.*/
 
 }

@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Immutabel EO field configuration will be initalized by internal builder using map values. 
@@ -19,15 +19,15 @@ import java.util.Map;
  * @modificationDate Thu Jan 14 04:26:27 CET 2021
  */
 public class FieldConfig extends ConfigConfig implements FieldInterface {
-/*=>{}.*/
-/*=>{javaInstanceVars}|*/
+/*.{}.*/
+/*.{javaInstanceVars}|*/
    /* fieldKey */
    private final String fieldKey;
    /* Length of a field. */
    private final Integer length;
    /* A string representation for a list of modelsConfig. */
    private final String modelKeys;
-/*=>{}.*/
+/*.{}.*/
     private boolean resolved;
     private final Boolean toSerialize;
     private List<String> modelList;
@@ -153,7 +153,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         return new ArrayList<>(modelList);
     }
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    @Override
    public String getFieldKey() {
       return this.fieldKey;
@@ -169,7 +169,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
       return this.modelKeys;
    }
 
-/*=>{}.*/
+/*.{}.*/
 
     public Models getModels() {
         return models;

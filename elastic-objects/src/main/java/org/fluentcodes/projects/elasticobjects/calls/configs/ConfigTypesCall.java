@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * For getting a list of keys of all loaded configuration types from the cache like ConfigModel.
@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
  * @modificationDate Tue Dec 08 09:38:48 CET 2020
  */
 public class ConfigTypesCall extends CallImpl implements SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
-/*=>{}.*/
+    /*.{javaInstanceVars}|*/
+/*.{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
     private Class<? extends ConfigInterface> configClass;
 
@@ -48,6 +48,6 @@ public class ConfigTypesCall extends CallImpl implements SimpleCommand {
             throw new EoException(e);
         }
     }
-    /*=>{javaAccessors}|*/
-/*=>{}.*/
+    /*.{javaAccessors}|*/
+/*.{}.*/
 }

@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Abstract super class for generating code.
  *
@@ -19,11 +19,11 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
  */
 public abstract class ModelAbstract extends GenerateAbstract implements ModelAbstractInterface {
     public static final String MODEL_BEANS_JSON = "ModelBeans.json";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
     private String packagePath;
-/*=>{}.*/
+/*.{}.*/
 
     public ModelAbstract() {
         super();
@@ -49,7 +49,7 @@ public abstract class ModelAbstract extends GenerateAbstract implements ModelAbs
     }
 
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
 
     public String getPackagePath() {
         return packagePath;
@@ -58,5 +58,5 @@ public abstract class ModelAbstract extends GenerateAbstract implements ModelAbs
     public void setPackagePath(String packagePath) {
         this.packagePath = packagePath;
     }
-    /*=>{}.*/
+    /*.{}.*/
 }

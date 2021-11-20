@@ -1,10 +1,10 @@
 package \
-=>{packagePath}.;
-/* =>{javaHeader}| */ /*=>{}.*/
+.{packagePath}.;
+/* .{javaHeader}| */ /*.{}.*/
 
-/* =>{javaStaticNames}| */ /*=>{}.*/
+/* .{javaStaticNames}| */ /*.{}.*/
 
-/* =>{javaInstanceVars}| */ /*=>{}.*/
+/* .{javaInstanceVars}| */ /*.{}.*/
 
-/* =>{javaAccessors}| */ /*=>{}.*/
+/* .{javaAccessors}| */ /*.{}.*/
 }

@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Abstract call class for model based {@link ModelConfigDbObject} database operations.
  *
@@ -17,15 +17,15 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
  * @modificationDate Wed Nov 11 06:19:26 CET 2020
  */
 public abstract class DbModelCall extends HostCall  {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String MODEL_CONFIG_KEY = "modelConfigKey";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    private  String modelConfigKey;
-/*=>{}.*/
+/*.{}.*/
 
     private ModelConfigDbObject modelConfigDbObject;
     public DbModelCall()  {
@@ -64,7 +64,7 @@ public abstract class DbModelCall extends HostCall  {
         return (DbConfig)getHostConfig();
     }
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
     /**
     The model name for the cache object {{@link link} Config}.
     */
@@ -81,5 +81,5 @@ public abstract class DbModelCall extends HostCall  {
     public boolean hasModelConfigKey () {
         return modelConfigKey!= null && !modelConfigKey.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

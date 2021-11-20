@@ -50,8 +50,8 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
     @Test
     public void template_AnObjectXlsx_tableTpl__execute__xpected() {
         final TemplateCall call = new TemplateCall("START " +
-                "==>{XlsxReadCall->AnObject.xlsx:test, xyz}.\n" +
-                "==>{TemplateResourceCall->table.tpl, xyz}." +
+                "#{XlsxReadCall->AnObject.xlsx:test, xyz}.\n" +
+                "#{TemplateResourceCall->table.tpl, xyz}." +
                 "END");
         EO eo = ProviderConfigMaps.createEo();
         String result = call.execute(eo);

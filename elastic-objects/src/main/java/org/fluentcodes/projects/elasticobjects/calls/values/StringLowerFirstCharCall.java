@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * For setting upper value to EO.
@@ -15,13 +15,13 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @modificationDate Tue Nov 10 14:38:44 CET 2020
  */
 public class StringLowerFirstCharCall extends CallImpl implements SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
-/*=>{}.*/
+    /*.{javaInstanceVars}|*/
+/*.{}.*/
 
     @Override
     public String execute(final EO eo) {
@@ -50,6 +50,6 @@ public class StringLowerFirstCharCall extends CallImpl implements SimpleCommand 
         return item.substring(0, 1).toLowerCase() + item.substring(1);
     }
 
-    /*=>{javaAccessors}|*/
-/*=>{}.*/
+    /*.{javaAccessors}|*/
+/*.{}.*/
 }

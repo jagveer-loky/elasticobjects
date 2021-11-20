@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.files.DirectoryReadCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IORuntimeException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Parses the content loaded by {@link DirectoryReadCall}.
@@ -18,13 +18,13 @@ import org.fluentcodes.tools.io.IORuntimeException;
  * @modificationDate Tue Dec 08 11:35:19 CET 2020
  */
 public class TemplateDirResourceCall extends DirectoryReadCall  {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
-/*=>{}.*/
+    /*.{javaInstanceVars}|*/
+/*.{}.*/
 
     public TemplateDirResourceCall() {
         super();
@@ -78,6 +78,6 @@ public class TemplateDirResourceCall extends DirectoryReadCall  {
         }
     }
 
-    /*=>{javaAccessors}|*/
-/*=>{}.*/
+    /*.{javaAccessors}|*/
+/*.{}.*/
 }

@@ -4,10 +4,10 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Super class for file calls with one configuration key. Extends {@link HostCall}. Provide an init method to resolve {@link FileConfig} and @HostConfig
@@ -17,15 +17,15 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @modificationDate Tue Dec 08 09:45:31 CET 2020
  */
 public abstract class FileCall extends HostCall  {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String FILE_CONFIG_KEY = "fileConfigKey";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String fileConfigKey;
-/*=>{}.*/
+/*.{}.*/
     private FileConfig fileConfig;
 
     public FileCall() {
@@ -46,7 +46,7 @@ public abstract class FileCall extends HostCall  {
         if (!hasFileConfigKey()) {
             throw new EoException("Empty file config key.");
         }
-        fileConfig = eo.getConfigsCache().findFile(ParserSqareBracket.replacePathValues(this.fileConfigKey, eo));
+        fileConfig = eo.getConfigsCache().findFile(Parser.replacePathValues(this.fileConfigKey, eo));
         fileConfig.hasPermissions(permissionType, eo.getRoles());
         if (!hasHostConfigKey()) {
             if (fileConfig.hasHostConfigKey()) {
@@ -67,7 +67,7 @@ public abstract class FileCall extends HostCall  {
     public void setConfigKey(String fileConfigKey) {
         this.fileConfigKey = fileConfigKey;
     }
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Defines the key for a file configuration {@link FileConfig} where to read or write a file.
     */
@@ -84,5 +84,5 @@ public abstract class FileCall extends HostCall  {
     public boolean hasFileConfigKey () {
         return fileConfigKey!= null && !fileConfigKey.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

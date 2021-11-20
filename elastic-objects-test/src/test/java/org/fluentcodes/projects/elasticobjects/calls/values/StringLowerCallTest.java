@@ -57,10 +57,10 @@ public class StringLowerCallTest implements IModelConfigCreateTests {
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
         EO eo = ProviderConfigMaps.createEo();
         final String template = "^" +
-                "===>{" +
+                "@{" +
                 "\"level0\":\"tEsT\"}." +
                 " - \n" +
-                "===>{\"(StringLowerCall).\":{" +
+                "@{\"(StringLowerCall).\":{" +
                 "\"sourcePath\":\"level0\"," +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}." +

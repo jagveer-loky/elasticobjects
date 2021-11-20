@@ -19,15 +19,15 @@
 </form>
 
 <p>
-        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. reads
-        ==>{ConfigLinkCall->FileConfig, AnObject.csv}.. \
+        #{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. reads
+        #{ConfigLinkCall->FileConfig, AnObject.csv}.. \
     It will store a list of maps in \
-    ==>{ConfigLinkCall->FieldConfig, targetPath}. "/data/csv"
+    #{ConfigLinkCall->FieldConfig, targetPath}. "/data/csv"
 </p>
 <p>
-        ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. use
-    ==>{ConfigLinkCall->FieldConfig, sourcePath}. "/data/csv" as input.
-       After rendering with ==>{ConfigLinkCall->FileConfig, table.tpl}. the result
-        is stored under ==>{ConfigLinkCall->FieldConfig, targetPath}. "_asTemplate"</>
+        #{ConfigLinkCall->ModelConfig, TemplateResourceCall}. use
+    #{ConfigLinkCall->FieldConfig, sourcePath}. "/data/csv" as input.
+       After rendering with #{ConfigLinkCall->FileConfig, table.tpl}. the result
+        is stored under #{ConfigLinkCall->FieldConfig, targetPath}. "_asTemplate"</>
 </p>
 

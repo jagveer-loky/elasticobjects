@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Creates an open api schema from model configuration.
  *
@@ -25,21 +25,21 @@ import java.util.Set;
  * @modificationDate Wed Nov 11 05:43:36 CET 2020
  */
 public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String CONFIG_FILTER = "configFilter";
    public static final String EXPOSE = "expose";
    public static final String MODULE = "module";
    public static final String MODULE_SCOPE = "moduleScope";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String configFilter;
    private  Expose expose;
    private  String module;
    private  String moduleScope;
-/*=>{}.*/
+/*.{}.*/
     private SortOrder sortOrder = SortOrder.ASC;
 
     private Set <String> created;
@@ -194,7 +194,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
         }
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Key for filter configuration
     */
@@ -259,6 +259,6 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
     public boolean hasFilterSubModule () {
         return moduleScope != null && !moduleScope.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 
 }

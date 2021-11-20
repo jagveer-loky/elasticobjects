@@ -58,9 +58,9 @@ public class StringUpperFirstCharCallTest implements IModelConfigCreateTests {
     public void call_TemplateCall_level0_test__execute__Test() {
         EO eo = ProviderConfigMaps.createEo();
         final String template = "START" +
-                "===>{\"level0\":\"test\"}." +
+                "@{\"level0\":\"test\"}." +
                 " - \n" +
-                "===>{\"(StringUpperFirstCharCall).\":{" +
+                "@{\"(StringUpperFirstCharCall).\":{" +
                 "\"sourcePath\":\"level0\", " +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}." +

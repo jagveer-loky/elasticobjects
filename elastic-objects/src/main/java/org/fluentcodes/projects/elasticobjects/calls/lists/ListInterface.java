@@ -6,7 +6,8 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.domain.BaseInterface;
 
 import java.util.ArrayList;
@@ -132,7 +133,7 @@ public interface ListInterface {
             return "";
         }
         String targetPath = getTargetPath();
-        boolean isMapped = ParserSqareBracket.containsStartSequence(targetPath);
+        boolean isMapped = TemplateMarker.SQUARE.hasStartSequence(targetPath);
         if (!isMapped) {
             eo.set(filteredResult, targetPath);
         }
