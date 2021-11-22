@@ -3,8 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 

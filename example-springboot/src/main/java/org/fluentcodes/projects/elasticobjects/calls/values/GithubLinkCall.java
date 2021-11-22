@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;

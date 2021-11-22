@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.calls.templates;
+package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
@@ -10,17 +10,13 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.fluentcodes.projects.elasticobjects.calls.templates.Parser.DEFAULT_SEPARATOR;
-
-public class InterpreterAttributes extends InterpreterParams {
+public class AttributeHandler extends HandlerAbstract {
     static final Indicators indicator = Indicators.ATTRIBUTES;
+    static final Pattern ATTRIBUTE_PATTERN = Pattern.compile("([^=^ ]*)=\"([^\"]*)\"");
+
     public Indicators getIndicator() {
         return indicator;
     }
-
-    static final Pattern ATTRIBUTE_PATTERN = Pattern.compile("([^=^ ]*)=\"([^\"]*)\"");
-
-
 
     Call createCallObject() {
         if (getCallDirective() == null) {
@@ -64,7 +60,7 @@ public class InterpreterAttributes extends InterpreterParams {
         final StringBuilder returnResult = new StringBuilder();
         String postPend = "";
         if (call.hasKeepCall()) {
-             returnResult.insert(0, createCallDirective() +
+            returnResult.insert(0, createCallDirective() +
                     call.getKeepEndSequence());
             postPend = call.getKeepStartSequence() +
                     getTemplateMarker().getCloseSequence();

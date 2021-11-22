@@ -13,25 +13,25 @@ import java.util.Map;
  * Some examples are from generated code delivered by a maven artifact from a project last year with gematik
  */
 public class XpectEoTest {
-    private static final ConfigMaps cache = new ConfigMaps(Scope.DEV);
+    private static final ConfigMaps configMaps = new ConfigMaps(Scope.DEV);
     @Test
     public void testHashMap() {
         Map map = new LinkedHashMap<>();
         map.put("1", "test1");
-        new XpectEo(cache).compareAsString(map);
+        XpectEo.assertJunit(map);
     }
 
     @Test
     public void testHashMapAsObject() {
         Map map = new LinkedHashMap<>();
         map.put("1", "test1");
-        new XpectEo(cache).compareAsObject(map);
+        XpectEo.assertEoJunit(map);
     }
 
     @Ignore
     @Test
     public void testForTestClass() {
         ForTestClass forTest  = ForTestClass.of1();
-        new XpectEo(cache).compareAsString(forTest);
+        XpectEo.assertJunit(forTest);
     }
 }

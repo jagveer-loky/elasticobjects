@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
-import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
@@ -36,7 +35,7 @@ public interface IModelConfigTests {
                 .setSerializationType(JSONSerializationType.STANDARD)
                 .toJson(getModelConfig().getConfigMaps(), fieldBean))
                 .isEqualTo(XpectEo
-                        .load(getModelConfig().getConfigMaps(), fieldBean));
+                        .load(fieldBean));
     }
 
 }

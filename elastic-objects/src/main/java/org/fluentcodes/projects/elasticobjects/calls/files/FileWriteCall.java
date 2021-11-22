@@ -7,8 +7,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.tools.io.IOString;
 
 /*.{javaHeader}|*/
@@ -89,7 +89,7 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
     }
 
     public static void write(String targetFile, Object content)  {
-        new IOString().setFileName(targetFile).write((String)content);
+        new IOString(targetFile).write((String)content);
     }
 
     public boolean isCompare() {

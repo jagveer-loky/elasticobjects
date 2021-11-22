@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListInterface;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;

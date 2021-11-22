@@ -4,8 +4,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.Arrays;

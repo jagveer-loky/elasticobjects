@@ -19,7 +19,7 @@ public enum ProviderMapJson {
 
     ProviderMapJson(final String content) {
         if (content.startsWith(PATH_INPUT)) {
-            this.content = new IOString().setFileName(content).read();
+            this.content = new IOString(content).read();
         } else {
             this.content = content;
         }

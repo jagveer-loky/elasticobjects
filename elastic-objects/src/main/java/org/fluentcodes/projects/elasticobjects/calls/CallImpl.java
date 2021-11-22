@@ -4,14 +4,13 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*.{javaHeader}|*/
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 /**
  * 

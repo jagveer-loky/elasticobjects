@@ -23,7 +23,7 @@
     "module": "eo-xlsx",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
-    "filePath": " .[@TMP].",
+    "filePath": " §[TMP].",
     "fileName": "target.xlsx",
     "description": "A sample target xlsx file with tmp placeholder.",
     "expose": "NONE",

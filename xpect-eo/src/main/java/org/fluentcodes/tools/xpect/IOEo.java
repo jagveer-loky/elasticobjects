@@ -9,27 +9,13 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.tools.io.IOObject;
 import org.fluentcodes.tools.io.IORuntimeException;
 
-import java.util.Arrays;
-
-public class IOJsonEo<T> extends IOObject<T> {
-    private ConfigMaps cache;
+public class IOEo<T> extends IOObject<T> {
+    private final ConfigMaps configMaps;
     private JSONSerializationType type;
-    private String fileEnding = "json";
 
-    public IOJsonEo() {
-        super();
-    }
-
-    public IOJsonEo(XpectEo.Builder<T> builder) {
-        super();
-        this.type = builder.type;
-        this.setMappingClasses(Arrays.asList(builder.classes));
-
-    }
-
-    public IOJsonEo(ConfigMaps cache) {
-        super();
-        this.cache = cache;
+    public IOEo(final String fileName, final ConfigMaps configMaps, final Class<?>... classes) {
+        super(fileName, classes);
+        this.configMaps = configMaps;
     }
 
     public JSONSerializationType getType() {
@@ -38,15 +24,6 @@ public class IOJsonEo<T> extends IOObject<T> {
 
     public void setType(JSONSerializationType type) {
         this.type = type;
-    }
-
-    public String getFileEnding() {
-        return fileEnding;
-    }
-
-    public IOJsonEo<T> setFileEnding(final String fileEnding) {
-        this.fileEnding = fileEnding;
-        return this;
     }
 
     @Override
@@ -61,10 +38,7 @@ public class IOJsonEo<T> extends IOObject<T> {
             if (object instanceof EO) {
                 return new EOToJSON().toJson((EO) object);
             }
-            if (cache == null) {
-                cache = new ConfigMaps(Scope.TEST);
-            }
-            EO eo = EoRoot.ofValue(cache, object);
+            EO eo = EoRoot.ofValue(configMaps, object);
             if (type != null) {
                 return new EOToJSON().setSerializationType(type).toJson(eo);
             }
@@ -87,7 +61,7 @@ public class IOJsonEo<T> extends IOObject<T> {
 
     public EO asEo(final String asString) {
         try {
-            return EoRoot.ofValue(cache, getMappingClass()).mapObject(asString);
+            return EoRoot.ofValue(configMaps, getMappingClass()).mapObject(asString);
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }

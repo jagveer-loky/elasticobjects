@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.tools.io.IOClassPathStringList;
 import org.fluentcodes.tools.io.IORuntimeException;
 import org.fluentcodes.tools.io.IOString;
 
@@ -83,9 +84,7 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
      */
     public static final String readConfigFiles(final String fileName) {
         try {
-            List<String> configContentList = new IOString()
-                    .setFileName(fileName)
-                    .readStringList();
+            List<String> configContentList = new IOClassPathStringList(fileName).read();
             if (configContentList.isEmpty()) {
                 LOG.warn("No configuration file '{}' found in the classpath!", fileName);
                 return "";
@@ -107,7 +106,8 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
             return concatenate.toString();
         }
         catch (IORuntimeException e) {
-            throw new EoInternalException("No configuration file '" + fileName + "' found in the classpath!", e);
+            LOG.info("No configuration file '{}' found in the classpath!", fileName);
+            return "{}";
         }
     }
 

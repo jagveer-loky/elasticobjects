@@ -1,12 +1,12 @@
-package org.fluentcodes.projects.elasticobjects.calls.templates;
+package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.models.FieldBean;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.FieldFactory;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigNoCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;

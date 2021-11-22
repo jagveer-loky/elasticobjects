@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.calls.templates;
+package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InterpreterJson extends InterpreterParams {
+public class JsonHandler extends HandlerAbstract {
 
     static final Indicators indicator = Indicators.JSON;
 

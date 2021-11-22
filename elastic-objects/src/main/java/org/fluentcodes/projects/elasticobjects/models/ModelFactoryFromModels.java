@@ -2,7 +2,10 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
+import org.fluentcodes.tools.io.IOClassPathStringList;
+import org.fluentcodes.tools.io.IORuntimeException;
 
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -33,17 +36,20 @@ public class ModelFactoryFromModels extends ModelFactory {
 
     protected final void addModelsFromJsonList(final Map<String, ModelBean> beanMap)  {
         try {
-            String modelListString = readConfigFiles(MODELS_JSON);
-            if (modelListString == null || modelListString.isEmpty()) {
+            List<String> modelsList = new IOClassPathStringList(MODELS_JSON).read();
+            if (modelsList.isEmpty()) {
                 return;
             }
-            String[] modelClasses = modelListString.split("\n");
-            for (String modelClass : modelClasses) {
-                addModelForClasses(beanMap, modelClass);
+            for (String modelList: modelsList) {
+                String[] modelClasses = modelList.split("\n");
+                for (String modelClass : modelClasses) {
+                    addModelForClasses(beanMap, modelClass);
+                }
             }
         }
-        catch (EoInternalException e) {
+        catch (IORuntimeException e) {
             LOG.info(e.getMessage());
+            return;
         }
     }
 

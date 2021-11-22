@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 
 /*.{javaHeader}|*/
 
@@ -9,17 +10,17 @@ import org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteCall;
  * Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 11:39:40 CET 2020
  */
-public class TemplateResourceStoreCall extends FileReadWriteCall  {
-/*.{}.*/
+public class TemplateResourceStoreCall extends FileReadWriteCall {
+    /*.{}.*/
 
     /*.{javaStaticNames}|*/
-/*.{}.*/
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-/*.{}.*/
+    /*.{}.*/
 
     public TemplateResourceStoreCall() {
         super();
@@ -31,7 +32,7 @@ public class TemplateResourceStoreCall extends FileReadWriteCall  {
     }
 
 
-    public String execute(EO eo)  {
+    public String execute(EO eo) {
         String template = readSourceOrTarget(eo);
         if (!TemplateMarker.CURLY.hasStartSequence(template)) {
             return "Nothing to do no template parts.";
@@ -47,12 +48,11 @@ public class TemplateResourceStoreCall extends FileReadWriteCall  {
         }
         try {
             return readTarget(eo);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return readSource(eo);
         }
     }
 
     /*.{javaAccessors}|*/
-/*.{}.*/
+    /*.{}.*/
 }

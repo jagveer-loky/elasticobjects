@@ -20,7 +20,7 @@ public enum ProviderJsonCalls {
         if (content.startsWith(PATH_INPUT)) {
             try {
                 this.fileName = content;
-                this.content = new IOString().setFileName(content).read();
+                this.content = new IOString(content).read();
             } catch (Exception e) {
                 System.out.println("Could not load file " + content);
                 throw new EoException(e);

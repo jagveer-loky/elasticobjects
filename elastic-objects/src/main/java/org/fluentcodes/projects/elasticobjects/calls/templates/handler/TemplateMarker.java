@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects.calls.templates;
+package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import java.util.regex.Pattern;
 
@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
  * Defines some patterns which will be used by the {@link Parser}.
  */
 public enum TemplateMarker {
-    CURLY("{","}"),
+    CURLY("{", "}"),
     SQUARE("[", "]");
     private final String start;
     private final String stop;
@@ -19,15 +19,17 @@ public enum TemplateMarker {
     TemplateMarker(String start, String stop) {
         this.start = start;
         this.stop = stop;
-        this.startPattern = Pattern.compile("([@\\.#&])\\" + start, Pattern.DOTALL);
-        this.varPattern = Pattern.compile("[\t ]*([@\\.#&])\\" + start + "(.*?)(\\" + stop + "[\\.\\|])", Pattern.DOTALL);
+        this.startPattern = Pattern.compile("([" + Indicators.PATTERN + "])\\" + start, Pattern.DOTALL);
+        this.varPattern = Pattern.compile("[\t ]*([" + Indicators.PATTERN + "])\\" + start + "(.*?)(\\" + stop + "[\\.\\|])", Pattern.DOTALL);
         this.endSequence = stop + ".";
         this.continueSequence = stop + "|";
         this.closeSequence = "." + start + stop + ".";
     }
+
     String getStart() {
         return start;
     }
+
     String getStop() {
         return stop;
     }
@@ -53,6 +55,7 @@ public enum TemplateMarker {
 
     /**
      * Check if to string contains a start sequence.
+     *
      * @param toParse
      * @return
      */

@@ -34,7 +34,7 @@ public enum ProviderListJson {
     ProviderListJson(final String content) {
         if (content.startsWith(PATH_INPUT)) {
             this.fileName = content;
-            this.content = new IOString().setFileName(content).read();
+            this.content = new IOString(content).read();
         } else {
             this.content = content;
         }

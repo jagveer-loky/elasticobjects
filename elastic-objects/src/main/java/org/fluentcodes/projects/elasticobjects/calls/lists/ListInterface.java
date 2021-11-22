@@ -5,9 +5,8 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.domain.BaseInterface;
 
 import java.util.ArrayList;

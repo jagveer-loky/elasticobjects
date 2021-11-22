@@ -1,8 +1,10 @@
-package org.fluentcodes.projects.elasticobjects.calls.templates;
+package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.AttributeHandler;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.junit.Test;
 
@@ -10,11 +12,11 @@ import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderC
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class InterpreterAttributesTest {
+public class AttributeHandlerTest {
     @Test
     public void callCallDirectiveNullThrowsEoException() {
         Assertions.assertThatThrownBy(()->{
-            new InterpreterAttributes()
+            new AttributeHandler()
                     .setEo(createEo())
                     .call();
         }
@@ -24,7 +26,7 @@ public class InterpreterAttributesTest {
     @Test
     public void callNoEoReturnDefault() {
         String returnValue =
-                (String) new InterpreterAttributes()
+                (String) new AttributeHandler()
                             .setDefaultValue("default")
                             .call();
         assertEquals("default", returnValue);
@@ -33,7 +35,7 @@ public class InterpreterAttributesTest {
     @Test
     public void callCallDirectiveEmptyThrowsEoException() {
         Assertions.assertThatThrownBy(()->{
-            new InterpreterAttributes()
+            new AttributeHandler()
                     .setCallDirective("")
                     .setEo(createEo())
                     .call();
@@ -45,7 +47,7 @@ public class InterpreterAttributesTest {
     public void callFileReadCall() {
         EO eo = createEo();
         final String directive = FileReadCall.class.getSimpleName() + " targetPath=\"test\" fileConfigKey=\"ContentExample\" ";
-        Object result = new InterpreterAttributes()
+        Object result = new AttributeHandler()
                 .setTemplateMarker(TemplateMarker.CURLY)
                 .setCallDirective(directive)
                 .setEo(eo)

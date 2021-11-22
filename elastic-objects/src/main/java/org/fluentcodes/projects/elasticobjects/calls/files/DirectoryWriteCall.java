@@ -2,8 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IOString;
 /*.{javaHeader}|*/
@@ -57,7 +57,7 @@ public class DirectoryWriteCall extends FileWriteCall  {
         if (TemplateMarker.SQUARE.hasStartSequence(url)) {
             url = new Parser(TemplateMarker.SQUARE, url).parse(eo);
         }
-        new IOString().setFileName(url).write(getContent());
+        new IOString(url).write(getContent());
         return "Written content with  length " + getContent().length() + " to file '" + url + "'" ;
     }
 

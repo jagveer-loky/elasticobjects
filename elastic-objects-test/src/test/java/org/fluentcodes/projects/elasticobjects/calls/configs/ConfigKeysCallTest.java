@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.tools.xpect.XpectEo;

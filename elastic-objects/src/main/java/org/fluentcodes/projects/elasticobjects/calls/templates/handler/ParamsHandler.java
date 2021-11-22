@@ -1,14 +1,14 @@
-package org.fluentcodes.projects.elasticobjects.calls.templates;
+package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
-import static org.fluentcodes.projects.elasticobjects.calls.templates.Parser.DEFAULT_SEPARATOR;
-
-public class InterpreterValues extends InterpreterParams {
+public class ParamsHandler extends HandlerAbstract {
     static final Indicators indicator = Indicators.VALUES;
+
     public Indicators getIndicator() {
         return indicator;
     }
@@ -34,7 +34,7 @@ public class InterpreterValues extends InterpreterParams {
         StringBuilder returnResult = new StringBuilder();
         String postPend = "";
         if (call.hasKeepCall()) {
-             returnResult.insert(0, createCallDirective() +
+            returnResult.insert(0, createCallDirective() +
                     call.getKeepEndSequence());
             postPend = call.getKeepStartSequence() +
                     getTemplateMarker().getCloseSequence();

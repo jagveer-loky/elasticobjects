@@ -8,7 +8,7 @@
  * @author Werner Diwischek
  * @version 0.1
  */
-package org.fluentcodes.projects.elasticobjects.calls.templates;
+package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -17,16 +17,17 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.fluentcodes.projects.elasticobjects.calls.templates.handler.HandlerAbstract.DEFAULT_SEPARATOR;
+
 /**
  * Central parser using {@link TemplateMarker}.
  */
 public class Parser {
+    private static final Pattern NEW_LINE_REMOVE = Pattern.compile("\\\\\n$", Pattern.DOTALL);
     private final TemplateMarker templateMarker;
-    static final String DEFAULT_SEPARATOR = "|>";
     private final String template;
     private Matcher match;
     private int end;
-    private static final Pattern NEW_LINE_REMOVE = Pattern.compile("\\\\\n$", Pattern.DOTALL);
 
     /**
      * Constructor with the template as input. Will use default {@link TemplateMarker}.CURLY value.
@@ -66,6 +67,15 @@ public class Parser {
             return new Parser(TemplateMarker.SQUARE, template).parse(eo);
         }
         return template;
+    }
+
+    public static String replaceEnv(final String key, final String defaultValue) {
+        if (System.getenv(key) != null) {
+            return System.getenv(key);
+        }
+        return defaultValue == null || defaultValue.isEmpty() ?
+                "Could not find env variable with key '" + key + "'" :
+                defaultValue;
     }
 
     public String getTemplate() {
@@ -108,8 +118,8 @@ public class Parser {
             String callIndicator = match.group(1);
             String callSequence = match.group(2);
             String finish = match.group(3);
-                Indicators indicator = Indicators.find(callIndicator);
-                handle(eo, callSequence, indicator, finish, result);
+            Indicators indicator = Indicators.find(callIndicator);
+            handle(eo, callSequence, indicator, finish, result);
         }
         result.append(parseString.substring(end, parseString.length()));
         return result.toString();
@@ -122,11 +132,17 @@ public class Parser {
         try {
             switch (callIndicator) {
                 case VALUE:
-                    result.append(InterpreterValue.replace(eo, callSequence));
+                    result.append(EoValueHandler.call(eo, callSequence));
+                    break;
+                case ENV:
+                    result.append(replaceEnv(callSequence, defaultValue));
+                    break;
+                case SYSTEM:
+                    result.append(SystemValueHandler.call(callSequence, defaultValue));
                     break;
                 case VALUES:
                     result.append(
-                            new InterpreterValues()
+                            new ParamsHandler()
                                     .setTemplateMarker(templateMarker)
                                     .setEo(eo)
                                     .setCallDirective(callSequence)
@@ -137,7 +153,7 @@ public class Parser {
                     break;
                 case JSON:
                     result.append(
-                            new InterpreterJson()
+                            new JsonHandler()
                                     .setTemplateMarker(templateMarker)
                                     .setEo(eo)
                                     .setCallDirective(callSequence)
@@ -148,7 +164,7 @@ public class Parser {
                     break;
                 case ATTRIBUTES:
                     result.append(
-                            new InterpreterAttributes()
+                            new AttributeHandler()
                                     .setTemplateMarker(templateMarker)
                                     .setEo(eo)
                                     .setCallDirective(callSequence)

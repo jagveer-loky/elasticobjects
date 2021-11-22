@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IOString;
 
@@ -66,7 +66,7 @@ public class DirectoryReadCall extends FileReadCall {
         }
 
         final String filePath = Parser.replacePathValues(config.getFilePath() + "/" + replaceFileName, eo);
-        final String content = new IOString().setFileName(filePath).read();
+        final String content = new IOString(filePath).read();
         if (config.getCached()) {
             config.setCachedContent(fileName, content);
         }

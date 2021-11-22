@@ -10,8 +10,8 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.tools.io.IOString;
-import org.fluentcodes.tools.xpect.IOJsonGson;
-import org.fluentcodes.tools.xpect.IOJsonJackson;
+import org.fluentcodes.tools.xpect.IOGson;
+import org.fluentcodes.tools.xpect.IOJackson;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -49,8 +49,7 @@ public class EOPerformance {
         result.append(runPerformanceStep("Small", SMALL_JSON, SMALL, AnObject.class));
         result.append(runPerformanceStep("All", ALL_JSON, ALL, AnObject.class));
         System.out.println(result);
-        new IOString()
-                .setFileName("src/test/resources/performance-" + new Date().toString() + ".info")
+        new IOString("src/test/resources/performance-" + new Date().toString() + ".info")
                 .write(result.toString());
     }
 
@@ -149,7 +148,8 @@ public class EOPerformance {
     private long createIOJsonJackson(String json) {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            AnObject anObject = (AnObject) new IOJsonJackson<AnObject>().setMappingClass(AnObject.class).asObject(json);
+            AnObject anObject = (AnObject) new IOJackson<AnObject>("", AnObject.class)
+                    .asObject(json);
         }
         return System.currentTimeMillis() - start;
     }
@@ -181,8 +181,7 @@ public class EOPerformance {
     private long createIOJsonGson(String json) {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            AnObject anObject = (AnObject) new IOJsonGson<AnObject>()
-                    .setMappingClass(AnObject.class)
+            AnObject anObject = (AnObject) new IOGson<AnObject>("", AnObject.class)
                     .asObject(json);
         }
         return System.currentTimeMillis() - start;

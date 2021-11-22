@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.Path;
 /*.{javaHeader}|*/
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 
 /**
  * Basic interface for calls 

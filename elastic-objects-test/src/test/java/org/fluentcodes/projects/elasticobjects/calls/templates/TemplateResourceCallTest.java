@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;

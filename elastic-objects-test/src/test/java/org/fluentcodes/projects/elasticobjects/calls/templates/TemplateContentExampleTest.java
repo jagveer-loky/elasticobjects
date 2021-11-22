@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
