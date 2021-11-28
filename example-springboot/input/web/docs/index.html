@@ -74,8 +74,8 @@ location.</p>
     <textarea name="template" style="height:100px">
 Start
 
-==&gt;{CsvSimpleReadCall->AnObject.csv, data/csv}.
-==&gt;{TemplateResourceCall->table.tpl, data/csv}.
+@{CsvSimpleReadCall->AnObject.csv, data/csv}.
+@{TemplateResourceCall->table.tpl, data/csv}.
 End
     </textarea>
     <input type="submit" value="post"/>
@@ -86,7 +86,7 @@ End
     <textarea name="template" style="height:210px">
 Start
 
-===&gt;{
+=@{
     "data": {
         "(CsvSimpleReadCall)csv":{
              "fileConfigKey"="AnObject.csv"

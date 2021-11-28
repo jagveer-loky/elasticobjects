@@ -63,7 +63,7 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
                         "viewParams",
                         "author");
         String result = call.execute(eo);
-            new XpectString().compareAsString(result);
+           XpectString.assertJunit(result);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
                         "viewFieldParams",
                         "author");
         String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+       XpectString.assertJunit(result);
     }
 
     @Test
@@ -108,7 +108,7 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
                         "rolePermissions",
                         "author");
         String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+       XpectString.assertJunit(result);
     }
 
     @Test
@@ -136,7 +136,7 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
                         "author"
                 );
         String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+       XpectString.assertJunit(result);
     }
 
     @Test
@@ -162,6 +162,6 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
                 );
 
         String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+       XpectString.assertJunit(result);
     }
 }

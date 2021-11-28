@@ -39,7 +39,7 @@ public class EoMapObjectTest {
         eo.mapObject("{\"" + PathElement.ROOT_MODEL + "\":\"List,Double\", \"0\":1,\"1\":2}");
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(Double.class);
-        new XpectEo<>().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     @Test
@@ -312,7 +312,7 @@ public class EoMapObjectTest {
         eo.mapObject("{\"(List,Double)key\":{\"0\":1,\"1\":2}}");
         Assertions.assertThat(eo.getEo("key").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get("key/1")).isEqualTo(2.0);
-        new XpectEo<>().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     /**

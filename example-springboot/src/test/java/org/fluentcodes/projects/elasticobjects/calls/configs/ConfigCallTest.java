@@ -21,7 +21,7 @@ public class ConfigCallTest {
         eo.addCall(new TemplateResourceCall("ConfigsPage.html"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectString().compareAsString((String)eo.get("_template"));
+       XpectString.assertJunit((String)eo.get("_template"));
     }
 
 }

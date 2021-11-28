@@ -6,9 +6,8 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.tools.io.IOClassPathStringList;
+import org.fluentcodes.tools.io.IOClasspathStringList;
 import org.fluentcodes.tools.io.IORuntimeException;
-import org.fluentcodes.tools.io.IOString;
 
 import java.util.List;
 import java.util.Map;
@@ -37,18 +36,19 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
         return configMaps;
     }
 
-    public  Map<String, ConfigInterface> createImmutableConfig(){
+    public Map<String, ConfigInterface> createImmutableConfig() {
         return new UnmodifiableMap<>(createConfigMap());
     }
 
     /**
      * Default init map.
+     *
      * @return the expanded final configurations.
      */
     public Map<String, T> createBeanMap() {
         EO eoRoot = EoRoot.ofClass(configMaps, readConfigFiles(), Map.class, beanClass);
-        Map<String,T> beanMap = (Map<String, T>)eoRoot.get();
-        for (Map.Entry<String, T> entry: beanMap.entrySet()) {
+        Map<String, T> beanMap = (Map<String, T>) eoRoot.get();
+        for (Map.Entry<String, T> entry : beanMap.entrySet()) {
             entry.getValue().setNaturalId(entry.getKey());
         }
         return beanMap;
@@ -58,13 +58,13 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
         Map<String, T> beanMap = createBeanMap();
         Map<String, U> configMap = new TreeMap<>();
         try {
-            for (Map.Entry<String, T> entry: beanMap.entrySet()) {
+            for (Map.Entry<String, T> entry : beanMap.entrySet()) {
                 Optional<String> filterScope = getScope().filter(entry.getKey());
                 if (!filterScope.isPresent()) {
                     continue;
                 }
                 final String key = filterScope.get();
-                U config = (U)entry.getValue().createConfig(configMaps);
+                U config = (U) entry.getValue().createConfig(configMaps);
                 configMap.put(entry.getKey(), config);
             }
         } catch (Exception e) {
@@ -73,18 +73,19 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
         return configMap;
     }
 
-    public  String readConfigFiles() {
+    public String readConfigFiles() {
         return readConfigFiles(configClass.getSimpleName() + ".json");
     }
 
     /**
      * Read all files in the classpath and concatenate them so its a valid json file.
+     *
      * @param fileName A file name for JSON configurations.
      * @return the concatenated file content.
      */
     public static final String readConfigFiles(final String fileName) {
         try {
-            List<String> configContentList = new IOClassPathStringList(fileName).read();
+            List<String> configContentList = new IOClasspathStringList(fileName).read();
             if (configContentList.isEmpty()) {
                 LOG.warn("No configuration file '{}' found in the classpath!", fileName);
                 return "";
@@ -95,17 +96,16 @@ public abstract class ConfigFactory<T extends ConfigBean, U extends ConfigInterf
             }
             StringBuilder concatenate = new StringBuilder();
             concatenate.append(configContentList.get(0)
-                    .replaceAll("\\}$",","));
-            for (int i = 1; i<configContentList.size()-1; i++) {
+                    .replaceAll("\\}$", ","));
+            for (int i = 1; i < configContentList.size() - 1; i++) {
                 concatenate.append(configContentList.get(i)
-                        .replaceAll("\\}$",",")
-                        .replaceAll("^\\{",""));
+                        .replaceAll("\\}$", ",")
+                        .replaceAll("^\\{", ""));
             }
-            concatenate.append(configContentList.get(configContentList.size()-1)
-                    .replaceAll("^\\{",""));
+            concatenate.append(configContentList.get(configContentList.size() - 1)
+                    .replaceAll("^\\{", ""));
             return concatenate.toString();
-        }
-        catch (IORuntimeException e) {
+        } catch (IORuntimeException e) {
             LOG.info("No configuration file '{}' found in the classpath!", fileName);
             return "{}";
         }

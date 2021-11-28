@@ -33,7 +33,7 @@ public class SpringWebIT {
         String url = "http://localhost:" + port + "/eo";
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
-        new XpectString().compareAsString(body);
+       XpectString.assertJunit(body);
     }
 
     @Test
@@ -117,7 +117,7 @@ public class SpringWebIT {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();
-        new XpectString().compareAsString(parsedContent);
+       XpectString.assertJunit(parsedContent);
     }
     // TODO so why in mvn does not work
     @Ignore
@@ -127,7 +127,7 @@ public class SpringWebIT {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();
-        new XpectString().compareAsString(parsedContent);
+       XpectString.assertJunit(parsedContent);
     }
     // TODO so why in mvn does not work
     @Ignore
@@ -137,7 +137,7 @@ public class SpringWebIT {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();
-        new XpectString().compareAsString(parsedContent);
+       XpectString.assertJunit(parsedContent);
     }
 
 

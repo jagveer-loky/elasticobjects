@@ -5,8 +5,8 @@
 
 </p>
 <ul>
-    <li><b>===&gt;{JSON_CONTENT}.</b>: Any combination of json.</li>
-    <li><b>==&gt;{CALL->VAR1, VAR2, .. VARN}.</b>: Will generate one call and execute it. The paramerters are dependent of the type of call</li>
+    <li><b>=@{JSON_CONTENT}.</b>: Any combination of json.</li>
+    <li><b>@{CALL->VAR1, VAR2, .. VARN}.</b>: Will generate one call and execute it. The paramerters are dependent of the type of call</li>
     <li><b>=&gt{PATH}</b>: The variable of the path will included.</li>
 </ul>
 <h5>A Combined Template</h5>
@@ -20,16 +20,16 @@ The following example sends directly a template string to the "eo-template" endp
 <h1>An Example Template</h1>
 
 <h2>CSV</h2>
-==&gt;{CsvSimpleReadCall->AnObject.csv, data/csv}.
-==&gt;{TemplateResourceCall->table.tpl, data/csv}.
+@{CsvSimpleReadCall->AnObject.csv, data/csv}.
+@{TemplateResourceCall->table.tpl, data/csv}.
 
 <h2>Excel</h2>
-==&gt;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
-==&gt;{TemplateResourceCall->table.tpl, data/xlsx}.
+@{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+@{TemplateResourceCall->table.tpl, data/xlsx}.
 
 <h2>DB</h2>
-==&gt;{DbSqlReadCall->h2:mem:basic:AnObject, data/db}.
-==&gt;{TemplateResourceCall->table.tpl, data/db}.
+@{DbSqlReadCall->h2:mem:basic:AnObject, data/db}.
+@{TemplateResourceCall->table.tpl, data/db}.
 </textarea>
     <input type="submit" value="post"/>
 </form>
@@ -45,7 +45,7 @@ The following example sends directly a template string to the "eo-template" endp
             <textarea name="eo" style="height:210px">{
    "selectedItem": "TemplateCall.html",
    "(TemplateCall)call": {
-      "content":"A simple call accessing '=&gt;{selectedItem}.' "
+      "content":"A simple call accessing '#{selectedItem}.' "
    },
    "asTemplate":true
 }</textarea>
@@ -63,7 +63,7 @@ The following example sends directly a template string to the "eo-template" endp
    "selectedItem": "TemplateCall.html",
    "(TemplateCall)call": {
 
-      "content":"Content of public.txt: ' ==&gt;{FileReadCall->public.txt, public}. '  -- Content of secret.txt: ' ==&gt;{FileReadCall->secret.txt, secret}. ' "
+      "content":"Content of public.txt: ' @{FileReadCall->public.txt, public}. '  -- Content of secret.txt: ' @{FileReadCall->secret.txt, secret}. ' "
    }
 }</textarea>
     <input type="submit" value="post"/>

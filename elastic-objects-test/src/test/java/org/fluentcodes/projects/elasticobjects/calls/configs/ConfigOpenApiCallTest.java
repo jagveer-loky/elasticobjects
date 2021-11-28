@@ -43,7 +43,7 @@ public class ConfigOpenApiCallTest implements IModelConfigCreateTests {
         final EO eo = ProviderConfigMaps.createEo();
         final ConfigOpenApiCall call = new ConfigOpenApiCall(ConfigCall.class.getSimpleName());
         Map result = (Map) call.execute(eo);
-        new XpectEo().compareAsString(result);
+        XpectEo.assertJunit(result);
     }
 
     @Test
@@ -54,6 +54,6 @@ public class ConfigOpenApiCallTest implements IModelConfigCreateTests {
         eo.addCall(call);
         eo.execute();
         Object resultValue = eo.get("result");
-        new XpectEo<>().compareAsString(resultValue);
+        XpectEo.assertJunit(resultValue);
     }
 }

@@ -1,17 +1,19 @@
-package org.fluentcodes.tools.xpect;
+package org.fluentcodes.tools.io;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.models.Scope;
-import org.fluentcodes.tools.io.IOObject;
-import org.fluentcodes.tools.io.IORuntimeException;
 
-public class IOEo<T> extends IOObject<T> {
+public class IOEo<T> extends IOMappingObject<T> {
     private final ConfigMaps configMaps;
     private JSONSerializationType type;
+
+    public IOEo(final ConfigMaps configMaps, final Class<?>... classes) {
+        super(classes);
+        this.configMaps = configMaps;
+    }
 
     public IOEo(final String fileName, final ConfigMaps configMaps, final Class<?>... classes) {
         super(fileName, classes);

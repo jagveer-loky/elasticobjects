@@ -15,7 +15,7 @@ public enum TestProviderTemplateContent {
     TestProviderTemplateContent(final String content) {
         if (content.startsWith(PATH_INPUT)) {
             this.fileName = content;
-            this.content = new IOString().setFileName(content).read();
+            this.content = new IOString(content).read();
         } else {
             this.content = content;
         }

@@ -23,18 +23,18 @@
 </p>
 
 <p>
-    To emphasize the directive type I put a [=][=]=> before. Every space and tab
+    To emphasize the directives type I put a @ before. Every space and tab
     before this pattern and after a new line will be ignored. This makes
    the template more readable.
 </p>
 <p>
     A path value now will be set by
-    <textarea>=&gt;{path}.</textarea>
+    <textarea>#{path}.</textarea>
 </p>
 <p>
     A JSON part will be embedded by
-    <textarea>===&gt;{JSON}.</textarea> or
-    <textarea>===&gt;{JSON}|content=&gt;{}.</textarea>
+    <textarea>=@{JSON}.</textarea> or
+    <textarea>=@{JSON}|content#{}.</textarea>
     The content could be set for calls implementing
     #{GithubLinkCall->ModelConfig, CallContent}.
 </p>
@@ -46,9 +46,9 @@
 
 <p>
     As a short version of the JSON with one call there is the possibility to use the pattern
-    <textarea>==&gt;{Call->value1, value2, ..., valueN}.</textarea>
+    <textarea>@{Call->value1, value2, ..., valueN}.</textarea>
     and
-    <textarea>==&gt;{Call->value1, value2, ..., valueN}| ..content..=&gt;{}.</textarea>
+    <textarea>@{Call->value1, value2, ..., valueN}| ..content..#{}.</textarea>
     for calls with content.
 </p>
 <p>
@@ -56,7 +56,7 @@
     the often used
 
     #{ConfigLinkCall->ModelConfig, ConfigLinkCall}. :
-    <textarea>==&gt;{ConfigLinkCall->ModelConfig, ConfigLinkCall}.</textarea>
+    <textarea>@{ConfigLinkCall->ModelConfig, ConfigLinkCall}.</textarea>
 </p>
 <p>
     How the readability is changed could be shown in the

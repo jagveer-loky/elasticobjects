@@ -75,7 +75,7 @@ public class TemplateCallTest implements IModelConfigCreateTests {
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(result).isEqualTo("START - test - END");
-        new XpectEo().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     @Ignore("problem with maven")
@@ -97,8 +97,8 @@ public class TemplateCallTest implements IModelConfigCreateTests {
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectString().compareAsString(result);
-        new XpectEo().compareAsString(eo);
+        XpectString.assertJunit(result);
+        XpectEo.assertJunit(eo);
     }
 
     @Ignore("problem with maven")
@@ -110,7 +110,7 @@ public class TemplateCallTest implements IModelConfigCreateTests {
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectString().compareAsString(result);
-        new XpectEo().compareAsString(eo);
+        XpectString.assertJunit(result);
+        XpectEo.assertJunit(eo);
     }
 }

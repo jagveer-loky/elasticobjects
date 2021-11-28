@@ -83,7 +83,7 @@ public class DbSqlReadCallGuiTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo("xyz").size()).isEqualTo(3);
-        new XpectString().compareAsString((String) eo.get(PathElement.TEMPLATE));
+       XpectString.assertJunit((String) eo.get(PathElement.TEMPLATE));
     }
 
     @Test
@@ -96,7 +96,7 @@ public class DbSqlReadCallGuiTest {
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        new XpectString().compareAsString(result);
+       XpectString.assertJunit(result);
     }
 
 }

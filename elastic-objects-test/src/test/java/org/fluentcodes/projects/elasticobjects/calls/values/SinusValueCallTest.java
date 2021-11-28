@@ -95,7 +95,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         eo.execute();
         Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
         Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
-        new XpectEo<>().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     @Test
@@ -151,7 +151,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         eo.addCall(call);
         eo.execute();
         eo.setSerializationType(JSONSerializationType.STANDARD);
-        new XpectEo().compareAsString(eo.getRoot());
+        XpectEo.assertEoJunit(eo.getRoot());
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.setSerializationType(JSONSerializationType.EO);
         final String asString = new EOToJSON()

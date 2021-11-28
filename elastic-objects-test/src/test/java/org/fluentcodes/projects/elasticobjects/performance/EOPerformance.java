@@ -10,8 +10,8 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.tools.io.IOString;
-import org.fluentcodes.tools.xpect.IOGson;
-import org.fluentcodes.tools.xpect.IOJackson;
+import org.fluentcodes.tools.io.IOGson;
+import org.fluentcodes.tools.io.IOJackson;
 import org.junit.Ignore;
 import org.junit.Test;
 

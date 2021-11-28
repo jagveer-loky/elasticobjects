@@ -28,7 +28,7 @@ public class ConfigKeysCallTest {
         final String targetPath = "configurationList";
         new Parser("#{ConfigKeysCall->ModelConfig, ConfigKeysCall, WEB, " + targetPath + "}.")
                 .parse(eo);
-        new XpectEo<>().compareAsString(eo.get(targetPath));
+        XpectEo.assertJunit(eo.get(targetPath));
     }
 
     @Test

@@ -1,8 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.tools.io.IOClassPathStringList;
+import org.fluentcodes.tools.io.IOClasspathStringList;
 import org.fluentcodes.tools.io.IORuntimeException;
 
 import java.util.List;
@@ -15,12 +14,14 @@ import java.util.TreeMap;
 
 public class ModelFactoryFromModels extends ModelFactory {
     private static final String MODELS_JSON = "Models.json";
+
     public ModelFactoryFromModels(final ConfigMaps configMaps) {
         super(configMaps);
     }
 
     /**
      * Default init map.
+     *
      * @return the expanded final configurations.
      */
     @Override
@@ -34,26 +35,25 @@ public class ModelFactoryFromModels extends ModelFactory {
         return beanMap;
     }
 
-    protected final void addModelsFromJsonList(final Map<String, ModelBean> beanMap)  {
+    protected final void addModelsFromJsonList(final Map<String, ModelBean> beanMap) {
         try {
-            List<String> modelsList = new IOClassPathStringList(MODELS_JSON).read();
+            List<String> modelsList = new IOClasspathStringList(MODELS_JSON).read();
             if (modelsList.isEmpty()) {
                 return;
             }
-            for (String modelList: modelsList) {
+            for (String modelList : modelsList) {
                 String[] modelClasses = modelList.split("\n");
                 for (String modelClass : modelClasses) {
                     addModelForClasses(beanMap, modelClass);
                 }
             }
-        }
-        catch (IORuntimeException e) {
+        } catch (IORuntimeException e) {
             LOG.info(e.getMessage());
             return;
         }
     }
 
-    private  void addModelForClasses(Map<String, ModelBean> beanMap,String modelClass) {
+    private void addModelForClasses(Map<String, ModelBean> beanMap, String modelClass) {
         try {
             addModelForClasses(beanMap, Class.forName(modelClass));
         } catch (Exception e) {
@@ -67,8 +67,8 @@ public class ModelFactoryFromModels extends ModelFactory {
             LOG.info("Already defined '{}'", modelClass.getSimpleName());
             return;
         }
-        for (FieldBean fieldBean: modelBean.getFieldBeans().values()) {
-            String typeKey = ((FieldBeanForClasses)fieldBean).getTypeKey();
+        for (FieldBean fieldBean : modelBean.getFieldBeans().values()) {
+            String typeKey = ((FieldBeanForClasses) fieldBean).getTypeKey();
             if (!beanMap.containsKey(typeKey)) {
                 addModelForClasses(beanMap, ((FieldBeanForClasses) fieldBean).getTypeClass().getTypeName());
             }

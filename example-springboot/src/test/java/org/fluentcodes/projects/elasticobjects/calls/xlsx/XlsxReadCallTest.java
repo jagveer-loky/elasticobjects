@@ -57,6 +57,6 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        new XpectString().compareAsString(result);
+        XpectString.assertJunit(result);
     }
 }

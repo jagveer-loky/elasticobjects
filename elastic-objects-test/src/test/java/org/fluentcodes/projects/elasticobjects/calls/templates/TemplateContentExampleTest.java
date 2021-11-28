@@ -38,7 +38,7 @@ public class TemplateContentExampleTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.setSerializationType(JSONSerializationType.STANDARD);
-        new XpectEo().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class TemplateContentExampleTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         eo.setSerializationType(JSONSerializationType.STANDARD);
-        new XpectEo().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class TemplateContentExampleTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("_template")).isNotEmpty();
-        new XpectString().compareAsString((String) eo.get("_template"));
+        XpectString.assertJunit((String) eo.get("_template"));
     }
 
     @Ignore
@@ -87,7 +87,7 @@ public class TemplateContentExampleTest {
 
         final TemplateResourceCall call = new TemplateResourceCall(STATIC_TPL);
         final String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+        XpectString.assertJunit(result);
     }
 
     @Ignore("problem with maven")
@@ -97,7 +97,7 @@ public class TemplateContentExampleTest {
 
         final TemplateResourceCall call = new TemplateResourceCall(STATIC_KEEP_TPL);
         final String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+        XpectString.assertJunit(result);
     }
 
     @Test
@@ -106,7 +106,7 @@ public class TemplateContentExampleTest {
 
         final TemplateResourceCall call = new TemplateResourceCall(STATIC_CONDITION_TPL);
         final String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+        XpectString.assertJunit(result);
     }
 
     @Test
@@ -115,7 +115,7 @@ public class TemplateContentExampleTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get("_template")).isNotEmpty();
-        new XpectString().compareAsString((String) eo.get("_template"));
+        XpectString.assertJunit((String) eo.get("_template"));
     }
 
     @Test
@@ -123,6 +123,6 @@ public class TemplateContentExampleTest {
         final EO eo = ProviderConfigMaps.createEo();
         final TemplateResourceCall call = new TemplateResourceCall(DYNAMIC_TPL);
         final String result = call.execute(eo);
-        new XpectString().compareAsString(result);
+        XpectString.assertJunit(result);
     }
 }

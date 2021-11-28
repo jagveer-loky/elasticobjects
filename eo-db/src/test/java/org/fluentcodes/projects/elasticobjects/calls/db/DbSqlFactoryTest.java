@@ -13,7 +13,7 @@ public class DbSqlFactoryTest {
 
     @Test
     public void configFiles() {
-        new XpectString().compareAsString(
+        XpectString.assertJunit(
                 DbSqlFactory.readConfigFiles("DbSqlConfig.json")
         );
     }

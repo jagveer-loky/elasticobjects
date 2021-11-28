@@ -26,10 +26,7 @@ public class ConfigCallCheck {
         EO eo = ProviderConfigMaps.createEo();
         List result = (List) call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(result);
+        XpectEo.assertEoJunit(result);
     }
 
 
@@ -40,10 +37,7 @@ public class ConfigCallCheck {
         call.setModule("elastic-objects-test");
         call.setModuleScope(ModuleScope.MAIN.dir());
         List result = (List) call.execute(eo);
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(result);
+        XpectEo.assertEoJunit(result);
     }
 
     @Test
@@ -66,10 +60,7 @@ public class ConfigCallCheck {
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(eo.get());
+        XpectEo.assertEoJunit(eo.get());
     }
 
 
@@ -82,9 +73,6 @@ public class ConfigCallCheck {
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(eo.get());
+        XpectEo.assertEoJunit(eo.get());
     }
 }

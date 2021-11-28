@@ -55,7 +55,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
         EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);
         eo.addCall(call);
-        new XpectEo.assertEoJunit(eo);
+        XpectEo.assertEoJunit(eo);
     }
 
     @Test
