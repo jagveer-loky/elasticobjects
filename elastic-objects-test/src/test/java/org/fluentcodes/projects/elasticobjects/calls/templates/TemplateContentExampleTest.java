@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Ignore;
 import org.junit.Test;

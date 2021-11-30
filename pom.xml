@@ -16,7 +16,6 @@
         <module>eo-xlsx</module>
         <module>eo-db</module>
         <!--module>eo-db-hibernate</module-->
-        <module>xpect-eo</module>
         <module>example-springboot</module>
         <!--module>builder</module-->
         <!--module>builder-eo</module-->

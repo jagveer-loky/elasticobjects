@@ -1,10 +1,12 @@
-package org.fluentcodes.tools.io;
+package org.fluentcodes.projects.elasticobjects.io;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
+import org.fluentcodes.tools.io.IOMappingObject;
+import org.fluentcodes.tools.io.IORuntimeException;
 
 public class IOEo<T> extends IOMappingObject<T> {
     private final ConfigMaps configMaps;
@@ -63,7 +65,7 @@ public class IOEo<T> extends IOMappingObject<T> {
 
     public EO asEo(final String asString) {
         try {
-            return EoRoot.ofValue(configMaps, getMappingClass()).mapObject(asString);
+            return EoRoot.ofClass(configMaps, asString, getMappingClasses());
         } catch (Exception e) {
             throw new IORuntimeException(e);
         }

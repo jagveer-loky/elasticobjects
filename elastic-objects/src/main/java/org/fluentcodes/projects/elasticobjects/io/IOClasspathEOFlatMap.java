@@ -1,6 +1,7 @@
-package org.fluentcodes.tools.io;
+package org.fluentcodes.projects.elasticobjects.io;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
+import org.fluentcodes.tools.io.IOClasspathObjectList;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -20,7 +21,7 @@ public class IOClasspathEOFlatMap<T> {
     }
 
     public IOClasspathEOFlatMap(final ConfigMaps configMaps, final String fileName, Charset encoding, Class<?> modelClass) {
-        Class<?>[] listClass = new Class[]{Map.class, String.class, modelClass};
+        Class<?>[] listClass = new Class[]{Map.class, modelClass};
         ioList = new IOClasspathEOList<>(configMaps, fileName, encoding, listClass);
         this.configMaps = configMaps;
     }

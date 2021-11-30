@@ -1,8 +1,9 @@
-package org.fluentcodes.tools.xpect;
+package org.fluentcodes.projects.elasticobjects.io;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
-import org.fluentcodes.tools.testobjects.ForTestClass;
+import org.fluentcodes.projects.elasticobjects.testobjects.ForTestClass;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Ignore;
 import org.junit.Test;
 

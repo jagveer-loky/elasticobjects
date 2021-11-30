@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Ignore;
 import org.junit.Test;

@@ -16,7 +16,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCrea
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Ignore;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package org.fluentcodes.tools.testobjects;
+package org.fluentcodes.projects.elasticobjects.testobjects;
 
 import java.util.ArrayList;
 import java.util.Date;

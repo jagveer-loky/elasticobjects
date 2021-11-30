@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Assert;
 import org.junit.Test;
 

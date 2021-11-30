@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * Created by Werner on 09.10.2016.
@@ -44,7 +45,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         packagePath = bean.getPackagePath();
         superKey = bean.getSuperKey();
         interfaces = bean.getInterfaces();
-        this.fieldConfigMap = new LinkedHashMap<>();
+        this.fieldConfigMap = new TreeMap<>();
         this.interfacesMap = new LinkedHashMap<>();
         if (bean.hasFieldBeans()) {
             for (FieldBean fieldBean : bean.getFieldBeans().values()) {

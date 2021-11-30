@@ -1,6 +1,7 @@
-package org.fluentcodes.tools.io;
+package org.fluentcodes.projects.elasticobjects.io;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
+import org.fluentcodes.tools.io.IOClasspathObjectList;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;

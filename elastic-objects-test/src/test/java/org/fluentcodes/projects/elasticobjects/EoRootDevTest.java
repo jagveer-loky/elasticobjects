@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,14 +1,16 @@
-package org.fluentcodes.tools.xpect;
+package org.fluentcodes.projects.elasticobjects.xpect;
 
+import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
-import org.fluentcodes.tools.io.IOEo;
+import org.fluentcodes.projects.elasticobjects.io.IOEo;
+import org.fluentcodes.tools.io.IORuntimeException;
 import org.fluentcodes.tools.io.IOString;
 import org.fluentcodes.tools.xpect.compators.ComparatorJunit4;
-
+import org.fluentcodes.tools.xpect.Xpect;
 import java.io.File;
 
 public class XpectEo {
@@ -32,12 +34,22 @@ public class XpectEo {
 
     public static final String load(ConfigConfig config) {
         String persistedFiles = Xpect.determinePersistenceFile( "json");
-        return new IOString(persistedFiles).read();
+        try {
+            return new IOString(persistedFiles).read();
+        }
+        catch (IORuntimeException ioRuntimeException) {
+            return config.toString();
+        }
     }
 
     public static final String load(ConfigBean bean) {
         String persistedFiles = Xpect.determinePersistenceFile("json");
-        return new IOString(persistedFiles).read();
+        try {
+            return new IOString(persistedFiles).read();
+        }
+        catch (IORuntimeException ioRuntimeException) {
+            return new EOToJSON().toJson(CONFIG_MAPS, bean);
+        }
     }
 
 }

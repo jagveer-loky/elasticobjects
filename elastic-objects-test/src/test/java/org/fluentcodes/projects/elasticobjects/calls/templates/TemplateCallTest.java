@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCallTest;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Ignore;
 import org.junit.Test;

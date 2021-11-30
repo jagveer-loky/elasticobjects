@@ -8,7 +8,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_STRING;

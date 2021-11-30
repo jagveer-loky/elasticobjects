@@ -1,4 +1,4 @@
-package org.fluentcodes.tools.testobjects;
+package org.fluentcodes.projects.elasticobjects.testobjects;
 
 public class ForTestString {
     public static final String of1() {
