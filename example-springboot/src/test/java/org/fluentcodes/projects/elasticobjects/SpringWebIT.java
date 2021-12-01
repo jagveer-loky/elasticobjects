@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -71,8 +71,9 @@ public class SpringWebIT {
         String url = "http://localhost:" + port + "/eo";
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
-        Assertions.assertThat(body).isNotEmpty();
-        Assertions.assertThat(body).contains("ERROR -");
+        Assertions.assertThat(body)
+                .isNotEmpty()
+                .contains("ERROR -");
     }
 
     @Test
@@ -110,7 +111,6 @@ public class SpringWebIT {
         Assertions.assertThat(body).isNotEmpty();
     }
 
-    // TODO so why in mvn does not work
     @Test
     public void givenGetContent_whenImpressumHtml_thenContentBodyIsLoaded() {
         String url = "http://localhost:" + port + "/Impressum.html";
@@ -119,8 +119,8 @@ public class SpringWebIT {
         Assertions.assertThat(parsedContent).isNotEmpty();
        XpectString.assertJunit(parsedContent);
     }
-    // TODO so why in mvn does not work
-    @Ignore
+
+    @Ignore("mvn does not work")
     @Test
     public void givenGetContent_whenHomeHtml_thenContentBodyIsLoaded() {
         String url = "http://localhost:" + port + "/Home.html";
@@ -129,8 +129,8 @@ public class SpringWebIT {
         Assertions.assertThat(parsedContent).isNotEmpty();
        XpectString.assertJunit(parsedContent);
     }
-    // TODO so why in mvn does not work
-    @Ignore
+
+    @Ignore("mvn does not work")
     @Test
     public void givenGetExamplesStart_whenEo_thenContentBodyIsLoaded() {
         String url = "http://localhost:" + port + "/examples/ExamplesStart.html";

@@ -19,10 +19,6 @@ public class DbBean extends HostBean implements DbInterface {
         super();
     }
 
-    public void merge(final Map configMap) {
-        super.merge(configMap);
-    }
-
     public List<String> getSqlList() {
         return sqlList;
     }

@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionInterface;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -15,10 +14,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FIELD_KEY;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.JAVASCRIPT_TYPE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.PROPERTY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_FIELD_KEY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_PROPERTY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.INTERFACES;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
@@ -160,11 +158,11 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
                 catch (Exception e) {
                     throw new EoException("Problem casting field value " + fieldsFromMap);
                 }
-                if (!fieldMap.containsKey(NATURAL_ID)) {
-                    fieldMap.put(NATURAL_ID, key);
+                if (!fieldMap.containsKey(F_NATURAL_ID)) {
+                    fieldMap.put(F_NATURAL_ID, key);
                 }
-                if (!fieldMap.containsKey(FIELD_KEY)) {
-                    fieldMap.put(FIELD_KEY, key);
+                if (!fieldMap.containsKey(F_FIELD_KEY)) {
+                    fieldMap.put(F_FIELD_KEY, key);
                 }
                 FieldBean fieldJoiner = new FieldBean(fieldMap);
                 fieldJoiner.setNaturalId((String)key);
@@ -422,7 +420,7 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
     }
 
     public ModelBean setProperty(Boolean value) {
-        getProperties().put(PROPERTY, value);
+        getProperties().put(F_PROPERTY, value);
         return this;
     }
 
@@ -452,7 +450,7 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
     }
 
     public void setFinal(Boolean value) {
-        getProperties().put(FINAL, value);
+        getProperties().put(F_FINAL, value);
     }
 
     public void setBean(String value) {

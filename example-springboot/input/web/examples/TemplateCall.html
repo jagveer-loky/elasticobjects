@@ -7,16 +7,16 @@
 <h1>An Example Template</h1>
 
 <h2>CSV</h2>
-@{CsvSimpleReadCall->AnObject.csv, data/csv}.
-@{TemplateResourceCall->table.tpl, data/csv}.
+&num;{CsvSimpleReadCall->AnObject.csv, data/csv}.
+&num;{TemplateResourceCall->table.tpl, data/csv}.
 
 <h2>Excel</h2>
-@{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
-@{TemplateResourceCall->table.tpl, data/xlsx}.
+&num;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+&num;{TemplateResourceCall->table.tpl, data/xlsx}.
 
 <h2>DB</h2>
-@{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
-@{TemplateResourceCall->table.tpl, data/db}.
+&num;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
+&num;{TemplateResourceCall->table.tpl, data/db}.
 </textarea>
     <input type="submit" value="post"/>
 </form>

@@ -5,7 +5,15 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_SUPER_ADMIN;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_KEY1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_KEY2;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_VALUE11;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_VALUE12;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_VALUE21;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_VALUE22;
 
 /**
  * Created 23.8.2020

@@ -45,7 +45,7 @@ public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand
             throw new EoException("No model is provided in path '" + eo.getPathAsString() + "");
         }
         if (hasTargetPath()) {
-            List result = FindStatement.of(eo)
+            List<String> result = FindStatement.of(eo)
                     .readFirst(
                             getDbConfig().getConnection(),
                             eo.getConfigsCache());

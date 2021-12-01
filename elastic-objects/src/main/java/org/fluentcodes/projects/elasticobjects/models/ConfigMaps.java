@@ -76,8 +76,7 @@ public class ConfigMaps {
         if (!getConfigMap(configClass).containsKey(configKey)) {
             throw new EoException("Could not find config key '" + configKey + "' within '" + configClass.getSimpleName() + "'!");
         }
-        ConfigInterface config = getConfigMap(configClass).get(configKey);
-        return config;
+        return getConfigMap(configClass).get(configKey);
     }
 
     public boolean hasKey(final Class configClass, final String configKey)  {
@@ -101,11 +100,11 @@ public class ConfigMaps {
         return getConfigMap(configClass).keySet();
     }
 
-    private Map<String, ConfigInterface> getConfigMap(Class configClass) {
+    private Map<String, ConfigInterface> getConfigMap(Class<? extends ConfigInterface> configClass) {
         if (configClass == null) throw new EoException("Config class is null!");
         if (!this.configMaps.containsKey(configClass)) {
             String factoryClassName = configClass.getName().replace("Config", "Factory") ;
-            Class factoryClass = null;
+            Class<?> factoryClass = null;
             try {
                 factoryClass = Class.forName(factoryClassName);
             } catch (ClassNotFoundException e) {
@@ -123,9 +122,9 @@ public class ConfigMaps {
     }
 
 
-    private Class findConfigClass(final String configName)  {
+    private Class<?> findConfigClass(final String configName)  {
         if (configName == null || configName.isEmpty()) throw new EoException("Null search name for configMap entry");
-        for (Class configClass: configMaps.keySet()) {
+        for (Class<?> configClass: configMaps.keySet()) {
             if (configName.equals(configClass.getSimpleName())) return configClass;
         }
         throw new EoException("Could not find search name '" + configName + "'for configMap entry");
@@ -134,7 +133,7 @@ public class ConfigMaps {
     public ModelConfig findModel(final String modelKey)  {
         return (ModelConfig) find(ModelConfig.class, modelKey);
     }
-    public ModelConfig findModel(final Class modelClass)  {
+    public ModelConfig findModel(final Class<?> modelClass)  {
         return (ModelConfig) find(ModelConfig.class, modelClass.getSimpleName());
     }
     public ModelConfig findModel(final Object modelValue)  {

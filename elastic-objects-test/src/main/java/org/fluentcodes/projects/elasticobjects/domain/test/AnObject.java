@@ -1,9 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 /*.{javaHeader}|*/
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /**
@@ -17,7 +16,7 @@ public class AnObject  {
 /*.{}.*/
 
     /*.{javaStaticNames}|*/
-   public static final String ID = "id";
+   public static final String F_ID = "id";
    public static final String MY_ASUB_OBJECT = "myASubObject";
    public static final String MY_ASUB_OBJECT_LIST = "myASubObjectList";
    public static final String MY_ASUB_OBJECT_MAP = "myASubObjectMap";
@@ -57,11 +56,11 @@ public class AnObject  {
    /* myInt */
    private Integer myInt;
    /* myList */
-   private ArrayList myList;
+   private List<String> myList;
    /* myLong */
    private Long myLong;
    /* myMap */
-   private HashMap myMap;
+   private Map<String, Object> myMap;
    /* A test object thing.  */
    private Object myObject;
    /* Just a small test string used in test models.  */
@@ -185,13 +184,13 @@ public class AnObject  {
       return this;
     }
 
-   public ArrayList getMyList() {
+   public List<String> getMyList() {
       return this.myList;
    }
    public boolean hasMyList() {
       return getMyList() != null && !getMyList().isEmpty();
    }
-   public AnObject setMyList(final ArrayList myList) {
+   public AnObject setMyList(final List<String> myList) {
       this.myList = myList;
       return this;
     }
@@ -207,13 +206,13 @@ public class AnObject  {
       return this;
     }
 
-   public HashMap getMyMap() {
+   public Map<String, Object> getMyMap() {
       return this.myMap;
    }
    public boolean hasMyMap() {
       return getMyMap() != null && !getMyMap().isEmpty();
    }
-   public AnObject setMyMap(final HashMap myMap) {
+   public AnObject setMyMap(final Map<String, Object> myMap) {
       this.myMap = myMap;
       return this;
     }

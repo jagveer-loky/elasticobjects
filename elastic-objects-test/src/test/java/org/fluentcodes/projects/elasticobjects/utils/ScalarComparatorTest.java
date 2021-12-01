@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.TEO_STATIC;
+import org.fluentcodes.projects.elasticobjects.EoTestStatic;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -29,8 +29,8 @@ public class ScalarComparatorTest {
         objectCompare(DOUBLE1, LONG1, true);
         objectCompare(FLOAT1, INT1, true);
         objectCompare(LONG1, INT1, true);
-        byte[] testBytes = new String(TEO_STATIC.S_STRING).getBytes();
-        objectCompare(new String(TEO_STATIC.S_STRING), testBytes, true);
+        byte[] testBytes = new String(EoTestStatic.S_STRING).getBytes();
+        objectCompare(new String(EoTestStatic.S_STRING), testBytes, true);
         //Assert.assertEquals(1, FLOAT.doubleValue().compareTo(DOUBLE));
         //http://stackoverflow.com/questions/17898266/why-cant-we-use-to-compare-two-float-or-double-numbers
     }
@@ -40,16 +40,16 @@ public class ScalarComparatorTest {
     @Test
     public void compareDate() {
 
-        Long longDate = TEO_STATIC.SAMPLE_DATE.getTime();
-        String stringDate2 = new SimpleDateFormat("dd.MM.yyyy z").format(TEO_STATIC.SAMPLE_DATE);
+        Long longDate = EoTestStatic.SAMPLE_DATE.getTime();
+        String stringDate2 = new SimpleDateFormat("dd.MM.yyyy z").format(EoTestStatic.SAMPLE_DATE);
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss z");
         formatter.setTimeZone(TimeZone.getTimeZone("PST"));
-        String stringDate3 = formatter.format(TEO_STATIC.SAMPLE_DATE);
-        Assert.assertTrue(ScalarComparator.compareDate(TEO_STATIC.SAMPLE_DATE, TEO_STATIC.S_DATE_STRING));
-        Assert.assertTrue(ScalarComparator.compareDate(TEO_STATIC.S_DATE_STRING, stringDate2));
-        Assert.assertTrue(ScalarComparator.compareDate(TEO_STATIC.SAMPLE_DATE, stringDate2));
-        Assert.assertTrue(ScalarComparator.compareDate(TEO_STATIC.SAMPLE_DATE, stringDate3));
-        Assert.assertTrue(ScalarComparator.compareDate(TEO_STATIC.SAMPLE_DATE, longDate));
+        String stringDate3 = formatter.format(EoTestStatic.SAMPLE_DATE);
+        Assert.assertTrue(ScalarComparator.compareDate(EoTestStatic.SAMPLE_DATE, EoTestStatic.S_DATE_STRING));
+        Assert.assertTrue(ScalarComparator.compareDate(EoTestStatic.S_DATE_STRING, stringDate2));
+        Assert.assertTrue(ScalarComparator.compareDate(EoTestStatic.SAMPLE_DATE, stringDate2));
+        Assert.assertTrue(ScalarComparator.compareDate(EoTestStatic.SAMPLE_DATE, stringDate3));
+        Assert.assertTrue(ScalarComparator.compareDate(EoTestStatic.SAMPLE_DATE, longDate));
     }
 
     private void objectCompare(Object left, Object right, boolean expected) {

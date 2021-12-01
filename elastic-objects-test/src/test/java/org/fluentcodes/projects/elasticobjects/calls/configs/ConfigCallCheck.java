@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -17,7 +16,7 @@ import java.util.List;
 /**
  * Created 10.6.2018
  */
-@Ignore
+@Ignore("Check to delete")
 public class ConfigCallCheck {
 
     @Test
@@ -50,7 +49,7 @@ public class ConfigCallCheck {
         Assertions.assertThat(result.size()).isEqualTo(1);
     }
 
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void eo_ModelConfig_module_eoTest_submodule_main__execute__xpected()  {
         final EO eo = ProviderConfigMaps.createEo();
@@ -64,7 +63,7 @@ public class ConfigCallCheck {
     }
 
 
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void eo_ModelConfig_configFilter_Map__execute__xpected() {
         final EO eo = ProviderConfigMaps.createEo();

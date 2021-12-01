@@ -17,24 +17,18 @@ public interface ConfigInterface extends BaseInterface {
   /*.{}.*/
 
   /*.{javaStaticNames}|*/
-  String EXPOSE = "expose";
-  String MODULE = "module";
-  String MODULE_SCOPE = "moduleScope";
-  String SCOPE = "scope";
-  String PROPERTIES = "properties";
+  String F_EXPOSE = "expose";
+  String F_MODULE = "module";
+  String F_MODULE_SCOPE = "moduleScope";
+  String F_SCOPE = "scope";
+  String F_PROPERTIES = "properties";
   /*.{}.*/
 
   default boolean hasScope(final Scope scope) {
-    if (scope == Scope.ALL) {
-      return true;
-    }
-    if (getScope() == null || getScope().isEmpty()) {
-      return true;
-    }
-    if (getScope().contains(scope)) {
-      return true;
-    }
-    return false;
+    return scope == Scope.ALL ||
+            getScope() == null ||
+            getScope().isEmpty() ||
+            getScope().contains(scope);
   }
 
   /*.{javaAccessors}|*/
@@ -52,7 +46,7 @@ public interface ConfigInterface extends BaseInterface {
    */
   Expose getExpose();
 
-  default Boolean hasExpose() {
+  default boolean hasExpose() {
     return getExpose() != null;
   }
 
@@ -61,7 +55,7 @@ public interface ConfigInterface extends BaseInterface {
    */
   String getModule();
 
-  default Boolean hasModule() {
+  default boolean hasModule() {
     return getModule() != null && !getModule().isEmpty();
   }
 
@@ -70,7 +64,7 @@ public interface ConfigInterface extends BaseInterface {
    */
   String getModuleScope();
 
-  default Boolean hasModuleScope() {
+  default boolean hasModuleScope() {
     return getModuleScope() != null && !getModuleScope().isEmpty();
   }
 
@@ -79,7 +73,7 @@ public interface ConfigInterface extends BaseInterface {
    */
   List<Scope> getScope();
 
-  default Boolean hasScope() {
+  default boolean hasScope() {
     return getScope() != null && !getScope().isEmpty();
   }
   /*.{}.*/

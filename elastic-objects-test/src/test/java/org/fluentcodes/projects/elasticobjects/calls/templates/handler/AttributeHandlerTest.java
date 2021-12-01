@@ -3,8 +3,6 @@ package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.AttributeHandler;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.junit.Test;
 
@@ -13,6 +11,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class AttributeHandlerTest {
+
+    @SuppressWarnings({"java:S5778", "maybe later"})
     @Test
     public void callCallDirectiveNullThrowsEoException() {
         Assertions.assertThatThrownBy(()->{
@@ -23,6 +23,7 @@ public class AttributeHandlerTest {
         ).isInstanceOf(EoException.class);
     }
 
+    @SuppressWarnings({"java:S5778", "maybe later"})
     @Test
     public void callNoEoReturnDefault() {
         String returnValue =
@@ -32,6 +33,7 @@ public class AttributeHandlerTest {
         assertEquals("default", returnValue);
     }
 
+    @SuppressWarnings({"java:S5778", "maybe later"})
     @Test
     public void callCallDirectiveEmptyThrowsEoException() {
         Assertions.assertThatThrownBy(()->{

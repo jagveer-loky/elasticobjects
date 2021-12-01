@@ -7,7 +7,7 @@ import org.fluentcodes.tools.io.IOString;
 
 import java.util.List;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.PATH_INPUT;
 
 public enum ProviderListJson {
     JSON_EMPTY("[]"),

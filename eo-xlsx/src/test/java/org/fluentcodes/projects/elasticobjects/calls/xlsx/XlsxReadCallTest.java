@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -49,8 +50,8 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
                 Assertions.assertThat(value).isNotEmpty();
         Assertions.assertThat(value.size()).isEqualTo(2);
         Map firstRow = (Map) value.get(0);
-        Assertions.assertThat(firstRow.size()).isEqualTo(2);
-        Assertions.assertThat(firstRow.get("key1")).isEqualTo("value11");
+        Assert.assertEquals(2, firstRow.size());
+        Assert.assertEquals("value11", firstRow.get("key1"));
     }
 
     @Test
@@ -63,7 +64,7 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.size()).isEqualTo(2);
         Map firstRow = (Map) eo.get("0");
-        Assertions.assertThat(firstRow.size()).isEqualTo(2);
-        Assertions.assertThat(firstRow.get("key1")).isEqualTo("value11");
+        Assert.assertEquals(2, firstRow.size());
+        Assert.assertEquals("value11", firstRow.get("key1"));
     }
 }

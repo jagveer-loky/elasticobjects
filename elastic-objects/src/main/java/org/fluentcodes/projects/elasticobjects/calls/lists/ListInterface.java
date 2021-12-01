@@ -226,7 +226,7 @@ public interface ListInterface {
         Map<String, Integer> keyPosition = new LinkedHashMap<>();
         boolean externalKey = true;
         if (keys == null || keys.isEmpty()) {
-            keyPosition.put(BaseInterface.NATURAL_ID, 0);
+            keyPosition.put(BaseInterface.F_NATURAL_ID, 0);
             externalKey = false;
         }
         else {

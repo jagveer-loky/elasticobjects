@@ -12,21 +12,19 @@ public class ASubObject  {
 /*.{}.*/
 
     /*!!Problem invoke getter with 'javaStaticNames' and model 'ModelBeanGen':null!!*/
-   public static final String ID = "id";
-   public static final String MY_ASUB_OBJECT = "myASubObject";
    public static final String MY_STRING = "myString";
-   public static final String NAME = "name";
-   public static final String NATURAL_ID = "naturalId";
 /*!!Could not create 'String' value from 'ASubObject(BEAN)' (ModelBeanGen)!!*/
 
     /*!!Problem invoke getter with 'javaInstanceVars' and model 'ModelBeanGen':null!!*/
    /* The id with a autonumbering */
+    @SuppressWarnings({"java:S1845", "may be later"})
    private Long id;
    /* myASubObject */
    private ASubObject myASubObject;
    /* Just a small test string used in test models.  */
    private String myString;
    /* The name field of a class.  */
+   @SuppressWarnings({"java:S1845", "may be later"})
    private String name;
    /* The natural key in @Base */
    private String naturalId;

@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
 
 
 public class EoMapSetAnObjectTest {

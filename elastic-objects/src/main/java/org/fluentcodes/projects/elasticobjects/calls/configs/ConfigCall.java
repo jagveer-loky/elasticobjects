@@ -23,8 +23,6 @@ public class ConfigCall extends ConfigKeysCall  {
 /*.{}.*/
 
     /*.{javaStaticNames}|*/
-   public static final String MODULE = "module";
-   public static final String MODULE_SCOPE = "moduleScope";
 /*.{}.*/
 
     /*.{javaInstanceVars}|*/
@@ -66,7 +64,7 @@ public class ConfigCall extends ConfigKeysCall  {
             } catch (Exception e) {
                 throw new EoException(e);
             }
-            EO child = result.set(configEntry, Integer.valueOf(result.size()).toString());
+            EO child = result.set(configEntry, Integer.toString(result.size()));
             child.set(key, "naturalId");
         }
         return super.createReturnType(eo,result.get());

@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.List;

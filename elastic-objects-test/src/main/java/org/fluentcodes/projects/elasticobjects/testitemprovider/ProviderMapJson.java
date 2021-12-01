@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.tools.io.IOString;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.PATH_INPUT;
 
 public enum ProviderMapJson {
     SIMPLE_INSERT_WITH_PATH("{\"key0\": \"test\", \"level0\": {\"key0\": \"testOther\"}}"),

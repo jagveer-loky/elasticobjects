@@ -1,16 +1,19 @@
 package org.fluentcodes.projects.elasticobjects.domain;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.util.Date;
 import java.util.Map;
 
-/*.{javaHeader}|*/
-import java.util.Date;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.F_AUTHOR;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.F_CREATION_DATE;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.F_DESCRIPTION;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.F_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.F_NATURAL_ID;
 
-import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.ID;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.AUTHOR;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.CREATION_DATE;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.DESCRIPTION;
+/*.{javaHeader}|*/
 /**
  * 
  * Base bean as super object for model beans with id, naturalId and description but no annotations.  
@@ -19,6 +22,7 @@ import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.DESCR
  * @modificationDate Sat Jan 09 13:58:40 CET 2021
  */
 public class BaseBean {
+    public static final Logger LOG = LogManager.getLogger(BaseBean.class);
 /*.{}.*/
     /*.{javaInstanceVars}|*/
    /* The author of the class. */
@@ -64,14 +68,14 @@ public class BaseBean {
             return;
         }
         try {
-            mergeId(configMap.get(ID));
-            mergeNaturalId(configMap.get(NATURAL_ID));
-            mergeDescription(configMap.get(DESCRIPTION));
-            mergeCreationDate(configMap.get(CREATION_DATE));
-            mergeAuthor(configMap.get(AUTHOR));
+            mergeId(configMap.get(F_ID));
+            mergeNaturalId(configMap.get(F_NATURAL_ID));
+            mergeDescription(configMap.get(F_DESCRIPTION));
+            mergeCreationDate(configMap.get(F_CREATION_DATE));
+            mergeAuthor(configMap.get(F_AUTHOR));
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
+           LOG.error(e.getMessage());
         }
     }
     /*.{javaAccessors}|*/

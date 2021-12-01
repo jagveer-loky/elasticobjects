@@ -2,9 +2,10 @@ package org.fluentcodes.projects.elasticobjects.calls.testitemproviders;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IOString;
-;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.PATH_INPUT;
+
+;
 
 public enum TestProviderTemplateContent {
     CONFIGS_HTML(PATH_INPUT + "calls/configs/ConfigsPage.html");

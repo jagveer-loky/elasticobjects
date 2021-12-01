@@ -11,8 +11,8 @@ import org.junit.Test;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_TEST_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_TEST_STRING;
 
 /**
  * Created by Werner on 04.11.2016.

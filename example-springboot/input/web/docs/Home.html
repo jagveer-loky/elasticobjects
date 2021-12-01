@@ -51,7 +51,7 @@ location.</p>
 </p>
 
 
-#{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
+{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
 
 
 
@@ -73,9 +73,8 @@ location.</p>
 <form action="/eo-template" method="post" target="example">
     <textarea name="template" style="height:100px">
 Start
-
-@{CsvSimpleReadCall->AnObject.csv, data/csv}.
-@{TemplateResourceCall->table.tpl, data/csv}.
+&num;{CsvSimpleReadCall->AnObject.csv, data/csv}.
+&num;{TemplateResourceCall->table.tpl, data/csv}.
 End
     </textarea>
     <input type="submit" value="post"/>
@@ -86,7 +85,7 @@ End
     <textarea name="template" style="height:210px">
 Start
 
-=@{
+&commat;{
     "data": {
         "(CsvSimpleReadCall)csv":{
              "fileConfigKey"="AnObject.csv"

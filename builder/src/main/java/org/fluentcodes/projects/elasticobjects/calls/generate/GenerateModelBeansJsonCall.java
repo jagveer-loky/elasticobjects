@@ -3,9 +3,9 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.calls.xlsx.XlsxReadCall;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
+import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
 import java.util.LinkedHashMap;
@@ -69,7 +69,6 @@ public class GenerateModelBeansJsonCall extends GenerateAbstract implements Gene
         }
         FileWriteCall writeCall = new FileWriteCall(getTargetFileConfigKey());
         String content = new EOToJSON().toJson(eo.getConfigsCache(), modelBeans);
-        //writeCall.setCompare(false);
         writeCall.setContent(content);
         feedback.append(writeCall.execute(eo));
         setDuration(System.currentTimeMillis()-start);

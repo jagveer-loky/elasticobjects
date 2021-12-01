@@ -1,10 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.Path;
-/*.{javaHeader}|*/
 import org.fluentcodes.projects.elasticobjects.LogLevel;
+import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
+
+/*.{javaHeader}|*/
 
 /**
  * Basic interface for calls 
@@ -18,17 +19,8 @@ public interface Call  {
     String TARGET_AS_STRING = "_asString";
 
     /*.{javaStaticNames}|*/
-   String CONDITION = "condition";
-   String DURATION = "duration";
-   String KEEP_CALL = "keepCall";
-   String LOG_LEVEL = "logLevel";
-   String MODELS = "models";
-   String OVERWRITE = "overwrite";
-   String POSTPEND = "postpend";
-   String PREPEND = "prepend";
-   String SOURCE_PATH = "sourcePath";
-   String START_CONDITION = "startCondition";
-   String TARGET_PATH = "targetPath";
+   String F_DURATION = "duration";
+   String F_KEEP_CALL = "keepCall";
 /*.{}.*/
 
     default void initTargetPath(final Path targetPathFromCallPath) {
@@ -63,7 +55,7 @@ public interface Call  {
   */
    String getCondition();
    Call setCondition (String condition);
-   default Boolean hasCondition () {
+   default boolean hasCondition () {
       return getCondition()!= null && !getCondition().isEmpty();
     }
 
@@ -72,7 +64,7 @@ public interface Call  {
   */
    Long getDuration();
    Call setDuration (Long duration);
-   default Boolean hasDuration () {
+   default boolean hasDuration () {
       return getDuration()!= null;
     }
 
@@ -90,7 +82,7 @@ public interface Call  {
   */
    LogLevel getLogLevel();
    Call setLogLevel (LogLevel logLevel);
-   default Boolean hasLogLevel () {
+   default boolean hasLogLevel () {
       return getLogLevel()!= null;
     }
 
@@ -99,7 +91,7 @@ public interface Call  {
   */
    String getModels();
    Call setModels (String models);
-   default Boolean hasModels () {
+   default boolean hasModels () {
       return getModels()!= null && !getModels().isEmpty();
     }
 
@@ -108,7 +100,7 @@ public interface Call  {
   */
    Boolean getOverwrite();
    Call setOverwrite (Boolean overwrite);
-   default Boolean hasOverwrite () {
+   default boolean hasOverwrite () {
       return getOverwrite()!= null;
     }
 
@@ -117,7 +109,7 @@ public interface Call  {
   */
    String getPostpend();
    Call setPostpend (String postpend);
-   default Boolean hasPostpend () {
+   default boolean hasPostpend () {
       return getPostpend()!= null && !getPostpend().isEmpty();
     }
 
@@ -153,7 +145,7 @@ public interface Call  {
   */
    String getTargetPath();
    Call setTargetPath (String targetPath);
-   default Boolean hasTargetPath () {
+   default boolean hasTargetPath () {
       return getTargetPath()!= null && !getTargetPath().isEmpty();
     }
 /*.{}.*/

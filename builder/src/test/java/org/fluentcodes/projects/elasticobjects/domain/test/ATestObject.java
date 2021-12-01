@@ -34,9 +34,9 @@ public class ATestObject  {
    /* testInt */
    private Integer testInt;
    /* testList */
-   private ArrayList testList;
+   private ArrayList<ATestObject> testList;
    /* testMap */
-   private HashMap testMap;
+   private HashMap<String, Object> testMap;
    /* Just a small test string used in test models.  */
    private String testString;
 /*.{}.*/
@@ -86,24 +86,24 @@ public class ATestObject  {
       return this;
     }
 
-   public ArrayList getTestList() {
+   public List<Object> getTestList() {
       return this.testList;
    }
    public boolean hasTestList() {
       return getTestList() != null && !getTestList().isEmpty();
    }
-   public ATestObject setTestList(final ArrayList testList) {
+   public ATestObject setTestList(final List<Object> testList) {
       this.testList = testList;
       return this;
     }
 
-   public HashMap getTestMap() {
+   public Map<String, Object> getTestMap() {
       return this.testMap;
    }
    public boolean hasTestMap() {
       return getTestMap() != null && !getTestMap().isEmpty();
    }
-   public ATestObject setTestMap(final HashMap testMap) {
+   public ATestObject setTestMap(final Map<String, Object> testMap) {
       this.testMap = testMap;
       return this;
     }

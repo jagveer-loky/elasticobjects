@@ -29,7 +29,7 @@ public class XpectEoTest {
         XpectEo.assertEoJunit(map);
     }
 
-    @Ignore
+    @Ignore("Check later")
     @Test
     public void testForTestClass() {
         ForTestClass forTest  = ForTestClass.of1();

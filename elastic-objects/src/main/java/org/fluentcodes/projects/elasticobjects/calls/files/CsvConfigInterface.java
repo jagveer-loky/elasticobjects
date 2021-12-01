@@ -3,24 +3,24 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 
 public interface CsvConfigInterface extends ConfigInterface {
-    public static final String FIELD_DELIMITER = "fieldDelimiter";
-    public static final String ROW_DELIMITER = "rowDelimiter";
-    public static final String DEFAULT_FIELD_DELIMITER = ";";
-    public static final String DEFAULT_ROW_DELIMITER = "\n";
+    public static final String F_FIELD_DELIMITER = "fieldDelimiter";
+    public static final String F_ROW_DELIMITER = "rowDelimiter";
+    public static final String F_DEFAULT_FIELD_DELIMITER = ";";
+    public static final String F_DEFAULT_ROW_DELIMITER = "\n";
 
     default boolean hasFieldDelimiter() {
         return getFieldDelimiter()!=null && !getFieldDelimiter().isEmpty();
     }
 
     default String getFieldDelimiter() {
-        return hasProperties()&&getProperties().containsKey(FIELD_DELIMITER)?
-                (String)getProperties().get(FIELD_DELIMITER):
-                DEFAULT_FIELD_DELIMITER;
+        return hasProperties()&&getProperties().containsKey(F_FIELD_DELIMITER)?
+                (String)getProperties().get(F_FIELD_DELIMITER):
+                F_DEFAULT_FIELD_DELIMITER;
     }
 
     default void setFieldDelimiter(final String value) {
         if (hasProperties()) {
-            getProperties().put(value, FIELD_DELIMITER);
+            getProperties().put(value, F_FIELD_DELIMITER);
         }
     }
 
@@ -29,14 +29,14 @@ public interface CsvConfigInterface extends ConfigInterface {
     }
 
     default String getRowDelimiter() {
-        return hasProperties()&&getProperties().containsKey(ROW_DELIMITER)?
-                (String)getProperties().get(ROW_DELIMITER):
-                DEFAULT_ROW_DELIMITER;
+        return hasProperties()&&getProperties().containsKey(F_ROW_DELIMITER)?
+                (String)getProperties().get(F_ROW_DELIMITER):
+                F_DEFAULT_ROW_DELIMITER;
     }
 
     default void setRowDelimiter(final String value) {
         if (hasProperties()) {
-            getProperties().put(value, ROW_DELIMITER);
+            getProperties().put(value, F_ROW_DELIMITER);
         }
     }
 }

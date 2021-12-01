@@ -7,7 +7,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCrea
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.calls.Call.KEEP_CALL;
+import static org.fluentcodes.projects.elasticobjects.calls.Call.F_KEEP_CALL;
 import static org.fluentcodes.projects.elasticobjects.calls.files.FileReadWriteCall.TARGET_FILE_CONFIG_KEY;
 
 /**
@@ -54,8 +54,8 @@ public class TemplateResourceStoreCallTest implements IModelConfigCreateTests {
         ModelConfig modelConfig = ProviderConfigMaps.CONFIG_MAPS.findModel(TemplateResourceStoreCall.class.getSimpleName());
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
 
-        modelConfig.set(KEEP_CALL, call, KeepCalls.JAVA);
+        modelConfig.set(F_KEEP_CALL, call, KeepCalls.JAVA);
         Assertions.assertThat(call.getKeepCall()).isEqualTo(KeepCalls.JAVA);
-        Assertions.assertThat(modelConfig.get(KEEP_CALL, call)).isEqualTo(KeepCalls.JAVA);
+        Assertions.assertThat(modelConfig.get(F_KEEP_CALL, call)).isEqualTo(KeepCalls.JAVA);
     }
 }

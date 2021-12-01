@@ -3,15 +3,15 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*.{javaHeader}|*/
-import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
-import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 /**
  * 
  * Basic bean implementation for calls.  
@@ -49,7 +49,7 @@ public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
    private String targetPath;
 /*.{}.*/
 
-    public CallImpl() {
+    protected CallImpl() {
         prepend = "";
         postpend = "";
     }

@@ -1,5 +1,5 @@
  <h3>Examples</h3>
- <p>The examples are for the generic end point <b>eo-form</b> in
+ <p>The examples are for the generic end point <strong>eo-form</strong> in
   #{GithubLinkCall->NONE, SP|web|WebEo.java}.
  using just plain html form with an editable text field.
  </p>
@@ -60,7 +60,7 @@
  </p>
 
  <h4>Log Level</h4>
- <p>One can change the <i>_logLevel</i> to receive some more information. </p>
+ <p>One can change the <em>_logLevel</em> to receive some more information. </p>
  <form action="/eo-form" method="post" target="example">
      <textarea name="eo">{"_logLevel": "DEBUG"}</textarea>
      <input type="submit" value="post"/>
@@ -70,9 +70,9 @@
 
  <h4>Return format</h4>
  <p>One can change the serialization type to json to return plan json without eo extensions.
-     Default value for <i>_serializationType</i> is "EO". </p>
+     Default value for <em>_serializationType</em> is "EO". </p>
 <p>
-    The following example will return an empty json object due to <i>_serializationType</i> "STANDARD".
+    The following example will return an empty json object due to <em>_serializationType</em> "STANDARD".
 </p>
 
  <form action="/eo-form" method="post" target="example">
@@ -90,7 +90,7 @@
  </p>
  <h5>Root Models</h5>
  <p>
-     The <i>_rootModels</i> entry refers to the type, the root is set.
+     The <em>_rootModels</em> entry refers to the type, the root is set.
  </p>
  <form action="/eo-form" method="post" target="example">
      <textarea name="eo">{"_rootmodel":"List,Double", "0":1,"1":2}</textarea>
@@ -119,7 +119,7 @@
  <p>
      All models that implements the
       #{ConfigLinkCall->ModelConfig, Call}. interface
-     will be set to the <i>_call</i> list and could be exectuted.
+     will be set to the <em>_call</em> list and could be exectuted.
  </p>
  <p>
      The implementation could be rather trivial as in the example with

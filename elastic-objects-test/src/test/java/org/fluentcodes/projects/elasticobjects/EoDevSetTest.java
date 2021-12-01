@@ -12,12 +12,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL1;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL2;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL3;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL4;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL5;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL2;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL3;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL4;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL5;
 
 
 public class EoDevSetTest {

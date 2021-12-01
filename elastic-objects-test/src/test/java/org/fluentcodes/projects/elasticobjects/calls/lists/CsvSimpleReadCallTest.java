@@ -14,8 +14,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.R_ANONYM;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.R_GUEST;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_ANONYM;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_GUEST;
 
 /**
  * @author Werner Diwischek

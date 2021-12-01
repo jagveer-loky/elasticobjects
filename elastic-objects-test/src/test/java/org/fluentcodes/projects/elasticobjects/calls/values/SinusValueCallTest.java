@@ -9,12 +9,12 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
 import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Ignore;
@@ -88,7 +88,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     /**
      * Basic Wiki Example
      */
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void givenCallSinusValue_thenInputValueIsReplaced() {
         EO eo = TestProviderJsonCalls.CALL_SINUS_VALUE_JSON.createMapEo();
@@ -119,7 +119,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         eoFromString.execute();
     }
 
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void createFromModel_ok() {
         final ModelConfig model = ProviderConfigMaps.findModel(SinusValueCall.class);
@@ -172,8 +172,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         Assertions.assertThat(eo.get(TARGET, "2")).isEqualTo(ARRAY_RESULT2);
     }
 
-    //TODO later
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
         EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapTestEo();

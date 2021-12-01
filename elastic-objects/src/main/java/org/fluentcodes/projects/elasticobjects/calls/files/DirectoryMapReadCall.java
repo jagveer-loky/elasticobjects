@@ -9,7 +9,7 @@ import java.util.Map;
 /*.{javaHeader}|*/
 
 /**
- * Read a list from a directory. The file names will replace <i>toReplace (default "_")</i> by <i>replaceBy (default "")</i> and <i>fileEnding(default ".html")</i> will be removed. 
+ * Read a list from a directory. The file names will replace <em>toReplace (default "_")</em> by <em>replaceBy (default "")</em> and <em>fileEnding(default ".html")</em> will be removed.
  * 
  *
  * @author Werner Diwischek

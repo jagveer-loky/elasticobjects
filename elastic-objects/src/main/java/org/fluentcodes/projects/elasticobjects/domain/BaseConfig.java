@@ -41,40 +41,24 @@ public class BaseConfig implements BaseInterface {
     return this.author;
   }
 
-  public boolean hasAuthor() {
-    return getAuthor() != null && !getAuthor().isEmpty();
-  }
-
+  @Override
   public Date getCreationDate() {
     return this.creationDate;
   }
 
-  public boolean hasCreationDate() {
-    return getCreationDate() != null;
-  }
-
+  @Override
   public String getDescription() {
     return this.description;
   }
 
-  public boolean hasDescription() {
-    return getDescription() != null && !getDescription().isEmpty();
-  }
-
+  @Override
   public Long getId() {
     return this.id;
   }
 
-  public boolean hasId() {
-    return getId() != null;
-  }
-
+  @Override
   public String getNaturalId() {
     return this.naturalId;
-  }
-
-  public boolean hasNaturalId() {
-    return getNaturalId() != null && !getNaturalId().isEmpty();
   }
 
 

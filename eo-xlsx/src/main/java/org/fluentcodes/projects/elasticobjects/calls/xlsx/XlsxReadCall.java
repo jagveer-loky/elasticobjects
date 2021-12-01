@@ -43,11 +43,12 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
         listParams = new ListParams();
     }
 
+    @Override
     public Object execute(EO eo) {
         return mapEo(eo, readRaw(eo));
     }
 
-    public List readRaw(final EO eo) {
+    public List<Object> readRaw(final EO eo) {
         XlsxConfig config = (XlsxConfig) init(PermissionType.READ, eo);
         getListParams().merge(config.getProperties());
         List result = new ArrayList<>();

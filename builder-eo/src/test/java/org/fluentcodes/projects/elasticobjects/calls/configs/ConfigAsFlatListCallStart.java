@@ -46,22 +46,22 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(ModelConfig.class.getSimpleName())
                 .setFieldKeys(
-                        "naturalId",
-                        "configModelKey",
-                        "module",
-                        "subModule",
+                        NATURAL_ID,
+                        CONFIG_MODEL_KEY,
+                        MODULE,
+                        SUB_MODULE,
                         "localFieldKeys",
                         "interfaces",
-                        "superKey",
-                        "scope",
-                        "expose",
-                        "description",
-                        "packagePath",
+                        SUPER_KEY,
+                        SCOPE,
+                        EXPOSE,
+                        DESCRIPTION,
+                        PACKAGE_PATEH,
                         "modelKey",
                         "eoParams",
                         "dbParams",
                         "viewParams",
-                        "author");
+                        AUTHOR);
         String result = call.execute(eo);
            XpectString.assertJunit(result);
     }
@@ -71,18 +71,18 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
         final EO eo = ProviderConfigMaps.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(FieldConfig.class.getSimpleName())
-                .setFieldKeys("naturalId",
-                        "module",
-                        "subModule",
+                .setFieldKeys(NATURAL_ID,
+                        MODULE,
+                        SUB_MODULE,
                         "modelKeys",
-                        "description",
-                        "expose",
-                        "scope",
+                        DESCRIPTION,
+                        EXPOSE,
+                        SCOPE,
                         "fieldKey",
                         "dbFieldParams",
                         "eoFieldParams",
                         "viewFieldParams",
-                        "author");
+                        AUTHOR);
         String result = call.execute(eo);
        XpectString.assertJunit(result);
     }
@@ -92,21 +92,21 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
         final EO eo = ProviderConfigMaps.createEo();
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(FileConfig.class.getSimpleName())
-                .setFieldKeys("naturalId",
-                        "configModelKey",
-                        "module",
-                        "subModule",
+                .setFieldKeys(NATURAL_ID,
+                        CONFIG_MODEL_KEY,
+                        MODULE,
+                        SUB_MODULE,
                         "hostKey",
                         "filePath",
                         "fileName",
-                        "description",
-                        "scope",
-                        "expose",
+                        DESCRIPTION,
+                        SCOPE,
+                        EXPOSE,
                         "cached",
                         "listParams",
                         "listMapper",
-                        "rolePermissions",
-                        "author");
+                        ROLE_PERMISSIONS,
+                        AUTHOR);
         String result = call.execute(eo);
        XpectString.assertJunit(result);
     }
@@ -117,23 +117,23 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(HostConfig.class.getSimpleName())
                 .setFieldKeys(
-                        "naturalId",
-                        "configModelKey",
-                        "module",
-                        "subModule",
+                        NATURAL_ID,
+                        CONFIG_MODEL_KEY,
+                        MODULE,
+                        SUB_MODULE,
                         "protocol",
                         "hostName",
-                        "description",
+                        DESCRIPTION,
                         "user",
                         "password",
-                        "scope",
-                        "expose",
-                        "rolePermissions",
+                        SCOPE,
+                        EXPOSE,
+                        ROLE_PERMISSIONS,
                         "schema",
                         "driver",
                         "dbType",
                         "extension",
-                        "author"
+                        AUTHOR
                 );
         String result = call.execute(eo);
        XpectString.assertJunit(result);
@@ -145,20 +145,20 @@ public class ConfigAsFlatListCallStart  implements IModelConfigCreateTests {
         final ConfigAsFlatListCall call = new ConfigAsFlatListCall()
                 .setConfigType(DbSqlConfig.class.getSimpleName())
                 .setFieldKeys(
-                        "naturalId",
-                        "configModelKey",
-                        "module",
-                        "subModule",
-                        "description",
-                        "scope",
-                        "expose",
+                        NATURAL_ID,
+                        CONFIG_MODEL_KEY,
+                        MODULE,
+                        SUB_MODULE,
+                        DESCRIPTION,
+                        SCOPE,
+                        EXPOSE,
                         "dbKey",
                         "sql",
                         "sqlList",
                         "modelKey",
                         "listParams",
                         "listMapper",
-                        "rolePermissions"
+                        ROLE_PERMISSIONS
                 );
 
         String result = call.execute(eo);

@@ -8,14 +8,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
-
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DATE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_LIST_EMPTY;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_LONG;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_MAP_EMPTY;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_BOOLEAN;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 public class ModelShapeTypesTest {
 
     @Test
     public void testTypeClasses()  {
-
-        //testTypeClass(Object.class, ShapeTypes.NONE);
         testTypeClass(Boolean.class, ShapeTypes.SCALAR);
         testTypeClass(Date.class, ShapeTypes.SCALAR);
         testTypeClass(Long.class, ShapeTypes.SCALAR);
@@ -31,8 +36,6 @@ public class ModelShapeTypesTest {
 
     @Test
     public void testTypeObjects()  {
-
-        //testTypeObject(new Object(), ShapeTypes.NONE);
         testTypeObject(S_BOOLEAN, ShapeTypes.SCALAR);
         testTypeObject(SAMPLE_DATE, ShapeTypes.SCALAR);
         testTypeObject(SAMPLE_LONG, ShapeTypes.SCALAR);

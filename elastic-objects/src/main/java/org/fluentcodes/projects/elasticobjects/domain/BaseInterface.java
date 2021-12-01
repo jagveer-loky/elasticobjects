@@ -13,11 +13,11 @@ import java.util.Date;
 public interface BaseInterface {
 /*.{}.*/
 /*.{javaStaticNames}|*/
-   String AUTHOR = "author";
-   String CREATION_DATE = "creationDate";
-   String DESCRIPTION = "description";
-   String ID = "id";
-   String NATURAL_ID = "naturalId";
+   String F_AUTHOR = "author";
+   String F_CREATION_DATE = "creationDate";
+   String F_DESCRIPTION = "description";
+   String F_ID = "id";
+   String F_NATURAL_ID = "naturalId";
 /*.{}.*/
 
 /*.{javaAccessors}|*/

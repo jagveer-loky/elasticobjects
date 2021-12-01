@@ -14,10 +14,10 @@ public interface FileInterface extends PermissionInterface, ConfigInterface {
 /*.{}.*/
 
 /*.{javaStaticNames}|*/
-    String FILE_NAME = "fileName";
-    String FILE_PATH = "filePath";
-    String CACHED = "cached";
-    String TEMPLATE = "template";
+    String F_FILE_NAME = "fileName";
+    String F_FILE_PATH = "filePath";
+    String F_CACHED = "cached";
+    String F_TEMPLATE = "template";
 /*.{}.*/
 
 /*.{javaAccessors}|*/
@@ -43,12 +43,12 @@ public interface FileInterface extends PermissionInterface, ConfigInterface {
    }
 /*.{}.*/
     default String getTemplate(){
-    return (String) getProperties().get(TEMPLATE);
+    return (String) getProperties().get(F_TEMPLATE);
 }
     default boolean hasTemplate() {
-        return getProperties().containsKey(TEMPLATE) &&
-                getProperties().get(TEMPLATE) != null &&
-                !((String)getProperties().get(TEMPLATE)).isEmpty();
+        return getProperties().containsKey(F_TEMPLATE) &&
+                getProperties().get(F_TEMPLATE) != null &&
+                !((String)getProperties().get(F_TEMPLATE)).isEmpty();
     }
     default boolean isTargetTemplate() {
         return true;

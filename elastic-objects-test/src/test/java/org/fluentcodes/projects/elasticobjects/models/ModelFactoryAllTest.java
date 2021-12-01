@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.MODULE_SCOPE;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.F_MODULE_SCOPE;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;
 
 public class ModelFactoryAllTest {
@@ -26,7 +26,7 @@ public class ModelFactoryAllTest {
         ModelBean bean = BEAN_MAP
                 .get(ModelBean.class.getSimpleName());
         Assertions.assertThat(bean.getFieldBean(PACKAGE_PATH)).isNotNull();
-        Assertions.assertThat(bean.getFieldBean(MODULE_SCOPE)).isNull();
+        Assertions.assertThat(bean.getFieldBean(F_MODULE_SCOPE)).isNull();
     }
 
     @Test

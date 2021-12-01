@@ -2,9 +2,16 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class TEO_STATIC {
+public class EoTestStatic {
+    private EoTestStatic() {
+
+    }
     public static final String S_EMPTY = "";
 
     public static final String PATH_INPUT = "input/";
@@ -24,15 +31,15 @@ public class TEO_STATIC {
     public static final Boolean S_BOOLEAN = true;
     public static final Integer S_INTEGER = 1;
 
-    public static final Long SAMPLE_LONG = new Long(2);
-    public static final Float SAMPLE_FLOAT = new Float(1.1);
+    public static final Long SAMPLE_LONG = 2L;
+    public static final Float SAMPLE_FLOAT = 1.1F;
     public static final Double SAMPLE_DOUBLE = 2.2;
     public static final String SAMPLE_KEY_UNKNOW = "unknow ";
-    public static final Map SAMPLE_MAP_EMPTY = new HashMap();
+    public static final Map<String, String> SAMPLE_MAP_EMPTY = new HashMap<>();
     public static final String S_MESSAGE = "message";
     public static final String S_STRING = "test";
     public static final String S_STRING_OTHER = "testOther";
-    public static final List SAMPLE_LIST_EMPTY = new ArrayList();
+    public static final List<String> SAMPLE_LIST_EMPTY = new ArrayList();
     public static final String S_KEY = "key";
     public static final String S_KEY0 = "key0";
     public static final String S_KEY1 = "key1";

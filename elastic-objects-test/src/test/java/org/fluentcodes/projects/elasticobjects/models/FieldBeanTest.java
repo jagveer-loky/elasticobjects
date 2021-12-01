@@ -8,10 +8,10 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.SCOPE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.GENERATED;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.NOT_NULL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.OVERRIDE;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.F_SCOPE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_GENERATED;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_NOT_NULL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_OVERRIDE;
 
 public class FieldBeanTest {
     @Test
@@ -23,14 +23,14 @@ public class FieldBeanTest {
     @Test
     public void naturalId_test__toString__test() {
         FieldBean fieldBean = new FieldBean("test");
-        Assertions.assertThat(fieldBean.toString()).isEqualTo("test");
+        Assertions.assertThat(fieldBean.toString()).hasToString("test");
     }
 
     @Test
     public void naturalId_field_modelKeys_String__toString__String_field() {
         FieldBean fieldBean = new FieldBean("field");
         fieldBean.setModelKeys("String");
-        Assertions.assertThat(fieldBean.toString()).isEqualTo("(String)field");
+        Assertions.assertThat(fieldBean.toString()).hasToString("(String)field");
     }
 
     @Test
@@ -38,21 +38,21 @@ public class FieldBeanTest {
         FieldBean fieldBean = new FieldBean("field");
         fieldBean.setParentModel(new ModelBean("Model"));
         fieldBean.setModelKeys("String");
-        Assertions.assertThat(fieldBean.toString()).isEqualTo("(String)Model.field");
+        Assertions.assertThat(fieldBean.toString()).hasToString("(String)Model.field");
     }
 
     @Test
     public void naturalId_field_modelBean_Model__toString__Model_field() {
         FieldBean fieldBean = new FieldBean("field");
         fieldBean.setParentModel(new ModelBean("Model"));
-        Assertions.assertThat(fieldBean.toString()).isEqualTo("Model.field");
+        Assertions.assertThat(fieldBean.toString()).hasToString("Model.field");
     }
 
     @Test
     public void fieldKey_field_modelBean_Model__toString__Model_field() {
         FieldBean fieldBean = new FieldBean();
         fieldBean.setFieldKey("field");
-        Assertions.assertThat(fieldBean.toString()).isEqualTo("field");
+        Assertions.assertThat(fieldBean.toString()).hasToString("field");
     }
 
 
@@ -62,9 +62,9 @@ public class FieldBeanTest {
         FieldBean fieldBean = new FieldBean();
         fieldBean.setNotNull(true);
         Assertions.assertThat(fieldBean.getNotNull()).isTrue();
-        Assertions.assertThat((Boolean)fieldBean.getProperties().get(NOT_NULL)).isTrue();
+        Assertions.assertThat((Boolean)fieldBean.getProperties().get(F_NOT_NULL)).isTrue();
         eo = ProviderConfigMaps.createEo(fieldBean);
-        Assertions.assertThat((Boolean)eo.get(NOT_NULL)).isTrue();
+        Assertions.assertThat((Boolean)eo.get(F_NOT_NULL)).isTrue();
     }
 
     @Test
@@ -72,9 +72,9 @@ public class FieldBeanTest {
         FieldBean fieldBean = new FieldBean();
         fieldBean.setOverride(true);
         Assertions.assertThat(fieldBean.getOverride()).isTrue();
-        Assertions.assertThat((Boolean)fieldBean.getProperties().get(OVERRIDE)).isTrue();
+        Assertions.assertThat((Boolean)fieldBean.getProperties().get(F_OVERRIDE)).isTrue();
         EO eo = ProviderConfigMaps.createEo(fieldBean);
-        Assertions.assertThat((Boolean)eo.get(OVERRIDE)).isTrue();
+        Assertions.assertThat((Boolean)eo.get(F_OVERRIDE)).isTrue();
     }
 
     @Test
@@ -82,9 +82,9 @@ public class FieldBeanTest {
         FieldBean fieldBean = new FieldBean();
         fieldBean.setGenerated(true);
         Assertions.assertThat(fieldBean.getGenerated()).isTrue();
-        Assertions.assertThat((Boolean)fieldBean.getProperties().get(GENERATED)).isTrue();
+        Assertions.assertThat((Boolean)fieldBean.getProperties().get(F_GENERATED)).isTrue();
         EO eo = ProviderConfigMaps.createEo(fieldBean);
-        Assertions.assertThat((Boolean)eo.get(GENERATED)).isTrue();
+        Assertions.assertThat((Boolean)eo.get(F_GENERATED)).isTrue();
     }
 
     @Test
@@ -94,11 +94,11 @@ public class FieldBeanTest {
         fieldBean.setGenerated(true);
         fieldBeanOverwritten.merge(fieldBean);
         Assertions.assertThat(fieldBean.getGenerated()).isTrue();
-        Assertions.assertThat((Boolean)fieldBean.getProperties().get(GENERATED)).isTrue();
+        Assertions.assertThat((Boolean)fieldBean.getProperties().get(F_GENERATED)).isTrue();
         Assertions.assertThat(fieldBeanOverwritten.getGenerated()).isTrue();
-        Assertions.assertThat((Boolean)fieldBeanOverwritten.getProperties().get(GENERATED)).isTrue();
+        Assertions.assertThat((Boolean)fieldBeanOverwritten.getProperties().get(F_GENERATED)).isTrue();
         EO eo = ProviderConfigMaps.createEo(fieldBean);
-        Assertions.assertThat((Boolean)eo.get(GENERATED)).isTrue();
+        Assertions.assertThat((Boolean)eo.get(F_GENERATED)).isTrue();
     }
 
     @Test
@@ -107,6 +107,6 @@ public class FieldBeanTest {
         fieldBean.setScope(Arrays.asList(new Scope[]{Scope.DEV}));
         Assertions.assertThat(fieldBean.getScope()).isNotEmpty();
         EO eo = ProviderConfigMaps.createEo(fieldBean);
-        Assertions.assertThat((List)eo.get(SCOPE)).isNotEmpty();
+        Assertions.assertThat((List)eo.get(F_SCOPE)).isNotEmpty();
     }
 }

@@ -40,7 +40,6 @@ public class FieldBean extends ConfigBean implements FieldInterface {
 
     public FieldBean(String key) {
         super(key);
-        //this.fieldKey = key;
     }
 
     public FieldBean(final Map values) {
@@ -55,8 +54,8 @@ public class FieldBean extends ConfigBean implements FieldInterface {
     }
 
     public FieldBean(final Field field) {
-        Class modelClass = field.getDeclaringClass();
-        Class typeClass = field.getType();
+        Class<?> modelClass = field.getDeclaringClass();
+        Class<?> typeClass = field.getType();
         setFieldKey(field.getName());
         setNaturalId(modelClass.getSimpleName() + "." + field.getName());
         setModelKeys(typeClass.getSimpleName());
@@ -79,18 +78,19 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         return this;
     }
 
+    @Override
     public void merge(final Map configMap) {
         super.merge(configMap);
-        setNaturalId((String) configMap.get(NATURAL_ID));
-        setFieldKey((String) configMap.get(FIELD_KEY));
-        mergeFinal(configMap.get(FINAL));
-        mergeOverride(configMap.get(OVERRIDE));
-        mergeJsonIgnore(configMap.get(JSON_IGNORE));
-        mergeTransient(configMap.get(TRANSIENT));
-        mergeDefault(configMap.get(DEFAULT));
+        setNaturalId((String) configMap.get(F_NATURAL_ID));
+        setFieldKey((String) configMap.get(F_FIELD_KEY));
+        mergeFinal(configMap.get(F_FINAL));
+        mergeOverride(configMap.get(F_OVERRIDE));
+        mergeJsonIgnore(configMap.get(F_JSON_IGNORE));
+        mergeTransient(configMap.get(F_TRANSIENT));
+        mergeDefault(configMap.get(F_DEFAULT));
 
-        setLength(ScalarConverter.toInt(configMap.get(LENGTH)));
-        setModelKeys((String) configMap.get(MODEL_KEYS));
+        setLength(ScalarConverter.toInt(configMap.get(F_LENGTH)));
+        setModelKeys((String) configMap.get(F_MODEL_KEYS));
     }
 
     public void merge(final FieldBean fieldBean) {
@@ -291,11 +291,11 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         if (hasOverride()) {
             return;
         }
-        getProperties().put(OVERRIDE, false);
+        getProperties().put(F_OVERRIDE, false);
     }
 
     private void defaultSuper() {
-        getProperties().put(SUPER, false);
+        getProperties().put(F_SUPER, false);
     }
 
     private void defaultConfigModelKey() {
@@ -307,7 +307,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
 
 
     private void defaultStaticName() {
-        getProperties().put(SUPER, true);
+        getProperties().put(F_SUPER, true);
     }
 
     private void defaultGenerated() {
@@ -342,11 +342,11 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         if (hasFinal()) {
             return;
         }
-        getProperties().put(FINAL, false);
+        getProperties().put(F_FINAL, false);
     }
 
     public FieldBean setDefault(Boolean value) {
-        getProperties().put(DEFAULT, value);
+        getProperties().put(F_DEFAULT, value);
         return this;
     }
 
@@ -357,82 +357,82 @@ public class FieldBean extends ConfigBean implements FieldInterface {
     }
 
     public FieldBean setFieldName(String value) {
-        getProperties().put(FIELD_NAME, value);
+        getProperties().put(F_FIELD_NAME, value);
         return this;
     }
 
 
     public FieldBean setFinal(Boolean value) {
-        getProperties().put(FINAL, value);
+        getProperties().put(F_FINAL, value);
         return this;
     }
 
 
     public FieldBean setGenerated(Boolean value) {
-        getProperties().put(GENERATED, value);
+        getProperties().put(F_GENERATED, value);
         return this;
     }
 
 
     public FieldBean setJavascriptType(String value) {
-        getProperties().put(JAVASCRIPT_TYPE, value);
+        getProperties().put(F_JAVASCRIPT_TYPE, value);
         return this;
     }
 
     public FieldBean setJsonIgnore(Boolean value) {
-        getProperties().put(JSON_IGNORE, value);
+        getProperties().put(F_JSON_IGNORE, value);
         return this;
     }
 
     public FieldBean setMax(Integer value) {
-        getProperties().put(MAX, value);
+        getProperties().put(F_MAX, value);
         return this;
     }
 
 
     public FieldBean setMin(Integer value) {
-        getProperties().put(MIN, value);
+        getProperties().put(F_MIN, value);
         return this;
     }
 
 
     public FieldBean setNotNull(Boolean value) {
-        getProperties().put(NOT_NULL, value);
+        getProperties().put(F_NOT_NULL, value);
         return this;
     }
 
 
     public FieldBean setOverride(Boolean value) {
-        getProperties().put(OVERRIDE, value);
+        getProperties().put(F_OVERRIDE, value);
         return this;
     }
 
     public FieldBean setProperty(Boolean value) {
-        getProperties().put(PROPERTY, value);
+        getProperties().put(F_PROPERTY, value);
         return this;
     }
 
 
     public FieldBean setStaticName(Boolean value) {
-        getProperties().put(STATIC_NAME, value);
+        getProperties().put(F_STATIC_NAME, value);
         return this;
     }
 
 
     public FieldBean setSuper(Boolean value) {
-        getProperties().put(SUPER, value);
+        getProperties().put(F_SUPER, value);
         return this;
     }
 
 
     public FieldBean setTransient(Boolean value) {
-        getProperties().put(TRANSIENT, value);
+        getProperties().put(F_TRANSIENT, value);
         return this;
     }
 
 
     public FieldBean setUnique(Boolean value) {
-        getProperties().put(UNIQUE, value);
+        getProperties().put(F_UNIQUE, value);
         return this;
     }
 
@@ -449,7 +449,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
     /* no null */
 
     public void setOverride(String value) {
-        getProperties().put(OVERRIDE, "true".equals(value));
+        getProperties().put(F_OVERRIDE, "true".equals(value));
     }
 
 
@@ -457,12 +457,12 @@ public class FieldBean extends ConfigBean implements FieldInterface {
         if (hasMax()) {
             return;
         }
-        getProperties().put(MAX, -1);
+        getProperties().put(F_MAX, -1);
     }
 
 
     public void setJavascriptType() {
-        getProperties().put(JAVASCRIPT_TYPE, JavascriptFieldTypeCall.createType(getModelKeys()));
+        getProperties().put(F_JAVASCRIPT_TYPE, JavascriptFieldTypeCall.createType(getModelKeys()));
     }
 
 }

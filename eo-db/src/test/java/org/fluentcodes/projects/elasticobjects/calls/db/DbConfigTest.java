@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.IConfigurationTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigNoCreateTests;
 import org.junit.Test;
 

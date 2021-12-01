@@ -1,4 +1,4 @@
 
 <h2>.{header}.</h2>
-<b>.{summary}.</b>
+<strong>.{summary}.</strong>
 <p>.{content}.</p>

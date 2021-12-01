@@ -4,8 +4,6 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.calls.HostBean;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.models.FieldBean;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
-import org.fluentcodes.projects.elasticobjects.io.IOClasspathEOFlatMap;
 import org.junit.Test;
 
 import java.util.Map;

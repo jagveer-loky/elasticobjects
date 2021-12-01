@@ -1,7 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.io.IOClasspathEOFlatMap;
 
 import java.util.Map;
 
@@ -29,10 +28,11 @@ public class ModelFactoryFromConfigurations extends ModelFactory {
 
     protected void addModelBeans(Map<String, ModelBean> beanMap) {
         ConfigMaps devConfigMaps = new ConfigMaps(Scope.DEV);
-        EO eoRoot = EoRoot.ofClass(devConfigMaps, readConfigFiles(), Map.class);
-        Map<String, Map<String, Object>> mapValues = (Map<String, Map<String, Object>>)eoRoot.get();
+        Map<String, Map<String, Object>> modelMapValues = new IOClasspathEOFlatMap<Map<String,Object>>
+                (devConfigMaps, "ModelConfig.json", Map.class)
+                .read();
         Map<String, FieldBean> fieldBeanMap = new FieldFactory(devConfigMaps).createBeanMap();
-        for (Map.Entry<String, Map<String,Object>> entry: mapValues.entrySet()) {
+        for (Map.Entry<String, Map<String,Object>> entry: modelMapValues.entrySet()) {
             ModelBean modelBean = new ModelBean(entry.getValue());
             if (!modelBean.hasModelKey()) {
                 LOG.warn("No modelKey defined for {}.", entry.getKey());

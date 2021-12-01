@@ -3,8 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 import org.fluentcodes.projects.elasticobjects.BuilderParams;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 

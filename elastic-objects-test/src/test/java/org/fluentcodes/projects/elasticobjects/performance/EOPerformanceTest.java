@@ -9,9 +9,9 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.io.IOString;
 import org.fluentcodes.tools.io.IOGson;
 import org.fluentcodes.tools.io.IOJackson;
+import org.fluentcodes.tools.io.IOString;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EOPerformance {
+public class EOPerformanceTest {
     private static final int maxRoot = 10000;
     private static final ObjectMapper JACKSON_MAPPER = new ObjectMapper();
     private static final Gson GSON_MAPPER = new GsonBuilder().setPrettyPrinting().create();
@@ -37,7 +37,7 @@ public class EOPerformance {
     private static final AnObject ALL = TestProviderAnObjectJson.ALL.createBt();
     private static final String ALL_JSON = TestProviderAnObjectJson.ALL.content();
 
-    @Ignore
+    @Ignore("Only manual start")
     @Test
     public void root() throws Exception {
         StringBuilder result = new StringBuilder();

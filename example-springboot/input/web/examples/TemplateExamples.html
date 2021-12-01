@@ -5,9 +5,9 @@
 
 </p>
 <ul>
-    <li><b>=@{JSON_CONTENT}.</b>: Any combination of json.</li>
-    <li><b>@{CALL->VAR1, VAR2, .. VARN}.</b>: Will generate one call and execute it. The paramerters are dependent of the type of call</li>
-    <li><b>=&gt{PATH}</b>: The variable of the path will included.</li>
+    <li><strong>&commat;{JSON_CONTENT}.</strong>: Any combination of json.</li>
+    <li><strong>&num;{CALL->VAR1, VAR2, .. VARN}.</strong>: Will generate one call and execute it. The paramerters are dependent of the type of call</li>
+    <li><strong>&period;{PATH}.</strong>: The variable of the path will included.</li>
 </ul>
 <h5>A Combined Template</h5>
 <p>
@@ -20,16 +20,16 @@ The following example sends directly a template string to the "eo-template" endp
 <h1>An Example Template</h1>
 
 <h2>CSV</h2>
-@{CsvSimpleReadCall->AnObject.csv, data/csv}.
-@{TemplateResourceCall->table.tpl, data/csv}.
+&num;{CsvSimpleReadCall->AnObject.csv, data/csv}.
+&num;{TemplateResourceCall->table.tpl, data/csv}.
 
 <h2>Excel</h2>
-@{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
-@{TemplateResourceCall->table.tpl, data/xlsx}.
+&num;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+&num;{TemplateResourceCall->table.tpl, data/xlsx}.
 
 <h2>DB</h2>
-@{DbSqlReadCall->h2:mem:basic:AnObject, data/db}.
-@{TemplateResourceCall->table.tpl, data/db}.
+&num;{DbSqlReadCall->h2:mem:basic:AnObject, data/db}.
+&num;{TemplateResourceCall->table.tpl, data/db}.
 </textarea>
     <input type="submit" value="post"/>
 </form>

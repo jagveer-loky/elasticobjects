@@ -2,11 +2,11 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
+import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -87,7 +87,7 @@ public class ModelTemplateTargetMapCall extends ModelAbstract {
             if (!filter(modelBean)) {
                 continue;
             }
-            eo.set(modelBean.getModelKey(), "/modelKey");
+            eo.set(modelBean.getModelKey(), JAVA_GEN_MODEL);
             for (String fileConfigKey: templateTargetMap.keySet()) {
                 if (hasTargetFileConfigKey() && !fileConfigKey.matches(getTargetFileConfigKey())) {
                     continue;

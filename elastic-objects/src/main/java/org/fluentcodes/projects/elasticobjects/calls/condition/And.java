@@ -26,10 +26,10 @@ public class And {
 
     public And(EO adapter)  {
         this();
-        Map keyValues = adapter.getKeyValues();
-        for (Object key : keyValues.keySet()) {
+        Map<String, Object> keyValues = adapter.getKeyValues();
+        for (Map.Entry<String, Object> entry : keyValues.entrySet()) {
 
-            Condition condition = new Eq((String) key, keyValues.get(key));
+            Condition condition = new Eq(entry.getKey(), entry.getValue());
             conditions.add(condition);
         }
     }
@@ -73,7 +73,7 @@ public class And {
                     conditions.add(new NotExists(key));
                     break;
                 default:
-                    LOG.error("Could not understand condition " + andAsString + " !!!!!!!!");
+                    LOG.error("Could not understand condition {} !!!!!!!!", andAsString);
             }
         }
     }
@@ -103,6 +103,7 @@ public class And {
     public void addConditions(And conditions) {
         if (conditions == null) {
             this.conditions = new ArrayList<>();
+            return;
         }
         this.conditions.addAll(conditions.getConditions());
     }
@@ -121,7 +122,7 @@ public class And {
         return sql.toString();
     }
 
-    public boolean filter(List row) {
+    public boolean filter(List<Object> row) {
         if (row == null) {
             LOG.warn("Null row should not occure!");
             return true;

@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /*.{javaHeader}|*/
-import java.util.ArrayList;
 
 /**
  * Creates a flat list from all loaded configurations for a specific configType.
@@ -42,7 +41,7 @@ public class ConfigAsFlatListCall extends CallImpl implements SimpleCommand {
 
     @Override
     public String execute(EO eo)  {
-        List resultAsListMap = (List) new ConfigCall()
+        List<Object> resultAsListMap = (List) new ConfigCall()
                 .setConfigType(configType)
                 .execute(eo);
         return new CsvSimpleWriteCall()

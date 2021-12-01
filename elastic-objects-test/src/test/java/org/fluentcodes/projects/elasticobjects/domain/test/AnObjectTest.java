@@ -3,12 +3,13 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.FieldInterface;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_STRING;
@@ -48,14 +49,13 @@ public class AnObjectTest implements IModelConfigCreateTests {
     @Test
     public void TEST__toString__BEAN_AnObject() {
         ModelBean modelBean = ProviderConfigMaps.findModelBean(AnObject.class);
-        Assertions.assertThat(modelBean.toString()).isEqualTo("(BEAN)AnObject");
+        Assert.assertEquals("(BEAN)AnObject", modelBean.toString());
     }
 
     @Test
     public void myString__toString__equalsPersisted() {
         FieldInterface field = ProviderConfigMaps.findModel(AnObject.class).getField("myString");
-        Assertions.assertThat(field.toString())
-                .isEqualTo(XpectEo.load((ConfigConfig)field));
+        Assert.assertEquals(XpectEo.load((ConfigConfig)field), field.toString());
     }
 
     @Test

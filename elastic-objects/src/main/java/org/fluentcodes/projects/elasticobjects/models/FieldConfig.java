@@ -19,7 +19,8 @@ import java.util.Map;
  * @modificationDate Thu Jan 14 04:26:27 CET 2021
  */
 public class FieldConfig extends ConfigConfig implements FieldInterface {
-/*.{}.*/
+    public static final String AND_MODEL = "' and model '";
+    /*.{}.*/
 /*.{javaInstanceVars}|*/
    /* fieldKey */
    private final String fieldKey;
@@ -29,7 +30,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
    private final String modelKeys;
 /*.{}.*/
     private boolean resolved;
-    private final Boolean toSerialize;
+    private final boolean toSerialize;
     private List<String> modelList;
     private final ModelInterface parentModel;
     private Models models;
@@ -83,11 +84,10 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
             return;
         }
 
-        if (model.getShapeType() == ShapeTypes.INTERFACE) {
-            if (!isDefault() && !hasProperty()) {
-                //System.out.println(toString() + ": " + getProperties().get(DEFAULT) + " - " + getProperties().get(PROPERTY));
+        if (model.getShapeType() == ShapeTypes.INTERFACE &&
+                !isDefault() &&
+                !hasProperty()) {
                 return;
-            }
         }
 
         this.getter = getGetMethod(model, this.fieldKey);
@@ -103,7 +103,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         try {
             return model.getModelClass().getMethod(StringUpperFirstCharCall.getter(fieldKey), null);
         } catch (NoSuchMethodException e) {
-            throw new EoException("\nCould not find getter method for '" + fieldKey + "' and model '" + parentModel.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
+            throw new EoException("\nCould not find getter method for '" + fieldKey + AND_MODEL + parentModel.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
         }
     }
 
@@ -111,7 +111,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         try {
             return model.getModelClass().getMethod(StringUpperFirstCharCall.setter(fieldKey), models.getModelClass());
         } catch (NoSuchMethodException e) {
-            throw new EoException("\nCould not find setter method for '" + fieldKey + "' and model '" + parentModel.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
+            throw new EoException("\nCould not find setter method for '" + fieldKey + AND_MODEL + parentModel.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
         }
     }
 
@@ -175,7 +175,7 @@ public class FieldConfig extends ConfigConfig implements FieldInterface {
         return models;
     }
 
-    public Class getModelClass()  {
+    public Class<?> getModelClass()  {
         return models.getModelClass();
     }
 

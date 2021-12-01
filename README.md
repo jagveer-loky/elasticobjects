@@ -12,8 +12,8 @@ composed objects by one generic endpoint.
 <p>
 Functionality is provided by special
 <nobreak><a href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>call</a></nobreak>
-objects with a generic execution method using a <b>source path</b> as <b>input</b> and
-a <b>target path</b> for <b>output</b>.
+objects with a generic execution method using a <strong>source path</strong> as <strong>input</strong> and
+a <strong>target path</strong> for <strong>output</strong>.
 </p>
 <p>
 Compared with todays RPC concepts its more a "Remote Object Call" (ROC) architecture. One can easily
@@ -42,7 +42,7 @@ The calls implemented are used in the two applications:
 <h3>Elastic Objects</h5>
 <p>
     Elastic Objects is a generic object wrapper skin
-    with <b>typed</b> path methods to an java object skeleton.
+    with <strong>typed</strong> path methods to an java object skeleton.
     Typed objects are embedded in an untyped map structure.
 </p>
 <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/eoTree.svg" width="200" style="margin:20px;"/>
@@ -60,7 +60,7 @@ Some code examples you will find in <a href="http://elasticobjects.org/eo/EO.htm
 <p>A special
 <nobreak><a target="github" href="elastic-objects/src/main/java/org/fluentcodes/projects/elasticobjects/calls/Call.java"> <img src="https://raw.githubusercontent.com/fluentcodes/elasticobjects/master/example-springboot/src/main/resources/static/pics/github.png" height="12" width="12" " style="margin:0px 4px 0px 6px;"/>Call</a>
  bean with a
-    generic execution method offers <b>functionality</b>. Its has the following important fields: </p>
+    generic execution method offers <strong>functionality</strong>. Its has the following important fields: </p>
 
 <ul>
     <li>
@@ -77,9 +77,9 @@ Some code examples you will find in <a href="http://elasticobjects.org/eo/EO.htm
 
 <h3>Pseudo JSON Example</h5>
 <p>
-    The following pseudo code would call the execute method in the <b>ACall</b> instance,
-    which uses the <b>AnObject</b> object provided in <i>input</i> path
-    and store the result in <i>target</i> path.
+    The following pseudo code would call the execute method in the <strong>ACall</strong> instance,
+    which uses the <strong>AnObject</strong> object provided in <em>input</em> path
+    and store the result in <em>target</em> path.
 
     {
         "(AnObject)input":{...},
@@ -258,7 +258,7 @@ Elastic Objects is an object wrapper around the skeleton of hierarchical Java ob
     EoRoot eoRoot = EoRoot.OFanObject);
 <p>
 It offers
-<b>path</b>
+<strong>path</strong>
 methods to create, set or access objects.
 </p>
 

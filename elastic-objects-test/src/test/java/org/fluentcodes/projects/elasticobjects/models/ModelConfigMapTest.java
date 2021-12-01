@@ -27,7 +27,6 @@ public class ModelConfigMapTest {
         Assert.assertEquals(ShapeTypes.MAP, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertTrue(model.isMap());
-        Assert.assertFalse(model.isSet());
         Assert.assertFalse(model.isList());
         Assert.assertFalse(model.isScalar());
         Assert.assertFalse(model.isObject());
