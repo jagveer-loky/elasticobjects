@@ -1,15 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateResourceStoreCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.models.Scope;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Abstract super class for generating code.
  *
@@ -19,11 +15,11 @@ import org.fluentcodes.projects.elasticobjects.models.Scope;
  */
 public abstract class ModelAbstract extends GenerateAbstract implements ModelAbstractInterface {
     public static final String MODEL_BEANS_JSON = "ModelBeans.json";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
     private String packagePath;
-/*=>{}.*/
+/*.{}.*/
 
     public ModelAbstract() {
         super();
@@ -49,7 +45,7 @@ public abstract class ModelAbstract extends GenerateAbstract implements ModelAbs
     }
 
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
 
     public String getPackagePath() {
         return packagePath;
@@ -58,5 +54,5 @@ public abstract class ModelAbstract extends GenerateAbstract implements ModelAbs
     public void setPackagePath(String packagePath) {
         this.packagePath = packagePath;
     }
-    /*=>{}.*/
+    /*.{}.*/
 }

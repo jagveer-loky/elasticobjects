@@ -4,8 +4,6 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.ListProperties;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
-import java.util.Map;
-
 /**
  * Created by Werner on 09.10.2016.
  */

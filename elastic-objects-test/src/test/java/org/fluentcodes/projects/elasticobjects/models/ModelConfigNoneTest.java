@@ -13,11 +13,7 @@ public class ModelConfigNoneTest {
     public void assertObject()  {
         ModelConfig model = ProviderConfigMaps.CONFIG_MAPS.findModel(Object.class.getSimpleName());
         Assert.assertEquals(ShapeTypes.NONE, model.getShapeType());
-        //Assert.assertFalse(model.hasModel());
         Assert.assertFalse(model.isMap());
-        Assert.assertFalse(model.isSet());
         Assert.assertFalse(model.isList());
-        //Assert.assertTrue(model.isScalar());
-        //Assert.assertFalse(model.isObject());
     }
 }

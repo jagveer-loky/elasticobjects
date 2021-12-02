@@ -27,14 +27,14 @@ public class ListTest {
     @Test
     public void template_AnObjectCsv_tableTpl__execute__xpected()  {
         final TemplateCall call = new TemplateCall("START " +
-                "==>{CsvSimpleReadCall->AnObject.csv, xyz}.\n" +
-                "==>{TemplateResourceCall->table.tpl, xyz}." +
+                "#{CsvSimpleReadCall->AnObject.csv, xyz}.\n" +
+                "#{TemplateResourceCall->table.tpl, xyz}." +
                 "END");
         EO eo = ProviderConfigMaps.createEo();
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        new XpectString().compareAsString(result);
+        XpectString.assertJunit(result);
     }
 
 }

@@ -7,6 +7,6 @@
   },
   "(TemplateResourceCall)2": {
     "sourcePath": "data/*",
-    "fileConfigKey":"=>[template]."
+    "fileConfigKey":".[template]."
   }
 }

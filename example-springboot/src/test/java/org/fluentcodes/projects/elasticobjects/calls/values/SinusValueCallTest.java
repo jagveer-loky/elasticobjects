@@ -48,7 +48,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
                 "   },\n" +
                 "   \"(TemplateCall)1\": {\n" +
                 "     \"sourcePath\": \"/source/*\",\n" +
-                "     \"content\": \"sin(=>{_value}.) = =>{/target/_parent}.\\n\"\n" +
+                "     \"content\": \"sin(.{_value}.) = .{/target/_parent}.\\n\"\n" +
                 "   }\n" +
                 " }");
         eo.execute();

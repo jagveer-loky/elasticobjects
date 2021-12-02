@@ -14,7 +14,7 @@
 "CALL_BEANCreate.tpl";"";"builder";"";"";"templates/java/bean";"BEANCreate.tpl";"Used for BEANCreate.tpl for generation CALL_BEAN shape.";"";"WEB";"false";"";"";"";"";
 "CONFIGConstructor.tpl";"";"builder";"";"";"templates/java/config";"CONFIGConstructor.tpl";"Creates a constructor using a map as input for ConfigCreate template.";"";"WEB";"false";"";"";"";"";
 "CONFIGCreate.tpl";"";"builder";"";"";"templates/java/config";"CONFIGCreate.tpl";"Java template for config classes. Creates also a constructor using a map as input.";"";"WEB";"false";"";"";"";"";
-"ConfigResources";"";"builder";"";"";"../=>[module]./src/=>[moduleScope]./resources";"/=>[configType].=>[/fileEnding]..json";"Target file to generate json configuration.";"";"WEB";"false";"";"";"";"";
+"ConfigResources";"";"builder";"";"";"../.[module]./src/.[moduleScope]./resources";"/.[configType]..[/fileEnding]..json";"Target file to generate json configuration.";"";"WEB";"false";"";"";"";"";
 "configs";"DirectoryConfig";"example-springboot";"";"";"web/configs";"^[^_].*.html";"Directory access for web/configs for fileNames matching *.html";"";"WEB";"false";"";"";"";"";
 "ConfigsNavigation.html";"";"example-springboot";"";"";"web";"ConfigsNavigation.html";"The Wordpress header part";"";"WEB";"false";"";"";"";"";
 "ConfigsPage.html";"";"example-springboot";"";"";"web";"ConfigsPage.html";"The config template loading a config and show it's properties.";"";"WEB";"false";"";"";"";"";
@@ -40,7 +40,7 @@
 "INTERFACESetter.tpl";"";"builder";"";"";"templates/java/interface";"INTERFACESetter.tpl";"Creates getter together with a description in interfaces in cache types.  ";"";"WEB";"false";"";"";"";"";
 "INTERFACEStaticNames.tpl";"";"builder";"";"";"templates/java/interface";"INTERFACEStaticNames.tpl";"Creates static names for interface getter.";"";"WEB";"false";"";"";"";"";
 "JavaBuilder.tpl";"";"builder";"";"";"templates/java";"JavaBuilder.tpl";"Control directive to load ModelConfig and FieldConfig data and call GenerateJavaCall";"";"WEB";"false";"";"";"";"";
-"JavaClasses";"";"builder";"";"";"../=>[module]./src/=>[moduleScope]./java/==>[StringReplaceCall->packagePath, \., /].";"/=>[modelKey].=>[/fileEnding]..java";"Target file to generate java class files.";"";"WEB";"false";"";"";"";"";
+"JavaClasses";"";"builder";"";"";"../.[module]./src/.[moduleScope]./java/=.[StringReplaceCall->packagePath, \., /].";"/.[modelKey]..[/fileEnding]..java";"Target file to generate java class files.";"";"WEB";"false";"";"";"";"";
 "JsonBuilder.tpl";"";"builder";"";"";"templates/json";"JsonBuilder.tpl";"Control directives to load a configuration sheet defined by configType in a hierarchical way and  call GenerateJsonCall.";"";"WEB";"false";"";"";"";"";
 "list.json";"";"example-springboot";"";"";"data/json";"list.json";"A simple list as example.";"";"WEB";"false";"";"";"";"";
 "ListSimple.csv";"CsvConfig";"elastic-objects-test";"";"";"input/calls/list-simple";"ListSimple.csv";"A sample csv file with 2*2 values and a head as a source.";"";"NONE";"false";"";"";"";"";

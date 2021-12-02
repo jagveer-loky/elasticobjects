@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-import java.util.Map;
 import java.util.Set;
 
 /**

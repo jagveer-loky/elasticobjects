@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionConfig;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
@@ -15,7 +15,7 @@ import java.util.Enumeration;
 
 import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.LOCALHOST;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Immutable EO file configuration allow read or write access to a specific file.  
@@ -24,9 +24,9 @@ import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.LOCALHOST
  * @modificationDate Thu Jan 14 14:42:46 CET 2021
  */
 public class FileConfig extends PermissionConfig implements FileConfigMethods, FileInterface  {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    /* If true will cache the readed file within the cache object.  */
    private final Boolean cached;
    /* A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
@@ -35,7 +35,7 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
    private final String filePath;
    /* A key for host objects. */
    private final String hostConfigKey;
-/*=>{}.*/
+/*.{}.*/
     private String cachedContent;
 
     public FileConfig(ConfigBean bean, final ConfigMaps configMaps) {
@@ -52,7 +52,7 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
 
 
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    @Override
    public Boolean getCached() {
       return this.cached;
@@ -69,7 +69,7 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
    public String getHostConfigKey() {
       return this.hostConfigKey;
    }
-/*=>{}.*/
+/*.{}.*/
 
     protected boolean hasCachedContent() {
         return cachedContent != null && !cachedContent.isEmpty();
@@ -90,7 +90,7 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
         if (hostPath == null || hostPath.isEmpty()) {
             return filePath + "/" + fileName;
         }
-        return new ParserCurlyBracket(hostPath + "" + filePath + "/" + fileName).parse();
+        return new Parser(hostPath + "" + filePath + "/" + fileName).parse();
     }
 
     protected HostConfig resolveHostConfig(final EO eo, final String hostConfigKey) {
@@ -128,7 +128,7 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
         URL url = createUrl(hostConfig);
         String urlString = getUrlPath(hostConfig);
         try {
-            String replaceUrl = new ParserCurlyBracket(urlString).parse();
+            String replaceUrl = new Parser(urlString).parse();
             return new URL(replaceUrl);
         } catch (MalformedURLException e) {
             throw new EoException(e);
@@ -144,7 +144,7 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
         }
         String urlString = getUrlPath(hostConfig);
         try {
-            String replaceUrl = new ParserCurlyBracket(urlString).parse();
+            String replaceUrl = new Parser(urlString).parse();
             return new URL(replaceUrl);
         } catch (MalformedURLException e) {
             throw new EoException(e);

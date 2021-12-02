@@ -11,11 +11,11 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMa
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL1;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL2;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL3;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL2;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL3;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 
 /**
  * Tests for {@link SinusValueCall}
@@ -127,11 +127,11 @@ public class ValueCallTest implements IModelConfigCreateTests {
     @Test
     public void call_TemplateCall_level0_content__execute__level0_1() {
         EO eo = ProviderConfigMaps.createEo();
-        final String template = " ===>{\"(ValueCall).\":{" +
+        final String template = " @{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0\"}" +
                 "}|" +
                 "[1,2]" +
-                "=>{}.";
+                ".{}.";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -141,11 +141,11 @@ public class ValueCallTest implements IModelConfigCreateTests {
     @Test
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap() {
         EO eo = ProviderConfigMaps.createEo();
-        final String template = " ===>{\"(ValueCall).\":{" +
+        final String template = " @{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0\"}" +
                 "}|" +
                 "{\"level1\",\"test\"}" +
-                "=>{}.";
+                ".{}.";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -155,11 +155,11 @@ public class ValueCallTest implements IModelConfigCreateTests {
     @Test
     public void givenTemplateWithValueCallJsonMapAndLongerPath_whenExecute_thenEoIsMap() {
         EO eo = ProviderConfigMaps.createEo();
-        final String template = " ===>{\"(ValueCall).\":{" +
+        final String template = " @{\"(ValueCall).\":{" +
                 "\"targetPath\":\"level0/level1/level2\"}" +
                 "}|" +
                 "{\"level3\",\"test\"}" +
-                "=>{}.";
+                ".{}.";
         final TemplateCall call = new TemplateCall(template);
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();

@@ -5,10 +5,10 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_DOUBLE;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_FLOAT;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_INT;

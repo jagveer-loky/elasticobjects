@@ -1,14 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.ConfigFactory;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.models.Scope;
-
-import java.util.Map;
-import java.util.Optional;
-import java.util.TreeMap;
 
 /**
  * Created by Werner on 31.10.2021.

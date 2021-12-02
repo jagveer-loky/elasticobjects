@@ -7,7 +7,7 @@
 
 <p>
 Service oriented architecture today is usually some typed RPC calls bound to urls by
-    an application server framework. <b>Type</b> and <b>functionality</b> mapping is stuck
+    an application server framework. <strong>Type</strong> and <strong>functionality</strong> mapping is stuck
     in a procedural concept
     from the IT stone age and fat web application frameworks.
 </p>
@@ -20,18 +20,18 @@ Service oriented architecture today is usually some typed RPC calls bound to url
 </p>
 <h5>Service Concept</h5>
 <p>
-    The concept of Elastic Objects uses a <b>"typed" JSON</b> for messages to instantiate pojos in
-    an arbitrary object hierarchy context. A special <b>"call" pojo</b> with a generic execute method offers
+    The concept of Elastic Objects uses a <strong>"typed" JSON</strong> for messages to instantiate pojos in
+    an arbitrary object hierarchy context. A special <strong>"call" pojo</strong> with a generic execute method offers
     any functionality.
 </p>
 <img src="/pics/eoCall.svg" width="200" style="margin:20px;"/>
 <p>These calls uses
 <ul>
-    <li> ==>{ConfigLinkCall->FieldConfig, sourcePath}. for the location of the input</li>
-    <li> ==>{ConfigLinkCall->FieldConfig, targetPath}. for storing the output</li>
+    <li> #{ConfigLinkCall->FieldConfig, sourcePath}. for the location of the input</li>
+    <li> #{ConfigLinkCall->FieldConfig, targetPath}. for storing the output</li>
 </ul>
 The returned message is the same as the incoming but "enriched" by the executed calls. The architecture is
-like a <b>shopping bag</b>, where the calls are the <b>shopping list items</b>.
+like a <strong>shopping bag</strong>, where the calls are the <strong>shopping list items</strong>.
 </p>
 
 
@@ -39,23 +39,23 @@ like a <b>shopping bag</b>, where the calls are the <b>shopping list items</b>.
 
 <p>
     A call just has to implement an execute method with EO as input and extend the
-    ==>{GithubLinkCall->ModelConfig, CallImpl}. class.
+    #{GithubLinkCall->ModelConfig, CallImpl}. class.
     There is no restriction to what this execute method implements.
 </p>
 <p>
     To offer it's functionality
     to a service only an entry in the
-    ==>{GithubLinkCall->NONE, SPR||ModelConfig.json}. is necessary.
+    #{GithubLinkCall->NONE, SPR||ModelConfig.json}. is necessary.
 </p>
 
-==>{TemplateDirResourceCall->examples, SinusValueCall.html}.
+#{TemplateDirResourceCall->examples, SinusValueCall.html}.
 
 <h6>Other Simple Calls</h6>
 
 <p>
     As examples you find here
-    ==>{ConfigLinkCall->ModelConfig, TheGreetingCall}. or more senseful the links used for this
-    website on ==>{ConfigLinkCall->ModelConfig, ConfigLinkCall}..
+    #{ConfigLinkCall->ModelConfig, TheGreetingCall}. or more senseful the links used for this
+    website on #{ConfigLinkCall->ModelConfig, ConfigLinkCall}..
 </p>
 
 
@@ -74,11 +74,11 @@ location.</p>
 </ul>
 <p>If one has a new file it's enough to add an entry in the
 <a href="/configs/FileConfig.html">FileConfig</a>. For this demo web site \
-    ==>{GithubLinkCall->NONE, SPR||FileConfig.json}. is used.</p>
+    #{GithubLinkCall->NONE, SPR||FileConfig.json}. is used.</p>
 
-==>{TemplateDirResourceCall->examples, FileReadCall.html}.
+#{TemplateDirResourceCall->examples, FileReadCall.html}.
 
-==>{TemplateDirResourceCall->examples, XlsxReadCall.html}.
+#{TemplateDirResourceCall->examples, XlsxReadCall.html}.
 
 <a name="templateResourceCallHtml">
 <h5>Combining Data Request and Rendering</h5>
@@ -88,7 +88,7 @@ rendering calls with retrieving data.
 </p>
 
 
-==>{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
+#{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
 
 
 <a name="templateCall"></a>
@@ -103,21 +103,21 @@ rendering calls with retrieving data.
 <img src="/pics/eoTemplateCall.svg" width="200" style="margin:20px;"/>
 
 
-==>{TemplateDirResourceCall->examples, TemplateCall.html}.
+#{TemplateDirResourceCall->examples, TemplateCall.html}.
 
 
 
 
 <h5>Database Calls</h5>
 <p>The database calls actually have two flavours: One using the
-==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.
+#{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.
     with predefined SQLs.
 </p>
 <p>
     The other like
-    ==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. is using
-==>{GithubLinkCall->ModelConfig, ModelConfigDbObject}. as a extension of
-    ==>{GithubLinkCall->ModelConfig, ModelConfigObject}.</p>
+    #{ConfigLinkCall->ModelConfig, DbModelReadCall}. is using
+#{GithubLinkCall->ModelConfig, ModelConfigDbObject}. as a extension of
+    #{GithubLinkCall->ModelConfig, ModelConfigObject}.</p>
 <p>
     A former hibernate module will be refactored at some time. 
 </p>
@@ -131,10 +131,10 @@ rendering calls with retrieving data.
     data to automate the boring part of building applications.
 </p>
 <p>The configurations and some parts of the code here are generated via
-==>{GithubLinkCall->NONE, BR||eo.xlsx}..</p>
+#{GithubLinkCall->NONE, BR||eo.xlsx}..</p>
 <p>
     For the java classes a special call
-==>{GithubLinkCall->NONE, EO|calls.templates.|TemplateResourceStoreKeepCall.java}. is used:
+#{GithubLinkCall->NONE, EO|calls.templates.|TemplateResourceStoreKeepCall.java}. is used:
     If the
    target file exists it will be used as a template itself.
     So one can modify the java class
@@ -161,8 +161,8 @@ With a simple tiny typed JSON extension
 <p>
     So I will put more focus on the original
     intention: The generation of code in
-    ==>{GithubLinkCall->NONE, B||Builder.java}.. by structured data like
-    ==>{GithubLinkCall->NONE, BR||eo.xlsx}. .
+    #{GithubLinkCall->NONE, B||Builder.java}.. by structured data like
+    #{GithubLinkCall->NONE, BR||eo.xlsx}. .
 </p>
 
 <p>I hope the examples show what is easily possible

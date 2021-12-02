@@ -7,16 +7,16 @@
 <h1>An Example Template</h1>
 
 <h2>CSV</h2>
-==&gt;{CsvSimpleReadCall->AnObject.csv, data/csv}.
-==&gt;{TemplateResourceCall->table.tpl, data/csv}.
+&num;{CsvSimpleReadCall->AnObject.csv, data/csv}.
+&num;{TemplateResourceCall->table.tpl, data/csv}.
 
 <h2>Excel</h2>
-==&gt;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
-==&gt;{TemplateResourceCall->table.tpl, data/xlsx}.
+&num;{XlsxReadCall->AnObject.xlsx:test, data/xlsx}.
+&num;{TemplateResourceCall->table.tpl, data/xlsx}.
 
 <h2>DB</h2>
-==&gt;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
-==&gt;{TemplateResourceCall->table.tpl, data/db}.
+&num;{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, data/db}.
+&num;{TemplateResourceCall->table.tpl, data/db}.
 </textarea>
     <input type="submit" value="post"/>
 </form>
@@ -27,16 +27,16 @@ All implemented list read calls are integrated in
     </p>
 <ul>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. set
-        ==>{ConfigLinkCall->FileConfig, AnObject.csv}. to "data/csv"</li>
+        #{ConfigLinkCall->ModelConfig, CsvSimpleReadCall}. set
+        #{ConfigLinkCall->FileConfig, AnObject.csv}. to "data/csv"</li>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, XlsxReadCall}. with
-        ==>{ConfigLinkCall->FileConfig, AnObject.xlsx:test}. to "data/xlsx"</li>
+        #{ConfigLinkCall->ModelConfig, XlsxReadCall}. with
+        #{ConfigLinkCall->FileConfig, AnObject.xlsx:test}. to "data/xlsx"</li>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, DbSqlReadCall}. with
-        ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.  to "data/db"</li>
+        #{ConfigLinkCall->ModelConfig, DbSqlReadCall}. with
+        #{GithubLinkCall->NONE, EODBR||DbSqlConfig.json}.  to "data/db"</li>
 </ul>
 <p>
-==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. will the render the data with
-==>{ConfigLinkCall->FileConfig, table.tpl}.
+#{ConfigLinkCall->ModelConfig, TemplateResourceCall}. will the render the data with
+#{ConfigLinkCall->FileConfig, table.tpl}.
 </p>

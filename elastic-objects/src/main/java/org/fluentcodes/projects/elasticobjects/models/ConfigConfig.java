@@ -19,10 +19,10 @@ import java.util.Map;
  * @modificationDate Sun Jan 10 11:32:02 CET 2021
  */
 public class ConfigConfig extends BaseConfig implements ConfigInterface {
-  /*=>{}.*/
+  /*.{}.*/
   private final ConfigMaps configMaps;
   private final Map<String, Object> properties;
-  /*=>{javaInstanceVars}|*/
+  /*.{javaInstanceVars}|*/
   /* expose */
   private final Expose expose;
   /* Defines a target module where generating occurs.  */
@@ -31,7 +31,7 @@ public class ConfigConfig extends BaseConfig implements ConfigInterface {
   private final String moduleScope;
   /* A scope for the cache value. */
   private final List<Scope> scope;
-  /*=>{}.*/
+  /*.{}.*/
 
   public ConfigConfig(ConfigBean configBean, final ConfigMaps configMaps) {
     super(configBean);
@@ -55,7 +55,7 @@ public class ConfigConfig extends BaseConfig implements ConfigInterface {
     return properties;
   }
 
-  /*=>{javaAccessors}|*/
+  /*.{javaAccessors}|*/
   @Override
   public Expose getExpose() {
     return this.expose;
@@ -76,7 +76,7 @@ public class ConfigConfig extends BaseConfig implements ConfigInterface {
     return this.scope;
   }
 
-  /*=>{}.*/
+  /*.{}.*/
 
   /**
    * Set the values from config to {@link ConfigBean}

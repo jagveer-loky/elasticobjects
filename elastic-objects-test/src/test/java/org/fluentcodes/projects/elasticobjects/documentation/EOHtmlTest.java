@@ -7,6 +7,7 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.junit.Test;
+
 import java.util.Map;
 
 public class EOHtmlTest {

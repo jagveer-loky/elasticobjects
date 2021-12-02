@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCommand;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Read content of a file specified by sourceFileConfigKey referencing a FileConfig with this key. Afterwards it will store it to the file configuration with key targetFileConfigKey. 
@@ -14,19 +14,19 @@ import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigReadWriteCom
  * @modificationDate Tue Dec 08 09:47:43 CET 2020
  */
 public class FileReadWriteCall extends CallImpl implements ConfigReadWriteCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String COMPARE = "compare";
    public static final String SOURCE_FILE_CONFIG_KEY = "sourceFileConfigKey";
    public static final String TARGET_FILE_CONFIG_KEY = "targetFileConfigKey";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  Boolean compare;
    private  String sourceFileConfigKey;
    private  String targetFileConfigKey;
-/*=>{}.*/
+/*.{}.*/
 
     public FileReadWriteCall() {
         super();
@@ -65,7 +65,7 @@ public class FileReadWriteCall extends CallImpl implements ConfigReadWriteComman
         return compare;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Trigger a compare before writing in @FileWriteCall
     */
@@ -114,5 +114,5 @@ public class FileReadWriteCall extends CallImpl implements ConfigReadWriteComman
     public boolean hasTargetFileConfigKey () {
         return targetFileConfigKey!= null && !targetFileConfigKey.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

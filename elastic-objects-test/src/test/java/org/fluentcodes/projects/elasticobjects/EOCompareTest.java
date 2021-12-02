@@ -8,8 +8,6 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static junit.framework.TestCase.assertEquals;
-
 /**
  * New compare method tests
  * Created by Werner on 6.6.2018.
@@ -19,10 +17,10 @@ public class EOCompareTest {
     @Test
     public void EO_first_test_EO_first_test__compare__equals()  {
         EO eo1 = ProviderConfigMaps.createEo();
-        eo1.set(TEO_STATIC.S_STRING, "first");
+        eo1.set(EoTestStatic.S_STRING, "first");
 
         EO eo2 = ProviderConfigMaps.createEo();
-        eo2.set(TEO_STATIC.S_STRING,"first");
+        eo2.set(EoTestStatic.S_STRING,"first");
 
         String diff = eo1.compare(eo2);
         Assertions.assertThat(diff).isEmpty();
@@ -55,15 +53,15 @@ public class EOCompareTest {
     @Test
     public void Map_key0_test_Map_key1_test__compare__notEquals()  {
         EO eo1 = ProviderConfigMaps.createEoDev();
-        eo1.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY0);
+        eo1.set(EoTestStatic.S_STRING, EoTestStatic.S_KEY0);
 
         EO eo2 = ProviderConfigMaps.createEoDev();
-        eo2.set(TEO_STATIC.S_STRING, TEO_STATIC.S_KEY1);
+        eo2.set(EoTestStatic.S_STRING, EoTestStatic.S_KEY1);
 
         String diff = eo1.compare(eo2);
-        Assertions.assertThat(diff).isNotEmpty();
-        Assertions.assertThat(diff).contains("null <> ");
-        Assertions.assertThat(diff).contains("<> null");
+        Assertions.assertThat(diff).isNotEmpty()
+                .contains("null <> ")
+                .contains("<> null");
     }
 
 }

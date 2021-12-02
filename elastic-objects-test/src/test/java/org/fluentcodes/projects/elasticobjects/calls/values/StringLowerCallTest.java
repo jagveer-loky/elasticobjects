@@ -10,7 +10,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMa
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
 import static org.fluentcodes.projects.elasticobjects.calls.values.StringLowerCall.lower;
 
 /**
@@ -57,10 +57,10 @@ public class StringLowerCallTest implements IModelConfigCreateTests {
     public void givenTemplateWithValueCallJsonMap_whenExecute_thenEoIsMap()  {
         EO eo = ProviderConfigMaps.createEo();
         final String template = "^" +
-                "===>{" +
+                "@{" +
                 "\"level0\":\"tEsT\"}." +
                 " - \n" +
-                "===>{\"(StringLowerCall).\":{" +
+                "@{\"(StringLowerCall).\":{" +
                 "\"sourcePath\":\"level0\"," +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}." +

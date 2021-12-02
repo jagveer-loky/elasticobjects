@@ -10,12 +10,12 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMa
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.R_ANONYM;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.R_GUEST;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL1;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL2;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_ANONYM;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_GUEST;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL2;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 
 /**
  * @author Werner Diwischek

@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Super class for file calls with a configuration key to resolve {@link HostConfig} with init method. Extends {@link CallImpl}. 
@@ -13,15 +13,15 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @modificationDate Tue Dec 08 07:32:31 CET 2020
  */
 public abstract class HostCall extends CallImpl implements Call {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String HOST_CONFIG_KEY = "hostConfigKey";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    private  String hostConfigKey;
-/*=>{}.*/
+/*.{}.*/
 
     private HostConfig hostConfig;
 
@@ -47,7 +47,7 @@ public abstract class HostCall extends CallImpl implements Call {
         return hostConfig;
     }
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
     /**
     A key for host objects.
     */
@@ -64,5 +64,5 @@ public abstract class HostCall extends CallImpl implements Call {
     public boolean hasHostConfigKey () {
         return hostConfigKey!= null && !hostConfigKey.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

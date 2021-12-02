@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_STRING;
 
 /**

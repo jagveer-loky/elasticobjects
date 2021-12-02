@@ -9575,7 +9575,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "author": "Werner Diwischek",
-    "description": "Read a list from a directory. The file names will replace <i>toReplace (default \"_\")</i> by <i>replaceBy (default \"\")</i> and <i>fileEnding(default \".html\")</i> will be removed. \n",
+    "description": "Read a list from a directory. The file names will replace <em>toReplace (default \"_\")</em> by <em>replaceBy (default \"\")</em> and <em>fileEnding(default \".html\")</em> will be removed. \n",
     "naturalId": "DirectoryMapReadCall"
   },
   "(ModelBean)DirectoryReadCall": {

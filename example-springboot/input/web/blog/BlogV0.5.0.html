@@ -1,20 +1,20 @@
 <h5>The log for V0.5.0.</h5>
 <p>
-    <b>
+    <strong>
     Target of this version is to streamline code generation from the excel file
-        ==>{GithubLinkCall->NONE, BR||eo.xls}. to
+        #{GithubLinkCall->NONE, BR||eo.xls}. to
         one builder library. The example 'build project' will be provided in a separate project later.
-    </b>
+    </strong>
 </p>
-<p align="right"><i>8.10.2020</i></p>
+<p align="right"><em>8.10.2020</em></p>
 <h5>Content from directory</h5>
 <p>
     When editing the content of this site I had two solutions:
     <ul>
     <li>
-        ==>{GithubLinkCall->NONE, SPR||content.xlsx}. for generating static htm content from an Excel sheet</li>
+        #{GithubLinkCall->NONE, SPR||content.xlsx}. for generating static htm content from an Excel sheet</li>
     <li>
-        ==>{GithubLinkCall->NONE, SPR||FileConfig.json}. use a file configuration entry to read content from the classpath.</li>
+        #{GithubLinkCall->NONE, SPR||FileConfig.json}. use a file configuration entry to read content from the classpath.</li>
 </ul>
 </p>
 
@@ -27,18 +27,18 @@
 <p>To resolve the problem I use now an directory approach with two generic calls:
     <ul>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, DirectoryListReadCall}. creates a list of files in a directory.</li>
+        #{ConfigLinkCall->ModelConfig, DirectoryListReadCall}. creates a list of files in a directory.</li>
     <li>
-        ==>{ConfigLinkCall->ModelConfig, DirectoryMapReadCall}. create a link text from the file name by removing underscores or file ending.
+        #{ConfigLinkCall->ModelConfig, DirectoryMapReadCall}. create a link text from the file name by removing underscores or file ending.
     </ul>
     </p>.
 <p>These two generic calls are the base for creating the navigation files like
-     ==>{ConfigLinkCall->FileConfig, faq_Nav.html}..
+     #{ConfigLinkCall->FileConfig, faq_Nav.html}..
     They use the templates
-     ==>{ConfigLinkCall->FileConfig, Nav.tpl}. and
-     ==>{ConfigLinkCall->FileConfig, NavElement.tpl}..
+     #{ConfigLinkCall->FileConfig, Nav.tpl}. and
+     #{ConfigLinkCall->FileConfig, NavElement.tpl}..
 </p>
-<p align="right"><i>5.10.2020</i></p>
+<p align="right"><em>5.10.2020</em></p>
 <p>
     Yesterday the version 0.5.0 is started. The builder is now again part of the elastic-objects github project in
     Github.
@@ -47,99 +47,99 @@
     The creation of code was the original intention starting elastic-objects.
 </p>
 <p>The different configuration files like
-     ==>{GithubLinkCall->NONE, EOR||ModelConfig.json}.
+     #{GithubLinkCall->NONE, EOR||ModelConfig.json}.
     are now completely generated.</p>
 <p>
     The java code is actually experimental. Here the target file is itself a template.
     </p>
 <p>If the target file exists,
     it will be used as template instead of the standard template e.g.
-    ==>{GithubLinkCall->NONE, BR|templates.java.bean|BEANCreate.tpl}..
-    The advantage is that one can add individual code to a generated class. It just has <b>generated parts</b>.
+    #{GithubLinkCall->NONE, BR|templates.java.bean|BEANCreate.tpl}..
+    The advantage is that one can add individual code to a generated class. It just has <strong>generated parts</strong>.
 </p>
 <p>
     The following java classes are now prepared this way:
     <ul>
     <li>
-        ==>{GithubLinkCall->NONE, EO|calls|Call.java}. as example for
-        ==>{GithubLinkCall->NONE, BR|templates.java.interface|INTERFACECreate.tpl}.</li>
+        #{GithubLinkCall->NONE, EO|calls|Call.java}. as example for
+        #{GithubLinkCall->NONE, BR|templates.java.interface|INTERFACECreate.tpl}.</li>
     <li>
-        ==>{GithubLinkCall->NONE, EO|calls|CallImpl.java}. as example for
-        ==>{GithubLinkCall->NONE, BR|templates.java.interface|BEANCreate.tpl}.</li>
+        #{GithubLinkCall->NONE, EO|calls|CallImpl.java}. as example for
+        #{GithubLinkCall->NONE, BR|templates.java.interface|BEANCreate.tpl}.</li>
     <li>
-        ==>{GithubLinkCall->NONE, EO|models|ConfigImpl.java}. as example for
-        ==>{GithubLinkCall->NONE, BR|templates.java.interface|CONFIGCreate.tpl}.</li>
+        #{GithubLinkCall->NONE, EO|models|ConfigImpl.java}. as example for
+        #{GithubLinkCall->NONE, BR|templates.java.interface|CONFIGCreate.tpl}.</li>
 </ul>
 </p>
 
 
 <h6>Creation code</h6>
 <p>The builder contains two create calls extending the super class
-    ==>{GithubLinkCall->NONE, B|calls.generate|GenerateCall.java}.:
+    #{GithubLinkCall->NONE, B|calls.generate|GenerateCall.java}.:
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, B|calls.generate|GenerateJavaCall.java}. create json configuration files</li>
+ #{GithubLinkCall->NONE, B|calls.generate|GenerateJavaCall.java}. create json configuration files</li>
     <li>
- ==>{GithubLinkCall->NONE, B|calls.generate|GenerateJsonConfigCall.java}. create java files</li>
+ #{GithubLinkCall->NONE, B|calls.generate|GenerateJsonConfigCall.java}. create java files</li>
 </ul>
 </p>
 <p>
     These calls prepare the raw values loaded from
- ==>{GithubLinkCall->NONE, BR||eo.xls}. with
+ #{GithubLinkCall->NONE, BR||eo.xls}. with
     some special values needed by the templates.
- ==>{GithubLinkCall->NONE, B|calls.configs|JavaCreateCall.java}.
-    for example set values in fields for <i>final</i> or <i>overwrite</i>.
+ #{GithubLinkCall->NONE, B|calls.configs|JavaCreateCall.java}.
+    for example set values in fields for <em>final</em> or <em>overwrite</em>.
 </p>
 <p>To trigger the creation there is a main generic builder with param class which will use the key for the
 control template to select the type of generation process.
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, B||Builder.java}.</li>
+ #{GithubLinkCall->NONE, B||Builder.java}.</li>
     <li>
- ==>{GithubLinkCall->NONE, B||BuilderParams.java}.</li>
+ #{GithubLinkCall->NONE, B||BuilderParams.java}.</li>
 </ul>
 </p>
 <p>Two control templates are use for preload the data in different tree structure before the call will be executed:
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|JavaBuilder.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.java|JavaBuilder.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.json|JsonBuilder.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.json|JsonBuilder.tpl}.</li>
 </ul>
 </p>
 <p>There are two test for the control templates
 <ul>
     <li>
- ==>{GithubLinkCall->NONE, BT|calls.generate|GenerateJavaCallTest.java}. create java files</li>
+ #{GithubLinkCall->NONE, BT|calls.generate|GenerateJavaCallTest.java}. create java files</li>
     <li>
- ==>{GithubLinkCall->NONE, BT|calls.generate|GenerateJsonConfigCallTest.java}. create json configuration files</li>
+ #{GithubLinkCall->NONE, BT|calls.generate|GenerateJsonConfigCallTest.java}. create json configuration files</li>
 </ul>
 </p>
 <p>The json creation part just use the sorting logic when loading
 
- ==>{GithubLinkCall->NONE, BR||eo.xlsx}.. </p>
+ #{GithubLinkCall->NONE, BR||eo.xlsx}.. </p>
 
 
 <h6>Java Templates</h6>
-<p>The java creation starts with the loading of a template depending on the <i>shapeType</i> value in ModelConfig sheet.
+<p>The java creation starts with the loading of a template depending on the <em>shapeType</em> value in ModelConfig sheet.
 There are tree templates provided:
     <ul>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java.bean|BEANCreate.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.java.bean|BEANCreate.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java.config|CONFIGCreate.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.java.config|CONFIGCreate.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java.interface|INTERFACECreate.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.java.interface|INTERFACECreate.tpl}.</li>
 </ul>
 </p>
 <p>
     There are some common parts:
     <ul>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|ALLImport.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.java|ALLImport.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|ALLInstanceVars.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.java|ALLInstanceVars.tpl}.</li>
     <li>
- ==>{GithubLinkCall->NONE, BR|templates.java|ALLSetter.tpl}.</li>
+ #{GithubLinkCall->NONE, BR|templates.java|ALLSetter.tpl}.</li>
 </ul>
 </p>

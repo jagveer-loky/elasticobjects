@@ -77,9 +77,9 @@
 "myDouble";"Double";"myDouble";"elastic-objects-test";"";"myDouble";"";"";"";"";
 "myFloat";"Float";"myFloat";"elastic-objects-test";"";"myFloat";"";"";"";"";
 "myInt";"Integer";"myInt";"elastic-objects-test";"";"myInt";"";"";"";"";
-"myList";"ArrayList";"myList";"elastic-objects-test";"";"myList";"";"";"";"";
+"myList";"List";"myList";"elastic-objects-test";"";"myList";"";"";"";"";
 "myLong";"Long";"myLong";"elastic-objects-test";"";"myLong";"";"";"";"";
-"myMap";"HashMap";"myMap";"elastic-objects-test";"";"myMap";"";"";"";"";
+"myMap";"Map";"myMap";"elastic-objects-test";"";"myMap";"";"";"";"";
 "myObject";"Object";"A test object thing. ";"elastic-objects-test";"";"myObject";"";"";"";"";
 "myString";"String";"Just a small test string used in test models. ";"elastic-objects-test";"";"myString";"";"";"";"";
 "name";"String";"The name field of a class. ";"elastic-objects";"";"name";"";"";"";"";

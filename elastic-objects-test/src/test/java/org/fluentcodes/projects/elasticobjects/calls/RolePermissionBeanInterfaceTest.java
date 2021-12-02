@@ -6,7 +6,11 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_TEST_ROLE_CREATE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_TEST_ROLE_DELETE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_TEST_ROLE_EXECUTE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_TEST_ROLE_READ;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_TEST_ROLE_WRITE;
 
 /**
  * Created by Werner on 11.10.2016.

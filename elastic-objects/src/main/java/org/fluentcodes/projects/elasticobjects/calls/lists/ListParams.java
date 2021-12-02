@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.F_NATURAL_ID;
 
 /**
  * A bean class for containing the following values:
@@ -361,7 +361,7 @@ public class ListParams {
                 result.add(rowMap);
             }
             else {
-                System.out.println("Skipped " + rowMap.get(NATURAL_ID));
+                System.out.println("Skipped " + rowMap.get(F_NATURAL_ID));
             }
         }
         else {

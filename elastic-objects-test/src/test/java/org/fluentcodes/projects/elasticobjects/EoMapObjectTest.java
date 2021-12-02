@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 
 /**
  * @author Werner Diwischek
@@ -39,7 +39,7 @@ public class EoMapObjectTest {
         eo.mapObject("{\"" + PathElement.ROOT_MODEL + "\":\"List,Double\", \"0\":1,\"1\":2}");
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(Double.class);
-        new XpectEo<>().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     @Test
@@ -312,7 +312,7 @@ public class EoMapObjectTest {
         eo.mapObject("{\"(List,Double)key\":{\"0\":1,\"1\":2}}");
         Assertions.assertThat(eo.getEo("key").getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get("key/1")).isEqualTo(2.0);
-        new XpectEo<>().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     /**

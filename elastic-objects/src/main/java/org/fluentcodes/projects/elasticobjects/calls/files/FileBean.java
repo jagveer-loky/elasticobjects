@@ -1,13 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.calls.PermissionBean;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
 
-/*=>{javaHeader}|*/
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
-
 import static org.fluentcodes.projects.elasticobjects.calls.HostCall.HOST_CONFIG_KEY;
+
+/*.{javaHeader}|*/
 
 /**
  * 
@@ -17,9 +17,9 @@ import static org.fluentcodes.projects.elasticobjects.calls.HostCall.HOST_CONFIG
  * @modificationDate Thu Jan 14 14:48:43 CET 2021
  */
 public class FileBean extends PermissionBean implements FileInterface {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    /* If true will cache the readed file within the cache object.  */
    private Boolean cached;
    /* A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
@@ -28,7 +28,7 @@ public class FileBean extends PermissionBean implements FileInterface {
    private String filePath;
    /* A key for host objects. */
    private String hostConfigKey;
-/*=>{}.*/
+/*.{}.*/
 
 
     public FileBean() {
@@ -47,9 +47,9 @@ public class FileBean extends PermissionBean implements FileInterface {
 
     public void merge (final Map configMap) {
         super.merge(configMap);
-        mergeFileName(configMap.get(FILE_NAME));
-        mergeFilePath(configMap.get(FILE_PATH));
-        mergeCached(configMap.get(CACHED));
+        mergeFileName(configMap.get(F_FILE_NAME));
+        mergeFilePath(configMap.get(F_FILE_PATH));
+        mergeCached(configMap.get(F_CACHED));
         mergeHostConfigKey(configMap.get(HOST_CONFIG_KEY));
         defaultConfigModelKey();
     }

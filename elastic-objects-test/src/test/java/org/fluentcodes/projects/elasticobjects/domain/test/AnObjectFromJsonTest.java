@@ -4,12 +4,13 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_DOUBLE;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.SAMPLE_FLOAT;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_INTEGER;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 
 /**
  * @author Werner Diwischek
@@ -25,6 +26,9 @@ public class AnObjectFromJsonTest {
                 "        \"id\":1\n" +
                 "   }" +
                 "}");
+        Assert.assertEquals(AnObject.class, eo.get("abc").getClass());
+        Assert.assertEquals(1L, eo.get("abc/id"));
+
     }
 
     @Test

@@ -2,13 +2,12 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModuleScope;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -17,7 +16,7 @@ import java.util.List;
 /**
  * Created 10.6.2018
  */
-@Ignore
+@Ignore("Check to delete")
 public class ConfigCallCheck {
 
     @Test
@@ -26,10 +25,7 @@ public class ConfigCallCheck {
         EO eo = ProviderConfigMaps.createEo();
         List result = (List) call.execute(eo);
         Assertions.assertThat(result).isNotEmpty();
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(result);
+        XpectEo.assertEoJunit(result);
     }
 
 
@@ -40,10 +36,7 @@ public class ConfigCallCheck {
         call.setModule("elastic-objects-test");
         call.setModuleScope(ModuleScope.MAIN.dir());
         List result = (List) call.execute(eo);
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(result);
+        XpectEo.assertEoJunit(result);
     }
 
     @Test
@@ -56,7 +49,7 @@ public class ConfigCallCheck {
         Assertions.assertThat(result.size()).isEqualTo(1);
     }
 
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void eo_ModelConfig_module_eoTest_submodule_main__execute__xpected()  {
         final EO eo = ProviderConfigMaps.createEo();
@@ -66,14 +59,11 @@ public class ConfigCallCheck {
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(eo.get());
+        XpectEo.assertEoJunit(eo.get());
     }
 
 
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void eo_ModelConfig_configFilter_Map__execute__xpected() {
         final EO eo = ProviderConfigMaps.createEo();
@@ -82,9 +72,6 @@ public class ConfigCallCheck {
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        new XpectEo.Builder<>()
-                .setType(JSONSerializationType.EO)
-                .build()
-                .compareAsString(eo.get());
+        XpectEo.assertEoJunit(eo.get());
     }
 }

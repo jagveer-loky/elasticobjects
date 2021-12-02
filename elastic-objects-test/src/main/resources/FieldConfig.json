@@ -74,7 +74,7 @@
   "myList": {
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "modelKeys": "ArrayList",
+    "modelKeys": "List",
     "description": "myList",
     "expose": "WEB",
     "fieldKey": "myList"
@@ -90,7 +90,7 @@
   "myMap": {
     "module": "elastic-objects-test",
     "moduleScope": "main",
-    "modelKeys": "HashMap",
+    "modelKeys": "Map",
     "description": "myMap",
     "expose": "WEB",
     "fieldKey": "myMap"

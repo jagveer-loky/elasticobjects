@@ -114,10 +114,6 @@ public class FindStatement extends PreparedStatementValues {
             ResultSet resultSet = null;
             try {
                 resultSet = preparedStatement.executeQuery();
-                /*if (!resultSet.) {
-                    return new ArrayList();
-                }
-                resultSet.previous();*/
                 return readRaw(resultSet, configsCache, listParams);
             }
             catch (Exception e) {

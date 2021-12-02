@@ -83,7 +83,7 @@ public class TheGreetingCallTest implements IModelConfigCreateTests {
     public void callTemplateCall_GreetingCall__execute__replaced() {
         EO eo = ProviderConfigMaps.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new TemplateCall("* \n==>{TheGreetingCall->., }. *").execute(eo);
+        String content = new TemplateCall("* \n#{TheGreetingCall->., }. *").execute(eo);
         Assertions.assertThat(content).isEqualTo("* Hi Stranger! *");
     }
 

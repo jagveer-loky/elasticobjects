@@ -6,9 +6,9 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCrea
 import org.junit.Test;
 
 import static org.fluentcodes.projects.elasticobjects.calls.PermissionInterface.ROLE_PERMISSIONS;
-import static org.fluentcodes.projects.elasticobjects.calls.files.FileInterface.FILE_NAME;
-import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.NATURAL_ID;
-import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.MODULE;
+import static org.fluentcodes.projects.elasticobjects.calls.files.FileInterface.F_FILE_NAME;
+import static org.fluentcodes.projects.elasticobjects.domain.BaseInterface.F_NATURAL_ID;
+import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.F_MODULE;
 
 public class FileBeanTest implements IModelConfigCreateTests {
 
@@ -38,17 +38,17 @@ public class FileBeanTest implements IModelConfigCreateTests {
 
     @Test
     public void getSetFileName() {
-        assertSetGet(FILE_NAME, "test");
+        assertSetGet(F_FILE_NAME, "test");
     }
 
     @Test
     public void getNaturalId() {
-        assertSetGet(NATURAL_ID, "test");
+        assertSetGet(F_NATURAL_ID, "test");
     }
 
     @Test
     public void getSetModule() {
-        assertSetGet(MODULE, "test");
+        assertSetGet(F_MODULE, "test");
     }
 
     @Test

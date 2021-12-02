@@ -6,10 +6,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
- * Read a list from a directory. The file names will replace <i>toReplace (default "_")</i> by <i>replaceBy (default "")</i> and <i>fileEnding(default ".html")</i> will be removed. 
+ * Read a list from a directory. The file names will replace <em>toReplace (default "_")</em> by <em>replaceBy (default "")</em> and <em>fileEnding(default ".html")</em> will be removed.
  * 
  *
  * @author Werner Diwischek
@@ -17,22 +17,22 @@ import java.util.Map;
  * @modificationDate Tue Dec 08 07:08:15 CET 2020
  */
 public class DirectoryMapReadCall extends DirectoryListReadCall  {
-/*=>{}.*/
+/*.{}.*/
     public final static String DEFAULT_TO_REPLACE = "_";
     public final static String DEFAULT_REPLACE_BY = " ";
     public final static String DEFAULT_FILE_ENDING = ".html";
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String FILE_ENDING = "fileEnding";
    public static final String REPLACE_BY = "replaceBy";
    public static final String TO_REPLACE = "toReplace";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String fileEnding;
    private  String replaceBy;
    private  String toReplace;
-/*=>{}.*/
+/*.{}.*/
 
     public DirectoryMapReadCall() {
         super();
@@ -63,7 +63,7 @@ public class DirectoryMapReadCall extends DirectoryListReadCall  {
         return result;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     It's used to specify the file ending in different context. 
     */
@@ -112,5 +112,5 @@ public class DirectoryMapReadCall extends DirectoryListReadCall  {
     public boolean hasToReplace () {
         return toReplace!= null && !toReplace.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

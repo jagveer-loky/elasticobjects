@@ -1,8 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 public interface ModelAbstractInterface extends GenerateAbstractInterface {
-    /*=>{}.*/
-    /*=>{javaStaticNames}|*/
+    /*.{}.*/
+    /*.{javaStaticNames}|*/
     default void defaultOverwrite() {
         if (getOverwrite() == null) {
             setOverwrite(false);

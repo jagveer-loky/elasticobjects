@@ -1,13 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL2;
 
 public class PathCreateChildPathTest {
 
@@ -21,7 +21,7 @@ public class PathCreateChildPathTest {
     public void given1Element_then0Elements() {
         Path path = new Path(S_LEVEL0);
         Path childPath = path.createChildPath();
-        Assertions.assertThat(childPath.directory()).isEqualTo("") ;
+        Assertions.assertThat(childPath.directory()).isEmpty(); ;
     }
     @Test
     public void given1ElementAbsolute_then0Elements() {

@@ -2,17 +2,17 @@ package org.fluentcodes.projects.elasticobjects.calls.generate;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
+import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Call for generation of java code from ModelConfig data. 
@@ -23,14 +23,14 @@ import java.util.Set;
  * @modificationDate Wed Nov 11 07:35:57 CET 2020
  */
 public class ModelTemplateTargetMapCall extends ModelAbstract {
-/*=>{}.*/
+/*.{}.*/
     private final static String JAVA_GEN_MODEL = "/modelKey";
     public final static String FIELD_MAP = "fieldMap";
-/*=>{javaStaticNames}|*/
-/*=>{}.*/
+/*.{javaStaticNames}|*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
-/*=>{}.*/
+/*.{javaInstanceVars}|*/
+/*.{}.*/
 
     public ModelTemplateTargetMapCall() {
         super();
@@ -76,7 +76,7 @@ public class ModelTemplateTargetMapCall extends ModelAbstract {
         }
         defaultValues();
         StringBuilder feedback = new StringBuilder();
-        this.setNaturalId(ParserSqareBracket.replacePathValues(getNaturalId(), eo));
+        this.setNaturalId(Parser.replacePathValues(getNaturalId(), eo));
         int counter = 1;
         for (final String naturalId: eo.keys()) {
             EO eoModel = eo.getEo(naturalId);
@@ -87,7 +87,7 @@ public class ModelTemplateTargetMapCall extends ModelAbstract {
             if (!filter(modelBean)) {
                 continue;
             }
-            eo.set(modelBean.getModelKey(), "/modelKey");
+            eo.set(modelBean.getModelKey(), JAVA_GEN_MODEL);
             for (String fileConfigKey: templateTargetMap.keySet()) {
                 if (hasTargetFileConfigKey() && !fileConfigKey.matches(getTargetFileConfigKey())) {
                     continue;
@@ -106,8 +106,8 @@ public class ModelTemplateTargetMapCall extends ModelAbstract {
         return feedback.toString();
     }
 
-/*=>{javaAccessors}|*/
-    /*=>{}.*/
+/*.{javaAccessors}|*/
+    /*.{}.*/
 
 
 }

@@ -1,13 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.util.Map;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.OVERRIDE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.PROPERTY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_OVERRIDE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_PROPERTY;
 
 public interface ModelInterface extends ConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
@@ -99,13 +100,13 @@ public interface ModelInterface extends ConfigInterface {
     }
 
     default boolean hasProperty () {
-        return getProperties().containsKey(PROPERTY) && getProperties().get(PROPERTY)!=null;
+        return getProperties().containsKey(F_PROPERTY) && getProperties().get(F_PROPERTY)!=null;
     }
     default boolean isProperty() {
         return hasProperty() && getProperty();
     }
     default Boolean getProperty() {
-        return (Boolean) getProperties().get(PROPERTY);
+        return (Boolean) getProperties().get(F_PROPERTY);
     }
 
     default boolean hasShapeType() {
@@ -116,8 +117,13 @@ public interface ModelInterface extends ConfigInterface {
         if (!getProperties().containsKey(SHAPE_TYPE)) {
             return ShapeTypes.BEAN;
         }
-        if (getProperties().get(SHAPE_TYPE) instanceof String) {
-            return ShapeTypes.valueOf((String) getProperties().get(SHAPE_TYPE));
+        try {
+            if (getProperties().get(SHAPE_TYPE) instanceof String) {
+                return ShapeTypes.valueOf((String) getProperties().get(SHAPE_TYPE));
+            }
+        }
+        catch (IllegalArgumentException e) {
+            throw new EoInternalException(e);
         }
         if (getProperties().get(SHAPE_TYPE) instanceof ShapeTypes) {
             return (ShapeTypes)getProperties().get(SHAPE_TYPE);
@@ -136,7 +142,7 @@ public interface ModelInterface extends ConfigInterface {
     default Boolean getAbstract() {
         return (Boolean)getProperties().get(ABSTRACT);
     }
-    default Boolean hasAbstract() {
+    default boolean hasAbstract() {
         return getProperties().containsKey(ABSTRACT) && getProperties().get(ABSTRACT) !=null;
     }
     default Boolean isAbstract() {
@@ -144,20 +150,20 @@ public interface ModelInterface extends ConfigInterface {
     }
 
     default Boolean getFinal() {
-        return (Boolean)getProperties().get(FINAL);
+        return (Boolean)getProperties().get(F_FINAL);
     }
     default boolean hasFinal() {
-        return getProperties().containsKey(FINAL) && getProperties().get(FINAL) !=null;
+        return getProperties().containsKey(F_FINAL) && getProperties().get(F_FINAL) !=null;
     }
     default boolean isFinal() {
         return hasFinal() && getFinal();
     }
 
     default Boolean getOverride() {
-        return (Boolean)getProperties().get(OVERRIDE);
+        return (Boolean)getProperties().get(F_OVERRIDE);
     }
     default boolean hasOverride() {
-        return getProperties().containsKey(OVERRIDE) && getProperties().get(OVERRIDE) !=null;
+        return getProperties().containsKey(F_OVERRIDE) && getProperties().get(F_OVERRIDE) !=null;
     }
     default boolean isOverride() {
         return hasOverride() && getOverride();
@@ -174,7 +180,7 @@ public interface ModelInterface extends ConfigInterface {
     default Boolean getDbAnnotated() {
         return (Boolean)getProperties().get(DB_ANNOTATED);
     }
-    default Boolean hasDbAnnotated() {
+    default boolean hasDbAnnotated() {
         return getProperties().containsKey(DB_ANNOTATED);
     }
     default Boolean isDbAnnotated() {
@@ -187,10 +193,6 @@ public interface ModelInterface extends ConfigInterface {
 
     default boolean isMap() {
         return (this instanceof ModelConfigMap);
-    }
-
-    default boolean isSet() {
-        return (this instanceof ModelConfigSet);
     }
 
     default boolean isScalar() {

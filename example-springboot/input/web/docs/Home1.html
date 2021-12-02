@@ -12,21 +12,21 @@
 </p>
 <p>
     The page you see with an "ordinary" web-url triggers the spring boot method
-     ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}..createRootPage
+     #{GithubLinkCall->NONE, SP|web|WebEoGet.java}..createRootPage
     with the MVC request mapping "/{selectedItem:.+}.html".
 </p>
 <p>
     This method creates at server side a new EO object with selectedItem="Home.html" and
-     ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}.
+     #{ConfigLinkCall->ModelConfig, TemplateResourceCall}.
     and the template name
-     ==>{ConfigLinkCall->FileConfig, ContentPage.html}..
+     #{ConfigLinkCall->FileConfig, ContentPage.html}..
 
 </p>
 <p>
     When the
-     ==>{ConfigLinkCall->FileConfig, ContentPage.html}. template
+     #{ConfigLinkCall->FileConfig, ContentPage.html}. template
      is parsed, it will load
-     ==>{GithubLinkCall->NONE, SP|web|Home.html}..
+     #{GithubLinkCall->NONE, SP|web|Home.html}..
     So this is what you read.
 </p>
 <h5>The post version</h5>

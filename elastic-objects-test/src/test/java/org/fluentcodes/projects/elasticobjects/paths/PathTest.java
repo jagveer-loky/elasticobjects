@@ -1,15 +1,16 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_EMPTY;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL2;
 
 public class PathTest {
 
@@ -138,7 +139,7 @@ public class PathTest {
     @Test
     public void level0Level1_andAbsoluteLevel2__new__absoluteLevel2() {
         Path path = new Path("level0/level1", "/level2");
-        Assertions.assertThat(path.toString()).isEqualTo("/level2");
+        Assertions.assertThat(path.toString()).hasToString("/level2");
     }
 
 }

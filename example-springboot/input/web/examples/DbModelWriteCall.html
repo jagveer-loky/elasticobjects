@@ -1,9 +1,9 @@
 <h5>Write Example</h5>
 <p>With
-    ==>{ConfigLinkCall->ModelConfig, DbModelWriteCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelWriteCall}.
     one has the possibility to write entries in the database
     on the server side depending on the object parameters defined in
-    ==>{ConfigLinkCall->FieldConfig, sourcePath}..
+    #{ConfigLinkCall->FieldConfig, sourcePath}..
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -21,17 +21,17 @@
 </form>
 <p>
 In the example the
-    ==>{ConfigLinkCall->FieldConfig, sourcePath}.
+    #{ConfigLinkCall->FieldConfig, sourcePath}.
     "abc" contains an
-    ==>{ConfigLinkCall->ModelConfig, AnObject}.
+    #{ConfigLinkCall->ModelConfig, AnObject}.
     object with
-    ==>{ConfigLinkCall->FieldConfig, id}. "3".
+    #{ConfigLinkCall->FieldConfig, id}. "3".
 
-    ==>{ConfigLinkCall->ModelConfig, DbModelWriteCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelWriteCall}.
     will update the third entry of the preloaded
-    ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json#L43}..
+    #{GithubLinkCall->NONE, EODBR||DbSqlConfig.json#L43}..
     The updated entry will be returned on
-    ==>{ConfigLinkCall->FieldConfig, targetPath}. "xyz".
+    #{ConfigLinkCall->FieldConfig, targetPath}. "xyz".
 </p>
 
 <p>
@@ -39,34 +39,34 @@ In the example the
  since
     the role guest has not the permission
     to insert or update. Only
-    ==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. is allowed.
+    #{ConfigLinkCall->ModelConfig, DbModelReadCall}. is allowed.
 </p>
 
 <p>The configuration of
-    ==>{ConfigLinkCall->ModelConfig, AnObject}.
+    #{ConfigLinkCall->ModelConfig, AnObject}.
     is a special extension of
-    ==>{ConfigLinkCall->ModelConfig, ModelConfigObject}.. Any
+    #{ConfigLinkCall->ModelConfig, ModelConfigObject}.. Any
     object with a configuration of type
-    ==>{ConfigLinkCall->ModelConfig, ModelConfigDbObject}.
+    #{ConfigLinkCall->ModelConfig, ModelConfigDbObject}.
     could be used for a generic
-    ==>{ConfigLinkCall->ModelConfig, DbModelCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelCall}.
 
 </p>
 <p>
 This allows to define properties like
-==>{ConfigLinkCall->FieldConfig, table}. with
-    ==>{ConfigLinkCall->ModelConfig, ModelConfigDbProperties}.
+#{ConfigLinkCall->FieldConfig, table}. with
+    #{ConfigLinkCall->ModelConfig, ModelConfigDbProperties}.
 </p>
 <p>
     With the implementation of
-    ==>{ConfigLinkCall->ModelConfig, PermissionProperties}.
+    #{ConfigLinkCall->ModelConfig, PermissionProperties}.
     the model configuration has some role access restrictions.
 </p>
 <p>
-    ==>{ConfigLinkCall->ModelConfig, AnObject}. shows that there is a only read property defined for "guest".
+    #{ConfigLinkCall->ModelConfig, AnObject}. shows that there is a only read property defined for "guest".
 
 </p>
-===>{"(TemplateDirResourceCall).":{
+@{"(TemplateDirResourceCall).":{
 "fileConfigKey":"examples",
 "fileName":"DbModelElement.html",
 "logLevel":"NONE"

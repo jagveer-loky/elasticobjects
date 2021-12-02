@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Access methods for field properties map and get method definitions for final fields.  
@@ -9,40 +9,35 @@ package org.fluentcodes.projects.elasticobjects.models;
  * @modificationDate Thu Jan 14 06:06:25 CET 2021
  */
 public interface FieldInterface extends ConfigInterface {
-/*=>{}.*/
-    String DEFAULT_VALUE = "defaultValue";
-    String JOIN_INVERSE = "joinInverse";
-    String JOIN = "join";
-    String HIBERNATE = "hibernate";
-    String MAP_KEY = "mapKey";
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
-   String DEFAULT = "default";
-   String FIELD_KEY = "fieldKey";
-   String FIELD_NAME = "fieldName";
-   String FINAL = "final";
-   String GENERATED = "generated";
-   String JAVASCRIPT_TYPE = "javascriptType";
-   String JSON_IGNORE = "jsonIgnore";
-   String LENGTH = "length";
-   String MAX = "max";
-   String MIN = "min";
-   String MODEL_KEYS = "modelKeys";
-   String NOT_NULL = "notNull";
-   String OVERRIDE = "override";
-   String PROPERTY = "property";
-   String STATIC_NAME = "staticName";
-   String SUPER = "super";
-   String TRANSIENT = "transient";
-   String UNIQUE = "unique";
-/*=>{}.*/
+/*.{javaStaticNames}|*/
+   String F_DEFAULT = "default";
+   String F_FIELD_KEY = "fieldKey";
+   String F_FIELD_NAME = "fieldName";
+   String F_FINAL = "final";
+   String F_GENERATED = "generated";
+   String F_JAVASCRIPT_TYPE = "javascriptType";
+   String F_JSON_IGNORE = "jsonIgnore";
+   String F_LENGTH = "length";
+   String F_MAX = "max";
+   String F_MIN = "min";
+   String F_MODEL_KEYS = "modelKeys";
+   String F_NOT_NULL = "notNull";
+   String F_OVERRIDE = "override";
+   String F_PROPERTY = "property";
+   String F_STATIC_NAME = "staticName";
+   String F_SUPER = "super";
+   String F_TRANSIENT = "transient";
+   String F_UNIQUE = "unique";
+/*.{}.*/
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
    default Boolean getDefault(){
-      return (Boolean) getProperties().get(DEFAULT);
+      return (Boolean) getProperties().get(F_DEFAULT);
    }
    default boolean hasDefault() {
-      return getProperties().containsKey(DEFAULT) && getProperties().get(DEFAULT) != null;
+      return getProperties().containsKey(F_DEFAULT) && getProperties().get(F_DEFAULT) != null;
    }
 
    default boolean isDefault() {
@@ -64,17 +59,17 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default String getFieldName(){
-      return (String) getProperties().get(FIELD_NAME);
+      return (String) getProperties().get(F_FIELD_NAME);
    }
    default boolean hasFieldName() {
-      return getProperties().containsKey(FIELD_NAME) && getProperties().get(FIELD_NAME) != null;
+      return getProperties().containsKey(F_FIELD_NAME) && getProperties().get(F_FIELD_NAME) != null;
    }
 
    default Boolean getFinal(){
-      return (Boolean) getProperties().get(FINAL);
+      return (Boolean) getProperties().get(F_FINAL);
    }
    default boolean hasFinal() {
-      return getProperties().containsKey(FINAL) && getProperties().get(FINAL) != null;
+      return getProperties().containsKey(F_FINAL) && getProperties().get(F_FINAL) != null;
    }
 
    default boolean isFinal() {
@@ -82,10 +77,10 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getGenerated(){
-      return (Boolean) getProperties().get(GENERATED);
+      return (Boolean) getProperties().get(F_GENERATED);
    }
    default boolean hasGenerated() {
-      return getProperties().containsKey(GENERATED) && getProperties().get(GENERATED) != null;
+      return getProperties().containsKey(F_GENERATED) && getProperties().get(F_GENERATED) != null;
    }
 
    default boolean isGenerated() {
@@ -93,17 +88,17 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default String getJavascriptType(){
-      return (String) getProperties().get(JAVASCRIPT_TYPE);
+      return (String) getProperties().get(F_JAVASCRIPT_TYPE);
    }
    default boolean hasJavascriptType() {
-      return getProperties().containsKey(JAVASCRIPT_TYPE) && getProperties().get(JAVASCRIPT_TYPE) != null;
+      return getProperties().containsKey(F_JAVASCRIPT_TYPE) && getProperties().get(F_JAVASCRIPT_TYPE) != null;
    }
 
    default Boolean getJsonIgnore(){
-      return (Boolean) getProperties().get(JSON_IGNORE);
+      return (Boolean) getProperties().get(F_JSON_IGNORE);
    }
    default boolean hasJsonIgnore() {
-      return getProperties().containsKey(JSON_IGNORE) && getProperties().get(JSON_IGNORE) != null;
+      return getProperties().containsKey(F_JSON_IGNORE) && getProperties().get(F_JSON_IGNORE) != null;
    }
 
    default boolean isJsonIgnore() {
@@ -117,17 +112,17 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Integer getMax(){
-      return (Integer) getProperties().get(MAX);
+      return (Integer) getProperties().get(F_MAX);
    }
    default boolean hasMax() {
-      return getProperties().containsKey(MAX) && getProperties().get(MAX) != null;
+      return getProperties().containsKey(F_MAX) && getProperties().get(F_MAX) != null;
    }
 
    default Integer getMin(){
-      return (Integer) getProperties().get(MIN);
+      return (Integer) getProperties().get(F_MIN);
    }
    default boolean hasMin() {
-      return getProperties().containsKey(MIN) && getProperties().get(MIN) != null;
+      return getProperties().containsKey(F_MIN) && getProperties().get(F_MIN) != null;
    }
 
    String getModelKeys();
@@ -137,10 +132,10 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getNotNull(){
-      return (Boolean) getProperties().get(NOT_NULL);
+      return (Boolean) getProperties().get(F_NOT_NULL);
    }
    default boolean hasNotNull() {
-      return getProperties().containsKey(NOT_NULL) && getProperties().get(NOT_NULL) != null;
+      return getProperties().containsKey(F_NOT_NULL) && getProperties().get(F_NOT_NULL) != null;
    }
 
    default boolean isNotNull() {
@@ -148,10 +143,10 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getOverride(){
-      return (Boolean) getProperties().get(OVERRIDE);
+      return (Boolean) getProperties().get(F_OVERRIDE);
    }
    default boolean hasOverride() {
-      return getProperties().containsKey(OVERRIDE) && getProperties().get(OVERRIDE) != null;
+      return getProperties().containsKey(F_OVERRIDE) && getProperties().get(F_OVERRIDE) != null;
    }
 
    default boolean isOverride() {
@@ -159,10 +154,10 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getProperty(){
-      return (Boolean) getProperties().get(PROPERTY);
+      return (Boolean) getProperties().get(F_PROPERTY);
    }
    default boolean hasProperty() {
-      return getProperties().containsKey(PROPERTY) && getProperties().get(PROPERTY) != null;
+      return getProperties().containsKey(F_PROPERTY) && getProperties().get(F_PROPERTY) != null;
    }
 
    default boolean isProperty() {
@@ -170,10 +165,10 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getStaticName(){
-      return (Boolean) getProperties().get(STATIC_NAME);
+      return (Boolean) getProperties().get(F_STATIC_NAME);
    }
    default boolean hasStaticName() {
-      return getProperties().containsKey(STATIC_NAME) && getProperties().get(STATIC_NAME) != null;
+      return getProperties().containsKey(F_STATIC_NAME) && getProperties().get(F_STATIC_NAME) != null;
    }
 
    default boolean isStaticName() {
@@ -181,10 +176,10 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getSuper(){
-      return (Boolean) getProperties().get(SUPER);
+      return (Boolean) getProperties().get(F_SUPER);
    }
    default boolean hasSuper() {
-      return getProperties().containsKey(SUPER) && getProperties().get(SUPER) != null;
+      return getProperties().containsKey(F_SUPER) && getProperties().get(F_SUPER) != null;
    }
 
    default boolean isSuper() {
@@ -192,10 +187,10 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getTransient(){
-      return (Boolean) getProperties().get(TRANSIENT);
+      return (Boolean) getProperties().get(F_TRANSIENT);
    }
    default boolean hasTransient() {
-      return getProperties().containsKey(TRANSIENT) && getProperties().get(TRANSIENT) != null;
+      return getProperties().containsKey(F_TRANSIENT) && getProperties().get(F_TRANSIENT) != null;
    }
 
    default boolean isTransient() {
@@ -203,17 +198,17 @@ public interface FieldInterface extends ConfigInterface {
    }
 
    default Boolean getUnique(){
-      return (Boolean) getProperties().get(UNIQUE);
+      return (Boolean) getProperties().get(F_UNIQUE);
    }
    default boolean hasUnique() {
-      return getProperties().containsKey(UNIQUE) && getProperties().get(UNIQUE) != null;
+      return getProperties().containsKey(F_UNIQUE) && getProperties().get(F_UNIQUE) != null;
    }
 
    default boolean isUnique() {
       return hasUnique() && getUnique();
    }
 
-/*=>{}.*/
+/*.{}.*/
     default Object getDefaultValue() {
         return null;
     }

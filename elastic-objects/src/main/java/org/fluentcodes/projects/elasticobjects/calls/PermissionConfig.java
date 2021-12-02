@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Abstract implementation for resources with permissions methods
@@ -13,7 +13,7 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
  * @modificationDate Thu Jan 14 12:50:34 CET 2021
  */
 public abstract class PermissionConfig extends ConfigConfig implements PermissionInterface {
-  /*=>{}.*/
+  /*.{}.*/
 
   private final PermissionRole rolePermissions;
 
@@ -22,12 +22,12 @@ public abstract class PermissionConfig extends ConfigConfig implements Permissio
     this.rolePermissions = new PermissionRole(bean.getRolePermissions());
   }
 
-  /*=>{javaAccessors}|*/
+  /*.{javaAccessors}|*/
   @Override
   public PermissionRole getRolePermissions() {
     return this.rolePermissions;
   }
-  /*=>{}.*/
+  /*.{}.*/
 
   /**
    * Set the values from config to {@link PermissionBean}

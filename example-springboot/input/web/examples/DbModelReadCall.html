@@ -1,9 +1,9 @@
 <h5>Read Example</h5>
 <p>With
-    ==>{ConfigLinkCall->ModelConfig, DbModelReadCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelReadCall}.
     one has the possibility to execute generic database queries
     on the server side depending on the object parameters defined in
-    ==>{ConfigLinkCall->FieldConfig, sourcePath}..
+    #{ConfigLinkCall->FieldConfig, sourcePath}..
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -20,27 +20,27 @@
 </form>
 <p>
 In the example the
-    ==>{ConfigLinkCall->FieldConfig, sourcePath}.
+    #{ConfigLinkCall->FieldConfig, sourcePath}.
     "abc" contains an
-    ==>{ConfigLinkCall->ModelConfig, AnObject}.
+    #{ConfigLinkCall->ModelConfig, AnObject}.
     object with
-    ==>{ConfigLinkCall->FieldConfig, id}.=1.
+    #{ConfigLinkCall->FieldConfig, id}.=1.
 
-    ==>{ConfigLinkCall->ModelConfig, DbModelReadCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelReadCall}.
     will query the first entry of the preloaded
-    ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json#L40}.
+    #{GithubLinkCall->NONE, EODBR||DbSqlConfig.json#L40}.
     and store the result to the
-    ==>{ConfigLinkCall->FieldConfig, targetPath}. "xyz".
+    #{ConfigLinkCall->FieldConfig, targetPath}. "xyz".
 </p>
 <p>
-    ==>{ConfigLinkCall->ModelConfig, AnObject}. shows that there is a read property for "guest".
+    #{ConfigLinkCall->ModelConfig, AnObject}. shows that there is a read property for "guest".
 
 </p>
 <p>
     So the examples for
-    ==>{ConfigLinkCall->ModelConfig, DbModelWriteCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelWriteCall}.
     or
-    ==>{ConfigLinkCall->ModelConfig, DbModelDeleteCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelDeleteCall}.
     won't work actually, since you have
     the role guest with your request and no permission
     to execute.
@@ -49,7 +49,7 @@ In the example the
     Actually no object mapping of the result is provided.
     The raw query result will just returned as a map by default.
 </p>
-===>{"(TemplateDirResourceCall).":{
+@{"(TemplateDirResourceCall).":{
 "fileConfigKey":"examples",
 "fileName":"DbModelElement.html",
 "logLevel":"NONE"

@@ -5,7 +5,6 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_STRING;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.NATURAL_ID;
 

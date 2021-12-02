@@ -1,26 +1,26 @@
 <h3>Is this Website Static?</h3>
 
-<p>The url of this page is <b>/faq/ApplicationElasticObjectsOrg.html</b>. This looks static.
+<p>The url of this page is <strong>/faq/ApplicationElasticObjectsOrg.html</strong>. This looks static.
       But it's dynamic with a spring boot mvc web end point defined in
-       ==>{GithubLinkCall->NONE, SP|web|WebEoGet.java}..
+       #{GithubLinkCall->NONE, SP|web|WebEoGet.java}..
   </p>
 <p>
     By the RequestMapping "/examples/{selectedItem:.+}" the createFaqPage method is triggered
     which calls the createPage method.
     Here  on the server side a new EO object is created and set some parameters
-    like <i>selectedItem</i> or roles.
+    like <em>selectedItem</em> or roles.
 </p>
 <p>
     Core parameter when
     execute EO is the call
-     ==>{ConfigLinkCall->ModelConfig, TemplateResourceCall}. with the template
-     ==>{GithubLinkCall->NONE, SPI|web|ContentPage.html}. for rendering.
+     #{ConfigLinkCall->ModelConfig, TemplateResourceCall}. with the template
+     #{GithubLinkCall->NONE, SPI|web|ContentPage.html}. for rendering.
 </p>
 
-<img src="/pics/applicationbuilderorg.svg" width="90%"/>
+<img src="/pics/applicationbuilderorg.svg" width="90%" alt="application builder org"/>
 <p>
     The same EO object can be send by the generic interface
-     ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. by a post method. At the end of each page
+     #{GithubLinkCall->NONE, SP|web|WebEo.java}. by a post method. At the end of each page
     the code and the used elements/configuration for this are under "This Page Elements".
 </p>
 

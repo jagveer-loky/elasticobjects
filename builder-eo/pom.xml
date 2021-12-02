@@ -6,7 +6,7 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>builder-eo</artifactId>
     <packaging>jar</packaging>
-    <version>0.8.1-SNAPSHOT</version>
+    <version>0.8.2</version>
     <name>builder EO</name>
 
     <url>http://www.elasticobjects.com</url>
@@ -22,22 +22,22 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>builder</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
+            <version>0.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-csv</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
+            <version>0.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>eo-db</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
+            <version>0.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>example-springboot</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
+            <version>0.8.2</version>
         </dependency>
         <dependency>
             <groupId>com.lexicalscope.jewelcli</groupId>

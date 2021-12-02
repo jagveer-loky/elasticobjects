@@ -1,9 +1,9 @@
 <h5>Delete Example</h5>
 <p>With
-    ==>{ConfigLinkCall->ModelConfig, DbModelDeleteCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelDeleteCall}.
     one has the possibility to delete entries in the database
     on the server side depending on the object parameters defined in
-    ==>{ConfigLinkCall->FieldConfig, sourcePath}..
+    #{ConfigLinkCall->FieldConfig, sourcePath}..
 </p>
 <form action="/eo-form" method="post" target="example">
     <textarea name="eo" style="height:120px">{
@@ -20,29 +20,29 @@
 </form>
 <p>
 In the example the
-    ==>{ConfigLinkCall->FieldConfig, sourcePath}.
+    #{ConfigLinkCall->FieldConfig, sourcePath}.
     "abc" contains an
-    ==>{ConfigLinkCall->ModelConfig, AnObject}.
+    #{ConfigLinkCall->ModelConfig, AnObject}.
     object with
-    ==>{ConfigLinkCall->FieldConfig, naturalId}. "key2".
+    #{ConfigLinkCall->FieldConfig, naturalId}. "key2".
 
-    ==>{ConfigLinkCall->ModelConfig, DbModelDeleteCall}.
+    #{ConfigLinkCall->ModelConfig, DbModelDeleteCall}.
     will remove the second entry of the preloaded
-    ==>{GithubLinkCall->NONE, EODBR||DbSqlConfig.json#L41}..
+    #{GithubLinkCall->NONE, EODBR||DbSqlConfig.json#L41}..
     The deleted entry will be returned on
-    ==>{ConfigLinkCall->FieldConfig, targetPath}. "xyz".
+    #{ConfigLinkCall->FieldConfig, targetPath}. "xyz".
 </p>
 
 <p>    The examples would not work
  since
     the role guest has not the permission
     to delete. Only
-    ==>{ConfigLinkCall->ModelConfig, DbModelReadCall}. is allowed.</p>
+    #{ConfigLinkCall->ModelConfig, DbModelReadCall}. is allowed.</p>
 
 <p>
-    ==>{ConfigLinkCall->ModelConfig, AnObject}. shows that there is a only read property for "guest".
+    #{ConfigLinkCall->ModelConfig, AnObject}. shows that there is a only read property for "guest".
 </p>
-===>{"(TemplateDirResourceCall).":{
+&commat;{"(TemplateDirResourceCall).":{
 "fileConfigKey":"examples",
 "fileName":"DbModelElement.html",
 "logLevel":"NONE"

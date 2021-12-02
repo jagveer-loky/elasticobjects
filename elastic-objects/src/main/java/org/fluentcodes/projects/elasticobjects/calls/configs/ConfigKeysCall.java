@@ -3,7 +3,8 @@ package org.fluentcodes.projects.elasticobjects.calls.configs;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigsCommand;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.Expose;
@@ -12,7 +13,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * For getting a list of keys for a specific configuration type, config filter and expose type.
@@ -22,21 +23,21 @@ import java.util.stream.Collectors;
  * @modificationDate Tue Dec 08 09:35:56 CET 2020
  */
 public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String CONFIG_FILTER = "configFilter";
    public static final String CONFIG_TYPE = "configType";
    public static final String EXPOSE = "expose";
    public static final String SORT_ORDER = "sortOrder";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String configFilter;
    private  String configType;
    private  Expose expose;
    private  SortOrder sortOrder;
-/*=>{}.*/
+/*.{}.*/
     private Class<? extends ConfigInterface> configClass;
 
     public ConfigKeysCall() {
@@ -75,11 +76,11 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
         if (configType == null && configClass == null) {
             throw new EoException("Problem no config type defined.");
         }
-        if (ParserSqareBracket.containsStartSequence(configType)) {
-            configType = new ParserSqareBracket(configType).parse(eo);
+        if (TemplateMarker.SQUARE.hasStartSequence(configType)) {
+            configType = new Parser(TemplateMarker.SQUARE, configType).parse(eo);
         }
-        if (ParserSqareBracket.containsStartSequence(configFilter)) {
-            configFilter = new ParserSqareBracket(configFilter).parse(eo);
+        if (TemplateMarker.SQUARE.hasStartSequence(configFilter)) {
+            configFilter = new Parser(TemplateMarker.SQUARE, configFilter).parse(eo);
         }
         if (configClass == null) {
             ModelConfig configTypeConfig = eo.getConfigsCache().findModel(configType);
@@ -99,7 +100,7 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
         }
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Key for filter configuration
     */
@@ -164,5 +165,5 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
     public boolean hasSortOrder () {
         return sortOrder!= null;
     }
-/*=>{}.*/
+/*.{}.*/
 }

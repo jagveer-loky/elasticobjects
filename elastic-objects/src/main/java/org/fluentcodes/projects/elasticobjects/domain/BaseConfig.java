@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.domain;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 import java.util.Date;
 
@@ -12,8 +12,8 @@ import java.util.Date;
  * @modificationDate Sat Jan 09 08:03:06 CET 2021
  */
 public class BaseConfig implements BaseInterface {
-  /*=>{}.*/
-  /*=>{javaInstanceVars}|*/
+  /*.{}.*/
+  /*.{javaInstanceVars}|*/
   /* The author of the class. */
   private final String author;
   /* Used to define the creation of an item. */
@@ -24,9 +24,9 @@ public class BaseConfig implements BaseInterface {
   private final Long id;
   /* The natural key in @Base */
   private final String naturalId;
-  /*=>{}.*/
+  /*.{}.*/
 
-  /*=>{javaBeanConstructor}|*/
+  /*.{javaBeanConstructor}|*/
   public BaseConfig(final BaseBean bean) {
     this.author = bean.getAuthor();
     this.creationDate = bean.getCreationDate();
@@ -34,51 +34,35 @@ public class BaseConfig implements BaseInterface {
     this.id = bean.getId();
     this.naturalId = bean.getNaturalId();
   }
-  /*=>{}.*/
+  /*.{}.*/
 
-  /*=>{javaAccessors}|*/
+  /*.{javaAccessors}|*/
   public String getAuthor() {
     return this.author;
   }
 
-  public boolean hasAuthor() {
-    return getAuthor() != null && !getAuthor().isEmpty();
-  }
-
+  @Override
   public Date getCreationDate() {
     return this.creationDate;
   }
 
-  public boolean hasCreationDate() {
-    return getCreationDate() != null;
-  }
-
+  @Override
   public String getDescription() {
     return this.description;
   }
 
-  public boolean hasDescription() {
-    return getDescription() != null && !getDescription().isEmpty();
-  }
-
+  @Override
   public Long getId() {
     return this.id;
   }
 
-  public boolean hasId() {
-    return getId() != null;
-  }
-
+  @Override
   public String getNaturalId() {
     return this.naturalId;
   }
 
-  public boolean hasNaturalId() {
-    return getNaturalId() != null && !getNaturalId().isEmpty();
-  }
 
-
-  /*=>{}.*/
+  /*.{}.*/
 
   /**
    * Set the values from config to {@link BaseBean}

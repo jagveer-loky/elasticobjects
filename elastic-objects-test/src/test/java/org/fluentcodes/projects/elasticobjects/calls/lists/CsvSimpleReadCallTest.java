@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.R_ANONYM;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.R_GUEST;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_ANONYM;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.R_GUEST;
 
 /**
  * @author Werner Diwischek
@@ -55,7 +55,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
         EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);
         eo.addCall(call);
-        new XpectEo().compareAsString(eo);
+        XpectEo.assertEoJunit(eo);
     }
 
     @Test
@@ -177,7 +177,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
 
     @Test
     public void TemplateCall_AnObjectCsv_Parameter__execute__$() {
-        final TemplateCall call = new TemplateCall("START -\n==>{CsvSimpleReadCall->AnObject.csv, xyz}. - END");
+        final TemplateCall call = new TemplateCall("START -\n#{CsvSimpleReadCall->AnObject.csv, xyz}. - END");
         EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);
         Assertions.assertThat(eo.getLog())
@@ -187,7 +187,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
 
     @Test
     public void TemplateCall_AnObjectCsv_Json__execute__$() {
-        final TemplateCall call = new TemplateCall("START -\n===>{\"(CsvSimpleReadCall)xyz\":{" +
+        final TemplateCall call = new TemplateCall("START -\n@{\"(CsvSimpleReadCall)xyz\":{" +
                 "\"fileConfigKey\":\"AnObject.csv\"}}. - END");
         EO eo = ProviderConfigMaps.createEo();
         call.execute(eo);

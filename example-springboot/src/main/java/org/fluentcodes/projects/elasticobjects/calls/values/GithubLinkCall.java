@@ -3,12 +3,12 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Create a link, if its FileConfig or ModelConfig, to the github source.
  *
@@ -17,18 +17,18 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
  * @modificationDate Tue Nov 10 15:38:29 CET 2020
  */
 public class GithubLinkCall extends CallImpl  {
-/*=>{}.*/
+/*.{}.*/
     private static final String GITHUB_PIC = " <img src=\"/pics/github.png\" height=\"12\" width=\"12\" \" style=\"margin:0px 4px 0px 6px;\"/>";
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String CONFIG_KEY = "configKey";
    public static final String CONFIG_TYPE = "configType";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String configKey;
    private  String configType;
-/*=>{}.*/
+/*.{}.*/
 
     private ConfigInterface config;
     private boolean configured = true;
@@ -174,7 +174,7 @@ public class GithubLinkCall extends CallImpl  {
         return configured;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     Key for configuration  {@link ConfigInterface}
     */
@@ -207,5 +207,5 @@ public class GithubLinkCall extends CallImpl  {
     public boolean hasConfigType () {
         return configType!= null && !configType.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

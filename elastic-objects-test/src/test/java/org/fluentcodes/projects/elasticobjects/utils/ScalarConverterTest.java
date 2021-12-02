@@ -8,7 +8,11 @@ import org.junit.Test;
 
 import java.util.Date;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_LONG;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_INTEGER;
 
 public class ScalarConverterTest {
     private static final Logger log = LogManager.getLogger(ScalarConverterTest.class);

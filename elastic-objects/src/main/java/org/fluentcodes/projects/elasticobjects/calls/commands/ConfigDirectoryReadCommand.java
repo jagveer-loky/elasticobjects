@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.commands;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 public interface ConfigDirectoryReadCommand extends Call{

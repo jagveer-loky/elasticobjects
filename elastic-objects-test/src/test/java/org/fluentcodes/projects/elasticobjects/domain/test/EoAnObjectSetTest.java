@@ -16,7 +16,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DATE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_DOUBLE;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_FLOAT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.SAMPLE_LONG;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_BOOLEAN;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_INTEGER;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING_OTHER;
 import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.MY_OBJECT;
 
 /**
@@ -89,7 +96,6 @@ public class EoAnObjectSetTest {
         Assert.assertEquals(ShapeTypes.BEAN, model.getShapeType());
         Assert.assertTrue(model.hasModel());
         Assert.assertFalse(model.isMap());
-        Assert.assertFalse(model.isSet());
         Assert.assertFalse(model.isList());
         Assert.assertFalse(model.isScalar());
         Assert.assertTrue(model.isObject());

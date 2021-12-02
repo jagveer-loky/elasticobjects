@@ -83,20 +83,20 @@ public class DbSqlReadCallGuiTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo("xyz").size()).isEqualTo(3);
-        new XpectString().compareAsString((String) eo.get(PathElement.TEMPLATE));
+       XpectString.assertJunit((String) eo.get(PathElement.TEMPLATE));
     }
 
     @Test
     public void template_h2MemBasicAnObject_tableTpl__execute__xpected() {
         final TemplateCall call = new TemplateCall("START " +
-                "==>{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.\n" +
-                "==>{TemplateResourceCall->table.tpl, xyz}." +
+                "#{DbSqlReadCall->h2:mem:basic, h2:mem:basic:AnObject, xyz}.\n" +
+                "#{TemplateResourceCall->table.tpl, xyz}." +
                 "END");
         EO eo = ProviderConfigMaps.createEo();
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        new XpectString().compareAsString(result);
+       XpectString.assertJunit(result);
     }
 
 }

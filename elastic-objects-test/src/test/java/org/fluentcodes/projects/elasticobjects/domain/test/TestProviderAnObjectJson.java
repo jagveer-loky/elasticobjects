@@ -7,7 +7,7 @@ import org.fluentcodes.tools.io.IOString;
 
 import java.util.Map;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.PATH_INPUT;
 
 public enum TestProviderAnObjectJson {
     BOOLEAN("{\"" + AnObject.MY_BOOLEAN + "\": true}"),
@@ -29,7 +29,7 @@ public enum TestProviderAnObjectJson {
 
     TestProviderAnObjectJson(final String content) {
         if (content.startsWith(PATH_INPUT)) {
-            this.content = new IOString().setFileName(content).read();
+            this.content = new IOString(content).read();
         } else {
             this.content = content;
         }

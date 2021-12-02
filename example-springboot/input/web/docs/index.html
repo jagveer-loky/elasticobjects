@@ -12,7 +12,7 @@
 </p>
 <p>
     A special object type - the \
-    ==>{GithubLinkCall->ModelConfig, Call}. - with a generic execute method offers functionality.
+    #{GithubLinkCall->ModelConfig, Call}. - with a generic execute method offers functionality.
 </p>
 
 <p>
@@ -29,7 +29,7 @@
 </p>
 
 <h5>Simple Calls</h5>
-==>{TemplateDirResourceCall->examples, SinusValueCall.html}.
+#{TemplateDirResourceCall->examples, SinusValueCall.html}.
 
 <h5>File Calls</h5>
 
@@ -38,9 +38,9 @@
     with role permissions and the file
 location.</p>
 
-==>{TemplateDirResourceCall->examples, FileReadCall.html}.
+#{TemplateDirResourceCall->examples, FileReadCall.html}.
 
-==>{TemplateDirResourceCall->examples, XlsxReadCall.html}.
+#{TemplateDirResourceCall->examples, XlsxReadCall.html}.
 
 
 
@@ -51,7 +51,7 @@ location.</p>
 </p>
 
 
-==>{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
+#{TemplateDirResourceCall->examples, TemplateResourceCall.html}.
 
 
 
@@ -60,22 +60,22 @@ location.</p>
 
 <p>
 
-    ==>{GithubLinkCall->NONE, SP|web|WebEo.java}. has the generic endpoint "eo-template". Here
+    #{GithubLinkCall->NONE, SP|web|WebEo.java}. has the generic endpoint "eo-template". Here
     one can send template content directly.
 </p>
 
 <p>Templates contains marked typed JSON to offer functionality in any kind of text. </p>
 
-==>{CsvSimpleReadCall->AnObject.csv, data/csv}.
-==>{TemplateResourceCall->table.tpl, data/csv}.
+#{CsvSimpleReadCall->AnObject.csv, data/csv}.
+#{TemplateResourceCall->table.tpl, data/csv}.
 
 <p>This table is created by embedded calls in a short form:</p>
 <form action="/eo-template" method="post" target="example">
     <textarea name="template" style="height:100px">
 Start
 
-==&gt;{CsvSimpleReadCall->AnObject.csv, data/csv}.
-==&gt;{TemplateResourceCall->table.tpl, data/csv}.
+&num;{CsvSimpleReadCall->AnObject.csv, data/csv}.
+&num;{TemplateResourceCall->table.tpl, data/csv}.
 End
     </textarea>
     <input type="submit" value="post"/>
@@ -86,7 +86,7 @@ End
     <textarea name="template" style="height:210px">
 Start
 
-===&gt;{
+&commat;{
     "data": {
         "(CsvSimpleReadCall)csv":{
              "fileConfigKey"="AnObject.csv"
@@ -103,7 +103,7 @@ Start
 </form>
 
 
-==>{TemplateDirResourceCall->examples, TemplateCall.html}.
+#{TemplateDirResourceCall->examples, TemplateCall.html}.
 
 <h5>Intention</h5>
 
@@ -121,8 +121,8 @@ similar framework specific code for configuration and/or classes .
     The original intention was to generate these boring parts by templates and
     some structured information.
     The
-    ==>{GithubLinkCall->NONE, B||.}.builder with the sheet
-    ==>{GithubLinkCall->NONE, BR||eo.xlsx}. generate parts
+    #{GithubLinkCall->NONE, B||.}.builder with the sheet
+    #{GithubLinkCall->NONE, BR||eo.xlsx}. generate parts
     of this project.
 </p>
 

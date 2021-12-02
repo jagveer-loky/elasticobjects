@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.paths;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.PathPattern;
@@ -11,7 +9,13 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.CON_COMMA;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL2;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_PATH1;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_PATH2;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.join;
 
 
 public class PathPatternTest {

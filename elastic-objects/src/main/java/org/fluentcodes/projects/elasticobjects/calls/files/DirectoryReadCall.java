@@ -2,11 +2,11 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IOString;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * Defines a file read operation for a directory configuration {@link DirectoryConfig} 
@@ -18,15 +18,15 @@ import org.fluentcodes.tools.io.IOString;
  * @modificationDate Tue Dec 08 09:41:09 CET 2020
  */
 public class DirectoryReadCall extends FileReadCall {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String FILE_NAME = "fileName";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String fileName;
-/*=>{}.*/
+/*.{}.*/
 
     public DirectoryReadCall() {
         super();
@@ -57,7 +57,7 @@ public class DirectoryReadCall extends FileReadCall {
         if (config.hasCachedContent(fileName)) {
             return config.getCachedContent(fileName);
         }
-        final String replaceFileName = ParserSqareBracket.replacePathValues(fileName, eo);
+        final String replaceFileName = Parser.replacePathValues(fileName, eo);
         if (replaceFileName.contains("..")) {
             throw new EoException("FileName in call for read '"+ replaceFileName + "' has some backPropagation!");
         }
@@ -65,15 +65,15 @@ public class DirectoryReadCall extends FileReadCall {
             throw new EoException("fileName in call for read '"+ replaceFileName + "' does not match fileName in  DirectoryConfig '" + getFileName() + "'.");
         }
 
-        final String filePath = ParserSqareBracket.replacePathValues(config.getFilePath() + "/" + replaceFileName, eo);
-        final String content = new IOString().setFileName(filePath).read();
+        final String filePath = Parser.replacePathValues(config.getFilePath() + "/" + replaceFileName, eo);
+        final String content = new IOString(filePath).read();
         if (config.getCached()) {
             config.setCachedContent(fileName, content);
         }
         return content;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}. 
     */
@@ -90,5 +90,5 @@ public class DirectoryReadCall extends FileReadCall {
     public boolean hasFileName () {
         return fileName!= null && !fileName.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

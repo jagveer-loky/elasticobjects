@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

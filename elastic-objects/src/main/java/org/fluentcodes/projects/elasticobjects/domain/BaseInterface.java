@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.domain;
 
 import java.util.Date;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Basic bean as super interface for other cached items.  
@@ -11,16 +11,16 @@ import java.util.Date;
  * @modificationDate Thu Jan 07 16:15:03 CET 2021
  */
 public interface BaseInterface {
-/*=>{}.*/
-/*=>{javaStaticNames}|*/
-   String AUTHOR = "author";
-   String CREATION_DATE = "creationDate";
-   String DESCRIPTION = "description";
-   String ID = "id";
-   String NATURAL_ID = "naturalId";
-/*=>{}.*/
+/*.{}.*/
+/*.{javaStaticNames}|*/
+   String F_AUTHOR = "author";
+   String F_CREATION_DATE = "creationDate";
+   String F_DESCRIPTION = "description";
+   String F_ID = "id";
+   String F_NATURAL_ID = "naturalId";
+/*.{}.*/
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    public String getAuthor();
 
    default boolean hasAuthor() {
@@ -51,7 +51,7 @@ public interface BaseInterface {
       return getNaturalId() != null && !getNaturalId().isEmpty();
    }
 
-/*=>{}.*/
+/*.{}.*/
 
    default Date getModificationDate() {
       return new Date();

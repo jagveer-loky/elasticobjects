@@ -7,7 +7,7 @@
     "properties": {
       "protocol": "jdbc:h2",
       "user": "sa",
-      "schema": "=>{TMP}./test",
+      "schema": ".{TMP}./test",
       "driver": "org.h2.Driver",
       "dbType": "H2",
       "extension": "DATABASE_TO_UPPER=false;"

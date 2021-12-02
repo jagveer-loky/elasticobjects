@@ -9,14 +9,14 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserCurlyBracket;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
-import org.fluentcodes.tools.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -88,14 +88,14 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     /**
      * Basic Wiki Example
      */
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void givenCallSinusValue_thenInputValueIsReplaced() {
         EO eo = TestProviderJsonCalls.CALL_SINUS_VALUE_JSON.createMapEo();
         eo.execute();
         Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
         Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
-        new XpectEo<>().compareAsString(eo);
+        XpectEo.assertJunit(eo);
     }
 
     @Test
@@ -119,7 +119,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         eoFromString.execute();
     }
 
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void createFromModel_ok() {
         final ModelConfig model = ProviderConfigMaps.findModel(SinusValueCall.class);
@@ -151,7 +151,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         eo.addCall(call);
         eo.execute();
         eo.setSerializationType(JSONSerializationType.STANDARD);
-        new XpectEo().compareAsString(eo.getRoot());
+        XpectEo.assertEoJunit(eo.getRoot());
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.setSerializationType(JSONSerializationType.EO);
         final String asString = new EOToJSON()
@@ -172,8 +172,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         Assertions.assertThat(eo.get(TARGET, "2")).isEqualTo(ARRAY_RESULT2);
     }
 
-    //TODO later
-    @Ignore
+    @Ignore("Check to delete")
     @Test
     public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
         EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapTestEo();
@@ -205,8 +204,8 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     @Test
     public void givenEoWithSimpleSinusCall_whenExecuteEo_thenPlaceHolderIsReplaced() {
         TemplateCall call = new TemplateCall();
-        call.setContent("sin(=>{testKey}.) = \n" +
-                "===>{\"(SinusValueCall).\":{" +
+        call.setContent("sin(.{testKey}.) = \n" +
+                "@{\"(SinusValueCall).\":{" +
                 "\"sourcePath\":\"testKey\", " +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}.");
@@ -235,8 +234,8 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     public void Eo_value_2_template__parse__get_value_0() {
         EO eo = ProviderConfigMaps.createEo();
         eo.set(2, "value");
-        String result = new ParserCurlyBracket("-" +
-                " ===>{\"(SinusValueCall).\":{" +
+        String result = new Parser("-" +
+                " @{\"(SinusValueCall).\":{" +
                 "\"sourcePath\":\"value\"}" +
                 "}." +
                 "-").parse(eo);
@@ -248,8 +247,8 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     public void givenEo_whenReplaceStringInTemplate_thenPlaceHolderIsReplaced() {
         EO eo = ProviderConfigMaps.createEo();
         eo.set(2, "value");
-        String result = new ParserCurlyBracket("-" +
-                " ===>{\"(SinusValueCall).\":{" +
+        String result = new Parser("-" +
+                " @{\"(SinusValueCall).\":{" +
                 "\"sourcePath\":\"value\", " +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}." +

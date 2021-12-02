@@ -73,7 +73,7 @@ public class GithubLinkCallTest implements IModelConfigCreateTests {
 
     @Test
     public void template_NONE_SPIwebHeaderHtml___execute__expected() {
-        TemplateCall call = new TemplateCall("START ==>{GithubLinkCall->NONE, SPI|web|Header.html}. END");
+        TemplateCall call = new TemplateCall("START #{GithubLinkCall->NONE, SPI|web|Header.html}. END");
         EO eo = ProviderConfigMaps.createEo();
         eo.addCall(call);
         eo.execute();

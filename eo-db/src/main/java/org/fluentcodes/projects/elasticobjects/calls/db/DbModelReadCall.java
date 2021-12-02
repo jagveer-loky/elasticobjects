@@ -11,7 +11,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 import java.util.List;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Read an entry in database by creating a select sql from entry in sourcePath. The object must be an instance of {@link ModelConfigDbObject}.
  *
@@ -20,15 +20,15 @@ import java.util.List;
  * @modificationDate Wed Nov 11 06:39:50 CET 2020
  */
 public class DbModelReadCall extends DbModelCall implements ListInterface,  ConfigReadCommand {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String LIST_PARAMS = "listParams";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    private ListParams listParams;
-/*=>{}.*/
+/*.{}.*/
 
     public DbModelReadCall()  {
         super();
@@ -57,7 +57,7 @@ public class DbModelReadCall extends DbModelCall implements ListInterface,  Conf
                 getListParams());
     }
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */
@@ -75,5 +75,5 @@ public class DbModelReadCall extends DbModelCall implements ListInterface,  Conf
     public boolean hasListParams () {
         return listParams!= null;
     }
-/*=>{}.*/
+/*.{}.*/
 }

@@ -3,11 +3,10 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
-import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 /**
  * For replacing field 'toReplace' by 'replaceBy'.
@@ -17,18 +16,18 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @modificationDate Tue Dec 08 11:43:01 CET 2020
  */
 public class StringReplaceCall extends CallImpl implements CallContent {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String REPLACE_BY = "replaceBy";
    public static final String TO_REPLACE = "toReplace";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String replaceBy;
    private  String toReplace;
    private String content;
-/*=>{}.*/
+/*.{}.*/
 
     public StringReplaceCall() {
         super();
@@ -71,9 +70,9 @@ public class StringReplaceCall extends CallImpl implements CallContent {
         if (replaceBy == null) {
             throw new EoException("replaceBy is null! ");
         }
-        String content = null;
+        String localContent = null;
         if (hasContent()) {
-            content = (String) new TemplateCall(getContent())
+            localContent = (String) new TemplateCall(getContent())
                     .setSourcePath(getSourcePath())
                     .execute(eo);
         }
@@ -81,12 +80,12 @@ public class StringReplaceCall extends CallImpl implements CallContent {
             if (!(eo.get() instanceof String)) {
                 throw new EoException("Value " + eo.getPathAsString() + " for replace is not a String but " + eo.get().getClass());
             }
-            content = (String) eo.get();
+            localContent = (String) eo.get();
         }
-        return (content.replaceAll(toReplace, replaceBy));
+        return (localContent.replaceAll(toReplace, replaceBy));
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
 
     @Override
     public String getContent() {
@@ -131,5 +130,5 @@ public class StringReplaceCall extends CallImpl implements CallContent {
     public boolean hasToReplace () {
         return toReplace!= null && !toReplace.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

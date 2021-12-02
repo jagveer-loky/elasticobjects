@@ -6,7 +6,7 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>elastic-objects-test</artifactId>
     <packaging>jar</packaging>
-    <version>0.8.1-SNAPSHOT</version>
+    <version>0.8.2</version>
     <name>EO - Elastic Objects Tests and Test Resource</name>
     <description>Package for testing Elastic Objects</description>
 
@@ -21,23 +21,23 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
+            <version>0.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
-            <artifactId>xpect-eo</artifactId>
-            <version>0.7.9-SNAPSHOT</version>
+            <artifactId>xpect</artifactId>
+            <version>0.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-jackson</artifactId>
-            <version>0.7.2</version>
+            <version>0.8.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-gson</artifactId>
-            <version>0.7.2</version>
+            <version>0.8.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>

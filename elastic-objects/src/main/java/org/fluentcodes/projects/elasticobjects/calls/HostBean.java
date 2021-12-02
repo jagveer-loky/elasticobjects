@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Map;
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * A bean container class for Field values 
@@ -12,7 +12,7 @@ import java.util.Map;
  * @modificationDate Thu Jan 14 12:24:13 CET 2021
  */
 public class HostBean extends PermissionBean implements HostInterface, PermissionInterface {
-/*=>{}.*/
+/*.{}.*/
 
     public HostBean() {
         super();
@@ -39,7 +39,7 @@ public class HostBean extends PermissionBean implements HostInterface, Permissio
         defaultConfigModelKey();
     }
     
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     public HostBean setHostName(String value) {
         getProperties().put(HOST_NAME, value);
         return this;

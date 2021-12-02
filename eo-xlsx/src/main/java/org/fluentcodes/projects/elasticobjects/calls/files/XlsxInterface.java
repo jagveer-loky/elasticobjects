@@ -8,7 +8,7 @@ import java.util.List;
 public interface XlsxInterface extends ConfigInterface {
     String SHEET_NAME = "sheetName";
 
-    List readRaw(ListParams params);
+    List<Object> readRaw(ListParams params);
 
     default boolean hasSheetName() {
         return getSheetName()!=null && !getSheetName().isEmpty();

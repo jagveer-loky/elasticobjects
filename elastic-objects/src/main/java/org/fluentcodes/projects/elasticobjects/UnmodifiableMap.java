@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -151,9 +150,9 @@ public class UnmodifiableMap<K,V> implements Map<K,V>, Serializable {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("{");
-        for (Object key: keySet()) {
-            stringBuilder.append("\"" + key + "\":");
-            stringBuilder.append("\"" + get(key) + "\",");
+        for (Map.Entry<K, V> entry: this.entrySet()) {
+            stringBuilder.append("\"" + entry.getKey() + "\":");
+            stringBuilder.append("\"" + entry.getValue() + "\",");
         }
         return stringBuilder.toString().replaceAll(",$","}");
     }

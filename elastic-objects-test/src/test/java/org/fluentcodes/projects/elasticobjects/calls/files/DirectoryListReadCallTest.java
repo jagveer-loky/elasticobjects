@@ -47,6 +47,6 @@ public class DirectoryListReadCallTest implements IModelConfigCreateTests {
     public void fileConfigKey_XPECT_TEST__read__notEmpty() {
         DirectoryListReadCall call = new DirectoryListReadCall("XPECT_TEST");
         List<String> result = (List<String>)call.execute(ProviderConfigMaps.createEo());
-        Assertions.assertThat(result).contains("compareModelConfig.json");
+        Assertions.assertThat(result).contains("compareBeanFromModelConfig.json");
     }
 }

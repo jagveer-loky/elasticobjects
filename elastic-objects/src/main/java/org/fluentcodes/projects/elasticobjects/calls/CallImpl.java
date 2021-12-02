@@ -3,15 +3,15 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
+import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
+import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
-import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
-import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
+/*.{javaHeader}|*/
 /**
  * 
  * Basic bean implementation for calls.  
@@ -19,12 +19,12 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
  * @creationDate null
  * @modificationDate Thu Jan 07 11:38:14 CET 2021
  */
-public abstract class CallImpl extends BaseBean implements Call  {/*=>{}.*/
+public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-/*=>{}.*/
+    /*.{javaStaticNames}|*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    /* A condition for calls.  */
    private String condition;
    /* The duration of a call. */
@@ -47,9 +47,9 @@ public abstract class CallImpl extends BaseBean implements Call  {/*=>{}.*/
    private String startCondition;
    /* A targetPath where the result of the execution will be mapped. If value is "_asString" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination. */
    private String targetPath;
-/*=>{}.*/
+/*.{}.*/
 
-    public CallImpl() {
+    protected CallImpl() {
         prepend = "";
         postpend = "";
     }
@@ -76,7 +76,7 @@ public abstract class CallImpl extends BaseBean implements Call  {/*=>{}.*/
         if (!hasStartCondition()) {
             return true;
         }
-        return new Or(new ParserSqareBracket(getStartCondition()).parse(eo)).filter(eo);
+        return new Or(new Parser(TemplateMarker.SQUARE, getStartCondition()).parse(eo)).filter(eo);
     }
 
     /**
@@ -127,7 +127,7 @@ public abstract class CallImpl extends BaseBean implements Call  {/*=>{}.*/
         return overwrite;
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
    @Override
    public String getCondition() {
       return this.condition;
@@ -249,5 +249,5 @@ public abstract class CallImpl extends BaseBean implements Call  {/*=>{}.*/
       return this;
     }
 
-/*=>{}.*/
+/*.{}.*/
 }

@@ -10,8 +10,8 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMa
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_LEVEL0;
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.S_STRING;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 import static org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall.upper;
 
 /**
@@ -58,9 +58,9 @@ public class StringUpperFirstCharCallTest implements IModelConfigCreateTests {
     public void call_TemplateCall_level0_test__execute__Test() {
         EO eo = ProviderConfigMaps.createEo();
         final String template = "START" +
-                "===>{\"level0\":\"test\"}." +
+                "@{\"level0\":\"test\"}." +
                 " - \n" +
-                "===>{\"(StringUpperFirstCharCall).\":{" +
+                "@{\"(StringUpperFirstCharCall).\":{" +
                 "\"sourcePath\":\"level0\", " +
                 "\"targetPath\":\"" + Call.TARGET_AS_STRING + "\"}" +
                 "}." +

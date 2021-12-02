@@ -7,7 +7,7 @@ import org.fluentcodes.tools.io.IOString;
 
 import java.util.List;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.PATH_INPUT;
 
 public enum ProviderListJson {
     JSON_EMPTY("[]"),
@@ -34,7 +34,7 @@ public enum ProviderListJson {
     ProviderListJson(final String content) {
         if (content.startsWith(PATH_INPUT)) {
             this.fileName = content;
-            this.content = new IOString().setFileName(content).read();
+            this.content = new IOString(content).read();
         } else {
             this.content = content;
         }

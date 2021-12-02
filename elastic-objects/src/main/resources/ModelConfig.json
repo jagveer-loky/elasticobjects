@@ -513,7 +513,7 @@
     ],
     "superKey": "DirectoryListReadCall",
     "expose": "WEB",
-    "description": "Read a list from a directory. The file names will replace <i>toReplace (default \"_\")</i> by <i>replaceBy (default \"\")</i> and <i>fileEnding(default \".html\")</i> will be removed. \n",
+    "description": "Read a list from a directory. The file names will replace <em>toReplace (default \"_\")</em> by <em>replaceBy (default \"\")</em> and <em>fileEnding(default \".html\")</em> will be removed. \n",
     "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
     "modelKey": "DirectoryMapReadCall",
     "properties": {
@@ -890,7 +890,7 @@
     "moduleScope": "main",
     "expose": "NONE",
     "description": "Enum for templates to keep the template directives in the template result as a comment. ",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates.handler",
     "modelKey": "KeepCalls",
     "properties": {
       "create": false,
@@ -911,19 +911,6 @@
       "shapeType": "SCALAR_SERIALIZED"
     },
     "author": "Werner Diwischek"
-  },
-  "LinkedHashSet": {
-    "configModelKey": "ModelConfigSet",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "expose": "NONE",
-    "packagePath": "java.util",
-    "modelKey": "LinkedHashSet",
-    "properties": {
-      "create": true,
-      "shapeType": "SET"
-    },
-    "author": "java"
   },
   "ListInterface": {
     "module": "elastic-objects",
@@ -1251,20 +1238,6 @@
     },
     "author": "Werner Diwischek"
   },
-  "ModelConfigSet": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "superKey": "ModelConfig",
-    "expose": "NONE",
-    "description": "Class definitions for a scalar.",
-    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "ModelConfigSet",
-    "properties": {
-      "create": false,
-      "final": true
-    },
-    "author": "Werner Diwischek"
-  },
   "Models": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1416,20 +1389,6 @@
       "shapeType": "SCALAR"
     },
     "author": "Werner Diwischek"
-  },
-  "Set": {
-    "configModelKey": "ModelConfigSet",
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "expose": "NONE",
-    "packagePath": "java.util",
-    "modelKey": "Set",
-    "properties": {
-      "create": false,
-      "shapeType": "SET",
-      "defaultImplementation": "LinkedHashSet"
-    },
-    "author": "java"
   },
   "ShapeTypes": {
     "configModelKey": "ModelConfigScalar",

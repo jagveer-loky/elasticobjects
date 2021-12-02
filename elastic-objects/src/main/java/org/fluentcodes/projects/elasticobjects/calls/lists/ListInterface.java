@@ -5,8 +5,8 @@ import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
-import org.fluentcodes.projects.elasticobjects.calls.templates.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.domain.BaseInterface;
 
 import java.util.ArrayList;
@@ -132,7 +132,7 @@ public interface ListInterface {
             return "";
         }
         String targetPath = getTargetPath();
-        boolean isMapped = ParserSqareBracket.containsStartSequence(targetPath);
+        boolean isMapped = TemplateMarker.SQUARE.hasStartSequence(targetPath);
         if (!isMapped) {
             eo.set(filteredResult, targetPath);
         }
@@ -226,7 +226,7 @@ public interface ListInterface {
         Map<String, Integer> keyPosition = new LinkedHashMap<>();
         boolean externalKey = true;
         if (keys == null || keys.isEmpty()) {
-            keyPosition.put(BaseInterface.NATURAL_ID, 0);
+            keyPosition.put(BaseInterface.F_NATURAL_ID, 0);
             externalKey = false;
         }
         else {

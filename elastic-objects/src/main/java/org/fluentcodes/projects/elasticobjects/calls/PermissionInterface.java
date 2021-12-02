@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
@@ -14,18 +14,18 @@ import java.util.List;
  * @modificationDate Thu Jan 14 12:52:16 CET 2021
  */
 public interface PermissionInterface {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    String ROLE_PERMISSIONS = "rolePermissions";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    PermissionRole getRolePermissions();
    default boolean hasRolePermissions() {
       return getRolePermissions() != null;
    }
-/*=>{}.*/
+/*.{}.*/
 default boolean hasPermissions(PermissionType callPermission, List<String> roleKeys)  {
    int rolePermission = getRolePermissions().getPermissions(roleKeys).value();
    if (callPermission.value() > rolePermission) {

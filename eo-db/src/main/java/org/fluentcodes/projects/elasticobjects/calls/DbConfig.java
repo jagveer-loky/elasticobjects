@@ -31,7 +31,6 @@ public class DbConfig extends HostConfig implements DbInterface {
         try {
             statement.close();
         } catch (Exception e) {
-            statement = null;
             new EoInternalException("Exception closing statement : " + e.getMessage());
         }
     }
@@ -43,7 +42,6 @@ public class DbConfig extends HostConfig implements DbInterface {
         try {
             resultSet.close();
         } catch (Exception e) {
-            resultSet = null;
             throw new EoInternalException("Exception closing resultSet: " + e.getMessage());
         }
     }
@@ -100,7 +98,7 @@ public class DbConfig extends HostConfig implements DbInterface {
         if (hasUrlCache()) {
             super.getUrl();
         }
-        StringBuffer urlPath = new StringBuffer();
+        StringBuilder urlPath = new StringBuilder();
         if (hasProtocol()) {
             urlPath.append(getProtocol());
         }

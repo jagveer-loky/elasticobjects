@@ -6,7 +6,7 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo-root</artifactId>
     <packaging>pom</packaging>
-    <version>0.8.1-SNAPSHOT</version>
+    <version>0.8.2</version>
     <name>EO - Elastic Objects Root</name>
 
     <modules>
@@ -16,7 +16,6 @@
         <module>eo-xlsx</module>
         <module>eo-db</module>
         <!--module>eo-db-hibernate</module-->
-        <module>xpect-eo</module>
         <module>example-springboot</module>
         <!--module>builder</module-->
         <!--module>builder-eo</module-->

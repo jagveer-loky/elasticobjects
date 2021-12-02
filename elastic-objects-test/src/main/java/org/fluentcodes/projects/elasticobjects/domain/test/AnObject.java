@@ -1,9 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-/*=>{javaHeader}|*/
-import java.util.ArrayList;
+/*.{javaHeader}|*/
+
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /**
@@ -14,10 +13,10 @@ import java.util.Map;
  * @modificationDate Wed Jan 20 07:19:13 CET 2021
  */
 public class AnObject  {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
-   public static final String ID = "id";
+    /*.{javaStaticNames}|*/
+   public static final String F_ID = "id";
    public static final String MY_ASUB_OBJECT = "myASubObject";
    public static final String MY_ASUB_OBJECT_LIST = "myASubObjectList";
    public static final String MY_ASUB_OBJECT_MAP = "myASubObjectMap";
@@ -33,9 +32,9 @@ public class AnObject  {
    public static final String MY_OBJECT = "myObject";
    public static final String MY_STRING = "myString";
    public static final String NATURAL_ID = "naturalId";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    /* The numeric id of an instance of a class. */
    private Long id;
    /* myASubObject */
@@ -57,20 +56,20 @@ public class AnObject  {
    /* myInt */
    private Integer myInt;
    /* myList */
-   private ArrayList myList;
+   private List<String> myList;
    /* myLong */
    private Long myLong;
    /* myMap */
-   private HashMap myMap;
+   private Map<String, Object> myMap;
    /* A test object thing.  */
    private Object myObject;
    /* Just a small test string used in test models.  */
    private String myString;
    /* The natural key in @Base */
    private String naturalId;
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
    public Long getId() {
       return this.id;
    }
@@ -185,13 +184,13 @@ public class AnObject  {
       return this;
     }
 
-   public ArrayList getMyList() {
+   public List<String> getMyList() {
       return this.myList;
    }
    public boolean hasMyList() {
       return getMyList() != null && !getMyList().isEmpty();
    }
-   public AnObject setMyList(final ArrayList myList) {
+   public AnObject setMyList(final List<String> myList) {
       this.myList = myList;
       return this;
     }
@@ -207,13 +206,13 @@ public class AnObject  {
       return this;
     }
 
-   public HashMap getMyMap() {
+   public Map<String, Object> getMyMap() {
       return this.myMap;
    }
    public boolean hasMyMap() {
       return getMyMap() != null && !getMyMap().isEmpty();
    }
-   public AnObject setMyMap(final HashMap myMap) {
+   public AnObject setMyMap(final Map<String, Object> myMap) {
       this.myMap = myMap;
       return this;
     }
@@ -251,5 +250,5 @@ public class AnObject  {
       return this;
     }
 
-/*=>{}.*/
+/*.{}.*/
 }

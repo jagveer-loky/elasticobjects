@@ -1,8 +1,8 @@
 <h5>The log for V0.6.0</h5>
 <p>
-    <b>Target of this version was the refactoring the template directives and cleanup of the calls. </b>
+    <strong>Target of this version was the refactoring the template directives and cleanup of the calls. </strong>
 </p>
-<p align="right"><i>24.10.2020</i></p>
+<p align="right"><em>24.10.2020</em></p>
 <p>
     Another point of the discussion last week was how the
     directives are embedded in <a href="/examples/TemplateExamples.html">Templates</a>.
@@ -23,20 +23,20 @@
 </p>
 
 <p>
-    To emphasize the directive type I put a [=][=]=> before. Every space and tab
+    To emphasize the directives type I put a @ before. Every space and tab
     before this pattern and after a new line will be ignored. This makes
    the template more readable.
 </p>
 <p>
     A path value now will be set by
-    <textarea>=&gt;{path}.</textarea>
+    <textarea>#{path}.</textarea>
 </p>
 <p>
     A JSON part will be embedded by
-    <textarea>===&gt;{JSON}.</textarea> or
-    <textarea>===&gt;{JSON}|content=&gt;{}.</textarea>
+    <textarea>=@{JSON}.</textarea> or
+    <textarea>=@{JSON}|content#{}.</textarea>
     The content could be set for calls implementing
-    ==>{GithubLinkCall->ModelConfig, CallContent}.
+    #{GithubLinkCall->ModelConfig, CallContent}.
 </p>
 <p>Here any combination of typed json could be set. If several calls are within,
     the content will set to the last call.</p>
@@ -46,28 +46,28 @@
 
 <p>
     As a short version of the JSON with one call there is the possibility to use the pattern
-    <textarea>==&gt;{Call->value1, value2, ..., valueN}.</textarea>
+    <textarea>@{Call->value1, value2, ..., valueN}.</textarea>
     and
-    <textarea>==&gt;{Call->value1, value2, ..., valueN}| ..content..=&gt;{}.</textarea>
+    <textarea>@{Call->value1, value2, ..., valueN}| ..content..#{}.</textarea>
     for calls with content.
 </p>
 <p>
     This shorthand version is similar to the attribute version and simplify the usage for simple calls like
     the often used
 
-    ==>{ConfigLinkCall->ModelConfig, ConfigLinkCall}. :
-    <textarea>==&gt;{ConfigLinkCall->ModelConfig, ConfigLinkCall}.</textarea>
+    #{ConfigLinkCall->ModelConfig, ConfigLinkCall}. :
+    <textarea>@{ConfigLinkCall->ModelConfig, ConfigLinkCall}.</textarea>
 </p>
 <p>
     How the readability is changed could be shown in the
-    ==>{ConfigLinkCall->FileConfig, table.tpl}. template.
+    #{ConfigLinkCall->FileConfig, table.tpl}. template.
     Beforehand this template was rather squeezed:
     <textarea style="height:100px"><table border="1">
 <tr>$[(TemplateCall). sourcePath="0/*" ] <th>$[_parent]</th>$[/]</tr>
 $[(TemplateCall)* ]<tr>$[(TemplateCall)* ] <td>$[_value]</td>$[/]</tr>$[/]
 </table></textarea>
 </p>
-<p align="right"><i>15.10.2020</i></p>
+<p align="right"><em>15.10.2020</em></p>
 <p>
     Yesterday I had a little presentation in the company I worked before followed by some discussion.
     As expected GraphQL was mentioned. During the refinement of the database part there
@@ -90,7 +90,7 @@ $[(TemplateCall)* ]<tr>$[(TemplateCall)* ] <td>$[_value]</td>$[/]</tr>$[/]
     <li><a href="/faq/ApplicationBuilder.html">code builder</a></li>
 </ul>
 
-<p align="right"><i>13.10.2020</i></p>
+<p align="right"><em>13.10.2020</em></p>
 <p>
     Finished V0.5.0 and deployed it.
 </p>

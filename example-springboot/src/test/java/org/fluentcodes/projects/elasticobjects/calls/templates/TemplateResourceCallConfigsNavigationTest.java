@@ -25,7 +25,7 @@ public class TemplateResourceCallConfigsNavigationTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get(PathElement.TEMPLATE)).isNotEmpty();
-        new XpectString().compareAsString((String)eo.get(PathElement.TEMPLATE));
+       XpectString.assertJunit((String)eo.get(PathElement.TEMPLATE));
     }
 
     @Test

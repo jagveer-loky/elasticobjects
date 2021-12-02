@@ -7,7 +7,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 public enum ShapeTypes {
     MAP(ModelConfigMap.class),
     LIST(ModelConfigList.class),
-    SET(ModelConfigSet.class),
     INTERFACE(),
     OBJECT(),
     SCALAR_SERIALIZED(ModelConfigScalar.class),

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * 
  * Model class with different types of fields including generic collections, maps and {@link link} ASubObject objects. 
@@ -12,9 +12,9 @@ import java.util.HashMap;
  * @modificationDate Sun Jan 31 10:42:16 CET 2021
  */
 public class ATestObject  {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String TEST_ATEST_OBJECT = "testATestObject";
    public static final String TEST_ATEST_SUB_OBJECT = "testATestSubObject";
    public static final String TEST_DATE = "testDate";
@@ -22,9 +22,9 @@ public class ATestObject  {
    public static final String TEST_LIST = "testList";
    public static final String TEST_MAP = "testMap";
    public static final String TEST_STRING = "testString";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    /* A ATestObject field. */
    private ATestObject testATestObject;
    /* testATestSubObject */
@@ -34,14 +34,14 @@ public class ATestObject  {
    /* testInt */
    private Integer testInt;
    /* testList */
-   private ArrayList testList;
+   private ArrayList<ATestObject> testList;
    /* testMap */
-   private HashMap testMap;
+   private HashMap<String, Object> testMap;
    /* Just a small test string used in test models.  */
    private String testString;
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
    public ATestObject getTestATestObject() {
       return this.testATestObject;
    }
@@ -86,24 +86,24 @@ public class ATestObject  {
       return this;
     }
 
-   public ArrayList getTestList() {
+   public List<Object> getTestList() {
       return this.testList;
    }
    public boolean hasTestList() {
       return getTestList() != null && !getTestList().isEmpty();
    }
-   public ATestObject setTestList(final ArrayList testList) {
+   public ATestObject setTestList(final List<Object> testList) {
       this.testList = testList;
       return this;
     }
 
-   public HashMap getTestMap() {
+   public Map<String, Object> getTestMap() {
       return this.testMap;
    }
    public boolean hasTestMap() {
       return getTestMap() != null && !getTestMap().isEmpty();
    }
-   public ATestObject setTestMap(final HashMap testMap) {
+   public ATestObject setTestMap(final Map<String, Object> testMap) {
       this.testMap = testMap;
       return this;
     }
@@ -119,5 +119,5 @@ public class ATestObject  {
       return this;
     }
 
-/*=>{}.*/
+/*.{}.*/
 }

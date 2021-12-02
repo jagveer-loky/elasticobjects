@@ -1,2 +1,2 @@
-START - /*==>{FileReadCall->FileTest.txt, _asString, , JAVA}|*/
-test/*=>{}.*/ - END
+START - /*#{FileReadCall->FileTest.txt, _asString, , JAVA}|*/
+test/*.{}.*/ - END

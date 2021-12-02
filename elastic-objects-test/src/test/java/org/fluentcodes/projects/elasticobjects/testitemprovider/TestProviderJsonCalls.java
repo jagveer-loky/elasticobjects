@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.tools.io.IOString;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.PATH_INPUT;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.PATH_INPUT;
 
 public enum TestProviderJsonCalls {
     CALL_SINUS_ARRAY_JSON(PATH_INPUT + "calls/call-sinus/CallSinusArray.json"),
@@ -23,7 +23,7 @@ public enum TestProviderJsonCalls {
         if (content.startsWith(PATH_INPUT)) {
             try {
                 this.fileName = content;
-                this.content = new IOString().setFileName(content).read();
+                this.content = new IOString(content).read();
             } catch (Exception e) {
                 System.out.println("Could not load file " + content);
                 throw new EoException(e);

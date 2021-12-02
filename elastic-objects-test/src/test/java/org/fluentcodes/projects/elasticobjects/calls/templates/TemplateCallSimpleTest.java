@@ -14,7 +14,7 @@ public class TemplateCallSimpleTest {
     @Test
     public void call_TemplateCall_placeholder__execute__replaced()  {
         TemplateCall call = new TemplateCall();
-        call.setContent("Just a content with placeHolder testKey='=>{testKey}.'");
+        call.setContent("Just a content with placeHolder testKey='.{testKey}.'");
         EO eo = ProviderConfigMaps.createEoDev();
         eo.set("testValue", "testKey");
         String result = call.execute(eo);
@@ -25,7 +25,7 @@ public class TemplateCallSimpleTest {
     @Test
     public void eo_TemplateCall_placeholder__execute__replaced()  {
         TemplateCall call = new TemplateCall();
-        call.setContent("Just a content with placeHolder testKey='=>{testKey}.'");
+        call.setContent("Just a content with placeHolder testKey='.{testKey}.'");
         EO eo = ProviderConfigMaps.createEo();
         eo.addCall(call);
         eo.set("testValue", "testKey");

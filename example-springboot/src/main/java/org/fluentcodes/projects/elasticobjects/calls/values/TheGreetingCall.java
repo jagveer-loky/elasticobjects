@@ -5,7 +5,7 @@ import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * An example for a simple call with a field.
  *
@@ -14,15 +14,15 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @modificationDate Tue Nov 10 15:07:40 CET 2020
  */
 public class TheGreetingCall extends CallImpl implements SimpleCommand {
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaStaticNames}|*/
+    /*.{javaStaticNames}|*/
    public static final String GREETING = "greeting";
-/*=>{}.*/
+/*.{}.*/
 
-    /*=>{javaInstanceVars}|*/
+    /*.{javaInstanceVars}|*/
    private  String greeting;
-/*=>{}.*/
+/*.{}.*/
     public TheGreetingCall() {
         super();
     }
@@ -51,7 +51,7 @@ public class TheGreetingCall extends CallImpl implements SimpleCommand {
         return (value);
     }
 
-    /*=>{javaAccessors}|*/
+    /*.{javaAccessors}|*/
     /**
     The field value for TheGreetingCall example. 
     */
@@ -68,5 +68,5 @@ public class TheGreetingCall extends CallImpl implements SimpleCommand {
     public boolean hasGreeting () {
         return greeting!= null && !greeting.isEmpty();
     }
-/*=>{}.*/
+/*.{}.*/
 }

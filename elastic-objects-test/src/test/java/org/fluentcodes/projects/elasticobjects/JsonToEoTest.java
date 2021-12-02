@@ -9,7 +9,7 @@ import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMa
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.TEO_STATIC.*;
+import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S0;
 
 /**
  * @author Werner Diwischek

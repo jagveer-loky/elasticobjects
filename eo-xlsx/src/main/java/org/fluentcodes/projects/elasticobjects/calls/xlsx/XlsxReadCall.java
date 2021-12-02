@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/*=>{javaHeader}|*/
+/*.{javaHeader}|*/
 /**
  * Read an Excel sheet specified by fileConfigKey referencing to a {@link XlsxConfig} configuration.
  *
@@ -24,15 +24,15 @@ import java.util.List;
  * @modificationDate Wed Nov 11 08:02:52 CET 2020
  */
 public class XlsxReadCall extends FileReadCall implements ListInterface {
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaStaticNames}|*/
+/*.{javaStaticNames}|*/
    public static final String LIST_PARAMS = "listParams";
-/*=>{}.*/
+/*.{}.*/
 
-/*=>{javaInstanceVars}|*/
+/*.{javaInstanceVars}|*/
    private ListParams listParams;
-/*=>{}.*/
+/*.{}.*/
     public XlsxReadCall()  {
         super();
         listParams = new ListParams();
@@ -43,11 +43,12 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
         listParams = new ListParams();
     }
 
+    @Override
     public Object execute(EO eo) {
         return mapEo(eo, readRaw(eo));
     }
 
-    public List readRaw(final EO eo) {
+    public List<Object> readRaw(final EO eo) {
         XlsxConfig config = (XlsxConfig) init(PermissionType.READ, eo);
         getListParams().merge(config.getProperties());
         List result = new ArrayList<>();
@@ -86,7 +87,7 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
         }
         return result;
     }
-/*=>{javaAccessors}|*/
+/*.{javaAccessors}|*/
     /**
     Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
     */
@@ -103,5 +104,5 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
     public boolean hasListParams () {
         return listParams!= null;
     }
-/*=>{}.*/
+/*.{}.*/
 }

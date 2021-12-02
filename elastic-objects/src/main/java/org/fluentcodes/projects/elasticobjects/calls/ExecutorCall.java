@@ -4,14 +4,16 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.templates.ParserSqareBracket;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.calls.Call.DURATION;
+import static org.fluentcodes.projects.elasticobjects.calls.Call.F_DURATION;
 import static org.fluentcodes.projects.elasticobjects.calls.Call.TARGET_AS_STRING;
 
 /**
@@ -22,6 +24,9 @@ import static org.fluentcodes.projects.elasticobjects.calls.Call.TARGET_AS_STRIN
  * @date 2.5.2018
  */
 public class ExecutorCall {
+    private ExecutorCall() {
+
+    }
     public static Object execute(final EO eo, final Call call) {
         if (eo == null) {
             return "eo is null!";
@@ -36,7 +41,7 @@ public class ExecutorCall {
         if (!call.hasSourcePath()) {
             call.setSourcePath(PathElement.SAME);
         }
-        String sourcePathString = new ParserSqareBracket(call.getSourcePath()).parse(eo);
+        String sourcePathString = new Parser(TemplateMarker.SQUARE, call.getSourcePath()).parse(eo);
         Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
         EO sourceParent = sourcePath.moveToParent(eo);
         boolean isFilter = sourcePath.isEmpty()? false : sourcePath.isFilter();
@@ -79,9 +84,6 @@ public class ExecutorCall {
             }
             catch (EoException e) {
                 StringBuilder message = new StringBuilder("In '" + call.getClass().getSimpleName() + "' ");
-                /*if (call instanceof ResourceCall) {
-                    message.append(" and configKey '"+ ((ResourceCall)call).getConfigKey() + "");
-                }*/
                 message.append(": " + e.getMessage());
                 if (call.isTargetAsString()) {
                     templateResult.append(message);
@@ -96,8 +98,7 @@ public class ExecutorCall {
 
     public static String executeEo(final EO eo) {
         if (eo == null) {
-            eo.error("Null adapter!");
-            return "";
+            throw new EoInternalException("Null adapter!");
         }
         Set<String> keys = eo.getCallKeys();
         if (keys.isEmpty()) {
@@ -117,7 +118,7 @@ public class ExecutorCall {
                 stringResult.append(execute(eo, call));
                 Long duration = System.currentTimeMillis() - startTime;
                 call.setDuration(duration);
-                callEo.set(duration, DURATION);
+                callEo.set(duration, F_DURATION);
             } catch (Exception e) {
                 e.printStackTrace();
                 if (!call.hasLogLevel() || !call.getLogLevel().equals(LogLevel.NONE)) {

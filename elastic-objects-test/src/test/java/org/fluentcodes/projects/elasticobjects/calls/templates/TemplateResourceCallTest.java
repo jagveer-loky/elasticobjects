@@ -1,12 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
-import static org.fluentcodes.projects.elasticobjects.calls.Call.KEEP_CALL;
+import static org.fluentcodes.projects.elasticobjects.calls.Call.F_KEEP_CALL;
 
 /**
  * Created 6.8.2020
@@ -41,8 +42,8 @@ public class TemplateResourceCallTest implements IModelConfigCreateTests {
         ModelConfig modelConfig = ProviderConfigMaps.CONFIG_MAPS.findModel(TemplateResourceCall.class.getSimpleName());
         TemplateResourceCall templateResourceCall = new TemplateResourceCall();
 
-        modelConfig.set(KEEP_CALL, templateResourceCall, KeepCalls.JAVA);
+        modelConfig.set(F_KEEP_CALL, templateResourceCall, KeepCalls.JAVA);
         Assertions.assertThat(templateResourceCall.getKeepCall()).isEqualTo(KeepCalls.JAVA);
-        Assertions.assertThat(modelConfig.get(KEEP_CALL, templateResourceCall)).isEqualTo(KeepCalls.JAVA);
+        Assertions.assertThat(modelConfig.get(F_KEEP_CALL, templateResourceCall)).isEqualTo(KeepCalls.JAVA);
     }
 }
