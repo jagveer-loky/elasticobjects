@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "For getting a list of keys of all loaded configuration types from the cache like ConfigModel.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "SimpleCommand",
   "modelKey": "ConfigTypesCall",
   "module": "elastic-objects",

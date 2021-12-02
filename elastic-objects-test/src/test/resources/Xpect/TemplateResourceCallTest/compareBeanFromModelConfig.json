@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Parses the content of a FileConfig configuration. ",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "modelKey": "TemplateResourceCall",
   "module": "elastic-objects",
   "moduleScope": "main",

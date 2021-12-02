@@ -28,7 +28,7 @@ public class ProviderListJsonTest {
     @Test
     public void testSmall() {
         String content = ProviderListJson.SMALL.content();
-        EO eo = EoRoot.of(ProviderConfigMaps.CONFIG_MAPS_DEV)
+        EO eo = EoRoot.of(ProviderConfigMapsDev.CONFIG_MAPS_DEV)
                 .mapObject(ProviderListJson.SMALL.content());
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
         Assertions.assertThat(eo.get("0")).isEqualTo("test");

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
-import org.fluentcodes.projects.elasticobjects.models.FieldInterface;
+import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
@@ -54,7 +54,7 @@ public class AnObjectTest implements IModelConfigCreateTests {
 
     @Test
     public void myString__toString__equalsPersisted() {
-        FieldInterface field = ProviderConfigMaps.findModel(AnObject.class).getField("myString");
+        FieldBeanInterface field = ProviderConfigMaps.findModel(AnObject.class).getField("myString");
         Assert.assertEquals(XpectEo.load((ConfigConfig)field), field.toString());
     }
 

@@ -29,35 +29,20 @@ public class PathElement {
     public static final String LOG_LEVEL = "_logLevel";
     public static final String CALLS = "_calls";
     public static final String TEMPLATE = "_template";
-    public static final String IN_TEMPLATE = "_";
-    public static final String CONFIG = "_config";
-    public static final Map<String,String[]> keyClassMap = initKeyClassMap();
+    protected static final Map<String, String[]> keyClassMap = initKeyClassMap();
 
     public static final PathElement OF_ERROR_LEVEL = new PathElement(ERROR_LEVEL);
     public static final PathElement OF_LOG_LEVEL = new PathElement(LOG_LEVEL);
-    public static final PathElement OF_ROOT_MODEL = new PathElement(ROOT_MODEL);
 
     private final String key;
     private final String[] modelsArray;
-    private String callTargetPath;
     private Models models;
 
     public PathElement(final String compositionKey) {
         this(compositionKey, null);
     }
 
-    public PathElement(final PathElement pathElement, final Models fieldModels) {
-        this.key = pathElement.getKey();
-        if (fieldModels == null || fieldModels.isEmpty()) {
-            this.modelsArray = pathElement.getModelsArray();
-        }
-        else {
-            this.modelsArray = fieldModels.getModelsStringArray();
-        }
-
-    }
-
-    public PathElement(final String compositionKey, Class... modelClasses) {
+    public PathElement(final String compositionKey, Class<?>... modelClasses) {
         if (PathElement.ROOT_MODEL.equals(compositionKey)) {
             this.key = compositionKey;
             this.modelsArray = keyClassMap.get(key);
@@ -80,36 +65,35 @@ public class PathElement {
             }
             this.modelsArray = keyClassMap.get(key);
             return;
-        }
-        else {
+        } else {
             this.key = compositionKey;
-            if (modelClasses == null|| modelClasses.length==0) {
+            if (modelClasses == null || modelClasses.length == 0) {
                 this.modelsArray = keyClassMap.get(key);
                 return;
             }
             this.modelsArray = new String[modelClasses.length];
             int counter = 0;
-            for (Class modelClass: modelClasses) {
+            for (Class<?> modelClass : modelClasses) {
                 this.modelsArray[counter] = modelClasses[counter].getSimpleName();
                 counter++;
             }
         }
-        //if (key.isEmpty())  throw new EoException("An empty key derived for input '" + compositionKey + "'");
     }
 
     private static final Map<String, String[]> initKeyClassMap() {
         final Map<String, String[]> keyEnumMap = new HashMap<>();
-        keyEnumMap.put(LOG_LEVEL, new String[] {LogLevel.class.getSimpleName()});
-        keyEnumMap.put(LOGS, new String[] {List.class.getSimpleName()});
-        keyEnumMap.put(CALLS, new String[] {List.class.getSimpleName()});
-        keyEnumMap.put(SERIALIZATION_TYPE, new String[] {JSONSerializationType.class.getSimpleName()});
-        keyEnumMap.put(ERROR_LEVEL, new String[] {LogLevel.class.getSimpleName()});
-        keyEnumMap.put(ROOT_MODEL, new String[] {String.class.getSimpleName()});
+        keyEnumMap.put(LOG_LEVEL, new String[]{LogLevel.class.getSimpleName()});
+        keyEnumMap.put(LOGS, new String[]{List.class.getSimpleName()});
+        keyEnumMap.put(CALLS, new String[]{List.class.getSimpleName()});
+        keyEnumMap.put(SERIALIZATION_TYPE, new String[]{JSONSerializationType.class.getSimpleName()});
+        keyEnumMap.put(ERROR_LEVEL, new String[]{LogLevel.class.getSimpleName()});
+        keyEnumMap.put(ROOT_MODEL, new String[]{String.class.getSimpleName()});
         return keyEnumMap;
     }
 
     /**
      * fieldnames starting with underscores will not mapped to a parent object.
+     *
      * @param key the fieldName
      * @return true if empty or starting with "_"
      */
@@ -124,40 +108,13 @@ public class PathElement {
     public boolean isParentNotSet() {
         return isParentNotSet(this.key);
     }
+
     public boolean isParentSet() {
         return !isParentNotSet();
     }
 
     protected boolean isCall() {
-        return models != null? models.getModelClass().getSimpleName().endsWith("Call"): false;
-    }
-
-    protected void  resolve(final EO parentEo, final Object value) {
-        if (parentEo == null)  return;
-        deriveModels(parentEo.getConfigsCache(), value);
-        if (isCall() && !CALLS.equals(parentEo.getFieldKey())) {
-            this.callTargetPath = parentEo.getPathAsString() + Path.DELIMITER + key;
-            //this.key = CALLS;
-        }
-    }
-
-    private void deriveModels(final ConfigMaps cache, final Object value) {
-        if (modelsArray != null) {
-            this.models = new Models(cache, modelsArray);
-            return;
-        }
-        if (value != null) {
-            this.models = new Models(cache, value.getClass());
-            return;
-        }
-        this.models = new Models(cache, Map.class);
-    }
-
-    protected String getCallTargetPath() {
-        return callTargetPath;
-    }
-    protected boolean hasCallTargetPath() {
-        return callTargetPath!=null && !callTargetPath.isEmpty();
+        return models != null ? models.getModelClass().getSimpleName().endsWith("Call") : false;
     }
 
     protected Models getModels() {
@@ -190,12 +147,17 @@ public class PathElement {
         }
         return null;
     }
+
     public String getKey() {
         return key;
     }
 
+    public boolean hasKey() {
+        return key != null && !key.isEmpty();
+    }
+
     public boolean hasModelArray() {
-        return modelsArray != null && modelsArray.length>0;
+        return modelsArray != null && modelsArray.length > 0;
     }
 
     public boolean isRootModel() {

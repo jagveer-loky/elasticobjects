@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigMethods;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -37,7 +38,7 @@ public class SuperExampleClassTest implements IModelConfigCreateTests {
     @Test
     public void givenScopeDev_whenFindSuperExampleClass_thenExceptionThrown() {
         try {
-            ModelConfigMethods model = ProviderConfigMaps.CONFIG_MAPS_DEV.findModel(SuperExampleClass.class);
+            ModelConfigMethods model = ProviderConfigMapsDev.CONFIG_MAPS_DEV.findModel(SuperExampleClass.class);
             Assert.fail("Should throw EoException since " + AnObject.class.getSimpleName() + " is not in the cache");
         } catch (EoException e) {
 

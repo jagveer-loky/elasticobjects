@@ -48,7 +48,7 @@ public enum TestProviderJson {
 
 
     public EO getEoDev() {
-        EO eo = ProviderConfigMaps.createEoDev();
+        EO eo = ProviderConfigMapsDev.createEo();
         eo.mapObject(content);
         return eo;
     }

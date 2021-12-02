@@ -18,7 +18,7 @@ import java.util.Map;
  * @creationDate Wed Oct 17 00:00:00 CEST 2018
  * @modificationDate Thu Jan 14 04:26:27 CET 2021
  */
-public class FieldConfig extends ConfigConfig implements FieldInterface {
+public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
     public static final String AND_MODEL = "' and model '";
     /*.{}.*/
 /*.{javaInstanceVars}|*/

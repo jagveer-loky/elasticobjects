@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps.CONFIG_MAPS;
-import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps.CONFIG_MAPS_DEV;
+import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev.CONFIG_MAPS_DEV;
 
 public class IOClasspathEoFlatMapTest {
     @Test

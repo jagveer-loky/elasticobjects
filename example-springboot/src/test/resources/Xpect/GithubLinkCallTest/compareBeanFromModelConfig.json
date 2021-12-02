@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Create a link, if its FileConfig or ModelConfig, to the github source.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "modelKey": "GithubLinkCall",
   "module": "example-springboot",
   "moduleScope": "main",

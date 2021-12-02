@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -52,10 +53,10 @@ public class EOCompareTest {
 
     @Test
     public void Map_key0_test_Map_key1_test__compare__notEquals()  {
-        EO eo1 = ProviderConfigMaps.createEoDev();
+        EO eo1 = ProviderConfigMapsDev.createEo();
         eo1.set(EoTestStatic.S_STRING, EoTestStatic.S_KEY0);
 
-        EO eo2 = ProviderConfigMaps.createEoDev();
+        EO eo2 = ProviderConfigMapsDev.createEo();
         eo2.set(EoTestStatic.S_STRING, EoTestStatic.S_KEY1);
 
         String diff = eo1.compare(eo2);

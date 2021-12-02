@@ -9,9 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.fluentcodes.projects.elasticobjects.models.ConfigInterface.F_SCOPE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_GENERATED;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_NOT_NULL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_OVERRIDE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_GENERATED;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_NOT_NULL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_OVERRIDE;
 
 public class FieldBeanTest {
     @Test

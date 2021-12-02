@@ -1,9 +1,10 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
-  "creationDate": 1539727163392,
+  "(Date)creationDate": 1539727163392,
   "description": "Basic interface for calls ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "modelKey": "Call",
   "module": "elastic-objects",
   "moduleScope": "main",

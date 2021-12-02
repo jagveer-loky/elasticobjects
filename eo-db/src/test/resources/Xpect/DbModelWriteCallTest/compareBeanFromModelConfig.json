@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Write an entry in database by creating a insert or update sql from entry in sourcePath.\nThe object must be an instance of @ModelConfigDbObject.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ConfigWriteCommand",
   "modelKey": "DbModelWriteCall",
   "module": "eo-db",

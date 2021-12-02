@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Facade execution ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "modelKey": "ExecutorCall",
   "module": "elastic-objects",
   "moduleScope": "main",

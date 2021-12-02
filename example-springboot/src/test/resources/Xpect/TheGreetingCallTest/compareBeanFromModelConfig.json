@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "An example for a simple call with a field.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "SimpleCommand",
   "modelKey": "TheGreetingCall",
   "module": "example-springboot",

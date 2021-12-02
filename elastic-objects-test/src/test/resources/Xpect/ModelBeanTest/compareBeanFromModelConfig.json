@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "A bean container class for Model values",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ModelInterface",
   "modelKey": "ModelBean",
   "module": "elastic-objects",
