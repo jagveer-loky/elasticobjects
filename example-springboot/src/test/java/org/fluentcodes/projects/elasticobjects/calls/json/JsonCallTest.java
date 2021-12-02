@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Test;
 
 import java.util.List;
@@ -60,7 +61,7 @@ public class JsonCallTest {
 
     @Test
     public void givenEmpty_whenMapList_thenListIsSet()  {
-        EO eo = ProviderConfigMaps.createEoDev(List.class);
+        EO eo = ProviderConfigMapsDev.createEo(List.class);
         eo.mapObject("[]");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);

@@ -36,7 +36,7 @@ public class ConfigTypesCall extends CallImpl implements SimpleCommand {
     @Override
     public Object execute(final EO eo) {
         super.check(eo);
-        Set<Class<? extends ConfigInterface>> keys = eo.getConfigsCache().getKeys();
+        Set<Class<? extends ConfigInterface>> keys = eo.getConfigMaps().getKeys();
         try {
             return keys
                     .stream()

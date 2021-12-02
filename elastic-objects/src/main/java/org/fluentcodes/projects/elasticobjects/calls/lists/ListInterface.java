@@ -140,7 +140,7 @@ public interface ListInterface {
             for (int i = 0; i < filteredResult.size(); i++) {
                 Object row = filteredResult.get(i);
                 if (isMapped) {
-                    String target = Parser.replacePathValues(targetPath, EoRoot.ofValue(eo.getConfigsCache(), row));
+                    String target = Parser.replacePathValues(targetPath, EoRoot.ofValue(eo.getConfigMaps(), row));
                     eo.set(row, target);
                 }
             }
@@ -256,21 +256,21 @@ public interface ListInterface {
                         value = "";
                     }
                     else{
-                        value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigsCache(), valueMapValue);
+                        value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigMaps(), valueMapValue);
                     }                }
                 else if ((valueMapValue instanceof List)) {
                     if (((List) valueMapValue).isEmpty()) {
                         value = "";
                     }
                     else{
-                        value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigsCache(), valueMapValue);
+                        value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigMaps(), valueMapValue);
                     }
                 }
                 else if ((valueMapValue instanceof Date) || (valueMapValue instanceof Integer) || (valueMapValue instanceof Float) || (valueMapValue instanceof Double) || (valueMapValue instanceof Long)){
                     value = valueMapValue.toString();
                 }
                 else {
-                    value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigsCache(), valueMapValue);
+                    value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigMaps(), valueMapValue);
                 }
                 try {
                     if (!keyPosition.containsKey(key)) {

@@ -61,7 +61,7 @@ public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand 
             List result = FindStatement.of(eo)
                     .readFirst(
                     getDbConfig().getConnection(),
-                    eo.getConfigsCache());
+                    eo.getConfigMaps());
             eo.set(result, getTargetPath());
         }
         return updateCount;

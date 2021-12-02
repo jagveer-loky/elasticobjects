@@ -94,8 +94,8 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
     }
 
     protected HostConfig resolveHostConfig(final EO eo, final String hostConfigKey) {
-        if (hostConfigKey != null && !hostConfigKey.isEmpty()) return eo.getConfigsCache().findHost(hostConfigKey);
-        return eo.getConfigsCache().findHost(this.getHostConfigKey());
+        if (hostConfigKey != null && !hostConfigKey.isEmpty()) return eo.getConfigMaps().findHost(hostConfigKey);
+        return eo.getConfigMaps().findHost(this.getHostConfigKey());
     }
 
     public URL findUrl(final EO eo, final String hostConfigKey)  {

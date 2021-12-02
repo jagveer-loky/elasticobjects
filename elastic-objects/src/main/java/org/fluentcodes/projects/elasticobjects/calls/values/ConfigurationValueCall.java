@@ -19,7 +19,7 @@ public class ConfigurationValueCall extends CallImpl  implements SimpleCommand {
         if (configType == null) {
             throw new EoException("No config type defined");
         }
-        return eo.getConfigsCache().getConfigKeys(configType);
+        return eo.getConfigMaps().getConfigKeys(configType);
     }
 
     public String getConfigType() {

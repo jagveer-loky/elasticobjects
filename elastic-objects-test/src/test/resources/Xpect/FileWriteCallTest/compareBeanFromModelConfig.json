@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Write content or serialized eo to a file. ",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ConfigWriteCommand,CallContent",
   "modelKey": "FileWriteCall",
   "module": "elastic-objects",

@@ -73,7 +73,7 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
                 return result;
             }
             try {
-                getListParams().addRowEntry(eo.getConfigsCache(), result, rowEntry);
+                getListParams().addRowEntry(eo.getConfigMaps(), result, rowEntry);
             }
             catch (Exception e) {
                 throw new EoInternalException("Problem with row " + i + ": " + rowEntry + "", e);

@@ -53,7 +53,7 @@ public class DbModelReadCall extends DbModelCall implements ListInterface,  Conf
         return FindStatement.of(eo)
                 .read(
                 getDbConfig().getConnection(),
-                eo.getConfigsCache(),
+                eo.getConfigMaps(),
                 getListParams());
     }
 

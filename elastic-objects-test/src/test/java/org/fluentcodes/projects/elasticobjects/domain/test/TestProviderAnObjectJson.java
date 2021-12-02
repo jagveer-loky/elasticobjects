@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.fluentcodes.tools.io.IOString;
 
 import java.util.Map;
@@ -54,7 +55,7 @@ public enum TestProviderAnObjectJson {
     }
 
     public EO createEoDev() {
-        EO eo = ProviderConfigMaps.createEoDev(content);
+        EO eo = ProviderConfigMapsDev.createEo(content);
         Assertions.assertThat(eo.getLog()).isEmpty();
         return eo;
     }

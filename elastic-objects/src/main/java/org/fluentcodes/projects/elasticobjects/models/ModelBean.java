@@ -14,9 +14,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_FIELD_KEY;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_PROPERTY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_FIELD_KEY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_PROPERTY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.INTERFACES;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.MODEL_KEY;
 import static org.fluentcodes.projects.elasticobjects.models.ModelConfig.PACKAGE_PATH;

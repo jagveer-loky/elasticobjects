@@ -48,7 +48,7 @@ public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand
             List<String> result = FindStatement.of(eo)
                     .readFirst(
                             getDbConfig().getConnection(),
-                            eo.getConfigsCache());
+                            eo.getConfigMaps());
             eo.set(result, getTargetPath());
         }
 

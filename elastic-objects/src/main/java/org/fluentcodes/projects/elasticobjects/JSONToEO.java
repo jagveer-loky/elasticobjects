@@ -23,10 +23,11 @@ import java.util.regex.Pattern;
  */
 public class JSONToEO {
     //http://stackoverflow.com/questions/3651725/match-multiline-text-using-regular-expression
-    public static final Pattern jsonPattern = Pattern.compile("^[\\{\\[]");
-    public static final Pattern jsonMapPattern = Pattern.compile("^\\{");
-    public static final Pattern jsonListPattern = Pattern.compile("^\\[");
+    public static final Pattern JSON_PATTERN = Pattern.compile("^[\\{\\[]");
+    public static final Pattern JSON_MAP_PATTERN = Pattern.compile("^\\{");
+    public static final Pattern JSON_LIST_PATTERN = Pattern.compile("^\\[");
     private static final Logger LOG = LogManager.getLogger(JSONToEO.class);
+    public static final String COMMENT = "_comment";
     private ConfigMaps provider;
     private long character;
     private long index;
@@ -290,6 +291,7 @@ public class JSONToEO {
             } else if (startFlag) {
                 back();
                 final String key = this.nextKey();
+
                 if (this.nextClean() != ':') {
                     new EoException("Expected ':' in the map after the key '" + key + "' but see '" + c + "'': " + this.debug());
                 }
@@ -371,6 +373,9 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Value with no name" + debug());
                 }
                 String value = this.nextString(c, rawFieldName);
+                if (COMMENT.equals(rawFieldName)) {
+                    return eoParent;
+                }
                 eoParent.createChild(new PathElement(rawFieldName), value);
                 return eoParent;
 

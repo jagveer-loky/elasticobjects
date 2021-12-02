@@ -1,9 +1,10 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
-  "creationDate": 1482274766848,
+  "(Date)creationDate": 1482274766848,
   "description": "Base bean as super object for model beans with id, naturalId and description but no annotations. ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "modelKey": "BaseBean",
   "module": "elastic-objects",
   "moduleScope": "main",

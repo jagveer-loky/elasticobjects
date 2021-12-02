@@ -29,13 +29,12 @@ public interface IModelConfigTests {
     }
 
     default void assertBeanFromModelConfigEqualsPersisted() {
-        ModelBean fieldBean = getModelConfig().createBean();
-
-        assertThat(new EOToJSON()
-                .setSerializationType(JSONSerializationType.STANDARD)
-                .toJson(getModelConfig().getConfigMaps(), fieldBean))
-                .isEqualTo(XpectEo
-                        .load(fieldBean));
+        final ModelBean fieldBean = getModelConfig().createBean();
+        final String persisted = XpectEo.load(fieldBean);
+        final String serialized = new EOToJSON()
+                .toJson(getModelConfig().getConfigMaps(), fieldBean);
+        assertThat(serialized)
+                .isEqualTo(persisted);
     }
 
 }

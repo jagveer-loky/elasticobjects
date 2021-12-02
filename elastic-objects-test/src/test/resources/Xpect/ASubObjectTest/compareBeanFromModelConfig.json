@@ -1,9 +1,10 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigDbObject",
-  "creationDate": 1605826772992,
+  "(Date)creationDate": 1605826772992,
   "description": "A sub object as an example.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "modelKey": "ASubObject",
   "module": "elastic-objects-test",
   "moduleScope": "main",

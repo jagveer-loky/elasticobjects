@@ -1,9 +1,10 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
-  "creationDate": 1608073216000,
+  "(Date)creationDate": 1608073216000,
   "description": "A bean container class for Field values",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "HostInterface",
   "modelKey": "HostBean",
   "module": "elastic-objects",

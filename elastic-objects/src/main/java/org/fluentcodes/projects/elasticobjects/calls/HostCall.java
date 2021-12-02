@@ -38,7 +38,7 @@ public abstract class HostCall extends CallImpl implements Call {
         if (!hasHostConfigKey()) {
             throw new EoException("Empty key for host");
         }
-        hostConfig = eo.getConfigsCache().findHost(hostConfigKey);
+        hostConfig = eo.getConfigMaps().findHost(hostConfigKey);
         hostConfig.hasPermissions(permissionType, eo.getRoles());
         return hostConfig;
     }

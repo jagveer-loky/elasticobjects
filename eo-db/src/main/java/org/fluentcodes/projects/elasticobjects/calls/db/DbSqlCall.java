@@ -49,7 +49,7 @@ public abstract class DbSqlCall extends HostCall  {
         if (!hasSqlKey()) {
             throw new EoException("Empty key");
         }
-        sqlConfig = (DbSqlConfig)eo.getConfigsCache().find(DbSqlConfig.class, sqlKey);
+        sqlConfig = (DbSqlConfig)eo.getConfigMaps().find(DbSqlConfig.class, sqlKey);
         sqlConfig.hasPermissions(permissionType, eo.getRoles());
         super.initHostConfig(permissionType, eo);
         return sqlConfig;

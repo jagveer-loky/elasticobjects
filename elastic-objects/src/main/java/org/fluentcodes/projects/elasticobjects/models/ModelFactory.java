@@ -1,5 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
@@ -22,6 +24,7 @@ public abstract class ModelFactory extends ConfigFactory<ModelBean, ModelInterfa
         Map<String, ModelInterface> configMap = new TreeMap<>();
         Map<String, ModelBean> beanMap = createBeanMap();
         for (Map.Entry<String, ModelBean> entry: beanMap.entrySet()) {
+            try {
             Optional<String> filterScope = getScope().filter(entry.getKey());
             if (!filterScope.isPresent()) {
                 continue;
@@ -57,9 +60,19 @@ public abstract class ModelFactory extends ConfigFactory<ModelBean, ModelInterfa
                                 bean.deriveConfigClass(ModelConfigObject.class.getSimpleName()),
                                 getConfigMaps()));
             }
+
+            }
+            catch (Exception e) {
+                throw new EoException(e);
+            }
         }
         for (Map.Entry<String, ModelInterface> entry: configMap.entrySet()) {
-            ((ModelConfig)entry.getValue()).resolve(configMap);
+            try {
+                ((ModelConfig) entry.getValue()).resolve(configMap);
+            }
+            catch (Exception e) {
+                throw new EoException(e);
+            }
         }
         return configMap;
     }

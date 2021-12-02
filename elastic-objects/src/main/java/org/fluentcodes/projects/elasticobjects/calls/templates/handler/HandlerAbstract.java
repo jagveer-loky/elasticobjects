@@ -69,7 +69,7 @@ abstract class HandlerAbstract implements HandlerInterface {
     }
 
     ConfigMaps getConfigMaps() {
-        return eo.getConfigsCache();
+        return eo.getConfigMaps();
     }
 
     String createCallDirective() {

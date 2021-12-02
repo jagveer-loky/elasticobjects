@@ -44,16 +44,16 @@ public class ConfigCall extends ConfigKeysCall  {
 
     @Override
     public Object execute(EO eo)  {
-        EO result = EoRoot.ofClass(eo.getConfigsCache(),List.class,Map.class);
+        EO result = EoRoot.ofClass(eo.getConfigMaps(),List.class,Map.class);
         result.setSerializationType(JSONSerializationType.STANDARD);
         String targetPath = getTargetPath();
         setTargetPath(null);
         List<String> keys = (List<String>) super.execute(eo);
         setTargetPath(targetPath);
-        ModelConfig model  = eo.getConfigsCache().findModel(getConfigType());
+        ModelConfig model  = eo.getConfigMaps().findModel(getConfigType());
         Class configClass = model.getModelClass();
         for (String key : keys) {
-            ConfigInterface configEntry = (ConfigInterface) eo.getConfigsCache().find(configClass, key);
+            ConfigInterface configEntry = (ConfigInterface) eo.getConfigMaps().find(configClass, key);
             try {
                 if (hasModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;

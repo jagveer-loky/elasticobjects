@@ -6,6 +6,7 @@ import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Test;
 
 /**
@@ -14,7 +15,7 @@ import org.junit.Test;
 public class EoToJsonTest {
     @Test
     public void Map_empty____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{}");
+        EO eo = ProviderConfigMapsDev.createEo("{}");
         String json = new EOToJSON().toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
                 "}");
@@ -22,7 +23,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_empty__indent_0__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{}");
+        EO eo = ProviderConfigMapsDev.createEo("{}");
         String json = new EOToJSON()
                 .setIndent(0)
                 .toJson(eo);
@@ -32,7 +33,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_empty__indent_1__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{}");
+        EO eo = ProviderConfigMapsDev.createEo("{}");
         String json = new EOToJSON()
                 .setIndent(1)
                 .toJson(eo);
@@ -42,7 +43,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_empty__indent_2__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{}");
+        EO eo = ProviderConfigMapsDev.createEo("{}");
         String json = new EOToJSON()
                 .setIndent(2)
                 .toJson(eo);
@@ -52,7 +53,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_key_value__indent_2__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"key\": \"value\"}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"key\": \"value\"}");
         String json = new EOToJSON()
                 .setIndent(2)
                 .toJson(eo);
@@ -63,7 +64,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_key_value__JSONSerialitationType_SCALAR__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"key\": \"value\"}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"key\": \"value\"}");
         String json = new EOToJSON(JSONSerializationType.SCALAR)
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -73,7 +74,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_key_1__JSONSerialitationType_SCALAR__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"key\": 1}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"key\": 1}");
         String json = new EOToJSON(JSONSerializationType.SCALAR)
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -83,7 +84,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_Long_key_1____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"(Long)key\": 1}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"(Long)key\": 1}");
         String json = new EOToJSON()
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -94,7 +95,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_Long_key_1__JSONSerialitationType_SCALAR__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"(Long)key\": 1}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"(Long)key\": 1}");
         String json = new EOToJSON(JSONSerializationType.SCALAR)
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -104,7 +105,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_key_1_1____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"key\": 1.1}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"key\": 1.1}");
         String json = new EOToJSON()
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -116,7 +117,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_Double_key_1_1____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"(Double)key\": 1.1}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"(Double)key\": 1.1}");
         String json = new EOToJSON()
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -127,7 +128,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_Date_key_1465280215000____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"(Date)key\": 1465280215000}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"(Date)key\": 1465280215000}");
         String json = new EOToJSON()
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -138,7 +139,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_Boolean_key_true____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"key\": true}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"key\": true}");
         String json = new EOToJSON()
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -148,7 +149,7 @@ public class EoToJsonTest {
 
     @Test
     public void Map_myString_value_myInt_1____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("{\"myString\": \"value\", \"myInt\", 1}");
+        EO eo = ProviderConfigMapsDev.createEo("{\"myString\": \"value\", \"myInt\", 1}");
         String json = new EOToJSON()
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -186,7 +187,7 @@ public class EoToJsonTest {
 
     @Test
     public void List_empty__indent_0__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("[]");
+        EO eo = ProviderConfigMapsDev.createEo("[]");
         String json = new EOToJSON()
                 .setIndent(0)
                 .toJson(eo);
@@ -198,7 +199,7 @@ public class EoToJsonTest {
 
     @Test
     public void List_empty__indent_2__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("[]");
+        EO eo = ProviderConfigMapsDev.createEo("[]");
         String json = new EOToJSON()
                 .setIndent(2)
                 .toJson(eo);
@@ -209,7 +210,7 @@ public class EoToJsonTest {
 
     @Test
     public void List_String_test____expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("[\"test\"]");
+        EO eo = ProviderConfigMapsDev.createEo("[\"test\"]");
         String json = new EOToJSON()
                 .toJson(eo);
         Assertions.assertThat(json).isEqualTo("{\n" +
@@ -221,7 +222,7 @@ public class EoToJsonTest {
 
     @Test
     public void List_String_test__JSONSerializeType_Standard__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("[\"test\"]");
+        EO eo = ProviderConfigMapsDev.createEo("[\"test\"]");
         String json = new EOToJSON()
                 .setSerializationType(JSONSerializationType.STANDARD)
                 .toJson(eo.getRoot());
@@ -232,7 +233,7 @@ public class EoToJsonTest {
 
     @Test
     public void List_Integer__JSONSerializionType_Standard__expected()  {
-        EO eo = ProviderConfigMaps.createEoDev("[1]");
+        EO eo = ProviderConfigMapsDev.createEo("[1]");
         String json = new EOToJSON()
                 .setSerializationType(JSONSerializationType.STANDARD)
                 .toJson(eo);

@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Basic bean implementation for calls. ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "interfaces": "Call",
   "modelKey": "CallImpl",
   "module": "elastic-objects",

@@ -19,7 +19,7 @@ import java.util.Map;
  * @creationDate Wed Dec 09 00:00:00 CET 2020
  * @modificationDate Thu Jan 14 04:43:19 CET 2021
  */
-public class FieldBean extends ConfigBean implements FieldInterface {
+public class FieldBean extends ConfigBean implements FieldBeanInterface {
     /*.{}.*/
 
     /*.{javaInstanceVars}|*/
@@ -439,7 +439,7 @@ public class FieldBean extends ConfigBean implements FieldInterface {
 
     /*.{}.*/
     private Models getModels(EO eo) {
-        return new Models(eo.getConfigsCache(), getModelKeys());
+        return new Models(eo.getConfigMaps(), getModelKeys());
     }
 
     private Object getFieldValue(final String key) {

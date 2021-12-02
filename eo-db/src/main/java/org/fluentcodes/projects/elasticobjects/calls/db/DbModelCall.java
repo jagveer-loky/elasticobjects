@@ -42,11 +42,11 @@ public abstract class DbModelCall extends HostCall  {
 
     protected ModelConfigDbObject init(final PermissionType permissionType, final EO eo) {
         modelConfigKey = eo.getModelClass().getSimpleName();
-        ModelConfig modelConfig = eo.getConfigsCache().findModel(modelConfigKey);
+        ModelConfig modelConfig = eo.getConfigMaps().findModel(modelConfigKey);
         if (!(modelConfig instanceof ModelConfigDbObject)) {
             throw new EoException("modelConfig for key '" + modelConfigKey + "'is not of type ModelConfigDbObject but " + modelConfig.getClass() + ".");
         }
-        modelConfigDbObject = (ModelConfigDbObject) eo.getConfigsCache().findModel(modelConfigKey);
+        modelConfigDbObject = (ModelConfigDbObject) eo.getConfigMaps().findModel(modelConfigKey);
         modelConfigDbObject.hasPermissions(permissionType, eo.getRoles());
         if (!hasHostConfigKey()) {
             if (modelConfigDbObject.hasHostConfigKey()) {

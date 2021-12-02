@@ -101,7 +101,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                 .setExpose(expose)
                 .setSortOrder(sortOrder);
         List<String> keys = (List<String>)keysCall.execute(eo);
-        EO schemeRoot = EoRoot.of(eo.getConfigsCache());
+        EO schemeRoot = EoRoot.of(eo.getConfigMaps());
         EO components = schemeRoot.setEmpty("components");
         EO schemas = components.setEmpty("schemas");
 
@@ -109,7 +109,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
             if (created.contains(key)) {
                 continue;
             }
-            ModelConfig configEntry = eo.getConfigsCache().findModel(key);
+            ModelConfig configEntry = eo.getConfigMaps().findModel(key);
             try {
                 if (hasFilterModule() && (configEntry.getModule() == null || !configEntry.getModule().equals(this.getModule()))) {
                     continue;
@@ -164,9 +164,6 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                     array.setEmpty("items");
                     if (childModel.isScalar()) {
                         array.set(JsonTypes.getType(childModel.getModelClass()), "type");
-                        /*if (JsonTypes.hasFormat(childModel.getModelClass())) {
-                            array.set(JsonTypes.getType(childModel.getModelClass()), "format");
-                        }*/
                     }
                     else if (childModel.isObject()) {
                         array.set("#/components/schemas/" + childModel.getModelClass().getSimpleName(), "$ref");
@@ -189,7 +186,7 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
             return;
         }
         for (String modelKey: toCreate) {
-            ModelConfig createConfig = schemasEo.getConfigsCache().findModel(modelKey);
+            ModelConfig createConfig = schemasEo.getConfigMaps().findModel(modelKey);
             create(schemasEo, createConfig);
         }
     }

@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,21 +32,21 @@ public class EoDevSetTest {
 
     @Test
     public void empty__eo_set_key_value__map_get_key_value()  {
-        final EO eo = EoRoot.of(ProviderConfigMaps.CONFIG_MAPS_DEV);
+        final EO eo = EoRoot.of(ProviderConfigMapsDev.CONFIG_MAPS_DEV);
         eo.set("value","key");
         Assertions.assertThat(((Map)eo.get()).get("key")).isEqualTo("value");
     }
 
     @Test
     public void constructor_LinkedHashMap__eo_set_key_value__map_get_key_value()  {
-        final EO eo = EoRoot.ofValue(ProviderConfigMaps.CONFIG_MAPS_DEV, new LinkedHashMap());
+        final EO eo = ProviderConfigMapsDev.createEo(new LinkedHashMap());
         eo.set("value","key");
         Assertions.assertThat(((Map)eo.get()).get("key")).isEqualTo("value");
     }
 
     @Test
     public void key_value__set_model_List__exception()  {
-        final EO eo = EoRoot.of(ProviderConfigMaps.CONFIG_MAPS_DEV);
+        final EO eo = ProviderConfigMapsDev.createEo();
         EO child = eo.set("value", "key");
         Assertions.assertThatThrownBy(()->{child.set(List.class.getSimpleName(), PathElement.ROOT_MODEL);})
                 .hasMessage("Could not change model with a set");
@@ -53,7 +54,7 @@ public class EoDevSetTest {
 
     @Test
     public void empty__setEmpty_key__ModelClass_Map()  {
-        final EO eo = ProviderConfigMaps.createEoDev();
+        final EO eo = ProviderConfigMapsDev.createEo();
         eo.setEmpty("key");
         Assertions.assertThat(eo.getEo("key").getModelClass()).isEqualTo(Map.class);
     }
@@ -70,21 +71,21 @@ public class EoDevSetTest {
 
     @Test
     public void empty__set_key_null__Exception()  {
-        final EO eo = ProviderConfigMaps.createEoDev();
+        final EO eo = ProviderConfigMapsDev.createEo();
         Assertions.assertThatThrownBy(()->{eo.set(null, "key");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void empty_class_Map_Map__set_key_value__Exception()  {
-        final EO eo = EoRoot.ofClass(ProviderConfigMaps.CONFIG_MAPS_DEV, Map.class, Map.class);
+        final EO eo = ProviderConfigMapsDev.createEoWithClasses(Map.class, Map.class);
         Assertions.assertThatThrownBy(()->{eo.set("value", "key");})
                 .isInstanceOf(EoException.class);
     }
 
     @Test
     public void empty__set_test_test2_map_test_3_value__child_get_test3_value()  {
-        final EoRoot root = ProviderConfigMaps.createEoDev();
+        final EoRoot root = ProviderConfigMapsDev.createEo();
         Map<String,String> map = new LinkedHashMap<>();
         map.put("test3","value");
         EO child = root.set(map,"test","test2");
@@ -94,7 +95,7 @@ public class EoDevSetTest {
 
     @Test
     public void empty__setMapComplex__getComplexValues()  {
-        final EoRoot root = ProviderConfigMaps.createEoDev();
+        final EoRoot root = ProviderConfigMapsDev.createEo();
 
         Map map = new LinkedHashMap<>();
         map.put("test3","value1");
@@ -115,7 +116,7 @@ public class EoDevSetTest {
      */
     @Test
     public void empty__setJsonSmall__getJsonSmall()  {
-        final EO eoEmpty = ProviderConfigMaps.createEoDev();
+        final EO eoEmpty = ProviderConfigMapsDev.createEo();
         eoEmpty.set("{\"myString\": \"test\", \"myInt\": 1}", "test1");
         Assertions.assertThat(eoEmpty.getEo("test1").getModelClass()).isEqualTo(Map.class);
         Assertions.assertThat(eoEmpty.get("test1", AnObject.MY_INT)).isEqualTo(1);

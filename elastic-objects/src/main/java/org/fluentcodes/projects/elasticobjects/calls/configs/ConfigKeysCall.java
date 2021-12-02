@@ -83,10 +83,10 @@ public class ConfigKeysCall extends CallImpl implements ConfigsCommand {
             configFilter = new Parser(TemplateMarker.SQUARE, configFilter).parse(eo);
         }
         if (configClass == null) {
-            ModelConfig configTypeConfig = eo.getConfigsCache().findModel(configType);
+            ModelConfig configTypeConfig = eo.getConfigMaps().findModel(configType);
             configClass = configTypeConfig.getModelClass();
         }
-        Set<String> keys = eo.getConfigsCache().getConfigKeys(configClass, expose);
+        Set<String> keys = eo.getConfigMaps().getConfigKeys(configClass, expose);
         try {
             return super.createReturnType(eo, keys
                     .stream()

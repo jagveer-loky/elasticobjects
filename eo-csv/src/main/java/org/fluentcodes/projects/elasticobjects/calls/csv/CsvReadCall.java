@@ -73,7 +73,7 @@ public class CsvReadCall extends CsvSimpleReadCall  {
                     return result;
                 }
                 List rowEntry = Arrays.asList(row);
-                getListParams().addRowEntry(eo.getConfigsCache(), result, rowEntry);
+                getListParams().addRowEntry(eo.getConfigMaps(), result, rowEntry);
             }
         }
         catch (IOException e) {

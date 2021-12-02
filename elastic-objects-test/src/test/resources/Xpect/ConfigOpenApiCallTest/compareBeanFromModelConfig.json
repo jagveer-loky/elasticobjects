@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Creates an open api schema from model configuration.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "SimpleCommand",
   "modelKey": "ConfigOpenApiCall",
   "module": "elastic-objects",

@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Read an Excel sheet specified by fileConfigKey referencing to a @XlsxConfig configuration.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ListInterface",
   "modelKey": "XlsxReadCall",
   "module": "eo-xlsx",

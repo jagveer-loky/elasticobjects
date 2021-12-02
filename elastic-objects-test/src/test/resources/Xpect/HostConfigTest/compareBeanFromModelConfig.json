@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "configModelKey": "ModelConfigObject",
-  "creationDate": 1539727163392,
+  "(Date)creationDate": 1539727163392,
   "description": "Basic host definition for file or db cache. ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "interfaces": "HostInterface",
   "modelKey": "HostConfig",
   "module": "elastic-objects",

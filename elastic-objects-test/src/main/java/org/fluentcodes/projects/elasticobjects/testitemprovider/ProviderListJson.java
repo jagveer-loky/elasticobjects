@@ -56,10 +56,10 @@ public enum ProviderListJson {
     }
 
     public List createListDev() {
-        return (List) ProviderConfigMaps.createEoDev(content).get();
+        return (List) ProviderConfigMapsDev.createEo(content).get();
     }
 
     public EO createEoDev() {
-        return ProviderConfigMaps.createEoDev(content);
+        return ProviderConfigMapsDev.createEo(content);
     }
 }

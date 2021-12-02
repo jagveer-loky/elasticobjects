@@ -40,10 +40,10 @@ public class EoRoot extends EoChild {
         if (rootValue == null) return ofClass(cache, Map.class);
         if (rootValue instanceof Class)  return ofClass(cache, (Class) rootValue);
         if (rootValue instanceof String) {
-            if (JSONToEO.jsonMapPattern.matcher((String)rootValue).find()) {
+            if (JSONToEO.JSON_MAP_PATTERN.matcher((String)rootValue).find()) {
                 return new EoRoot(cache, rootValue, Models.ofValue(cache, Map.class));
             }
-            if (JSONToEO.jsonListPattern.matcher((String)rootValue).find()) {
+            if (JSONToEO.JSON_LIST_PATTERN.matcher((String)rootValue).find()) {
                 return new EoRoot(cache, rootValue, Models.ofValue(cache, List.class));
             }
         }
@@ -67,11 +67,6 @@ public class EoRoot extends EoChild {
             return Map.class;
         }
         return value.getClass();
-    }
-
-    @Override
-    public ConfigMaps getConfigsCache() {
-        return eoConfigCache;
     }
 
     @Override

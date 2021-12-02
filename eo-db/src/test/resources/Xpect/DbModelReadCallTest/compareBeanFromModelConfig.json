@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Read an entry in database by creating a select sql from entry in sourcePath. \nThe object in sourcePath must be an instance of @ModelConfigDbObject.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ListInterface,ConfigReadCommand",
   "modelKey": "DbModelReadCall",
   "module": "eo-db",

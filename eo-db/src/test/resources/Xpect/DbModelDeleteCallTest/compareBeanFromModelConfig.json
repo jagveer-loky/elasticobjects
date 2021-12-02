@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Remove an entry from database by creating a delete sql from entry in sourcePath. \nThe object in sourcePath must be an instance of @ModelConfigDbObject.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ConfigWriteCommand",
   "modelKey": "DbModelDeleteCall",
   "module": "eo-db",

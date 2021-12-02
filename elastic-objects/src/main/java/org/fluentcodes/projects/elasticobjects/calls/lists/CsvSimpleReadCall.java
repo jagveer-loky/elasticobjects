@@ -77,7 +77,7 @@ public class CsvSimpleReadCall extends FileReadCall implements ListInterface {
             }
             String[] fields = row.split(config.getFieldDelimiter());
             List rowEntry = Arrays.asList(fields);
-            getListParams().addRowEntry(eo.getConfigsCache(), result, rowEntry);
+            getListParams().addRowEntry(eo.getConfigMaps(), result, rowEntry);
         }
         return result;
     }

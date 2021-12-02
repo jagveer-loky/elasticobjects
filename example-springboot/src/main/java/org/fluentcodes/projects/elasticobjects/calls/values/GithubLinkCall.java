@@ -115,7 +115,7 @@ public class GithubLinkCall extends CallImpl  {
             builder.append("</a></nobreak>");
             return builder.toString();
         }
-        this.config = (ConfigInterface) eo.getConfigsCache().find(configClass, configKey);
+        this.config = (ConfigInterface) eo.getConfigMaps().find(configClass, configKey);
         builder.append(config.getModule());
         if (configClass.equals(ModelConfig.class)) {
             builder.append("/src/");

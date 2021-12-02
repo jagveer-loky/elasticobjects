@@ -46,7 +46,7 @@ public abstract class FileCall extends HostCall  {
         if (!hasFileConfigKey()) {
             throw new EoException("Empty file config key.");
         }
-        fileConfig = eo.getConfigsCache().findFile(Parser.replacePathValues(this.fileConfigKey, eo));
+        fileConfig = eo.getConfigMaps().findFile(Parser.replacePathValues(this.fileConfigKey, eo));
         fileConfig.hasPermissions(permissionType, eo.getRoles());
         if (!hasHostConfigKey()) {
             if (fileConfig.hasHostConfigKey()) {

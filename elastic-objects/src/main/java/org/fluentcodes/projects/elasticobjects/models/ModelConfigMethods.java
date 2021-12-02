@@ -25,7 +25,7 @@ public interface ModelConfigMethods extends ModelInterface {
         }
     }
 
-    default FieldInterface getField(final String fieldName) {
+    default FieldConfig getField(final String fieldName) {
         existFieldConfig(fieldName);
         return getFieldMap().get(fieldName);
     }

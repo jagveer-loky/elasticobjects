@@ -81,7 +81,7 @@ public class DbSqlReadCall extends DbSqlCall implements ListInterface,  ConfigRe
         return new FindStatement(config.getSql(), eo)
                 .read(
                 getConnection(),
-                eo.getConfigsCache(),
+                eo.getConfigMaps(),
                 listParams);
     }
 

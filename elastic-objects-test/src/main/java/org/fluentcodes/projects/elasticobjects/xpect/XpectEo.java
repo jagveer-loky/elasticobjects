@@ -44,11 +44,13 @@ public class XpectEo {
     }
 
     public static final String load(ConfigBean bean) {
-        String persistedFiles = Xpect.determinePersistenceFile("json");
+        final String persistedFiles = Xpect.determinePersistenceFile("json");
         try {
             return new IOString(persistedFiles).read();
         } catch (IORuntimeException ioRuntimeException) {
-            return new EOToJSON().toJson(CONFIG_MAPS, bean);
+            final String serialized = new EOToJSON().toJson(CONFIG_MAPS, bean);
+            new IOString(persistedFiles).write(serialized);
+            return serialized;
         }
     }
 

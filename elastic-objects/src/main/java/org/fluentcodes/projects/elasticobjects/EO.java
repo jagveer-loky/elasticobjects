@@ -128,12 +128,12 @@ public interface EO extends EoLogInterface{
         return hasEo(PathElement.LOG_LEVEL);
     }
 
-    default ConfigMaps getConfigsCache() {
-        return getRoot().getConfigsCache();
+    default ConfigMaps getConfigMaps() {
+        return getModels().getConfigMaps();
     }
 
     default Scope getScope() {
-        return getConfigsCache().getScope();
+        return getConfigMaps().getScope();
     }
 
     default boolean isSerializationTypeStandard() {

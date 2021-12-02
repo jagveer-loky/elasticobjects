@@ -23,7 +23,7 @@ public class JsonHandler extends HandlerAbstract {
         if (getEo() == null) {
             return getDefaultValue();
         }
-        EO eoCall = EoRoot.ofValue(getEo().getConfigsCache(),
+        EO eoCall = EoRoot.ofValue(getEo().getConfigMaps(),
                 TemplateMarker.CURLY.getStart()
                         + getCallDirective()
                         + TemplateMarker.CURLY.getStop());
