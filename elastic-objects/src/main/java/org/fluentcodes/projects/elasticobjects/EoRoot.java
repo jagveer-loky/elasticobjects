@@ -13,19 +13,17 @@ import java.util.Map;
  */
 
 public class EoRoot extends EoChild {
-    private final ConfigMaps eoConfigCache;
     private List<String> roles;
 
     private boolean checkObjectReplication = false;
 
-    protected EoRoot(ConfigMaps cache, Object rootValue, Models rootModels) {
+    protected EoRoot(Object rootValue, Models rootModels) {
         super(null, null, rootValue, rootModels);
         if (rootModels.isScalar()) {
             throw new EoException("Root could not be a scalar type but starting value is '" + rootModels.toString() + "'!");
         }
-        this.eoConfigCache = cache;
         if (rootModels.getModelClass() != Map.class) {
-            new EoChild(this, PathElement.ROOT_MODEL, rootModels.toString(), new Models(cache, String.class));
+            new EoChild(this, PathElement.ROOT_MODEL, rootModels.toString(), new Models(rootModels.getConfigMaps(), String.class));
         }
         if (rootValue != null) {
             mapObject(rootValue);
@@ -41,17 +39,17 @@ public class EoRoot extends EoChild {
         if (rootValue instanceof Class)  return ofClass(cache, (Class) rootValue);
         if (rootValue instanceof String) {
             if (JSONToEO.JSON_MAP_PATTERN.matcher((String)rootValue).find()) {
-                return new EoRoot(cache, rootValue, Models.ofValue(cache, Map.class));
+                return new EoRoot(rootValue, Models.ofValue(cache, Map.class));
             }
             if (JSONToEO.JSON_LIST_PATTERN.matcher((String)rootValue).find()) {
-                return new EoRoot(cache, rootValue, Models.ofValue(cache, List.class));
+                return new EoRoot(rootValue, Models.ofValue(cache, List.class));
             }
         }
-        return new EoRoot(cache, rootValue, Models.ofValue(cache, rootValue));
+        return new EoRoot(rootValue, Models.ofValue(cache, rootValue));
     }
 
     public static EoRoot ofClass(final ConfigMaps cache, Class... rootClasses)  {
-        return new EoRoot(cache, null, new Models(cache, rootClasses));
+        return new EoRoot(null, new Models(cache, rootClasses));
     }
 
     public static EoRoot ofClass(final ConfigMaps cache, final Object rootValue, Class... rootClasses)  {
@@ -59,7 +57,7 @@ public class EoRoot extends EoChild {
         if (rootModels.isScalar()) {
             throw new EoException("Could not create root with an scalar entry: '" + rootClasses[0].getSimpleName() + "'");
         }
-        return new EoRoot(cache, rootValue, rootModels);
+        return new EoRoot(rootValue, rootModels);
     }
 
     public static Class getClass(Object value) {

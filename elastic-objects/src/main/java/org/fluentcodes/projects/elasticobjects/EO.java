@@ -58,7 +58,7 @@ public interface EO extends EoLogInterface{
     List<String> keys(PathPattern pathPattern) ;
     List<String> filterPaths(String filter) ;
 
-    Map getKeyValues() ;
+    Map<String, Object> getKeyValues();
 
     EO getEo(String... path) ;
     EO getEo(PathElement path) ;
@@ -66,11 +66,16 @@ public interface EO extends EoLogInterface{
     EO getRoot() ;
 
     Models getModels();
-    ModelConfig getModel();
-    Class getModelClass();
+
+    default Class<?> getModelClass() {
+        return getModels().getModelClass();
+    }
+    default ModelConfig getModel() {
+        return getModels().getModel();
+    }
 
     default boolean isTransient(final String fieldName) {
-        return getModel().hasFieldConfig(fieldName)  ? getModel().getField(fieldName).isTransient(): false;
+        return getModel().hasFieldConfig(fieldName) && getModel().getField(fieldName).isTransient();
     }
 
     boolean isCheckObjectReplication();
@@ -86,6 +91,7 @@ public interface EO extends EoLogInterface{
     default boolean isList() {
         return getModel().isList();
     }
+
     default boolean isObject() {
         return getModel().isObject();
     }
@@ -134,10 +140,6 @@ public interface EO extends EoLogInterface{
 
     default Scope getScope() {
         return getConfigMaps().getScope();
-    }
-
-    default boolean isSerializationTypeStandard() {
-        return getSerializationType() == JSONSerializationType.STANDARD;
     }
     default boolean hasSerializationType() {
         return getRoot().hasEo(PathElement.SERIALIZATION_TYPE);

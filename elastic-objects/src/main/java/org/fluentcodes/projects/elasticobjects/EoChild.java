@@ -27,6 +27,12 @@ public class EoChild implements EO {
     private Object fieldValue;
     private boolean changed;
 
+    EoChild() {
+        parentEo = null;
+        fieldKey = null;
+        eoMap = new LinkedHashMap<>();
+    }
+
     public EoChild(final EO parentEo, final String fieldKey, final Object value, final Models fieldModels) {
         if (parentEo != null && (fieldKey == null || fieldKey.isEmpty())) {
             throw new EoException("Could not create parent EO without a fieldKey for '" + fieldModels.toString() + "'");
@@ -271,6 +277,10 @@ public class EoChild implements EO {
         return getValueFromParent();
     }
 
+    void set(Object value) {
+        this.fieldValue = value;
+    }
+
     protected EO addChildEo(EO childEo) {
         eoMap.put(childEo.getFieldKey(), childEo);
         return childEo;
@@ -404,7 +414,7 @@ public class EoChild implements EO {
         return pathPattern.filter(keysEo());
     }
 
-    public final Map getKeyValues() {
+    public final Map<String, Object> getKeyValues() {
         if (getModel() == null) {
             throw new EoException("Null model!");
         }
@@ -622,22 +632,9 @@ public class EoChild implements EO {
         return this.fieldModels;
     }
 
-    public ModelConfig getModel() {
-        return getModels().getModel();
+    void setModels(Models models) {
+        this.fieldModels = models;
     }
-
-    public Models getChildModels(PathElement pathElement) {
-        return getModels().getChildModels(pathElement);
-    }
-
-    public Class getModelClass() {
-        return getModels().getModelClass();
-    }
-
-    protected boolean hasChildModel() {
-        return getModels().hasChildModel();
-    }
-
 
     /**
      * true if is a list. Will be overwritten in the list type adapters.
