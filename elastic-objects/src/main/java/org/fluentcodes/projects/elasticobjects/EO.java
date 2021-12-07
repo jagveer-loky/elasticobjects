@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface EO extends EoLogInterface{
+public interface EO extends EOModel{
     /**
      * Creates a new object an map it to the object
      *
@@ -65,45 +65,12 @@ public interface EO extends EoLogInterface{
     EO remove(String... path) ;
     EO getRoot() ;
 
-    Models getModels();
-
-    default Class<?> getModelClass() {
-        return getModels().getModelClass();
-    }
-    default ModelConfig getModel() {
-        return getModels().getModel();
-    }
-
-    default boolean isTransient(final String fieldName) {
-        return getModel().hasFieldConfig(fieldName) && getModel().getField(fieldName).isTransient();
-    }
-
     boolean isCheckObjectReplication();
 
     void setCheckObjectReplication(boolean checkObjectReplication);
 
     boolean isChanged();
 
-    default boolean isContainer() {
-        return !isScalar();
-    }
-
-    default boolean isList() {
-        return getModel().isList();
-    }
-
-    default boolean isObject() {
-        return getModel().isObject();
-    }
-    default boolean isScalar() {
-        return getModel().isScalar() || getModels().isEnum();
-    }
-    default boolean isMap() {
-        return getModel().isMap();
-    }
-    default boolean isNull() {
-        return getModel().isNull();
-    }
     boolean isEoEmpty();
 
     String compare(final EO other);
@@ -134,19 +101,11 @@ public interface EO extends EoLogInterface{
         return hasEo(PathElement.LOG_LEVEL);
     }
 
-    default ConfigMaps getConfigMaps() {
-        return getModels().getConfigMaps();
-    }
-
-    default Scope getScope() {
-        return getConfigMaps().getScope();
-    }
     default boolean hasSerializationType() {
         return getRoot().hasEo(PathElement.SERIALIZATION_TYPE);
     }
     JSONSerializationType getSerializationType();
 
     EO setSerializationType(JSONSerializationType serializationType);
-
 
 }
