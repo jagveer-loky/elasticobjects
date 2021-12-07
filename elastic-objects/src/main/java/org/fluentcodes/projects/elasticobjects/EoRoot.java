@@ -57,13 +57,6 @@ public class EoRoot extends EoChild {
         return new EoRoot(rootValue, rootModels);
     }
 
-    public static Class getClass(Object value) {
-        if (value == null) {
-            return Map.class;
-        }
-        return value.getClass();
-    }
-
     @Override
     public boolean isCheckObjectReplication() {
         return this.checkObjectReplication;

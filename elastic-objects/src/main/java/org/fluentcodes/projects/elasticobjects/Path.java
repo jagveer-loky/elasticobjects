@@ -160,8 +160,6 @@ public class Path {
                     if (((EoChild)parent).hasEo(element)) {
                         parent = parent.getEo(element);
                         parent.mapObject(value);
-                        //element.resolve(parent, value);
-                        //((EoChild)parent).setPathElement(element);
                     }
                     else {
                         if (parent.isScalar()) {
@@ -173,8 +171,6 @@ public class Path {
                 else {
                     if (((EoChild)parent).hasEo(element)) {
                         parent = parent.getEo(element);
-                        //element.resolve(parent, null);
-                        //((EoChild)parent).setPathElement(element);
                     }
                     else {
                         parent = parent.createChild(element);
@@ -246,22 +242,11 @@ public class Path {
         return getFirstPathElement().getKey();
     }
 
-    public Path getFirstPath() {
-        if (isEmpty()) {
-            return new Path("");
-        }
-        return new Path(getFirstPathElement());
-    }
-
     public PathElement getFirstPathElement() {
         if (isEmpty()) {
             return null;
         }
         return this.entries[0];
-    }
-
-    public boolean hasFirstEntry() {
-        return !isEmpty();
     }
 
     public Path createChildPath() {
@@ -311,17 +296,6 @@ public class Path {
         }
     }
 
-    protected boolean isCallDirectory() {
-        if (isEmpty()) {
-            return false;
-        }
-        if (size()==1 && entries[0].isCallDirectory()) {
-            return true;
-        }
-        return false;
-    }
-
-
     public int size() {
         return this.entries.length;
     }
@@ -332,7 +306,7 @@ public class Path {
 
     @Override
     public String toString() {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
 
         for (PathElement element: entries) {
             result.append(DELIMITER);
@@ -352,7 +326,7 @@ public class Path {
         if (includeModels) {
             return toString();
         }
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
         for (PathElement element: entries) {
             result.append(DELIMITER);
             result.append(element.getKey());
@@ -380,17 +354,6 @@ public class Path {
             return "(" + String.join(",",element.getModelsArray()) + ")" + element.getKey();
         }
         return element.getKey();
-    }
-
-    public boolean hasChild() {
-        return !isEmpty() && this.entries.length>1;
-    }
-
-    public boolean hasModel() {
-        if (isEmpty()) {
-            return false;
-        }
-        return getFirstPathElement().hasModelArray();
     }
 
     public String[] getModels() {

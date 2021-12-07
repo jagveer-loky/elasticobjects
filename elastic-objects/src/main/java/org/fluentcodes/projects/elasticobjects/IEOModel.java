@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface EOModel extends EoLogInterface{
+public interface IEOModel {
     Models getModels();
 
     default Class<?> getModelClass() {

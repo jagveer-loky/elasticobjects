@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects;
+package org.fluentcodes.projects.elasticobjects.utils;
 
 import java.util.Collection;
 import java.util.Comparator;

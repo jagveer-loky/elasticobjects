@@ -1,4 +1,4 @@
-package org.fluentcodes.projects.elasticobjects;
+package org.fluentcodes.projects.elasticobjects.utils;
 
 import java.io.Serializable;
 import java.util.Collection;

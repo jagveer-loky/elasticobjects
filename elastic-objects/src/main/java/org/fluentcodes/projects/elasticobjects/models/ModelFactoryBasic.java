@@ -2,9 +2,9 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableCollection;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableList;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
+import org.fluentcodes.projects.elasticobjects.utils.UnmodifiableCollection;
+import org.fluentcodes.projects.elasticobjects.utils.UnmodifiableList;
+import org.fluentcodes.projects.elasticobjects.utils.UnmodifiableMap;
 
 import java.util.ArrayList;
 import java.util.Date;

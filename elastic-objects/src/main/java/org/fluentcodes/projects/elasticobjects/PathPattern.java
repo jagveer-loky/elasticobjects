@@ -48,27 +48,10 @@ public class PathPattern {
         return paths == null || paths.isEmpty() || paths.get(0) == null;
     }
 
-    public boolean isFilterNothing() {
-        return isEmpty() || paths.get(0).isFilterNothing();
-    }
-
     public boolean isAll() {
         for (Path path : paths) {
             String actual = path.first();
             if (actual.equals(PathElement.MATCHER_ALL) || actual.equals(PathElement.MATCHER)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean filterSomething() {
-        return isEmpty() || !filterNothing();
-    }
-
-    public boolean filterNothing() {
-        for (Path path : paths) {
-            if (path.isFilterNothing()) {
                 return true;
             }
         }
@@ -174,10 +157,6 @@ public class PathPattern {
 
     public Integer size() {
         return this.paths.size();
-    }
-
-    public void addPath(Path path) {
-        paths.add(path);
     }
 
     public void addPath(String path) {

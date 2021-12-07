@@ -4,7 +4,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
+import org.fluentcodes.projects.elasticobjects.utils.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.domain.BaseConfig;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
