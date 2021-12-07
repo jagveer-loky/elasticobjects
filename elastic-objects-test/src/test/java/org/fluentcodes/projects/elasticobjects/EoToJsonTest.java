@@ -250,7 +250,7 @@ public class EoToJsonTest {
                 .assertThatThrownBy(()->{eoToJSON
                         .toJson(ProviderConfigMaps.CONFIG_MAPS, modelConfig);})
                 .isInstanceOf(EoException.class)
-                .hasMessageContaining("Field 'author' marked as final for model 'ModelConfigDbObject'.");
+                .hasMessageContaining("ModelConfig has no create flag -> no empty instance will created for 'ModelConfigDbObject'");
     }
 
     @Test

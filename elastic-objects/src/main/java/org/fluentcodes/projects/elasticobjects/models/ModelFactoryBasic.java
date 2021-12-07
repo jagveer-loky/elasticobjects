@@ -29,14 +29,22 @@ public class ModelFactoryBasic extends ModelFactory {
     }
 
     public Map<String, ModelBean> addModelBeans(Map<String, ModelBean> modelMap) {
-        modelMap.put(LinkedHashMap.class.getSimpleName(), new ModelBean(LinkedHashMap.class, ShapeTypes.MAP));
-        modelMap.put(Map.class.getSimpleName(), new ModelBean(Map.class, ShapeTypes.MAP));
+        modelMap.put(LinkedHashMap.class.getSimpleName(), new ModelBean(LinkedHashMap.class, ShapeTypes.MAP)
+                .setCreate(true)
+        );
+        modelMap.put(Map.class.getSimpleName(), new ModelBean(Map.class, ShapeTypes.MAP)
+                .setCreate(true)
+        );
         modelMap.put(UnmodifiableMap.class.getSimpleName(), new ModelBean(UnmodifiableMap.class, ShapeTypes.MAP));
 
         modelMap.put(UnmodifiableCollection.class.getSimpleName(), new ModelBean(UnmodifiableCollection.class, ShapeTypes.LIST));
         modelMap.put(UnmodifiableList.class.getSimpleName(), new ModelBean(UnmodifiableList.class, ShapeTypes.LIST));
-        modelMap.put(List.class.getSimpleName(), new ModelBean(List.class, ShapeTypes.LIST));
-        modelMap.put(ArrayList.class.getSimpleName(), new ModelBean(ArrayList.class, ShapeTypes.LIST));
+        modelMap.put(List.class.getSimpleName(), new ModelBean(List.class, ShapeTypes.LIST)
+                .setCreate(true)
+        );
+        modelMap.put(ArrayList.class.getSimpleName(), new ModelBean(ArrayList.class, ShapeTypes.LIST)
+                .setCreate(true)
+        );
 
         modelMap.put(Integer.class.getSimpleName(), new ModelBean(Integer.class, ShapeTypes.SCALAR));
         modelMap.put(Long.class.getSimpleName(), new ModelBean(Long.class, ShapeTypes.SCALAR));

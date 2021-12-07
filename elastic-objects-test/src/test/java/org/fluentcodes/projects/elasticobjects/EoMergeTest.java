@@ -25,7 +25,7 @@ public class EoMergeTest {
         final Map map = new HashMap();
         map.put(AnObject.NATURAL_ID, "id");
         eo.mapObject(map);
-        Assertions.assertThat(anObject.getNaturalId()).isEqualTo("id");
+        Assertions.assertThat(eo.get("naturalId")).isEqualTo("id");
     }
 
     @Test
@@ -48,6 +48,6 @@ public class EoMergeTest {
         final AnObject anObject2 = new AnObject().setMyFloat(1.1F);
         final EO eo = ProviderConfigMaps.createEo(anObject1);
         eo.mapObject(anObject2);
-        assertEquals(1.1F, anObject1.getMyFloat());
+        assertEquals(1.1F, eo.get("myFloat"));
     }
 }

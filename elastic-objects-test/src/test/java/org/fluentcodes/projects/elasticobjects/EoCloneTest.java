@@ -11,39 +11,21 @@ import static org.fluentcodes.projects.elasticobjects.domain.test.AnObject.NATUR
 public class EoCloneTest {
 
     @Test
-    public void AnObject_myString_value__clone__isDifferent_but_same_toString()  {
-
-        final AnObject anObject1 = new AnObject().setMyString( "value");
-        final EO eo1 = ProviderConfigMaps.createEo(anObject1);
-
-        final EO eo2 = ProviderConfigMaps.createEo(AnObject.class);
-        eo2.mapObject(eo1.get());
-        Assertions.assertThat(anObject1).isNotEqualTo(eo2.get());
-        Assertions.assertThat(eo1.toString(JSONSerializationType.STANDARD))
-                .isEqualTo(eo2.toString(JSONSerializationType.STANDARD));
-        eo1.set("id", NATURAL_ID);
-        Assertions.assertThat(anObject1.getNaturalId()).isEqualTo("id");
-        Assertions.assertThat(((AnObject)eo2.get()).getNaturalId()).isNull();
-    }
-
-    @Test
-    public void AnObject_myString_value__non_clone__object_is_equal()  {
+    public void AnObject_myString_value__non_clone__object_is_not_equal()  {
         final AnObject anObject1 = new AnObject().setMyString( "value");
         final EO eo1 = ProviderConfigMaps.createEo(anObject1);
         final EO eo2 = ProviderConfigMaps.createEo(eo1.get());
         eo1.set("id", NATURAL_ID);
-        Assertions.assertThat(anObject1).isEqualTo(eo2.get());
+        Assertions.assertThat(anObject1).isNotEqualTo(eo2.get());
     }
 
     @Test
     public void AnObject_myString_value__setNaturalId_id__is_same_in_AnObject()  {
         final AnObject anObject1 = new AnObject().setMyString( "value");
-        EO eo0 = ProviderConfigMaps.createEo();
         final EO eo1 = ProviderConfigMaps.createEo(anObject1);
         eo1.set("id", NATURAL_ID);
-        Assertions.assertThat(eo1.get(MY_STRING)).isEqualTo("value");
         Assertions.assertThat(eo1.get(NATURAL_ID)).isEqualTo("id");
-        Assertions.assertThat(anObject1.getNaturalId()).isEqualTo("id");
+        Assertions.assertThat(anObject1.getNaturalId()).isNull();
     }
 
 }

@@ -196,7 +196,7 @@ public class JsonToEoTest {
                     ProviderConfigMapsDev.createEo("\"k\",[\"v\":2]");
                 })
                 .isInstanceOf(EoException.class)
-                .hasMessageContaining("Null scalar value not supported for root");
+                .hasMessageContaining("Root could not be a scalar type but starting value is 'String'!");
     }
 
 }

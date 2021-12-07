@@ -37,22 +37,22 @@ public class ModelsTest {
 
     @Test
     public void ArrayList____isList_true() {
-        Models models = new Models(CONFIG_MAPS_DEV, ArrayList.class);
-        Assertions.assertThat(models.isCreate()).isFalse();
+        Models models = ProviderConfigMapsDev.createModels(ArrayList.class);
+        Assertions.assertThat(models.isCreate()).isTrue();
         Assertions.assertThat(models.isScalar()).isFalse();
         Assertions.assertThat(models.isList()).isTrue();
     }
 
     @Test
     public void AnObject__createChild_myString() {
-        EoRoot root = EoRoot.ofClass(CONFIG_MAPS, AnObject.class);
+        EoRoot root = ProviderConfigMaps.createEoWithClasses( AnObject.class);
         EoChild child = root.getModels().createChild(root, new PathElement("myString"), "value");
         Assert.assertEquals("value", root.get("myString"));
     }
 
     @Test
     public void AnObject__createChild_notValid() {
-        EoRoot root = EoRoot.ofClass(CONFIG_MAPS, AnObject.class);
+        EoRoot root = ProviderConfigMaps.createEoWithClasses( AnObject.class);
         Models rootModels = root.getModels();
         PathElement pathElement = new PathElement("notValid");
 

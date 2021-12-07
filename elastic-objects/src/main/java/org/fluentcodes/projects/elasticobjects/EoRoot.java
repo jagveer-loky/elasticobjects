@@ -18,16 +18,16 @@ public class EoRoot extends EoChild {
     private boolean checkObjectReplication = false;
 
     protected EoRoot(Object rootValue, Models rootModels) {
-        super(null, null, rootValue, rootModels);
+        super();
+        setModels(rootModels);
         if (rootModels.isScalar()) {
             throw new EoException("Root could not be a scalar type but starting value is '" + rootModels.toString() + "'!");
         }
         if (rootModels.getModelClass() != Map.class) {
             new EoChild(this, PathElement.ROOT_MODEL, rootModels.toString(), new Models(rootModels.getConfigMaps(), String.class));
         }
-        if (rootValue != null) {
-            mapObject(rootValue);
-        }
+        set(rootModels.create());
+        mapObject(rootValue);
     }
 
     public static EoRoot of(final ConfigMaps cache)  {
@@ -37,19 +37,16 @@ public class EoRoot extends EoChild {
     public static EoRoot ofValue(final ConfigMaps cache, Object rootValue)  {
         if (rootValue == null) return ofClass(cache, Map.class);
         if (rootValue instanceof Class)  return ofClass(cache, (Class) rootValue);
-        if (rootValue instanceof String) {
-            if (JSONToEO.JSON_MAP_PATTERN.matcher((String)rootValue).find()) {
-                return new EoRoot(rootValue, Models.ofValue(cache, Map.class));
-            }
-            if (JSONToEO.JSON_LIST_PATTERN.matcher((String)rootValue).find()) {
-                return new EoRoot(rootValue, Models.ofValue(cache, List.class));
-            }
-        }
         return new EoRoot(rootValue, Models.ofValue(cache, rootValue));
     }
 
     public static EoRoot ofClass(final ConfigMaps cache, Class... rootClasses)  {
-        return new EoRoot(null, new Models(cache, rootClasses));
+        Models models = new Models(cache, rootClasses);
+        if (!models.isCreate()) {
+            throw new EoException("Could not create value from " + models.toString());
+        }
+        Object value = models.create();
+        return new EoRoot(value, new Models(cache, rootClasses));
     }
 
     public static EoRoot ofClass(final ConfigMaps cache, final Object rootValue, Class... rootClasses)  {

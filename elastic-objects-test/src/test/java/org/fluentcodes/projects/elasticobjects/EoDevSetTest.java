@@ -32,7 +32,7 @@ public class EoDevSetTest {
 
     @Test
     public void empty__eo_set_key_value__map_get_key_value()  {
-        final EO eo = EoRoot.of(ProviderConfigMapsDev.CONFIG_MAPS_DEV);
+        final EO eo = ProviderConfigMapsDev.createEo();
         eo.set("value","key");
         Assertions.assertThat(((Map)eo.get()).get("key")).isEqualTo("value");
     }

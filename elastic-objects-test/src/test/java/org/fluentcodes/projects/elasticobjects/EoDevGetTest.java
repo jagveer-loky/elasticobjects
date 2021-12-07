@@ -13,21 +13,21 @@ public class EoDevGetTest {
 
     @Test
     public void __get_path__exception_thrown()  {
-        EO eo = EoRoot.of(ProviderConfigMapsDev.CONFIG_MAPS_DEV);
+        EO eo = ProviderConfigMapsDev.createEo();
         Assertions.assertThatThrownBy(()->{eo.get(S_LEVEL0);})
                 .hasMessage("No value add for fieldName=level0");
     }
 
     @Test
     public void __map_put_key_value__eo_get_key_value()  {
-        final EO eo = EoRoot.of(ProviderConfigMapsDev.CONFIG_MAPS_DEV);
+        final EO eo = ProviderConfigMapsDev.createEo();
         ((Map) eo.get()).put("key", "value");
         Assertions.assertThat(eo.get("key")).isEqualTo("value");
     }
 
     @Test
     public void eo_set_key_value__map_put_key_value2___eo_get_key_value2()  {
-        final EO eo = EoRoot.of(ProviderConfigMapsDev.CONFIG_MAPS_DEV);
+        final EO eo = ProviderConfigMapsDev.createEo();
         eo.set("value","key");
         ((Map)eo.get()).put("key", "value2");
         Assertions.assertThat(eo.get("key")).isEqualTo("value2");

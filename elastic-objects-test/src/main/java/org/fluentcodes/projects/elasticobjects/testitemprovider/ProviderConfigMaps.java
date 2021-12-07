@@ -14,7 +14,7 @@ import java.util.Map;
 public class ProviderConfigMaps {
     public static final ConfigMaps CONFIG_MAPS = new ConfigMaps(Scope.TEST);
 
-    public static final EO createEoWithClasses(Class... classes) {
+    public static final EoRoot createEoWithClasses(Class... classes) {
         return EoRoot.ofClass(CONFIG_MAPS, classes);
     }
 

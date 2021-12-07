@@ -457,11 +457,12 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
         getProperties().put(BEAN, value);
     }
 
-    public void setCreate(Boolean create) {
+    public ModelBean setCreate(Boolean create) {
         if (getProperties()==null) {
             throw new EoException("Could not set create .. properties not defined");
         }
         getProperties().put(CREATE, create);
+        return this;
     }
 
     private void mergeRolePermissions(final Object value) {
