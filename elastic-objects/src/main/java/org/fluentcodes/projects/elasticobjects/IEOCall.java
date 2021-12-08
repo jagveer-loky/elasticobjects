@@ -2,19 +2,34 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * Offers an adapter for calls.
  */
 
-public interface IEOCall {
-    EO addCall(Call callExecutor);
-    Set<String> getCallKeys();
-    EO getCallEo(String key);
+public interface IEOCall extends IEOScalar {
+    default EO addCall(Call call) {
+        return getRoot().addCall(call);
+    }
 
-    boolean execute();
+    default Set<String> getCallKeys() {
+        return getRoot().getCallKeys();
+    }
+
+    default EO getCallEo(String key) {
+        return getRoot().getCallEo(key);
+    }
+
+    default EO getCallsEo() {
+        return getRoot().getCallsEo();
+    }
+
+    default boolean hasCalls() {
+        return getRoot().hasCalls();
+    }
+
+    default boolean execute() {
+        return getRoot().execute();
+    }
 }

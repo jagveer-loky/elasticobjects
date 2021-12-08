@@ -12,7 +12,7 @@ public class EoCallsTest {
     @Test
     public void givenTest_thenCallsAreEmpty()  {
         EO eo = ProviderConfigMaps.createEo();
-        Assertions.assertThat(((EoChild)eo).hasCalls()).isEqualTo(false);
+        Assertions.assertThat(eo.hasCalls()).isEqualTo(false);
         Assertions.assertThat(eo.size()).isEqualTo(0);
     }
 }

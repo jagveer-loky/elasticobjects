@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
@@ -10,7 +9,6 @@ import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -431,47 +429,6 @@ public class EoChild implements EO {
             }
         }
         return result;
-    }
-
-    @Override
-    public Set<String> getCallKeys() {
-        return getCallsEo().keys();
-    }
-
-    public EO addCall(Call call) {
-        if (call == null) {
-            throw new EoException("Null call?!");
-        }
-        if (!call.hasTargetPath() && !isRoot()) {
-            call.setTargetPath(this.getPathAsString());
-        }
-        return createChild(new PathElement(""), call);
-    }
-
-    public EO getCallsEo() {
-        return initCalls();
-    }
-
-    @Override
-    public EO getCallEo(final String key) {
-        return getCallsEo().getEo(key);
-    }
-
-    private EO initCalls() {
-        if (hasCalls()) {
-            return getRoot().getEo(PathElement.CALLS);
-        }
-        EO rootEo = getRoot();
-        return rootEo.createChild(new PathElement(PathElement.CALLS, List.class));
-    }
-
-    protected boolean hasCalls() {
-        return getRoot().hasEo(PathElement.CALLS);
-    }
-
-    @Override
-    public boolean execute() {
-        return getRoot().execute();
     }
 
     @Override

@@ -1,10 +1,10 @@
 package org.fluentcodes.projects.elasticobjects;
 
 /**
- * Offers an adapter for skalar wrapper to access elements via path.
+ * Offers an adapter for scalar wrapper to access elements via path.
  */
 
-public interface IEOScalar extends IEOModel, IEOCall{
+public interface IEOScalar extends IEOModel {
     EO getParent();
 
     default boolean hasParent() {

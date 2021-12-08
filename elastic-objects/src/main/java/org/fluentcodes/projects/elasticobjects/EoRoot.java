@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
@@ -9,7 +10,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import static org.fluentcodes.projects.elasticobjects.PathElement.CALLS;
 import static org.fluentcodes.projects.elasticobjects.PathElement.ERROR_LEVEL;
 import static org.fluentcodes.projects.elasticobjects.PathElement.LOGS;
 import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
@@ -70,7 +73,7 @@ public class EoRoot extends EoChild {
 
     @Override
     void getPathAsString(final StringBuilder builder) {
-        return;
+        builder.append("");
     }
 
     @Override
@@ -90,10 +93,44 @@ public class EoRoot extends EoChild {
 
     @Override
     public boolean execute() {
-        String result = ExecutorCall.executeEo(this) ;
+        ExecutorCall.executeEo(this) ;
         return true;
     }
 
+    @Override
+    public Set<String> getCallKeys() {
+        return getCallsEo().keys();
+    }
+
+    @Override
+    public EO addCall(Call call) {
+        if (call == null) {
+            throw new EoException("Null call?!");
+        }
+        if (!call.hasTargetPath() && !isRoot()) {
+            call.setTargetPath(this.getPathAsString());
+        }
+        EO callsEo = getCallsEo();
+        return callsEo.createChild(new PathElement(""), call);
+    }
+
+    @Override
+    public EO getCallsEo() {
+        if (!hasEo(CALLS)) {
+            return createChild(new PathElement(CALLS), new ArrayList<>());
+        }
+        return getEo(CALLS);
+    }
+
+    @Override
+    public EO getCallEo(final String key) {
+        return getCallsEo().getEo(key);
+    }
+
+    @Override
+    public boolean hasCalls() {
+        return getCallsEo().size()>0;
+    }
 
     @Override
     public LogLevel getLogLevel() {
@@ -105,7 +142,7 @@ public class EoRoot extends EoChild {
 
     private EO getLogEo() {
         if (!hasEo(LOGS)) {
-            return createChild(new PathElement(LOGS));
+            return createChild(PathElement.OF_LOGS);
         }
         return getEo(LOGS);
     }

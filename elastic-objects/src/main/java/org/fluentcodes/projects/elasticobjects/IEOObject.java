@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
 
@@ -11,7 +10,7 @@ import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface IEOObject extends IEORole, IEOSerialize, IEOLog {
+public interface IEOObject extends IEORole, IEOSerialize, IEOLog, IEOCall {
     EO createChild(final PathElement fieldKey);
 
     EO createChild(final PathElement pathElement, final Object value);
@@ -58,11 +57,7 @@ public interface IEOObject extends IEORole, IEOSerialize, IEOLog {
 
     String compare(final EO other);
 
-    default String getLog() {
-        if (!hasEo(PathElement.LOGS)) return "";
-        return getLogList().stream().collect(Collectors.joining("\n"));
-    }
-
+    @Override
     default boolean hasLogLevel() {
         return hasEo(LOG_LEVEL);
     }

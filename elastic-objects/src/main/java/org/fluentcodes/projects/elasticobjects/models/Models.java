@@ -126,9 +126,8 @@ public class Models {
             if (!((Call)value).hasTargetPath() && !key.isEmpty()) {
                 ((Call) value).setTargetPath(parent.getPathAsString() + Path.DELIMITER + key);
             }
-            parent = ((EoChild)parent).getCallsEo();
+            parent = parent.getCallsEo();
             key = Integer.toString(parent.size());
-            return new EoChild(parent, key, value, new Models(getConfigMaps(), value.getClass()));
         }
         return new EoChild(parent, key, value, childModels);
     }
@@ -171,6 +170,9 @@ public class Models {
         }
         if (!pathElement.hasModelArray()) {
             return getChildModels(pathElement);
+        }
+        if (!pathElement.isParentSet()) {
+            return new Models(getConfigMaps(), pathElement);
         }
         return competeModels(getChildModels(pathElement), new Models(getConfigMaps(), pathElement));
     }
@@ -217,6 +219,7 @@ public class Models {
             }
         }
         if (isObject() &&
+                pathElement.isParentSet() &&
                 !getModel().hasField(pathElement.getKey())) {
             throw new EoException("No fieldConfig '" + pathElement.getKey() + "' defined in model '" + getModelClass().getSimpleName() + "' ! ");
         }

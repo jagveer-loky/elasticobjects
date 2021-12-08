@@ -1,9 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
+import java.util.stream.Collectors;
 
 /**
  * Offers an adapter for objects to access elements via path.
@@ -22,7 +20,9 @@ public interface IEOLog extends IEOScalar {
         getRoot().log(message, logLevel);
     }
 
-    String getLog();
+    default String getLog() {
+        return getLogList().stream().collect(Collectors.joining("\n"));
+    }
 
     default List<String> getLogList() {
         return getRoot().getLogList();
@@ -68,19 +68,19 @@ public interface IEOLog extends IEOScalar {
 
     default void error(String message) {
         if (checkLevel(LogLevel.ERROR)) {
-            log( message, LogLevel.ERROR);
+            log(message, LogLevel.ERROR);
         }
     }
 
     default void warn(String message, Exception e) {
         if (checkLevel(LogLevel.WARN)) {
-            log( message, LogLevel.WARN, e);
+            log(message, LogLevel.WARN, e);
         }
     }
 
     default void error(String message, Exception e) {
         if (checkLevel(LogLevel.ERROR)) {
-            log( message, LogLevel.ERROR, e);
+            log(message, LogLevel.ERROR, e);
         }
     }
 }
