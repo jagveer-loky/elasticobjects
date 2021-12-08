@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Test;
 
@@ -18,17 +19,17 @@ public class EoSetParentValueTest {
         Assertions.assertThatThrownBy(() -> {
             ((EoChild) rootEo).setParentValue(null);
         })
-                .isInstanceOf(EoException.class)
+                .isInstanceOf(EoInternalException.class)
                 .hasMessageContaining("Root has no parent!");
     }
 
     @Test
-    public void DEV__value_exception() {
+    public void DEV_root__exception() {
         final EO rootEo = ProviderConfigMapsDev.createEo();
         Assertions.assertThatThrownBy(() -> {
             ((EoChild) rootEo).setParentValue("value");
         })
-                .isInstanceOf(EoException.class)
+                .isInstanceOf(EoInternalException.class)
                 .hasMessageContaining("Root has no parent!");
     }
 

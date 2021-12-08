@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
@@ -73,7 +74,9 @@ public class EoChild implements EO {
     }
 
     protected void setParentValue(final Object value) {
-        if (!hasParent()) throw new EoException("Root has no parent!");
+        if (isRoot()) {
+            throw new EoInternalException("Root has no parent!");
+        }
         if (getParentEo().hasEo(fieldKey)) {
             this.changed = true;
         }
@@ -99,15 +102,7 @@ public class EoChild implements EO {
 
     @Override
     public EO getParent() {
-        if (parentEo == null) {
-            throw new EoException("Root has no parent");
-        }
         return parentEo;
-    }
-
-    @Override
-    public boolean hasParent() {
-        return parentEo != null;
     }
 
     protected Object getValueFromParent() {
@@ -149,7 +144,7 @@ public class EoChild implements EO {
     public Object get(final String... pathStrings) {
         try {
             EO eo = new Path(pathStrings).moveTo(this);
-            if (eo.isScalar() && !eo.isRoot() && PathElement.isParentSet(getFieldKey())) {
+            if (eo.isScalar() && !eo.isRoot() && PathElement.isParentSet(eo.getFieldKey())) {
                 return ((EoChild) eo).getValueFromParent();
             }
             return eo.get();
@@ -219,20 +214,16 @@ public class EoChild implements EO {
             return getEo(pathElement);
         }
 
-        try {
-            if (pathElement.isRootModel()) {
-                if (!isEmpty()) {
-                    throw new EoException("Model will be changed only for empty parents '" + childValue + "'.");
-                }
-                this.fieldModels = new Models(this.getConfigMaps(), ((String) childValue).split(","));
-                this.fieldValue = fieldModels.create();
-                new EoChild(this, PathElement.ROOT_MODEL, fieldModels.toString(), new Models(getConfigMaps(), String.class));
-                return this;
+        if (pathElement.isRootModel()) {
+            if (!isEmpty()) {
+                throw new EoException("Model will be changed only for empty parents '" + childValue + "'.");
             }
-            return getModels().createChild(this, pathElement, childValue);
-        } catch (Exception e) {
-            throw new EoException("Exception for '" + pathElement.getKey() + "': " + e.getMessage());
+            this.fieldModels = new Models(this.getConfigMaps(), ((String) childValue).split(","));
+            this.fieldValue = fieldModels.create();
+            new EoChild(this, PathElement.ROOT_MODEL, fieldModels.toString(), new Models(getConfigMaps(), String.class));
+            return this;
         }
+        return getModels().createChild(this, pathElement, childValue);
     }
 
     protected void removeChild(String fieldName) {
@@ -366,22 +357,6 @@ public class EoChild implements EO {
     }
 
     @Override
-    public int sizeEo() {
-        if (eoMap == null) {
-            return 0;
-        }
-        return this.keysEo().size();
-    }
-
-    @Override
-    public int size() {
-        if (eoMap == null) {
-            return 0;
-        }
-        return this.keys().size();
-    }
-
-    @Override
     public Set<String> keysEo() {
         return eoMap.keySet();
     }
@@ -511,121 +486,15 @@ public class EoChild implements EO {
 
     @Override
     public String getPathAsString() {
-        if (isRoot()) {
-            return Path.DELIMITER;
-        }
         final StringBuilder builder = new StringBuilder();
         getPathAsString(builder);
         return builder.toString();
     }
 
-    protected void getPathAsString(final StringBuilder builder) {
-        if (isRoot()) {
-            return;
-        }
-        if (!hasParent()) {
-            throw new EoException("Non root with no parent!");
-        }
-        if (getParentEo() == this) {
-            throw new EoException("Self referencing child " + getParentEo().toString());
-        }
+    void getPathAsString(final StringBuilder builder) {
         builder.insert(0, getFieldKey());
         builder.insert(0, Path.DELIMITER);
         getParentEo().getPathAsString(builder);
-    }
-
-    private EO getLogEo() {
-        EO rootEo = getRoot();
-        if (!rootEo.hasEo(PathElement.LOGS)) {
-            return rootEo.createChild(new PathElement(PathElement.LOGS));
-        }
-        return rootEo.getEo(PathElement.LOGS);
-    }
-
-    @Override
-    public List<String> getLogList() {
-        if (!hasEo(PathElement.LOGS)) {
-            return new ArrayList<>();
-        }
-        return (List<String>) getLogEo().get();
-    }
-
-    public EO log(String message, LogLevel logLevel) {
-        if (message == null) {
-            return this;
-        }
-        setErrorLevel(logLevel);
-        EO logEo = getLogEo();
-        PathElement logElement = new PathElement(Integer.toString(logEo.size()));
-        logEo.createChild(logElement, logLevel.name() + " - " + LocalDateTime.now().toString() + " - " + message);
-        return this;
-    }
-
-    public EO log(String message, LogLevel logLevel, Exception e) {
-        log(message + ": " + e.getMessage(), logLevel);
-        return this;
-    }
-
-    // LOG_LEVEL
-    @Override
-    public LogLevel getLogLevel() {
-        if (hasLogLevel()) {
-            return (LogLevel) get(new PathElement(PathElement.LOG_LEVEL));
-        }
-        if (isRoot()) {
-            return LogLevel.WARN;
-        }
-        return getParent().getLogLevel();
-    }
-
-    @Override
-    public EO setLogLevel(LogLevel logLevel) {
-        if (!hasEo(PathElement.LOG_LEVEL)) {
-            createChild(PathElement.OF_LOG_LEVEL, logLevel);
-        }
-        return this;
-    }
-
-    @Override
-    public LogLevel getErrorLevel() {
-        return (LogLevel) getErrorLevelEo().get();
-    }
-
-    private EO getErrorLevelEo() {
-        EO rootEo = getRoot();
-        if (!rootEo.hasEo(PathElement.ERROR_LEVEL)) {
-            return rootEo.createChild(PathElement.OF_ERROR_LEVEL, LogLevel.DEBUG);
-        }
-        return rootEo.getEo(PathElement.ERROR_LEVEL);
-    }
-
-    private void setErrorLevel(LogLevel messageLogLevel) {
-        if (getErrorLevel().ordinal() <= messageLogLevel.ordinal()) {
-            ((EoChild) getErrorLevelEo()).setFieldValue(messageLogLevel);
-        }
-    }
-
-    @Override
-    public void setRoles(final String... roles) {
-        this.setRoles(Arrays.asList(roles));
-    }
-
-    @Override
-    public List<String> getRoles() {
-        return getRoot().getRoles();
-    }
-
-    @Override
-    public void setRoles(final List<String> roles) {
-        getRoot().setRoles(roles);
-    }
-
-    public boolean isCheckObjectReplication() {
-        return getRoot().isCheckObjectReplication();
-    }
-
-    public void setCheckObjectReplication(boolean checkObjectReplication) {
-        getRoot().setCheckObjectReplication(checkObjectReplication);
     }
 
     public Models getModels() {
@@ -649,35 +518,6 @@ public class EoChild implements EO {
     @Override
     public boolean isChanged() {
         return changed;
-    }
-    // SERIALIZATION TYPE
-
-    @Override
-    public JSONSerializationType getSerializationType() {
-        if (!hasSerializationType()) {
-            return JSONSerializationType.EO;
-        }
-        return (JSONSerializationType) getSerializationTypeEo().get();
-    }
-
-    private EoChild getSerializationTypeEo() {
-        return (EoChild) getRoot().getEo(PathElement.SERIALIZATION_TYPE);
-    }
-
-    private boolean initSerializationTypeEo(JSONSerializationType serializationType) {
-        if (hasSerializationType()) {
-            return false;
-        }
-        getRoot().createChild(new PathElement(PathElement.SERIALIZATION_TYPE), serializationType);
-        return true;
-    }
-
-    @Override
-    public EO setSerializationType(JSONSerializationType serializationType) {
-        if (!initSerializationTypeEo(serializationType)) {
-            getSerializationTypeEo().setParentValue(serializationType);
-        }
-        return this;
     }
 
     @Override

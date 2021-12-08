@@ -1,15 +1,20 @@
 package org.fluentcodes.projects.elasticobjects;
 
 /**
- * Offers an adapter for objects to access elements via path.
+ * Offers an adapter for skalar wrapper to access elements via path.
  */
 
-public interface IEOScalar {
-    /**
-     * Creates a new object an map it to the object
-     *
-     * @
-     */
+public interface IEOScalar extends IEOModel, IEOCall{
+    EO getParent();
+
+    default boolean hasParent() {
+        return getParent() != null;
+    }
+
+    default boolean isRoot() {
+        return !hasParent();
+    }
+
     String getFieldKey();
 
     Path getPath();
@@ -17,7 +22,7 @@ public interface IEOScalar {
 
     Object get();
 
-    IEOScalar getRoot() ;
+    EO getRoot() ;
 
     void setCheckObjectReplication(boolean checkObjectReplication);
 
@@ -26,6 +31,4 @@ public interface IEOScalar {
     boolean isEoEmpty();
 
     String toString(JSONSerializationType serializationType);
-
-
 }

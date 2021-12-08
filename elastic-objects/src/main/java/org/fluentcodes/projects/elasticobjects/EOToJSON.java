@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import static org.fluentcodes.projects.elasticobjects.PathElement.SERIALIZATION_TYPE;
+
 /**
  * Created by werner.diwischek on 13.01.18.
  */

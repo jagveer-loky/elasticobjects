@@ -5,8 +5,15 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static org.fluentcodes.projects.elasticobjects.PathElement.ERROR_LEVEL;
+import static org.fluentcodes.projects.elasticobjects.PathElement.LOGS;
+import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
+import static org.fluentcodes.projects.elasticobjects.PathElement.SERIALIZATION_TYPE;
 
 /**
  * Offers serialized setter and getter for java models
@@ -14,7 +21,6 @@ import java.util.Map;
 
 public class EoRoot extends EoChild {
     private List<String> roles;
-
     private boolean checkObjectReplication = false;
 
     protected EoRoot(Object rootValue, Models rootModels) {
@@ -58,13 +64,18 @@ public class EoRoot extends EoChild {
     }
 
     @Override
-    public boolean isCheckObjectReplication() {
-        return this.checkObjectReplication;
+    public String getPathAsString() {
+        return Path.DELIMITER;
     }
 
     @Override
-    public void setCheckObjectReplication(boolean checkObjectReplication) {
-        this.checkObjectReplication = checkObjectReplication;
+    void getPathAsString(final StringBuilder builder) {
+        return;
+    }
+
+    @Override
+    public EoRoot getRoot() {
+        return this;
     }
 
     @Override
@@ -78,13 +89,79 @@ public class EoRoot extends EoChild {
     }
 
     @Override
-    public EoRoot getRoot() {
-        return this;
-    }
-
-    @Override
     public boolean execute() {
         String result = ExecutorCall.executeEo(this) ;
         return true;
     }
+
+
+    @Override
+    public LogLevel getLogLevel() {
+        if (hasLogLevel()) {
+            return (LogLevel) get(LOG_LEVEL);
+        }
+        return LogLevel.WARN;
+    }
+
+    private EO getLogEo() {
+        if (!hasEo(LOGS)) {
+            return createChild(new PathElement(LOGS));
+        }
+        return getEo(LOGS);
+    }
+
+    @Override
+    public void log(String message, LogLevel logLevel) {
+        if (message == null) {
+            return;
+        }
+        setErrorLevel(logLevel);
+        EO logEo = getLogEo();
+        PathElement logElement = new PathElement(Integer.toString(logEo.size()));
+        logEo.createChild(logElement, logLevel.name() + " - " + LocalDateTime.now().toString() + " - " + message);
+    }
+
+    @Override
+    public List<String> getLogList() {
+        return (List<String>) getLogEo().get();
+    }
+
+    private void setErrorLevel(LogLevel messageLogLevel) {
+        if (getErrorLevel().ordinal() <= messageLogLevel.ordinal()) {
+            set(messageLogLevel, ERROR_LEVEL);
+        }
+    }
+
+    @Override
+    public LogLevel getErrorLevel() {
+        if (!hasEo(ERROR_LEVEL)) {
+            return LogLevel.DEBUG;
+        }
+        return (LogLevel) get(ERROR_LEVEL);
+    }
+
+    @Override
+    public JSONSerializationType getSerializationType() {
+        if (!hasEo(SERIALIZATION_TYPE)) {
+            return JSONSerializationType.EO;
+        }
+        return (JSONSerializationType) get(SERIALIZATION_TYPE);
+    }
+
+    @Override
+    public void setSerializationType(JSONSerializationType serializationType) {
+        createChild(PathElement.OF_SERIALIZATION_TYPE, serializationType);
+    }
+
+    @Override
+    public void setCheckObjectReplication(boolean checkObjectReplication) {
+        this.checkObjectReplication = checkObjectReplication;
+    }
+
+    @Override
+    public boolean isCheckObjectReplication() {
+        return this.checkObjectReplication;
+    }
+
+
 }

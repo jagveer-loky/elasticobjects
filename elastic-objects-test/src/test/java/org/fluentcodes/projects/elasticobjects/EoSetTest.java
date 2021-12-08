@@ -136,7 +136,7 @@ public class EoSetTest {
                 .assertThatThrownBy(
                         ()->{eo.set(new AnObject(), AnObject.MY_STRING);}
                 )
-                .hasMessageContaining("Exception for 'myString': Mismatch for String AnObject");
+                .hasMessageContaining("Mismatch for String AnObject");
     }
 
     @Test

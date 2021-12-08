@@ -1,16 +1,26 @@
 package org.fluentcodes.projects.elasticobjects;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface IEORole {
-    void setRoles(String... roles);
+public interface IEORole extends IEOScalar {
+    default void setRoles(String... roles) {
+        setRoles(Arrays.asList(roles));
+    }
 
-    List<String> getRoles();
+    default List<String> getRoles() {
+        return getRoot().getRoles();
+    }
 
-    void setRoles(List<String> roles);
+    default void setRoles(List<String> roles) {
+        getRoot().setRoles(roles);
+    }
 
+    default boolean hasRoles() {
+        return getRoles() != null && !getRoles().isEmpty();
+    }
 }

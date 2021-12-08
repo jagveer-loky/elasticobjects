@@ -1,8 +1,12 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Date;
 
 import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
 import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_MESSAGE;
@@ -11,7 +15,7 @@ import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 /**
  * Created by werner.diwischek on 12.12.17.
  */
-public class EoLogTest {
+public class IEOLogTest {
 
     @Test
     public void ____getLogLevel_WARN() {
@@ -20,10 +24,29 @@ public class EoLogTest {
     }
 
     @Test
-    public void __setLogLevel_ERROR__getLogLevel_ERROR() {
+    public void ERROR__LogLevelIsPersist() {
         EO eo = ProviderConfigMapsDev.createEo();
         eo.setLogLevel(LogLevel.ERROR);
-        Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.ERROR);
+        EO fromJson = ProviderConfigMapsDev.assertCompare(eo, "{\n" +
+                "  \"(LogLevel)_logLevel\": \"ERROR\"\n" +
+                "}");
+        Assertions.assertThat(fromJson.getLogLevel()).isEqualTo(LogLevel.ERROR);
+    }
+
+    @Test
+    public void ERROR__error__logNotEmpty() {
+        EO eo = ProviderConfigMapsDev.createEo();
+        eo.setLogLevel(LogLevel.ERROR);
+        eo.error("test");
+        Assert.assertFalse(eo.getLog().isEmpty());
+    }
+
+    @Test
+    public void ERROR__info__logEmpty() {
+        EO eo = ProviderConfigMapsDev.createEo();
+        eo.setLogLevel(LogLevel.ERROR);
+        eo.info("test");
+        Assert.assertTrue(eo.getLog().isEmpty());
     }
 
     @Test

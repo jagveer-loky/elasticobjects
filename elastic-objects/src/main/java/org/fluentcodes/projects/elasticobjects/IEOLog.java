@@ -1,21 +1,45 @@
 package org.fluentcodes.projects.elasticobjects;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
 
 /**
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface IEOLog {
-    List<String> getLogList();
-    IEOLog log(String message, LogLevel logLevel, Exception e);
-    IEOLog log(String message, LogLevel logLevel);
+public interface IEOLog extends IEOScalar {
+    default void log(String message, LogLevel logLevel, Exception e) {
+        log(message + ": " + e.getMessage(), logLevel);
+    }
+
+    default boolean hasLogLevel() {
+        return false;
+    }
+
+    default void log(String message, LogLevel logLevel) {
+        getRoot().log(message, logLevel);
+    }
+
     String getLog();
 
-    LogLevel getLogLevel();
-    IEOLog setLogLevel(LogLevel logLevel);
+    default List<String> getLogList() {
+        return getRoot().getLogList();
+    }
 
-    LogLevel getErrorLevel();
+    default LogLevel getLogLevel() {
+        return getParent().getLogLevel();
+    }
+
+    default void setLogLevel(LogLevel logLevel) {
+        getParent().setLogLevel(logLevel);
+    }
+
+    default LogLevel getErrorLevel() {
+        return getRoot().getErrorLevel();
+    }
+
     default boolean hasErrors() {
         return getErrorLevel() == LogLevel.ERROR;
     }
@@ -23,44 +47,40 @@ public interface IEOLog {
     default boolean checkLevel(LogLevel messageLevel) {
         return getLogLevel().ordinal() <= messageLevel.ordinal();
     }
-    default IEOLog debug(String message) {
+
+    default void debug(String message) {
         if (checkLevel(LogLevel.DEBUG)) {
-            return log(message, getLogLevel());
+            log(message, getLogLevel());
         }
-        return this;
     }
-    default IEOLog info(String message) {
+
+    default void info(String message) {
         if (checkLevel(LogLevel.INFO)) {
-            return log(message, LogLevel.INFO);
+            log(message, LogLevel.INFO);
         }
-        return this;
     }
 
-    default IEOLog warn(String message) {
+    default void warn(String message) {
         if (checkLevel(LogLevel.WARN)) {
-            return log(message, LogLevel.WARN);
+            log(message, LogLevel.WARN);
         }
-        return this;
     }
 
-    default IEOLog error(String message) {
+    default void error(String message) {
         if (checkLevel(LogLevel.ERROR)) {
-            return log( message, LogLevel.ERROR);
+            log( message, LogLevel.ERROR);
         }
-        return this;
     }
 
-    default IEOLog warn(String message, Exception e) {
+    default void warn(String message, Exception e) {
         if (checkLevel(LogLevel.WARN)) {
-            return log( message, LogLevel.WARN, e);
+            log( message, LogLevel.WARN, e);
         }
-        return this;
     }
 
-    default IEOLog error(String message, Exception e) {
+    default void error(String message, Exception e) {
         if (checkLevel(LogLevel.ERROR)) {
-            return log( message, LogLevel.ERROR, e);
+            log( message, LogLevel.ERROR, e);
         }
-        return this;
     }
 }

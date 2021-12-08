@@ -32,6 +32,7 @@ public class PathElement {
 
     public static final PathElement OF_ERROR_LEVEL = new PathElement(ERROR_LEVEL);
     public static final PathElement OF_LOG_LEVEL = new PathElement(LOG_LEVEL);
+    public static final PathElement OF_SERIALIZATION_TYPE = new PathElement(SERIALIZATION_TYPE, JSONSerializationType.class);
 
     private final String key;
     private final String[] modelsArray;
@@ -114,6 +115,10 @@ public class PathElement {
 
     protected boolean isCallDirectory() {
         return CALLS.equals(this.key);
+    }
+
+    protected boolean isSerializationType() {
+        return SERIALIZATION_TYPE.equals(this.key);
     }
 
     public boolean isBack() {
