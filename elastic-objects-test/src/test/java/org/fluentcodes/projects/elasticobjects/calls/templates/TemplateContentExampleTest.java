@@ -60,14 +60,14 @@ public class TemplateContentExampleTest {
     @Test
     public void eo_DataJson__parse_Template_WrongPathRelativePath__notReplaced()  {
         EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEoTest();
-        String value = new Parser("-.{0/header}.-").parse(eo.getEo("1"));
+        String value = new Parser("-.{0/header}.-").parse((EO)eo.getEo("1"));
         Assertions.assertThat(value).isEqualTo("-!!No value add for fieldName=0/header!!-");
     }
 
     @Test
     public void eo_DataJson__parse_template_absolutePath__replaced()  {
         EO eo = TestProviderJson.CONTENT_EXAMPLE_DATA_JSON.getEoTest();
-        String value = new Parser("-.{/0/header}.-").parse(eo.getEo("1"));
+        String value = new Parser("-.{/0/header}.-").parse((EO)eo.getEo("1"));
         Assertions.assertThat(value).isEqualTo("-header1-");
     }
 

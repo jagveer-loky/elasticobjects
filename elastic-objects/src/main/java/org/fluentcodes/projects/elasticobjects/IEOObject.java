@@ -10,20 +10,16 @@ import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface IEOObject extends IEORole, IEOSerialize, IEOLog, IEOCall {
-    EO createChild(final PathElement fieldKey);
-
-    EO createChild(final PathElement pathElement, final Object value);
-
+public interface IEOObject extends IEOScalar {
     Object get(String... paths);
 
     default boolean isEmpty() {
         return getModels().isEmpty(get());
     }
 
-    EO set(Object value, String... paths);
+    IEOScalar set(Object value, String... paths);
 
-    EO setEmpty(String... paths);
+    IEOScalar createChild(String... paths);
 
     EO mapObject(Object source);
 
@@ -49,9 +45,7 @@ public interface IEOObject extends IEORole, IEOSerialize, IEOLog, IEOCall {
 
     Map<String, Object> getKeyValues();
 
-    EO getEo(String... path);
-
-    EO getEo(PathElement path);
+    IEOScalar getEo(String... path);
 
     EO remove(String... path);
 
@@ -72,7 +66,7 @@ public interface IEOObject extends IEORole, IEOSerialize, IEOLog, IEOCall {
 
     @Override
     default void setLogLevel(LogLevel logLevel) {
-        createChild(PathElement.OF_LOG_LEVEL, logLevel);
+        ((EoChild)this).createChild(PathElement.OF_LOG_LEVEL, logLevel);
     }
 
 

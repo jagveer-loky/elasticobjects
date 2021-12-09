@@ -47,23 +47,23 @@ public class EoDevSetTest {
     @Test
     public void key_value__set_model_List__exception()  {
         final EO eo = ProviderConfigMapsDev.createEo();
-        EO child = eo.set("value", "key");
-        Assertions.assertThatThrownBy(()->{child.set(List.class.getSimpleName(), PathElement.ROOT_MODEL);})
+        IEOScalar child = eo.set("value", "key");
+        Assertions.assertThatThrownBy(()->{eo.set(List.class.getSimpleName(), PathElement.ROOT_MODEL);})
                 .hasMessage("Could not change model with a set");
     }
 
     @Test
     public void empty__setEmpty_key__ModelClass_Map()  {
         final EO eo = ProviderConfigMapsDev.createEo();
-        eo.setEmpty("key");
+        eo.createChild("key");
         Assertions.assertThat(eo.getEo("key").getModelClass()).isEqualTo(Map.class);
     }
 
     @Test
     public void empty__set_longPath1_overLappingPath2__expected()  {
         final EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3);
-        eo.setEmpty(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5);
+        eo.createChild(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3);
+        eo.createChild(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3).getModelClass()).isEqualTo(Map.class);
         Assertions.assertThat(eo.getEo(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5).getModelClass()).isEqualTo(Map.class);
@@ -88,7 +88,7 @@ public class EoDevSetTest {
         final EoRoot root = ProviderConfigMapsDev.createEo();
         Map<String,String> map = new LinkedHashMap<>();
         map.put("test3","value");
-        EO child = root.set(map,"test","test2");
+        EO child = (EO)root.set(map,"test","test2");
         Assert.assertEquals("value", root.get("test","test2","test3"));
         Assert.assertEquals("value", child.get("test3"));
     }
@@ -104,7 +104,7 @@ public class EoDevSetTest {
         subMap.put("test5","value2");
         map.put("test4", subMap);
 
-        EO child = root.set(map,"test1","test2");
+        EO child = (EO)root.set(map,"test1","test2");
         Assert.assertEquals("value1", root.get("test1","test2","test3"));
         Assert.assertEquals("value2", child.get("test4","test5"));
     }

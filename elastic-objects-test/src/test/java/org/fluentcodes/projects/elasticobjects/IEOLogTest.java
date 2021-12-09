@@ -1,12 +1,9 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.Date;
 
 import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_LEVEL0;
 import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_MESSAGE;
@@ -96,26 +93,25 @@ public class IEOLogTest {
     @Test
     public void child__warn__log_isNotEmpty() {
         EO eo = ProviderConfigMapsDev.createEo();
-        EO eoChild = eo
-                .setEmpty(S_LEVEL0);
+        IEOScalar eoChild = eo
+                .createChild(S_LEVEL0);
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
-        eoChild.warn(S_MESSAGE);
+        eo.warn(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
     public void child__info__log_isEmpty() {
         EO eo = ProviderConfigMapsDev.createEo();
-        EO eoChild = eo
-                .setEmpty(S_LEVEL0);
-        eoChild.info(S_MESSAGE);
+        eo.createChild(S_LEVEL0);
+        eo.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
     public void child_LogLevel_INFO__info__log_isNotEmpty() {
         EO eo = ProviderConfigMapsDev.createEo();
-        EO child = eo.setEmpty(S_LEVEL0);
+        EO child = (EO)eo.createChild(S_LEVEL0);
         child.setLogLevel(LogLevel.INFO);
         child.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();

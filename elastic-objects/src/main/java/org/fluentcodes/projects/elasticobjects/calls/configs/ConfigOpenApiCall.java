@@ -102,8 +102,8 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                 .setSortOrder(sortOrder);
         List<String> keys = (List<String>)keysCall.execute(eo);
         EO schemeRoot = EoRoot.of(eo.getConfigMaps());
-        EO components = schemeRoot.setEmpty("components");
-        EO schemas = components.setEmpty("schemas");
+        EO components = (EO)schemeRoot.createChild("components");
+        EO schemas = (EO)components.createChild("schemas");
 
         for (String key : keys) {
             if (created.contains(key)) {
@@ -126,14 +126,14 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
     }
 
     private void create(EO schemasEo, ModelConfig modelConfig) {
-        EO entry = schemasEo.setEmpty(modelConfig.getModelKey());
+        EO entry = (EO)schemasEo.createChild(modelConfig.getModelKey());
         created.add(modelConfig.getModelKey());
         entry.set("object","type");
         entry.set(modelConfig.getDescription(), "description");
-        EO properties = entry.setEmpty("properties");
+        EO properties = (EO)entry.createChild("properties");
         for (String fieldKey: modelConfig.getFieldKeys()) {
             FieldConfig fieldConfig = (FieldConfig) modelConfig.getField(fieldKey);
-            EO field = properties.setEmpty(fieldConfig.getFieldKey());
+            EO field = (EO)properties.createChild(fieldConfig.getFieldKey());
             Models fieldModels = fieldConfig.getModels();
             if (fieldConfig.hasDescription()) {
                 field.set(fieldConfig.getDescription(), "description");
@@ -158,10 +158,10 @@ public class ConfigOpenApiCall extends CallImpl implements SimpleCommand {
                 }
             }
             else if (fieldModels.isList()) {
-                EO array = field.set("array", "$ref");
+                EO array = (EO)field.set("array", "$ref");
                 if (fieldModels.hasChildModel()) {
                     ModelConfig childModel = fieldModels.getChildModel();
-                    array.setEmpty("items");
+                    array.createChild("items");
                     if (childModel.isScalar()) {
                         array.set(JsonTypes.getType(childModel.getModelClass()), "type");
                     }

@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.EoChildScalar;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
@@ -107,7 +109,7 @@ public class Models {
         return toBeStripped;
     }
 
-    public EoChild createChild(EO parent, final PathElement pathElement, Object value) {
+    public IEOScalar createChild(EO parent, final PathElement pathElement, Object value) {
         Models childModels = deriveChildModels(pathElement, value);
         if (parent.getSerializationType() == JSONSerializationType.STANDARD &&
                 (childModels.isObject() || childModels.isMap())
@@ -129,7 +131,12 @@ public class Models {
             parent = parent.getCallsEo();
             key = Integer.toString(parent.size());
         }
-        return new EoChild(parent, key, value, childModels);
+        if (childModels.isScalar()) {
+            return new EoChildScalar(parent, key, value, childModels);
+        }
+        else {
+            return new EoChild(parent, key, value, childModels);
+        }
     }
 
     public ConfigMaps getConfigMaps() {

@@ -1,6 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
@@ -16,7 +18,7 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * @creationDate 
  * @modificationDate Tue Dec 08 09:45:31 CET 2020
  */
-public abstract class FileCall extends HostCall  {
+public abstract class FileCall extends HostCall {
 /*.{}.*/
 
     /*.{javaStaticNames}|*/

@@ -1,5 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.commands;
 
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;

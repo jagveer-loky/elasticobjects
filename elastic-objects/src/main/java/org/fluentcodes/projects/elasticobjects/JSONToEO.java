@@ -330,16 +330,16 @@ public class JSONToEO {
     }
 
     public EO createChild(EO parentAdapter)  {
-        EO eo = createChild(parentAdapter, null);
+        IEOScalar eo = createChild(parentAdapter, null);
         if (isEof()) {
             return parentAdapter;
         }
         if (parseCalls && eo instanceof EoRoot) {
-            return eo;
+            return (EO)eo;
         }
         final char c = nextClean();
         if (c == 0) {
-            return eo;
+            return (EO)eo;
         }
         throw new EoException("Not at the end of the json file!");
     }
@@ -358,7 +358,7 @@ public class JSONToEO {
      * @return
      * @
      */
-    private EO createChild(EO eoParent, final String rawFieldName)  {
+    private IEOScalar createChild(EO eoParent, final String rawFieldName)  {
 
         if (eoParent == null) {
             throw new EoException("parent eo is null ...!");
@@ -376,12 +376,12 @@ public class JSONToEO {
                 if (COMMENT.equals(rawFieldName)) {
                     return eoParent;
                 }
-                eoParent.createChild(new PathElement(rawFieldName), value);
+                ((EoChild)eoParent).createChild(new PathElement(rawFieldName), value);
                 return eoParent;
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    EO child = eoParent.createChild(new PathElement(rawFieldName, Map.class), null);
+                    EO child = (EO)((EoChild)eoParent).createChild(new PathElement(rawFieldName, Map.class), null);
                     mapObject(child);
                     return eoParent;
                 }
@@ -392,8 +392,8 @@ public class JSONToEO {
             case '[':
                 if (rawFieldName != null) {// List value
                     PathElement pathFromKey = new PathElement(rawFieldName, List.class);
-                    EO child = eoParent.createChild(pathFromKey);
-                    mapList(child);
+                    IEOScalar child = ((EoChild)eoParent).createChild(pathFromKey);
+                    mapList((EO)child);
                     return child;
                 }
                 else {
@@ -426,12 +426,12 @@ public class JSONToEO {
         }
         if (rawFieldName.matches("\\(.*\\).*")) {
             pathElement = new PathElement(rawFieldName);
-            return eoParent.createChild(pathElement, value);
+            return ((EoChild)eoParent).createChild(pathElement, value);
         }
         else {
             Object valueObject = ScalarConverter.fromJson(value);
             pathElement = new PathElement(rawFieldName);
-            return eoParent.createChild(pathElement, valueObject);
+            return ((EoChild)eoParent).createChild(pathElement, valueObject);
         }
     }
 

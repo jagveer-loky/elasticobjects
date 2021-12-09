@@ -1,6 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.EoChildScalar;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
@@ -43,21 +46,21 @@ public class ExecutorCall {
         }
         String sourcePathString = new Parser(TemplateMarker.SQUARE, call.getSourcePath()).parse(eo);
         Path sourcePath = new Path(eo.getPathAsString(), sourcePathString);
-        EO sourceParent = sourcePath.moveToParent(eo);
+        Path sourceParent = sourcePath.getParentPath();
+        IEOScalar sourceEo = eo.getEo(call.getSourcePath());
+        EO sourceParentEo = sourceEo.getParent();
         boolean isFilter = sourcePath.isEmpty()? false : sourcePath.isFilter();
-        if (!((CallImpl)call).evalStartCondition(sourceParent)) {
+        if (!((CallImpl)call).evalStartCondition(sourceParentEo)) {
             return "";
         }
-        List<String> loopPaths = sourcePath.isEmpty()? Arrays.asList(new String[]{"."}):sourceParent.keys(sourcePath.getParentKey());
-
-        // get targetParent
+        List<String> loopPaths = sourcePath.isEmpty()? Arrays.asList(new String[]{"."}):sourceParentEo.keys(sourcePath.getParentKey());
         String targetPath;
         if (call.hasTargetPath()) {
             targetPath = call.getTargetPath();
         }
         else {
             if (isFilter) {
-                call.setTargetPath(sourceParent.getPathAsString());
+                call.setTargetPath(sourceParentEo.getPathAsString());
                 targetPath = new Path(eo.getPathAsString(), call.getTargetPath()).toString();
             }
             else {
@@ -71,7 +74,7 @@ public class ExecutorCall {
             call.setTargetPath(TARGET_AS_STRING);
         }
         for (String entry : loopPaths) {
-            EO sourceEntry = sourceParent.getEo(entry);
+            IEOScalar sourceEntry = sourceParentEo.getEo(entry);
 
             if (isFilter) {
                 call.setTargetPath(targetPath + Path.DELIMITER + entry);
@@ -80,7 +83,7 @@ public class ExecutorCall {
                 call.setTargetPath(targetPath);
             }
             try {
-                templateResult.append(call.execute(sourceEntry));
+                templateResult.append(call.execute((EO)sourceEntry));
             }
             catch (EoException e) {
                 StringBuilder message = new StringBuilder("In '" + call.getClass().getSimpleName() + "' ");

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-public interface IEOSerialize extends IEOScalar{
+public interface IEOSerialize extends IEOBase{
 
     default JSONSerializationType getSerializationType() {
         return getRoot().getSerializationType();

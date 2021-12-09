@@ -1,34 +1,39 @@
 package org.fluentcodes.projects.elasticobjects;
 
+import java.io.StringWriter;
+
+import static org.fluentcodes.projects.elasticobjects.EOToJSON.stringify;
+
 /**
  * Offers an adapter for scalar wrapper to access elements via path.
  */
 
-public interface IEOScalar extends IEOModel {
-    EO getParent();
-
-    default boolean hasParent() {
-        return getParent() != null;
+public interface IEOScalar extends IEOBase, IEOModel, IEOCall, IEOLog, IEORole, IEOSerialize {
+    default String toString(JSONSerializationType jsonSerializationType) {
+        StringWriter writer = new StringWriter();
+        writer.append(getName(jsonSerializationType));
+        if (getModelClass() == String.class || getModels().isEnum()) {
+            writer.append("\"");
+            writer.append(stringify(get()));
+            writer.append("\"");
+            return writer.toString();
+        } else {
+            return stringify(get());
+        }
     }
 
-    default boolean isRoot() {
-        return !hasParent();
+    default String getName(JSONSerializationType serializationType) {
+        if (serializationType != JSONSerializationType.EO && getParent().isList()) {
+            return "";
+        }
+        StringWriter stringWriter = new StringWriter();
+        stringWriter.append("\"");
+        if (serializationType == JSONSerializationType.EO) {
+            stringWriter.append(getModels().createDirective());
+        }
+
+        stringWriter.append(getFieldKey());
+        stringWriter.append("\": ");
+        return stringWriter.toString();
     }
-
-    String getFieldKey();
-
-    Path getPath();
-    String getPathAsString();
-
-    Object get();
-
-    EO getRoot() ;
-
-    void setCheckObjectReplication(boolean checkObjectReplication);
-
-    boolean isChanged();
-
-    boolean isEoEmpty();
-
-    String toString(JSONSerializationType serializationType);
 }

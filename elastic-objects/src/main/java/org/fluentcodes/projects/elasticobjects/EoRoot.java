@@ -27,16 +27,13 @@ public class EoRoot extends EoChild {
     private boolean checkObjectReplication = false;
 
     protected EoRoot(Object rootValue, Models rootModels) {
-        super();
-        setModels(rootModels);
+        super(rootValue, rootModels);
         if (rootModels.isScalar()) {
             throw new EoException("Root could not be a scalar type but starting value is '" + rootModels.toString() + "'!");
         }
         if (rootModels.getModelClass() != Map.class) {
             new EoChild(this, PathElement.ROOT_MODEL, rootModels.toString(), new Models(rootModels.getConfigMaps(), String.class));
         }
-        set(rootModels.create());
-        mapObject(rootValue);
     }
 
     public static EoRoot of(final ConfigMaps cache)  {
@@ -110,21 +107,21 @@ public class EoRoot extends EoChild {
         if (!call.hasTargetPath() && !isRoot()) {
             call.setTargetPath(this.getPathAsString());
         }
-        EO callsEo = getCallsEo();
-        return callsEo.createChild(new PathElement(""), call);
+        EoChild callsEo = getCallsEo();
+        return (EO)callsEo.createChild(new PathElement(""), call);
     }
 
     @Override
-    public EO getCallsEo() {
+    public EoChild getCallsEo() {
         if (!hasEo(CALLS)) {
-            return createChild(new PathElement(CALLS), new ArrayList<>());
+            return (EoChild)createChild(new PathElement(CALLS), new ArrayList<>());
         }
-        return getEo(CALLS);
+        return (EoChild) getEo(CALLS);
     }
 
     @Override
-    public EO getCallEo(final String key) {
-        return getCallsEo().getEo(key);
+    public EoChild getCallEo(final String key) {
+        return (EoChild) getCallsEo().getEo(key);
     }
 
     @Override
@@ -140,11 +137,11 @@ public class EoRoot extends EoChild {
         return LogLevel.WARN;
     }
 
-    private EO getLogEo() {
+    private EoChild getLogEo() {
         if (!hasEo(LOGS)) {
-            return createChild(PathElement.OF_LOGS);
+            return (EoChild)createChild(PathElement.OF_LOGS);
         }
-        return getEo(LOGS);
+        return (EoChild)getEo(LOGS);
     }
 
     @Override
@@ -153,7 +150,7 @@ public class EoRoot extends EoChild {
             return;
         }
         setErrorLevel(logLevel);
-        EO logEo = getLogEo();
+        EoChild logEo = getLogEo();
         PathElement logElement = new PathElement(Integer.toString(logEo.size()));
         logEo.createChild(logElement, logLevel.name() + " - " + LocalDateTime.now().toString() + " - " + message);
     }

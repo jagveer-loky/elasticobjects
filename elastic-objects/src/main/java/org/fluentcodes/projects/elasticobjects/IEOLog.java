@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface IEOLog extends IEOScalar {
+public interface IEOLog extends IEOBase {
     default void log(String message, LogLevel logLevel, Exception e) {
         log(message + ": " + e.getMessage(), logLevel);
     }

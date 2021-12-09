@@ -62,7 +62,7 @@ public class EoAnObjectSetTest {
         map.put(AnObject.MY_STRING, "value");
         map.put(AnObject.MY_FLOAT, 1.1D);
 
-        final EO child = eo.set( map, "(" + AnObject.class.getSimpleName() + ")level0");
+        final EO child = (EO)eo.set( map, "(" + AnObject.class.getSimpleName() + ")level0");
         Assert.assertEquals(AnObject.class, child.getModelClass());
         assertEquals("value", child.get(AnObject.MY_STRING));
         assertEquals(1.1F, child.get(AnObject.MY_FLOAT));
@@ -197,7 +197,7 @@ public class EoAnObjectSetTest {
     @Test
     public void TEST__setEmpty_key0_key1_key2_AnObject_key__getModelClass_key0_key1_key2_key3_AnObject()  {
         final EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("key0", "key1", "key2", "(" + AnObject.class.getSimpleName() + ")" + "key3");
+        eo.createChild("key0", "key1", "key2", "(" + AnObject.class.getSimpleName() + ")" + "key3");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo("key0", "key1", "key2", "key3").getModelClass()).isEqualTo(AnObject.class);
     }

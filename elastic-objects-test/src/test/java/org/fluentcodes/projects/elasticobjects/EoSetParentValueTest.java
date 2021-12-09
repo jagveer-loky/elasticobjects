@@ -37,7 +37,7 @@ public class EoSetParentValueTest {
     @Test
     public void givenDevString_whenSetOtherString_thenIsChanged() {
         final EO eo = ProviderConfigMapsDev.createEo();
-        final EO childEo = eo.set("value", "key");
+        final IEOScalar childEo = eo.set("value", "key");
         Assertions.assertThat(childEo.isChanged()).isFalse();
         ((EoChild) childEo).setParentValue("valueOther");
         Assertions.assertThat(eo.getLog()).isEmpty();

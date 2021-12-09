@@ -377,10 +377,10 @@ public class EoMapObjectTest {
     @Test
     public void TEST_key_value__Child_AnObject__exception() {
         final EO eo = ProviderConfigMaps.createEo();
-        EO child = eo.set("key", "value");
+        IEOScalar child = eo.set("key", "value");
         AnObject anObject = new AnObject();
         Assertions.assertThatThrownBy(() -> {
-            child.mapObject(anObject);
+            child.set(anObject);
         })
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Could not create 'String' value from");

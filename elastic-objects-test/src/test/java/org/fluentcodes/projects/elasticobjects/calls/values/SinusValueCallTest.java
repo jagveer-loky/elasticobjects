@@ -82,7 +82,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     }
 
     public static final EO createArray() {
-        return ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapTestEo().getEo(SOURCE);
+        return (EO)ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapTestEo().getEo(SOURCE);
     }
 
     /**
@@ -102,7 +102,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     public void eo_source_1__call_execute__return_0_8632093666488737() {
         final Call call = new SinusValueCall();
         EO eo = createSimple();
-        Double result = (Double) call.execute(eo.getEo("source"));
+        Double result = (Double) call.execute((EO)eo.getEo("source"));
         Assertions.assertThat(result).isEqualTo(0.8632093666488737);
     }
 
@@ -139,7 +139,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     @Test
     public void givenEoSimple_WhenExecuteDirect_ResultExpected() {
         EO eo = createSimple();
-        Double result = (Double) new SinusValueCall().execute(eo.getEo("source"));
+        Double result = (Double) new SinusValueCall().execute((EO)eo.getEo("source"));
         Assertions.assertThat(result).isEqualTo(SIMPLE_RESULT);
     }
 

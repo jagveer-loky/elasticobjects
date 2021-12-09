@@ -7,7 +7,7 @@ import java.util.List;
  * Offers an adapter for objects to access elements via path.
  */
 
-public interface IEORole extends IEOScalar {
+public interface IEORole extends IEOBase {
     default void setRoles(String... roles) {
         setRoles(Arrays.asList(roles));
     }

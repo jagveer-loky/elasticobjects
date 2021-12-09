@@ -74,7 +74,7 @@ public class FileReadCallJsonTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo(S0)).isNotNull();
-        Assertions.assertThat(eo.getEo(S0).get(S_KEY1)).isEqualTo(S_VALUE11);
+        Assertions.assertThat(eo.get(S0, S_KEY1)).isEqualTo(S_VALUE11);
     }
 
     @Test
@@ -86,7 +86,7 @@ public class FileReadCallJsonTest {
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("level0","0").get(AnObject.MY_STRING)).isEqualTo(S_STRING);
+        Assertions.assertThat(eo.get("level0","0", AnObject.MY_STRING)).isEqualTo(S_STRING);
         Assertions.assertThat(eo.getEo("level0","0").getModelClass()).isEqualTo(AnObject.class);
     }
 

@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -48,7 +50,8 @@ public class StringLowerCallTest implements IModelConfigCreateTests {
     public void givenModelCreateAndValueTest_whenExecute_thenUpperCaseReturned()  {
         final ModelConfig model = ProviderConfigMaps.findModel(StringLowerCall.class);
         final StringLowerCall call = (StringLowerCall)model.create();
-        EO eo = ProviderConfigMaps.createEo().set("tEsT",S_LEVEL0);
+        EoRoot eo = ProviderConfigMaps.createEo();
+        eo.set("tEsT",S_LEVEL0);
         Assertions.assertThat(eo.get()).isEqualTo("tEsT");
         Assertions.assertThat(call.execute(eo)).isEqualTo("test");
     }

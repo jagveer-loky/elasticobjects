@@ -46,7 +46,7 @@ public class ModelsTest {
     @Test
     public void AnObject__createChild_myString() {
         EoRoot root = ProviderConfigMaps.createEoWithClasses( AnObject.class);
-        EoChild child = root.getModels().createChild(root, new PathElement("myString"), "value");
+        root.getModels().createChild(root, new PathElement("myString"), "value");
         Assert.assertEquals("value", root.get("myString"));
     }
 
@@ -68,7 +68,7 @@ public class ModelsTest {
     @Test
     public void DEV_List__createChild_key_true__numberUsedAsFieldName() {
         EoRoot root = ProviderConfigMapsDev.createEoWithClasses(List.class);
-        EoChild child = root.getModels().createChild(root, new PathElement("key"), true);
+        root.getModels().createChild(root, new PathElement("key"), true);
         Assert.assertEquals(true, root.get("0"));
     }
 

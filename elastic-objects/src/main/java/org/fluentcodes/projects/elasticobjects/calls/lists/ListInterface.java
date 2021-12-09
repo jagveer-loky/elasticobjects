@@ -168,7 +168,7 @@ public interface ListInterface {
         }
         EO firstChild = null;
         try {
-            firstChild = adapter.getEo(keys.get(0));
+            firstChild = (EO)adapter.getEo(keys.get(0));
         } catch (Exception e) {
             e.printStackTrace();
             return toWrite;
@@ -195,7 +195,7 @@ public interface ListInterface {
         for (String key : keys) {
             EO child = null;
             try {
-                child = adapter.getEo(key);
+                child = (EO)adapter.getEo(key);
             } catch (Exception e) {
                 e.printStackTrace();
                 continue;

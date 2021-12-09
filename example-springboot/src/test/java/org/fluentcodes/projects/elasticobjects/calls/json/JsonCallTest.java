@@ -29,7 +29,7 @@ public class JsonCallTest {
     @Test
     public void givenMapJsonOnXYZ_whenExecuteCall_thenXYZHasContent()  {
         EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("(AnObject)xyz");
+        eo.createChild("(AnObject)xyz");
         eo.addCall(new FileReadCall("map.json").setTargetPath("xyz"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -40,7 +40,7 @@ public class JsonCallTest {
     @Test
     public void givenListJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
         EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("x/y/(List)z");
+        eo.createChild("x/y/(List)z");
         eo.addCall(new FileReadCall("list.json").setTargetPath("x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -51,7 +51,7 @@ public class JsonCallTest {
     @Test
     public void givenMapJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
         EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("x/y/z");
+        eo.createChild("x/y/z");
         eo.addCall(new FileReadCall("map.json").setTargetPath("x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();

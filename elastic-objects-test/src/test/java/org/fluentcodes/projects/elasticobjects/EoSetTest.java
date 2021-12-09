@@ -31,20 +31,10 @@ public class EoSetTest {
     @Test
     public void DEV__key0_key1_value__getPathAsString_key0_key1()  {
         final EO eo = ProviderConfigMapsDev.createEo();
-        final EO child = eo.set("value", "key0", "key1");
+        final IEOScalar child = eo.set("value", "key0", "key1");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(child.getModelClass()).isEqualTo(String.class);
         Assertions.assertThat(child.getPathAsString()).isEqualTo(Path.DELIMITER + "key0" + Path.DELIMITER + "key1");
-    }
-
-    @Test
-    public void DEV_key0_value__child_set__exception()  {
-        final EO eo = ProviderConfigMapsDev.createEo();
-        EO childEo = eo.set("value", "key0");
-        Assertions
-                .assertThatThrownBy(()->{childEo.set("value", "keyOther");})
-                .isInstanceOf(EoException.class)
-                .hasMessageContaining("Could not set value because no field defined for scalar models");
     }
 
     @Test
@@ -60,7 +50,7 @@ public class EoSetTest {
     @Test
     public void DEV__key0_key1_key2_key3_asString_value__get_String_key0_key1_key2_key3_asString_value() {
         final EO eo = ProviderConfigMapsDev.createEo();
-        EO child = eo.set("value","key0/key1/key2/key3");
+        IEOScalar child = eo.set("value","key0/key1/key2/key3");
         Assertions.assertThat(child.get()).isEqualTo("value");
         Assertions.assertThat(eo.get("key0/key1/key2/key3")).isEqualTo("value");
     }
@@ -69,7 +59,7 @@ public class EoSetTest {
     @Test
     public void DEV__key0_key1_key2_key3_value__get_key0_key1_key2_key3_value()  {
         final EO eo = ProviderConfigMapsDev.createEo();
-        final EO child = eo.set("value", "key0","key1","key2", "key3");
+        final IEOScalar child = eo.set("value", "key0","key1","key2", "key3");
         assertEquals("value", eo.get("key0","key1","key2", "key3"));
 
         assertEquals(Map.class, eo.getModelClass());
@@ -87,8 +77,8 @@ public class EoSetTest {
         assertEquals(String.class, eo.getEo("key0","key1","key2", "key3").getModelClass());
         assertEquals(String.class, eo.get("key0","key1","key2", "key3").getClass());
 
-        assertEquals(Map.class,child.getEo("..").getModelClass());
-        assertEquals(LinkedHashMap.class, child.get("..").getClass());
+        assertEquals(Map.class,child.getParent().getModelClass());
+        assertEquals(LinkedHashMap.class, child.getParent().getClass());
 
         assertEquals(Map.class,child.getRoot().getModelClass());
         assertEquals(LinkedHashMap.class, child.getRoot().get().getClass());

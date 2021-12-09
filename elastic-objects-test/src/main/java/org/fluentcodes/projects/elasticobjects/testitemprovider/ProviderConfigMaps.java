@@ -18,11 +18,11 @@ public class ProviderConfigMaps {
         return EoRoot.ofClass(CONFIG_MAPS, classes);
     }
 
-    public static final EO createEo() {
+    public static final EoRoot createEo() {
         return EoRoot.of(CONFIG_MAPS);
     }
 
-    public static final EO createEo(Object value) {
+    public static final EoRoot createEo(Object value) {
         return EoRoot.ofValue(CONFIG_MAPS, value);
     }
 

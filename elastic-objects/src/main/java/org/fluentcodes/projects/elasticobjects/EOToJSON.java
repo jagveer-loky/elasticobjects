@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import static org.fluentcodes.projects.elasticobjects.PathElement.SERIALIZATION_TYPE;
 
 /**
  * Created by werner.diwischek on 13.01.18.
@@ -119,7 +118,7 @@ public class EOToJSON {
             if (eoParent.isTransient(fieldName)) {
                 continue;
             }
-            EO eoChild  = eoParent.getEo(fieldName);
+            IEOScalar eoChild  = eoParent.getEo(fieldName);
             if (eoChild.isEmpty()) {
                 continue;
             }
@@ -129,20 +128,15 @@ public class EOToJSON {
             first = false;
             addLineBreak(stringWriter, indentLevel);
             addIndent(stringWriter, indentLevel);
-            addName(stringWriter, eoChild);
-            if (eoChild.isScalar()) {
-                if (eoChild.getModelClass() == String.class || eoChild.getModels().isEnum()) {
-                    stringWriter.append("\"");
-                    stringWriter.append(stringify(eoChild.get()));
-                    stringWriter.append("\"");
-                } else {
-                    stringWriter.append(stringify(eoChild.get()));
-                }
+
+            if (!(eoChild instanceof IEOObject)) {
+                stringWriter.append(eoChild.toString());
                 continue;
             }
-            addContainerStart(stringWriter, eoChild);
-            toJson(stringWriter, eoChild, indentLevel + 1);
-            addContainerEnd(stringWriter, eoChild, indentLevel);
+            addName(stringWriter, (EO)eoChild);
+            addContainerStart(stringWriter, (EO)eoChild);
+            toJson(stringWriter, (EO)eoChild, indentLevel + 1);
+            addContainerEnd(stringWriter, (EO)eoChild, indentLevel);
         }
     }
 
@@ -187,22 +181,20 @@ public class EOToJSON {
         if (object == null) {
             return "";
         }
+        if (object instanceof Number) {
+            return NUMBER_PATTERN
+                    .matcher(ScalarConverter.toString(object))
+                    .replaceAll("");
+        }
         String value = NEWLINE_PATTERN
                 .matcher(ScalarConverter.toString(object))
                 .replaceAll("\\\\n");
         value = ESCAPE_PATTERN
                 .matcher(value)
                 .replaceAll("\\\\\"");
-         value = REMOVE_PATTERN
+         return REMOVE_PATTERN
                 .matcher(value)
                 .replaceAll("");
-
-        if (object instanceof Number) {
-            value = NUMBER_PATTERN
-                    .matcher(ScalarConverter.toString(object))
-                    .replaceAll("");
-        }
-        return value;
     }
 
     private void addName(final StringWriter stringWriter, final EO eoChild) {
