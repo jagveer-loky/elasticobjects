@@ -91,14 +91,13 @@ public class EoRootDevTest {
     public void __JSONMap_rootmodel_List__get_rootmodel_List()  {
         final EO eo = ProviderConfigMapsDev.createEo("{\"_rootmodel\":\"List\"}");
         Assertions.assertThat(eo.get("_rootmodel")).isEqualTo("List");
-        XpectEo.assertJunit(eo);
     }
 
     @Test
     public void __JSONMap_key_value__get_key_value()  {
-        final EO eo = ProviderConfigMapsDev.createEo("{\"key\":\"value\"}");
+        final EO eo = ProviderConfigMapsDev
+                .createEo("{\"key\":\"value\"}");
         Assertions.assertThat(eo.get("key")).isEqualTo("value");
-        XpectEo.assertJunit(eo);
     }
 
 
@@ -160,7 +159,6 @@ public class EoRootDevTest {
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.isEmpty()).isTrue();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);
-        XpectEo.assertJunit(eo);
     }
 
     @Test

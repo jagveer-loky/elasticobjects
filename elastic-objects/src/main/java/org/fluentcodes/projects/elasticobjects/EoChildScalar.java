@@ -3,23 +3,19 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
-import java.io.StringWriter;
-
-import static org.fluentcodes.projects.elasticobjects.EOToJSON.stringify;
+import java.util.Map;
 
 public class EoChildScalar implements IEOScalar {
     private final EO parentEo;
     private final String fieldKey;
     private Models fieldModels;
-    private boolean changed;
+    private boolean changed = false;
 
     EoChildScalar(final Object value, final Models models) {
         this.parentEo = null;
         this.fieldKey = null;
         this.fieldModels = models;
-        set(value);
     }
 
     public EoChildScalar(final EO parentEo, final String fieldKey, final Object value, final Models fieldModels) {
@@ -29,17 +25,26 @@ public class EoChildScalar implements IEOScalar {
         this.parentEo = parentEo;
         this.fieldKey = fieldKey;
         this.fieldModels = fieldModels;
+        ((EoChild)this.parentEo).addEo(this.fieldKey, this);
         set(value);
     }
 
+    public boolean hasEo() {
+        return false;
+    }
+
+    void setModels(Models models) {
+        this.fieldModels = models;
+    }
+
     public void set(final Object value) {
-        if (isRoot()) {
-            throw new EoInternalException("Root has no parent!");
+        if (!hasParent()) {
+            throw new EoException("Root could not be a scalar type but starting value is '" + getModels().toString() + "'!");
         }
-        if (getParentEo().hasEo(new PathElement(fieldKey))) {
+        if (getParentEo().get(fieldKey) != null) {
             this.changed = true;
         }
-        getParentEo().setKeyValue(getFieldKey(), value);
+        getParentEo().set(getFieldKey(), value);
     }
 
     @Override
@@ -56,8 +61,8 @@ public class EoChildScalar implements IEOScalar {
         return parentEo;
     }
 
-    public boolean isParentSet() {
-        return parentEo != null && PathElement.isParentSet(fieldKey);
+    boolean isParentSet() {
+        return hasParent() && PathElement.isParentSet(fieldKey);
     }
 
     @Override
@@ -68,6 +73,33 @@ public class EoChildScalar implements IEOScalar {
     @Override
     public EoRoot getRoot() {
         return getParentEo().getRoot();
+    }
+
+    private EoChild getEoObject(final Path path) {
+        if (path.isAbsolute()) {
+            return getRoot();
+        }
+        if (path.first().equals(PathElement.BACK)) {
+            return (EoChild) getParent();
+        }
+        throw new EoException("Problem with scalar starting point accessing '" + path.toString() + "'");
+    }
+
+    @Override
+    public IEOScalar getEo(String... pathString) {
+        Path path = new Path(pathString);
+        return getEoObject(path).getEo(path);
+    }
+
+    @Override
+    public Object get(final String... pathStrings) {
+        return getEo(pathStrings).get();
+    }
+
+    @Override
+    public IEOScalar set(final Object value, final String... pathStrings) {
+        Path path = new Path(pathStrings);
+        return getEoObject(path).createChild(path, value);
     }
 
     @Override

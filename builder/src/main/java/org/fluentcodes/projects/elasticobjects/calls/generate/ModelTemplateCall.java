@@ -42,7 +42,7 @@ public class ModelTemplateCall extends ModelAbstract {
     }
 
     @Override
-    public Object execute(EO eo) {
+    public Object execute(final IEOScalar eo) {
         FileConfig targetFileConfig = eo.getConfigsCache().findFile(getTargetFileConfigKey());
         if (!targetFileConfig.hasTemplate()) {
             throw new EoInternalException("No template defined for target file config key '" + getTargetFileConfigKey() + "'");

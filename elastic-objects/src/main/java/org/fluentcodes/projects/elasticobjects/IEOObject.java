@@ -11,19 +11,14 @@ import static org.fluentcodes.projects.elasticobjects.PathElement.LOG_LEVEL;
  */
 
 public interface IEOObject extends IEOScalar {
-    Object get(String... paths);
 
     default boolean isEmpty() {
         return getModels().isEmpty(get());
     }
 
-    IEOScalar set(Object value, String... paths);
-
     IEOScalar createChild(String... paths);
 
     EO mapObject(Object source);
-
-    boolean hasEo(String path);
 
     default int sizeEo() {
         return keysEo().size();
@@ -44,8 +39,6 @@ public interface IEOObject extends IEOScalar {
     List<String> filterPaths(String filter);
 
     Map<String, Object> getKeyValues();
-
-    IEOScalar getEo(String... path);
 
     EO remove(String... path);
 

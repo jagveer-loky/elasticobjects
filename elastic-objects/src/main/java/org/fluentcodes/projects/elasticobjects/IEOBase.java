@@ -26,8 +26,11 @@ public interface IEOBase {
     String getPathAsString();
 
     Object get();
+    IEOScalar getEo(String... path);
+    Object get(final String... pathStrings);
 
     void set(final Object value);
+    IEOScalar set(Object value, String... paths);
 
     EO getRoot();
 
@@ -40,10 +43,13 @@ public interface IEOBase {
     void setChanged();
 
     default boolean isEmpty() {
-        return get() != null;
+        return get() == null;
     }
 
     default boolean isEoEmpty() {
         return true;
+    }
+    default boolean hasEo(String path) {
+        return false;
     }
 }

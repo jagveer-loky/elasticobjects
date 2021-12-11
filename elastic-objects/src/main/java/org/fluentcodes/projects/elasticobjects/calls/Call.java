@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
@@ -29,7 +29,7 @@ public interface Call {
         }
     }
 
-    Object execute(final EO eo);
+    Object execute(final IEOScalar eo);
 
     void setByParameter(final String values);
 

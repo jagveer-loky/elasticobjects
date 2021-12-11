@@ -26,9 +26,8 @@ public class EoRemoveTest {
      */
     @Test
     public void givenAnObject_thenRemoved() {
-        IEOScalar child = ProviderConfigMaps.createEo(new AnObject())
-                .set(S_STRING, AnObject.MY_STRING);
-        EO root = child.getRoot();
+        EO root = ProviderConfigMaps.createEo(new AnObject());
+        root.set(S_STRING, AnObject.MY_STRING);
         Assert.assertEquals(1, (root).size());
 
         root.remove(AnObject.MY_STRING);
@@ -52,8 +51,8 @@ public class EoRemoveTest {
      */
     @Test
     public void givenMap_thenRemoved() {
-        IEOScalar child = ProviderConfigMaps.createEo().set(S_STRING, S_TEST_STRING);
-        EO root = child.getRoot();
+        EO root = ProviderConfigMaps.createEo();
+        root.set(S_STRING, S_TEST_STRING);
         Assert.assertEquals(1, root.size());
         Assert.assertEquals(S_STRING, root.get(S_TEST_STRING));
         root.remove(S_TEST_STRING);
@@ -73,10 +72,8 @@ public class EoRemoveTest {
 
     @Test
     public void givenList_thenRemoved() {
-        IEOScalar child = ProviderConfigMaps.createEo(new ArrayList<>())
-                .set(S_STRING, S0);
-        // remove value entry first
-        EO root = child.getRoot();
+        EO root = ProviderConfigMaps.createEo(new ArrayList<>());
+        root.set(S_STRING, S0);
         Assert.assertEquals(1, root.size());
         root.remove(S0);
         Assert.assertEquals(0, root.size());

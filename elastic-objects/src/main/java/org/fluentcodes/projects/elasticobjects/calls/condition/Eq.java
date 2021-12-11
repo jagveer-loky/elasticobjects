@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -72,15 +72,14 @@ public class Eq implements Condition {
         return false;
     }
 
-    public boolean filter(EO eo) {
+    public boolean filter(final IEOScalar eo) {
         if (eo == null) {
             LOG.warn("Null adapter should not occure!");
             return true;
         }
         try {
             return ScalarComparator.compare(eo.get(key), new Parser(TemplateMarker.SQUARE, (String) this.object).parse(eo));
-        }
-        catch (EoException e) {
+        } catch (EoException e) {
             return false;
         }
     }

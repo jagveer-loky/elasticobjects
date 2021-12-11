@@ -44,7 +44,7 @@ public class XlsxReadCall extends FileReadCall implements ListInterface {
     }
 
     @Override
-    public Object execute(EO eo) {
+    public Object execute(final IEOScalar eo) {
         return mapEo(eo, readRaw(eo));
     }
 

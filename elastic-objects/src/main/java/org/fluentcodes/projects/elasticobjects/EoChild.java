@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
@@ -19,7 +18,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EoChild extends EoChildScalar implements EO {
-    private final Map<String, IEOScalar> eoMap = new LinkedHashMap<>();
+    private Map<String, IEOScalar> eoMap;
     private Object fieldValue;
 
     EoChild(final Object value, final Models models) {
@@ -30,24 +29,19 @@ public class EoChild extends EoChildScalar implements EO {
         super(parentEo, fieldKey, value, fieldModels);
     }
 
-
-    private void setFieldValue(final Object value) {
+    void setFieldValue(final Object value) {
         this.fieldValue = value;
     }
 
     protected void setParentValue(final Object value) {
         if (isRoot()) {
-            throw new EoInternalException("Root has no parent!");
+            throw new EoException("Root has no parent!");
         }
         if (!isParentSet()) {
             setFieldValue(value);
             return;
         }
-        getParentEo().setKeyValue(getFieldKey(), value);
-    }
-
-    protected void setKeyValue(final String fieldKey, final Object value) {
-        getModel().set(fieldKey, get(), value);
+        getParentEo().getModel().set(getFieldKey(), getParent().get(), value);
     }
 
     @Override
@@ -92,7 +86,7 @@ public class EoChild extends EoChildScalar implements EO {
         return getEo(new Path(pathString));
     }
 
-    IEOScalar getEo(Path path) {
+    public IEOScalar getEo(Path path) {
         IEOScalar target = this;
         if (path.isAbsolute()) {
             target = getRoot();
@@ -105,21 +99,17 @@ public class EoChild extends EoChildScalar implements EO {
                 if (!(target instanceof EoChild)) {
                     throw new EoException("Could not move to path '" + this.toString() + "' because wrapper is scalar ' for " + element.toString());
                 }
-                if (((EoChild) target).hasEo(element)) {
-                    target = ((EoChild) target).getEo(element);
-                } else {
-                    throw new EoException("Could not move to path '" + this.toString() + "' because key '" + element.toString() + "' does not exist on '" + target.getPathAsString() + "'.");
-                }
+                target = ((EoChild) target).getEo(element);
             }
         }
         return target;
     }
 
-    IEOScalar getEo(final PathElement pathElement) {
+    public IEOScalar getEo(final PathElement pathElement) {
         if (!hasEo(pathElement)) {
-            throw new EoException("Could not move to eo");
+            throw new EoException("Could not move to path '" + this.toString() + "' because key '" + pathElement.toString() + "' does not exist on '" + this.getPathAsString() + "'.");
         }
-        return getEo(pathElement);
+        return eoMap.get(pathElement.getKey());
     }
 
     @Override
@@ -138,12 +128,17 @@ public class EoChild extends EoChildScalar implements EO {
         }
         int counter = 0;
         for (int i = 0; i < path.size() - 1; i++) {
-            parent = getModels().createChild(this, path.getPathElement(i), null);
+            PathElement pathElement = path.getPathElement(i);
+            if (((EoChild) parent).hasEo(pathElement)) {
+                parent = ((EoChild) parent).getEo(pathElement);
+                continue;
+            }
+            parent = getModels().createChild((EO) parent, pathElement, null);
             if (!(parent instanceof IEOObject)) {
                 throw new EoException("");
             }
         }
-        return getModels().createChild(this, path.getPathElement(path.size() - 1), value);
+        return getModels().createChild((EO) parent, path.getPathElement(path.size() - 1), value);
     }
 
     IEOScalar createChild(PathElement element) {
@@ -186,7 +181,23 @@ public class EoChild extends EoChildScalar implements EO {
         if (fieldValue == null) {
             fieldValue = getModels().create();
         }
+        if (hasParent()) {
+            getParentEo().set(getFieldKey(), fieldValue);
+        } else if (eoMap == null) {
+            eoMap = new LinkedHashMap<>();
+        }
         mapObject(value);
+    }
+
+    void set(String key, Object value) {
+        getModel().set(key, get(), value);
+    }
+
+    void addEo(String key, IEOScalar child) {
+        if (eoMap == null) {
+            eoMap = new LinkedHashMap<>();
+        }
+        eoMap.put(key, child);
     }
 
     @Override
@@ -196,6 +207,13 @@ public class EoChild extends EoChildScalar implements EO {
 
     protected void addChildEo(EoChildScalar childEo) {
         eoMap.put(childEo.getFieldKey(), childEo);
+    }
+
+    void setModels(String models) {
+        if (!isEmpty()) {
+            throw new EoException("Could not change model when values are already set");
+        }
+        setModels(new Models(getConfigMaps(), models.split(",")));
     }
 
     @Override
@@ -339,7 +357,7 @@ public class EoChild extends EoChildScalar implements EO {
             }
             String nextPath = path + Path.DELIMITER + key;
             nextPath = nextPath.replaceAll("^" + Path.DELIMITER, "");
-            EO childAdapter = (EO) getEo(key);
+            IEOScalar childAdapter = getEo(key);
             if (childAdapter == null) {
                 continue;
             }

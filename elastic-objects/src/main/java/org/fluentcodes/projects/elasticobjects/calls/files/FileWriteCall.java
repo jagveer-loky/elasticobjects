@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
@@ -50,13 +50,12 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand, CallC
         compare = true;
     }
 
-
     @Override
-    public String execute(final EO eo) {
+    public String execute(final IEOScalar eo) {
         return this.write(eo);
     }
 
-    public String write(EO eo) {
+    public String write(IEOScalar eo) {
         FileConfig fileConfig = super.init(PermissionType.READ, eo);
         if (!hasContent()) {
             if (eo.isScalar()) {

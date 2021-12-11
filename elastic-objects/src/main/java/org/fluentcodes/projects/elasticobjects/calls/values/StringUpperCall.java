@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -11,24 +11,23 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * For setting upper value to EO.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 12:02:53 CET 2020
  */
 public class StringUpperCall extends CallImpl implements SimpleCommand {
-/*.{}.*/
+    /*.{}.*/
 
     /*.{javaStaticNames}|*/
-/*.{}.*/
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-/*.{}.*/
+    /*.{}.*/
     @Override
-    public String execute(final EO eo) {
+    public String execute(final IEOScalar eo) {
         super.check(eo);
         try {
-            return upper((String)eo.get());
-        }
-        catch (Exception e) {
+            return upper((String) eo.get());
+        } catch (Exception e) {
             throw new EoException(e.getMessage());
         }
     }
@@ -60,6 +59,6 @@ public class StringUpperCall extends CallImpl implements SimpleCommand {
         return builder.toString();
     }
     /*.{javaAccessors}|*/
-/*.{}.*/
+    /*.{}.*/
 
 }

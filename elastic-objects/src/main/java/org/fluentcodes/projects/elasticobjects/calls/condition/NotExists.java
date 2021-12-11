@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 
 import java.util.List;
 import java.util.Map;
@@ -59,13 +59,13 @@ public class NotExists implements Condition {
         return true;
     }
 
-    public boolean filter(EO adapter) {
-        if (adapter == null) {
+    public boolean filter(IEOScalar eo) {
+        if (eo == null) {
             LOG.warn("Null adapter should not occure!");
             return true;
         }
         try {
-            return adapter.get(key) == null;
+            return eo.get(key) == null;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -41,18 +41,18 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
     }
 
     @Override
-    public Object execute(final EO eo) {
+    public Object execute(final IEOScalar eo) {
         return createReturnString(eo, read(eo));
     }
 
-    public String read(final EO eo) {
+    public String read(final IEOScalar eo) {
         FileConfig fileConfig = super.init(PermissionType.READ, eo);
         if (fileConfig.hasCachedContent()) {
             return fileConfig.getCachedContent();
         }
         String filePath = fileConfig.getFilePath() + "/" + fileConfig.getFileName();
         filePath = filePath.replaceAll("^\\./", "");
-        String result = read((IEOObject)eo, filePath);
+        String result = read((IEOObject) eo, filePath);
         if (fileConfig.getCached()) {
             fileConfig.setCachedContent(result);
         }
@@ -60,7 +60,7 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
     }
 
     protected static String read(final IEOObject eo, String filePath) {
-        filePath = Parser.replacePathValues(filePath, (EO)eo);
+        filePath = Parser.replacePathValues(filePath, (EO) eo);
         return new IOString(filePath).read();
     }
 

@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 /*.{javaHeader}|*/
+
 /**
  * 
  * Access methods for field properties map and get method definitions for final fields.  

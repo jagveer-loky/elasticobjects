@@ -3,6 +3,8 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoChild;
 import org.fluentcodes.projects.elasticobjects.EoChildScalar;
+import org.fluentcodes.projects.elasticobjects.EoChildScalarSpecial;
+import org.fluentcodes.projects.elasticobjects.EoChildSpecial;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
@@ -132,10 +134,21 @@ public class Models {
             key = Integer.toString(parent.size());
         }
         if (childModels.isScalar()) {
-            return new EoChildScalar(parent, key, value, childModels);
+            if (pathElement.isParentSet()) {
+                return new EoChildScalar(parent, key, value, childModels);
+            }
+            else {
+                return new EoChildScalarSpecial(parent, key, value, childModels);
+            }
         }
         else {
-            return new EoChild(parent, key, value, childModels);
+            if (pathElement.isParentSet()) {
+                return new EoChild(parent, key, value, childModels);
+            }
+            else {
+                return new EoChildSpecial(parent, key, value, childModels);
+            }
+
         }
     }
 

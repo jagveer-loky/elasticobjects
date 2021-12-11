@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.condition;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 
 import java.util.List;
 import java.util.Map;
@@ -21,13 +21,13 @@ public interface Condition {
 
     boolean compare(Object object);
 
-    String createQuery(Map<String, Object> keyValues);
+    String createQuery(final Map<String, Object> keyValues);
 
     String getKey();
 
     Object getValue();
 
-    boolean filter(List row);
+    boolean filter(final List row);
 
-    boolean filter(EO adapter);
+    boolean filter(final IEOScalar eo);
 }

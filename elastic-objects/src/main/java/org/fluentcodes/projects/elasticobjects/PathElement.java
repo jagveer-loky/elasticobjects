@@ -30,6 +30,7 @@ public class PathElement {
     public static final String TEMPLATE = "_template";
     protected static final Map<String, String[]> keyClassMap = initKeyClassMap();
 
+    public static final PathElement OF_ROOT_MODEL = new PathElement(ROOT_MODEL);
     public static final PathElement OF_ERROR_LEVEL = new PathElement(ERROR_LEVEL);
     public static final PathElement OF_LOG_LEVEL = new PathElement(LOG_LEVEL);
     public static final PathElement OF_LOGS = new PathElement(LOGS, List.class);

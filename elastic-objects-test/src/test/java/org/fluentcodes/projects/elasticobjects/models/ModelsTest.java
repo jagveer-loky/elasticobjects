@@ -1,15 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.EoChild;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.HostBean;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileBean;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Assert;
@@ -21,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps.CONFIG_MAPS;
-import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev.CONFIG_MAPS_DEV;
 
 /**
  * Created by werner.diwischek on 06.01.18.

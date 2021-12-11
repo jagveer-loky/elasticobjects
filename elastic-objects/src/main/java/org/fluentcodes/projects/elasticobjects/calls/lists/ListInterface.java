@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
@@ -21,8 +22,11 @@ import java.util.Map;
  */
 public interface ListInterface {
     String LIST_PARAMS = "listParams";
+
     ListParams getListParams();
+
     ListInterface setListParams(ListParams listParams);
+
     String getTargetPath();
 
     default Integer getRowHead() {
@@ -31,12 +35,13 @@ public interface ListInterface {
         }
         return getListParams().getRowHead();
     }
+
     default void setRowHead(Integer rowHead) {
         getListParams().setRowHead(rowHead);
     }
 
     default boolean hasRowHead() {
-        return getRowHead()!=null && getRowHead()>-1;
+        return getRowHead() != null && getRowHead() > -1;
     }
 
     default boolean isRowHead(Integer rowCounter) {
@@ -44,12 +49,13 @@ public interface ListInterface {
     }
 
     default boolean hasListParams() {
-        return getListParams()!=null;
+        return getListParams() != null;
     }
 
     default boolean hasRowStart() {
-        return getRowStart()!=null && getRowStart()>-1;
+        return getRowStart() != null && getRowStart() > -1;
     }
+
     default void setRowStart(Integer rowStart) {
         getListParams().setRowStart(rowStart);
     }
@@ -66,7 +72,7 @@ public interface ListInterface {
     }
 
     default boolean hasRowEnd() {
-        return getRowEnd()!=null && getRowEnd()>-1;
+        return getRowEnd() != null && getRowEnd() > -1;
     }
 
     default Integer getRowEnd() {
@@ -85,7 +91,7 @@ public interface ListInterface {
     }
 
     default boolean hasLength() {
-        return getLength()!=null && getLength()>-1;
+        return getLength() != null && getLength() > -1;
     }
 
     default Integer getLength() {
@@ -127,16 +133,15 @@ public interface ListInterface {
         return getListParams().createMapFromRow(row);
     }
 
-    default String mapEo(EO eo, List filteredResult) {
-        if (filteredResult.isEmpty())  {
+    default String mapEo(final IEOScalar eo, final List filteredResult) {
+        if (filteredResult.isEmpty()) {
             return "";
         }
         String targetPath = getTargetPath();
         boolean isMapped = TemplateMarker.SQUARE.hasStartSequence(targetPath);
         if (!isMapped) {
             eo.set(filteredResult, targetPath);
-        }
-        else {
+        } else {
             for (int i = 0; i < filteredResult.size(); i++) {
                 Object row = filteredResult.get(i);
                 if (isMapped) {
@@ -145,21 +150,23 @@ public interface ListInterface {
                 }
             }
         }
-        if (targetPath!=null && targetPath.equals(Call.TARGET_AS_STRING)) {
+        if (targetPath != null && targetPath.equals(Call.TARGET_AS_STRING)) {
             return "TODO asString";
         }
         return "";
     }
 
-    default List toList(EO adapter) {
+    default List toList(final IEOScalar eo) {
         List toWrite = new ArrayList();
-        if (adapter.isEoEmpty()) {
-            adapter.warn("Empty adapter -- nothing to write for " + adapter.getPath());
+        if (eo.isEoEmpty()) {
+            eo.warn("Empty adapter -- nothing to write for " + eo.getPath());
             return toWrite;
         }
         List<String> keys = null;
         try {
-            keys = new ArrayList<>(adapter.keysEo());
+            if (eo instanceof EO) {
+                keys = new ArrayList<>(((EO)eo).keysEo());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -168,7 +175,7 @@ public interface ListInterface {
         }
         EO firstChild = null;
         try {
-            firstChild = (EO)adapter.getEo(keys.get(0));
+            firstChild = (EO) eo.getEo(keys.get(0));
         } catch (Exception e) {
             e.printStackTrace();
             return toWrite;
@@ -195,7 +202,7 @@ public interface ListInterface {
         for (String key : keys) {
             EO child = null;
             try {
-                child = (EO)adapter.getEo(key);
+                child = (EO) eo.getEo(key);
             } catch (Exception e) {
                 e.printStackTrace();
                 continue;
@@ -221,16 +228,15 @@ public interface ListInterface {
         return toWrite;
     }
 
-    default List<List<String>> flattenToStringList(EO eo, List values, List<String> keys) {
+    default List<List<String>> flattenToStringList(final IEOScalar eo, List values, List<String> keys) {
         List<List<String>> result = new ArrayList<>();
         Map<String, Integer> keyPosition = new LinkedHashMap<>();
         boolean externalKey = true;
         if (keys == null || keys.isEmpty()) {
             keyPosition.put(BaseInterface.F_NATURAL_ID, 0);
             externalKey = false;
-        }
-        else {
-            for (int i = 0; i<keys.size();i++) {
+        } else {
+            for (int i = 0; i < keys.size(); i++) {
                 keyPosition.put(keys.get(i), i);
             }
         }
@@ -239,37 +245,31 @@ public interface ListInterface {
             List<String> rowList = new ArrayList<>(Collections.nCopies(keyPosition.size(), ""));
             Map<String, Object> valueMap = (Map<String, Object>) row;
 
-            for (String key: valueMap.keySet()) {
+            for (String key : valueMap.keySet()) {
                 Object valueMapValue = valueMap.get(key);
-                if (valueMapValue==null) {
+                if (valueMapValue == null) {
                     continue;
                 }
                 String value = null;
                 if (valueMapValue instanceof String) {
-                    value = (String)valueMapValue;
-                }
-                else if (valueMapValue instanceof Enum) {
+                    value = (String) valueMapValue;
+                } else if (valueMapValue instanceof Enum) {
                     value = ((Enum) valueMapValue).toString();
-                }
-                else if ((valueMapValue instanceof Map)) {
+                } else if ((valueMapValue instanceof Map)) {
                     if (((Map) valueMapValue).isEmpty()) {
                         value = "";
-                    }
-                    else{
+                    } else {
                         value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigMaps(), valueMapValue);
-                    }                }
-                else if ((valueMapValue instanceof List)) {
+                    }
+                } else if ((valueMapValue instanceof List)) {
                     if (((List) valueMapValue).isEmpty()) {
                         value = "";
-                    }
-                    else{
+                    } else {
                         value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigMaps(), valueMapValue);
                     }
-                }
-                else if ((valueMapValue instanceof Date) || (valueMapValue instanceof Integer) || (valueMapValue instanceof Float) || (valueMapValue instanceof Double) || (valueMapValue instanceof Long)){
+                } else if ((valueMapValue instanceof Date) || (valueMapValue instanceof Integer) || (valueMapValue instanceof Float) || (valueMapValue instanceof Double) || (valueMapValue instanceof Long)) {
                     value = valueMapValue.toString();
-                }
-                else {
+                } else {
                     value = new EOToJSON().setSerializationType(JSONSerializationType.STANDARD).toJson(eo.getConfigMaps(), valueMapValue);
                 }
                 try {
@@ -282,8 +282,7 @@ public interface ListInterface {
                     } else {
                         rowList.set(keyPosition.get(key), value);
                     }
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println();
                 }
             }
@@ -293,19 +292,19 @@ public interface ListInterface {
         return result;
     }
 
-    default String asString(EO eo, List values, List<String> keys) {
+    default String asString(IEOScalar eo, List values, List<String> keys) {
         List<List<String>> flattened = flattenToStringList(eo, values, keys);
         int max = flattened.get(0).size();
         StringBuilder builder = new StringBuilder();
-        for (List<String> row: flattened) {
-            for (int i=0; i< row.size();i++) {
+        for (List<String> row : flattened) {
+            for (int i = 0; i < row.size(); i++) {
                 builder.append("\"");
                 builder.append(
                         row.get(i)
                                 .replaceAll("\"", "\"\"")
                                 .replaceAll("\n", "\r"));
                 builder.append("\"");
-                if (i<max) {
+                if (i < max) {
                     builder.append(";");
                 }
             }

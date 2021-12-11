@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.List;
@@ -65,7 +65,7 @@ public class Exists implements Condition {
     }
 
     @Override
-    public boolean filter(EO eo) {
+    public boolean filter(IEOScalar eo) {
         if (eo == null) {
             throw new EoException("Null adapter should not occure!");
         }

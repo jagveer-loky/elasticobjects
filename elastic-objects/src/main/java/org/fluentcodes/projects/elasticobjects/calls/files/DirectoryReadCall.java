@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -43,7 +44,7 @@ public class DirectoryReadCall extends FileReadCall {
 
 
     @Override
-    public String execute(final EO eo)  {
+    public String execute(final IEOScalar eo)  {
         String result = read(eo);
         return createReturnString(eo, result);
     }

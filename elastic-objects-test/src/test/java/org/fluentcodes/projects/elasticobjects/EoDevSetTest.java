@@ -27,7 +27,7 @@ public class EoDevSetTest {
     public void mapSmall__set_model_List__Exception()  {
         final EO rootEo = TestProviderJson.MAP_SMALL_WITH_KEY.getEoDev();
         Assertions.assertThatThrownBy(()->{rootEo.set(List.class.getSimpleName(), PathElement.ROOT_MODEL);})
-                .hasMessage("Could not change model with a set");
+                .hasMessage("Could not change model when values are already set");
     }
 
     @Test
@@ -47,9 +47,9 @@ public class EoDevSetTest {
     @Test
     public void key_value__set_model_List__exception()  {
         final EO eo = ProviderConfigMapsDev.createEo();
-        IEOScalar child = eo.set("value", "key");
+        eo.set("value", "key");
         Assertions.assertThatThrownBy(()->{eo.set(List.class.getSimpleName(), PathElement.ROOT_MODEL);})
-                .hasMessage("Could not change model with a set");
+                .hasMessage("Could not change model when values are already set");
     }
 
     @Test
@@ -61,7 +61,7 @@ public class EoDevSetTest {
 
     @Test
     public void empty__set_longPath1_overLappingPath2__expected()  {
-        final EO eo = ProviderConfigMaps.createEo();
+        final EO eo = ProviderConfigMapsDev.createEo();
         eo.createChild(S_LEVEL0, S_LEVEL1, S_LEVEL2,  S_LEVEL3);
         eo.createChild(S_LEVEL0, S_LEVEL1, S_LEVEL4,  S_LEVEL5);
         Assertions.assertThat(eo.getLog()).isEmpty();

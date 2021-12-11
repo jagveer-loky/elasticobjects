@@ -37,7 +37,7 @@ public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand 
     }
 
     @Override
-    public Object execute(EO eo) {
+    public Object execute(final IEOScalar eo) {
         return save (eo);
     }
     

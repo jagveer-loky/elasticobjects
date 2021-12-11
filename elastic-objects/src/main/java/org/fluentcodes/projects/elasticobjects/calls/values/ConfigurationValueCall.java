@@ -16,7 +16,7 @@ public class ConfigurationValueCall extends CallImpl implements SimpleCommand {
     private String configFilter;
 
     @Override
-    public Object execute(final EO eo) {
+    public Object execute(final IEOScalar eo) {
         super.check(eo);
         if (configType == null) {
             throw new EoException("No config type defined");

@@ -32,8 +32,9 @@ public class EoRoot extends EoChild {
             throw new EoException("Root could not be a scalar type but starting value is '" + rootModels.toString() + "'!");
         }
         if (rootModels.getModelClass() != Map.class) {
-            new EoChild(this, PathElement.ROOT_MODEL, rootModels.toString(), new Models(rootModels.getConfigMaps(), String.class));
+            createChild(PathElement.OF_ROOT_MODEL, rootModels.toString());
         }
+        set(rootValue);
     }
 
     public static EoRoot of(final ConfigMaps cache)  {

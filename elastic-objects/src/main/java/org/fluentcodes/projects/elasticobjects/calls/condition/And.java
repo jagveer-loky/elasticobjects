@@ -3,6 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class And {
         conditions = new ArrayList<>();
     }
 
-    public And(EO adapter)  {
+    public And(EO adapter) {
         this();
         Map<String, Object> keyValues = adapter.getKeyValues();
         for (Map.Entry<String, Object> entry : keyValues.entrySet()) {
@@ -137,7 +138,7 @@ public class And {
         return true;
     }
 
-    public boolean filter(EO eo) {
+    public boolean filter(final IEOScalar eo) {
         if (eo == null) {
             LOG.warn("Null adapter should not occure!");
             return true;

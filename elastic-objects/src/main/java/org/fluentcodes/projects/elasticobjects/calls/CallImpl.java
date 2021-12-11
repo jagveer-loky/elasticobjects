@@ -1,8 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
@@ -14,49 +12,50 @@ import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*.{javaHeader}|*/
+
 /**
- * 
- * Basic bean implementation for calls.  
+ * Basic bean implementation for calls.
+ *
  * @author Werner Diwischek
  * @creationDate null
  * @modificationDate Thu Jan 07 11:38:14 CET 2021
  */
-public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
+public abstract class CallImpl extends BaseBean implements Call {/*.{}.*/
 
     /*.{javaStaticNames}|*/
-/*.{}.*/
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-   /* A condition for calls.  */
-   private String condition;
-   /* The duration of a call. */
-   private Long duration;
-   /* Will use an existing  result file beforehand as template.  */
-   private KeepCalls keepCall;
-   /* logLevel */
-   private LogLevel logLevel;
-   /* A string representation for a list of model keys. */
-   private String models;
-   /* A overwrite field flag for {@link Call}. */
-   private Boolean overwrite;
-   /* postpend String when executed by ExecutorCallImpl */
-   private String postpend;
-   /* prepend String when executed by ExecutorCallImpl */
-   private String prepend;
-   /* A sourcePath where EO offers it's input value when the execution starts. */
-   private String sourcePath;
-   /* A condition for calls.  */
-   private String startCondition;
-   /* A targetPath where the result of the execution will be mapped. If value is "_asString" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination. */
-   private String targetPath;
-/*.{}.*/
+    /* A condition for calls.  */
+    private String condition;
+    /* The duration of a call. */
+    private Long duration;
+    /* Will use an existing  result file beforehand as template.  */
+    private KeepCalls keepCall;
+    /* logLevel */
+    private LogLevel logLevel;
+    /* A string representation for a list of model keys. */
+    private String models;
+    /* A overwrite field flag for {@link Call}. */
+    private Boolean overwrite;
+    /* postpend String when executed by ExecutorCallImpl */
+    private String postpend;
+    /* prepend String when executed by ExecutorCallImpl */
+    private String prepend;
+    /* A sourcePath where EO offers it's input value when the execution starts. */
+    private String sourcePath;
+    /* A condition for calls.  */
+    private String startCondition;
+    /* A targetPath where the result of the execution will be mapped. If value is "_asString" no mapping occured but a seralized version is returned as value to embed it in the resulting file. Path parameters could be set dynamically with =&gt;[path]. in any combination. */
+    private String targetPath;
+    /*.{}.*/
 
     protected CallImpl() {
         prepend = "";
         postpend = "";
     }
 
-    public void check(final EO eo) {
+    public void check(final IEOScalar eo) {
         if (eo == null) {
             throw new EoException("Null eo value");
         }
@@ -65,16 +64,17 @@ public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
         }
     }
 
-    protected boolean init(final EO eo)  {
+    protected boolean init(final IEOScalar eo) {
         return evalCondition(eo);
     }
 
     /**
      * Evaluates the startCondition field  at the beginning of ExecutorCall.
+     *
      * @param eo the current wrapper in the loop.
      * @return
      */
-    protected boolean evalStartCondition(EO eo) {
+    protected boolean evalStartCondition(IEOScalar eo) {
         if (!hasStartCondition()) {
             return true;
         }
@@ -83,17 +83,18 @@ public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
 
     /**
      * Evaluates the condition field within ExecutorCall.
+     *
      * @param eo the current wrapper in the loop.
      * @return
      */
-    protected boolean evalCondition(EO eo) {
+    protected boolean evalCondition(final IEOScalar eo) {
         if (!hasCondition()) {
             return true;
         }
         return new Or(Parser.replacePathValues(getCondition(), eo)).filter(eo);
     }
 
-    protected Object createReturnScalar(EO eo, Object result) {
+    protected Object createReturnScalar(IEOScalar eo, Object result) {
         if (!hasTargetPath()) {
             return result;
         }
@@ -104,7 +105,7 @@ public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
         return "";
     }
 
-    protected Object createReturnType(EO eo, Object result) {
+    protected Object createReturnType(IEOScalar eo, Object result) {
         if (!hasTargetPath()) {
             return result;
         }
@@ -117,7 +118,7 @@ public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
         return "";
     }
 
-    protected String createReturnString(EO eo, String result) {
+    protected String createReturnString(IEOScalar eo, String result) {
         if (!hasTargetPath() || isTargetAsString()) {
             return result;
         }
@@ -130,126 +131,126 @@ public abstract class CallImpl extends BaseBean implements Call  {/*.{}.*/
     }
 
     /*.{javaAccessors}|*/
-   @Override
-   public String getCondition() {
-      return this.condition;
-   }
-
-   @Override
-   public CallImpl setCondition(final String condition) {
-      this.condition = condition;
-      return this;
+    @Override
+    public String getCondition() {
+        return this.condition;
     }
 
-   @Override
-   public Long getDuration() {
-      return this.duration;
-   }
-
-   @Override
-   public CallImpl setDuration(final Long duration) {
-      this.duration = duration;
-      return this;
+    @Override
+    public CallImpl setCondition(final String condition) {
+        this.condition = condition;
+        return this;
     }
 
-   @Override
-   public KeepCalls getKeepCall() {
-      return this.keepCall;
-   }
-
-   @Override
-   public CallImpl setKeepCall(final KeepCalls keepCall) {
-      this.keepCall = keepCall;
-      return this;
+    @Override
+    public Long getDuration() {
+        return this.duration;
     }
 
-   @Override
-   public LogLevel getLogLevel() {
-      return this.logLevel;
-   }
-
-   @Override
-   public CallImpl setLogLevel(final LogLevel logLevel) {
-      this.logLevel = logLevel;
-      return this;
+    @Override
+    public CallImpl setDuration(final Long duration) {
+        this.duration = duration;
+        return this;
     }
 
-   @Override
-   public String getModels() {
-      return this.models;
-   }
-
-   @Override
-   public CallImpl setModels(final String models) {
-      this.models = models;
-      return this;
+    @Override
+    public KeepCalls getKeepCall() {
+        return this.keepCall;
     }
 
-   @Override
-   public Boolean getOverwrite() {
-      return this.overwrite;
-   }
-
-   @Override
-   public CallImpl setOverwrite(final Boolean overwrite) {
-      this.overwrite = overwrite;
-      return this;
+    @Override
+    public CallImpl setKeepCall(final KeepCalls keepCall) {
+        this.keepCall = keepCall;
+        return this;
     }
 
-   @Override
-   public String getPostpend() {
-      return this.postpend;
-   }
-
-   @Override
-   public CallImpl setPostpend(final String postpend) {
-      this.postpend = postpend;
-      return this;
+    @Override
+    public LogLevel getLogLevel() {
+        return this.logLevel;
     }
 
-   @Override
-   public String getPrepend() {
-      return this.prepend;
-   }
-
-   @Override
-   public CallImpl setPrepend(final String prepend) {
-      this.prepend = prepend;
-      return this;
+    @Override
+    public CallImpl setLogLevel(final LogLevel logLevel) {
+        this.logLevel = logLevel;
+        return this;
     }
 
-   @Override
-   public String getSourcePath() {
-      return this.sourcePath;
-   }
-
-   @Override
-   public CallImpl setSourcePath(final String sourcePath) {
-      this.sourcePath = sourcePath;
-      return this;
+    @Override
+    public String getModels() {
+        return this.models;
     }
 
-   @Override
-   public String getStartCondition() {
-      return this.startCondition;
-   }
-
-   @Override
-   public CallImpl setStartCondition(final String startCondition) {
-      this.startCondition = startCondition;
-      return this;
+    @Override
+    public CallImpl setModels(final String models) {
+        this.models = models;
+        return this;
     }
 
-   @Override
-   public String getTargetPath() {
-      return this.targetPath;
-   }
-
-   @Override
-   public CallImpl setTargetPath(final String targetPath) {
-      this.targetPath = targetPath;
-      return this;
+    @Override
+    public Boolean getOverwrite() {
+        return this.overwrite;
     }
 
-/*.{}.*/
+    @Override
+    public CallImpl setOverwrite(final Boolean overwrite) {
+        this.overwrite = overwrite;
+        return this;
+    }
+
+    @Override
+    public String getPostpend() {
+        return this.postpend;
+    }
+
+    @Override
+    public CallImpl setPostpend(final String postpend) {
+        this.postpend = postpend;
+        return this;
+    }
+
+    @Override
+    public String getPrepend() {
+        return this.prepend;
+    }
+
+    @Override
+    public CallImpl setPrepend(final String prepend) {
+        this.prepend = prepend;
+        return this;
+    }
+
+    @Override
+    public String getSourcePath() {
+        return this.sourcePath;
+    }
+
+    @Override
+    public CallImpl setSourcePath(final String sourcePath) {
+        this.sourcePath = sourcePath;
+        return this;
+    }
+
+    @Override
+    public String getStartCondition() {
+        return this.startCondition;
+    }
+
+    @Override
+    public CallImpl setStartCondition(final String startCondition) {
+        this.startCondition = startCondition;
+        return this;
+    }
+
+    @Override
+    public String getTargetPath() {
+        return this.targetPath;
+    }
+
+    @Override
+    public CallImpl setTargetPath(final String targetPath) {
+        this.targetPath = targetPath;
+        return this;
+    }
+
+    /*.{}.*/
 }

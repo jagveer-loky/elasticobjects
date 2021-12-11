@@ -153,11 +153,25 @@ public class Path {
         return getFirstPathElement().getKey();
     }
 
+    public String getLastEntry() {
+        if (isEmpty()) {
+            return null;
+        }
+        return getLastPathElement().getKey();
+    }
+
     public PathElement getFirstPathElement() {
         if (isEmpty()) {
             return null;
         }
         return this.entries[0];
+    }
+
+    public PathElement getLastPathElement() {
+        if (isEmpty()) {
+            return null;
+        }
+        return this.entries[entries.length];
     }
 
     public Path createChildPath() {

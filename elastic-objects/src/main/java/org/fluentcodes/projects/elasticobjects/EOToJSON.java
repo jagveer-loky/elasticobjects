@@ -31,6 +31,7 @@ public class EOToJSON {
     public EOToJSON() {
 
     }
+
     public EOToJSON(JSONSerializationType serializationType) {
         this.serializationType = serializationType;
     }
@@ -74,7 +75,7 @@ public class EOToJSON {
         return this.serializationType == JSONSerializationType.STANDARD;
     }
 
-    public String toJson(final ConfigMaps cache, final Object object)  {
+    public String toJson(final ConfigMaps cache, final Object object) {
         if (isStandard()) {
             EO mapEo = EoRoot.ofClass(cache, Map.class);
             mapEo.setSerializationType(JSONSerializationType.STANDARD);
@@ -83,7 +84,7 @@ public class EOToJSON {
         return toJson(EoRoot.ofValue(cache, object));
     }
 
-    public String toJson(final EO eo)  {
+    public String toJson(final IEOScalar eo) {
         if (eo.isScalar()) {
             return eo.get().toString();
         }
@@ -93,32 +94,32 @@ public class EOToJSON {
         StringWriter stringWriter = new StringWriter();
         this.addContainerStart(stringWriter, eo);
         toJson(stringWriter, eo, indent);
-        addLineBreak(stringWriter,indent);
+        addLineBreak(stringWriter, indent);
         addContainerEnd(stringWriter, eo, 0);
         return stringWriter.toString();
     }
 
-    private void toJson(final StringWriter stringWriter, final EO eoParent, final int indentLevel)  {
+    private void toJson(final StringWriter stringWriter, final IEOScalar eoParent, final int indentLevel) {
         if (eoParent.get() == null) {
-            return ;
-        }
-        if (eoParent.isEmpty() && serializationType!=JSONSerializationType.EO) {
             return;
         }
-        Set<String> fieldNames = eoParent.keysEo();
+        if (eoParent.isEmpty() && serializationType != JSONSerializationType.EO) {
+            return;
+        }
+        Set<String> fieldNames = ((EO)eoParent).keysEo();
         if (fieldNames.isEmpty()) {
             return;
         }
         boolean first = true;
 
-        for (String fieldName: fieldNames) {
+        for (String fieldName : fieldNames) {
             if (PathElement.isParentNotSet(fieldName) && serializationType == JSONSerializationType.STANDARD) {
                 continue;
             }
             if (eoParent.isTransient(fieldName)) {
                 continue;
             }
-            IEOScalar eoChild  = eoParent.getEo(fieldName);
+            IEOScalar eoChild = eoParent.getEo(fieldName);
             if (eoChild.isEmpty()) {
                 continue;
             }
@@ -130,30 +131,29 @@ public class EOToJSON {
             addIndent(stringWriter, indentLevel);
 
             if (!(eoChild instanceof IEOObject)) {
-                stringWriter.append(eoChild.toString());
+                stringWriter.append(eoChild.toString(serializationType));
                 continue;
             }
-            addName(stringWriter, (EO)eoChild);
-            addContainerStart(stringWriter, (EO)eoChild);
-            toJson(stringWriter, (EO)eoChild, indentLevel + 1);
-            addContainerEnd(stringWriter, (EO)eoChild, indentLevel);
+            addName(stringWriter, (EO) eoChild);
+            addContainerStart(stringWriter, (EO) eoChild);
+            toJson(stringWriter, (EO) eoChild, indentLevel + 1);
+            addContainerEnd(stringWriter, (EO) eoChild, indentLevel);
         }
     }
 
-    private final void addContainerStart(final StringWriter stringWriter, final EO eo) {
+    private final void addContainerStart(final StringWriter stringWriter, final IEOScalar eo) {
         if (serializationType == JSONSerializationType.EO) {
             stringWriter.append("{");
             return;
         }
         if (eo.isList()) {
             stringWriter.append("[");
-        }
-        else {
+        } else {
             stringWriter.append("{");
         }
     }
 
-    private void addContainerEnd(final StringWriter stringWriter, final EO eo, final int indentLevel) {
+    private void addContainerEnd(final StringWriter stringWriter, final IEOScalar eo, final int indentLevel) {
         addLineBreak(stringWriter, indentLevel);
         addIndent(stringWriter, indentLevel);
         if (serializationType == JSONSerializationType.EO) {
@@ -192,7 +192,7 @@ public class EOToJSON {
         value = ESCAPE_PATTERN
                 .matcher(value)
                 .replaceAll("\\\\\"");
-         return REMOVE_PATTERN
+        return REMOVE_PATTERN
                 .matcher(value)
                 .replaceAll("");
     }

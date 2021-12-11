@@ -18,7 +18,7 @@ public interface IEOScalar extends IEOBase, IEOModel, IEOCall, IEOLog, IEORole, 
             writer.append("\"");
             return writer.toString();
         } else {
-            return stringify(get());
+            return writer.toString() + stringify(get());
         }
     }
 

@@ -78,7 +78,7 @@ public class EoSetTest {
         assertEquals(String.class, eo.get("key0","key1","key2", "key3").getClass());
 
         assertEquals(Map.class,child.getParent().getModelClass());
-        assertEquals(LinkedHashMap.class, child.getParent().getClass());
+        assertEquals(LinkedHashMap.class, child.getParent().get().getClass());
 
         assertEquals(Map.class,child.getRoot().getModelClass());
         assertEquals(LinkedHashMap.class, child.getRoot().get().getClass());

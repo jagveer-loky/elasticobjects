@@ -1,28 +1,27 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*.{javaHeader}|*/
 
 /**
- * Super class for file calls with a configuration key to resolve {@link HostConfig} with init method. Extends {@link CallImpl}. 
+ * Super class for file calls with a configuration key to resolve {@link HostConfig} with init method. Extends {@link CallImpl}.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 07:32:31 CET 2020
  */
 public abstract class HostCall extends CallImpl implements Call {
-/*.{}.*/
+    /*.{}.*/
 
-/*.{javaStaticNames}|*/
-   public static final String HOST_CONFIG_KEY = "hostConfigKey";
-/*.{}.*/
+    /*.{javaStaticNames}|*/
+    public static final String HOST_CONFIG_KEY = "hostConfigKey";
+    /*.{}.*/
 
-/*.{javaInstanceVars}|*/
-   private  String hostConfigKey;
-/*.{}.*/
+    /*.{javaInstanceVars}|*/
+    private String hostConfigKey;
+    /*.{}.*/
 
     private HostConfig hostConfig;
 
@@ -35,7 +34,7 @@ public abstract class HostCall extends CallImpl implements Call {
         setHostConfigKey(configKey);
     }
 
-    protected HostConfig initHostConfig(final PermissionType permissionType, final EO eo) {
+    protected HostConfig initHostConfig(final PermissionType permissionType, final IEOScalar eo) {
         if (!hasHostConfigKey()) {
             throw new EoException("Empty key for host");
         }
@@ -44,26 +43,27 @@ public abstract class HostCall extends CallImpl implements Call {
         return hostConfig;
     }
 
-    public HostConfig getHostConfig()  {
+    public HostConfig getHostConfig() {
         return hostConfig;
     }
 
-/*.{javaAccessors}|*/
+    /*.{javaAccessors}|*/
+
     /**
-    A key for host objects.
-    */
+     * A key for host objects.
+     */
 
     public HostCall setHostConfigKey(String hostConfigKey) {
         this.hostConfigKey = hostConfigKey;
         return this;
     }
-    
-    public String getHostConfigKey () {
-       return this.hostConfigKey;
+
+    public String getHostConfigKey() {
+        return this.hostConfigKey;
     }
-    
-    public boolean hasHostConfigKey () {
-        return hostConfigKey!= null && !hostConfigKey.isEmpty();
+
+    public boolean hasHostConfigKey() {
+        return hostConfigKey != null && !hostConfigKey.isEmpty();
     }
-/*.{}.*/
+    /*.{}.*/
 }
