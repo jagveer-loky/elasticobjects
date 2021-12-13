@@ -52,7 +52,7 @@ public class StringUpperCallTest implements IModelConfigCreateTests {
         final StringUpperCall call = (StringUpperCall) model.create();
         IEOScalar eo = ProviderConfigMaps.createEo().set(S_STRING, S_LEVEL0);
         Assertions.assertThat(eo.get()).isEqualTo("test");
-        Assertions.assertThat(call.execute((EO)eo)).isEqualTo("TEST");
+        Assertions.assertThat(call.execute(eo)).isEqualTo("TEST");
     }
 
     @Test

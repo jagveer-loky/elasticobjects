@@ -45,7 +45,7 @@ public class StringReplaceCallTest implements IModelConfigCreateTests {
         eo.setSerializationType(JSONSerializationType.STANDARD);
         eo.mapObject(ProviderConfigMaps.CONFIG_MAPS.findModel(StringReplaceCall.class));
         Assertions.assertThat(eo.getLog()).isEmpty();
-        String content = new StringReplaceCall("\\.", "/").execute((EO)eo.getEo(PACKAGE_PATH));
+        String content = new StringReplaceCall("\\.", "/").execute(eo.getEo(PACKAGE_PATH));
         Assertions.assertThat(content).isEqualTo("org/fluentcodes/projects/elasticobjects/calls/values");
     }
 
@@ -62,7 +62,7 @@ public class StringReplaceCallTest implements IModelConfigCreateTests {
                 "\"replaceBy\"=\"/\" }" +
                 "}." +
                 " *")
-                .execute((EO)eo.getEo(PACKAGE_PATH));
+                .execute(eo.getEo(PACKAGE_PATH));
         Assertions.assertThat(content).isEqualTo("* org/fluentcodes/projects/elasticobjects/calls/values *");
     }
 }

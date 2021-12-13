@@ -15,6 +15,6 @@ public class WebCallTest {
         eo.addCall(new TemplateDirResourceCall("WEB").setFileName("Header.html"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-       XpectString.assertJunit((String)eo.get("_template"));
+        XpectString.assertJunit((String) eo.get("_template"));
     }
 }

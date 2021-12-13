@@ -50,10 +50,9 @@ public class StringLowerCallTest implements IModelConfigCreateTests {
     public void givenModelCreateAndValueTest_whenExecute_thenUpperCaseReturned()  {
         final ModelConfig model = ProviderConfigMaps.findModel(StringLowerCall.class);
         final StringLowerCall call = (StringLowerCall)model.create();
-        EoRoot eo = ProviderConfigMaps.createEo();
-        eo.set("tEsT",S_LEVEL0);
-        Assertions.assertThat(eo.get()).isEqualTo("tEsT");
-        Assertions.assertThat(call.execute(eo)).isEqualTo("test");
+        final IEOScalar child = ProviderConfigMaps.createEo().set("tEsT",S_LEVEL0);
+        Assertions.assertThat(child.get()).isEqualTo("tEsT");
+        Assertions.assertThat(call.execute(child)).isEqualTo("test");
     }
     
     @Test

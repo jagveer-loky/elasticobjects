@@ -5,8 +5,6 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,7 +95,7 @@ public class EoChild extends EoChildScalar implements EO {
             } else if (element.isSame()) {
             } else {
                 if (!(target instanceof EoChild)) {
-                    throw new EoException("Could not move to path '" + this.toString() + "' because wrapper is scalar ' for " + element.toString());
+                    throw new EoException("Could not move to path '" + element.getKey() + "' because wrapper is scalar ' for " + getPathAsString());
                 }
                 target = ((EoChild) target).getEo(element);
             }
@@ -107,7 +105,7 @@ public class EoChild extends EoChildScalar implements EO {
 
     public IEOScalar getEo(final PathElement pathElement) {
         if (!hasEo(pathElement)) {
-            throw new EoException("Could not move to path '" + this.toString() + "' because key '" + pathElement.toString() + "' does not exist on '" + this.getPathAsString() + "'.");
+            throw new EoException("Could not move to path '" + pathElement.getKey() + "' because key '" + pathElement.toString() + "' does not exist on '" + this.getPathAsString() + "'.");
         }
         return eoMap.get(pathElement.getKey());
     }
@@ -138,7 +136,13 @@ public class EoChild extends EoChildScalar implements EO {
                 throw new EoException("");
             }
         }
-        return getModels().createChild((EO) parent, path.getPathElement(path.size() - 1), value);
+        PathElement pathElement = path.getPathElement(path.size() - 1);
+        if (((EoChild) parent).hasEo(pathElement)) {
+            EoChildScalar child = (EoChildScalar) ((EoChild) parent).getEo(pathElement);
+            child.set(value);
+            return child;
+        }
+        return parent.getModels().createChild((EO) parent, path.getPathElement(path.size() - 1), value);
     }
 
     IEOScalar createChild(PathElement element) {
@@ -209,20 +213,20 @@ public class EoChild extends EoChildScalar implements EO {
         eoMap.put(childEo.getFieldKey(), childEo);
     }
 
-    void setModels(String models) {
-        if (!isEmpty()) {
-            throw new EoException("Could not change model when values are already set");
+    void setModels(String modelString) {
+        Models models = new Models(getConfigMaps(), modelString.split(","));
+        setModels(models);
+        if (models.isCreate()) {
+            this.fieldValue = models.create();
+            if (hasParent()) {
+                getParent().set(this.fieldValue, this.getFieldKey());
+            }
         }
-        setModels(new Models(getConfigMaps(), models.split(",")));
     }
 
     @Override
     public EO mapObject(Object value) {
         if (value == null) {
-            return this;
-        }
-        if (isScalar()) {
-            setParentValue(ScalarConverter.transform(getModels().getModelClass(), value));
             return this;
         }
         ModelConfig valueModel = getConfigMaps().findModel(value);
@@ -415,24 +419,13 @@ public class EoChild extends EoChildScalar implements EO {
     }
 
     @Override
-    public String compare(final EO other) {
-        StringBuilder diff = new StringBuilder();
-        compare(diff, other);
-        return diff.toString();
-    }
-
-    protected void compare(final StringBuilder builder, final EO other) {
-        if (this.isNull()) {
-            return;
-        }
-        if (this.isScalar()) {
-            if (!ScalarComparator.compare(this.get(), other.get())) {
-                builder.append(getPathAsString() + ": " + this.get() + " <> " + other.get());
-            }
+    protected void compare(final StringBuilder builder, final IEOScalar other) {
+        if (!other.isContainer()) {
+            builder.append(getPathAsString() + ": other is not container but '" + other.getModelClass().getSimpleName());
             return;
         }
         List<String> list = new ArrayList<>(this.keys());
-        List<String> otherList = new ArrayList<>(other.keys());
+        List<String> otherList = new ArrayList<>(((IEOObject) other).keys());
         for (String key : otherList) {
             if (list.contains(key)) {
                 continue;
@@ -440,52 +433,13 @@ public class EoChild extends EoChildScalar implements EO {
             builder.append(getPathAsString() + Path.DELIMITER + key + ": null <> " + other.getEo(key).getModelClass().getSimpleName() + "\n");
         }
         for (String key : list) {
-            EO childEo = (EO) this.getEo(key);
-            EO otherChildEo = null;
-            if (other.hasEo(key)) {
-                otherChildEo = (EO) other.getEo(key);
-            } else {
+            if (!other.hasEo(key)) {
                 builder.append(getPathAsString() + key + ": " + getEo(key).getModelClass().getSimpleName() + "<> null \n");
-
                 continue;
             }
-            if (childEo == null && otherChildEo == null) {
-                builder.append(Path.DELIMITER + getPath() + " - " + key);
-                builder.append("\nboth null!\n");
-                continue;
-            } else if (childEo == null && otherChildEo != null) {
-                try {
-                    if (otherChildEo.isContainer()) {
-                        builder.append("null != " + getPath() + "/" + key + " with size= " + otherChildEo.sizeEo() + "\n");
-                        continue;
-                    } else {
-                        builder.append("null != " + getPath() + "/" + key + " = " + otherChildEo.get() + "\n");
-                        continue;
-                    }
-                } catch (Exception e) {
-                    builder.append(getPath() + "/" + key + ":");
-                    builder.append("\n" + e.getMessage() + "\n");
-                    e.printStackTrace();
-                    continue;
-                }
-            } else if (childEo != null && otherChildEo == null) {
-                try {
-                    if (childEo.isContainer()) {
-                        builder.append(getPath() + "/" + key + " with size= " + childEo.sizeEo() + " != null\n");
-                        continue;
-
-                    } else {
-                        builder.append(getPath() + "/" + key + " = " + childEo.get() + " != null\n");
-                        continue;
-                    }
-                } catch (Exception e) {
-                    builder.append(getPath() + "/" + key + ":");
-                    builder.append("\n" + e.getMessage() + "\n");
-                    e.printStackTrace();
-                    continue;
-                }
-            }
-            ((EoChild) childEo).compare(builder, otherChildEo);
+            IEOScalar childEo = getEo(key);
+            IEOScalar otherChildEo = other.getEo(key);
+            ((EoChildScalar) childEo).compare(builder, otherChildEo);
         }
     }
 }

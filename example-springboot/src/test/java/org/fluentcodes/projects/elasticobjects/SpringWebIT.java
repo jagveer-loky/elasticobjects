@@ -1,8 +1,9 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
+import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
+import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCallTest;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderJsonCalls;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -38,7 +39,20 @@ public class SpringWebIT {
 
     @Test
     public void testSinusValueCall() {
-        String json = ProviderJsonCalls.CALL_SINUS_ARRAY.content();
+        String json = "{\n" +
+                "  \"(List,Double)source\": {\n" +
+                "    \"0\": 1,\n" +
+                "    \"1\": 2,\n" +
+                "    \"2\": 3\n" +
+                "  },\n" +
+                "  \"(LogLevel)_logLevel\": \"WARN\",\n" +
+                "  \"(List)_calls\": {\n" +
+                "    \"(SinusValueCall)0\": {\n" +
+                "      \"sourcePath\": \"/source/*\",\n" +
+                "      \"targetPath\": \"/target\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
         Assertions.assertThat(json).isNotEmpty();
         String url = "http://localhost:" + port + "/eo";
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
@@ -77,10 +91,9 @@ public class SpringWebIT {
     }
 
     @Test
-    public void eo_ConfigKeysCall_configKey_ModelConfig__post__keysNotEmpty() {
-        String json = ProviderJsonCalls.CONFIG_KEYS_CALL_MODEL_CONFIG.content();;
+    public void eo_ConfigKeysCall_configKey_ModelConfig__post__keysNotEmpty() { ;;
         String url = "http://localhost:" + port + "/eo";
-        ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
+        ResponseEntity<String> result = restTemplate.postForEntity(url, ConfigKeysCallTest.DATA, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
         EO eo = ProviderConfigMaps.createEo(body);

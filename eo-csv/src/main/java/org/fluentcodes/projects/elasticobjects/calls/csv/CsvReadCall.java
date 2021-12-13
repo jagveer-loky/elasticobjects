@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.csv;
 
 import au.com.bytecode.opencsv.CSVReader;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.CsvConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
@@ -15,31 +15,32 @@ import java.util.Arrays;
 import java.util.List;
 
 /*.{javaHeader}|*/
+
 /**
- * Defines read call for a csv action depending on one link CsvConfig. 
+ * Defines read call for a csv action depending on one link CsvConfig.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Wed Nov 11 06:03:07 CET 2020
  */
-public class CsvReadCall extends CsvSimpleReadCall  {
-/*.{}.*/
+public class CsvReadCall extends CsvSimpleReadCall {
+    /*.{}.*/
 
     /*.{javaStaticNames}|*/
-/*.{}.*/
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-/*.{}.*/
-    public CsvReadCall()  {
+    /*.{}.*/
+    public CsvReadCall() {
         super();
     }
 
-    public CsvReadCall(final String configKey)  {
+    public CsvReadCall(final String configKey) {
         super(configKey);
     }
 
     @Override
-    public List readRaw(final EO eo) {
+    public List readRaw(final IEOScalar eo) {
         CsvConfig csvFileConfig = (CsvConfig) init(PermissionType.READ, eo);
         getListParams().merge(csvFileConfig.getProperties());
         URL url = csvFileConfig.findUrl(eo, getHostConfigKey());
@@ -55,7 +56,7 @@ public class CsvReadCall extends CsvSimpleReadCall  {
         try {
             String[] row = null;
             int i = 0;
-            while ((row = reader.readNext()) !=null) {
+            while ((row = reader.readNext()) != null) {
                 i++;
                 if (row == null || row.length == 0) {
                     continue;
@@ -75,8 +76,7 @@ public class CsvReadCall extends CsvSimpleReadCall  {
                 List rowEntry = Arrays.asList(row);
                 getListParams().addRowEntry(eo.getConfigMaps(), result, rowEntry);
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new EoException(e);
         }
         if (reader != null) {
@@ -89,5 +89,5 @@ public class CsvReadCall extends CsvSimpleReadCall  {
         return result;
     }
     /*.{javaAccessors}|*/
-/*.{}.*/
+    /*.{}.*/
 }

@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -58,7 +59,7 @@ public class TemplateResourceCall extends FileReadCall {
         }
     }
 
-    public String execute(EO eo) {
+    public String execute(IEOScalar eo) {
         if (!evalCondition(eo)) {
             return "";
         }

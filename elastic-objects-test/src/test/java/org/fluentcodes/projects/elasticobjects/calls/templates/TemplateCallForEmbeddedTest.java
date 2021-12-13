@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJson;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -10,12 +10,22 @@ import org.junit.Test;
  * Created by Werner on 22.03.2017.
  */
 public class TemplateCallForEmbeddedTest {
-    private static EO initEo() {
-        return TestProviderJson.FOR_EMBEDDED_TEST.getEoTest();
-    }
+    private static final String DATA = "{\n" +
+            "    \"path\":\"value0\",\n" +
+            "    \"level0\":{\n" +
+            "        \"path\":\"value1\",\n" +
+            "            \"level1\":{\n" +
+            "                \"path\":\"value2\",\n" +
+            "                    \"level2\":{\n" +
+            "                        \"path\":\"value3\"\n" +
+            "                    }\n" +
+            "            }\n" +
+            "    }\n" +
+            "}";
+    private static final EO DATA_EO = ProviderConfigMaps.createEo(DATA);
 
     @Test
-    public void call_sourcePath_level0__execute__replaced()  {
+    public void call_sourcePath_level0__execute__replaced() {
         final TemplateCall call = new TemplateCall(
                 "path='.{path}.' " +
                         "-->  @{\"(TemplateCall).\":{" +
@@ -23,52 +33,52 @@ public class TemplateCallForEmbeddedTest {
                         "}|" +
                         " ..path='.{../path}.', path='.{path}.'" +
                         ".{}.");
-        final String result = call.execute(initEo());
+        final String result = call.execute(DATA_EO);
         Assertions.assertThat(result).isEqualTo("path='value0' --> ..path='value0', path='value1'");
     }
 
     @Test
-    public void call_sourcePath_lstar__execute__replaced()  {
+    public void call_sourcePath_lstar__execute__replaced() {
         final TemplateCall call = new TemplateCall(
-                        "-->  @{\"(TemplateCall).\":{" +
-                                "\"sourcePath\":\"l*\"}" +
-                                "}|" +
-                                " ..path='.{../path}.', path='.{path}.'" +
+                "-->  @{\"(TemplateCall).\":{" +
+                        "\"sourcePath\":\"l*\"}" +
+                        "}|" +
+                        " ..path='.{../path}.', path='.{path}.'" +
                         ".{}.");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
+        final String result = call.execute(DATA_EO);
         Assertions.assertThat(result).isEqualTo("--> ..path='value0', path='value1'");
     }
 
     // TODO
     @Ignore
     @Test
-    public void call_sourcePath_star__execute__replaced()  {
+    public void call_sourcePath_star__execute__replaced() {
         final TemplateCall call = new TemplateCall(
                 "-->  @{(TemplateCall).\":{" +
                         "\"sourcePath\":\"*\"}" +
                         "}|" +
                         " ..path='.{../path}.', path='.{path}.'" +
                         ".{}.");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
+        final String result = call.execute(DATA_EO);
         Assertions
                 .assertThat(result)
                 .isEqualTo("--> ..path='value0', path='!!Could not move to path 'path' because key 'path' does not exist on '/path'.!!'..path='value0', path='value1'");
     }
 
     @Test
-    public void call_sourcePath_level0level1_placeholders__execute__replaced()  {
+    public void call_sourcePath_level0level1_placeholders__execute__replaced() {
         final TemplateCall call = new TemplateCall(
                 "path='.{path}.' " +
                         "-->  @{\"(TemplateCall).\":{" +
                         "\"sourcePath\":\"level0/level1\"}" +
                         "}| ../path='.{../path}.', path='.{path}.'" +
                         ".{}.");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
+        final String result = call.execute(DATA_EO);
         Assertions.assertThat(result).isEqualTo("path='value0' --> ../path='value1', path='value2'");
     }
 
     @Test
-    public void call_sourcePath_level0_level1_placeholders__execute__replaced()  {
+    public void call_sourcePath_level0_level1_placeholders__execute__replaced() {
         final TemplateCall call = new TemplateCall(
                 "path='.{path}.' " +
                         "-->  @{\"(TemplateCall).\":{" +
@@ -80,12 +90,12 @@ public class TemplateCallForEmbeddedTest {
                         " ../path='.{../path}.', path='.{path}.'" +
                         ".{}." +
                         ".{}.");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
+        final String result = call.execute(DATA_EO);
         Assertions.assertThat(result).isEqualTo("path='value0' --> --> ../path='value1', path='value2'");
     }
 
     @Test
-    public void call_sourcePath_level0level1level3_placeholders__execute__replaced()  {
+    public void call_sourcePath_level0level1level3_placeholders__execute__replaced() {
         final TemplateCall call = new TemplateCall(
                 "path='.{path}.' " +
                         "--> @{\"(TemplateCall).\":{" +
@@ -93,12 +103,12 @@ public class TemplateCallForEmbeddedTest {
                         "}|" +
                         " ../path='.{../path}.', path='.{path}.'" +
                         ".{}.");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
+        final String result = call.execute(DATA_EO);
         Assertions.assertThat(result).isEqualTo("path='value0' --> ../path='value2', path='value3'");
     }
 
     @Test
-    public void call_sourcePath_level0_level1_level3_placeholders__execute__replaced()  {
+    public void call_sourcePath_level0_level1_level3_placeholders__execute__replaced() {
         final TemplateCall call = new TemplateCall(
                 "path='.{path}.' " +
                         "--> @{\"(TemplateCall).\":{" +
@@ -114,7 +124,7 @@ public class TemplateCallForEmbeddedTest {
                         ".{}." +
                         ".{}." +
                         ".{}.");
-        final String result = call.execute(TestProviderJson.FOR_EMBEDDED_TEST.getEoTest());
+        final String result = call.execute(DATA_EO);
         Assertions.assertThat(result).isEqualTo("path='value0' --> --> --> ../path='value2', path='value3'");
     }
 }

@@ -21,6 +21,7 @@ import java.util.Map;
 
 import static org.fluentcodes.projects.elasticobjects.JSONToEO.JSON_LIST_PATTERN;
 import static org.fluentcodes.projects.elasticobjects.JSONToEO.JSON_MAP_PATTERN;
+import static org.fluentcodes.projects.elasticobjects.calls.Call.TARGET_AS_STRING;
 
 /**
  * An array of models defining types
@@ -127,8 +128,18 @@ public class Models {
         }
         String key = deriveFieldKey(parent, pathElement);
         if (value instanceof Call) {
-            if (!((Call)value).hasTargetPath() && !key.isEmpty()) {
-                ((Call) value).setTargetPath(parent.getPathAsString() + Path.DELIMITER + key);
+            if (TARGET_AS_STRING.equals(((Call)value).getTargetPath())) {
+
+            }
+            else if (!key.isEmpty() && TARGET_AS_STRING.equals(key)) {
+                ((Call)value).setTargetPath(TARGET_AS_STRING);
+            }
+            else if (!((Call)value).hasTargetPath() && (!key.isEmpty())) {
+                if (key.equals(PathElement.SAME)) {
+                    ((Call) value).setTargetPath(parent.getPathAsString());
+                } else {
+                    ((Call) value).setTargetPath(parent.getPathAsString() + Path.DELIMITER + key);
+                }
             }
             parent = parent.getCallsEo();
             key = Integer.toString(parent.size());

@@ -1,10 +1,9 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-
-import java.util.Map;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
+import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 public class EoChildScalar implements IEOScalar {
     private final EO parentEo;
@@ -25,7 +24,7 @@ public class EoChildScalar implements IEOScalar {
         this.parentEo = parentEo;
         this.fieldKey = fieldKey;
         this.fieldModels = fieldModels;
-        ((EoChild)this.parentEo).addEo(this.fieldKey, this);
+        ((EoChild) this.parentEo).addEo(this.fieldKey, this);
         set(value);
     }
 
@@ -38,10 +37,16 @@ public class EoChildScalar implements IEOScalar {
     }
 
     public void set(final Object value) {
+        if (value == null) {
+            throw new EoException("Will not set null");
+        }
         if (!hasParent()) {
             throw new EoException("Root could not be a scalar type but starting value is '" + getModels().toString() + "'!");
         }
         if (getParentEo().get(fieldKey) != null) {
+            if (!new Models(getConfigMaps(), value.getClass()).isScalar()) {
+                throw new EoException("Could not create '" + getModels().toString() + "' value from '" + value.toString() + "'");
+            }
             this.changed = true;
         }
         getParentEo().set(getFieldKey(), value);
@@ -138,4 +143,30 @@ public class EoChildScalar implements IEOScalar {
     public String toString() {
         return "(" + getModels().toString() + ") " + getPathAsString() + " -> " + get().toString() + "";
     }
+
+    public IEOScalar mapObject(Object value) {
+        if (value == null) {
+            return this;
+        }
+        ((EoChild) getParent()).set(getFieldKey(), ScalarConverter.transform(getModels().getModelClass(), value));
+        return this;
+    }
+
+    @Override
+    public String compare(final IEOScalar other) {
+        StringBuilder diff = new StringBuilder();
+        compare(diff, other);
+        return diff.toString();
+    }
+
+    protected void compare(final StringBuilder builder, final IEOScalar other) {
+        if (other.isScalar()) {
+            if (!ScalarComparator.compare(this.get(), other.get())) {
+                builder.append(getPathAsString() + ": " + this.get() + " <> " + other.get());
+            }
+        } else {
+            builder.append(getPathAsString() + ": other is not scalar but '" + other.getModelClass().getSimpleName());
+        }
+    }
+
 }

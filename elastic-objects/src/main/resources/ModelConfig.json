@@ -955,7 +955,8 @@
       },
       "rowStart": {
         "default": true,
-        "transient": true
+        "transient": true,
+        "property": false
       }
     },
     "expose": "NONE",
@@ -979,16 +980,20 @@
         "override": false
       },
       "length": {
-        "override": false
+        "override": false,
+        "property": true
       },
       "rowEnd": {
-        "override": false
+        "override": false,
+        "property": true
       },
       "rowHead": {
-        "override": false
+        "override": false,
+        "property": true
       },
       "rowStart": {
-        "override": false
+        "override": false,
+        "property": true
       }
     },
     "expose": "NONE",

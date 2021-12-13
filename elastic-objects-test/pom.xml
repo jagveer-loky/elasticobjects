@@ -26,18 +26,18 @@
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect</artifactId>
-            <version>0.8.1</version>
+            <version>0.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-jackson</artifactId>
-            <version>0.8.1</version>
+            <version>0.8.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.tools</groupId>
             <artifactId>xpect-gson</artifactId>
-            <version>0.8.1</version>
+            <version>0.8.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -49,7 +49,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.16.1</version>
+            <version>3.21.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

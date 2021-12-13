@@ -13,7 +13,10 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import static org.fluentcodes.projects.elasticobjects.PathElement.MATCHER;
@@ -44,17 +47,19 @@ public class ExecutorCall {
             eo.warn("Already executed within " + call.getDuration() + " ms. ");
             return "Already executed within " + call.getDuration() + " ms. ";
         }
-        List<IEOScalar> sourceList = createSourceList(call, eo);
+        Map<IEOScalar,String> sourceList = createSourceList(call, eo);
+
         StringBuilder templateResult = new StringBuilder();
         templateResult.append(call.getPrepend());
 
         if (PathElement.SAME.equals(call.getTargetPath())) {
             call.setTargetPath(TARGET_AS_STRING);
         }
-        for (IEOScalar source : sourceList) {
+        for (Map.Entry<IEOScalar, String> source : sourceList.entrySet()) {
             try {
-                templateResult.append(call.execute(source));
-            } catch (EoException e) {
+                call.setTargetPath(source.getValue());
+                templateResult.append(call.execute(source.getKey()));
+            } catch (Exception e) {
                 StringBuilder message = new StringBuilder("In '" + call.getClass().getSimpleName() + "' ");
                 message.append(": " + e.getMessage());
                 if (call.isTargetAsString()) {
@@ -105,33 +110,50 @@ public class ExecutorCall {
         return stringResult.toString();
     }
 
-    static List<IEOScalar> createSourceList(Call call, IEOScalar eo) {
+    static Map<IEOScalar, String> createSourceList(Call call, IEOScalar eo) {
+        String targetPath = call.getTargetPath();
+        Map<IEOScalar, String> result = new LinkedHashMap<>();
         if (!call.hasSourcePath()) {
-            return Arrays.asList(eo);
+            if (targetPath == null) {
+                targetPath = TARGET_AS_STRING;
+            }
+            result.put(eo, targetPath);
+            return result;
         }
         String source = new Parser(TemplateMarker.SQUARE, call.getSourcePath()).parse(eo);
         if (!(source.contains(MATCHER) || source.contains(MATCHER_ALL))) {
+
             IEOScalar sourceEo = eo.getEo(source);
-            if (!((CallImpl) call).evalStartCondition(sourceEo)) {
-                return new ArrayList<>();
+            if (targetPath == null) {
+                targetPath = sourceEo.getPathAsString();
             }
-            return Arrays.asList(eo.getEo(call.getSourcePath()));
+            if (!((CallImpl) call).evalStartCondition(sourceEo)) {
+                return result;
+            }
+            result.put(eo.getEo(call.getSourcePath()), targetPath);
+            return result;
         }
 
         Path sourcePath = new Path(eo.getPathAsString(), source);
         String matcher = sourcePath.getLastEntry();
         Path sourceParentPath = sourcePath.getParentPath();
-
+        if (targetPath == null) {
+            targetPath = sourceParentPath.toString();
+        }
         EoChild sourceParentEo = (EoChild) ((EoChild) eo).getEo(sourceParentPath);
         List<String> keys = sourceParentEo.filterPaths(matcher);
         if (keys.isEmpty()) {
-            return new ArrayList<>();
+            return result;
         }
-        List<IEOScalar> sourceList = new ArrayList<>();
         for (String key : keys) {
             IEOScalar sourceEntry = sourceParentEo.getEo(new PathElement(key));
-            sourceList.add(sourceEntry);
+            if (TARGET_AS_STRING.equals(targetPath)) {
+                result.put(sourceEntry, targetPath);
+            }
+            else {
+                result.put(sourceEntry, targetPath + "/" + key);
+            }
         }
-        return sourceList;
+        return result;
     }
 }
