@@ -9,6 +9,8 @@ import static org.fluentcodes.projects.elasticobjects.EOToJSON.stringify;
  */
 
 public interface IEOScalar extends IEOBase, IEOModel, IEOCall, IEOLog, IEORole, IEOSerialize {
+    String compare(final IEOScalar other);
+
     default String toString(JSONSerializationType jsonSerializationType) {
         StringWriter writer = new StringWriter();
         writer.append(getName(jsonSerializationType));

@@ -4,10 +4,9 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderListJson;
 import org.junit.Test;
 
-import java.util.List;
+import static org.fluentcodes.projects.elasticobjects.calls.condition.EqTest.DATA_LIST;
 
 public class ExistTest {
     @Test
@@ -29,16 +28,12 @@ public class ExistTest {
     @Test
     public void _0__filterList__true()  {
         Exists exists = new Exists("0");
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat( exists.filter(row)).isTrue();
+        Assertions.assertThat( exists.filter(DATA_LIST)).isTrue();
     }
 
     @Test
     public void _6__filterList__false()  {
         Exists exists = new Exists("6");
-        List row = ProviderListJson.LIST.createListDev();
-
-        Assertions.assertThat( exists.filter(row)).isFalse();
+        Assertions.assertThat( exists.filter(DATA_LIST)).isFalse();
     }
 }

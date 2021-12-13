@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db.statements;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -20,10 +21,10 @@ import java.util.Map;
 
 public class FindStatement extends PreparedStatementValues {
 
-    public FindStatement(String model, Map<String,Object> values) {
+    public FindStatement(String model, Map<String, Object> values) {
         super(SqlType.FIND);
         StringBuilder builderValues = new StringBuilder("");
-        for (String key: values.keySet()) {
+        for (String key : values.keySet()) {
             add(values.get(key));
             builderValues.append(key + " = ? AND ");
         }
@@ -33,24 +34,23 @@ public class FindStatement extends PreparedStatementValues {
         append(builderValues.toString().replaceAll(" AND $", " "));
     }
 
-    public FindStatement(final String preparedStatement, EO eo) {
+    public FindStatement(final String preparedStatement, IEOScalar eo) {
         super(SqlType.FIND);
         append(preparedStatement);
-        if (countParams()==0) {
+        if (countParams() == 0) {
             return;
         }
         if (eo.isScalar()) {
             add(eo.get());
-        }
-        else {
-            for (Object value: eo.getKeyValues().values()) {
+        } else {
+            for (Object value : ((EoChild) eo).getKeyValues().values()) {
                 add(value);
             }
         }
         checkHealth();
     }
 
-    public static FindStatement of(EO source) {
+    public static FindStatement of(IEOScalar source) {
         if (source == null) {
             throw new EoException("Null eo for delete");
         }
@@ -58,10 +58,10 @@ public class FindStatement extends PreparedStatementValues {
         if (!model.isObject()) {
             throw new EoException("Model '" + model.getModelKey() + "' is not a object");
         }
-        return new FindStatement(model.getModelKey(), source.getKeyValues());
+        return new FindStatement(model.getModelKey(), ((EoChild) source).getKeyValues());
     }
 
-    public static FindStatement ofId(EO source) {
+    public static FindStatement ofId(IEOScalar source) {
         if (source == null) {
             throw new EoException("Null eo for delete");
         }
@@ -70,14 +70,12 @@ public class FindStatement extends PreparedStatementValues {
             throw new EoException("Model '" + model.getModelKey() + "' is not a object");
         }
         Map<String, Object> values = new HashMap<>();
-        Map inValues = source.getKeyValues();
+        Map inValues = ((EoChild) source).getKeyValues();
         if (inValues.containsKey("id")) {
             values.put("id", inValues.get("id"));
-        }
-        else if (inValues.containsKey("naturalId")) {
+        } else if (inValues.containsKey("naturalId")) {
             values.put("naturalId", values.get("naturalId"));
-        }
-        else {
+        } else {
             throw new EoException("Could not find ids... ");
         }
         return new FindStatement(model.getModelKey(), values);
@@ -115,10 +113,9 @@ public class FindStatement extends PreparedStatementValues {
             try {
                 resultSet = preparedStatement.executeQuery();
                 return readRaw(resultSet, configsCache, listParams);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 DbConfig.closeAll(preparedStatement, resultSet);
-                throw new EoException("Exception get resultSet for sql "  + getStatement() + ": " + e.getMessage());
+                throw new EoException("Exception get resultSet for sql " + getStatement() + ": " + e.getMessage());
             }
         } catch (SQLException e) {
             throw new EoException(e);
@@ -138,16 +135,15 @@ public class FindStatement extends PreparedStatementValues {
         int i = 1;
         try {
             while ((rowEntry = createRow(resultSet)) != null) {
-                if (i>listParams.getRowEnd()) {
+                if (i > listParams.getRowEnd()) {
                     return result;
                 }
-                if (i>=listParams.getRowStart()) {
+                if (i >= listParams.getRowStart()) {
                     listParams.addRowEntry(configsCache, result, rowEntry);
                 }
                 i++;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new EoException("Exception create a list from line counter " + i + ": " + e.getMessage());
         }
         return result;

@@ -2,6 +2,8 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
@@ -27,9 +29,9 @@ public class DbModelReadCallAnObjectTest {
         EO eo = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1");
-        EO child = eo.set(anObject, "test");
+        IEOScalar child = eo.set(anObject, "test");
         call.execute(child);
-        Assertions.assertThat(eo.getEo("/result").size()).isEqualTo(1);
+        Assertions.assertThat(((IEOObject) eo.getEo("/result")).size()).isEqualTo(1);
         Assertions.assertThat(eo.get("/result/0/myString")).isEqualTo("value1");
         Assertions.assertThat(eo.get("/result/0/id")).isEqualTo(1L);
     }
@@ -39,7 +41,7 @@ public class DbModelReadCallAnObjectTest {
         EO eo = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("value1");
-        EO child = eo.set(anObject, "test");
+        eo.set(anObject, "test");
 
         DbModelReadCall call = new DbModelReadCall();
         call.setTargetPath("/result");
@@ -47,7 +49,7 @@ public class DbModelReadCallAnObjectTest {
         eo.addCall(call);
 
         eo.execute();
-        Assertions.assertThat(eo.getEo("/result").size()).isEqualTo(1);
+        Assertions.assertThat(((IEOObject) eo.getEo("/result")).size()).isEqualTo(1);
         Assertions.assertThat(eo.get("/result/0/myString")).isEqualTo("value1");
         Assertions.assertThat(eo.get("/result/0/id")).isEqualTo(1L);
     }
@@ -65,11 +67,10 @@ public class DbModelReadCallAnObjectTest {
                 "}");
 
         eo.execute();
-        Assertions.assertThat(eo.getEo("/xyz").size()).isEqualTo(1);
+        Assertions.assertThat(((IEOObject) eo.getEo("/xyz")).size()).isEqualTo(1);
         Assertions.assertThat(eo.get("/xyz/0/myString")).isEqualTo("value1");
         Assertions.assertThat(eo.get("/xyz/0/id")).isEqualTo(1L);
     }
-
 
 
 }

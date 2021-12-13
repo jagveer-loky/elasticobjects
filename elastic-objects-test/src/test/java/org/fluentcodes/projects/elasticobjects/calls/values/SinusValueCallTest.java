@@ -14,8 +14,6 @@ import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderMapJson;
-import org.fluentcodes.projects.elasticobjects.testitemprovider.TestProviderJsonCalls;
 import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -35,6 +33,8 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     private static final Double SIMPLE_RESULT = 0.8632093666488737;
     private static final Double ARRAY_RESULT2 = 0.1411200080598672;
 
+    private static final String DATA = "{\"(List,Double)source\":[1,2,3]}";
+    private static final EO DATA_EO = ProviderConfigMaps.createEo(DATA);
 
     @Override
     public Class<?> getModelConfigClass() {
@@ -81,28 +81,24 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         assertThat(eo.get("target")).isEqualTo(0.8414709848078965);
     }
 
-    public static final EO createArray() {
-        return (EO)ProviderMapJson.VALUES_CALL_NUMBER_ARRAY.createMapTestEo().getEo(SOURCE);
-    }
-
-    /**
-     * Basic Wiki Example
-     */
-    @Ignore("Check to delete")
     @Test
     public void givenCallSinusValue_thenInputValueIsReplaced() {
-        EO eo = TestProviderJsonCalls.CALL_SINUS_VALUE_JSON.createMapEo();
+        EO eo = ProviderConfigMaps.createEo("{\n" +
+                "  \"(Double)source\":1,\n" +
+                "  \"(SinusValueCall)\": {\n" +
+                "      \"sourcePath\": \"/source\"\n" +
+                "  }\n" +
+                "}");
         eo.execute();
         Assertions.assertThat(eo.get("source")).isEqualTo(0.8414709848078965);
         Assertions.assertThat(eo.getEo("source").isChanged()).isTrue();
-        XpectEo.assertJunit(eo);
     }
 
     @Test
     public void eo_source_1__call_execute__return_0_8632093666488737() {
         final Call call = new SinusValueCall();
         EO eo = createSimple();
-        Double result = (Double) call.execute((EO)eo.getEo("source"));
+        Double result = (Double) call.execute(eo.getEo("source"));
         Assertions.assertThat(result).isEqualTo(0.8632093666488737);
     }
 
@@ -139,7 +135,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     @Test
     public void givenEoSimple_WhenExecuteDirect_ResultExpected() {
         EO eo = createSimple();
-        Double result = (Double) new SinusValueCall().execute((EO)eo.getEo("source"));
+        Double result = (Double) new SinusValueCall().execute(eo.getEo("source"));
         Assertions.assertThat(result).isEqualTo(SIMPLE_RESULT);
     }
 
@@ -166,7 +162,20 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
 
     @Test
     public void givenEoArrayWithSourceAndTargetFromFile_whenExecute_hasSinusValueInTarget() {
-        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_JSON.createMapEo();
+        EO eo = ProviderConfigMaps.createEo("{\n" +
+                "  \"(List,Double)source\": {\n" +
+                "    \"0\": 1,\n" +
+                "    \"1\": 2,\n" +
+                "    \"2\": 3\n" +
+                "  },\n" +
+                "  \"(LogLevel)_logLevel\": \"WARN\",\n" +
+                "  \"(List)_calls\": {\n" +
+                "    \"(SinusValueCall)0\": {\n" +
+                "      \"sourcePath\": \"/source/*\",\n" +
+                "      \"targetPath\": \"/target\"\n" +
+                "    }\n" +
+                "  }\n" +
+                "}");
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET, "2")).isEqualTo(ARRAY_RESULT2);
@@ -175,8 +184,17 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
     @Ignore("Check to delete")
     @Test
     public void givenEoArrayWithSourceAndTargetFromFileOnTargetPath_whenExecute_hasSinusValueInTarget() {
-        EO eoBefore = ProviderMapJson.SIMPLE_INSERT_WITH_PATH.createMapTestEo();
-        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_ON_TARGET_PATH_JSON.createMapEo();
+        EO eo = ProviderConfigMaps.createEo("{\n" +
+                "  \"(List,Double)source\": {\n" +
+                "    \"0\": 1,\n" +
+                "    \"1\": 2,\n" +
+                "    \"2\": 3\n" +
+                "  },\n" +
+                "  \"(LogLevel)_logLevel\": \"WARN\",\n" +
+                "  \"(SinusValueCall)target\": {\n" +
+                "      \"sourcePath\": \"/source/*\"\n" +
+                "  }\n" +
+                "}");
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(TARGET, "2")).isEqualTo(ARRAY_RESULT2);
@@ -187,7 +205,7 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         Call call = new SinusValueCall()
                 .setTargetPath(TARGET)
                 .setSourcePath("/source/*");
-        EO eo = createArray();
+        EO eo = DATA_EO;
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -221,7 +239,23 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
 
     @Test
     public void eo_CallSinusArrayTemplateJson__execute__3times() {
-        EO eo = TestProviderJsonCalls.CALL_SINUS_ARRAY_TEMPLATE_JSON.getEo();
+        EO eo = ProviderConfigMaps.createEo("{\n" +
+                "   \"(List,Double)source\": {\n" +
+                "     \"0\": 1,\n" +
+                "     \"1\": 2,\n" +
+                "     \"2\": 3\n" +
+                "   },\n" +
+                "   \"(List)_call\":{\n" +
+                "     \"(SinusValueCall)0\": {\n" +
+                "       \"sourcePath\": \"/source/*\",\n" +
+                "       \"targetPath\": \"/target\"\n" +
+                "     },\n" +
+                "     \"(TemplateCall)1\": {\n" +
+                "        \"sourcePath\": \"/source/*\",\n" +
+                "       \"content\": \"sin( .{_value}.) = \\n .{/target/_parent}.\\n\"\n" +
+                "     }\n" +
+                "   }\n" +
+                " }");
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String) eo.get("_template")).isEqualTo(
@@ -235,12 +269,12 @@ public class SinusValueCallTest implements IModelConfigCreateTests {
         EO eo = ProviderConfigMaps.createEo();
         eo.set(2, "value");
         String result = new Parser("-" +
-                " @{\"(SinusValueCall).\":{" +
+                " @{\"(SinusValueCall)value\":{" +
                 "\"sourcePath\":\"value\"}" +
                 "}." +
                 "-").parse(eo);
         Assertions.assertThat(result).isEqualTo("--");
-        Assertions.assertThat(eo.get("value")).isEqualTo(0); // was integer before.
+        Assertions.assertThat(eo.get("value")).isEqualTo(Double.parseDouble("0.9092974268256817")); // was integer before and 0.9.. will be mapped to 0.
     }
 
     @Test

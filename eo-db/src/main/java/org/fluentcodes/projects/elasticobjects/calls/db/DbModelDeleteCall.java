@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.DeleteStatement;
@@ -11,35 +11,37 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 import java.util.List;
 
 /*.{javaHeader}|*/
+
 /**
  * Remove an entry from database by creating a delete sql from entry in sourcePath.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Wed Nov 11 06:24:57 CET 2020
  */
 public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand {
-/*.{}.*/
+    /*.{}.*/
 
-/*.{javaStaticNames}|*/
-/*.{}.*/
+    /*.{javaStaticNames}|*/
+    /*.{}.*/
 
-/*.{javaInstanceVars}|*/
-/*.{}.*/
+    /*.{javaInstanceVars}|*/
+    /*.{}.*/
 
-    public DbModelDeleteCall()  {
+    public DbModelDeleteCall() {
         super();
     }
-    public DbModelDeleteCall(final String hostConfigKey)  {
-        super( hostConfigKey);
+
+    public DbModelDeleteCall(final String hostConfigKey) {
+        super(hostConfigKey);
     }
 
     @Override
     public Object execute(final IEOScalar eo) {
         return remove(eo);
     }
-    
-    public Object remove(final EO eo) {
+
+    public Object remove(final IEOScalar eo) {
         ModelConfigDbObject modelConfig = init(PermissionType.WRITE, eo);
         if (!modelConfig.isObject()) {
             throw new EoException("No model is provided in path '" + eo.getPathAsString() + "");
@@ -55,6 +57,6 @@ public class DbModelDeleteCall extends DbModelCall implements ConfigWriteCommand
         return DeleteStatement.of(eo)
                 .execute(getDbConfig().getConnection());
     }
-/*.{javaAccessors}|*/
-/*.{}.*/
+    /*.{javaAccessors}|*/
+    /*.{}.*/
 }

@@ -848,7 +848,7 @@
     "expose": "WEB",
     "fieldKey": "rowEnd",
     "properties": {
-      "property": true
+      "property": false
     }
   },
   "rowHead": {
@@ -859,7 +859,7 @@
     "expose": "WEB",
     "fieldKey": "rowHead",
     "properties": {
-      "property": true
+      "property": false
     }
   },
   "rowStart": {
@@ -870,7 +870,7 @@
     "expose": "WEB",
     "fieldKey": "rowStart",
     "properties": {
-      "property": true
+      "property": false
     }
   },
   "scope": {

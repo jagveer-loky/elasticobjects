@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -31,7 +32,7 @@ public class TheGreetingCall extends CallImpl implements SimpleCommand {
         this.greeting = greeting;
     }
     @Override
-    public String execute(final EO eo) {
+    public String execute(final IEOScalar eo) {
         super.check(eo);
         if (eo.get() == null) {
             throw new EoException("Value " + eo.getPathAsString() + " is null ");

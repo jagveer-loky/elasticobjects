@@ -42,8 +42,6 @@ public interface IEOObject extends IEOScalar {
 
     EO remove(String... path);
 
-    String compare(final EO other);
-
     @Override
     default boolean hasLogLevel() {
         return hasEo(LOG_LEVEL);
@@ -59,7 +57,7 @@ public interface IEOObject extends IEOScalar {
 
     @Override
     default void setLogLevel(LogLevel logLevel) {
-        ((EoChild)this).createChild(PathElement.OF_LOG_LEVEL, logLevel);
+        ((EoChild) this).createChild(PathElement.OF_LOG_LEVEL, logLevel);
     }
 
 

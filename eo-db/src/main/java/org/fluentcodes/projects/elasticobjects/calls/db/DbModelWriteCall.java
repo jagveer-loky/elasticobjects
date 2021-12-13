@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
 import org.fluentcodes.projects.elasticobjects.calls.db.statements.FindStatement;
@@ -41,7 +42,7 @@ public class DbModelWriteCall extends DbModelCall implements ConfigWriteCommand 
         return save (eo);
     }
     
-    public int save(final EO eo) {
+    public int save(final IEOScalar eo) {
         ModelConfigDbObject modelConfig = init(PermissionType.WRITE, eo);
         if (!modelConfig.isObject()) {
             throw new EoException("No model is provided in path '" + eo.getPathAsString() + "");

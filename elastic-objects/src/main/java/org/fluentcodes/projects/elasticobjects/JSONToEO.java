@@ -373,9 +373,6 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Value with no name" + debug());
                 }
                 String value = this.nextString(c, rawFieldName);
-                if (COMMENT.equals(rawFieldName)) {
-                    return eoParent;
-                }
                 ((EoChild)eoParent).createChild(new PathElement(rawFieldName), value);
                 return eoParent;
 

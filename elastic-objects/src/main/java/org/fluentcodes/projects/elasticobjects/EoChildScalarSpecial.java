@@ -15,14 +15,17 @@ public class EoChildScalarSpecial extends EoChildScalar {
      */
     @Override
     public void set(final Object value) {
-        this.value = value;
         if (getFieldKey().equals(PathElement.ROOT_MODEL)) {
+            if (!getParent().isEmpty()) {
+                throw new EoException("Could not change model when values are already set");
+            }
             if (!(value instanceof String)) {
                 throw new EoException("Could set model only with String values");
             }
             String models = (String)value;
             ((EoChild)getParent()).setModels(models.isEmpty()?"Map":models);
         }
+        this.value = value;
     }
 
     @Override

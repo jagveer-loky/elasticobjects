@@ -60,7 +60,7 @@ public class FileReadCall extends FileCall implements ConfigReadCommand {
     }
 
     protected static String read(final IEOObject eo, String filePath) {
-        filePath = Parser.replacePathValues(filePath, (EO) eo);
+        filePath = Parser.replacePathValues(filePath, eo);
         return new IOString(filePath).read();
     }
 

@@ -49,7 +49,8 @@ public class DirectoryReadCall extends FileReadCall {
         return createReturnString(eo, result);
     }
 
-    public String read(final EO eo)  {
+    @Override
+    public String read(final IEOScalar eo)  {
         if (!hasFileName()) {
             throw new EoException("No fileName provided for DirectoryConfig read.");
         }

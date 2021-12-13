@@ -50,9 +50,10 @@ public class StringUpperFirstCharCallTest implements IModelConfigCreateTests {
     public void givenModelCreateAndValueTest_whenExecute_thenUpperCaseReturned() {
         final ModelConfig model = ProviderConfigMaps.findModel(StringUpperFirstCharCall.class);
         final StringUpperFirstCharCall call = (StringUpperFirstCharCall) model.create();
-        IEOScalar eo = ProviderConfigMaps.createEo().set("test", S_LEVEL0);
-        Assertions.assertThat(eo.get()).isEqualTo("test");
-        Assertions.assertThat(call.execute((EO)eo)).isEqualTo("Test");
+        IEOScalar child = ProviderConfigMaps.createEo()
+                .set("test", S_LEVEL0);
+        Assertions.assertThat(child.get()).isEqualTo("test");
+        Assertions.assertThat(call.execute(child)).isEqualTo("Test");
     }
 
     @Test

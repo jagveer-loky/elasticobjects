@@ -171,7 +171,7 @@ public class Path {
         if (isEmpty()) {
             return null;
         }
-        return this.entries[entries.length];
+        return this.entries[entries.length-1];
     }
 
     public Path createChildPath() {

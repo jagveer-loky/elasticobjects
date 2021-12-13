@@ -1,9 +1,5 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import java.io.StringWriter;
-
-import static org.fluentcodes.projects.elasticobjects.EOToJSON.stringify;
-
 /**
  * Offers an adapter for scalar wrapper to access elements via path.
  */
@@ -26,10 +22,13 @@ public interface IEOBase {
     String getPathAsString();
 
     Object get();
+
     IEOScalar getEo(String... path);
+
     Object get(final String... pathStrings);
 
     void set(final Object value);
+
     IEOScalar set(Object value, String... paths);
 
     EO getRoot();
@@ -49,6 +48,7 @@ public interface IEOBase {
     default boolean isEoEmpty() {
         return true;
     }
+
     default boolean hasEo(String path) {
         return false;
     }

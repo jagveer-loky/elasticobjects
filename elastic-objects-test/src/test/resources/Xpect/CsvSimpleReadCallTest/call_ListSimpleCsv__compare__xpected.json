@@ -21,10 +21,16 @@
           "0": "key1",
           "1": "key2"
         },
-        "length": -1
+        "length": -1,
+        "rowEnd": 3,
+        "rowHead": 0,
+        "rowStart": 1
       },
       "postpend": "",
-      "prepend": ""
+      "prepend": "",
+      "rowEnd": 3,
+      "rowHead": 0,
+      "rowStart": 1
     }
   }
 }

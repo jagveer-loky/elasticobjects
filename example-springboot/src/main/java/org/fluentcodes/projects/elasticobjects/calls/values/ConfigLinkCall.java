@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 /*.{javaHeader}|*/
@@ -30,7 +31,7 @@ public class ConfigLinkCall extends GithubLinkCall  {
     }
 
     @Override
-    public String execute(final EO eo) {
+    public String execute(final IEOScalar eo) {
         super.check(eo);
         if (!hasConfigKey()) {
             throw new EoException("No key is set. Could not find value");
