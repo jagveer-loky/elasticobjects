@@ -101,7 +101,7 @@ public class EoRoot extends EoChild {
     }
 
     @Override
-    public EO addCall(Call call) {
+    public IEOObject addCall(Call call) {
         if (call == null) {
             throw new EoException("Null call?!");
         }
@@ -109,7 +109,7 @@ public class EoRoot extends EoChild {
             call.setTargetPath(this.getPathAsString());
         }
         EoChild callsEo = getCallsEo();
-        return (EO)callsEo.createChild(new PathElement(""), call);
+        return (IEOObject) callsEo.createChild(new PathElement(""), call);
     }
 
     @Override

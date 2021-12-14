@@ -1,0 +1,376 @@
+{
+  "absolute": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "x",
+    "expose": "NONE",
+    "fieldKey": "absolute",
+    "properties": {
+      "property": true
+    }
+  },
+  "cached": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "If true will cache the readed file within the cache object. ",
+    "expose": "NONE",
+    "fieldKey": "cached"
+  },
+  "colKeys": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "List,String",
+    "description": "The key list for mapping values in a value list. ",
+    "expose": "NONE",
+    "fieldKey": "colKeys"
+  },
+  "compare": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Boolean",
+    "description": "Indicates a comparision before writing in @FileWriteCall",
+    "expose": "NONE",
+    "fieldKey": "compare"
+  },
+  "configFilter": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Key for filter configuration",
+    "expose": "WEB",
+    "fieldKey": "configFilter",
+    "length": 64
+  },
+  "configType": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.",
+    "expose": "WEB",
+    "fieldKey": "configType",
+    "length": 64
+  },
+  "content": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A content for different calls. In a template context the content of the markup. ",
+    "expose": "WEB",
+    "fieldKey": "content",
+    "length": 10000
+  },
+  "delete": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "String representation of RolePermission delete permissions",
+    "expose": "NONE",
+    "fieldKey": "delete",
+    "length": 256
+  },
+  "execute": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "String representation of RolePermission execute permissions",
+    "expose": "NONE",
+    "fieldKey": "execute",
+    "length": 256
+  },
+  "fieldDelimiter": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A delimiter for fields used for csv files. ",
+    "expose": "NONE",
+    "fieldKey": "fieldDelimiter",
+    "length": 4,
+    "properties": {
+      "property": true
+    }
+  },
+  "fieldKeys": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "List,String",
+    "description": "A list of field keys for the model configuration. ",
+    "expose": "NONE",
+    "fieldKey": "fieldKeys"
+  },
+  "fileConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Defines the key for a file configuration @FileConfig where to read or write a file.",
+    "expose": "NONE",
+    "fieldKey": "fileConfigKey",
+    "length": 80
+  },
+  "fileEnding": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "It's used to specify the file ending in different context. ",
+    "expose": "NONE",
+    "fieldKey": "fileEnding",
+    "length": 16
+  },
+  "fileName": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
+    "expose": "NONE",
+    "fieldKey": "fileName",
+    "length": 80
+  },
+  "filePath": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ",
+    "expose": "NONE",
+    "fieldKey": "filePath",
+    "length": 512
+  },
+  "filter": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Filter for List entries.",
+    "expose": "WEB",
+    "fieldKey": "filter",
+    "length": 512
+  },
+  "hostConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A key for host objects.",
+    "expose": "NONE",
+    "fieldKey": "hostConfigKey",
+    "length": 80
+  },
+  "hostName": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A name for host objects.",
+    "expose": "NONE",
+    "fieldKey": "hostName",
+    "length": 80,
+    "properties": {
+      "property": true
+    }
+  },
+  "indent": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Integer",
+    "description": "The number of indent for serialization level.",
+    "expose": "WEB",
+    "fieldKey": "indent"
+  },
+  "listParams": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "ListParams",
+    "description": "Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.",
+    "expose": "NONE",
+    "fieldKey": "listParams",
+    "length": 80
+  },
+  "password": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The password instance var.",
+    "expose": "NONE",
+    "fieldKey": "password",
+    "length": 15,
+    "properties": {
+      "property": true
+    }
+  },
+  "Permissions.create": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "String representation of RolePermission create permissions",
+    "expose": "NONE",
+    "fieldKey": "create",
+    "length": 256
+  },
+  "port": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Integer",
+    "description": "port",
+    "expose": "NONE",
+    "fieldKey": "port",
+    "properties": {
+      "property": true
+    }
+  },
+  "protocol": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "protocol",
+    "expose": "NONE",
+    "fieldKey": "protocol",
+    "length": 8,
+    "properties": {
+      "property": true
+    }
+  },
+  "read": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "String representation of RolePermission read permissions",
+    "expose": "NONE",
+    "fieldKey": "read",
+    "length": 256
+  },
+  "replaceBy": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "replaceBy",
+    "expose": "WEB",
+    "fieldKey": "replaceBy",
+    "length": 5
+  },
+  "rolePermissions": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "PermissionRole",
+    "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
+    "expose": "NONE",
+    "fieldKey": "rolePermissions"
+  },
+  "rowDelimiter": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A delimiter for rows used for csv files.",
+    "expose": "NONE",
+    "fieldKey": "rowDelimiter",
+    "length": 4,
+    "properties": {
+      "property": true
+    }
+  },
+  "rowEnd": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Integer",
+    "description": "rowEnd",
+    "expose": "WEB",
+    "fieldKey": "rowEnd",
+    "properties": {
+      "property": false
+    }
+  },
+  "rowHead": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Integer",
+    "description": "rowHead",
+    "expose": "WEB",
+    "fieldKey": "rowHead",
+    "properties": {
+      "property": false
+    }
+  },
+  "rowStart": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "Integer",
+    "description": "rowStart",
+    "expose": "WEB",
+    "fieldKey": "rowStart",
+    "properties": {
+      "property": false
+    }
+  },
+  "serializationType": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "JSONSerializationType",
+    "description": "The types of Serialization. ",
+    "expose": "WEB",
+    "fieldKey": "serializationType"
+  },
+  "sortOrder": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "SortOrder",
+    "description": "A field with a SortOrder enum",
+    "expose": "NONE",
+    "fieldKey": "sortOrder"
+  },
+  "sourceFileConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Defines the key for a file configuration @FileConfig where to read a file.",
+    "expose": "NONE",
+    "fieldKey": "sourceFileConfigKey",
+    "length": 80
+  },
+  "targetFileConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
+    "expose": "WEB",
+    "fieldKey": "targetFileConfigKey",
+    "length": 80
+  },
+  "toReplace": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "toReplace",
+    "expose": "WEB",
+    "fieldKey": "toReplace",
+    "length": 5
+  },
+  "url": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "url",
+    "expose": "NONE",
+    "fieldKey": "url",
+    "length": 80,
+    "properties": {
+      "property": true
+    }
+  },
+  "user": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "user",
+    "expose": "NONE",
+    "fieldKey": "user",
+    "length": 50,
+    "properties": {
+      "property": true
+    }
+  },
+  "write": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "String representation of RolePermission write permissions",
+    "expose": "NONE",
+    "fieldKey": "write",
+    "length": 256
+  }
+}

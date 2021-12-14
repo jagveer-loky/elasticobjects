@@ -1,12 +1,12 @@
 package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectString;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectStringJunit4;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
     @Test
     public void call_AnObjectXlsxTest__execute__notEmpty() {
         final Call call = new XlsxReadCall("AnObject.xlsx:test");
-        EO eo = ProviderConfigMaps.createEo(new ArrayList<>());
+        EoRoot eo = ProviderConfigMaps.createEo(new ArrayList<>());
         call.execute(eo);
         List value = (List) eo.get();
         Assertions.assertThat(value).isNotEmpty();
@@ -53,10 +53,10 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
                 "#{XlsxReadCall->AnObject.xlsx:test, xyz}.\n" +
                 "#{TemplateResourceCall->table.tpl, xyz}." +
                 "END");
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         String result = call.execute(eo);
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        XpectString.assertJunit(result);
+        XpectStringJunit4.assertStatic(result);
     }
 }

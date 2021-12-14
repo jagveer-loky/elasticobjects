@@ -18,7 +18,7 @@ public class PathPatternFilterTest {
 
     @Test
     public void filterListTest() {
-        
+
 
         List<String> filter = Arrays.asList(S_STRING, S_STRING_OTHER);
         PathPattern pathList = new PathPattern(filter);

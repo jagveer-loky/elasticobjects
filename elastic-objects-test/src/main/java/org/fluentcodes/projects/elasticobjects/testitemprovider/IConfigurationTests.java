@@ -2,24 +2,18 @@ package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.ConfigInterface;
-import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectStringJunit4;
 
 /**
  * Created by Werner on 17.11.2021.
  */
 public interface IConfigurationTests extends IModelConfigNoCreateTests {
-
-    void compareConfigurations();
-
     default void assertConfigBeanEqualsPersisted(final String configKey)  {
         ConfigConfig selectedConfig = (ConfigConfig) ProviderConfigMaps.
                 CONFIG_MAPS.
                 find((Class<? extends ConfigInterface>)getModelConfigClass(), configKey);
 
-        assertThat(selectedConfig.toString())
-                .isEqualTo(XpectEo.load(selectedConfig));
+        XpectStringJunit4.assertStatic(selectedConfig.toString());
     }
 
     default void assertLoadedConfigurationsEqualsPersisted()  {
@@ -27,7 +21,6 @@ public interface IConfigurationTests extends IModelConfigNoCreateTests {
                 CONFIG_MAPS.
                 toString((Class<? extends ConfigInterface>)getModelConfigClass());
 
-        assertThat(configurationsAsString)
-                .isEqualTo(configurationsAsString);
+        XpectStringJunit4.assertStatic(configurationsAsString);
     }
 }

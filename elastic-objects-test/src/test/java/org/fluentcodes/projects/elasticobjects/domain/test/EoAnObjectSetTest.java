@@ -1,7 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
 import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
@@ -56,13 +57,13 @@ public class EoAnObjectSetTest {
 
     @Test
     public void testMap_forWiki()  {
-        final EO eo = ProviderConfigMaps.createEo();
+        final EoRoot eo = ProviderConfigMaps.createEo();
 
         final Map map = new HashMap();
         map.put(AnObject.MY_STRING, "value");
         map.put(AnObject.MY_FLOAT, 1.1D);
 
-        final EO child = (EO)eo.set( map, "(" + AnObject.class.getSimpleName() + ")level0");
+        final IEOScalar child = eo.set( map, "(" + AnObject.class.getSimpleName() + ")level0");
         Assert.assertEquals(AnObject.class, child.getModelClass());
         assertEquals("value", child.get(AnObject.MY_STRING));
         assertEquals(1.1F, child.get(AnObject.MY_FLOAT));
@@ -118,12 +119,6 @@ public class EoAnObjectSetTest {
     }
 
     @Test
-    public void testAnObjectSmall()  {
-        AnObject bt = TestProviderAnObjectJson.SMALL.createBt();
-        Assertions.assertThat(bt.getMyString()).isEqualTo(S_STRING);
-    }
-
-    @Test
     public void assertAnObjectFieldTest()  {
         ModelConfigMethods model = ProviderConfigMaps.CONFIG_MAPS.findModel(AnObject.class);
 
@@ -158,7 +153,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void testAnObject_ok()  {
-        final EO root = ProviderConfigMaps.createEo();
+        final EoRoot root = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setMyString("testObject");
         root.set( anObject, "test","test2");
@@ -168,7 +163,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void givenEo_setAnObjectPathTestAndTestString_thenValueAndModelIsSet()  {
-        final EO root = ProviderConfigMaps.createEo();
+        final EoRoot root = ProviderConfigMaps.createEo();
         root.set("testObject", "(" + AnObject.class.getSimpleName() + ")test", AnObject.MY_STRING);
         Assert.assertEquals("testObject", root.get("test", AnObject.MY_STRING));
         Assert.assertEquals(AnObject.class, root.getEo("test").getModelClass());
@@ -176,7 +171,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void TEST_path_model_AnObject__set_myInt__class_is_AnObject()  {
-        final EO root = ProviderConfigMaps.createEo();
+        final EoRoot root = ProviderConfigMaps.createEo();
         root.set("testObject", "(" + AnObject.class.getSimpleName() + ")test", AnObject.MY_STRING);
         root.set(1, "test", AnObject.MY_INT);
         Assert.assertEquals(1, root.get("test", AnObject.MY_INT));
@@ -186,7 +181,7 @@ public class EoAnObjectSetTest {
     
     @Test
     public void givenBt_whenSetStringField_ok()  {
-        final EO eo = ProviderConfigMaps.createEo(new AnObject());
+        final EoRoot eo = ProviderConfigMaps.createEo(new AnObject());
         eo.set(S_STRING_OTHER, AnObject.MY_STRING);
         Assertions.assertThat(eo.getModelClass()).isEqualTo(AnObject.class);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -196,7 +191,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void TEST__setEmpty_key0_key1_key2_AnObject_key__getModelClass_key0_key1_key2_key3_AnObject()  {
-        final EO eo = ProviderConfigMaps.createEo();
+        final EoRoot eo = ProviderConfigMaps.createEo();
         eo.createChild("key0", "key1", "key2", "(" + AnObject.class.getSimpleName() + ")" + "key3");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo("key0", "key1", "key2", "key3").getModelClass()).isEqualTo(AnObject.class);

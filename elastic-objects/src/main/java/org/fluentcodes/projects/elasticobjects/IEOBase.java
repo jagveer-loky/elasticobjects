@@ -5,7 +5,7 @@ package org.fluentcodes.projects.elasticobjects;
  */
 
 public interface IEOBase {
-    EO getParent();
+    IEOObject getParent();
 
     default boolean hasParent() {
         return getParent() != null;
@@ -14,6 +14,8 @@ public interface IEOBase {
     default boolean isRoot() {
         return !hasParent();
     }
+
+    IEOScalar map(Object source);
 
     String getFieldKey();
 
@@ -31,7 +33,7 @@ public interface IEOBase {
 
     IEOScalar set(Object value, String... paths);
 
-    EO getRoot();
+    EoRoot getRoot();
 
     default void setCheckObjectReplication(boolean checkObjectReplication) {
         getRoot().setCheckObjectReplication(checkObjectReplication);

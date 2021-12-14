@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.Set;
@@ -12,30 +11,31 @@ public class ModelConfigObject extends ModelConfig {
     public ModelConfigObject(ConfigBean bean, final ConfigMaps configMaps) {
         this((ModelBean) bean, configMaps);
     }
+
     public ModelConfigObject(ModelBean bean, final ConfigMaps configMaps) {
         super(bean, configMaps);
     }
 
     public static String getter(final String field) {
-        return "get" + StringUpperFirstCharCall.upper(field);
+        return "get" + upper(field);
     }
 
     @Override
-    public ModelConfig getFieldModel(final String fieldName)  {
+    public ModelConfig getFieldModel(final String fieldName) {
         return getFieldModels(fieldName).getModel();
     }
 
-    public Models getFieldModels(final String fieldName)  {
+    public Models getFieldModels(final String fieldName) {
         return getField(fieldName).getModels();
     }
 
     @Override
-    public Set<String> keys(final Object object)  {
+    public Set<String> keys(final Object object) {
         return this.getFieldKeys();
     }
 
     @Override
-    public int size(final Object object)  {
+    public int size(final Object object) {
         int counter = 0;
         for (String key : this.getFieldKeys()) {
             if (get(key, object) == null) {
@@ -47,22 +47,21 @@ public class ModelConfigObject extends ModelConfig {
     }
 
     @Override
-    public boolean exists(final String fieldName, final Object parent)  {
+    public boolean exists(final String fieldName, final Object parent) {
         try {
             return get(fieldName, parent) != null;
-        }
-        catch (EoException e) {
+        } catch (EoException e) {
             return false;
         }
     }
 
     @Override
-    public void remove(final String fieldName, final Object object)  {
+    public void remove(final String fieldName, final Object object) {
         set(fieldName, object, null);
     }
 
     @Override
-    public Object create()  {
+    public Object create() {
         if (!isCreate()) {
             throw new EoException("ModelConfig has no create flag -> no empty instance will created for '" + getModelKey() + "'");
         }
@@ -70,7 +69,7 @@ public class ModelConfigObject extends ModelConfig {
             throw new EoException("A config has no empty constructor and can't initialized by eo " + getModelKey());
         }
         if (!hasDefaultImplementation()) {
-             try {
+            try {
                 return getModelClass().newInstance();
             } catch (Exception e) {
                 throw new EoException(e);
@@ -97,5 +96,15 @@ public class ModelConfigObject extends ModelConfig {
 
     public boolean isJsonIgnore(final String key) {
         return getField(key).isJsonIgnore();
+    }
+
+    public static String upper(String item) {
+        if (item == null) {
+            throw new EoException("String is null");
+        }
+        if (item.isEmpty()) {
+            return "";
+        }
+        return item.substring(0, 1).toUpperCase() + item.substring(1);
     }
 }

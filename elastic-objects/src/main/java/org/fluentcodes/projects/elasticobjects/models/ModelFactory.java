@@ -62,6 +62,9 @@ public abstract class ModelFactory extends ConfigFactory<ModelBean, ModelInterfa
             }
 
             }
+            catch (EoException e) {
+                throw e;
+            }
             catch (Exception e) {
                 throw new EoException(e);
             }

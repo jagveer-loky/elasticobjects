@@ -16,15 +16,15 @@ public class IEOLogTest {
 
     @Test
     public void ____getLogLevel_WARN() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
     }
 
     @Test
     public void ERROR__LogLevelIsPersist() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.setLogLevel(LogLevel.ERROR);
-        EO fromJson = ProviderConfigMapsDev.assertCompare(eo, "{\n" +
+        EoRoot fromJson = ProviderConfigMapsDev.assertCompare(eo, "{\n" +
                 "  \"(LogLevel)_logLevel\": \"ERROR\"\n" +
                 "}");
         Assertions.assertThat(fromJson.getLogLevel()).isEqualTo(LogLevel.ERROR);
@@ -32,7 +32,7 @@ public class IEOLogTest {
 
     @Test
     public void ERROR__error__logNotEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.setLogLevel(LogLevel.ERROR);
         eo.error("test");
         Assert.assertFalse(eo.getLog().isEmpty());
@@ -40,7 +40,7 @@ public class IEOLogTest {
 
     @Test
     public void ERROR__info__logEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.setLogLevel(LogLevel.ERROR);
         eo.info("test");
         Assert.assertTrue(eo.getLog().isEmpty());
@@ -48,7 +48,7 @@ public class IEOLogTest {
 
     @Test
     public void __error__errorLevel_ERROR() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.error(S_MESSAGE, new Exception(S_STRING));
         Assertions.assertThat(eo.getLog()).isNotEmpty();
         Assertions.assertThat(eo.getErrorLevel()).isEqualTo(LogLevel.ERROR);
@@ -56,14 +56,14 @@ public class IEOLogTest {
 
     @Test
     public void __error__log_isNotEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.error(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
     public void __warn_exception__log_isNotEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.warn(S_MESSAGE, new Exception(S_STRING));
         Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
@@ -71,28 +71,28 @@ public class IEOLogTest {
 
     @Test
     public void __warn__log_isNotEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.warn(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();
     }
 
     @Test
     public void __info__log_isEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
     public void __debug__log_isEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.debug(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
     @Test
     public void child__warn__log_isNotEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         IEOScalar eoChild = eo
                 .createChild(S_LEVEL0);
         Assertions.assertThat(eo.getLogLevel()).isEqualTo(LogLevel.WARN);
@@ -102,7 +102,7 @@ public class IEOLogTest {
 
     @Test
     public void child__info__log_isEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.createChild(S_LEVEL0);
         eo.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -110,8 +110,8 @@ public class IEOLogTest {
 
     @Test
     public void child_LogLevel_INFO__info__log_isNotEmpty() {
-        EO eo = ProviderConfigMapsDev.createEo();
-        EO child = (EO)eo.createChild(S_LEVEL0);
+        EoRoot eo = ProviderConfigMapsDev.createEo();
+        IEOScalar child = eo.createChild(S_LEVEL0);
         child.setLogLevel(LogLevel.INFO);
         child.info(S_MESSAGE);
         Assertions.assertThat(eo.getLog()).isNotEmpty();

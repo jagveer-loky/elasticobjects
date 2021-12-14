@@ -1,15 +1,4 @@
 {
-  "absolute": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "x",
-    "expose": "NONE",
-    "fieldKey": "absolute",
-    "properties": {
-      "property": true
-    }
-  },
   "abstract": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -31,42 +20,6 @@
     "fieldKey": "author",
     "length": 256
   },
-  "bean": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "For a bean constructor show which bean is the source for a configuration",
-    "expose": "NONE",
-    "fieldKey": "bean",
-    "length": 32,
-    "properties": {
-      "property": true
-    }
-  },
-  "cached": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true will cache the readed file within the cache object. ",
-    "expose": "NONE",
-    "fieldKey": "cached"
-  },
-  "colKeys": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "List,String",
-    "description": "The key list for mapping values in a value list. ",
-    "expose": "NONE",
-    "fieldKey": "colKeys"
-  },
-  "compare": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "Indicates a comparision before writing in @FileWriteCall",
-    "expose": "NONE",
-    "fieldKey": "compare"
-  },
   "condition": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -76,24 +29,6 @@
     "fieldKey": "condition",
     "length": 1000
   },
-  "configFilter": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Key for filter configuration",
-    "expose": "WEB",
-    "fieldKey": "configFilter",
-    "length": 64
-  },
-  "configKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Key for configuration @Config",
-    "expose": "WEB",
-    "fieldKey": "configKey",
-    "length": 64
-  },
   "configModelKey": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -102,33 +37,6 @@
     "expose": "NONE",
     "fieldKey": "configModelKey",
     "length": 80
-  },
-  "configType": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.",
-    "expose": "WEB",
-    "fieldKey": "configType",
-    "length": 64
-  },
-  "content": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A content for different calls. In a template context the content of the markup. ",
-    "expose": "WEB",
-    "fieldKey": "content",
-    "length": 10000
-  },
-  "create": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "If true will create a Java class.",
-    "expose": "NONE",
-    "fieldKey": "create",
-    "length": 256
   },
   "creationDate": {
     "module": "elastic-objects",
@@ -161,24 +69,6 @@
       "property": true
     }
   },
-  "defaultImplementation": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "defaultImplementation",
-    "expose": "NONE",
-    "fieldKey": "defaultImplementation",
-    "length": 80
-  },
-  "delete": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "String representation of RolePermission delete permissions",
-    "expose": "NONE",
-    "fieldKey": "delete",
-    "length": 256
-  },
   "description": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -196,32 +86,6 @@
     "expose": "WEB",
     "fieldKey": "duration"
   },
-  "endDirective": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A content inclueded after template.",
-    "expose": "WEB",
-    "fieldKey": "endDirective",
-    "length": 500
-  },
-  "entries": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "ArrayList",
-    "description": "entries",
-    "expose": "NONE",
-    "fieldKey": "entries"
-  },
-  "execute": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "String representation of RolePermission execute permissions",
-    "expose": "NONE",
-    "fieldKey": "execute",
-    "length": 256
-  },
   "expose": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -229,14 +93,6 @@
     "description": "expose",
     "expose": "WEB",
     "fieldKey": "expose"
-  },
-  "fieldBeans": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Map,FieldBean",
-    "description": "A fieldBean map with @ModelBean",
-    "expose": "NONE",
-    "fieldKey": "fieldBeans"
   },
   "fieldConfigMap": {
     "module": "elastic-objects",
@@ -246,18 +102,6 @@
     "expose": "NONE",
     "fieldKey": "fieldConfigMap"
   },
-  "fieldDelimiter": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A delimiter for fields used for csv files. ",
-    "expose": "NONE",
-    "fieldKey": "fieldDelimiter",
-    "length": 4,
-    "properties": {
-      "property": true
-    }
-  },
   "fieldKey": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -266,14 +110,6 @@
     "expose": "NONE",
     "fieldKey": "fieldKey",
     "length": 80
-  },
-  "fieldKeys": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "List,String",
-    "description": "A list of field keys for the model configuration. ",
-    "expose": "NONE",
-    "fieldKey": "fieldKeys"
   },
   "fieldName": {
     "module": "elastic-objects",
@@ -286,51 +122,6 @@
     "properties": {
       "property": true
     }
-  },
-  "fileConfigKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Defines the key for a file configuration @FileConfig where to read or write a file.",
-    "expose": "NONE",
-    "fieldKey": "fileConfigKey",
-    "length": 80
-  },
-  "fileEnding": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "It's used to specify the file ending in different context. ",
-    "expose": "NONE",
-    "fieldKey": "fileEnding",
-    "length": 16
-  },
-  "fileName": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
-    "expose": "NONE",
-    "fieldKey": "fileName",
-    "length": 80
-  },
-  "filePath": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ",
-    "expose": "NONE",
-    "fieldKey": "filePath",
-    "length": 512
-  },
-  "filter": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Filter for List entries.",
-    "expose": "WEB",
-    "fieldKey": "filter",
-    "length": 512
   },
   "final": {
     "module": "elastic-objects",
@@ -354,44 +145,6 @@
       "property": true
     }
   },
-  "hibernate": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "hibernate",
-    "expose": "NONE",
-    "fieldKey": "hibernate",
-    "length": 16
-  },
-  "hibernateAnnotations": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Boolean",
-    "description": "sets a Flag for using hibernate annotations when bean is created. ",
-    "expose": "NONE",
-    "fieldKey": "hibernateAnnotations"
-  },
-  "hostConfigKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A key for host objects.",
-    "expose": "NONE",
-    "fieldKey": "hostConfigKey",
-    "length": 80
-  },
-  "hostName": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A name for host objects.",
-    "expose": "NONE",
-    "fieldKey": "hostName",
-    "length": 80,
-    "properties": {
-      "property": true
-    }
-  },
   "id": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -404,32 +157,6 @@
       "notNull": true
     }
   },
-  "idKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The id key defined in modelsList",
-    "expose": "NONE",
-    "fieldKey": "idKey",
-    "length": 80
-  },
-  "indent": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Integer",
-    "description": "The number of indent for serialization level.",
-    "expose": "WEB",
-    "fieldKey": "indent"
-  },
-  "inputKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A key for a input view.",
-    "expose": "NONE",
-    "fieldKey": "inputKey",
-    "length": 80
-  },
   "interfaces": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -438,14 +165,6 @@
     "expose": "NONE",
     "fieldKey": "interfaces",
     "length": 256
-  },
-  "javaProperties": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Map",
-    "description": "A map of properties used in configs and calls.",
-    "expose": "NONE",
-    "fieldKey": "javaProperties"
   },
   "javascriptType": {
     "module": "elastic-objects",
@@ -459,24 +178,6 @@
       "transient": true,
       "final": true
     }
-  },
-  "join": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A reference key to a id field for joining.",
-    "expose": "NONE",
-    "fieldKey": "join",
-    "length": 80
-  },
-  "joinInverse": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A self reference key to a id field on a glue n-m table.",
-    "expose": "NONE",
-    "fieldKey": "joinInverse",
-    "length": 80
   },
   "jsonIgnore": {
     "module": "elastic-objects",
@@ -497,15 +198,6 @@
     "expose": "WEB",
     "fieldKey": "keepCall"
   },
-  "key": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A generic key.",
-    "expose": "WEB",
-    "fieldKey": "key",
-    "length": 80
-  },
   "length": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -514,23 +206,6 @@
     "expose": "WEB",
     "fieldKey": "length"
   },
-  "listParams": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "ListParams",
-    "description": "Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.",
-    "expose": "NONE",
-    "fieldKey": "listParams",
-    "length": 80
-  },
-  "localFieldKeys": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "ArrayList,String",
-    "description": "A list of field as proivided by the model configuration. ",
-    "expose": "WEB",
-    "fieldKey": "localFieldKeys"
-  },
   "logLevel": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -538,15 +213,6 @@
     "description": "logLevel",
     "expose": "WEB",
     "fieldKey": "logLevel"
-  },
-  "mapKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The field used as a key for joined maps. ",
-    "expose": "NONE",
-    "fieldKey": "mapKey",
-    "length": 80
   },
   "max": {
     "module": "elastic-objects",
@@ -569,15 +235,6 @@
     "properties": {
       "property": true
     }
-  },
-  "modelConfigKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The model name for the cache object @ModelConfig.",
-    "expose": "NONE",
-    "fieldKey": "modelConfigKey",
-    "length": 80
   },
   "modelKey": {
     "module": "elastic-objects",
@@ -613,14 +270,6 @@
     "expose": "WEB",
     "fieldKey": "models",
     "length": 512
-  },
-  "modificationDate": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Date",
-    "description": "Will be set whenever a bean derived from super class @BaseBean is instantiated. ",
-    "expose": "WEB",
-    "fieldKey": "modificationDate"
   },
   "module": {
     "module": "elastic-objects",
@@ -662,14 +311,6 @@
       "notNull": true
     }
   },
-  "naturalKeys": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "ArrayList,String",
-    "description": "naturalKeys",
-    "expose": "NONE",
-    "fieldKey": "naturalKeys"
-  },
   "notNull": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -703,15 +344,6 @@
       "property": true
     }
   },
-  "packageGroup": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Defines to which group a model belong e.g. asset/cache/action",
-    "expose": "NONE",
-    "fieldKey": "packageGroup",
-    "length": 12
-  },
   "packagePath": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -720,38 +352,6 @@
     "expose": "NONE",
     "fieldKey": "packagePath",
     "length": 124
-  },
-  "password": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The password instance var.",
-    "expose": "NONE",
-    "fieldKey": "password",
-    "length": 15,
-    "properties": {
-      "property": true
-    }
-  },
-  "Permissions.create": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "String representation of RolePermission create permissions",
-    "expose": "NONE",
-    "fieldKey": "create",
-    "length": 256
-  },
-  "port": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Integer",
-    "description": "port",
-    "expose": "NONE",
-    "fieldKey": "port",
-    "properties": {
-      "property": true
-    }
   },
   "postpend": {
     "module": "elastic-objects",
@@ -790,89 +390,6 @@
       "property": true
     }
   },
-  "protocol": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "protocol",
-    "expose": "NONE",
-    "fieldKey": "protocol",
-    "length": 8,
-    "properties": {
-      "property": true
-    }
-  },
-  "read": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "String representation of RolePermission read permissions",
-    "expose": "NONE",
-    "fieldKey": "read",
-    "length": 256
-  },
-  "replaceBy": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "replaceBy",
-    "expose": "WEB",
-    "fieldKey": "replaceBy",
-    "length": 5
-  },
-  "rolePermissions": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "PermissionRole",
-    "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
-    "expose": "NONE",
-    "fieldKey": "rolePermissions"
-  },
-  "rowDelimiter": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A delimiter for rows used for csv files.",
-    "expose": "NONE",
-    "fieldKey": "rowDelimiter",
-    "length": 4,
-    "properties": {
-      "property": true
-    }
-  },
-  "rowEnd": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Integer",
-    "description": "rowEnd",
-    "expose": "WEB",
-    "fieldKey": "rowEnd",
-    "properties": {
-      "property": false
-    }
-  },
-  "rowHead": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Integer",
-    "description": "rowHead",
-    "expose": "WEB",
-    "fieldKey": "rowHead",
-    "properties": {
-      "property": false
-    }
-  },
-  "rowStart": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Integer",
-    "description": "rowStart",
-    "expose": "WEB",
-    "fieldKey": "rowStart",
-    "properties": {
-      "property": false
-    }
-  },
   "scope": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -880,14 +397,6 @@
     "description": "A scope for the cache value.",
     "expose": "WEB",
     "fieldKey": "scope"
-  },
-  "serializationType": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "JSONSerializationType",
-    "description": "The types of Serialization. ",
-    "expose": "WEB",
-    "fieldKey": "serializationType"
   },
   "serialized": {
     "module": "elastic-objects",
@@ -909,23 +418,6 @@
       "property": true
     }
   },
-  "sortOrder": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "SortOrder",
-    "description": "A field with a SortOrder enum",
-    "expose": "NONE",
-    "fieldKey": "sortOrder"
-  },
-  "sourceFileConfigKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "Defines the key for a file configuration @FileConfig where to read a file.",
-    "expose": "NONE",
-    "fieldKey": "sourceFileConfigKey",
-    "length": 80
-  },
   "sourcePath": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -943,15 +435,6 @@
     "expose": "WEB",
     "fieldKey": "startCondition",
     "length": 1000
-  },
-  "startDirective": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A content included before template.",
-    "expose": "WEB",
-    "fieldKey": "startDirective",
-    "length": 500
   },
   "staticName": {
     "module": "elastic-objects",
@@ -984,42 +467,6 @@
     "fieldKey": "superKey",
     "length": 256
   },
-  "table": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The name of the persistence entity.",
-    "expose": "NONE",
-    "fieldKey": "table",
-    "length": 80
-  },
-  "targetConfigKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
-    "expose": "WEB",
-    "fieldKey": "targetConfigKey",
-    "length": 80
-  },
-  "targetFile": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The naturalId of a FileConfig entry with an embedded FileWriteCall. ",
-    "expose": "WEB",
-    "fieldKey": "targetFile",
-    "length": 80
-  },
-  "targetFileConfigKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A target for persisting template results in TemplateResourceStoreCall. ",
-    "expose": "WEB",
-    "fieldKey": "targetFileConfigKey",
-    "length": 80
-  },
   "targetPath": {
     "module": "elastic-objects",
     "moduleScope": "main",
@@ -1028,33 +475,6 @@
     "expose": "WEB",
     "fieldKey": "targetPath",
     "length": 80
-  },
-  "template": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "template",
-    "expose": "WEB",
-    "fieldKey": "template",
-    "length": 80
-  },
-  "templateFileConfigKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "The field name for a \"naturalId\" in \"FileConfig\" whenever a file resource is used for a template processing. ",
-    "expose": "WEB",
-    "fieldKey": "templateFileConfigKey",
-    "length": 80
-  },
-  "toReplace": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "toReplace",
-    "expose": "WEB",
-    "fieldKey": "toReplace",
-    "length": 5
   },
   "transient": {
     "module": "elastic-objects",
@@ -1078,69 +498,5 @@
     "properties": {
       "property": true
     }
-  },
-  "upper.ID": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Long",
-    "description": "Alias for id with uppercase.",
-    "expose": "NONE",
-    "fieldKey": "ID",
-    "properties": {
-      "fieldName": "ID",
-      "unique": true,
-      "notNull": true
-    }
-  },
-  "url": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "url",
-    "expose": "NONE",
-    "fieldKey": "url",
-    "length": 80,
-    "properties": {
-      "property": true
-    }
-  },
-  "user": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "user",
-    "expose": "NONE",
-    "fieldKey": "user",
-    "length": 50,
-    "properties": {
-      "property": true
-    }
-  },
-  "value": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "value",
-    "expose": "WEB",
-    "fieldKey": "value",
-    "length": 20000
-  },
-  "viewKey": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "A key for a view.",
-    "expose": "NONE",
-    "fieldKey": "viewKey",
-    "length": 80
-  },
-  "write": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "String",
-    "description": "String representation of RolePermission write permissions",
-    "expose": "NONE",
-    "fieldKey": "write",
-    "length": 256
   }
 }

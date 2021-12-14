@@ -1,19 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
 import org.fluentcodes.projects.elasticobjects.PathElement;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,7 +68,7 @@ public class ExecutorCall {
         return templateResult.toString();
     }
 
-    public static String executeEo(final EO eo) {
+    public static String executeEo(final IEOObject eo) {
         if (eo == null) {
             throw new EoInternalException("Null adapter!");
         }
@@ -86,7 +81,7 @@ public class ExecutorCall {
         int counter = 0;
         for (String key : keys) {
             long startTime = System.currentTimeMillis();
-            EO callEo = eo.getCallEo(key);
+            IEOObject callEo = eo.getCallEo(key);
             if (callEo == null) {
                 continue;
             }
@@ -120,16 +115,17 @@ public class ExecutorCall {
             result.put(eo, targetPath);
             return result;
         }
-        String source = new Parser(TemplateMarker.SQUARE, call.getSourcePath()).parse(eo);
+        String source = call.getSourcePath();
+        /*String source = new Parser(TemplateMarker.SQUARE, call.getSourcePath()).parse(eo);*/
         if (!(source.contains(MATCHER) || source.contains(MATCHER_ALL))) {
 
             IEOScalar sourceEo = eo.getEo(source);
             if (targetPath == null) {
                 targetPath = sourceEo.getPathAsString();
             }
-            if (!((CallImpl) call).evalStartCondition(sourceEo)) {
+            /*if (!((CallImpl) call).evalStartCondition(sourceEo)) {
                 return result;
-            }
+            }*/
             result.put(eo.getEo(call.getSourcePath()), targetPath);
             return result;
         }

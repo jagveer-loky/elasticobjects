@@ -9,7 +9,7 @@ import java.util.Set;
  */
 
 public interface IEOCall extends IEOBase {
-    default EO addCall(Call call) {
+    default IEOObject addCall(Call call) {
         return getRoot().addCall(call);
     }
 
@@ -17,11 +17,11 @@ public interface IEOCall extends IEOBase {
         return getRoot().getCallKeys();
     }
 
-    default EO getCallEo(String key) {
+    default EoChild getCallEo(String key) {
         return getRoot().getCallEo(key);
     }
 
-    default EO getCallsEo() {
+    default EoChild getCallsEo() {
         return getRoot().getCallsEo();
     }
 

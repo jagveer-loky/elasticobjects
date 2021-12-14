@@ -71,46 +71,6 @@ public class ScalarConverter {
         }
     }
 
-    public static Object transformToJSON(Object source) {
-        if (source == null) {
-            return null;
-        }
-        if ((source instanceof String) || (source instanceof Boolean)) {
-            return source;
-        }
-        if (source instanceof byte[]) {
-            //TODO
-            //return toJSONArray(source);
-        }
-        if ((source instanceof Number)) {
-            String serialized = source.toString();
-            if (serialized.endsWith(".0")) {
-                serialized = serialized.replaceAll(".0", "");
-                if (((Number) source).longValue() > Integer.MAX_VALUE) {
-                    return new Long(serialized);
-                }
-                return new Integer(serialized);
-            }
-            if (serialized.contains(".")) {
-                return new Double(serialized);
-            }
-            if (((Number) source).longValue() > Integer.MAX_VALUE) {
-                return new Long(serialized);
-            }
-            return new Integer(serialized);
-        }
-        if ((source instanceof Class)) {
-            return ((Class) source).getName();
-        }
-        if ((source instanceof StringBuffer)) {
-            return source.toString();
-        }
-        if ((source instanceof Date)) {
-            return source.toString();
-        }
-        return source.toString();
-    }
-
     /**
      * Helper to createHost a source value to a certain clazz in a default way.
      *
@@ -205,20 +165,6 @@ public class ScalarConverter {
         return transformScalar(mapClass, source);
     }
 
-    public static List toJSONArray(Object source) {
-        if (source == null) {
-            return null;
-        }
-        List result = new ArrayList();
-        if (!(source instanceof byte[])) {
-            result.add(source);
-            return result;
-        }
-        for (byte b : (byte[]) source) {
-            result.add(b);
-        }
-        return result;
-    }
 
     public static byte[] getBinaryValue(Object source) {
         if (source == null) {

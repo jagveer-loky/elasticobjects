@@ -1,14 +1,13 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
 import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectStringJunit4;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,19 +23,19 @@ public class AnObjectTest implements IModelConfigCreateTests {
 
     @Override
     @Test
-    public void create_noEoException()  {
+    public void create_noEoException() {
         assertCreateNoException();
     }
 
     @Override
     @Test
-    public void compareModelConfig()  {
+    public void compareModelConfig() {
         assertModelConfigEqualsPersisted();
     }
 
     @Override
     @Test
-    public void compareBeanFromModelConfig()  {
+    public void compareBeanFromModelConfig() {
         assertBeanFromModelConfigEqualsPersisted();
     }
 
@@ -55,28 +54,28 @@ public class AnObjectTest implements IModelConfigCreateTests {
     @Test
     public void myString__toString__equalsPersisted() {
         FieldBeanInterface field = ProviderConfigMaps.findModel(AnObject.class).getField("myString");
-        Assert.assertEquals(XpectEo.load((ConfigConfig)field), field.toString());
+        XpectStringJunit4.assertStatic(field.toString());
     }
 
     @Test
-    public void TEST__setNaturalIdTest__getNaturalIdTest()  {
+    public void TEST__setNaturalIdTest__getNaturalIdTest() {
         ModelConfig config = ProviderConfigMaps.CONFIG_MAPS
                 .findModel(AnObject.class);
         Object object = config.create();
         Assertions.assertThat(object).isNotNull();
         config.set(NATURAL_ID, object, "test");
-        Assertions.assertThat(((AnObject)object).getNaturalId()).isEqualTo("test");
+        Assertions.assertThat(((AnObject) object).getNaturalId()).isEqualTo("test");
         Assertions.assertThat(config.get(NATURAL_ID, object)).isEqualTo("test");
     }
 
     @Test
-    public void TEST__setMyStringTest__getMyStringTest()  {
+    public void TEST__setMyStringTest__getMyStringTest() {
         ModelConfig config = ProviderConfigMaps.CONFIG_MAPS
                 .findModel(AnObject.class);
         Object object = config.create();
         Assertions.assertThat(object).isNotNull();
         config.set(MY_STRING, object, "test");
-        Assertions.assertThat(((AnObject)object).getMyString()).isEqualTo("test");
+        Assertions.assertThat(((AnObject) object).getMyString()).isEqualTo("test");
         Assertions.assertThat(config.get(MY_STRING, object)).isEqualTo("test");
     }
 }

@@ -15,19 +15,22 @@ public class PathCreateChildPathTest {
     public void given3Elements_then2Elements() {
         Path path = new Path(S_LEVEL0, S_LEVEL1, S_LEVEL2);
         Path childPath = path.createChildPath();
-        Assertions.assertThat(childPath.directory()).isEqualTo(Path.ofs(S_LEVEL1, S_LEVEL2)) ;
+        Assertions.assertThat(childPath.directory()).isEqualTo(Path.ofs(S_LEVEL1, S_LEVEL2));
     }
+
     @Test
     public void given1Element_then0Elements() {
         Path path = new Path(S_LEVEL0);
         Path childPath = path.createChildPath();
-        Assertions.assertThat(childPath.directory()).isEmpty(); ;
+        Assertions.assertThat(childPath.directory()).isEmpty();
+        ;
     }
+
     @Test
     public void given1ElementAbsolute_then0Elements() {
         Path path = new Path(Path.DELIMITER, S_LEVEL0);
         Path childPath = path.createChildPath();
-        Assertions.assertThat(childPath.directory()).isEqualTo(Path.DELIMITER) ;
+        Assertions.assertThat(childPath.directory()).isEqualTo(Path.DELIMITER);
     }
 
 }

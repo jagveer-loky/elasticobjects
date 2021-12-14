@@ -56,25 +56,8 @@ public class JsonToEoTest {
 
     @Test
     public void key_valuenewLine____get_valueNewLine() {
-        EO eoWithNewLine = ProviderConfigMapsDev.createEo("{\"key\":\"value\\n\"}");
+        EoRoot eoWithNewLine = ProviderConfigMapsDev.createEo("{\"key\":\"value\\n\"}");
         Assert.assertEquals("value\n", eoWithNewLine.get("key"));
-    }
-
-    @Test
-    public void testArray() {
-        String test = "[\"a\"]";
-        JSONToEO tokener = new JSONToEO(test, ProviderConfigMaps.CONFIG_MAPS);
-        EO adapter = tokener.createChild(ProviderConfigMaps.createEo());
-        Assert.assertEquals("a", adapter.get(S0));
-    }
-
-
-    @Test
-    public void testNewLineEscapedArray() {
-        String test = "[\"\\n\"]";
-        JSONToEO tokener = new JSONToEO(test, ProviderConfigMaps.CONFIG_MAPS);
-        EO adapter = tokener.createChild(ProviderConfigMaps.createEo());
-        Assert.assertEquals("\n", adapter.get(S0));
     }
 
     @Test
@@ -87,8 +70,8 @@ public class JsonToEoTest {
 
     @Test
     public void testCombinationsOfEscapes() {
-        EO adapter = ProviderConfigMaps.createEo("[\"\\t\\r\"]");
-        Assert.assertEquals("\t\r", adapter.get(S0));
+        EoRoot root = ProviderConfigMaps.createEo("[\"\\t\\r\"]");
+        Assert.assertEquals("\t\r", root.get(S0));
     }
 
     @Test

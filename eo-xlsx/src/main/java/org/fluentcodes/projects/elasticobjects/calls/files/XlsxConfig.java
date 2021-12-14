@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
@@ -150,7 +150,7 @@ public class XlsxConfig extends FileConfig implements XlsxInterface {
         }
     }
 
-    public void write(final EO eo, List rows) {
+    public void write(final IEOObject eo, List rows) {
         Workbook wb = null;
         Sheet sheet = null;
         try {
@@ -195,7 +195,7 @@ public class XlsxConfig extends FileConfig implements XlsxInterface {
         }
     }
 
-    public void writeWorkbook(final EO eo, Workbook wb) {
+    public void writeWorkbook(final IEOObject eo, Workbook wb) {
         URL url = findUrl(eo, getHostConfigKey());
         //URLConnection connection = url.openConnection();
 

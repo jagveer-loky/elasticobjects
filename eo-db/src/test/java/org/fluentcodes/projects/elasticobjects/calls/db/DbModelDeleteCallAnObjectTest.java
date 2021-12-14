@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
@@ -16,7 +16,7 @@ import static org.fluentcodes.projects.elasticobjects.calls.DbConfig.H2_BASIC;
 public class DbModelDeleteCallAnObjectTest {
     @Before
     public void init() {
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         Call call = new DbSqlExecuteCall(H2_BASIC, "h2:mem:basic:Create");
         call.execute(eo);
     }
@@ -26,7 +26,7 @@ public class DbModelDeleteCallAnObjectTest {
         DbModelDeleteCall call = new DbModelDeleteCall();
         call.setTargetPath("/result");
         Assertions.assertThat(call).isNotNull();
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         AnObject anObject = new AnObject();
         anObject.setId(3L);
         IEOScalar child = eo.set(anObject, "test");
@@ -41,7 +41,7 @@ public class DbModelDeleteCallAnObjectTest {
         AnObject anObject = new AnObject();
         anObject.setId(3L);
 
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         eo.set(anObject, "test");
         eo.setRoles("guest");
 

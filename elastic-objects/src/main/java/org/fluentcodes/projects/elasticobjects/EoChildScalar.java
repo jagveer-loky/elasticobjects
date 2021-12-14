@@ -1,12 +1,15 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
+import java.io.StringWriter;
+
 public class EoChildScalar implements IEOScalar {
-    private final EO parentEo;
+    private final IEOObject parentEo;
     private final String fieldKey;
     private Models fieldModels;
     private boolean changed = false;
@@ -17,8 +20,11 @@ public class EoChildScalar implements IEOScalar {
         this.fieldModels = models;
     }
 
-    public EoChildScalar(final EO parentEo, final String fieldKey, final Object value, final Models fieldModels) {
-        if (parentEo != null && (fieldKey == null || fieldKey.isEmpty())) {
+    public EoChildScalar(final IEOObject parentEo, final String fieldKey, final Object value, final Models fieldModels) {
+        if (parentEo == null) {
+            throw new EoInternalException("Null parent for " + fieldKey);
+        }
+        if (fieldKey == null || fieldKey.isEmpty()) {
             throw new EoException("Could not create parent EO without a fieldKey for '" + fieldModels.toString() + "'");
         }
         this.parentEo = parentEo;
@@ -49,7 +55,7 @@ public class EoChildScalar implements IEOScalar {
             }
             this.changed = true;
         }
-        getParentEo().set(getFieldKey(), value);
+        getParentEo().setValueByModel(getFieldKey(), value);
     }
 
     @Override
@@ -62,7 +68,7 @@ public class EoChildScalar implements IEOScalar {
     }
 
     @Override
-    public EO getParent() {
+    public IEOObject getParent() {
         return parentEo;
     }
 
@@ -144,11 +150,12 @@ public class EoChildScalar implements IEOScalar {
         return "(" + getModels().toString() + ") " + getPathAsString() + " -> " + get().toString() + "";
     }
 
-    public IEOScalar mapObject(Object value) {
+    @Override
+    public IEOScalar map(Object value) {
         if (value == null) {
             return this;
         }
-        ((EoChild) getParent()).set(getFieldKey(), ScalarConverter.transform(getModels().getModelClass(), value));
+        ((EoChild) getParent()).setValueByModel(getFieldKey(), ScalarConverter.transform(getModels().getModelClass(), value));
         return this;
     }
 
@@ -159,7 +166,7 @@ public class EoChildScalar implements IEOScalar {
         return diff.toString();
     }
 
-    protected void compare(final StringBuilder builder, final IEOScalar other) {
+    void compare(final StringBuilder builder, final IEOScalar other) {
         if (other.isScalar()) {
             if (!ScalarComparator.compare(this.get(), other.get())) {
                 builder.append(getPathAsString() + ": " + this.get() + " <> " + other.get());
@@ -167,6 +174,23 @@ public class EoChildScalar implements IEOScalar {
         } else {
             builder.append(getPathAsString() + ": other is not scalar but '" + other.getModelClass().getSimpleName());
         }
+    }
+
+    void writeAsString(StringWriter writer, JSONSerializationType jsonSerializationType) {
+        writeName(writer, jsonSerializationType);
+        writer.append(getModels().asJson(get()));
+    }
+
+    void writeName(StringWriter stringWriter, JSONSerializationType serializationType) {
+        if (serializationType != JSONSerializationType.EO && getParent().isList()) {
+            return;
+        }
+        stringWriter.append("\"");
+        if (serializationType == JSONSerializationType.EO) {
+            stringWriter.append(getModels().createDirective());
+        }
+        stringWriter.append(getFieldKey());
+        stringWriter.append("\": ");
     }
 
 }

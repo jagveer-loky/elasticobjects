@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.domain.test;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class EoMapSetAnObjectTest {
      */
     @Test
     public void givenTest_whenSetAnObjectWithTestStringOnExistingModelMap_thenModelIsMap()  {
-        final EO eo = ProviderConfigMaps.createEo();
+        final EoRoot eo = ProviderConfigMaps.createEo();
         AnObject bt = new AnObject()
                 .setMyString("value");
         eo.set(bt, "level0");
@@ -27,7 +27,7 @@ public class EoMapSetAnObjectTest {
 
     @Test
     public void givenTest_whenSetAnObjectOnExistingModelMap_thenModelIsMap()  {
-        final EO eo = ProviderConfigMaps.createEo();
+        final EoRoot eo = ProviderConfigMaps.createEo();
         eo.createChild(S_LEVEL0);
         eo.set(new AnObject(), S_LEVEL0);
         assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);

@@ -2,7 +2,6 @@ package org.fluentcodes.projects.elasticobjects.web;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoChild;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
@@ -78,9 +77,9 @@ public class WebEo {
         final LogLevel logLevel = getLevel(logLevelAsString);
 
         try {
-            final EO eo = EoRoot.of(this.configsCache);
+            final EoRoot eo = EoRoot.of(this.configsCache);
             eo.setLogLevel(logLevel);
-            eo.mapObject(eoAsString);
+            eo.map(eoAsString);
 
             eo.setRoles(Arrays.asList(roles));
             try {
@@ -123,7 +122,7 @@ public class WebEo {
         final LogLevel logLevel = getLevel(logLevelAsString);
 
         try {
-            final EO eo = EoRoot.of(this.configsCache);
+            final EoRoot eo = EoRoot.of(this.configsCache);
             eo.setLogLevel(logLevel);
 
             eo.setRoles(Arrays.asList(roles));

@@ -6,12 +6,13 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo-root</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.0</version>
+    <version>0.9.1-SNAPSHOT</version>
     <name>EO - Elastic Objects Root</name>
 
     <modules>
         <module>elastic-objects</module>
         <module>elastic-objects-test</module>
+        <module>eo-calls</module>
         <module>eo-csv</module>
         <module>eo-xlsx</module>
         <module>eo-db</module>

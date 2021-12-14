@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
@@ -94,9 +93,9 @@ public class ConfigConfig extends BaseConfig implements ConfigInterface {
 
   @Override
   public String toString() {
-    EO cloneMap = EoRoot.ofClass(getConfigMaps(), Map.class);
+    EoRoot cloneMap = EoRoot.ofClass(getConfigMaps(), Map.class);
     cloneMap.setSerializationType(JSONSerializationType.STANDARD);
-    cloneMap.mapObject(this);
+    cloneMap.map(this);
     return new EOToJSON().toJson(cloneMap);
   }
 }

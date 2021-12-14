@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.calls.values.StringUpperFirstCharCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.lang.reflect.InvocationTargetException;
@@ -101,7 +100,7 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
 
     private Method getGetMethod(final ModelConfig model, final String fieldKey) {
         try {
-            return model.getModelClass().getMethod(StringUpperFirstCharCall.getter(fieldKey), null);
+            return model.getModelClass().getMethod("get" + ModelConfigObject.upper(fieldKey), null);
         } catch (NoSuchMethodException e) {
             throw new EoException("\nCould not find getter method for '" + fieldKey + AND_MODEL + parentModel.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
         }
@@ -109,7 +108,7 @@ public class FieldConfig extends ConfigConfig implements FieldConfigInterface {
 
     private Method getSetMethod(final ModelConfig model, final String fieldKey) {
         try {
-            return model.getModelClass().getMethod(StringUpperFirstCharCall.setter(fieldKey), models.getModelClass());
+            return model.getModelClass().getMethod("set" + ModelConfigObject.upper(fieldKey), models.getModelClass());
         } catch (NoSuchMethodException e) {
             throw new EoException("\nCould not find setter method for '" + fieldKey + AND_MODEL + parentModel.getNaturalId() + "' with input type '" + models.getModelClass().getSimpleName() + "': " + e.getMessage());
         }

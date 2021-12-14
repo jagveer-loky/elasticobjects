@@ -10,9 +10,12 @@ public enum ShapeTypes {
     INTERFACE(),
     OBJECT(),
     SCALAR_SERIALIZED(ModelConfigScalar.class),
-    SCALAR(ModelConfigScalar.class),
-    NUMBER(ModelConfigScalar.class),
-    ENUM(ModelConfigScalar.class),
+    SCALAR(ModelConfigScalar.class, new ShapeTypeSerializerString()),
+    STRING(ModelConfigScalar.class, new ShapeTypeSerializerString()),
+    NUMBER(ModelConfigScalar.class, new ShapeTypeSerializerNumber()),
+    DATE(ModelConfigScalar.class, new ShapeTypeSerializerDate()),
+    BOOLEAN(ModelConfigScalar.class, new ShapeTypeSerializerBoolean()),
+    ENUM(ModelConfigScalar.class, new ShapeTypeSerializerEnum()),
     NULL(ModelConfigScalar.class),
     NONE(ModelConfigScalar.class),
     BEAN(),
@@ -20,12 +23,17 @@ public enum ShapeTypes {
     MODEL(),
     INSTANCE(),
     CONFIG();
-    private Class modelConfig;
+    private Class<? extends ModelConfig> modelConfig;
+    private ShapeTypeSerializerInterface serializer;
     ShapeTypes() {
-        this.modelConfig = ModelConfigObject.class;
+        this(ModelConfigObject.class, new ShapeTypeSerializer());
     }
-    ShapeTypes(Class modelConfig) {
+    ShapeTypes(Class<? extends ModelConfig> modelConfig) {
+        this(modelConfig, new ShapeTypeSerializer());
+    }
+    ShapeTypes(Class<? extends ModelConfig> modelConfig, ShapeTypeSerializerInterface serializer) {
         this.modelConfig = modelConfig;
+        this.serializer = serializer;
     }
 
     public Class getModelConfig() {
@@ -37,5 +45,12 @@ public enum ShapeTypes {
     }
     public String getModelConfigKey() {
         return modelConfig.getSimpleName();
+    }
+
+    public String asString(Object object) {
+        return serializer.asString(object);
+    }
+    public String asJson(Object object) {
+        return serializer.asJson(object);
     }
 }

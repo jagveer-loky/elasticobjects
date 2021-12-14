@@ -1,7 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.EO;
-import org.fluentcodes.projects.elasticobjects.calls.JavascriptFieldTypeCall;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -437,11 +435,6 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
     }
 
 
-    /*.{}.*/
-    private Models getModels(EO eo) {
-        return new Models(eo.getConfigMaps(), getModelKeys());
-    }
-
     private Object getFieldValue(final String key) {
         return getProperties().get(key);
     }
@@ -458,11 +451,6 @@ public class FieldBean extends ConfigBean implements FieldBeanInterface {
             return;
         }
         getProperties().put(F_MAX, -1);
-    }
-
-
-    public void setJavascriptType() {
-        getProperties().put(F_JAVASCRIPT_TYPE, JavascriptFieldTypeCall.createType(getModelKeys()));
     }
 
 }

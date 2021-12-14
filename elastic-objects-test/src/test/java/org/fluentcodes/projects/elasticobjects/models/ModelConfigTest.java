@@ -26,7 +26,7 @@ public class ModelConfigTest implements IConfigurationTests {
 
     @Override
     @Test
-    public void create_throwsEoException() {
+    public void createThrowsEoException() {
         assertCreateThrowingException();
     }
 
@@ -41,13 +41,6 @@ public class ModelConfigTest implements IConfigurationTests {
     public void compareBeanFromModelConfig() {
         assertBeanFromModelConfigEqualsPersisted();
     }
-
-    @Override
-    @Test
-    public void compareConfigurations() {
-        assertLoadedConfigurationsEqualsPersisted();
-    }
-
 
     @Test
     public void scopeTest__findModel_Unknown__exception() {

@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
@@ -37,9 +36,9 @@ public class ProviderConfigMaps {
 
     public static final Map findModelMap(final Class eoClass) {
         ModelConfig config = CONFIG_MAPS.findModel(eoClass);
-        EO eo = EoRoot.ofClass(CONFIG_MAPS, Map.class);
+        EoRoot eo = EoRoot.ofClass(CONFIG_MAPS, Map.class);
         eo.setSerializationType(JSONSerializationType.STANDARD);
-        eo.mapObject(config);
+        eo.map(config);
         return (Map) eo.get();
     }
 

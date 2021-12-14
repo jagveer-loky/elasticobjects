@@ -4,13 +4,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
-import org.fluentcodes.projects.elasticobjects.domain.test.TestProviderAnObjectJson;
+import org.fluentcodes.projects.elasticobjects.domain.test.AnObjectFromJsonTest;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.tools.io.IOGson;
-import org.fluentcodes.tools.io.IOJackson;
 import org.fluentcodes.tools.io.IOString;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -22,6 +21,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.fluentcodes.projects.elasticobjects.domain.test.AnObjectFromJsonTest.createAnObjectEo;
+
 public class EOPerformanceTest {
     private static final int maxRoot = 10000;
     private static final ObjectMapper JACKSON_MAPPER = new ObjectMapper();
@@ -30,12 +31,13 @@ public class EOPerformanceTest {
     private static final String MAP_JSON = createExampleMapString(50);
     private static final List LIST = createExampleList(50);
     private static final String LIST_JSON = createExampleListString(50);
-    private static final AnObject EMPTY = TestProviderAnObjectJson.EMPTY.createBt();
-    private static final String EMPTY_JSON = TestProviderAnObjectJson.EMPTY.content();
-    private static final AnObject SMALL = TestProviderAnObjectJson.SMALL.createBt();
-    private static final String SMALL_JSON = TestProviderAnObjectJson.SMALL.content();
-    private static final AnObject ALL = TestProviderAnObjectJson.ALL.createBt();
-    private static final String ALL_JSON = TestProviderAnObjectJson.ALL.content();
+    private static final String EMPTY_JSON = "{}";
+    private static final AnObject EMPTY = new AnObject();
+    private static final String SMALL_JSON = "{\"myString\": \"test\", \"myInt\": 1}";
+    private static final AnObject SMALL = (AnObject) createAnObjectEo(SMALL_JSON).get();
+    private static final String ALL_JSON = AnObjectFromJsonTest.ALL;
+    private static final AnObject ALL = (AnObject) createAnObjectEo(ALL_JSON).get();
+
 
     @Ignore("Only manual start")
     @Test
@@ -55,11 +57,11 @@ public class EOPerformanceTest {
 
     private String runPerformanceStep(String head, String json, Object object, final Class mappingClass) throws Exception {
         StringBuilder result = new StringBuilder("\n** ");
+        System.out.println(head);
         result.append(head);
         result.append(" **\n");
         result.append("--> toJson\n");
-        result.append(serializeWithEo(object));
-        EO eo = ProviderConfigMaps.createEo(object);
+        EoRoot eo = ProviderConfigMaps.createEo(object);
         result.append(serializeWithEoAndEoObject(eo));
         result.append(serializeWithJackson(object));
         result.append(serializeWithGson(object));
@@ -114,7 +116,7 @@ public class EOPerformanceTest {
     private String createWithEo(Object object) {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
-            EO eo = ProviderConfigMaps.createEo(object);
+            EoRoot eo = ProviderConfigMaps.createEo(object);
         }
         long duration = System.currentTimeMillis() - start;
         String result = "EO     : " + duration + " ms\n";
@@ -122,19 +124,7 @@ public class EOPerformanceTest {
         return result;
     }
 
-    private String serializeWithEo(Object object) {
-        long start = System.currentTimeMillis();
-        for (long i = 0; i < maxRoot; i++) {
-            EO eo = ProviderConfigMaps.createEo(object);
-            String json = new EOToJSON().toJson(eo);
-        }
-        long duration = System.currentTimeMillis() - start;
-        String result = "EO     : " + duration + " ms\n";
-        System.out.print(result);
-        return result;
-    }
-
-    private String serializeWithEoAndEoObject(EO eo) {
+    private String serializeWithEoAndEoObject(EoRoot eo) {
         long start = System.currentTimeMillis();
         for (long i = 0; i < maxRoot; i++) {
             String json = new EOToJSON().toJson(eo);
@@ -143,15 +133,6 @@ public class EOPerformanceTest {
         String result = "EO dir. : " + duration + " ms\n";
         System.out.print(result);
         return result;
-    }
-
-    private long createIOJsonJackson(String json) {
-        long start = System.currentTimeMillis();
-        for (long i = 0; i < maxRoot; i++) {
-            AnObject anObject = (AnObject) new IOJackson<AnObject>("", AnObject.class)
-                    .asObject(json);
-        }
-        return System.currentTimeMillis() - start;
     }
 
     private String createWithJackson(String json, Class mappingClass) throws JsonProcessingException {

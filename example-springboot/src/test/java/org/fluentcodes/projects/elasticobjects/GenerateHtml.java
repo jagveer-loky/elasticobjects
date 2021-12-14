@@ -11,7 +11,7 @@ public class GenerateHtml {
 
     @Test
     public void createIntro() {
-        EO eo = READ_XLSX(XLSX_FILE);
+        EoRoot eo = READ_XLSX(XLSX_FILE);
         TemplateResourceStoreCall call = new TemplateResourceStoreCall();
         call.setSourceFileConfigKey("Presentation.html");
         //call.setLocalCondition("head like Get an");
@@ -21,11 +21,11 @@ public class GenerateHtml {
         eo.execute();
     }
 
-    public static EO READ_XLSX(final String xlsxFile) {
+    public static EoRoot READ_XLSX(final String xlsxFile) {
         XlsxReadCall call = new XlsxReadCall(xlsxFile);
         //call.setFilter("head like Get");
-        call.setTargetPath(String.join(Path.DELIMITER,new String[]{ DATA, ".[head]."}));
-        EO eo = ProviderConfigMaps.createEo();
+        call.setTargetPath(String.join(Path.DELIMITER, new String[]{DATA, ".[head]."}));
+        EoRoot eo = ProviderConfigMaps.createEo();
         call.execute(eo);
 
         return eo;

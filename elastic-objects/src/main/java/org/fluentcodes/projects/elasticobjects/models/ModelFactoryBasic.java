@@ -22,6 +22,7 @@ public class ModelFactoryBasic extends ModelFactory {
     public ModelFactoryBasic(final ConfigMaps configMaps) {
         super(configMaps);
     }
+
     @Override
     public Map<String, ModelBean> createBeanMap() {
         Map<String, ModelBean> modelMap = new TreeMap<>();
@@ -46,15 +47,15 @@ public class ModelFactoryBasic extends ModelFactory {
                 .setCreate(true)
         );
 
-        modelMap.put(Integer.class.getSimpleName(), new ModelBean(Integer.class, ShapeTypes.SCALAR));
-        modelMap.put(Long.class.getSimpleName(), new ModelBean(Long.class, ShapeTypes.SCALAR));
-        modelMap.put(String.class.getSimpleName(), new ModelBean(String.class, ShapeTypes.SCALAR));
-        modelMap.put(Float.class.getSimpleName(), new ModelBean(Float.class, ShapeTypes.SCALAR));
-        modelMap.put(Double.class.getSimpleName(), new ModelBean(Double.class, ShapeTypes.SCALAR));
-        modelMap.put(Boolean.class.getSimpleName(), new ModelBean(Boolean.class, ShapeTypes.SCALAR));
-        modelMap.put(Date.class.getSimpleName(), new ModelBean(Date.class, ShapeTypes.SCALAR));
-        modelMap.put(LogLevel.class.getSimpleName(), new ModelBean(LogLevel.class, ShapeTypes.SCALAR));
-        modelMap.put(JSONSerializationType.class.getSimpleName(), new ModelBean(JSONSerializationType.class, ShapeTypes.SCALAR));
+        modelMap.put(Integer.class.getSimpleName(), new ModelBean(Integer.class, ShapeTypes.NUMBER));
+        modelMap.put(Long.class.getSimpleName(), new ModelBean(Long.class, ShapeTypes.NUMBER));
+        modelMap.put(String.class.getSimpleName(), new ModelBean(String.class, ShapeTypes.STRING));
+        modelMap.put(Float.class.getSimpleName(), new ModelBean(Float.class, ShapeTypes.NUMBER));
+        modelMap.put(Double.class.getSimpleName(), new ModelBean(Double.class, ShapeTypes.NUMBER));
+        modelMap.put(Boolean.class.getSimpleName(), new ModelBean(Boolean.class, ShapeTypes.BOOLEAN));
+        modelMap.put(Date.class.getSimpleName(), new ModelBean(Date.class, ShapeTypes.DATE));
+        modelMap.put(LogLevel.class.getSimpleName(), new ModelBean(LogLevel.class, ShapeTypes.ENUM));
+        modelMap.put(JSONSerializationType.class.getSimpleName(), new ModelBean(JSONSerializationType.class, ShapeTypes.ENUM));
         return modelMap;
     }
 }

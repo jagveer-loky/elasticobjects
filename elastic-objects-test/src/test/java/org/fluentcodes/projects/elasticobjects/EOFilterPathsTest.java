@@ -1,6 +1,5 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,8 +20,8 @@ import static org.fluentcodes.projects.elasticobjects.EoTestStatic.S_STRING;
 public class EOFilterPathsTest {
 
     @Test
-    public void keyPath()  {
-        EO eo = ProviderConfigMapsDev.createEo();
+    public void keyPath() {
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.set(S_STRING, S_LEVEL3);
         eo.set(S_STRING, S_LEVEL0, S_LEVEL1, S_KEY0);
         eo.set(S_STRING, S_LEVEL0, S_LEVEL2, S_KEY0);

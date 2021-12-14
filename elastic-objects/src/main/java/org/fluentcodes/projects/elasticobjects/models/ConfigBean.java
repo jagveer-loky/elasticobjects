@@ -175,7 +175,7 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
                     this.getClass().getPackage().toString().replace("package ", "")
                             + "." + configModelKey);
         } catch (Exception e) {
-            throw new EoException(e.getMessage());
+            throw new EoException("Could not find configuration class: " + e.getMessage());
         }
     }
 

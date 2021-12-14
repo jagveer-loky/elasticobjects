@@ -4,6 +4,7 @@ import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 import org.fluentcodes.projects.elasticobjects.testobjects.ForTestClass;
 import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEoJunit4;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -19,20 +20,20 @@ public class XpectEoTest {
     public void testHashMap() {
         Map map = new LinkedHashMap<>();
         map.put("1", "test1");
-        XpectEo.assertJunit(map);
+        XpectEoJunit4.assertStatic(map);
     }
 
     @Test
     public void testHashMapAsObject() {
         Map map = new LinkedHashMap<>();
         map.put("1", "test1");
-        XpectEo.assertEoJunit(map);
+        XpectEoJunit4.assertStaticEO(map);
     }
 
     @Ignore("Check later")
     @Test
     public void testForTestClass() {
         ForTestClass forTest  = ForTestClass.of1();
-        XpectEo.assertJunit(forTest);
+        XpectEoJunit4.assertStatic(forTest);
     }
 }

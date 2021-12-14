@@ -21,7 +21,6 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
     public static final String INTERFACES = "interfaces";
     public static final String SUPER_KEY = "superKey";
     public static final String PACKAGE_PATH = "packagePath";
-    public static final String FIELD_CONFIG_MAP = "fieldConfigMap";
 
     private static final Logger LOG = LogManager.getLogger(ModelConfig.class);
     private boolean resolved = false;
@@ -161,9 +160,6 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         }
     }
 
-
-
-    @Override
     public Map getKeyValues(final Object object, final PathPattern pathPattern) {
         Set<String> keySet = keys(object);
         Map keyValues = new LinkedHashMap();
@@ -282,5 +278,12 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         bean.setDbAnnotated(getDbAnnotated());
         bean.setProperty(getProperty());
         //bean.setRolePermissions(getR)
+    }
+
+    public String asString(Object object) {
+        return getShapeType().asString(object);
+    }
+    public String asJson(Object object) {
+        return getShapeType().asJson(object);
     }
 }

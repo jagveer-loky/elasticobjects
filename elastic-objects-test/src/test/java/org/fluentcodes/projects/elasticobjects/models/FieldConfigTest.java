@@ -18,7 +18,7 @@ public class FieldConfigTest implements IConfigurationTests {
 
     @Override
     @Test
-    public void create_throwsEoException() {
+    public void createThrowsEoException() {
         assertCreateThrowingException();
     }
 
@@ -32,12 +32,6 @@ public class FieldConfigTest implements IConfigurationTests {
     @Test
     public void compareBeanFromModelConfig() {
         assertBeanFromModelConfigEqualsPersisted();
-    }
-
-    @Override
-    @Test
-    public void compareConfigurations() {
-        assertLoadedConfigurationsEqualsPersisted();
     }
 
     @Test

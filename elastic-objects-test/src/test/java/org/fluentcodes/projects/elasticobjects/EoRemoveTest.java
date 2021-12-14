@@ -26,7 +26,7 @@ public class EoRemoveTest {
      */
     @Test
     public void givenAnObject_thenRemoved() {
-        EO root = ProviderConfigMaps.createEo(new AnObject());
+        EoRoot root = ProviderConfigMaps.createEo(new AnObject());
         root.set(S_STRING, AnObject.MY_STRING);
         Assert.assertEquals(1, (root).size());
 
@@ -36,7 +36,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenBtEmpty_WhenRemove_thenExceptionThrown() {
-        EO root = ProviderConfigMaps.createEo(AnObject.class);
+        EoRoot root = ProviderConfigMaps.createEo(AnObject.class);
         Assertions
                 .assertThatThrownBy(() -> {
                     root.remove(AnObject.MY_STRING);
@@ -51,7 +51,7 @@ public class EoRemoveTest {
      */
     @Test
     public void givenMap_thenRemoved() {
-        EO root = ProviderConfigMaps.createEo();
+        EoRoot root = ProviderConfigMaps.createEo();
         root.set(S_STRING, S_TEST_STRING);
         Assert.assertEquals(1, root.size());
         Assert.assertEquals(S_STRING, root.get(S_TEST_STRING));
@@ -62,7 +62,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenMapEmpty_WhenRemove_thenExceptionThrown() {
-        EO root = ProviderConfigMapsDev.createEo(Map.class);
+        EoRoot root = ProviderConfigMapsDev.createEo(Map.class);
         Assertions
                 .assertThatThrownBy(() -> {
                     root.remove("test");
@@ -72,7 +72,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenList_thenRemoved() {
-        EO root = ProviderConfigMaps.createEo(new ArrayList<>());
+        EoRoot root = ProviderConfigMaps.createEo(new ArrayList<>());
         root.set(S_STRING, S0);
         Assert.assertEquals(1, root.size());
         root.remove(S0);
@@ -81,7 +81,7 @@ public class EoRemoveTest {
 
     @Test
     public void givenListEmpty_WhenRemove_thenExceptionThrown() {
-        EO root = ProviderConfigMapsDev.createEo(new ArrayList<>());
+        EoRoot root = ProviderConfigMapsDev.createEo(new ArrayList<>());
         Assertions
                 .assertThatThrownBy(() -> {
                     root.remove(S0);
