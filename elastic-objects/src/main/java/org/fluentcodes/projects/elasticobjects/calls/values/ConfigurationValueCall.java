@@ -1,6 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
@@ -8,18 +10,18 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigurationValueCall extends CallImpl  implements SimpleCommand {
+public class ConfigurationValueCall extends CallImpl implements SimpleCommand {
     private String configType;
     private String configKey;
     private String configFilter;
 
     @Override
-    public Object execute(final EO eo) {
+    public Object execute(final IEOScalar eo) {
         super.check(eo);
         if (configType == null) {
             throw new EoException("No config type defined");
         }
-        return eo.getConfigsCache().getConfigKeys(configType);
+        return eo.getConfigMaps().getConfigKeys(configType);
     }
 
     public String getConfigType() {

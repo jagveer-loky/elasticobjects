@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "modelKey": "TemplateResourceStoreCall",
   "module": "elastic-objects",
   "moduleScope": "main",

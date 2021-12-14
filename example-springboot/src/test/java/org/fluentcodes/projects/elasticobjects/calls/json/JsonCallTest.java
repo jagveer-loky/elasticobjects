@@ -5,6 +5,7 @@ import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileReadCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Test;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class JsonCallTest {
     @Test
     public void givenMapJsonOnXYZ_whenExecuteCall_thenXYZHasContent()  {
         EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("(AnObject)xyz");
+        eo.createChild("(AnObject)xyz");
         eo.addCall(new FileReadCall("map.json").setTargetPath("xyz"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -39,7 +40,7 @@ public class JsonCallTest {
     @Test
     public void givenListJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
         EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("x/y/(List)z");
+        eo.createChild("x/y/(List)z");
         eo.addCall(new FileReadCall("list.json").setTargetPath("x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -50,7 +51,7 @@ public class JsonCallTest {
     @Test
     public void givenMapJsonOnX_Y_Z_whenExecuteCall_thenX_Y_ZHasContent()  {
         EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("x/y/z");
+        eo.createChild("x/y/z");
         eo.addCall(new FileReadCall("map.json").setTargetPath("x/y/z"));
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
@@ -60,7 +61,7 @@ public class JsonCallTest {
 
     @Test
     public void givenEmpty_whenMapList_thenListIsSet()  {
-        EO eo = ProviderConfigMaps.createEoDev(List.class);
+        EO eo = ProviderConfigMapsDev.createEo(List.class);
         eo.mapObject("[]");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getModelClass()).isEqualTo(List.class);

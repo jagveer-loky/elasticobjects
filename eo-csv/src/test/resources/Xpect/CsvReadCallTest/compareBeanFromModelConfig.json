@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Defines read call for a csv action depending on one link CsvConfig. ",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "modelKey": "CsvReadCall",
   "module": "eo-csv",
   "moduleScope": "main",

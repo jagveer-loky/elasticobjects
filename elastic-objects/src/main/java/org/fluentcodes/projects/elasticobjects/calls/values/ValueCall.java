@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
@@ -14,19 +14,19 @@ import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
  * For setting values to EO.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 12:04:23 CET 2020
  */
-public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
-/*.{}.*/
+public class ValueCall extends CallImpl implements CallContent, SimpleCommand {
+    /*.{}.*/
 
     /*.{javaStaticNames}|*/
-   public static final String CONTENT = "content";
-/*.{}.*/
+    public static final String CONTENT = "content";
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-   private  String content;
-/*.{}.*/
+    private String content;
+    /*.{}.*/
 
     public ValueCall() {
     }
@@ -35,14 +35,14 @@ public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
         this();
         this.content = content;
     }
+
     @Override
-    public String execute(final EO eo) {
+    public String execute(final IEOScalar eo) {
         super.check(eo);
         if (!hasContent()) {
             if (eo.isScalar()) {
                 content = ScalarConverter.toString(eo.get());
-            }
-            else {
+            } else {
                 content = new EOToJSON()
                         .setSerializationType(JSONSerializationType.STANDARD)
                         .toJson(eo);
@@ -52,23 +52,24 @@ public class ValueCall extends CallImpl implements CallContent,  SimpleCommand {
     }
 
     /*.{javaAccessors}|*/
+
     /**
-    A content for different calls. In a template context the content of the markup. 
-    */
+     * A content for different calls. In a template context the content of the markup.
+     */
 
     public ValueCall setContent(String content) {
         this.content = content;
         return this;
     }
-    
-    public String getContent () {
-       return this.content;
+
+    public String getContent() {
+        return this.content;
     }
-    
-    public boolean hasContent () {
-        return content!= null && !content.isEmpty();
+
+    public boolean hasContent() {
+        return content != null && !content.isEmpty();
     }
-/*.{}.*/
+    /*.{}.*/
 
 
 }

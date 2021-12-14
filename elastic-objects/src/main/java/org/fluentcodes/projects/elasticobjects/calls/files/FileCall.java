@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
@@ -13,19 +13,19 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
  * Super class for file calls with one configuration key. Extends {@link HostCall}. Provide an init method to resolve {@link FileConfig} and @HostConfig
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 09:45:31 CET 2020
  */
-public abstract class FileCall extends HostCall  {
-/*.{}.*/
+public abstract class FileCall extends HostCall {
+    /*.{}.*/
 
     /*.{javaStaticNames}|*/
-   public static final String FILE_CONFIG_KEY = "fileConfigKey";
-/*.{}.*/
+    public static final String FILE_CONFIG_KEY = "fileConfigKey";
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-   private  String fileConfigKey;
-/*.{}.*/
+    private String fileConfigKey;
+    /*.{}.*/
     private FileConfig fileConfig;
 
     public FileCall() {
@@ -42,18 +42,17 @@ public abstract class FileCall extends HostCall  {
         setFileConfigKey(configKey);
     }
 
-    protected FileConfig init(final PermissionType permissionType, final EO eo) {
+    protected FileConfig init(final PermissionType permissionType, final IEOScalar eo) {
         if (!hasFileConfigKey()) {
             throw new EoException("Empty file config key.");
         }
-        fileConfig = eo.getConfigsCache().findFile(Parser.replacePathValues(this.fileConfigKey, eo));
+        fileConfig = eo.getConfigMaps().findFile(Parser.replacePathValues(this.fileConfigKey, eo));
         fileConfig.hasPermissions(permissionType, eo.getRoles());
         if (!hasHostConfigKey()) {
             if (fileConfig.hasHostConfigKey()) {
                 setHostConfigKey(fileConfig.getHostConfigKey());
-            }
-            else {
-               setHostConfigKey(HostConfig.LOCALHOST);
+            } else {
+                setHostConfigKey(HostConfig.LOCALHOST);
             }
         }
         super.initHostConfig(permissionType, eo);
@@ -68,21 +67,22 @@ public abstract class FileCall extends HostCall  {
         this.fileConfigKey = fileConfigKey;
     }
     /*.{javaAccessors}|*/
+
     /**
-    Defines the key for a file configuration {@link FileConfig} where to read or write a file.
-    */
+     * Defines the key for a file configuration {@link FileConfig} where to read or write a file.
+     */
 
     public FileCall setFileConfigKey(String fileConfigKey) {
         this.fileConfigKey = fileConfigKey;
         return this;
     }
-    
-    public String getFileConfigKey () {
-       return this.fileConfigKey;
+
+    public String getFileConfigKey() {
+        return this.fileConfigKey;
     }
-    
-    public boolean hasFileConfigKey () {
-        return fileConfigKey!= null && !fileConfigKey.isEmpty();
+
+    public boolean hasFileConfigKey() {
+        return fileConfigKey != null && !fileConfigKey.isEmpty();
     }
-/*.{}.*/
+    /*.{}.*/
 }

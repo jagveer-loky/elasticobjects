@@ -111,7 +111,7 @@ public class FileReadCallTest implements IModelConfigCreateTests {
     public void eo_SourceTxt_child_level0_targetPath_level2___execute__eo_set_level2() {
         final EO root = ProviderConfigMaps.createEo();
         root.set(S_STRING, S_LEVEL0, S_LEVEL1);
-        final EO child = root.getEo(S_LEVEL0);
+        final EO child = (EO)root.getEo(S_LEVEL0);
 
         final Call call = new FileReadCall(FileConfigTest.FILE_TEST_TXT)
                 .setTargetPath(S_LEVEL2);

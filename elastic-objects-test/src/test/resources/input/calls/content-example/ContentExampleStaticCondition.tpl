@@ -3,7 +3,7 @@
     "fileConfigKey":"ContentExampleData"}
 }.
 Start of content with a fileConfigKey:
- @{"(TemplateResourceCall).":{
+ @{"(TemplateResourceCall)_asString":{
     "sourcePath":"data/*",
     "fileConfigKey":"ContentExampleElement1",
     "condition":"header eq header2"}

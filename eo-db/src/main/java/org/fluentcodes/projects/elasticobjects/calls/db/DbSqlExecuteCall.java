@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
@@ -11,37 +11,40 @@ import java.sql.Statement;
 import java.util.List;
 
 /*.{javaHeader}|*/
+
 /**
  * Executes a list of sql statements within DbSqlConfig.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Wed Nov 11 07:16:55 CET 2020
  */
 public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
-/*.{}.*/
+    /*.{}.*/
 
-/*.{javaStaticNames}|*/
-/*.{}.*/
+    /*.{javaStaticNames}|*/
+    /*.{}.*/
 
-/*.{javaInstanceVars}|*/
-/*.{}.*/
-    public DbSqlExecuteCall()  {
+    /*.{javaInstanceVars}|*/
+    /*.{}.*/
+    public DbSqlExecuteCall() {
         super();
     }
-    public DbSqlExecuteCall(final String hostConfigKey)  {
-        super( hostConfigKey);
+
+    public DbSqlExecuteCall(final String hostConfigKey) {
+        super(hostConfigKey);
     }
-    public DbSqlExecuteCall(final String hostConfigKey, final String sqlConfigKey)  {
+
+    public DbSqlExecuteCall(final String hostConfigKey, final String sqlConfigKey) {
         super(hostConfigKey, sqlConfigKey);
     }
 
 
-    public Boolean execute(final EO eo)  {
+    public Boolean execute(final IEOScalar eo) {
         return executeSql(eo);
     }
 
-    public boolean executeSql(final EO eo) {
+    public boolean executeSql(final IEOScalar eo) {
 
         if (eo == null) {
             throw new EoException("Null or empty EO. But checkConfig needs values to be readed from the db!");
@@ -54,19 +57,17 @@ public class DbSqlExecuteCall extends DbSqlCall implements ConfigWriteCommand {
             try {
                 statement = getConnection().createStatement();
                 executed = statement.execute(sql) && executed;
-            }
-            catch (SQLException e) {
+            } catch (SQLException e) {
                 //PreparedStatementValues.closeStatement(statement);
                 DbConfig.closeStatement(statement);
                 throw new EoException("Problem execute " + e.getMessage());
-            }
-            finally {
+            } finally {
                 DbConfig.closeStatement(statement);
             }
         }
         return executed;
     }
-/*.{javaAccessors}|*/
-/*.{}.*/
+    /*.{javaAccessors}|*/
+    /*.{}.*/
 
 }

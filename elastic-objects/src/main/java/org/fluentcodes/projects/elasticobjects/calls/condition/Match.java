@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.List;
@@ -65,13 +65,13 @@ public class Match implements Condition {
         return false;
     }
 
-    public boolean filter(EO adapter) {
-        if (adapter == null) {
+    public boolean filter(final IEOScalar eo) {
+        if (eo == null) {
             LOG.warn("Null adapter should not occure!");
             return true;
         }
         try {
-            Object value = adapter.get(key);
+            Object value = eo.get(key);
             String valueString = ScalarConverter.toString(value);
             String objectString = getValue().toString();
             if (valueString == null) {

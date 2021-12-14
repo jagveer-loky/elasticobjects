@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.domain.test;
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.models.FieldConfig;
-import org.fluentcodes.projects.elasticobjects.models.FieldInterface;
+import org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigMethods;
 import org.fluentcodes.projects.elasticobjects.models.ShapeTypes;
@@ -43,7 +43,7 @@ public class EoAnObjectSetTest {
 
     @Test
     public void TEST__find_AnObject_get_myString__$()  {
-        FieldInterface fieldConfig = ProviderConfigMaps.CONFIG_MAPS
+        FieldBeanInterface fieldConfig = ProviderConfigMaps.CONFIG_MAPS
                 .findModel(AnObject.class)
                 .getField(AnObject.MY_STRING);
         Assert.assertNotNull(fieldConfig);
@@ -62,7 +62,7 @@ public class EoAnObjectSetTest {
         map.put(AnObject.MY_STRING, "value");
         map.put(AnObject.MY_FLOAT, 1.1D);
 
-        final EO child = eo.set( map, "(" + AnObject.class.getSimpleName() + ")level0");
+        final EO child = (EO)eo.set( map, "(" + AnObject.class.getSimpleName() + ")level0");
         Assert.assertEquals(AnObject.class, child.getModelClass());
         assertEquals("value", child.get(AnObject.MY_STRING));
         assertEquals(1.1F, child.get(AnObject.MY_FLOAT));
@@ -127,7 +127,7 @@ public class EoAnObjectSetTest {
     public void assertAnObjectFieldTest()  {
         ModelConfigMethods model = ProviderConfigMaps.CONFIG_MAPS.findModel(AnObject.class);
 
-        FieldInterface field = model.getField(AnObject.MY_STRING);
+        FieldBeanInterface field = model.getField(AnObject.MY_STRING);
         Assert.assertEquals(String.class, ((FieldConfig)field).getModelClass());
 
         field = model.getField(MY_OBJECT);
@@ -197,7 +197,7 @@ public class EoAnObjectSetTest {
     @Test
     public void TEST__setEmpty_key0_key1_key2_AnObject_key__getModelClass_key0_key1_key2_key3_AnObject()  {
         final EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty("key0", "key1", "key2", "(" + AnObject.class.getSimpleName() + ")" + "key3");
+        eo.createChild("key0", "key1", "key2", "(" + AnObject.class.getSimpleName() + ")" + "key3");
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getEo("key0", "key1", "key2", "key3").getModelClass()).isEqualTo(AnObject.class);
     }

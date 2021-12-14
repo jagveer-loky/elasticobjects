@@ -1,18 +1,18 @@
 package org.fluentcodes.projects.elasticobjects.calls.db.statements;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 
 import java.util.Map;
 
 public class InsertStatement extends PreparedStatementValues {
 
-    public InsertStatement(String model, Map<String,Object> values) {
+    public InsertStatement(String model, Map<String, Object> values) {
         super(SqlType.INSERT);
         StringBuilder builderFields = new StringBuilder("(");
         StringBuilder builderValues = new StringBuilder("(");
-        for (String key: values.keySet()) {
+        for (String key : values.keySet()) {
             add(values.get(key));
             builderFields.append(key + ", ");
             builderValues.append("?, ");
@@ -25,14 +25,13 @@ public class InsertStatement extends PreparedStatementValues {
         append(builderValues.toString().replaceAll(", $", ") "));
     }
 
-    public static InsertStatement of(EO source) {
+    public static InsertStatement of(IEOScalar source) {
         if (source == null) {
             throw new EoException("Null eo for delete");
         }
-        ModelInterface model = source.getModel();
-        if (!model.isObject()) {
-            throw new EoException("Model '" + model.getModelKey() + "' is not a object");
+        if (!(source instanceof EoChild)) {
+            throw new EoException("Model '" + source.getModelClass().getSimpleName() + "' is not a object");
         }
-        return new InsertStatement(model.getModelKey(), source.getKeyValues());
+        return new InsertStatement(source.getModel().getModelKey(), ((EoChild) source).getKeyValues());
     }
 }

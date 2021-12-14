@@ -2,11 +2,14 @@ package org.fluentcodes.projects.elasticobjects.calls.lists;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.Path;
+import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -74,7 +77,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
     @Test
     public void eo_ListSimpleCsv_rowStart_2__execute__set_2rows() {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
-
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
@@ -89,11 +92,12 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
     public void eo_ListSimpleCsv_rowStart_2__execute__setOnlyLastRow() {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
         call.setRowStart(2);
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.execute();
-        Assertions.assertThat(eo.getEo("0").get("key1")).isEqualTo("value21");
+        Assertions.assertThat((eo.getEo("0")).get("key1")).isEqualTo("value21");
         Assertions.assertThatThrownBy(() -> {
             eo.getEo("1");
         })
@@ -105,10 +109,11 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
     public void eo_ListSimpleCsv_rowEnd_2__execute__setOnlyFirstRow() {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
         call.setRowEnd(2);
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
-        Assertions.assertThat(eo.getEo("0").get("key1")).isEqualTo("value11");
+        Assertions.assertThat(eo.get("0/key1")).isEqualTo("value11");
         Assertions.assertThatThrownBy(() -> {
             eo.getEo("1");
         })
@@ -120,17 +125,19 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
     public void eo_ListSourceCsv_rowHead_off__execute__setListValues() {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
         call.setRowHead(-1);
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEoWithClasses(List.class);
         eo.addCall(call);
         Assertions.assertThat(eo.getLog()).isEmpty();
         eo.execute();
-        Assertions.assertThat(eo.getEo("0").get("0")).isEqualTo("value11");
+        Assertions.assertThat(eo.get("0/0")).isEqualTo("value11");
     }
 
 
     @Test
     public void eo_ListSimpleCsv_role_anonym__execute__has_log() {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEo();
         eo.setRoles(R_ANONYM);
         eo.addCall(call);
@@ -142,6 +149,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
     @Test
     public void eo_ListSimpleCsv_role_guest__execute__noLogEntry() {
         final CsvSimpleReadCall call = new CsvSimpleReadCall(LIST_SIMPLE_CSV);
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEo();
         eo.setRoles(R_GUEST);
         eo.addCall(call);
@@ -153,12 +161,13 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
     @Test
     public void eo_fileConfigKey_AnObjectCsv__execute__listMap() {
         final CsvSimpleReadCall call = new CsvSimpleReadCall("AnObject.csv");
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEo();
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("0").get(AnObject.MY_STRING)).isEqualTo("value1");
+        Assertions.assertThat(eo.get("0/" + AnObject.MY_STRING)).isEqualTo("value1");
         Assertions.assertThat(eo.getEo("0").getModelClass()).isEqualTo(LinkedHashMap.class);
     }
 
@@ -171,7 +180,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
         eo.execute();
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("level0/0").get(AnObject.MY_STRING)).isEqualTo("value1");
+        Assertions.assertThat(eo.get("level0/0/" + AnObject.MY_STRING)).isEqualTo("value1");
         Assertions.assertThat(eo.getEo("level0/0").getModelClass()).isEqualTo(AnObject.class);
     }
 
@@ -182,7 +191,7 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
         call.execute(eo);
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("xyz/0").get(AnObject.MY_STRING)).isEqualTo("value1");
+        Assertions.assertThat(eo.get("xyz/0", AnObject.MY_STRING)).isEqualTo("value1");
     }
 
     @Test
@@ -193,6 +202,6 @@ public class CsvSimpleReadCallTest implements IModelConfigCreateTests {
         call.execute(eo);
         Assertions.assertThat(eo.getLog())
                 .isEmpty();
-        Assertions.assertThat(eo.getEo("xyz/0").get(AnObject.MY_STRING)).isEqualTo("value1");
+        Assertions.assertThat(eo.get("xyz/0", AnObject.MY_STRING)).isEqualTo("value1");
     }
 }

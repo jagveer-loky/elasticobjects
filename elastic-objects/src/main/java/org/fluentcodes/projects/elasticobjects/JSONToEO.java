@@ -23,10 +23,11 @@ import java.util.regex.Pattern;
  */
 public class JSONToEO {
     //http://stackoverflow.com/questions/3651725/match-multiline-text-using-regular-expression
-    public static final Pattern jsonPattern = Pattern.compile("^[\\{\\[]");
-    public static final Pattern jsonMapPattern = Pattern.compile("^\\{");
-    public static final Pattern jsonListPattern = Pattern.compile("^\\[");
+    public static final Pattern JSON_PATTERN = Pattern.compile("^[\\{\\[]");
+    public static final Pattern JSON_MAP_PATTERN = Pattern.compile("^\\{");
+    public static final Pattern JSON_LIST_PATTERN = Pattern.compile("^\\[");
     private static final Logger LOG = LogManager.getLogger(JSONToEO.class);
+    public static final String COMMENT = "_comment";
     private ConfigMaps provider;
     private long character;
     private long index;
@@ -290,6 +291,7 @@ public class JSONToEO {
             } else if (startFlag) {
                 back();
                 final String key = this.nextKey();
+
                 if (this.nextClean() != ':') {
                     new EoException("Expected ':' in the map after the key '" + key + "' but see '" + c + "'': " + this.debug());
                 }
@@ -328,16 +330,16 @@ public class JSONToEO {
     }
 
     public EO createChild(EO parentAdapter)  {
-        EO eo = createChild(parentAdapter, null);
+        IEOScalar eo = createChild(parentAdapter, null);
         if (isEof()) {
             return parentAdapter;
         }
         if (parseCalls && eo instanceof EoRoot) {
-            return eo;
+            return (EO)eo;
         }
         final char c = nextClean();
         if (c == 0) {
-            return eo;
+            return (EO)eo;
         }
         throw new EoException("Not at the end of the json file!");
     }
@@ -356,7 +358,7 @@ public class JSONToEO {
      * @return
      * @
      */
-    private EO createChild(EO eoParent, final String rawFieldName)  {
+    private IEOScalar createChild(EO eoParent, final String rawFieldName)  {
 
         if (eoParent == null) {
             throw new EoException("parent eo is null ...!");
@@ -371,12 +373,12 @@ public class JSONToEO {
                     throw new EoException(this.getClass().getSimpleName() + " createChildForMap: Value with no name" + debug());
                 }
                 String value = this.nextString(c, rawFieldName);
-                eoParent.createChild(new PathElement(rawFieldName), value);
+                ((EoChild)eoParent).createChild(new PathElement(rawFieldName), value);
                 return eoParent;
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    EO child = eoParent.createChild(new PathElement(rawFieldName, Map.class), null);
+                    EO child = (EO)((EoChild)eoParent).createChild(new PathElement(rawFieldName, Map.class), null);
                     mapObject(child);
                     return eoParent;
                 }
@@ -387,8 +389,8 @@ public class JSONToEO {
             case '[':
                 if (rawFieldName != null) {// List value
                     PathElement pathFromKey = new PathElement(rawFieldName, List.class);
-                    EO child = eoParent.createChild(pathFromKey);
-                    mapList(child);
+                    IEOScalar child = ((EoChild)eoParent).createChild(pathFromKey);
+                    mapList((EO)child);
                     return child;
                 }
                 else {
@@ -421,12 +423,12 @@ public class JSONToEO {
         }
         if (rawFieldName.matches("\\(.*\\).*")) {
             pathElement = new PathElement(rawFieldName);
-            return eoParent.createChild(pathElement, value);
+            return ((EoChild)eoParent).createChild(pathElement, value);
         }
         else {
             Object valueObject = ScalarConverter.fromJson(value);
             pathElement = new PathElement(rawFieldName);
-            return eoParent.createChild(pathElement, valueObject);
+            return ((EoChild)eoParent).createChild(pathElement, valueObject);
         }
     }
 

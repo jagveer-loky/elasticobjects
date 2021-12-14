@@ -6,9 +6,9 @@ import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import java.util.Map;
 import java.util.Set;
 
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_FINAL;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_OVERRIDE;
-import static org.fluentcodes.projects.elasticobjects.models.FieldInterface.F_PROPERTY;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_FINAL;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_OVERRIDE;
+import static org.fluentcodes.projects.elasticobjects.models.FieldBeanInterface.F_PROPERTY;
 
 public interface ModelInterface extends ConfigInterface {
     String DEFAULT_IMPLEMENTATION = "defaultImplementation";
@@ -73,7 +73,7 @@ public interface ModelInterface extends ConfigInterface {
     }
 
 
-    default FieldInterface getField(final String key) {
+    default FieldBeanInterface getField(final String key) {
         return getFieldMap().get(key);
     }
 

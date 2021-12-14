@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.models;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.UnmodifiableMap;
+import org.fluentcodes.projects.elasticobjects.utils.UnmodifiableMap;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.io.IOClasspathEOFlatMap;
 

@@ -67,8 +67,8 @@ public class ValueCallTest implements IModelConfigCreateTests {
     @Test
     public void givenModels_thenChildValueTypeIsString() {
         final EO eo = ProviderConfigMaps.createEo();
-        final Models models = new Models(eo.getConfigsCache(), ValueCall.class);
-        Models childModels = models.getChildModels(eo, new PathElement(ValueCall.CONTENT));
+        final Models models = new Models(eo.getConfigMaps(), ValueCall.class);
+        Models childModels = models.getChildModels(new PathElement(ValueCall.CONTENT));
         Assertions.assertThat(childModels.isScalar()).isTrue();
         Assertions.assertThat(childModels.getModelClass()).isEqualTo(String.class);
     }
@@ -133,7 +133,7 @@ public class ValueCallTest implements IModelConfigCreateTests {
                 "[1,2]" +
                 ".{}.";
         final TemplateCall call = new TemplateCall(template);
-        String result = call.execute(eo);
+        call.execute(eo);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.get(S_LEVEL0, "0")).isEqualTo(1);
     }

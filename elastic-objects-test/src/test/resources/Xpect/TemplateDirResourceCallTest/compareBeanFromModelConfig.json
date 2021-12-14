@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Parses the content loaded by @DirectoryReadCall.\nThis will use a FileConfig entry using @DirectoryConfig instance. ",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "modelKey": "TemplateDirResourceCall",
   "module": "elastic-objects",
   "moduleScope": "main",

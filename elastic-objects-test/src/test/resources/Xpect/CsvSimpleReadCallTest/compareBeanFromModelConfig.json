@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Defines a primitive csv file read operation. ",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ListInterface",
   "modelKey": "CsvSimpleReadCall",
   "module": "elastic-objects",

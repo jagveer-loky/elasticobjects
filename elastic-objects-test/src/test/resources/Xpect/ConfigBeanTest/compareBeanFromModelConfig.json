@@ -1,9 +1,10 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
-  "creationDate": 1608073216000,
+  "(Date)creationDate": 1608073216000,
   "description": "The basic bean class for the configuration classes. Defines properies map for individual extensions.  ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "interfaces": "ConfigInterface",
   "modelKey": "ConfigBean",
   "module": "elastic-objects",

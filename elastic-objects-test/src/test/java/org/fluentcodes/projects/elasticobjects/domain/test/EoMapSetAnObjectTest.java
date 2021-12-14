@@ -28,7 +28,7 @@ public class EoMapSetAnObjectTest {
     @Test
     public void givenTest_whenSetAnObjectOnExistingModelMap_thenModelIsMap()  {
         final EO eo = ProviderConfigMaps.createEo();
-        eo.setEmpty(S_LEVEL0);
+        eo.createChild(S_LEVEL0);
         eo.set(new AnObject(), S_LEVEL0);
         assertThat(eo.getEo(S_LEVEL0).getModelClass()).isEqualTo(Map.class);
         assertThat(eo.getLog()).isEmpty();

@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.db.statements;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ModelInterface;
 
@@ -8,10 +9,10 @@ import java.util.Map;
 
 public class DeleteStatement extends PreparedStatementValues {
 
-    public DeleteStatement(String model, Map<String,Object> values) {
+    public DeleteStatement(String model, Map<String, Object> values) {
         super(SqlType.DELETE);
         StringBuilder builderValues = new StringBuilder("");
-        for (String key: values.keySet()) {
+        for (String key : values.keySet()) {
             add(values.get(key));
             builderValues.append(key + " = ? AND ");
         }
@@ -21,7 +22,7 @@ public class DeleteStatement extends PreparedStatementValues {
         append(builderValues.toString().replaceAll(" AND $", " "));
     }
 
-    public static DeleteStatement of(EO source) {
+    public static DeleteStatement of(IEOScalar source) {
         if (source == null) {
             throw new EoException("Null eo for delete");
         }
@@ -29,6 +30,6 @@ public class DeleteStatement extends PreparedStatementValues {
         if (!model.isObject()) {
             throw new EoException("Model '" + model.getModelKey() + "' is not a object");
         }
-        return new DeleteStatement(model.getModelKey(), source.getKeyValues());
+        return new DeleteStatement(model.getModelKey(), ((EoChild) source).getKeyValues());
     }
 }

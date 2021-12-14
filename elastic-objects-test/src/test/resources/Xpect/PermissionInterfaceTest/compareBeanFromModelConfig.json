@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "configModelKey": "ModelConfigObject",
-  "creationDate": 1608073216000,
+  "(Date)creationDate": 1608073216000,
   "description": "Interface with permissions methods ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "modelKey": "PermissionInterface",
   "module": "elastic-objects",
   "moduleScope": "main",

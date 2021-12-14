@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Configuration for csv files with fieldDelimiter and rowDelimiter fields. ",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "interfaces": "CsvConfigInterface,ListProperties",
   "modelKey": "CsvConfig",
   "module": "elastic-objects",

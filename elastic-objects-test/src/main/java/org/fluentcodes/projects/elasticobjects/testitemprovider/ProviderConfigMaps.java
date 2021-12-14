@@ -6,23 +6,23 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
+import org.fluentcodes.projects.elasticobjects.models.Models;
 import org.fluentcodes.projects.elasticobjects.models.Scope;
 
 import java.util.Map;
 
 public class ProviderConfigMaps {
     public static final ConfigMaps CONFIG_MAPS = new ConfigMaps(Scope.TEST);
-    public static final ConfigMaps CONFIG_MAPS_DEV = new ConfigMaps(Scope.DEV);
 
-    public static final EO createEoWithClasses(Class... classes) {
+    public static final EoRoot createEoWithClasses(Class... classes) {
         return EoRoot.ofClass(CONFIG_MAPS, classes);
     }
 
-    public static final EO createEo() {
+    public static final EoRoot createEo() {
         return EoRoot.of(CONFIG_MAPS);
     }
 
-    public static final EO createEo(Object value) {
+    public static final EoRoot createEo(Object value) {
         return EoRoot.ofValue(CONFIG_MAPS, value);
     }
 
@@ -43,15 +43,7 @@ public class ProviderConfigMaps {
         return (Map) eo.get();
     }
 
-    public static final EoRoot createEoWithClassesDev(Class... classes) {
-        return EoRoot.ofClass(CONFIG_MAPS_DEV, classes);
-    }
-
-    public static final EoRoot createEoDev() {
-        return EoRoot.of(CONFIG_MAPS_DEV);
-    }
-
-    public static final EO createEoDev(Object value) {
-        return EoRoot.ofValue(CONFIG_MAPS_DEV, value);
+    public static final Models createModels(Class... classes) {
+        return new Models(CONFIG_MAPS, classes);
     }
 }

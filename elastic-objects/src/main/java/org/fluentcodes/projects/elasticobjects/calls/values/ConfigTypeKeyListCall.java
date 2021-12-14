@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.values;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
 
@@ -10,23 +10,22 @@ import java.util.stream.Collectors;
 /**
  * Created by Werner on 14.07.2020.
  */
-public class ConfigTypeKeyListCall extends CallImpl  implements SimpleCommand {
+public class ConfigTypeKeyListCall extends CallImpl implements SimpleCommand {
     private String configFilter;
 
     @Override
-    public Object execute(final EO eo) {
+    public Object execute(final IEOScalar eo) {
         super.check(eo);
-        List<String> keys = eo.getConfigsCache().getKeysAsString();
+        List<String> keys = eo.getConfigMaps().getKeysAsString();
         if (configFilter == null) {
             return keys;
         }
         try {
             return keys
                     .stream()
-                    .filter(x->x.matches(configFilter))
+                    .filter(x -> x.matches(configFilter))
                     .collect(Collectors.toList());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return keys;
         }
     }

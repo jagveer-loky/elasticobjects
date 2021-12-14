@@ -1,21 +1,21 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
 
 abstract class HandlerAbstract implements HandlerInterface {
     static final String DEFAULT_SEPARATOR = "|>";
-    private EO eo;
+    private IEOScalar eo;
     private TemplateMarker templateMarker;
     private String callDirective;
     private String content;
     private String defaultValue;
 
-    EO getEo() {
+    IEOScalar getEo() {
         return eo;
     }
 
-    HandlerAbstract setEo(EO eo) {
+    HandlerAbstract setEo(IEOScalar eo) {
         this.eo = eo;
         return this;
     }
@@ -69,7 +69,7 @@ abstract class HandlerAbstract implements HandlerInterface {
     }
 
     ConfigMaps getConfigMaps() {
-        return eo.getConfigsCache();
+        return eo.getConfigMaps();
     }
 
     String createCallDirective() {

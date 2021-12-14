@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.db;
 
 import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.templates.TemplateCall;
@@ -34,6 +35,7 @@ public class DbSqlReadCallGuiTest {
     @Test
     public void eo_DbQuery_AnObject__execute__3() {
         DbSqlReadCall call = new DbSqlReadCall(DB_DEFAULT, DB_TABLE);
+        call.setTargetPath(".");
         Assertions.assertThat(call).isNotNull();
         EO eo = ProviderConfigMaps.createEo();
         eo.addCall(call);
@@ -47,6 +49,7 @@ public class DbSqlReadCallGuiTest {
         call.setRowHead(-1);
         call.setRowEnd(2);
         call.setRowStart(0);
+        call.setTargetPath(".");
         Assertions.assertThat(call).isNotNull();
         EO eo = ProviderConfigMaps.createEo();
         eo.addCall(call);
@@ -67,7 +70,7 @@ public class DbSqlReadCallGuiTest {
                 "   \"_serializationType\":\"STANDARD\"\n" +
                 "}");
         eo.execute();
-        Assertions.assertThat(eo.getEo("abc").size()).isEqualTo(2);
+        Assertions.assertThat(((IEOObject)eo.getEo("abc")).size()).isEqualTo(2);
     }
 
     @Test
@@ -82,7 +85,7 @@ public class DbSqlReadCallGuiTest {
                 "}");
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.getEo("xyz").size()).isEqualTo(3);
+        Assertions.assertThat(((IEOObject)eo.getEo("xyz")).size()).isEqualTo(3);
        XpectString.assertJunit((String) eo.get(PathElement.TEMPLATE));
     }
 

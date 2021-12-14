@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Executes a template content. ",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "CallContent,SimpleCommand",
   "modelKey": "TemplateCall",
   "module": "elastic-objects",

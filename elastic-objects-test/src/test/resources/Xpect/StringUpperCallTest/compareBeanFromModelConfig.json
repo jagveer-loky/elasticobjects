@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "For setting upper value to EO.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "SimpleCommand",
   "modelKey": "StringUpperCall",
   "module": "elastic-objects",

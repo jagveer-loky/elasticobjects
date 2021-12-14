@@ -26,11 +26,7 @@ public class ModelConfigObject extends ModelConfig {
     }
 
     public Models getFieldModels(final String fieldName)  {
-        return ((FieldConfig)getField(fieldName)).getModels();
-    }
-
-    public ModelConfigMethods getFieldChild(final String fieldName)  {
-        return ((FieldConfig)getField(fieldName)).getChildModel();
+        return getField(fieldName).getModels();
     }
 
     @Override

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.lists;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.files.CsvConfig;
 import org.fluentcodes.projects.elasticobjects.calls.files.FileWriteCall;
@@ -11,38 +11,38 @@ import java.util.List;
 /*.{javaHeader}|*/
 
 /**
- * Defines a primitive csv file write operation. 
+ * Defines a primitive csv file write operation.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 11:26:51 CET 2020
  */
 public class CsvSimpleWriteCall extends FileWriteCall implements ListInterface {
-/*.{}.*/
+    /*.{}.*/
 
-/*.{javaStaticNames}|*/
-   public static final String LIST_PARAMS = "listParams";
-/*.{}.*/
+    /*.{javaStaticNames}|*/
+    public static final String LIST_PARAMS = "listParams";
+    /*.{}.*/
 
-/*.{javaInstanceVars}|*/
-   private  ListParams listParams;
-/*.{}.*/
+    /*.{javaInstanceVars}|*/
+    private ListParams listParams;
+    /*.{}.*/
 
-    public CsvSimpleWriteCall()  {
+    public CsvSimpleWriteCall() {
         super();
         listParams = new ListParams();
     }
 
     @Override
-    public String execute(EO eo) {
+    public String execute(IEOScalar eo) {
         return write(eo);
     }
 
     @Override
-    public String write(EO eo)  {
+    public String write(IEOScalar eo) {
         CsvConfig config = (CsvConfig) init(PermissionType.READ, eo);
         getListParams().merge(config.getProperties());
-        List rows = (List)eo.get();
+        List rows = (List) eo.get();
         if (rows == null || rows.isEmpty()) {
             throw new EoException("Strange - no list values - nothing to write! Will return without doing anything.");
         }
@@ -76,24 +76,27 @@ public class CsvSimpleWriteCall extends FileWriteCall implements ListInterface {
         setContent(buffer.toString());
         return super.execute(eo);
     }
-/*.{javaAccessors}|*/
+    /*.{javaAccessors}|*/
+
     /**
-    Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
-    */
-@Override
+     * Parameters of type {@link ListParams} for list type read call operations like {@link CsvSimpleReadCall}.
+     */
+    @Override
     public CsvSimpleWriteCall setListParams(ListParams listParams) {
         this.listParams = listParams;
         return this;
     }
+
     @Override
-    public ListParams getListParams () {
-       return this.listParams;
+    public ListParams getListParams() {
+        return this.listParams;
     }
+
     @Override
-    public boolean hasListParams () {
-        return listParams!= null;
+    public boolean hasListParams() {
+        return listParams != null;
     }
-/*.{}.*/
+    /*.{}.*/
 
 
 }

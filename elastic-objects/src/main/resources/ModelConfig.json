@@ -599,7 +599,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "fieldKey, modelKeys, length, notNull, override, final, generated, super, javascriptType, transient, min, max, unique, fieldName, jsonIgnore, staticName, default, property",
-    "interfaces": "FieldInterface",
+    "interfaces": "FieldBeanInterface",
     "superKey": "ConfigBean",
     "expose": "NONE",
     "description": "The basic bean container class for the configuration class@FieldConfig. Also used as a base for building source code. ",
@@ -616,7 +616,7 @@
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "fieldKey, modelKeys, length, modelList",
-    "interfaces": "FieldInterface",
+    "interfaces": "FieldConfigInterface",
     "superKey": "ConfigConfig",
     "expose": "NONE",
     "description": "Immutabel EO field configuration will be initalized by @FieldBean object.",
@@ -630,7 +630,24 @@
     "author": "Werner Diwischek",
     "creationDate": 1539727200000
   },
-  "FieldInterface": {
+  "FieldConfigInterface": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "fieldKeys": "",
+    "interfaces": "FieldBeanInterface",
+    "expose": "NONE",
+    "description": "Access methods for field properties map and get method definitions for final fields. ",
+    "packagePath": "org.fluentcodes.projects.elasticobjects.models",
+    "modelKey": "FieldConfigInterface",
+    "properties": {
+      "create": false,
+      "shapeType": "INTERFACE",
+      "final": true
+    },
+    "author": "Werner Diwischek",
+    "creationDate": 1600466400000
+  },
+  "FieldBeanInterface": {
     "module": "elastic-objects",
     "moduleScope": "main",
     "fieldKeys": "fieldKey, modelKeys, length, notNull, override, final, generated, super, javascriptType, transient, min, max, unique, fieldName, jsonIgnore, staticName, default, property",
@@ -638,7 +655,7 @@
     "expose": "NONE",
     "description": "Access methods for field properties map and get method definitions for final fields. ",
     "packagePath": "org.fluentcodes.projects.elasticobjects.models",
-    "modelKey": "FieldInterface",
+    "modelKey": "FieldBeanInterface",
     "properties": {
       "create": false,
       "shapeType": "INTERFACE",
@@ -938,7 +955,8 @@
       },
       "rowStart": {
         "default": true,
-        "transient": true
+        "transient": true,
+        "property": false
       }
     },
     "expose": "NONE",
@@ -962,16 +980,20 @@
         "override": false
       },
       "length": {
-        "override": false
+        "override": false,
+        "property": true
       },
       "rowEnd": {
-        "override": false
+        "override": false,
+        "property": true
       },
       "rowHead": {
-        "override": false
+        "override": false,
+        "property": true
       },
       "rowStart": {
-        "override": false
+        "override": false,
+        "property": true
       }
     },
     "expose": "NONE",

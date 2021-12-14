@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Read content of a file. Store content to targetPath when targetPath not equals \"_asString\".",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "interfaces": "ConfigReadCommand",
   "modelKey": "FileReadCall",
   "module": "elastic-objects",

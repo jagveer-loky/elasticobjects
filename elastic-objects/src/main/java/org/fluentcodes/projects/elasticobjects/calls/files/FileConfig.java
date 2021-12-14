@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionConfig;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
@@ -16,26 +16,27 @@ import java.util.Enumeration;
 import static org.fluentcodes.projects.elasticobjects.calls.HostConfig.LOCALHOST;
 
 /*.{javaHeader}|*/
+
 /**
- * 
- * Immutable EO file configuration allow read or write access to a specific file.  
+ * Immutable EO file configuration allow read or write access to a specific file.
+ *
  * @author Werner Diwischek
  * @creationDate Wed Oct 17 00:00:00 CEST 2018
  * @modificationDate Thu Jan 14 14:42:46 CET 2021
  */
-public class FileConfig extends PermissionConfig implements FileConfigMethods, FileInterface  {
-/*.{}.*/
+public class FileConfig extends PermissionConfig implements FileConfigMethods, FileInterface {
+    /*.{}.*/
 
-/*.{javaInstanceVars}|*/
-   /* If true will cache the readed file within the cache object.  */
-   private final Boolean cached;
-   /* A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
-   private final String fileName;
-   /* A filePath used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
-   private final String filePath;
-   /* A key for host objects. */
-   private final String hostConfigKey;
-/*.{}.*/
+    /*.{javaInstanceVars}|*/
+    /* If true will cache the readed file within the cache object.  */
+    private final Boolean cached;
+    /* A fileName used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
+    private final String fileName;
+    /* A filePath used in different calls and configs like {@link FileConfig} or {@link DirectoryConfig}.  */
+    private final String filePath;
+    /* A key for host objects. */
+    private final String hostConfigKey;
+    /*.{}.*/
     private String cachedContent;
 
     public FileConfig(ConfigBean bean, final ConfigMaps configMaps) {
@@ -47,33 +48,36 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
         this.fileName = bean.getFileName();
         this.filePath = bean.getFilePath();
         this.cached = bean.getCached();
-        this.hostConfigKey = bean.hasHostConfigKey() ? bean.getHostConfigKey(): LOCALHOST;
+        this.hostConfigKey = bean.hasHostConfigKey() ? bean.getHostConfigKey() : LOCALHOST;
     }
 
 
+    /*.{javaAccessors}|*/
+    @Override
+    public Boolean getCached() {
+        return this.cached;
+    }
 
-/*.{javaAccessors}|*/
-   @Override
-   public Boolean getCached() {
-      return this.cached;
-   }
-   @Override
-   public String getFileName() {
-      return this.fileName;
-   }
-   @Override
-   public String getFilePath() {
-      return this.filePath;
-   }
-   @Override
-   public String getHostConfigKey() {
-      return this.hostConfigKey;
-   }
-/*.{}.*/
+    @Override
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    @Override
+    public String getFilePath() {
+        return this.filePath;
+    }
+
+    @Override
+    public String getHostConfigKey() {
+        return this.hostConfigKey;
+    }
+    /*.{}.*/
 
     protected boolean hasCachedContent() {
         return cachedContent != null && !cachedContent.isEmpty();
     }
+
     @Override
     public String getCachedContent() {
         return cachedContent;
@@ -85,7 +89,7 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
     }
 
     @Override
-    public String getUrlPath(final HostConfig hostConfig )  {
+    public String getUrlPath(final HostConfig hostConfig) {
         String hostPath = hostConfig.getUrlPath();
         if (hostPath == null || hostPath.isEmpty()) {
             return filePath + "/" + fileName;
@@ -93,19 +97,19 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
         return new Parser(hostPath + "" + filePath + "/" + fileName).parse();
     }
 
-    protected HostConfig resolveHostConfig(final EO eo, final String hostConfigKey) {
-        if (hostConfigKey != null && !hostConfigKey.isEmpty()) return eo.getConfigsCache().findHost(hostConfigKey);
-        return eo.getConfigsCache().findHost(this.getHostConfigKey());
+    protected HostConfig resolveHostConfig(final IEOScalar eo, final String hostConfigKey) {
+        if (hostConfigKey != null && !hostConfigKey.isEmpty()) return eo.getConfigMaps().findHost(hostConfigKey);
+        return eo.getConfigMaps().findHost(this.getHostConfigKey());
     }
 
-    public URL findUrl(final EO eo, final String hostConfigKey)  {
+    public URL findUrl(final IEOScalar eo, final String hostConfigKey) {
         return findUrl(resolveHostConfig(eo, hostConfigKey));
     }
 
     @Override
-    public URL findUrl(HostConfig hostConfig)  {
+    public URL findUrl(HostConfig hostConfig) {
         URL url = createUrl(hostConfig);
-        final String localFileName = url.toString().replaceAll("^file:","");
+        final String localFileName = url.toString().replaceAll("^file:", "");
         if (new File(localFileName).exists()) {
             return url;
         }
@@ -115,13 +119,13 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
                 return urls.nextElement();
             }
             throw new EoException("Could not find " + fileName.replaceAll("^/+", ""));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new EoException("Could not find " + fileName.replaceAll("^/+", ""), e);
         }
     }
+
     @Override
-    public URL getUrl(HostConfig hostConfig)  {
+    public URL getUrl(HostConfig hostConfig) {
         if (!hasFileName()) {
             throw new EoException("No name in file provided '" + getNaturalId() + "'!");
         }
@@ -134,8 +138,9 @@ public class FileConfig extends PermissionConfig implements FileConfigMethods, F
             throw new EoException(e);
         }
     }
+
     @Override
-    public URL createUrl(HostConfig hostConfig)  {
+    public URL createUrl(HostConfig hostConfig) {
         if (!hasFileName()) {
             throw new EoException("No name in file provided '" + getNaturalId() + "'!");
         }

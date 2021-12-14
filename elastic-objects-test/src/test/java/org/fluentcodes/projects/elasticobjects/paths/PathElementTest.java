@@ -34,13 +34,6 @@ public class PathElementTest {
     }
 
     @Test
-    public void __new_String_logLevel__Exception() {
-        Assertions.assertThatThrownBy(()->{new PathElement("(String)" + PathElement.LOG_LEVEL);})
-                .isInstanceOf(EoException.class)
-                .hasMessageContaining("Mismatch");
-    }
-
-    @Test
     public void _call____List() {
         PathElement pathElement = new PathElement(PathElement.CALLS);
         Assert.assertEquals(PathElement.CALLS, pathElement.getKey());

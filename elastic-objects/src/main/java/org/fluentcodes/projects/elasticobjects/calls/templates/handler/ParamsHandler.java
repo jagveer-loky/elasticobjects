@@ -21,7 +21,7 @@ public class ParamsHandler extends HandlerAbstract {
         String[] methodAndInput = getCallDirective().split("->");
         String parameters = methodAndInput.length == 1 ? methodAndInput[0] : methodAndInput[1];
         String callKey = methodAndInput.length == 1 ? TemplateResourceCall.class.getSimpleName() : methodAndInput[0];
-        ModelConfig callModel = getEo().getConfigsCache().findModel(callKey);
+        ModelConfig callModel = getEo().getConfigMaps().findModel(callKey);
         Call call = (Call) callModel.create();
         call.setByParameter(parameters);
         if (hasContent()) {

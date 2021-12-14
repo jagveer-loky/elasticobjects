@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Defines the parameter like rowStart, rowEnd and length.",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "modelKey": "ListParams",
   "module": "elastic-objects",
   "moduleScope": "main",

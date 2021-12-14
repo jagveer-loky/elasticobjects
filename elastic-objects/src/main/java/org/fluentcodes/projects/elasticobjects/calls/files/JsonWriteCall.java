@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 
 /*.{javaHeader}|*/
@@ -10,23 +10,23 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
  * Serialize the value of the sourcePath as JSON and write it to a file
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 09:49:43 CET 2020
  */
-public class JsonWriteCall extends FileWriteCall  {
-/*.{}.*/
+public class JsonWriteCall extends FileWriteCall {
+    /*.{}.*/
 
     /*.{javaStaticNames}|*/
-   public static final String INDENT = "indent";
-   public static final String SERIALIZATION_TYPE = "serializationType";
-/*.{}.*/
+    public static final String INDENT = "indent";
+    public static final String SERIALIZATION_TYPE = "serializationType";
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-   private  Integer indent;
-   private  JSONSerializationType serializationType;
-/*.{}.*/
+    private Integer indent;
+    private JSONSerializationType serializationType;
+    /*.{}.*/
 
-    public JsonWriteCall()  {
+    public JsonWriteCall() {
         super();
     }
 
@@ -35,7 +35,7 @@ public class JsonWriteCall extends FileWriteCall  {
     }
 
     @Override
-    public String execute(final EO eo)  {
+    public String execute(final IEOScalar eo) {
         if (!hasSerializationType()) {
             serializationType = JSONSerializationType.STANDARD;
         }
@@ -50,37 +50,39 @@ public class JsonWriteCall extends FileWriteCall  {
     }
 
     /*.{javaAccessors}|*/
+
     /**
-    The number of indent for serialization level.
-    */
+     * The number of indent for serialization level.
+     */
 
     public JsonWriteCall setIndent(Integer indent) {
         this.indent = indent;
         return this;
     }
-    
-    public Integer getIndent () {
-       return this.indent;
+
+    public Integer getIndent() {
+        return this.indent;
     }
-    
-    public boolean hasIndent () {
-        return indent!= null;
+
+    public boolean hasIndent() {
+        return indent != null;
     }
+
     /**
-    The types of Serialization. 
-    */
+     * The types of Serialization.
+     */
 
     public JsonWriteCall setSerializationType(JSONSerializationType serializationType) {
         this.serializationType = serializationType;
         return this;
     }
-    
-    public JSONSerializationType getSerializationType () {
-       return this.serializationType;
+
+    public JSONSerializationType getSerializationType() {
+        return this.serializationType;
     }
-    
-    public boolean hasSerializationType () {
-        return serializationType!= null;
+
+    public boolean hasSerializationType() {
+        return serializationType != null;
     }
-/*.{}.*/
+    /*.{}.*/
 }

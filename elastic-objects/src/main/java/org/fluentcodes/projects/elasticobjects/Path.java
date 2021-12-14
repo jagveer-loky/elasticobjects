@@ -22,11 +22,11 @@ public class Path {
             entryList.addAll(path.getEntries());
         }
         absolute = path.isAbsolute();
-        for (String pathElement: pathEntries) {
+        for (String pathElement : pathEntries) {
             this.addPaths(pathElement.split(Path.DELIMITER), entryList);
         }
         this.entries = new PathElement[entryList.size()];
-        for (int i=0; i<entryList.size(); i++) {
+        for (int i = 0; i < entryList.size(); i++) {
             this.entries[i] = entryList.get(i);
         }
     }
@@ -41,7 +41,7 @@ public class Path {
     }
 
     public Path(String... pathEntries) {
-        if (pathEntries == null || pathEntries.length==0 || pathEntries[0] == null) {
+        if (pathEntries == null || pathEntries.length == 0 || pathEntries[0] == null) {
             this.entries = new PathElement[0];
             return;
         }
@@ -57,7 +57,7 @@ public class Path {
         return new Path(pathEntries).directory(true);
     }
 
-    private void addPathElements(final List<String>tempPath, final String[] addArray) {
+    private void addPathElements(final List<String> tempPath, final String[] addArray) {
         for (String pathEntry : addArray) {
             if (pathEntry == null || pathEntry.isEmpty() || PathElement.SAME.equals(pathEntry) || pathEntry.matches("\\s*")) {
                 continue;
@@ -71,9 +71,9 @@ public class Path {
                 continue;
             }
             if (pathEntry.equals(PathElement.BACK)) {
-                if (tempPath.size()>0 && !PathElement.BACK.equals(tempPath.get(tempPath.size()-1))) {
-                        tempPath.remove(tempPath.size() - 1);
-                        continue;
+                if (tempPath.size() > 0 && !PathElement.BACK.equals(tempPath.get(tempPath.size() - 1))) {
+                    tempPath.remove(tempPath.size() - 1);
+                    continue;
                 }
             }
             tempPath.add(pathEntry);
@@ -89,101 +89,8 @@ public class Path {
         return absolute;
     }
 
-    public boolean isFilterNothing() {
-        for (PathElement path : this.entries) {
-            if (path.getKey().equals(PathElement.MATCHER_ALL)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public boolean isFilter() {
         return getParent().isFilter();
-    }
-
-    public EO moveToParent (final EO eo) {
-        Path parentPath = this.getParentPath();
-        return parentPath.moveTo(eo);
-    }
-
-    public EO moveTo (EO eo) {
-        EO target = eo;
-        if (isAbsolute()) {
-            target = eo.getRoot();
-        }
-        for (PathElement element: entries) {
-            if (element.isBack()) {
-                target = target.getParent();
-            }
-            else if (element.isSame()) { }
-            else {
-                if (((EoChild)target).hasEo(element)) {
-                    target = target.getEo(element);
-                }
-                else {
-                    throw new EoException("Could not move to path '" + this.toString() + "' because key '" + element.toString() + "' does not exist on '" + target.getPathAsString() + "'." );
-                }
-            }
-        }
-        return target;
-    }
-
-    public EO create (EO parent) {
-        return create(parent, null);
-    }
-
-    public EO create (EO parent, final Object value) {
-        EO target = parent;
-        if (isEmpty()) {
-            target.mapObject(value);
-        }
-        if (isAbsolute()) {
-            parent = parent.getRoot();
-        }
-        int counter = 0;
-        for (PathElement element: entries) {
-            counter++;
-            if (element.isBack()) {
-                parent = parent.getParent();
-            }
-            else if (element.isSame()) {
-                if (counter==entries.length) {
-                    parent.mapObject(value);
-                }
-            }
-            else if (element.isRootModel()) {
-                throw new EoException("Could not change model with a set");
-            }
-            else {
-                if (counter==entries.length) {
-                    if (((EoChild)parent).hasEo(element)) {
-                        parent = parent.getEo(element);
-                        parent.mapObject(value);
-                        //element.resolve(parent, value);
-                        //((EoChild)parent).setPathElement(element);
-                    }
-                    else {
-                        if (parent.isScalar()) {
-                            throw new EoException("Could not create a field value with '" + element.getKey() + "' for a scalar (" + parent.getModel().toString() + ") parent on path '" + parent.getPathAsString() + "'");
-                        }
-                        parent = parent.createChild(element, value);
-                    }
-                }
-                else {
-                    if (((EoChild)parent).hasEo(element)) {
-                        parent = parent.getEo(element);
-                        //element.resolve(parent, null);
-                        //((EoChild)parent).setPathElement(element);
-                    }
-                    else {
-                        parent = parent.createChild(element);
-                    }
-                }
-            }
-
-        }
-        return parent;
     }
 
     protected List<PathElement> getEntries() {
@@ -209,7 +116,7 @@ public class Path {
     }
 
     private void addPaths(final String[] pathElements, List<PathElement> entries) {
-        if (pathElements[0].isEmpty())  {
+        if (pathElements[0].isEmpty()) {
             entries.clear();
             absolute = true;
         }
@@ -222,7 +129,7 @@ public class Path {
                     entries.add(new PathElement(path)); // first ".." on empty path.
                     continue;
                 }
-                if (entries.get(entries.size()-1).equals(PathElement.BACK)) { // several subsequent ".."
+                if (entries.get(entries.size() - 1).equals(PathElement.BACK)) { // several subsequent ".."
                     entries.add(new PathElement(path));
                     continue;
                 }
@@ -246,11 +153,11 @@ public class Path {
         return getFirstPathElement().getKey();
     }
 
-    public Path getFirstPath() {
+    public String getLastEntry() {
         if (isEmpty()) {
-            return new Path("");
+            return null;
         }
-        return new Path(getFirstPathElement());
+        return getLastPathElement().getKey();
     }
 
     public PathElement getFirstPathElement() {
@@ -260,8 +167,11 @@ public class Path {
         return this.entries[0];
     }
 
-    public boolean hasFirstEntry() {
-        return !isEmpty();
+    public PathElement getLastPathElement() {
+        if (isEmpty()) {
+            return null;
+        }
+        return this.entries[entries.length-1];
     }
 
     public Path createChildPath() {
@@ -277,8 +187,7 @@ public class Path {
         }
         try {
             return new Path(this.absolute, Arrays.copyOfRange(this.entries, 0, entries.length - 1));
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             throw new EoException(e);
         }
     }
@@ -294,47 +203,38 @@ public class Path {
         if (size() < 1) {
             throw new EoException("No entry in path");
         }
-        return entries[entries.length-1];
+        return entries[entries.length - 1];
     }
 
     public Path add(String... keys) {
         try {
             if (isEmpty()) {
                 return new Path(keys);
-            }
-            else {
+            } else {
                 return new Path(this, keys);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new EoInternalException(e);
         }
     }
-
-    protected boolean isCallDirectory() {
-        if (isEmpty()) {
-            return false;
-        }
-        if (size()==1 && entries[0].isCallDirectory()) {
-            return true;
-        }
-        return false;
-    }
-
 
     public int size() {
         return this.entries.length;
     }
 
+    public PathElement getPathElement(int i) {
+        return this.entries[i];
+    }
+
     public String get(int i) {
-        return this.entries[i].getKey();
+        return getPathElement(i).getKey();
     }
 
     @Override
     public String toString() {
-        StringBuffer result = new StringBuffer();
+        StringBuilder result = new StringBuilder();
 
-        for (PathElement element: entries) {
+        for (PathElement element : entries) {
             result.append(DELIMITER);
             result.append(element.toString());
         }
@@ -352,8 +252,8 @@ public class Path {
         if (includeModels) {
             return toString();
         }
-        StringBuffer result = new StringBuffer();
-        for (PathElement element: entries) {
+        StringBuilder result = new StringBuilder();
+        for (PathElement element : entries) {
             result.append(DELIMITER);
             result.append(element.getKey());
         }
@@ -377,20 +277,9 @@ public class Path {
         }
         PathElement element = entries[entries.length - 1];
         if (element.hasModelArray()) {
-            return "(" + String.join(",",element.getModelsArray()) + ")" + element.getKey();
+            return "(" + String.join(",", element.getModelsArray()) + ")" + element.getKey();
         }
         return element.getKey();
-    }
-
-    public boolean hasChild() {
-        return !isEmpty() && this.entries.length>1;
-    }
-
-    public boolean hasModel() {
-        if (isEmpty()) {
-            return false;
-        }
-        return getFirstPathElement().hasModelArray();
     }
 
     public String[] getModels() {

@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +29,7 @@ public class Or {
 
     public Or(Condition... conditions) {
         this();
-        for (Condition condition:conditions) {
+        for (Condition condition : conditions) {
             andList.add(new And(condition));
         }
     }
@@ -104,7 +104,7 @@ public class Or {
         return false;
     }
 
-    public boolean filter(EO adapter) {
+    public boolean filter(final IEOScalar adapter) {
         if (adapter == null) {
             LOG.warn("Null row should not occure!");
             return true;

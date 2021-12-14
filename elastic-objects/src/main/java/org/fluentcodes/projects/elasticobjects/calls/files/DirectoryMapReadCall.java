@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -42,12 +43,12 @@ public class DirectoryMapReadCall extends DirectoryListReadCall  {
     }
 
     @Override
-    public Object execute(final EO eo)  {
+    public Object execute(final IEOScalar eo)  {
         Map<String, String> result = mapDirectory(eo);
         return createReturnType(eo, result);
     }
 
-    public Map<String, String> mapDirectory(final EO eo)  {
+    public Map<String, String> mapDirectory(final IEOScalar eo)  {
         final String usedToReplace = hasToReplace()? this.toReplace: DEFAULT_TO_REPLACE;
         final String usedReplaceBy = hasReplaceBy()? this.replaceBy: DEFAULT_REPLACE_BY;
         final String usedFileEnding = hasFileEnding()? this.fileEnding: DEFAULT_FILE_ENDING;

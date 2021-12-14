@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMapsDev;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class ParserTest {
     @Test
     public void call_not_exist_default__parse__default() {
         String replace = "#{NO_CALL->|>TEST}.";
-        String result = new Parser(replace).parse(ProviderConfigMaps.createEoDev());
+        String result = new Parser(replace).parse(ProviderConfigMapsDev.createEo());
         Assert.assertNotNull(result);
         Assertions.assertThat(result).isEqualTo("TEST");
     }
@@ -47,7 +48,7 @@ public class ParserTest {
     @Test
     public void call_json_not_exist_default__parse__default() {
         String replace = "@{\"(NO_CALL)\":{} |>TEST}.";
-        String result = new Parser(replace).parse(ProviderConfigMaps.createEoDev());
+        String result = new Parser(replace).parse(ProviderConfigMapsDev.createEo());
         Assert.assertNotNull(result);
         Assertions.assertThat(result).isEqualTo("TEST");
     }

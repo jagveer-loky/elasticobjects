@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
 import org.fluentcodes.projects.elasticobjects.calls.commands.ConfigWriteCommand;
@@ -14,25 +14,25 @@ import org.fluentcodes.tools.io.IOString;
 /*.{javaHeader}|*/
 
 /**
- * Write content or serialized eo to a file. 
+ * Write content or serialized eo to a file.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Tue Dec 08 09:48:45 CET 2020
  */
-public class FileWriteCall extends FileCall implements ConfigWriteCommand,  CallContent {
-/*.{}.*/
+public class FileWriteCall extends FileCall implements ConfigWriteCommand, CallContent {
+    /*.{}.*/
     private static final Logger LOG = LogManager.getLogger(FileWriteCall.class);
 
     /*.{javaStaticNames}|*/
-   public static final String COMPARE = "compare";
-   public static final String CONTENT = "content";
-/*.{}.*/
+    public static final String COMPARE = "compare";
+    public static final String CONTENT = "content";
+    /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-   private  Boolean compare;
-   private  String content;
-/*.{}.*/
+    private Boolean compare;
+    private String content;
+    /*.{}.*/
 
     public FileWriteCall() {
         super();
@@ -43,19 +43,19 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
         super(configKey);
         compare = true;
     }
+
     public FileWriteCall(final String configKey, final String content) {
         super(configKey);
         setContent(content);
         compare = true;
     }
 
-
     @Override
-    public String execute(final EO eo)  {
+    public String execute(final IEOScalar eo) {
         return this.write(eo);
     }
 
-    public String write(EO eo)  {
+    public String write(IEOScalar eo) {
         FileConfig fileConfig = super.init(PermissionType.READ, eo);
         if (!hasContent()) {
             if (eo.isScalar()) {
@@ -78,22 +78,21 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
                 if (existing.equals(compare)) {
                     return "Skip writing file '" + targetFile + "' with same content and length " + getContent().length() + ".";
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 LOG.debug(e);
                 eo.debug(e.getMessage());
             }
         }
         write(targetFile, content);
-        return "Written content with length " + getContent().length() + " to file '" + targetFile + "'" ;
+        return "Written content with length " + getContent().length() + " to file '" + targetFile + "'";
     }
 
-    public static void write(String targetFile, Object content)  {
-        new IOString(targetFile).write((String)content);
+    public static void write(String targetFile, Object content) {
+        new IOString(targetFile).write((String) content);
     }
 
     public boolean isCompare() {
-        return compare!=null && compare;
+        return compare != null && compare;
     }
 
     public FileWriteCall setCompare(boolean compare) {
@@ -102,37 +101,39 @@ public class FileWriteCall extends FileCall implements ConfigWriteCommand,  Call
     }
 
     /*.{javaAccessors}|*/
+
     /**
-    Trigger a compare before writing in @FileWriteCall
-    */
+     * Trigger a compare before writing in @FileWriteCall
+     */
 
     public FileWriteCall setCompare(Boolean compare) {
         this.compare = compare;
         return this;
     }
-    
-    public Boolean getCompare () {
-       return this.compare;
+
+    public Boolean getCompare() {
+        return this.compare;
     }
-    
-    public boolean hasCompare () {
-        return compare!= null;
+
+    public boolean hasCompare() {
+        return compare != null;
     }
+
     /**
-    A content for different calls. In a template context the content of the markup. 
-    */
+     * A content for different calls. In a template context the content of the markup.
+     */
 
     public FileWriteCall setContent(String content) {
         this.content = content;
         return this;
     }
-    
-    public String getContent () {
-       return this.content;
+
+    public String getContent() {
+        return this.content;
     }
-    
-    public boolean hasContent () {
-        return content!= null && !content.isEmpty();
+
+    public boolean hasContent() {
+        return content != null && !content.isEmpty();
     }
-/*.{}.*/
+    /*.{}.*/
 }

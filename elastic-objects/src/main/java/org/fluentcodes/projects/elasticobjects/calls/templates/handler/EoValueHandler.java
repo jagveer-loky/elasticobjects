@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
@@ -15,7 +15,7 @@ public class EoValueHandler {
     private EoValueHandler() {
     }
 
-    public static String call(final EO eo, String pathOrKey) {
+    public static String call(final IEOScalar eo, String pathOrKey) {
         if (eo == null) {
             throw new EoException("Null eo wrapper defined to get '" + pathOrKey + "'");
         }

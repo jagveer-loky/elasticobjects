@@ -1,9 +1,10 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
-  "creationDate": 1608073216000,
+  "(Date)creationDate": 1608073216000,
   "description": "The bean counterpart for @FileConfig.",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "interfaces": "FileInterface",
   "modelKey": "FileBean",
   "module": "elastic-objects",

@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigObject",
   "description": "Mainly the schema information as base for  @DbQueryConfig",
-  "expose": "NONE",
+  "(Expose)expose": "NONE",
   "interfaces": "DbInterface",
   "modelKey": "DbConfig",
   "module": "eo-db",

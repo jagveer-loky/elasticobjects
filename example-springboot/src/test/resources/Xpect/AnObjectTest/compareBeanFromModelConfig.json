@@ -1,8 +1,9 @@
 {
+  "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
   "configModelKey": "ModelConfigDbObject",
   "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
-  "expose": "WEB",
+  "(Expose)expose": "WEB",
   "modelKey": "AnObject",
   "module": "elastic-objects-test",
   "moduleScope": "main",

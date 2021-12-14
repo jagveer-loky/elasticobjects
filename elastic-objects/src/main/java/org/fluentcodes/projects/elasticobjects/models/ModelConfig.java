@@ -55,6 +55,10 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         setModelClass();
     }
 
+    public Models getFieldModels(final String fieldKey) {
+        return getField(fieldKey).getModels();
+    }
+
     /**
      * The model name for the actions
      */

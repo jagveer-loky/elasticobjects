@@ -57,7 +57,7 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
     @Test
     public void eo_ListSimpleXlx__execute__2rows()  {
         final Call call = new XlsxReadCall(LIST_SIMPLE_XLSX);
-
+        call.setTargetPath(".");
         EO eo = ProviderConfigMaps.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();

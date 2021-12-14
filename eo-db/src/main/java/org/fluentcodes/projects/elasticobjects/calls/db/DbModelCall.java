@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
 import org.fluentcodes.projects.elasticobjects.calls.HostCall;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionType;
@@ -9,30 +9,32 @@ import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfigDbObject;
 
 /*.{javaHeader}|*/
+
 /**
  * Abstract call class for model based {@link ModelConfigDbObject} database operations.
  *
  * @author Werner Diwischek
- * @creationDate 
+ * @creationDate
  * @modificationDate Wed Nov 11 06:19:26 CET 2020
  */
-public abstract class DbModelCall extends HostCall  {
-/*.{}.*/
+public abstract class DbModelCall extends HostCall {
+    /*.{}.*/
 
-/*.{javaStaticNames}|*/
-   public static final String MODEL_CONFIG_KEY = "modelConfigKey";
-/*.{}.*/
+    /*.{javaStaticNames}|*/
+    public static final String MODEL_CONFIG_KEY = "modelConfigKey";
+    /*.{}.*/
 
-/*.{javaInstanceVars}|*/
-   private  String modelConfigKey;
-/*.{}.*/
+    /*.{javaInstanceVars}|*/
+    private String modelConfigKey;
+    /*.{}.*/
 
     private ModelConfigDbObject modelConfigDbObject;
-    public DbModelCall()  {
+
+    public DbModelCall() {
         super();
     }
 
-    public DbModelCall(final String hostConfigKey)  {
+    public DbModelCall(final String hostConfigKey) {
         super(hostConfigKey);
     }
 
@@ -40,19 +42,18 @@ public abstract class DbModelCall extends HostCall  {
         this.modelConfigKey = configKey;
     }
 
-    protected ModelConfigDbObject init(final PermissionType permissionType, final EO eo) {
+    protected ModelConfigDbObject init(final PermissionType permissionType, final IEOScalar eo) {
         modelConfigKey = eo.getModelClass().getSimpleName();
-        ModelConfig modelConfig = eo.getConfigsCache().findModel(modelConfigKey);
+        ModelConfig modelConfig = eo.getConfigMaps().findModel(modelConfigKey);
         if (!(modelConfig instanceof ModelConfigDbObject)) {
             throw new EoException("modelConfig for key '" + modelConfigKey + "'is not of type ModelConfigDbObject but " + modelConfig.getClass() + ".");
         }
-        modelConfigDbObject = (ModelConfigDbObject) eo.getConfigsCache().findModel(modelConfigKey);
+        modelConfigDbObject = (ModelConfigDbObject) eo.getConfigMaps().findModel(modelConfigKey);
         modelConfigDbObject.hasPermissions(permissionType, eo.getRoles());
         if (!hasHostConfigKey()) {
             if (modelConfigDbObject.hasHostConfigKey()) {
                 setHostConfigKey(modelConfigDbObject.getHostConfigKey());
-            }
-            else {
+            } else {
                 setHostConfigKey(DbConfig.H2_BASIC);
             }
         }
@@ -61,25 +62,26 @@ public abstract class DbModelCall extends HostCall  {
     }
 
     protected DbConfig getDbConfig() {
-        return (DbConfig)getHostConfig();
+        return (DbConfig) getHostConfig();
     }
 
-/*.{javaAccessors}|*/
+    /*.{javaAccessors}|*/
+
     /**
-    The model name for the cache object {{@link link} Config}.
-    */
+     * The model name for the cache object {{@link link} Config}.
+     */
 
     public DbModelCall setModelConfigKey(String modelConfigKey) {
         this.modelConfigKey = modelConfigKey;
         return this;
     }
-    
-    public String getModelConfigKey () {
-       return this.modelConfigKey;
+
+    public String getModelConfigKey() {
+        return this.modelConfigKey;
     }
-    
-    public boolean hasModelConfigKey () {
-        return modelConfigKey!= null && !modelConfigKey.isEmpty();
+
+    public boolean hasModelConfigKey() {
+        return modelConfigKey != null && !modelConfigKey.isEmpty();
     }
-/*.{}.*/
+    /*.{}.*/
 }

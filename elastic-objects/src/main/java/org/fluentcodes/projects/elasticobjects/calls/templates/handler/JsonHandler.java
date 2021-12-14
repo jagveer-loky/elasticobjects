@@ -2,6 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.ExecutorCall;
@@ -23,12 +24,12 @@ public class JsonHandler extends HandlerAbstract {
         if (getEo() == null) {
             return getDefaultValue();
         }
-        EO eoCall = EoRoot.ofValue(getEo().getConfigsCache(),
+        EO eoCall = EoRoot.ofValue(getEo().getConfigMaps(),
                 TemplateMarker.CURLY.getStart()
                         + getCallDirective()
                         + TemplateMarker.CURLY.getStop());
         if (!eoCall.isEmpty()) {
-            getEo().mapObject(eoCall.get());
+            getEo().set(eoCall.get());
         }
         if (eoCall.getCallKeys().isEmpty()) {
             return "";
@@ -36,7 +37,7 @@ public class JsonHandler extends HandlerAbstract {
         return executeCalls(eoCall);
     }
 
-    private String executeCalls(EO eoCall) {
+    private String executeCalls(IEOScalar eoCall) {
         List<String> callSet = new ArrayList<>(eoCall.getCallKeys());
         StringBuilder returnResult = new StringBuilder();
         String postPend = "";
