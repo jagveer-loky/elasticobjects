@@ -18,8 +18,6 @@ public interface IEOObject extends IEOScalar {
 
     IEOScalar createChild(String... paths);
 
-    EO mapObject(Object source);
-
     default int sizeEo() {
         return keysEo().size();
     }
@@ -40,7 +38,7 @@ public interface IEOObject extends IEOScalar {
 
     Map<String, Object> getKeyValues();
 
-    EO remove(String... path);
+    IEOObject remove(String... path);
 
     @Override
     default boolean hasLogLevel() {

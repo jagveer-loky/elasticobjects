@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls.files;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
 import org.junit.Test;
 
@@ -11,8 +11,8 @@ import org.junit.Test;
 public class FileCallTest {
 
     @Test
-    public void givenPublicTxt_whenExecuteCall_thenContentIsRead()  {
-        EO eo = ProviderConfigMaps.createEo();
+    public void givenPublicTxt_whenExecuteCall_thenContentIsRead() {
+        EoRoot eo = ProviderConfigMaps.createEo();
         Assertions.assertThat(eo.getLog()).isEmpty();
         String content = (String) new FileReadCall("public.txt").execute(eo);
         Assertions.assertThat(content).isEqualTo("Everyone can see this content!");
@@ -20,11 +20,11 @@ public class FileCallTest {
 
 
     @Test
-    public void givenPublicTxtOnXYZ_whenExecuteCall_thenXYZHasContent()  {
-        EO eo = ProviderConfigMaps.createEo();
+    public void givenPublicTxtOnXYZ_whenExecuteCall_thenXYZHasContent() {
+        EoRoot eo = ProviderConfigMaps.createEo();
         eo.set(new FileReadCall("public.txt"), "xyz");
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat((String)eo.get("xyz")).isEqualTo("Everyone can see this content!");
+        Assertions.assertThat((String) eo.get("xyz")).isEqualTo("Everyone can see this content!");
     }
 }

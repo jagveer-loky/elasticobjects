@@ -1,0 +1,16 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "For setting upper value to EO.",
+  "(Expose)expose": "WEB",
+  "interfaces": "SimpleCommand",
+  "modelKey": "StringUpperFirstCharCall",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "StringUpperFirstCharCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",
+  "properties": {
+  },
+  "superKey": "CallImpl"
+}

@@ -1,0 +1,40 @@
+{
+  "elasticobjects": {
+    "module": "eo-calls",
+    "moduleScope": "test",
+    "description": "A connection to elastic objects",
+    "expose": "NONE",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "elasticobjects",
+      "port": 80,
+      "protocol": "http"
+    }
+  },
+  "dummyftp": {
+    "module": "eo-calls",
+    "moduleScope": "test",
+    "description": "A connection to elastic objects",
+    "expose": "NONE",
+    "properties": {
+      "classPath": "src.main.resources",
+      "hostName": "dummyftp",
+      "user": "dummy",
+      "password": "test1234",
+      "port": 21,
+      "protocol": "ftp"
+    }
+  },
+  "dummyftpurl": {
+    "module": "eo-calls",
+    "moduleScope": "test",
+    "description": "A connection to elastic objects",
+    "expose": "NONE",
+    "properties": {
+      "classPath": "src.main.resources",
+      "user": "dummy",
+      "password": "test1234",
+      "url": "ftp://dummyftp:21"
+    }
+  }
+}

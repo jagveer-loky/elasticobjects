@@ -1,0 +1,16 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "Executes a template content. ",
+  "(Expose)expose": "WEB",
+  "interfaces": "CallContent,SimpleCommand",
+  "modelKey": "TemplateCall",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "TemplateCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+  "properties": {
+  },
+  "superKey": "CallImpl"
+}

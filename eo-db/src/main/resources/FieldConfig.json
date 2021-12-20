@@ -55,6 +55,15 @@
     "fieldKey": "jndi",
     "length": 80
   },
+  "modelConfigKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "The model name for the cache object @ModelConfig.",
+    "expose": "NONE",
+    "fieldKey": "modelConfigKey",
+    "length": 80
+  },
   "schema": {
     "module": "eo-db",
     "moduleScope": "main",

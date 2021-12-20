@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -101,7 +101,7 @@ public class PathPattern {
             pathPattern = pathPattern.replace("*", ".*");
             pathPattern = pathPattern.replace("+", ".*");
             for (Object fieldObject : fields) {
-                String field = ScalarConverter.toString(fieldObject);
+                String field = new ShapeTypeSerializerString().asObject(fieldObject);
                 if (field == null) {
                     continue;
                 }

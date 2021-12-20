@@ -1,0 +1,16 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "Write content or serialized eo to a file. ",
+  "(Expose)expose": "WEB",
+  "interfaces": "ConfigWriteCommand,CallContent",
+  "modelKey": "FileWriteCall",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "FileWriteCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+  "properties": {
+  },
+  "superKey": "FileCall"
+}

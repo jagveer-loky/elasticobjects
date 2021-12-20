@@ -1,13 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.calls.HostConfig;
-import org.fluentcodes.projects.elasticobjects.calls.HostFactory;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileConfig;
-import org.fluentcodes.projects.elasticobjects.calls.files.FileFactory;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 
 import java.util.ArrayList;
@@ -43,8 +38,6 @@ public class ConfigMaps {
         configMaps.put(ModelConfig.class, new ModelFactoryAll(this).createImmutableConfig());
         configMaps.put(FieldConfig.class, new FieldFactory(this).createImmutableConfig());
         this.modelFinished = true;
-        configMaps.put(HostConfig.class, new HostFactory(this).createImmutableConfig());
-        configMaps.put(FileConfig.class, new FileFactory(this).createImmutableConfig());
     }
 
     public Scope getScope() {
@@ -143,18 +136,6 @@ public class ConfigMaps {
         return findModel(modelValue.getClass());
     }
 
-    public FileConfig findFile(final String key)  {
-        return (FileConfig) find(FileConfig.class, key);
-    }
-
-    public boolean hasFile(final String key)  {
-        return hasKey(FileConfig.class, key);
-    }
-
-    public HostConfig findHost(final String key)  {
-        return (HostConfig) find(HostConfig.class, key);
-    }
-
     public String toString(Class<? extends ConfigInterface> configClass) {
         if (!isModelFinished()) {
             return "Not finshed yet.";
@@ -162,9 +143,9 @@ public class ConfigMaps {
 
         Map<String, ConfigInterface> configMap = getConfigMap(configClass);
 
-        EO cloneMap = EoRoot.ofClass(this, Map.class);
+        EoRoot cloneMap = EoRoot.ofClass(this, Map.class);
         cloneMap.setSerializationType(JSONSerializationType.STANDARD);
-        cloneMap.mapObject(configMap);
+        cloneMap.map(configMap);
         return new EOToJSON().toJson(cloneMap);
     }
 

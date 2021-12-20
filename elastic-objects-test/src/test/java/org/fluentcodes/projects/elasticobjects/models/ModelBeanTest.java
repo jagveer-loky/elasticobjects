@@ -1,7 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
@@ -77,7 +77,7 @@ public class ModelBeanTest implements IModelConfigCreateTests {
 
     @Test
     public void eo_set_ShapeTypes_LIST__get_ShapeType__LIST() {
-        EO eo = ProviderConfigMaps.createEo(new ModelBean());
+        EoRoot eo = ProviderConfigMaps.createEo(new ModelBean());
         eo.set(ShapeTypes.LIST, SHAPE_TYPE);
         Assertions.assertThat(eo.get(SHAPE_TYPE)).isEqualTo(ShapeTypes.LIST);
     }

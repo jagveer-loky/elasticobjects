@@ -15,7 +15,7 @@ public class DbConfigTest implements IModelConfigNoCreateTests {
 
     @Override
     @Test
-    public void create_throwsEoException() {
+    public void createThrowsEoException() {
         assertCreateThrowingException();
     }
 

@@ -1,10 +1,11 @@
 package org.fluentcodes.projects.elasticobjects.calls.templates;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectStringJunit4;
 import org.fluentcodes.tools.xpect.XpectString;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class TemplateResourceCallConfigsNavigationTest {
 
     @Test
     public void ModelConfig_configFilter_TemplateCall_expose_WEB__execute__xpected() {
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         eo.set("ModelConfig", "configType");
         eo.set("TemplateCall","configFilter");
         eo.set("WEB","expose");
@@ -25,12 +26,12 @@ public class TemplateResourceCallConfigsNavigationTest {
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat((String)eo.get(PathElement.TEMPLATE)).isNotEmpty();
-       XpectString.assertJunit((String)eo.get(PathElement.TEMPLATE));
+       XpectStringJunit4.assertStatic((String)eo.get(PathElement.TEMPLATE));
     }
 
     @Test
     public void ModelConfig_configFilter_TemplateCall_expose_WEB_role_guest__execute__xpected() {
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         eo.set("ModelConfig", "configType");
         eo.set("TemplateCall","configFilter");
         eo.set("WEB","expose");
@@ -43,7 +44,7 @@ public class TemplateResourceCallConfigsNavigationTest {
 
     @Test
     public void ModelConfig_configFilter_TemplateCall_expose_WEB_role_none__execute__xpected() {
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         eo.set("ModelConfig", "configType");
         eo.set("TemplateCall","configFilter");
         eo.set("WEB","expose");

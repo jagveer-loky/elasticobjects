@@ -3,7 +3,6 @@ package org.fluentcodes.projects.elasticobjects.models;
 import org.fluentcodes.projects.elasticobjects.domain.BaseBean;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -166,7 +165,7 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         if (hasConfigModelKey()) {
             return;
         }
-        setConfigModelKey(ScalarConverter.toString(value));
+        setConfigModelKey(new ShapeTypeSerializerString().asObject(value));
     }
 
     Class<?> deriveConfigClass(final String configModelKey) {
@@ -175,7 +174,7 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
                     this.getClass().getPackage().toString().replace("package ", "")
                             + "." + configModelKey);
         } catch (Exception e) {
-            throw new EoException(e.getMessage());
+            throw new EoException("Could not find configuration class: " + e.getMessage());
         }
     }
 
@@ -245,7 +244,7 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         if (hasModuleScope()) {
             return;
         }
-        setModuleScope(ScalarConverter.toString(value));
+        setModuleScope(new ShapeTypeSerializerString().asObject(value));
     }
 
     private void mergeModule(Object value) {
@@ -255,7 +254,7 @@ public class ConfigBean extends BaseBean implements ConfigInterface {
         if (hasModule()) {
             return;
         }
-        setModule(ScalarConverter.toString(value));
+        setModule(new ShapeTypeSerializerString().asObject(value));
     }
 
     private void mergeExpose(Object value) {

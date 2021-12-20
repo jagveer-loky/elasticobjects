@@ -1,7 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.calls.xlsx;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoChild;
+import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
@@ -25,29 +26,29 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
 
     @Override
     @Test
-    public void create_noEoException()  {
+    public void create_noEoException() {
         assertCreateNoException();
     }
 
     @Override
     @Test
-    public void compareModelConfig()  {
+    public void compareModelConfig() {
         assertModelConfigEqualsPersisted();
     }
 
     @Override
     @Test
-    public void compareBeanFromModelConfig()  {
+    public void compareBeanFromModelConfig() {
         assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
-    public void call_ListSimpleXlsx__execute__listReturned()  {
+    public void call_ListSimpleXlsx__execute__listReturned() {
         final Call call = new XlsxReadCall(LIST_SIMPLE_XLSX);
-        EO eo = ProviderConfigMaps.createEo(new ArrayList<>());
+        IEOScalar eo = ProviderConfigMaps.createEo(new ArrayList<>());
         call.execute(eo);
-        List value = (List)eo.get();
-                Assertions.assertThat(value).isNotEmpty();
+        List value = (List) eo.get();
+        Assertions.assertThat(value).isNotEmpty();
         Assertions.assertThat(value.size()).isEqualTo(2);
         Map firstRow = (Map) value.get(0);
         Assert.assertEquals(2, firstRow.size());
@@ -55,14 +56,14 @@ public class XlsxReadCallTest implements IModelConfigCreateTests {
     }
 
     @Test
-    public void eo_ListSimpleXlx__execute__2rows()  {
+    public void eo_ListSimpleXlx__execute__2rows() {
         final Call call = new XlsxReadCall(LIST_SIMPLE_XLSX);
         call.setTargetPath(".");
-        EO eo = ProviderConfigMaps.createEoWithClasses(List.class);
+        IEOScalar eo = ProviderConfigMaps.createEoWithClasses(List.class);
         eo.addCall(call);
         eo.execute();
         Assertions.assertThat(eo.getLog()).isEmpty();
-        Assertions.assertThat(eo.size()).isEqualTo(2);
+        Assertions.assertThat(((EoChild) eo).size()).isEqualTo(2);
         Map firstRow = (Map) eo.get("0");
         Assert.assertEquals(2, firstRow.size());
         Assert.assertEquals("value11", firstRow.get("key1"));

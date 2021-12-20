@@ -15,9 +15,9 @@ public class EoSetParentValueTest {
 
     @Test
     public void DEV__null__exception() {
-        final EO rootEo = ProviderConfigMapsDev.createEo();
+        final EoRoot eo = ProviderConfigMapsDev.createEo();
         Assertions.assertThatThrownBy(() -> {
-            ((EoChild) rootEo).setParentValue(null);
+            eo.setParentValue(null);
         })
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Root has no parent!");
@@ -25,9 +25,9 @@ public class EoSetParentValueTest {
 
     @Test
     public void DEV_root__exception() {
-        final EO rootEo = ProviderConfigMapsDev.createEo();
+        final EoRoot eo = ProviderConfigMapsDev.createEo();
         Assertions.assertThatThrownBy(() -> {
-            ((EoChild) rootEo).setParentValue("value");
+            ((EoChild) eo).setParentValue("value");
         })
                 .isInstanceOf(EoException.class)
                 .hasMessageContaining("Root has no parent!");
@@ -36,11 +36,11 @@ public class EoSetParentValueTest {
 
     @Test
     public void givenDevString_whenSetOtherString_thenIsChanged() {
-        final EO eo = ProviderConfigMapsDev.createEo();
-        final IEOScalar childEo = eo.set("value", "key");
+        final EoRoot root = ProviderConfigMapsDev.createEo();
+        final IEOScalar childEo = root.set("value", "key");
         Assertions.assertThat(childEo.isChanged()).isFalse();
         childEo.set("valueOther");
-        Assertions.assertThat(eo.getLog()).isEmpty();
+        Assertions.assertThat(root.getLog()).isEmpty();
         Assertions.assertThat(childEo.get()).isEqualTo("valueOther");
         Assertions.assertThat(childEo.isChanged()).isTrue();
     }

@@ -1,12 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.testitemprovider;
 
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
-import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
-import org.fluentcodes.projects.elasticobjects.models.ModelBean;
 import org.fluentcodes.projects.elasticobjects.models.ModelConfig;
-import org.fluentcodes.projects.elasticobjects.xpect.XpectEo;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectEoJunit4;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectStringJunit4;
 
 /**
  * Created by Werner on 17.11.2021.
@@ -24,17 +20,11 @@ public interface IModelConfigTests {
     }
 
     default void assertModelConfigEqualsPersisted() {
-        assertThat(getModelConfig().toString())
-                .isEqualTo(XpectEo.load(getModelConfig()));
+        XpectStringJunit4.assertStatic(getModelConfig().toString());
     }
 
     default void assertBeanFromModelConfigEqualsPersisted() {
-        final ModelBean fieldBean = getModelConfig().createBean();
-        final String persisted = XpectEo.load(fieldBean);
-        final String serialized = new EOToJSON()
-                .toJson(getModelConfig().getConfigMaps(), fieldBean);
-        assertThat(serialized)
-                .isEqualTo(persisted);
+        XpectEoJunit4.assertStaticEO(ProviderConfigMaps.createEo(getModelConfig().createBean()));
     }
 
 }

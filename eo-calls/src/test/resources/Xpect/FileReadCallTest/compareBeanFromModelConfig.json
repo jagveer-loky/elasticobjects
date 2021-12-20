@@ -1,0 +1,16 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "Read content of a file. Store content to targetPath when targetPath not equals \"_asString\".",
+  "(Expose)expose": "WEB",
+  "interfaces": "ConfigReadCommand",
+  "modelKey": "FileReadCall",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "FileReadCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+  "properties": {
+  },
+  "superKey": "FileCall"
+}

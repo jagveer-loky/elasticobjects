@@ -1,0 +1,16 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "Defines a primitive csv file read operation. ",
+  "(Expose)expose": "WEB",
+  "interfaces": "ListInterface",
+  "modelKey": "CsvSimpleReadCall",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "CsvSimpleReadCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",
+  "properties": {
+  },
+  "superKey": "FileReadCall"
+}

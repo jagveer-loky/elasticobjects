@@ -17,7 +17,7 @@ public class XlsxConfigTest implements IModelConfigNoCreateTests {
 
     @Override
     @Test
-    public void create_throwsEoException() {
+    public void createThrowsEoException() {
         assertCreateThrowingException();
     }
 

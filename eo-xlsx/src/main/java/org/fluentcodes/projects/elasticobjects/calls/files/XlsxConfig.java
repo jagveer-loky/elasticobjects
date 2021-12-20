@@ -8,14 +8,14 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.lists.CsvSimpleReadCall;
 import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -150,7 +150,7 @@ public class XlsxConfig extends FileConfig implements XlsxInterface {
         }
     }
 
-    public void write(final EO eo, List rows) {
+    public void write(final IEOObject eo, List rows) {
         Workbook wb = null;
         Sheet sheet = null;
         try {
@@ -182,7 +182,7 @@ public class XlsxConfig extends FileConfig implements XlsxInterface {
                 Object value = values.get(i);
                 Cell cell = xlsxRow.createCell(i);
                 try {
-                    cell.setCellValue(ScalarConverter.toString(value));
+                    cell.setCellValue(new ShapeTypeSerializerString().asObject(value));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -195,7 +195,7 @@ public class XlsxConfig extends FileConfig implements XlsxInterface {
         }
     }
 
-    public void writeWorkbook(final EO eo, Workbook wb) {
+    public void writeWorkbook(final IEOObject eo, Workbook wb) {
         URL url = findUrl(eo, getHostConfigKey());
         //URLConnection connection = url.openConnection();
 

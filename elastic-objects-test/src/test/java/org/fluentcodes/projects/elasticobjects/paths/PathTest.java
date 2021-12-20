@@ -43,7 +43,7 @@ public class PathTest {
 
     @Test
     public void constructorString_SeveralBacksAtTheBeginning() {
-        
+
         String toCompare = Path.ofs(PathElement.BACK, PathElement.BACK, PathElement.BACK, S_LEVEL0);
         Assert.assertEquals(toCompare, new Path(toCompare).directory(false));
     }
@@ -77,7 +77,7 @@ public class PathTest {
 
     @Test
     public void given3EntriesAsStringWithOneEmpty_thenSizeIs2() {
-        Path path = new Path(S_LEVEL0 + Path.DELIMITER  + Path.DELIMITER + S_LEVEL2);
+        Path path = new Path(S_LEVEL0 + Path.DELIMITER + Path.DELIMITER + S_LEVEL2);
         Assertions.assertThat(path.size()).isEqualTo(2);
         Assertions.assertThat(path.directory()).isEqualTo(S_LEVEL0 + Path.DELIMITER + S_LEVEL2);
     }
@@ -117,7 +117,7 @@ public class PathTest {
 
     @Test
     public void hasMatcher() {
-        
+
         Path path = new Path(Path.ofs(S_LEVEL0, PathElement.MATCHER, S_LEVEL1));
         Assert.assertTrue(path.hasMatcher());
         path = new Path(Path.ofs(S_LEVEL0, S_LEVEL1));

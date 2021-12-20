@@ -1,0 +1,17 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "(Date)creationDate": 1539727163392,
+  "description": "Immutable EO file configuration allow read or write access to a specific file. ",
+  "(Expose)expose": "NONE",
+  "interfaces": "FileInterface,FileConfigMethods",
+  "modelKey": "FileConfig",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "FileConfig",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",
+  "properties": {
+  },
+  "superKey": "PermissionConfig"
+}

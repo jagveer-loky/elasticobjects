@@ -1,4 +1,13 @@
 {
+  "configKey": {
+    "module": "elastic-objects",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "Key for configuration @Config",
+    "expose": "WEB",
+    "fieldKey": "configKey",
+    "length": 64
+  },
   "greeting": {
     "module": "example-springboot",
     "moduleScope": "main",

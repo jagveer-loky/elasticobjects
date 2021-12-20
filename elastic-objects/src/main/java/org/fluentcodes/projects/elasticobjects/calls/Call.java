@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.LogLevel;
 import org.fluentcodes.projects.elasticobjects.Path;
-import org.fluentcodes.projects.elasticobjects.calls.templates.handler.KeepCalls;
+import org.fluentcodes.projects.elasticobjects.calls.templates.KeepCalls;
 
 /*.{javaHeader}|*/
 

@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects.calls.db;
 
-import org.fluentcodes.projects.elasticobjects.EO;
+import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.calls.DbConfig;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.IModelConfigCreateTests;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
@@ -22,27 +22,27 @@ public class DbSqlExecuteCallTest implements IModelConfigCreateTests {
 
     @Override
     @Test
-    public void create_noEoException()  {
+    public void create_noEoException() {
         assertCreateNoException();
     }
 
     @Override
     @Test
-    public void compareModelConfig()  {
+    public void compareModelConfig() {
         assertModelConfigEqualsPersisted();
     }
 
     @Override
     @Test
-    public void compareBeanFromModelConfig()  {
+    public void compareBeanFromModelConfig() {
         assertBeanFromModelConfigEqualsPersisted();
     }
 
     @Test
-    public void queryAnObject()  {
+    public void queryAnObject() {
         DbSqlExecuteCall call = new DbSqlExecuteCall(DbConfig.H2_BASIC, CREATE);
         Assert.assertNotNull(call);
-        EO eo = ProviderConfigMaps.createEo();
+        EoRoot eo = ProviderConfigMaps.createEo();
         call.execute(eo);
     }
 }

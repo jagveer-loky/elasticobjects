@@ -1,7 +1,7 @@
 {
   "_rootmodel": "ModelBean",
   "author": "Werner Diwischek",
-  "configModelKey": "ModelConfigDbObject",
+  "configModelKey": "ModelConfigObject",
   "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
   "(Expose)expose": "WEB",
   "modelKey": "AnObject",

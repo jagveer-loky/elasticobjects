@@ -13,7 +13,7 @@ public class IEoSerializeTest {
 
     @Test
     public void givenDev_thenSerializationTypeEo()  {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         Assertions.assertThat(eo.getSerializationType()).isEqualTo(JSONSerializationType.EO);
         Assertions.assertThat(eo.size()).isEqualTo(0);
         String serialized = new EOToJSON().toJson(eo);
@@ -25,13 +25,13 @@ public class IEoSerializeTest {
         Assert.assertEquals("{\n" +
                 "  \"(JSONSerializationType)_serializationType\": \"EO\"\n" +
                 "}", serialized);
-        EO fromJson = ProviderConfigMapsDev.createEo(serialized);
+        EoRoot fromJson = ProviderConfigMapsDev.createEo(serialized);
         Assertions.assertThat(fromJson.getSerializationType()).isEqualTo(JSONSerializationType.EO);
     }
 
     @Test
     public void givenDev_whenSetSerializationTypeStandard_thenSerializationTypeEo()  {
-        EO eo = ProviderConfigMapsDev.createEo();
+        EoRoot eo = ProviderConfigMapsDev.createEo();
         eo.setSerializationType(JSONSerializationType.STANDARD);
         Assertions.assertThat(eo.getLog()).isEmpty();
         Assertions.assertThat(eo.getSerializationType()).isEqualTo(JSONSerializationType.STANDARD);
@@ -43,7 +43,7 @@ public class IEoSerializeTest {
         Assert.assertEquals("{\n" +
                 "  \"(JSONSerializationType)_serializationType\": \"STANDARD\"\n" +
                 "}", serialized);
-        EO fromJson = ProviderConfigMapsDev.createEo(serialized);
+        EoRoot fromJson = ProviderConfigMapsDev.createEo(serialized);
         Assertions.assertThat(fromJson.getSerializationType()).isEqualTo(JSONSerializationType.STANDARD);
     }
 }

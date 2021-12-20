@@ -21,14 +21,13 @@ public class ModelShapeTypesTest {
 
     @Test
     public void testTypeClasses()  {
-        testTypeClass(Boolean.class, ShapeTypes.SCALAR);
-        testTypeClass(Date.class, ShapeTypes.SCALAR);
-        testTypeClass(Long.class, ShapeTypes.SCALAR);
-        testTypeClass(Integer.class, ShapeTypes.SCALAR);
-        testTypeClass(Double.class, ShapeTypes.SCALAR);
-        testTypeClass(Float.class, ShapeTypes.SCALAR);
-        testTypeClass(String.class, ShapeTypes.SCALAR);
-        testTypeClass(Date.class, ShapeTypes.SCALAR);
+        testTypeClass(Boolean.class, ShapeTypes.BOOLEAN);
+        testTypeClass(Date.class, ShapeTypes.DATE);
+        testTypeClass(Long.class, ShapeTypes.LONG);
+        testTypeClass(Integer.class, ShapeTypes.INTEGER);
+        testTypeClass(Double.class, ShapeTypes.DOUBLE);
+        testTypeClass(Float.class, ShapeTypes.FLOAT);
+        testTypeClass(String.class, ShapeTypes.STRING);
         testTypeClass(List.class, ShapeTypes.LIST);
         testTypeClass(Map.class, ShapeTypes.MAP);
 
@@ -36,13 +35,13 @@ public class ModelShapeTypesTest {
 
     @Test
     public void testTypeObjects()  {
-        testTypeObject(S_BOOLEAN, ShapeTypes.SCALAR);
-        testTypeObject(SAMPLE_DATE, ShapeTypes.SCALAR);
-        testTypeObject(SAMPLE_LONG, ShapeTypes.SCALAR);
-        testTypeObject(S_INTEGER, ShapeTypes.SCALAR);
-        testTypeObject(SAMPLE_DOUBLE, ShapeTypes.SCALAR);
-        testTypeObject(SAMPLE_FLOAT, ShapeTypes.SCALAR);
-        testTypeObject(S_STRING, ShapeTypes.SCALAR);
+        testTypeObject(S_BOOLEAN, ShapeTypes.BOOLEAN);
+        testTypeObject(SAMPLE_DATE, ShapeTypes.DATE);
+        testTypeObject(SAMPLE_LONG, ShapeTypes.LONG);
+        testTypeObject(S_INTEGER, ShapeTypes.INTEGER);
+        testTypeObject(SAMPLE_DOUBLE, ShapeTypes.DOUBLE);
+        testTypeObject(SAMPLE_FLOAT, ShapeTypes.FLOAT);
+        testTypeObject(S_STRING, ShapeTypes.STRING);
         testTypeObject(SAMPLE_LIST_EMPTY, ShapeTypes.LIST);
         testTypeObject(SAMPLE_MAP_EMPTY, ShapeTypes.MAP);
     }

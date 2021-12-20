@@ -1,0 +1,17 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "(Date)creationDate": 1608073216000,
+  "description": "A bean container class for Field values",
+  "(Expose)expose": "WEB",
+  "interfaces": "HostInterface",
+  "modelKey": "HostBean",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "HostBean",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls",
+  "properties": {
+  },
+  "superKey": "PermissionBean"
+}

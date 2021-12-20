@@ -1,57 +1,20 @@
 package org.fluentcodes.projects.elasticobjects.xpect;
 
-import org.fluentcodes.projects.elasticobjects.EOToJSON;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.io.IOEo;
-import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
-import org.fluentcodes.projects.elasticobjects.models.ConfigConfig;
-import org.fluentcodes.tools.io.IORuntimeException;
-import org.fluentcodes.tools.io.IOString;
-import org.fluentcodes.tools.xpect.Xpect;
-import org.fluentcodes.tools.xpect.compators.ComparatorJunit4;
+import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
+import org.fluentcodes.tools.xpect.XpectAbstract;
 
-import java.io.File;
-
-import static org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps.CONFIG_MAPS;
-
-public class XpectEo {
-    private XpectEo() {
+public abstract class XpectEo extends XpectAbstract {
+    public XpectEo(ConfigMaps configMaps, Class annotationClass, Class<?>... classes) {
+        super(new IOEo(configMaps, classes), "json", annotationClass);
     }
 
-    public static File assertJunit(Object toCompare) {
-        String persistedFiles = Xpect.determinePersistenceFile("json");
-        IOEo<Object> ioEo = new IOEo<>(persistedFiles, CONFIG_MAPS, toCompare.getClass());
-        ioEo.setType(JSONSerializationType.STANDARD);
-        new ComparatorJunit4(ioEo).compare(toCompare);
-        return new File(persistedFiles);
+    public JSONSerializationType getSerializationType() {
+        return ((IOEo)getIo()).getType();
     }
 
-    public static File assertEoJunit(Object toCompare) {
-        String persistedFiles = Xpect.determinePersistenceFile("json");
-        IOEo<Object> ioEo = new IOEo<>(persistedFiles, CONFIG_MAPS, toCompare.getClass());
-        ioEo.setType(JSONSerializationType.EO);
-        new ComparatorJunit4(ioEo).compare(toCompare);
-        return new File(persistedFiles);
+    public void setSerializationType(JSONSerializationType serializationType) {
+        ((IOEo)getIo()).setType(serializationType);
     }
-
-    public static final String load(ConfigConfig config) {
-        String persistedFiles = Xpect.determinePersistenceFile("json");
-        try {
-            return new IOString(persistedFiles).read();
-        } catch (IORuntimeException ioRuntimeException) {
-            return config.toString();
-        }
-    }
-
-    public static final String load(ConfigBean bean) {
-        final String persistedFiles = Xpect.determinePersistenceFile("json");
-        try {
-            return new IOString(persistedFiles).read();
-        } catch (IORuntimeException ioRuntimeException) {
-            final String serialized = new EOToJSON().toJson(CONFIG_MAPS, bean);
-            new IOString(persistedFiles).write(serialized);
-            return serialized;
-        }
-    }
-
 }

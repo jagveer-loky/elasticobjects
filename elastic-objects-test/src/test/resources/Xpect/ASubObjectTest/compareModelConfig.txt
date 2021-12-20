@@ -1,0 +1,109 @@
+{
+  "author": "Werner Diwischek",
+  "creationDate": 1605826772992,
+  "description": "A sub object as an example.",
+  "expose": "WEB",
+  "fieldConfigMap": {
+    "id": {
+      "description": "The numeric id of an instance of a class.",
+      "fieldKey": "id",
+      "modelKeys": "Long",
+      "modelList": [
+        "Long"
+      ],
+      "naturalId": "id",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
+      }
+    },
+    "myASubObject": {
+      "description": "myASubObject",
+      "fieldKey": "myASubObject",
+      "modelKeys": "ASubObject",
+      "modelList": [
+        "ASubObject"
+      ],
+      "naturalId": "myASubObject",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
+      }
+    },
+    "myString": {
+      "description": "Just a small test string used in test models. ",
+      "fieldKey": "myString",
+      "length": 20,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "myString",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
+      }
+    },
+    "name": {
+      "description": "The name field of a class. ",
+      "fieldKey": "name",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "name",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
+      }
+    },
+    "naturalId": {
+      "description": "The natural key in @Base",
+      "fieldKey": "naturalId",
+      "length": 80,
+      "modelKeys": "String",
+      "modelList": [
+        "String"
+      ],
+      "naturalId": "naturalId",
+      "properties": {
+        "super": false,
+        "notNull": false,
+        "generated": false,
+        "transient": false,
+        "unique": false,
+        "final": false,
+        "override": false
+      }
+    }
+  },
+  "modelKey": "ASubObject",
+  "module": "elastic-objects-test",
+  "moduleScope": "main",
+  "naturalId": "ASubObject",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",
+  "properties": {
+    "create": true
+  }
+}

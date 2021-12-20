@@ -1,0 +1,15 @@
+{
+  "_rootmodel": "ModelBean",
+  "author": "Werner Diwischek",
+  "configModelKey": "ModelConfigObject",
+  "description": "Executes a TemplateRecourceCall and then a FileWriteCall wth the targetConfigKey.",
+  "(Expose)expose": "WEB",
+  "modelKey": "TemplateResourceStoreCall",
+  "module": "eo-calls",
+  "moduleScope": "main",
+  "naturalId": "TemplateResourceStoreCall",
+  "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",
+  "properties": {
+  },
+  "superKey": "FileReadWriteCall"
+}

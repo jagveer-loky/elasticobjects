@@ -1,15 +1,12 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 
 /**
@@ -17,15 +14,10 @@ import java.util.regex.Pattern;
  */
 public class EOToJSON {
     public static final String REPEATED = ".repeated";
-    public static final Pattern REMOVE_PATTERN = Pattern.compile("\r");
-    public static final Pattern NEWLINE_PATTERN = Pattern.compile("\n");
-    public static final Pattern ESCAPE_PATTERN = Pattern.compile("\"");
-    public static final Pattern NUMBER_PATTERN = Pattern.compile("[\\.,]+0+$");
-    private int indent = 1;
     private PathPattern pathPattern;
     private JSONSerializationType serializationType;
     private boolean checkObjectReplication = false;
-    private List<EO> objectRegistry;
+    private List<IEOObject> objectRegistry;
     private String spacer = "  ";
 
     public EOToJSON() {
@@ -48,8 +40,8 @@ public class EOToJSON {
         return this;
     }
 
-    public EOToJSON setIndent(int indent) {
-        this.indent = indent;
+    public EOToJSON setSpacer(String spacer) {
+        this.spacer = spacer;
         return this;
     }
 
@@ -77,9 +69,9 @@ public class EOToJSON {
 
     public String toJson(final ConfigMaps cache, final Object object) {
         if (isStandard()) {
-            EO mapEo = EoRoot.ofClass(cache, Map.class);
+            EoRoot mapEo = EoRoot.ofClass(cache, Map.class);
             mapEo.setSerializationType(JSONSerializationType.STANDARD);
-            return toJson(mapEo.mapObject(object));
+            return toJson(mapEo.map(object));
         }
         return toJson(EoRoot.ofValue(cache, object));
     }
@@ -93,20 +85,16 @@ public class EOToJSON {
         }
         StringWriter stringWriter = new StringWriter();
         this.addContainerStart(stringWriter, eo);
-        toJson(stringWriter, eo, indent);
-        addLineBreak(stringWriter, indent);
-        addContainerEnd(stringWriter, eo, 0);
+        toJson(stringWriter, eo, spacer);
+        addContainerEnd(stringWriter, eo, "");
         return stringWriter.toString();
     }
 
-    private void toJson(final StringWriter stringWriter, final IEOScalar eoParent, final int indentLevel) {
-        if (eoParent.get() == null) {
-            return;
-        }
+    private void toJson(final StringWriter stringWriter, final IEOScalar eoParent, final String indentSpace) {
         if (eoParent.isEmpty() && serializationType != JSONSerializationType.EO) {
             return;
         }
-        Set<String> fieldNames = ((EO)eoParent).keysEo();
+        Set<String> fieldNames = ((EoChild) eoParent).keysEo();
         if (fieldNames.isEmpty()) {
             return;
         }
@@ -119,7 +107,7 @@ public class EOToJSON {
             if (eoParent.isTransient(fieldName)) {
                 continue;
             }
-            IEOScalar eoChild = eoParent.getEo(fieldName);
+            EoChildScalar eoChild = (EoChildScalar) eoParent.getEo(fieldName);
             if (eoChild.isEmpty()) {
                 continue;
             }
@@ -127,17 +115,19 @@ public class EOToJSON {
                 stringWriter.append(",");
             }
             first = false;
-            addLineBreak(stringWriter, indentLevel);
-            addIndent(stringWriter, indentLevel);
+            if (!spacer.isEmpty()) {
+                stringWriter.append("\n");
+            }
+            stringWriter.append(indentSpace);
 
-            if (!(eoChild instanceof IEOObject)) {
-                stringWriter.append(eoChild.toString(serializationType));
+            if (!(eoChild instanceof EoChild)) {
+                eoChild.writeAsString(stringWriter, serializationType);
                 continue;
             }
-            addName(stringWriter, (EO) eoChild);
-            addContainerStart(stringWriter, (EO) eoChild);
-            toJson(stringWriter, (EO) eoChild, indentLevel + 1);
-            addContainerEnd(stringWriter, (EO) eoChild, indentLevel);
+            eoChild.writeName(stringWriter, serializationType);
+            addContainerStart(stringWriter, eoChild);
+            toJson(stringWriter, eoChild, indentSpace + spacer);
+            addContainerEnd(stringWriter, eoChild, indentSpace);
         }
     }
 
@@ -153,9 +143,11 @@ public class EOToJSON {
         }
     }
 
-    private void addContainerEnd(final StringWriter stringWriter, final IEOScalar eo, final int indentLevel) {
-        addLineBreak(stringWriter, indentLevel);
-        addIndent(stringWriter, indentLevel);
+    private void addContainerEnd(final StringWriter stringWriter, final IEOScalar eo, final String indentSpace) {
+        if (!spacer.isEmpty()) {
+            stringWriter.append("\n");
+        }
+        stringWriter.append(indentSpace);
         if (serializationType == JSONSerializationType.EO) {
             stringWriter.append("}");
             return;
@@ -167,87 +159,35 @@ public class EOToJSON {
         }
     }
 
-    private void addRepeated(final StringWriter stringWriter, final EO repeated, final int indentLevel) {
-        addIndent(stringWriter, indentLevel);
+    private void addRepeated(final StringWriter stringWriter, final IEOObject repeated, final String indentSpace) {
+        stringWriter.append(indentSpace);
         stringWriter.append("{\"");
         stringWriter.append(REPEATED);
         stringWriter.append("\": \"");
         stringWriter.append(repeated.getPathAsString());
         stringWriter.append("\"}");
-        addLineBreak(stringWriter, indentLevel);
-    }
-
-    static String stringify(Object object) {
-        if (object == null) {
-            return "";
-        }
-        if (object instanceof Number) {
-            return NUMBER_PATTERN
-                    .matcher(ScalarConverter.toString(object))
-                    .replaceAll("");
-        }
-        String value = NEWLINE_PATTERN
-                .matcher(ScalarConverter.toString(object))
-                .replaceAll("\\\\n");
-        value = ESCAPE_PATTERN
-                .matcher(value)
-                .replaceAll("\\\\\"");
-        return REMOVE_PATTERN
-                .matcher(value)
-                .replaceAll("");
-    }
-
-    private void addName(final StringWriter stringWriter, final EO eoChild) {
-        if (serializationType != JSONSerializationType.EO && eoChild.getParent().isList()) {
-            return;
-        }
-        stringWriter.append("\"");
-        if (serializationType == JSONSerializationType.EO) {
-            stringWriter.append(eoChild.getModels().createDirective());
-        }
-
-        stringWriter.append(eoChild.getFieldKey());
-        stringWriter.append("\": ");
-    }
-
-    public String getParentKeyWithModels(EO eo) {
-        if (eo.isRoot()) {
-            return "";
-        }
-        Models models = eo.getModels();
-        return models.createDirective() + eo.getFieldKey();
-    }
-
-    private void addLineBreak(StringWriter stringWriter, int indent) {
-        if (indent == 0) {
-            return;
-        }
-        stringWriter.append("\n");
-    }
-
-    private void addIndent(final StringWriter stringWriter, int indent) {
-        for (int i = 0; i < indent; i++) {
-            stringWriter.append(this.spacer);
+        if (!spacer.isEmpty()) {
+            stringWriter.append("\n");
         }
     }
 
-    private final EO checkObjectReplication(final EO adapter) {
+    private final IEOObject checkObjectReplication(final IEOObject eo) {
         if (!this.checkObjectReplication) {
             return null;
         }
         if (objectRegistry == null) {
-            objectRegistry = new ArrayList();
+            objectRegistry = new ArrayList<IEOObject>();
         }
-        if (adapter.get() == null) {
+        if (eo.get() == null) {
             return null;
         }
-        Object object = adapter.get();
-        for (EO registered : objectRegistry) {
+        Object object = eo.get();
+        for (IEOObject registered : objectRegistry) {
             if (registered.get() == object) {
                 return registered;
             }
         }
-        objectRegistry.add(adapter);
+        objectRegistry.add(eo);
         return null;
     }
 

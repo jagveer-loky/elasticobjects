@@ -1,10 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
-
-import org.fluentcodes.projects.elasticobjects.EO;
 import org.fluentcodes.projects.elasticobjects.EoChild;
 import org.fluentcodes.projects.elasticobjects.EoChildScalar;
 import org.fluentcodes.projects.elasticobjects.EoChildScalarSpecial;
 import org.fluentcodes.projects.elasticobjects.EoChildSpecial;
+import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.Path;
@@ -12,7 +11,6 @@ import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -112,7 +110,7 @@ public class Models {
         return toBeStripped;
     }
 
-    public IEOScalar createChild(EO parent, final PathElement pathElement, Object value) {
+    public IEOScalar createChild(IEOObject parent, final PathElement pathElement, Object value) {
         Models childModels = deriveChildModels(pathElement, value);
         if (parent.getSerializationType() == JSONSerializationType.STANDARD &&
                 (childModels.isObject() || childModels.isMap())
@@ -124,7 +122,7 @@ public class Models {
                 value = childModels.create();
             }
         } else if (childModels.isScalar() && value.getClass() != childModels.getModelClass()) {
-            value = ScalarConverter.transform(childModels.getModelClass(), value);
+            value = childModels.asObject(value);
         }
         String key = deriveFieldKey(parent, pathElement);
         if (value instanceof Call) {
@@ -241,7 +239,7 @@ public class Models {
                 descriminator.getModelClass().getSimpleName());
     }
 
-    private final String deriveFieldKey(EO parentEo, final PathElement pathElement) {
+    private final String deriveFieldKey(IEOObject parentEo, final PathElement pathElement) {
         if (isList() && pathElement.isParentSet() && pathElement.hasKey()) {
             if (pathElement.getKey().matches("\\d+")) {
                 return Integer.valueOf(pathElement.getKey()).toString();
@@ -365,7 +363,7 @@ public class Models {
     }
 
     public boolean isScalar() {
-        return getModel().isScalar() || getModel().isEnum();
+        return getModel().isScalar();
     }
 
 
@@ -373,17 +371,23 @@ public class Models {
         return getModel().isContainer();
     }
 
-    public Object transform(Object source) {
-        if (source == null) {
-            return null;
-        }
-        if (!isScalar()) {
-            return source;
-        }
-        return ScalarConverter.transform(getModelClass(), source);
-    }
-
     public Object create() {
         return getModel().create();
+    }
+
+    public String asString(Object object) {
+        return getModel().asString(object);
+    }
+    public String asJson(Object object) {
+        return getModel().asJson(object);
+    }
+    public Object asObject(Object object) {
+        if (getModelClass() == object.getClass()) {
+            return object;
+        }
+        return getModel().asObject(object);
+    }
+    public boolean compare(Object left, Object right) {
+        return getModel().compare(left, right);
     }
 }

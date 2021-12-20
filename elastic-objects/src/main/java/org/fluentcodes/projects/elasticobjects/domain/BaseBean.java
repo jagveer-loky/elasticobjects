@@ -2,7 +2,9 @@ package org.fluentcodes.projects.elasticobjects.domain;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerDate;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerLong;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.util.Date;
 import java.util.Map;
@@ -148,30 +150,30 @@ public class BaseBean {
     private void mergeNaturalId(final Object value) {
         if (value == null) return;
         if (hasNaturalId()) return;
-        setNaturalId(ScalarConverter.toString(value));
+        setNaturalId(new ShapeTypeSerializerString().asObject(value));
     }
 
     private void mergeId(final Object value) {
         if (value == null) return;
         if (hasId()) return;
-        setId(ScalarConverter.toLong(value));
+        setId(new ShapeTypeSerializerLong().asObject(value));
     }
 
     private void mergeDescription(final Object value) {
         if (value == null) return;
         if (hasDescription()) return;
-        setDescription(ScalarConverter.toString(value));
+        setDescription(new ShapeTypeSerializerString().asObject(value));
     }
 
     private void mergeCreationDate(final Object value) {
         if (value == null) return;
         if (hasCreationDate()) return;
-        setCreationDate(ScalarConverter.toDate(value));
+        setCreationDate(new ShapeTypeSerializerDate().asObject(value));
     }
 
     private void mergeAuthor(final Object value) {
         if (value == null) return;
         if (hasAuthor()) return;
-        setAuthor(ScalarConverter.toString(value));
+        setAuthor(new ShapeTypeSerializerString().asObject(value));
     }
 }

@@ -47,14 +47,14 @@ public class EoRootTestTest {
                 "    }\n" +
                 "  }\n" +
                 "}";
-        EO modelEo = ProviderConfigMapsDev.createEo( json);
+        EoRoot modelEo = ProviderConfigMapsDev.createEo( json);
     }
 
     @Test
     public void TEST__ofValue_AnObject_myString_value__get_myString_value() {
         AnObject anObject = new AnObject()
                 .setMyString("value");
-        EO eoRoot = ProviderConfigMaps.createEo( anObject);
+        EoRoot eoRoot = ProviderConfigMaps.createEo( anObject);
         Assertions.assertThat(eoRoot.get("myString"))
                 .isEqualTo("value");
     }

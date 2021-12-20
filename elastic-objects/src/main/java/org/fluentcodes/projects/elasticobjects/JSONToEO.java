@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -270,7 +269,7 @@ public class JSONToEO {
                 + json.substring(positionNext, max));
     }
 
-    public EO mapObject(EO eoCurrent)  {
+    public IEOObject mapObject(IEOObject eoCurrent)  {
         if (eoCurrent == null) {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
@@ -304,7 +303,7 @@ public class JSONToEO {
     }
 
 
-    private EO mapList(final EO currentEO)  {
+    private IEOObject mapList(final IEOObject currentEO)  {
         if (currentEO == null) {
             LOG.error("Null MODULE_NAME!!!! " + debug());
             return null;
@@ -329,17 +328,17 @@ public class JSONToEO {
         }
     }
 
-    public EO createChild(EO parentAdapter)  {
+    public IEOScalar createChild(IEOObject parentAdapter)  {
         IEOScalar eo = createChild(parentAdapter, null);
         if (isEof()) {
             return parentAdapter;
         }
         if (parseCalls && eo instanceof EoRoot) {
-            return (EO)eo;
+            return eo;
         }
         final char c = nextClean();
         if (c == 0) {
-            return (EO)eo;
+            return eo;
         }
         throw new EoException("Not at the end of the json file!");
     }
@@ -358,7 +357,7 @@ public class JSONToEO {
      * @return
      * @
      */
-    private IEOScalar createChild(EO eoParent, final String rawFieldName)  {
+    private IEOScalar createChild(IEOObject eoParent, final String rawFieldName)  {
 
         if (eoParent == null) {
             throw new EoException("parent eo is null ...!");
@@ -378,7 +377,7 @@ public class JSONToEO {
 
             case '{':  //
                 if (rawFieldName!=null) {// Object value
-                    EO child = (EO)((EoChild)eoParent).createChild(new PathElement(rawFieldName, Map.class), null);
+                    IEOObject child = (IEOObject)((EoChild)eoParent).createChild(new PathElement(rawFieldName, Map.class), null);
                     mapObject(child);
                     return eoParent;
                 }
@@ -390,7 +389,7 @@ public class JSONToEO {
                 if (rawFieldName != null) {// List value
                     PathElement pathFromKey = new PathElement(rawFieldName, List.class);
                     IEOScalar child = ((EoChild)eoParent).createChild(pathFromKey);
-                    mapList((EO)child);
+                    mapList((IEOObject) child);
                     return child;
                 }
                 else {
@@ -426,11 +425,32 @@ public class JSONToEO {
             return ((EoChild)eoParent).createChild(pathElement, value);
         }
         else {
-            Object valueObject = ScalarConverter.fromJson(value);
+            Object valueObject = fromJson(value);
             pathElement = new PathElement(rawFieldName);
             return ((EoChild)eoParent).createChild(pathElement, valueObject);
         }
     }
+
+    private static Object fromJson(final String value) {
+        if ("true".equals(value)) {
+            return true;
+        }
+        if ("false".equals(value)) {
+            return false;
+        }
+        try {
+            return Integer.parseInt(value);
+        }
+        catch (Exception e) {
+            try{
+                return Float.parseFloat(value);
+            }
+            catch (Exception e1) {
+                throw new EoException("Could not transform non quoted value '" + value + "'.");
+            }
+        }
+    }
+
 
     /**
      * Get the next fileName. The fileName can be a Boolean, Double, Integer,

@@ -14,7 +14,7 @@ public class DbSqlConfigTest implements IConfigurationTests {
 
     @Override
     @Test
-    public void create_throwsEoException() {
+    public void createThrowsEoException() {
         assertCreateThrowingException();
     }
 

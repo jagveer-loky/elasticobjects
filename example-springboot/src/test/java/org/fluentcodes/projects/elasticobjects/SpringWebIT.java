@@ -1,10 +1,9 @@
 package org.fluentcodes.projects.elasticobjects;
 
 import org.assertj.core.api.Assertions;
-import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCall;
 import org.fluentcodes.projects.elasticobjects.calls.configs.ConfigKeysCallTest;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.xpect.XpectString;
+import org.fluentcodes.projects.elasticobjects.xpect.XpectStringJunit4;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +33,7 @@ public class SpringWebIT {
         String url = "http://localhost:" + port + "/eo";
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
-       XpectString.assertJunit(body);
+        XpectStringJunit4.assertStatic(body);
     }
 
     @Test
@@ -71,7 +70,7 @@ public class SpringWebIT {
         ResponseEntity<String> result = restTemplate.postForEntity(url, json, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
-        EO eo = ProviderConfigMaps.createEo(body);
+        EoRoot eo = ProviderConfigMaps.createEo(body);
         Assertions.assertThat(eo.getLog()).isEmpty();
     }
 
@@ -91,13 +90,15 @@ public class SpringWebIT {
     }
 
     @Test
-    public void eo_ConfigKeysCall_configKey_ModelConfig__post__keysNotEmpty() { ;;
+    public void eo_ConfigKeysCall_configKey_ModelConfig__post__keysNotEmpty() {
+        ;
+        ;
         String url = "http://localhost:" + port + "/eo";
         ResponseEntity<String> result = restTemplate.postForEntity(url, ConfigKeysCallTest.DATA, String.class);
         String body = result.getBody();
         Assertions.assertThat(body).isNotEmpty();
-        EO eo = ProviderConfigMaps.createEo(body);
-        Assertions.assertThat((List)eo.get("keys")).isNotEmpty();
+        EoRoot eo = ProviderConfigMaps.createEo(body);
+        Assertions.assertThat((List) eo.get("keys")).isNotEmpty();
     }
 
     @Test
@@ -130,7 +131,7 @@ public class SpringWebIT {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();
-       XpectString.assertJunit(parsedContent);
+        XpectStringJunit4.assertStatic(parsedContent);
     }
 
     @Ignore("mvn does not work")
@@ -140,7 +141,7 @@ public class SpringWebIT {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();
-       XpectString.assertJunit(parsedContent);
+        XpectStringJunit4.assertStatic(parsedContent);
     }
 
     @Ignore("mvn does not work")
@@ -150,7 +151,7 @@ public class SpringWebIT {
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         String parsedContent = response.getBody();
         Assertions.assertThat(parsedContent).isNotEmpty();
-       XpectString.assertJunit(parsedContent);
+        XpectStringJunit4.assertStatic(parsedContent);
     }
 
 

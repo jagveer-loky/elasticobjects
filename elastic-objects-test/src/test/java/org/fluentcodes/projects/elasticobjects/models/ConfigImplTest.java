@@ -14,7 +14,7 @@ public class ConfigImplTest implements IModelConfigNoCreateTests {
 
     @Override
     @Test
-    public void create_throwsEoException() {
+    public void createThrowsEoException() {
         assertCreateThrowingException();
     }
 

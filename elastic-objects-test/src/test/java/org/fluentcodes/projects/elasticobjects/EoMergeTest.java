@@ -20,23 +20,23 @@ public class EoMergeTest {
     @Test
     public void AnObject_myString_value_Map_myNaturalId_id__merge__extended() {
         AnObject anObject = new AnObject().setMyString("value");
-        final EO eo = ProviderConfigMaps.createEo(anObject);
+        final EoRoot eo = ProviderConfigMaps.createEo(anObject);
 
         final Map map = new HashMap();
         map.put(AnObject.NATURAL_ID, "id");
-        eo.mapObject(map);
+        eo.map(map);
         Assertions.assertThat(eo.get("naturalId")).isEqualTo("id");
     }
 
     @Test
     public void AnObject_myString_value_Map_unknown_id__merge__exception() {
         AnObject anObject = new AnObject().setMyString("value");
-        final EO eo = ProviderConfigMaps.createEo(anObject);
+        final EoRoot eo = ProviderConfigMaps.createEo(anObject);
 
         final Map map = new HashMap();
         map.put("unknown", "id");
         Assertions.assertThatThrownBy(() -> {
-            eo.mapObject(map);
+            eo.map(map);
         })
                 .isInstanceOf(EoException.class);
     }
@@ -46,8 +46,8 @@ public class EoMergeTest {
 
         final AnObject anObject1 = new AnObject().setMyString("value");
         final AnObject anObject2 = new AnObject().setMyFloat(1.1F);
-        final EO eo = ProviderConfigMaps.createEo(anObject1);
-        eo.mapObject(anObject2);
+        final EoRoot eo = ProviderConfigMaps.createEo(anObject1);
+        eo.map(anObject2);
         assertEquals(1.1F, eo.get("myFloat"));
     }
 }

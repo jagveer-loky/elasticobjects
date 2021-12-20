@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.models.Models;
 
 public class EoChildSpecial extends EoChild {
-    public EoChildSpecial(final EO parentEo, final String fieldKey, final Object value, final Models fieldModels) {
+    public EoChildSpecial(final IEOObject parentEo, final String fieldKey, final Object value, final Models fieldModels) {
         super(parentEo, fieldKey, value, fieldModels);
     }
 
@@ -12,6 +12,6 @@ public class EoChildSpecial extends EoChild {
         if (get() == null) {
             setFieldValue(getModels().create());
         }
-        mapObject(value);
+        map(value);
     }
 }

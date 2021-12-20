@@ -4,7 +4,6 @@ import org.fluentcodes.projects.elasticobjects.calls.PermissionInterface;
 import org.fluentcodes.projects.elasticobjects.calls.PermissionRole;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -468,7 +467,22 @@ public class ModelBean extends ConfigBean implements ModelInterface, PermissionI
     private void mergeRolePermissions(final Object value) {
         if (value == null) return;
         if (hasRolePermissions()) return;
-        setRolePermissions(ScalarConverter.toPermissionRole(value));
+        setRolePermissions(toPermissionRole(value));
+    }
+
+    public static PermissionRole toPermissionRole(Object value) {
+        if (value == null) {
+            return null;
+        }
+        if (value instanceof Map) {
+            return new PermissionRole((Map) value);
+        }
+        else if (value instanceof PermissionRole) {
+            return (PermissionRole) value;
+        }
+        else {
+            throw new EoException("Unsupported type for permissionRole '" + value.getClass().getSimpleName() + "'");
+        }
     }
 
 }
