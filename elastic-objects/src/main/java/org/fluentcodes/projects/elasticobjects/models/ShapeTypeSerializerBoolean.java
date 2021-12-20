@@ -1,22 +1,52 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-public class ShapeTypeSerializerBoolean implements ShapeTypeSerializerInterface {
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+
+public class ShapeTypeSerializerBoolean implements ShapeTypeSerializerInterface<Boolean> {
     @Override
-    public String asString(Object value) {
+    public String asString(final Boolean value) {
         if (value == null) {
             return "false";
         }
+        return value.toString();
+    }
+
+    @Override
+    public String asJson(Boolean value) {
+        return asString(value);
+    }
+
+    @Override
+    public Boolean asObject(Object value) {
+        if (value == null) {
+            return false;
+        }
         if (value instanceof Boolean) {
-            return value.toString();
+            return (Boolean) value;
+        }
+        if (value instanceof Number) {
+            if (value.equals(0)) {
+                return false;
+            }
+            return true;
         }
         if (value instanceof String) {
-            return value.equals("1")||((String)value).equals("true") ? "true":"false";
+            if (value.equals("true")) {
+                return true;
+            }
+            return false;
         }
-        return "true";
-
+        throw new EoException("No defined mapping for " + value.getClass());
     }
+
     @Override
-    public String asJson(Object value) {
-        return asString(value);
+    public Boolean asObject(String value) {
+        if (value == null) {
+            return false;
+        }
+        if (value.equals("1")|| value.equals("true")) {
+            return true;
+        }
+        return false;
     }
 }

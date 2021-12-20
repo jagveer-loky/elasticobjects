@@ -15,7 +15,7 @@ import org.fluentcodes.projects.elasticobjects.calls.lists.ListParams;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigBean;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -182,7 +182,7 @@ public class XlsxConfig extends FileConfig implements XlsxInterface {
                 Object value = values.get(i);
                 Cell cell = xlsxRow.createCell(i);
                 try {
-                    cell.setCellValue(ScalarConverter.toString(value));
+                    cell.setCellValue(new ShapeTypeSerializerString().asObject(value));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

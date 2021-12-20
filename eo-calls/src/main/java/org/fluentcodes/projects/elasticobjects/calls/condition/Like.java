@@ -3,7 +3,7 @@ package org.fluentcodes.projects.elasticobjects.calls.condition;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.util.List;
 import java.util.Map;
@@ -72,7 +72,7 @@ public class Like implements Condition {
         }
         try {
             Object value = eo.get(key);
-            String valueString = ScalarConverter.toString(value);
+            String valueString = new ShapeTypeSerializerString().asObject(value);
             String objectString = getValue().toString();
             if (valueString == null) {
                 if (objectString == null) {

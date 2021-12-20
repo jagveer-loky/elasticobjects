@@ -379,7 +379,7 @@
   },
   "interfaces": "ListInterface",
   "modelKey": "CsvSimpleReadCall",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "CsvSimpleReadCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",

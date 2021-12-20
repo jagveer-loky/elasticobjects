@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.Parser;
 import org.fluentcodes.projects.elasticobjects.calls.templates.handler.TemplateMarker;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.util.List;
 import java.util.Map;
@@ -62,7 +62,7 @@ public class Eq implements Condition {
             Integer i = Integer.parseInt(key);
             if (i < row.size()) {
                 Object value = row.get(i);
-                return ScalarComparator.compare(value, this.object);
+                return new ShapeTypeSerializerString().compare(value, this.object);
             } else {
                 return false;
             }
@@ -78,7 +78,7 @@ public class Eq implements Condition {
             return true;
         }
         try {
-            return ScalarComparator.compare(eo.get(key), new Parser(TemplateMarker.SQUARE, (String) this.object).parse(eo));
+            return new ShapeTypeSerializerString().compare(eo.get(key), new Parser(TemplateMarker.SQUARE, (String) this.object).parse(eo));
         } catch (EoException e) {
             return false;
         }

@@ -3,8 +3,6 @@ package org.fluentcodes.projects.elasticobjects;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
 import org.fluentcodes.projects.elasticobjects.models.Models;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarComparator;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.StringWriter;
 
@@ -155,7 +153,7 @@ public class EoChildScalar implements IEOScalar {
         if (value == null) {
             return this;
         }
-        ((EoChild) getParent()).setValueByModel(getFieldKey(), ScalarConverter.transform(getModels().getModelClass(), value));
+        ((EoChild) getParent()).setValueByModel(getFieldKey(), getModels().asObject(value));
         return this;
     }
 
@@ -168,7 +166,7 @@ public class EoChildScalar implements IEOScalar {
 
     void compare(final StringBuilder builder, final IEOScalar other) {
         if (other.isScalar()) {
-            if (!ScalarComparator.compare(this.get(), other.get())) {
+            if (!getModels().compare(this.get(), other.get())) {
                 builder.append(getPathAsString() + ": " + this.get() + " <> " + other.get());
             }
         } else {

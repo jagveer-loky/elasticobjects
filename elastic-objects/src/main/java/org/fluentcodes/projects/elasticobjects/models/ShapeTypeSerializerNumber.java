@@ -1,8 +1,9 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-public class ShapeTypeSerializerNumber implements ShapeTypeSerializerInterface {
+public abstract class ShapeTypeSerializerNumber<T extends Number> implements ShapeTypeSerializerInterface<T> {
+
     @Override
-    public String asJson(Object value) {
+    public String asJson(T value) {
         return asString(value);
     }
 }

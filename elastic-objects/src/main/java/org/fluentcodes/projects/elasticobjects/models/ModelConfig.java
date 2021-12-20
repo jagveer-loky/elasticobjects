@@ -29,6 +29,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
     private final String packagePath;
     private final String superKey;
     private final String interfaces;
+    private final ShapeTypes shapeType;
 
     private Class modelClass;
     private ModelConfig superModel;
@@ -40,6 +41,24 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
 
     public ModelConfig(final ModelBean bean, final ConfigMaps configMaps) {
         super(bean, configMaps);
+        try {
+            Object shapeTypeValue = getProperties().get(SHAPE_TYPE);
+            if (shapeTypeValue == null) {
+                this.shapeType = ShapeTypes.BEAN;
+            }
+            else if (shapeTypeValue instanceof ShapeTypes) {
+                this.shapeType = (ShapeTypes) shapeTypeValue;
+            }
+            else if (shapeTypeValue instanceof String) {
+                this.shapeType = ShapeTypes.valueOf((String)shapeTypeValue);
+            }
+            else {
+                throw new EoException("Problem with shapeType");
+            }
+        }
+        catch (Exception e) {
+            throw new EoException(e);
+        }
         modelKey = bean.getModelKey();
         packagePath = bean.getPackagePath();
         superKey = bean.getSuperKey();
@@ -52,6 +71,11 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
             }
         }
         setModelClass();
+    }
+
+    @Override
+    public ShapeTypes getShapeType() {
+        return this.shapeType;
     }
 
     public Models getFieldModels(final String fieldKey) {
@@ -100,7 +124,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         return fieldConfigMap;
     }
 
-    public void setModelClass()  {
+    public void setModelClass() {
         if (getModelKey() == null) {
             throw new EoException("No modelkey defined. No model class could be derived!");
         }
@@ -126,7 +150,6 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
     }
 
 
-
     private final void setDefaultImplementationModel(Map<String, ModelInterface> modelConfigMap) {
         if (!hasDefaultImplementation()) {
             return;
@@ -147,7 +170,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         }
         String[] interfaceArray = interfaces.split(",");
         for (String interfaceEntry : interfaceArray) {
-            interfacesMap.put(interfaceEntry, (ModelConfig)cache.get(interfaceEntry));
+            interfacesMap.put(interfaceEntry, (ModelConfig) cache.get(interfaceEntry));
         }
     }
 
@@ -155,7 +178,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         if (!hasFieldConfigMap()) {
             return;
         }
-        for (FieldConfig fieldConfig: fieldConfigMap.values()) {
+        for (FieldConfig fieldConfig : fieldConfigMap.values()) {
             fieldConfig.resolve(this, modelConfigMap);
         }
     }
@@ -186,7 +209,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         return keyValues;
     }
 
-    public void resolve(Map<String, ModelInterface> modelConfigMap)  {
+    public void resolve(Map<String, ModelInterface> modelConfigMap) {
         if (resolved) {
             return;
         }
@@ -216,7 +239,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
                     if (fieldConfigMap.containsKey(key)) {
                         continue;
                     }
-                    fieldConfigMap.put(key, (FieldConfig)superModel.getField(key));
+                    fieldConfigMap.put(key, (FieldConfig) superModel.getField(key));
                 }
             }
             for (ModelConfig interfaceModel : interfacesMap.values()) {
@@ -234,8 +257,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
                     fieldConfigMap.put(key, (FieldConfig) interfaceModel.getField(key));
                 }
             }
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         resolvedFields = true;
@@ -255,8 +277,7 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
     public String toString() {
         if (!getConfigMaps().isModelFinished()) {
             return getShapeType() + " " + getNaturalId();
-        }
-        else {
+        } else {
             return super.toString();
         }
     }
@@ -280,10 +301,22 @@ public abstract class ModelConfig extends ConfigConfig implements ModelConfigMet
         //bean.setRolePermissions(getR)
     }
 
-    public String asString(Object object) {
+    String asString(Object object) {
         return getShapeType().asString(object);
     }
-    public String asJson(Object object) {
+
+    public boolean compare(Object left, Object right) {
+        return getShapeType().compare(left, right);
+    }
+
+    String asJson(Object object) {
         return getShapeType().asJson(object);
+    }
+
+    Object asObject(Object object) {
+        if (getShapeType() == ShapeTypes.ENUM) {
+            return getShapeType().asObject(getModelClass(), object);
+        }
+        return getShapeType().asObject(object);
     }
 }

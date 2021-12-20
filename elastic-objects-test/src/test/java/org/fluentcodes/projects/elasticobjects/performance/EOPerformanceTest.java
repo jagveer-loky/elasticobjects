@@ -9,7 +9,6 @@ import org.fluentcodes.projects.elasticobjects.EoRoot;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObject;
 import org.fluentcodes.projects.elasticobjects.domain.test.AnObjectFromJsonTest;
 import org.fluentcodes.projects.elasticobjects.testitemprovider.ProviderConfigMaps;
-import org.fluentcodes.tools.io.IOGson;
 import org.fluentcodes.tools.io.IOString;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -157,15 +156,6 @@ public class EOPerformanceTest {
         String result = "Jackson: " + duration + " ms\n";
         System.out.print(result);
         return result;
-    }
-
-    private long createIOJsonGson(String json) {
-        long start = System.currentTimeMillis();
-        for (long i = 0; i < maxRoot; i++) {
-            AnObject anObject = (AnObject) new IOGson<AnObject>("", AnObject.class)
-                    .asObject(json);
-        }
-        return System.currentTimeMillis() - start;
     }
 
     private String createWithGson(String json, Class mappingClass) {

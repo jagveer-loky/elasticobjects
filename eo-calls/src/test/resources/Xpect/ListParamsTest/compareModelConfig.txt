@@ -118,7 +118,7 @@
     }
   },
   "modelKey": "ListParams",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "ListParams",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.lists",

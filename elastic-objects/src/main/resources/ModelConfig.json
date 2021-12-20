@@ -175,7 +175,7 @@
     "modelKey": "Expose",
     "properties": {
       "create": false,
-      "shapeType": "SCALAR"
+      "shapeType": "ENUM"
     },
     "author": "Werner Diwischek"
   },

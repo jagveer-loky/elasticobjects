@@ -270,7 +270,7 @@
     }
   },
   "modelKey": "TemplateResourceCall",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "TemplateResourceCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.templates",

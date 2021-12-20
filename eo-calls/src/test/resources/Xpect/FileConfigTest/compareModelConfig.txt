@@ -237,7 +237,7 @@
   },
   "interfaces": "FileInterface,FileConfigMethods",
   "modelKey": "FileConfig",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "FileConfig",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",

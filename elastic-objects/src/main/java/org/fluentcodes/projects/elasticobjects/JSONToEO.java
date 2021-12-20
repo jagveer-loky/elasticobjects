@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -426,11 +425,32 @@ public class JSONToEO {
             return ((EoChild)eoParent).createChild(pathElement, value);
         }
         else {
-            Object valueObject = ScalarConverter.fromJson(value);
+            Object valueObject = fromJson(value);
             pathElement = new PathElement(rawFieldName);
             return ((EoChild)eoParent).createChild(pathElement, valueObject);
         }
     }
+
+    private static Object fromJson(final String value) {
+        if ("true".equals(value)) {
+            return true;
+        }
+        if ("false".equals(value)) {
+            return false;
+        }
+        try {
+            return Integer.parseInt(value);
+        }
+        catch (Exception e) {
+            try{
+                return Float.parseFloat(value);
+            }
+            catch (Exception e1) {
+                throw new EoException("Could not transform non quoted value '" + value + "'.");
+            }
+        }
+    }
+
 
     /**
      * Get the next fileName. The fileName can be a Boolean, Double, Integer,

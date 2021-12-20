@@ -6,7 +6,7 @@
   "(Expose)expose": "WEB",
   "interfaces": "SimpleCommand",
   "modelKey": "ConfigOpenApiCall",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "ConfigOpenApiCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",

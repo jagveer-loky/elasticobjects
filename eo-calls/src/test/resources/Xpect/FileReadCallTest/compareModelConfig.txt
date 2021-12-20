@@ -282,7 +282,7 @@
   },
   "interfaces": "ConfigReadCommand",
   "modelKey": "FileReadCall",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "FileReadCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",

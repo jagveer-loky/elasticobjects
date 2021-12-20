@@ -252,7 +252,7 @@
   },
   "interfaces": "SimpleCommand",
   "modelKey": "ConfigTypesCall",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "ConfigTypesCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.configs",

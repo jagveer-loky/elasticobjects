@@ -1,10 +1,14 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
-public class ShapeTypeSerializer implements ShapeTypeSerializerInterface {
+public class ShapeTypeSerializer implements ShapeTypeSerializerInterface<Object>{
+
     @Override
-    public String asString(Object value) {
-        String string = value.toString();
-        return string;
+    public Object asObject(Object value) {
+        return null;
     }
 
+    @Override
+    public Object asObject(String value) {
+        return null;
+    }
 }

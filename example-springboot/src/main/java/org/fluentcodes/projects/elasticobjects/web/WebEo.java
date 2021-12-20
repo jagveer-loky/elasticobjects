@@ -98,7 +98,7 @@ public class WebEo {
                 return (String)eo.get(PathElement.TEMPLATE);
             }
             final String result = new EOToJSON()
-                    .setIndent(1)
+                    .setSpacer("  ")
                     .toJson(eo);
             return result;
         } catch (Exception e) {

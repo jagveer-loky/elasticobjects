@@ -18,7 +18,7 @@
     }
   },
   "modelKey": "PermissionInterface",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "PermissionInterface",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls",

@@ -346,7 +346,7 @@
   },
   "interfaces": "CsvConfigInterface,ListProperties",
   "modelKey": "CsvConfig",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "CsvConfig",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.files",

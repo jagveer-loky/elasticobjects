@@ -42,7 +42,7 @@
     "fileName": "ContentExample.json",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExample"
   },
@@ -53,7 +53,7 @@
     "fileName": "ContentExampleData.json",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExampleData"
   },
@@ -64,7 +64,7 @@
     "fileName": "ContentExampleDynamic.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExampleDynamic"
   },
@@ -75,7 +75,7 @@
     "fileName": "ContentExampleElement1.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExampleElement1"
   },
@@ -86,7 +86,7 @@
     "fileName": "ContentExampleElement2.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExampleElement2"
   },
@@ -97,7 +97,7 @@
     "fileName": "ContentExampleStatic.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExampleStatic"
   },
@@ -108,7 +108,7 @@
     "fileName": "ContentExampleStaticCondition.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExampleStaticCondition"
   },
@@ -119,7 +119,7 @@
     "fileName": "ContentExampleStaticKeep.tpl",
     "filePath": "input/calls/content-example",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ContentExampleStaticKeep"
   },
@@ -130,7 +130,7 @@
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "FileTest.txt",
     "rolePermissions": {
@@ -145,7 +145,7 @@
     "fileName": "FileTest.txt",
     "filePath": "input/calls/file-simple",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "FileTestCached.txt"
   },
@@ -179,7 +179,7 @@
     "fileName": "ListSimple.json",
     "filePath": "input/calls/list-simple",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "ListSimple.json",
     "rolePermissions": {
@@ -194,7 +194,7 @@
     "fileName": ".*.json",
     "filePath": "Xpect/CallTest",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "XPECT_TEST",
     "rolePermissions": {
@@ -208,7 +208,7 @@
     "fileName": "target.csv",
     "filePath": " §[TMP].",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "target.csv",
     "properties": {
@@ -227,7 +227,7 @@
     "fileName": "target.json",
     "filePath": " §[TMP].",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "target.json"
   },
@@ -238,7 +238,7 @@
     "fileName": "target.txt",
     "filePath": "§[TMP].",
     "hostConfigKey": "localhost",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "target.txt"
   }

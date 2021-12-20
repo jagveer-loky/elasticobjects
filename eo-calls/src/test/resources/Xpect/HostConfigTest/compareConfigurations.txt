@@ -2,7 +2,7 @@
   "dummyftp": {
     "description": "A connection to elastic objects",
     "expose": "NONE",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "dummyftp",
     "properties": {
@@ -17,7 +17,7 @@
   "dummyftpurl": {
     "description": "A connection to elastic objects",
     "expose": "NONE",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "dummyftpurl",
     "properties": {
@@ -30,7 +30,7 @@
   "elasticobjects": {
     "description": "A connection to elastic objects",
     "expose": "NONE",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "naturalId": "elasticobjects",
     "properties": {

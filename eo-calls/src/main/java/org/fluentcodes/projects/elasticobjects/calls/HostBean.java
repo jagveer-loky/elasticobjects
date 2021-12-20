@@ -1,6 +1,7 @@
 package org.fluentcodes.projects.elasticobjects.calls;
 
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerInteger;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.util.Map;
 /*.{javaHeader}|*/
@@ -47,7 +48,7 @@ public class HostBean extends PermissionBean implements HostInterface, Permissio
     private void mergeHostName(final Object value) {
         if (value == null) return;
         if (hasHostName()) return;
-        setHostName(ScalarConverter.toString(value));
+        setHostName(new ShapeTypeSerializerString().asObject(value));
     }
 
     public HostBean setPassword(String value) {
@@ -57,7 +58,7 @@ public class HostBean extends PermissionBean implements HostInterface, Permissio
     private void mergePassword(final Object value) {
         if (value == null) return;
         if (hasPassword()) return;
-        setPassword(ScalarConverter.toString(value));
+        setPassword(new ShapeTypeSerializerString().asObject(value));
     }
 
     public HostBean setPort(Integer value) {
@@ -67,7 +68,7 @@ public class HostBean extends PermissionBean implements HostInterface, Permissio
     private void mergePort(final Object value) {
         if (value == null) return;
         if (hasPort()) return;
-        setPort(ScalarConverter.toInteger(value));
+        setPort(new ShapeTypeSerializerInteger().asObject(value));
     }
 
     public HostBean setProtocol(String value) {
@@ -77,7 +78,7 @@ public class HostBean extends PermissionBean implements HostInterface, Permissio
     private void mergeProtocol(final Object value) {
         if (value == null) return;
         if (hasProtocol()) return;
-        setProtocol(ScalarConverter.toString(value));
+        setProtocol(new ShapeTypeSerializerString().asObject(value));
     }
 
     public HostBean setUrl(String value) {
@@ -87,7 +88,7 @@ public class HostBean extends PermissionBean implements HostInterface, Permissio
     private void mergeUrl(final Object value) {
         if (value == null) return;
         if (hasUrl()) return;
-        setUrl(ScalarConverter.toString(value));
+        setUrl(new ShapeTypeSerializerString().asObject(value));
     }
 
     public HostBean setUser(String value) {
@@ -97,7 +98,7 @@ public class HostBean extends PermissionBean implements HostInterface, Permissio
     private void mergeUser(final Object value) {
         if (value == null) return;
         if (hasUser()) return;
-        setUser(ScalarConverter.toString(value));
+        setUser(new ShapeTypeSerializerString().asObject(value));
     }
 
 

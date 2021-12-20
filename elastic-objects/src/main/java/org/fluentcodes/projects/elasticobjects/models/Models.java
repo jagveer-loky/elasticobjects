@@ -11,7 +11,6 @@ import org.fluentcodes.projects.elasticobjects.PathElement;
 import org.fluentcodes.projects.elasticobjects.calls.Call;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoInternalException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -123,7 +122,7 @@ public class Models {
                 value = childModels.create();
             }
         } else if (childModels.isScalar() && value.getClass() != childModels.getModelClass()) {
-            value = ScalarConverter.transform(childModels.getModelClass(), value);
+            value = childModels.asObject(value);
         }
         String key = deriveFieldKey(parent, pathElement);
         if (value instanceof Call) {
@@ -372,16 +371,6 @@ public class Models {
         return getModel().isContainer();
     }
 
-    public Object transform(Object source) {
-        if (source == null) {
-            return null;
-        }
-        if (!isScalar()) {
-            return source;
-        }
-        return ScalarConverter.transform(getModelClass(), source);
-    }
-
     public Object create() {
         return getModel().create();
     }
@@ -391,5 +380,14 @@ public class Models {
     }
     public String asJson(Object object) {
         return getModel().asJson(object);
+    }
+    public Object asObject(Object object) {
+        if (getModelClass() == object.getClass()) {
+            return object;
+        }
+        return getModel().asObject(object);
+    }
+    public boolean compare(Object left, Object right) {
+        return getModel().compare(left, right);
     }
 }

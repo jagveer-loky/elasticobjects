@@ -6,7 +6,7 @@ import org.fluentcodes.projects.elasticobjects.JSONSerializationType;
 import org.fluentcodes.projects.elasticobjects.calls.CallContent;
 import org.fluentcodes.projects.elasticobjects.calls.CallImpl;
 import org.fluentcodes.projects.elasticobjects.calls.commands.SimpleCommand;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 /*.{javaHeader}|*/
 
@@ -41,7 +41,7 @@ public class ValueCall extends CallImpl implements CallContent, SimpleCommand {
         super.check(eo);
         if (!hasContent()) {
             if (eo.isScalar()) {
-                content = ScalarConverter.toString(eo.get());
+                content = new ShapeTypeSerializerString().asObject(eo.get());
             } else {
                 content = new EOToJSON()
                         .setSerializationType(JSONSerializationType.STANDARD)

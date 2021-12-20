@@ -6,7 +6,7 @@
   "(Expose)expose": "WEB",
   "interfaces": "SimpleCommand",
   "modelKey": "StringUpperFirstCharCall",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "StringUpperFirstCharCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",

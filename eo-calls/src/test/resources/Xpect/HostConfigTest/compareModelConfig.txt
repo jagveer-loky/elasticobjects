@@ -271,7 +271,7 @@
   },
   "interfaces": "HostInterface",
   "modelKey": "HostConfig",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "HostConfig",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls",

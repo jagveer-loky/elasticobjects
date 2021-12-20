@@ -1,6 +1,6 @@
 {
   "And": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "expose": "NONE",
     "description": "A list of @Condition.",
@@ -13,7 +13,7 @@
     "author": "Werner Diwischek"
   },
   "CallContent": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "content"
@@ -30,7 +30,7 @@
     "creationDate": 1604876400000
   },
   "CallImpl": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "condition": {
@@ -80,7 +80,7 @@
     "author": "Werner Diwischek"
   },
   "Condition": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "expose": "NONE",
     "description": "Interface for conditions, mainly a key value pair with some methods serving as filter expressions. ",
@@ -93,7 +93,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigAsFlatListCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "configType",
@@ -111,7 +111,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "module",
@@ -128,7 +128,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigDirectoryReadCommand": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "Call",
     "expose": "NONE",
@@ -142,7 +142,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigKeysCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "configType",
@@ -162,7 +162,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigOpenApiCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "module",
@@ -182,7 +182,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigReadCommand": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "Call",
     "expose": "NONE",
@@ -196,7 +196,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigReadWriteCommand": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "Call",
     "expose": "NONE",
@@ -210,7 +210,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigsCommand": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "Call",
     "expose": "NONE",
@@ -224,7 +224,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigTypesCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -238,7 +238,7 @@
     "author": "Werner Diwischek"
   },
   "ConfigWriteCommand": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "Call",
     "expose": "NONE",
@@ -252,7 +252,7 @@
     "author": "Werner Diwischek"
   },
   "CsvConfig": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "CsvConfigInterface,ListProperties",
     "superKey": "FileConfig",
@@ -267,7 +267,7 @@
     "author": "Werner Diwischek"
   },
   "CsvConfigInterface": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "fieldDelimiter": {
@@ -288,7 +288,7 @@
     "author": "Werner Diwischek"
   },
   "CsvSimpleReadCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "listParams": {
@@ -307,7 +307,7 @@
     "author": "Werner Diwischek"
   },
   "CsvSimpleWriteCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "ListInterface",
     "superKey": "FileWriteCall",
@@ -321,7 +321,7 @@
     "author": "Werner Diwischek"
   },
   "DirectoryConfig": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "FileConfig",
     "expose": "NONE",
@@ -335,7 +335,7 @@
     "author": "Werner Diwischek"
   },
   "DirectoryListReadCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "absolute"
@@ -351,7 +351,7 @@
     "author": "Werner Diwischek"
   },
   "DirectoryMapReadCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "toReplace",
@@ -369,7 +369,7 @@
     "author": "Werner Diwischek"
   },
   "DirectoryReadCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "fileName"
@@ -386,7 +386,7 @@
     "author": "Werner Diwischek"
   },
   "DirectoryWriteCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "fileName"
@@ -402,7 +402,7 @@
     "author": "Werner Diwischek"
   },
   "Eq": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "Condition",
     "expose": "NONE",
@@ -416,7 +416,7 @@
     "author": "Werner Diwischek"
   },
   "FileBean": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "cached, fileName, filePath, hostConfigKey",
     "interfaces": "FileInterface",
@@ -434,7 +434,7 @@
     "creationDate": 1608073200000
   },
   "FileCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "fileConfigKey"
@@ -451,7 +451,7 @@
     "author": "Werner Diwischek"
   },
   "FileConfig": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "cached, fileName, filePath, hostConfigKey",
     "interfaces": "FileInterface,FileConfigMethods",
@@ -469,7 +469,7 @@
     "creationDate": 1539727200000
   },
   "FileInterface": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "cached, fileName, filePath, hostConfigKey",
     "interfaces": "PermissionInterface,ConfigInterface",
@@ -486,7 +486,7 @@
     "creationDate": 1599602400000
   },
   "FileConfigMethods": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "expose": "NONE",
     "description": "Access methods for field properties map. ",
@@ -501,7 +501,7 @@
     "creationDate": 1608073200000
   },
   "FileReadCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "ConfigReadCommand",
     "superKey": "FileCall",
@@ -515,7 +515,7 @@
     "author": "Werner Diwischek"
   },
   "FileReadWriteCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "sourceFileConfigKey",
@@ -534,7 +534,7 @@
     "author": "Werner Diwischek"
   },
   "FileWriteCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "compare": {
@@ -556,7 +556,7 @@
     "author": "Werner Diwischek"
   },
   "HostBean": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "port, protocol, password, hostName, user, url",
     "interfaces": "HostInterface",
@@ -572,7 +572,7 @@
     "creationDate": 1608073200000
   },
   "HostCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "hostConfigKey"
@@ -590,7 +590,7 @@
     "author": "Werner Diwischek"
   },
   "HostConfig": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "port, protocol, password, hostName, user, url",
     "interfaces": "HostInterface",
@@ -606,7 +606,7 @@
     "creationDate": 1539727200000
   },
   "HostInterface": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "port, protocol, password, hostName, user, url",
     "interfaces": "ConfigInterface",
@@ -623,11 +623,11 @@
     "creationDate": 1600466400000
   },
   "JsonWriteCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "serializationType",
-      "indent"
+      "spacer"
     ],
     "superKey": "FileWriteCall",
     "expose": "WEB",
@@ -640,7 +640,7 @@
     "author": "Werner Diwischek"
   },
   "Like": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "Condition",
     "expose": "NONE",
@@ -654,7 +654,7 @@
     "author": "Werner Diwischek"
   },
   "ListInterface": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "colKeys": {
@@ -694,7 +694,7 @@
     "author": "Werner Diwischek"
   },
   "ListParams": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "colKeys": {
@@ -730,7 +730,7 @@
     "author": "Werner Diwischek"
   },
   "ListProperties": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "colKeys": {
@@ -763,7 +763,7 @@
     "author": "Werner Diwischek"
   },
   "ModelConfigDbObject": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "rolePermissions": {
@@ -784,7 +784,7 @@
     "author": "Werner Diwischek"
   },
   "Or": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "expose": "NONE",
     "description": "A list of @And.",
@@ -797,7 +797,7 @@
     "author": "Werner Diwischek"
   },
   "PermissionBean": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "rolePermissions",
     "interfaces": "PermissionInterface",
@@ -815,7 +815,7 @@
     "creationDate": 1608073200000
   },
   "PermissionConfig": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "rolePermissions",
     "interfaces": "PermissionInterface",
@@ -833,7 +833,7 @@
     "creationDate": 1608073200000
   },
   "PermissionInterface": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": "rolePermissions",
     "expose": "NONE",
@@ -848,7 +848,7 @@
     "creationDate": 1608073200000
   },
   "PermissionRole": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "read",
@@ -867,7 +867,7 @@
     "author": "Werner Diwischek"
   },
   "SimpleCommand": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "Call",
     "expose": "NONE",
@@ -881,7 +881,7 @@
     "author": "Werner Diwischek"
   },
   "SinusValueCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -896,7 +896,7 @@
   },
   "SortOrder": {
     "configModelKey": "ModelConfigScalar",
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "expose": "NONE",
     "description": "Enum for sorting order used for example in @ConfigKeysCall.",
@@ -909,7 +909,7 @@
     "author": "Werner Diwischek"
   },
   "StringLowerCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -923,7 +923,7 @@
     "author": "Werner Diwischek"
   },
   "StringLowerFirstCharCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -937,7 +937,7 @@
     "author": "Werner Diwischek"
   },
   "StringPluralCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -951,7 +951,7 @@
     "author": "Werner Diwischek"
   },
   "StringReplaceCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "toReplace",
@@ -970,7 +970,7 @@
     "author": "Werner Diwischek"
   },
   "StringReplaceWhiteSpaceCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -984,7 +984,7 @@
     "author": "Werner Diwischek"
   },
   "StringReplaceWithHtmlCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -998,7 +998,7 @@
     "author": "Werner Diwischek"
   },
   "StringUpperCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -1012,7 +1012,7 @@
     "author": "Werner Diwischek"
   },
   "StringUpperFirstCharCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "interfaces": "SimpleCommand",
     "superKey": "CallImpl",
@@ -1026,7 +1026,7 @@
     "author": "Werner Diwischek"
   },
   "TemplateCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "content": {
@@ -1045,7 +1045,7 @@
     "author": "Werner Diwischek"
   },
   "TemplateDirResourceCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "DirectoryReadCall",
     "expose": "WEB",
@@ -1058,7 +1058,7 @@
     "author": "Werner Diwischek"
   },
   "TemplateResourceCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "FileReadCall",
     "expose": "WEB",
@@ -1071,7 +1071,7 @@
     "author": "Werner Diwischek"
   },
   "TemplateResourceStoreCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "superKey": "FileReadWriteCall",
     "expose": "WEB",
@@ -1084,7 +1084,7 @@
     "author": "Werner Diwischek"
   },
   "ValueCall": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "content": {

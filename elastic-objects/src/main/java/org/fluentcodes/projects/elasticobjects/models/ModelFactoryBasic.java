@@ -47,11 +47,11 @@ public class ModelFactoryBasic extends ModelFactory {
                 .setCreate(true)
         );
 
-        modelMap.put(Integer.class.getSimpleName(), new ModelBean(Integer.class, ShapeTypes.NUMBER));
-        modelMap.put(Long.class.getSimpleName(), new ModelBean(Long.class, ShapeTypes.NUMBER));
+        modelMap.put(Integer.class.getSimpleName(), new ModelBean(Integer.class, ShapeTypes.INTEGER));
+        modelMap.put(Long.class.getSimpleName(), new ModelBean(Long.class, ShapeTypes.LONG));
         modelMap.put(String.class.getSimpleName(), new ModelBean(String.class, ShapeTypes.STRING));
-        modelMap.put(Float.class.getSimpleName(), new ModelBean(Float.class, ShapeTypes.NUMBER));
-        modelMap.put(Double.class.getSimpleName(), new ModelBean(Double.class, ShapeTypes.NUMBER));
+        modelMap.put(Float.class.getSimpleName(), new ModelBean(Float.class, ShapeTypes.FLOAT));
+        modelMap.put(Double.class.getSimpleName(), new ModelBean(Double.class, ShapeTypes.DOUBLE));
         modelMap.put(Boolean.class.getSimpleName(), new ModelBean(Boolean.class, ShapeTypes.BOOLEAN));
         modelMap.put(Date.class.getSimpleName(), new ModelBean(Date.class, ShapeTypes.DATE));
         modelMap.put(LogLevel.class.getSimpleName(), new ModelBean(LogLevel.class, ShapeTypes.ENUM));

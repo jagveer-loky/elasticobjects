@@ -7,7 +7,7 @@
   "(Expose)expose": "WEB",
   "interfaces": "HostInterface",
   "modelKey": "HostBean",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "HostBean",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls",

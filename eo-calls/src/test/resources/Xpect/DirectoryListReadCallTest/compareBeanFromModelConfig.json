@@ -5,7 +5,7 @@
   "description": "Model class with different types of fields including generic collections, maps and @ASubObject objects.",
   "(Expose)expose": "WEB",
   "modelKey": "AnObject",
-  "module": "elastic-objects-test",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "AnObject",
   "packagePath": "org.fluentcodes.projects.elasticobjects.domain.test",

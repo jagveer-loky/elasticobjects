@@ -1,7 +1,7 @@
 {
   "AnObject": {
     "configModelKey": "ModelConfigObject",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": [
       "id",
@@ -35,7 +35,7 @@
   },
   "ASubObject": {
     "configModelKey": "ModelConfigObject",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "main",
     "fieldKeys": {
       "id": {

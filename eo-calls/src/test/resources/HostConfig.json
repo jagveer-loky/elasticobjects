@@ -1,6 +1,6 @@
 {
   "elasticobjects": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "description": "A connection to elastic objects",
     "expose": "NONE",
@@ -12,7 +12,7 @@
     }
   },
   "dummyftp": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "description": "A connection to elastic objects",
     "expose": "NONE",
@@ -26,7 +26,7 @@
     }
   },
   "dummyftpurl": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "description": "A connection to elastic objects",
     "expose": "NONE",

@@ -6,7 +6,7 @@
   "(Expose)expose": "WEB",
   "interfaces": "CallContent,SimpleCommand",
   "modelKey": "ValueCall",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "ValueCall",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls.values",

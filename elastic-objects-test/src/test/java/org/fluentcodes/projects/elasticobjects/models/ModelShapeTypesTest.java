@@ -23,10 +23,10 @@ public class ModelShapeTypesTest {
     public void testTypeClasses()  {
         testTypeClass(Boolean.class, ShapeTypes.BOOLEAN);
         testTypeClass(Date.class, ShapeTypes.DATE);
-        testTypeClass(Long.class, ShapeTypes.NUMBER);
-        testTypeClass(Integer.class, ShapeTypes.NUMBER);
-        testTypeClass(Double.class, ShapeTypes.NUMBER);
-        testTypeClass(Float.class, ShapeTypes.NUMBER);
+        testTypeClass(Long.class, ShapeTypes.LONG);
+        testTypeClass(Integer.class, ShapeTypes.INTEGER);
+        testTypeClass(Double.class, ShapeTypes.DOUBLE);
+        testTypeClass(Float.class, ShapeTypes.FLOAT);
         testTypeClass(String.class, ShapeTypes.STRING);
         testTypeClass(List.class, ShapeTypes.LIST);
         testTypeClass(Map.class, ShapeTypes.MAP);
@@ -37,10 +37,10 @@ public class ModelShapeTypesTest {
     public void testTypeObjects()  {
         testTypeObject(S_BOOLEAN, ShapeTypes.BOOLEAN);
         testTypeObject(SAMPLE_DATE, ShapeTypes.DATE);
-        testTypeObject(SAMPLE_LONG, ShapeTypes.NUMBER);
-        testTypeObject(S_INTEGER, ShapeTypes.NUMBER);
-        testTypeObject(SAMPLE_DOUBLE, ShapeTypes.NUMBER);
-        testTypeObject(SAMPLE_FLOAT, ShapeTypes.NUMBER);
+        testTypeObject(SAMPLE_LONG, ShapeTypes.LONG);
+        testTypeObject(S_INTEGER, ShapeTypes.INTEGER);
+        testTypeObject(SAMPLE_DOUBLE, ShapeTypes.DOUBLE);
+        testTypeObject(SAMPLE_FLOAT, ShapeTypes.FLOAT);
         testTypeObject(S_STRING, ShapeTypes.STRING);
         testTypeObject(SAMPLE_LIST_EMPTY, ShapeTypes.LIST);
         testTypeObject(SAMPLE_MAP_EMPTY, ShapeTypes.MAP);

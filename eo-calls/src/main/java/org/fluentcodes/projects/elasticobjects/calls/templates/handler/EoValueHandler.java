@@ -2,7 +2,7 @@ package org.fluentcodes.projects.elasticobjects.calls.templates.handler;
 
 import org.fluentcodes.projects.elasticobjects.IEOScalar;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.util.Date;
 import java.util.regex.Pattern;
@@ -30,6 +30,6 @@ public class EoValueHandler {
         if (value instanceof Date) {
             return value.toString();
         }
-        return ScalarConverter.toString(value);
+        return new ShapeTypeSerializerString().asObject(value);
     }
 }

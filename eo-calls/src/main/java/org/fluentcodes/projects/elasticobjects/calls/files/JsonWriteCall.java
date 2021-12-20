@@ -22,7 +22,7 @@ public class JsonWriteCall extends FileWriteCall {
     /*.{}.*/
 
     /*.{javaInstanceVars}|*/
-    private Integer indent;
+    private String spacer;
     private JSONSerializationType serializationType;
     /*.{}.*/
 
@@ -39,12 +39,12 @@ public class JsonWriteCall extends FileWriteCall {
         if (!hasSerializationType()) {
             serializationType = JSONSerializationType.STANDARD;
         }
-        if (!hasIndent()) {
-            indent = 1;
+        if (!hasSpacer()) {
+            spacer = "  ";
         }
         setContent(new EOToJSON()
                 .setSerializationType(serializationType)
-                .setIndent(indent)
+                .setSpacer(spacer)
                 .toJson(eo));
         return super.execute(eo);
     }
@@ -55,17 +55,17 @@ public class JsonWriteCall extends FileWriteCall {
      * The number of indent for serialization level.
      */
 
-    public JsonWriteCall setIndent(Integer indent) {
-        this.indent = indent;
+    public JsonWriteCall setSpacer(String spacer) {
+        this.spacer = spacer;
         return this;
     }
 
-    public Integer getIndent() {
-        return this.indent;
+    public String getSpacer() {
+        return this.spacer;
     }
 
-    public boolean hasIndent() {
-        return indent != null;
+    public boolean hasSpacer() {
+        return spacer != null && !spacer.isEmpty();
     }
 
     /**

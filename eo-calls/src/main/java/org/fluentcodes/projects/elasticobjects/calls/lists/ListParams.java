@@ -5,7 +5,8 @@ import org.fluentcodes.projects.elasticobjects.IEOObject;
 import org.fluentcodes.projects.elasticobjects.calls.condition.Or;
 import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
 import org.fluentcodes.projects.elasticobjects.models.ConfigMaps;
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerInteger;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerString;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -134,7 +135,7 @@ public class ListParams {
             return this;
         }
         try {
-            this.filter = ScalarConverter.toString(filter);
+            this.filter = new ShapeTypeSerializerString().asObject(filter);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -170,7 +171,7 @@ public class ListParams {
             return this;
         }
         try {
-            this.rowHead = ScalarConverter.toInt(rowHead);
+            this.rowHead = new ShapeTypeSerializerInteger().asObject(rowHead);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -223,7 +224,7 @@ public class ListParams {
             return this;
         }
         try {
-            this.rowStart = ScalarConverter.toInt(entry);
+            this.rowStart = new ShapeTypeSerializerInteger().asObject(entry);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -257,7 +258,7 @@ public class ListParams {
             return this;
         }
         try {
-            this.rowEnd = ScalarConverter.toInt(entry);
+            this.rowEnd = new ShapeTypeSerializerInteger().asObject(entry);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -297,7 +298,7 @@ public class ListParams {
             return this;
         }
         try {
-            this.length = ScalarConverter.toInt(entry);
+            this.length = new ShapeTypeSerializerInteger().asObject(entry);
         } catch (Exception e) {
             e.printStackTrace();
         }

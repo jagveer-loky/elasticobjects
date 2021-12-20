@@ -1,6 +1,6 @@
 package org.fluentcodes.projects.elasticobjects;
 
-import org.fluentcodes.projects.elasticobjects.utils.ScalarConverter;
+import org.fluentcodes.projects.elasticobjects.models.ShapeTypeSerializerDate;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,7 +26,7 @@ public class EoTestStatic {
     public static final String S1 = "1";
 
     public static final String S_DATE_STRING = "Tue Jun 07 08:16:55 CEST 2016";
-    public static final Date SAMPLE_DATE = ScalarConverter.toDate(S_DATE_STRING);
+    public static final Date SAMPLE_DATE = new ShapeTypeSerializerDate().asObject(S_DATE_STRING);
     public static final long SAMPLE_DATE_LONG = SAMPLE_DATE.getTime();
     public static final Boolean S_BOOLEAN = true;
     public static final Integer S_INTEGER = 1;

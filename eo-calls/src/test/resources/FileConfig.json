@@ -1,6 +1,6 @@
 {
   "ContentExample": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -10,7 +10,7 @@
     "cached": "true"
   },
   "ContentExampleData": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -20,7 +20,7 @@
     "cached": "true"
   },
   "ContentExampleDynamic": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -30,7 +30,7 @@
     "cached": "true"
   },
   "ContentExampleElement1": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -40,7 +40,7 @@
     "cached": "true"
   },
   "ContentExampleElement2": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -50,7 +50,7 @@
     "cached": "true"
   },
   "ContentExampleStatic": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -60,7 +60,7 @@
     "cached": "true"
   },
   "ContentExampleStaticCondition": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -70,7 +70,7 @@
     "cached": "true"
   },
   "ContentExampleStaticKeep": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/content-example",
@@ -80,7 +80,7 @@
     "cached": "true"
   },
   "FileTest.txt": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/file-simple",
@@ -94,7 +94,7 @@
     }
   },
   "FileTestCached.txt": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/file-simple",
@@ -104,7 +104,7 @@
     "cached": "true"
   },
   "ListSimple.json": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/list-simple",
@@ -119,7 +119,7 @@
   },
   "target.csv": {
     "configModelKey": "CsvConfig",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": " §[TMP].",
@@ -136,7 +136,7 @@
     }
   },
   "target.json": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": " §[TMP].",
@@ -146,7 +146,7 @@
     "cached": "false"
   },
   "target.txt": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "§[TMP].",
@@ -157,7 +157,7 @@
   },
   "XPECT_TEST": {
     "configModelKey": "DirectoryConfig",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "test",
     "hostConfigKey": "localhost",
     "filePath": "Xpect/CallTest",
@@ -171,7 +171,7 @@
   },
   "AnObject.csv": {
     "configModelKey": "CsvConfig",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "main",
     "hostConfigKey": "localhost",
     "filePath": "input/assets/bt",
@@ -189,7 +189,7 @@
     }
   },
   "AnObject.json": {
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "main",
     "hostConfigKey": "localhost",
     "filePath": "input/assets/bt",
@@ -203,7 +203,7 @@
   },
   "ListSimple.csv": {
     "configModelKey": "CsvConfig",
-    "module": "elastic-objects-test",
+    "module": "eo-calls",
     "moduleScope": "main",
     "hostConfigKey": "localhost",
     "filePath": "input/calls/list-simple",

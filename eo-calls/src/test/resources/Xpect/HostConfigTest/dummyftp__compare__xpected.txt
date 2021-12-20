@@ -1,7 +1,7 @@
 {
   "description": "A connection to elastic objects",
   "expose": "NONE",
-  "module": "elastic-objects-test",
+  "module": "eo-calls",
   "moduleScope": "test",
   "naturalId": "dummyftp",
   "properties": {

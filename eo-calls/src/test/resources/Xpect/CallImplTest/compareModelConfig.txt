@@ -285,7 +285,7 @@
   },
   "interfaces": "Call",
   "modelKey": "CallImpl",
-  "module": "elastic-objects",
+  "module": "eo-calls",
   "moduleScope": "main",
   "naturalId": "CallImpl",
   "packagePath": "org.fluentcodes.projects.elasticobjects.calls",

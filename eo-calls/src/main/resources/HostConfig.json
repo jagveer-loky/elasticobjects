@@ -1,6 +1,6 @@
 {
   "local": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "description": "local host with key 'local'",
     "expose": "WEB",
@@ -12,7 +12,7 @@
     }
   },
   "localhost": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "description": "local host with key 'localhost'",
     "expose": "WEB",

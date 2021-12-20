@@ -1,6 +1,6 @@
 {
   "absolute": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "x",
@@ -11,7 +11,7 @@
     }
   },
   "cached": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "If true will cache the readed file within the cache object. ",
@@ -19,7 +19,7 @@
     "fieldKey": "cached"
   },
   "colKeys": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "List,String",
     "description": "The key list for mapping values in a value list. ",
@@ -27,7 +27,7 @@
     "fieldKey": "colKeys"
   },
   "compare": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "Boolean",
     "description": "Indicates a comparision before writing in @FileWriteCall",
@@ -35,7 +35,7 @@
     "fieldKey": "compare"
   },
   "configFilter": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "Key for filter configuration",
@@ -44,7 +44,7 @@
     "length": 64
   },
   "configType": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "Key for configuration type like ModelConfig, FileConfig, FieldConfig, HostConfig, DbSqlConfig.",
@@ -53,7 +53,7 @@
     "length": 64
   },
   "content": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A content for different calls. In a template context the content of the markup. ",
@@ -62,7 +62,7 @@
     "length": 10000
   },
   "delete": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "String representation of RolePermission delete permissions",
@@ -71,7 +71,7 @@
     "length": 256
   },
   "execute": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "String representation of RolePermission execute permissions",
@@ -80,7 +80,7 @@
     "length": 256
   },
   "fieldDelimiter": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A delimiter for fields used for csv files. ",
@@ -92,7 +92,7 @@
     }
   },
   "fieldKeys": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "List,String",
     "description": "A list of field keys for the model configuration. ",
@@ -100,7 +100,7 @@
     "fieldKey": "fieldKeys"
   },
   "fileConfigKey": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "Defines the key for a file configuration @FileConfig where to read or write a file.",
@@ -109,7 +109,7 @@
     "length": 80
   },
   "fileEnding": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "It's used to specify the file ending in different context. ",
@@ -118,7 +118,7 @@
     "length": 16
   },
   "fileName": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A fileName used in different calls and configs like @FileConfig or @DirectoryConfig. ",
@@ -127,7 +127,7 @@
     "length": 80
   },
   "filePath": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A filePath used in different calls and configs like @FileConfig or @DirectoryConfig. ",
@@ -136,7 +136,7 @@
     "length": 512
   },
   "filter": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "Filter for List entries.",
@@ -145,7 +145,7 @@
     "length": 512
   },
   "hostConfigKey": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A key for host objects.",
@@ -154,7 +154,7 @@
     "length": 80
   },
   "hostName": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A name for host objects.",
@@ -165,16 +165,8 @@
       "property": true
     }
   },
-  "indent": {
-    "module": "elastic-objects",
-    "moduleScope": "main",
-    "modelKeys": "Integer",
-    "description": "The number of indent for serialization level.",
-    "expose": "WEB",
-    "fieldKey": "indent"
-  },
   "listParams": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "ListParams",
     "description": "Parameters of type @ListParams for list type read call operations like @CsvSimpleReadCall.",
@@ -183,7 +175,7 @@
     "length": 80
   },
   "password": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "The password instance var.",
@@ -195,7 +187,7 @@
     }
   },
   "Permissions.create": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "String representation of RolePermission create permissions",
@@ -204,7 +196,7 @@
     "length": 256
   },
   "port": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "Integer",
     "description": "port",
@@ -215,7 +207,7 @@
     }
   },
   "protocol": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "protocol",
@@ -227,7 +219,7 @@
     }
   },
   "read": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "String representation of RolePermission read permissions",
@@ -236,7 +228,7 @@
     "length": 256
   },
   "replaceBy": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "replaceBy",
@@ -245,7 +237,7 @@
     "length": 5
   },
   "rolePermissions": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "PermissionRole",
     "description": "Lists for the different roles e.g. guest for write. Central point add permissions to a configuration. Dependent of the permission type of a call a certain list wll be selected. When ist write with role guest then no exception is thrown. ",
@@ -253,7 +245,7 @@
     "fieldKey": "rolePermissions"
   },
   "rowDelimiter": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A delimiter for rows used for csv files.",
@@ -265,7 +257,7 @@
     }
   },
   "rowEnd": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "Integer",
     "description": "rowEnd",
@@ -276,7 +268,7 @@
     }
   },
   "rowHead": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "Integer",
     "description": "rowHead",
@@ -287,7 +279,7 @@
     }
   },
   "rowStart": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "Integer",
     "description": "rowStart",
@@ -298,7 +290,7 @@
     }
   },
   "serializationType": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "JSONSerializationType",
     "description": "The types of Serialization. ",
@@ -306,7 +298,7 @@
     "fieldKey": "serializationType"
   },
   "sortOrder": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "SortOrder",
     "description": "A field with a SortOrder enum",
@@ -314,7 +306,7 @@
     "fieldKey": "sortOrder"
   },
   "sourceFileConfigKey": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "Defines the key for a file configuration @FileConfig where to read a file.",
@@ -322,8 +314,17 @@
     "fieldKey": "sourceFileConfigKey",
     "length": 80
   },
+  "spacer": {
+    "module": "eo-calls",
+    "moduleScope": "main",
+    "modelKeys": "String",
+    "description": "A spacer for json serialization",
+    "expose": "NONE",
+    "fieldKey": "spacer",
+    "length": 10
+  },
   "targetFileConfigKey": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "A target for persisting template results in TemplateResourceStoreCall. ",
@@ -332,7 +333,7 @@
     "length": 80
   },
   "toReplace": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "toReplace",
@@ -341,7 +342,7 @@
     "length": 5
   },
   "url": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "url",
@@ -353,7 +354,7 @@
     }
   },
   "user": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "user",
@@ -365,7 +366,7 @@
     }
   },
   "write": {
-    "module": "elastic-objects",
+    "module": "eo-calls",
     "moduleScope": "main",
     "modelKeys": "String",
     "description": "String representation of RolePermission write permissions",

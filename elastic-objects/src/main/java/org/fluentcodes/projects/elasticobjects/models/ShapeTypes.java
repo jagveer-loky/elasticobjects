@@ -1,6 +1,8 @@
 package org.fluentcodes.projects.elasticobjects.models;
 
 
+import org.fluentcodes.projects.elasticobjects.exceptions.EoException;
+
 /**
  * Created by Werner on 18.11.2014.
  */
@@ -12,7 +14,10 @@ public enum ShapeTypes {
     SCALAR_SERIALIZED(ModelConfigScalar.class),
     SCALAR(ModelConfigScalar.class, new ShapeTypeSerializerString()),
     STRING(ModelConfigScalar.class, new ShapeTypeSerializerString()),
-    NUMBER(ModelConfigScalar.class, new ShapeTypeSerializerNumber()),
+    DOUBLE(ModelConfigScalar.class, new ShapeTypeSerializerDouble()),
+    FLOAT(ModelConfigScalar.class, new ShapeTypeSerializerFloat()),
+    INTEGER(ModelConfigScalar.class, new ShapeTypeSerializerInteger()),
+    LONG(ModelConfigScalar.class, new ShapeTypeSerializerLong()),
     DATE(ModelConfigScalar.class, new ShapeTypeSerializerDate()),
     BOOLEAN(ModelConfigScalar.class, new ShapeTypeSerializerBoolean()),
     ENUM(ModelConfigScalar.class, new ShapeTypeSerializerEnum()),
@@ -50,7 +55,25 @@ public enum ShapeTypes {
     public String asString(Object object) {
         return serializer.asString(object);
     }
+    public boolean compare(Object left, Object right) {
+        return serializer.compare(left, right);
+    }
     public String asJson(Object object) {
         return serializer.asJson(object);
+    }
+    public Object asObject(Object object) {
+        return serializer.asObject(object);
+    }
+    public Object asObject(Class<?> enumClass, Object object) {
+        if (object == null) {
+            return null;
+        }
+        if (object instanceof String) {
+            return ((ShapeTypeSerializerEnum) serializer).asObject(enumClass, (String) object);
+        }
+        if (object.getClass() ==  enumClass) {
+            return object;
+        }
+        throw new EoException("Could not map enum for " + object.getClass());
     }
 }
