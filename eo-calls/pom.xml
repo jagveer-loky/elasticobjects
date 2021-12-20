@@ -5,7 +5,7 @@
     <groupId>org.fluentcodes.projects.elasticobjects</groupId>
     <artifactId>eo-calls</artifactId>
     <packaging>jar</packaging>
-    <version>0.9.1-SNAPSHOT</version>
+    <version>0.9.1</version>
     <name>EO Calls</name>
     <description>Some basic calls for file resources and templates.</description>
 
@@ -25,12 +25,12 @@
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects</artifactId>
-            <version>0.9.1-SNAPSHOT</version>
+            <version>0.9.1</version>
         </dependency>
         <dependency>
             <groupId>org.fluentcodes.projects.elasticobjects</groupId>
             <artifactId>elastic-objects-test</artifactId>
-            <version>0.9.1-SNAPSHOT</version>
+            <version>0.9.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
